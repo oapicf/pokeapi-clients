@@ -87,7 +87,7 @@ export class LocationApiRequestFactory extends BaseAPIRequestFactory {
 
         // Path Params
         const localVarPath = '/api/v2/location-area/{id}/'
-            .replace('{' + 'id' + '}', encodeURIComponent(String(id)));
+            .replace('{id}', encodeURIComponent(String(id)));
 
         // Make Request Context
         const requestContext = _config.baseServer.makeRequestContext(localVarPath, HttpMethod.GET);
@@ -186,7 +186,7 @@ export class LocationApiRequestFactory extends BaseAPIRequestFactory {
 
         // Path Params
         const localVarPath = '/api/v2/location/{id}/'
-            .replace('{' + 'id' + '}', encodeURIComponent(String(id)));
+            .replace('{id}', encodeURIComponent(String(id)));
 
         // Make Request Context
         const requestContext = _config.baseServer.makeRequestContext(localVarPath, HttpMethod.GET);
@@ -285,7 +285,7 @@ export class LocationApiRequestFactory extends BaseAPIRequestFactory {
 
         // Path Params
         const localVarPath = '/api/v2/pal-park-area/{id}/'
-            .replace('{' + 'id' + '}', encodeURIComponent(String(id)));
+            .replace('{id}', encodeURIComponent(String(id)));
 
         // Make Request Context
         const requestContext = _config.baseServer.makeRequestContext(localVarPath, HttpMethod.GET);
@@ -384,7 +384,7 @@ export class LocationApiRequestFactory extends BaseAPIRequestFactory {
 
         // Path Params
         const localVarPath = '/api/v2/region/{id}/'
-            .replace('{' + 'id' + '}', encodeURIComponent(String(id)));
+            .replace('{id}', encodeURIComponent(String(id)));
 
         // Make Request Context
         const requestContext = _config.baseServer.makeRequestContext(localVarPath, HttpMethod.GET);

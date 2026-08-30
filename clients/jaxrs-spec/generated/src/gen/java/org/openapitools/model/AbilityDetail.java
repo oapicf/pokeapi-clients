@@ -25,7 +25,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
 
 
 @JsonTypeName("AbilityDetail")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2026-02-07T15:24:06.001755207Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2026-08-30T01:56:42.280002256Z[Etc/UTC]", comments = "Generator version: 7.24.0")
 public class AbilityDetail   {
   private Integer id;
   private String name;
@@ -147,7 +147,7 @@ public class AbilityDetail   {
   
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(required = true, value = "names")
-  @NotNull @Valid public List<@Valid AbilityName> getNames() {
+  @Valid public List<@Valid AbilityName> getNames() {
     return names;
   }
 
@@ -182,7 +182,7 @@ public class AbilityDetail   {
   
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(required = true, value = "effect_entries")
-  @NotNull @Valid public List<@Valid AbilityEffectText> getEffectEntries() {
+  @Valid public List<@Valid AbilityEffectText> getEffectEntries() {
     return effectEntries;
   }
 
@@ -217,7 +217,7 @@ public class AbilityDetail   {
   
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(required = true, value = "effect_changes")
-  @NotNull @Valid public List<@Valid AbilityChange> getEffectChanges() {
+  @Valid public List<@Valid AbilityChange> getEffectChanges() {
     return effectChanges;
   }
 
@@ -252,7 +252,7 @@ public class AbilityDetail   {
   
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(required = true, value = "flavor_text_entries")
-  @NotNull @Valid public List<@Valid AbilityFlavorText> getFlavorTextEntries() {
+  @Valid public List<@Valid AbilityFlavorText> getFlavorTextEntries() {
     return flavorTextEntries;
   }
 
@@ -287,7 +287,7 @@ public class AbilityDetail   {
   
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(required = true, value = "pokemon")
-  @NotNull @Valid public List<@Valid AbilityDetailPokemonInner> getPokemon() {
+  @Valid public List<@Valid AbilityDetailPokemonInner> getPokemon() {
     return pokemon;
   }
 
@@ -361,12 +361,8 @@ public class AbilityDetail   {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 
 }
-

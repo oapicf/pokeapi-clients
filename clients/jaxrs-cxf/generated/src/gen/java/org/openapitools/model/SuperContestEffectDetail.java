@@ -74,19 +74,6 @@ public class SuperContestEffectDetail  {
     return flavorTextEntries;
   }
 
-  public void setFlavorTextEntries(List<@Valid SuperContestEffectFlavorText> flavorTextEntries) {
-    this.flavorTextEntries = flavorTextEntries;
-  }
-
-  public SuperContestEffectDetail flavorTextEntries(List<@Valid SuperContestEffectFlavorText> flavorTextEntries) {
-    this.flavorTextEntries = flavorTextEntries;
-    return this;
-  }
-
-  public SuperContestEffectDetail addFlavorTextEntriesItem(SuperContestEffectFlavorText flavorTextEntriesItem) {
-    this.flavorTextEntries.add(flavorTextEntriesItem);
-    return this;
-  }
 
  /**
    * Get moves
@@ -98,19 +85,6 @@ public class SuperContestEffectDetail  {
     return moves;
   }
 
-  public void setMoves(List<@Valid MoveSummary> moves) {
-    this.moves = moves;
-  }
-
-  public SuperContestEffectDetail moves(List<@Valid MoveSummary> moves) {
-    this.moves = moves;
-    return this;
-  }
-
-  public SuperContestEffectDetail addMovesItem(MoveSummary movesItem) {
-    this.moves.add(movesItem);
-    return this;
-  }
 
   @Override
   public boolean equals(Object o) {
@@ -150,10 +124,7 @@ public class SuperContestEffectDetail  {
    * (except the first line).
    */
   private static String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 }
 

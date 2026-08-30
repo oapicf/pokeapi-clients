@@ -325,7 +325,7 @@ NatureDetail::getId()
 }
 
 void
-NatureDetail::setId(int  id)
+NatureDetail::setId(int id)
 {
 	this->id = id;
 }
@@ -337,7 +337,7 @@ NatureDetail::getName()
 }
 
 void
-NatureDetail::setName(std::string  name)
+NatureDetail::setName(std::string name)
 {
 	this->name = name;
 }
@@ -349,7 +349,7 @@ NatureDetail::getDecreasedStat()
 }
 
 void
-NatureDetail::setDecreasedStat(StatSummary  decreased_stat)
+NatureDetail::setDecreasedStat(StatSummary decreased_stat)
 {
 	this->decreased_stat = decreased_stat;
 }
@@ -361,7 +361,7 @@ NatureDetail::getIncreasedStat()
 }
 
 void
-NatureDetail::setIncreasedStat(StatSummary  increased_stat)
+NatureDetail::setIncreasedStat(StatSummary increased_stat)
 {
 	this->increased_stat = increased_stat;
 }
@@ -373,7 +373,7 @@ NatureDetail::getLikesFlavor()
 }
 
 void
-NatureDetail::setLikesFlavor(BerryFlavorSummary  likes_flavor)
+NatureDetail::setLikesFlavor(BerryFlavorSummary likes_flavor)
 {
 	this->likes_flavor = likes_flavor;
 }
@@ -385,7 +385,7 @@ NatureDetail::getHatesFlavor()
 }
 
 void
-NatureDetail::setHatesFlavor(BerryFlavorSummary  hates_flavor)
+NatureDetail::setHatesFlavor(BerryFlavorSummary hates_flavor)
 {
 	this->hates_flavor = hates_flavor;
 }
@@ -397,7 +397,7 @@ NatureDetail::getBerries()
 }
 
 void
-NatureDetail::setBerries(std::list <BerrySummary> berries)
+NatureDetail::setBerries(std::list<BerrySummary> berries)
 {
 	this->berries = berries;
 }
@@ -409,7 +409,7 @@ NatureDetail::getPokeathlonStatChanges()
 }
 
 void
-NatureDetail::setPokeathlonStatChanges(std::list <NatureDetail_pokeathlon_stat_changes_inner> pokeathlon_stat_changes)
+NatureDetail::setPokeathlonStatChanges(std::list<NatureDetail_pokeathlon_stat_changes_inner> pokeathlon_stat_changes)
 {
 	this->pokeathlon_stat_changes = pokeathlon_stat_changes;
 }
@@ -421,7 +421,7 @@ NatureDetail::getMoveBattleStylePreferences()
 }
 
 void
-NatureDetail::setMoveBattleStylePreferences(std::list <NatureBattleStylePreference> move_battle_style_preferences)
+NatureDetail::setMoveBattleStylePreferences(std::list<NatureBattleStylePreference> move_battle_style_preferences)
 {
 	this->move_battle_style_preferences = move_battle_style_preferences;
 }
@@ -433,7 +433,7 @@ NatureDetail::getNames()
 }
 
 void
-NatureDetail::setNames(std::list <NatureName> names)
+NatureDetail::setNames(std::list<NatureName> names)
 {
 	this->names = names;
 }

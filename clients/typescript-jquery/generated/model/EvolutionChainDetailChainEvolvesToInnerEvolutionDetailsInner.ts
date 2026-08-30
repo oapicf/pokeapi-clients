@@ -19,9 +19,9 @@ export interface EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner {
 
     item: models.EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender;
 
-    known_move: object;
+    known_move: models.EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender;
 
-    known_move_type: object;
+    known_move_type: models.EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender;
 
     location: models.EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender;
 

@@ -66,13 +66,13 @@ namespace Org.OpenAPITools.Model
         /// Gets or Sets Names
         /// </summary>
         [JsonPropertyName("names")]
-        public List<EvolutionTriggerName> Names { get; set; }
+        public List<EvolutionTriggerName> Names { get; }
 
         /// <summary>
         /// Gets or Sets PokemonSpecies
         /// </summary>
         [JsonPropertyName("pokemon_species")]
-        public List<AbilityDetailPokemonInnerPokemon> PokemonSpecies { get; set; }
+        public List<AbilityDetailPokemonInnerPokemon> PokemonSpecies { get; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -110,8 +110,18 @@ namespace Org.OpenAPITools.Model
     /// <summary>
     /// A Json converter for type <see cref="EvolutionTriggerDetail" />
     /// </summary>
-    public class EvolutionTriggerDetailJsonConverter : JsonConverter<EvolutionTriggerDetail>
+    public partial class EvolutionTriggerDetailJsonConverter : JsonConverter<EvolutionTriggerDetail>
     {
+        partial void OnCreated();
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="EvolutionTriggerDetailJsonConverter" /> class.
+        /// </summary>
+        public EvolutionTriggerDetailJsonConverter()
+        {
+            OnCreated();
+        }
+
         /// <summary>
         /// Deserializes json to <see cref="EvolutionTriggerDetail" />
         /// </summary>

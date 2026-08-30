@@ -26,6 +26,8 @@ EncounterConditionValueSummary::EncounterConditionValueSummary()
     
 }
 
+EncounterConditionValueSummary::~EncounterConditionValueSummary() = default;
+
 void EncounterConditionValueSummary::validate() const
 {
     std::stringstream msg;

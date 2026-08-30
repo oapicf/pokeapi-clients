@@ -589,8 +589,8 @@ genEvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner n =
     <$> arbitraryReduced n -- evolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender :: EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender
     <*> arbitraryReduced n -- evolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerHeldItem :: EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender
     <*> arbitraryReduced n -- evolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerItem :: EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender
-    <*> arbitraryReduced n -- evolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerKnownMove :: A.Value
-    <*> arbitraryReduced n -- evolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerKnownMoveType :: A.Value
+    <*> arbitraryReduced n -- evolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerKnownMove :: EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender
+    <*> arbitraryReduced n -- evolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerKnownMoveType :: EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender
     <*> arbitraryReduced n -- evolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerLocation :: EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender
     <*> arbitrary -- evolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerMinAffection :: Int
     <*> arbitrary -- evolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerMinBeauty :: Int

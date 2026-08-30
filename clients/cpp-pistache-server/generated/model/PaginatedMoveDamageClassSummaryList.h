@@ -34,7 +34,7 @@ class  PaginatedMoveDamageClassSummaryList
 {
 public:
     PaginatedMoveDamageClassSummaryList();
-    virtual ~PaginatedMoveDamageClassSummaryList() = default;
+    virtual ~PaginatedMoveDamageClassSummaryList();
 
 
     /// <summary>

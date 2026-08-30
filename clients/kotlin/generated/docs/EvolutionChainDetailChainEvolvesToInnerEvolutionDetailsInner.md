@@ -7,8 +7,8 @@
 | **gender** | [**EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender**](EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender.md) |  |  |
 | **heldItem** | [**EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender**](EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender.md) |  |  |
 | **item** | [**EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender**](EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender.md) |  |  |
-| **knownMove** | [**kotlin.Any**](.md) |  |  |
-| **knownMoveType** | [**kotlin.Any**](.md) |  |  |
+| **knownMove** | [**EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender**](EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender.md) |  |  |
+| **knownMoveType** | [**EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender**](EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender.md) |  |  |
 | **location** | [**EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender**](EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender.md) |  |  |
 | **minAffection** | **kotlin.Int** |  |  |
 | **minBeauty** | **kotlin.Int** |  |  |

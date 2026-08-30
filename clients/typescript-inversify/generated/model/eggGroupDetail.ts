@@ -16,6 +16,6 @@ import { EggGroupName } from './eggGroupName';
 export interface EggGroupDetail { 
     readonly id: number;
     name: string;
-    names: Array<EggGroupName>;
-    pokemon_species: Array<EggGroupDetailPokemonSpeciesInner>;
+    readonly names: Array<EggGroupName>;
+    readonly pokemon_species: Array<EggGroupDetailPokemonSpeciesInner>;
 }

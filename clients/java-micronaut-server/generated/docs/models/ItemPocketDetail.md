@@ -10,8 +10,8 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | `Integer` |  |  [readonly property]
 **name** | `String` |  | 
-**categories** | [`List&lt;ItemCategorySummary&gt;`](ItemCategorySummary.md) |  | 
-**names** | [`List&lt;ItemPocketName&gt;`](ItemPocketName.md) |  | 
+**categories** | [`List&lt;ItemCategorySummary&gt;`](ItemCategorySummary.md) |  |  [readonly property]
+**names** | [`List&lt;ItemPocketName&gt;`](ItemPocketName.md) |  |  [readonly property]
 
 
 

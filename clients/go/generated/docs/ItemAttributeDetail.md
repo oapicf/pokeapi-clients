@@ -6,9 +6,9 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **int32** |  | [readonly] 
 **Name** | **string** |  | 
-**Descriptions** | [**[]ItemAttributeDescription**](ItemAttributeDescription.md) |  | 
-**Items** | [**[]AbilityDetailPokemonInnerPokemon**](AbilityDetailPokemonInnerPokemon.md) |  | 
-**Names** | [**[]ItemAttributeName**](ItemAttributeName.md) |  | 
+**Descriptions** | [**[]ItemAttributeDescription**](ItemAttributeDescription.md) |  | [readonly] 
+**Items** | [**[]AbilityDetailPokemonInnerPokemon**](AbilityDetailPokemonInnerPokemon.md) |  | [readonly] 
+**Names** | [**[]ItemAttributeName**](ItemAttributeName.md) |  | [readonly] 
 
 ## Methods
 

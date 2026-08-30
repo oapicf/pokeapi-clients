@@ -47,7 +47,7 @@ class AbilityChange
      * @var VersionGroupSummary|null
      * @SerializedName("version_group")
      * @Type("OpenAPI\Server\Model\VersionGroupSummary")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Valid]
     #[Assert\Type("OpenAPI\Server\Model\VersionGroupSummary")]
@@ -57,7 +57,7 @@ class AbilityChange
      * @var AbilityChangeEffectText[]|null
      * @SerializedName("effect_entries")
      * @Type("array<OpenAPI\Server\Model\AbilityChangeEffectText>")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Valid]
     #[Assert\All([
@@ -88,12 +88,12 @@ class AbilityChange
     }
 
     /**
-    * Sets versionGroup.
-    *
-    * @param VersionGroupSummary|null $versionGroup
-    *
-    * @return $this
-    */
+     * Sets versionGroup.
+     *
+     * @param VersionGroupSummary|null $versionGroup
+     *
+     * @return $this
+     */
     public function setVersionGroup(?VersionGroupSummary $versionGroup): self
     {
         $this->versionGroup = $versionGroup;
@@ -115,12 +115,12 @@ class AbilityChange
     }
 
     /**
-    * Sets effectEntries.
-    *
-    * @param AbilityChangeEffectText[]|null $effectEntries
-    *
-    * @return $this
-    */
+     * Sets effectEntries.
+     *
+     * @param AbilityChangeEffectText[]|null $effectEntries
+     *
+     * @return $this
+     */
     public function setEffectEntries(?array $effectEntries): self
     {
         $this->effectEntries = $effectEntries;

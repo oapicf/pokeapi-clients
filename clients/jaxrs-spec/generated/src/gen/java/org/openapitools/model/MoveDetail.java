@@ -37,7 +37,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
 
 
 @JsonTypeName("MoveDetail")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2026-02-07T15:24:06.001755207Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2026-08-30T01:56:42.280002256Z[Etc/UTC]", comments = "Generator version: 7.24.0")
 public class MoveDetail   {
   private Integer id;
   private String name;
@@ -331,7 +331,7 @@ public class MoveDetail   {
   
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(required = true, value = "effect_entries")
-  @NotNull @Valid public List<@Valid MoveChangeEffectEntriesInner> getEffectEntries() {
+  @Valid public List<@Valid MoveChangeEffectEntriesInner> getEffectEntries() {
     return effectEntries;
   }
 
@@ -366,7 +366,7 @@ public class MoveDetail   {
   
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(required = true, value = "effect_changes")
-  @NotNull @Valid public List<@Valid MoveDetailEffectChangesInner> getEffectChanges() {
+  @Valid public List<@Valid MoveDetailEffectChangesInner> getEffectChanges() {
     return effectChanges;
   }
 
@@ -439,7 +439,7 @@ public class MoveDetail   {
   
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(required = true, value = "names")
-  @NotNull @Valid public List<@Valid MoveName> getNames() {
+  @Valid public List<@Valid MoveName> getNames() {
     return names;
   }
 
@@ -474,7 +474,7 @@ public class MoveDetail   {
   
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(required = true, value = "past_values")
-  @NotNull @Valid public List<@Valid MoveChange> getPastValues() {
+  @Valid public List<@Valid MoveChange> getPastValues() {
     return pastValues;
   }
 
@@ -509,7 +509,7 @@ public class MoveDetail   {
   
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(required = true, value = "stat_changes")
-  @NotNull @Valid public List<@Valid MoveDetailStatChangesInner> getStatChanges() {
+  @Valid public List<@Valid MoveDetailStatChangesInner> getStatChanges() {
     return statChanges;
   }
 
@@ -601,7 +601,7 @@ public class MoveDetail   {
   
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(required = true, value = "machines")
-  @NotNull @Valid public List<@Valid MoveDetailMachinesInner> getMachines() {
+  @Valid public List<@Valid MoveDetailMachinesInner> getMachines() {
     return machines;
   }
 
@@ -636,7 +636,7 @@ public class MoveDetail   {
   
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(required = true, value = "flavor_text_entries")
-  @NotNull @Valid public List<@Valid MoveFlavorText> getFlavorTextEntries() {
+  @Valid public List<@Valid MoveFlavorText> getFlavorTextEntries() {
     return flavorTextEntries;
   }
 
@@ -671,7 +671,7 @@ public class MoveDetail   {
   
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(required = true, value = "learned_by_pokemon")
-  @NotNull @Valid public List<@Valid AbilityDetailPokemonInnerPokemon> getLearnedByPokemon() {
+  @Valid public List<@Valid AbilityDetailPokemonInnerPokemon> getLearnedByPokemon() {
     return learnedByPokemon;
   }
 
@@ -775,12 +775,8 @@ public class MoveDetail   {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 
 }
-

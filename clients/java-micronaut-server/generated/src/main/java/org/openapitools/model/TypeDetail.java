@@ -54,7 +54,7 @@ import io.swagger.v3.oas.annotations.media.Schema;
   TypeDetail.JSON_PROPERTY_SPRITES
 })
 @JsonTypeName("TypeDetail")
-@Generated(value="org.openapitools.codegen.languages.JavaMicronautServerCodegen", date="2026-02-07T15:23:03.167972722Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@Generated(value="org.openapitools.codegen.languages.JavaMicronautServerCodegen", date="2026-08-30T01:55:54.631003115Z[Etc/UTC]", comments = "Generator version: 7.24.0")
 @Introspected
 public class TypeDetail {
     public static final String JSON_PROPERTY_ID = "id";
@@ -164,42 +164,16 @@ public class TypeDetail {
         this.damageRelations = damageRelations;
     }
 
-    public TypeDetail pastDamageRelations(List<@Valid TypeDetailPastDamageRelationsInner> pastDamageRelations) {
-        this.pastDamageRelations = pastDamageRelations;
-        return this;
-    }
-
-    public TypeDetail addPastDamageRelationsItem(TypeDetailPastDamageRelationsInner pastDamageRelationsItem) {
-        this.pastDamageRelations.add(pastDamageRelationsItem);
-        return this;
-    }
-
     /**
      * Get pastDamageRelations
      * @return pastDamageRelations
      */
     @NotNull
-    @Schema(name = "past_damage_relations", requiredMode = Schema.RequiredMode.REQUIRED)
+    @Schema(name = "past_damage_relations", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
     @JsonProperty(JSON_PROPERTY_PAST_DAMAGE_RELATIONS)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public List<@Valid TypeDetailPastDamageRelationsInner> getPastDamageRelations() {
         return pastDamageRelations;
-    }
-
-    @JsonProperty(JSON_PROPERTY_PAST_DAMAGE_RELATIONS)
-    @JsonInclude(value = JsonInclude.Include.ALWAYS)
-    public void setPastDamageRelations(List<@Valid TypeDetailPastDamageRelationsInner> pastDamageRelations) {
-        this.pastDamageRelations = pastDamageRelations;
-    }
-
-    public TypeDetail gameIndices(List<@Valid TypeGameIndex> gameIndices) {
-        this.gameIndices = gameIndices;
-        return this;
-    }
-
-    public TypeDetail addGameIndicesItem(TypeGameIndex gameIndicesItem) {
-        this.gameIndices.add(gameIndicesItem);
-        return this;
     }
 
     /**
@@ -207,17 +181,11 @@ public class TypeDetail {
      * @return gameIndices
      */
     @NotNull
-    @Schema(name = "game_indices", requiredMode = Schema.RequiredMode.REQUIRED)
+    @Schema(name = "game_indices", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
     @JsonProperty(JSON_PROPERTY_GAME_INDICES)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public List<@Valid TypeGameIndex> getGameIndices() {
         return gameIndices;
-    }
-
-    @JsonProperty(JSON_PROPERTY_GAME_INDICES)
-    @JsonInclude(value = JsonInclude.Include.ALWAYS)
-    public void setGameIndices(List<@Valid TypeGameIndex> gameIndices) {
-        this.gameIndices = gameIndices;
     }
 
     public TypeDetail generation(GenerationSummary generation) {
@@ -268,42 +236,16 @@ public class TypeDetail {
         this.moveDamageClass = moveDamageClass;
     }
 
-    public TypeDetail names(List<@Valid AbilityName> names) {
-        this.names = names;
-        return this;
-    }
-
-    public TypeDetail addNamesItem(AbilityName namesItem) {
-        this.names.add(namesItem);
-        return this;
-    }
-
     /**
      * Get names
      * @return names
      */
     @NotNull
-    @Schema(name = "names", requiredMode = Schema.RequiredMode.REQUIRED)
+    @Schema(name = "names", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
     @JsonProperty(JSON_PROPERTY_NAMES)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public List<@Valid AbilityName> getNames() {
         return names;
-    }
-
-    @JsonProperty(JSON_PROPERTY_NAMES)
-    @JsonInclude(value = JsonInclude.Include.ALWAYS)
-    public void setNames(List<@Valid AbilityName> names) {
-        this.names = names;
-    }
-
-    public TypeDetail pokemon(List<@Valid TypeDetailPokemonInner> pokemon) {
-        this.pokemon = pokemon;
-        return this;
-    }
-
-    public TypeDetail addPokemonItem(TypeDetailPokemonInner pokemonItem) {
-        this.pokemon.add(pokemonItem);
-        return this;
     }
 
     /**
@@ -311,27 +253,11 @@ public class TypeDetail {
      * @return pokemon
      */
     @NotNull
-    @Schema(name = "pokemon", requiredMode = Schema.RequiredMode.REQUIRED)
+    @Schema(name = "pokemon", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
     @JsonProperty(JSON_PROPERTY_POKEMON)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public List<@Valid TypeDetailPokemonInner> getPokemon() {
         return pokemon;
-    }
-
-    @JsonProperty(JSON_PROPERTY_POKEMON)
-    @JsonInclude(value = JsonInclude.Include.ALWAYS)
-    public void setPokemon(List<@Valid TypeDetailPokemonInner> pokemon) {
-        this.pokemon = pokemon;
-    }
-
-    public TypeDetail moves(List<@Valid MoveSummary> moves) {
-        this.moves = moves;
-        return this;
-    }
-
-    public TypeDetail addMovesItem(MoveSummary movesItem) {
-        this.moves.add(movesItem);
-        return this;
     }
 
     /**
@@ -339,17 +265,11 @@ public class TypeDetail {
      * @return moves
      */
     @NotNull
-    @Schema(name = "moves", requiredMode = Schema.RequiredMode.REQUIRED)
+    @Schema(name = "moves", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
     @JsonProperty(JSON_PROPERTY_MOVES)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public List<@Valid MoveSummary> getMoves() {
         return moves;
-    }
-
-    @JsonProperty(JSON_PROPERTY_MOVES)
-    @JsonInclude(value = JsonInclude.Include.ALWAYS)
-    public void setMoves(List<@Valid MoveSummary> moves) {
-        this.moves = moves;
     }
 
     /**
@@ -415,10 +335,7 @@ public class TypeDetail {
      * (except the first line).
      */
     private String toIndentedString(Object o) {
-        if (o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
+        return o == null ? "null" : o.toString().replace("\n", "\n    ");
     }
 
 }

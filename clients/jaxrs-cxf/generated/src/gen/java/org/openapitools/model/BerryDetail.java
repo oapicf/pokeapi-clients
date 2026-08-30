@@ -245,19 +245,6 @@ public class BerryDetail  {
     return flavors;
   }
 
-  public void setFlavors(List<@Valid BerryDetailFlavorsInner> flavors) {
-    this.flavors = flavors;
-  }
-
-  public BerryDetail flavors(List<@Valid BerryDetailFlavorsInner> flavors) {
-    this.flavors = flavors;
-    return this;
-  }
-
-  public BerryDetail addFlavorsItem(BerryDetailFlavorsInner flavorsItem) {
-    this.flavors.add(flavorsItem);
-    return this;
-  }
 
  /**
    * Get item
@@ -351,10 +338,7 @@ public class BerryDetail  {
    * (except the first line).
    */
   private static String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 }
 

@@ -33,7 +33,7 @@ class  RegionName
 {
 public:
     RegionName();
-    virtual ~RegionName() = default;
+    virtual ~RegionName();
 
 
     /// <summary>

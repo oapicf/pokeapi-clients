@@ -55,7 +55,7 @@ import com.github.oapicf.pokeapiclient.JSON;
 /**
  * RegionDetail
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-07T15:22:35.747827932Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-08-30T01:55:28.842792947Z[Etc/UTC]", comments = "Generator version: 7.24.0")
 public class RegionDetail {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -97,11 +97,19 @@ public class RegionDetail {
 
   public RegionDetail(
      Integer id, 
-     GenerationSummary mainGeneration
+     List<LocationSummary> locations, 
+     GenerationSummary mainGeneration, 
+     List<RegionName> names, 
+     List<PokedexSummary> pokedexes, 
+     List<AbilityDetailPokemonInnerPokemon> versionGroups
   ) {
     this();
     this.id = id;
+    this.locations = locations;
     this.mainGeneration = mainGeneration;
+    this.names = names;
+    this.pokedexes = pokedexes;
+    this.versionGroups = versionGroups;
   }
 
   /**
@@ -134,19 +142,6 @@ public class RegionDetail {
   }
 
 
-  public RegionDetail locations(@javax.annotation.Nonnull List<LocationSummary> locations) {
-    this.locations = locations;
-    return this;
-  }
-
-  public RegionDetail addLocationsItem(LocationSummary locationsItem) {
-    if (this.locations == null) {
-      this.locations = new ArrayList<>();
-    }
-    this.locations.add(locationsItem);
-    return this;
-  }
-
   /**
    * Get locations
    * @return locations
@@ -156,9 +151,6 @@ public class RegionDetail {
     return locations;
   }
 
-  public void setLocations(@javax.annotation.Nonnull List<LocationSummary> locations) {
-    this.locations = locations;
-  }
 
 
   /**
@@ -172,19 +164,6 @@ public class RegionDetail {
 
 
 
-  public RegionDetail names(@javax.annotation.Nonnull List<RegionName> names) {
-    this.names = names;
-    return this;
-  }
-
-  public RegionDetail addNamesItem(RegionName namesItem) {
-    if (this.names == null) {
-      this.names = new ArrayList<>();
-    }
-    this.names.add(namesItem);
-    return this;
-  }
-
   /**
    * Get names
    * @return names
@@ -194,23 +173,7 @@ public class RegionDetail {
     return names;
   }
 
-  public void setNames(@javax.annotation.Nonnull List<RegionName> names) {
-    this.names = names;
-  }
 
-
-  public RegionDetail pokedexes(@javax.annotation.Nonnull List<PokedexSummary> pokedexes) {
-    this.pokedexes = pokedexes;
-    return this;
-  }
-
-  public RegionDetail addPokedexesItem(PokedexSummary pokedexesItem) {
-    if (this.pokedexes == null) {
-      this.pokedexes = new ArrayList<>();
-    }
-    this.pokedexes.add(pokedexesItem);
-    return this;
-  }
 
   /**
    * Get pokedexes
@@ -221,23 +184,7 @@ public class RegionDetail {
     return pokedexes;
   }
 
-  public void setPokedexes(@javax.annotation.Nonnull List<PokedexSummary> pokedexes) {
-    this.pokedexes = pokedexes;
-  }
 
-
-  public RegionDetail versionGroups(@javax.annotation.Nonnull List<AbilityDetailPokemonInnerPokemon> versionGroups) {
-    this.versionGroups = versionGroups;
-    return this;
-  }
-
-  public RegionDetail addVersionGroupsItem(AbilityDetailPokemonInnerPokemon versionGroupsItem) {
-    if (this.versionGroups == null) {
-      this.versionGroups = new ArrayList<>();
-    }
-    this.versionGroups.add(versionGroupsItem);
-    return this;
-  }
 
   /**
    * Get versionGroups
@@ -248,9 +195,6 @@ public class RegionDetail {
     return versionGroups;
   }
 
-  public void setVersionGroups(@javax.annotation.Nonnull List<AbilityDetailPokemonInnerPokemon> versionGroups) {
-    this.versionGroups = versionGroups;
-  }
 
 
 
@@ -297,10 +241,7 @@ public class RegionDetail {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 
@@ -346,48 +287,48 @@ public class RegionDetail {
       if (!jsonObj.get("name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
       }
-      // ensure the json data is an array
-      if (!jsonObj.get("locations").isJsonArray()) {
-        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `locations` to be an array in the JSON string but got `%s`", jsonObj.get("locations").toString()));
+      if (jsonObj.get("locations") != null) {
+        if (!jsonObj.get("locations").isJsonArray()) {
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `locations` to be an array in the JSON string but got `%s`", jsonObj.get("locations").toString()));
+        }
+        JsonArray jsonArraylocations = jsonObj.getAsJsonArray("locations");
+        // validate the required field `locations` (array)
+        for (int i = 0; i < jsonArraylocations.size(); i++) {
+          LocationSummary.validateJsonElement(jsonArraylocations.get(i));
+        }
       }
-
-      JsonArray jsonArraylocations = jsonObj.getAsJsonArray("locations");
-      // validate the required field `locations` (array)
-      for (int i = 0; i < jsonArraylocations.size(); i++) {
-        LocationSummary.validateJsonElement(jsonArraylocations.get(i));
-      };
       // validate the required field `main_generation`
       GenerationSummary.validateJsonElement(jsonObj.get("main_generation"));
-      // ensure the json data is an array
-      if (!jsonObj.get("names").isJsonArray()) {
-        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `names` to be an array in the JSON string but got `%s`", jsonObj.get("names").toString()));
+      if (jsonObj.get("names") != null) {
+        if (!jsonObj.get("names").isJsonArray()) {
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `names` to be an array in the JSON string but got `%s`", jsonObj.get("names").toString()));
+        }
+        JsonArray jsonArraynames = jsonObj.getAsJsonArray("names");
+        // validate the required field `names` (array)
+        for (int i = 0; i < jsonArraynames.size(); i++) {
+          RegionName.validateJsonElement(jsonArraynames.get(i));
+        }
       }
-
-      JsonArray jsonArraynames = jsonObj.getAsJsonArray("names");
-      // validate the required field `names` (array)
-      for (int i = 0; i < jsonArraynames.size(); i++) {
-        RegionName.validateJsonElement(jsonArraynames.get(i));
-      };
-      // ensure the json data is an array
-      if (!jsonObj.get("pokedexes").isJsonArray()) {
-        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `pokedexes` to be an array in the JSON string but got `%s`", jsonObj.get("pokedexes").toString()));
+      if (jsonObj.get("pokedexes") != null) {
+        if (!jsonObj.get("pokedexes").isJsonArray()) {
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `pokedexes` to be an array in the JSON string but got `%s`", jsonObj.get("pokedexes").toString()));
+        }
+        JsonArray jsonArraypokedexes = jsonObj.getAsJsonArray("pokedexes");
+        // validate the required field `pokedexes` (array)
+        for (int i = 0; i < jsonArraypokedexes.size(); i++) {
+          PokedexSummary.validateJsonElement(jsonArraypokedexes.get(i));
+        }
       }
-
-      JsonArray jsonArraypokedexes = jsonObj.getAsJsonArray("pokedexes");
-      // validate the required field `pokedexes` (array)
-      for (int i = 0; i < jsonArraypokedexes.size(); i++) {
-        PokedexSummary.validateJsonElement(jsonArraypokedexes.get(i));
-      };
-      // ensure the json data is an array
-      if (!jsonObj.get("version_groups").isJsonArray()) {
-        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `version_groups` to be an array in the JSON string but got `%s`", jsonObj.get("version_groups").toString()));
+      if (jsonObj.get("version_groups") != null) {
+        if (!jsonObj.get("version_groups").isJsonArray()) {
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `version_groups` to be an array in the JSON string but got `%s`", jsonObj.get("version_groups").toString()));
+        }
+        JsonArray jsonArrayversionGroups = jsonObj.getAsJsonArray("version_groups");
+        // validate the required field `version_groups` (array)
+        for (int i = 0; i < jsonArrayversionGroups.size(); i++) {
+          AbilityDetailPokemonInnerPokemon.validateJsonElement(jsonArrayversionGroups.get(i));
+        }
       }
-
-      JsonArray jsonArrayversionGroups = jsonObj.getAsJsonArray("version_groups");
-      // validate the required field `version_groups` (array)
-      for (int i = 0; i < jsonArrayversionGroups.size(); i++) {
-        AbilityDetailPokemonInnerPokemon.validateJsonElement(jsonArrayversionGroups.get(i));
-      };
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {

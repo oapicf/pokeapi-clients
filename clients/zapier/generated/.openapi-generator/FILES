@@ -1,4 +1,3 @@
-.openapi-generator-ignore
 README.md
 apis/BerriesApi.js
 apis/ContestsApi.js
@@ -283,15 +282,4 @@ models/VersionName.js
 models/VersionSummary.js
 operations/actions.js
 package.json
-samples/BerriesApi.js
-samples/ContestsApi.js
-samples/EncountersApi.js
-samples/EvolutionApi.js
-samples/GamesApi.js
-samples/ItemsApi.js
-samples/LocationApi.js
-samples/MachinesApi.js
-samples/MovesApi.js
-samples/PokemonApi.js
-samples/UtilityApi.js
 utils/utils.js

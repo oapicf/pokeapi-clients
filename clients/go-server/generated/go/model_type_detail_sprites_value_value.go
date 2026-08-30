@@ -19,7 +19,8 @@ type TypeDetailSpritesValueValue struct {
 	NameIcon string `json:"name-icon,omitempty"`
 }
 
-// AssertTypeDetailSpritesValueValueRequired checks if the required fields are not zero-ed
+// AssertTypeDetailSpritesValueValueRequired checks complex required fields (models, arrays, maps) and embedded parents.
+// Primitive required fields are validated for JSON request bodies in UnmarshalJSON so zero values remain valid.
 func AssertTypeDetailSpritesValueValueRequired(obj TypeDetailSpritesValueValue) error {
 	return nil
 }

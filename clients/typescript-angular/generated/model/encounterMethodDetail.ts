@@ -14,6 +14,6 @@ export interface EncounterMethodDetail {
     readonly id: number;
     name: string;
     order?: number | null;
-    names: Array<EncounterMethodName>;
+    readonly names: Array<EncounterMethodName>;
 }
 

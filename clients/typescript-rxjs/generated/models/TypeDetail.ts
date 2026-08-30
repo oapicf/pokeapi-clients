@@ -48,12 +48,12 @@ export interface TypeDetail {
      * @type {Array<TypeDetailPastDamageRelationsInner>}
      * @memberof TypeDetail
      */
-    past_damage_relations: Array<TypeDetailPastDamageRelationsInner>;
+    readonly past_damage_relations: Array<TypeDetailPastDamageRelationsInner>;
     /**
      * @type {Array<TypeGameIndex>}
      * @memberof TypeDetail
      */
-    game_indices: Array<TypeGameIndex>;
+    readonly game_indices: Array<TypeGameIndex>;
     /**
      * @type {GenerationSummary}
      * @memberof TypeDetail
@@ -68,17 +68,17 @@ export interface TypeDetail {
      * @type {Array<AbilityName>}
      * @memberof TypeDetail
      */
-    names: Array<AbilityName>;
+    readonly names: Array<AbilityName>;
     /**
      * @type {Array<TypeDetailPokemonInner>}
      * @memberof TypeDetail
      */
-    pokemon: Array<TypeDetailPokemonInner>;
+    readonly pokemon: Array<TypeDetailPokemonInner>;
     /**
      * @type {Array<MoveSummary>}
      * @memberof TypeDetail
      */
-    moves: Array<MoveSummary>;
+    readonly moves: Array<MoveSummary>;
     /**
      * @type {{ [key: string]: { [key: string]: TypeDetailSpritesValueValue; }; }}
      * @memberof TypeDetail

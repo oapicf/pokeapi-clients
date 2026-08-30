@@ -80,11 +80,11 @@ function Initialize-ItemCategoryDetail {
 
 
         $PSO = [PSCustomObject]@{
-            "id" = ${Id}
-            "name" = ${Name}
-            "items" = ${Items}
-            "names" = ${Names}
-            "pocket" = ${Pocket}
+            'id' = ${Id}
+            'name' = ${Name}
+            'items' = ${Items}
+            'names' = ${Names}
+            'pocket' = ${Pocket}
         }
 
 
@@ -122,7 +122,7 @@ function ConvertFrom-JsonToItemCategoryDetail {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in ItemCategoryDetail
-        $AllProperties = ("id", "name", "items", "names", "pocket")
+        $AllProperties = ('id', 'name', 'items', 'names', 'pocket')
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -133,42 +133,42 @@ function ConvertFrom-JsonToItemCategoryDetail {
             throw "Error! Empty JSON cannot be serialized due to the required property 'id' missing."
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "id"))) {
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'id'))) {
             throw "Error! JSON cannot be serialized due to the required property 'id' missing."
         } else {
-            $Id = $JsonParameters.PSobject.Properties["id"].value
+            $Id = $JsonParameters.PSobject.Properties['id'].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "name"))) {
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'name'))) {
             throw "Error! JSON cannot be serialized due to the required property 'name' missing."
         } else {
-            $Name = $JsonParameters.PSobject.Properties["name"].value
+            $Name = $JsonParameters.PSobject.Properties['name'].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "items"))) {
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'items'))) {
             throw "Error! JSON cannot be serialized due to the required property 'items' missing."
         } else {
-            $Items = $JsonParameters.PSobject.Properties["items"].value
+            $Items = $JsonParameters.PSobject.Properties['items'].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "names"))) {
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'names'))) {
             throw "Error! JSON cannot be serialized due to the required property 'names' missing."
         } else {
-            $Names = $JsonParameters.PSobject.Properties["names"].value
+            $Names = $JsonParameters.PSobject.Properties['names'].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "pocket"))) {
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'pocket'))) {
             throw "Error! JSON cannot be serialized due to the required property 'pocket' missing."
         } else {
-            $Pocket = $JsonParameters.PSobject.Properties["pocket"].value
+            $Pocket = $JsonParameters.PSobject.Properties['pocket'].value
         }
 
         $PSO = [PSCustomObject]@{
-            "id" = ${Id}
-            "name" = ${Name}
-            "items" = ${Items}
-            "names" = ${Names}
-            "pocket" = ${Pocket}
+            'id' = ${Id}
+            'name' = ${Name}
+            'items' = ${Items}
+            'names' = ${Names}
+            'pocket' = ${Pocket}
         }
 
         return $PSO

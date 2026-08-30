@@ -21,7 +21,7 @@
 
 namespace OpenAPI {
 
-OAIPalParkAreaDetail::OAIPalParkAreaDetail(QString json) {
+OAIPalParkAreaDetail::OAIPalParkAreaDetail(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -47,7 +47,7 @@ void OAIPalParkAreaDetail::initializeModel() {
     m_pokemon_encounters_isValid = false;
 }
 
-void OAIPalParkAreaDetail::fromJson(QString jsonString) {
+void OAIPalParkAreaDetail::fromJson(const QString &jsonString) {
     QByteArray array(jsonString.toStdString().c_str());
     QJsonDocument doc = QJsonDocument::fromJson(array);
     QJsonObject jsonObject = doc.object();

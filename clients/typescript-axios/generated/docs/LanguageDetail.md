@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 **official** | **boolean** |  | [optional] [default to undefined]
 **iso639** | **string** |  | [default to undefined]
 **iso3166** | **string** |  | [default to undefined]
-**names** | [**Array&lt;LanguageName&gt;**](LanguageName.md) |  | [default to undefined]
+**names** | [**Array&lt;LanguageName&gt;**](LanguageName.md) |  | [readonly] [default to undefined]
 
 ## Example
 

@@ -14,19 +14,19 @@ import org.openapitools.model.PokedexSummary;
 import org.openapitools.model.RegionName;
 import org.openapitools.jackson.nullable.JsonNullable;
 import java.time.OffsetDateTime;
-import javax.validation.Valid;
-import javax.validation.constraints.*;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.*;
 import io.swagger.v3.oas.annotations.media.Schema;
 
 
 import java.util.*;
-import javax.annotation.Generated;
+import jakarta.annotation.Generated;
 
 /**
  * RegionDetail
  */
 
-@Generated(value = "org.openapitools.codegen.languages.JavaCamelServerCodegen", date = "2026-02-07T15:23:32.871052804Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@Generated(value = "org.openapitools.codegen.languages.JavaCamelServerCodegen", date = "2026-08-30T01:56:15.309401083Z[Etc/UTC]", comments = "Generator version: 7.24.0")
 public class RegionDetail {
 
   private Integer id;
@@ -121,8 +121,8 @@ public class RegionDetail {
    * Get locations
    * @return locations
    */
-  @NotNull @Valid 
-  @Schema(name = "locations", requiredMode = Schema.RequiredMode.REQUIRED)
+  @Valid 
+  @Schema(name = "locations", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("locations")
   public List<@Valid LocationSummary> getLocations() {
     return locations;
@@ -169,8 +169,8 @@ public class RegionDetail {
    * Get names
    * @return names
    */
-  @NotNull @Valid 
-  @Schema(name = "names", requiredMode = Schema.RequiredMode.REQUIRED)
+  @Valid 
+  @Schema(name = "names", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("names")
   public List<@Valid RegionName> getNames() {
     return names;
@@ -197,8 +197,8 @@ public class RegionDetail {
    * Get pokedexes
    * @return pokedexes
    */
-  @NotNull @Valid 
-  @Schema(name = "pokedexes", requiredMode = Schema.RequiredMode.REQUIRED)
+  @Valid 
+  @Schema(name = "pokedexes", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("pokedexes")
   public List<@Valid PokedexSummary> getPokedexes() {
     return pokedexes;
@@ -225,8 +225,8 @@ public class RegionDetail {
    * Get versionGroups
    * @return versionGroups
    */
-  @NotNull @Valid 
-  @Schema(name = "version_groups", requiredMode = Schema.RequiredMode.REQUIRED)
+  @Valid 
+  @Schema(name = "version_groups", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("version_groups")
   public List<@Valid AbilityDetailPokemonInnerPokemon> getVersionGroups() {
     return versionGroups;
@@ -279,10 +279,7 @@ public class RegionDetail {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 }
 

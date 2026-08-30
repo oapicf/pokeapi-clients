@@ -35,13 +35,13 @@ class OAIPokeathlonStatDetail_affecting_natures_increase_inner;
 class OAIPokeathlonStatDetail_affecting_natures : public OAIObject {
 public:
     OAIPokeathlonStatDetail_affecting_natures();
-    OAIPokeathlonStatDetail_affecting_natures(QString json);
+    OAIPokeathlonStatDetail_affecting_natures(const QString &json);
     ~OAIPokeathlonStatDetail_affecting_natures() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     QList<OAIPokeathlonStatDetail_affecting_natures_decrease_inner> getDecrease() const;
     void setDecrease(const QList<OAIPokeathlonStatDetail_affecting_natures_decrease_inner> &decrease);

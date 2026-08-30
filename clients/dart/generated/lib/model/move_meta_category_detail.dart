@@ -65,10 +65,14 @@ class MoveMetaCategoryDetail {
       // Note 1: the values aren't checked for validity beyond being non-null.
       // Note 2: this code is stripped in release mode!
       assert(() {
-        requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "MoveMetaCategoryDetail[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "MoveMetaCategoryDetail[$key]" has a null value in JSON.');
-        });
+        assert(json.containsKey(r'id'), 'Required key "MoveMetaCategoryDetail[id]" is missing from JSON.');
+        assert(json[r'id'] != null, 'Required key "MoveMetaCategoryDetail[id]" has a null value in JSON.');
+        assert(json.containsKey(r'name'), 'Required key "MoveMetaCategoryDetail[name]" is missing from JSON.');
+        assert(json[r'name'] != null, 'Required key "MoveMetaCategoryDetail[name]" has a null value in JSON.');
+        assert(json.containsKey(r'descriptions'), 'Required key "MoveMetaCategoryDetail[descriptions]" is missing from JSON.');
+        assert(json[r'descriptions'] != null, 'Required key "MoveMetaCategoryDetail[descriptions]" has a null value in JSON.');
+        assert(json.containsKey(r'moves'), 'Required key "MoveMetaCategoryDetail[moves]" is missing from JSON.');
+        assert(json[r'moves'] != null, 'Required key "MoveMetaCategoryDetail[moves]" has a null value in JSON.');
         return true;
       }());
 

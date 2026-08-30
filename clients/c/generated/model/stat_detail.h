@@ -24,10 +24,10 @@ typedef struct stat_detail_t stat_detail_t;
 
 
 typedef struct stat_detail_t {
-    int id; //numeric
+    int *id; //numeric
     char *name; // string
-    int game_index; //numeric
-    int is_battle_only; //boolean
+    int *game_index; //numeric
+    int *is_battle_only; //boolean
     struct stat_detail_affecting_moves_t *affecting_moves; //model
     struct stat_detail_affecting_natures_t *affecting_natures; //model
     list_t *characteristics; //nonprimitive container
@@ -38,10 +38,10 @@ typedef struct stat_detail_t {
 } stat_detail_t;
 
 __attribute__((deprecated)) stat_detail_t *stat_detail_create(
-    int id,
+    int *id,
     char *name,
-    int game_index,
-    int is_battle_only,
+    int *game_index,
+    int *is_battle_only,
     stat_detail_affecting_moves_t *affecting_moves,
     stat_detail_affecting_natures_t *affecting_natures,
     list_t *characteristics,

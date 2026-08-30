@@ -130,7 +130,7 @@ MachineDetail::getId()
 }
 
 void
-MachineDetail::setId(int  id)
+MachineDetail::setId(int id)
 {
 	this->id = id;
 }
@@ -142,7 +142,7 @@ MachineDetail::getItem()
 }
 
 void
-MachineDetail::setItem(ItemSummary  item)
+MachineDetail::setItem(ItemSummary item)
 {
 	this->item = item;
 }
@@ -154,7 +154,7 @@ MachineDetail::getVersionGroup()
 }
 
 void
-MachineDetail::setVersionGroup(VersionGroupSummary  version_group)
+MachineDetail::setVersionGroup(VersionGroupSummary version_group)
 {
 	this->version_group = version_group;
 }
@@ -166,7 +166,7 @@ MachineDetail::getMove()
 }
 
 void
-MachineDetail::setMove(MoveSummary  move)
+MachineDetail::setMove(MoveSummary move)
 {
 	this->move = move;
 }

@@ -24,6 +24,8 @@ StatDetail_affecting_moves::StatDetail_affecting_moves()
     
 }
 
+StatDetail_affecting_moves::~StatDetail_affecting_moves() = default;
+
 void StatDetail_affecting_moves::validate() const
 {
     std::stringstream msg;

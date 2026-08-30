@@ -12,6 +12,11 @@
 package openapi
 
 
+import (
+	"encoding/json"
+	"fmt"
+)
+
 
 
 type ItemPocketDetail struct {
@@ -24,45 +29,84 @@ type ItemPocketDetail struct {
 
 	Names []ItemPocketName `json:"names"`
 }
+// UnmarshalJSON validates required property keys then unmarshals into ItemPocketDetail
+func (o *ItemPocketDetail) UnmarshalJSON(data []byte) (err error) {
+	// Presence is checked against required fields that exist on this struct,
+	// including fields promoted from embedded allOf parents.
+	requiredProperties := []string{
+		"name",
+	}
 
-// AssertItemPocketDetailRequired checks if the required fields are not zero-ed
+	requiredNullableProperties := map[string]bool{
+		"name": false,
+	}
+
+	allowedJsonKeys := map[string]struct{}{
+		"id": {},
+		"name": {},
+		"categories": {},
+		"names": {},
+	}
+
+	allProperties := make(map[string]json.RawMessage)
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err
+	}
+
+	for _, requiredProperty := range requiredProperties {
+		value, exists := allProperties[requiredProperty]
+		if !exists {
+			return &RequiredError{Field: requiredProperty}
+		}
+		if string(value) == "null" && !requiredNullableProperties[requiredProperty] {
+			return &RequiredError{Field: requiredProperty}
+		}
+	}
+
+	for key := range allProperties {
+		if _, exists := allowedJsonKeys[key]; !exists {
+			return fmt.Errorf("json: unknown field %q", key)
+		}
+	}
+
+	var decoded ItemPocketDetail
+
+	if value, exists := allProperties["id"]; exists {
+		if err = json.Unmarshal(value, &decoded.Id); err != nil {
+			return err
+		}
+	}
+	if value, exists := allProperties["name"]; exists {
+		if err = json.Unmarshal(value, &decoded.Name); err != nil {
+			return err
+		}
+	}
+	if value, exists := allProperties["categories"]; exists {
+		if err = json.Unmarshal(value, &decoded.Categories); err != nil {
+			return err
+		}
+	}
+	if value, exists := allProperties["names"]; exists {
+		if err = json.Unmarshal(value, &decoded.Names); err != nil {
+			return err
+		}
+	}
+
+	*o = decoded
+
+	return nil
+}
+
+// AssertItemPocketDetailRequired checks complex required fields (models, arrays, maps) and embedded parents.
+// Primitive required fields are validated for JSON request bodies in UnmarshalJSON so zero values remain valid.
 func AssertItemPocketDetailRequired(obj ItemPocketDetail) error {
-	elements := map[string]interface{}{
-		"id": obj.Id,
-		"name": obj.Name,
-		"categories": obj.Categories,
-		"names": obj.Names,
-	}
-	for name, el := range elements {
-		if isZero := IsZeroValue(el); isZero {
-			return &RequiredError{Field: name}
-		}
-	}
-
-	for _, el := range obj.Categories {
-		if err := AssertItemCategorySummaryRequired(el); err != nil {
-			return err
-		}
-	}
-	for _, el := range obj.Names {
-		if err := AssertItemPocketNameRequired(el); err != nil {
-			return err
-		}
-	}
 	return nil
 }
 
 // AssertItemPocketDetailConstraints checks if the values respects the defined constraints
 func AssertItemPocketDetailConstraints(obj ItemPocketDetail) error {
-	for _, el := range obj.Categories {
-		if err := AssertItemCategorySummaryConstraints(el); err != nil {
-			return err
-		}
-	}
-	for _, el := range obj.Names {
-		if err := AssertItemPocketNameConstraints(el); err != nil {
-			return err
-		}
-	}
 	return nil
 }

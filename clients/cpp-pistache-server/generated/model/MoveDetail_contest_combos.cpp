@@ -24,6 +24,8 @@ MoveDetail_contest_combos::MoveDetail_contest_combos()
     
 }
 
+MoveDetail_contest_combos::~MoveDetail_contest_combos() = default;
+
 void MoveDetail_contest_combos::validate() const
 {
     std::stringstream msg;

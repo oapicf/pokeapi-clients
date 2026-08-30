@@ -7,8 +7,8 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **int** |  | [readonly] 
 **name** | **str** |  | 
-**names** | [**List[EvolutionTriggerName]**](EvolutionTriggerName.md) |  | 
-**pokemon_species** | [**List[AbilityDetailPokemonInnerPokemon]**](AbilityDetailPokemonInnerPokemon.md) |  | 
+**names** | [**List[EvolutionTriggerName]**](EvolutionTriggerName.md) |  | [readonly] 
+**pokemon_species** | [**List[AbilityDetailPokemonInnerPokemon]**](AbilityDetailPokemonInnerPokemon.md) |  | [readonly] 
 
 ## Example
 

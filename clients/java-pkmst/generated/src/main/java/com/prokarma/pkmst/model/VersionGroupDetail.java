@@ -21,7 +21,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
  * VersionGroupDetail
  */
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPKMSTServerCodegen", date = "2026-02-07T15:23:15.032724200Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPKMSTServerCodegen", date = "2026-08-30T01:56:01.724492951Z[Etc/UTC]", comments = "Generator version: 7.24.0")
 public class VersionGroupDetail   {
   @JsonProperty("id")
   private Integer id;
@@ -140,7 +140,7 @@ public class VersionGroupDetail   {
    * Get moveLearnMethods
    * @return moveLearnMethods
    */
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, readOnly = true, value = "")
   public List<AbilityDetailPokemonInnerPokemon> getMoveLearnMethods() {
     return moveLearnMethods;
   }
@@ -166,7 +166,7 @@ public class VersionGroupDetail   {
    * Get pokedexes
    * @return pokedexes
    */
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, readOnly = true, value = "")
   public List<AbilityDetailPokemonInnerPokemon> getPokedexes() {
     return pokedexes;
   }
@@ -192,7 +192,7 @@ public class VersionGroupDetail   {
    * Get regions
    * @return regions
    */
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, readOnly = true, value = "")
   public List<AbilityDetailPokemonInnerPokemon> getRegions() {
     return regions;
   }
@@ -218,7 +218,7 @@ public class VersionGroupDetail   {
    * Get versions
    * @return versions
    */
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, readOnly = true, value = "")
   public List<VersionSummary> getVersions() {
     return versions;
   }
@@ -274,10 +274,7 @@ public class VersionGroupDetail   {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 }
 

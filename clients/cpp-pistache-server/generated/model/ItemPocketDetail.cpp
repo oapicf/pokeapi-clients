@@ -26,6 +26,8 @@ ItemPocketDetail::ItemPocketDetail()
     
 }
 
+ItemPocketDetail::~ItemPocketDetail() = default;
+
 void ItemPocketDetail::validate() const
 {
     std::stringstream msg;

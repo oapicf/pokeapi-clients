@@ -77,8 +77,18 @@ namespace Org.OpenAPITools.Model
     /// <summary>
     /// A Json converter for type <see cref="EvolutionChainSummary" />
     /// </summary>
-    public class EvolutionChainSummaryJsonConverter : JsonConverter<EvolutionChainSummary>
+    public partial class EvolutionChainSummaryJsonConverter : JsonConverter<EvolutionChainSummary>
     {
+        partial void OnCreated();
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="EvolutionChainSummaryJsonConverter" /> class.
+        /// </summary>
+        public EvolutionChainSummaryJsonConverter()
+        {
+            OnCreated();
+        }
+
         /// <summary>
         /// Deserializes json to <see cref="EvolutionChainSummary" />
         /// </summary>

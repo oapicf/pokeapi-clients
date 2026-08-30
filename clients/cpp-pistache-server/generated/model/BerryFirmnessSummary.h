@@ -32,7 +32,7 @@ class  BerryFirmnessSummary
 {
 public:
     BerryFirmnessSummary();
-    virtual ~BerryFirmnessSummary() = default;
+    virtual ~BerryFirmnessSummary();
 
 
     /// <summary>

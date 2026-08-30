@@ -9,16 +9,16 @@
 | **cost** | **Integer** |  | [optional] |
 | **fling_power** | **Integer** |  | [optional] |
 | **fling_effect** | [**ItemFlingEffectSummary**](ItemFlingEffectSummary.md) |  |  |
-| **attributes** | [**Array&lt;AbilityDetailPokemonInnerPokemon&gt;**](AbilityDetailPokemonInnerPokemon.md) |  |  |
+| **attributes** | [**Array&lt;AbilityDetailPokemonInnerPokemon&gt;**](AbilityDetailPokemonInnerPokemon.md) |  | [readonly] |
 | **category** | [**ItemCategorySummary**](ItemCategorySummary.md) |  |  |
-| **effect_entries** | [**Array&lt;ItemEffectText&gt;**](ItemEffectText.md) |  |  |
-| **flavor_text_entries** | [**Array&lt;ItemFlavorText&gt;**](ItemFlavorText.md) |  |  |
-| **game_indices** | [**Array&lt;ItemGameIndex&gt;**](ItemGameIndex.md) |  |  |
-| **names** | [**Array&lt;ItemName&gt;**](ItemName.md) |  |  |
-| **held_by_pokemon** | [**Array&lt;ItemDetailHeldByPokemonInner&gt;**](ItemDetailHeldByPokemonInner.md) |  |  |
+| **effect_entries** | [**Array&lt;ItemEffectText&gt;**](ItemEffectText.md) |  | [readonly] |
+| **flavor_text_entries** | [**Array&lt;ItemFlavorText&gt;**](ItemFlavorText.md) |  | [readonly] |
+| **game_indices** | [**Array&lt;ItemGameIndex&gt;**](ItemGameIndex.md) |  | [readonly] |
+| **names** | [**Array&lt;ItemName&gt;**](ItemName.md) |  | [readonly] |
+| **held_by_pokemon** | [**Array&lt;ItemDetailHeldByPokemonInner&gt;**](ItemDetailHeldByPokemonInner.md) |  | [readonly] |
 | **sprites** | [**ItemDetailSprites**](ItemDetailSprites.md) |  |  |
 | **baby_trigger_for** | [**ItemDetailBabyTriggerFor**](ItemDetailBabyTriggerFor.md) |  |  |
-| **machines** | [**Array&lt;ItemDetailMachinesInner&gt;**](ItemDetailMachinesInner.md) |  |  |
+| **machines** | [**Array&lt;ItemDetailMachinesInner&gt;**](ItemDetailMachinesInner.md) |  | [readonly] |
 
 ## Example
 

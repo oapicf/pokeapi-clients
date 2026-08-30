@@ -52,14 +52,14 @@ public:
 
 	/*! \brief Set 
 	 */
-	void setNormal(MoveDetail_contest_combos_normal  normal);
+	void setNormal(MoveDetail_contest_combos_normal normal);
 	/*! \brief Get 
 	 */
 	MoveDetail_contest_combos_normal getSuper();
 
 	/*! \brief Set 
 	 */
-	void setSuper(MoveDetail_contest_combos_normal  super);
+	void setSuper(MoveDetail_contest_combos_normal super);
 
 
     private:

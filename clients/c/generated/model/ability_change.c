@@ -13,10 +13,10 @@ static ability_change_t *ability_change_create_internal(
     if (!ability_change_local_var) {
         return NULL;
     }
+    memset(ability_change_local_var, 0, sizeof(ability_change_t));
+    ability_change_local_var->_library_owned = 1;
     ability_change_local_var->version_group = version_group;
     ability_change_local_var->effect_entries = effect_entries;
-
-    ability_change_local_var->_library_owned = 1;
     return ability_change_local_var;
 }
 
@@ -24,10 +24,13 @@ __attribute__((deprecated)) ability_change_t *ability_change_create(
     version_group_summary_t *version_group,
     list_t *effect_entries
     ) {
-    return ability_change_create_internal (
+    ability_change_t *result = ability_change_create_internal (
         version_group,
         effect_entries
         );
+    if (!result) {
+    }
+    return result;
 }
 
 void ability_change_free(ability_change_t *ability_change) {
@@ -148,10 +151,15 @@ ability_change_t *ability_change_parseFromJSON(cJSON *ability_changeJSON){
     }
 
 
+
     ability_change_local_var = ability_change_create_internal (
         version_group_local_nonprim,
         effect_entriesList
         );
+
+    if (!ability_change_local_var) {
+        goto end;
+    }
 
     return ability_change_local_var;
 end:

@@ -20,14 +20,14 @@ typedef struct pokemon_species_detail_varieties_inner_t pokemon_species_detail_v
 
 
 typedef struct pokemon_species_detail_varieties_inner_t {
-    int is_default; //boolean
+    int *is_default; //boolean
     struct ability_detail_pokemon_inner_pokemon_t *pokemon; //model
 
     int _library_owned; // Is the library responsible for freeing this object?
 } pokemon_species_detail_varieties_inner_t;
 
 __attribute__((deprecated)) pokemon_species_detail_varieties_inner_t *pokemon_species_detail_varieties_inner_create(
-    int is_default,
+    int *is_default,
     ability_detail_pokemon_inner_pokemon_t *pokemon
 );
 

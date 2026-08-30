@@ -19,7 +19,7 @@ import java.util.List;
  * SuperContestEffectDetail
  */
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPKMSTServerCodegen", date = "2026-02-07T15:23:15.032724200Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPKMSTServerCodegen", date = "2026-08-30T01:56:01.724492951Z[Etc/UTC]", comments = "Generator version: 7.24.0")
 public class SuperContestEffectDetail   {
   @JsonProperty("id")
   private Integer id;
@@ -88,7 +88,7 @@ public class SuperContestEffectDetail   {
    * Get flavorTextEntries
    * @return flavorTextEntries
    */
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, readOnly = true, value = "")
   public List<SuperContestEffectFlavorText> getFlavorTextEntries() {
     return flavorTextEntries;
   }
@@ -114,7 +114,7 @@ public class SuperContestEffectDetail   {
    * Get moves
    * @return moves
    */
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, readOnly = true, value = "")
   public List<MoveSummary> getMoves() {
     return moves;
   }
@@ -162,10 +162,7 @@ public class SuperContestEffectDetail   {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 }
 

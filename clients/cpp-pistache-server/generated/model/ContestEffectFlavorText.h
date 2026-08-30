@@ -33,7 +33,7 @@ class  ContestEffectFlavorText
 {
 public:
     ContestEffectFlavorText();
-    virtual ~ContestEffectFlavorText() = default;
+    virtual ~ContestEffectFlavorText();
 
 
     /// <summary>

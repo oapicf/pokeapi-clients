@@ -44,13 +44,13 @@ export interface EncounterConditionDetail  {
      * @type {Array<EncounterConditionValueSummary>}
      * @memberof EncounterConditionDetail
      */
-    values: Array<EncounterConditionValueSummary>;
+    readonly values: Array<EncounterConditionValueSummary>;
     /**
      * 
      * @type {Array<EncounterConditionName>}
      * @memberof EncounterConditionDetail
      */
-    names: Array<EncounterConditionName>;
+    readonly names: Array<EncounterConditionName>;
 }
 
 export function EncounterConditionDetailFromJSON(json: any): EncounterConditionDetail {
@@ -68,8 +68,6 @@ export function EncounterConditionDetailToJSON(value?: EncounterConditionDetail)
     }
     return {
         'name': value.name,
-        'values': (value.values as Array<any>).map(EncounterConditionValueSummaryToJSON),
-        'names': (value.names as Array<any>).map(EncounterConditionNameToJSON),
     };
 }
 

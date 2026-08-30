@@ -107,7 +107,7 @@ export interface BerryDetail {
      * @type {Array<BerryDetailFlavorsInner>}
      * @memberof BerryDetail
      */
-    flavors: Array<BerryDetailFlavorsInner>;
+    readonly flavors: Array<BerryDetailFlavorsInner>;
     /**
      * 
      * @type {ItemSummary}
@@ -128,16 +128,16 @@ export interface BerryDetail {
 export function instanceOfBerryDetail(value: object): value is BerryDetail {
     if (!('id' in value) || value['id'] === undefined) return false;
     if (!('name' in value) || value['name'] === undefined) return false;
-    if (!('growthTime' in value) || value['growthTime'] === undefined) return false;
-    if (!('maxHarvest' in value) || value['maxHarvest'] === undefined) return false;
-    if (!('naturalGiftPower' in value) || value['naturalGiftPower'] === undefined) return false;
+    if ((!('growthTime' in (value as Record<string, any>)) && !('growth_time' in (value as Record<string, any>))) || ((value as Record<string, any>)['growthTime'] === undefined && (value as Record<string, any>)['growth_time'] === undefined)) return false;
+    if ((!('maxHarvest' in (value as Record<string, any>)) && !('max_harvest' in (value as Record<string, any>))) || ((value as Record<string, any>)['maxHarvest'] === undefined && (value as Record<string, any>)['max_harvest'] === undefined)) return false;
+    if ((!('naturalGiftPower' in (value as Record<string, any>)) && !('natural_gift_power' in (value as Record<string, any>))) || ((value as Record<string, any>)['naturalGiftPower'] === undefined && (value as Record<string, any>)['natural_gift_power'] === undefined)) return false;
     if (!('size' in value) || value['size'] === undefined) return false;
     if (!('smoothness' in value) || value['smoothness'] === undefined) return false;
-    if (!('soilDryness' in value) || value['soilDryness'] === undefined) return false;
+    if ((!('soilDryness' in (value as Record<string, any>)) && !('soil_dryness' in (value as Record<string, any>))) || ((value as Record<string, any>)['soilDryness'] === undefined && (value as Record<string, any>)['soil_dryness'] === undefined)) return false;
     if (!('firmness' in value) || value['firmness'] === undefined) return false;
     if (!('flavors' in value) || value['flavors'] === undefined) return false;
     if (!('item' in value) || value['item'] === undefined) return false;
-    if (!('naturalGiftType' in value) || value['naturalGiftType'] === undefined) return false;
+    if ((!('naturalGiftType' in (value as Record<string, any>)) && !('natural_gift_type' in (value as Record<string, any>))) || ((value as Record<string, any>)['naturalGiftType'] === undefined && (value as Record<string, any>)['natural_gift_type'] === undefined)) return false;
     return true;
 }
 
@@ -170,7 +170,7 @@ export function BerryDetailToJSON(json: any): BerryDetail {
     return BerryDetailToJSONTyped(json, false);
 }
 
-export function BerryDetailToJSONTyped(value?: Omit<BerryDetail, 'id'> | null, ignoreDiscriminator: boolean = false): any {
+export function BerryDetailToJSONTyped(value?: Omit<BerryDetail, 'id'|'flavors'> | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
@@ -185,7 +185,6 @@ export function BerryDetailToJSONTyped(value?: Omit<BerryDetail, 'id'> | null, i
         'smoothness': value['smoothness'],
         'soil_dryness': value['soilDryness'],
         'firmness': BerryFirmnessSummaryToJSON(value['firmness']),
-        'flavors': ((value['flavors'] as Array<any>).map(BerryDetailFlavorsInnerToJSON)),
         'item': ItemSummaryToJSON(value['item']),
         'natural_gift_type': TypeSummaryToJSON(value['naturalGiftType']),
     };

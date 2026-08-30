@@ -4537,8 +4537,8 @@ h2. Models
          |gender |(/) |{noformat:nopanel=true}EvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner_gender{noformat} |  |  | null
          |held_item |(/) |{noformat:nopanel=true}EvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner_gender{noformat} |  |  | null
          |item |(/) |{noformat:nopanel=true}EvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner_gender{noformat} |  |  | null
-         |known_move |(/) |{noformat:nopanel=true}Object{noformat} |  |  | null
-         |known_move_type |(/) |{noformat:nopanel=true}Object{noformat} |  |  | null
+         |known_move |(/) |{noformat:nopanel=true}EvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner_gender{noformat} |  |  | null
+         |known_move_type |(/) |{noformat:nopanel=true}EvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner_gender{noformat} |  |  | null
          |location |(/) |{noformat:nopanel=true}EvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner_gender{noformat} |  |  | null
          |min_affection |(/) |{noformat:nopanel=true}Integer{noformat} |  |  | null
          |min_beauty |(/) |{noformat:nopanel=true}Integer{noformat} |  |  | null

@@ -30,7 +30,7 @@ class ItemsApi : public Service {
 public:
     ItemsApi() = default;
 
-    virtual ~ItemsApi() = default;
+    virtual ~ItemsApi();
 
     /**
     * List item attributes.

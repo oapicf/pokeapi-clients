@@ -53,21 +53,21 @@ public:
 
 	/*! \brief Set 
 	 */
-	void setId(int  id);
+	void setId(int id);
 	/*! \brief Get 
 	 */
 	ItemSummary getBabyTriggerItem();
 
 	/*! \brief Set 
 	 */
-	void setBabyTriggerItem(ItemSummary  baby_trigger_item);
+	void setBabyTriggerItem(ItemSummary baby_trigger_item);
 	/*! \brief Get 
 	 */
 	EvolutionChainDetail_chain getChain();
 
 	/*! \brief Set 
 	 */
-	void setChain(EvolutionChainDetail_chain  chain);
+	void setChain(EvolutionChainDetail_chain chain);
 
 
     private:

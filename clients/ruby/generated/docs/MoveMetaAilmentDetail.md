@@ -6,8 +6,8 @@
 | ---- | ---- | ----------- | ----- |
 | **id** | **Integer** |  | [readonly] |
 | **name** | **String** |  |  |
-| **moves** | [**Array&lt;AbilityDetailPokemonInnerPokemon&gt;**](AbilityDetailPokemonInnerPokemon.md) |  |  |
-| **names** | [**Array&lt;MoveMetaAilmentName&gt;**](MoveMetaAilmentName.md) |  |  |
+| **moves** | [**Array&lt;AbilityDetailPokemonInnerPokemon&gt;**](AbilityDetailPokemonInnerPokemon.md) |  | [readonly] |
+| **names** | [**Array&lt;MoveMetaAilmentName&gt;**](MoveMetaAilmentName.md) |  | [readonly] |
 
 ## Example
 

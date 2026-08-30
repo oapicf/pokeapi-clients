@@ -34,13 +34,13 @@ class OAITypeSummary;
 class OAIPaginatedTypeSummaryList : public OAIObject {
 public:
     OAIPaginatedTypeSummaryList();
-    OAIPaginatedTypeSummaryList(QString json);
+    OAIPaginatedTypeSummaryList(const QString &json);
     ~OAIPaginatedTypeSummaryList() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     qint32 getCount() const;
     void setCount(const qint32 &count);

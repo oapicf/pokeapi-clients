@@ -25,7 +25,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
 
 
 @JsonTypeName("NatureDetail")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2026-02-07T15:24:06.001755207Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2026-08-30T01:56:42.280002256Z[Etc/UTC]", comments = "Generator version: 7.24.0")
 public class NatureDetail   {
   private Integer id;
   private String name;
@@ -190,7 +190,7 @@ public class NatureDetail   {
   
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(required = true, value = "berries")
-  @NotNull @Valid public List<@Valid BerrySummary> getBerries() {
+  @Valid public List<@Valid BerrySummary> getBerries() {
     return berries;
   }
 
@@ -225,7 +225,7 @@ public class NatureDetail   {
   
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(required = true, value = "pokeathlon_stat_changes")
-  @NotNull @Valid public List<@Valid NatureDetailPokeathlonStatChangesInner> getPokeathlonStatChanges() {
+  @Valid public List<@Valid NatureDetailPokeathlonStatChangesInner> getPokeathlonStatChanges() {
     return pokeathlonStatChanges;
   }
 
@@ -260,7 +260,7 @@ public class NatureDetail   {
   
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(required = true, value = "move_battle_style_preferences")
-  @NotNull @Valid public List<@Valid NatureBattleStylePreference> getMoveBattleStylePreferences() {
+  @Valid public List<@Valid NatureBattleStylePreference> getMoveBattleStylePreferences() {
     return moveBattleStylePreferences;
   }
 
@@ -295,7 +295,7 @@ public class NatureDetail   {
   
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(required = true, value = "names")
-  @NotNull @Valid public List<@Valid NatureName> getNames() {
+  @Valid public List<@Valid NatureName> getNames() {
     return names;
   }
 
@@ -371,12 +371,8 @@ public class NatureDetail   {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 
 }
-

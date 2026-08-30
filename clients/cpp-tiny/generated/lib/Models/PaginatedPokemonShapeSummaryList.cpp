@@ -144,7 +144,7 @@ PaginatedPokemonShapeSummaryList::getCount()
 }
 
 void
-PaginatedPokemonShapeSummaryList::setCount(int  count)
+PaginatedPokemonShapeSummaryList::setCount(int count)
 {
 	this->count = count;
 }
@@ -156,7 +156,7 @@ PaginatedPokemonShapeSummaryList::getNext()
 }
 
 void
-PaginatedPokemonShapeSummaryList::setNext(std::string  next)
+PaginatedPokemonShapeSummaryList::setNext(std::string next)
 {
 	this->next = next;
 }
@@ -168,7 +168,7 @@ PaginatedPokemonShapeSummaryList::getPrevious()
 }
 
 void
-PaginatedPokemonShapeSummaryList::setPrevious(std::string  previous)
+PaginatedPokemonShapeSummaryList::setPrevious(std::string previous)
 {
 	this->previous = previous;
 }
@@ -180,7 +180,7 @@ PaginatedPokemonShapeSummaryList::getResults()
 }
 
 void
-PaginatedPokemonShapeSummaryList::setResults(std::list <PokemonShapeSummary> results)
+PaginatedPokemonShapeSummaryList::setResults(std::list<PokemonShapeSummary> results)
 {
 	this->results = results;
 }

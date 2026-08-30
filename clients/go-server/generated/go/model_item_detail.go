@@ -12,6 +12,11 @@
 package openapi
 
 
+import (
+	"encoding/json"
+	"fmt"
+)
+
 
 
 type ItemDetail struct {
@@ -46,23 +51,159 @@ type ItemDetail struct {
 
 	Machines []ItemDetailMachinesInner `json:"machines"`
 }
+// UnmarshalJSON validates required property keys then unmarshals into ItemDetail
+func (o *ItemDetail) UnmarshalJSON(data []byte) (err error) {
+	// Presence is checked against required fields that exist on this struct,
+	// including fields promoted from embedded allOf parents.
+	requiredProperties := []string{
+		"name",
+		"fling_effect",
+		"category",
+		"sprites",
+		"baby_trigger_for",
+	}
 
-// AssertItemDetailRequired checks if the required fields are not zero-ed
+	requiredNullableProperties := map[string]bool{
+		"name": false,
+		"fling_effect": false,
+		"category": false,
+		"sprites": false,
+		"baby_trigger_for": false,
+	}
+
+	allowedJsonKeys := map[string]struct{}{
+		"id": {},
+		"name": {},
+		"cost": {},
+		"fling_power": {},
+		"fling_effect": {},
+		"attributes": {},
+		"category": {},
+		"effect_entries": {},
+		"flavor_text_entries": {},
+		"game_indices": {},
+		"names": {},
+		"held_by_pokemon": {},
+		"sprites": {},
+		"baby_trigger_for": {},
+		"machines": {},
+	}
+
+	allProperties := make(map[string]json.RawMessage)
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err
+	}
+
+	for _, requiredProperty := range requiredProperties {
+		value, exists := allProperties[requiredProperty]
+		if !exists {
+			return &RequiredError{Field: requiredProperty}
+		}
+		if string(value) == "null" && !requiredNullableProperties[requiredProperty] {
+			return &RequiredError{Field: requiredProperty}
+		}
+	}
+
+	for key := range allProperties {
+		if _, exists := allowedJsonKeys[key]; !exists {
+			return fmt.Errorf("json: unknown field %q", key)
+		}
+	}
+
+	var decoded ItemDetail
+
+	if value, exists := allProperties["id"]; exists {
+		if err = json.Unmarshal(value, &decoded.Id); err != nil {
+			return err
+		}
+	}
+	if value, exists := allProperties["name"]; exists {
+		if err = json.Unmarshal(value, &decoded.Name); err != nil {
+			return err
+		}
+	}
+	if value, exists := allProperties["cost"]; exists {
+		if err = json.Unmarshal(value, &decoded.Cost); err != nil {
+			return err
+		}
+	}
+	if value, exists := allProperties["fling_power"]; exists {
+		if err = json.Unmarshal(value, &decoded.FlingPower); err != nil {
+			return err
+		}
+	}
+	if value, exists := allProperties["fling_effect"]; exists {
+		if err = json.Unmarshal(value, &decoded.FlingEffect); err != nil {
+			return err
+		}
+	}
+	if value, exists := allProperties["attributes"]; exists {
+		if err = json.Unmarshal(value, &decoded.Attributes); err != nil {
+			return err
+		}
+	}
+	if value, exists := allProperties["category"]; exists {
+		if err = json.Unmarshal(value, &decoded.Category); err != nil {
+			return err
+		}
+	}
+	if value, exists := allProperties["effect_entries"]; exists {
+		if err = json.Unmarshal(value, &decoded.EffectEntries); err != nil {
+			return err
+		}
+	}
+	if value, exists := allProperties["flavor_text_entries"]; exists {
+		if err = json.Unmarshal(value, &decoded.FlavorTextEntries); err != nil {
+			return err
+		}
+	}
+	if value, exists := allProperties["game_indices"]; exists {
+		if err = json.Unmarshal(value, &decoded.GameIndices); err != nil {
+			return err
+		}
+	}
+	if value, exists := allProperties["names"]; exists {
+		if err = json.Unmarshal(value, &decoded.Names); err != nil {
+			return err
+		}
+	}
+	if value, exists := allProperties["held_by_pokemon"]; exists {
+		if err = json.Unmarshal(value, &decoded.HeldByPokemon); err != nil {
+			return err
+		}
+	}
+	if value, exists := allProperties["sprites"]; exists {
+		if err = json.Unmarshal(value, &decoded.Sprites); err != nil {
+			return err
+		}
+	}
+	if value, exists := allProperties["baby_trigger_for"]; exists {
+		if err = json.Unmarshal(value, &decoded.BabyTriggerFor); err != nil {
+			return err
+		}
+	}
+	if value, exists := allProperties["machines"]; exists {
+		if err = json.Unmarshal(value, &decoded.Machines); err != nil {
+			return err
+		}
+	}
+
+	*o = decoded
+
+	return nil
+}
+
+// AssertItemDetailRequired checks complex required fields (models, arrays, maps) and embedded parents.
+// Primitive required fields are validated for JSON request bodies in UnmarshalJSON so zero values remain valid.
 func AssertItemDetailRequired(obj ItemDetail) error {
 	elements := map[string]interface{}{
-		"id": obj.Id,
-		"name": obj.Name,
 		"fling_effect": obj.FlingEffect,
-		"attributes": obj.Attributes,
 		"category": obj.Category,
-		"effect_entries": obj.EffectEntries,
-		"flavor_text_entries": obj.FlavorTextEntries,
-		"game_indices": obj.GameIndices,
-		"names": obj.Names,
-		"held_by_pokemon": obj.HeldByPokemon,
 		"sprites": obj.Sprites,
 		"baby_trigger_for": obj.BabyTriggerFor,
-		"machines": obj.Machines,
 	}
 	for name, el := range elements {
 		if isZero := IsZeroValue(el); isZero {
@@ -73,49 +214,14 @@ func AssertItemDetailRequired(obj ItemDetail) error {
 	if err := AssertItemFlingEffectSummaryRequired(obj.FlingEffect); err != nil {
 		return err
 	}
-	for _, el := range obj.Attributes {
-		if err := AssertAbilityDetailPokemonInnerPokemonRequired(el); err != nil {
-			return err
-		}
-	}
 	if err := AssertItemCategorySummaryRequired(obj.Category); err != nil {
 		return err
-	}
-	for _, el := range obj.EffectEntries {
-		if err := AssertItemEffectTextRequired(el); err != nil {
-			return err
-		}
-	}
-	for _, el := range obj.FlavorTextEntries {
-		if err := AssertItemFlavorTextRequired(el); err != nil {
-			return err
-		}
-	}
-	for _, el := range obj.GameIndices {
-		if err := AssertItemGameIndexRequired(el); err != nil {
-			return err
-		}
-	}
-	for _, el := range obj.Names {
-		if err := AssertItemNameRequired(el); err != nil {
-			return err
-		}
-	}
-	for _, el := range obj.HeldByPokemon {
-		if err := AssertItemDetailHeldByPokemonInnerRequired(el); err != nil {
-			return err
-		}
 	}
 	if err := AssertItemDetailSpritesRequired(obj.Sprites); err != nil {
 		return err
 	}
 	if err := AssertItemDetailBabyTriggerForRequired(obj.BabyTriggerFor); err != nil {
 		return err
-	}
-	for _, el := range obj.Machines {
-		if err := AssertItemDetailMachinesInnerRequired(el); err != nil {
-			return err
-		}
 	}
 	return nil
 }
@@ -125,49 +231,14 @@ func AssertItemDetailConstraints(obj ItemDetail) error {
 	if err := AssertItemFlingEffectSummaryConstraints(obj.FlingEffect); err != nil {
 		return err
 	}
-	for _, el := range obj.Attributes {
-		if err := AssertAbilityDetailPokemonInnerPokemonConstraints(el); err != nil {
-			return err
-		}
-	}
 	if err := AssertItemCategorySummaryConstraints(obj.Category); err != nil {
 		return err
-	}
-	for _, el := range obj.EffectEntries {
-		if err := AssertItemEffectTextConstraints(el); err != nil {
-			return err
-		}
-	}
-	for _, el := range obj.FlavorTextEntries {
-		if err := AssertItemFlavorTextConstraints(el); err != nil {
-			return err
-		}
-	}
-	for _, el := range obj.GameIndices {
-		if err := AssertItemGameIndexConstraints(el); err != nil {
-			return err
-		}
-	}
-	for _, el := range obj.Names {
-		if err := AssertItemNameConstraints(el); err != nil {
-			return err
-		}
-	}
-	for _, el := range obj.HeldByPokemon {
-		if err := AssertItemDetailHeldByPokemonInnerConstraints(el); err != nil {
-			return err
-		}
 	}
 	if err := AssertItemDetailSpritesConstraints(obj.Sprites); err != nil {
 		return err
 	}
 	if err := AssertItemDetailBabyTriggerForConstraints(obj.BabyTriggerFor); err != nil {
 		return err
-	}
-	for _, el := range obj.Machines {
-		if err := AssertItemDetailMachinesInnerConstraints(el); err != nil {
-			return err
-		}
 	}
 	return nil
 }

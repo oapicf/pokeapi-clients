@@ -4,12 +4,12 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**gender** | [**models::EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender**](EvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner_gender.md) |  | 
-**held_item** | [**models::EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender**](EvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner_gender.md) |  | 
-**item** | [**models::EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender**](EvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner_gender.md) |  | 
-**known_move** | [**serde_json::Value**](.md) |  | 
-**known_move_type** | [**serde_json::Value**](.md) |  | 
-**location** | [**models::EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender**](EvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner_gender.md) |  | 
+**gender** | [**models::EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender**](EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender.md) |  | 
+**held_item** | [**models::EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender**](EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender.md) |  | 
+**item** | [**models::EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender**](EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender.md) |  | 
+**known_move** | [**models::EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender**](EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender.md) |  | 
+**known_move_type** | [**models::EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender**](EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender.md) |  | 
+**location** | [**models::EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender**](EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender.md) |  | 
 **min_affection** | **i32** |  | 
 **min_beauty** | **i32** |  | 
 **min_happiness** | **i32** |  | 
@@ -20,7 +20,7 @@ Name | Type | Description | Notes
 **relative_physical_stats** | **String** |  | 
 **time_of_day** | **String** |  | 
 **trade_species** | **String** |  | 
-**trigger** | [**models::AbilityDetailPokemonInnerPokemon**](AbilityDetail_pokemon_inner_pokemon.md) |  | 
+**trigger** | [**models::AbilityDetailPokemonInnerPokemon**](AbilityDetailPokemonInnerPokemon.md) |  | 
 **turn_upside_down** | **bool** |  | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

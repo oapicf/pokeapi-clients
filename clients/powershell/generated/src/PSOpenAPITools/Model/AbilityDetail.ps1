@@ -112,15 +112,15 @@ function Initialize-AbilityDetail {
 
 
         $PSO = [PSCustomObject]@{
-            "id" = ${Id}
-            "name" = ${Name}
-            "is_main_series" = ${IsMainSeries}
-            "generation" = ${Generation}
-            "names" = ${Names}
-            "effect_entries" = ${EffectEntries}
-            "effect_changes" = ${EffectChanges}
-            "flavor_text_entries" = ${FlavorTextEntries}
-            "pokemon" = ${Pokemon}
+            'id' = ${Id}
+            'name' = ${Name}
+            'is_main_series' = ${IsMainSeries}
+            'generation' = ${Generation}
+            'names' = ${Names}
+            'effect_entries' = ${EffectEntries}
+            'effect_changes' = ${EffectChanges}
+            'flavor_text_entries' = ${FlavorTextEntries}
+            'pokemon' = ${Pokemon}
         }
 
 
@@ -158,7 +158,7 @@ function ConvertFrom-JsonToAbilityDetail {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in AbilityDetail
-        $AllProperties = ("id", "name", "is_main_series", "generation", "names", "effect_entries", "effect_changes", "flavor_text_entries", "pokemon")
+        $AllProperties = ('id', 'name', 'is_main_series', 'generation', 'names', 'effect_entries', 'effect_changes', 'flavor_text_entries', 'pokemon')
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -169,70 +169,70 @@ function ConvertFrom-JsonToAbilityDetail {
             throw "Error! Empty JSON cannot be serialized due to the required property 'id' missing."
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "id"))) {
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'id'))) {
             throw "Error! JSON cannot be serialized due to the required property 'id' missing."
         } else {
-            $Id = $JsonParameters.PSobject.Properties["id"].value
+            $Id = $JsonParameters.PSobject.Properties['id'].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "name"))) {
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'name'))) {
             throw "Error! JSON cannot be serialized due to the required property 'name' missing."
         } else {
-            $Name = $JsonParameters.PSobject.Properties["name"].value
+            $Name = $JsonParameters.PSobject.Properties['name'].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "generation"))) {
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'generation'))) {
             throw "Error! JSON cannot be serialized due to the required property 'generation' missing."
         } else {
-            $Generation = $JsonParameters.PSobject.Properties["generation"].value
+            $Generation = $JsonParameters.PSobject.Properties['generation'].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "names"))) {
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'names'))) {
             throw "Error! JSON cannot be serialized due to the required property 'names' missing."
         } else {
-            $Names = $JsonParameters.PSobject.Properties["names"].value
+            $Names = $JsonParameters.PSobject.Properties['names'].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "effect_entries"))) {
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'effect_entries'))) {
             throw "Error! JSON cannot be serialized due to the required property 'effect_entries' missing."
         } else {
-            $EffectEntries = $JsonParameters.PSobject.Properties["effect_entries"].value
+            $EffectEntries = $JsonParameters.PSobject.Properties['effect_entries'].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "effect_changes"))) {
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'effect_changes'))) {
             throw "Error! JSON cannot be serialized due to the required property 'effect_changes' missing."
         } else {
-            $EffectChanges = $JsonParameters.PSobject.Properties["effect_changes"].value
+            $EffectChanges = $JsonParameters.PSobject.Properties['effect_changes'].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "flavor_text_entries"))) {
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'flavor_text_entries'))) {
             throw "Error! JSON cannot be serialized due to the required property 'flavor_text_entries' missing."
         } else {
-            $FlavorTextEntries = $JsonParameters.PSobject.Properties["flavor_text_entries"].value
+            $FlavorTextEntries = $JsonParameters.PSobject.Properties['flavor_text_entries'].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "pokemon"))) {
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'pokemon'))) {
             throw "Error! JSON cannot be serialized due to the required property 'pokemon' missing."
         } else {
-            $Pokemon = $JsonParameters.PSobject.Properties["pokemon"].value
+            $Pokemon = $JsonParameters.PSobject.Properties['pokemon'].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "is_main_series"))) { #optional property not found
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'is_main_series'))) { #optional property not found
             $IsMainSeries = $null
         } else {
-            $IsMainSeries = $JsonParameters.PSobject.Properties["is_main_series"].value
+            $IsMainSeries = $JsonParameters.PSobject.Properties['is_main_series'].value
         }
 
         $PSO = [PSCustomObject]@{
-            "id" = ${Id}
-            "name" = ${Name}
-            "is_main_series" = ${IsMainSeries}
-            "generation" = ${Generation}
-            "names" = ${Names}
-            "effect_entries" = ${EffectEntries}
-            "effect_changes" = ${EffectChanges}
-            "flavor_text_entries" = ${FlavorTextEntries}
-            "pokemon" = ${Pokemon}
+            'id' = ${Id}
+            'name' = ${Name}
+            'is_main_series' = ${IsMainSeries}
+            'generation' = ${Generation}
+            'names' = ${Names}
+            'effect_entries' = ${EffectEntries}
+            'effect_changes' = ${EffectChanges}
+            'flavor_text_entries' = ${FlavorTextEntries}
+            'pokemon' = ${Pokemon}
         }
 
         return $PSO

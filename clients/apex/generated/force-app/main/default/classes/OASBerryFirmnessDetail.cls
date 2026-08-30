@@ -30,13 +30,13 @@ public class OASBerryFirmnessDetail {
      * Get berries
      * @return berries
      */
-    public List<OASBerrySummary> berries { get; set; }
+    public List<OASBerrySummary> berries { get; private set; }
 
     /**
      * Get names
      * @return names
      */
-    public List<OASBerryFirmnessName> names { get; set; }
+    public List<OASBerryFirmnessName> names { get; private set; }
 
     public OASBerryFirmnessDetail() {
         berries = new List<OASBerrySummary>();

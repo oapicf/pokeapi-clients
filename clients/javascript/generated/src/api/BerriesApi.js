@@ -23,7 +23,7 @@ import PaginatedBerrySummaryList from '../model/PaginatedBerrySummaryList';
 /**
 * Berries service.
 * @module api/BerriesApi
-* @version 1.2.1-pre.0
+* @version 2.0.1-pre.0
 */
 export default class BerriesApi {
 

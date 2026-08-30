@@ -20,14 +20,14 @@ typedef struct nature_detail_pokeathlon_stat_changes_inner_t nature_detail_pokea
 
 
 typedef struct nature_detail_pokeathlon_stat_changes_inner_t {
-    int max_change; //numeric
+    int *max_change; //numeric
     struct ability_detail_pokemon_inner_pokemon_t *pokeathlon_stat; //model
 
     int _library_owned; // Is the library responsible for freeing this object?
 } nature_detail_pokeathlon_stat_changes_inner_t;
 
 __attribute__((deprecated)) nature_detail_pokeathlon_stat_changes_inner_t *nature_detail_pokeathlon_stat_changes_inner_create(
-    int max_change,
+    int *max_change,
     ability_detail_pokemon_inner_pokemon_t *pokeathlon_stat
 );
 

@@ -32,7 +32,7 @@ class  GenderDetail_pokemon_species_details_inner
 {
 public:
     GenderDetail_pokemon_species_details_inner();
-    virtual ~GenderDetail_pokemon_species_details_inner() = default;
+    virtual ~GenderDetail_pokemon_species_details_inner();
 
 
     /// <summary>

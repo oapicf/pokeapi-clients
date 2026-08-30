@@ -130,7 +130,7 @@ export class BerriesApi {
     { response: JQueryXHR; body: models.BerryFirmnessDetail;  },
     { response: JQueryXHR; errorThrown: string }
     > {
-        let localVarPath = this.basePath + '/api/v2/berry-firmness/{id}/'.replace('{' + 'id' + '}', encodeURIComponent(String(id)));
+        let localVarPath = this.basePath + '/api/v2/berry-firmness/{id}/'.replace('{id}', encodeURIComponent(String(id)));
 
         let queryParameters: any = {};
         let headerParams: any = {};
@@ -274,7 +274,7 @@ export class BerriesApi {
     { response: JQueryXHR; body: models.BerryFlavorDetail;  },
     { response: JQueryXHR; errorThrown: string }
     > {
-        let localVarPath = this.basePath + '/api/v2/berry-flavor/{id}/'.replace('{' + 'id' + '}', encodeURIComponent(String(id)));
+        let localVarPath = this.basePath + '/api/v2/berry-flavor/{id}/'.replace('{id}', encodeURIComponent(String(id)));
 
         let queryParameters: any = {};
         let headerParams: any = {};
@@ -418,7 +418,7 @@ export class BerriesApi {
     { response: JQueryXHR; body: models.BerryDetail;  },
     { response: JQueryXHR; errorThrown: string }
     > {
-        let localVarPath = this.basePath + '/api/v2/berry/{id}/'.replace('{' + 'id' + '}', encodeURIComponent(String(id)));
+        let localVarPath = this.basePath + '/api/v2/berry/{id}/'.replace('{id}', encodeURIComponent(String(id)));
 
         let queryParameters: any = {};
         let headerParams: any = {};

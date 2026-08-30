@@ -53,8 +53,8 @@ function Initialize-ContestEffectFlavorText {
 
 
         $PSO = [PSCustomObject]@{
-            "flavor_text" = ${FlavorText}
-            "language" = ${Language}
+            'flavor_text' = ${FlavorText}
+            'language' = ${Language}
         }
 
 
@@ -92,7 +92,7 @@ function ConvertFrom-JsonToContestEffectFlavorText {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in ContestEffectFlavorText
-        $AllProperties = ("flavor_text", "language")
+        $AllProperties = ('flavor_text', 'language')
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -103,21 +103,21 @@ function ConvertFrom-JsonToContestEffectFlavorText {
             throw "Error! Empty JSON cannot be serialized due to the required property 'flavor_text' missing."
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "flavor_text"))) {
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'flavor_text'))) {
             throw "Error! JSON cannot be serialized due to the required property 'flavor_text' missing."
         } else {
-            $FlavorText = $JsonParameters.PSobject.Properties["flavor_text"].value
+            $FlavorText = $JsonParameters.PSobject.Properties['flavor_text'].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "language"))) {
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'language'))) {
             throw "Error! JSON cannot be serialized due to the required property 'language' missing."
         } else {
-            $Language = $JsonParameters.PSobject.Properties["language"].value
+            $Language = $JsonParameters.PSobject.Properties['language'].value
         }
 
         $PSO = [PSCustomObject]@{
-            "flavor_text" = ${FlavorText}
-            "language" = ${Language}
+            'flavor_text' = ${FlavorText}
+            'language' = ${Language}
         }
 
         return $PSO

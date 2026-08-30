@@ -54,25 +54,25 @@ public class OASNatureDetail implements OAS.MappedProperties {
      * Get berries
      * @return berries
      */
-    public List<OASBerrySummary> berries { get; set; }
+    public List<OASBerrySummary> berries { get; private set; }
 
     /**
      * Get pokeathlonStatChanges
      * @return pokeathlonStatChanges
      */
-    public List<OASNatureDetailPokeathlonStatChanges> pokeathlonStatChanges { get; set; }
+    public List<OASNatureDetailPokeathlonStatChanges> pokeathlonStatChanges { get; private set; }
 
     /**
      * Get moveBattleStylePreferences
      * @return moveBattleStylePreferences
      */
-    public List<OASNatureBattleStylePreference> moveBattleStylePreferences { get; set; }
+    public List<OASNatureBattleStylePreference> moveBattleStylePreferences { get; private set; }
 
     /**
      * Get names
      * @return names
      */
-    public List<OASNatureName> names { get; set; }
+    public List<OASNatureName> names { get; private set; }
 
     private static final Map<String, String> propertyMappings = new Map<String, String>{
         'decreased_stat' => 'decreasedStat',

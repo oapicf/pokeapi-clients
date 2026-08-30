@@ -7,19 +7,19 @@ Name | Mapping | SQL Type | Default | Type | Description | Notes
 ---- | ------- | -------- | ------- | ---- | ----------- | -----
 **id** | id | int NOT NULL PRIMARY KEY AUTOINCREMENT |  | **kotlin.Int** |  |  [readonly]
 **name** | name | text NOT NULL |  | **kotlin.String** |  | 
-**abilities** | `One-To-Many` | `----` | `----`  | [**kotlin.Array&lt;PokemonDetailAbilitiesInner&gt;**](PokemonDetailAbilitiesInner.md) |  | 
-**pastAbilities** | `One-To-Many` | `----` | `----`  | [**kotlin.Array&lt;PokemonDetailPastAbilitiesInner&gt;**](PokemonDetailPastAbilitiesInner.md) |  | 
-**forms** | `One-To-Many` | `----` | `----`  | [**kotlin.Array&lt;PokemonFormSummary&gt;**](PokemonFormSummary.md) |  | 
-**gameIndices** | `One-To-Many` | `----` | `----`  | [**kotlin.Array&lt;PokemonGameIndex&gt;**](PokemonGameIndex.md) |  | 
+**abilities** | `One-To-Many` | `----` | `----`  | [**kotlin.Array&lt;PokemonDetailAbilitiesInner&gt;**](PokemonDetailAbilitiesInner.md) |  |  [readonly]
+**pastAbilities** | `One-To-Many` | `----` | `----`  | [**kotlin.Array&lt;PokemonDetailPastAbilitiesInner&gt;**](PokemonDetailPastAbilitiesInner.md) |  |  [readonly]
+**forms** | `One-To-Many` | `----` | `----`  | [**kotlin.Array&lt;PokemonFormSummary&gt;**](PokemonFormSummary.md) |  |  [readonly]
+**gameIndices** | `One-To-Many` | `----` | `----`  | [**kotlin.Array&lt;PokemonGameIndex&gt;**](PokemonGameIndex.md) |  |  [readonly]
 **heldItems** | held_items | long NOT NULL |  | [**PokemonDetailHeldItems**](PokemonDetailHeldItems.md) |  |  [foreignkey]
 **locationAreaEncounters** | location_area_encounters | text NOT NULL |  | **kotlin.String** |  |  [readonly]
-**moves** | `One-To-Many` | `----` | `----`  | [**kotlin.Array&lt;PokemonDetailMovesInner&gt;**](PokemonDetailMovesInner.md) |  | 
+**moves** | `One-To-Many` | `----` | `----`  | [**kotlin.Array&lt;PokemonDetailMovesInner&gt;**](PokemonDetailMovesInner.md) |  |  [readonly]
 **species** | species | long NOT NULL |  | [**PokemonSpeciesSummary**](PokemonSpeciesSummary.md) |  |  [foreignkey]
 **sprites** | sprites | long NOT NULL |  | [**PokemonDetailSprites**](PokemonDetailSprites.md) |  |  [foreignkey]
 **cries** | cries | long NOT NULL |  | [**PokemonDetailCries**](PokemonDetailCries.md) |  |  [foreignkey]
-**stats** | `One-To-Many` | `----` | `----`  | [**kotlin.Array&lt;PokemonStat&gt;**](PokemonStat.md) |  | 
-**types** | `One-To-Many` | `----` | `----`  | [**kotlin.Array&lt;PokemonDetailTypesInner&gt;**](PokemonDetailTypesInner.md) |  | 
-**pastTypes** | `One-To-Many` | `----` | `----`  | [**kotlin.Array&lt;PokemonDetailPastTypesInner&gt;**](PokemonDetailPastTypesInner.md) |  | 
+**stats** | `One-To-Many` | `----` | `----`  | [**kotlin.Array&lt;PokemonStat&gt;**](PokemonStat.md) |  |  [readonly]
+**types** | `One-To-Many` | `----` | `----`  | [**kotlin.Array&lt;PokemonDetailTypesInner&gt;**](PokemonDetailTypesInner.md) |  |  [readonly]
+**pastTypes** | `One-To-Many` | `----` | `----`  | [**kotlin.Array&lt;PokemonDetailPastTypesInner&gt;**](PokemonDetailPastTypesInner.md) |  |  [readonly]
 **baseExperience** | base_experience | int |  | **kotlin.Int** |  |  [optional]
 **height** | height | int |  | **kotlin.Int** |  |  [optional]
 **isDefault** | is_default | boolean |  | **kotlin.Boolean** |  |  [optional]

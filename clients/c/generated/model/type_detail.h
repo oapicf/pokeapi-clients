@@ -28,7 +28,7 @@ typedef struct type_detail_t type_detail_t;
 
 
 typedef struct type_detail_t {
-    int id; //numeric
+    int *id; //numeric
     char *name; // string
     struct type_detail_damage_relations_t *damage_relations; //model
     list_t *past_damage_relations; //nonprimitive container
@@ -44,7 +44,7 @@ typedef struct type_detail_t {
 } type_detail_t;
 
 __attribute__((deprecated)) type_detail_t *type_detail_create(
-    int id,
+    int *id,
     char *name,
     type_detail_damage_relations_t *damage_relations,
     list_t *past_damage_relations,

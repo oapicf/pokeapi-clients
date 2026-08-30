@@ -51,7 +51,7 @@ import com.github.oapicf.pokeapiclient.JSON;
 /**
  * TypeDetailDamageRelations
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-07T15:22:35.747827932Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-08-30T01:55:28.842792947Z[Etc/UTC]", comments = "Generator version: 7.24.0")
 public class TypeDetailDamageRelations {
   public static final String SERIALIZED_NAME_NO_DAMAGE_TO = "no_damage_to";
   @SerializedName(SERIALIZED_NAME_NO_DAMAGE_TO)
@@ -290,10 +290,7 @@ public class TypeDetailDamageRelations {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 
@@ -336,66 +333,66 @@ public class TypeDetailDamageRelations {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      // ensure the json data is an array
-      if (!jsonObj.get("no_damage_to").isJsonArray()) {
-        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `no_damage_to` to be an array in the JSON string but got `%s`", jsonObj.get("no_damage_to").toString()));
+      if (jsonObj.get("no_damage_to") != null) {
+        if (!jsonObj.get("no_damage_to").isJsonArray()) {
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `no_damage_to` to be an array in the JSON string but got `%s`", jsonObj.get("no_damage_to").toString()));
+        }
+        JsonArray jsonArraynoDamageTo = jsonObj.getAsJsonArray("no_damage_to");
+        // validate the required field `no_damage_to` (array)
+        for (int i = 0; i < jsonArraynoDamageTo.size(); i++) {
+          AbilityDetailPokemonInnerPokemon.validateJsonElement(jsonArraynoDamageTo.get(i));
+        }
       }
-
-      JsonArray jsonArraynoDamageTo = jsonObj.getAsJsonArray("no_damage_to");
-      // validate the required field `no_damage_to` (array)
-      for (int i = 0; i < jsonArraynoDamageTo.size(); i++) {
-        AbilityDetailPokemonInnerPokemon.validateJsonElement(jsonArraynoDamageTo.get(i));
-      };
-      // ensure the json data is an array
-      if (!jsonObj.get("half_damage_to").isJsonArray()) {
-        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `half_damage_to` to be an array in the JSON string but got `%s`", jsonObj.get("half_damage_to").toString()));
+      if (jsonObj.get("half_damage_to") != null) {
+        if (!jsonObj.get("half_damage_to").isJsonArray()) {
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `half_damage_to` to be an array in the JSON string but got `%s`", jsonObj.get("half_damage_to").toString()));
+        }
+        JsonArray jsonArrayhalfDamageTo = jsonObj.getAsJsonArray("half_damage_to");
+        // validate the required field `half_damage_to` (array)
+        for (int i = 0; i < jsonArrayhalfDamageTo.size(); i++) {
+          AbilityDetailPokemonInnerPokemon.validateJsonElement(jsonArrayhalfDamageTo.get(i));
+        }
       }
-
-      JsonArray jsonArrayhalfDamageTo = jsonObj.getAsJsonArray("half_damage_to");
-      // validate the required field `half_damage_to` (array)
-      for (int i = 0; i < jsonArrayhalfDamageTo.size(); i++) {
-        AbilityDetailPokemonInnerPokemon.validateJsonElement(jsonArrayhalfDamageTo.get(i));
-      };
-      // ensure the json data is an array
-      if (!jsonObj.get("double_damage_to").isJsonArray()) {
-        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `double_damage_to` to be an array in the JSON string but got `%s`", jsonObj.get("double_damage_to").toString()));
+      if (jsonObj.get("double_damage_to") != null) {
+        if (!jsonObj.get("double_damage_to").isJsonArray()) {
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `double_damage_to` to be an array in the JSON string but got `%s`", jsonObj.get("double_damage_to").toString()));
+        }
+        JsonArray jsonArraydoubleDamageTo = jsonObj.getAsJsonArray("double_damage_to");
+        // validate the required field `double_damage_to` (array)
+        for (int i = 0; i < jsonArraydoubleDamageTo.size(); i++) {
+          AbilityDetailPokemonInnerPokemon.validateJsonElement(jsonArraydoubleDamageTo.get(i));
+        }
       }
-
-      JsonArray jsonArraydoubleDamageTo = jsonObj.getAsJsonArray("double_damage_to");
-      // validate the required field `double_damage_to` (array)
-      for (int i = 0; i < jsonArraydoubleDamageTo.size(); i++) {
-        AbilityDetailPokemonInnerPokemon.validateJsonElement(jsonArraydoubleDamageTo.get(i));
-      };
-      // ensure the json data is an array
-      if (!jsonObj.get("no_damage_from").isJsonArray()) {
-        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `no_damage_from` to be an array in the JSON string but got `%s`", jsonObj.get("no_damage_from").toString()));
+      if (jsonObj.get("no_damage_from") != null) {
+        if (!jsonObj.get("no_damage_from").isJsonArray()) {
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `no_damage_from` to be an array in the JSON string but got `%s`", jsonObj.get("no_damage_from").toString()));
+        }
+        JsonArray jsonArraynoDamageFrom = jsonObj.getAsJsonArray("no_damage_from");
+        // validate the required field `no_damage_from` (array)
+        for (int i = 0; i < jsonArraynoDamageFrom.size(); i++) {
+          AbilityDetailPokemonInnerPokemon.validateJsonElement(jsonArraynoDamageFrom.get(i));
+        }
       }
-
-      JsonArray jsonArraynoDamageFrom = jsonObj.getAsJsonArray("no_damage_from");
-      // validate the required field `no_damage_from` (array)
-      for (int i = 0; i < jsonArraynoDamageFrom.size(); i++) {
-        AbilityDetailPokemonInnerPokemon.validateJsonElement(jsonArraynoDamageFrom.get(i));
-      };
-      // ensure the json data is an array
-      if (!jsonObj.get("half_damage_from").isJsonArray()) {
-        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `half_damage_from` to be an array in the JSON string but got `%s`", jsonObj.get("half_damage_from").toString()));
+      if (jsonObj.get("half_damage_from") != null) {
+        if (!jsonObj.get("half_damage_from").isJsonArray()) {
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `half_damage_from` to be an array in the JSON string but got `%s`", jsonObj.get("half_damage_from").toString()));
+        }
+        JsonArray jsonArrayhalfDamageFrom = jsonObj.getAsJsonArray("half_damage_from");
+        // validate the required field `half_damage_from` (array)
+        for (int i = 0; i < jsonArrayhalfDamageFrom.size(); i++) {
+          AbilityDetailPokemonInnerPokemon.validateJsonElement(jsonArrayhalfDamageFrom.get(i));
+        }
       }
-
-      JsonArray jsonArrayhalfDamageFrom = jsonObj.getAsJsonArray("half_damage_from");
-      // validate the required field `half_damage_from` (array)
-      for (int i = 0; i < jsonArrayhalfDamageFrom.size(); i++) {
-        AbilityDetailPokemonInnerPokemon.validateJsonElement(jsonArrayhalfDamageFrom.get(i));
-      };
-      // ensure the json data is an array
-      if (!jsonObj.get("double_damage_from").isJsonArray()) {
-        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `double_damage_from` to be an array in the JSON string but got `%s`", jsonObj.get("double_damage_from").toString()));
+      if (jsonObj.get("double_damage_from") != null) {
+        if (!jsonObj.get("double_damage_from").isJsonArray()) {
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `double_damage_from` to be an array in the JSON string but got `%s`", jsonObj.get("double_damage_from").toString()));
+        }
+        JsonArray jsonArraydoubleDamageFrom = jsonObj.getAsJsonArray("double_damage_from");
+        // validate the required field `double_damage_from` (array)
+        for (int i = 0; i < jsonArraydoubleDamageFrom.size(); i++) {
+          AbilityDetailPokemonInnerPokemon.validateJsonElement(jsonArraydoubleDamageFrom.get(i));
+        }
       }
-
-      JsonArray jsonArraydoubleDamageFrom = jsonObj.getAsJsonArray("double_damage_from");
-      // validate the required field `double_damage_from` (array)
-      for (int i = 0; i < jsonArraydoubleDamageFrom.size(); i++) {
-        AbilityDetailPokemonInnerPokemon.validateJsonElement(jsonArraydoubleDamageFrom.get(i));
-      };
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {

@@ -35,10 +35,10 @@ export interface SuperContestEffectDetail {
      * @type {Array<SuperContestEffectFlavorText>}
      * @memberof SuperContestEffectDetail
      */
-    flavor_text_entries: Array<SuperContestEffectFlavorText>;
+    readonly flavor_text_entries: Array<SuperContestEffectFlavorText>;
     /**
      * @type {Array<MoveSummary>}
      * @memberof SuperContestEffectDetail
      */
-    moves: Array<MoveSummary>;
+    readonly moves: Array<MoveSummary>;
 }

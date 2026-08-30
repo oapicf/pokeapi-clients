@@ -25,7 +25,7 @@ import org.openapitools.model.PokemonStat;
 /**
  * PokemonDetail
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaMSF4JServerCodegen", date = "2026-02-07T15:23:10.683633502Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaMSF4JServerCodegen", date = "2026-08-30T01:55:58.248058654Z[Etc/UTC]", comments = "Generator version: 7.24.0")
 public class PokemonDetail   {
   @JsonProperty("id")
   private Integer id;
@@ -204,16 +204,6 @@ public class PokemonDetail   {
     this.weight = weight;
   }
 
-  public PokemonDetail abilities(List<@Valid PokemonDetailAbilitiesInner> abilities) {
-    this.abilities = abilities;
-    return this;
-  }
-
-  public PokemonDetail addAbilitiesItem(PokemonDetailAbilitiesInner abilitiesItem) {
-    this.abilities.add(abilitiesItem);
-    return this;
-  }
-
    /**
    * Get abilities
    * @return abilities
@@ -221,20 +211,6 @@ public class PokemonDetail   {
   @ApiModelProperty(required = true, value = "")
   public List<@Valid PokemonDetailAbilitiesInner> getAbilities() {
     return abilities;
-  }
-
-  public void setAbilities(List<@Valid PokemonDetailAbilitiesInner> abilities) {
-    this.abilities = abilities;
-  }
-
-  public PokemonDetail pastAbilities(List<@Valid PokemonDetailPastAbilitiesInner> pastAbilities) {
-    this.pastAbilities = pastAbilities;
-    return this;
-  }
-
-  public PokemonDetail addPastAbilitiesItem(PokemonDetailPastAbilitiesInner pastAbilitiesItem) {
-    this.pastAbilities.add(pastAbilitiesItem);
-    return this;
   }
 
    /**
@@ -246,20 +222,6 @@ public class PokemonDetail   {
     return pastAbilities;
   }
 
-  public void setPastAbilities(List<@Valid PokemonDetailPastAbilitiesInner> pastAbilities) {
-    this.pastAbilities = pastAbilities;
-  }
-
-  public PokemonDetail forms(List<@Valid PokemonFormSummary> forms) {
-    this.forms = forms;
-    return this;
-  }
-
-  public PokemonDetail addFormsItem(PokemonFormSummary formsItem) {
-    this.forms.add(formsItem);
-    return this;
-  }
-
    /**
    * Get forms
    * @return forms
@@ -269,20 +231,6 @@ public class PokemonDetail   {
     return forms;
   }
 
-  public void setForms(List<@Valid PokemonFormSummary> forms) {
-    this.forms = forms;
-  }
-
-  public PokemonDetail gameIndices(List<@Valid PokemonGameIndex> gameIndices) {
-    this.gameIndices = gameIndices;
-    return this;
-  }
-
-  public PokemonDetail addGameIndicesItem(PokemonGameIndex gameIndicesItem) {
-    this.gameIndices.add(gameIndicesItem);
-    return this;
-  }
-
    /**
    * Get gameIndices
    * @return gameIndices
@@ -290,10 +238,6 @@ public class PokemonDetail   {
   @ApiModelProperty(required = true, value = "")
   public List<@Valid PokemonGameIndex> getGameIndices() {
     return gameIndices;
-  }
-
-  public void setGameIndices(List<@Valid PokemonGameIndex> gameIndices) {
-    this.gameIndices = gameIndices;
   }
 
   public PokemonDetail heldItems(PokemonDetailHeldItems heldItems) {
@@ -323,16 +267,6 @@ public class PokemonDetail   {
     return locationAreaEncounters;
   }
 
-  public PokemonDetail moves(List<@Valid PokemonDetailMovesInner> moves) {
-    this.moves = moves;
-    return this;
-  }
-
-  public PokemonDetail addMovesItem(PokemonDetailMovesInner movesItem) {
-    this.moves.add(movesItem);
-    return this;
-  }
-
    /**
    * Get moves
    * @return moves
@@ -340,10 +274,6 @@ public class PokemonDetail   {
   @ApiModelProperty(required = true, value = "")
   public List<@Valid PokemonDetailMovesInner> getMoves() {
     return moves;
-  }
-
-  public void setMoves(List<@Valid PokemonDetailMovesInner> moves) {
-    this.moves = moves;
   }
 
   public PokemonDetail species(PokemonSpeciesSummary species) {
@@ -400,16 +330,6 @@ public class PokemonDetail   {
     this.cries = cries;
   }
 
-  public PokemonDetail stats(List<@Valid PokemonStat> stats) {
-    this.stats = stats;
-    return this;
-  }
-
-  public PokemonDetail addStatsItem(PokemonStat statsItem) {
-    this.stats.add(statsItem);
-    return this;
-  }
-
    /**
    * Get stats
    * @return stats
@@ -417,20 +337,6 @@ public class PokemonDetail   {
   @ApiModelProperty(required = true, value = "")
   public List<@Valid PokemonStat> getStats() {
     return stats;
-  }
-
-  public void setStats(List<@Valid PokemonStat> stats) {
-    this.stats = stats;
-  }
-
-  public PokemonDetail types(List<@Valid PokemonDetailTypesInner> types) {
-    this.types = types;
-    return this;
-  }
-
-  public PokemonDetail addTypesItem(PokemonDetailTypesInner typesItem) {
-    this.types.add(typesItem);
-    return this;
   }
 
    /**
@@ -442,20 +348,6 @@ public class PokemonDetail   {
     return types;
   }
 
-  public void setTypes(List<@Valid PokemonDetailTypesInner> types) {
-    this.types = types;
-  }
-
-  public PokemonDetail pastTypes(List<@Valid PokemonDetailPastTypesInner> pastTypes) {
-    this.pastTypes = pastTypes;
-    return this;
-  }
-
-  public PokemonDetail addPastTypesItem(PokemonDetailPastTypesInner pastTypesItem) {
-    this.pastTypes.add(pastTypesItem);
-    return this;
-  }
-
    /**
    * Get pastTypes
    * @return pastTypes
@@ -463,10 +355,6 @@ public class PokemonDetail   {
   @ApiModelProperty(required = true, value = "")
   public List<@Valid PokemonDetailPastTypesInner> getPastTypes() {
     return pastTypes;
-  }
-
-  public void setPastTypes(List<@Valid PokemonDetailPastTypesInner> pastTypes) {
-    this.pastTypes = pastTypes;
   }
 
 
@@ -540,10 +428,7 @@ public class PokemonDetail   {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 }
 

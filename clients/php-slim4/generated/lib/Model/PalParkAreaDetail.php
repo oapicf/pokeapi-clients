@@ -58,15 +58,19 @@ class PalParkAreaDetail extends BaseModel
     },
     "names" : {
       "type" : "array",
+      "readOnly" : true,
       "items" : {
         "$ref" : "#/components/schemas/PalParkAreaName"
-      }
+      },
+      "default" : null
     },
     "pokemon_encounters" : {
       "type" : "array",
+      "readOnly" : true,
       "items" : {
         "$ref" : "#/components/schemas/PalParkAreaDetail_pokemon_encounters_inner"
-      }
+      },
+      "default" : null
     }
   }
 }

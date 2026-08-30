@@ -68,13 +68,36 @@ MoveDetailMachinesInner <- R6::R6Class(
       MoveDetailMachinesInnerObject <- list()
       if (!is.null(self$`machine`)) {
         MoveDetailMachinesInnerObject[["machine"]] <-
-          self$`machine`$toSimpleType()
+          self$extractSimpleType(self$`machine`)
       }
       if (!is.null(self$`version_group`)) {
         MoveDetailMachinesInnerObject[["version_group"]] <-
-          self$`version_group`$toSimpleType()
+          self$extractSimpleType(self$`version_group`)
       }
       return(MoveDetailMachinesInnerObject)
+    },
+
+    extractSimpleType = function(x) {
+      if (R6::is.R6(x)) {
+        return(x$toSimpleType())
+      } else if (!self$hasNestedR6(x)) {
+        return(x)
+      }
+      lapply(x, self$extractSimpleType)
+    },
+
+    hasNestedR6 = function(x) {
+      if (R6::is.R6(x)) {
+        return(TRUE)
+      }
+      if (is.list(x)) {
+        for (item in x) {
+          if (self$hasNestedR6(item)) {
+            return(TRUE)
+          }
+        }
+      }
+      FALSE
     },
 
     #' @description

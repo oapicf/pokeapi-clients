@@ -21,7 +21,7 @@
 
 namespace OpenAPI {
 
-OAILocationAreaDetail_encounter_method_rates_inner::OAILocationAreaDetail_encounter_method_rates_inner(QString json) {
+OAILocationAreaDetail_encounter_method_rates_inner::OAILocationAreaDetail_encounter_method_rates_inner(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -41,7 +41,7 @@ void OAILocationAreaDetail_encounter_method_rates_inner::initializeModel() {
     m_version_details_isValid = false;
 }
 
-void OAILocationAreaDetail_encounter_method_rates_inner::fromJson(QString jsonString) {
+void OAILocationAreaDetail_encounter_method_rates_inner::fromJson(const QString &jsonString) {
     QByteArray array(jsonString.toStdString().c_str());
     QJsonDocument doc = QJsonDocument::fromJson(array);
     QJsonObject jsonObject = doc.object();

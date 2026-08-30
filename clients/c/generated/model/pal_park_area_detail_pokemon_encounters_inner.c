@@ -6,32 +6,47 @@
 
 
 static pal_park_area_detail_pokemon_encounters_inner_t *pal_park_area_detail_pokemon_encounters_inner_create_internal(
-    int base_score,
+    int *base_score,
     ability_detail_pokemon_inner_pokemon_t *pokemon_species,
-    int rate
+    int *rate
     ) {
     pal_park_area_detail_pokemon_encounters_inner_t *pal_park_area_detail_pokemon_encounters_inner_local_var = malloc(sizeof(pal_park_area_detail_pokemon_encounters_inner_t));
     if (!pal_park_area_detail_pokemon_encounters_inner_local_var) {
         return NULL;
     }
+    memset(pal_park_area_detail_pokemon_encounters_inner_local_var, 0, sizeof(pal_park_area_detail_pokemon_encounters_inner_t));
+    pal_park_area_detail_pokemon_encounters_inner_local_var->_library_owned = 1;
     pal_park_area_detail_pokemon_encounters_inner_local_var->base_score = base_score;
     pal_park_area_detail_pokemon_encounters_inner_local_var->pokemon_species = pokemon_species;
     pal_park_area_detail_pokemon_encounters_inner_local_var->rate = rate;
-
-    pal_park_area_detail_pokemon_encounters_inner_local_var->_library_owned = 1;
     return pal_park_area_detail_pokemon_encounters_inner_local_var;
 }
 
 __attribute__((deprecated)) pal_park_area_detail_pokemon_encounters_inner_t *pal_park_area_detail_pokemon_encounters_inner_create(
-    int base_score,
+    int *base_score,
     ability_detail_pokemon_inner_pokemon_t *pokemon_species,
-    int rate
+    int *rate
     ) {
-    return pal_park_area_detail_pokemon_encounters_inner_create_internal (
-        base_score,
+    int *base_score_copy = NULL;
+    if (base_score) {
+        base_score_copy = malloc(sizeof(int));
+        if (base_score_copy) *base_score_copy = *base_score;
+    }
+    int *rate_copy = NULL;
+    if (rate) {
+        rate_copy = malloc(sizeof(int));
+        if (rate_copy) *rate_copy = *rate;
+    }
+    pal_park_area_detail_pokemon_encounters_inner_t *result = pal_park_area_detail_pokemon_encounters_inner_create_internal (
+        base_score_copy,
         pokemon_species,
-        rate
+        rate_copy
         );
+    if (!result) {
+        free(base_score_copy);
+        free(rate_copy);
+    }
+    return result;
 }
 
 void pal_park_area_detail_pokemon_encounters_inner_free(pal_park_area_detail_pokemon_encounters_inner_t *pal_park_area_detail_pokemon_encounters_inner) {
@@ -43,9 +58,17 @@ void pal_park_area_detail_pokemon_encounters_inner_free(pal_park_area_detail_pok
         return ;
     }
     listEntry_t *listEntry;
+    if (pal_park_area_detail_pokemon_encounters_inner->base_score) {
+        free(pal_park_area_detail_pokemon_encounters_inner->base_score);
+        pal_park_area_detail_pokemon_encounters_inner->base_score = NULL;
+    }
     if (pal_park_area_detail_pokemon_encounters_inner->pokemon_species) {
         ability_detail_pokemon_inner_pokemon_free(pal_park_area_detail_pokemon_encounters_inner->pokemon_species);
         pal_park_area_detail_pokemon_encounters_inner->pokemon_species = NULL;
+    }
+    if (pal_park_area_detail_pokemon_encounters_inner->rate) {
+        free(pal_park_area_detail_pokemon_encounters_inner->rate);
+        pal_park_area_detail_pokemon_encounters_inner->rate = NULL;
     }
     free(pal_park_area_detail_pokemon_encounters_inner);
 }
@@ -57,7 +80,7 @@ cJSON *pal_park_area_detail_pokemon_encounters_inner_convertToJSON(pal_park_area
     if (!pal_park_area_detail_pokemon_encounters_inner->base_score) {
         goto fail;
     }
-    if(cJSON_AddNumberToObject(item, "base_score", pal_park_area_detail_pokemon_encounters_inner->base_score) == NULL) {
+    if(cJSON_AddNumberToObject(item, "base_score", *pal_park_area_detail_pokemon_encounters_inner->base_score) == NULL) {
     goto fail; //Numeric
     }
 
@@ -80,7 +103,7 @@ cJSON *pal_park_area_detail_pokemon_encounters_inner_convertToJSON(pal_park_area
     if (!pal_park_area_detail_pokemon_encounters_inner->rate) {
         goto fail;
     }
-    if(cJSON_AddNumberToObject(item, "rate", pal_park_area_detail_pokemon_encounters_inner->rate) == NULL) {
+    if(cJSON_AddNumberToObject(item, "rate", *pal_park_area_detail_pokemon_encounters_inner->rate) == NULL) {
     goto fail; //Numeric
     }
 
@@ -96,8 +119,14 @@ pal_park_area_detail_pokemon_encounters_inner_t *pal_park_area_detail_pokemon_en
 
     pal_park_area_detail_pokemon_encounters_inner_t *pal_park_area_detail_pokemon_encounters_inner_local_var = NULL;
 
+    // define the local variable for pal_park_area_detail_pokemon_encounters_inner->base_score
+    int *base_score_local_var = NULL;
+
     // define the local variable for pal_park_area_detail_pokemon_encounters_inner->pokemon_species
     ability_detail_pokemon_inner_pokemon_t *pokemon_species_local_nonprim = NULL;
+
+    // define the local variable for pal_park_area_detail_pokemon_encounters_inner->rate
+    int *rate_local_var = NULL;
 
     // pal_park_area_detail_pokemon_encounters_inner->base_score
     cJSON *base_score = cJSON_GetObjectItemCaseSensitive(pal_park_area_detail_pokemon_encounters_innerJSON, "base_score");
@@ -113,6 +142,12 @@ pal_park_area_detail_pokemon_encounters_inner_t *pal_park_area_detail_pokemon_en
     {
     goto end; //Numeric
     }
+    base_score_local_var = malloc(sizeof(int));
+    if(!base_score_local_var)
+    {
+        goto end;
+    }
+    *base_score_local_var = base_score->valuedouble;
 
     // pal_park_area_detail_pokemon_encounters_inner->pokemon_species
     cJSON *pokemon_species = cJSON_GetObjectItemCaseSensitive(pal_park_area_detail_pokemon_encounters_innerJSON, "pokemon-species");
@@ -140,19 +175,38 @@ pal_park_area_detail_pokemon_encounters_inner_t *pal_park_area_detail_pokemon_en
     {
     goto end; //Numeric
     }
+    rate_local_var = malloc(sizeof(int));
+    if(!rate_local_var)
+    {
+        goto end;
+    }
+    *rate_local_var = rate->valuedouble;
+
 
 
     pal_park_area_detail_pokemon_encounters_inner_local_var = pal_park_area_detail_pokemon_encounters_inner_create_internal (
-        base_score->valuedouble,
+        base_score_local_var,
         pokemon_species_local_nonprim,
-        rate->valuedouble
+        rate_local_var
         );
+
+    if (!pal_park_area_detail_pokemon_encounters_inner_local_var) {
+        goto end;
+    }
 
     return pal_park_area_detail_pokemon_encounters_inner_local_var;
 end:
+    if (base_score_local_var) {
+        free(base_score_local_var);
+        base_score_local_var = NULL;
+    }
     if (pokemon_species_local_nonprim) {
         ability_detail_pokemon_inner_pokemon_free(pokemon_species_local_nonprim);
         pokemon_species_local_nonprim = NULL;
+    }
+    if (rate_local_var) {
+        free(rate_local_var);
+        rate_local_var = NULL;
     }
     return NULL;
 

@@ -1,4 +1,3 @@
-.openapi-generator-ignore
 openapi2graphql/api/berries_api.graphql
 openapi2graphql/api/contests_api.graphql
 openapi2graphql/api/encounters_api.graphql

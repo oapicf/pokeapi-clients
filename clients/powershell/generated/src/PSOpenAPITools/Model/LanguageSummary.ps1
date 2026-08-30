@@ -53,8 +53,8 @@ function Initialize-LanguageSummary {
 
 
         $PSO = [PSCustomObject]@{
-            "name" = ${Name}
-            "url" = ${Url}
+            'name' = ${Name}
+            'url' = ${Url}
         }
 
 
@@ -92,7 +92,7 @@ function ConvertFrom-JsonToLanguageSummary {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in LanguageSummary
-        $AllProperties = ("name", "url")
+        $AllProperties = ('name', 'url')
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -103,21 +103,21 @@ function ConvertFrom-JsonToLanguageSummary {
             throw "Error! Empty JSON cannot be serialized due to the required property 'name' missing."
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "name"))) {
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'name'))) {
             throw "Error! JSON cannot be serialized due to the required property 'name' missing."
         } else {
-            $Name = $JsonParameters.PSobject.Properties["name"].value
+            $Name = $JsonParameters.PSobject.Properties['name'].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "url"))) {
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'url'))) {
             throw "Error! JSON cannot be serialized due to the required property 'url' missing."
         } else {
-            $Url = $JsonParameters.PSobject.Properties["url"].value
+            $Url = $JsonParameters.PSobject.Properties['url'].value
         }
 
         $PSO = [PSCustomObject]@{
-            "name" = ${Name}
-            "url" = ${Url}
+            'name' = ${Name}
+            'url' = ${Url}
         }
 
         return $PSO

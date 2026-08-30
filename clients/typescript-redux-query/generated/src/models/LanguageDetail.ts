@@ -59,7 +59,7 @@ export interface LanguageDetail  {
      * @type {Array<LanguageName>}
      * @memberof LanguageDetail
      */
-    names: Array<LanguageName>;
+    readonly names: Array<LanguageName>;
 }
 
 export function LanguageDetailFromJSON(json: any): LanguageDetail {
@@ -82,7 +82,6 @@ export function LanguageDetailToJSON(value?: LanguageDetail): any {
         'official': value.official,
         'iso639': value.iso639,
         'iso3166': value.iso3166,
-        'names': (value.names as Array<any>).map(LanguageNameToJSON),
     };
 }
 

@@ -33,12 +33,12 @@ resourceTypes {
           optional = true
         }
         known_move {
-          type =  
+          type = EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender
           description = ""
           optional = true
         }
         known_move_type {
-          type =  
+          type = EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender
           description = ""
           optional = true
         }

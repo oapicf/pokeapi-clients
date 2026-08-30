@@ -7,11 +7,11 @@ Name | Mapping | SQL Type | Default | Type | Description | Notes
 ---- | ------- | -------- | ------- | ---- | ----------- | -----
 **id** | id | int NOT NULL PRIMARY KEY AUTOINCREMENT |  | **kotlin.Int** |  |  [readonly]
 **name** | name | text NOT NULL |  | **kotlin.String** |  | 
-**descriptions** | `One-To-Many` | `----` | `----`  | [**kotlin.Array&lt;PokedexDescription&gt;**](PokedexDescription.md) |  | 
-**names** | `One-To-Many` | `----` | `----`  | [**kotlin.Array&lt;PokedexName&gt;**](PokedexName.md) |  | 
-**pokemonEntries** | `One-To-Many` | `----` | `----`  | [**kotlin.Array&lt;PokedexDetailPokemonEntriesInner&gt;**](PokedexDetailPokemonEntriesInner.md) |  | 
+**descriptions** | `One-To-Many` | `----` | `----`  | [**kotlin.Array&lt;PokedexDescription&gt;**](PokedexDescription.md) |  |  [readonly]
+**names** | `One-To-Many` | `----` | `----`  | [**kotlin.Array&lt;PokedexName&gt;**](PokedexName.md) |  |  [readonly]
+**pokemonEntries** | `One-To-Many` | `----` | `----`  | [**kotlin.Array&lt;PokedexDetailPokemonEntriesInner&gt;**](PokedexDetailPokemonEntriesInner.md) |  |  [readonly]
 **region** | region | long NOT NULL |  | [**RegionSummary**](RegionSummary.md) |  |  [foreignkey]
-**versionGroups** | `One-To-Many` | `----` | `----`  | [**kotlin.Array&lt;AbilityDetailPokemonInnerPokemon&gt;**](AbilityDetailPokemonInnerPokemon.md) |  | 
+**versionGroups** | `One-To-Many` | `----` | `----`  | [**kotlin.Array&lt;AbilityDetailPokemonInnerPokemon&gt;**](AbilityDetailPokemonInnerPokemon.md) |  |  [readonly]
 **isMainSeries** | is_main_series | boolean |  | **kotlin.Boolean** |  |  [optional]
 
 

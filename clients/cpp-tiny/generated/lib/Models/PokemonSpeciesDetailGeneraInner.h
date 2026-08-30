@@ -52,14 +52,14 @@ public:
 
 	/*! \brief Set 
 	 */
-	void setGenus(std::string  genus);
+	void setGenus(std::string genus);
 	/*! \brief Get 
 	 */
 	AbilityDetail_pokemon_inner_pokemon getLanguage();
 
 	/*! \brief Set 
 	 */
-	void setLanguage(AbilityDetail_pokemon_inner_pokemon  language);
+	void setLanguage(AbilityDetail_pokemon_inner_pokemon language);
 
 
     private:

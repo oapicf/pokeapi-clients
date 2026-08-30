@@ -10,10 +10,10 @@ Name | Type | Description | Notes
 **increased_stat** | [**models::StatSummary**](StatSummary.md) |  | 
 **likes_flavor** | [**models::BerryFlavorSummary**](BerryFlavorSummary.md) |  | 
 **hates_flavor** | [**models::BerryFlavorSummary**](BerryFlavorSummary.md) |  | 
-**berries** | [**Vec<models::BerrySummary>**](BerrySummary.md) |  | 
-**pokeathlon_stat_changes** | [**Vec<models::NatureDetailPokeathlonStatChangesInner>**](NatureDetail_pokeathlon_stat_changes_inner.md) |  | 
-**move_battle_style_preferences** | [**Vec<models::NatureBattleStylePreference>**](NatureBattleStylePreference.md) |  | 
-**names** | [**Vec<models::NatureName>**](NatureName.md) |  | 
+**berries** | [**Vec<models::BerrySummary>**](BerrySummary.md) |  | [readonly]
+**pokeathlon_stat_changes** | [**Vec<models::NatureDetailPokeathlonStatChangesInner>**](NatureDetailPokeathlonStatChangesInner.md) |  | [readonly]
+**move_battle_style_preferences** | [**Vec<models::NatureBattleStylePreference>**](NatureBattleStylePreference.md) |  | [readonly]
+**names** | [**Vec<models::NatureName>**](NatureName.md) |  | [readonly]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

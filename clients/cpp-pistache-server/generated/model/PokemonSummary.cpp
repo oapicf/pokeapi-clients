@@ -26,6 +26,8 @@ PokemonSummary::PokemonSummary()
     
 }
 
+PokemonSummary::~PokemonSummary() = default;
+
 void PokemonSummary::validate() const
 {
     std::stringstream msg;

@@ -58,15 +58,19 @@ class MoveMetaAilmentDetail extends BaseModel
     },
     "moves" : {
       "type" : "array",
+      "readOnly" : true,
       "items" : {
         "$ref" : "#/components/schemas/AbilityDetail_pokemon_inner_pokemon"
-      }
+      },
+      "default" : null
     },
     "names" : {
       "type" : "array",
+      "readOnly" : true,
       "items" : {
         "$ref" : "#/components/schemas/MoveMetaAilmentName"
-      }
+      },
+      "default" : null
     }
   }
 }

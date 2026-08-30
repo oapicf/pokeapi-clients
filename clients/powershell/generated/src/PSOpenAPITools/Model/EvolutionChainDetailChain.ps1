@@ -67,10 +67,10 @@ function Initialize-EvolutionChainDetailChain {
 
 
         $PSO = [PSCustomObject]@{
-            "evolution_details" = ${EvolutionDetails}
-            "evolves_to" = ${EvolvesTo}
-            "is_baby" = ${IsBaby}
-            "species" = ${Species}
+            'evolution_details' = ${EvolutionDetails}
+            'evolves_to' = ${EvolvesTo}
+            'is_baby' = ${IsBaby}
+            'species' = ${Species}
         }
 
 
@@ -108,7 +108,7 @@ function ConvertFrom-JsonToEvolutionChainDetailChain {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in EvolutionChainDetailChain
-        $AllProperties = ("evolution_details", "evolves_to", "is_baby", "species")
+        $AllProperties = ('evolution_details', 'evolves_to', 'is_baby', 'species')
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -119,35 +119,35 @@ function ConvertFrom-JsonToEvolutionChainDetailChain {
             throw "Error! Empty JSON cannot be serialized due to the required property 'evolution_details' missing."
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "evolution_details"))) {
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'evolution_details'))) {
             throw "Error! JSON cannot be serialized due to the required property 'evolution_details' missing."
         } else {
-            $EvolutionDetails = $JsonParameters.PSobject.Properties["evolution_details"].value
+            $EvolutionDetails = $JsonParameters.PSobject.Properties['evolution_details'].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "evolves_to"))) {
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'evolves_to'))) {
             throw "Error! JSON cannot be serialized due to the required property 'evolves_to' missing."
         } else {
-            $EvolvesTo = $JsonParameters.PSobject.Properties["evolves_to"].value
+            $EvolvesTo = $JsonParameters.PSobject.Properties['evolves_to'].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "is_baby"))) {
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'is_baby'))) {
             throw "Error! JSON cannot be serialized due to the required property 'is_baby' missing."
         } else {
-            $IsBaby = $JsonParameters.PSobject.Properties["is_baby"].value
+            $IsBaby = $JsonParameters.PSobject.Properties['is_baby'].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "species"))) {
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'species'))) {
             throw "Error! JSON cannot be serialized due to the required property 'species' missing."
         } else {
-            $Species = $JsonParameters.PSobject.Properties["species"].value
+            $Species = $JsonParameters.PSobject.Properties['species'].value
         }
 
         $PSO = [PSCustomObject]@{
-            "evolution_details" = ${EvolutionDetails}
-            "evolves_to" = ${EvolvesTo}
-            "is_baby" = ${IsBaby}
-            "species" = ${Species}
+            'evolution_details' = ${EvolutionDetails}
+            'evolves_to' = ${EvolvesTo}
+            'is_baby' = ${IsBaby}
+            'species' = ${Species}
         }
 
         return $PSO

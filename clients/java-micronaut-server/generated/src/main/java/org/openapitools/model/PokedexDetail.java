@@ -44,7 +44,7 @@ import io.swagger.v3.oas.annotations.media.Schema;
   PokedexDetail.JSON_PROPERTY_VERSION_GROUPS
 })
 @JsonTypeName("PokedexDetail")
-@Generated(value="org.openapitools.codegen.languages.JavaMicronautServerCodegen", date="2026-02-07T15:23:03.167972722Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@Generated(value="org.openapitools.codegen.languages.JavaMicronautServerCodegen", date="2026-08-30T01:55:54.631003115Z[Etc/UTC]", comments = "Generator version: 7.24.0")
 @Introspected
 public class PokedexDetail {
     public static final String JSON_PROPERTY_ID = "id";
@@ -140,42 +140,16 @@ public class PokedexDetail {
         this.isMainSeries = isMainSeries;
     }
 
-    public PokedexDetail descriptions(List<@Valid PokedexDescription> descriptions) {
-        this.descriptions = descriptions;
-        return this;
-    }
-
-    public PokedexDetail addDescriptionsItem(PokedexDescription descriptionsItem) {
-        this.descriptions.add(descriptionsItem);
-        return this;
-    }
-
     /**
      * Get descriptions
      * @return descriptions
      */
     @NotNull
-    @Schema(name = "descriptions", requiredMode = Schema.RequiredMode.REQUIRED)
+    @Schema(name = "descriptions", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
     @JsonProperty(JSON_PROPERTY_DESCRIPTIONS)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public List<@Valid PokedexDescription> getDescriptions() {
         return descriptions;
-    }
-
-    @JsonProperty(JSON_PROPERTY_DESCRIPTIONS)
-    @JsonInclude(value = JsonInclude.Include.ALWAYS)
-    public void setDescriptions(List<@Valid PokedexDescription> descriptions) {
-        this.descriptions = descriptions;
-    }
-
-    public PokedexDetail names(List<@Valid PokedexName> names) {
-        this.names = names;
-        return this;
-    }
-
-    public PokedexDetail addNamesItem(PokedexName namesItem) {
-        this.names.add(namesItem);
-        return this;
     }
 
     /**
@@ -183,27 +157,11 @@ public class PokedexDetail {
      * @return names
      */
     @NotNull
-    @Schema(name = "names", requiredMode = Schema.RequiredMode.REQUIRED)
+    @Schema(name = "names", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
     @JsonProperty(JSON_PROPERTY_NAMES)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public List<@Valid PokedexName> getNames() {
         return names;
-    }
-
-    @JsonProperty(JSON_PROPERTY_NAMES)
-    @JsonInclude(value = JsonInclude.Include.ALWAYS)
-    public void setNames(List<@Valid PokedexName> names) {
-        this.names = names;
-    }
-
-    public PokedexDetail pokemonEntries(List<@Valid PokedexDetailPokemonEntriesInner> pokemonEntries) {
-        this.pokemonEntries = pokemonEntries;
-        return this;
-    }
-
-    public PokedexDetail addPokemonEntriesItem(PokedexDetailPokemonEntriesInner pokemonEntriesItem) {
-        this.pokemonEntries.add(pokemonEntriesItem);
-        return this;
     }
 
     /**
@@ -211,17 +169,11 @@ public class PokedexDetail {
      * @return pokemonEntries
      */
     @NotNull
-    @Schema(name = "pokemon_entries", requiredMode = Schema.RequiredMode.REQUIRED)
+    @Schema(name = "pokemon_entries", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
     @JsonProperty(JSON_PROPERTY_POKEMON_ENTRIES)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public List<@Valid PokedexDetailPokemonEntriesInner> getPokemonEntries() {
         return pokemonEntries;
-    }
-
-    @JsonProperty(JSON_PROPERTY_POKEMON_ENTRIES)
-    @JsonInclude(value = JsonInclude.Include.ALWAYS)
-    public void setPokemonEntries(List<@Valid PokedexDetailPokemonEntriesInner> pokemonEntries) {
-        this.pokemonEntries = pokemonEntries;
     }
 
     public PokedexDetail region(RegionSummary region) {
@@ -248,32 +200,16 @@ public class PokedexDetail {
         this.region = region;
     }
 
-    public PokedexDetail versionGroups(List<@Valid AbilityDetailPokemonInnerPokemon> versionGroups) {
-        this.versionGroups = versionGroups;
-        return this;
-    }
-
-    public PokedexDetail addVersionGroupsItem(AbilityDetailPokemonInnerPokemon versionGroupsItem) {
-        this.versionGroups.add(versionGroupsItem);
-        return this;
-    }
-
     /**
      * Get versionGroups
      * @return versionGroups
      */
     @NotNull
-    @Schema(name = "version_groups", requiredMode = Schema.RequiredMode.REQUIRED)
+    @Schema(name = "version_groups", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
     @JsonProperty(JSON_PROPERTY_VERSION_GROUPS)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public List<@Valid AbilityDetailPokemonInnerPokemon> getVersionGroups() {
         return versionGroups;
-    }
-
-    @JsonProperty(JSON_PROPERTY_VERSION_GROUPS)
-    @JsonInclude(value = JsonInclude.Include.ALWAYS)
-    public void setVersionGroups(List<@Valid AbilityDetailPokemonInnerPokemon> versionGroups) {
-        this.versionGroups = versionGroups;
     }
 
     @Override
@@ -321,10 +257,7 @@ public class PokedexDetail {
      * (except the first line).
      */
     private String toIndentedString(Object o) {
-        if (o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
+        return o == null ? "null" : o.toString().replace("\n", "\n    ");
     }
 
 }

@@ -52,7 +52,7 @@ import com.github.oapicf.pokeapiclient.JSON;
 /**
  * ItemFlingEffectDetail
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-07T15:22:35.747827932Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-08-30T01:55:28.842792947Z[Etc/UTC]", comments = "Generator version: 7.24.0")
 public class ItemFlingEffectDetail {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -78,10 +78,14 @@ public class ItemFlingEffectDetail {
   }
 
   public ItemFlingEffectDetail(
-     Integer id
+     Integer id, 
+     List<ItemFlingEffectEffectText> effectEntries, 
+     List<ItemSummary> items
   ) {
     this();
     this.id = id;
+    this.effectEntries = effectEntries;
+    this.items = items;
   }
 
   /**
@@ -114,19 +118,6 @@ public class ItemFlingEffectDetail {
   }
 
 
-  public ItemFlingEffectDetail effectEntries(@javax.annotation.Nonnull List<ItemFlingEffectEffectText> effectEntries) {
-    this.effectEntries = effectEntries;
-    return this;
-  }
-
-  public ItemFlingEffectDetail addEffectEntriesItem(ItemFlingEffectEffectText effectEntriesItem) {
-    if (this.effectEntries == null) {
-      this.effectEntries = new ArrayList<>();
-    }
-    this.effectEntries.add(effectEntriesItem);
-    return this;
-  }
-
   /**
    * Get effectEntries
    * @return effectEntries
@@ -136,23 +127,7 @@ public class ItemFlingEffectDetail {
     return effectEntries;
   }
 
-  public void setEffectEntries(@javax.annotation.Nonnull List<ItemFlingEffectEffectText> effectEntries) {
-    this.effectEntries = effectEntries;
-  }
 
-
-  public ItemFlingEffectDetail items(@javax.annotation.Nonnull List<ItemSummary> items) {
-    this.items = items;
-    return this;
-  }
-
-  public ItemFlingEffectDetail addItemsItem(ItemSummary itemsItem) {
-    if (this.items == null) {
-      this.items = new ArrayList<>();
-    }
-    this.items.add(itemsItem);
-    return this;
-  }
 
   /**
    * Get items
@@ -163,9 +138,6 @@ public class ItemFlingEffectDetail {
     return items;
   }
 
-  public void setItems(@javax.annotation.Nonnull List<ItemSummary> items) {
-    this.items = items;
-  }
 
 
 
@@ -206,10 +178,7 @@ public class ItemFlingEffectDetail {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 
@@ -255,26 +224,26 @@ public class ItemFlingEffectDetail {
       if (!jsonObj.get("name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
       }
-      // ensure the json data is an array
-      if (!jsonObj.get("effect_entries").isJsonArray()) {
-        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `effect_entries` to be an array in the JSON string but got `%s`", jsonObj.get("effect_entries").toString()));
+      if (jsonObj.get("effect_entries") != null) {
+        if (!jsonObj.get("effect_entries").isJsonArray()) {
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `effect_entries` to be an array in the JSON string but got `%s`", jsonObj.get("effect_entries").toString()));
+        }
+        JsonArray jsonArrayeffectEntries = jsonObj.getAsJsonArray("effect_entries");
+        // validate the required field `effect_entries` (array)
+        for (int i = 0; i < jsonArrayeffectEntries.size(); i++) {
+          ItemFlingEffectEffectText.validateJsonElement(jsonArrayeffectEntries.get(i));
+        }
       }
-
-      JsonArray jsonArrayeffectEntries = jsonObj.getAsJsonArray("effect_entries");
-      // validate the required field `effect_entries` (array)
-      for (int i = 0; i < jsonArrayeffectEntries.size(); i++) {
-        ItemFlingEffectEffectText.validateJsonElement(jsonArrayeffectEntries.get(i));
-      };
-      // ensure the json data is an array
-      if (!jsonObj.get("items").isJsonArray()) {
-        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `items` to be an array in the JSON string but got `%s`", jsonObj.get("items").toString()));
+      if (jsonObj.get("items") != null) {
+        if (!jsonObj.get("items").isJsonArray()) {
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `items` to be an array in the JSON string but got `%s`", jsonObj.get("items").toString()));
+        }
+        JsonArray jsonArrayitems = jsonObj.getAsJsonArray("items");
+        // validate the required field `items` (array)
+        for (int i = 0; i < jsonArrayitems.size(); i++) {
+          ItemSummary.validateJsonElement(jsonArrayitems.get(i));
+        }
       }
-
-      JsonArray jsonArrayitems = jsonObj.getAsJsonArray("items");
-      // validate the required field `items` (array)
-      for (int i = 0; i < jsonArrayitems.size(); i++) {
-        ItemSummary.validateJsonElement(jsonArrayitems.get(i));
-      };
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {

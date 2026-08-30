@@ -51,14 +51,14 @@ public:
 
 	/*! \brief Set 
 	 */
-	void setLevel(int  level);
+	void setLevel(int level);
 	/*! \brief Get 
 	 */
 	int getExperience();
 
 	/*! \brief Set 
 	 */
-	void setExperience(int  experience);
+	void setExperience(int experience);
 
 
     private:

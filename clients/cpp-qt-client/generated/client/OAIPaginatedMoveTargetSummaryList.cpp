@@ -21,7 +21,7 @@
 
 namespace OpenAPI {
 
-OAIPaginatedMoveTargetSummaryList::OAIPaginatedMoveTargetSummaryList(QString json) {
+OAIPaginatedMoveTargetSummaryList::OAIPaginatedMoveTargetSummaryList(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -47,7 +47,7 @@ void OAIPaginatedMoveTargetSummaryList::initializeModel() {
     m_results_isValid = false;
 }
 
-void OAIPaginatedMoveTargetSummaryList::fromJson(QString jsonString) {
+void OAIPaginatedMoveTargetSummaryList::fromJson(const QString &jsonString) {
     QByteArray array(jsonString.toStdString().c_str());
     QJsonDocument doc = QJsonDocument::fromJson(array);
     QJsonObject jsonObject = doc.object();

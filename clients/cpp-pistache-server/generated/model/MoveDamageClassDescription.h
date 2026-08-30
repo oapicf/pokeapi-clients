@@ -33,7 +33,7 @@ class  MoveDamageClassDescription
 {
 public:
     MoveDamageClassDescription();
-    virtual ~MoveDamageClassDescription() = default;
+    virtual ~MoveDamageClassDescription();
 
 
     /// <summary>

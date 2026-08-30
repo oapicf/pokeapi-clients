@@ -34,7 +34,7 @@ class  MachineDetail
 {
 public:
     MachineDetail();
-    virtual ~MachineDetail() = default;
+    virtual ~MachineDetail();
 
 
     /// <summary>

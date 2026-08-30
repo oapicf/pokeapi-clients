@@ -202,7 +202,7 @@ export class MovesApi {
      */
     public async moveAilmentRetrieve (id: string, options: {headers: {[name: string]: string}} = {headers: {}}) : Promise<{ response: http.IncomingMessage; body: MoveMetaAilmentDetail;  }> {
         const localVarPath = this.basePath + '/api/v2/move-ailment/{id}/'
-            .replace('{' + 'id' + '}', encodeURIComponent(String(id)));
+            .replace('{id}', encodeURIComponent(String(id)));
         let localVarQueryParameters: any = {};
         let localVarHeaderParams: any = (<any>Object).assign({}, this._defaultHeaders);
         const produces = ['application/json'];
@@ -360,7 +360,7 @@ export class MovesApi {
      */
     public async moveBattleStyleRetrieve (id: string, options: {headers: {[name: string]: string}} = {headers: {}}) : Promise<{ response: http.IncomingMessage; body: MoveBattleStyleDetail;  }> {
         const localVarPath = this.basePath + '/api/v2/move-battle-style/{id}/'
-            .replace('{' + 'id' + '}', encodeURIComponent(String(id)));
+            .replace('{id}', encodeURIComponent(String(id)));
         let localVarQueryParameters: any = {};
         let localVarHeaderParams: any = (<any>Object).assign({}, this._defaultHeaders);
         const produces = ['application/json'];
@@ -518,7 +518,7 @@ export class MovesApi {
      */
     public async moveCategoryRetrieve (id: string, options: {headers: {[name: string]: string}} = {headers: {}}) : Promise<{ response: http.IncomingMessage; body: MoveMetaCategoryDetail;  }> {
         const localVarPath = this.basePath + '/api/v2/move-category/{id}/'
-            .replace('{' + 'id' + '}', encodeURIComponent(String(id)));
+            .replace('{id}', encodeURIComponent(String(id)));
         let localVarQueryParameters: any = {};
         let localVarHeaderParams: any = (<any>Object).assign({}, this._defaultHeaders);
         const produces = ['application/json'];
@@ -676,7 +676,7 @@ export class MovesApi {
      */
     public async moveLearnMethodRetrieve (id: string, options: {headers: {[name: string]: string}} = {headers: {}}) : Promise<{ response: http.IncomingMessage; body: MoveLearnMethodDetail;  }> {
         const localVarPath = this.basePath + '/api/v2/move-learn-method/{id}/'
-            .replace('{' + 'id' + '}', encodeURIComponent(String(id)));
+            .replace('{id}', encodeURIComponent(String(id)));
         let localVarQueryParameters: any = {};
         let localVarHeaderParams: any = (<any>Object).assign({}, this._defaultHeaders);
         const produces = ['application/json'];
@@ -834,7 +834,7 @@ export class MovesApi {
      */
     public async moveRetrieve (id: string, options: {headers: {[name: string]: string}} = {headers: {}}) : Promise<{ response: http.IncomingMessage; body: MoveDetail;  }> {
         const localVarPath = this.basePath + '/api/v2/move/{id}/'
-            .replace('{' + 'id' + '}', encodeURIComponent(String(id)));
+            .replace('{id}', encodeURIComponent(String(id)));
         let localVarQueryParameters: any = {};
         let localVarHeaderParams: any = (<any>Object).assign({}, this._defaultHeaders);
         const produces = ['application/json'];
@@ -992,7 +992,7 @@ export class MovesApi {
      */
     public async moveTargetRetrieve (id: string, options: {headers: {[name: string]: string}} = {headers: {}}) : Promise<{ response: http.IncomingMessage; body: MoveTargetDetail;  }> {
         const localVarPath = this.basePath + '/api/v2/move-target/{id}/'
-            .replace('{' + 'id' + '}', encodeURIComponent(String(id)));
+            .replace('{id}', encodeURIComponent(String(id)));
         let localVarQueryParameters: any = {};
         let localVarHeaderParams: any = (<any>Object).assign({}, this._defaultHeaders);
         const produces = ['application/json'];

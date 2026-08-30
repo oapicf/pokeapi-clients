@@ -47,19 +47,19 @@ export interface MoveDamageClassDetail  {
      * @type {Array<MoveDamageClassDescription>}
      * @memberof MoveDamageClassDetail
      */
-    descriptions: Array<MoveDamageClassDescription>;
+    readonly descriptions: Array<MoveDamageClassDescription>;
     /**
      * 
      * @type {Array<MoveSummary>}
      * @memberof MoveDamageClassDetail
      */
-    moves: Array<MoveSummary>;
+    readonly moves: Array<MoveSummary>;
     /**
      * 
      * @type {Array<MoveDamageClassName>}
      * @memberof MoveDamageClassDetail
      */
-    names: Array<MoveDamageClassName>;
+    readonly names: Array<MoveDamageClassName>;
 }
 
 export function MoveDamageClassDetailFromJSON(json: any): MoveDamageClassDetail {
@@ -78,9 +78,6 @@ export function MoveDamageClassDetailToJSON(value?: MoveDamageClassDetail): any 
     }
     return {
         'name': value.name,
-        'descriptions': (value.descriptions as Array<any>).map(MoveDamageClassDescriptionToJSON),
-        'moves': (value.moves as Array<any>).map(MoveSummaryToJSON),
-        'names': (value.names as Array<any>).map(MoveDamageClassNameToJSON),
     };
 }
 

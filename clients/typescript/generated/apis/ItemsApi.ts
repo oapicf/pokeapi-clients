@@ -96,7 +96,7 @@ export class ItemsApiRequestFactory extends BaseAPIRequestFactory {
 
         // Path Params
         const localVarPath = '/api/v2/item-attribute/{id}/'
-            .replace('{' + 'id' + '}', encodeURIComponent(String(id)));
+            .replace('{id}', encodeURIComponent(String(id)));
 
         // Make Request Context
         const requestContext = _config.baseServer.makeRequestContext(localVarPath, HttpMethod.GET);
@@ -195,7 +195,7 @@ export class ItemsApiRequestFactory extends BaseAPIRequestFactory {
 
         // Path Params
         const localVarPath = '/api/v2/item-category/{id}/'
-            .replace('{' + 'id' + '}', encodeURIComponent(String(id)));
+            .replace('{id}', encodeURIComponent(String(id)));
 
         // Make Request Context
         const requestContext = _config.baseServer.makeRequestContext(localVarPath, HttpMethod.GET);
@@ -294,7 +294,7 @@ export class ItemsApiRequestFactory extends BaseAPIRequestFactory {
 
         // Path Params
         const localVarPath = '/api/v2/item-fling-effect/{id}/'
-            .replace('{' + 'id' + '}', encodeURIComponent(String(id)));
+            .replace('{id}', encodeURIComponent(String(id)));
 
         // Make Request Context
         const requestContext = _config.baseServer.makeRequestContext(localVarPath, HttpMethod.GET);
@@ -449,7 +449,7 @@ export class ItemsApiRequestFactory extends BaseAPIRequestFactory {
 
         // Path Params
         const localVarPath = '/api/v2/item-pocket/{id}/'
-            .replace('{' + 'id' + '}', encodeURIComponent(String(id)));
+            .replace('{id}', encodeURIComponent(String(id)));
 
         // Make Request Context
         const requestContext = _config.baseServer.makeRequestContext(localVarPath, HttpMethod.GET);
@@ -492,7 +492,7 @@ export class ItemsApiRequestFactory extends BaseAPIRequestFactory {
 
         // Path Params
         const localVarPath = '/api/v2/item/{id}/'
-            .replace('{' + 'id' + '}', encodeURIComponent(String(id)));
+            .replace('{id}', encodeURIComponent(String(id)));
 
         // Make Request Context
         const requestContext = _config.baseServer.makeRequestContext(localVarPath, HttpMethod.GET);

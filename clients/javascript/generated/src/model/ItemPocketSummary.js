@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The ItemPocketSummary model module.
  * @module model/ItemPocketSummary
- * @version 1.2.1-pre.0
+ * @version 2.0.1-pre.0
  */
 class ItemPocketSummary {
     /**

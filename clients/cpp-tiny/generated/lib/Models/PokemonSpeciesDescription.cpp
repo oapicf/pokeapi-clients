@@ -86,7 +86,7 @@ PokemonSpeciesDescription::getDescription()
 }
 
 void
-PokemonSpeciesDescription::setDescription(std::string  description)
+PokemonSpeciesDescription::setDescription(std::string description)
 {
 	this->description = description;
 }
@@ -98,7 +98,7 @@ PokemonSpeciesDescription::getLanguage()
 }
 
 void
-PokemonSpeciesDescription::setLanguage(LanguageSummary  language)
+PokemonSpeciesDescription::setLanguage(LanguageSummary language)
 {
 	this->language = language;
 }

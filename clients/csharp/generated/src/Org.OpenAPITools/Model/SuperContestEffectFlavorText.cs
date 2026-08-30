@@ -92,8 +92,18 @@ namespace Org.OpenAPITools.Model
     /// <summary>
     /// A Json converter for type <see cref="SuperContestEffectFlavorText" />
     /// </summary>
-    public class SuperContestEffectFlavorTextJsonConverter : JsonConverter<SuperContestEffectFlavorText>
+    public partial class SuperContestEffectFlavorTextJsonConverter : JsonConverter<SuperContestEffectFlavorText>
     {
+        partial void OnCreated();
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="SuperContestEffectFlavorTextJsonConverter" /> class.
+        /// </summary>
+        public SuperContestEffectFlavorTextJsonConverter()
+        {
+            OnCreated();
+        }
+
         /// <summary>
         /// Deserializes json to <see cref="SuperContestEffectFlavorText" />
         /// </summary>

@@ -77,7 +77,7 @@ LocationAreaDetailPokemonEncountersInnerVersionDetailsInner <- R6::R6Class(
       LocationAreaDetailPokemonEncountersInnerVersionDetailsInnerObject <- list()
       if (!is.null(self$`version`)) {
         LocationAreaDetailPokemonEncountersInnerVersionDetailsInnerObject[["version"]] <-
-          self$`version`$toSimpleType()
+          self$extractSimpleType(self$`version`)
       }
       if (!is.null(self$`max_chance`)) {
         LocationAreaDetailPokemonEncountersInnerVersionDetailsInnerObject[["max_chance"]] <-
@@ -85,9 +85,32 @@ LocationAreaDetailPokemonEncountersInnerVersionDetailsInner <- R6::R6Class(
       }
       if (!is.null(self$`encounter_details`)) {
         LocationAreaDetailPokemonEncountersInnerVersionDetailsInnerObject[["encounter_details"]] <-
-          self$`encounter_details`$toSimpleType()
+          self$extractSimpleType(self$`encounter_details`)
       }
       return(LocationAreaDetailPokemonEncountersInnerVersionDetailsInnerObject)
+    },
+
+    extractSimpleType = function(x) {
+      if (R6::is.R6(x)) {
+        return(x$toSimpleType())
+      } else if (!self$hasNestedR6(x)) {
+        return(x)
+      }
+      lapply(x, self$extractSimpleType)
+    },
+
+    hasNestedR6 = function(x) {
+      if (R6::is.R6(x)) {
+        return(TRUE)
+      }
+      if (is.list(x)) {
+        for (item in x) {
+          if (self$hasNestedR6(item)) {
+            return(TRUE)
+          }
+        }
+      }
+      FALSE
     },
 
     #' @description

@@ -12,30 +12,37 @@
  * Do not edit the class manually.
  */
 
-
 import * as runtime from '../runtime';
-import type {
-  ContestEffectDetail,
-  ContestTypeDetail,
-  PaginatedContestEffectSummaryList,
-  PaginatedContestTypeSummaryList,
-  PaginatedSuperContestEffectSummaryList,
-  SuperContestEffectDetail,
-} from '../models/index';
 import {
+    type ContestEffectDetail,
     ContestEffectDetailFromJSON,
     ContestEffectDetailToJSON,
+} from '../models/ContestEffectDetail';
+import {
+    type ContestTypeDetail,
     ContestTypeDetailFromJSON,
     ContestTypeDetailToJSON,
+} from '../models/ContestTypeDetail';
+import {
+    type PaginatedContestEffectSummaryList,
     PaginatedContestEffectSummaryListFromJSON,
     PaginatedContestEffectSummaryListToJSON,
+} from '../models/PaginatedContestEffectSummaryList';
+import {
+    type PaginatedContestTypeSummaryList,
     PaginatedContestTypeSummaryListFromJSON,
     PaginatedContestTypeSummaryListToJSON,
+} from '../models/PaginatedContestTypeSummaryList';
+import {
+    type PaginatedSuperContestEffectSummaryList,
     PaginatedSuperContestEffectSummaryListFromJSON,
     PaginatedSuperContestEffectSummaryListToJSON,
+} from '../models/PaginatedSuperContestEffectSummaryList';
+import {
+    type SuperContestEffectDetail,
     SuperContestEffectDetailFromJSON,
     SuperContestEffectDetailToJSON,
-} from '../models/index';
+} from '../models/SuperContestEffectDetail';
 
 export interface ContestEffectListRequest {
     limit?: number;
@@ -73,10 +80,9 @@ export interface SuperContestEffectRetrieveRequest {
 export class ContestsApi extends runtime.BaseAPI {
 
     /**
-     * Contest effects refer to the effects of moves when used in contests.
-     * List contest effects
+     * Creates request options for contestEffectList without sending the request
      */
-    async contestEffectListRaw(requestParameters: ContestEffectListRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PaginatedContestEffectSummaryList>> {
+    async contestEffectListRequestOpts(requestParameters: ContestEffectListRequest): Promise<runtime.RequestOpts> {
         const queryParameters: any = {};
 
         if (requestParameters['limit'] != null) {
@@ -99,12 +105,21 @@ export class ContestsApi extends runtime.BaseAPI {
 
         let urlPath = `/api/v2/contest-effect/`;
 
-        const response = await this.request({
+        return {
             path: urlPath,
             method: 'GET',
             headers: headerParameters,
             query: queryParameters,
-        }, initOverrides);
+        };
+    }
+
+    /**
+     * Contest effects refer to the effects of moves when used in contests.
+     * List contest effects
+     */
+    async contestEffectListRaw(requestParameters: ContestEffectListRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PaginatedContestEffectSummaryList>> {
+        const requestOptions = await this.contestEffectListRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => PaginatedContestEffectSummaryListFromJSON(jsonValue));
     }
@@ -119,10 +134,9 @@ export class ContestsApi extends runtime.BaseAPI {
     }
 
     /**
-     * Contest effects refer to the effects of moves when used in contests.
-     * Get contest effect
+     * Creates request options for contestEffectRetrieve without sending the request
      */
-    async contestEffectRetrieveRaw(requestParameters: ContestEffectRetrieveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ContestEffectDetail>> {
+    async contestEffectRetrieveRequestOpts(requestParameters: ContestEffectRetrieveRequest): Promise<runtime.RequestOpts> {
         if (requestParameters['id'] == null) {
             throw new runtime.RequiredError(
                 'id',
@@ -139,14 +153,23 @@ export class ContestsApi extends runtime.BaseAPI {
         }
 
         let urlPath = `/api/v2/contest-effect/{id}/`;
-        urlPath = urlPath.replace(`{${"id"}}`, encodeURIComponent(String(requestParameters['id'])));
+        urlPath = urlPath.replace('{id}', encodeURIComponent(String(requestParameters['id'])));
 
-        const response = await this.request({
+        return {
             path: urlPath,
             method: 'GET',
             headers: headerParameters,
             query: queryParameters,
-        }, initOverrides);
+        };
+    }
+
+    /**
+     * Contest effects refer to the effects of moves when used in contests.
+     * Get contest effect
+     */
+    async contestEffectRetrieveRaw(requestParameters: ContestEffectRetrieveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ContestEffectDetail>> {
+        const requestOptions = await this.contestEffectRetrieveRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => ContestEffectDetailFromJSON(jsonValue));
     }
@@ -161,10 +184,9 @@ export class ContestsApi extends runtime.BaseAPI {
     }
 
     /**
-     * Contest types are categories judges used to weigh a Pokémon\'s condition in Pokémon contests. Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Contest_condition) for greater detail.
-     * List contest types
+     * Creates request options for contestTypeList without sending the request
      */
-    async contestTypeListRaw(requestParameters: ContestTypeListRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PaginatedContestTypeSummaryList>> {
+    async contestTypeListRequestOpts(requestParameters: ContestTypeListRequest): Promise<runtime.RequestOpts> {
         const queryParameters: any = {};
 
         if (requestParameters['limit'] != null) {
@@ -187,12 +209,21 @@ export class ContestsApi extends runtime.BaseAPI {
 
         let urlPath = `/api/v2/contest-type/`;
 
-        const response = await this.request({
+        return {
             path: urlPath,
             method: 'GET',
             headers: headerParameters,
             query: queryParameters,
-        }, initOverrides);
+        };
+    }
+
+    /**
+     * Contest types are categories judges used to weigh a Pokémon\'s condition in Pokémon contests. Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Contest_condition) for greater detail.
+     * List contest types
+     */
+    async contestTypeListRaw(requestParameters: ContestTypeListRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PaginatedContestTypeSummaryList>> {
+        const requestOptions = await this.contestTypeListRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => PaginatedContestTypeSummaryListFromJSON(jsonValue));
     }
@@ -207,10 +238,9 @@ export class ContestsApi extends runtime.BaseAPI {
     }
 
     /**
-     * Contest types are categories judges used to weigh a Pokémon\'s condition in Pokémon contests. Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Contest_condition) for greater detail.
-     * Get contest type
+     * Creates request options for contestTypeRetrieve without sending the request
      */
-    async contestTypeRetrieveRaw(requestParameters: ContestTypeRetrieveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ContestTypeDetail>> {
+    async contestTypeRetrieveRequestOpts(requestParameters: ContestTypeRetrieveRequest): Promise<runtime.RequestOpts> {
         if (requestParameters['id'] == null) {
             throw new runtime.RequiredError(
                 'id',
@@ -227,14 +257,23 @@ export class ContestsApi extends runtime.BaseAPI {
         }
 
         let urlPath = `/api/v2/contest-type/{id}/`;
-        urlPath = urlPath.replace(`{${"id"}}`, encodeURIComponent(String(requestParameters['id'])));
+        urlPath = urlPath.replace('{id}', encodeURIComponent(String(requestParameters['id'])));
 
-        const response = await this.request({
+        return {
             path: urlPath,
             method: 'GET',
             headers: headerParameters,
             query: queryParameters,
-        }, initOverrides);
+        };
+    }
+
+    /**
+     * Contest types are categories judges used to weigh a Pokémon\'s condition in Pokémon contests. Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Contest_condition) for greater detail.
+     * Get contest type
+     */
+    async contestTypeRetrieveRaw(requestParameters: ContestTypeRetrieveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ContestTypeDetail>> {
+        const requestOptions = await this.contestTypeRetrieveRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => ContestTypeDetailFromJSON(jsonValue));
     }
@@ -249,10 +288,9 @@ export class ContestsApi extends runtime.BaseAPI {
     }
 
     /**
-     * Super contest effects refer to the effects of moves when used in super contests.
-     * List super contest effects
+     * Creates request options for superContestEffectList without sending the request
      */
-    async superContestEffectListRaw(requestParameters: SuperContestEffectListRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PaginatedSuperContestEffectSummaryList>> {
+    async superContestEffectListRequestOpts(requestParameters: SuperContestEffectListRequest): Promise<runtime.RequestOpts> {
         const queryParameters: any = {};
 
         if (requestParameters['limit'] != null) {
@@ -275,12 +313,21 @@ export class ContestsApi extends runtime.BaseAPI {
 
         let urlPath = `/api/v2/super-contest-effect/`;
 
-        const response = await this.request({
+        return {
             path: urlPath,
             method: 'GET',
             headers: headerParameters,
             query: queryParameters,
-        }, initOverrides);
+        };
+    }
+
+    /**
+     * Super contest effects refer to the effects of moves when used in super contests.
+     * List super contest effects
+     */
+    async superContestEffectListRaw(requestParameters: SuperContestEffectListRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PaginatedSuperContestEffectSummaryList>> {
+        const requestOptions = await this.superContestEffectListRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => PaginatedSuperContestEffectSummaryListFromJSON(jsonValue));
     }
@@ -295,10 +342,9 @@ export class ContestsApi extends runtime.BaseAPI {
     }
 
     /**
-     * Super contest effects refer to the effects of moves when used in super contests.
-     * Get super contest effect
+     * Creates request options for superContestEffectRetrieve without sending the request
      */
-    async superContestEffectRetrieveRaw(requestParameters: SuperContestEffectRetrieveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<SuperContestEffectDetail>> {
+    async superContestEffectRetrieveRequestOpts(requestParameters: SuperContestEffectRetrieveRequest): Promise<runtime.RequestOpts> {
         if (requestParameters['id'] == null) {
             throw new runtime.RequiredError(
                 'id',
@@ -315,14 +361,23 @@ export class ContestsApi extends runtime.BaseAPI {
         }
 
         let urlPath = `/api/v2/super-contest-effect/{id}/`;
-        urlPath = urlPath.replace(`{${"id"}}`, encodeURIComponent(String(requestParameters['id'])));
+        urlPath = urlPath.replace('{id}', encodeURIComponent(String(requestParameters['id'])));
 
-        const response = await this.request({
+        return {
             path: urlPath,
             method: 'GET',
             headers: headerParameters,
             query: queryParameters,
-        }, initOverrides);
+        };
+    }
+
+    /**
+     * Super contest effects refer to the effects of moves when used in super contests.
+     * Get super contest effect
+     */
+    async superContestEffectRetrieveRaw(requestParameters: SuperContestEffectRetrieveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<SuperContestEffectDetail>> {
+        const requestOptions = await this.superContestEffectRetrieveRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => SuperContestEffectDetailFromJSON(jsonValue));
     }

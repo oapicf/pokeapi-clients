@@ -14,11 +14,11 @@ static move_flavor_text_t *move_flavor_text_create_internal(
     if (!move_flavor_text_local_var) {
         return NULL;
     }
+    memset(move_flavor_text_local_var, 0, sizeof(move_flavor_text_t));
+    move_flavor_text_local_var->_library_owned = 1;
     move_flavor_text_local_var->flavor_text = flavor_text;
     move_flavor_text_local_var->language = language;
     move_flavor_text_local_var->version_group = version_group;
-
-    move_flavor_text_local_var->_library_owned = 1;
     return move_flavor_text_local_var;
 }
 
@@ -27,11 +27,14 @@ __attribute__((deprecated)) move_flavor_text_t *move_flavor_text_create(
     language_summary_t *language,
     version_group_summary_t *version_group
     ) {
-    return move_flavor_text_create_internal (
+    move_flavor_text_t *result = move_flavor_text_create_internal (
         flavor_text,
         language,
         version_group
         );
+    if (!result) {
+    }
+    return result;
 }
 
 void move_flavor_text_free(move_flavor_text_t *move_flavor_text) {
@@ -109,6 +112,8 @@ move_flavor_text_t *move_flavor_text_parseFromJSON(cJSON *move_flavor_textJSON){
 
     move_flavor_text_t *move_flavor_text_local_var = NULL;
 
+    char *flavor_text_local_str = NULL;
+
     // define the local variable for move_flavor_text->language
     language_summary_t *language_local_nonprim = NULL;
 
@@ -155,14 +160,24 @@ move_flavor_text_t *move_flavor_text_parseFromJSON(cJSON *move_flavor_textJSON){
     version_group_local_nonprim = version_group_summary_parseFromJSON(version_group); //nonprimitive
 
 
+    if (flavor_text && !cJSON_IsNull(flavor_text)) flavor_text_local_str = strdup(flavor_text->valuestring);
+
     move_flavor_text_local_var = move_flavor_text_create_internal (
-        strdup(flavor_text->valuestring),
+        flavor_text_local_str,
         language_local_nonprim,
         version_group_local_nonprim
         );
 
+    if (!move_flavor_text_local_var) {
+        goto end;
+    }
+
     return move_flavor_text_local_var;
 end:
+    if (flavor_text_local_str) {
+        free(flavor_text_local_str);
+        flavor_text_local_str = NULL;
+    }
     if (language_local_nonprim) {
         language_summary_free(language_local_nonprim);
         language_local_nonprim = NULL;

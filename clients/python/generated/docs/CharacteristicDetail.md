@@ -7,9 +7,9 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **int** |  | [readonly] 
 **gene_modulo** | **int** |  | 
-**possible_values** | **List[int]** |  | 
+**possible_values** | **List[int]** |  | [readonly] 
 **highest_stat** | [**StatSummary**](StatSummary.md) |  | 
-**descriptions** | [**List[CharacteristicDescription]**](CharacteristicDescription.md) |  | 
+**descriptions** | [**List[CharacteristicDescription]**](CharacteristicDescription.md) |  | [readonly] 
 
 ## Example
 

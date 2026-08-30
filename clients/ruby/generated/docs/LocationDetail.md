@@ -7,9 +7,9 @@
 | **id** | **Integer** |  | [readonly] |
 | **name** | **String** |  |  |
 | **region** | [**RegionSummary**](RegionSummary.md) |  |  |
-| **names** | [**Array&lt;LocationName&gt;**](LocationName.md) |  |  |
-| **game_indices** | [**Array&lt;LocationGameIndex&gt;**](LocationGameIndex.md) |  |  |
-| **areas** | [**Array&lt;LocationAreaSummary&gt;**](LocationAreaSummary.md) |  |  |
+| **names** | [**Array&lt;LocationName&gt;**](LocationName.md) |  | [readonly] |
+| **game_indices** | [**Array&lt;LocationGameIndex&gt;**](LocationGameIndex.md) |  | [readonly] |
+| **areas** | [**Array&lt;LocationAreaSummary&gt;**](LocationAreaSummary.md) |  | [readonly] |
 
 ## Example
 

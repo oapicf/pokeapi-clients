@@ -26,6 +26,8 @@ LocationAreaSummary::LocationAreaSummary()
     
 }
 
+LocationAreaSummary::~LocationAreaSummary() = default;
+
 void LocationAreaSummary::validate() const
 {
     std::stringstream msg;

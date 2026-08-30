@@ -259,7 +259,7 @@ RegionDetail::getId()
 }
 
 void
-RegionDetail::setId(int  id)
+RegionDetail::setId(int id)
 {
 	this->id = id;
 }
@@ -271,7 +271,7 @@ RegionDetail::getName()
 }
 
 void
-RegionDetail::setName(std::string  name)
+RegionDetail::setName(std::string name)
 {
 	this->name = name;
 }
@@ -283,7 +283,7 @@ RegionDetail::getLocations()
 }
 
 void
-RegionDetail::setLocations(std::list <LocationSummary> locations)
+RegionDetail::setLocations(std::list<LocationSummary> locations)
 {
 	this->locations = locations;
 }
@@ -295,7 +295,7 @@ RegionDetail::getMainGeneration()
 }
 
 void
-RegionDetail::setMainGeneration(GenerationSummary  main_generation)
+RegionDetail::setMainGeneration(GenerationSummary main_generation)
 {
 	this->main_generation = main_generation;
 }
@@ -307,7 +307,7 @@ RegionDetail::getNames()
 }
 
 void
-RegionDetail::setNames(std::list <RegionName> names)
+RegionDetail::setNames(std::list<RegionName> names)
 {
 	this->names = names;
 }
@@ -319,7 +319,7 @@ RegionDetail::getPokedexes()
 }
 
 void
-RegionDetail::setPokedexes(std::list <PokedexSummary> pokedexes)
+RegionDetail::setPokedexes(std::list<PokedexSummary> pokedexes)
 {
 	this->pokedexes = pokedexes;
 }
@@ -331,7 +331,7 @@ RegionDetail::getVersionGroups()
 }
 
 void
-RegionDetail::setVersionGroups(std::list <AbilityDetail_pokemon_inner_pokemon> version_groups)
+RegionDetail::setVersionGroups(std::list<AbilityDetail_pokemon_inner_pokemon> version_groups)
 {
 	this->version_groups = version_groups;
 }

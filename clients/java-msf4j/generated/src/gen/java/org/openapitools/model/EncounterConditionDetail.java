@@ -14,7 +14,7 @@ import org.openapitools.model.EncounterConditionValueSummary;
 /**
  * EncounterConditionDetail
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaMSF4JServerCodegen", date = "2026-02-07T15:23:10.683633502Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaMSF4JServerCodegen", date = "2026-08-30T01:55:58.248058654Z[Etc/UTC]", comments = "Generator version: 7.24.0")
 public class EncounterConditionDetail   {
   @JsonProperty("id")
   private Integer id;
@@ -55,16 +55,6 @@ public class EncounterConditionDetail   {
     this.name = name;
   }
 
-  public EncounterConditionDetail values(List<@Valid EncounterConditionValueSummary> values) {
-    this.values = values;
-    return this;
-  }
-
-  public EncounterConditionDetail addValuesItem(EncounterConditionValueSummary valuesItem) {
-    this.values.add(valuesItem);
-    return this;
-  }
-
    /**
    * Get values
    * @return values
@@ -74,20 +64,6 @@ public class EncounterConditionDetail   {
     return values;
   }
 
-  public void setValues(List<@Valid EncounterConditionValueSummary> values) {
-    this.values = values;
-  }
-
-  public EncounterConditionDetail names(List<@Valid EncounterConditionName> names) {
-    this.names = names;
-    return this;
-  }
-
-  public EncounterConditionDetail addNamesItem(EncounterConditionName namesItem) {
-    this.names.add(namesItem);
-    return this;
-  }
-
    /**
    * Get names
    * @return names
@@ -95,10 +71,6 @@ public class EncounterConditionDetail   {
   @ApiModelProperty(required = true, value = "")
   public List<@Valid EncounterConditionName> getNames() {
     return names;
-  }
-
-  public void setNames(List<@Valid EncounterConditionName> names) {
-    this.names = names;
   }
 
 
@@ -140,10 +112,7 @@ public class EncounterConditionDetail   {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 }
 

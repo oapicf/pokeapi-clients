@@ -42,7 +42,7 @@ export interface LocationAreaDetail {
      * @type {Array<LocationAreaDetailEncounterMethodRatesInner>}
      * @memberof LocationAreaDetail
      */
-    encounter_method_rates: Array<LocationAreaDetailEncounterMethodRatesInner>;
+    readonly encounter_method_rates: Array<LocationAreaDetailEncounterMethodRatesInner>;
     /**
      * @type {LocationSummary}
      * @memberof LocationAreaDetail
@@ -52,10 +52,10 @@ export interface LocationAreaDetail {
      * @type {Array<LocationAreaName>}
      * @memberof LocationAreaDetail
      */
-    names: Array<LocationAreaName>;
+    readonly names: Array<LocationAreaName>;
     /**
      * @type {Array<LocationAreaDetailPokemonEncountersInner>}
      * @memberof LocationAreaDetail
      */
-    pokemon_encounters: Array<LocationAreaDetailPokemonEncountersInner>;
+    readonly pokemon_encounters: Array<LocationAreaDetailPokemonEncountersInner>;
 }

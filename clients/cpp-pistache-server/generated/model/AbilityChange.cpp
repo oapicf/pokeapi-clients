@@ -24,6 +24,8 @@ AbilityChange::AbilityChange()
     
 }
 
+AbilityChange::~AbilityChange() = default;
+
 void AbilityChange::validate() const
 {
     std::stringstream msg;

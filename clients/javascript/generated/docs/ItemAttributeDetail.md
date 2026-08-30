@@ -6,8 +6,8 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **Number** |  | [readonly] 
 **name** | **String** |  | 
-**descriptions** | [**[ItemAttributeDescription]**](ItemAttributeDescription.md) |  | 
-**items** | [**[AbilityDetailPokemonInnerPokemon]**](AbilityDetailPokemonInnerPokemon.md) |  | 
-**names** | [**[ItemAttributeName]**](ItemAttributeName.md) |  | 
+**descriptions** | [**[ItemAttributeDescription]**](ItemAttributeDescription.md) |  | [readonly] 
+**items** | [**[AbilityDetailPokemonInnerPokemon]**](AbilityDetailPokemonInnerPokemon.md) |  | [readonly] 
+**names** | [**[ItemAttributeName]**](ItemAttributeName.md) |  | [readonly] 
 
 

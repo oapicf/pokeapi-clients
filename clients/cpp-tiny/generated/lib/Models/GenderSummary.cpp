@@ -85,7 +85,7 @@ GenderSummary::getName()
 }
 
 void
-GenderSummary::setName(std::string  name)
+GenderSummary::setName(std::string name)
 {
 	this->name = name;
 }
@@ -97,7 +97,7 @@ GenderSummary::getUrl()
 }
 
 void
-GenderSummary::setUrl(std::string  url)
+GenderSummary::setUrl(std::string url)
 {
 	this->url = url;
 }

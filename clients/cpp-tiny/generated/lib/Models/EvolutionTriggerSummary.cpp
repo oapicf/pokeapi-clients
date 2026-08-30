@@ -85,7 +85,7 @@ EvolutionTriggerSummary::getName()
 }
 
 void
-EvolutionTriggerSummary::setName(std::string  name)
+EvolutionTriggerSummary::setName(std::string name)
 {
 	this->name = name;
 }
@@ -97,7 +97,7 @@ EvolutionTriggerSummary::getUrl()
 }
 
 void
-EvolutionTriggerSummary::setUrl(std::string  url)
+EvolutionTriggerSummary::setUrl(std::string url)
 {
 	this->url = url;
 }

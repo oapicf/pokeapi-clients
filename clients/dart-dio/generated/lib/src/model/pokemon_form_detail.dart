@@ -234,22 +234,25 @@ class _$PokemonFormDetailSerializer implements PrimitiveSerializer<PokemonFormDe
         case r'is_default':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(bool),
-          ) as bool;
+            specifiedType: const FullType.nullable(bool),
+          ) as bool?;
+          if (valueDes == null) continue;
           result.isDefault = valueDes;
           break;
         case r'is_battle_only':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(bool),
-          ) as bool;
+            specifiedType: const FullType.nullable(bool),
+          ) as bool?;
+          if (valueDes == null) continue;
           result.isBattleOnly = valueDes;
           break;
         case r'is_mega':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(bool),
-          ) as bool;
+            specifiedType: const FullType.nullable(bool),
+          ) as bool?;
+          if (valueDes == null) continue;
           result.isMega = valueDes;
           break;
         case r'form_name':

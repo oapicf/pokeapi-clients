@@ -25,7 +25,8 @@ type PaginatedSuperContestEffectSummaryList struct {
 	Results []SuperContestEffectSummary `json:"results,omitempty"`
 }
 
-// AssertPaginatedSuperContestEffectSummaryListRequired checks if the required fields are not zero-ed
+// AssertPaginatedSuperContestEffectSummaryListRequired checks complex required fields (models, arrays, maps) and embedded parents.
+// Primitive required fields are validated for JSON request bodies in UnmarshalJSON so zero values remain valid.
 func AssertPaginatedSuperContestEffectSummaryListRequired(obj PaginatedSuperContestEffectSummaryList) error {
 	for _, el := range obj.Results {
 		if err := AssertSuperContestEffectSummaryRequired(el); err != nil {

@@ -32,7 +32,7 @@ class  EncounterConditionSummary
 {
 public:
     EncounterConditionSummary();
-    virtual ~EncounterConditionSummary() = default;
+    virtual ~EncounterConditionSummary();
 
 
     /// <summary>

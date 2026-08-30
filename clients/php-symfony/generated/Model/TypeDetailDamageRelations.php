@@ -47,7 +47,7 @@ class TypeDetailDamageRelations
      * @var AbilityDetailPokemonInnerPokemon[]|null
      * @SerializedName("no_damage_to")
      * @Type("array<OpenAPI\Server\Model\AbilityDetailPokemonInnerPokemon>")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Valid]
     #[Assert\All([
@@ -59,7 +59,7 @@ class TypeDetailDamageRelations
      * @var AbilityDetailPokemonInnerPokemon[]|null
      * @SerializedName("half_damage_to")
      * @Type("array<OpenAPI\Server\Model\AbilityDetailPokemonInnerPokemon>")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Valid]
     #[Assert\All([
@@ -71,7 +71,7 @@ class TypeDetailDamageRelations
      * @var AbilityDetailPokemonInnerPokemon[]|null
      * @SerializedName("double_damage_to")
      * @Type("array<OpenAPI\Server\Model\AbilityDetailPokemonInnerPokemon>")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Valid]
     #[Assert\All([
@@ -83,7 +83,7 @@ class TypeDetailDamageRelations
      * @var AbilityDetailPokemonInnerPokemon[]|null
      * @SerializedName("no_damage_from")
      * @Type("array<OpenAPI\Server\Model\AbilityDetailPokemonInnerPokemon>")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Valid]
     #[Assert\All([
@@ -95,7 +95,7 @@ class TypeDetailDamageRelations
      * @var AbilityDetailPokemonInnerPokemon[]|null
      * @SerializedName("half_damage_from")
      * @Type("array<OpenAPI\Server\Model\AbilityDetailPokemonInnerPokemon>")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Valid]
     #[Assert\All([
@@ -107,7 +107,7 @@ class TypeDetailDamageRelations
      * @var AbilityDetailPokemonInnerPokemon[]|null
      * @SerializedName("double_damage_from")
      * @Type("array<OpenAPI\Server\Model\AbilityDetailPokemonInnerPokemon>")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Valid]
     #[Assert\All([
@@ -142,12 +142,12 @@ class TypeDetailDamageRelations
     }
 
     /**
-    * Sets noDamageTo.
-    *
-    * @param AbilityDetailPokemonInnerPokemon[]|null $noDamageTo
-    *
-    * @return $this
-    */
+     * Sets noDamageTo.
+     *
+     * @param AbilityDetailPokemonInnerPokemon[]|null $noDamageTo
+     *
+     * @return $this
+     */
     public function setNoDamageTo(?array $noDamageTo): self
     {
         $this->noDamageTo = $noDamageTo;
@@ -169,12 +169,12 @@ class TypeDetailDamageRelations
     }
 
     /**
-    * Sets halfDamageTo.
-    *
-    * @param AbilityDetailPokemonInnerPokemon[]|null $halfDamageTo
-    *
-    * @return $this
-    */
+     * Sets halfDamageTo.
+     *
+     * @param AbilityDetailPokemonInnerPokemon[]|null $halfDamageTo
+     *
+     * @return $this
+     */
     public function setHalfDamageTo(?array $halfDamageTo): self
     {
         $this->halfDamageTo = $halfDamageTo;
@@ -196,12 +196,12 @@ class TypeDetailDamageRelations
     }
 
     /**
-    * Sets doubleDamageTo.
-    *
-    * @param AbilityDetailPokemonInnerPokemon[]|null $doubleDamageTo
-    *
-    * @return $this
-    */
+     * Sets doubleDamageTo.
+     *
+     * @param AbilityDetailPokemonInnerPokemon[]|null $doubleDamageTo
+     *
+     * @return $this
+     */
     public function setDoubleDamageTo(?array $doubleDamageTo): self
     {
         $this->doubleDamageTo = $doubleDamageTo;
@@ -223,12 +223,12 @@ class TypeDetailDamageRelations
     }
 
     /**
-    * Sets noDamageFrom.
-    *
-    * @param AbilityDetailPokemonInnerPokemon[]|null $noDamageFrom
-    *
-    * @return $this
-    */
+     * Sets noDamageFrom.
+     *
+     * @param AbilityDetailPokemonInnerPokemon[]|null $noDamageFrom
+     *
+     * @return $this
+     */
     public function setNoDamageFrom(?array $noDamageFrom): self
     {
         $this->noDamageFrom = $noDamageFrom;
@@ -250,12 +250,12 @@ class TypeDetailDamageRelations
     }
 
     /**
-    * Sets halfDamageFrom.
-    *
-    * @param AbilityDetailPokemonInnerPokemon[]|null $halfDamageFrom
-    *
-    * @return $this
-    */
+     * Sets halfDamageFrom.
+     *
+     * @param AbilityDetailPokemonInnerPokemon[]|null $halfDamageFrom
+     *
+     * @return $this
+     */
     public function setHalfDamageFrom(?array $halfDamageFrom): self
     {
         $this->halfDamageFrom = $halfDamageFrom;
@@ -277,12 +277,12 @@ class TypeDetailDamageRelations
     }
 
     /**
-    * Sets doubleDamageFrom.
-    *
-    * @param AbilityDetailPokemonInnerPokemon[]|null $doubleDamageFrom
-    *
-    * @return $this
-    */
+     * Sets doubleDamageFrom.
+     *
+     * @param AbilityDetailPokemonInnerPokemon[]|null $doubleDamageFrom
+     *
+     * @return $this
+     */
     public function setDoubleDamageFrom(?array $doubleDamageFrom): self
     {
         $this->doubleDamageFrom = $doubleDamageFrom;

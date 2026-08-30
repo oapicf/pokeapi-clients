@@ -143,18 +143,18 @@ function Initialize-BerryDetail {
 
 
         $PSO = [PSCustomObject]@{
-            "id" = ${Id}
-            "name" = ${Name}
-            "growth_time" = ${GrowthTime}
-            "max_harvest" = ${MaxHarvest}
-            "natural_gift_power" = ${NaturalGiftPower}
-            "size" = ${Size}
-            "smoothness" = ${Smoothness}
-            "soil_dryness" = ${SoilDryness}
-            "firmness" = ${Firmness}
-            "flavors" = ${Flavors}
-            "item" = ${Item}
-            "natural_gift_type" = ${NaturalGiftType}
+            'id' = ${Id}
+            'name' = ${Name}
+            'growth_time' = ${GrowthTime}
+            'max_harvest' = ${MaxHarvest}
+            'natural_gift_power' = ${NaturalGiftPower}
+            'size' = ${Size}
+            'smoothness' = ${Smoothness}
+            'soil_dryness' = ${SoilDryness}
+            'firmness' = ${Firmness}
+            'flavors' = ${Flavors}
+            'item' = ${Item}
+            'natural_gift_type' = ${NaturalGiftType}
         }
 
 
@@ -192,7 +192,7 @@ function ConvertFrom-JsonToBerryDetail {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in BerryDetail
-        $AllProperties = ("id", "name", "growth_time", "max_harvest", "natural_gift_power", "size", "smoothness", "soil_dryness", "firmness", "flavors", "item", "natural_gift_type")
+        $AllProperties = ('id', 'name', 'growth_time', 'max_harvest', 'natural_gift_power', 'size', 'smoothness', 'soil_dryness', 'firmness', 'flavors', 'item', 'natural_gift_type')
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -203,91 +203,91 @@ function ConvertFrom-JsonToBerryDetail {
             throw "Error! Empty JSON cannot be serialized due to the required property 'id' missing."
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "id"))) {
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'id'))) {
             throw "Error! JSON cannot be serialized due to the required property 'id' missing."
         } else {
-            $Id = $JsonParameters.PSobject.Properties["id"].value
+            $Id = $JsonParameters.PSobject.Properties['id'].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "name"))) {
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'name'))) {
             throw "Error! JSON cannot be serialized due to the required property 'name' missing."
         } else {
-            $Name = $JsonParameters.PSobject.Properties["name"].value
+            $Name = $JsonParameters.PSobject.Properties['name'].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "growth_time"))) {
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'growth_time'))) {
             throw "Error! JSON cannot be serialized due to the required property 'growth_time' missing."
         } else {
-            $GrowthTime = $JsonParameters.PSobject.Properties["growth_time"].value
+            $GrowthTime = $JsonParameters.PSobject.Properties['growth_time'].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "max_harvest"))) {
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'max_harvest'))) {
             throw "Error! JSON cannot be serialized due to the required property 'max_harvest' missing."
         } else {
-            $MaxHarvest = $JsonParameters.PSobject.Properties["max_harvest"].value
+            $MaxHarvest = $JsonParameters.PSobject.Properties['max_harvest'].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "natural_gift_power"))) {
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'natural_gift_power'))) {
             throw "Error! JSON cannot be serialized due to the required property 'natural_gift_power' missing."
         } else {
-            $NaturalGiftPower = $JsonParameters.PSobject.Properties["natural_gift_power"].value
+            $NaturalGiftPower = $JsonParameters.PSobject.Properties['natural_gift_power'].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "size"))) {
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'size'))) {
             throw "Error! JSON cannot be serialized due to the required property 'size' missing."
         } else {
-            $Size = $JsonParameters.PSobject.Properties["size"].value
+            $Size = $JsonParameters.PSobject.Properties['size'].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "smoothness"))) {
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'smoothness'))) {
             throw "Error! JSON cannot be serialized due to the required property 'smoothness' missing."
         } else {
-            $Smoothness = $JsonParameters.PSobject.Properties["smoothness"].value
+            $Smoothness = $JsonParameters.PSobject.Properties['smoothness'].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "soil_dryness"))) {
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'soil_dryness'))) {
             throw "Error! JSON cannot be serialized due to the required property 'soil_dryness' missing."
         } else {
-            $SoilDryness = $JsonParameters.PSobject.Properties["soil_dryness"].value
+            $SoilDryness = $JsonParameters.PSobject.Properties['soil_dryness'].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "firmness"))) {
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'firmness'))) {
             throw "Error! JSON cannot be serialized due to the required property 'firmness' missing."
         } else {
-            $Firmness = $JsonParameters.PSobject.Properties["firmness"].value
+            $Firmness = $JsonParameters.PSobject.Properties['firmness'].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "flavors"))) {
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'flavors'))) {
             throw "Error! JSON cannot be serialized due to the required property 'flavors' missing."
         } else {
-            $Flavors = $JsonParameters.PSobject.Properties["flavors"].value
+            $Flavors = $JsonParameters.PSobject.Properties['flavors'].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "item"))) {
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'item'))) {
             throw "Error! JSON cannot be serialized due to the required property 'item' missing."
         } else {
-            $Item = $JsonParameters.PSobject.Properties["item"].value
+            $Item = $JsonParameters.PSobject.Properties['item'].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "natural_gift_type"))) {
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'natural_gift_type'))) {
             throw "Error! JSON cannot be serialized due to the required property 'natural_gift_type' missing."
         } else {
-            $NaturalGiftType = $JsonParameters.PSobject.Properties["natural_gift_type"].value
+            $NaturalGiftType = $JsonParameters.PSobject.Properties['natural_gift_type'].value
         }
 
         $PSO = [PSCustomObject]@{
-            "id" = ${Id}
-            "name" = ${Name}
-            "growth_time" = ${GrowthTime}
-            "max_harvest" = ${MaxHarvest}
-            "natural_gift_power" = ${NaturalGiftPower}
-            "size" = ${Size}
-            "smoothness" = ${Smoothness}
-            "soil_dryness" = ${SoilDryness}
-            "firmness" = ${Firmness}
-            "flavors" = ${Flavors}
-            "item" = ${Item}
-            "natural_gift_type" = ${NaturalGiftType}
+            'id' = ${Id}
+            'name' = ${Name}
+            'growth_time' = ${GrowthTime}
+            'max_harvest' = ${MaxHarvest}
+            'natural_gift_power' = ${NaturalGiftPower}
+            'size' = ${Size}
+            'smoothness' = ${Smoothness}
+            'soil_dryness' = ${SoilDryness}
+            'firmness' = ${Firmness}
+            'flavors' = ${Flavors}
+            'item' = ${Item}
+            'natural_gift_type' = ${NaturalGiftType}
         }
 
         return $PSO

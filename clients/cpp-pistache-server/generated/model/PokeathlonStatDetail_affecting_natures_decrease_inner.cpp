@@ -25,6 +25,8 @@ PokeathlonStatDetail_affecting_natures_decrease_inner::PokeathlonStatDetail_affe
     
 }
 
+PokeathlonStatDetail_affecting_natures_decrease_inner::~PokeathlonStatDetail_affecting_natures_decrease_inner() = default;
+
 void PokeathlonStatDetail_affecting_natures_decrease_inner::validate() const
 {
     std::stringstream msg;

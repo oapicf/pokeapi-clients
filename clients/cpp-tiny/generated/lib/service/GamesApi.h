@@ -28,7 +28,7 @@ class GamesApi : public Service {
 public:
     GamesApi() = default;
 
-    virtual ~GamesApi() = default;
+    virtual ~GamesApi();
 
     /**
     * List genrations.

@@ -26,6 +26,8 @@ PokemonStat::PokemonStat()
     
 }
 
+PokemonStat::~PokemonStat() = default;
+
 void PokemonStat::validate() const
 {
     std::stringstream msg;

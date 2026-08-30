@@ -30,7 +30,7 @@ public class OASVersionDetail implements OAS.MappedProperties {
      * Get names
      * @return names
      */
-    public List<OASVersionName> names { get; set; }
+    public List<OASVersionName> names { get; private set; }
 
     /**
      * Get versionGroup

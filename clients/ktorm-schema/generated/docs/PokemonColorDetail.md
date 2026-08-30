@@ -7,8 +7,8 @@ Name | Mapping | SQL Type | Default | Type | Description | Notes
 ---- | ------- | -------- | ------- | ---- | ----------- | -----
 **id** | id | int NOT NULL PRIMARY KEY AUTOINCREMENT |  | **kotlin.Int** |  |  [readonly]
 **name** | name | text NOT NULL |  | **kotlin.String** |  | 
-**names** | `One-To-Many` | `----` | `----`  | [**kotlin.Array&lt;PokemonColorName&gt;**](PokemonColorName.md) |  | 
-**pokemonSpecies** | `One-To-Many` | `----` | `----`  | [**kotlin.Array&lt;PokemonSpeciesSummary&gt;**](PokemonSpeciesSummary.md) |  | 
+**names** | `One-To-Many` | `----` | `----`  | [**kotlin.Array&lt;PokemonColorName&gt;**](PokemonColorName.md) |  |  [readonly]
+**pokemonSpecies** | `One-To-Many` | `----` | `----`  | [**kotlin.Array&lt;PokemonSpeciesSummary&gt;**](PokemonSpeciesSummary.md) |  |  [readonly]
 
 
 

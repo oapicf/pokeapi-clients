@@ -30,6 +30,8 @@ LanguageDetail::LanguageDetail()
     
 }
 
+LanguageDetail::~LanguageDetail() = default;
+
 void LanguageDetail::validate() const
 {
     std::stringstream msg;

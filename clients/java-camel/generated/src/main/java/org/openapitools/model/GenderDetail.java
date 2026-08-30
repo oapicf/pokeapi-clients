@@ -11,19 +11,19 @@ import org.openapitools.model.AbilityDetailPokemonInnerPokemon;
 import org.openapitools.model.GenderDetailPokemonSpeciesDetailsInner;
 import org.openapitools.jackson.nullable.JsonNullable;
 import java.time.OffsetDateTime;
-import javax.validation.Valid;
-import javax.validation.constraints.*;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.*;
 import io.swagger.v3.oas.annotations.media.Schema;
 
 
 import java.util.*;
-import javax.annotation.Generated;
+import jakarta.annotation.Generated;
 
 /**
  * GenderDetail
  */
 
-@Generated(value = "org.openapitools.codegen.languages.JavaCamelServerCodegen", date = "2026-02-07T15:23:32.871052804Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@Generated(value = "org.openapitools.codegen.languages.JavaCamelServerCodegen", date = "2026-08-30T01:56:15.309401083Z[Etc/UTC]", comments = "Generator version: 7.24.0")
 public class GenderDetail {
 
   private Integer id;
@@ -107,8 +107,8 @@ public class GenderDetail {
    * Get pokemonSpeciesDetails
    * @return pokemonSpeciesDetails
    */
-  @NotNull @Valid 
-  @Schema(name = "pokemon_species_details", requiredMode = Schema.RequiredMode.REQUIRED)
+  @Valid 
+  @Schema(name = "pokemon_species_details", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("pokemon_species_details")
   public List<@Valid GenderDetailPokemonSpeciesDetailsInner> getPokemonSpeciesDetails() {
     return pokemonSpeciesDetails;
@@ -135,8 +135,8 @@ public class GenderDetail {
    * Get requiredForEvolution
    * @return requiredForEvolution
    */
-  @NotNull @Valid 
-  @Schema(name = "required_for_evolution", requiredMode = Schema.RequiredMode.REQUIRED)
+  @Valid 
+  @Schema(name = "required_for_evolution", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("required_for_evolution")
   public List<@Valid AbilityDetailPokemonInnerPokemon> getRequiredForEvolution() {
     return requiredForEvolution;
@@ -183,10 +183,7 @@ public class GenderDetail {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 }
 

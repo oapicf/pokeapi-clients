@@ -160,19 +160,6 @@ public class StatDetail  {
     return characteristics;
   }
 
-  public void setCharacteristics(List<CharacteristicSummary> characteristics) {
-    this.characteristics = characteristics;
-  }
-
-  public StatDetail characteristics(List<CharacteristicSummary> characteristics) {
-    this.characteristics = characteristics;
-    return this;
-  }
-
-  public StatDetail addCharacteristicsItem(CharacteristicSummary characteristicsItem) {
-    this.characteristics.add(characteristicsItem);
-    return this;
-  }
 
  /**
    * Get moveDamageClass
@@ -201,19 +188,6 @@ public class StatDetail  {
     return names;
   }
 
-  public void setNames(List<StatName> names) {
-    this.names = names;
-  }
-
-  public StatDetail names(List<StatName> names) {
-    this.names = names;
-    return this;
-  }
-
-  public StatDetail addNamesItem(StatName namesItem) {
-    this.names.add(namesItem);
-    return this;
-  }
 
   @Override
   public boolean equals(Object o) {
@@ -263,10 +237,7 @@ public class StatDetail  {
    * (except the first line).
    */
   private static String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 }
 

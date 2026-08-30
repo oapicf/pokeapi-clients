@@ -17,7 +17,7 @@ import PalParkAreaSummary from './PalParkAreaSummary';
 /**
  * The PaginatedPalParkAreaSummaryList model module.
  * @module model/PaginatedPalParkAreaSummaryList
- * @version 1.2.1-pre.0
+ * @version 2.0.1-pre.0
  */
 class PaginatedPalParkAreaSummaryList {
     /**

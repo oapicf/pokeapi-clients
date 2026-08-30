@@ -31,6 +31,8 @@ PaginatedPokemonColorSummaryList::PaginatedPokemonColorSummaryList()
     
 }
 
+PaginatedPokemonColorSummaryList::~PaginatedPokemonColorSummaryList() = default;
+
 void PaginatedPokemonColorSummaryList::validate() const
 {
     std::stringstream msg;

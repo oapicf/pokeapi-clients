@@ -15,8 +15,8 @@ import { MoveLearnMethodDescription } from './moveLearnMethodDescription';
 export interface MoveLearnMethodDetail { 
     readonly id: number;
     name: string;
-    names: Array<MoveLearnMethodName>;
-    descriptions: Array<MoveLearnMethodDescription>;
-    version_groups: Array<AbilityDetailPokemonInnerPokemon>;
+    readonly names: Array<MoveLearnMethodName>;
+    readonly descriptions: Array<MoveLearnMethodDescription>;
+    readonly version_groups: Array<AbilityDetailPokemonInnerPokemon>;
 }
 

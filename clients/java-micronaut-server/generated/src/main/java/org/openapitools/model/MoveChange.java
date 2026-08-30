@@ -42,7 +42,7 @@ import io.swagger.v3.oas.annotations.media.Schema;
   MoveChange.JSON_PROPERTY_VERSION_GROUP
 })
 @JsonTypeName("MoveChange")
-@Generated(value="org.openapitools.codegen.languages.JavaMicronautServerCodegen", date="2026-02-07T15:23:03.167972722Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@Generated(value="org.openapitools.codegen.languages.JavaMicronautServerCodegen", date="2026-08-30T01:55:54.631003115Z[Etc/UTC]", comments = "Generator version: 7.24.0")
 @Introspected
 public class MoveChange {
     public static final String JSON_PROPERTY_ACCURACY = "accuracy";
@@ -165,32 +165,16 @@ public class MoveChange {
         this.effectChance = effectChance;
     }
 
-    public MoveChange effectEntries(List<@Valid MoveChangeEffectEntriesInner> effectEntries) {
-        this.effectEntries = effectEntries;
-        return this;
-    }
-
-    public MoveChange addEffectEntriesItem(MoveChangeEffectEntriesInner effectEntriesItem) {
-        this.effectEntries.add(effectEntriesItem);
-        return this;
-    }
-
     /**
      * Get effectEntries
      * @return effectEntries
      */
     @NotNull
-    @Schema(name = "effect_entries", requiredMode = Schema.RequiredMode.REQUIRED)
+    @Schema(name = "effect_entries", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
     @JsonProperty(JSON_PROPERTY_EFFECT_ENTRIES)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public List<@Valid MoveChangeEffectEntriesInner> getEffectEntries() {
         return effectEntries;
-    }
-
-    @JsonProperty(JSON_PROPERTY_EFFECT_ENTRIES)
-    @JsonInclude(value = JsonInclude.Include.ALWAYS)
-    public void setEffectEntries(List<@Valid MoveChangeEffectEntriesInner> effectEntries) {
-        this.effectEntries = effectEntries;
     }
 
     public MoveChange type(TypeSummary type) {
@@ -284,10 +268,7 @@ public class MoveChange {
      * (except the first line).
      */
     private String toIndentedString(Object o) {
-        if (o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
+        return o == null ? "null" : o.toString().replace("\n", "\n    ");
     }
 
 }

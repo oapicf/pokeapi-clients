@@ -97,6 +97,7 @@ public class PokemonShapeDetail  {
 
   /**
    * Sets the <code>awesomeNames</code> property.
+   * <br><em>N.B. <code>awesomeNames</code> is <b>read only</b>; client code should not call this method</em>.
    */
  public void setAwesomeNames(List<@Valid PokemonShapeDetailAwesomeNamesInner> awesomeNames) {
     this.awesomeNames = awesomeNames;
@@ -104,6 +105,7 @@ public class PokemonShapeDetail  {
 
   /**
    * Sets the <code>awesomeNames</code> property.
+   * <br><em>N.B. <code>awesomeNames</code> is <b>read only</b>; client code should not call this method</em>.
    */
   public PokemonShapeDetail awesomeNames(List<@Valid PokemonShapeDetailAwesomeNamesInner> awesomeNames) {
     this.awesomeNames = awesomeNames;
@@ -112,6 +114,7 @@ public class PokemonShapeDetail  {
 
   /**
    * Adds a new item to the <code>awesomeNames</code> list.
+   * <br><em>N.B. <code>awesomeNames</code> is <b>read only</b>; client code should not call this method</em>.
    */
   public PokemonShapeDetail addAwesomeNamesItem(PokemonShapeDetailAwesomeNamesInner awesomeNamesItem) {
     this.awesomeNames.add(awesomeNamesItem);
@@ -130,6 +133,7 @@ public class PokemonShapeDetail  {
 
   /**
    * Sets the <code>names</code> property.
+   * <br><em>N.B. <code>names</code> is <b>read only</b>; client code should not call this method</em>.
    */
  public void setNames(List<@Valid PokemonShapeDetailNamesInner> names) {
     this.names = names;
@@ -137,6 +141,7 @@ public class PokemonShapeDetail  {
 
   /**
    * Sets the <code>names</code> property.
+   * <br><em>N.B. <code>names</code> is <b>read only</b>; client code should not call this method</em>.
    */
   public PokemonShapeDetail names(List<@Valid PokemonShapeDetailNamesInner> names) {
     this.names = names;
@@ -145,6 +150,7 @@ public class PokemonShapeDetail  {
 
   /**
    * Adds a new item to the <code>names</code> list.
+   * <br><em>N.B. <code>names</code> is <b>read only</b>; client code should not call this method</em>.
    */
   public PokemonShapeDetail addNamesItem(PokemonShapeDetailNamesInner namesItem) {
     this.names.add(namesItem);
@@ -163,6 +169,7 @@ public class PokemonShapeDetail  {
 
   /**
    * Sets the <code>pokemonSpecies</code> property.
+   * <br><em>N.B. <code>pokemonSpecies</code> is <b>read only</b>; client code should not call this method</em>.
    */
  public void setPokemonSpecies(List<@Valid PokemonSpeciesSummary> pokemonSpecies) {
     this.pokemonSpecies = pokemonSpecies;
@@ -170,6 +177,7 @@ public class PokemonShapeDetail  {
 
   /**
    * Sets the <code>pokemonSpecies</code> property.
+   * <br><em>N.B. <code>pokemonSpecies</code> is <b>read only</b>; client code should not call this method</em>.
    */
   public PokemonShapeDetail pokemonSpecies(List<@Valid PokemonSpeciesSummary> pokemonSpecies) {
     this.pokemonSpecies = pokemonSpecies;
@@ -178,6 +186,7 @@ public class PokemonShapeDetail  {
 
   /**
    * Adds a new item to the <code>pokemonSpecies</code> list.
+   * <br><em>N.B. <code>pokemonSpecies</code> is <b>read only</b>; client code should not call this method</em>.
    */
   public PokemonShapeDetail addPokemonSpeciesItem(PokemonSpeciesSummary pokemonSpeciesItem) {
     this.pokemonSpecies.add(pokemonSpeciesItem);
@@ -225,10 +234,7 @@ public class PokemonShapeDetail  {
    * (except the first line).
    */
   private static String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 }
 

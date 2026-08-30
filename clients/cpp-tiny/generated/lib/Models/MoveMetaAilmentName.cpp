@@ -86,7 +86,7 @@ MoveMetaAilmentName::getName()
 }
 
 void
-MoveMetaAilmentName::setName(std::string  name)
+MoveMetaAilmentName::setName(std::string name)
 {
 	this->name = name;
 }
@@ -98,7 +98,7 @@ MoveMetaAilmentName::getLanguage()
 }
 
 void
-MoveMetaAilmentName::setLanguage(LanguageSummary  language)
+MoveMetaAilmentName::setLanguage(LanguageSummary language)
 {
 	this->language = language;
 }

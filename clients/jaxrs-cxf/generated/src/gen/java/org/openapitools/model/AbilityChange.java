@@ -55,19 +55,6 @@ public class AbilityChange  {
     return effectEntries;
   }
 
-  public void setEffectEntries(List<@Valid AbilityChangeEffectText> effectEntries) {
-    this.effectEntries = effectEntries;
-  }
-
-  public AbilityChange effectEntries(List<@Valid AbilityChangeEffectText> effectEntries) {
-    this.effectEntries = effectEntries;
-    return this;
-  }
-
-  public AbilityChange addEffectEntriesItem(AbilityChangeEffectText effectEntriesItem) {
-    this.effectEntries.add(effectEntriesItem);
-    return this;
-  }
 
   @Override
   public boolean equals(Object o) {
@@ -103,10 +90,7 @@ public class AbilityChange  {
    * (except the first line).
    */
   private static String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 }
 

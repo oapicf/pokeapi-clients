@@ -36,15 +36,15 @@ export interface PokemonShapeDetail {
      * @type {Array<PokemonShapeDetailAwesomeNamesInner>}
      * @memberof PokemonShapeDetail
      */
-    awesome_names: Array<PokemonShapeDetailAwesomeNamesInner>;
+    readonly awesome_names: Array<PokemonShapeDetailAwesomeNamesInner>;
     /**
      * @type {Array<PokemonShapeDetailNamesInner>}
      * @memberof PokemonShapeDetail
      */
-    names: Array<PokemonShapeDetailNamesInner>;
+    readonly names: Array<PokemonShapeDetailNamesInner>;
     /**
      * @type {Array<PokemonSpeciesSummary>}
      * @memberof PokemonShapeDetail
      */
-    pokemon_species: Array<PokemonSpeciesSummary>;
+    readonly pokemon_species: Array<PokemonSpeciesSummary>;
 }

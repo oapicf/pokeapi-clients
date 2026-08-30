@@ -6,7 +6,7 @@
 
 
 static nature_detail_t *nature_detail_create_internal(
-    int id,
+    int *id,
     char *name,
     stat_summary_t *decreased_stat,
     stat_summary_t *increased_stat,
@@ -21,6 +21,8 @@ static nature_detail_t *nature_detail_create_internal(
     if (!nature_detail_local_var) {
         return NULL;
     }
+    memset(nature_detail_local_var, 0, sizeof(nature_detail_t));
+    nature_detail_local_var->_library_owned = 1;
     nature_detail_local_var->id = id;
     nature_detail_local_var->name = name;
     nature_detail_local_var->decreased_stat = decreased_stat;
@@ -31,13 +33,11 @@ static nature_detail_t *nature_detail_create_internal(
     nature_detail_local_var->pokeathlon_stat_changes = pokeathlon_stat_changes;
     nature_detail_local_var->move_battle_style_preferences = move_battle_style_preferences;
     nature_detail_local_var->names = names;
-
-    nature_detail_local_var->_library_owned = 1;
     return nature_detail_local_var;
 }
 
 __attribute__((deprecated)) nature_detail_t *nature_detail_create(
-    int id,
+    int *id,
     char *name,
     stat_summary_t *decreased_stat,
     stat_summary_t *increased_stat,
@@ -48,8 +48,13 @@ __attribute__((deprecated)) nature_detail_t *nature_detail_create(
     list_t *move_battle_style_preferences,
     list_t *names
     ) {
-    return nature_detail_create_internal (
-        id,
+    int *id_copy = NULL;
+    if (id) {
+        id_copy = malloc(sizeof(int));
+        if (id_copy) *id_copy = *id;
+    }
+    nature_detail_t *result = nature_detail_create_internal (
+        id_copy,
         name,
         decreased_stat,
         increased_stat,
@@ -60,6 +65,10 @@ __attribute__((deprecated)) nature_detail_t *nature_detail_create(
         move_battle_style_preferences,
         names
         );
+    if (!result) {
+        free(id_copy);
+    }
+    return result;
 }
 
 void nature_detail_free(nature_detail_t *nature_detail) {
@@ -71,6 +80,10 @@ void nature_detail_free(nature_detail_t *nature_detail) {
         return ;
     }
     listEntry_t *listEntry;
+    if (nature_detail->id) {
+        free(nature_detail->id);
+        nature_detail->id = NULL;
+    }
     if (nature_detail->name) {
         free(nature_detail->name);
         nature_detail->name = NULL;
@@ -129,7 +142,7 @@ cJSON *nature_detail_convertToJSON(nature_detail_t *nature_detail) {
     if (!nature_detail->id) {
         goto fail;
     }
-    if(cJSON_AddNumberToObject(item, "id", nature_detail->id) == NULL) {
+    if(cJSON_AddNumberToObject(item, "id", *nature_detail->id) == NULL) {
     goto fail; //Numeric
     }
 
@@ -294,6 +307,11 @@ nature_detail_t *nature_detail_parseFromJSON(cJSON *nature_detailJSON){
 
     nature_detail_t *nature_detail_local_var = NULL;
 
+    // define the local variable for nature_detail->id
+    int *id_local_var = NULL;
+
+    char *name_local_str = NULL;
+
     // define the local variable for nature_detail->decreased_stat
     stat_summary_t *decreased_stat_local_nonprim = NULL;
 
@@ -332,6 +350,12 @@ nature_detail_t *nature_detail_parseFromJSON(cJSON *nature_detailJSON){
     {
     goto end; //Numeric
     }
+    id_local_var = malloc(sizeof(int));
+    if(!id_local_var)
+    {
+        goto end;
+    }
+    *id_local_var = id->valuedouble;
 
     // nature_detail->name
     cJSON *name = cJSON_GetObjectItemCaseSensitive(nature_detailJSON, "name");
@@ -505,9 +529,11 @@ nature_detail_t *nature_detail_parseFromJSON(cJSON *nature_detailJSON){
     }
 
 
+    if (name && !cJSON_IsNull(name)) name_local_str = strdup(name->valuestring);
+
     nature_detail_local_var = nature_detail_create_internal (
-        id->valuedouble,
-        strdup(name->valuestring),
+        id_local_var,
+        name_local_str,
         decreased_stat_local_nonprim,
         increased_stat_local_nonprim,
         likes_flavor_local_nonprim,
@@ -518,8 +544,20 @@ nature_detail_t *nature_detail_parseFromJSON(cJSON *nature_detailJSON){
         namesList
         );
 
+    if (!nature_detail_local_var) {
+        goto end;
+    }
+
     return nature_detail_local_var;
 end:
+    if (id_local_var) {
+        free(id_local_var);
+        id_local_var = NULL;
+    }
+    if (name_local_str) {
+        free(name_local_str);
+        name_local_str = NULL;
+    }
     if (decreased_stat_local_nonprim) {
         stat_summary_free(decreased_stat_local_nonprim);
         decreased_stat_local_nonprim = NULL;

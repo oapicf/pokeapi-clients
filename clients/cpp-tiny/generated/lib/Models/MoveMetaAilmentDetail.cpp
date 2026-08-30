@@ -161,7 +161,7 @@ MoveMetaAilmentDetail::getId()
 }
 
 void
-MoveMetaAilmentDetail::setId(int  id)
+MoveMetaAilmentDetail::setId(int id)
 {
 	this->id = id;
 }
@@ -173,7 +173,7 @@ MoveMetaAilmentDetail::getName()
 }
 
 void
-MoveMetaAilmentDetail::setName(std::string  name)
+MoveMetaAilmentDetail::setName(std::string name)
 {
 	this->name = name;
 }
@@ -185,7 +185,7 @@ MoveMetaAilmentDetail::getMoves()
 }
 
 void
-MoveMetaAilmentDetail::setMoves(std::list <AbilityDetail_pokemon_inner_pokemon> moves)
+MoveMetaAilmentDetail::setMoves(std::list<AbilityDetail_pokemon_inner_pokemon> moves)
 {
 	this->moves = moves;
 }
@@ -197,7 +197,7 @@ MoveMetaAilmentDetail::getNames()
 }
 
 void
-MoveMetaAilmentDetail::setNames(std::list <MoveMetaAilmentName> names)
+MoveMetaAilmentDetail::setNames(std::list<MoveMetaAilmentName> names)
 {
 	this->names = names;
 }

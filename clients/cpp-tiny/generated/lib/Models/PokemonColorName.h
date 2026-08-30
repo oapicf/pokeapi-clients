@@ -52,14 +52,14 @@ public:
 
 	/*! \brief Set 
 	 */
-	void setName(std::string  name);
+	void setName(std::string name);
 	/*! \brief Get 
 	 */
 	LanguageSummary getLanguage();
 
 	/*! \brief Set 
 	 */
-	void setLanguage(LanguageSummary  language);
+	void setLanguage(LanguageSummary language);
 
 
     private:

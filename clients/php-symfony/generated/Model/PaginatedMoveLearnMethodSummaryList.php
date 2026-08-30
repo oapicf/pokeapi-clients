@@ -47,7 +47,7 @@ class PaginatedMoveLearnMethodSummaryList
      * @var int|null
      * @SerializedName("count")
      * @Type("int")
-    */
+     */
     #[Assert\Type("int")]
     protected ?int $count = null;
 
@@ -55,7 +55,7 @@ class PaginatedMoveLearnMethodSummaryList
      * @var string|null
      * @SerializedName("next")
      * @Type("string")
-    */
+     */
     #[Assert\Type("string")]
     protected ?string $next = null;
 
@@ -63,7 +63,7 @@ class PaginatedMoveLearnMethodSummaryList
      * @var string|null
      * @SerializedName("previous")
      * @Type("string")
-    */
+     */
     #[Assert\Type("string")]
     protected ?string $previous = null;
 
@@ -71,7 +71,7 @@ class PaginatedMoveLearnMethodSummaryList
      * @var MoveLearnMethodSummary[]|null
      * @SerializedName("results")
      * @Type("array<OpenAPI\Server\Model\MoveLearnMethodSummary>")
-    */
+     */
     #[Assert\All([
         new Assert\Type("OpenAPI\Server\Model\MoveLearnMethodSummary"),
     ])]
@@ -102,12 +102,12 @@ class PaginatedMoveLearnMethodSummaryList
     }
 
     /**
-    * Sets count.
-    *
-    * @param int|null $count
-    *
-    * @return $this
-    */
+     * Sets count.
+     *
+     * @param int|null $count
+     *
+     * @return $this
+     */
     public function setCount(?int $count = null): self
     {
         $this->count = $count;
@@ -129,12 +129,12 @@ class PaginatedMoveLearnMethodSummaryList
     }
 
     /**
-    * Sets next.
-    *
-    * @param string|null $next
-    *
-    * @return $this
-    */
+     * Sets next.
+     *
+     * @param string|null $next
+     *
+     * @return $this
+     */
     public function setNext(?string $next = null): self
     {
         $this->next = $next;
@@ -156,12 +156,12 @@ class PaginatedMoveLearnMethodSummaryList
     }
 
     /**
-    * Sets previous.
-    *
-    * @param string|null $previous
-    *
-    * @return $this
-    */
+     * Sets previous.
+     *
+     * @param string|null $previous
+     *
+     * @return $this
+     */
     public function setPrevious(?string $previous = null): self
     {
         $this->previous = $previous;
@@ -183,12 +183,12 @@ class PaginatedMoveLearnMethodSummaryList
     }
 
     /**
-    * Sets results.
-    *
-    * @param MoveLearnMethodSummary[]|null $results
-    *
-    * @return $this
-    */
+     * Sets results.
+     *
+     * @param MoveLearnMethodSummary[]|null $results
+     *
+     * @return $this
+     */
     public function setResults(?array $results = null): self
     {
         $this->results = $results;

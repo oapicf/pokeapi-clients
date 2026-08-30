@@ -21,7 +21,7 @@
 
 namespace OpenAPI {
 
-OAIMoveBattleStyleDetail::OAIMoveBattleStyleDetail(QString json) {
+OAIMoveBattleStyleDetail::OAIMoveBattleStyleDetail(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -44,7 +44,7 @@ void OAIMoveBattleStyleDetail::initializeModel() {
     m_names_isValid = false;
 }
 
-void OAIMoveBattleStyleDetail::fromJson(QString jsonString) {
+void OAIMoveBattleStyleDetail::fromJson(const QString &jsonString) {
     QByteArray array(jsonString.toStdString().c_str());
     QJsonDocument doc = QJsonDocument::fromJson(array);
     QJsonObject jsonObject = doc.object();

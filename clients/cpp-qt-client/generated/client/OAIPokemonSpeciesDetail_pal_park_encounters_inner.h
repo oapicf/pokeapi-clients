@@ -32,13 +32,13 @@ class OAIAbilityDetail_pokemon_inner_pokemon;
 class OAIPokemonSpeciesDetail_pal_park_encounters_inner : public OAIObject {
 public:
     OAIPokemonSpeciesDetail_pal_park_encounters_inner();
-    OAIPokemonSpeciesDetail_pal_park_encounters_inner(QString json);
+    OAIPokemonSpeciesDetail_pal_park_encounters_inner(const QString &json);
     ~OAIPokemonSpeciesDetail_pal_park_encounters_inner() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     OAIAbilityDetail_pokemon_inner_pokemon getArea() const;
     void setArea(const OAIAbilityDetail_pokemon_inner_pokemon &area);

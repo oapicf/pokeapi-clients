@@ -55,35 +55,35 @@ public:
 
 	/*! \brief Set 
 	 */
-	void setId(int  id);
+	void setId(int id);
 	/*! \brief Get 
 	 */
 	std::string getName();
 
 	/*! \brief Set 
 	 */
-	void setName(std::string  name);
+	void setName(std::string name);
 	/*! \brief Get 
 	 */
 	std::list<PokemonShapeDetail_awesome_names_inner> getAwesomeNames();
 
 	/*! \brief Set 
 	 */
-	void setAwesomeNames(std::list <PokemonShapeDetail_awesome_names_inner> awesome_names);
+	void setAwesomeNames(std::list<PokemonShapeDetail_awesome_names_inner> awesome_names);
 	/*! \brief Get 
 	 */
 	std::list<PokemonShapeDetail_names_inner> getNames();
 
 	/*! \brief Set 
 	 */
-	void setNames(std::list <PokemonShapeDetail_names_inner> names);
+	void setNames(std::list<PokemonShapeDetail_names_inner> names);
 	/*! \brief Get 
 	 */
 	std::list<PokemonSpeciesSummary> getPokemonSpecies();
 
 	/*! \brief Set 
 	 */
-	void setPokemonSpecies(std::list <PokemonSpeciesSummary> pokemon_species);
+	void setPokemonSpecies(std::list<PokemonSpeciesSummary> pokemon_species);
 
 
     private:

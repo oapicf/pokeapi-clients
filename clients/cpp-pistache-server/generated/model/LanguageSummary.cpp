@@ -26,6 +26,8 @@ LanguageSummary::LanguageSummary()
     
 }
 
+LanguageSummary::~LanguageSummary() = default;
+
 void LanguageSummary::validate() const
 {
     std::stringstream msg;

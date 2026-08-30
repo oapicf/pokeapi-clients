@@ -25,6 +25,8 @@ ItemPocketName::ItemPocketName()
     
 }
 
+ItemPocketName::~ItemPocketName() = default;
+
 void ItemPocketName::validate() const
 {
     std::stringstream msg;

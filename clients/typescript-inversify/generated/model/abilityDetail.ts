@@ -22,9 +22,9 @@ export interface AbilityDetail {
     name: string;
     is_main_series?: boolean;
     generation: GenerationSummary;
-    names: Array<AbilityName>;
-    effect_entries: Array<AbilityEffectText>;
-    effect_changes: Array<AbilityChange>;
-    flavor_text_entries: Array<AbilityFlavorText>;
-    pokemon: Array<AbilityDetailPokemonInner>;
+    readonly names: Array<AbilityName>;
+    readonly effect_entries: Array<AbilityEffectText>;
+    readonly effect_changes: Array<AbilityChange>;
+    readonly flavor_text_entries: Array<AbilityFlavorText>;
+    readonly pokemon: Array<AbilityDetailPokemonInner>;
 }

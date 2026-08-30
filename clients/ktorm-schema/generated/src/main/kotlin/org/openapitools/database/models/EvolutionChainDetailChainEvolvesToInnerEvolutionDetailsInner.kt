@@ -42,8 +42,8 @@ object EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInners : BaseTable
     val gender = long("gender")
     val heldItem = long("held_item")
     val item = long("item")
-    val knownMove = blob("known_move")
-    val knownMoveType = blob("known_move_type")
+    val knownMove = long("known_move")
+    val knownMoveType = long("known_move_type")
     val location = long("location")
     val minAffection = int("min_affection")
     val minBeauty = int("min_beauty")
@@ -65,8 +65,8 @@ object EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInners : BaseTable
         gender = EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGenders.createEntity(row, withReferences) /* EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender */,
         heldItem = EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGenders.createEntity(row, withReferences) /* EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender */,
         item = EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGenders.createEntity(row, withReferences) /* EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender */,
-        knownMove = row[knownMove] /* kotlin.Any */,
-        knownMoveType = row[knownMoveType] /* kotlin.Any */,
+        knownMove = EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGenders.createEntity(row, withReferences) /* EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender */,
+        knownMoveType = EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGenders.createEntity(row, withReferences) /* EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender */,
         location = EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGenders.createEntity(row, withReferences) /* EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender */,
         minAffection = row[minAffection] ?: 0 /* kotlin.Int */,
         minBeauty = row[minBeauty] ?: 0 /* kotlin.Int */,

@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ability** | [**models::AbilityDetailPokemonInnerPokemon**](AbilityDetail_pokemon_inner_pokemon.md) |  | 
+**ability** | [**models::AbilityDetailPokemonInnerPokemon**](AbilityDetailPokemonInnerPokemon.md) |  | 
 **is_hidden** | **bool** |  | 
 **slot** | **i32** |  | 
 

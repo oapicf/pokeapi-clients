@@ -8,9 +8,9 @@ Name | Mapping | SQL Type | Default | Type | Description | Notes
 **id** | id | int NOT NULL PRIMARY KEY AUTOINCREMENT |  | **kotlin.Int** |  |  [readonly]
 **name** | name | text NOT NULL |  | **kotlin.String** |  | 
 **region** | region | long NOT NULL |  | [**RegionSummary**](RegionSummary.md) |  |  [foreignkey]
-**names** | `One-To-Many` | `----` | `----`  | [**kotlin.Array&lt;LocationName&gt;**](LocationName.md) |  | 
-**gameIndices** | `One-To-Many` | `----` | `----`  | [**kotlin.Array&lt;LocationGameIndex&gt;**](LocationGameIndex.md) |  | 
-**areas** | `One-To-Many` | `----` | `----`  | [**kotlin.Array&lt;LocationAreaSummary&gt;**](LocationAreaSummary.md) |  | 
+**names** | `One-To-Many` | `----` | `----`  | [**kotlin.Array&lt;LocationName&gt;**](LocationName.md) |  |  [readonly]
+**gameIndices** | `One-To-Many` | `----` | `----`  | [**kotlin.Array&lt;LocationGameIndex&gt;**](LocationGameIndex.md) |  |  [readonly]
+**areas** | `One-To-Many` | `----` | `----`  | [**kotlin.Array&lt;LocationAreaSummary&gt;**](LocationAreaSummary.md) |  |  [readonly]
 
 
 

@@ -1251,16 +1251,16 @@ export type EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner = {
     item: EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender;
     /**
      * 
-     * @type {Object}
+     * @type {EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender}
      * @memberof EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner
      */
-    known_move: Object;
+    known_move: EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender;
     /**
      * 
-     * @type {Object}
+     * @type {EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender}
      * @memberof EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner
      */
-    known_move_type: Object;
+    known_move_type: EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender;
     /**
      * 
      * @type {EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender}
@@ -7536,7 +7536,7 @@ export const BerriesApiFetchParamCreator = function (configuration?: Configurati
                 throw new RequiredError('id','Required parameter id was null or undefined when calling berryFirmnessRetrieve.');
             }
             const localVarPath = `/api/v2/berry-firmness/{id}/`
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+                .replace('{id}', encodeURIComponent(String(id)));
             const localVarUrlObj = url.parse(localVarPath, true);
             const localVarRequestOptions: RequestOptions = Object.assign({}, { method: 'GET' }, options);
             const localVarHeaderParameter = {};
@@ -7613,7 +7613,7 @@ export const BerriesApiFetchParamCreator = function (configuration?: Configurati
                 throw new RequiredError('id','Required parameter id was null or undefined when calling berryFlavorRetrieve.');
             }
             const localVarPath = `/api/v2/berry-flavor/{id}/`
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+                .replace('{id}', encodeURIComponent(String(id)));
             const localVarUrlObj = url.parse(localVarPath, true);
             const localVarRequestOptions: RequestOptions = Object.assign({}, { method: 'GET' }, options);
             const localVarHeaderParameter = {};
@@ -7690,7 +7690,7 @@ export const BerriesApiFetchParamCreator = function (configuration?: Configurati
                 throw new RequiredError('id','Required parameter id was null or undefined when calling berryRetrieve.');
             }
             const localVarPath = `/api/v2/berry/{id}/`
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+                .replace('{id}', encodeURIComponent(String(id)));
             const localVarUrlObj = url.parse(localVarPath, true);
             const localVarRequestOptions: RequestOptions = Object.assign({}, { method: 'GET' }, options);
             const localVarHeaderParameter = {};
@@ -7891,7 +7891,7 @@ export const ContestsApiFetchParamCreator = function (configuration?: Configurat
                 throw new RequiredError('id','Required parameter id was null or undefined when calling contestEffectRetrieve.');
             }
             const localVarPath = `/api/v2/contest-effect/{id}/`
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+                .replace('{id}', encodeURIComponent(String(id)));
             const localVarUrlObj = url.parse(localVarPath, true);
             const localVarRequestOptions: RequestOptions = Object.assign({}, { method: 'GET' }, options);
             const localVarHeaderParameter = {};
@@ -7968,7 +7968,7 @@ export const ContestsApiFetchParamCreator = function (configuration?: Configurat
                 throw new RequiredError('id','Required parameter id was null or undefined when calling contestTypeRetrieve.');
             }
             const localVarPath = `/api/v2/contest-type/{id}/`
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+                .replace('{id}', encodeURIComponent(String(id)));
             const localVarUrlObj = url.parse(localVarPath, true);
             const localVarRequestOptions: RequestOptions = Object.assign({}, { method: 'GET' }, options);
             const localVarHeaderParameter = {};
@@ -8045,7 +8045,7 @@ export const ContestsApiFetchParamCreator = function (configuration?: Configurat
                 throw new RequiredError('id','Required parameter id was null or undefined when calling superContestEffectRetrieve.');
             }
             const localVarPath = `/api/v2/super-contest-effect/{id}/`
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+                .replace('{id}', encodeURIComponent(String(id)));
             const localVarUrlObj = url.parse(localVarPath, true);
             const localVarRequestOptions: RequestOptions = Object.assign({}, { method: 'GET' }, options);
             const localVarHeaderParameter = {};
@@ -8246,7 +8246,7 @@ export const EncountersApiFetchParamCreator = function (configuration?: Configur
                 throw new RequiredError('id','Required parameter id was null or undefined when calling encounterConditionRetrieve.');
             }
             const localVarPath = `/api/v2/encounter-condition/{id}/`
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+                .replace('{id}', encodeURIComponent(String(id)));
             const localVarUrlObj = url.parse(localVarPath, true);
             const localVarRequestOptions: RequestOptions = Object.assign({}, { method: 'GET' }, options);
             const localVarHeaderParameter = {};
@@ -8323,7 +8323,7 @@ export const EncountersApiFetchParamCreator = function (configuration?: Configur
                 throw new RequiredError('id','Required parameter id was null or undefined when calling encounterConditionValueRetrieve.');
             }
             const localVarPath = `/api/v2/encounter-condition-value/{id}/`
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+                .replace('{id}', encodeURIComponent(String(id)));
             const localVarUrlObj = url.parse(localVarPath, true);
             const localVarRequestOptions: RequestOptions = Object.assign({}, { method: 'GET' }, options);
             const localVarHeaderParameter = {};
@@ -8400,7 +8400,7 @@ export const EncountersApiFetchParamCreator = function (configuration?: Configur
                 throw new RequiredError('id','Required parameter id was null or undefined when calling encounterMethodRetrieve.');
             }
             const localVarPath = `/api/v2/encounter-method/{id}/`
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+                .replace('{id}', encodeURIComponent(String(id)));
             const localVarUrlObj = url.parse(localVarPath, true);
             const localVarRequestOptions: RequestOptions = Object.assign({}, { method: 'GET' }, options);
             const localVarHeaderParameter = {};
@@ -8601,7 +8601,7 @@ export const EvolutionApiFetchParamCreator = function (configuration?: Configura
                 throw new RequiredError('id','Required parameter id was null or undefined when calling evolutionChainRetrieve.');
             }
             const localVarPath = `/api/v2/evolution-chain/{id}/`
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+                .replace('{id}', encodeURIComponent(String(id)));
             const localVarUrlObj = url.parse(localVarPath, true);
             const localVarRequestOptions: RequestOptions = Object.assign({}, { method: 'GET' }, options);
             const localVarHeaderParameter = {};
@@ -8678,7 +8678,7 @@ export const EvolutionApiFetchParamCreator = function (configuration?: Configura
                 throw new RequiredError('id','Required parameter id was null or undefined when calling evolutionTriggerRetrieve.');
             }
             const localVarPath = `/api/v2/evolution-trigger/{id}/`
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+                .replace('{id}', encodeURIComponent(String(id)));
             const localVarUrlObj = url.parse(localVarPath, true);
             const localVarRequestOptions: RequestOptions = Object.assign({}, { method: 'GET' }, options);
             const localVarHeaderParameter = {};
@@ -8845,7 +8845,7 @@ export const GamesApiFetchParamCreator = function (configuration?: Configuration
                 throw new RequiredError('id','Required parameter id was null or undefined when calling generationRetrieve.');
             }
             const localVarPath = `/api/v2/generation/{id}/`
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+                .replace('{id}', encodeURIComponent(String(id)));
             const localVarUrlObj = url.parse(localVarPath, true);
             const localVarRequestOptions: RequestOptions = Object.assign({}, { method: 'GET' }, options);
             const localVarHeaderParameter = {};
@@ -8922,7 +8922,7 @@ export const GamesApiFetchParamCreator = function (configuration?: Configuration
                 throw new RequiredError('id','Required parameter id was null or undefined when calling pokedexRetrieve.');
             }
             const localVarPath = `/api/v2/pokedex/{id}/`
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+                .replace('{id}', encodeURIComponent(String(id)));
             const localVarUrlObj = url.parse(localVarPath, true);
             const localVarRequestOptions: RequestOptions = Object.assign({}, { method: 'GET' }, options);
             const localVarHeaderParameter = {};
@@ -8999,7 +8999,7 @@ export const GamesApiFetchParamCreator = function (configuration?: Configuration
                 throw new RequiredError('id','Required parameter id was null or undefined when calling versionGroupRetrieve.');
             }
             const localVarPath = `/api/v2/version-group/{id}/`
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+                .replace('{id}', encodeURIComponent(String(id)));
             const localVarUrlObj = url.parse(localVarPath, true);
             const localVarRequestOptions: RequestOptions = Object.assign({}, { method: 'GET' }, options);
             const localVarHeaderParameter = {};
@@ -9076,7 +9076,7 @@ export const GamesApiFetchParamCreator = function (configuration?: Configuration
                 throw new RequiredError('id','Required parameter id was null or undefined when calling versionRetrieve.');
             }
             const localVarPath = `/api/v2/version/{id}/`
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+                .replace('{id}', encodeURIComponent(String(id)));
             const localVarUrlObj = url.parse(localVarPath, true);
             const localVarRequestOptions: RequestOptions = Object.assign({}, { method: 'GET' }, options);
             const localVarHeaderParameter = {};
@@ -9311,7 +9311,7 @@ export const ItemsApiFetchParamCreator = function (configuration?: Configuration
                 throw new RequiredError('id','Required parameter id was null or undefined when calling itemAttributeRetrieve.');
             }
             const localVarPath = `/api/v2/item-attribute/{id}/`
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+                .replace('{id}', encodeURIComponent(String(id)));
             const localVarUrlObj = url.parse(localVarPath, true);
             const localVarRequestOptions: RequestOptions = Object.assign({}, { method: 'GET' }, options);
             const localVarHeaderParameter = {};
@@ -9388,7 +9388,7 @@ export const ItemsApiFetchParamCreator = function (configuration?: Configuration
                 throw new RequiredError('id','Required parameter id was null or undefined when calling itemCategoryRetrieve.');
             }
             const localVarPath = `/api/v2/item-category/{id}/`
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+                .replace('{id}', encodeURIComponent(String(id)));
             const localVarUrlObj = url.parse(localVarPath, true);
             const localVarRequestOptions: RequestOptions = Object.assign({}, { method: 'GET' }, options);
             const localVarHeaderParameter = {};
@@ -9465,7 +9465,7 @@ export const ItemsApiFetchParamCreator = function (configuration?: Configuration
                 throw new RequiredError('id','Required parameter id was null or undefined when calling itemFlingEffectRetrieve.');
             }
             const localVarPath = `/api/v2/item-fling-effect/{id}/`
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+                .replace('{id}', encodeURIComponent(String(id)));
             const localVarUrlObj = url.parse(localVarPath, true);
             const localVarRequestOptions: RequestOptions = Object.assign({}, { method: 'GET' }, options);
             const localVarHeaderParameter = {};
@@ -9584,7 +9584,7 @@ export const ItemsApiFetchParamCreator = function (configuration?: Configuration
                 throw new RequiredError('id','Required parameter id was null or undefined when calling itemPocketRetrieve.');
             }
             const localVarPath = `/api/v2/item-pocket/{id}/`
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+                .replace('{id}', encodeURIComponent(String(id)));
             const localVarUrlObj = url.parse(localVarPath, true);
             const localVarRequestOptions: RequestOptions = Object.assign({}, { method: 'GET' }, options);
             const localVarHeaderParameter = {};
@@ -9619,7 +9619,7 @@ export const ItemsApiFetchParamCreator = function (configuration?: Configuration
                 throw new RequiredError('id','Required parameter id was null or undefined when calling itemRetrieve.');
             }
             const localVarPath = `/api/v2/item/{id}/`
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+                .replace('{id}', encodeURIComponent(String(id)));
             const localVarUrlObj = url.parse(localVarPath, true);
             const localVarRequestOptions: RequestOptions = Object.assign({}, { method: 'GET' }, options);
             const localVarHeaderParameter = {};
@@ -9884,7 +9884,7 @@ export const LocationApiFetchParamCreator = function (configuration?: Configurat
                 throw new RequiredError('id','Required parameter id was null or undefined when calling locationAreaRetrieve.');
             }
             const localVarPath = `/api/v2/location-area/{id}/`
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+                .replace('{id}', encodeURIComponent(String(id)));
             const localVarUrlObj = url.parse(localVarPath, true);
             const localVarRequestOptions: RequestOptions = Object.assign({}, { method: 'GET' }, options);
             const localVarHeaderParameter = {};
@@ -9961,7 +9961,7 @@ export const LocationApiFetchParamCreator = function (configuration?: Configurat
                 throw new RequiredError('id','Required parameter id was null or undefined when calling locationRetrieve.');
             }
             const localVarPath = `/api/v2/location/{id}/`
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+                .replace('{id}', encodeURIComponent(String(id)));
             const localVarUrlObj = url.parse(localVarPath, true);
             const localVarRequestOptions: RequestOptions = Object.assign({}, { method: 'GET' }, options);
             const localVarHeaderParameter = {};
@@ -10038,7 +10038,7 @@ export const LocationApiFetchParamCreator = function (configuration?: Configurat
                 throw new RequiredError('id','Required parameter id was null or undefined when calling palParkAreaRetrieve.');
             }
             const localVarPath = `/api/v2/pal-park-area/{id}/`
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+                .replace('{id}', encodeURIComponent(String(id)));
             const localVarUrlObj = url.parse(localVarPath, true);
             const localVarRequestOptions: RequestOptions = Object.assign({}, { method: 'GET' }, options);
             const localVarHeaderParameter = {};
@@ -10115,7 +10115,7 @@ export const LocationApiFetchParamCreator = function (configuration?: Configurat
                 throw new RequiredError('id','Required parameter id was null or undefined when calling regionRetrieve.');
             }
             const localVarPath = `/api/v2/region/{id}/`
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+                .replace('{id}', encodeURIComponent(String(id)));
             const localVarUrlObj = url.parse(localVarPath, true);
             const localVarRequestOptions: RequestOptions = Object.assign({}, { method: 'GET' }, options);
             const localVarHeaderParameter = {};
@@ -10350,7 +10350,7 @@ export const MachinesApiFetchParamCreator = function (configuration?: Configurat
                 throw new RequiredError('id','Required parameter id was null or undefined when calling machineRetrieve.');
             }
             const localVarPath = `/api/v2/machine/{id}/`
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+                .replace('{id}', encodeURIComponent(String(id)));
             const localVarUrlObj = url.parse(localVarPath, true);
             const localVarRequestOptions: RequestOptions = Object.assign({}, { method: 'GET' }, options);
             const localVarHeaderParameter = {};
@@ -10483,7 +10483,7 @@ export const MovesApiFetchParamCreator = function (configuration?: Configuration
                 throw new RequiredError('id','Required parameter id was null or undefined when calling moveAilmentRetrieve.');
             }
             const localVarPath = `/api/v2/move-ailment/{id}/`
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+                .replace('{id}', encodeURIComponent(String(id)));
             const localVarUrlObj = url.parse(localVarPath, true);
             const localVarRequestOptions: RequestOptions = Object.assign({}, { method: 'GET' }, options);
             const localVarHeaderParameter = {};
@@ -10560,7 +10560,7 @@ export const MovesApiFetchParamCreator = function (configuration?: Configuration
                 throw new RequiredError('id','Required parameter id was null or undefined when calling moveBattleStyleRetrieve.');
             }
             const localVarPath = `/api/v2/move-battle-style/{id}/`
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+                .replace('{id}', encodeURIComponent(String(id)));
             const localVarUrlObj = url.parse(localVarPath, true);
             const localVarRequestOptions: RequestOptions = Object.assign({}, { method: 'GET' }, options);
             const localVarHeaderParameter = {};
@@ -10637,7 +10637,7 @@ export const MovesApiFetchParamCreator = function (configuration?: Configuration
                 throw new RequiredError('id','Required parameter id was null or undefined when calling moveCategoryRetrieve.');
             }
             const localVarPath = `/api/v2/move-category/{id}/`
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+                .replace('{id}', encodeURIComponent(String(id)));
             const localVarUrlObj = url.parse(localVarPath, true);
             const localVarRequestOptions: RequestOptions = Object.assign({}, { method: 'GET' }, options);
             const localVarHeaderParameter = {};
@@ -10714,7 +10714,7 @@ export const MovesApiFetchParamCreator = function (configuration?: Configuration
                 throw new RequiredError('id','Required parameter id was null or undefined when calling moveLearnMethodRetrieve.');
             }
             const localVarPath = `/api/v2/move-learn-method/{id}/`
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+                .replace('{id}', encodeURIComponent(String(id)));
             const localVarUrlObj = url.parse(localVarPath, true);
             const localVarRequestOptions: RequestOptions = Object.assign({}, { method: 'GET' }, options);
             const localVarHeaderParameter = {};
@@ -10791,7 +10791,7 @@ export const MovesApiFetchParamCreator = function (configuration?: Configuration
                 throw new RequiredError('id','Required parameter id was null or undefined when calling moveRetrieve.');
             }
             const localVarPath = `/api/v2/move/{id}/`
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+                .replace('{id}', encodeURIComponent(String(id)));
             const localVarUrlObj = url.parse(localVarPath, true);
             const localVarRequestOptions: RequestOptions = Object.assign({}, { method: 'GET' }, options);
             const localVarHeaderParameter = {};
@@ -10868,7 +10868,7 @@ export const MovesApiFetchParamCreator = function (configuration?: Configuration
                 throw new RequiredError('id','Required parameter id was null or undefined when calling moveTargetRetrieve.');
             }
             const localVarPath = `/api/v2/move-target/{id}/`
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+                .replace('{id}', encodeURIComponent(String(id)));
             const localVarUrlObj = url.parse(localVarPath, true);
             const localVarRequestOptions: RequestOptions = Object.assign({}, { method: 'GET' }, options);
             const localVarHeaderParameter = {};
@@ -11169,7 +11169,7 @@ export const PokemonApiFetchParamCreator = function (configuration?: Configurati
                 throw new RequiredError('id','Required parameter id was null or undefined when calling abilityRetrieve.');
             }
             const localVarPath = `/api/v2/ability/{id}/`
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+                .replace('{id}', encodeURIComponent(String(id)));
             const localVarUrlObj = url.parse(localVarPath, true);
             const localVarRequestOptions: RequestOptions = Object.assign({}, { method: 'GET' }, options);
             const localVarHeaderParameter = {};
@@ -11246,7 +11246,7 @@ export const PokemonApiFetchParamCreator = function (configuration?: Configurati
                 throw new RequiredError('id','Required parameter id was null or undefined when calling characteristicRetrieve.');
             }
             const localVarPath = `/api/v2/characteristic/{id}/`
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+                .replace('{id}', encodeURIComponent(String(id)));
             const localVarUrlObj = url.parse(localVarPath, true);
             const localVarRequestOptions: RequestOptions = Object.assign({}, { method: 'GET' }, options);
             const localVarHeaderParameter = {};
@@ -11323,7 +11323,7 @@ export const PokemonApiFetchParamCreator = function (configuration?: Configurati
                 throw new RequiredError('id','Required parameter id was null or undefined when calling eggGroupRetrieve.');
             }
             const localVarPath = `/api/v2/egg-group/{id}/`
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+                .replace('{id}', encodeURIComponent(String(id)));
             const localVarUrlObj = url.parse(localVarPath, true);
             const localVarRequestOptions: RequestOptions = Object.assign({}, { method: 'GET' }, options);
             const localVarHeaderParameter = {};
@@ -11400,7 +11400,7 @@ export const PokemonApiFetchParamCreator = function (configuration?: Configurati
                 throw new RequiredError('id','Required parameter id was null or undefined when calling genderRetrieve.');
             }
             const localVarPath = `/api/v2/gender/{id}/`
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+                .replace('{id}', encodeURIComponent(String(id)));
             const localVarUrlObj = url.parse(localVarPath, true);
             const localVarRequestOptions: RequestOptions = Object.assign({}, { method: 'GET' }, options);
             const localVarHeaderParameter = {};
@@ -11477,7 +11477,7 @@ export const PokemonApiFetchParamCreator = function (configuration?: Configurati
                 throw new RequiredError('id','Required parameter id was null or undefined when calling growthRateRetrieve.');
             }
             const localVarPath = `/api/v2/growth-rate/{id}/`
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+                .replace('{id}', encodeURIComponent(String(id)));
             const localVarUrlObj = url.parse(localVarPath, true);
             const localVarRequestOptions: RequestOptions = Object.assign({}, { method: 'GET' }, options);
             const localVarHeaderParameter = {};
@@ -11554,7 +11554,7 @@ export const PokemonApiFetchParamCreator = function (configuration?: Configurati
                 throw new RequiredError('id','Required parameter id was null or undefined when calling moveDamageClassRetrieve.');
             }
             const localVarPath = `/api/v2/move-damage-class/{id}/`
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+                .replace('{id}', encodeURIComponent(String(id)));
             const localVarUrlObj = url.parse(localVarPath, true);
             const localVarRequestOptions: RequestOptions = Object.assign({}, { method: 'GET' }, options);
             const localVarHeaderParameter = {};
@@ -11631,7 +11631,7 @@ export const PokemonApiFetchParamCreator = function (configuration?: Configurati
                 throw new RequiredError('id','Required parameter id was null or undefined when calling natureRetrieve.');
             }
             const localVarPath = `/api/v2/nature/{id}/`
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+                .replace('{id}', encodeURIComponent(String(id)));
             const localVarUrlObj = url.parse(localVarPath, true);
             const localVarRequestOptions: RequestOptions = Object.assign({}, { method: 'GET' }, options);
             const localVarHeaderParameter = {};
@@ -11708,7 +11708,7 @@ export const PokemonApiFetchParamCreator = function (configuration?: Configurati
                 throw new RequiredError('id','Required parameter id was null or undefined when calling pokeathlonStatRetrieve.');
             }
             const localVarPath = `/api/v2/pokeathlon-stat/{id}/`
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+                .replace('{id}', encodeURIComponent(String(id)));
             const localVarUrlObj = url.parse(localVarPath, true);
             const localVarRequestOptions: RequestOptions = Object.assign({}, { method: 'GET' }, options);
             const localVarHeaderParameter = {};
@@ -11785,7 +11785,7 @@ export const PokemonApiFetchParamCreator = function (configuration?: Configurati
                 throw new RequiredError('id','Required parameter id was null or undefined when calling pokemonColorRetrieve.');
             }
             const localVarPath = `/api/v2/pokemon-color/{id}/`
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+                .replace('{id}', encodeURIComponent(String(id)));
             const localVarUrlObj = url.parse(localVarPath, true);
             const localVarRequestOptions: RequestOptions = Object.assign({}, { method: 'GET' }, options);
             const localVarHeaderParameter = {};
@@ -11862,7 +11862,7 @@ export const PokemonApiFetchParamCreator = function (configuration?: Configurati
                 throw new RequiredError('id','Required parameter id was null or undefined when calling pokemonFormRetrieve.');
             }
             const localVarPath = `/api/v2/pokemon-form/{id}/`
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+                .replace('{id}', encodeURIComponent(String(id)));
             const localVarUrlObj = url.parse(localVarPath, true);
             const localVarRequestOptions: RequestOptions = Object.assign({}, { method: 'GET' }, options);
             const localVarHeaderParameter = {};
@@ -11939,7 +11939,7 @@ export const PokemonApiFetchParamCreator = function (configuration?: Configurati
                 throw new RequiredError('id','Required parameter id was null or undefined when calling pokemonHabitatRetrieve.');
             }
             const localVarPath = `/api/v2/pokemon-habitat/{id}/`
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+                .replace('{id}', encodeURIComponent(String(id)));
             const localVarUrlObj = url.parse(localVarPath, true);
             const localVarRequestOptions: RequestOptions = Object.assign({}, { method: 'GET' }, options);
             const localVarHeaderParameter = {};
@@ -12016,7 +12016,7 @@ export const PokemonApiFetchParamCreator = function (configuration?: Configurati
                 throw new RequiredError('id','Required parameter id was null or undefined when calling pokemonRetrieve.');
             }
             const localVarPath = `/api/v2/pokemon/{id}/`
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+                .replace('{id}', encodeURIComponent(String(id)));
             const localVarUrlObj = url.parse(localVarPath, true);
             const localVarRequestOptions: RequestOptions = Object.assign({}, { method: 'GET' }, options);
             const localVarHeaderParameter = {};
@@ -12093,7 +12093,7 @@ export const PokemonApiFetchParamCreator = function (configuration?: Configurati
                 throw new RequiredError('id','Required parameter id was null or undefined when calling pokemonShapeRetrieve.');
             }
             const localVarPath = `/api/v2/pokemon-shape/{id}/`
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+                .replace('{id}', encodeURIComponent(String(id)));
             const localVarUrlObj = url.parse(localVarPath, true);
             const localVarRequestOptions: RequestOptions = Object.assign({}, { method: 'GET' }, options);
             const localVarHeaderParameter = {};
@@ -12170,7 +12170,7 @@ export const PokemonApiFetchParamCreator = function (configuration?: Configurati
                 throw new RequiredError('id','Required parameter id was null or undefined when calling pokemonSpeciesRetrieve.');
             }
             const localVarPath = `/api/v2/pokemon-species/{id}/`
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+                .replace('{id}', encodeURIComponent(String(id)));
             const localVarUrlObj = url.parse(localVarPath, true);
             const localVarRequestOptions: RequestOptions = Object.assign({}, { method: 'GET' }, options);
             const localVarHeaderParameter = {};
@@ -12247,7 +12247,7 @@ export const PokemonApiFetchParamCreator = function (configuration?: Configurati
                 throw new RequiredError('id','Required parameter id was null or undefined when calling statRetrieve.');
             }
             const localVarPath = `/api/v2/stat/{id}/`
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+                .replace('{id}', encodeURIComponent(String(id)));
             const localVarUrlObj = url.parse(localVarPath, true);
             const localVarRequestOptions: RequestOptions = Object.assign({}, { method: 'GET' }, options);
             const localVarHeaderParameter = {};
@@ -12324,7 +12324,7 @@ export const PokemonApiFetchParamCreator = function (configuration?: Configurati
                 throw new RequiredError('id','Required parameter id was null or undefined when calling typeRetrieve.');
             }
             const localVarPath = `/api/v2/type/{id}/`
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+                .replace('{id}', encodeURIComponent(String(id)));
             const localVarUrlObj = url.parse(localVarPath, true);
             const localVarRequestOptions: RequestOptions = Object.assign({}, { method: 'GET' }, options);
             const localVarHeaderParameter = {};
@@ -12965,7 +12965,7 @@ export const UtilityApiFetchParamCreator = function (configuration?: Configurati
                 throw new RequiredError('id','Required parameter id was null or undefined when calling languageRetrieve.');
             }
             const localVarPath = `/api/v2/language/{id}/`
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+                .replace('{id}', encodeURIComponent(String(id)));
             const localVarUrlObj = url.parse(localVarPath, true);
             const localVarRequestOptions: RequestOptions = Object.assign({}, { method: 'GET' }, options);
             const localVarHeaderParameter = {};

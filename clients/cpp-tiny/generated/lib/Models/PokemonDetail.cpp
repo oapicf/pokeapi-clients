@@ -603,7 +603,7 @@ PokemonDetail::getId()
 }
 
 void
-PokemonDetail::setId(int  id)
+PokemonDetail::setId(int id)
 {
 	this->id = id;
 }
@@ -615,7 +615,7 @@ PokemonDetail::getName()
 }
 
 void
-PokemonDetail::setName(std::string  name)
+PokemonDetail::setName(std::string name)
 {
 	this->name = name;
 }
@@ -627,7 +627,7 @@ PokemonDetail::getBaseExperience()
 }
 
 void
-PokemonDetail::setBaseExperience(int  base_experience)
+PokemonDetail::setBaseExperience(int base_experience)
 {
 	this->base_experience = base_experience;
 }
@@ -639,7 +639,7 @@ PokemonDetail::getHeight()
 }
 
 void
-PokemonDetail::setHeight(int  height)
+PokemonDetail::setHeight(int height)
 {
 	this->height = height;
 }
@@ -651,7 +651,7 @@ PokemonDetail::isIsDefault()
 }
 
 void
-PokemonDetail::setIsDefault(bool  is_default)
+PokemonDetail::setIsDefault(bool is_default)
 {
 	this->is_default = is_default;
 }
@@ -663,7 +663,7 @@ PokemonDetail::getOrder()
 }
 
 void
-PokemonDetail::setOrder(int  order)
+PokemonDetail::setOrder(int order)
 {
 	this->order = order;
 }
@@ -675,7 +675,7 @@ PokemonDetail::getWeight()
 }
 
 void
-PokemonDetail::setWeight(int  weight)
+PokemonDetail::setWeight(int weight)
 {
 	this->weight = weight;
 }
@@ -687,7 +687,7 @@ PokemonDetail::getAbilities()
 }
 
 void
-PokemonDetail::setAbilities(std::list <PokemonDetail_abilities_inner> abilities)
+PokemonDetail::setAbilities(std::list<PokemonDetail_abilities_inner> abilities)
 {
 	this->abilities = abilities;
 }
@@ -699,7 +699,7 @@ PokemonDetail::getPastAbilities()
 }
 
 void
-PokemonDetail::setPastAbilities(std::list <PokemonDetail_past_abilities_inner> past_abilities)
+PokemonDetail::setPastAbilities(std::list<PokemonDetail_past_abilities_inner> past_abilities)
 {
 	this->past_abilities = past_abilities;
 }
@@ -711,7 +711,7 @@ PokemonDetail::getForms()
 }
 
 void
-PokemonDetail::setForms(std::list <PokemonFormSummary> forms)
+PokemonDetail::setForms(std::list<PokemonFormSummary> forms)
 {
 	this->forms = forms;
 }
@@ -723,7 +723,7 @@ PokemonDetail::getGameIndices()
 }
 
 void
-PokemonDetail::setGameIndices(std::list <PokemonGameIndex> game_indices)
+PokemonDetail::setGameIndices(std::list<PokemonGameIndex> game_indices)
 {
 	this->game_indices = game_indices;
 }
@@ -735,7 +735,7 @@ PokemonDetail::getHeldItems()
 }
 
 void
-PokemonDetail::setHeldItems(PokemonDetail_held_items  held_items)
+PokemonDetail::setHeldItems(PokemonDetail_held_items held_items)
 {
 	this->held_items = held_items;
 }
@@ -747,7 +747,7 @@ PokemonDetail::getLocationAreaEncounters()
 }
 
 void
-PokemonDetail::setLocationAreaEncounters(std::string  location_area_encounters)
+PokemonDetail::setLocationAreaEncounters(std::string location_area_encounters)
 {
 	this->location_area_encounters = location_area_encounters;
 }
@@ -759,7 +759,7 @@ PokemonDetail::getMoves()
 }
 
 void
-PokemonDetail::setMoves(std::list <PokemonDetail_moves_inner> moves)
+PokemonDetail::setMoves(std::list<PokemonDetail_moves_inner> moves)
 {
 	this->moves = moves;
 }
@@ -771,19 +771,19 @@ PokemonDetail::getSpecies()
 }
 
 void
-PokemonDetail::setSpecies(PokemonSpeciesSummary  species)
+PokemonDetail::setSpecies(PokemonSpeciesSummary species)
 {
 	this->species = species;
 }
 
-PokemonDetail_sprites
+PokemonDetail_sprites&lt;std::string, std::string&gt;
 PokemonDetail::getSprites()
 {
 	return sprites;
 }
 
 void
-PokemonDetail::setSprites(PokemonDetail_sprites  sprites)
+PokemonDetail::setSprites(PokemonDetail_sprites&lt;std::string, std::string&gt; sprites)
 {
 	this->sprites = sprites;
 }
@@ -795,7 +795,7 @@ PokemonDetail::getCries()
 }
 
 void
-PokemonDetail::setCries(PokemonDetail_cries  cries)
+PokemonDetail::setCries(PokemonDetail_cries cries)
 {
 	this->cries = cries;
 }
@@ -807,7 +807,7 @@ PokemonDetail::getStats()
 }
 
 void
-PokemonDetail::setStats(std::list <PokemonStat> stats)
+PokemonDetail::setStats(std::list<PokemonStat> stats)
 {
 	this->stats = stats;
 }
@@ -819,7 +819,7 @@ PokemonDetail::getTypes()
 }
 
 void
-PokemonDetail::setTypes(std::list <PokemonDetail_types_inner> types)
+PokemonDetail::setTypes(std::list<PokemonDetail_types_inner> types)
 {
 	this->types = types;
 }
@@ -831,7 +831,7 @@ PokemonDetail::getPastTypes()
 }
 
 void
-PokemonDetail::setPastTypes(std::list <PokemonDetail_past_types_inner> past_types)
+PokemonDetail::setPastTypes(std::list<PokemonDetail_past_types_inner> past_types)
 {
 	this->past_types = past_types;
 }

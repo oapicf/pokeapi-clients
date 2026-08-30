@@ -5,8 +5,8 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **Int32** |  | [readonly] 
 **Name** | **String** |  | 
-**EffectEntries** | [**ItemFlingEffectEffectText[]**](ItemFlingEffectEffectText.md) |  | 
-**Items** | [**ItemSummary[]**](ItemSummary.md) |  | 
+**EffectEntries** | [**ItemFlingEffectEffectText[]**](ItemFlingEffectEffectText.md) |  | [readonly] 
+**Items** | [**ItemSummary[]**](ItemSummary.md) |  | [readonly] 
 
 ## Examples
 

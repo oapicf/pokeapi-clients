@@ -86,7 +86,7 @@ GenerationName::getName()
 }
 
 void
-GenerationName::setName(std::string  name)
+GenerationName::setName(std::string name)
 {
 	this->name = name;
 }
@@ -98,7 +98,7 @@ GenerationName::getLanguage()
 }
 
 void
-GenerationName::setLanguage(LanguageSummary  language)
+GenerationName::setLanguage(LanguageSummary language)
 {
 	this->language = language;
 }

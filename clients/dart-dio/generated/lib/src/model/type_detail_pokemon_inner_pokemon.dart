@@ -86,15 +86,17 @@ class _$TypeDetailPokemonInnerPokemonSerializer implements PrimitiveSerializer<T
         case r'name':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(String),
-          ) as String;
+            specifiedType: const FullType.nullable(String),
+          ) as String?;
+          if (valueDes == null) continue;
           result.name = valueDes;
           break;
         case r'url':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(String),
-          ) as String;
+            specifiedType: const FullType.nullable(String),
+          ) as String?;
+          if (valueDes == null) continue;
           result.url = valueDes;
           break;
         default:

@@ -85,7 +85,7 @@ PokedexSummary::getName()
 }
 
 void
-PokedexSummary::setName(std::string  name)
+PokedexSummary::setName(std::string name)
 {
 	this->name = name;
 }
@@ -97,7 +97,7 @@ PokedexSummary::getUrl()
 }
 
 void
-PokedexSummary::setUrl(std::string  url)
+PokedexSummary::setUrl(std::string url)
 {
 	this->url = url;
 }

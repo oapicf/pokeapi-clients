@@ -92,7 +92,7 @@ export class ContestsApiRequestFactory extends BaseAPIRequestFactory {
 
         // Path Params
         const localVarPath = '/api/v2/contest-effect/{id}/'
-            .replace('{' + 'id' + '}', encodeURIComponent(String(id)));
+            .replace('{id}', encodeURIComponent(String(id)));
 
         // Make Request Context
         const requestContext = _config.baseServer.makeRequestContext(localVarPath, HttpMethod.GET);
@@ -191,7 +191,7 @@ export class ContestsApiRequestFactory extends BaseAPIRequestFactory {
 
         // Path Params
         const localVarPath = '/api/v2/contest-type/{id}/'
-            .replace('{' + 'id' + '}', encodeURIComponent(String(id)));
+            .replace('{id}', encodeURIComponent(String(id)));
 
         // Make Request Context
         const requestContext = _config.baseServer.makeRequestContext(localVarPath, HttpMethod.GET);
@@ -290,7 +290,7 @@ export class ContestsApiRequestFactory extends BaseAPIRequestFactory {
 
         // Path Params
         const localVarPath = '/api/v2/super-contest-effect/{id}/'
-            .replace('{' + 'id' + '}', encodeURIComponent(String(id)));
+            .replace('{id}', encodeURIComponent(String(id)));
 
         // Make Request Context
         const requestContext = _config.baseServer.makeRequestContext(localVarPath, HttpMethod.GET);

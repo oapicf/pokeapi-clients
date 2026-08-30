@@ -67,7 +67,8 @@ class PaginatedEggGroupSummaryList extends BaseModel
       "type" : "array",
       "items" : {
         "$ref" : "#/components/schemas/EggGroupSummary"
-      }
+      },
+      "default" : null
     }
   }
 }

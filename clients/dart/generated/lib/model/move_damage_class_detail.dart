@@ -71,10 +71,16 @@ class MoveDamageClassDetail {
       // Note 1: the values aren't checked for validity beyond being non-null.
       // Note 2: this code is stripped in release mode!
       assert(() {
-        requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "MoveDamageClassDetail[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "MoveDamageClassDetail[$key]" has a null value in JSON.');
-        });
+        assert(json.containsKey(r'id'), 'Required key "MoveDamageClassDetail[id]" is missing from JSON.');
+        assert(json[r'id'] != null, 'Required key "MoveDamageClassDetail[id]" has a null value in JSON.');
+        assert(json.containsKey(r'name'), 'Required key "MoveDamageClassDetail[name]" is missing from JSON.');
+        assert(json[r'name'] != null, 'Required key "MoveDamageClassDetail[name]" has a null value in JSON.');
+        assert(json.containsKey(r'descriptions'), 'Required key "MoveDamageClassDetail[descriptions]" is missing from JSON.');
+        assert(json[r'descriptions'] != null, 'Required key "MoveDamageClassDetail[descriptions]" has a null value in JSON.');
+        assert(json.containsKey(r'moves'), 'Required key "MoveDamageClassDetail[moves]" is missing from JSON.');
+        assert(json[r'moves'] != null, 'Required key "MoveDamageClassDetail[moves]" has a null value in JSON.');
+        assert(json.containsKey(r'names'), 'Required key "MoveDamageClassDetail[names]" is missing from JSON.');
+        assert(json[r'names'] != null, 'Required key "MoveDamageClassDetail[names]" has a null value in JSON.');
         return true;
       }());
 

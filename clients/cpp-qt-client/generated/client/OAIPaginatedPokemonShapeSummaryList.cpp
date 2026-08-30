@@ -21,7 +21,7 @@
 
 namespace OpenAPI {
 
-OAIPaginatedPokemonShapeSummaryList::OAIPaginatedPokemonShapeSummaryList(QString json) {
+OAIPaginatedPokemonShapeSummaryList::OAIPaginatedPokemonShapeSummaryList(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -47,7 +47,7 @@ void OAIPaginatedPokemonShapeSummaryList::initializeModel() {
     m_results_isValid = false;
 }
 
-void OAIPaginatedPokemonShapeSummaryList::fromJson(QString jsonString) {
+void OAIPaginatedPokemonShapeSummaryList::fromJson(const QString &jsonString) {
     QByteArray array(jsonString.toStdString().c_str());
     QJsonDocument doc = QJsonDocument::fromJson(array);
     QJsonObject jsonObject = doc.object();

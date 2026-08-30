@@ -47,7 +47,7 @@ class MoveDetailContestCombos
      * @var MoveDetailContestCombosNormal|null
      * @SerializedName("normal")
      * @Type("OpenAPI\Server\Model\MoveDetailContestCombosNormal")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Valid]
     #[Assert\Type("OpenAPI\Server\Model\MoveDetailContestCombosNormal")]
@@ -57,7 +57,7 @@ class MoveDetailContestCombos
      * @var MoveDetailContestCombosNormal|null
      * @SerializedName("super")
      * @Type("OpenAPI\Server\Model\MoveDetailContestCombosNormal")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Valid]
     #[Assert\Type("OpenAPI\Server\Model\MoveDetailContestCombosNormal")]
@@ -86,12 +86,12 @@ class MoveDetailContestCombos
     }
 
     /**
-    * Sets normal.
-    *
-    * @param MoveDetailContestCombosNormal|null $normal
-    *
-    * @return $this
-    */
+     * Sets normal.
+     *
+     * @param MoveDetailContestCombosNormal|null $normal
+     *
+     * @return $this
+     */
     public function setNormal(?MoveDetailContestCombosNormal $normal): self
     {
         $this->normal = $normal;
@@ -113,12 +113,12 @@ class MoveDetailContestCombos
     }
 
     /**
-    * Sets super.
-    *
-    * @param MoveDetailContestCombosNormal|null $super
-    *
-    * @return $this
-    */
+     * Sets super.
+     *
+     * @param MoveDetailContestCombosNormal|null $super
+     *
+     * @return $this
+     */
     public function setSuper(?MoveDetailContestCombosNormal $super): self
     {
         $this->super = $super;

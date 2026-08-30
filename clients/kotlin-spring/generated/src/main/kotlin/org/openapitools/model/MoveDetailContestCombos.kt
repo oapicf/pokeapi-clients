@@ -22,11 +22,13 @@ import io.swagger.v3.oas.annotations.media.Schema
 data class MoveDetailContestCombos(
 
     @field:Valid
-    @Schema(example = "null", required = true, description = "")
+    @Schema(required = true, description = "")
+    @param:JsonProperty("normal")
     @get:JsonProperty("normal", required = true) val normal: MoveDetailContestCombosNormal,
 
     @field:Valid
-    @Schema(example = "null", required = true, description = "")
+    @Schema(required = true, description = "")
+    @param:JsonProperty("super")
     @get:JsonProperty("super", required = true) val `super`: MoveDetailContestCombosNormal
 ) {
 

@@ -58,7 +58,7 @@ namespace Org.OpenAPITools.Model
         /// </summary>
         /// <value>The name of the berry</value>
         [JsonPropertyName("name")]
-        public string? Name { get { return this.NameOption; } set { this.NameOption = new(value); } }
+        public string? Name { get { return this.NameOption.Value; } set { this.NameOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of Url
@@ -72,7 +72,7 @@ namespace Org.OpenAPITools.Model
         /// </summary>
         /// <value>The URL to get more information about the berry</value>
         [JsonPropertyName("url")]
-        public string? Url { get { return this.UrlOption; } set { this.UrlOption = new(value); } }
+        public string? Url { get { return this.UrlOption.Value; } set { this.UrlOption = new(value); } }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -102,8 +102,18 @@ namespace Org.OpenAPITools.Model
     /// <summary>
     /// A Json converter for type <see cref="BerryFlavorDetailBerriesInnerBerry" />
     /// </summary>
-    public class BerryFlavorDetailBerriesInnerBerryJsonConverter : JsonConverter<BerryFlavorDetailBerriesInnerBerry>
+    public partial class BerryFlavorDetailBerriesInnerBerryJsonConverter : JsonConverter<BerryFlavorDetailBerriesInnerBerry>
     {
+        partial void OnCreated();
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="BerryFlavorDetailBerriesInnerBerryJsonConverter" /> class.
+        /// </summary>
+        public BerryFlavorDetailBerriesInnerBerryJsonConverter()
+        {
+            OnCreated();
+        }
+
         /// <summary>
         /// Deserializes json to <see cref="BerryFlavorDetailBerriesInnerBerry" />
         /// </summary>

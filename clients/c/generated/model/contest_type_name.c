@@ -14,11 +14,11 @@ static contest_type_name_t *contest_type_name_create_internal(
     if (!contest_type_name_local_var) {
         return NULL;
     }
+    memset(contest_type_name_local_var, 0, sizeof(contest_type_name_t));
+    contest_type_name_local_var->_library_owned = 1;
     contest_type_name_local_var->name = name;
     contest_type_name_local_var->color = color;
     contest_type_name_local_var->language = language;
-
-    contest_type_name_local_var->_library_owned = 1;
     return contest_type_name_local_var;
 }
 
@@ -27,11 +27,14 @@ __attribute__((deprecated)) contest_type_name_t *contest_type_name_create(
     char *color,
     language_summary_t *language
     ) {
-    return contest_type_name_create_internal (
+    contest_type_name_t *result = contest_type_name_create_internal (
         name,
         color,
         language
         );
+    if (!result) {
+    }
+    return result;
 }
 
 void contest_type_name_free(contest_type_name_t *contest_type_name) {
@@ -104,6 +107,10 @@ contest_type_name_t *contest_type_name_parseFromJSON(cJSON *contest_type_nameJSO
 
     contest_type_name_t *contest_type_name_local_var = NULL;
 
+    char *name_local_str = NULL;
+
+    char *color_local_str = NULL;
+
     // define the local variable for contest_type_name->language
     language_summary_t *language_local_nonprim = NULL;
 
@@ -150,14 +157,29 @@ contest_type_name_t *contest_type_name_parseFromJSON(cJSON *contest_type_nameJSO
     language_local_nonprim = language_summary_parseFromJSON(language); //nonprimitive
 
 
+    if (name && !cJSON_IsNull(name)) name_local_str = strdup(name->valuestring);
+    if (color && !cJSON_IsNull(color)) color_local_str = strdup(color->valuestring);
+
     contest_type_name_local_var = contest_type_name_create_internal (
-        strdup(name->valuestring),
-        strdup(color->valuestring),
+        name_local_str,
+        color_local_str,
         language_local_nonprim
         );
 
+    if (!contest_type_name_local_var) {
+        goto end;
+    }
+
     return contest_type_name_local_var;
 end:
+    if (name_local_str) {
+        free(name_local_str);
+        name_local_str = NULL;
+    }
+    if (color_local_str) {
+        free(color_local_str);
+        color_local_str = NULL;
+    }
     if (language_local_nonprim) {
         language_summary_free(language_local_nonprim);
         language_local_nonprim = NULL;

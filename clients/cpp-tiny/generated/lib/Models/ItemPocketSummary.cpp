@@ -85,7 +85,7 @@ ItemPocketSummary::getName()
 }
 
 void
-ItemPocketSummary::setName(std::string  name)
+ItemPocketSummary::setName(std::string name)
 {
 	this->name = name;
 }
@@ -97,7 +97,7 @@ ItemPocketSummary::getUrl()
 }
 
 void
-ItemPocketSummary::setUrl(std::string  url)
+ItemPocketSummary::setUrl(std::string url)
 {
 	this->url = url;
 }

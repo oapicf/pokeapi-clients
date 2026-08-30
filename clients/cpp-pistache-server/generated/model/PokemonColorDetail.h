@@ -35,7 +35,7 @@ class  PokemonColorDetail
 {
 public:
     PokemonColorDetail();
-    virtual ~PokemonColorDetail() = default;
+    virtual ~PokemonColorDetail();
 
 
     /// <summary>

@@ -6,8 +6,8 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **Number** |  | [readonly] 
 **name** | **String** |  | 
-**berries** | [**[BerryFlavorDetailBerriesInner]**](BerryFlavorDetailBerriesInner.md) |  | 
+**berries** | [**[BerryFlavorDetailBerriesInner]**](BerryFlavorDetailBerriesInner.md) |  | [readonly] 
 **contestType** | [**ContestTypeSummary**](ContestTypeSummary.md) |  | 
-**names** | [**[BerryFlavorName]**](BerryFlavorName.md) |  | 
+**names** | [**[BerryFlavorName]**](BerryFlavorName.md) |  | [readonly] 
 
 

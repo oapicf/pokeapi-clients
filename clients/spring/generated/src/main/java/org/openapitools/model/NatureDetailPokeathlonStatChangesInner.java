@@ -9,20 +9,20 @@ import org.openapitools.model.AbilityDetailPokemonInnerPokemon;
 import org.springframework.lang.Nullable;
 import org.openapitools.jackson.nullable.JsonNullable;
 import java.time.OffsetDateTime;
-import javax.validation.Valid;
-import javax.validation.constraints.*;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.*;
 import io.swagger.v3.oas.annotations.media.Schema;
 
 
 import java.util.*;
-import javax.annotation.Generated;
+import jakarta.annotation.Generated;
 
 /**
  * NatureDetailPokeathlonStatChangesInner
  */
 
 @JsonTypeName("NatureDetail_pokeathlon_stat_changes_inner")
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2026-02-07T15:29:13.146999890Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2026-08-30T02:00:43.960184425Z[Etc/UTC]", comments = "Generator version: 7.24.0")
 public class NatureDetailPokeathlonStatChangesInner {
 
   private Integer maxChange;
@@ -57,6 +57,7 @@ public class NatureDetailPokeathlonStatChangesInner {
     return maxChange;
   }
 
+  @JsonProperty("max_change")
   public void setMaxChange(Integer maxChange) {
     this.maxChange = maxChange;
   }
@@ -77,6 +78,7 @@ public class NatureDetailPokeathlonStatChangesInner {
     return pokeathlonStat;
   }
 
+  @JsonProperty("pokeathlon_stat")
   public void setPokeathlonStat(AbilityDetailPokemonInnerPokemon pokeathlonStat) {
     this.pokeathlonStat = pokeathlonStat;
   }
@@ -113,11 +115,8 @@ public class NatureDetailPokeathlonStatChangesInner {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+  private String toIndentedString(@Nullable Object o) {
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 }
 

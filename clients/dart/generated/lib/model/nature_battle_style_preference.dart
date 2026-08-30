@@ -59,10 +59,12 @@ class NatureBattleStylePreference {
       // Note 1: the values aren't checked for validity beyond being non-null.
       // Note 2: this code is stripped in release mode!
       assert(() {
-        requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "NatureBattleStylePreference[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "NatureBattleStylePreference[$key]" has a null value in JSON.');
-        });
+        assert(json.containsKey(r'low_hp_preference'), 'Required key "NatureBattleStylePreference[low_hp_preference]" is missing from JSON.');
+        assert(json[r'low_hp_preference'] != null, 'Required key "NatureBattleStylePreference[low_hp_preference]" has a null value in JSON.');
+        assert(json.containsKey(r'high_hp_preference'), 'Required key "NatureBattleStylePreference[high_hp_preference]" is missing from JSON.');
+        assert(json[r'high_hp_preference'] != null, 'Required key "NatureBattleStylePreference[high_hp_preference]" has a null value in JSON.');
+        assert(json.containsKey(r'move_battle_style'), 'Required key "NatureBattleStylePreference[move_battle_style]" is missing from JSON.');
+        assert(json[r'move_battle_style'] != null, 'Required key "NatureBattleStylePreference[move_battle_style]" has a null value in JSON.');
         return true;
       }());
 

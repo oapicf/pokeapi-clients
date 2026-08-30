@@ -25,6 +25,8 @@ LocationGameIndex::LocationGameIndex()
     
 }
 
+LocationGameIndex::~LocationGameIndex() = default;
+
 void LocationGameIndex::validate() const
 {
     std::stringstream msg;

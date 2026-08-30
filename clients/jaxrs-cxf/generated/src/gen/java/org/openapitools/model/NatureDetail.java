@@ -190,19 +190,6 @@ public class NatureDetail  {
     return berries;
   }
 
-  public void setBerries(List<@Valid BerrySummary> berries) {
-    this.berries = berries;
-  }
-
-  public NatureDetail berries(List<@Valid BerrySummary> berries) {
-    this.berries = berries;
-    return this;
-  }
-
-  public NatureDetail addBerriesItem(BerrySummary berriesItem) {
-    this.berries.add(berriesItem);
-    return this;
-  }
 
  /**
    * Get pokeathlonStatChanges
@@ -214,19 +201,6 @@ public class NatureDetail  {
     return pokeathlonStatChanges;
   }
 
-  public void setPokeathlonStatChanges(List<@Valid NatureDetailPokeathlonStatChangesInner> pokeathlonStatChanges) {
-    this.pokeathlonStatChanges = pokeathlonStatChanges;
-  }
-
-  public NatureDetail pokeathlonStatChanges(List<@Valid NatureDetailPokeathlonStatChangesInner> pokeathlonStatChanges) {
-    this.pokeathlonStatChanges = pokeathlonStatChanges;
-    return this;
-  }
-
-  public NatureDetail addPokeathlonStatChangesItem(NatureDetailPokeathlonStatChangesInner pokeathlonStatChangesItem) {
-    this.pokeathlonStatChanges.add(pokeathlonStatChangesItem);
-    return this;
-  }
 
  /**
    * Get moveBattleStylePreferences
@@ -238,19 +212,6 @@ public class NatureDetail  {
     return moveBattleStylePreferences;
   }
 
-  public void setMoveBattleStylePreferences(List<@Valid NatureBattleStylePreference> moveBattleStylePreferences) {
-    this.moveBattleStylePreferences = moveBattleStylePreferences;
-  }
-
-  public NatureDetail moveBattleStylePreferences(List<@Valid NatureBattleStylePreference> moveBattleStylePreferences) {
-    this.moveBattleStylePreferences = moveBattleStylePreferences;
-    return this;
-  }
-
-  public NatureDetail addMoveBattleStylePreferencesItem(NatureBattleStylePreference moveBattleStylePreferencesItem) {
-    this.moveBattleStylePreferences.add(moveBattleStylePreferencesItem);
-    return this;
-  }
 
  /**
    * Get names
@@ -262,19 +223,6 @@ public class NatureDetail  {
     return names;
   }
 
-  public void setNames(List<@Valid NatureName> names) {
-    this.names = names;
-  }
-
-  public NatureDetail names(List<@Valid NatureName> names) {
-    this.names = names;
-    return this;
-  }
-
-  public NatureDetail addNamesItem(NatureName namesItem) {
-    this.names.add(namesItem);
-    return this;
-  }
 
   @Override
   public boolean equals(Object o) {
@@ -326,10 +274,7 @@ public class NatureDetail  {
    * (except the first line).
    */
   private static String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 }
 

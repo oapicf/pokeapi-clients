@@ -65,19 +65,6 @@ public class PokemonColorDetail  {
     return names;
   }
 
-  public void setNames(List<PokemonColorName> names) {
-    this.names = names;
-  }
-
-  public PokemonColorDetail names(List<PokemonColorName> names) {
-    this.names = names;
-    return this;
-  }
-
-  public PokemonColorDetail addNamesItem(PokemonColorName namesItem) {
-    this.names.add(namesItem);
-    return this;
-  }
 
  /**
    * Get pokemonSpecies
@@ -88,19 +75,6 @@ public class PokemonColorDetail  {
     return pokemonSpecies;
   }
 
-  public void setPokemonSpecies(List<PokemonSpeciesSummary> pokemonSpecies) {
-    this.pokemonSpecies = pokemonSpecies;
-  }
-
-  public PokemonColorDetail pokemonSpecies(List<PokemonSpeciesSummary> pokemonSpecies) {
-    this.pokemonSpecies = pokemonSpecies;
-    return this;
-  }
-
-  public PokemonColorDetail addPokemonSpeciesItem(PokemonSpeciesSummary pokemonSpeciesItem) {
-    this.pokemonSpecies.add(pokemonSpeciesItem);
-    return this;
-  }
 
   @Override
   public boolean equals(Object o) {
@@ -140,10 +114,7 @@ public class PokemonColorDetail  {
    * (except the first line).
    */
   private static String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 }
 

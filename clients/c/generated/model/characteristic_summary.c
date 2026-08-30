@@ -12,18 +12,21 @@ static characteristic_summary_t *characteristic_summary_create_internal(
     if (!characteristic_summary_local_var) {
         return NULL;
     }
-    characteristic_summary_local_var->url = url;
-
+    memset(characteristic_summary_local_var, 0, sizeof(characteristic_summary_t));
     characteristic_summary_local_var->_library_owned = 1;
+    characteristic_summary_local_var->url = url;
     return characteristic_summary_local_var;
 }
 
 __attribute__((deprecated)) characteristic_summary_t *characteristic_summary_create(
     char *url
     ) {
-    return characteristic_summary_create_internal (
+    characteristic_summary_t *result = characteristic_summary_create_internal (
         url
         );
+    if (!result) {
+    }
+    return result;
 }
 
 void characteristic_summary_free(characteristic_summary_t *characteristic_summary) {
@@ -65,6 +68,8 @@ characteristic_summary_t *characteristic_summary_parseFromJSON(cJSON *characteri
 
     characteristic_summary_t *characteristic_summary_local_var = NULL;
 
+    char *url_local_str = NULL;
+
     // characteristic_summary->url
     cJSON *url = cJSON_GetObjectItemCaseSensitive(characteristic_summaryJSON, "url");
     if (cJSON_IsNull(url)) {
@@ -81,12 +86,22 @@ characteristic_summary_t *characteristic_summary_parseFromJSON(cJSON *characteri
     }
 
 
+    if (url && !cJSON_IsNull(url)) url_local_str = strdup(url->valuestring);
+
     characteristic_summary_local_var = characteristic_summary_create_internal (
-        strdup(url->valuestring)
+        url_local_str
         );
+
+    if (!characteristic_summary_local_var) {
+        goto end;
+    }
 
     return characteristic_summary_local_var;
 end:
+    if (url_local_str) {
+        free(url_local_str);
+        url_local_str = NULL;
+    }
     return NULL;
 
 }

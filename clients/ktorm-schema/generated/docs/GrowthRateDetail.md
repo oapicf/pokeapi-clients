@@ -8,9 +8,9 @@ Name | Mapping | SQL Type | Default | Type | Description | Notes
 **id** | id | int NOT NULL PRIMARY KEY AUTOINCREMENT |  | **kotlin.Int** |  |  [readonly]
 **name** | name | text NOT NULL |  | **kotlin.String** |  | 
 **formula** | formula | text NOT NULL |  | **kotlin.String** |  | 
-**descriptions** | `One-To-Many` | `----` | `----`  | [**kotlin.Array&lt;GrowthRateDescription&gt;**](GrowthRateDescription.md) |  | 
-**levels** | `One-To-Many` | `----` | `----`  | [**kotlin.Array&lt;Experience&gt;**](Experience.md) |  | 
-**pokemonSpecies** | `One-To-Many` | `----` | `----`  | [**kotlin.Array&lt;PokemonSpeciesSummary&gt;**](PokemonSpeciesSummary.md) |  | 
+**descriptions** | `One-To-Many` | `----` | `----`  | [**kotlin.Array&lt;GrowthRateDescription&gt;**](GrowthRateDescription.md) |  |  [readonly]
+**levels** | `One-To-Many` | `----` | `----`  | [**kotlin.Array&lt;Experience&gt;**](Experience.md) |  |  [readonly]
+**pokemonSpecies** | `One-To-Many` | `----` | `----`  | [**kotlin.Array&lt;PokemonSpeciesSummary&gt;**](PokemonSpeciesSummary.md) |  |  [readonly]
 
 
 

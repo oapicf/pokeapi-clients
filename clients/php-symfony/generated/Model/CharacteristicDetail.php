@@ -47,7 +47,7 @@ class CharacteristicDetail
      * @var int|null
      * @SerializedName("id")
      * @Type("int")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Type("int")]
     protected ?int $id = null;
@@ -56,7 +56,7 @@ class CharacteristicDetail
      * @var int|null
      * @SerializedName("gene_modulo")
      * @Type("int")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Type("int")]
     protected ?int $geneModulo = null;
@@ -65,7 +65,7 @@ class CharacteristicDetail
      * @var int[]|null
      * @SerializedName("possible_values")
      * @Type("array<int>")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\All([
         new Assert\Type("int"),
@@ -76,7 +76,7 @@ class CharacteristicDetail
      * @var StatSummary|null
      * @SerializedName("highest_stat")
      * @Type("OpenAPI\Server\Model\StatSummary")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Valid]
     #[Assert\Type("OpenAPI\Server\Model\StatSummary")]
@@ -86,7 +86,7 @@ class CharacteristicDetail
      * @var CharacteristicDescription[]|null
      * @SerializedName("descriptions")
      * @Type("array<OpenAPI\Server\Model\CharacteristicDescription>")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Valid]
     #[Assert\All([
@@ -120,12 +120,12 @@ class CharacteristicDetail
     }
 
     /**
-    * Sets id.
-    *
-    * @param int|null $id
-    *
-    * @return $this
-    */
+     * Sets id.
+     *
+     * @param int|null $id
+     *
+     * @return $this
+     */
     public function setId(?int $id): self
     {
         $this->id = $id;
@@ -147,12 +147,12 @@ class CharacteristicDetail
     }
 
     /**
-    * Sets geneModulo.
-    *
-    * @param int|null $geneModulo
-    *
-    * @return $this
-    */
+     * Sets geneModulo.
+     *
+     * @param int|null $geneModulo
+     *
+     * @return $this
+     */
     public function setGeneModulo(?int $geneModulo): self
     {
         $this->geneModulo = $geneModulo;
@@ -174,12 +174,12 @@ class CharacteristicDetail
     }
 
     /**
-    * Sets possibleValues.
-    *
-    * @param int[]|null $possibleValues
-    *
-    * @return $this
-    */
+     * Sets possibleValues.
+     *
+     * @param int[]|null $possibleValues
+     *
+     * @return $this
+     */
     public function setPossibleValues(?array $possibleValues): self
     {
         $this->possibleValues = $possibleValues;
@@ -201,12 +201,12 @@ class CharacteristicDetail
     }
 
     /**
-    * Sets highestStat.
-    *
-    * @param StatSummary|null $highestStat
-    *
-    * @return $this
-    */
+     * Sets highestStat.
+     *
+     * @param StatSummary|null $highestStat
+     *
+     * @return $this
+     */
     public function setHighestStat(?StatSummary $highestStat): self
     {
         $this->highestStat = $highestStat;
@@ -228,12 +228,12 @@ class CharacteristicDetail
     }
 
     /**
-    * Sets descriptions.
-    *
-    * @param CharacteristicDescription[]|null $descriptions
-    *
-    * @return $this
-    */
+     * Sets descriptions.
+     *
+     * @param CharacteristicDescription[]|null $descriptions
+     *
+     * @return $this
+     */
     public function setDescriptions(?array $descriptions): self
     {
         $this->descriptions = $descriptions;

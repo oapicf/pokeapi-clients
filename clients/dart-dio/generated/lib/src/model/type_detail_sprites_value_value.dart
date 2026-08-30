@@ -73,8 +73,9 @@ class _$TypeDetailSpritesValueValueSerializer implements PrimitiveSerializer<Typ
         case r'name-icon':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(String),
-          ) as String;
+            specifiedType: const FullType.nullable(String),
+          ) as String?;
+          if (valueDes == null) continue;
           result.nameIcon = valueDes;
           break;
         default:

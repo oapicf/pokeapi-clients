@@ -21,7 +21,7 @@
 
 namespace OpenAPI {
 
-OAIContestTypeDetail::OAIContestTypeDetail(QString json) {
+OAIContestTypeDetail::OAIContestTypeDetail(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -47,7 +47,7 @@ void OAIContestTypeDetail::initializeModel() {
     m_names_isValid = false;
 }
 
-void OAIContestTypeDetail::fromJson(QString jsonString) {
+void OAIContestTypeDetail::fromJson(const QString &jsonString) {
     QByteArray array(jsonString.toStdString().c_str());
     QJsonDocument doc = QJsonDocument::fromJson(array);
     QJsonObject jsonObject = doc.object();

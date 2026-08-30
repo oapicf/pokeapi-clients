@@ -87,11 +87,21 @@ class TypeDetail(BaseModel):
           are ignored.
         * OpenAPI `readOnly` fields are excluded.
         * OpenAPI `readOnly` fields are excluded.
+        * OpenAPI `readOnly` fields are excluded.
+        * OpenAPI `readOnly` fields are excluded.
+        * OpenAPI `readOnly` fields are excluded.
+        * OpenAPI `readOnly` fields are excluded.
+        * OpenAPI `readOnly` fields are excluded.
         """
         _dict = self.model_dump(
             by_alias=True,
             exclude={
                 "id",
+                "past_damage_relations",
+                "game_indices",
+                "names",
+                "pokemon",
+                "moves",
                 "sprites",
             },
             exclude_none=True,

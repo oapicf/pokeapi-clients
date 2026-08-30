@@ -25,6 +25,8 @@ ContestEffectSummary::ContestEffectSummary()
     
 }
 
+ContestEffectSummary::~ContestEffectSummary() = default;
+
 void ContestEffectSummary::validate() const
 {
     std::stringstream msg;

@@ -130,7 +130,7 @@ function evolutionChainRetrieveRaw<T>(requestParameters: EvolutionChainRetrieveR
 
     meta.authType = ['basic'];
     const config: QueryConfig<T> = {
-        url: `${runtime.Configuration.basePath}/api/v2/evolution-chain/{id}/`.replace(`{${"id"}}`, encodeURIComponent(String(requestParameters.id))),
+        url: `${runtime.Configuration.basePath}/api/v2/evolution-chain/{id}/`.replace('{id}', encodeURIComponent(String(requestParameters.id))),
         meta,
         update: requestConfig.update,
         queryKey: requestConfig.queryKey,
@@ -240,7 +240,7 @@ function evolutionTriggerRetrieveRaw<T>(requestParameters: EvolutionTriggerRetri
 
     meta.authType = ['basic'];
     const config: QueryConfig<T> = {
-        url: `${runtime.Configuration.basePath}/api/v2/evolution-trigger/{id}/`.replace(`{${"id"}}`, encodeURIComponent(String(requestParameters.id))),
+        url: `${runtime.Configuration.basePath}/api/v2/evolution-trigger/{id}/`.replace('{id}', encodeURIComponent(String(requestParameters.id))),
         meta,
         update: requestConfig.update,
         queryKey: requestConfig.queryKey,

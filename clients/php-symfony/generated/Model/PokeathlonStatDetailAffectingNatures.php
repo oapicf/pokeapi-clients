@@ -47,7 +47,7 @@ class PokeathlonStatDetailAffectingNatures
      * @var PokeathlonStatDetailAffectingNaturesDecreaseInner[]|null
      * @SerializedName("decrease")
      * @Type("array<OpenAPI\Server\Model\PokeathlonStatDetailAffectingNaturesDecreaseInner>")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Valid]
     #[Assert\All([
@@ -59,7 +59,7 @@ class PokeathlonStatDetailAffectingNatures
      * @var PokeathlonStatDetailAffectingNaturesIncreaseInner[]|null
      * @SerializedName("increase")
      * @Type("array<OpenAPI\Server\Model\PokeathlonStatDetailAffectingNaturesIncreaseInner>")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Valid]
     #[Assert\All([
@@ -90,12 +90,12 @@ class PokeathlonStatDetailAffectingNatures
     }
 
     /**
-    * Sets decrease.
-    *
-    * @param PokeathlonStatDetailAffectingNaturesDecreaseInner[]|null $decrease
-    *
-    * @return $this
-    */
+     * Sets decrease.
+     *
+     * @param PokeathlonStatDetailAffectingNaturesDecreaseInner[]|null $decrease
+     *
+     * @return $this
+     */
     public function setDecrease(?array $decrease): self
     {
         $this->decrease = $decrease;
@@ -117,12 +117,12 @@ class PokeathlonStatDetailAffectingNatures
     }
 
     /**
-    * Sets increase.
-    *
-    * @param PokeathlonStatDetailAffectingNaturesIncreaseInner[]|null $increase
-    *
-    * @return $this
-    */
+     * Sets increase.
+     *
+     * @param PokeathlonStatDetailAffectingNaturesIncreaseInner[]|null $increase
+     *
+     * @return $this
+     */
     public function setIncrease(?array $increase): self
     {
         $this->increase = $increase;

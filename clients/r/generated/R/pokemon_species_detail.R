@@ -323,65 +323,88 @@ PokemonSpeciesDetail <- R6::R6Class(
       }
       if (!is.null(self$`growth_rate`)) {
         PokemonSpeciesDetailObject[["growth_rate"]] <-
-          self$`growth_rate`$toSimpleType()
+          self$extractSimpleType(self$`growth_rate`)
       }
       if (!is.null(self$`pokedex_numbers`)) {
         PokemonSpeciesDetailObject[["pokedex_numbers"]] <-
-          lapply(self$`pokedex_numbers`, function(x) x$toSimpleType())
+          self$extractSimpleType(self$`pokedex_numbers`)
       }
       if (!is.null(self$`egg_groups`)) {
         PokemonSpeciesDetailObject[["egg_groups"]] <-
-          lapply(self$`egg_groups`, function(x) x$toSimpleType())
+          self$extractSimpleType(self$`egg_groups`)
       }
       if (!is.null(self$`color`)) {
         PokemonSpeciesDetailObject[["color"]] <-
-          self$`color`$toSimpleType()
+          self$extractSimpleType(self$`color`)
       }
       if (!is.null(self$`shape`)) {
         PokemonSpeciesDetailObject[["shape"]] <-
-          self$`shape`$toSimpleType()
+          self$extractSimpleType(self$`shape`)
       }
       if (!is.null(self$`evolves_from_species`)) {
         PokemonSpeciesDetailObject[["evolves_from_species"]] <-
-          self$`evolves_from_species`$toSimpleType()
+          self$extractSimpleType(self$`evolves_from_species`)
       }
       if (!is.null(self$`evolution_chain`)) {
         PokemonSpeciesDetailObject[["evolution_chain"]] <-
-          self$`evolution_chain`$toSimpleType()
+          self$extractSimpleType(self$`evolution_chain`)
       }
       if (!is.null(self$`habitat`)) {
         PokemonSpeciesDetailObject[["habitat"]] <-
-          self$`habitat`$toSimpleType()
+          self$extractSimpleType(self$`habitat`)
       }
       if (!is.null(self$`generation`)) {
         PokemonSpeciesDetailObject[["generation"]] <-
-          self$`generation`$toSimpleType()
+          self$extractSimpleType(self$`generation`)
       }
       if (!is.null(self$`names`)) {
         PokemonSpeciesDetailObject[["names"]] <-
-          lapply(self$`names`, function(x) x$toSimpleType())
+          self$extractSimpleType(self$`names`)
       }
       if (!is.null(self$`pal_park_encounters`)) {
         PokemonSpeciesDetailObject[["pal_park_encounters"]] <-
-          lapply(self$`pal_park_encounters`, function(x) x$toSimpleType())
+          self$extractSimpleType(self$`pal_park_encounters`)
       }
       if (!is.null(self$`form_descriptions`)) {
         PokemonSpeciesDetailObject[["form_descriptions"]] <-
-          lapply(self$`form_descriptions`, function(x) x$toSimpleType())
+          self$extractSimpleType(self$`form_descriptions`)
       }
       if (!is.null(self$`flavor_text_entries`)) {
         PokemonSpeciesDetailObject[["flavor_text_entries"]] <-
-          lapply(self$`flavor_text_entries`, function(x) x$toSimpleType())
+          self$extractSimpleType(self$`flavor_text_entries`)
       }
       if (!is.null(self$`genera`)) {
         PokemonSpeciesDetailObject[["genera"]] <-
-          lapply(self$`genera`, function(x) x$toSimpleType())
+          self$extractSimpleType(self$`genera`)
       }
       if (!is.null(self$`varieties`)) {
         PokemonSpeciesDetailObject[["varieties"]] <-
-          lapply(self$`varieties`, function(x) x$toSimpleType())
+          self$extractSimpleType(self$`varieties`)
       }
       return(PokemonSpeciesDetailObject)
+    },
+
+    extractSimpleType = function(x) {
+      if (R6::is.R6(x)) {
+        return(x$toSimpleType())
+      } else if (!self$hasNestedR6(x)) {
+        return(x)
+      }
+      lapply(x, self$extractSimpleType)
+    },
+
+    hasNestedR6 = function(x) {
+      if (R6::is.R6(x)) {
+        return(TRUE)
+      }
+      if (is.list(x)) {
+        for (item in x) {
+          if (self$hasNestedR6(item)) {
+            return(TRUE)
+          }
+        }
+      }
+      FALSE
     },
 
     #' @description

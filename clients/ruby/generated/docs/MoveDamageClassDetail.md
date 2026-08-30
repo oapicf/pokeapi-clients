@@ -6,9 +6,9 @@
 | ---- | ---- | ----------- | ----- |
 | **id** | **Integer** |  | [readonly] |
 | **name** | **String** |  |  |
-| **descriptions** | [**Array&lt;MoveDamageClassDescription&gt;**](MoveDamageClassDescription.md) |  |  |
-| **moves** | [**Array&lt;MoveSummary&gt;**](MoveSummary.md) |  |  |
-| **names** | [**Array&lt;MoveDamageClassName&gt;**](MoveDamageClassName.md) |  |  |
+| **descriptions** | [**Array&lt;MoveDamageClassDescription&gt;**](MoveDamageClassDescription.md) |  | [readonly] |
+| **moves** | [**Array&lt;MoveSummary&gt;**](MoveSummary.md) |  | [readonly] |
+| **names** | [**Array&lt;MoveDamageClassName&gt;**](MoveDamageClassName.md) |  | [readonly] |
 
 ## Example
 

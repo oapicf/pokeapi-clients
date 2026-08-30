@@ -35,15 +35,17 @@ class EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner
 
     /**
      * @DTA\Data(field="known_move")
-     * @DTA\Validator(name="Scalar", options={"type":"object"})
-     * @var object|null
+     * @DTA\Strategy(name="Object", options={"type":\App\DTO\EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender::class})
+     * @DTA\Validator(name="TypeCompliant", options={"type":\App\DTO\EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender::class})
+     * @var \App\DTO\EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender|null
      */
     public $known_move;
 
     /**
      * @DTA\Data(field="known_move_type")
-     * @DTA\Validator(name="Scalar", options={"type":"object"})
-     * @var object|null
+     * @DTA\Strategy(name="Object", options={"type":\App\DTO\EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender::class})
+     * @DTA\Validator(name="TypeCompliant", options={"type":\App\DTO\EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender::class})
+     * @var \App\DTO\EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender|null
      */
     public $known_move_type;
 

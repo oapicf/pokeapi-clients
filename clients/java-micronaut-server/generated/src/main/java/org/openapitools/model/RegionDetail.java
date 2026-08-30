@@ -43,7 +43,7 @@ import io.swagger.v3.oas.annotations.media.Schema;
   RegionDetail.JSON_PROPERTY_VERSION_GROUPS
 })
 @JsonTypeName("RegionDetail")
-@Generated(value="org.openapitools.codegen.languages.JavaMicronautServerCodegen", date="2026-02-07T15:23:03.167972722Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@Generated(value="org.openapitools.codegen.languages.JavaMicronautServerCodegen", date="2026-08-30T01:55:54.631003115Z[Etc/UTC]", comments = "Generator version: 7.24.0")
 @Introspected
 public class RegionDetail {
     public static final String JSON_PROPERTY_ID = "id";
@@ -113,32 +113,16 @@ public class RegionDetail {
         this.name = name;
     }
 
-    public RegionDetail locations(List<@Valid LocationSummary> locations) {
-        this.locations = locations;
-        return this;
-    }
-
-    public RegionDetail addLocationsItem(LocationSummary locationsItem) {
-        this.locations.add(locationsItem);
-        return this;
-    }
-
     /**
      * Get locations
      * @return locations
      */
     @NotNull
-    @Schema(name = "locations", requiredMode = Schema.RequiredMode.REQUIRED)
+    @Schema(name = "locations", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
     @JsonProperty(JSON_PROPERTY_LOCATIONS)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public List<@Valid LocationSummary> getLocations() {
         return locations;
-    }
-
-    @JsonProperty(JSON_PROPERTY_LOCATIONS)
-    @JsonInclude(value = JsonInclude.Include.ALWAYS)
-    public void setLocations(List<@Valid LocationSummary> locations) {
-        this.locations = locations;
     }
 
     /**
@@ -154,42 +138,16 @@ public class RegionDetail {
         return mainGeneration;
     }
 
-    public RegionDetail names(List<@Valid RegionName> names) {
-        this.names = names;
-        return this;
-    }
-
-    public RegionDetail addNamesItem(RegionName namesItem) {
-        this.names.add(namesItem);
-        return this;
-    }
-
     /**
      * Get names
      * @return names
      */
     @NotNull
-    @Schema(name = "names", requiredMode = Schema.RequiredMode.REQUIRED)
+    @Schema(name = "names", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
     @JsonProperty(JSON_PROPERTY_NAMES)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public List<@Valid RegionName> getNames() {
         return names;
-    }
-
-    @JsonProperty(JSON_PROPERTY_NAMES)
-    @JsonInclude(value = JsonInclude.Include.ALWAYS)
-    public void setNames(List<@Valid RegionName> names) {
-        this.names = names;
-    }
-
-    public RegionDetail pokedexes(List<@Valid PokedexSummary> pokedexes) {
-        this.pokedexes = pokedexes;
-        return this;
-    }
-
-    public RegionDetail addPokedexesItem(PokedexSummary pokedexesItem) {
-        this.pokedexes.add(pokedexesItem);
-        return this;
     }
 
     /**
@@ -197,27 +155,11 @@ public class RegionDetail {
      * @return pokedexes
      */
     @NotNull
-    @Schema(name = "pokedexes", requiredMode = Schema.RequiredMode.REQUIRED)
+    @Schema(name = "pokedexes", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
     @JsonProperty(JSON_PROPERTY_POKEDEXES)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public List<@Valid PokedexSummary> getPokedexes() {
         return pokedexes;
-    }
-
-    @JsonProperty(JSON_PROPERTY_POKEDEXES)
-    @JsonInclude(value = JsonInclude.Include.ALWAYS)
-    public void setPokedexes(List<@Valid PokedexSummary> pokedexes) {
-        this.pokedexes = pokedexes;
-    }
-
-    public RegionDetail versionGroups(List<@Valid AbilityDetailPokemonInnerPokemon> versionGroups) {
-        this.versionGroups = versionGroups;
-        return this;
-    }
-
-    public RegionDetail addVersionGroupsItem(AbilityDetailPokemonInnerPokemon versionGroupsItem) {
-        this.versionGroups.add(versionGroupsItem);
-        return this;
     }
 
     /**
@@ -225,17 +167,11 @@ public class RegionDetail {
      * @return versionGroups
      */
     @NotNull
-    @Schema(name = "version_groups", requiredMode = Schema.RequiredMode.REQUIRED)
+    @Schema(name = "version_groups", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
     @JsonProperty(JSON_PROPERTY_VERSION_GROUPS)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public List<@Valid AbilityDetailPokemonInnerPokemon> getVersionGroups() {
         return versionGroups;
-    }
-
-    @JsonProperty(JSON_PROPERTY_VERSION_GROUPS)
-    @JsonInclude(value = JsonInclude.Include.ALWAYS)
-    public void setVersionGroups(List<@Valid AbilityDetailPokemonInnerPokemon> versionGroups) {
-        this.versionGroups = versionGroups;
     }
 
     @Override
@@ -281,10 +217,7 @@ public class RegionDetail {
      * (except the first line).
      */
     private String toIndentedString(Object o) {
-        if (o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
+        return o == null ? "null" : o.toString().replace("\n", "\n    ");
     }
 
 }

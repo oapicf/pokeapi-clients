@@ -85,7 +85,7 @@ EvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner_gender::getN
 }
 
 void
-EvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner_gender::setName(std::string  name)
+EvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner_gender::setName(std::string name)
 {
 	this->name = name;
 }
@@ -97,7 +97,7 @@ EvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner_gender::getU
 }
 
 void
-EvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner_gender::setUrl(std::string  url)
+EvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner_gender::setUrl(std::string url)
 {
 	this->url = url;
 }

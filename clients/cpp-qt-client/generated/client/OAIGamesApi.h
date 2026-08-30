@@ -46,6 +46,7 @@ public:
     void initializeServerConfigs();
     int setDefaultServerValue(int serverIndex,const QString &operation, const QString &variable,const QString &val);
     void setServerIndex(const QString &operation, int serverIndex);
+    void setServerIndex(int serverIndex);
     void setApiKey(const QString &apiKeyName, const QString &apiKey);
     void setBearerToken(const QString &token);
     void setUsername(const QString &username);
@@ -114,6 +115,13 @@ public:
 
 
 private:
+    enum class OauthMethod : int {
+        INVALID_VALUE_OPENAPI_GENERATED = 0,
+        ImplicitFlow = 1,
+        AuthorizationFlow = 2,
+        ClientCredentialsFlow = 3,
+        ResourceOwnerPasswordFlow = 4
+    };
     QMap<QString,int> _serverIndices;
     QMap<QString,QList<OAIServerConfiguration>> _serverConfigs;
     QMap<QString, QString> _apiKeys;
@@ -133,7 +141,7 @@ private:
     OauthImplicit _implicitFlow;
     OauthCredentials _credentialFlow;
     OauthPassword _passwordFlow;
-    int _OauthMethod = 0;
+    OauthMethod _OauthMethod = OauthMethod::INVALID_VALUE_OPENAPI_GENERATED;
 
     void generationListCallback(OAIHttpRequestWorker *worker);
     void generationRetrieveCallback(OAIHttpRequestWorker *worker);
@@ -165,54 +173,22 @@ Q_SIGNALS:
     void versionListSignalFull(OAIHttpRequestWorker *worker, OAIPaginatedVersionSummaryList summary);
     void versionRetrieveSignalFull(OAIHttpRequestWorker *worker, OAIVersionDetail summary);
 
-    Q_DECL_DEPRECATED_X("Use generationListSignalError() instead")
-    void generationListSignalE(OAIPaginatedGenerationSummaryList summary, QNetworkReply::NetworkError error_type, QString error_str);
     void generationListSignalError(OAIPaginatedGenerationSummaryList summary, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use generationRetrieveSignalError() instead")
-    void generationRetrieveSignalE(OAIGenerationDetail summary, QNetworkReply::NetworkError error_type, QString error_str);
     void generationRetrieveSignalError(OAIGenerationDetail summary, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use pokedexListSignalError() instead")
-    void pokedexListSignalE(OAIPaginatedPokedexSummaryList summary, QNetworkReply::NetworkError error_type, QString error_str);
     void pokedexListSignalError(OAIPaginatedPokedexSummaryList summary, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use pokedexRetrieveSignalError() instead")
-    void pokedexRetrieveSignalE(OAIPokedexDetail summary, QNetworkReply::NetworkError error_type, QString error_str);
     void pokedexRetrieveSignalError(OAIPokedexDetail summary, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use versionGroupListSignalError() instead")
-    void versionGroupListSignalE(OAIPaginatedVersionGroupSummaryList summary, QNetworkReply::NetworkError error_type, QString error_str);
     void versionGroupListSignalError(OAIPaginatedVersionGroupSummaryList summary, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use versionGroupRetrieveSignalError() instead")
-    void versionGroupRetrieveSignalE(OAIVersionGroupDetail summary, QNetworkReply::NetworkError error_type, QString error_str);
     void versionGroupRetrieveSignalError(OAIVersionGroupDetail summary, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use versionListSignalError() instead")
-    void versionListSignalE(OAIPaginatedVersionSummaryList summary, QNetworkReply::NetworkError error_type, QString error_str);
     void versionListSignalError(OAIPaginatedVersionSummaryList summary, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use versionRetrieveSignalError() instead")
-    void versionRetrieveSignalE(OAIVersionDetail summary, QNetworkReply::NetworkError error_type, QString error_str);
     void versionRetrieveSignalError(OAIVersionDetail summary, QNetworkReply::NetworkError error_type, const QString &error_str);
 
-    Q_DECL_DEPRECATED_X("Use generationListSignalErrorFull() instead")
-    void generationListSignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void generationListSignalErrorFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use generationRetrieveSignalErrorFull() instead")
-    void generationRetrieveSignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void generationRetrieveSignalErrorFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use pokedexListSignalErrorFull() instead")
-    void pokedexListSignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void pokedexListSignalErrorFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use pokedexRetrieveSignalErrorFull() instead")
-    void pokedexRetrieveSignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void pokedexRetrieveSignalErrorFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use versionGroupListSignalErrorFull() instead")
-    void versionGroupListSignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void versionGroupListSignalErrorFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use versionGroupRetrieveSignalErrorFull() instead")
-    void versionGroupRetrieveSignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void versionGroupRetrieveSignalErrorFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use versionListSignalErrorFull() instead")
-    void versionListSignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void versionListSignalErrorFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use versionRetrieveSignalErrorFull() instead")
-    void versionRetrieveSignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void versionRetrieveSignalErrorFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
 
     void abortRequestsSignal();

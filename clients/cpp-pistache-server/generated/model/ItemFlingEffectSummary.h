@@ -32,7 +32,7 @@ class  ItemFlingEffectSummary
 {
 public:
     ItemFlingEffectSummary();
-    virtual ~ItemFlingEffectSummary() = default;
+    virtual ~ItemFlingEffectSummary();
 
 
     /// <summary>

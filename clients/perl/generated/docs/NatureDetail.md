@@ -14,10 +14,10 @@ Name | Type | Description | Notes
 **increased_stat** | [**StatSummary**](StatSummary.md) |  | 
 **likes_flavor** | [**BerryFlavorSummary**](BerryFlavorSummary.md) |  | 
 **hates_flavor** | [**BerryFlavorSummary**](BerryFlavorSummary.md) |  | 
-**berries** | [**ARRAY[BerrySummary]**](BerrySummary.md) |  | 
-**pokeathlon_stat_changes** | [**ARRAY[NatureDetailPokeathlonStatChangesInner]**](NatureDetailPokeathlonStatChangesInner.md) |  | 
-**move_battle_style_preferences** | [**ARRAY[NatureBattleStylePreference]**](NatureBattleStylePreference.md) |  | 
-**names** | [**ARRAY[NatureName]**](NatureName.md) |  | 
+**berries** | [**ARRAY[BerrySummary]**](BerrySummary.md) |  | [readonly] 
+**pokeathlon_stat_changes** | [**ARRAY[NatureDetailPokeathlonStatChangesInner]**](NatureDetailPokeathlonStatChangesInner.md) |  | [readonly] 
+**move_battle_style_preferences** | [**ARRAY[NatureBattleStylePreference]**](NatureBattleStylePreference.md) |  | [readonly] 
+**names** | [**ARRAY[NatureName]**](NatureName.md) |  | [readonly] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

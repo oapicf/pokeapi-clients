@@ -6,9 +6,9 @@
 
 
 static language_detail_t *language_detail_create_internal(
-    int id,
+    int *id,
     char *name,
-    int official,
+    int *official,
     char *iso639,
     char *iso3166,
     list_t *names
@@ -17,33 +17,48 @@ static language_detail_t *language_detail_create_internal(
     if (!language_detail_local_var) {
         return NULL;
     }
+    memset(language_detail_local_var, 0, sizeof(language_detail_t));
+    language_detail_local_var->_library_owned = 1;
     language_detail_local_var->id = id;
     language_detail_local_var->name = name;
     language_detail_local_var->official = official;
     language_detail_local_var->iso639 = iso639;
     language_detail_local_var->iso3166 = iso3166;
     language_detail_local_var->names = names;
-
-    language_detail_local_var->_library_owned = 1;
     return language_detail_local_var;
 }
 
 __attribute__((deprecated)) language_detail_t *language_detail_create(
-    int id,
+    int *id,
     char *name,
-    int official,
+    int *official,
     char *iso639,
     char *iso3166,
     list_t *names
     ) {
-    return language_detail_create_internal (
-        id,
+    int *id_copy = NULL;
+    if (id) {
+        id_copy = malloc(sizeof(int));
+        if (id_copy) *id_copy = *id;
+    }
+    int *official_copy = NULL;
+    if (official) {
+        official_copy = malloc(sizeof(int));
+        if (official_copy) *official_copy = *official;
+    }
+    language_detail_t *result = language_detail_create_internal (
+        id_copy,
         name,
-        official,
+        official_copy,
         iso639,
         iso3166,
         names
         );
+    if (!result) {
+        free(id_copy);
+        free(official_copy);
+    }
+    return result;
 }
 
 void language_detail_free(language_detail_t *language_detail) {
@@ -55,9 +70,17 @@ void language_detail_free(language_detail_t *language_detail) {
         return ;
     }
     listEntry_t *listEntry;
+    if (language_detail->id) {
+        free(language_detail->id);
+        language_detail->id = NULL;
+    }
     if (language_detail->name) {
         free(language_detail->name);
         language_detail->name = NULL;
+    }
+    if (language_detail->official) {
+        free(language_detail->official);
+        language_detail->official = NULL;
     }
     if (language_detail->iso639) {
         free(language_detail->iso639);
@@ -84,7 +107,7 @@ cJSON *language_detail_convertToJSON(language_detail_t *language_detail) {
     if (!language_detail->id) {
         goto fail;
     }
-    if(cJSON_AddNumberToObject(item, "id", language_detail->id) == NULL) {
+    if(cJSON_AddNumberToObject(item, "id", *language_detail->id) == NULL) {
     goto fail; //Numeric
     }
 
@@ -100,7 +123,7 @@ cJSON *language_detail_convertToJSON(language_detail_t *language_detail) {
 
     // language_detail->official
     if(language_detail->official) {
-    if(cJSON_AddBoolToObject(item, "official", language_detail->official) == NULL) {
+    if(cJSON_AddBoolToObject(item, "official", *language_detail->official) == NULL) {
     goto fail; //Bool
     }
     }
@@ -156,6 +179,18 @@ language_detail_t *language_detail_parseFromJSON(cJSON *language_detailJSON){
 
     language_detail_t *language_detail_local_var = NULL;
 
+    // define the local variable for language_detail->id
+    int *id_local_var = NULL;
+
+    char *name_local_str = NULL;
+
+    // define the local variable for language_detail->official
+    int *official_local_var = NULL;
+
+    char *iso639_local_str = NULL;
+
+    char *iso3166_local_str = NULL;
+
     // define the local list for language_detail->names
     list_t *namesList = NULL;
 
@@ -173,6 +208,12 @@ language_detail_t *language_detail_parseFromJSON(cJSON *language_detailJSON){
     {
     goto end; //Numeric
     }
+    id_local_var = malloc(sizeof(int));
+    if(!id_local_var)
+    {
+        goto end;
+    }
+    *id_local_var = id->valuedouble;
 
     // language_detail->name
     cJSON *name = cJSON_GetObjectItemCaseSensitive(language_detailJSON, "name");
@@ -199,6 +240,12 @@ language_detail_t *language_detail_parseFromJSON(cJSON *language_detailJSON){
     {
     goto end; //Bool
     }
+    official_local_var = malloc(sizeof(int));
+    if(!official_local_var)
+    {
+        goto end;
+    }
+    *official_local_var = official->valueint;
     }
 
     // language_detail->iso639
@@ -259,17 +306,45 @@ language_detail_t *language_detail_parseFromJSON(cJSON *language_detailJSON){
     }
 
 
+    if (name && !cJSON_IsNull(name)) name_local_str = strdup(name->valuestring);
+    if (iso639 && !cJSON_IsNull(iso639)) iso639_local_str = strdup(iso639->valuestring);
+    if (iso3166 && !cJSON_IsNull(iso3166)) iso3166_local_str = strdup(iso3166->valuestring);
+
     language_detail_local_var = language_detail_create_internal (
-        id->valuedouble,
-        strdup(name->valuestring),
-        official ? official->valueint : 0,
-        strdup(iso639->valuestring),
-        strdup(iso3166->valuestring),
+        id_local_var,
+        name_local_str,
+        official_local_var,
+        iso639_local_str,
+        iso3166_local_str,
         namesList
         );
 
+    if (!language_detail_local_var) {
+        goto end;
+    }
+
     return language_detail_local_var;
 end:
+    if (id_local_var) {
+        free(id_local_var);
+        id_local_var = NULL;
+    }
+    if (name_local_str) {
+        free(name_local_str);
+        name_local_str = NULL;
+    }
+    if (official_local_var) {
+        free(official_local_var);
+        official_local_var = NULL;
+    }
+    if (iso639_local_str) {
+        free(iso639_local_str);
+        iso639_local_str = NULL;
+    }
+    if (iso3166_local_str) {
+        free(iso3166_local_str);
+        iso3166_local_str = NULL;
+    }
     if (namesList) {
         listEntry_t *listEntry = NULL;
         list_ForEach(listEntry, namesList) {

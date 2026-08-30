@@ -34,7 +34,7 @@ class  PaginatedGrowthRateSummaryList
 {
 public:
     PaginatedGrowthRateSummaryList();
-    virtual ~PaginatedGrowthRateSummaryList() = default;
+    virtual ~PaginatedGrowthRateSummaryList();
 
 
     /// <summary>

@@ -85,7 +85,7 @@ Experience::getLevel()
 }
 
 void
-Experience::setLevel(int  level)
+Experience::setLevel(int level)
 {
 	this->level = level;
 }
@@ -97,7 +97,7 @@ Experience::getExperience()
 }
 
 void
-Experience::setExperience(int  experience)
+Experience::setExperience(int experience)
 {
 	this->experience = experience;
 }

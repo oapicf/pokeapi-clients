@@ -6,8 +6,8 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **int32** |  | [readonly] 
 **Name** | **string** |  | 
-**Names** | [**[]PokemonColorName**](PokemonColorName.md) |  | 
-**PokemonSpecies** | [**[]PokemonSpeciesSummary**](PokemonSpeciesSummary.md) |  | 
+**Names** | [**[]PokemonColorName**](PokemonColorName.md) |  | [readonly] 
+**PokemonSpecies** | [**[]PokemonSpeciesSummary**](PokemonSpeciesSummary.md) |  | [readonly] 
 
 ## Methods
 

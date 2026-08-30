@@ -38,13 +38,13 @@ class OAIItemAttributeName;
 class OAIItemAttributeDetail : public OAIObject {
 public:
     OAIItemAttributeDetail();
-    OAIItemAttributeDetail(QString json);
+    OAIItemAttributeDetail(const QString &json);
     ~OAIItemAttributeDetail() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     qint32 getId() const;
     void setId(const qint32 &id);

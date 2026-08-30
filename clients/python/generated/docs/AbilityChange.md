@@ -6,7 +6,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **version_group** | [**VersionGroupSummary**](VersionGroupSummary.md) |  | 
-**effect_entries** | [**List[AbilityChangeEffectText]**](AbilityChangeEffectText.md) |  | 
+**effect_entries** | [**List[AbilityChangeEffectText]**](AbilityChangeEffectText.md) |  | [readonly] 
 
 ## Example
 

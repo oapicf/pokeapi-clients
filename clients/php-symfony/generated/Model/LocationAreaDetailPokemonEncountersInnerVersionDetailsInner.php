@@ -47,7 +47,7 @@ class LocationAreaDetailPokemonEncountersInnerVersionDetailsInner
      * @var AbilityDetailPokemonInnerPokemon|null
      * @SerializedName("version")
      * @Type("OpenAPI\Server\Model\AbilityDetailPokemonInnerPokemon")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Valid]
     #[Assert\Type("OpenAPI\Server\Model\AbilityDetailPokemonInnerPokemon")]
@@ -57,7 +57,7 @@ class LocationAreaDetailPokemonEncountersInnerVersionDetailsInner
      * @var int|null
      * @SerializedName("max_chance")
      * @Type("int")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Type("int")]
     protected ?int $maxChance = null;
@@ -66,7 +66,7 @@ class LocationAreaDetailPokemonEncountersInnerVersionDetailsInner
      * @var LocationAreaDetailPokemonEncountersInnerVersionDetailsInnerEncounterDetails|null
      * @SerializedName("encounter_details")
      * @Type("OpenAPI\Server\Model\LocationAreaDetailPokemonEncountersInnerVersionDetailsInnerEncounterDetails")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Valid]
     #[Assert\Type("OpenAPI\Server\Model\LocationAreaDetailPokemonEncountersInnerVersionDetailsInnerEncounterDetails")]
@@ -96,12 +96,12 @@ class LocationAreaDetailPokemonEncountersInnerVersionDetailsInner
     }
 
     /**
-    * Sets version.
-    *
-    * @param AbilityDetailPokemonInnerPokemon|null $version
-    *
-    * @return $this
-    */
+     * Sets version.
+     *
+     * @param AbilityDetailPokemonInnerPokemon|null $version
+     *
+     * @return $this
+     */
     public function setVersion(?AbilityDetailPokemonInnerPokemon $version): self
     {
         $this->version = $version;
@@ -123,12 +123,12 @@ class LocationAreaDetailPokemonEncountersInnerVersionDetailsInner
     }
 
     /**
-    * Sets maxChance.
-    *
-    * @param int|null $maxChance
-    *
-    * @return $this
-    */
+     * Sets maxChance.
+     *
+     * @param int|null $maxChance
+     *
+     * @return $this
+     */
     public function setMaxChance(?int $maxChance): self
     {
         $this->maxChance = $maxChance;
@@ -150,12 +150,12 @@ class LocationAreaDetailPokemonEncountersInnerVersionDetailsInner
     }
 
     /**
-    * Sets encounterDetails.
-    *
-    * @param LocationAreaDetailPokemonEncountersInnerVersionDetailsInnerEncounterDetails|null $encounterDetails
-    *
-    * @return $this
-    */
+     * Sets encounterDetails.
+     *
+     * @param LocationAreaDetailPokemonEncountersInnerVersionDetailsInnerEncounterDetails|null $encounterDetails
+     *
+     * @return $this
+     */
     public function setEncounterDetails(?LocationAreaDetailPokemonEncountersInnerVersionDetailsInnerEncounterDetails $encounterDetails): self
     {
         $this->encounterDetails = $encounterDetails;

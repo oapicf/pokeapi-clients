@@ -13,11 +13,11 @@ Name | Type | Description | Notes
 **is_mega** | Option<**bool**> |  | [optional]
 **form_name** | **String** |  | 
 **pokemon** | [**models::PokemonSummary**](PokemonSummary.md) |  | 
-**sprites** | [**models::PokemonFormDetailSprites**](PokemonFormDetail_sprites.md) |  | 
+**sprites** | [**models::PokemonFormDetailSprites**](PokemonFormDetailSprites.md) |  | 
 **version_group** | [**models::VersionGroupSummary**](VersionGroupSummary.md) |  | 
-**form_names** | [**Vec<models::PokemonFormDetailFormNamesInner>**](PokemonFormDetail_form_names_inner.md) |  | 
-**names** | [**Vec<models::PokemonFormDetailFormNamesInner>**](PokemonFormDetail_form_names_inner.md) |  | 
-**types** | [**Vec<models::PokemonDetailTypesInner>**](PokemonDetail_types_inner.md) |  | 
+**form_names** | [**Vec<models::PokemonFormDetailFormNamesInner>**](PokemonFormDetailFormNamesInner.md) |  | [readonly]
+**names** | [**Vec<models::PokemonFormDetailFormNamesInner>**](PokemonFormDetailFormNamesInner.md) |  | [readonly]
+**types** | [**Vec<models::PokemonDetailTypesInner>**](PokemonDetailTypesInner.md) |  | [readonly]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

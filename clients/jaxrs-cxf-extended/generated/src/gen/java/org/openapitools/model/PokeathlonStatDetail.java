@@ -117,6 +117,7 @@ public class PokeathlonStatDetail  {
 
   /**
    * Sets the <code>names</code> property.
+   * <br><em>N.B. <code>names</code> is <b>read only</b>; client code should not call this method</em>.
    */
  public void setNames(List<@Valid PokeathlonStatName> names) {
     this.names = names;
@@ -124,6 +125,7 @@ public class PokeathlonStatDetail  {
 
   /**
    * Sets the <code>names</code> property.
+   * <br><em>N.B. <code>names</code> is <b>read only</b>; client code should not call this method</em>.
    */
   public PokeathlonStatDetail names(List<@Valid PokeathlonStatName> names) {
     this.names = names;
@@ -132,6 +134,7 @@ public class PokeathlonStatDetail  {
 
   /**
    * Adds a new item to the <code>names</code> list.
+   * <br><em>N.B. <code>names</code> is <b>read only</b>; client code should not call this method</em>.
    */
   public PokeathlonStatDetail addNamesItem(PokeathlonStatName namesItem) {
     this.names.add(namesItem);
@@ -177,10 +180,7 @@ public class PokeathlonStatDetail  {
    * (except the first line).
    */
   private static String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 }
 

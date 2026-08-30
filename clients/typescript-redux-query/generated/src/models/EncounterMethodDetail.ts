@@ -47,7 +47,7 @@ export interface EncounterMethodDetail  {
      * @type {Array<EncounterMethodName>}
      * @memberof EncounterMethodDetail
      */
-    names: Array<EncounterMethodName>;
+    readonly names: Array<EncounterMethodName>;
 }
 
 export function EncounterMethodDetailFromJSON(json: any): EncounterMethodDetail {
@@ -66,7 +66,6 @@ export function EncounterMethodDetailToJSON(value?: EncounterMethodDetail): any 
     return {
         'name': value.name,
         'order': value.order,
-        'names': (value.names as Array<any>).map(EncounterMethodNameToJSON),
     };
 }
 

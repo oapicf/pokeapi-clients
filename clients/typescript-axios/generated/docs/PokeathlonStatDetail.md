@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **id** | **number** |  | [readonly] [default to undefined]
 **name** | **string** |  | [default to undefined]
 **affecting_natures** | [**PokeathlonStatDetailAffectingNatures**](PokeathlonStatDetailAffectingNatures.md) |  | [default to undefined]
-**names** | [**Array&lt;PokeathlonStatName&gt;**](PokeathlonStatName.md) |  | [default to undefined]
+**names** | [**Array&lt;PokeathlonStatName&gt;**](PokeathlonStatName.md) |  | [readonly] [default to undefined]
 
 ## Example
 

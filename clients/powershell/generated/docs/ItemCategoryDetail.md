@@ -5,8 +5,8 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **Int32** |  | [readonly] 
 **Name** | **String** |  | 
-**Items** | [**ItemSummary[]**](ItemSummary.md) |  | 
-**Names** | [**ItemCategoryName[]**](ItemCategoryName.md) |  | 
+**Items** | [**ItemSummary[]**](ItemSummary.md) |  | [readonly] 
+**Names** | [**ItemCategoryName[]**](ItemCategoryName.md) |  | [readonly] 
 **Pocket** | [**ItemPocketSummary**](ItemPocketSummary.md) |  | 
 
 ## Examples

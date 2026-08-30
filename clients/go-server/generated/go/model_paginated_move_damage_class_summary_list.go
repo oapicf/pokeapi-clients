@@ -25,7 +25,8 @@ type PaginatedMoveDamageClassSummaryList struct {
 	Results []MoveDamageClassSummary `json:"results,omitempty"`
 }
 
-// AssertPaginatedMoveDamageClassSummaryListRequired checks if the required fields are not zero-ed
+// AssertPaginatedMoveDamageClassSummaryListRequired checks complex required fields (models, arrays, maps) and embedded parents.
+// Primitive required fields are validated for JSON request bodies in UnmarshalJSON so zero values remain valid.
 func AssertPaginatedMoveDamageClassSummaryListRequired(obj PaginatedMoveDamageClassSummaryList) error {
 	for _, el := range obj.Results {
 		if err := AssertMoveDamageClassSummaryRequired(el); err != nil {

@@ -13,10 +13,10 @@ static location_summary_t *location_summary_create_internal(
     if (!location_summary_local_var) {
         return NULL;
     }
+    memset(location_summary_local_var, 0, sizeof(location_summary_t));
+    location_summary_local_var->_library_owned = 1;
     location_summary_local_var->name = name;
     location_summary_local_var->url = url;
-
-    location_summary_local_var->_library_owned = 1;
     return location_summary_local_var;
 }
 
@@ -24,10 +24,13 @@ __attribute__((deprecated)) location_summary_t *location_summary_create(
     char *name,
     char *url
     ) {
-    return location_summary_create_internal (
+    location_summary_t *result = location_summary_create_internal (
         name,
         url
         );
+    if (!result) {
+    }
+    return result;
 }
 
 void location_summary_free(location_summary_t *location_summary) {
@@ -82,6 +85,10 @@ location_summary_t *location_summary_parseFromJSON(cJSON *location_summaryJSON){
 
     location_summary_t *location_summary_local_var = NULL;
 
+    char *name_local_str = NULL;
+
+    char *url_local_str = NULL;
+
     // location_summary->name
     cJSON *name = cJSON_GetObjectItemCaseSensitive(location_summaryJSON, "name");
     if (cJSON_IsNull(name)) {
@@ -113,13 +120,28 @@ location_summary_t *location_summary_parseFromJSON(cJSON *location_summaryJSON){
     }
 
 
+    if (name && !cJSON_IsNull(name)) name_local_str = strdup(name->valuestring);
+    if (url && !cJSON_IsNull(url)) url_local_str = strdup(url->valuestring);
+
     location_summary_local_var = location_summary_create_internal (
-        strdup(name->valuestring),
-        strdup(url->valuestring)
+        name_local_str,
+        url_local_str
         );
+
+    if (!location_summary_local_var) {
+        goto end;
+    }
 
     return location_summary_local_var;
 end:
+    if (name_local_str) {
+        free(name_local_str);
+        name_local_str = NULL;
+    }
+    if (url_local_str) {
+        free(url_local_str);
+        url_local_str = NULL;
+    }
     return NULL;
 
 }

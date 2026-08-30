@@ -18,7 +18,7 @@ import PalParkAreaName from './PalParkAreaName';
 /**
  * The PalParkAreaDetail model module.
  * @module model/PalParkAreaDetail
- * @version 1.2.1-pre.0
+ * @version 2.0.1-pre.0
  */
 class PalParkAreaDetail {
     /**

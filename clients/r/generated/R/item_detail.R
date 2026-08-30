@@ -190,49 +190,72 @@ ItemDetail <- R6::R6Class(
       }
       if (!is.null(self$`fling_effect`)) {
         ItemDetailObject[["fling_effect"]] <-
-          self$`fling_effect`$toSimpleType()
+          self$extractSimpleType(self$`fling_effect`)
       }
       if (!is.null(self$`attributes`)) {
         ItemDetailObject[["attributes"]] <-
-          lapply(self$`attributes`, function(x) x$toSimpleType())
+          self$extractSimpleType(self$`attributes`)
       }
       if (!is.null(self$`category`)) {
         ItemDetailObject[["category"]] <-
-          self$`category`$toSimpleType()
+          self$extractSimpleType(self$`category`)
       }
       if (!is.null(self$`effect_entries`)) {
         ItemDetailObject[["effect_entries"]] <-
-          lapply(self$`effect_entries`, function(x) x$toSimpleType())
+          self$extractSimpleType(self$`effect_entries`)
       }
       if (!is.null(self$`flavor_text_entries`)) {
         ItemDetailObject[["flavor_text_entries"]] <-
-          lapply(self$`flavor_text_entries`, function(x) x$toSimpleType())
+          self$extractSimpleType(self$`flavor_text_entries`)
       }
       if (!is.null(self$`game_indices`)) {
         ItemDetailObject[["game_indices"]] <-
-          lapply(self$`game_indices`, function(x) x$toSimpleType())
+          self$extractSimpleType(self$`game_indices`)
       }
       if (!is.null(self$`names`)) {
         ItemDetailObject[["names"]] <-
-          lapply(self$`names`, function(x) x$toSimpleType())
+          self$extractSimpleType(self$`names`)
       }
       if (!is.null(self$`held_by_pokemon`)) {
         ItemDetailObject[["held_by_pokemon"]] <-
-          lapply(self$`held_by_pokemon`, function(x) x$toSimpleType())
+          self$extractSimpleType(self$`held_by_pokemon`)
       }
       if (!is.null(self$`sprites`)) {
         ItemDetailObject[["sprites"]] <-
-          self$`sprites`$toSimpleType()
+          self$extractSimpleType(self$`sprites`)
       }
       if (!is.null(self$`baby_trigger_for`)) {
         ItemDetailObject[["baby_trigger_for"]] <-
-          self$`baby_trigger_for`$toSimpleType()
+          self$extractSimpleType(self$`baby_trigger_for`)
       }
       if (!is.null(self$`machines`)) {
         ItemDetailObject[["machines"]] <-
-          lapply(self$`machines`, function(x) x$toSimpleType())
+          self$extractSimpleType(self$`machines`)
       }
       return(ItemDetailObject)
+    },
+
+    extractSimpleType = function(x) {
+      if (R6::is.R6(x)) {
+        return(x$toSimpleType())
+      } else if (!self$hasNestedR6(x)) {
+        return(x)
+      }
+      lapply(x, self$extractSimpleType)
+    },
+
+    hasNestedR6 = function(x) {
+      if (R6::is.R6(x)) {
+        return(TRUE)
+      }
+      if (is.list(x)) {
+        for (item in x) {
+          if (self$hasNestedR6(item)) {
+            return(TRUE)
+          }
+        }
+      }
+      FALSE
     },
 
     #' @description

@@ -76,11 +76,11 @@ function Initialize-CharacteristicDetail {
 
 
         $PSO = [PSCustomObject]@{
-            "id" = ${Id}
-            "gene_modulo" = ${GeneModulo}
-            "possible_values" = ${PossibleValues}
-            "highest_stat" = ${HighestStat}
-            "descriptions" = ${Descriptions}
+            'id' = ${Id}
+            'gene_modulo' = ${GeneModulo}
+            'possible_values' = ${PossibleValues}
+            'highest_stat' = ${HighestStat}
+            'descriptions' = ${Descriptions}
         }
 
 
@@ -118,7 +118,7 @@ function ConvertFrom-JsonToCharacteristicDetail {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in CharacteristicDetail
-        $AllProperties = ("id", "gene_modulo", "possible_values", "highest_stat", "descriptions")
+        $AllProperties = ('id', 'gene_modulo', 'possible_values', 'highest_stat', 'descriptions')
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -129,42 +129,42 @@ function ConvertFrom-JsonToCharacteristicDetail {
             throw "Error! Empty JSON cannot be serialized due to the required property 'id' missing."
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "id"))) {
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'id'))) {
             throw "Error! JSON cannot be serialized due to the required property 'id' missing."
         } else {
-            $Id = $JsonParameters.PSobject.Properties["id"].value
+            $Id = $JsonParameters.PSobject.Properties['id'].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "gene_modulo"))) {
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'gene_modulo'))) {
             throw "Error! JSON cannot be serialized due to the required property 'gene_modulo' missing."
         } else {
-            $GeneModulo = $JsonParameters.PSobject.Properties["gene_modulo"].value
+            $GeneModulo = $JsonParameters.PSobject.Properties['gene_modulo'].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "possible_values"))) {
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'possible_values'))) {
             throw "Error! JSON cannot be serialized due to the required property 'possible_values' missing."
         } else {
-            $PossibleValues = $JsonParameters.PSobject.Properties["possible_values"].value
+            $PossibleValues = $JsonParameters.PSobject.Properties['possible_values'].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "highest_stat"))) {
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'highest_stat'))) {
             throw "Error! JSON cannot be serialized due to the required property 'highest_stat' missing."
         } else {
-            $HighestStat = $JsonParameters.PSobject.Properties["highest_stat"].value
+            $HighestStat = $JsonParameters.PSobject.Properties['highest_stat'].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "descriptions"))) {
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'descriptions'))) {
             throw "Error! JSON cannot be serialized due to the required property 'descriptions' missing."
         } else {
-            $Descriptions = $JsonParameters.PSobject.Properties["descriptions"].value
+            $Descriptions = $JsonParameters.PSobject.Properties['descriptions'].value
         }
 
         $PSO = [PSCustomObject]@{
-            "id" = ${Id}
-            "gene_modulo" = ${GeneModulo}
-            "possible_values" = ${PossibleValues}
-            "highest_stat" = ${HighestStat}
-            "descriptions" = ${Descriptions}
+            'id' = ${Id}
+            'gene_modulo' = ${GeneModulo}
+            'possible_values' = ${PossibleValues}
+            'highest_stat' = ${HighestStat}
+            'descriptions' = ${Descriptions}
         }
 
         return $PSO

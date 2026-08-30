@@ -107,7 +107,7 @@ PokemonStat::getBaseStat()
 }
 
 void
-PokemonStat::setBaseStat(int  base_stat)
+PokemonStat::setBaseStat(int base_stat)
 {
 	this->base_stat = base_stat;
 }
@@ -119,7 +119,7 @@ PokemonStat::getEffort()
 }
 
 void
-PokemonStat::setEffort(int  effort)
+PokemonStat::setEffort(int effort)
 {
 	this->effort = effort;
 }
@@ -131,7 +131,7 @@ PokemonStat::getStat()
 }
 
 void
-PokemonStat::setStat(StatSummary  stat)
+PokemonStat::setStat(StatSummary stat)
 {
 	this->stat = stat;
 }

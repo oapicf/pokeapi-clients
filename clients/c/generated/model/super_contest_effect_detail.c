@@ -6,8 +6,8 @@
 
 
 static super_contest_effect_detail_t *super_contest_effect_detail_create_internal(
-    int id,
-    int appeal,
+    int *id,
+    int *appeal,
     list_t *flavor_text_entries,
     list_t *moves
     ) {
@@ -15,27 +15,42 @@ static super_contest_effect_detail_t *super_contest_effect_detail_create_interna
     if (!super_contest_effect_detail_local_var) {
         return NULL;
     }
+    memset(super_contest_effect_detail_local_var, 0, sizeof(super_contest_effect_detail_t));
+    super_contest_effect_detail_local_var->_library_owned = 1;
     super_contest_effect_detail_local_var->id = id;
     super_contest_effect_detail_local_var->appeal = appeal;
     super_contest_effect_detail_local_var->flavor_text_entries = flavor_text_entries;
     super_contest_effect_detail_local_var->moves = moves;
-
-    super_contest_effect_detail_local_var->_library_owned = 1;
     return super_contest_effect_detail_local_var;
 }
 
 __attribute__((deprecated)) super_contest_effect_detail_t *super_contest_effect_detail_create(
-    int id,
-    int appeal,
+    int *id,
+    int *appeal,
     list_t *flavor_text_entries,
     list_t *moves
     ) {
-    return super_contest_effect_detail_create_internal (
-        id,
-        appeal,
+    int *id_copy = NULL;
+    if (id) {
+        id_copy = malloc(sizeof(int));
+        if (id_copy) *id_copy = *id;
+    }
+    int *appeal_copy = NULL;
+    if (appeal) {
+        appeal_copy = malloc(sizeof(int));
+        if (appeal_copy) *appeal_copy = *appeal;
+    }
+    super_contest_effect_detail_t *result = super_contest_effect_detail_create_internal (
+        id_copy,
+        appeal_copy,
         flavor_text_entries,
         moves
         );
+    if (!result) {
+        free(id_copy);
+        free(appeal_copy);
+    }
+    return result;
 }
 
 void super_contest_effect_detail_free(super_contest_effect_detail_t *super_contest_effect_detail) {
@@ -47,6 +62,14 @@ void super_contest_effect_detail_free(super_contest_effect_detail_t *super_conte
         return ;
     }
     listEntry_t *listEntry;
+    if (super_contest_effect_detail->id) {
+        free(super_contest_effect_detail->id);
+        super_contest_effect_detail->id = NULL;
+    }
+    if (super_contest_effect_detail->appeal) {
+        free(super_contest_effect_detail->appeal);
+        super_contest_effect_detail->appeal = NULL;
+    }
     if (super_contest_effect_detail->flavor_text_entries) {
         list_ForEach(listEntry, super_contest_effect_detail->flavor_text_entries) {
             super_contest_effect_flavor_text_free(listEntry->data);
@@ -71,7 +94,7 @@ cJSON *super_contest_effect_detail_convertToJSON(super_contest_effect_detail_t *
     if (!super_contest_effect_detail->id) {
         goto fail;
     }
-    if(cJSON_AddNumberToObject(item, "id", super_contest_effect_detail->id) == NULL) {
+    if(cJSON_AddNumberToObject(item, "id", *super_contest_effect_detail->id) == NULL) {
     goto fail; //Numeric
     }
 
@@ -80,7 +103,7 @@ cJSON *super_contest_effect_detail_convertToJSON(super_contest_effect_detail_t *
     if (!super_contest_effect_detail->appeal) {
         goto fail;
     }
-    if(cJSON_AddNumberToObject(item, "appeal", super_contest_effect_detail->appeal) == NULL) {
+    if(cJSON_AddNumberToObject(item, "appeal", *super_contest_effect_detail->appeal) == NULL) {
     goto fail; //Numeric
     }
 
@@ -138,6 +161,12 @@ super_contest_effect_detail_t *super_contest_effect_detail_parseFromJSON(cJSON *
 
     super_contest_effect_detail_t *super_contest_effect_detail_local_var = NULL;
 
+    // define the local variable for super_contest_effect_detail->id
+    int *id_local_var = NULL;
+
+    // define the local variable for super_contest_effect_detail->appeal
+    int *appeal_local_var = NULL;
+
     // define the local list for super_contest_effect_detail->flavor_text_entries
     list_t *flavor_text_entriesList = NULL;
 
@@ -158,6 +187,12 @@ super_contest_effect_detail_t *super_contest_effect_detail_parseFromJSON(cJSON *
     {
     goto end; //Numeric
     }
+    id_local_var = malloc(sizeof(int));
+    if(!id_local_var)
+    {
+        goto end;
+    }
+    *id_local_var = id->valuedouble;
 
     // super_contest_effect_detail->appeal
     cJSON *appeal = cJSON_GetObjectItemCaseSensitive(super_contest_effect_detailJSON, "appeal");
@@ -173,6 +208,12 @@ super_contest_effect_detail_t *super_contest_effect_detail_parseFromJSON(cJSON *
     {
     goto end; //Numeric
     }
+    appeal_local_var = malloc(sizeof(int));
+    if(!appeal_local_var)
+    {
+        goto end;
+    }
+    *appeal_local_var = appeal->valuedouble;
 
     // super_contest_effect_detail->flavor_text_entries
     cJSON *flavor_text_entries = cJSON_GetObjectItemCaseSensitive(super_contest_effect_detailJSON, "flavor_text_entries");
@@ -229,15 +270,28 @@ super_contest_effect_detail_t *super_contest_effect_detail_parseFromJSON(cJSON *
     }
 
 
+
     super_contest_effect_detail_local_var = super_contest_effect_detail_create_internal (
-        id->valuedouble,
-        appeal->valuedouble,
+        id_local_var,
+        appeal_local_var,
         flavor_text_entriesList,
         movesList
         );
 
+    if (!super_contest_effect_detail_local_var) {
+        goto end;
+    }
+
     return super_contest_effect_detail_local_var;
 end:
+    if (id_local_var) {
+        free(id_local_var);
+        id_local_var = NULL;
+    }
+    if (appeal_local_var) {
+        free(appeal_local_var);
+        appeal_local_var = NULL;
+    }
     if (flavor_text_entriesList) {
         listEntry_t *listEntry = NULL;
         list_ForEach(listEntry, flavor_text_entriesList) {

@@ -11,9 +11,9 @@ Name | Type | Description | Notes
 **is_battle_only** | **boolean** |  | [optional] [default to undefined]
 **affecting_moves** | [**StatDetailAffectingMoves**](StatDetailAffectingMoves.md) |  | [default to undefined]
 **affecting_natures** | [**StatDetailAffectingNatures**](StatDetailAffectingNatures.md) |  | [default to undefined]
-**characteristics** | [**Array&lt;CharacteristicSummary&gt;**](CharacteristicSummary.md) |  | [default to undefined]
+**characteristics** | [**Array&lt;CharacteristicSummary&gt;**](CharacteristicSummary.md) |  | [readonly] [default to undefined]
 **move_damage_class** | [**MoveDamageClassSummary**](MoveDamageClassSummary.md) |  | [default to undefined]
-**names** | [**Array&lt;StatName&gt;**](StatName.md) |  | [default to undefined]
+**names** | [**Array&lt;StatName&gt;**](StatName.md) |  | [readonly] [default to undefined]
 
 ## Example
 

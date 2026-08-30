@@ -47,7 +47,7 @@ class ItemFlingEffectDetail
      * @var int|null
      * @SerializedName("id")
      * @Type("int")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Type("int")]
     protected ?int $id = null;
@@ -56,7 +56,7 @@ class ItemFlingEffectDetail
      * @var string|null
      * @SerializedName("name")
      * @Type("string")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Type("string")]
     #[Assert\Length(max: 100)]
@@ -66,7 +66,7 @@ class ItemFlingEffectDetail
      * @var ItemFlingEffectEffectText[]|null
      * @SerializedName("effect_entries")
      * @Type("array<OpenAPI\Server\Model\ItemFlingEffectEffectText>")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Valid]
     #[Assert\All([
@@ -78,7 +78,7 @@ class ItemFlingEffectDetail
      * @var ItemSummary[]|null
      * @SerializedName("items")
      * @Type("array<OpenAPI\Server\Model\ItemSummary>")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Valid]
     #[Assert\All([
@@ -111,12 +111,12 @@ class ItemFlingEffectDetail
     }
 
     /**
-    * Sets id.
-    *
-    * @param int|null $id
-    *
-    * @return $this
-    */
+     * Sets id.
+     *
+     * @param int|null $id
+     *
+     * @return $this
+     */
     public function setId(?int $id): self
     {
         $this->id = $id;
@@ -138,12 +138,12 @@ class ItemFlingEffectDetail
     }
 
     /**
-    * Sets name.
-    *
-    * @param string|null $name
-    *
-    * @return $this
-    */
+     * Sets name.
+     *
+     * @param string|null $name
+     *
+     * @return $this
+     */
     public function setName(?string $name): self
     {
         $this->name = $name;
@@ -165,12 +165,12 @@ class ItemFlingEffectDetail
     }
 
     /**
-    * Sets effectEntries.
-    *
-    * @param ItemFlingEffectEffectText[]|null $effectEntries
-    *
-    * @return $this
-    */
+     * Sets effectEntries.
+     *
+     * @param ItemFlingEffectEffectText[]|null $effectEntries
+     *
+     * @return $this
+     */
     public function setEffectEntries(?array $effectEntries): self
     {
         $this->effectEntries = $effectEntries;
@@ -192,12 +192,12 @@ class ItemFlingEffectDetail
     }
 
     /**
-    * Sets items.
-    *
-    * @param ItemSummary[]|null $items
-    *
-    * @return $this
-    */
+     * Sets items.
+     *
+     * @param ItemSummary[]|null $items
+     *
+     * @return $this
+     */
     public function setItems(?array $items): self
     {
         $this->items = $items;

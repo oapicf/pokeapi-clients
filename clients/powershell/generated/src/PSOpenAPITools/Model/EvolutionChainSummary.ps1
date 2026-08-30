@@ -40,7 +40,7 @@ function Initialize-EvolutionChainSummary {
 
 
         $PSO = [PSCustomObject]@{
-            "url" = ${Url}
+            'url' = ${Url}
         }
 
 
@@ -78,7 +78,7 @@ function ConvertFrom-JsonToEvolutionChainSummary {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in EvolutionChainSummary
-        $AllProperties = ("url")
+        $AllProperties = ('url')
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -89,14 +89,14 @@ function ConvertFrom-JsonToEvolutionChainSummary {
             throw "Error! Empty JSON cannot be serialized due to the required property 'url' missing."
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "url"))) {
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'url'))) {
             throw "Error! JSON cannot be serialized due to the required property 'url' missing."
         } else {
-            $Url = $JsonParameters.PSobject.Properties["url"].value
+            $Url = $JsonParameters.PSobject.Properties['url'].value
         }
 
         $PSO = [PSCustomObject]@{
-            "url" = ${Url}
+            'url' = ${Url}
         }
 
         return $PSO

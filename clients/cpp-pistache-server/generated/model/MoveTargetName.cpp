@@ -25,6 +25,8 @@ MoveTargetName::MoveTargetName()
     
 }
 
+MoveTargetName::~MoveTargetName() = default;
+
 void MoveTargetName::validate() const
 {
     std::stringstream msg;

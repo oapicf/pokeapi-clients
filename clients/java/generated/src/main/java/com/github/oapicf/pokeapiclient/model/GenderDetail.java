@@ -52,7 +52,7 @@ import com.github.oapicf.pokeapiclient.JSON;
 /**
  * GenderDetail
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-07T15:22:35.747827932Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-08-30T01:55:28.842792947Z[Etc/UTC]", comments = "Generator version: 7.24.0")
 public class GenderDetail {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -78,10 +78,14 @@ public class GenderDetail {
   }
 
   public GenderDetail(
-     Integer id
+     Integer id, 
+     List<GenderDetailPokemonSpeciesDetailsInner> pokemonSpeciesDetails, 
+     List<AbilityDetailPokemonInnerPokemon> requiredForEvolution
   ) {
     this();
     this.id = id;
+    this.pokemonSpeciesDetails = pokemonSpeciesDetails;
+    this.requiredForEvolution = requiredForEvolution;
   }
 
   /**
@@ -114,19 +118,6 @@ public class GenderDetail {
   }
 
 
-  public GenderDetail pokemonSpeciesDetails(@javax.annotation.Nonnull List<GenderDetailPokemonSpeciesDetailsInner> pokemonSpeciesDetails) {
-    this.pokemonSpeciesDetails = pokemonSpeciesDetails;
-    return this;
-  }
-
-  public GenderDetail addPokemonSpeciesDetailsItem(GenderDetailPokemonSpeciesDetailsInner pokemonSpeciesDetailsItem) {
-    if (this.pokemonSpeciesDetails == null) {
-      this.pokemonSpeciesDetails = new ArrayList<>();
-    }
-    this.pokemonSpeciesDetails.add(pokemonSpeciesDetailsItem);
-    return this;
-  }
-
   /**
    * Get pokemonSpeciesDetails
    * @return pokemonSpeciesDetails
@@ -136,23 +127,7 @@ public class GenderDetail {
     return pokemonSpeciesDetails;
   }
 
-  public void setPokemonSpeciesDetails(@javax.annotation.Nonnull List<GenderDetailPokemonSpeciesDetailsInner> pokemonSpeciesDetails) {
-    this.pokemonSpeciesDetails = pokemonSpeciesDetails;
-  }
 
-
-  public GenderDetail requiredForEvolution(@javax.annotation.Nonnull List<AbilityDetailPokemonInnerPokemon> requiredForEvolution) {
-    this.requiredForEvolution = requiredForEvolution;
-    return this;
-  }
-
-  public GenderDetail addRequiredForEvolutionItem(AbilityDetailPokemonInnerPokemon requiredForEvolutionItem) {
-    if (this.requiredForEvolution == null) {
-      this.requiredForEvolution = new ArrayList<>();
-    }
-    this.requiredForEvolution.add(requiredForEvolutionItem);
-    return this;
-  }
 
   /**
    * Get requiredForEvolution
@@ -163,9 +138,6 @@ public class GenderDetail {
     return requiredForEvolution;
   }
 
-  public void setRequiredForEvolution(@javax.annotation.Nonnull List<AbilityDetailPokemonInnerPokemon> requiredForEvolution) {
-    this.requiredForEvolution = requiredForEvolution;
-  }
 
 
 
@@ -206,10 +178,7 @@ public class GenderDetail {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 
@@ -255,26 +224,26 @@ public class GenderDetail {
       if (!jsonObj.get("name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
       }
-      // ensure the json data is an array
-      if (!jsonObj.get("pokemon_species_details").isJsonArray()) {
-        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `pokemon_species_details` to be an array in the JSON string but got `%s`", jsonObj.get("pokemon_species_details").toString()));
+      if (jsonObj.get("pokemon_species_details") != null) {
+        if (!jsonObj.get("pokemon_species_details").isJsonArray()) {
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `pokemon_species_details` to be an array in the JSON string but got `%s`", jsonObj.get("pokemon_species_details").toString()));
+        }
+        JsonArray jsonArraypokemonSpeciesDetails = jsonObj.getAsJsonArray("pokemon_species_details");
+        // validate the required field `pokemon_species_details` (array)
+        for (int i = 0; i < jsonArraypokemonSpeciesDetails.size(); i++) {
+          GenderDetailPokemonSpeciesDetailsInner.validateJsonElement(jsonArraypokemonSpeciesDetails.get(i));
+        }
       }
-
-      JsonArray jsonArraypokemonSpeciesDetails = jsonObj.getAsJsonArray("pokemon_species_details");
-      // validate the required field `pokemon_species_details` (array)
-      for (int i = 0; i < jsonArraypokemonSpeciesDetails.size(); i++) {
-        GenderDetailPokemonSpeciesDetailsInner.validateJsonElement(jsonArraypokemonSpeciesDetails.get(i));
-      };
-      // ensure the json data is an array
-      if (!jsonObj.get("required_for_evolution").isJsonArray()) {
-        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `required_for_evolution` to be an array in the JSON string but got `%s`", jsonObj.get("required_for_evolution").toString()));
+      if (jsonObj.get("required_for_evolution") != null) {
+        if (!jsonObj.get("required_for_evolution").isJsonArray()) {
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `required_for_evolution` to be an array in the JSON string but got `%s`", jsonObj.get("required_for_evolution").toString()));
+        }
+        JsonArray jsonArrayrequiredForEvolution = jsonObj.getAsJsonArray("required_for_evolution");
+        // validate the required field `required_for_evolution` (array)
+        for (int i = 0; i < jsonArrayrequiredForEvolution.size(); i++) {
+          AbilityDetailPokemonInnerPokemon.validateJsonElement(jsonArrayrequiredForEvolution.get(i));
+        }
       }
-
-      JsonArray jsonArrayrequiredForEvolution = jsonObj.getAsJsonArray("required_for_evolution");
-      // validate the required field `required_for_evolution` (array)
-      for (int i = 0; i < jsonArrayrequiredForEvolution.size(); i++) {
-        AbilityDetailPokemonInnerPokemon.validateJsonElement(jsonArrayrequiredForEvolution.get(i));
-      };
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {

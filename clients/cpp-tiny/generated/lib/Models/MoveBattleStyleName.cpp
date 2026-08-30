@@ -86,7 +86,7 @@ MoveBattleStyleName::getName()
 }
 
 void
-MoveBattleStyleName::setName(std::string  name)
+MoveBattleStyleName::setName(std::string name)
 {
 	this->name = name;
 }
@@ -98,7 +98,7 @@ MoveBattleStyleName::getLanguage()
 }
 
 void
-MoveBattleStyleName::setLanguage(LanguageSummary  language)
+MoveBattleStyleName::setLanguage(LanguageSummary language)
 {
 	this->language = language;
 }

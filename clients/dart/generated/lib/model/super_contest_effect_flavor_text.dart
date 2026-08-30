@@ -53,10 +53,10 @@ class SuperContestEffectFlavorText {
       // Note 1: the values aren't checked for validity beyond being non-null.
       // Note 2: this code is stripped in release mode!
       assert(() {
-        requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "SuperContestEffectFlavorText[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "SuperContestEffectFlavorText[$key]" has a null value in JSON.');
-        });
+        assert(json.containsKey(r'flavor_text'), 'Required key "SuperContestEffectFlavorText[flavor_text]" is missing from JSON.');
+        assert(json[r'flavor_text'] != null, 'Required key "SuperContestEffectFlavorText[flavor_text]" has a null value in JSON.');
+        assert(json.containsKey(r'language'), 'Required key "SuperContestEffectFlavorText[language]" is missing from JSON.');
+        assert(json[r'language'] != null, 'Required key "SuperContestEffectFlavorText[language]" has a null value in JSON.');
         return true;
       }());
 

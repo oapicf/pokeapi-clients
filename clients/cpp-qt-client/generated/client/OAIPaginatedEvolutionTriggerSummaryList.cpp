@@ -21,7 +21,7 @@
 
 namespace OpenAPI {
 
-OAIPaginatedEvolutionTriggerSummaryList::OAIPaginatedEvolutionTriggerSummaryList(QString json) {
+OAIPaginatedEvolutionTriggerSummaryList::OAIPaginatedEvolutionTriggerSummaryList(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -47,7 +47,7 @@ void OAIPaginatedEvolutionTriggerSummaryList::initializeModel() {
     m_results_isValid = false;
 }
 
-void OAIPaginatedEvolutionTriggerSummaryList::fromJson(QString jsonString) {
+void OAIPaginatedEvolutionTriggerSummaryList::fromJson(const QString &jsonString) {
     QByteArray array(jsonString.toStdString().c_str());
     QJsonDocument doc = QJsonDocument::fromJson(array);
     QJsonObject jsonObject = doc.object();

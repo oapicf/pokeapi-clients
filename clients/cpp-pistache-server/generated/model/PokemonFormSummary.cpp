@@ -26,6 +26,8 @@ PokemonFormSummary::PokemonFormSummary()
     
 }
 
+PokemonFormSummary::~PokemonFormSummary() = default;
+
 void PokemonFormSummary::validate() const
 {
     std::stringstream msg;

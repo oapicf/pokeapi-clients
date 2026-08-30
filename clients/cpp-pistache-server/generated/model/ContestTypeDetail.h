@@ -35,7 +35,7 @@ class  ContestTypeDetail
 {
 public:
     ContestTypeDetail();
-    virtual ~ContestTypeDetail() = default;
+    virtual ~ContestTypeDetail();
 
 
     /// <summary>

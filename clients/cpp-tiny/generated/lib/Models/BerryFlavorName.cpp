@@ -86,7 +86,7 @@ BerryFlavorName::getName()
 }
 
 void
-BerryFlavorName::setName(std::string  name)
+BerryFlavorName::setName(std::string name)
 {
 	this->name = name;
 }
@@ -98,7 +98,7 @@ BerryFlavorName::getLanguage()
 }
 
 void
-BerryFlavorName::setLanguage(LanguageSummary  language)
+BerryFlavorName::setLanguage(LanguageSummary language)
 {
 	this->language = language;
 }

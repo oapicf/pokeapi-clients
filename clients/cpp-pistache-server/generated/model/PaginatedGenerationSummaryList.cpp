@@ -31,6 +31,8 @@ PaginatedGenerationSummaryList::PaginatedGenerationSummaryList()
     
 }
 
+PaginatedGenerationSummaryList::~PaginatedGenerationSummaryList() = default;
+
 void PaginatedGenerationSummaryList::validate() const
 {
     std::stringstream msg;

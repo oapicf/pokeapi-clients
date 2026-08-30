@@ -24,6 +24,8 @@ PokemonDetail_held_items::PokemonDetail_held_items()
     
 }
 
+PokemonDetail_held_items::~PokemonDetail_held_items() = default;
+
 void PokemonDetail_held_items::validate() const
 {
     std::stringstream msg;

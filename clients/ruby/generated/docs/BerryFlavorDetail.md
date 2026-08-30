@@ -6,9 +6,9 @@
 | ---- | ---- | ----------- | ----- |
 | **id** | **Integer** |  | [readonly] |
 | **name** | **String** |  |  |
-| **berries** | [**Array&lt;BerryFlavorDetailBerriesInner&gt;**](BerryFlavorDetailBerriesInner.md) |  |  |
+| **berries** | [**Array&lt;BerryFlavorDetailBerriesInner&gt;**](BerryFlavorDetailBerriesInner.md) |  | [readonly] |
 | **contest_type** | [**ContestTypeSummary**](ContestTypeSummary.md) |  |  |
-| **names** | [**Array&lt;BerryFlavorName&gt;**](BerryFlavorName.md) |  |  |
+| **names** | [**Array&lt;BerryFlavorName&gt;**](BerryFlavorName.md) |  | [readonly] |
 
 ## Example
 

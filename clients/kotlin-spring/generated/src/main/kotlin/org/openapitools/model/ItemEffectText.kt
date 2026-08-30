@@ -23,15 +23,18 @@ import io.swagger.v3.oas.annotations.media.Schema
 data class ItemEffectText(
 
     @get:Size(max=6000)
-    @Schema(example = "null", required = true, description = "")
+    @Schema(required = true, description = "")
+    @param:JsonProperty("effect")
     @get:JsonProperty("effect", required = true) val effect: kotlin.String,
 
     @get:Size(max=300)
-    @Schema(example = "null", required = true, description = "")
+    @Schema(required = true, description = "")
+    @param:JsonProperty("short_effect")
     @get:JsonProperty("short_effect", required = true) val shortEffect: kotlin.String,
 
     @field:Valid
-    @Schema(example = "null", required = true, description = "")
+    @Schema(required = true, description = "")
+    @param:JsonProperty("language")
     @get:JsonProperty("language", required = true) val language: LanguageSummary
 ) {
 

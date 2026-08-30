@@ -53,7 +53,7 @@ export interface RegionDetail  {
      * @type {Array<LocationSummary>}
      * @memberof RegionDetail
      */
-    locations: Array<LocationSummary>;
+    readonly locations: Array<LocationSummary>;
     /**
      * 
      * @type {GenerationSummary}
@@ -65,19 +65,19 @@ export interface RegionDetail  {
      * @type {Array<RegionName>}
      * @memberof RegionDetail
      */
-    names: Array<RegionName>;
+    readonly names: Array<RegionName>;
     /**
      * 
      * @type {Array<PokedexSummary>}
      * @memberof RegionDetail
      */
-    pokedexes: Array<PokedexSummary>;
+    readonly pokedexes: Array<PokedexSummary>;
     /**
      * 
      * @type {Array<AbilityDetailPokemonInnerPokemon>}
      * @memberof RegionDetail
      */
-    versionGroups: Array<AbilityDetailPokemonInnerPokemon>;
+    readonly versionGroups: Array<AbilityDetailPokemonInnerPokemon>;
 }
 
 export function RegionDetailFromJSON(json: any): RegionDetail {
@@ -98,10 +98,6 @@ export function RegionDetailToJSON(value?: RegionDetail): any {
     }
     return {
         'name': value.name,
-        'locations': (value.locations as Array<any>).map(LocationSummaryToJSON),
-        'names': (value.names as Array<any>).map(RegionNameToJSON),
-        'pokedexes': (value.pokedexes as Array<any>).map(PokedexSummaryToJSON),
-        'version_groups': (value.versionGroups as Array<any>).map(AbilityDetailPokemonInnerPokemonToJSON),
     };
 }
 

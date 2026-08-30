@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 **smoothness** | **integer** |  | [default to null]
 **soilUnderscoredryness** | **integer** |  | [default to null]
 **firmness** | [**BerryFirmnessSummary**](BerryFirmnessSummary.md) |  | [default to null]
-**flavors** | [**array[BerryDetailFlavorsInner]**](BerryDetailFlavorsInner.md) |  | [default to null]
+**flavors** | [**array[BerryDetailFlavorsInner]**](BerryDetailFlavorsInner.md) |  | [readonly] [default to null]
 **item** | [**ItemSummary**](ItemSummary.md) |  | [default to null]
 **naturalUnderscoregiftUnderscoretype** | [**TypeSummary**](TypeSummary.md) |  | [default to null]
 

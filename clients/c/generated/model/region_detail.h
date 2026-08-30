@@ -24,7 +24,7 @@ typedef struct region_detail_t region_detail_t;
 
 
 typedef struct region_detail_t {
-    int id; //numeric
+    int *id; //numeric
     char *name; // string
     list_t *locations; //nonprimitive container
     struct generation_summary_t *main_generation; //model
@@ -36,7 +36,7 @@ typedef struct region_detail_t {
 } region_detail_t;
 
 __attribute__((deprecated)) region_detail_t *region_detail_create(
-    int id,
+    int *id,
     char *name,
     list_t *locations,
     generation_summary_t *main_generation,

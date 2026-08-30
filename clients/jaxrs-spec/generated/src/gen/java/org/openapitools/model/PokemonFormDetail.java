@@ -25,7 +25,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
 
 
 @JsonTypeName("PokemonFormDetail")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2026-02-07T15:24:06.001755207Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2026-08-30T01:56:42.280002256Z[Etc/UTC]", comments = "Generator version: 7.24.0")
 public class PokemonFormDetail   {
   private Integer id;
   private String name;
@@ -287,7 +287,7 @@ public class PokemonFormDetail   {
   
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(required = true, value = "form_names")
-  @NotNull @Valid public List<@Valid PokemonFormDetailFormNamesInner> getFormNames() {
+  @Valid public List<@Valid PokemonFormDetailFormNamesInner> getFormNames() {
     return formNames;
   }
 
@@ -322,7 +322,7 @@ public class PokemonFormDetail   {
   
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(required = true, value = "names")
-  @NotNull @Valid public List<@Valid PokemonFormDetailFormNamesInner> getNames() {
+  @Valid public List<@Valid PokemonFormDetailFormNamesInner> getNames() {
     return names;
   }
 
@@ -357,7 +357,7 @@ public class PokemonFormDetail   {
   
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(required = true, value = "types")
-  @NotNull @Valid public List<@Valid PokemonDetailTypesInner> getTypes() {
+  @Valid public List<@Valid PokemonDetailTypesInner> getTypes() {
     return types;
   }
 
@@ -441,12 +441,8 @@ public class PokemonFormDetail   {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 
 }
-

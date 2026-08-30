@@ -28,6 +28,8 @@ LocationAreaDetail_pokemon_encounters_inner_version_details_inner_encounter_deta
     
 }
 
+LocationAreaDetail_pokemon_encounters_inner_version_details_inner_encounter_details::~LocationAreaDetail_pokemon_encounters_inner_version_details_inner_encounter_details() = default;
+
 void LocationAreaDetail_pokemon_encounters_inner_version_details_inner_encounter_details::validate() const
 {
     std::stringstream msg;

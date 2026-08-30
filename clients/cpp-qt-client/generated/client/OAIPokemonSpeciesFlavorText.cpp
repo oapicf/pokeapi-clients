@@ -21,7 +21,7 @@
 
 namespace OpenAPI {
 
-OAIPokemonSpeciesFlavorText::OAIPokemonSpeciesFlavorText(QString json) {
+OAIPokemonSpeciesFlavorText::OAIPokemonSpeciesFlavorText(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -44,7 +44,7 @@ void OAIPokemonSpeciesFlavorText::initializeModel() {
     m_version_isValid = false;
 }
 
-void OAIPokemonSpeciesFlavorText::fromJson(QString jsonString) {
+void OAIPokemonSpeciesFlavorText::fromJson(const QString &jsonString) {
     QByteArray array(jsonString.toStdString().c_str());
     QJsonDocument doc = QJsonDocument::fromJson(array);
     QJsonObject jsonObject = doc.object();

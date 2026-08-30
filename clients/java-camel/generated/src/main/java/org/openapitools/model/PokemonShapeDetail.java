@@ -12,19 +12,19 @@ import org.openapitools.model.PokemonShapeDetailNamesInner;
 import org.openapitools.model.PokemonSpeciesSummary;
 import org.openapitools.jackson.nullable.JsonNullable;
 import java.time.OffsetDateTime;
-import javax.validation.Valid;
-import javax.validation.constraints.*;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.*;
 import io.swagger.v3.oas.annotations.media.Schema;
 
 
 import java.util.*;
-import javax.annotation.Generated;
+import jakarta.annotation.Generated;
 
 /**
  * PokemonShapeDetail
  */
 
-@Generated(value = "org.openapitools.codegen.languages.JavaCamelServerCodegen", date = "2026-02-07T15:23:32.871052804Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@Generated(value = "org.openapitools.codegen.languages.JavaCamelServerCodegen", date = "2026-08-30T01:56:15.309401083Z[Etc/UTC]", comments = "Generator version: 7.24.0")
 public class PokemonShapeDetail {
 
   private Integer id;
@@ -112,8 +112,8 @@ public class PokemonShapeDetail {
    * Get awesomeNames
    * @return awesomeNames
    */
-  @NotNull @Valid 
-  @Schema(name = "awesome_names", requiredMode = Schema.RequiredMode.REQUIRED)
+  @Valid 
+  @Schema(name = "awesome_names", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("awesome_names")
   public List<@Valid PokemonShapeDetailAwesomeNamesInner> getAwesomeNames() {
     return awesomeNames;
@@ -140,8 +140,8 @@ public class PokemonShapeDetail {
    * Get names
    * @return names
    */
-  @NotNull @Valid 
-  @Schema(name = "names", requiredMode = Schema.RequiredMode.REQUIRED)
+  @Valid 
+  @Schema(name = "names", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("names")
   public List<@Valid PokemonShapeDetailNamesInner> getNames() {
     return names;
@@ -168,8 +168,8 @@ public class PokemonShapeDetail {
    * Get pokemonSpecies
    * @return pokemonSpecies
    */
-  @NotNull @Valid 
-  @Schema(name = "pokemon_species", requiredMode = Schema.RequiredMode.REQUIRED)
+  @Valid 
+  @Schema(name = "pokemon_species", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("pokemon_species")
   public List<@Valid PokemonSpeciesSummary> getPokemonSpecies() {
     return pokemonSpecies;
@@ -218,10 +218,7 @@ public class PokemonShapeDetail {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 }
 

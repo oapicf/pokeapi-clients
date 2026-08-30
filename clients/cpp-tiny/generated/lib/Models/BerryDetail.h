@@ -56,84 +56,84 @@ public:
 
 	/*! \brief Set 
 	 */
-	void setId(int  id);
+	void setId(int id);
 	/*! \brief Get 
 	 */
 	std::string getName();
 
 	/*! \brief Set 
 	 */
-	void setName(std::string  name);
+	void setName(std::string name);
 	/*! \brief Get 
 	 */
 	int getGrowthTime();
 
 	/*! \brief Set 
 	 */
-	void setGrowthTime(int  growth_time);
+	void setGrowthTime(int growth_time);
 	/*! \brief Get 
 	 */
 	int getMaxHarvest();
 
 	/*! \brief Set 
 	 */
-	void setMaxHarvest(int  max_harvest);
+	void setMaxHarvest(int max_harvest);
 	/*! \brief Get 
 	 */
 	int getNaturalGiftPower();
 
 	/*! \brief Set 
 	 */
-	void setNaturalGiftPower(int  natural_gift_power);
+	void setNaturalGiftPower(int natural_gift_power);
 	/*! \brief Get 
 	 */
 	int getSize();
 
 	/*! \brief Set 
 	 */
-	void setSize(int  size);
+	void setSize(int size);
 	/*! \brief Get 
 	 */
 	int getSmoothness();
 
 	/*! \brief Set 
 	 */
-	void setSmoothness(int  smoothness);
+	void setSmoothness(int smoothness);
 	/*! \brief Get 
 	 */
 	int getSoilDryness();
 
 	/*! \brief Set 
 	 */
-	void setSoilDryness(int  soil_dryness);
+	void setSoilDryness(int soil_dryness);
 	/*! \brief Get 
 	 */
 	BerryFirmnessSummary getFirmness();
 
 	/*! \brief Set 
 	 */
-	void setFirmness(BerryFirmnessSummary  firmness);
+	void setFirmness(BerryFirmnessSummary firmness);
 	/*! \brief Get 
 	 */
 	std::list<BerryDetail_flavors_inner> getFlavors();
 
 	/*! \brief Set 
 	 */
-	void setFlavors(std::list <BerryDetail_flavors_inner> flavors);
+	void setFlavors(std::list<BerryDetail_flavors_inner> flavors);
 	/*! \brief Get 
 	 */
 	ItemSummary getItem();
 
 	/*! \brief Set 
 	 */
-	void setItem(ItemSummary  item);
+	void setItem(ItemSummary item);
 	/*! \brief Get 
 	 */
 	TypeSummary getNaturalGiftType();
 
 	/*! \brief Set 
 	 */
-	void setNaturalGiftType(TypeSummary  natural_gift_type);
+	void setNaturalGiftType(TypeSummary natural_gift_type);
 
 
     private:

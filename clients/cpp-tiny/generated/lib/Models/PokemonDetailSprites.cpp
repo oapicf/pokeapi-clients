@@ -64,7 +64,7 @@ PokemonDetail_sprites::getFrontDefault()
 }
 
 void
-PokemonDetail_sprites::setFrontDefault(std::string  front_default)
+PokemonDetail_sprites::setFrontDefault(std::string front_default)
 {
 	this->front_default = front_default;
 }

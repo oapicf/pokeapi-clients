@@ -161,7 +161,7 @@ EvolutionTriggerDetail::getId()
 }
 
 void
-EvolutionTriggerDetail::setId(int  id)
+EvolutionTriggerDetail::setId(int id)
 {
 	this->id = id;
 }
@@ -173,7 +173,7 @@ EvolutionTriggerDetail::getName()
 }
 
 void
-EvolutionTriggerDetail::setName(std::string  name)
+EvolutionTriggerDetail::setName(std::string name)
 {
 	this->name = name;
 }
@@ -185,7 +185,7 @@ EvolutionTriggerDetail::getNames()
 }
 
 void
-EvolutionTriggerDetail::setNames(std::list <EvolutionTriggerName> names)
+EvolutionTriggerDetail::setNames(std::list<EvolutionTriggerName> names)
 {
 	this->names = names;
 }
@@ -197,7 +197,7 @@ EvolutionTriggerDetail::getPokemonSpecies()
 }
 
 void
-EvolutionTriggerDetail::setPokemonSpecies(std::list <AbilityDetail_pokemon_inner_pokemon> pokemon_species)
+EvolutionTriggerDetail::setPokemonSpecies(std::list<AbilityDetail_pokemon_inner_pokemon> pokemon_species)
 {
 	this->pokemon_species = pokemon_species;
 }

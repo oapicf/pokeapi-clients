@@ -30,19 +30,19 @@ public class OASMoveTargetDetail {
      * Get descriptions
      * @return descriptions
      */
-    public List<OASMoveTargetDescription> descriptions { get; set; }
+    public List<OASMoveTargetDescription> descriptions { get; private set; }
 
     /**
      * Get moves
      * @return moves
      */
-    public List<OASMoveSummary> moves { get; set; }
+    public List<OASMoveSummary> moves { get; private set; }
 
     /**
      * Get names
      * @return names
      */
-    public List<OASMoveTargetName> names { get; set; }
+    public List<OASMoveTargetName> names { get; private set; }
 
     public OASMoveTargetDetail() {
         descriptions = new List<OASMoveTargetDescription>();

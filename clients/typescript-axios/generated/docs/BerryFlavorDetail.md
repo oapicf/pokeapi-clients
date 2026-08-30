@@ -7,9 +7,9 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **number** |  | [readonly] [default to undefined]
 **name** | **string** |  | [default to undefined]
-**berries** | [**Array&lt;BerryFlavorDetailBerriesInner&gt;**](BerryFlavorDetailBerriesInner.md) |  | [default to undefined]
+**berries** | [**Array&lt;BerryFlavorDetailBerriesInner&gt;**](BerryFlavorDetailBerriesInner.md) |  | [readonly] [default to undefined]
 **contest_type** | [**ContestTypeSummary**](ContestTypeSummary.md) |  | [default to undefined]
-**names** | [**Array&lt;BerryFlavorName&gt;**](BerryFlavorName.md) |  | [default to undefined]
+**names** | [**Array&lt;BerryFlavorName&gt;**](BerryFlavorName.md) |  | [readonly] [default to undefined]
 
 ## Example
 

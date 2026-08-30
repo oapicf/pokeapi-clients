@@ -209,7 +209,7 @@ MoveChange::getAccuracy()
 }
 
 void
-MoveChange::setAccuracy(int  accuracy)
+MoveChange::setAccuracy(int accuracy)
 {
 	this->accuracy = accuracy;
 }
@@ -221,7 +221,7 @@ MoveChange::getPower()
 }
 
 void
-MoveChange::setPower(int  power)
+MoveChange::setPower(int power)
 {
 	this->power = power;
 }
@@ -233,7 +233,7 @@ MoveChange::getPp()
 }
 
 void
-MoveChange::setPp(int  pp)
+MoveChange::setPp(int pp)
 {
 	this->pp = pp;
 }
@@ -245,7 +245,7 @@ MoveChange::getEffectChance()
 }
 
 void
-MoveChange::setEffectChance(int  effect_chance)
+MoveChange::setEffectChance(int effect_chance)
 {
 	this->effect_chance = effect_chance;
 }
@@ -257,7 +257,7 @@ MoveChange::getEffectEntries()
 }
 
 void
-MoveChange::setEffectEntries(std::list <MoveChange_effect_entries_inner> effect_entries)
+MoveChange::setEffectEntries(std::list<MoveChange_effect_entries_inner> effect_entries)
 {
 	this->effect_entries = effect_entries;
 }
@@ -269,7 +269,7 @@ MoveChange::getType()
 }
 
 void
-MoveChange::setType(TypeSummary  type)
+MoveChange::setType(TypeSummary type)
 {
 	this->type = type;
 }
@@ -281,7 +281,7 @@ MoveChange::getVersionGroup()
 }
 
 void
-MoveChange::setVersionGroup(VersionGroupSummary  version_group)
+MoveChange::setVersionGroup(VersionGroupSummary version_group)
 {
 	this->version_group = version_group;
 }

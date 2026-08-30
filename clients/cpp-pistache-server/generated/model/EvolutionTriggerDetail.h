@@ -35,7 +35,7 @@ class  EvolutionTriggerDetail
 {
 public:
     EvolutionTriggerDetail();
-    virtual ~EvolutionTriggerDetail() = default;
+    virtual ~EvolutionTriggerDetail();
 
 
     /// <summary>

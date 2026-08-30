@@ -24,6 +24,7 @@ from pokeapiclient.models.ability_detail_pokemon_inner_pokemon import AbilityDet
 from pokeapiclient.models.location_area_detail_encounter_method_rates_inner_version_details_inner import LocationAreaDetailEncounterMethodRatesInnerVersionDetailsInner
 from typing import Optional, Set
 from typing_extensions import Self
+from pydantic_core import to_jsonable_python
 
 class LocationAreaDetailEncounterMethodRatesInner(BaseModel):
     """
@@ -34,7 +35,8 @@ class LocationAreaDetailEncounterMethodRatesInner(BaseModel):
     __properties: ClassVar[List[str]] = ["encounter_method", "version_details"]
 
     model_config = ConfigDict(
-        populate_by_name=True,
+        validate_by_name=True,
+        validate_by_alias=True,
         validate_assignment=True,
         protected_namespaces=(),
     )
@@ -46,8 +48,7 @@ class LocationAreaDetailEncounterMethodRatesInner(BaseModel):
 
     def to_json(self) -> str:
         """Returns the JSON representation of the model using alias"""
-        # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
-        return json.dumps(self.to_dict())
+        return json.dumps(to_jsonable_python(self.to_dict()))
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:

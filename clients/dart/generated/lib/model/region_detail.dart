@@ -83,10 +83,20 @@ class RegionDetail {
       // Note 1: the values aren't checked for validity beyond being non-null.
       // Note 2: this code is stripped in release mode!
       assert(() {
-        requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "RegionDetail[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "RegionDetail[$key]" has a null value in JSON.');
-        });
+        assert(json.containsKey(r'id'), 'Required key "RegionDetail[id]" is missing from JSON.');
+        assert(json[r'id'] != null, 'Required key "RegionDetail[id]" has a null value in JSON.');
+        assert(json.containsKey(r'name'), 'Required key "RegionDetail[name]" is missing from JSON.');
+        assert(json[r'name'] != null, 'Required key "RegionDetail[name]" has a null value in JSON.');
+        assert(json.containsKey(r'locations'), 'Required key "RegionDetail[locations]" is missing from JSON.');
+        assert(json[r'locations'] != null, 'Required key "RegionDetail[locations]" has a null value in JSON.');
+        assert(json.containsKey(r'main_generation'), 'Required key "RegionDetail[main_generation]" is missing from JSON.');
+        assert(json[r'main_generation'] != null, 'Required key "RegionDetail[main_generation]" has a null value in JSON.');
+        assert(json.containsKey(r'names'), 'Required key "RegionDetail[names]" is missing from JSON.');
+        assert(json[r'names'] != null, 'Required key "RegionDetail[names]" has a null value in JSON.');
+        assert(json.containsKey(r'pokedexes'), 'Required key "RegionDetail[pokedexes]" is missing from JSON.');
+        assert(json[r'pokedexes'] != null, 'Required key "RegionDetail[pokedexes]" has a null value in JSON.');
+        assert(json.containsKey(r'version_groups'), 'Required key "RegionDetail[version_groups]" is missing from JSON.');
+        assert(json[r'version_groups'] != null, 'Required key "RegionDetail[version_groups]" has a null value in JSON.');
         return true;
       }());
 

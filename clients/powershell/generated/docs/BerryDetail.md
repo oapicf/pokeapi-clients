@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 **Smoothness** | **Int32** |  | 
 **SoilDryness** | **Int32** |  | 
 **Firmness** | [**BerryFirmnessSummary**](BerryFirmnessSummary.md) |  | 
-**Flavors** | [**BerryDetailFlavorsInner[]**](BerryDetailFlavorsInner.md) |  | 
+**Flavors** | [**BerryDetailFlavorsInner[]**](BerryDetailFlavorsInner.md) |  | [readonly] 
 **Item** | [**ItemSummary**](ItemSummary.md) |  | 
 **NaturalGiftType** | [**TypeSummary**](TypeSummary.md) |  | 
 

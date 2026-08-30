@@ -25,6 +25,8 @@ MoveBattleStyleName::MoveBattleStyleName()
     
 }
 
+MoveBattleStyleName::~MoveBattleStyleName() = default;
+
 void MoveBattleStyleName::validate() const
 {
     std::stringstream msg;

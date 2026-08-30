@@ -34,7 +34,7 @@ class  PaginatedItemPocketSummaryList
 {
 public:
     PaginatedItemPocketSummaryList();
-    virtual ~PaginatedItemPocketSummaryList() = default;
+    virtual ~PaginatedItemPocketSummaryList();
 
 
     /// <summary>

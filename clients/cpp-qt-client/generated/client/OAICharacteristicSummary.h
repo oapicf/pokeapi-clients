@@ -31,13 +31,13 @@ namespace OpenAPI {
 class OAICharacteristicSummary : public OAIObject {
 public:
     OAICharacteristicSummary();
-    OAICharacteristicSummary(QString json);
+    OAICharacteristicSummary(const QString &json);
     ~OAICharacteristicSummary() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     QString getUrl() const;
     void setUrl(const QString &url);

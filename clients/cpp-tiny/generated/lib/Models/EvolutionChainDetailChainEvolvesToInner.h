@@ -54,21 +54,21 @@ public:
 
 	/*! \brief Set 
 	 */
-	void setEvolutionDetails(std::list <EvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner> evolution_details);
+	void setEvolutionDetails(std::list<EvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner> evolution_details);
 	/*! \brief Get 
 	 */
 	bool isIsBaby();
 
 	/*! \brief Set 
 	 */
-	void setIsBaby(bool  is_baby);
+	void setIsBaby(bool is_baby);
 	/*! \brief Get 
 	 */
 	AbilityDetail_pokemon_inner_pokemon getSpecies();
 
 	/*! \brief Set 
 	 */
-	void setSpecies(AbilityDetail_pokemon_inner_pokemon  species);
+	void setSpecies(AbilityDetail_pokemon_inner_pokemon species);
 
 
     private:

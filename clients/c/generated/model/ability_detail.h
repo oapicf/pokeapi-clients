@@ -25,9 +25,9 @@ typedef struct ability_detail_t ability_detail_t;
 
 
 typedef struct ability_detail_t {
-    int id; //numeric
+    int *id; //numeric
     char *name; // string
-    int is_main_series; //boolean
+    int *is_main_series; //boolean
     struct generation_summary_t *generation; //model
     list_t *names; //nonprimitive container
     list_t *effect_entries; //nonprimitive container
@@ -39,9 +39,9 @@ typedef struct ability_detail_t {
 } ability_detail_t;
 
 __attribute__((deprecated)) ability_detail_t *ability_detail_create(
-    int id,
+    int *id,
     char *name,
-    int is_main_series,
+    int *is_main_series,
     generation_summary_t *generation,
     list_t *names,
     list_t *effect_entries,

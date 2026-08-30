@@ -50,7 +50,7 @@ class  MoveDetail
 {
 public:
     MoveDetail();
-    virtual ~MoveDetail() = default;
+    virtual ~MoveDetail();
 
 
     /// <summary>

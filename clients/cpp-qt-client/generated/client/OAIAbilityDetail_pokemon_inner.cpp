@@ -21,7 +21,7 @@
 
 namespace OpenAPI {
 
-OAIAbilityDetail_pokemon_inner::OAIAbilityDetail_pokemon_inner(QString json) {
+OAIAbilityDetail_pokemon_inner::OAIAbilityDetail_pokemon_inner(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -44,7 +44,7 @@ void OAIAbilityDetail_pokemon_inner::initializeModel() {
     m_pokemon_isValid = false;
 }
 
-void OAIAbilityDetail_pokemon_inner::fromJson(QString jsonString) {
+void OAIAbilityDetail_pokemon_inner::fromJson(const QString &jsonString) {
     QByteArray array(jsonString.toStdString().c_str());
     QJsonDocument doc = QJsonDocument::fromJson(array);
     QJsonObject jsonObject = doc.object();

@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 **power** | **Integer** |  |  [optional]
 **pp** | **Integer** |  |  [optional]
 **effectChance** | **Integer** |  | 
-**effectEntries** | [**List&lt;MoveChangeEffectEntriesInner&gt;**](MoveChangeEffectEntriesInner.md) |  | 
+**effectEntries** | [**List&lt;MoveChangeEffectEntriesInner&gt;**](MoveChangeEffectEntriesInner.md) |  |  [readonly]
 **type** | [**TypeSummary**](TypeSummary.md) |  | 
 **versionGroup** | [**VersionGroupSummary**](VersionGroupSummary.md) |  | 
 

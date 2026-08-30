@@ -47,19 +47,19 @@ export interface ItemAttributeDetail  {
      * @type {Array<ItemAttributeDescription>}
      * @memberof ItemAttributeDetail
      */
-    descriptions: Array<ItemAttributeDescription>;
+    readonly descriptions: Array<ItemAttributeDescription>;
     /**
      * 
      * @type {Array<AbilityDetailPokemonInnerPokemon>}
      * @memberof ItemAttributeDetail
      */
-    items: Array<AbilityDetailPokemonInnerPokemon>;
+    readonly items: Array<AbilityDetailPokemonInnerPokemon>;
     /**
      * 
      * @type {Array<ItemAttributeName>}
      * @memberof ItemAttributeDetail
      */
-    names: Array<ItemAttributeName>;
+    readonly names: Array<ItemAttributeName>;
 }
 
 export function ItemAttributeDetailFromJSON(json: any): ItemAttributeDetail {
@@ -78,9 +78,6 @@ export function ItemAttributeDetailToJSON(value?: ItemAttributeDetail): any {
     }
     return {
         'name': value.name,
-        'descriptions': (value.descriptions as Array<any>).map(ItemAttributeDescriptionToJSON),
-        'items': (value.items as Array<any>).map(AbilityDetailPokemonInnerPokemonToJSON),
-        'names': (value.names as Array<any>).map(ItemAttributeNameToJSON),
     };
 }
 

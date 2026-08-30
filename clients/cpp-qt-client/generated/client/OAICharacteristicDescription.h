@@ -33,13 +33,13 @@ class OAILanguageSummary;
 class OAICharacteristicDescription : public OAIObject {
 public:
     OAICharacteristicDescription();
-    OAICharacteristicDescription(QString json);
+    OAICharacteristicDescription(const QString &json);
     ~OAICharacteristicDescription() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     QString getDescription() const;
     void setDescription(const QString &description);

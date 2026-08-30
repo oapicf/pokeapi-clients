@@ -14,8 +14,8 @@ module EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner =
     Gender : EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender;
     HeldItem : EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender;
     Item : EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender;
-    KnownMove : obj;
-    KnownMoveType : obj;
+    KnownMove : EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender;
+    KnownMoveType : EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender;
     Location : EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender;
     MinAffection : int;
     MinBeauty : int;

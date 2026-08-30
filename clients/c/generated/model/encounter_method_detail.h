@@ -20,18 +20,18 @@ typedef struct encounter_method_detail_t encounter_method_detail_t;
 
 
 typedef struct encounter_method_detail_t {
-    int id; //numeric
+    int *id; //numeric
     char *name; // string
-    int order; //numeric
+    int *order; //numeric
     list_t *names; //nonprimitive container
 
     int _library_owned; // Is the library responsible for freeing this object?
 } encounter_method_detail_t;
 
 __attribute__((deprecated)) encounter_method_detail_t *encounter_method_detail_create(
-    int id,
+    int *id,
     char *name,
-    int order,
+    int *order,
     list_t *names
 );
 

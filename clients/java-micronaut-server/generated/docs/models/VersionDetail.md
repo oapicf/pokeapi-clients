@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | `Integer` |  |  [readonly property]
 **name** | `String` |  | 
-**names** | [`List&lt;VersionName&gt;`](VersionName.md) |  | 
+**names** | [`List&lt;VersionName&gt;`](VersionName.md) |  |  [readonly property]
 **versionGroup** | [`VersionGroupSummary`](VersionGroupSummary.md) |  | 
 
 

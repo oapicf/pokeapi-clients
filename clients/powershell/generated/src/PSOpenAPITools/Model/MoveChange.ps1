@@ -82,13 +82,13 @@ function Initialize-MoveChange {
 
 
         $PSO = [PSCustomObject]@{
-            "accuracy" = ${Accuracy}
-            "power" = ${Power}
-            "pp" = ${Pp}
-            "effect_chance" = ${EffectChance}
-            "effect_entries" = ${EffectEntries}
-            "type" = ${Type}
-            "version_group" = ${VersionGroup}
+            'accuracy' = ${Accuracy}
+            'power' = ${Power}
+            'pp' = ${Pp}
+            'effect_chance' = ${EffectChance}
+            'effect_entries' = ${EffectEntries}
+            'type' = ${Type}
+            'version_group' = ${VersionGroup}
         }
 
 
@@ -126,7 +126,7 @@ function ConvertFrom-JsonToMoveChange {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in MoveChange
-        $AllProperties = ("accuracy", "power", "pp", "effect_chance", "effect_entries", "type", "version_group")
+        $AllProperties = ('accuracy', 'power', 'pp', 'effect_chance', 'effect_entries', 'type', 'version_group')
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -137,56 +137,56 @@ function ConvertFrom-JsonToMoveChange {
             throw "Error! Empty JSON cannot be serialized due to the required property 'effect_chance' missing."
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "effect_chance"))) {
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'effect_chance'))) {
             throw "Error! JSON cannot be serialized due to the required property 'effect_chance' missing."
         } else {
-            $EffectChance = $JsonParameters.PSobject.Properties["effect_chance"].value
+            $EffectChance = $JsonParameters.PSobject.Properties['effect_chance'].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "effect_entries"))) {
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'effect_entries'))) {
             throw "Error! JSON cannot be serialized due to the required property 'effect_entries' missing."
         } else {
-            $EffectEntries = $JsonParameters.PSobject.Properties["effect_entries"].value
+            $EffectEntries = $JsonParameters.PSobject.Properties['effect_entries'].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "type"))) {
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'type'))) {
             throw "Error! JSON cannot be serialized due to the required property 'type' missing."
         } else {
-            $Type = $JsonParameters.PSobject.Properties["type"].value
+            $Type = $JsonParameters.PSobject.Properties['type'].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "version_group"))) {
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'version_group'))) {
             throw "Error! JSON cannot be serialized due to the required property 'version_group' missing."
         } else {
-            $VersionGroup = $JsonParameters.PSobject.Properties["version_group"].value
+            $VersionGroup = $JsonParameters.PSobject.Properties['version_group'].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "accuracy"))) { #optional property not found
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'accuracy'))) { #optional property not found
             $Accuracy = $null
         } else {
-            $Accuracy = $JsonParameters.PSobject.Properties["accuracy"].value
+            $Accuracy = $JsonParameters.PSobject.Properties['accuracy'].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "power"))) { #optional property not found
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'power'))) { #optional property not found
             $Power = $null
         } else {
-            $Power = $JsonParameters.PSobject.Properties["power"].value
+            $Power = $JsonParameters.PSobject.Properties['power'].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "pp"))) { #optional property not found
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'pp'))) { #optional property not found
             $Pp = $null
         } else {
-            $Pp = $JsonParameters.PSobject.Properties["pp"].value
+            $Pp = $JsonParameters.PSobject.Properties['pp'].value
         }
 
         $PSO = [PSCustomObject]@{
-            "accuracy" = ${Accuracy}
-            "power" = ${Power}
-            "pp" = ${Pp}
-            "effect_chance" = ${EffectChance}
-            "effect_entries" = ${EffectEntries}
-            "type" = ${Type}
-            "version_group" = ${VersionGroup}
+            'accuracy' = ${Accuracy}
+            'power' = ${Power}
+            'pp' = ${Pp}
+            'effect_chance' = ${EffectChance}
+            'effect_entries' = ${EffectEntries}
+            'type' = ${Type}
+            'version_group' = ${VersionGroup}
         }
 
         return $PSO

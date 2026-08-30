@@ -33,7 +33,7 @@ class  EncounterMethodName
 {
 public:
     EncounterMethodName();
-    virtual ~EncounterMethodName() = default;
+    virtual ~EncounterMethodName();
 
 
     /// <summary>

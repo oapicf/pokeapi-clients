@@ -25,6 +25,8 @@ NatureDetail_pokeathlon_stat_changes_inner::NatureDetail_pokeathlon_stat_changes
     
 }
 
+NatureDetail_pokeathlon_stat_changes_inner::~NatureDetail_pokeathlon_stat_changes_inner() = default;
+
 void NatureDetail_pokeathlon_stat_changes_inner::validate() const
 {
     std::stringstream msg;

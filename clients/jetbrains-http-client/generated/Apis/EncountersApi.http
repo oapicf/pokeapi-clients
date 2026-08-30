@@ -1,0 +1,43 @@
+## EncountersApi
+
+### List encounter conditions
+## List encounter conditions
+GET https://pokeapi.co/api/v2/encounter-condition/?limit={{limit}}&offset={{offset}}&q={{q}}
+Accept: application/json
+Authorization: Basic: {{username-password}}
+Cookie: sessionid={{cookieKey}}
+
+### Get encounter condition
+## Get encounter condition
+GET https://pokeapi.co/api/v2/encounter-condition/{{id}}/
+Accept: application/json
+Authorization: Basic: {{username-password}}
+Cookie: sessionid={{cookieKey}}
+
+### List encounter condition values
+## List encounter condition values
+GET https://pokeapi.co/api/v2/encounter-condition-value/?limit={{limit}}&offset={{offset}}&q={{q}}
+Accept: application/json
+Authorization: Basic: {{username-password}}
+Cookie: sessionid={{cookieKey}}
+
+### Get encounter condition value
+## Get encounter condition value
+GET https://pokeapi.co/api/v2/encounter-condition-value/{{id}}/
+Accept: application/json
+Authorization: Basic: {{username-password}}
+Cookie: sessionid={{cookieKey}}
+
+### List encounter methods
+## List encounter methods
+GET https://pokeapi.co/api/v2/encounter-method/?limit={{limit}}&offset={{offset}}&q={{q}}
+Accept: application/json
+Authorization: Basic: {{username-password}}
+Cookie: sessionid={{cookieKey}}
+
+### Get encounter method
+## Get encounter method
+GET https://pokeapi.co/api/v2/encounter-method/{{id}}/
+Accept: application/json
+Authorization: Basic: {{username-password}}
+Cookie: sessionid={{cookieKey}}

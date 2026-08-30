@@ -54,7 +54,7 @@ import com.github.oapicf.pokeapiclient.JSON;
 /**
  * LocationDetail
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-07T15:22:35.747827932Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-08-30T01:55:28.842792947Z[Etc/UTC]", comments = "Generator version: 7.24.0")
 public class LocationDetail {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -90,10 +90,16 @@ public class LocationDetail {
   }
 
   public LocationDetail(
-     Integer id
+     Integer id, 
+     List<LocationName> names, 
+     List<LocationGameIndex> gameIndices, 
+     List<LocationAreaSummary> areas
   ) {
     this();
     this.id = id;
+    this.names = names;
+    this.gameIndices = gameIndices;
+    this.areas = areas;
   }
 
   /**
@@ -145,19 +151,6 @@ public class LocationDetail {
   }
 
 
-  public LocationDetail names(@javax.annotation.Nonnull List<LocationName> names) {
-    this.names = names;
-    return this;
-  }
-
-  public LocationDetail addNamesItem(LocationName namesItem) {
-    if (this.names == null) {
-      this.names = new ArrayList<>();
-    }
-    this.names.add(namesItem);
-    return this;
-  }
-
   /**
    * Get names
    * @return names
@@ -167,23 +160,7 @@ public class LocationDetail {
     return names;
   }
 
-  public void setNames(@javax.annotation.Nonnull List<LocationName> names) {
-    this.names = names;
-  }
 
-
-  public LocationDetail gameIndices(@javax.annotation.Nonnull List<LocationGameIndex> gameIndices) {
-    this.gameIndices = gameIndices;
-    return this;
-  }
-
-  public LocationDetail addGameIndicesItem(LocationGameIndex gameIndicesItem) {
-    if (this.gameIndices == null) {
-      this.gameIndices = new ArrayList<>();
-    }
-    this.gameIndices.add(gameIndicesItem);
-    return this;
-  }
 
   /**
    * Get gameIndices
@@ -194,23 +171,7 @@ public class LocationDetail {
     return gameIndices;
   }
 
-  public void setGameIndices(@javax.annotation.Nonnull List<LocationGameIndex> gameIndices) {
-    this.gameIndices = gameIndices;
-  }
 
-
-  public LocationDetail areas(@javax.annotation.Nonnull List<LocationAreaSummary> areas) {
-    this.areas = areas;
-    return this;
-  }
-
-  public LocationDetail addAreasItem(LocationAreaSummary areasItem) {
-    if (this.areas == null) {
-      this.areas = new ArrayList<>();
-    }
-    this.areas.add(areasItem);
-    return this;
-  }
 
   /**
    * Get areas
@@ -221,9 +182,6 @@ public class LocationDetail {
     return areas;
   }
 
-  public void setAreas(@javax.annotation.Nonnull List<LocationAreaSummary> areas) {
-    this.areas = areas;
-  }
 
 
 
@@ -268,10 +226,7 @@ public class LocationDetail {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 
@@ -319,36 +274,36 @@ public class LocationDetail {
       }
       // validate the required field `region`
       RegionSummary.validateJsonElement(jsonObj.get("region"));
-      // ensure the json data is an array
-      if (!jsonObj.get("names").isJsonArray()) {
-        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `names` to be an array in the JSON string but got `%s`", jsonObj.get("names").toString()));
+      if (jsonObj.get("names") != null) {
+        if (!jsonObj.get("names").isJsonArray()) {
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `names` to be an array in the JSON string but got `%s`", jsonObj.get("names").toString()));
+        }
+        JsonArray jsonArraynames = jsonObj.getAsJsonArray("names");
+        // validate the required field `names` (array)
+        for (int i = 0; i < jsonArraynames.size(); i++) {
+          LocationName.validateJsonElement(jsonArraynames.get(i));
+        }
       }
-
-      JsonArray jsonArraynames = jsonObj.getAsJsonArray("names");
-      // validate the required field `names` (array)
-      for (int i = 0; i < jsonArraynames.size(); i++) {
-        LocationName.validateJsonElement(jsonArraynames.get(i));
-      };
-      // ensure the json data is an array
-      if (!jsonObj.get("game_indices").isJsonArray()) {
-        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `game_indices` to be an array in the JSON string but got `%s`", jsonObj.get("game_indices").toString()));
+      if (jsonObj.get("game_indices") != null) {
+        if (!jsonObj.get("game_indices").isJsonArray()) {
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `game_indices` to be an array in the JSON string but got `%s`", jsonObj.get("game_indices").toString()));
+        }
+        JsonArray jsonArraygameIndices = jsonObj.getAsJsonArray("game_indices");
+        // validate the required field `game_indices` (array)
+        for (int i = 0; i < jsonArraygameIndices.size(); i++) {
+          LocationGameIndex.validateJsonElement(jsonArraygameIndices.get(i));
+        }
       }
-
-      JsonArray jsonArraygameIndices = jsonObj.getAsJsonArray("game_indices");
-      // validate the required field `game_indices` (array)
-      for (int i = 0; i < jsonArraygameIndices.size(); i++) {
-        LocationGameIndex.validateJsonElement(jsonArraygameIndices.get(i));
-      };
-      // ensure the json data is an array
-      if (!jsonObj.get("areas").isJsonArray()) {
-        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `areas` to be an array in the JSON string but got `%s`", jsonObj.get("areas").toString()));
+      if (jsonObj.get("areas") != null) {
+        if (!jsonObj.get("areas").isJsonArray()) {
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `areas` to be an array in the JSON string but got `%s`", jsonObj.get("areas").toString()));
+        }
+        JsonArray jsonArrayareas = jsonObj.getAsJsonArray("areas");
+        // validate the required field `areas` (array)
+        for (int i = 0; i < jsonArrayareas.size(); i++) {
+          LocationAreaSummary.validateJsonElement(jsonArrayareas.get(i));
+        }
       }
-
-      JsonArray jsonArrayareas = jsonObj.getAsJsonArray("areas");
-      // validate the required field `areas` (array)
-      for (int i = 0; i < jsonArrayareas.size(); i++) {
-        LocationAreaSummary.validateJsonElement(jsonArrayareas.get(i));
-      };
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {

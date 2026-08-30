@@ -68,19 +68,19 @@ namespace Org.OpenAPITools.Model
         /// Gets or Sets Names
         /// </summary>
         [JsonPropertyName("names")]
-        public List<MoveLearnMethodName> Names { get; set; }
+        public List<MoveLearnMethodName> Names { get; }
 
         /// <summary>
         /// Gets or Sets Descriptions
         /// </summary>
         [JsonPropertyName("descriptions")]
-        public List<MoveLearnMethodDescription> Descriptions { get; set; }
+        public List<MoveLearnMethodDescription> Descriptions { get; }
 
         /// <summary>
         /// Gets or Sets VersionGroups
         /// </summary>
         [JsonPropertyName("version_groups")]
-        public List<AbilityDetailPokemonInnerPokemon> VersionGroups { get; set; }
+        public List<AbilityDetailPokemonInnerPokemon> VersionGroups { get; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -119,8 +119,18 @@ namespace Org.OpenAPITools.Model
     /// <summary>
     /// A Json converter for type <see cref="MoveLearnMethodDetail" />
     /// </summary>
-    public class MoveLearnMethodDetailJsonConverter : JsonConverter<MoveLearnMethodDetail>
+    public partial class MoveLearnMethodDetailJsonConverter : JsonConverter<MoveLearnMethodDetail>
     {
+        partial void OnCreated();
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="MoveLearnMethodDetailJsonConverter" /> class.
+        /// </summary>
+        public MoveLearnMethodDetailJsonConverter()
+        {
+            OnCreated();
+        }
+
         /// <summary>
         /// Deserializes json to <see cref="MoveLearnMethodDetail" />
         /// </summary>

@@ -21,7 +21,7 @@
 
 namespace OpenAPI {
 
-OAIPokemonHabitatSummary::OAIPokemonHabitatSummary(QString json) {
+OAIPokemonHabitatSummary::OAIPokemonHabitatSummary(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -41,7 +41,7 @@ void OAIPokemonHabitatSummary::initializeModel() {
     m_url_isValid = false;
 }
 
-void OAIPokemonHabitatSummary::fromJson(QString jsonString) {
+void OAIPokemonHabitatSummary::fromJson(const QString &jsonString) {
     QByteArray array(jsonString.toStdString().c_str());
     QJsonDocument doc = QJsonDocument::fromJson(array);
     QJsonObject jsonObject = doc.object();

@@ -144,7 +144,7 @@ PaginatedBerryFlavorSummaryList::getCount()
 }
 
 void
-PaginatedBerryFlavorSummaryList::setCount(int  count)
+PaginatedBerryFlavorSummaryList::setCount(int count)
 {
 	this->count = count;
 }
@@ -156,7 +156,7 @@ PaginatedBerryFlavorSummaryList::getNext()
 }
 
 void
-PaginatedBerryFlavorSummaryList::setNext(std::string  next)
+PaginatedBerryFlavorSummaryList::setNext(std::string next)
 {
 	this->next = next;
 }
@@ -168,7 +168,7 @@ PaginatedBerryFlavorSummaryList::getPrevious()
 }
 
 void
-PaginatedBerryFlavorSummaryList::setPrevious(std::string  previous)
+PaginatedBerryFlavorSummaryList::setPrevious(std::string previous)
 {
 	this->previous = previous;
 }
@@ -180,7 +180,7 @@ PaginatedBerryFlavorSummaryList::getResults()
 }
 
 void
-PaginatedBerryFlavorSummaryList::setResults(std::list <BerryFlavorSummary> results)
+PaginatedBerryFlavorSummaryList::setResults(std::list<BerryFlavorSummary> results)
 {
 	this->results = results;
 }

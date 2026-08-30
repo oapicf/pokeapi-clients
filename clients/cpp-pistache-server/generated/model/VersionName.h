@@ -33,7 +33,7 @@ class  VersionName
 {
 public:
     VersionName();
-    virtual ~VersionName() = default;
+    virtual ~VersionName();
 
 
     /// <summary>

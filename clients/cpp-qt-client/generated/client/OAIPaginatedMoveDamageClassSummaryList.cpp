@@ -21,7 +21,7 @@
 
 namespace OpenAPI {
 
-OAIPaginatedMoveDamageClassSummaryList::OAIPaginatedMoveDamageClassSummaryList(QString json) {
+OAIPaginatedMoveDamageClassSummaryList::OAIPaginatedMoveDamageClassSummaryList(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -47,7 +47,7 @@ void OAIPaginatedMoveDamageClassSummaryList::initializeModel() {
     m_results_isValid = false;
 }
 
-void OAIPaginatedMoveDamageClassSummaryList::fromJson(QString jsonString) {
+void OAIPaginatedMoveDamageClassSummaryList::fromJson(const QString &jsonString) {
     QByteArray array(jsonString.toStdString().c_str());
     QJsonDocument doc = QJsonDocument::fromJson(array);
     QJsonObject jsonObject = doc.object();

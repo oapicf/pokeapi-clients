@@ -14,7 +14,7 @@ import org.openapitools.model.PokeathlonStatName;
 /**
  * PokeathlonStatDetail
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaMSF4JServerCodegen", date = "2026-02-07T15:23:10.683633502Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaMSF4JServerCodegen", date = "2026-08-30T01:55:58.248058654Z[Etc/UTC]", comments = "Generator version: 7.24.0")
 public class PokeathlonStatDetail   {
   @JsonProperty("id")
   private Integer id;
@@ -73,16 +73,6 @@ public class PokeathlonStatDetail   {
     this.affectingNatures = affectingNatures;
   }
 
-  public PokeathlonStatDetail names(List<@Valid PokeathlonStatName> names) {
-    this.names = names;
-    return this;
-  }
-
-  public PokeathlonStatDetail addNamesItem(PokeathlonStatName namesItem) {
-    this.names.add(namesItem);
-    return this;
-  }
-
    /**
    * Get names
    * @return names
@@ -90,10 +80,6 @@ public class PokeathlonStatDetail   {
   @ApiModelProperty(required = true, value = "")
   public List<@Valid PokeathlonStatName> getNames() {
     return names;
-  }
-
-  public void setNames(List<@Valid PokeathlonStatName> names) {
-    this.names = names;
   }
 
 
@@ -135,10 +121,7 @@ public class PokeathlonStatDetail   {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 }
 

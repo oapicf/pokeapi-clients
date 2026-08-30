@@ -45,7 +45,7 @@ export interface PokemonShapeDetailAwesomeNamesInner {
  * Check if a given object implements the PokemonShapeDetailAwesomeNamesInner interface.
  */
 export function instanceOfPokemonShapeDetailAwesomeNamesInner(value: object): value is PokemonShapeDetailAwesomeNamesInner {
-    if (!('awesomeName' in value) || value['awesomeName'] === undefined) return false;
+    if ((!('awesomeName' in (value as Record<string, any>)) && !('awesome_name' in (value as Record<string, any>))) || ((value as Record<string, any>)['awesomeName'] === undefined && (value as Record<string, any>)['awesome_name'] === undefined)) return false;
     if (!('language' in value) || value['language'] === undefined) return false;
     return true;
 }

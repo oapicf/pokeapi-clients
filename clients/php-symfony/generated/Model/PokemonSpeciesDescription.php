@@ -47,7 +47,7 @@ class PokemonSpeciesDescription
      * @var string|null
      * @SerializedName("description")
      * @Type("string")
-    */
+     */
     #[Assert\Type("string")]
     #[Assert\Length(max: 1000)]
     protected ?string $description = null;
@@ -56,7 +56,7 @@ class PokemonSpeciesDescription
      * @var LanguageSummary|null
      * @SerializedName("language")
      * @Type("OpenAPI\Server\Model\LanguageSummary")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Valid]
     #[Assert\Type("OpenAPI\Server\Model\LanguageSummary")]
@@ -85,12 +85,12 @@ class PokemonSpeciesDescription
     }
 
     /**
-    * Sets description.
-    *
-    * @param string|null $description
-    *
-    * @return $this
-    */
+     * Sets description.
+     *
+     * @param string|null $description
+     *
+     * @return $this
+     */
     public function setDescription(?string $description = null): self
     {
         $this->description = $description;
@@ -112,12 +112,12 @@ class PokemonSpeciesDescription
     }
 
     /**
-    * Sets language.
-    *
-    * @param LanguageSummary|null $language
-    *
-    * @return $this
-    */
+     * Sets language.
+     *
+     * @param LanguageSummary|null $language
+     *
+     * @return $this
+     */
     public function setLanguage(?LanguageSummary $language): self
     {
         $this->language = $language;

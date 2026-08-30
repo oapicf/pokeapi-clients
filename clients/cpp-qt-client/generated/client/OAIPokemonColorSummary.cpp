@@ -21,7 +21,7 @@
 
 namespace OpenAPI {
 
-OAIPokemonColorSummary::OAIPokemonColorSummary(QString json) {
+OAIPokemonColorSummary::OAIPokemonColorSummary(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -41,7 +41,7 @@ void OAIPokemonColorSummary::initializeModel() {
     m_url_isValid = false;
 }
 
-void OAIPokemonColorSummary::fromJson(QString jsonString) {
+void OAIPokemonColorSummary::fromJson(const QString &jsonString) {
     QByteArray array(jsonString.toStdString().c_str());
     QJsonDocument doc = QJsonDocument::fromJson(array);
     QJsonObject jsonObject = doc.object();

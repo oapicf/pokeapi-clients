@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **number** |  | [readonly] [default to undefined]
 **name** | **string** |  | [default to undefined]
-**names** | [**Array&lt;MoveBattleStyleName&gt;**](MoveBattleStyleName.md) |  | [default to undefined]
+**names** | [**Array&lt;MoveBattleStyleName&gt;**](MoveBattleStyleName.md) |  | [readonly] [default to undefined]
 
 ## Example
 

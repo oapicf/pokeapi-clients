@@ -8,11 +8,11 @@ Name | Type | Description | Notes
 **id** | **int** |  | [readonly] 
 **name** | **str** |  | 
 **is_main_series** | **bool** |  | [optional] 
-**descriptions** | [**List[PokedexDescription]**](PokedexDescription.md) |  | 
-**names** | [**List[PokedexName]**](PokedexName.md) |  | 
-**pokemon_entries** | [**List[PokedexDetailPokemonEntriesInner]**](PokedexDetailPokemonEntriesInner.md) |  | 
+**descriptions** | [**List[PokedexDescription]**](PokedexDescription.md) |  | [readonly] 
+**names** | [**List[PokedexName]**](PokedexName.md) |  | [readonly] 
+**pokemon_entries** | [**List[PokedexDetailPokemonEntriesInner]**](PokedexDetailPokemonEntriesInner.md) |  | [readonly] 
 **region** | [**RegionSummary**](RegionSummary.md) |  | 
-**version_groups** | [**List[AbilityDetailPokemonInnerPokemon]**](AbilityDetailPokemonInnerPokemon.md) |  | 
+**version_groups** | [**List[AbilityDetailPokemonInnerPokemon]**](AbilityDetailPokemonInnerPokemon.md) |  | [readonly] 
 
 ## Example
 

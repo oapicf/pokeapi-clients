@@ -6,7 +6,7 @@
 
 
 static evolution_chain_detail_t *evolution_chain_detail_create_internal(
-    int id,
+    int *id,
     item_summary_t *baby_trigger_item,
     evolution_chain_detail_chain_t *chain
     ) {
@@ -14,24 +14,33 @@ static evolution_chain_detail_t *evolution_chain_detail_create_internal(
     if (!evolution_chain_detail_local_var) {
         return NULL;
     }
+    memset(evolution_chain_detail_local_var, 0, sizeof(evolution_chain_detail_t));
+    evolution_chain_detail_local_var->_library_owned = 1;
     evolution_chain_detail_local_var->id = id;
     evolution_chain_detail_local_var->baby_trigger_item = baby_trigger_item;
     evolution_chain_detail_local_var->chain = chain;
-
-    evolution_chain_detail_local_var->_library_owned = 1;
     return evolution_chain_detail_local_var;
 }
 
 __attribute__((deprecated)) evolution_chain_detail_t *evolution_chain_detail_create(
-    int id,
+    int *id,
     item_summary_t *baby_trigger_item,
     evolution_chain_detail_chain_t *chain
     ) {
-    return evolution_chain_detail_create_internal (
-        id,
+    int *id_copy = NULL;
+    if (id) {
+        id_copy = malloc(sizeof(int));
+        if (id_copy) *id_copy = *id;
+    }
+    evolution_chain_detail_t *result = evolution_chain_detail_create_internal (
+        id_copy,
         baby_trigger_item,
         chain
         );
+    if (!result) {
+        free(id_copy);
+    }
+    return result;
 }
 
 void evolution_chain_detail_free(evolution_chain_detail_t *evolution_chain_detail) {
@@ -43,6 +52,10 @@ void evolution_chain_detail_free(evolution_chain_detail_t *evolution_chain_detai
         return ;
     }
     listEntry_t *listEntry;
+    if (evolution_chain_detail->id) {
+        free(evolution_chain_detail->id);
+        evolution_chain_detail->id = NULL;
+    }
     if (evolution_chain_detail->baby_trigger_item) {
         item_summary_free(evolution_chain_detail->baby_trigger_item);
         evolution_chain_detail->baby_trigger_item = NULL;
@@ -61,7 +74,7 @@ cJSON *evolution_chain_detail_convertToJSON(evolution_chain_detail_t *evolution_
     if (!evolution_chain_detail->id) {
         goto fail;
     }
-    if(cJSON_AddNumberToObject(item, "id", evolution_chain_detail->id) == NULL) {
+    if(cJSON_AddNumberToObject(item, "id", *evolution_chain_detail->id) == NULL) {
     goto fail; //Numeric
     }
 
@@ -105,6 +118,9 @@ evolution_chain_detail_t *evolution_chain_detail_parseFromJSON(cJSON *evolution_
 
     evolution_chain_detail_t *evolution_chain_detail_local_var = NULL;
 
+    // define the local variable for evolution_chain_detail->id
+    int *id_local_var = NULL;
+
     // define the local variable for evolution_chain_detail->baby_trigger_item
     item_summary_t *baby_trigger_item_local_nonprim = NULL;
 
@@ -125,6 +141,12 @@ evolution_chain_detail_t *evolution_chain_detail_parseFromJSON(cJSON *evolution_
     {
     goto end; //Numeric
     }
+    id_local_var = malloc(sizeof(int));
+    if(!id_local_var)
+    {
+        goto end;
+    }
+    *id_local_var = id->valuedouble;
 
     // evolution_chain_detail->baby_trigger_item
     cJSON *baby_trigger_item = cJSON_GetObjectItemCaseSensitive(evolution_chain_detailJSON, "baby_trigger_item");
@@ -151,14 +173,23 @@ evolution_chain_detail_t *evolution_chain_detail_parseFromJSON(cJSON *evolution_
     chain_local_nonprim = evolution_chain_detail_chain_parseFromJSON(chain); //nonprimitive
 
 
+
     evolution_chain_detail_local_var = evolution_chain_detail_create_internal (
-        id->valuedouble,
+        id_local_var,
         baby_trigger_item_local_nonprim,
         chain_local_nonprim
         );
 
+    if (!evolution_chain_detail_local_var) {
+        goto end;
+    }
+
     return evolution_chain_detail_local_var;
 end:
+    if (id_local_var) {
+        free(id_local_var);
+        id_local_var = NULL;
+    }
     if (baby_trigger_item_local_nonprim) {
         item_summary_free(baby_trigger_item_local_nonprim);
         baby_trigger_item_local_nonprim = NULL;

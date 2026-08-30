@@ -12,8 +12,8 @@
   [ {'gender', openapi_evolution_chain_detail_chain_evolves_to_inner_evolution_details_inner_gender:openapi_evolution_chain_detail_chain_evolves_to_inner_evolution_details_inner_gender() }
   | {'held_item', openapi_evolution_chain_detail_chain_evolves_to_inner_evolution_details_inner_gender:openapi_evolution_chain_detail_chain_evolves_to_inner_evolution_details_inner_gender() }
   | {'item', openapi_evolution_chain_detail_chain_evolves_to_inner_evolution_details_inner_gender:openapi_evolution_chain_detail_chain_evolves_to_inner_evolution_details_inner_gender() }
-  | {'known_move', map() }
-  | {'known_move_type', map() }
+  | {'known_move', openapi_evolution_chain_detail_chain_evolves_to_inner_evolution_details_inner_gender:openapi_evolution_chain_detail_chain_evolves_to_inner_evolution_details_inner_gender() }
+  | {'known_move_type', openapi_evolution_chain_detail_chain_evolves_to_inner_evolution_details_inner_gender:openapi_evolution_chain_detail_chain_evolves_to_inner_evolution_details_inner_gender() }
   | {'location', openapi_evolution_chain_detail_chain_evolves_to_inner_evolution_details_inner_gender:openapi_evolution_chain_detail_chain_evolves_to_inner_evolution_details_inner_gender() }
   | {'min_affection', integer() }
   | {'min_beauty', integer() }
@@ -37,8 +37,8 @@ openapi_evolution_chain_detail_chain_evolves_to_inner_evolution_details_inner(Fi
   Default = [ {'gender', openapi_evolution_chain_detail_chain_evolves_to_inner_evolution_details_inner_gender:openapi_evolution_chain_detail_chain_evolves_to_inner_evolution_details_inner_gender() }
             , {'held_item', openapi_evolution_chain_detail_chain_evolves_to_inner_evolution_details_inner_gender:openapi_evolution_chain_detail_chain_evolves_to_inner_evolution_details_inner_gender() }
             , {'item', openapi_evolution_chain_detail_chain_evolves_to_inner_evolution_details_inner_gender:openapi_evolution_chain_detail_chain_evolves_to_inner_evolution_details_inner_gender() }
-            , {'known_move', map() }
-            , {'known_move_type', map() }
+            , {'known_move', openapi_evolution_chain_detail_chain_evolves_to_inner_evolution_details_inner_gender:openapi_evolution_chain_detail_chain_evolves_to_inner_evolution_details_inner_gender() }
+            , {'known_move_type', openapi_evolution_chain_detail_chain_evolves_to_inner_evolution_details_inner_gender:openapi_evolution_chain_detail_chain_evolves_to_inner_evolution_details_inner_gender() }
             , {'location', openapi_evolution_chain_detail_chain_evolves_to_inner_evolution_details_inner_gender:openapi_evolution_chain_detail_chain_evolves_to_inner_evolution_details_inner_gender() }
             , {'min_affection', integer() }
             , {'min_beauty', integer() }

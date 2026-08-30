@@ -12,6 +12,11 @@
 package openapi
 
 
+import (
+	"encoding/json"
+	"fmt"
+)
+
 
 
 type MoveChange struct {
@@ -30,12 +35,103 @@ type MoveChange struct {
 
 	VersionGroup VersionGroupSummary `json:"version_group"`
 }
+// UnmarshalJSON validates required property keys then unmarshals into MoveChange
+func (o *MoveChange) UnmarshalJSON(data []byte) (err error) {
+	// Presence is checked against required fields that exist on this struct,
+	// including fields promoted from embedded allOf parents.
+	requiredProperties := []string{
+		"effect_chance",
+		"type",
+		"version_group",
+	}
 
-// AssertMoveChangeRequired checks if the required fields are not zero-ed
+	requiredNullableProperties := map[string]bool{
+		"effect_chance": false,
+		"type": false,
+		"version_group": false,
+	}
+
+	allowedJsonKeys := map[string]struct{}{
+		"accuracy": {},
+		"power": {},
+		"pp": {},
+		"effect_chance": {},
+		"effect_entries": {},
+		"type": {},
+		"version_group": {},
+	}
+
+	allProperties := make(map[string]json.RawMessage)
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err
+	}
+
+	for _, requiredProperty := range requiredProperties {
+		value, exists := allProperties[requiredProperty]
+		if !exists {
+			return &RequiredError{Field: requiredProperty}
+		}
+		if string(value) == "null" && !requiredNullableProperties[requiredProperty] {
+			return &RequiredError{Field: requiredProperty}
+		}
+	}
+
+	for key := range allProperties {
+		if _, exists := allowedJsonKeys[key]; !exists {
+			return fmt.Errorf("json: unknown field %q", key)
+		}
+	}
+
+	var decoded MoveChange
+
+	if value, exists := allProperties["accuracy"]; exists {
+		if err = json.Unmarshal(value, &decoded.Accuracy); err != nil {
+			return err
+		}
+	}
+	if value, exists := allProperties["power"]; exists {
+		if err = json.Unmarshal(value, &decoded.Power); err != nil {
+			return err
+		}
+	}
+	if value, exists := allProperties["pp"]; exists {
+		if err = json.Unmarshal(value, &decoded.Pp); err != nil {
+			return err
+		}
+	}
+	if value, exists := allProperties["effect_chance"]; exists {
+		if err = json.Unmarshal(value, &decoded.EffectChance); err != nil {
+			return err
+		}
+	}
+	if value, exists := allProperties["effect_entries"]; exists {
+		if err = json.Unmarshal(value, &decoded.EffectEntries); err != nil {
+			return err
+		}
+	}
+	if value, exists := allProperties["type"]; exists {
+		if err = json.Unmarshal(value, &decoded.Type); err != nil {
+			return err
+		}
+	}
+	if value, exists := allProperties["version_group"]; exists {
+		if err = json.Unmarshal(value, &decoded.VersionGroup); err != nil {
+			return err
+		}
+	}
+
+	*o = decoded
+
+	return nil
+}
+
+// AssertMoveChangeRequired checks complex required fields (models, arrays, maps) and embedded parents.
+// Primitive required fields are validated for JSON request bodies in UnmarshalJSON so zero values remain valid.
 func AssertMoveChangeRequired(obj MoveChange) error {
 	elements := map[string]interface{}{
-		"effect_chance": obj.EffectChance,
-		"effect_entries": obj.EffectEntries,
 		"type": obj.Type,
 		"version_group": obj.VersionGroup,
 	}
@@ -45,11 +141,6 @@ func AssertMoveChangeRequired(obj MoveChange) error {
 		}
 	}
 
-	for _, el := range obj.EffectEntries {
-		if err := AssertMoveChangeEffectEntriesInnerRequired(el); err != nil {
-			return err
-		}
-	}
 	if err := AssertTypeSummaryRequired(obj.Type); err != nil {
 		return err
 	}
@@ -61,11 +152,6 @@ func AssertMoveChangeRequired(obj MoveChange) error {
 
 // AssertMoveChangeConstraints checks if the values respects the defined constraints
 func AssertMoveChangeConstraints(obj MoveChange) error {
-	for _, el := range obj.EffectEntries {
-		if err := AssertMoveChangeEffectEntriesInnerConstraints(el); err != nil {
-			return err
-		}
-	}
 	if err := AssertTypeSummaryConstraints(obj.Type); err != nil {
 		return err
 	}

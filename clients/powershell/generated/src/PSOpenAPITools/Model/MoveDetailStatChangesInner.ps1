@@ -49,8 +49,8 @@ function Initialize-MoveDetailStatChangesInner {
 
 
         $PSO = [PSCustomObject]@{
-            "change" = ${Change}
-            "stat" = ${Stat}
+            'change' = ${Change}
+            'stat' = ${Stat}
         }
 
 
@@ -88,7 +88,7 @@ function ConvertFrom-JsonToMoveDetailStatChangesInner {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in MoveDetailStatChangesInner
-        $AllProperties = ("change", "stat")
+        $AllProperties = ('change', 'stat')
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -99,21 +99,21 @@ function ConvertFrom-JsonToMoveDetailStatChangesInner {
             throw "Error! Empty JSON cannot be serialized due to the required property 'change' missing."
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "change"))) {
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'change'))) {
             throw "Error! JSON cannot be serialized due to the required property 'change' missing."
         } else {
-            $Change = $JsonParameters.PSobject.Properties["change"].value
+            $Change = $JsonParameters.PSobject.Properties['change'].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "stat"))) {
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'stat'))) {
             throw "Error! JSON cannot be serialized due to the required property 'stat' missing."
         } else {
-            $Stat = $JsonParameters.PSobject.Properties["stat"].value
+            $Stat = $JsonParameters.PSobject.Properties['stat'].value
         }
 
         $PSO = [PSCustomObject]@{
-            "change" = ${Change}
-            "stat" = ${Stat}
+            'change' = ${Change}
+            'stat' = ${Stat}
         }
 
         return $PSO

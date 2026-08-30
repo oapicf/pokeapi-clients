@@ -35,7 +35,7 @@ class  BerryFirmnessDetail
 {
 public:
     BerryFirmnessDetail();
-    virtual ~BerryFirmnessDetail() = default;
+    virtual ~BerryFirmnessDetail();
 
 
     /// <summary>

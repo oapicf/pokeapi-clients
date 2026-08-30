@@ -6,10 +6,10 @@
 
 
 static stat_detail_t *stat_detail_create_internal(
-    int id,
+    int *id,
     char *name,
-    int game_index,
-    int is_battle_only,
+    int *game_index,
+    int *is_battle_only,
     stat_detail_affecting_moves_t *affecting_moves,
     stat_detail_affecting_natures_t *affecting_natures,
     list_t *characteristics,
@@ -20,6 +20,8 @@ static stat_detail_t *stat_detail_create_internal(
     if (!stat_detail_local_var) {
         return NULL;
     }
+    memset(stat_detail_local_var, 0, sizeof(stat_detail_t));
+    stat_detail_local_var->_library_owned = 1;
     stat_detail_local_var->id = id;
     stat_detail_local_var->name = name;
     stat_detail_local_var->game_index = game_index;
@@ -29,33 +31,52 @@ static stat_detail_t *stat_detail_create_internal(
     stat_detail_local_var->characteristics = characteristics;
     stat_detail_local_var->move_damage_class = move_damage_class;
     stat_detail_local_var->names = names;
-
-    stat_detail_local_var->_library_owned = 1;
     return stat_detail_local_var;
 }
 
 __attribute__((deprecated)) stat_detail_t *stat_detail_create(
-    int id,
+    int *id,
     char *name,
-    int game_index,
-    int is_battle_only,
+    int *game_index,
+    int *is_battle_only,
     stat_detail_affecting_moves_t *affecting_moves,
     stat_detail_affecting_natures_t *affecting_natures,
     list_t *characteristics,
     move_damage_class_summary_t *move_damage_class,
     list_t *names
     ) {
-    return stat_detail_create_internal (
-        id,
+    int *id_copy = NULL;
+    if (id) {
+        id_copy = malloc(sizeof(int));
+        if (id_copy) *id_copy = *id;
+    }
+    int *game_index_copy = NULL;
+    if (game_index) {
+        game_index_copy = malloc(sizeof(int));
+        if (game_index_copy) *game_index_copy = *game_index;
+    }
+    int *is_battle_only_copy = NULL;
+    if (is_battle_only) {
+        is_battle_only_copy = malloc(sizeof(int));
+        if (is_battle_only_copy) *is_battle_only_copy = *is_battle_only;
+    }
+    stat_detail_t *result = stat_detail_create_internal (
+        id_copy,
         name,
-        game_index,
-        is_battle_only,
+        game_index_copy,
+        is_battle_only_copy,
         affecting_moves,
         affecting_natures,
         characteristics,
         move_damage_class,
         names
         );
+    if (!result) {
+        free(id_copy);
+        free(game_index_copy);
+        free(is_battle_only_copy);
+    }
+    return result;
 }
 
 void stat_detail_free(stat_detail_t *stat_detail) {
@@ -67,9 +88,21 @@ void stat_detail_free(stat_detail_t *stat_detail) {
         return ;
     }
     listEntry_t *listEntry;
+    if (stat_detail->id) {
+        free(stat_detail->id);
+        stat_detail->id = NULL;
+    }
     if (stat_detail->name) {
         free(stat_detail->name);
         stat_detail->name = NULL;
+    }
+    if (stat_detail->game_index) {
+        free(stat_detail->game_index);
+        stat_detail->game_index = NULL;
+    }
+    if (stat_detail->is_battle_only) {
+        free(stat_detail->is_battle_only);
+        stat_detail->is_battle_only = NULL;
     }
     if (stat_detail->affecting_moves) {
         stat_detail_affecting_moves_free(stat_detail->affecting_moves);
@@ -107,7 +140,7 @@ cJSON *stat_detail_convertToJSON(stat_detail_t *stat_detail) {
     if (!stat_detail->id) {
         goto fail;
     }
-    if(cJSON_AddNumberToObject(item, "id", stat_detail->id) == NULL) {
+    if(cJSON_AddNumberToObject(item, "id", *stat_detail->id) == NULL) {
     goto fail; //Numeric
     }
 
@@ -125,14 +158,14 @@ cJSON *stat_detail_convertToJSON(stat_detail_t *stat_detail) {
     if (!stat_detail->game_index) {
         goto fail;
     }
-    if(cJSON_AddNumberToObject(item, "game_index", stat_detail->game_index) == NULL) {
+    if(cJSON_AddNumberToObject(item, "game_index", *stat_detail->game_index) == NULL) {
     goto fail; //Numeric
     }
 
 
     // stat_detail->is_battle_only
     if(stat_detail->is_battle_only) {
-    if(cJSON_AddBoolToObject(item, "is_battle_only", stat_detail->is_battle_only) == NULL) {
+    if(cJSON_AddBoolToObject(item, "is_battle_only", *stat_detail->is_battle_only) == NULL) {
     goto fail; //Bool
     }
     }
@@ -233,6 +266,17 @@ stat_detail_t *stat_detail_parseFromJSON(cJSON *stat_detailJSON){
 
     stat_detail_t *stat_detail_local_var = NULL;
 
+    // define the local variable for stat_detail->id
+    int *id_local_var = NULL;
+
+    char *name_local_str = NULL;
+
+    // define the local variable for stat_detail->game_index
+    int *game_index_local_var = NULL;
+
+    // define the local variable for stat_detail->is_battle_only
+    int *is_battle_only_local_var = NULL;
+
     // define the local variable for stat_detail->affecting_moves
     stat_detail_affecting_moves_t *affecting_moves_local_nonprim = NULL;
 
@@ -262,6 +306,12 @@ stat_detail_t *stat_detail_parseFromJSON(cJSON *stat_detailJSON){
     {
     goto end; //Numeric
     }
+    id_local_var = malloc(sizeof(int));
+    if(!id_local_var)
+    {
+        goto end;
+    }
+    *id_local_var = id->valuedouble;
 
     // stat_detail->name
     cJSON *name = cJSON_GetObjectItemCaseSensitive(stat_detailJSON, "name");
@@ -292,6 +342,12 @@ stat_detail_t *stat_detail_parseFromJSON(cJSON *stat_detailJSON){
     {
     goto end; //Numeric
     }
+    game_index_local_var = malloc(sizeof(int));
+    if(!game_index_local_var)
+    {
+        goto end;
+    }
+    *game_index_local_var = game_index->valuedouble;
 
     // stat_detail->is_battle_only
     cJSON *is_battle_only = cJSON_GetObjectItemCaseSensitive(stat_detailJSON, "is_battle_only");
@@ -303,6 +359,12 @@ stat_detail_t *stat_detail_parseFromJSON(cJSON *stat_detailJSON){
     {
     goto end; //Bool
     }
+    is_battle_only_local_var = malloc(sizeof(int));
+    if(!is_battle_only_local_var)
+    {
+        goto end;
+    }
+    *is_battle_only_local_var = is_battle_only->valueint;
     }
 
     // stat_detail->affecting_moves
@@ -396,11 +458,13 @@ stat_detail_t *stat_detail_parseFromJSON(cJSON *stat_detailJSON){
     }
 
 
+    if (name && !cJSON_IsNull(name)) name_local_str = strdup(name->valuestring);
+
     stat_detail_local_var = stat_detail_create_internal (
-        id->valuedouble,
-        strdup(name->valuestring),
-        game_index->valuedouble,
-        is_battle_only ? is_battle_only->valueint : 0,
+        id_local_var,
+        name_local_str,
+        game_index_local_var,
+        is_battle_only_local_var,
         affecting_moves_local_nonprim,
         affecting_natures_local_nonprim,
         characteristicsList,
@@ -408,8 +472,28 @@ stat_detail_t *stat_detail_parseFromJSON(cJSON *stat_detailJSON){
         namesList
         );
 
+    if (!stat_detail_local_var) {
+        goto end;
+    }
+
     return stat_detail_local_var;
 end:
+    if (id_local_var) {
+        free(id_local_var);
+        id_local_var = NULL;
+    }
+    if (name_local_str) {
+        free(name_local_str);
+        name_local_str = NULL;
+    }
+    if (game_index_local_var) {
+        free(game_index_local_var);
+        game_index_local_var = NULL;
+    }
+    if (is_battle_only_local_var) {
+        free(is_battle_only_local_var);
+        is_battle_only_local_var = NULL;
+    }
     if (affecting_moves_local_nonprim) {
         stat_detail_affecting_moves_free(affecting_moves_local_nonprim);
         affecting_moves_local_nonprim = NULL;

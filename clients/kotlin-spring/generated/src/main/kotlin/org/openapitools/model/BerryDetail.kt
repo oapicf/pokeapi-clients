@@ -34,45 +34,57 @@ import io.swagger.v3.oas.annotations.media.Schema
  */
 data class BerryDetail(
 
-    @Schema(example = "null", required = true, readOnly = true, description = "")
+    @Schema(required = true, readOnly = true, description = "")
+    @param:JsonProperty("id")
     @get:JsonProperty("id", required = true) val id: kotlin.Int,
 
     @get:Size(max=100)
-    @Schema(example = "null", required = true, description = "")
+    @Schema(required = true, description = "")
+    @param:JsonProperty("name")
     @get:JsonProperty("name", required = true) val name: kotlin.String,
 
-    @Schema(example = "null", required = true, description = "")
+    @Schema(required = true, description = "")
+    @param:JsonProperty("growth_time")
     @get:JsonProperty("growth_time", required = true) val growthTime: kotlin.Int,
 
-    @Schema(example = "null", required = true, description = "")
+    @Schema(required = true, description = "")
+    @param:JsonProperty("max_harvest")
     @get:JsonProperty("max_harvest", required = true) val maxHarvest: kotlin.Int,
 
-    @Schema(example = "null", required = true, description = "")
+    @Schema(required = true, description = "")
+    @param:JsonProperty("natural_gift_power")
     @get:JsonProperty("natural_gift_power", required = true) val naturalGiftPower: kotlin.Int,
 
-    @Schema(example = "null", required = true, description = "")
+    @Schema(required = true, description = "")
+    @param:JsonProperty("size")
     @get:JsonProperty("size", required = true) val propertySize: kotlin.Int,
 
-    @Schema(example = "null", required = true, description = "")
+    @Schema(required = true, description = "")
+    @param:JsonProperty("smoothness")
     @get:JsonProperty("smoothness", required = true) val smoothness: kotlin.Int,
 
-    @Schema(example = "null", required = true, description = "")
+    @Schema(required = true, description = "")
+    @param:JsonProperty("soil_dryness")
     @get:JsonProperty("soil_dryness", required = true) val soilDryness: kotlin.Int,
 
     @field:Valid
-    @Schema(example = "null", required = true, description = "")
+    @Schema(required = true, description = "")
+    @param:JsonProperty("firmness")
     @get:JsonProperty("firmness", required = true) val firmness: BerryFirmnessSummary,
 
     @field:Valid
-    @Schema(example = "null", required = true, description = "")
+    @Schema(required = true, readOnly = true, description = "")
+    @param:JsonProperty("flavors")
     @get:JsonProperty("flavors", required = true) val flavors: kotlin.collections.List<BerryDetailFlavorsInner>,
 
     @field:Valid
-    @Schema(example = "null", required = true, description = "")
+    @Schema(required = true, description = "")
+    @param:JsonProperty("item")
     @get:JsonProperty("item", required = true) val item: ItemSummary,
 
     @field:Valid
-    @Schema(example = "null", required = true, description = "")
+    @Schema(required = true, description = "")
+    @param:JsonProperty("natural_gift_type")
     @get:JsonProperty("natural_gift_type", required = true) val naturalGiftType: TypeSummary
 ) {
 

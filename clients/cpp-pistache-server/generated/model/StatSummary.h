@@ -32,7 +32,7 @@ class  StatSummary
 {
 public:
     StatSummary();
-    virtual ~StatSummary() = default;
+    virtual ~StatSummary();
 
 
     /// <summary>

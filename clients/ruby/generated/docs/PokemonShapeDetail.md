@@ -6,9 +6,9 @@
 | ---- | ---- | ----------- | ----- |
 | **id** | **Integer** |  | [readonly] |
 | **name** | **String** |  |  |
-| **awesome_names** | [**Array&lt;PokemonShapeDetailAwesomeNamesInner&gt;**](PokemonShapeDetailAwesomeNamesInner.md) |  |  |
-| **names** | [**Array&lt;PokemonShapeDetailNamesInner&gt;**](PokemonShapeDetailNamesInner.md) |  |  |
-| **pokemon_species** | [**Array&lt;PokemonSpeciesSummary&gt;**](PokemonSpeciesSummary.md) |  |  |
+| **awesome_names** | [**Array&lt;PokemonShapeDetailAwesomeNamesInner&gt;**](PokemonShapeDetailAwesomeNamesInner.md) |  | [readonly] |
+| **names** | [**Array&lt;PokemonShapeDetailNamesInner&gt;**](PokemonShapeDetailNamesInner.md) |  | [readonly] |
+| **pokemon_species** | [**Array&lt;PokemonSpeciesSummary&gt;**](PokemonSpeciesSummary.md) |  | [readonly] |
 
 ## Example
 

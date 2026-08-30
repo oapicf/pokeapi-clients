@@ -13,10 +13,10 @@ static stat_name_t *stat_name_create_internal(
     if (!stat_name_local_var) {
         return NULL;
     }
+    memset(stat_name_local_var, 0, sizeof(stat_name_t));
+    stat_name_local_var->_library_owned = 1;
     stat_name_local_var->name = name;
     stat_name_local_var->language = language;
-
-    stat_name_local_var->_library_owned = 1;
     return stat_name_local_var;
 }
 
@@ -24,10 +24,13 @@ __attribute__((deprecated)) stat_name_t *stat_name_create(
     char *name,
     language_summary_t *language
     ) {
-    return stat_name_create_internal (
+    stat_name_t *result = stat_name_create_internal (
         name,
         language
         );
+    if (!result) {
+    }
+    return result;
 }
 
 void stat_name_free(stat_name_t *stat_name) {
@@ -87,6 +90,8 @@ stat_name_t *stat_name_parseFromJSON(cJSON *stat_nameJSON){
 
     stat_name_t *stat_name_local_var = NULL;
 
+    char *name_local_str = NULL;
+
     // define the local variable for stat_name->language
     language_summary_t *language_local_nonprim = NULL;
 
@@ -118,13 +123,23 @@ stat_name_t *stat_name_parseFromJSON(cJSON *stat_nameJSON){
     language_local_nonprim = language_summary_parseFromJSON(language); //nonprimitive
 
 
+    if (name && !cJSON_IsNull(name)) name_local_str = strdup(name->valuestring);
+
     stat_name_local_var = stat_name_create_internal (
-        strdup(name->valuestring),
+        name_local_str,
         language_local_nonprim
         );
 
+    if (!stat_name_local_var) {
+        goto end;
+    }
+
     return stat_name_local_var;
 end:
+    if (name_local_str) {
+        free(name_local_str);
+        name_local_str = NULL;
+    }
     if (language_local_nonprim) {
         language_summary_free(language_local_nonprim);
         language_local_nonprim = NULL;

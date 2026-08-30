@@ -54,14 +54,14 @@ public:
 
 	/*! \brief Set 
 	 */
-	void setPokemon(AbilityDetail_pokemon_inner_pokemon  pokemon);
+	void setPokemon(AbilityDetail_pokemon_inner_pokemon pokemon);
 	/*! \brief Get 
 	 */
 	std::list<LocationAreaDetail_pokemon_encounters_inner_version_details_inner> getVersionDetails();
 
 	/*! \brief Set 
 	 */
-	void setVersionDetails(std::list <LocationAreaDetail_pokemon_encounters_inner_version_details_inner> version_details);
+	void setVersionDetails(std::list<LocationAreaDetail_pokemon_encounters_inner_version_details_inner> version_details);
 
 
     private:

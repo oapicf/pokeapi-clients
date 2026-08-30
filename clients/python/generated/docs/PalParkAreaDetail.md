@@ -7,8 +7,8 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **int** |  | [readonly] 
 **name** | **str** |  | 
-**names** | [**List[PalParkAreaName]**](PalParkAreaName.md) |  | 
-**pokemon_encounters** | [**List[PalParkAreaDetailPokemonEncountersInner]**](PalParkAreaDetailPokemonEncountersInner.md) |  | 
+**names** | [**List[PalParkAreaName]**](PalParkAreaName.md) |  | [readonly] 
+**pokemon_encounters** | [**List[PalParkAreaDetailPokemonEncountersInner]**](PalParkAreaDetailPokemonEncountersInner.md) |  | [readonly] 
 
 ## Example
 

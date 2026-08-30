@@ -14,7 +14,7 @@ import org.openapitools.model.EvolutionTriggerName;
 /**
  * EvolutionTriggerDetail
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaMSF4JServerCodegen", date = "2026-02-07T15:23:10.683633502Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaMSF4JServerCodegen", date = "2026-08-30T01:55:58.248058654Z[Etc/UTC]", comments = "Generator version: 7.24.0")
 public class EvolutionTriggerDetail   {
   @JsonProperty("id")
   private Integer id;
@@ -55,16 +55,6 @@ public class EvolutionTriggerDetail   {
     this.name = name;
   }
 
-  public EvolutionTriggerDetail names(List<@Valid EvolutionTriggerName> names) {
-    this.names = names;
-    return this;
-  }
-
-  public EvolutionTriggerDetail addNamesItem(EvolutionTriggerName namesItem) {
-    this.names.add(namesItem);
-    return this;
-  }
-
    /**
    * Get names
    * @return names
@@ -74,20 +64,6 @@ public class EvolutionTriggerDetail   {
     return names;
   }
 
-  public void setNames(List<@Valid EvolutionTriggerName> names) {
-    this.names = names;
-  }
-
-  public EvolutionTriggerDetail pokemonSpecies(List<@Valid AbilityDetailPokemonInnerPokemon> pokemonSpecies) {
-    this.pokemonSpecies = pokemonSpecies;
-    return this;
-  }
-
-  public EvolutionTriggerDetail addPokemonSpeciesItem(AbilityDetailPokemonInnerPokemon pokemonSpeciesItem) {
-    this.pokemonSpecies.add(pokemonSpeciesItem);
-    return this;
-  }
-
    /**
    * Get pokemonSpecies
    * @return pokemonSpecies
@@ -95,10 +71,6 @@ public class EvolutionTriggerDetail   {
   @ApiModelProperty(required = true, value = "")
   public List<@Valid AbilityDetailPokemonInnerPokemon> getPokemonSpecies() {
     return pokemonSpecies;
-  }
-
-  public void setPokemonSpecies(List<@Valid AbilityDetailPokemonInnerPokemon> pokemonSpecies) {
-    this.pokemonSpecies = pokemonSpecies;
   }
 
 
@@ -140,10 +112,7 @@ public class EvolutionTriggerDetail   {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 }
 

@@ -40,7 +40,7 @@ import javax.annotation.Generated;
   LocationDetail.JSON_PROPERTY_AREAS
 })
 @JsonTypeName("LocationDetail")
-@Generated(value="org.openapitools.codegen.languages.JavaMicronautClientCodegen", date="2026-02-07T15:22:54.857535619Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@Generated(value="org.openapitools.codegen.languages.JavaMicronautClientCodegen", date="2026-08-30T01:55:51.056116330Z[Etc/UTC]", comments = "Generator version: 7.24.0")
 @Introspected
 public class LocationDetail {
     public static final String JSON_PROPERTY_ID = "id";
@@ -127,16 +127,6 @@ public class LocationDetail {
         this.region = region;
     }
 
-    public LocationDetail names(List<@Valid LocationName> names) {
-        this.names = names;
-        return this;
-    }
-
-    public LocationDetail addNamesItem(LocationName namesItem) {
-        this.names.add(namesItem);
-        return this;
-    }
-
     /**
      * Get names
      * @return names
@@ -146,22 +136,6 @@ public class LocationDetail {
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public List<@Valid LocationName> getNames() {
         return names;
-    }
-
-    @JsonProperty(JSON_PROPERTY_NAMES)
-    @JsonInclude(value = JsonInclude.Include.ALWAYS)
-    public void setNames(List<@Valid LocationName> names) {
-        this.names = names;
-    }
-
-    public LocationDetail gameIndices(List<@Valid LocationGameIndex> gameIndices) {
-        this.gameIndices = gameIndices;
-        return this;
-    }
-
-    public LocationDetail addGameIndicesItem(LocationGameIndex gameIndicesItem) {
-        this.gameIndices.add(gameIndicesItem);
-        return this;
     }
 
     /**
@@ -175,22 +149,6 @@ public class LocationDetail {
         return gameIndices;
     }
 
-    @JsonProperty(JSON_PROPERTY_GAME_INDICES)
-    @JsonInclude(value = JsonInclude.Include.ALWAYS)
-    public void setGameIndices(List<@Valid LocationGameIndex> gameIndices) {
-        this.gameIndices = gameIndices;
-    }
-
-    public LocationDetail areas(List<@Valid LocationAreaSummary> areas) {
-        this.areas = areas;
-        return this;
-    }
-
-    public LocationDetail addAreasItem(LocationAreaSummary areasItem) {
-        this.areas.add(areasItem);
-        return this;
-    }
-
     /**
      * Get areas
      * @return areas
@@ -200,12 +158,6 @@ public class LocationDetail {
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public List<@Valid LocationAreaSummary> getAreas() {
         return areas;
-    }
-
-    @JsonProperty(JSON_PROPERTY_AREAS)
-    @JsonInclude(value = JsonInclude.Include.ALWAYS)
-    public void setAreas(List<@Valid LocationAreaSummary> areas) {
-        this.areas = areas;
     }
 
     @Override
@@ -249,10 +201,7 @@ public class LocationDetail {
      * (except the first line).
      */
     private String toIndentedString(Object o) {
-        if (o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
+        return o == null ? "null" : o.toString().replace("\n", "\n    ");
     }
 
 }

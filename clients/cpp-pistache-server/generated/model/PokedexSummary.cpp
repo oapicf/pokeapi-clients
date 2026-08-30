@@ -26,6 +26,8 @@ PokedexSummary::PokedexSummary()
     
 }
 
+PokedexSummary::~PokedexSummary() = default;
+
 void PokedexSummary::validate() const
 {
     std::stringstream msg;

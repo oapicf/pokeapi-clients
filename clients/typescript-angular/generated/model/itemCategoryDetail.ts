@@ -15,8 +15,8 @@ import { ItemSummary } from './itemSummary';
 export interface ItemCategoryDetail { 
     readonly id: number;
     name: string;
-    items: Array<ItemSummary>;
-    names: Array<ItemCategoryName>;
+    readonly items: Array<ItemSummary>;
+    readonly names: Array<ItemCategoryName>;
     pocket: ItemPocketSummary;
 }
 

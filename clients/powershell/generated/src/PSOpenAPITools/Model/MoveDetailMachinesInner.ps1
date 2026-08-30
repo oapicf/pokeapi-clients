@@ -49,8 +49,8 @@ function Initialize-MoveDetailMachinesInner {
 
 
         $PSO = [PSCustomObject]@{
-            "machine" = ${Machine}
-            "version_group" = ${VersionGroup}
+            'machine' = ${Machine}
+            'version_group' = ${VersionGroup}
         }
 
 
@@ -88,7 +88,7 @@ function ConvertFrom-JsonToMoveDetailMachinesInner {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in MoveDetailMachinesInner
-        $AllProperties = ("machine", "version_group")
+        $AllProperties = ('machine', 'version_group')
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -99,21 +99,21 @@ function ConvertFrom-JsonToMoveDetailMachinesInner {
             throw "Error! Empty JSON cannot be serialized due to the required property 'machine' missing."
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "machine"))) {
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'machine'))) {
             throw "Error! JSON cannot be serialized due to the required property 'machine' missing."
         } else {
-            $Machine = $JsonParameters.PSobject.Properties["machine"].value
+            $Machine = $JsonParameters.PSobject.Properties['machine'].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "version_group"))) {
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'version_group'))) {
             throw "Error! JSON cannot be serialized due to the required property 'version_group' missing."
         } else {
-            $VersionGroup = $JsonParameters.PSobject.Properties["version_group"].value
+            $VersionGroup = $JsonParameters.PSobject.Properties['version_group'].value
         }
 
         $PSO = [PSCustomObject]@{
-            "machine" = ${Machine}
-            "version_group" = ${VersionGroup}
+            'machine' = ${Machine}
+            'version_group' = ${VersionGroup}
         }
 
         return $PSO

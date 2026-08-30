@@ -387,22 +387,25 @@ class _$PokemonSpeciesDetailSerializer implements PrimitiveSerializer<PokemonSpe
         case r'is_baby':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(bool),
-          ) as bool;
+            specifiedType: const FullType.nullable(bool),
+          ) as bool?;
+          if (valueDes == null) continue;
           result.isBaby = valueDes;
           break;
         case r'is_legendary':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(bool),
-          ) as bool;
+            specifiedType: const FullType.nullable(bool),
+          ) as bool?;
+          if (valueDes == null) continue;
           result.isLegendary = valueDes;
           break;
         case r'is_mythical':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(bool),
-          ) as bool;
+            specifiedType: const FullType.nullable(bool),
+          ) as bool?;
+          if (valueDes == null) continue;
           result.isMythical = valueDes;
           break;
         case r'hatch_counter':
@@ -416,15 +419,17 @@ class _$PokemonSpeciesDetailSerializer implements PrimitiveSerializer<PokemonSpe
         case r'has_gender_differences':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(bool),
-          ) as bool;
+            specifiedType: const FullType.nullable(bool),
+          ) as bool?;
+          if (valueDes == null) continue;
           result.hasGenderDifferences = valueDes;
           break;
         case r'forms_switchable':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(bool),
-          ) as bool;
+            specifiedType: const FullType.nullable(bool),
+          ) as bool?;
+          if (valueDes == null) continue;
           result.formsSwitchable = valueDes;
           break;
         case r'growth_rate':

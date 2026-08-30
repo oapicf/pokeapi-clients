@@ -35,7 +35,7 @@ class  ItemPocketDetail
 {
 public:
     ItemPocketDetail();
-    virtual ~ItemPocketDetail() = default;
+    virtual ~ItemPocketDetail();
 
 
     /// <summary>

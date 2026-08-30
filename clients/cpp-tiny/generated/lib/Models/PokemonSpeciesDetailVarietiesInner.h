@@ -52,14 +52,14 @@ public:
 
 	/*! \brief Set 
 	 */
-	void setIsDefault(bool  is_default);
+	void setIsDefault(bool is_default);
 	/*! \brief Get 
 	 */
 	AbilityDetail_pokemon_inner_pokemon getPokemon();
 
 	/*! \brief Set 
 	 */
-	void setPokemon(AbilityDetail_pokemon_inner_pokemon  pokemon);
+	void setPokemon(AbilityDetail_pokemon_inner_pokemon pokemon);
 
 
     private:

@@ -32,7 +32,7 @@ import javax.validation.Valid;
  * <p>All the Pokémon data you'll ever need in one place, easily accessible through a modern free open-source RESTful API.  ## What is this?  This is a full RESTful API linked to an extensive database detailing everything about the Pokémon main game series.  We've covered everything from Pokémon to Berry Flavors.  ## Where do I start?  We have awesome [documentation](https://pokeapi.co/docs/v2) on how to use this API. It takes minutes to get started.  This API will always be publicly available and will never require any extensive setup process to consume.  Created by [**Paul Hallett**(]https://github.com/phalt) and other [**PokéAPI contributors***](https://github.com/PokeAPI/pokeapi#contributing) around the world. Pokémon and Pokémon character names are trademarks of Nintendo.     
  *
  */
-@Path("/api/v2")
+@Path("")
 @Api(value = "/", description = "")
 public interface LocationApi  {
 
@@ -43,7 +43,7 @@ public interface LocationApi  {
      *
      */
     @GET
-    @Path("/location-area/")
+    @Path("/api/v2/location-area/")
     @Produces({ "application/json" })
     @ApiOperation(value = "List location areas", tags={ "location" })
     @ApiResponses(value = { 
@@ -57,7 +57,7 @@ public interface LocationApi  {
      *
      */
     @GET
-    @Path("/location-area/{id}/")
+    @Path("/api/v2/location-area/{id}/")
     @Produces({ "application/json" })
     @ApiOperation(value = "Get location area", tags={ "location" })
     @ApiResponses(value = { 
@@ -71,7 +71,7 @@ public interface LocationApi  {
      *
      */
     @GET
-    @Path("/location/")
+    @Path("/api/v2/location/")
     @Produces({ "application/json" })
     @ApiOperation(value = "List locations", tags={ "location" })
     @ApiResponses(value = { 
@@ -85,7 +85,7 @@ public interface LocationApi  {
      *
      */
     @GET
-    @Path("/location/{id}/")
+    @Path("/api/v2/location/{id}/")
     @Produces({ "application/json" })
     @ApiOperation(value = "Get location", tags={ "location" })
     @ApiResponses(value = { 
@@ -99,7 +99,7 @@ public interface LocationApi  {
      *
      */
     @GET
-    @Path("/pal-park-area/")
+    @Path("/api/v2/pal-park-area/")
     @Produces({ "application/json" })
     @ApiOperation(value = "List pal park areas", tags={ "location" })
     @ApiResponses(value = { 
@@ -113,7 +113,7 @@ public interface LocationApi  {
      *
      */
     @GET
-    @Path("/pal-park-area/{id}/")
+    @Path("/api/v2/pal-park-area/{id}/")
     @Produces({ "application/json" })
     @ApiOperation(value = "Get pal park area", tags={ "location" })
     @ApiResponses(value = { 
@@ -127,7 +127,7 @@ public interface LocationApi  {
      *
      */
     @GET
-    @Path("/region/")
+    @Path("/api/v2/region/")
     @Produces({ "application/json" })
     @ApiOperation(value = "List regions", tags={ "location" })
     @ApiResponses(value = { 
@@ -141,7 +141,7 @@ public interface LocationApi  {
      *
      */
     @GET
-    @Path("/region/{id}/")
+    @Path("/api/v2/region/{id}/")
     @Produces({ "application/json" })
     @ApiOperation(value = "Get region", tags={ "location" })
     @ApiResponses(value = { 

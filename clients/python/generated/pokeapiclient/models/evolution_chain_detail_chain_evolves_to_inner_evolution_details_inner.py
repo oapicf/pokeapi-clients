@@ -24,6 +24,7 @@ from pokeapiclient.models.ability_detail_pokemon_inner_pokemon import AbilityDet
 from pokeapiclient.models.evolution_chain_detail_chain_evolves_to_inner_evolution_details_inner_gender import EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender
 from typing import Optional, Set
 from typing_extensions import Self
+from pydantic_core import to_jsonable_python
 
 class EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner(BaseModel):
     """
@@ -32,8 +33,8 @@ class EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner(BaseModel):
     gender: EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender
     held_item: EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender
     item: EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender
-    known_move: Dict[str, Any]
-    known_move_type: Dict[str, Any]
+    known_move: EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender
+    known_move_type: EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender
     location: EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender
     min_affection: StrictInt
     min_beauty: StrictInt
@@ -50,7 +51,8 @@ class EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner(BaseModel):
     __properties: ClassVar[List[str]] = ["gender", "held_item", "item", "known_move", "known_move_type", "location", "min_affection", "min_beauty", "min_happiness", "min_level", "needs_overworld_rain", "party_species", "party_type", "relative_physical_stats", "time_of_day", "trade_species", "trigger", "turn_upside_down"]
 
     model_config = ConfigDict(
-        populate_by_name=True,
+        validate_by_name=True,
+        validate_by_alias=True,
         validate_assignment=True,
         protected_namespaces=(),
     )
@@ -62,8 +64,7 @@ class EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner(BaseModel):
 
     def to_json(self) -> str:
         """Returns the JSON representation of the model using alias"""
-        # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
-        return json.dumps(self.to_dict())
+        return json.dumps(to_jsonable_python(self.to_dict()))
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
@@ -97,6 +98,12 @@ class EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of item
         if self.item:
             _dict['item'] = self.item.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of known_move
+        if self.known_move:
+            _dict['known_move'] = self.known_move.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of known_move_type
+        if self.known_move_type:
+            _dict['known_move_type'] = self.known_move_type.to_dict()
         # override the default output from pydantic by calling `to_dict()` of location
         if self.location:
             _dict['location'] = self.location.to_dict()
@@ -118,8 +125,8 @@ class EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner(BaseModel):
             "gender": EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender.from_dict(obj["gender"]) if obj.get("gender") is not None else None,
             "held_item": EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender.from_dict(obj["held_item"]) if obj.get("held_item") is not None else None,
             "item": EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender.from_dict(obj["item"]) if obj.get("item") is not None else None,
-            "known_move": obj.get("known_move"),
-            "known_move_type": obj.get("known_move_type"),
+            "known_move": EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender.from_dict(obj["known_move"]) if obj.get("known_move") is not None else None,
+            "known_move_type": EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender.from_dict(obj["known_move_type"]) if obj.get("known_move_type") is not None else None,
             "location": EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender.from_dict(obj["location"]) if obj.get("location") is not None else None,
             "min_affection": obj.get("min_affection"),
             "min_beauty": obj.get("min_beauty"),

@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 **smoothness** | **i32** |  | 
 **soil_dryness** | **i32** |  | 
 **firmness** | [**models::BerryFirmnessSummary**](BerryFirmnessSummary.md) |  | 
-**flavors** | [**Vec<models::BerryDetailFlavorsInner>**](BerryDetail_flavors_inner.md) |  | 
+**flavors** | [**Vec<models::BerryDetailFlavorsInner>**](BerryDetailFlavorsInner.md) |  | [readonly]
 **item** | [**models::ItemSummary**](ItemSummary.md) |  | 
 **natural_gift_type** | [**models::TypeSummary**](TypeSummary.md) |  | 
 

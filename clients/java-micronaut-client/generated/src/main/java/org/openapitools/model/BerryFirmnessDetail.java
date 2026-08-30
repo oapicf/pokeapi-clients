@@ -36,7 +36,7 @@ import javax.annotation.Generated;
   BerryFirmnessDetail.JSON_PROPERTY_NAMES
 })
 @JsonTypeName("BerryFirmnessDetail")
-@Generated(value="org.openapitools.codegen.languages.JavaMicronautClientCodegen", date="2026-02-07T15:22:54.857535619Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@Generated(value="org.openapitools.codegen.languages.JavaMicronautClientCodegen", date="2026-08-30T01:55:51.056116330Z[Etc/UTC]", comments = "Generator version: 7.24.0")
 @Introspected
 public class BerryFirmnessDetail {
     public static final String JSON_PROPERTY_ID = "id";
@@ -92,16 +92,6 @@ public class BerryFirmnessDetail {
         this.name = name;
     }
 
-    public BerryFirmnessDetail berries(List<@Valid BerrySummary> berries) {
-        this.berries = berries;
-        return this;
-    }
-
-    public BerryFirmnessDetail addBerriesItem(BerrySummary berriesItem) {
-        this.berries.add(berriesItem);
-        return this;
-    }
-
     /**
      * Get berries
      * @return berries
@@ -113,22 +103,6 @@ public class BerryFirmnessDetail {
         return berries;
     }
 
-    @JsonProperty(JSON_PROPERTY_BERRIES)
-    @JsonInclude(value = JsonInclude.Include.ALWAYS)
-    public void setBerries(List<@Valid BerrySummary> berries) {
-        this.berries = berries;
-    }
-
-    public BerryFirmnessDetail names(List<@Valid BerryFirmnessName> names) {
-        this.names = names;
-        return this;
-    }
-
-    public BerryFirmnessDetail addNamesItem(BerryFirmnessName namesItem) {
-        this.names.add(namesItem);
-        return this;
-    }
-
     /**
      * Get names
      * @return names
@@ -138,12 +112,6 @@ public class BerryFirmnessDetail {
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public List<@Valid BerryFirmnessName> getNames() {
         return names;
-    }
-
-    @JsonProperty(JSON_PROPERTY_NAMES)
-    @JsonInclude(value = JsonInclude.Include.ALWAYS)
-    public void setNames(List<@Valid BerryFirmnessName> names) {
-        this.names = names;
     }
 
     @Override
@@ -183,10 +151,7 @@ public class BerryFirmnessDetail {
      * (except the first line).
      */
     private String toIndentedString(Object o) {
-        if (o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
+        return o == null ? "null" : o.toString().replace("\n", "\n    ");
     }
 
 }

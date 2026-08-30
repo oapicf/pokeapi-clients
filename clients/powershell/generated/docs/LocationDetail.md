@@ -6,9 +6,9 @@ Name | Type | Description | Notes
 **Id** | **Int32** |  | [readonly] 
 **Name** | **String** |  | 
 **Region** | [**RegionSummary**](RegionSummary.md) |  | 
-**Names** | [**LocationName[]**](LocationName.md) |  | 
-**GameIndices** | [**LocationGameIndex[]**](LocationGameIndex.md) |  | 
-**Areas** | [**LocationAreaSummary[]**](LocationAreaSummary.md) |  | 
+**Names** | [**LocationName[]**](LocationName.md) |  | [readonly] 
+**GameIndices** | [**LocationGameIndex[]**](LocationGameIndex.md) |  | [readonly] 
+**Areas** | [**LocationAreaSummary[]**](LocationAreaSummary.md) |  | [readonly] 
 
 ## Examples
 

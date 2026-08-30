@@ -59,10 +59,12 @@ class LocationAreaDetailPokemonEncountersInnerVersionDetailsInner {
       // Note 1: the values aren't checked for validity beyond being non-null.
       // Note 2: this code is stripped in release mode!
       assert(() {
-        requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "LocationAreaDetailPokemonEncountersInnerVersionDetailsInner[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "LocationAreaDetailPokemonEncountersInnerVersionDetailsInner[$key]" has a null value in JSON.');
-        });
+        assert(json.containsKey(r'version'), 'Required key "LocationAreaDetailPokemonEncountersInnerVersionDetailsInner[version]" is missing from JSON.');
+        assert(json[r'version'] != null, 'Required key "LocationAreaDetailPokemonEncountersInnerVersionDetailsInner[version]" has a null value in JSON.');
+        assert(json.containsKey(r'max_chance'), 'Required key "LocationAreaDetailPokemonEncountersInnerVersionDetailsInner[max_chance]" is missing from JSON.');
+        assert(json[r'max_chance'] != null, 'Required key "LocationAreaDetailPokemonEncountersInnerVersionDetailsInner[max_chance]" has a null value in JSON.');
+        assert(json.containsKey(r'encounter_details'), 'Required key "LocationAreaDetailPokemonEncountersInnerVersionDetailsInner[encounter_details]" is missing from JSON.');
+        assert(json[r'encounter_details'] != null, 'Required key "LocationAreaDetailPokemonEncountersInnerVersionDetailsInner[encounter_details]" has a null value in JSON.');
         return true;
       }());
 

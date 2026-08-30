@@ -16,6 +16,6 @@ import { EncounterConditionValueSummary } from './encounterConditionValueSummary
 export interface EncounterConditionDetail { 
     readonly id: number;
     name: string;
-    values: Array<EncounterConditionValueSummary>;
-    names: Array<EncounterConditionName>;
+    readonly values: Array<EncounterConditionValueSummary>;
+    readonly names: Array<EncounterConditionName>;
 }

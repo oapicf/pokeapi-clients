@@ -135,33 +135,56 @@ GenerationDetail <- R6::R6Class(
       }
       if (!is.null(self$`abilities`)) {
         GenerationDetailObject[["abilities"]] <-
-          lapply(self$`abilities`, function(x) x$toSimpleType())
+          self$extractSimpleType(self$`abilities`)
       }
       if (!is.null(self$`main_region`)) {
         GenerationDetailObject[["main_region"]] <-
-          self$`main_region`$toSimpleType()
+          self$extractSimpleType(self$`main_region`)
       }
       if (!is.null(self$`moves`)) {
         GenerationDetailObject[["moves"]] <-
-          lapply(self$`moves`, function(x) x$toSimpleType())
+          self$extractSimpleType(self$`moves`)
       }
       if (!is.null(self$`names`)) {
         GenerationDetailObject[["names"]] <-
-          lapply(self$`names`, function(x) x$toSimpleType())
+          self$extractSimpleType(self$`names`)
       }
       if (!is.null(self$`pokemon_species`)) {
         GenerationDetailObject[["pokemon_species"]] <-
-          lapply(self$`pokemon_species`, function(x) x$toSimpleType())
+          self$extractSimpleType(self$`pokemon_species`)
       }
       if (!is.null(self$`types`)) {
         GenerationDetailObject[["types"]] <-
-          lapply(self$`types`, function(x) x$toSimpleType())
+          self$extractSimpleType(self$`types`)
       }
       if (!is.null(self$`version_groups`)) {
         GenerationDetailObject[["version_groups"]] <-
-          lapply(self$`version_groups`, function(x) x$toSimpleType())
+          self$extractSimpleType(self$`version_groups`)
       }
       return(GenerationDetailObject)
+    },
+
+    extractSimpleType = function(x) {
+      if (R6::is.R6(x)) {
+        return(x$toSimpleType())
+      } else if (!self$hasNestedR6(x)) {
+        return(x)
+      }
+      lapply(x, self$extractSimpleType)
+    },
+
+    hasNestedR6 = function(x) {
+      if (R6::is.R6(x)) {
+        return(TRUE)
+      }
+      if (is.list(x)) {
+        for (item in x) {
+          if (self$hasNestedR6(item)) {
+            return(TRUE)
+          }
+        }
+      }
+      FALSE
     },
 
     #' @description

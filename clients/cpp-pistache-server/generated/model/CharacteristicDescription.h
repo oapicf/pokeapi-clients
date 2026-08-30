@@ -33,7 +33,7 @@ class  CharacteristicDescription
 {
 public:
     CharacteristicDescription();
-    virtual ~CharacteristicDescription() = default;
+    virtual ~CharacteristicDescription();
 
 
     /// <summary>

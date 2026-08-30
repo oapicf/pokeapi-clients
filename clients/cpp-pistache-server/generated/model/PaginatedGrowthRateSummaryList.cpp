@@ -31,6 +31,8 @@ PaginatedGrowthRateSummaryList::PaginatedGrowthRateSummaryList()
     
 }
 
+PaginatedGrowthRateSummaryList::~PaginatedGrowthRateSummaryList() = default;
+
 void PaginatedGrowthRateSummaryList::validate() const
 {
     std::stringstream msg;

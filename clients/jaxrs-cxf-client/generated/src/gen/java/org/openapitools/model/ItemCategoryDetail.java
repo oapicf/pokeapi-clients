@@ -70,19 +70,6 @@ public class ItemCategoryDetail  {
     return items;
   }
 
-  public void setItems(List<ItemSummary> items) {
-    this.items = items;
-  }
-
-  public ItemCategoryDetail items(List<ItemSummary> items) {
-    this.items = items;
-    return this;
-  }
-
-  public ItemCategoryDetail addItemsItem(ItemSummary itemsItem) {
-    this.items.add(itemsItem);
-    return this;
-  }
 
  /**
    * Get names
@@ -93,19 +80,6 @@ public class ItemCategoryDetail  {
     return names;
   }
 
-  public void setNames(List<ItemCategoryName> names) {
-    this.names = names;
-  }
-
-  public ItemCategoryDetail names(List<ItemCategoryName> names) {
-    this.names = names;
-    return this;
-  }
-
-  public ItemCategoryDetail addNamesItem(ItemCategoryName namesItem) {
-    this.names.add(namesItem);
-    return this;
-  }
 
  /**
    * Get pocket
@@ -165,10 +139,7 @@ public class ItemCategoryDetail  {
    * (except the first line).
    */
   private static String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 }
 

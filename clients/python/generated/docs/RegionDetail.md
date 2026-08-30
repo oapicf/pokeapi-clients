@@ -7,11 +7,11 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **int** |  | [readonly] 
 **name** | **str** |  | 
-**locations** | [**List[LocationSummary]**](LocationSummary.md) |  | 
+**locations** | [**List[LocationSummary]**](LocationSummary.md) |  | [readonly] 
 **main_generation** | [**GenerationSummary**](GenerationSummary.md) |  | [readonly] 
-**names** | [**List[RegionName]**](RegionName.md) |  | 
-**pokedexes** | [**List[PokedexSummary]**](PokedexSummary.md) |  | 
-**version_groups** | [**List[AbilityDetailPokemonInnerPokemon]**](AbilityDetailPokemonInnerPokemon.md) |  | 
+**names** | [**List[RegionName]**](RegionName.md) |  | [readonly] 
+**pokedexes** | [**List[PokedexSummary]**](PokedexSummary.md) |  | [readonly] 
+**version_groups** | [**List[AbilityDetailPokemonInnerPokemon]**](AbilityDetailPokemonInnerPokemon.md) |  | [readonly] 
 
 ## Example
 

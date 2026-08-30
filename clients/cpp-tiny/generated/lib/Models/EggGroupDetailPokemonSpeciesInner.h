@@ -51,14 +51,14 @@ public:
 
 	/*! \brief Set Pokemon species name.
 	 */
-	void setName(std::string  name);
+	void setName(std::string name);
 	/*! \brief Get The URL to get more information about the species
 	 */
 	std::string getUrl();
 
 	/*! \brief Set The URL to get more information about the species
 	 */
-	void setUrl(std::string  url);
+	void setUrl(std::string url);
 
 
     private:

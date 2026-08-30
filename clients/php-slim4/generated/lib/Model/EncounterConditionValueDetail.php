@@ -61,9 +61,11 @@ class EncounterConditionValueDetail extends BaseModel
     },
     "names" : {
       "type" : "array",
+      "readOnly" : true,
       "items" : {
         "$ref" : "#/components/schemas/EncounterConditionValueName"
-      }
+      },
+      "default" : null
     }
   }
 }

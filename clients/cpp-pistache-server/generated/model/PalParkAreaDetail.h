@@ -35,7 +35,7 @@ class  PalParkAreaDetail
 {
 public:
     PalParkAreaDetail();
-    virtual ~PalParkAreaDetail() = default;
+    virtual ~PalParkAreaDetail();
 
 
     /// <summary>

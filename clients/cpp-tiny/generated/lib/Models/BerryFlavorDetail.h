@@ -55,35 +55,35 @@ public:
 
 	/*! \brief Set 
 	 */
-	void setId(int  id);
+	void setId(int id);
 	/*! \brief Get 
 	 */
 	std::string getName();
 
 	/*! \brief Set 
 	 */
-	void setName(std::string  name);
+	void setName(std::string name);
 	/*! \brief Get 
 	 */
 	std::list<BerryFlavorDetail_berries_inner> getBerries();
 
 	/*! \brief Set 
 	 */
-	void setBerries(std::list <BerryFlavorDetail_berries_inner> berries);
+	void setBerries(std::list<BerryFlavorDetail_berries_inner> berries);
 	/*! \brief Get 
 	 */
 	ContestTypeSummary getContestType();
 
 	/*! \brief Set 
 	 */
-	void setContestType(ContestTypeSummary  contest_type);
+	void setContestType(ContestTypeSummary contest_type);
 	/*! \brief Get 
 	 */
 	std::list<BerryFlavorName> getNames();
 
 	/*! \brief Set 
 	 */
-	void setNames(std::list <BerryFlavorName> names);
+	void setNames(std::list<BerryFlavorName> names);
 
 
     private:

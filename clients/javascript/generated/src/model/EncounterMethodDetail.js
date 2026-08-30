@@ -17,7 +17,7 @@ import EncounterMethodName from './EncounterMethodName';
 /**
  * The EncounterMethodDetail model module.
  * @module model/EncounterMethodDetail
- * @version 1.2.1-pre.0
+ * @version 2.0.1-pre.0
  */
 class EncounterMethodDetail {
     /**

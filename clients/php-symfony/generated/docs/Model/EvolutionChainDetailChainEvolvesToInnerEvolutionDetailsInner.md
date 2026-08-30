@@ -6,8 +6,8 @@ Name | Type | Description | Notes
 **gender** | [**OpenAPI\Server\Model\EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender**](EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender.md) |  | 
 **heldItem** | [**OpenAPI\Server\Model\EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender**](EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender.md) |  | 
 **item** | [**OpenAPI\Server\Model\EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender**](EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender.md) |  | 
-**knownMove** | **array** |  | 
-**knownMoveType** | **array** |  | 
+**knownMove** | [**OpenAPI\Server\Model\EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender**](EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender.md) |  | 
+**knownMoveType** | [**OpenAPI\Server\Model\EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender**](EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender.md) |  | 
 **location** | [**OpenAPI\Server\Model\EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender**](EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender.md) |  | 
 **minAffection** | **int** |  | 
 **minBeauty** | **int** |  | 

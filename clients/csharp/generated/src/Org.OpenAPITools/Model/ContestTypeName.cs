@@ -107,8 +107,18 @@ namespace Org.OpenAPITools.Model
     /// <summary>
     /// A Json converter for type <see cref="ContestTypeName" />
     /// </summary>
-    public class ContestTypeNameJsonConverter : JsonConverter<ContestTypeName>
+    public partial class ContestTypeNameJsonConverter : JsonConverter<ContestTypeName>
     {
+        partial void OnCreated();
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ContestTypeNameJsonConverter" /> class.
+        /// </summary>
+        public ContestTypeNameJsonConverter()
+        {
+            OnCreated();
+        }
+
         /// <summary>
         /// Deserializes json to <see cref="ContestTypeName" />
         /// </summary>

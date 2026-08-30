@@ -13,19 +13,19 @@ import org.openapitools.model.LocationName;
 import org.openapitools.model.RegionSummary;
 import org.openapitools.jackson.nullable.JsonNullable;
 import java.time.OffsetDateTime;
-import javax.validation.Valid;
-import javax.validation.constraints.*;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.*;
 import io.swagger.v3.oas.annotations.media.Schema;
 
 
 import java.util.*;
-import javax.annotation.Generated;
+import jakarta.annotation.Generated;
 
 /**
  * LocationDetail
  */
 
-@Generated(value = "org.openapitools.codegen.languages.JavaCamelServerCodegen", date = "2026-02-07T15:23:32.871052804Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@Generated(value = "org.openapitools.codegen.languages.JavaCamelServerCodegen", date = "2026-08-30T01:56:15.309401083Z[Etc/UTC]", comments = "Generator version: 7.24.0")
 public class LocationDetail {
 
   private Integer id;
@@ -136,8 +136,8 @@ public class LocationDetail {
    * Get names
    * @return names
    */
-  @NotNull @Valid 
-  @Schema(name = "names", requiredMode = Schema.RequiredMode.REQUIRED)
+  @Valid 
+  @Schema(name = "names", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("names")
   public List<@Valid LocationName> getNames() {
     return names;
@@ -164,8 +164,8 @@ public class LocationDetail {
    * Get gameIndices
    * @return gameIndices
    */
-  @NotNull @Valid 
-  @Schema(name = "game_indices", requiredMode = Schema.RequiredMode.REQUIRED)
+  @Valid 
+  @Schema(name = "game_indices", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("game_indices")
   public List<@Valid LocationGameIndex> getGameIndices() {
     return gameIndices;
@@ -192,8 +192,8 @@ public class LocationDetail {
    * Get areas
    * @return areas
    */
-  @NotNull @Valid 
-  @Schema(name = "areas", requiredMode = Schema.RequiredMode.REQUIRED)
+  @Valid 
+  @Schema(name = "areas", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("areas")
   public List<@Valid LocationAreaSummary> getAreas() {
     return areas;
@@ -244,10 +244,7 @@ public class LocationDetail {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 }
 

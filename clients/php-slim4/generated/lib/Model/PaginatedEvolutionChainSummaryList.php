@@ -67,7 +67,8 @@ class PaginatedEvolutionChainSummaryList extends BaseModel
       "type" : "array",
       "items" : {
         "$ref" : "#/components/schemas/EvolutionChainSummary"
-      }
+      },
+      "default" : null
     }
   }
 }

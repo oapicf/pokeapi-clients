@@ -16,6 +16,6 @@ import { MoveMetaCategoryDescription } from './moveMetaCategoryDescription';
 export interface MoveMetaCategoryDetail { 
     readonly id: number;
     name: string;
-    descriptions: Array<MoveMetaCategoryDescription>;
-    moves: Array<AbilityDetailPokemonInnerPokemon>;
+    readonly descriptions: Array<MoveMetaCategoryDescription>;
+    readonly moves: Array<AbilityDetailPokemonInnerPokemon>;
 }

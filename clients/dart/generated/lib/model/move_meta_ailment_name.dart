@@ -53,10 +53,10 @@ class MoveMetaAilmentName {
       // Note 1: the values aren't checked for validity beyond being non-null.
       // Note 2: this code is stripped in release mode!
       assert(() {
-        requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "MoveMetaAilmentName[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "MoveMetaAilmentName[$key]" has a null value in JSON.');
-        });
+        assert(json.containsKey(r'name'), 'Required key "MoveMetaAilmentName[name]" is missing from JSON.');
+        assert(json[r'name'] != null, 'Required key "MoveMetaAilmentName[name]" has a null value in JSON.');
+        assert(json.containsKey(r'language'), 'Required key "MoveMetaAilmentName[language]" is missing from JSON.');
+        assert(json[r'language'] != null, 'Required key "MoveMetaAilmentName[language]" has a null value in JSON.');
         return true;
       }());
 

@@ -26,27 +26,33 @@ import io.swagger.v3.oas.annotations.media.Schema
 data class TypeDetailPastDamageRelationsInnerDamageRelations(
 
     @field:Valid
-    @Schema(example = "null", required = true, description = "")
+    @Schema(required = true, description = "")
+    @param:JsonProperty("no_damage_to")
     @get:JsonProperty("no_damage_to", required = true) val noDamageTo: kotlin.collections.List<AbilityDetailPokemonInnerPokemon>,
 
     @field:Valid
-    @Schema(example = "null", required = true, description = "")
+    @Schema(required = true, description = "")
+    @param:JsonProperty("half_damage_to")
     @get:JsonProperty("half_damage_to", required = true) val halfDamageTo: kotlin.collections.List<AbilityDetailPokemonInnerPokemon>,
 
     @field:Valid
-    @Schema(example = "null", required = true, description = "")
+    @Schema(required = true, description = "")
+    @param:JsonProperty("double_damage_to")
     @get:JsonProperty("double_damage_to", required = true) val doubleDamageTo: kotlin.collections.List<AbilityDetailPokemonInnerPokemon>,
 
     @field:Valid
-    @Schema(example = "null", required = true, description = "")
+    @Schema(required = true, description = "")
+    @param:JsonProperty("no_damage_from")
     @get:JsonProperty("no_damage_from", required = true) val noDamageFrom: kotlin.collections.List<AbilityDetailPokemonInnerPokemon>,
 
     @field:Valid
-    @Schema(example = "null", required = true, description = "")
+    @Schema(required = true, description = "")
+    @param:JsonProperty("half_damage_from")
     @get:JsonProperty("half_damage_from", required = true) val halfDamageFrom: kotlin.collections.List<AbilityDetailPokemonInnerPokemon>,
 
     @field:Valid
-    @Schema(example = "null", required = true, description = "")
+    @Schema(required = true, description = "")
+    @param:JsonProperty("double_damage_from")
     @get:JsonProperty("double_damage_from", required = true) val doubleDamageFrom: kotlin.collections.List<AbilityDetailPokemonInnerPokemon>
 ) {
 

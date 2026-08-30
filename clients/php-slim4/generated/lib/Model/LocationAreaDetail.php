@@ -61,24 +61,30 @@ class LocationAreaDetail extends BaseModel
     },
     "encounter_method_rates" : {
       "type" : "array",
+      "readOnly" : true,
       "items" : {
         "$ref" : "#/components/schemas/LocationAreaDetail_encounter_method_rates_inner"
-      }
+      },
+      "default" : null
     },
     "location" : {
       "$ref" : "#/components/schemas/LocationSummary"
     },
     "names" : {
       "type" : "array",
+      "readOnly" : true,
       "items" : {
         "$ref" : "#/components/schemas/LocationAreaName"
-      }
+      },
+      "default" : null
     },
     "pokemon_encounters" : {
       "type" : "array",
+      "readOnly" : true,
       "items" : {
         "$ref" : "#/components/schemas/LocationAreaDetail_pokemon_encounters_inner"
-      }
+      },
+      "default" : null
     }
   }
 }

@@ -31,6 +31,8 @@ PaginatedEvolutionTriggerSummaryList::PaginatedEvolutionTriggerSummaryList()
     
 }
 
+PaginatedEvolutionTriggerSummaryList::~PaginatedEvolutionTriggerSummaryList() = default;
+
 void PaginatedEvolutionTriggerSummaryList::validate() const
 {
     std::stringstream msg;

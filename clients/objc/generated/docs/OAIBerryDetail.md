@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 **smoothness** | **NSNumber*** |  | 
 **soilDryness** | **NSNumber*** |  | 
 **firmness** | [**OAIBerryFirmnessSummary***](OAIBerryFirmnessSummary.md) |  | 
-**flavors** | [**NSArray&lt;OAIBerryDetailFlavorsInner&gt;***](OAIBerryDetailFlavorsInner.md) |  | 
+**flavors** | [**NSArray&lt;OAIBerryDetailFlavorsInner&gt;***](OAIBerryDetailFlavorsInner.md) |  | [readonly] 
 **item** | [**OAIItemSummary***](OAIItemSummary.md) |  | 
 **naturalGiftType** | [**OAITypeSummary***](OAITypeSummary.md) |  | 
 

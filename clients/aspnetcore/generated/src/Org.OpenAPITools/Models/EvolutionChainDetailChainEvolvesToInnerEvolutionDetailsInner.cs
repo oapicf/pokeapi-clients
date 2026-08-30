@@ -52,14 +52,14 @@ namespace Org.OpenAPITools.Models
         /// </summary>
         [Required]
         [DataMember(Name="known_move", EmitDefaultValue=false)]
-        public Object KnownMove { get; set; }
+        public EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender KnownMove { get; set; }
 
         /// <summary>
         /// Gets or Sets KnownMoveType
         /// </summary>
         [Required]
         [DataMember(Name="known_move_type", EmitDefaultValue=false)]
-        public Object KnownMoveType { get; set; }
+        public EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender KnownMoveType { get; set; }
 
         /// <summary>
         /// Gets or Sets Location

@@ -12,6 +12,11 @@
 package openapi
 
 
+import (
+	"encoding/json"
+	"fmt"
+)
+
 
 
 type LocationAreaDetail struct {
@@ -30,17 +35,104 @@ type LocationAreaDetail struct {
 
 	PokemonEncounters []LocationAreaDetailPokemonEncountersInner `json:"pokemon_encounters"`
 }
+// UnmarshalJSON validates required property keys then unmarshals into LocationAreaDetail
+func (o *LocationAreaDetail) UnmarshalJSON(data []byte) (err error) {
+	// Presence is checked against required fields that exist on this struct,
+	// including fields promoted from embedded allOf parents.
+	requiredProperties := []string{
+		"name",
+		"game_index",
+		"location",
+	}
 
-// AssertLocationAreaDetailRequired checks if the required fields are not zero-ed
+	requiredNullableProperties := map[string]bool{
+		"name": false,
+		"game_index": false,
+		"location": false,
+	}
+
+	allowedJsonKeys := map[string]struct{}{
+		"id": {},
+		"name": {},
+		"game_index": {},
+		"encounter_method_rates": {},
+		"location": {},
+		"names": {},
+		"pokemon_encounters": {},
+	}
+
+	allProperties := make(map[string]json.RawMessage)
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err
+	}
+
+	for _, requiredProperty := range requiredProperties {
+		value, exists := allProperties[requiredProperty]
+		if !exists {
+			return &RequiredError{Field: requiredProperty}
+		}
+		if string(value) == "null" && !requiredNullableProperties[requiredProperty] {
+			return &RequiredError{Field: requiredProperty}
+		}
+	}
+
+	for key := range allProperties {
+		if _, exists := allowedJsonKeys[key]; !exists {
+			return fmt.Errorf("json: unknown field %q", key)
+		}
+	}
+
+	var decoded LocationAreaDetail
+
+	if value, exists := allProperties["id"]; exists {
+		if err = json.Unmarshal(value, &decoded.Id); err != nil {
+			return err
+		}
+	}
+	if value, exists := allProperties["name"]; exists {
+		if err = json.Unmarshal(value, &decoded.Name); err != nil {
+			return err
+		}
+	}
+	if value, exists := allProperties["game_index"]; exists {
+		if err = json.Unmarshal(value, &decoded.GameIndex); err != nil {
+			return err
+		}
+	}
+	if value, exists := allProperties["encounter_method_rates"]; exists {
+		if err = json.Unmarshal(value, &decoded.EncounterMethodRates); err != nil {
+			return err
+		}
+	}
+	if value, exists := allProperties["location"]; exists {
+		if err = json.Unmarshal(value, &decoded.Location); err != nil {
+			return err
+		}
+	}
+	if value, exists := allProperties["names"]; exists {
+		if err = json.Unmarshal(value, &decoded.Names); err != nil {
+			return err
+		}
+	}
+	if value, exists := allProperties["pokemon_encounters"]; exists {
+		if err = json.Unmarshal(value, &decoded.PokemonEncounters); err != nil {
+			return err
+		}
+	}
+
+	*o = decoded
+
+	return nil
+}
+
+// AssertLocationAreaDetailRequired checks complex required fields (models, arrays, maps) and embedded parents.
+// Primitive required fields are validated for JSON request bodies in UnmarshalJSON so zero values remain valid.
 func AssertLocationAreaDetailRequired(obj LocationAreaDetail) error {
 	elements := map[string]interface{}{
-		"id": obj.Id,
-		"name": obj.Name,
-		"game_index": obj.GameIndex,
-		"encounter_method_rates": obj.EncounterMethodRates,
 		"location": obj.Location,
-		"names": obj.Names,
-		"pokemon_encounters": obj.PokemonEncounters,
 	}
 	for name, el := range elements {
 		if isZero := IsZeroValue(el); isZero {
@@ -48,46 +140,16 @@ func AssertLocationAreaDetailRequired(obj LocationAreaDetail) error {
 		}
 	}
 
-	for _, el := range obj.EncounterMethodRates {
-		if err := AssertLocationAreaDetailEncounterMethodRatesInnerRequired(el); err != nil {
-			return err
-		}
-	}
 	if err := AssertLocationSummaryRequired(obj.Location); err != nil {
 		return err
-	}
-	for _, el := range obj.Names {
-		if err := AssertLocationAreaNameRequired(el); err != nil {
-			return err
-		}
-	}
-	for _, el := range obj.PokemonEncounters {
-		if err := AssertLocationAreaDetailPokemonEncountersInnerRequired(el); err != nil {
-			return err
-		}
 	}
 	return nil
 }
 
 // AssertLocationAreaDetailConstraints checks if the values respects the defined constraints
 func AssertLocationAreaDetailConstraints(obj LocationAreaDetail) error {
-	for _, el := range obj.EncounterMethodRates {
-		if err := AssertLocationAreaDetailEncounterMethodRatesInnerConstraints(el); err != nil {
-			return err
-		}
-	}
 	if err := AssertLocationSummaryConstraints(obj.Location); err != nil {
 		return err
-	}
-	for _, el := range obj.Names {
-		if err := AssertLocationAreaNameConstraints(el); err != nil {
-			return err
-		}
-	}
-	for _, el := range obj.PokemonEncounters {
-		if err := AssertLocationAreaDetailPokemonEncountersInnerConstraints(el); err != nil {
-			return err
-		}
 	}
 	return nil
 }

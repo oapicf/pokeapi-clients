@@ -6,7 +6,7 @@
 
 
 static move_meta_ailment_detail_t *move_meta_ailment_detail_create_internal(
-    int id,
+    int *id,
     char *name,
     list_t *moves,
     list_t *names
@@ -15,27 +15,36 @@ static move_meta_ailment_detail_t *move_meta_ailment_detail_create_internal(
     if (!move_meta_ailment_detail_local_var) {
         return NULL;
     }
+    memset(move_meta_ailment_detail_local_var, 0, sizeof(move_meta_ailment_detail_t));
+    move_meta_ailment_detail_local_var->_library_owned = 1;
     move_meta_ailment_detail_local_var->id = id;
     move_meta_ailment_detail_local_var->name = name;
     move_meta_ailment_detail_local_var->moves = moves;
     move_meta_ailment_detail_local_var->names = names;
-
-    move_meta_ailment_detail_local_var->_library_owned = 1;
     return move_meta_ailment_detail_local_var;
 }
 
 __attribute__((deprecated)) move_meta_ailment_detail_t *move_meta_ailment_detail_create(
-    int id,
+    int *id,
     char *name,
     list_t *moves,
     list_t *names
     ) {
-    return move_meta_ailment_detail_create_internal (
-        id,
+    int *id_copy = NULL;
+    if (id) {
+        id_copy = malloc(sizeof(int));
+        if (id_copy) *id_copy = *id;
+    }
+    move_meta_ailment_detail_t *result = move_meta_ailment_detail_create_internal (
+        id_copy,
         name,
         moves,
         names
         );
+    if (!result) {
+        free(id_copy);
+    }
+    return result;
 }
 
 void move_meta_ailment_detail_free(move_meta_ailment_detail_t *move_meta_ailment_detail) {
@@ -47,6 +56,10 @@ void move_meta_ailment_detail_free(move_meta_ailment_detail_t *move_meta_ailment
         return ;
     }
     listEntry_t *listEntry;
+    if (move_meta_ailment_detail->id) {
+        free(move_meta_ailment_detail->id);
+        move_meta_ailment_detail->id = NULL;
+    }
     if (move_meta_ailment_detail->name) {
         free(move_meta_ailment_detail->name);
         move_meta_ailment_detail->name = NULL;
@@ -75,7 +88,7 @@ cJSON *move_meta_ailment_detail_convertToJSON(move_meta_ailment_detail_t *move_m
     if (!move_meta_ailment_detail->id) {
         goto fail;
     }
-    if(cJSON_AddNumberToObject(item, "id", move_meta_ailment_detail->id) == NULL) {
+    if(cJSON_AddNumberToObject(item, "id", *move_meta_ailment_detail->id) == NULL) {
     goto fail; //Numeric
     }
 
@@ -142,6 +155,11 @@ move_meta_ailment_detail_t *move_meta_ailment_detail_parseFromJSON(cJSON *move_m
 
     move_meta_ailment_detail_t *move_meta_ailment_detail_local_var = NULL;
 
+    // define the local variable for move_meta_ailment_detail->id
+    int *id_local_var = NULL;
+
+    char *name_local_str = NULL;
+
     // define the local list for move_meta_ailment_detail->moves
     list_t *movesList = NULL;
 
@@ -162,6 +180,12 @@ move_meta_ailment_detail_t *move_meta_ailment_detail_parseFromJSON(cJSON *move_m
     {
     goto end; //Numeric
     }
+    id_local_var = malloc(sizeof(int));
+    if(!id_local_var)
+    {
+        goto end;
+    }
+    *id_local_var = id->valuedouble;
 
     // move_meta_ailment_detail->name
     cJSON *name = cJSON_GetObjectItemCaseSensitive(move_meta_ailment_detailJSON, "name");
@@ -233,15 +257,29 @@ move_meta_ailment_detail_t *move_meta_ailment_detail_parseFromJSON(cJSON *move_m
     }
 
 
+    if (name && !cJSON_IsNull(name)) name_local_str = strdup(name->valuestring);
+
     move_meta_ailment_detail_local_var = move_meta_ailment_detail_create_internal (
-        id->valuedouble,
-        strdup(name->valuestring),
+        id_local_var,
+        name_local_str,
         movesList,
         namesList
         );
 
+    if (!move_meta_ailment_detail_local_var) {
+        goto end;
+    }
+
     return move_meta_ailment_detail_local_var;
 end:
+    if (id_local_var) {
+        free(id_local_var);
+        id_local_var = NULL;
+    }
+    if (name_local_str) {
+        free(name_local_str);
+        name_local_str = NULL;
+    }
     if (movesList) {
         listEntry_t *listEntry = NULL;
         list_ForEach(listEntry, movesList) {

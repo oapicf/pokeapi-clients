@@ -58,21 +58,27 @@ class ItemAttributeDetail extends BaseModel
     },
     "descriptions" : {
       "type" : "array",
+      "readOnly" : true,
       "items" : {
         "$ref" : "#/components/schemas/ItemAttributeDescription"
-      }
+      },
+      "default" : null
     },
     "items" : {
       "type" : "array",
+      "readOnly" : true,
       "items" : {
         "$ref" : "#/components/schemas/AbilityDetail_pokemon_inner_pokemon"
-      }
+      },
+      "default" : null
     },
     "names" : {
       "type" : "array",
+      "readOnly" : true,
       "items" : {
         "$ref" : "#/components/schemas/ItemAttributeName"
-      }
+      },
+      "default" : null
     }
   }
 }

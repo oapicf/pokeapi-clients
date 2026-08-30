@@ -28,6 +28,8 @@ VersionGroupDetail::VersionGroupDetail()
     
 }
 
+VersionGroupDetail::~VersionGroupDetail() = default;
+
 void VersionGroupDetail::validate() const
 {
     std::stringstream msg;

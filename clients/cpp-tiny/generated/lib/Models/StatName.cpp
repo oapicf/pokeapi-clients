@@ -86,7 +86,7 @@ StatName::getName()
 }
 
 void
-StatName::setName(std::string  name)
+StatName::setName(std::string name)
 {
 	this->name = name;
 }
@@ -98,7 +98,7 @@ StatName::getLanguage()
 }
 
 void
-StatName::setLanguage(LanguageSummary  language)
+StatName::setLanguage(LanguageSummary language)
 {
 	this->language = language;
 }

@@ -21,7 +21,7 @@
 
 namespace OpenAPI {
 
-OAIEvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner::OAIEvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner(QString json) {
+OAIEvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner::OAIEvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -89,7 +89,7 @@ void OAIEvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner::ini
     m_turn_upside_down_isValid = false;
 }
 
-void OAIEvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner::fromJson(QString jsonString) {
+void OAIEvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner::fromJson(const QString &jsonString) {
     QByteArray array(jsonString.toStdString().c_str());
     QJsonDocument doc = QJsonDocument::fromJson(array);
     QJsonObject jsonObject = doc.object();
@@ -171,10 +171,10 @@ QJsonObject OAIEvolutionChainDetail_chain_evolves_to_inner_evolution_details_inn
     if (m_item.isSet()) {
         obj.insert(QString("item"), ::OpenAPI::toJsonValue(m_item));
     }
-    if (m_known_move_isSet) {
+    if (m_known_move.isSet()) {
         obj.insert(QString("known_move"), ::OpenAPI::toJsonValue(m_known_move));
     }
-    if (m_known_move_type_isSet) {
+    if (m_known_move_type.isSet()) {
         obj.insert(QString("known_move_type"), ::OpenAPI::toJsonValue(m_known_move_type));
     }
     if (m_location.isSet()) {
@@ -267,10 +267,10 @@ bool OAIEvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner::is_
     return m_item_isValid;
 }
 
-OAIObject OAIEvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner::getKnownMove() const {
+OAIEvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner_gender OAIEvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner::getKnownMove() const {
     return m_known_move;
 }
-void OAIEvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner::setKnownMove(const OAIObject &known_move) {
+void OAIEvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner::setKnownMove(const OAIEvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner_gender &known_move) {
     m_known_move = known_move;
     m_known_move_isSet = true;
 }
@@ -283,10 +283,10 @@ bool OAIEvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner::is_
     return m_known_move_isValid;
 }
 
-OAIObject OAIEvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner::getKnownMoveType() const {
+OAIEvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner_gender OAIEvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner::getKnownMoveType() const {
     return m_known_move_type;
 }
-void OAIEvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner::setKnownMoveType(const OAIObject &known_move_type) {
+void OAIEvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner::setKnownMoveType(const OAIEvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner_gender &known_move_type) {
     m_known_move_type = known_move_type;
     m_known_move_type_isSet = true;
 }
@@ -525,12 +525,12 @@ bool OAIEvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner::isS
             break;
         }
 
-        if (m_known_move_isSet) {
+        if (m_known_move.isSet()) {
             isObjectUpdated = true;
             break;
         }
 
-        if (m_known_move_type_isSet) {
+        if (m_known_move_type.isSet()) {
             isObjectUpdated = true;
             break;
         }

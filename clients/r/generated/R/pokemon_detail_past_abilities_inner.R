@@ -69,13 +69,36 @@ PokemonDetailPastAbilitiesInner <- R6::R6Class(
       PokemonDetailPastAbilitiesInnerObject <- list()
       if (!is.null(self$`abilities`)) {
         PokemonDetailPastAbilitiesInnerObject[["abilities"]] <-
-          lapply(self$`abilities`, function(x) x$toSimpleType())
+          self$extractSimpleType(self$`abilities`)
       }
       if (!is.null(self$`generation`)) {
         PokemonDetailPastAbilitiesInnerObject[["generation"]] <-
-          self$`generation`$toSimpleType()
+          self$extractSimpleType(self$`generation`)
       }
       return(PokemonDetailPastAbilitiesInnerObject)
+    },
+
+    extractSimpleType = function(x) {
+      if (R6::is.R6(x)) {
+        return(x$toSimpleType())
+      } else if (!self$hasNestedR6(x)) {
+        return(x)
+      }
+      lapply(x, self$extractSimpleType)
+    },
+
+    hasNestedR6 = function(x) {
+      if (R6::is.R6(x)) {
+        return(TRUE)
+      }
+      if (is.list(x)) {
+        for (item in x) {
+          if (self$hasNestedR6(item)) {
+            return(TRUE)
+          }
+        }
+      }
+      FALSE
     },
 
     #' @description

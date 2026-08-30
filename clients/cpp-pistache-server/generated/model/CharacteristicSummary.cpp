@@ -25,6 +25,8 @@ CharacteristicSummary::CharacteristicSummary()
     
 }
 
+CharacteristicSummary::~CharacteristicSummary() = default;
+
 void CharacteristicSummary::validate() const
 {
     std::stringstream msg;

@@ -57,7 +57,7 @@ namespace Org.OpenAPITools.Model
         /// Gets or Sets Slot
         /// </summary>
         [JsonPropertyName("slot")]
-        public int? Slot { get { return this.SlotOption; } set { this.SlotOption = new(value); } }
+        public int? Slot { get { return this.SlotOption.Value; } set { this.SlotOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of Pokemon
@@ -70,7 +70,7 @@ namespace Org.OpenAPITools.Model
         /// Gets or Sets Pokemon
         /// </summary>
         [JsonPropertyName("pokemon")]
-        public TypeDetailPokemonInnerPokemon? Pokemon { get { return this.PokemonOption; } set { this.PokemonOption = new(value); } }
+        public TypeDetailPokemonInnerPokemon? Pokemon { get { return this.PokemonOption.Value; } set { this.PokemonOption = new(value); } }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -100,8 +100,18 @@ namespace Org.OpenAPITools.Model
     /// <summary>
     /// A Json converter for type <see cref="TypeDetailPokemonInner" />
     /// </summary>
-    public class TypeDetailPokemonInnerJsonConverter : JsonConverter<TypeDetailPokemonInner>
+    public partial class TypeDetailPokemonInnerJsonConverter : JsonConverter<TypeDetailPokemonInner>
     {
+        partial void OnCreated();
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="TypeDetailPokemonInnerJsonConverter" /> class.
+        /// </summary>
+        public TypeDetailPokemonInnerJsonConverter()
+        {
+            OnCreated();
+        }
+
         /// <summary>
         /// Deserializes json to <see cref="TypeDetailPokemonInner" />
         /// </summary>

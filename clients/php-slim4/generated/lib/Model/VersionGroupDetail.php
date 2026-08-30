@@ -65,27 +65,35 @@ class VersionGroupDetail extends BaseModel
     },
     "move_learn_methods" : {
       "type" : "array",
+      "readOnly" : true,
       "items" : {
         "$ref" : "#/components/schemas/AbilityDetail_pokemon_inner_pokemon"
-      }
+      },
+      "default" : null
     },
     "pokedexes" : {
       "type" : "array",
+      "readOnly" : true,
       "items" : {
         "$ref" : "#/components/schemas/AbilityDetail_pokemon_inner_pokemon"
-      }
+      },
+      "default" : null
     },
     "regions" : {
       "type" : "array",
+      "readOnly" : true,
       "items" : {
         "$ref" : "#/components/schemas/AbilityDetail_pokemon_inner_pokemon"
-      }
+      },
+      "default" : null
     },
     "versions" : {
       "type" : "array",
+      "readOnly" : true,
       "items" : {
         "$ref" : "#/components/schemas/VersionSummary"
-      }
+      },
+      "default" : null
     }
   }
 }

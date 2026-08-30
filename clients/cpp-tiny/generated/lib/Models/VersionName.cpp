@@ -86,7 +86,7 @@ VersionName::getName()
 }
 
 void
-VersionName::setName(std::string  name)
+VersionName::setName(std::string name)
 {
 	this->name = name;
 }
@@ -98,7 +98,7 @@ VersionName::getLanguage()
 }
 
 void
-VersionName::setLanguage(LanguageSummary  language)
+VersionName::setLanguage(LanguageSummary language)
 {
 	this->language = language;
 }

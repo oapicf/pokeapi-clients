@@ -30,7 +30,7 @@ public class OASMoveBattleStyleDetail {
      * Get names
      * @return names
      */
-    public List<OASMoveBattleStyleName> names { get; set; }
+    public List<OASMoveBattleStyleName> names { get; private set; }
 
     public OASMoveBattleStyleDetail() {
         names = new List<OASMoveBattleStyleName>();

@@ -33,7 +33,7 @@ class  PokemonShapeDetail_awesome_names_inner
 {
 public:
     PokemonShapeDetail_awesome_names_inner();
-    virtual ~PokemonShapeDetail_awesome_names_inner() = default;
+    virtual ~PokemonShapeDetail_awesome_names_inner();
 
 
     /// <summary>

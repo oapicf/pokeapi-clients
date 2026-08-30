@@ -33,7 +33,7 @@ class  MoveMetaCategoryDescription
 {
 public:
     MoveMetaCategoryDescription();
-    virtual ~MoveMetaCategoryDescription() = default;
+    virtual ~MoveMetaCategoryDescription();
 
 
     /// <summary>

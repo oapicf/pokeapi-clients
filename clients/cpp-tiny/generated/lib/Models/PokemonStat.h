@@ -52,21 +52,21 @@ public:
 
 	/*! \brief Set 
 	 */
-	void setBaseStat(int  base_stat);
+	void setBaseStat(int base_stat);
 	/*! \brief Get 
 	 */
 	int getEffort();
 
 	/*! \brief Set 
 	 */
-	void setEffort(int  effort);
+	void setEffort(int effort);
 	/*! \brief Get 
 	 */
 	StatSummary getStat();
 
 	/*! \brief Set 
 	 */
-	void setStat(StatSummary  stat);
+	void setStat(StatSummary stat);
 
 
     private:

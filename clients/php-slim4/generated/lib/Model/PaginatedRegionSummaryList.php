@@ -67,7 +67,8 @@ class PaginatedRegionSummaryList extends BaseModel
       "type" : "array",
       "items" : {
         "$ref" : "#/components/schemas/RegionSummary"
-      }
+      },
+      "default" : null
     }
   }
 }

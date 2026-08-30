@@ -144,7 +144,7 @@ PaginatedPokemonColorSummaryList::getCount()
 }
 
 void
-PaginatedPokemonColorSummaryList::setCount(int  count)
+PaginatedPokemonColorSummaryList::setCount(int count)
 {
 	this->count = count;
 }
@@ -156,7 +156,7 @@ PaginatedPokemonColorSummaryList::getNext()
 }
 
 void
-PaginatedPokemonColorSummaryList::setNext(std::string  next)
+PaginatedPokemonColorSummaryList::setNext(std::string next)
 {
 	this->next = next;
 }
@@ -168,7 +168,7 @@ PaginatedPokemonColorSummaryList::getPrevious()
 }
 
 void
-PaginatedPokemonColorSummaryList::setPrevious(std::string  previous)
+PaginatedPokemonColorSummaryList::setPrevious(std::string previous)
 {
 	this->previous = previous;
 }
@@ -180,7 +180,7 @@ PaginatedPokemonColorSummaryList::getResults()
 }
 
 void
-PaginatedPokemonColorSummaryList::setResults(std::list <PokemonColorSummary> results)
+PaginatedPokemonColorSummaryList::setResults(std::list<PokemonColorSummary> results)
 {
 	this->results = results;
 }

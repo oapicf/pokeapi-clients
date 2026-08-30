@@ -335,7 +335,7 @@ GenerationDetail::getId()
 }
 
 void
-GenerationDetail::setId(int  id)
+GenerationDetail::setId(int id)
 {
 	this->id = id;
 }
@@ -347,7 +347,7 @@ GenerationDetail::getName()
 }
 
 void
-GenerationDetail::setName(std::string  name)
+GenerationDetail::setName(std::string name)
 {
 	this->name = name;
 }
@@ -359,7 +359,7 @@ GenerationDetail::getAbilities()
 }
 
 void
-GenerationDetail::setAbilities(std::list <AbilitySummary> abilities)
+GenerationDetail::setAbilities(std::list<AbilitySummary> abilities)
 {
 	this->abilities = abilities;
 }
@@ -371,7 +371,7 @@ GenerationDetail::getMainRegion()
 }
 
 void
-GenerationDetail::setMainRegion(RegionSummary  main_region)
+GenerationDetail::setMainRegion(RegionSummary main_region)
 {
 	this->main_region = main_region;
 }
@@ -383,7 +383,7 @@ GenerationDetail::getMoves()
 }
 
 void
-GenerationDetail::setMoves(std::list <MoveSummary> moves)
+GenerationDetail::setMoves(std::list<MoveSummary> moves)
 {
 	this->moves = moves;
 }
@@ -395,7 +395,7 @@ GenerationDetail::getNames()
 }
 
 void
-GenerationDetail::setNames(std::list <GenerationName> names)
+GenerationDetail::setNames(std::list<GenerationName> names)
 {
 	this->names = names;
 }
@@ -407,7 +407,7 @@ GenerationDetail::getPokemonSpecies()
 }
 
 void
-GenerationDetail::setPokemonSpecies(std::list <PokemonSpeciesSummary> pokemon_species)
+GenerationDetail::setPokemonSpecies(std::list<PokemonSpeciesSummary> pokemon_species)
 {
 	this->pokemon_species = pokemon_species;
 }
@@ -419,7 +419,7 @@ GenerationDetail::getTypes()
 }
 
 void
-GenerationDetail::setTypes(std::list <TypeSummary> types)
+GenerationDetail::setTypes(std::list<TypeSummary> types)
 {
 	this->types = types;
 }
@@ -431,7 +431,7 @@ GenerationDetail::getVersionGroups()
 }
 
 void
-GenerationDetail::setVersionGroups(std::list <VersionGroupSummary> version_groups)
+GenerationDetail::setVersionGroups(std::list<VersionGroupSummary> version_groups)
 {
 	this->version_groups = version_groups;
 }

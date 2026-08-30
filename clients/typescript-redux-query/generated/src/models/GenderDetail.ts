@@ -44,13 +44,13 @@ export interface GenderDetail  {
      * @type {Array<GenderDetailPokemonSpeciesDetailsInner>}
      * @memberof GenderDetail
      */
-    pokemonSpeciesDetails: Array<GenderDetailPokemonSpeciesDetailsInner>;
+    readonly pokemonSpeciesDetails: Array<GenderDetailPokemonSpeciesDetailsInner>;
     /**
      * 
      * @type {Array<AbilityDetailPokemonInnerPokemon>}
      * @memberof GenderDetail
      */
-    requiredForEvolution: Array<AbilityDetailPokemonInnerPokemon>;
+    readonly requiredForEvolution: Array<AbilityDetailPokemonInnerPokemon>;
 }
 
 export function GenderDetailFromJSON(json: any): GenderDetail {
@@ -68,8 +68,6 @@ export function GenderDetailToJSON(value?: GenderDetail): any {
     }
     return {
         'name': value.name,
-        'pokemon_species_details': (value.pokemonSpeciesDetails as Array<any>).map(GenderDetailPokemonSpeciesDetailsInnerToJSON),
-        'required_for_evolution': (value.requiredForEvolution as Array<any>).map(AbilityDetailPokemonInnerPokemonToJSON),
     };
 }
 

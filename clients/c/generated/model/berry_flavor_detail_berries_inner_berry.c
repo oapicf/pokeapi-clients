@@ -13,10 +13,10 @@ static berry_flavor_detail_berries_inner_berry_t *berry_flavor_detail_berries_in
     if (!berry_flavor_detail_berries_inner_berry_local_var) {
         return NULL;
     }
+    memset(berry_flavor_detail_berries_inner_berry_local_var, 0, sizeof(berry_flavor_detail_berries_inner_berry_t));
+    berry_flavor_detail_berries_inner_berry_local_var->_library_owned = 1;
     berry_flavor_detail_berries_inner_berry_local_var->name = name;
     berry_flavor_detail_berries_inner_berry_local_var->url = url;
-
-    berry_flavor_detail_berries_inner_berry_local_var->_library_owned = 1;
     return berry_flavor_detail_berries_inner_berry_local_var;
 }
 
@@ -24,10 +24,13 @@ __attribute__((deprecated)) berry_flavor_detail_berries_inner_berry_t *berry_fla
     char *name,
     char *url
     ) {
-    return berry_flavor_detail_berries_inner_berry_create_internal (
+    berry_flavor_detail_berries_inner_berry_t *result = berry_flavor_detail_berries_inner_berry_create_internal (
         name,
         url
         );
+    if (!result) {
+    }
+    return result;
 }
 
 void berry_flavor_detail_berries_inner_berry_free(berry_flavor_detail_berries_inner_berry_t *berry_flavor_detail_berries_inner_berry) {
@@ -80,6 +83,10 @@ berry_flavor_detail_berries_inner_berry_t *berry_flavor_detail_berries_inner_ber
 
     berry_flavor_detail_berries_inner_berry_t *berry_flavor_detail_berries_inner_berry_local_var = NULL;
 
+    char *name_local_str = NULL;
+
+    char *url_local_str = NULL;
+
     // berry_flavor_detail_berries_inner_berry->name
     cJSON *name = cJSON_GetObjectItemCaseSensitive(berry_flavor_detail_berries_inner_berryJSON, "name");
     if (cJSON_IsNull(name)) {
@@ -105,13 +112,28 @@ berry_flavor_detail_berries_inner_berry_t *berry_flavor_detail_berries_inner_ber
     }
 
 
+    if (name && !cJSON_IsNull(name)) name_local_str = strdup(name->valuestring);
+    if (url && !cJSON_IsNull(url)) url_local_str = strdup(url->valuestring);
+
     berry_flavor_detail_berries_inner_berry_local_var = berry_flavor_detail_berries_inner_berry_create_internal (
-        name && !cJSON_IsNull(name) ? strdup(name->valuestring) : NULL,
-        url && !cJSON_IsNull(url) ? strdup(url->valuestring) : NULL
+        name_local_str,
+        url_local_str
         );
+
+    if (!berry_flavor_detail_berries_inner_berry_local_var) {
+        goto end;
+    }
 
     return berry_flavor_detail_berries_inner_berry_local_var;
 end:
+    if (name_local_str) {
+        free(name_local_str);
+        name_local_str = NULL;
+    }
+    if (url_local_str) {
+        free(url_local_str);
+        url_local_str = NULL;
+    }
     return NULL;
 
 }

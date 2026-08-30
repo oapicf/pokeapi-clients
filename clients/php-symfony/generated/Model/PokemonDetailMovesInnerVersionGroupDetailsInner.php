@@ -47,7 +47,7 @@ class PokemonDetailMovesInnerVersionGroupDetailsInner
      * @var int|null
      * @SerializedName("level_learned_at")
      * @Type("int")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Type("int")]
     protected ?int $levelLearnedAt = null;
@@ -56,7 +56,7 @@ class PokemonDetailMovesInnerVersionGroupDetailsInner
      * @var AbilityDetailPokemonInnerPokemon|null
      * @SerializedName("move_learn_method")
      * @Type("OpenAPI\Server\Model\AbilityDetailPokemonInnerPokemon")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Valid]
     #[Assert\Type("OpenAPI\Server\Model\AbilityDetailPokemonInnerPokemon")]
@@ -66,7 +66,7 @@ class PokemonDetailMovesInnerVersionGroupDetailsInner
      * @var AbilityDetailPokemonInnerPokemon|null
      * @SerializedName("version_group")
      * @Type("OpenAPI\Server\Model\AbilityDetailPokemonInnerPokemon")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Valid]
     #[Assert\Type("OpenAPI\Server\Model\AbilityDetailPokemonInnerPokemon")]
@@ -96,12 +96,12 @@ class PokemonDetailMovesInnerVersionGroupDetailsInner
     }
 
     /**
-    * Sets levelLearnedAt.
-    *
-    * @param int|null $levelLearnedAt
-    *
-    * @return $this
-    */
+     * Sets levelLearnedAt.
+     *
+     * @param int|null $levelLearnedAt
+     *
+     * @return $this
+     */
     public function setLevelLearnedAt(?int $levelLearnedAt): self
     {
         $this->levelLearnedAt = $levelLearnedAt;
@@ -123,12 +123,12 @@ class PokemonDetailMovesInnerVersionGroupDetailsInner
     }
 
     /**
-    * Sets moveLearnMethod.
-    *
-    * @param AbilityDetailPokemonInnerPokemon|null $moveLearnMethod
-    *
-    * @return $this
-    */
+     * Sets moveLearnMethod.
+     *
+     * @param AbilityDetailPokemonInnerPokemon|null $moveLearnMethod
+     *
+     * @return $this
+     */
     public function setMoveLearnMethod(?AbilityDetailPokemonInnerPokemon $moveLearnMethod): self
     {
         $this->moveLearnMethod = $moveLearnMethod;
@@ -150,12 +150,12 @@ class PokemonDetailMovesInnerVersionGroupDetailsInner
     }
 
     /**
-    * Sets versionGroup.
-    *
-    * @param AbilityDetailPokemonInnerPokemon|null $versionGroup
-    *
-    * @return $this
-    */
+     * Sets versionGroup.
+     *
+     * @param AbilityDetailPokemonInnerPokemon|null $versionGroup
+     *
+     * @return $this
+     */
     public function setVersionGroup(?AbilityDetailPokemonInnerPokemon $versionGroup): self
     {
         $this->versionGroup = $versionGroup;

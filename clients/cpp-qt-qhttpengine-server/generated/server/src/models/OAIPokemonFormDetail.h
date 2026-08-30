@@ -90,8 +90,8 @@ public:
     bool is_pokemon_Set() const;
     bool is_pokemon_Valid() const;
 
-    OAIPokemonFormDetail_sprites getSprites() const;
-    void setSprites(const OAIPokemonFormDetail_sprites &sprites);
+    OAIPokemonFormDetail_sprites<QString, QString> getSprites() const;
+    void setSprites(const OAIPokemonFormDetail_sprites<QString, QString> &sprites);
     bool is_sprites_Set() const;
     bool is_sprites_Valid() const;
 
@@ -157,7 +157,7 @@ private:
     bool m_pokemon_isSet;
     bool m_pokemon_isValid;
 
-    OAIPokemonFormDetail_sprites sprites;
+    OAIPokemonFormDetail_sprites<QString, QString> sprites;
     bool m_sprites_isSet;
     bool m_sprites_isValid;
 

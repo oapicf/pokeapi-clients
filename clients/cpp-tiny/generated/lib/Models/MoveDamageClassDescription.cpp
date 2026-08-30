@@ -86,7 +86,7 @@ MoveDamageClassDescription::getDescription()
 }
 
 void
-MoveDamageClassDescription::setDescription(std::string  description)
+MoveDamageClassDescription::setDescription(std::string description)
 {
 	this->description = description;
 }
@@ -98,7 +98,7 @@ MoveDamageClassDescription::getLanguage()
 }
 
 void
-MoveDamageClassDescription::setLanguage(LanguageSummary  language)
+MoveDamageClassDescription::setLanguage(LanguageSummary language)
 {
 	this->language = language;
 }

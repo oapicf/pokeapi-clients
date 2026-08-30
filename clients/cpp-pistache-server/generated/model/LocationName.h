@@ -33,7 +33,7 @@ class  LocationName
 {
 public:
     LocationName();
-    virtual ~LocationName() = default;
+    virtual ~LocationName();
 
 
     /// <summary>

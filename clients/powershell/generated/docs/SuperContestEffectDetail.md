@@ -5,8 +5,8 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **Int32** |  | [readonly] 
 **Appeal** | **Int32** |  | 
-**FlavorTextEntries** | [**SuperContestEffectFlavorText[]**](SuperContestEffectFlavorText.md) |  | 
-**Moves** | [**MoveSummary[]**](MoveSummary.md) |  | 
+**FlavorTextEntries** | [**SuperContestEffectFlavorText[]**](SuperContestEffectFlavorText.md) |  | [readonly] 
+**Moves** | [**MoveSummary[]**](MoveSummary.md) |  | [readonly] 
 
 ## Examples
 

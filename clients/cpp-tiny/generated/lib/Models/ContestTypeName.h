@@ -52,21 +52,21 @@ public:
 
 	/*! \brief Set 
 	 */
-	void setName(std::string  name);
+	void setName(std::string name);
 	/*! \brief Get 
 	 */
 	std::string getColor();
 
 	/*! \brief Set 
 	 */
-	void setColor(std::string  color);
+	void setColor(std::string color);
 	/*! \brief Get 
 	 */
 	LanguageSummary getLanguage();
 
 	/*! \brief Set 
 	 */
-	void setLanguage(LanguageSummary  language);
+	void setLanguage(LanguageSummary language);
 
 
     private:

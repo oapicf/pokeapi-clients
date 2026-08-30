@@ -44,10 +44,10 @@ class EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner
     * @param \OpenAPI\Server\Model\EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender $item
     *
     * 
-    * @param object $knownMove
+    * @param \OpenAPI\Server\Model\EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender $knownMove
     *
     * 
-    * @param object $knownMoveType
+    * @param \OpenAPI\Server\Model\EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender $knownMoveType
     *
     * 
     * @param \OpenAPI\Server\Model\EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender $location
@@ -93,8 +93,8 @@ class EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner
         public \OpenAPI\Server\Model\EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender $gender,
         public \OpenAPI\Server\Model\EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender $heldItem,
         public \OpenAPI\Server\Model\EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender $item,
-        public object $knownMove,
-        public object $knownMoveType,
+        public \OpenAPI\Server\Model\EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender $knownMove,
+        public \OpenAPI\Server\Model\EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender $knownMoveType,
         public \OpenAPI\Server\Model\EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender $location,
         public int $minAffection,
         public int $minBeauty,

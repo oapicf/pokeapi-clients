@@ -13,7 +13,7 @@
 | **smoothness** | **kotlin.Int** |  |  |
 | **soilDryness** | **kotlin.Int** |  |  |
 | **firmness** | [**BerryFirmnessSummary**](BerryFirmnessSummary.md) |  |  |
-| **flavors** | [**kotlin.collections.List&lt;BerryDetailFlavorsInner&gt;**](BerryDetailFlavorsInner.md) |  |  |
+| **flavors** | [**kotlin.collections.List&lt;BerryDetailFlavorsInner&gt;**](BerryDetailFlavorsInner.md) |  |  [readonly] |
 | **item** | [**ItemSummary**](ItemSummary.md) |  |  |
 | **naturalGiftType** | [**TypeSummary**](TypeSummary.md) |  |  |
 

@@ -71,7 +71,7 @@ export interface LocationAreaDetail {
      * @type {Array<LocationAreaDetailEncounterMethodRatesInner>}
      * @memberof LocationAreaDetail
      */
-    encounterMethodRates: Array<LocationAreaDetailEncounterMethodRatesInner>;
+    readonly encounterMethodRates: Array<LocationAreaDetailEncounterMethodRatesInner>;
     /**
      * 
      * @type {LocationSummary}
@@ -83,13 +83,13 @@ export interface LocationAreaDetail {
      * @type {Array<LocationAreaName>}
      * @memberof LocationAreaDetail
      */
-    names: Array<LocationAreaName>;
+    readonly names: Array<LocationAreaName>;
     /**
      * 
      * @type {Array<LocationAreaDetailPokemonEncountersInner>}
      * @memberof LocationAreaDetail
      */
-    pokemonEncounters: Array<LocationAreaDetailPokemonEncountersInner>;
+    readonly pokemonEncounters: Array<LocationAreaDetailPokemonEncountersInner>;
 }
 
 /**
@@ -98,11 +98,11 @@ export interface LocationAreaDetail {
 export function instanceOfLocationAreaDetail(value: object): value is LocationAreaDetail {
     if (!('id' in value) || value['id'] === undefined) return false;
     if (!('name' in value) || value['name'] === undefined) return false;
-    if (!('gameIndex' in value) || value['gameIndex'] === undefined) return false;
-    if (!('encounterMethodRates' in value) || value['encounterMethodRates'] === undefined) return false;
+    if ((!('gameIndex' in (value as Record<string, any>)) && !('game_index' in (value as Record<string, any>))) || ((value as Record<string, any>)['gameIndex'] === undefined && (value as Record<string, any>)['game_index'] === undefined)) return false;
+    if ((!('encounterMethodRates' in (value as Record<string, any>)) && !('encounter_method_rates' in (value as Record<string, any>))) || ((value as Record<string, any>)['encounterMethodRates'] === undefined && (value as Record<string, any>)['encounter_method_rates'] === undefined)) return false;
     if (!('location' in value) || value['location'] === undefined) return false;
     if (!('names' in value) || value['names'] === undefined) return false;
-    if (!('pokemonEncounters' in value) || value['pokemonEncounters'] === undefined) return false;
+    if ((!('pokemonEncounters' in (value as Record<string, any>)) && !('pokemon_encounters' in (value as Record<string, any>))) || ((value as Record<string, any>)['pokemonEncounters'] === undefined && (value as Record<string, any>)['pokemon_encounters'] === undefined)) return false;
     return true;
 }
 
@@ -130,7 +130,7 @@ export function LocationAreaDetailToJSON(json: any): LocationAreaDetail {
     return LocationAreaDetailToJSONTyped(json, false);
 }
 
-export function LocationAreaDetailToJSONTyped(value?: Omit<LocationAreaDetail, 'id'> | null, ignoreDiscriminator: boolean = false): any {
+export function LocationAreaDetailToJSONTyped(value?: Omit<LocationAreaDetail, 'id'|'encounterMethodRates'|'names'|'pokemonEncounters'> | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
@@ -139,10 +139,7 @@ export function LocationAreaDetailToJSONTyped(value?: Omit<LocationAreaDetail, '
         
         'name': value['name'],
         'game_index': value['gameIndex'],
-        'encounter_method_rates': ((value['encounterMethodRates'] as Array<any>).map(LocationAreaDetailEncounterMethodRatesInnerToJSON)),
         'location': LocationSummaryToJSON(value['location']),
-        'names': ((value['names'] as Array<any>).map(LocationAreaNameToJSON)),
-        'pokemon_encounters': ((value['pokemonEncounters'] as Array<any>).map(LocationAreaDetailPokemonEncountersInnerToJSON)),
     };
 }
 

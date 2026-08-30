@@ -19,7 +19,7 @@ import MoveLearnMethodName from './MoveLearnMethodName';
 /**
  * The MoveLearnMethodDetail model module.
  * @module model/MoveLearnMethodDetail
- * @version 1.2.1-pre.0
+ * @version 2.0.1-pre.0
  */
 class MoveLearnMethodDetail {
     /**

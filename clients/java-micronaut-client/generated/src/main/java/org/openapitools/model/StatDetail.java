@@ -44,7 +44,7 @@ import javax.annotation.Generated;
   StatDetail.JSON_PROPERTY_NAMES
 })
 @JsonTypeName("StatDetail")
-@Generated(value="org.openapitools.codegen.languages.JavaMicronautClientCodegen", date="2026-02-07T15:22:54.857535619Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@Generated(value="org.openapitools.codegen.languages.JavaMicronautClientCodegen", date="2026-08-30T01:55:51.056116330Z[Etc/UTC]", comments = "Generator version: 7.24.0")
 @Introspected
 public class StatDetail {
     public static final String JSON_PROPERTY_ID = "id";
@@ -209,16 +209,6 @@ public class StatDetail {
         this.affectingNatures = affectingNatures;
     }
 
-    public StatDetail characteristics(List<@Valid CharacteristicSummary> characteristics) {
-        this.characteristics = characteristics;
-        return this;
-    }
-
-    public StatDetail addCharacteristicsItem(CharacteristicSummary characteristicsItem) {
-        this.characteristics.add(characteristicsItem);
-        return this;
-    }
-
     /**
      * Get characteristics
      * @return characteristics
@@ -228,12 +218,6 @@ public class StatDetail {
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public List<@Valid CharacteristicSummary> getCharacteristics() {
         return characteristics;
-    }
-
-    @JsonProperty(JSON_PROPERTY_CHARACTERISTICS)
-    @JsonInclude(value = JsonInclude.Include.ALWAYS)
-    public void setCharacteristics(List<@Valid CharacteristicSummary> characteristics) {
-        this.characteristics = characteristics;
     }
 
     public StatDetail moveDamageClass(MoveDamageClassSummary moveDamageClass) {
@@ -259,16 +243,6 @@ public class StatDetail {
         this.moveDamageClass = moveDamageClass;
     }
 
-    public StatDetail names(List<@Valid StatName> names) {
-        this.names = names;
-        return this;
-    }
-
-    public StatDetail addNamesItem(StatName namesItem) {
-        this.names.add(namesItem);
-        return this;
-    }
-
     /**
      * Get names
      * @return names
@@ -278,12 +252,6 @@ public class StatDetail {
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public List<@Valid StatName> getNames() {
         return names;
-    }
-
-    @JsonProperty(JSON_PROPERTY_NAMES)
-    @JsonInclude(value = JsonInclude.Include.ALWAYS)
-    public void setNames(List<@Valid StatName> names) {
-        this.names = names;
     }
 
     @Override
@@ -333,10 +301,7 @@ public class StatDetail {
      * (except the first line).
      */
     private String toIndentedString(Object o) {
-        if (o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
+        return o == null ? "null" : o.toString().replace("\n", "\n    ");
     }
 
 }

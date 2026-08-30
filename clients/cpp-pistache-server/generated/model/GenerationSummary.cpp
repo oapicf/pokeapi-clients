@@ -26,6 +26,8 @@ GenerationSummary::GenerationSummary()
     
 }
 
+GenerationSummary::~GenerationSummary() = default;
+
 void GenerationSummary::validate() const
 {
     std::stringstream msg;

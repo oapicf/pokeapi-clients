@@ -47,7 +47,7 @@ class BerryDetail
      * @var int|null
      * @SerializedName("id")
      * @Type("int")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Type("int")]
     protected ?int $id = null;
@@ -56,7 +56,7 @@ class BerryDetail
      * @var string|null
      * @SerializedName("name")
      * @Type("string")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Type("string")]
     #[Assert\Length(max: 100)]
@@ -66,7 +66,7 @@ class BerryDetail
      * @var int|null
      * @SerializedName("growth_time")
      * @Type("int")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Type("int")]
     protected ?int $growthTime = null;
@@ -75,7 +75,7 @@ class BerryDetail
      * @var int|null
      * @SerializedName("max_harvest")
      * @Type("int")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Type("int")]
     protected ?int $maxHarvest = null;
@@ -84,7 +84,7 @@ class BerryDetail
      * @var int|null
      * @SerializedName("natural_gift_power")
      * @Type("int")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Type("int")]
     protected ?int $naturalGiftPower = null;
@@ -93,7 +93,7 @@ class BerryDetail
      * @var int|null
      * @SerializedName("size")
      * @Type("int")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Type("int")]
     protected ?int $size = null;
@@ -102,7 +102,7 @@ class BerryDetail
      * @var int|null
      * @SerializedName("smoothness")
      * @Type("int")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Type("int")]
     protected ?int $smoothness = null;
@@ -111,7 +111,7 @@ class BerryDetail
      * @var int|null
      * @SerializedName("soil_dryness")
      * @Type("int")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Type("int")]
     protected ?int $soilDryness = null;
@@ -120,7 +120,7 @@ class BerryDetail
      * @var BerryFirmnessSummary|null
      * @SerializedName("firmness")
      * @Type("OpenAPI\Server\Model\BerryFirmnessSummary")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Valid]
     #[Assert\Type("OpenAPI\Server\Model\BerryFirmnessSummary")]
@@ -130,7 +130,7 @@ class BerryDetail
      * @var BerryDetailFlavorsInner[]|null
      * @SerializedName("flavors")
      * @Type("array<OpenAPI\Server\Model\BerryDetailFlavorsInner>")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Valid]
     #[Assert\All([
@@ -142,7 +142,7 @@ class BerryDetail
      * @var ItemSummary|null
      * @SerializedName("item")
      * @Type("OpenAPI\Server\Model\ItemSummary")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Valid]
     #[Assert\Type("OpenAPI\Server\Model\ItemSummary")]
@@ -152,7 +152,7 @@ class BerryDetail
      * @var TypeSummary|null
      * @SerializedName("natural_gift_type")
      * @Type("OpenAPI\Server\Model\TypeSummary")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Valid]
     #[Assert\Type("OpenAPI\Server\Model\TypeSummary")]
@@ -191,12 +191,12 @@ class BerryDetail
     }
 
     /**
-    * Sets id.
-    *
-    * @param int|null $id
-    *
-    * @return $this
-    */
+     * Sets id.
+     *
+     * @param int|null $id
+     *
+     * @return $this
+     */
     public function setId(?int $id): self
     {
         $this->id = $id;
@@ -218,12 +218,12 @@ class BerryDetail
     }
 
     /**
-    * Sets name.
-    *
-    * @param string|null $name
-    *
-    * @return $this
-    */
+     * Sets name.
+     *
+     * @param string|null $name
+     *
+     * @return $this
+     */
     public function setName(?string $name): self
     {
         $this->name = $name;
@@ -245,12 +245,12 @@ class BerryDetail
     }
 
     /**
-    * Sets growthTime.
-    *
-    * @param int|null $growthTime
-    *
-    * @return $this
-    */
+     * Sets growthTime.
+     *
+     * @param int|null $growthTime
+     *
+     * @return $this
+     */
     public function setGrowthTime(?int $growthTime): self
     {
         $this->growthTime = $growthTime;
@@ -272,12 +272,12 @@ class BerryDetail
     }
 
     /**
-    * Sets maxHarvest.
-    *
-    * @param int|null $maxHarvest
-    *
-    * @return $this
-    */
+     * Sets maxHarvest.
+     *
+     * @param int|null $maxHarvest
+     *
+     * @return $this
+     */
     public function setMaxHarvest(?int $maxHarvest): self
     {
         $this->maxHarvest = $maxHarvest;
@@ -299,12 +299,12 @@ class BerryDetail
     }
 
     /**
-    * Sets naturalGiftPower.
-    *
-    * @param int|null $naturalGiftPower
-    *
-    * @return $this
-    */
+     * Sets naturalGiftPower.
+     *
+     * @param int|null $naturalGiftPower
+     *
+     * @return $this
+     */
     public function setNaturalGiftPower(?int $naturalGiftPower): self
     {
         $this->naturalGiftPower = $naturalGiftPower;
@@ -326,12 +326,12 @@ class BerryDetail
     }
 
     /**
-    * Sets size.
-    *
-    * @param int|null $size
-    *
-    * @return $this
-    */
+     * Sets size.
+     *
+     * @param int|null $size
+     *
+     * @return $this
+     */
     public function setSize(?int $size): self
     {
         $this->size = $size;
@@ -353,12 +353,12 @@ class BerryDetail
     }
 
     /**
-    * Sets smoothness.
-    *
-    * @param int|null $smoothness
-    *
-    * @return $this
-    */
+     * Sets smoothness.
+     *
+     * @param int|null $smoothness
+     *
+     * @return $this
+     */
     public function setSmoothness(?int $smoothness): self
     {
         $this->smoothness = $smoothness;
@@ -380,12 +380,12 @@ class BerryDetail
     }
 
     /**
-    * Sets soilDryness.
-    *
-    * @param int|null $soilDryness
-    *
-    * @return $this
-    */
+     * Sets soilDryness.
+     *
+     * @param int|null $soilDryness
+     *
+     * @return $this
+     */
     public function setSoilDryness(?int $soilDryness): self
     {
         $this->soilDryness = $soilDryness;
@@ -407,12 +407,12 @@ class BerryDetail
     }
 
     /**
-    * Sets firmness.
-    *
-    * @param BerryFirmnessSummary|null $firmness
-    *
-    * @return $this
-    */
+     * Sets firmness.
+     *
+     * @param BerryFirmnessSummary|null $firmness
+     *
+     * @return $this
+     */
     public function setFirmness(?BerryFirmnessSummary $firmness): self
     {
         $this->firmness = $firmness;
@@ -434,12 +434,12 @@ class BerryDetail
     }
 
     /**
-    * Sets flavors.
-    *
-    * @param BerryDetailFlavorsInner[]|null $flavors
-    *
-    * @return $this
-    */
+     * Sets flavors.
+     *
+     * @param BerryDetailFlavorsInner[]|null $flavors
+     *
+     * @return $this
+     */
     public function setFlavors(?array $flavors): self
     {
         $this->flavors = $flavors;
@@ -461,12 +461,12 @@ class BerryDetail
     }
 
     /**
-    * Sets item.
-    *
-    * @param ItemSummary|null $item
-    *
-    * @return $this
-    */
+     * Sets item.
+     *
+     * @param ItemSummary|null $item
+     *
+     * @return $this
+     */
     public function setItem(?ItemSummary $item): self
     {
         $this->item = $item;
@@ -488,12 +488,12 @@ class BerryDetail
     }
 
     /**
-    * Sets naturalGiftType.
-    *
-    * @param TypeSummary|null $naturalGiftType
-    *
-    * @return $this
-    */
+     * Sets naturalGiftType.
+     *
+     * @param TypeSummary|null $naturalGiftType
+     *
+     * @return $this
+     */
     public function setNaturalGiftType(?TypeSummary $naturalGiftType): self
     {
         $this->naturalGiftType = $naturalGiftType;

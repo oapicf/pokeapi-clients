@@ -47,19 +47,19 @@ export interface PokemonShapeDetail  {
      * @type {Array<PokemonShapeDetailAwesomeNamesInner>}
      * @memberof PokemonShapeDetail
      */
-    awesomeNames: Array<PokemonShapeDetailAwesomeNamesInner>;
+    readonly awesomeNames: Array<PokemonShapeDetailAwesomeNamesInner>;
     /**
      * 
      * @type {Array<PokemonShapeDetailNamesInner>}
      * @memberof PokemonShapeDetail
      */
-    names: Array<PokemonShapeDetailNamesInner>;
+    readonly names: Array<PokemonShapeDetailNamesInner>;
     /**
      * 
      * @type {Array<PokemonSpeciesSummary>}
      * @memberof PokemonShapeDetail
      */
-    pokemonSpecies: Array<PokemonSpeciesSummary>;
+    readonly pokemonSpecies: Array<PokemonSpeciesSummary>;
 }
 
 export function PokemonShapeDetailFromJSON(json: any): PokemonShapeDetail {
@@ -78,9 +78,6 @@ export function PokemonShapeDetailToJSON(value?: PokemonShapeDetail): any {
     }
     return {
         'name': value.name,
-        'awesome_names': (value.awesomeNames as Array<any>).map(PokemonShapeDetailAwesomeNamesInnerToJSON),
-        'names': (value.names as Array<any>).map(PokemonShapeDetailNamesInnerToJSON),
-        'pokemon_species': (value.pokemonSpecies as Array<any>).map(PokemonSpeciesSummaryToJSON),
     };
 }
 

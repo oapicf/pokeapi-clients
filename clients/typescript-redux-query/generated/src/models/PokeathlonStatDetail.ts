@@ -50,7 +50,7 @@ export interface PokeathlonStatDetail  {
      * @type {Array<PokeathlonStatName>}
      * @memberof PokeathlonStatDetail
      */
-    names: Array<PokeathlonStatName>;
+    readonly names: Array<PokeathlonStatName>;
 }
 
 export function PokeathlonStatDetailFromJSON(json: any): PokeathlonStatDetail {
@@ -69,7 +69,6 @@ export function PokeathlonStatDetailToJSON(value?: PokeathlonStatDetail): any {
     return {
         'name': value.name,
         'affecting_natures': PokeathlonStatDetailAffectingNaturesToJSON(value.affectingNatures),
-        'names': (value.names as Array<any>).map(PokeathlonStatNameToJSON),
     };
 }
 

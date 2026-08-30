@@ -67,7 +67,8 @@ class PaginatedSuperContestEffectSummaryList extends BaseModel
       "type" : "array",
       "items" : {
         "$ref" : "#/components/schemas/SuperContestEffectSummary"
-      }
+      },
+      "default" : null
     }
   }
 }

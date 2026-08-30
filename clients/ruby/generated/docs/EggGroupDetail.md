@@ -6,8 +6,8 @@
 | ---- | ---- | ----------- | ----- |
 | **id** | **Integer** |  | [readonly] |
 | **name** | **String** |  |  |
-| **names** | [**Array&lt;EggGroupName&gt;**](EggGroupName.md) |  |  |
-| **pokemon_species** | [**Array&lt;EggGroupDetailPokemonSpeciesInner&gt;**](EggGroupDetailPokemonSpeciesInner.md) |  |  |
+| **names** | [**Array&lt;EggGroupName&gt;**](EggGroupName.md) |  | [readonly] |
+| **pokemon_species** | [**Array&lt;EggGroupDetailPokemonSpeciesInner&gt;**](EggGroupDetailPokemonSpeciesInner.md) |  | [readonly] |
 
 ## Example
 

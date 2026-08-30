@@ -52,14 +52,14 @@ public:
 
 	/*! \brief Set 
 	 */
-	void setPotency(int  potency);
+	void setPotency(int potency);
 	/*! \brief Get 
 	 */
 	BerryFlavorDetail_berries_inner_berry getBerry();
 
 	/*! \brief Set 
 	 */
-	void setBerry(BerryFlavorDetail_berries_inner_berry  berry);
+	void setBerry(BerryFlavorDetail_berries_inner_berry berry);
 
 
     private:

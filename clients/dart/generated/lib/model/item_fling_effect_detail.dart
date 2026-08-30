@@ -65,10 +65,14 @@ class ItemFlingEffectDetail {
       // Note 1: the values aren't checked for validity beyond being non-null.
       // Note 2: this code is stripped in release mode!
       assert(() {
-        requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "ItemFlingEffectDetail[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "ItemFlingEffectDetail[$key]" has a null value in JSON.');
-        });
+        assert(json.containsKey(r'id'), 'Required key "ItemFlingEffectDetail[id]" is missing from JSON.');
+        assert(json[r'id'] != null, 'Required key "ItemFlingEffectDetail[id]" has a null value in JSON.');
+        assert(json.containsKey(r'name'), 'Required key "ItemFlingEffectDetail[name]" is missing from JSON.');
+        assert(json[r'name'] != null, 'Required key "ItemFlingEffectDetail[name]" has a null value in JSON.');
+        assert(json.containsKey(r'effect_entries'), 'Required key "ItemFlingEffectDetail[effect_entries]" is missing from JSON.');
+        assert(json[r'effect_entries'] != null, 'Required key "ItemFlingEffectDetail[effect_entries]" has a null value in JSON.');
+        assert(json.containsKey(r'items'), 'Required key "ItemFlingEffectDetail[items]" is missing from JSON.');
+        assert(json[r'items'] != null, 'Required key "ItemFlingEffectDetail[items]" has a null value in JSON.');
         return true;
       }());
 

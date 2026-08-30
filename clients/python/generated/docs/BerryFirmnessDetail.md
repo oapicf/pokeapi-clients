@@ -7,8 +7,8 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **int** |  | [readonly] 
 **name** | **str** |  | 
-**berries** | [**List[BerrySummary]**](BerrySummary.md) |  | 
-**names** | [**List[BerryFirmnessName]**](BerryFirmnessName.md) |  | 
+**berries** | [**List[BerrySummary]**](BerrySummary.md) |  | [readonly] 
+**names** | [**List[BerryFirmnessName]**](BerryFirmnessName.md) |  | [readonly] 
 
 ## Example
 

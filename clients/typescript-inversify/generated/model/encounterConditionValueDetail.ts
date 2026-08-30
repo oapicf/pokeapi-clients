@@ -17,5 +17,5 @@ export interface EncounterConditionValueDetail {
     readonly id: number;
     name: string;
     condition: EncounterConditionSummary;
-    names: Array<EncounterConditionValueName>;
+    readonly names: Array<EncounterConditionValueName>;
 }

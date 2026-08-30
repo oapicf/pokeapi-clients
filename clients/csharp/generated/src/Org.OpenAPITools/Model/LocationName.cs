@@ -92,8 +92,18 @@ namespace Org.OpenAPITools.Model
     /// <summary>
     /// A Json converter for type <see cref="LocationName" />
     /// </summary>
-    public class LocationNameJsonConverter : JsonConverter<LocationName>
+    public partial class LocationNameJsonConverter : JsonConverter<LocationName>
     {
+        partial void OnCreated();
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="LocationNameJsonConverter" /> class.
+        /// </summary>
+        public LocationNameJsonConverter()
+        {
+            OnCreated();
+        }
+
         /// <summary>
         /// Deserializes json to <see cref="LocationName" />
         /// </summary>

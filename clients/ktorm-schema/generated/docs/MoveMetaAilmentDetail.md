@@ -7,8 +7,8 @@ Name | Mapping | SQL Type | Default | Type | Description | Notes
 ---- | ------- | -------- | ------- | ---- | ----------- | -----
 **id** | id | int NOT NULL PRIMARY KEY AUTOINCREMENT |  | **kotlin.Int** |  |  [readonly]
 **name** | name | text NOT NULL |  | **kotlin.String** |  | 
-**moves** | `One-To-Many` | `----` | `----`  | [**kotlin.Array&lt;AbilityDetailPokemonInnerPokemon&gt;**](AbilityDetailPokemonInnerPokemon.md) |  | 
-**names** | `One-To-Many` | `----` | `----`  | [**kotlin.Array&lt;MoveMetaAilmentName&gt;**](MoveMetaAilmentName.md) |  | 
+**moves** | `One-To-Many` | `----` | `----`  | [**kotlin.Array&lt;AbilityDetailPokemonInnerPokemon&gt;**](AbilityDetailPokemonInnerPokemon.md) |  |  [readonly]
+**names** | `One-To-Many` | `----` | `----`  | [**kotlin.Array&lt;MoveMetaAilmentName&gt;**](MoveMetaAilmentName.md) |  |  [readonly]
 
 
 

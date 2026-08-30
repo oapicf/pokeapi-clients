@@ -25,6 +25,7 @@ from pokeapiclient.models.ability_detail_pokemon_inner_pokemon import AbilityDet
 from pokeapiclient.models.gender_detail_pokemon_species_details_inner import GenderDetailPokemonSpeciesDetailsInner
 from typing import Optional, Set
 from typing_extensions import Self
+from pydantic_core import to_jsonable_python
 
 class GenderDetail(BaseModel):
     """
@@ -37,7 +38,8 @@ class GenderDetail(BaseModel):
     __properties: ClassVar[List[str]] = ["id", "name", "pokemon_species_details", "required_for_evolution"]
 
     model_config = ConfigDict(
-        populate_by_name=True,
+        validate_by_name=True,
+        validate_by_alias=True,
         validate_assignment=True,
         protected_namespaces=(),
     )
@@ -49,8 +51,7 @@ class GenderDetail(BaseModel):
 
     def to_json(self) -> str:
         """Returns the JSON representation of the model using alias"""
-        # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
-        return json.dumps(self.to_dict())
+        return json.dumps(to_jsonable_python(self.to_dict()))
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
@@ -67,9 +68,13 @@ class GenderDetail(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         * OpenAPI `readOnly` fields are excluded.
+        * OpenAPI `readOnly` fields are excluded.
+        * OpenAPI `readOnly` fields are excluded.
         """
         excluded_fields: Set[str] = set([
             "id",
+            "pokemon_species_details",
+            "required_for_evolution",
         ])
 
         _dict = self.model_dump(

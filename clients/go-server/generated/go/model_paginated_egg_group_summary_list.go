@@ -25,7 +25,8 @@ type PaginatedEggGroupSummaryList struct {
 	Results []EggGroupSummary `json:"results,omitempty"`
 }
 
-// AssertPaginatedEggGroupSummaryListRequired checks if the required fields are not zero-ed
+// AssertPaginatedEggGroupSummaryListRequired checks complex required fields (models, arrays, maps) and embedded parents.
+// Primitive required fields are validated for JSON request bodies in UnmarshalJSON so zero values remain valid.
 func AssertPaginatedEggGroupSummaryListRequired(obj PaginatedEggGroupSummaryList) error {
 	for _, el := range obj.Results {
 		if err := AssertEggGroupSummaryRequired(el); err != nil {

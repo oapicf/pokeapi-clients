@@ -51,7 +51,7 @@ public:
 
 	/*! \brief Set 
 	 */
-	void setRDefault(std::string  r_default);
+	void setRDefault(std::string r_default);
 
 
     private:

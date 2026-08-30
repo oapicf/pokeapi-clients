@@ -17,7 +17,7 @@ import VersionSummary from './VersionSummary';
 /**
  * The PaginatedVersionSummaryList model module.
  * @module model/PaginatedVersionSummaryList
- * @version 1.2.1-pre.0
+ * @version 2.0.1-pre.0
  */
 class PaginatedVersionSummaryList {
     /**

@@ -123,19 +123,6 @@ public class MoveChange  {
     return effectEntries;
   }
 
-  public void setEffectEntries(List<MoveChangeEffectEntriesInner> effectEntries) {
-    this.effectEntries = effectEntries;
-  }
-
-  public MoveChange effectEntries(List<MoveChangeEffectEntriesInner> effectEntries) {
-    this.effectEntries = effectEntries;
-    return this;
-  }
-
-  public MoveChange addEffectEntriesItem(MoveChangeEffectEntriesInner effectEntriesItem) {
-    this.effectEntries.add(effectEntriesItem);
-    return this;
-  }
 
  /**
    * Get type
@@ -217,10 +204,7 @@ public class MoveChange  {
    * (except the first line).
    */
   private static String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 }
 

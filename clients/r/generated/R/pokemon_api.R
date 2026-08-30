@@ -745,10 +745,11 @@ PokemonApi <- R6::R6Class(
     #' @param q (optional) > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. 
     #' @param data_file (optional) name of the data file to save the result
     #' @param ... Other optional arguments
+    #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return PaginatedAbilitySummaryList
-    AbilityList = function(limit = NULL, offset = NULL, q = NULL, data_file = NULL, ...) {
-      local_var_response <- self$AbilityListWithHttpInfo(limit, offset, q, data_file = data_file, ...)
+    AbilityList = function(limit = NULL, offset = NULL, q = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$AbilityListWithHttpInfo(limit, offset, q, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -768,9 +769,10 @@ PokemonApi <- R6::R6Class(
     #' @param q (optional) > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. 
     #' @param data_file (optional) name of the data file to save the result
     #' @param ... Other optional arguments
+    #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (PaginatedAbilitySummaryList) with additional information such as HTTP status code, headers
-    AbilityListWithHttpInfo = function(limit = NULL, offset = NULL, q = NULL, data_file = NULL, ...) {
+    AbilityListWithHttpInfo = function(limit = NULL, offset = NULL, q = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -829,6 +831,10 @@ PokemonApi <- R6::R6Class(
         if (!is.null(data_file)) {
           self$api_client$WriteFile(local_var_resp, data_file)
         }
+        if (!.parse) {
+          local_var_resp$content <- local_var_resp$response_as_text()
+          return(local_var_resp)
+        }
 
         deserialized_resp_obj <- tryCatch(
           self$api_client$DeserializeResponse(local_var_resp, "PaginatedAbilitySummaryList"),
@@ -842,11 +848,15 @@ PokemonApi <- R6::R6Class(
       
       local_var_error_msg <- local_var_resp$response_as_text()      
       if (local_var_resp$status_code >= 300 && local_var_resp$status_code <= 399) {
-        ApiResponse$new(paste("Server returned ", local_var_resp$status_code, " response status code."), local_var_resp)
+        ApiResponse$new(content = paste("Server returned ", local_var_resp$status_code, " response status code."),
+                        response = local_var_resp,
+                        status_code = local_var_resp$status_code)
       } else if (local_var_resp$status_code >= 400 && local_var_resp$status_code <= 499) {
-        ApiResponse$new("API client error", local_var_resp)
+        ApiResponse$new(content = "API client error",
+                        response = local_var_resp,
+                        status_code = local_var_resp$status_code)
       } else if (local_var_resp$status_code >= 500 && local_var_resp$status_code <= 599) {
-        if (is.null(local_var_resp$response) || local_var_resp$response == "") {
+        if (is.null(local_var_resp$response) || all(local_var_resp$response == "")) {
           local_var_resp$response <- "API server error"
         }
         return(local_var_resp)
@@ -859,10 +869,11 @@ PokemonApi <- R6::R6Class(
     #' @param id This parameter can be a string or an integer.
     #' @param data_file (optional) name of the data file to save the result
     #' @param ... Other optional arguments
+    #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return AbilityDetail
-    AbilityRetrieve = function(id, data_file = NULL, ...) {
-      local_var_response <- self$AbilityRetrieveWithHttpInfo(id, data_file = data_file, ...)
+    AbilityRetrieve = function(id, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$AbilityRetrieveWithHttpInfo(id, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -880,9 +891,10 @@ PokemonApi <- R6::R6Class(
     #' @param id This parameter can be a string or an integer.
     #' @param data_file (optional) name of the data file to save the result
     #' @param ... Other optional arguments
+    #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (AbilityDetail) with additional information such as HTTP status code, headers
-    AbilityRetrieveWithHttpInfo = function(id, data_file = NULL, ...) {
+    AbilityRetrieveWithHttpInfo = function(id, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -935,6 +947,10 @@ PokemonApi <- R6::R6Class(
         if (!is.null(data_file)) {
           self$api_client$WriteFile(local_var_resp, data_file)
         }
+        if (!.parse) {
+          local_var_resp$content <- local_var_resp$response_as_text()
+          return(local_var_resp)
+        }
 
         deserialized_resp_obj <- tryCatch(
           self$api_client$DeserializeResponse(local_var_resp, "AbilityDetail"),
@@ -948,11 +964,15 @@ PokemonApi <- R6::R6Class(
       
       local_var_error_msg <- local_var_resp$response_as_text()      
       if (local_var_resp$status_code >= 300 && local_var_resp$status_code <= 399) {
-        ApiResponse$new(paste("Server returned ", local_var_resp$status_code, " response status code."), local_var_resp)
+        ApiResponse$new(content = paste("Server returned ", local_var_resp$status_code, " response status code."),
+                        response = local_var_resp,
+                        status_code = local_var_resp$status_code)
       } else if (local_var_resp$status_code >= 400 && local_var_resp$status_code <= 499) {
-        ApiResponse$new("API client error", local_var_resp)
+        ApiResponse$new(content = "API client error",
+                        response = local_var_resp,
+                        status_code = local_var_resp$status_code)
       } else if (local_var_resp$status_code >= 500 && local_var_resp$status_code <= 599) {
-        if (is.null(local_var_resp$response) || local_var_resp$response == "") {
+        if (is.null(local_var_resp$response) || all(local_var_resp$response == "")) {
           local_var_resp$response <- "API server error"
         }
         return(local_var_resp)
@@ -967,10 +987,11 @@ PokemonApi <- R6::R6Class(
     #' @param q (optional) > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. 
     #' @param data_file (optional) name of the data file to save the result
     #' @param ... Other optional arguments
+    #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return PaginatedCharacteristicSummaryList
-    CharacteristicList = function(limit = NULL, offset = NULL, q = NULL, data_file = NULL, ...) {
-      local_var_response <- self$CharacteristicListWithHttpInfo(limit, offset, q, data_file = data_file, ...)
+    CharacteristicList = function(limit = NULL, offset = NULL, q = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$CharacteristicListWithHttpInfo(limit, offset, q, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -990,9 +1011,10 @@ PokemonApi <- R6::R6Class(
     #' @param q (optional) > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. 
     #' @param data_file (optional) name of the data file to save the result
     #' @param ... Other optional arguments
+    #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (PaginatedCharacteristicSummaryList) with additional information such as HTTP status code, headers
-    CharacteristicListWithHttpInfo = function(limit = NULL, offset = NULL, q = NULL, data_file = NULL, ...) {
+    CharacteristicListWithHttpInfo = function(limit = NULL, offset = NULL, q = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -1051,6 +1073,10 @@ PokemonApi <- R6::R6Class(
         if (!is.null(data_file)) {
           self$api_client$WriteFile(local_var_resp, data_file)
         }
+        if (!.parse) {
+          local_var_resp$content <- local_var_resp$response_as_text()
+          return(local_var_resp)
+        }
 
         deserialized_resp_obj <- tryCatch(
           self$api_client$DeserializeResponse(local_var_resp, "PaginatedCharacteristicSummaryList"),
@@ -1064,11 +1090,15 @@ PokemonApi <- R6::R6Class(
       
       local_var_error_msg <- local_var_resp$response_as_text()      
       if (local_var_resp$status_code >= 300 && local_var_resp$status_code <= 399) {
-        ApiResponse$new(paste("Server returned ", local_var_resp$status_code, " response status code."), local_var_resp)
+        ApiResponse$new(content = paste("Server returned ", local_var_resp$status_code, " response status code."),
+                        response = local_var_resp,
+                        status_code = local_var_resp$status_code)
       } else if (local_var_resp$status_code >= 400 && local_var_resp$status_code <= 499) {
-        ApiResponse$new("API client error", local_var_resp)
+        ApiResponse$new(content = "API client error",
+                        response = local_var_resp,
+                        status_code = local_var_resp$status_code)
       } else if (local_var_resp$status_code >= 500 && local_var_resp$status_code <= 599) {
-        if (is.null(local_var_resp$response) || local_var_resp$response == "") {
+        if (is.null(local_var_resp$response) || all(local_var_resp$response == "")) {
           local_var_resp$response <- "API server error"
         }
         return(local_var_resp)
@@ -1081,10 +1111,11 @@ PokemonApi <- R6::R6Class(
     #' @param id This parameter can be a string or an integer.
     #' @param data_file (optional) name of the data file to save the result
     #' @param ... Other optional arguments
+    #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return CharacteristicDetail
-    CharacteristicRetrieve = function(id, data_file = NULL, ...) {
-      local_var_response <- self$CharacteristicRetrieveWithHttpInfo(id, data_file = data_file, ...)
+    CharacteristicRetrieve = function(id, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$CharacteristicRetrieveWithHttpInfo(id, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -1102,9 +1133,10 @@ PokemonApi <- R6::R6Class(
     #' @param id This parameter can be a string or an integer.
     #' @param data_file (optional) name of the data file to save the result
     #' @param ... Other optional arguments
+    #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (CharacteristicDetail) with additional information such as HTTP status code, headers
-    CharacteristicRetrieveWithHttpInfo = function(id, data_file = NULL, ...) {
+    CharacteristicRetrieveWithHttpInfo = function(id, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -1157,6 +1189,10 @@ PokemonApi <- R6::R6Class(
         if (!is.null(data_file)) {
           self$api_client$WriteFile(local_var_resp, data_file)
         }
+        if (!.parse) {
+          local_var_resp$content <- local_var_resp$response_as_text()
+          return(local_var_resp)
+        }
 
         deserialized_resp_obj <- tryCatch(
           self$api_client$DeserializeResponse(local_var_resp, "CharacteristicDetail"),
@@ -1170,11 +1206,15 @@ PokemonApi <- R6::R6Class(
       
       local_var_error_msg <- local_var_resp$response_as_text()      
       if (local_var_resp$status_code >= 300 && local_var_resp$status_code <= 399) {
-        ApiResponse$new(paste("Server returned ", local_var_resp$status_code, " response status code."), local_var_resp)
+        ApiResponse$new(content = paste("Server returned ", local_var_resp$status_code, " response status code."),
+                        response = local_var_resp,
+                        status_code = local_var_resp$status_code)
       } else if (local_var_resp$status_code >= 400 && local_var_resp$status_code <= 499) {
-        ApiResponse$new("API client error", local_var_resp)
+        ApiResponse$new(content = "API client error",
+                        response = local_var_resp,
+                        status_code = local_var_resp$status_code)
       } else if (local_var_resp$status_code >= 500 && local_var_resp$status_code <= 599) {
-        if (is.null(local_var_resp$response) || local_var_resp$response == "") {
+        if (is.null(local_var_resp$response) || all(local_var_resp$response == "")) {
           local_var_resp$response <- "API server error"
         }
         return(local_var_resp)
@@ -1189,10 +1229,11 @@ PokemonApi <- R6::R6Class(
     #' @param q (optional) > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. 
     #' @param data_file (optional) name of the data file to save the result
     #' @param ... Other optional arguments
+    #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return PaginatedEggGroupSummaryList
-    EggGroupList = function(limit = NULL, offset = NULL, q = NULL, data_file = NULL, ...) {
-      local_var_response <- self$EggGroupListWithHttpInfo(limit, offset, q, data_file = data_file, ...)
+    EggGroupList = function(limit = NULL, offset = NULL, q = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$EggGroupListWithHttpInfo(limit, offset, q, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -1212,9 +1253,10 @@ PokemonApi <- R6::R6Class(
     #' @param q (optional) > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. 
     #' @param data_file (optional) name of the data file to save the result
     #' @param ... Other optional arguments
+    #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (PaginatedEggGroupSummaryList) with additional information such as HTTP status code, headers
-    EggGroupListWithHttpInfo = function(limit = NULL, offset = NULL, q = NULL, data_file = NULL, ...) {
+    EggGroupListWithHttpInfo = function(limit = NULL, offset = NULL, q = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -1273,6 +1315,10 @@ PokemonApi <- R6::R6Class(
         if (!is.null(data_file)) {
           self$api_client$WriteFile(local_var_resp, data_file)
         }
+        if (!.parse) {
+          local_var_resp$content <- local_var_resp$response_as_text()
+          return(local_var_resp)
+        }
 
         deserialized_resp_obj <- tryCatch(
           self$api_client$DeserializeResponse(local_var_resp, "PaginatedEggGroupSummaryList"),
@@ -1286,11 +1332,15 @@ PokemonApi <- R6::R6Class(
       
       local_var_error_msg <- local_var_resp$response_as_text()      
       if (local_var_resp$status_code >= 300 && local_var_resp$status_code <= 399) {
-        ApiResponse$new(paste("Server returned ", local_var_resp$status_code, " response status code."), local_var_resp)
+        ApiResponse$new(content = paste("Server returned ", local_var_resp$status_code, " response status code."),
+                        response = local_var_resp,
+                        status_code = local_var_resp$status_code)
       } else if (local_var_resp$status_code >= 400 && local_var_resp$status_code <= 499) {
-        ApiResponse$new("API client error", local_var_resp)
+        ApiResponse$new(content = "API client error",
+                        response = local_var_resp,
+                        status_code = local_var_resp$status_code)
       } else if (local_var_resp$status_code >= 500 && local_var_resp$status_code <= 599) {
-        if (is.null(local_var_resp$response) || local_var_resp$response == "") {
+        if (is.null(local_var_resp$response) || all(local_var_resp$response == "")) {
           local_var_resp$response <- "API server error"
         }
         return(local_var_resp)
@@ -1303,10 +1353,11 @@ PokemonApi <- R6::R6Class(
     #' @param id This parameter can be a string or an integer.
     #' @param data_file (optional) name of the data file to save the result
     #' @param ... Other optional arguments
+    #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return EggGroupDetail
-    EggGroupRetrieve = function(id, data_file = NULL, ...) {
-      local_var_response <- self$EggGroupRetrieveWithHttpInfo(id, data_file = data_file, ...)
+    EggGroupRetrieve = function(id, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$EggGroupRetrieveWithHttpInfo(id, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -1324,9 +1375,10 @@ PokemonApi <- R6::R6Class(
     #' @param id This parameter can be a string or an integer.
     #' @param data_file (optional) name of the data file to save the result
     #' @param ... Other optional arguments
+    #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (EggGroupDetail) with additional information such as HTTP status code, headers
-    EggGroupRetrieveWithHttpInfo = function(id, data_file = NULL, ...) {
+    EggGroupRetrieveWithHttpInfo = function(id, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -1379,6 +1431,10 @@ PokemonApi <- R6::R6Class(
         if (!is.null(data_file)) {
           self$api_client$WriteFile(local_var_resp, data_file)
         }
+        if (!.parse) {
+          local_var_resp$content <- local_var_resp$response_as_text()
+          return(local_var_resp)
+        }
 
         deserialized_resp_obj <- tryCatch(
           self$api_client$DeserializeResponse(local_var_resp, "EggGroupDetail"),
@@ -1392,11 +1448,15 @@ PokemonApi <- R6::R6Class(
       
       local_var_error_msg <- local_var_resp$response_as_text()      
       if (local_var_resp$status_code >= 300 && local_var_resp$status_code <= 399) {
-        ApiResponse$new(paste("Server returned ", local_var_resp$status_code, " response status code."), local_var_resp)
+        ApiResponse$new(content = paste("Server returned ", local_var_resp$status_code, " response status code."),
+                        response = local_var_resp,
+                        status_code = local_var_resp$status_code)
       } else if (local_var_resp$status_code >= 400 && local_var_resp$status_code <= 499) {
-        ApiResponse$new("API client error", local_var_resp)
+        ApiResponse$new(content = "API client error",
+                        response = local_var_resp,
+                        status_code = local_var_resp$status_code)
       } else if (local_var_resp$status_code >= 500 && local_var_resp$status_code <= 599) {
-        if (is.null(local_var_resp$response) || local_var_resp$response == "") {
+        if (is.null(local_var_resp$response) || all(local_var_resp$response == "")) {
           local_var_resp$response <- "API server error"
         }
         return(local_var_resp)
@@ -1411,10 +1471,11 @@ PokemonApi <- R6::R6Class(
     #' @param q (optional) > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. 
     #' @param data_file (optional) name of the data file to save the result
     #' @param ... Other optional arguments
+    #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return PaginatedGenderSummaryList
-    GenderList = function(limit = NULL, offset = NULL, q = NULL, data_file = NULL, ...) {
-      local_var_response <- self$GenderListWithHttpInfo(limit, offset, q, data_file = data_file, ...)
+    GenderList = function(limit = NULL, offset = NULL, q = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$GenderListWithHttpInfo(limit, offset, q, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -1434,9 +1495,10 @@ PokemonApi <- R6::R6Class(
     #' @param q (optional) > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. 
     #' @param data_file (optional) name of the data file to save the result
     #' @param ... Other optional arguments
+    #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (PaginatedGenderSummaryList) with additional information such as HTTP status code, headers
-    GenderListWithHttpInfo = function(limit = NULL, offset = NULL, q = NULL, data_file = NULL, ...) {
+    GenderListWithHttpInfo = function(limit = NULL, offset = NULL, q = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -1495,6 +1557,10 @@ PokemonApi <- R6::R6Class(
         if (!is.null(data_file)) {
           self$api_client$WriteFile(local_var_resp, data_file)
         }
+        if (!.parse) {
+          local_var_resp$content <- local_var_resp$response_as_text()
+          return(local_var_resp)
+        }
 
         deserialized_resp_obj <- tryCatch(
           self$api_client$DeserializeResponse(local_var_resp, "PaginatedGenderSummaryList"),
@@ -1508,11 +1574,15 @@ PokemonApi <- R6::R6Class(
       
       local_var_error_msg <- local_var_resp$response_as_text()      
       if (local_var_resp$status_code >= 300 && local_var_resp$status_code <= 399) {
-        ApiResponse$new(paste("Server returned ", local_var_resp$status_code, " response status code."), local_var_resp)
+        ApiResponse$new(content = paste("Server returned ", local_var_resp$status_code, " response status code."),
+                        response = local_var_resp,
+                        status_code = local_var_resp$status_code)
       } else if (local_var_resp$status_code >= 400 && local_var_resp$status_code <= 499) {
-        ApiResponse$new("API client error", local_var_resp)
+        ApiResponse$new(content = "API client error",
+                        response = local_var_resp,
+                        status_code = local_var_resp$status_code)
       } else if (local_var_resp$status_code >= 500 && local_var_resp$status_code <= 599) {
-        if (is.null(local_var_resp$response) || local_var_resp$response == "") {
+        if (is.null(local_var_resp$response) || all(local_var_resp$response == "")) {
           local_var_resp$response <- "API server error"
         }
         return(local_var_resp)
@@ -1525,10 +1595,11 @@ PokemonApi <- R6::R6Class(
     #' @param id This parameter can be a string or an integer.
     #' @param data_file (optional) name of the data file to save the result
     #' @param ... Other optional arguments
+    #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return GenderDetail
-    GenderRetrieve = function(id, data_file = NULL, ...) {
-      local_var_response <- self$GenderRetrieveWithHttpInfo(id, data_file = data_file, ...)
+    GenderRetrieve = function(id, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$GenderRetrieveWithHttpInfo(id, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -1546,9 +1617,10 @@ PokemonApi <- R6::R6Class(
     #' @param id This parameter can be a string or an integer.
     #' @param data_file (optional) name of the data file to save the result
     #' @param ... Other optional arguments
+    #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (GenderDetail) with additional information such as HTTP status code, headers
-    GenderRetrieveWithHttpInfo = function(id, data_file = NULL, ...) {
+    GenderRetrieveWithHttpInfo = function(id, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -1601,6 +1673,10 @@ PokemonApi <- R6::R6Class(
         if (!is.null(data_file)) {
           self$api_client$WriteFile(local_var_resp, data_file)
         }
+        if (!.parse) {
+          local_var_resp$content <- local_var_resp$response_as_text()
+          return(local_var_resp)
+        }
 
         deserialized_resp_obj <- tryCatch(
           self$api_client$DeserializeResponse(local_var_resp, "GenderDetail"),
@@ -1614,11 +1690,15 @@ PokemonApi <- R6::R6Class(
       
       local_var_error_msg <- local_var_resp$response_as_text()      
       if (local_var_resp$status_code >= 300 && local_var_resp$status_code <= 399) {
-        ApiResponse$new(paste("Server returned ", local_var_resp$status_code, " response status code."), local_var_resp)
+        ApiResponse$new(content = paste("Server returned ", local_var_resp$status_code, " response status code."),
+                        response = local_var_resp,
+                        status_code = local_var_resp$status_code)
       } else if (local_var_resp$status_code >= 400 && local_var_resp$status_code <= 499) {
-        ApiResponse$new("API client error", local_var_resp)
+        ApiResponse$new(content = "API client error",
+                        response = local_var_resp,
+                        status_code = local_var_resp$status_code)
       } else if (local_var_resp$status_code >= 500 && local_var_resp$status_code <= 599) {
-        if (is.null(local_var_resp$response) || local_var_resp$response == "") {
+        if (is.null(local_var_resp$response) || all(local_var_resp$response == "")) {
           local_var_resp$response <- "API server error"
         }
         return(local_var_resp)
@@ -1633,10 +1713,11 @@ PokemonApi <- R6::R6Class(
     #' @param q (optional) > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. 
     #' @param data_file (optional) name of the data file to save the result
     #' @param ... Other optional arguments
+    #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return PaginatedGrowthRateSummaryList
-    GrowthRateList = function(limit = NULL, offset = NULL, q = NULL, data_file = NULL, ...) {
-      local_var_response <- self$GrowthRateListWithHttpInfo(limit, offset, q, data_file = data_file, ...)
+    GrowthRateList = function(limit = NULL, offset = NULL, q = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$GrowthRateListWithHttpInfo(limit, offset, q, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -1656,9 +1737,10 @@ PokemonApi <- R6::R6Class(
     #' @param q (optional) > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. 
     #' @param data_file (optional) name of the data file to save the result
     #' @param ... Other optional arguments
+    #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (PaginatedGrowthRateSummaryList) with additional information such as HTTP status code, headers
-    GrowthRateListWithHttpInfo = function(limit = NULL, offset = NULL, q = NULL, data_file = NULL, ...) {
+    GrowthRateListWithHttpInfo = function(limit = NULL, offset = NULL, q = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -1717,6 +1799,10 @@ PokemonApi <- R6::R6Class(
         if (!is.null(data_file)) {
           self$api_client$WriteFile(local_var_resp, data_file)
         }
+        if (!.parse) {
+          local_var_resp$content <- local_var_resp$response_as_text()
+          return(local_var_resp)
+        }
 
         deserialized_resp_obj <- tryCatch(
           self$api_client$DeserializeResponse(local_var_resp, "PaginatedGrowthRateSummaryList"),
@@ -1730,11 +1816,15 @@ PokemonApi <- R6::R6Class(
       
       local_var_error_msg <- local_var_resp$response_as_text()      
       if (local_var_resp$status_code >= 300 && local_var_resp$status_code <= 399) {
-        ApiResponse$new(paste("Server returned ", local_var_resp$status_code, " response status code."), local_var_resp)
+        ApiResponse$new(content = paste("Server returned ", local_var_resp$status_code, " response status code."),
+                        response = local_var_resp,
+                        status_code = local_var_resp$status_code)
       } else if (local_var_resp$status_code >= 400 && local_var_resp$status_code <= 499) {
-        ApiResponse$new("API client error", local_var_resp)
+        ApiResponse$new(content = "API client error",
+                        response = local_var_resp,
+                        status_code = local_var_resp$status_code)
       } else if (local_var_resp$status_code >= 500 && local_var_resp$status_code <= 599) {
-        if (is.null(local_var_resp$response) || local_var_resp$response == "") {
+        if (is.null(local_var_resp$response) || all(local_var_resp$response == "")) {
           local_var_resp$response <- "API server error"
         }
         return(local_var_resp)
@@ -1747,10 +1837,11 @@ PokemonApi <- R6::R6Class(
     #' @param id This parameter can be a string or an integer.
     #' @param data_file (optional) name of the data file to save the result
     #' @param ... Other optional arguments
+    #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return GrowthRateDetail
-    GrowthRateRetrieve = function(id, data_file = NULL, ...) {
-      local_var_response <- self$GrowthRateRetrieveWithHttpInfo(id, data_file = data_file, ...)
+    GrowthRateRetrieve = function(id, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$GrowthRateRetrieveWithHttpInfo(id, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -1768,9 +1859,10 @@ PokemonApi <- R6::R6Class(
     #' @param id This parameter can be a string or an integer.
     #' @param data_file (optional) name of the data file to save the result
     #' @param ... Other optional arguments
+    #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (GrowthRateDetail) with additional information such as HTTP status code, headers
-    GrowthRateRetrieveWithHttpInfo = function(id, data_file = NULL, ...) {
+    GrowthRateRetrieveWithHttpInfo = function(id, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -1823,6 +1915,10 @@ PokemonApi <- R6::R6Class(
         if (!is.null(data_file)) {
           self$api_client$WriteFile(local_var_resp, data_file)
         }
+        if (!.parse) {
+          local_var_resp$content <- local_var_resp$response_as_text()
+          return(local_var_resp)
+        }
 
         deserialized_resp_obj <- tryCatch(
           self$api_client$DeserializeResponse(local_var_resp, "GrowthRateDetail"),
@@ -1836,11 +1932,15 @@ PokemonApi <- R6::R6Class(
       
       local_var_error_msg <- local_var_resp$response_as_text()      
       if (local_var_resp$status_code >= 300 && local_var_resp$status_code <= 399) {
-        ApiResponse$new(paste("Server returned ", local_var_resp$status_code, " response status code."), local_var_resp)
+        ApiResponse$new(content = paste("Server returned ", local_var_resp$status_code, " response status code."),
+                        response = local_var_resp,
+                        status_code = local_var_resp$status_code)
       } else if (local_var_resp$status_code >= 400 && local_var_resp$status_code <= 499) {
-        ApiResponse$new("API client error", local_var_resp)
+        ApiResponse$new(content = "API client error",
+                        response = local_var_resp,
+                        status_code = local_var_resp$status_code)
       } else if (local_var_resp$status_code >= 500 && local_var_resp$status_code <= 599) {
-        if (is.null(local_var_resp$response) || local_var_resp$response == "") {
+        if (is.null(local_var_resp$response) || all(local_var_resp$response == "")) {
           local_var_resp$response <- "API server error"
         }
         return(local_var_resp)
@@ -1855,10 +1955,11 @@ PokemonApi <- R6::R6Class(
     #' @param q (optional) > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. 
     #' @param data_file (optional) name of the data file to save the result
     #' @param ... Other optional arguments
+    #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return PaginatedMoveDamageClassSummaryList
-    MoveDamageClassList = function(limit = NULL, offset = NULL, q = NULL, data_file = NULL, ...) {
-      local_var_response <- self$MoveDamageClassListWithHttpInfo(limit, offset, q, data_file = data_file, ...)
+    MoveDamageClassList = function(limit = NULL, offset = NULL, q = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$MoveDamageClassListWithHttpInfo(limit, offset, q, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -1878,9 +1979,10 @@ PokemonApi <- R6::R6Class(
     #' @param q (optional) > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. 
     #' @param data_file (optional) name of the data file to save the result
     #' @param ... Other optional arguments
+    #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (PaginatedMoveDamageClassSummaryList) with additional information such as HTTP status code, headers
-    MoveDamageClassListWithHttpInfo = function(limit = NULL, offset = NULL, q = NULL, data_file = NULL, ...) {
+    MoveDamageClassListWithHttpInfo = function(limit = NULL, offset = NULL, q = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -1939,6 +2041,10 @@ PokemonApi <- R6::R6Class(
         if (!is.null(data_file)) {
           self$api_client$WriteFile(local_var_resp, data_file)
         }
+        if (!.parse) {
+          local_var_resp$content <- local_var_resp$response_as_text()
+          return(local_var_resp)
+        }
 
         deserialized_resp_obj <- tryCatch(
           self$api_client$DeserializeResponse(local_var_resp, "PaginatedMoveDamageClassSummaryList"),
@@ -1952,11 +2058,15 @@ PokemonApi <- R6::R6Class(
       
       local_var_error_msg <- local_var_resp$response_as_text()      
       if (local_var_resp$status_code >= 300 && local_var_resp$status_code <= 399) {
-        ApiResponse$new(paste("Server returned ", local_var_resp$status_code, " response status code."), local_var_resp)
+        ApiResponse$new(content = paste("Server returned ", local_var_resp$status_code, " response status code."),
+                        response = local_var_resp,
+                        status_code = local_var_resp$status_code)
       } else if (local_var_resp$status_code >= 400 && local_var_resp$status_code <= 499) {
-        ApiResponse$new("API client error", local_var_resp)
+        ApiResponse$new(content = "API client error",
+                        response = local_var_resp,
+                        status_code = local_var_resp$status_code)
       } else if (local_var_resp$status_code >= 500 && local_var_resp$status_code <= 599) {
-        if (is.null(local_var_resp$response) || local_var_resp$response == "") {
+        if (is.null(local_var_resp$response) || all(local_var_resp$response == "")) {
           local_var_resp$response <- "API server error"
         }
         return(local_var_resp)
@@ -1969,10 +2079,11 @@ PokemonApi <- R6::R6Class(
     #' @param id This parameter can be a string or an integer.
     #' @param data_file (optional) name of the data file to save the result
     #' @param ... Other optional arguments
+    #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return MoveDamageClassDetail
-    MoveDamageClassRetrieve = function(id, data_file = NULL, ...) {
-      local_var_response <- self$MoveDamageClassRetrieveWithHttpInfo(id, data_file = data_file, ...)
+    MoveDamageClassRetrieve = function(id, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$MoveDamageClassRetrieveWithHttpInfo(id, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -1990,9 +2101,10 @@ PokemonApi <- R6::R6Class(
     #' @param id This parameter can be a string or an integer.
     #' @param data_file (optional) name of the data file to save the result
     #' @param ... Other optional arguments
+    #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (MoveDamageClassDetail) with additional information such as HTTP status code, headers
-    MoveDamageClassRetrieveWithHttpInfo = function(id, data_file = NULL, ...) {
+    MoveDamageClassRetrieveWithHttpInfo = function(id, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -2045,6 +2157,10 @@ PokemonApi <- R6::R6Class(
         if (!is.null(data_file)) {
           self$api_client$WriteFile(local_var_resp, data_file)
         }
+        if (!.parse) {
+          local_var_resp$content <- local_var_resp$response_as_text()
+          return(local_var_resp)
+        }
 
         deserialized_resp_obj <- tryCatch(
           self$api_client$DeserializeResponse(local_var_resp, "MoveDamageClassDetail"),
@@ -2058,11 +2174,15 @@ PokemonApi <- R6::R6Class(
       
       local_var_error_msg <- local_var_resp$response_as_text()      
       if (local_var_resp$status_code >= 300 && local_var_resp$status_code <= 399) {
-        ApiResponse$new(paste("Server returned ", local_var_resp$status_code, " response status code."), local_var_resp)
+        ApiResponse$new(content = paste("Server returned ", local_var_resp$status_code, " response status code."),
+                        response = local_var_resp,
+                        status_code = local_var_resp$status_code)
       } else if (local_var_resp$status_code >= 400 && local_var_resp$status_code <= 499) {
-        ApiResponse$new("API client error", local_var_resp)
+        ApiResponse$new(content = "API client error",
+                        response = local_var_resp,
+                        status_code = local_var_resp$status_code)
       } else if (local_var_resp$status_code >= 500 && local_var_resp$status_code <= 599) {
-        if (is.null(local_var_resp$response) || local_var_resp$response == "") {
+        if (is.null(local_var_resp$response) || all(local_var_resp$response == "")) {
           local_var_resp$response <- "API server error"
         }
         return(local_var_resp)
@@ -2077,10 +2197,11 @@ PokemonApi <- R6::R6Class(
     #' @param q (optional) > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. 
     #' @param data_file (optional) name of the data file to save the result
     #' @param ... Other optional arguments
+    #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return PaginatedNatureSummaryList
-    NatureList = function(limit = NULL, offset = NULL, q = NULL, data_file = NULL, ...) {
-      local_var_response <- self$NatureListWithHttpInfo(limit, offset, q, data_file = data_file, ...)
+    NatureList = function(limit = NULL, offset = NULL, q = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$NatureListWithHttpInfo(limit, offset, q, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -2100,9 +2221,10 @@ PokemonApi <- R6::R6Class(
     #' @param q (optional) > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. 
     #' @param data_file (optional) name of the data file to save the result
     #' @param ... Other optional arguments
+    #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (PaginatedNatureSummaryList) with additional information such as HTTP status code, headers
-    NatureListWithHttpInfo = function(limit = NULL, offset = NULL, q = NULL, data_file = NULL, ...) {
+    NatureListWithHttpInfo = function(limit = NULL, offset = NULL, q = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -2161,6 +2283,10 @@ PokemonApi <- R6::R6Class(
         if (!is.null(data_file)) {
           self$api_client$WriteFile(local_var_resp, data_file)
         }
+        if (!.parse) {
+          local_var_resp$content <- local_var_resp$response_as_text()
+          return(local_var_resp)
+        }
 
         deserialized_resp_obj <- tryCatch(
           self$api_client$DeserializeResponse(local_var_resp, "PaginatedNatureSummaryList"),
@@ -2174,11 +2300,15 @@ PokemonApi <- R6::R6Class(
       
       local_var_error_msg <- local_var_resp$response_as_text()      
       if (local_var_resp$status_code >= 300 && local_var_resp$status_code <= 399) {
-        ApiResponse$new(paste("Server returned ", local_var_resp$status_code, " response status code."), local_var_resp)
+        ApiResponse$new(content = paste("Server returned ", local_var_resp$status_code, " response status code."),
+                        response = local_var_resp,
+                        status_code = local_var_resp$status_code)
       } else if (local_var_resp$status_code >= 400 && local_var_resp$status_code <= 499) {
-        ApiResponse$new("API client error", local_var_resp)
+        ApiResponse$new(content = "API client error",
+                        response = local_var_resp,
+                        status_code = local_var_resp$status_code)
       } else if (local_var_resp$status_code >= 500 && local_var_resp$status_code <= 599) {
-        if (is.null(local_var_resp$response) || local_var_resp$response == "") {
+        if (is.null(local_var_resp$response) || all(local_var_resp$response == "")) {
           local_var_resp$response <- "API server error"
         }
         return(local_var_resp)
@@ -2191,10 +2321,11 @@ PokemonApi <- R6::R6Class(
     #' @param id This parameter can be a string or an integer.
     #' @param data_file (optional) name of the data file to save the result
     #' @param ... Other optional arguments
+    #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return NatureDetail
-    NatureRetrieve = function(id, data_file = NULL, ...) {
-      local_var_response <- self$NatureRetrieveWithHttpInfo(id, data_file = data_file, ...)
+    NatureRetrieve = function(id, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$NatureRetrieveWithHttpInfo(id, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -2212,9 +2343,10 @@ PokemonApi <- R6::R6Class(
     #' @param id This parameter can be a string or an integer.
     #' @param data_file (optional) name of the data file to save the result
     #' @param ... Other optional arguments
+    #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (NatureDetail) with additional information such as HTTP status code, headers
-    NatureRetrieveWithHttpInfo = function(id, data_file = NULL, ...) {
+    NatureRetrieveWithHttpInfo = function(id, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -2267,6 +2399,10 @@ PokemonApi <- R6::R6Class(
         if (!is.null(data_file)) {
           self$api_client$WriteFile(local_var_resp, data_file)
         }
+        if (!.parse) {
+          local_var_resp$content <- local_var_resp$response_as_text()
+          return(local_var_resp)
+        }
 
         deserialized_resp_obj <- tryCatch(
           self$api_client$DeserializeResponse(local_var_resp, "NatureDetail"),
@@ -2280,11 +2416,15 @@ PokemonApi <- R6::R6Class(
       
       local_var_error_msg <- local_var_resp$response_as_text()      
       if (local_var_resp$status_code >= 300 && local_var_resp$status_code <= 399) {
-        ApiResponse$new(paste("Server returned ", local_var_resp$status_code, " response status code."), local_var_resp)
+        ApiResponse$new(content = paste("Server returned ", local_var_resp$status_code, " response status code."),
+                        response = local_var_resp,
+                        status_code = local_var_resp$status_code)
       } else if (local_var_resp$status_code >= 400 && local_var_resp$status_code <= 499) {
-        ApiResponse$new("API client error", local_var_resp)
+        ApiResponse$new(content = "API client error",
+                        response = local_var_resp,
+                        status_code = local_var_resp$status_code)
       } else if (local_var_resp$status_code >= 500 && local_var_resp$status_code <= 599) {
-        if (is.null(local_var_resp$response) || local_var_resp$response == "") {
+        if (is.null(local_var_resp$response) || all(local_var_resp$response == "")) {
           local_var_resp$response <- "API server error"
         }
         return(local_var_resp)
@@ -2299,10 +2439,11 @@ PokemonApi <- R6::R6Class(
     #' @param q (optional) > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. 
     #' @param data_file (optional) name of the data file to save the result
     #' @param ... Other optional arguments
+    #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return PaginatedPokeathlonStatSummaryList
-    PokeathlonStatList = function(limit = NULL, offset = NULL, q = NULL, data_file = NULL, ...) {
-      local_var_response <- self$PokeathlonStatListWithHttpInfo(limit, offset, q, data_file = data_file, ...)
+    PokeathlonStatList = function(limit = NULL, offset = NULL, q = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$PokeathlonStatListWithHttpInfo(limit, offset, q, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -2322,9 +2463,10 @@ PokemonApi <- R6::R6Class(
     #' @param q (optional) > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. 
     #' @param data_file (optional) name of the data file to save the result
     #' @param ... Other optional arguments
+    #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (PaginatedPokeathlonStatSummaryList) with additional information such as HTTP status code, headers
-    PokeathlonStatListWithHttpInfo = function(limit = NULL, offset = NULL, q = NULL, data_file = NULL, ...) {
+    PokeathlonStatListWithHttpInfo = function(limit = NULL, offset = NULL, q = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -2383,6 +2525,10 @@ PokemonApi <- R6::R6Class(
         if (!is.null(data_file)) {
           self$api_client$WriteFile(local_var_resp, data_file)
         }
+        if (!.parse) {
+          local_var_resp$content <- local_var_resp$response_as_text()
+          return(local_var_resp)
+        }
 
         deserialized_resp_obj <- tryCatch(
           self$api_client$DeserializeResponse(local_var_resp, "PaginatedPokeathlonStatSummaryList"),
@@ -2396,11 +2542,15 @@ PokemonApi <- R6::R6Class(
       
       local_var_error_msg <- local_var_resp$response_as_text()      
       if (local_var_resp$status_code >= 300 && local_var_resp$status_code <= 399) {
-        ApiResponse$new(paste("Server returned ", local_var_resp$status_code, " response status code."), local_var_resp)
+        ApiResponse$new(content = paste("Server returned ", local_var_resp$status_code, " response status code."),
+                        response = local_var_resp,
+                        status_code = local_var_resp$status_code)
       } else if (local_var_resp$status_code >= 400 && local_var_resp$status_code <= 499) {
-        ApiResponse$new("API client error", local_var_resp)
+        ApiResponse$new(content = "API client error",
+                        response = local_var_resp,
+                        status_code = local_var_resp$status_code)
       } else if (local_var_resp$status_code >= 500 && local_var_resp$status_code <= 599) {
-        if (is.null(local_var_resp$response) || local_var_resp$response == "") {
+        if (is.null(local_var_resp$response) || all(local_var_resp$response == "")) {
           local_var_resp$response <- "API server error"
         }
         return(local_var_resp)
@@ -2413,10 +2563,11 @@ PokemonApi <- R6::R6Class(
     #' @param id This parameter can be a string or an integer.
     #' @param data_file (optional) name of the data file to save the result
     #' @param ... Other optional arguments
+    #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return PokeathlonStatDetail
-    PokeathlonStatRetrieve = function(id, data_file = NULL, ...) {
-      local_var_response <- self$PokeathlonStatRetrieveWithHttpInfo(id, data_file = data_file, ...)
+    PokeathlonStatRetrieve = function(id, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$PokeathlonStatRetrieveWithHttpInfo(id, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -2434,9 +2585,10 @@ PokemonApi <- R6::R6Class(
     #' @param id This parameter can be a string or an integer.
     #' @param data_file (optional) name of the data file to save the result
     #' @param ... Other optional arguments
+    #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (PokeathlonStatDetail) with additional information such as HTTP status code, headers
-    PokeathlonStatRetrieveWithHttpInfo = function(id, data_file = NULL, ...) {
+    PokeathlonStatRetrieveWithHttpInfo = function(id, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -2489,6 +2641,10 @@ PokemonApi <- R6::R6Class(
         if (!is.null(data_file)) {
           self$api_client$WriteFile(local_var_resp, data_file)
         }
+        if (!.parse) {
+          local_var_resp$content <- local_var_resp$response_as_text()
+          return(local_var_resp)
+        }
 
         deserialized_resp_obj <- tryCatch(
           self$api_client$DeserializeResponse(local_var_resp, "PokeathlonStatDetail"),
@@ -2502,11 +2658,15 @@ PokemonApi <- R6::R6Class(
       
       local_var_error_msg <- local_var_resp$response_as_text()      
       if (local_var_resp$status_code >= 300 && local_var_resp$status_code <= 399) {
-        ApiResponse$new(paste("Server returned ", local_var_resp$status_code, " response status code."), local_var_resp)
+        ApiResponse$new(content = paste("Server returned ", local_var_resp$status_code, " response status code."),
+                        response = local_var_resp,
+                        status_code = local_var_resp$status_code)
       } else if (local_var_resp$status_code >= 400 && local_var_resp$status_code <= 499) {
-        ApiResponse$new("API client error", local_var_resp)
+        ApiResponse$new(content = "API client error",
+                        response = local_var_resp,
+                        status_code = local_var_resp$status_code)
       } else if (local_var_resp$status_code >= 500 && local_var_resp$status_code <= 599) {
-        if (is.null(local_var_resp$response) || local_var_resp$response == "") {
+        if (is.null(local_var_resp$response) || all(local_var_resp$response == "")) {
           local_var_resp$response <- "API server error"
         }
         return(local_var_resp)
@@ -2521,10 +2681,11 @@ PokemonApi <- R6::R6Class(
     #' @param q (optional) > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. 
     #' @param data_file (optional) name of the data file to save the result
     #' @param ... Other optional arguments
+    #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return PaginatedPokemonColorSummaryList
-    PokemonColorList = function(limit = NULL, offset = NULL, q = NULL, data_file = NULL, ...) {
-      local_var_response <- self$PokemonColorListWithHttpInfo(limit, offset, q, data_file = data_file, ...)
+    PokemonColorList = function(limit = NULL, offset = NULL, q = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$PokemonColorListWithHttpInfo(limit, offset, q, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -2544,9 +2705,10 @@ PokemonApi <- R6::R6Class(
     #' @param q (optional) > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. 
     #' @param data_file (optional) name of the data file to save the result
     #' @param ... Other optional arguments
+    #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (PaginatedPokemonColorSummaryList) with additional information such as HTTP status code, headers
-    PokemonColorListWithHttpInfo = function(limit = NULL, offset = NULL, q = NULL, data_file = NULL, ...) {
+    PokemonColorListWithHttpInfo = function(limit = NULL, offset = NULL, q = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -2605,6 +2767,10 @@ PokemonApi <- R6::R6Class(
         if (!is.null(data_file)) {
           self$api_client$WriteFile(local_var_resp, data_file)
         }
+        if (!.parse) {
+          local_var_resp$content <- local_var_resp$response_as_text()
+          return(local_var_resp)
+        }
 
         deserialized_resp_obj <- tryCatch(
           self$api_client$DeserializeResponse(local_var_resp, "PaginatedPokemonColorSummaryList"),
@@ -2618,11 +2784,15 @@ PokemonApi <- R6::R6Class(
       
       local_var_error_msg <- local_var_resp$response_as_text()      
       if (local_var_resp$status_code >= 300 && local_var_resp$status_code <= 399) {
-        ApiResponse$new(paste("Server returned ", local_var_resp$status_code, " response status code."), local_var_resp)
+        ApiResponse$new(content = paste("Server returned ", local_var_resp$status_code, " response status code."),
+                        response = local_var_resp,
+                        status_code = local_var_resp$status_code)
       } else if (local_var_resp$status_code >= 400 && local_var_resp$status_code <= 499) {
-        ApiResponse$new("API client error", local_var_resp)
+        ApiResponse$new(content = "API client error",
+                        response = local_var_resp,
+                        status_code = local_var_resp$status_code)
       } else if (local_var_resp$status_code >= 500 && local_var_resp$status_code <= 599) {
-        if (is.null(local_var_resp$response) || local_var_resp$response == "") {
+        if (is.null(local_var_resp$response) || all(local_var_resp$response == "")) {
           local_var_resp$response <- "API server error"
         }
         return(local_var_resp)
@@ -2635,10 +2805,11 @@ PokemonApi <- R6::R6Class(
     #' @param id This parameter can be a string or an integer.
     #' @param data_file (optional) name of the data file to save the result
     #' @param ... Other optional arguments
+    #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return PokemonColorDetail
-    PokemonColorRetrieve = function(id, data_file = NULL, ...) {
-      local_var_response <- self$PokemonColorRetrieveWithHttpInfo(id, data_file = data_file, ...)
+    PokemonColorRetrieve = function(id, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$PokemonColorRetrieveWithHttpInfo(id, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -2656,9 +2827,10 @@ PokemonApi <- R6::R6Class(
     #' @param id This parameter can be a string or an integer.
     #' @param data_file (optional) name of the data file to save the result
     #' @param ... Other optional arguments
+    #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (PokemonColorDetail) with additional information such as HTTP status code, headers
-    PokemonColorRetrieveWithHttpInfo = function(id, data_file = NULL, ...) {
+    PokemonColorRetrieveWithHttpInfo = function(id, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -2711,6 +2883,10 @@ PokemonApi <- R6::R6Class(
         if (!is.null(data_file)) {
           self$api_client$WriteFile(local_var_resp, data_file)
         }
+        if (!.parse) {
+          local_var_resp$content <- local_var_resp$response_as_text()
+          return(local_var_resp)
+        }
 
         deserialized_resp_obj <- tryCatch(
           self$api_client$DeserializeResponse(local_var_resp, "PokemonColorDetail"),
@@ -2724,11 +2900,15 @@ PokemonApi <- R6::R6Class(
       
       local_var_error_msg <- local_var_resp$response_as_text()      
       if (local_var_resp$status_code >= 300 && local_var_resp$status_code <= 399) {
-        ApiResponse$new(paste("Server returned ", local_var_resp$status_code, " response status code."), local_var_resp)
+        ApiResponse$new(content = paste("Server returned ", local_var_resp$status_code, " response status code."),
+                        response = local_var_resp,
+                        status_code = local_var_resp$status_code)
       } else if (local_var_resp$status_code >= 400 && local_var_resp$status_code <= 499) {
-        ApiResponse$new("API client error", local_var_resp)
+        ApiResponse$new(content = "API client error",
+                        response = local_var_resp,
+                        status_code = local_var_resp$status_code)
       } else if (local_var_resp$status_code >= 500 && local_var_resp$status_code <= 599) {
-        if (is.null(local_var_resp$response) || local_var_resp$response == "") {
+        if (is.null(local_var_resp$response) || all(local_var_resp$response == "")) {
           local_var_resp$response <- "API server error"
         }
         return(local_var_resp)
@@ -2743,10 +2923,11 @@ PokemonApi <- R6::R6Class(
     #' @param q (optional) > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. 
     #' @param data_file (optional) name of the data file to save the result
     #' @param ... Other optional arguments
+    #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return PaginatedPokemonFormSummaryList
-    PokemonFormList = function(limit = NULL, offset = NULL, q = NULL, data_file = NULL, ...) {
-      local_var_response <- self$PokemonFormListWithHttpInfo(limit, offset, q, data_file = data_file, ...)
+    PokemonFormList = function(limit = NULL, offset = NULL, q = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$PokemonFormListWithHttpInfo(limit, offset, q, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -2766,9 +2947,10 @@ PokemonApi <- R6::R6Class(
     #' @param q (optional) > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. 
     #' @param data_file (optional) name of the data file to save the result
     #' @param ... Other optional arguments
+    #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (PaginatedPokemonFormSummaryList) with additional information such as HTTP status code, headers
-    PokemonFormListWithHttpInfo = function(limit = NULL, offset = NULL, q = NULL, data_file = NULL, ...) {
+    PokemonFormListWithHttpInfo = function(limit = NULL, offset = NULL, q = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -2827,6 +3009,10 @@ PokemonApi <- R6::R6Class(
         if (!is.null(data_file)) {
           self$api_client$WriteFile(local_var_resp, data_file)
         }
+        if (!.parse) {
+          local_var_resp$content <- local_var_resp$response_as_text()
+          return(local_var_resp)
+        }
 
         deserialized_resp_obj <- tryCatch(
           self$api_client$DeserializeResponse(local_var_resp, "PaginatedPokemonFormSummaryList"),
@@ -2840,11 +3026,15 @@ PokemonApi <- R6::R6Class(
       
       local_var_error_msg <- local_var_resp$response_as_text()      
       if (local_var_resp$status_code >= 300 && local_var_resp$status_code <= 399) {
-        ApiResponse$new(paste("Server returned ", local_var_resp$status_code, " response status code."), local_var_resp)
+        ApiResponse$new(content = paste("Server returned ", local_var_resp$status_code, " response status code."),
+                        response = local_var_resp,
+                        status_code = local_var_resp$status_code)
       } else if (local_var_resp$status_code >= 400 && local_var_resp$status_code <= 499) {
-        ApiResponse$new("API client error", local_var_resp)
+        ApiResponse$new(content = "API client error",
+                        response = local_var_resp,
+                        status_code = local_var_resp$status_code)
       } else if (local_var_resp$status_code >= 500 && local_var_resp$status_code <= 599) {
-        if (is.null(local_var_resp$response) || local_var_resp$response == "") {
+        if (is.null(local_var_resp$response) || all(local_var_resp$response == "")) {
           local_var_resp$response <- "API server error"
         }
         return(local_var_resp)
@@ -2857,10 +3047,11 @@ PokemonApi <- R6::R6Class(
     #' @param id This parameter can be a string or an integer.
     #' @param data_file (optional) name of the data file to save the result
     #' @param ... Other optional arguments
+    #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return PokemonFormDetail
-    PokemonFormRetrieve = function(id, data_file = NULL, ...) {
-      local_var_response <- self$PokemonFormRetrieveWithHttpInfo(id, data_file = data_file, ...)
+    PokemonFormRetrieve = function(id, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$PokemonFormRetrieveWithHttpInfo(id, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -2878,9 +3069,10 @@ PokemonApi <- R6::R6Class(
     #' @param id This parameter can be a string or an integer.
     #' @param data_file (optional) name of the data file to save the result
     #' @param ... Other optional arguments
+    #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (PokemonFormDetail) with additional information such as HTTP status code, headers
-    PokemonFormRetrieveWithHttpInfo = function(id, data_file = NULL, ...) {
+    PokemonFormRetrieveWithHttpInfo = function(id, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -2933,6 +3125,10 @@ PokemonApi <- R6::R6Class(
         if (!is.null(data_file)) {
           self$api_client$WriteFile(local_var_resp, data_file)
         }
+        if (!.parse) {
+          local_var_resp$content <- local_var_resp$response_as_text()
+          return(local_var_resp)
+        }
 
         deserialized_resp_obj <- tryCatch(
           self$api_client$DeserializeResponse(local_var_resp, "PokemonFormDetail"),
@@ -2946,11 +3142,15 @@ PokemonApi <- R6::R6Class(
       
       local_var_error_msg <- local_var_resp$response_as_text()      
       if (local_var_resp$status_code >= 300 && local_var_resp$status_code <= 399) {
-        ApiResponse$new(paste("Server returned ", local_var_resp$status_code, " response status code."), local_var_resp)
+        ApiResponse$new(content = paste("Server returned ", local_var_resp$status_code, " response status code."),
+                        response = local_var_resp,
+                        status_code = local_var_resp$status_code)
       } else if (local_var_resp$status_code >= 400 && local_var_resp$status_code <= 499) {
-        ApiResponse$new("API client error", local_var_resp)
+        ApiResponse$new(content = "API client error",
+                        response = local_var_resp,
+                        status_code = local_var_resp$status_code)
       } else if (local_var_resp$status_code >= 500 && local_var_resp$status_code <= 599) {
-        if (is.null(local_var_resp$response) || local_var_resp$response == "") {
+        if (is.null(local_var_resp$response) || all(local_var_resp$response == "")) {
           local_var_resp$response <- "API server error"
         }
         return(local_var_resp)
@@ -2965,10 +3165,11 @@ PokemonApi <- R6::R6Class(
     #' @param q (optional) > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. 
     #' @param data_file (optional) name of the data file to save the result
     #' @param ... Other optional arguments
+    #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return PaginatedPokemonHabitatSummaryList
-    PokemonHabitatList = function(limit = NULL, offset = NULL, q = NULL, data_file = NULL, ...) {
-      local_var_response <- self$PokemonHabitatListWithHttpInfo(limit, offset, q, data_file = data_file, ...)
+    PokemonHabitatList = function(limit = NULL, offset = NULL, q = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$PokemonHabitatListWithHttpInfo(limit, offset, q, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -2988,9 +3189,10 @@ PokemonApi <- R6::R6Class(
     #' @param q (optional) > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. 
     #' @param data_file (optional) name of the data file to save the result
     #' @param ... Other optional arguments
+    #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (PaginatedPokemonHabitatSummaryList) with additional information such as HTTP status code, headers
-    PokemonHabitatListWithHttpInfo = function(limit = NULL, offset = NULL, q = NULL, data_file = NULL, ...) {
+    PokemonHabitatListWithHttpInfo = function(limit = NULL, offset = NULL, q = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -3049,6 +3251,10 @@ PokemonApi <- R6::R6Class(
         if (!is.null(data_file)) {
           self$api_client$WriteFile(local_var_resp, data_file)
         }
+        if (!.parse) {
+          local_var_resp$content <- local_var_resp$response_as_text()
+          return(local_var_resp)
+        }
 
         deserialized_resp_obj <- tryCatch(
           self$api_client$DeserializeResponse(local_var_resp, "PaginatedPokemonHabitatSummaryList"),
@@ -3062,11 +3268,15 @@ PokemonApi <- R6::R6Class(
       
       local_var_error_msg <- local_var_resp$response_as_text()      
       if (local_var_resp$status_code >= 300 && local_var_resp$status_code <= 399) {
-        ApiResponse$new(paste("Server returned ", local_var_resp$status_code, " response status code."), local_var_resp)
+        ApiResponse$new(content = paste("Server returned ", local_var_resp$status_code, " response status code."),
+                        response = local_var_resp,
+                        status_code = local_var_resp$status_code)
       } else if (local_var_resp$status_code >= 400 && local_var_resp$status_code <= 499) {
-        ApiResponse$new("API client error", local_var_resp)
+        ApiResponse$new(content = "API client error",
+                        response = local_var_resp,
+                        status_code = local_var_resp$status_code)
       } else if (local_var_resp$status_code >= 500 && local_var_resp$status_code <= 599) {
-        if (is.null(local_var_resp$response) || local_var_resp$response == "") {
+        if (is.null(local_var_resp$response) || all(local_var_resp$response == "")) {
           local_var_resp$response <- "API server error"
         }
         return(local_var_resp)
@@ -3079,10 +3289,11 @@ PokemonApi <- R6::R6Class(
     #' @param id This parameter can be a string or an integer.
     #' @param data_file (optional) name of the data file to save the result
     #' @param ... Other optional arguments
+    #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return PokemonHabitatDetail
-    PokemonHabitatRetrieve = function(id, data_file = NULL, ...) {
-      local_var_response <- self$PokemonHabitatRetrieveWithHttpInfo(id, data_file = data_file, ...)
+    PokemonHabitatRetrieve = function(id, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$PokemonHabitatRetrieveWithHttpInfo(id, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -3100,9 +3311,10 @@ PokemonApi <- R6::R6Class(
     #' @param id This parameter can be a string or an integer.
     #' @param data_file (optional) name of the data file to save the result
     #' @param ... Other optional arguments
+    #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (PokemonHabitatDetail) with additional information such as HTTP status code, headers
-    PokemonHabitatRetrieveWithHttpInfo = function(id, data_file = NULL, ...) {
+    PokemonHabitatRetrieveWithHttpInfo = function(id, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -3155,6 +3367,10 @@ PokemonApi <- R6::R6Class(
         if (!is.null(data_file)) {
           self$api_client$WriteFile(local_var_resp, data_file)
         }
+        if (!.parse) {
+          local_var_resp$content <- local_var_resp$response_as_text()
+          return(local_var_resp)
+        }
 
         deserialized_resp_obj <- tryCatch(
           self$api_client$DeserializeResponse(local_var_resp, "PokemonHabitatDetail"),
@@ -3168,11 +3384,15 @@ PokemonApi <- R6::R6Class(
       
       local_var_error_msg <- local_var_resp$response_as_text()      
       if (local_var_resp$status_code >= 300 && local_var_resp$status_code <= 399) {
-        ApiResponse$new(paste("Server returned ", local_var_resp$status_code, " response status code."), local_var_resp)
+        ApiResponse$new(content = paste("Server returned ", local_var_resp$status_code, " response status code."),
+                        response = local_var_resp,
+                        status_code = local_var_resp$status_code)
       } else if (local_var_resp$status_code >= 400 && local_var_resp$status_code <= 499) {
-        ApiResponse$new("API client error", local_var_resp)
+        ApiResponse$new(content = "API client error",
+                        response = local_var_resp,
+                        status_code = local_var_resp$status_code)
       } else if (local_var_resp$status_code >= 500 && local_var_resp$status_code <= 599) {
-        if (is.null(local_var_resp$response) || local_var_resp$response == "") {
+        if (is.null(local_var_resp$response) || all(local_var_resp$response == "")) {
           local_var_resp$response <- "API server error"
         }
         return(local_var_resp)
@@ -3187,10 +3407,11 @@ PokemonApi <- R6::R6Class(
     #' @param q (optional) > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. 
     #' @param data_file (optional) name of the data file to save the result
     #' @param ... Other optional arguments
+    #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return PaginatedPokemonSummaryList
-    PokemonList = function(limit = NULL, offset = NULL, q = NULL, data_file = NULL, ...) {
-      local_var_response <- self$PokemonListWithHttpInfo(limit, offset, q, data_file = data_file, ...)
+    PokemonList = function(limit = NULL, offset = NULL, q = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$PokemonListWithHttpInfo(limit, offset, q, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -3210,9 +3431,10 @@ PokemonApi <- R6::R6Class(
     #' @param q (optional) > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. 
     #' @param data_file (optional) name of the data file to save the result
     #' @param ... Other optional arguments
+    #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (PaginatedPokemonSummaryList) with additional information such as HTTP status code, headers
-    PokemonListWithHttpInfo = function(limit = NULL, offset = NULL, q = NULL, data_file = NULL, ...) {
+    PokemonListWithHttpInfo = function(limit = NULL, offset = NULL, q = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -3271,6 +3493,10 @@ PokemonApi <- R6::R6Class(
         if (!is.null(data_file)) {
           self$api_client$WriteFile(local_var_resp, data_file)
         }
+        if (!.parse) {
+          local_var_resp$content <- local_var_resp$response_as_text()
+          return(local_var_resp)
+        }
 
         deserialized_resp_obj <- tryCatch(
           self$api_client$DeserializeResponse(local_var_resp, "PaginatedPokemonSummaryList"),
@@ -3284,11 +3510,15 @@ PokemonApi <- R6::R6Class(
       
       local_var_error_msg <- local_var_resp$response_as_text()      
       if (local_var_resp$status_code >= 300 && local_var_resp$status_code <= 399) {
-        ApiResponse$new(paste("Server returned ", local_var_resp$status_code, " response status code."), local_var_resp)
+        ApiResponse$new(content = paste("Server returned ", local_var_resp$status_code, " response status code."),
+                        response = local_var_resp,
+                        status_code = local_var_resp$status_code)
       } else if (local_var_resp$status_code >= 400 && local_var_resp$status_code <= 499) {
-        ApiResponse$new("API client error", local_var_resp)
+        ApiResponse$new(content = "API client error",
+                        response = local_var_resp,
+                        status_code = local_var_resp$status_code)
       } else if (local_var_resp$status_code >= 500 && local_var_resp$status_code <= 599) {
-        if (is.null(local_var_resp$response) || local_var_resp$response == "") {
+        if (is.null(local_var_resp$response) || all(local_var_resp$response == "")) {
           local_var_resp$response <- "API server error"
         }
         return(local_var_resp)
@@ -3301,10 +3531,11 @@ PokemonApi <- R6::R6Class(
     #' @param id This parameter can be a string or an integer.
     #' @param data_file (optional) name of the data file to save the result
     #' @param ... Other optional arguments
+    #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return PokemonDetail
-    PokemonRetrieve = function(id, data_file = NULL, ...) {
-      local_var_response <- self$PokemonRetrieveWithHttpInfo(id, data_file = data_file, ...)
+    PokemonRetrieve = function(id, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$PokemonRetrieveWithHttpInfo(id, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -3322,9 +3553,10 @@ PokemonApi <- R6::R6Class(
     #' @param id This parameter can be a string or an integer.
     #' @param data_file (optional) name of the data file to save the result
     #' @param ... Other optional arguments
+    #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (PokemonDetail) with additional information such as HTTP status code, headers
-    PokemonRetrieveWithHttpInfo = function(id, data_file = NULL, ...) {
+    PokemonRetrieveWithHttpInfo = function(id, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -3377,6 +3609,10 @@ PokemonApi <- R6::R6Class(
         if (!is.null(data_file)) {
           self$api_client$WriteFile(local_var_resp, data_file)
         }
+        if (!.parse) {
+          local_var_resp$content <- local_var_resp$response_as_text()
+          return(local_var_resp)
+        }
 
         deserialized_resp_obj <- tryCatch(
           self$api_client$DeserializeResponse(local_var_resp, "PokemonDetail"),
@@ -3390,11 +3626,15 @@ PokemonApi <- R6::R6Class(
       
       local_var_error_msg <- local_var_resp$response_as_text()      
       if (local_var_resp$status_code >= 300 && local_var_resp$status_code <= 399) {
-        ApiResponse$new(paste("Server returned ", local_var_resp$status_code, " response status code."), local_var_resp)
+        ApiResponse$new(content = paste("Server returned ", local_var_resp$status_code, " response status code."),
+                        response = local_var_resp,
+                        status_code = local_var_resp$status_code)
       } else if (local_var_resp$status_code >= 400 && local_var_resp$status_code <= 499) {
-        ApiResponse$new("API client error", local_var_resp)
+        ApiResponse$new(content = "API client error",
+                        response = local_var_resp,
+                        status_code = local_var_resp$status_code)
       } else if (local_var_resp$status_code >= 500 && local_var_resp$status_code <= 599) {
-        if (is.null(local_var_resp$response) || local_var_resp$response == "") {
+        if (is.null(local_var_resp$response) || all(local_var_resp$response == "")) {
           local_var_resp$response <- "API server error"
         }
         return(local_var_resp)
@@ -3409,10 +3649,11 @@ PokemonApi <- R6::R6Class(
     #' @param q (optional) > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. 
     #' @param data_file (optional) name of the data file to save the result
     #' @param ... Other optional arguments
+    #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return PaginatedPokemonShapeSummaryList
-    PokemonShapeList = function(limit = NULL, offset = NULL, q = NULL, data_file = NULL, ...) {
-      local_var_response <- self$PokemonShapeListWithHttpInfo(limit, offset, q, data_file = data_file, ...)
+    PokemonShapeList = function(limit = NULL, offset = NULL, q = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$PokemonShapeListWithHttpInfo(limit, offset, q, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -3432,9 +3673,10 @@ PokemonApi <- R6::R6Class(
     #' @param q (optional) > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. 
     #' @param data_file (optional) name of the data file to save the result
     #' @param ... Other optional arguments
+    #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (PaginatedPokemonShapeSummaryList) with additional information such as HTTP status code, headers
-    PokemonShapeListWithHttpInfo = function(limit = NULL, offset = NULL, q = NULL, data_file = NULL, ...) {
+    PokemonShapeListWithHttpInfo = function(limit = NULL, offset = NULL, q = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -3493,6 +3735,10 @@ PokemonApi <- R6::R6Class(
         if (!is.null(data_file)) {
           self$api_client$WriteFile(local_var_resp, data_file)
         }
+        if (!.parse) {
+          local_var_resp$content <- local_var_resp$response_as_text()
+          return(local_var_resp)
+        }
 
         deserialized_resp_obj <- tryCatch(
           self$api_client$DeserializeResponse(local_var_resp, "PaginatedPokemonShapeSummaryList"),
@@ -3506,11 +3752,15 @@ PokemonApi <- R6::R6Class(
       
       local_var_error_msg <- local_var_resp$response_as_text()      
       if (local_var_resp$status_code >= 300 && local_var_resp$status_code <= 399) {
-        ApiResponse$new(paste("Server returned ", local_var_resp$status_code, " response status code."), local_var_resp)
+        ApiResponse$new(content = paste("Server returned ", local_var_resp$status_code, " response status code."),
+                        response = local_var_resp,
+                        status_code = local_var_resp$status_code)
       } else if (local_var_resp$status_code >= 400 && local_var_resp$status_code <= 499) {
-        ApiResponse$new("API client error", local_var_resp)
+        ApiResponse$new(content = "API client error",
+                        response = local_var_resp,
+                        status_code = local_var_resp$status_code)
       } else if (local_var_resp$status_code >= 500 && local_var_resp$status_code <= 599) {
-        if (is.null(local_var_resp$response) || local_var_resp$response == "") {
+        if (is.null(local_var_resp$response) || all(local_var_resp$response == "")) {
           local_var_resp$response <- "API server error"
         }
         return(local_var_resp)
@@ -3523,10 +3773,11 @@ PokemonApi <- R6::R6Class(
     #' @param id This parameter can be a string or an integer.
     #' @param data_file (optional) name of the data file to save the result
     #' @param ... Other optional arguments
+    #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return PokemonShapeDetail
-    PokemonShapeRetrieve = function(id, data_file = NULL, ...) {
-      local_var_response <- self$PokemonShapeRetrieveWithHttpInfo(id, data_file = data_file, ...)
+    PokemonShapeRetrieve = function(id, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$PokemonShapeRetrieveWithHttpInfo(id, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -3544,9 +3795,10 @@ PokemonApi <- R6::R6Class(
     #' @param id This parameter can be a string or an integer.
     #' @param data_file (optional) name of the data file to save the result
     #' @param ... Other optional arguments
+    #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (PokemonShapeDetail) with additional information such as HTTP status code, headers
-    PokemonShapeRetrieveWithHttpInfo = function(id, data_file = NULL, ...) {
+    PokemonShapeRetrieveWithHttpInfo = function(id, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -3599,6 +3851,10 @@ PokemonApi <- R6::R6Class(
         if (!is.null(data_file)) {
           self$api_client$WriteFile(local_var_resp, data_file)
         }
+        if (!.parse) {
+          local_var_resp$content <- local_var_resp$response_as_text()
+          return(local_var_resp)
+        }
 
         deserialized_resp_obj <- tryCatch(
           self$api_client$DeserializeResponse(local_var_resp, "PokemonShapeDetail"),
@@ -3612,11 +3868,15 @@ PokemonApi <- R6::R6Class(
       
       local_var_error_msg <- local_var_resp$response_as_text()      
       if (local_var_resp$status_code >= 300 && local_var_resp$status_code <= 399) {
-        ApiResponse$new(paste("Server returned ", local_var_resp$status_code, " response status code."), local_var_resp)
+        ApiResponse$new(content = paste("Server returned ", local_var_resp$status_code, " response status code."),
+                        response = local_var_resp,
+                        status_code = local_var_resp$status_code)
       } else if (local_var_resp$status_code >= 400 && local_var_resp$status_code <= 499) {
-        ApiResponse$new("API client error", local_var_resp)
+        ApiResponse$new(content = "API client error",
+                        response = local_var_resp,
+                        status_code = local_var_resp$status_code)
       } else if (local_var_resp$status_code >= 500 && local_var_resp$status_code <= 599) {
-        if (is.null(local_var_resp$response) || local_var_resp$response == "") {
+        if (is.null(local_var_resp$response) || all(local_var_resp$response == "")) {
           local_var_resp$response <- "API server error"
         }
         return(local_var_resp)
@@ -3631,10 +3891,11 @@ PokemonApi <- R6::R6Class(
     #' @param q (optional) > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. 
     #' @param data_file (optional) name of the data file to save the result
     #' @param ... Other optional arguments
+    #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return PaginatedPokemonSpeciesSummaryList
-    PokemonSpeciesList = function(limit = NULL, offset = NULL, q = NULL, data_file = NULL, ...) {
-      local_var_response <- self$PokemonSpeciesListWithHttpInfo(limit, offset, q, data_file = data_file, ...)
+    PokemonSpeciesList = function(limit = NULL, offset = NULL, q = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$PokemonSpeciesListWithHttpInfo(limit, offset, q, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -3654,9 +3915,10 @@ PokemonApi <- R6::R6Class(
     #' @param q (optional) > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. 
     #' @param data_file (optional) name of the data file to save the result
     #' @param ... Other optional arguments
+    #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (PaginatedPokemonSpeciesSummaryList) with additional information such as HTTP status code, headers
-    PokemonSpeciesListWithHttpInfo = function(limit = NULL, offset = NULL, q = NULL, data_file = NULL, ...) {
+    PokemonSpeciesListWithHttpInfo = function(limit = NULL, offset = NULL, q = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -3715,6 +3977,10 @@ PokemonApi <- R6::R6Class(
         if (!is.null(data_file)) {
           self$api_client$WriteFile(local_var_resp, data_file)
         }
+        if (!.parse) {
+          local_var_resp$content <- local_var_resp$response_as_text()
+          return(local_var_resp)
+        }
 
         deserialized_resp_obj <- tryCatch(
           self$api_client$DeserializeResponse(local_var_resp, "PaginatedPokemonSpeciesSummaryList"),
@@ -3728,11 +3994,15 @@ PokemonApi <- R6::R6Class(
       
       local_var_error_msg <- local_var_resp$response_as_text()      
       if (local_var_resp$status_code >= 300 && local_var_resp$status_code <= 399) {
-        ApiResponse$new(paste("Server returned ", local_var_resp$status_code, " response status code."), local_var_resp)
+        ApiResponse$new(content = paste("Server returned ", local_var_resp$status_code, " response status code."),
+                        response = local_var_resp,
+                        status_code = local_var_resp$status_code)
       } else if (local_var_resp$status_code >= 400 && local_var_resp$status_code <= 499) {
-        ApiResponse$new("API client error", local_var_resp)
+        ApiResponse$new(content = "API client error",
+                        response = local_var_resp,
+                        status_code = local_var_resp$status_code)
       } else if (local_var_resp$status_code >= 500 && local_var_resp$status_code <= 599) {
-        if (is.null(local_var_resp$response) || local_var_resp$response == "") {
+        if (is.null(local_var_resp$response) || all(local_var_resp$response == "")) {
           local_var_resp$response <- "API server error"
         }
         return(local_var_resp)
@@ -3745,10 +4015,11 @@ PokemonApi <- R6::R6Class(
     #' @param id This parameter can be a string or an integer.
     #' @param data_file (optional) name of the data file to save the result
     #' @param ... Other optional arguments
+    #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return PokemonSpeciesDetail
-    PokemonSpeciesRetrieve = function(id, data_file = NULL, ...) {
-      local_var_response <- self$PokemonSpeciesRetrieveWithHttpInfo(id, data_file = data_file, ...)
+    PokemonSpeciesRetrieve = function(id, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$PokemonSpeciesRetrieveWithHttpInfo(id, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -3766,9 +4037,10 @@ PokemonApi <- R6::R6Class(
     #' @param id This parameter can be a string or an integer.
     #' @param data_file (optional) name of the data file to save the result
     #' @param ... Other optional arguments
+    #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (PokemonSpeciesDetail) with additional information such as HTTP status code, headers
-    PokemonSpeciesRetrieveWithHttpInfo = function(id, data_file = NULL, ...) {
+    PokemonSpeciesRetrieveWithHttpInfo = function(id, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -3821,6 +4093,10 @@ PokemonApi <- R6::R6Class(
         if (!is.null(data_file)) {
           self$api_client$WriteFile(local_var_resp, data_file)
         }
+        if (!.parse) {
+          local_var_resp$content <- local_var_resp$response_as_text()
+          return(local_var_resp)
+        }
 
         deserialized_resp_obj <- tryCatch(
           self$api_client$DeserializeResponse(local_var_resp, "PokemonSpeciesDetail"),
@@ -3834,11 +4110,15 @@ PokemonApi <- R6::R6Class(
       
       local_var_error_msg <- local_var_resp$response_as_text()      
       if (local_var_resp$status_code >= 300 && local_var_resp$status_code <= 399) {
-        ApiResponse$new(paste("Server returned ", local_var_resp$status_code, " response status code."), local_var_resp)
+        ApiResponse$new(content = paste("Server returned ", local_var_resp$status_code, " response status code."),
+                        response = local_var_resp,
+                        status_code = local_var_resp$status_code)
       } else if (local_var_resp$status_code >= 400 && local_var_resp$status_code <= 499) {
-        ApiResponse$new("API client error", local_var_resp)
+        ApiResponse$new(content = "API client error",
+                        response = local_var_resp,
+                        status_code = local_var_resp$status_code)
       } else if (local_var_resp$status_code >= 500 && local_var_resp$status_code <= 599) {
-        if (is.null(local_var_resp$response) || local_var_resp$response == "") {
+        if (is.null(local_var_resp$response) || all(local_var_resp$response == "")) {
           local_var_resp$response <- "API server error"
         }
         return(local_var_resp)
@@ -3853,10 +4133,11 @@ PokemonApi <- R6::R6Class(
     #' @param q (optional) > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. 
     #' @param data_file (optional) name of the data file to save the result
     #' @param ... Other optional arguments
+    #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return PaginatedStatSummaryList
-    StatList = function(limit = NULL, offset = NULL, q = NULL, data_file = NULL, ...) {
-      local_var_response <- self$StatListWithHttpInfo(limit, offset, q, data_file = data_file, ...)
+    StatList = function(limit = NULL, offset = NULL, q = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$StatListWithHttpInfo(limit, offset, q, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -3876,9 +4157,10 @@ PokemonApi <- R6::R6Class(
     #' @param q (optional) > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. 
     #' @param data_file (optional) name of the data file to save the result
     #' @param ... Other optional arguments
+    #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (PaginatedStatSummaryList) with additional information such as HTTP status code, headers
-    StatListWithHttpInfo = function(limit = NULL, offset = NULL, q = NULL, data_file = NULL, ...) {
+    StatListWithHttpInfo = function(limit = NULL, offset = NULL, q = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -3937,6 +4219,10 @@ PokemonApi <- R6::R6Class(
         if (!is.null(data_file)) {
           self$api_client$WriteFile(local_var_resp, data_file)
         }
+        if (!.parse) {
+          local_var_resp$content <- local_var_resp$response_as_text()
+          return(local_var_resp)
+        }
 
         deserialized_resp_obj <- tryCatch(
           self$api_client$DeserializeResponse(local_var_resp, "PaginatedStatSummaryList"),
@@ -3950,11 +4236,15 @@ PokemonApi <- R6::R6Class(
       
       local_var_error_msg <- local_var_resp$response_as_text()      
       if (local_var_resp$status_code >= 300 && local_var_resp$status_code <= 399) {
-        ApiResponse$new(paste("Server returned ", local_var_resp$status_code, " response status code."), local_var_resp)
+        ApiResponse$new(content = paste("Server returned ", local_var_resp$status_code, " response status code."),
+                        response = local_var_resp,
+                        status_code = local_var_resp$status_code)
       } else if (local_var_resp$status_code >= 400 && local_var_resp$status_code <= 499) {
-        ApiResponse$new("API client error", local_var_resp)
+        ApiResponse$new(content = "API client error",
+                        response = local_var_resp,
+                        status_code = local_var_resp$status_code)
       } else if (local_var_resp$status_code >= 500 && local_var_resp$status_code <= 599) {
-        if (is.null(local_var_resp$response) || local_var_resp$response == "") {
+        if (is.null(local_var_resp$response) || all(local_var_resp$response == "")) {
           local_var_resp$response <- "API server error"
         }
         return(local_var_resp)
@@ -3967,10 +4257,11 @@ PokemonApi <- R6::R6Class(
     #' @param id This parameter can be a string or an integer.
     #' @param data_file (optional) name of the data file to save the result
     #' @param ... Other optional arguments
+    #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return StatDetail
-    StatRetrieve = function(id, data_file = NULL, ...) {
-      local_var_response <- self$StatRetrieveWithHttpInfo(id, data_file = data_file, ...)
+    StatRetrieve = function(id, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$StatRetrieveWithHttpInfo(id, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -3988,9 +4279,10 @@ PokemonApi <- R6::R6Class(
     #' @param id This parameter can be a string or an integer.
     #' @param data_file (optional) name of the data file to save the result
     #' @param ... Other optional arguments
+    #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (StatDetail) with additional information such as HTTP status code, headers
-    StatRetrieveWithHttpInfo = function(id, data_file = NULL, ...) {
+    StatRetrieveWithHttpInfo = function(id, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -4043,6 +4335,10 @@ PokemonApi <- R6::R6Class(
         if (!is.null(data_file)) {
           self$api_client$WriteFile(local_var_resp, data_file)
         }
+        if (!.parse) {
+          local_var_resp$content <- local_var_resp$response_as_text()
+          return(local_var_resp)
+        }
 
         deserialized_resp_obj <- tryCatch(
           self$api_client$DeserializeResponse(local_var_resp, "StatDetail"),
@@ -4056,11 +4352,15 @@ PokemonApi <- R6::R6Class(
       
       local_var_error_msg <- local_var_resp$response_as_text()      
       if (local_var_resp$status_code >= 300 && local_var_resp$status_code <= 399) {
-        ApiResponse$new(paste("Server returned ", local_var_resp$status_code, " response status code."), local_var_resp)
+        ApiResponse$new(content = paste("Server returned ", local_var_resp$status_code, " response status code."),
+                        response = local_var_resp,
+                        status_code = local_var_resp$status_code)
       } else if (local_var_resp$status_code >= 400 && local_var_resp$status_code <= 499) {
-        ApiResponse$new("API client error", local_var_resp)
+        ApiResponse$new(content = "API client error",
+                        response = local_var_resp,
+                        status_code = local_var_resp$status_code)
       } else if (local_var_resp$status_code >= 500 && local_var_resp$status_code <= 599) {
-        if (is.null(local_var_resp$response) || local_var_resp$response == "") {
+        if (is.null(local_var_resp$response) || all(local_var_resp$response == "")) {
           local_var_resp$response <- "API server error"
         }
         return(local_var_resp)
@@ -4075,10 +4375,11 @@ PokemonApi <- R6::R6Class(
     #' @param q (optional) > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. 
     #' @param data_file (optional) name of the data file to save the result
     #' @param ... Other optional arguments
+    #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return PaginatedTypeSummaryList
-    TypeList = function(limit = NULL, offset = NULL, q = NULL, data_file = NULL, ...) {
-      local_var_response <- self$TypeListWithHttpInfo(limit, offset, q, data_file = data_file, ...)
+    TypeList = function(limit = NULL, offset = NULL, q = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$TypeListWithHttpInfo(limit, offset, q, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -4098,9 +4399,10 @@ PokemonApi <- R6::R6Class(
     #' @param q (optional) > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. 
     #' @param data_file (optional) name of the data file to save the result
     #' @param ... Other optional arguments
+    #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (PaginatedTypeSummaryList) with additional information such as HTTP status code, headers
-    TypeListWithHttpInfo = function(limit = NULL, offset = NULL, q = NULL, data_file = NULL, ...) {
+    TypeListWithHttpInfo = function(limit = NULL, offset = NULL, q = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -4159,6 +4461,10 @@ PokemonApi <- R6::R6Class(
         if (!is.null(data_file)) {
           self$api_client$WriteFile(local_var_resp, data_file)
         }
+        if (!.parse) {
+          local_var_resp$content <- local_var_resp$response_as_text()
+          return(local_var_resp)
+        }
 
         deserialized_resp_obj <- tryCatch(
           self$api_client$DeserializeResponse(local_var_resp, "PaginatedTypeSummaryList"),
@@ -4172,11 +4478,15 @@ PokemonApi <- R6::R6Class(
       
       local_var_error_msg <- local_var_resp$response_as_text()      
       if (local_var_resp$status_code >= 300 && local_var_resp$status_code <= 399) {
-        ApiResponse$new(paste("Server returned ", local_var_resp$status_code, " response status code."), local_var_resp)
+        ApiResponse$new(content = paste("Server returned ", local_var_resp$status_code, " response status code."),
+                        response = local_var_resp,
+                        status_code = local_var_resp$status_code)
       } else if (local_var_resp$status_code >= 400 && local_var_resp$status_code <= 499) {
-        ApiResponse$new("API client error", local_var_resp)
+        ApiResponse$new(content = "API client error",
+                        response = local_var_resp,
+                        status_code = local_var_resp$status_code)
       } else if (local_var_resp$status_code >= 500 && local_var_resp$status_code <= 599) {
-        if (is.null(local_var_resp$response) || local_var_resp$response == "") {
+        if (is.null(local_var_resp$response) || all(local_var_resp$response == "")) {
           local_var_resp$response <- "API server error"
         }
         return(local_var_resp)
@@ -4189,10 +4499,11 @@ PokemonApi <- R6::R6Class(
     #' @param id This parameter can be a string or an integer.
     #' @param data_file (optional) name of the data file to save the result
     #' @param ... Other optional arguments
+    #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return TypeDetail
-    TypeRetrieve = function(id, data_file = NULL, ...) {
-      local_var_response <- self$TypeRetrieveWithHttpInfo(id, data_file = data_file, ...)
+    TypeRetrieve = function(id, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$TypeRetrieveWithHttpInfo(id, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -4210,9 +4521,10 @@ PokemonApi <- R6::R6Class(
     #' @param id This parameter can be a string or an integer.
     #' @param data_file (optional) name of the data file to save the result
     #' @param ... Other optional arguments
+    #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (TypeDetail) with additional information such as HTTP status code, headers
-    TypeRetrieveWithHttpInfo = function(id, data_file = NULL, ...) {
+    TypeRetrieveWithHttpInfo = function(id, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -4265,6 +4577,10 @@ PokemonApi <- R6::R6Class(
         if (!is.null(data_file)) {
           self$api_client$WriteFile(local_var_resp, data_file)
         }
+        if (!.parse) {
+          local_var_resp$content <- local_var_resp$response_as_text()
+          return(local_var_resp)
+        }
 
         deserialized_resp_obj <- tryCatch(
           self$api_client$DeserializeResponse(local_var_resp, "TypeDetail"),
@@ -4278,11 +4594,15 @@ PokemonApi <- R6::R6Class(
       
       local_var_error_msg <- local_var_resp$response_as_text()      
       if (local_var_resp$status_code >= 300 && local_var_resp$status_code <= 399) {
-        ApiResponse$new(paste("Server returned ", local_var_resp$status_code, " response status code."), local_var_resp)
+        ApiResponse$new(content = paste("Server returned ", local_var_resp$status_code, " response status code."),
+                        response = local_var_resp,
+                        status_code = local_var_resp$status_code)
       } else if (local_var_resp$status_code >= 400 && local_var_resp$status_code <= 499) {
-        ApiResponse$new("API client error", local_var_resp)
+        ApiResponse$new(content = "API client error",
+                        response = local_var_resp,
+                        status_code = local_var_resp$status_code)
       } else if (local_var_resp$status_code >= 500 && local_var_resp$status_code <= 599) {
-        if (is.null(local_var_resp$response) || local_var_resp$response == "") {
+        if (is.null(local_var_resp$response) || all(local_var_resp$response == "")) {
           local_var_resp$response <- "API server error"
         }
         return(local_var_resp)

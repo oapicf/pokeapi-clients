@@ -34,7 +34,7 @@ class  PaginatedCharacteristicSummaryList
 {
 public:
     PaginatedCharacteristicSummaryList();
-    virtual ~PaginatedCharacteristicSummaryList() = default;
+    virtual ~PaginatedCharacteristicSummaryList();
 
 
     /// <summary>

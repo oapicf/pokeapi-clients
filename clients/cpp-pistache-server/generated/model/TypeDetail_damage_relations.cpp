@@ -24,6 +24,8 @@ TypeDetail_damage_relations::TypeDetail_damage_relations()
     
 }
 
+TypeDetail_damage_relations::~TypeDetail_damage_relations() = default;
+
 void TypeDetail_damage_relations::validate() const
 {
     std::stringstream msg;

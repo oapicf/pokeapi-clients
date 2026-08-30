@@ -66,9 +66,9 @@ function Initialize-ItemEffectText {
 
 
         $PSO = [PSCustomObject]@{
-            "effect" = ${Effect}
-            "short_effect" = ${ShortEffect}
-            "language" = ${Language}
+            'effect' = ${Effect}
+            'short_effect' = ${ShortEffect}
+            'language' = ${Language}
         }
 
 
@@ -106,7 +106,7 @@ function ConvertFrom-JsonToItemEffectText {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in ItemEffectText
-        $AllProperties = ("effect", "short_effect", "language")
+        $AllProperties = ('effect', 'short_effect', 'language')
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -117,28 +117,28 @@ function ConvertFrom-JsonToItemEffectText {
             throw "Error! Empty JSON cannot be serialized due to the required property 'effect' missing."
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "effect"))) {
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'effect'))) {
             throw "Error! JSON cannot be serialized due to the required property 'effect' missing."
         } else {
-            $Effect = $JsonParameters.PSobject.Properties["effect"].value
+            $Effect = $JsonParameters.PSobject.Properties['effect'].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "short_effect"))) {
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'short_effect'))) {
             throw "Error! JSON cannot be serialized due to the required property 'short_effect' missing."
         } else {
-            $ShortEffect = $JsonParameters.PSobject.Properties["short_effect"].value
+            $ShortEffect = $JsonParameters.PSobject.Properties['short_effect'].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "language"))) {
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'language'))) {
             throw "Error! JSON cannot be serialized due to the required property 'language' missing."
         } else {
-            $Language = $JsonParameters.PSobject.Properties["language"].value
+            $Language = $JsonParameters.PSobject.Properties['language'].value
         }
 
         $PSO = [PSCustomObject]@{
-            "effect" = ${Effect}
-            "short_effect" = ${ShortEffect}
-            "language" = ${Language}
+            'effect' = ${Effect}
+            'short_effect' = ${ShortEffect}
+            'language' = ${Language}
         }
 
         return $PSO

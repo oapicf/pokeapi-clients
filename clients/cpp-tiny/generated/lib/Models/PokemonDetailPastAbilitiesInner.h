@@ -54,14 +54,14 @@ public:
 
 	/*! \brief Set 
 	 */
-	void setAbilities(std::list <PokemonDetail_abilities_inner> abilities);
+	void setAbilities(std::list<PokemonDetail_abilities_inner> abilities);
 	/*! \brief Get 
 	 */
 	AbilityDetail_pokemon_inner_pokemon getGeneration();
 
 	/*! \brief Set 
 	 */
-	void setGeneration(AbilityDetail_pokemon_inner_pokemon  generation);
+	void setGeneration(AbilityDetail_pokemon_inner_pokemon generation);
 
 
     private:

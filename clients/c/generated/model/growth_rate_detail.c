@@ -6,7 +6,7 @@
 
 
 static growth_rate_detail_t *growth_rate_detail_create_internal(
-    int id,
+    int *id,
     char *name,
     char *formula,
     list_t *descriptions,
@@ -17,33 +17,42 @@ static growth_rate_detail_t *growth_rate_detail_create_internal(
     if (!growth_rate_detail_local_var) {
         return NULL;
     }
+    memset(growth_rate_detail_local_var, 0, sizeof(growth_rate_detail_t));
+    growth_rate_detail_local_var->_library_owned = 1;
     growth_rate_detail_local_var->id = id;
     growth_rate_detail_local_var->name = name;
     growth_rate_detail_local_var->formula = formula;
     growth_rate_detail_local_var->descriptions = descriptions;
     growth_rate_detail_local_var->levels = levels;
     growth_rate_detail_local_var->pokemon_species = pokemon_species;
-
-    growth_rate_detail_local_var->_library_owned = 1;
     return growth_rate_detail_local_var;
 }
 
 __attribute__((deprecated)) growth_rate_detail_t *growth_rate_detail_create(
-    int id,
+    int *id,
     char *name,
     char *formula,
     list_t *descriptions,
     list_t *levels,
     list_t *pokemon_species
     ) {
-    return growth_rate_detail_create_internal (
-        id,
+    int *id_copy = NULL;
+    if (id) {
+        id_copy = malloc(sizeof(int));
+        if (id_copy) *id_copy = *id;
+    }
+    growth_rate_detail_t *result = growth_rate_detail_create_internal (
+        id_copy,
         name,
         formula,
         descriptions,
         levels,
         pokemon_species
         );
+    if (!result) {
+        free(id_copy);
+    }
+    return result;
 }
 
 void growth_rate_detail_free(growth_rate_detail_t *growth_rate_detail) {
@@ -55,6 +64,10 @@ void growth_rate_detail_free(growth_rate_detail_t *growth_rate_detail) {
         return ;
     }
     listEntry_t *listEntry;
+    if (growth_rate_detail->id) {
+        free(growth_rate_detail->id);
+        growth_rate_detail->id = NULL;
+    }
     if (growth_rate_detail->name) {
         free(growth_rate_detail->name);
         growth_rate_detail->name = NULL;
@@ -94,7 +107,7 @@ cJSON *growth_rate_detail_convertToJSON(growth_rate_detail_t *growth_rate_detail
     if (!growth_rate_detail->id) {
         goto fail;
     }
-    if(cJSON_AddNumberToObject(item, "id", growth_rate_detail->id) == NULL) {
+    if(cJSON_AddNumberToObject(item, "id", *growth_rate_detail->id) == NULL) {
     goto fail; //Numeric
     }
 
@@ -191,6 +204,13 @@ growth_rate_detail_t *growth_rate_detail_parseFromJSON(cJSON *growth_rate_detail
 
     growth_rate_detail_t *growth_rate_detail_local_var = NULL;
 
+    // define the local variable for growth_rate_detail->id
+    int *id_local_var = NULL;
+
+    char *name_local_str = NULL;
+
+    char *formula_local_str = NULL;
+
     // define the local list for growth_rate_detail->descriptions
     list_t *descriptionsList = NULL;
 
@@ -214,6 +234,12 @@ growth_rate_detail_t *growth_rate_detail_parseFromJSON(cJSON *growth_rate_detail
     {
     goto end; //Numeric
     }
+    id_local_var = malloc(sizeof(int));
+    if(!id_local_var)
+    {
+        goto end;
+    }
+    *id_local_var = id->valuedouble;
 
     // growth_rate_detail->name
     cJSON *name = cJSON_GetObjectItemCaseSensitive(growth_rate_detailJSON, "name");
@@ -327,17 +353,36 @@ growth_rate_detail_t *growth_rate_detail_parseFromJSON(cJSON *growth_rate_detail
     }
 
 
+    if (name && !cJSON_IsNull(name)) name_local_str = strdup(name->valuestring);
+    if (formula && !cJSON_IsNull(formula)) formula_local_str = strdup(formula->valuestring);
+
     growth_rate_detail_local_var = growth_rate_detail_create_internal (
-        id->valuedouble,
-        strdup(name->valuestring),
-        strdup(formula->valuestring),
+        id_local_var,
+        name_local_str,
+        formula_local_str,
         descriptionsList,
         levelsList,
         pokemon_speciesList
         );
 
+    if (!growth_rate_detail_local_var) {
+        goto end;
+    }
+
     return growth_rate_detail_local_var;
 end:
+    if (id_local_var) {
+        free(id_local_var);
+        id_local_var = NULL;
+    }
+    if (name_local_str) {
+        free(name_local_str);
+        name_local_str = NULL;
+    }
+    if (formula_local_str) {
+        free(formula_local_str);
+        formula_local_str = NULL;
+    }
     if (descriptionsList) {
         listEntry_t *listEntry = NULL;
         list_ForEach(listEntry, descriptionsList) {

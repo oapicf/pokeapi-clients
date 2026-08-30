@@ -26,6 +26,8 @@ EvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner_gender::Evol
     
 }
 
+EvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner_gender::~EvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner_gender() = default;
+
 void EvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner_gender::validate() const
 {
     std::stringstream msg;

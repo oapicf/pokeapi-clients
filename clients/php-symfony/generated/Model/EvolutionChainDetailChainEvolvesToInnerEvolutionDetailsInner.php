@@ -47,7 +47,7 @@ class EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner
      * @var EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender|null
      * @SerializedName("gender")
      * @Type("OpenAPI\Server\Model\EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Valid]
     #[Assert\Type("OpenAPI\Server\Model\EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender")]
@@ -57,7 +57,7 @@ class EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner
      * @var EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender|null
      * @SerializedName("held_item")
      * @Type("OpenAPI\Server\Model\EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Valid]
     #[Assert\Type("OpenAPI\Server\Model\EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender")]
@@ -67,35 +67,37 @@ class EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner
      * @var EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender|null
      * @SerializedName("item")
      * @Type("OpenAPI\Server\Model\EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Valid]
     #[Assert\Type("OpenAPI\Server\Model\EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender")]
     protected ?EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender $item = null;
 
     /**
-     * @var array|null
+     * @var EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender|null
      * @SerializedName("known_move")
-     * @Type("array")
-    */
+     * @Type("OpenAPI\Server\Model\EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender")
+     */
     #[Assert\NotNull]
-    #[Assert\Type("array")]
-    protected ?array $knownMove = null;
+    #[Assert\Valid]
+    #[Assert\Type("OpenAPI\Server\Model\EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender")]
+    protected ?EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender $knownMove = null;
 
     /**
-     * @var array|null
+     * @var EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender|null
      * @SerializedName("known_move_type")
-     * @Type("array")
-    */
+     * @Type("OpenAPI\Server\Model\EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender")
+     */
     #[Assert\NotNull]
-    #[Assert\Type("array")]
-    protected ?array $knownMoveType = null;
+    #[Assert\Valid]
+    #[Assert\Type("OpenAPI\Server\Model\EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender")]
+    protected ?EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender $knownMoveType = null;
 
     /**
      * @var EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender|null
      * @SerializedName("location")
      * @Type("OpenAPI\Server\Model\EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Valid]
     #[Assert\Type("OpenAPI\Server\Model\EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender")]
@@ -105,7 +107,7 @@ class EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner
      * @var int|null
      * @SerializedName("min_affection")
      * @Type("int")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Type("int")]
     protected ?int $minAffection = null;
@@ -114,7 +116,7 @@ class EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner
      * @var int|null
      * @SerializedName("min_beauty")
      * @Type("int")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Type("int")]
     protected ?int $minBeauty = null;
@@ -123,7 +125,7 @@ class EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner
      * @var int|null
      * @SerializedName("min_happiness")
      * @Type("int")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Type("int")]
     protected ?int $minHappiness = null;
@@ -132,7 +134,7 @@ class EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner
      * @var int|null
      * @SerializedName("min_level")
      * @Type("int")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Type("int")]
     protected ?int $minLevel = null;
@@ -141,7 +143,7 @@ class EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner
      * @var bool|null
      * @SerializedName("needs_overworld_rain")
      * @Type("bool")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Type("bool")]
     protected ?bool $needsOverworldRain = null;
@@ -150,7 +152,7 @@ class EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner
      * @var string|null
      * @SerializedName("party_species")
      * @Type("string")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Type("string")]
     protected ?string $partySpecies = null;
@@ -159,7 +161,7 @@ class EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner
      * @var string|null
      * @SerializedName("party_type")
      * @Type("string")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Type("string")]
     protected ?string $partyType = null;
@@ -168,7 +170,7 @@ class EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner
      * @var string|null
      * @SerializedName("relative_physical_stats")
      * @Type("string")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Type("string")]
     protected ?string $relativePhysicalStats = null;
@@ -177,7 +179,7 @@ class EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner
      * @var string|null
      * @SerializedName("time_of_day")
      * @Type("string")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Type("string")]
     protected ?string $timeOfDay = null;
@@ -186,7 +188,7 @@ class EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner
      * @var string|null
      * @SerializedName("trade_species")
      * @Type("string")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Type("string")]
     protected ?string $tradeSpecies = null;
@@ -195,7 +197,7 @@ class EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner
      * @var AbilityDetailPokemonInnerPokemon|null
      * @SerializedName("trigger")
      * @Type("OpenAPI\Server\Model\AbilityDetailPokemonInnerPokemon")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Valid]
     #[Assert\Type("OpenAPI\Server\Model\AbilityDetailPokemonInnerPokemon")]
@@ -205,7 +207,7 @@ class EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner
      * @var bool|null
      * @SerializedName("turn_upside_down")
      * @Type("bool")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Type("bool")]
     protected ?bool $turnUpsideDown = null;
@@ -249,12 +251,12 @@ class EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner
     }
 
     /**
-    * Sets gender.
-    *
-    * @param EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender|null $gender
-    *
-    * @return $this
-    */
+     * Sets gender.
+     *
+     * @param EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender|null $gender
+     *
+     * @return $this
+     */
     public function setGender(?EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender $gender): self
     {
         $this->gender = $gender;
@@ -276,12 +278,12 @@ class EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner
     }
 
     /**
-    * Sets heldItem.
-    *
-    * @param EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender|null $heldItem
-    *
-    * @return $this
-    */
+     * Sets heldItem.
+     *
+     * @param EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender|null $heldItem
+     *
+     * @return $this
+     */
     public function setHeldItem(?EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender $heldItem): self
     {
         $this->heldItem = $heldItem;
@@ -303,12 +305,12 @@ class EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner
     }
 
     /**
-    * Sets item.
-    *
-    * @param EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender|null $item
-    *
-    * @return $this
-    */
+     * Sets item.
+     *
+     * @param EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender|null $item
+     *
+     * @return $this
+     */
     public function setItem(?EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender $item): self
     {
         $this->item = $item;
@@ -322,21 +324,21 @@ class EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner
     /**
      * Gets knownMove.
      *
-     * @return array|null
+     * @return EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender|null
      */
-    public function getKnownMove(): ?array
+    public function getKnownMove(): ?EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender
     {
         return $this->knownMove;
     }
 
     /**
-    * Sets knownMove.
-    *
-    * @param array|null $knownMove
-    *
-    * @return $this
-    */
-    public function setKnownMove(?array $knownMove): self
+     * Sets knownMove.
+     *
+     * @param EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender|null $knownMove
+     *
+     * @return $this
+     */
+    public function setKnownMove(?EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender $knownMove): self
     {
         $this->knownMove = $knownMove;
 
@@ -349,21 +351,21 @@ class EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner
     /**
      * Gets knownMoveType.
      *
-     * @return array|null
+     * @return EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender|null
      */
-    public function getKnownMoveType(): ?array
+    public function getKnownMoveType(): ?EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender
     {
         return $this->knownMoveType;
     }
 
     /**
-    * Sets knownMoveType.
-    *
-    * @param array|null $knownMoveType
-    *
-    * @return $this
-    */
-    public function setKnownMoveType(?array $knownMoveType): self
+     * Sets knownMoveType.
+     *
+     * @param EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender|null $knownMoveType
+     *
+     * @return $this
+     */
+    public function setKnownMoveType(?EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender $knownMoveType): self
     {
         $this->knownMoveType = $knownMoveType;
 
@@ -384,12 +386,12 @@ class EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner
     }
 
     /**
-    * Sets location.
-    *
-    * @param EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender|null $location
-    *
-    * @return $this
-    */
+     * Sets location.
+     *
+     * @param EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender|null $location
+     *
+     * @return $this
+     */
     public function setLocation(?EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender $location): self
     {
         $this->location = $location;
@@ -411,12 +413,12 @@ class EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner
     }
 
     /**
-    * Sets minAffection.
-    *
-    * @param int|null $minAffection
-    *
-    * @return $this
-    */
+     * Sets minAffection.
+     *
+     * @param int|null $minAffection
+     *
+     * @return $this
+     */
     public function setMinAffection(?int $minAffection): self
     {
         $this->minAffection = $minAffection;
@@ -438,12 +440,12 @@ class EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner
     }
 
     /**
-    * Sets minBeauty.
-    *
-    * @param int|null $minBeauty
-    *
-    * @return $this
-    */
+     * Sets minBeauty.
+     *
+     * @param int|null $minBeauty
+     *
+     * @return $this
+     */
     public function setMinBeauty(?int $minBeauty): self
     {
         $this->minBeauty = $minBeauty;
@@ -465,12 +467,12 @@ class EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner
     }
 
     /**
-    * Sets minHappiness.
-    *
-    * @param int|null $minHappiness
-    *
-    * @return $this
-    */
+     * Sets minHappiness.
+     *
+     * @param int|null $minHappiness
+     *
+     * @return $this
+     */
     public function setMinHappiness(?int $minHappiness): self
     {
         $this->minHappiness = $minHappiness;
@@ -492,12 +494,12 @@ class EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner
     }
 
     /**
-    * Sets minLevel.
-    *
-    * @param int|null $minLevel
-    *
-    * @return $this
-    */
+     * Sets minLevel.
+     *
+     * @param int|null $minLevel
+     *
+     * @return $this
+     */
     public function setMinLevel(?int $minLevel): self
     {
         $this->minLevel = $minLevel;
@@ -519,12 +521,12 @@ class EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner
     }
 
     /**
-    * Sets needsOverworldRain.
-    *
-    * @param bool|null $needsOverworldRain
-    *
-    * @return $this
-    */
+     * Sets needsOverworldRain.
+     *
+     * @param bool|null $needsOverworldRain
+     *
+     * @return $this
+     */
     public function setNeedsOverworldRain(?bool $needsOverworldRain): self
     {
         $this->needsOverworldRain = $needsOverworldRain;
@@ -546,12 +548,12 @@ class EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner
     }
 
     /**
-    * Sets partySpecies.
-    *
-    * @param string|null $partySpecies
-    *
-    * @return $this
-    */
+     * Sets partySpecies.
+     *
+     * @param string|null $partySpecies
+     *
+     * @return $this
+     */
     public function setPartySpecies(?string $partySpecies): self
     {
         $this->partySpecies = $partySpecies;
@@ -573,12 +575,12 @@ class EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner
     }
 
     /**
-    * Sets partyType.
-    *
-    * @param string|null $partyType
-    *
-    * @return $this
-    */
+     * Sets partyType.
+     *
+     * @param string|null $partyType
+     *
+     * @return $this
+     */
     public function setPartyType(?string $partyType): self
     {
         $this->partyType = $partyType;
@@ -600,12 +602,12 @@ class EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner
     }
 
     /**
-    * Sets relativePhysicalStats.
-    *
-    * @param string|null $relativePhysicalStats
-    *
-    * @return $this
-    */
+     * Sets relativePhysicalStats.
+     *
+     * @param string|null $relativePhysicalStats
+     *
+     * @return $this
+     */
     public function setRelativePhysicalStats(?string $relativePhysicalStats): self
     {
         $this->relativePhysicalStats = $relativePhysicalStats;
@@ -627,12 +629,12 @@ class EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner
     }
 
     /**
-    * Sets timeOfDay.
-    *
-    * @param string|null $timeOfDay
-    *
-    * @return $this
-    */
+     * Sets timeOfDay.
+     *
+     * @param string|null $timeOfDay
+     *
+     * @return $this
+     */
     public function setTimeOfDay(?string $timeOfDay): self
     {
         $this->timeOfDay = $timeOfDay;
@@ -654,12 +656,12 @@ class EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner
     }
 
     /**
-    * Sets tradeSpecies.
-    *
-    * @param string|null $tradeSpecies
-    *
-    * @return $this
-    */
+     * Sets tradeSpecies.
+     *
+     * @param string|null $tradeSpecies
+     *
+     * @return $this
+     */
     public function setTradeSpecies(?string $tradeSpecies): self
     {
         $this->tradeSpecies = $tradeSpecies;
@@ -681,12 +683,12 @@ class EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner
     }
 
     /**
-    * Sets trigger.
-    *
-    * @param AbilityDetailPokemonInnerPokemon|null $trigger
-    *
-    * @return $this
-    */
+     * Sets trigger.
+     *
+     * @param AbilityDetailPokemonInnerPokemon|null $trigger
+     *
+     * @return $this
+     */
     public function setTrigger(?AbilityDetailPokemonInnerPokemon $trigger): self
     {
         $this->trigger = $trigger;
@@ -708,12 +710,12 @@ class EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner
     }
 
     /**
-    * Sets turnUpsideDown.
-    *
-    * @param bool|null $turnUpsideDown
-    *
-    * @return $this
-    */
+     * Sets turnUpsideDown.
+     *
+     * @param bool|null $turnUpsideDown
+     *
+     * @return $this
+     */
     public function setTurnUpsideDown(?bool $turnUpsideDown): self
     {
         $this->turnUpsideDown = $turnUpsideDown;

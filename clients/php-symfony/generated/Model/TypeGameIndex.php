@@ -47,7 +47,7 @@ class TypeGameIndex
      * @var int|null
      * @SerializedName("game_index")
      * @Type("int")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Type("int")]
     protected ?int $gameIndex = null;
@@ -56,7 +56,7 @@ class TypeGameIndex
      * @var GenerationSummary|null
      * @SerializedName("generation")
      * @Type("OpenAPI\Server\Model\GenerationSummary")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Valid]
     #[Assert\Type("OpenAPI\Server\Model\GenerationSummary")]
@@ -85,12 +85,12 @@ class TypeGameIndex
     }
 
     /**
-    * Sets gameIndex.
-    *
-    * @param int|null $gameIndex
-    *
-    * @return $this
-    */
+     * Sets gameIndex.
+     *
+     * @param int|null $gameIndex
+     *
+     * @return $this
+     */
     public function setGameIndex(?int $gameIndex): self
     {
         $this->gameIndex = $gameIndex;
@@ -112,12 +112,12 @@ class TypeGameIndex
     }
 
     /**
-    * Sets generation.
-    *
-    * @param GenerationSummary|null $generation
-    *
-    * @return $this
-    */
+     * Sets generation.
+     *
+     * @param GenerationSummary|null $generation
+     *
+     * @return $this
+     */
     public function setGeneration(?GenerationSummary $generation): self
     {
         $this->generation = $generation;

@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 **smoothness** | **int** |  | 
 **soil_dryness** | **int** |  | 
 **firmness** | [**berry_firmness_summary_t**](berry_firmness_summary.md) \* |  | 
-**flavors** | [**list_t**](berry_detail_flavors_inner.md) \* |  | 
+**flavors** | [**list_t**](berry_detail_flavors_inner.md) \* |  | [readonly] 
 **item** | [**item_summary_t**](item_summary.md) \* |  | 
 **natural_gift_type** | [**type_summary_t**](type_summary.md) \* |  | 
 

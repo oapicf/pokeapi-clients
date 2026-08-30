@@ -58,9 +58,11 @@ class MoveBattleStyleDetail extends BaseModel
     },
     "names" : {
       "type" : "array",
+      "readOnly" : true,
       "items" : {
         "$ref" : "#/components/schemas/MoveBattleStyleName"
-      }
+      },
+      "default" : null
     }
   }
 }

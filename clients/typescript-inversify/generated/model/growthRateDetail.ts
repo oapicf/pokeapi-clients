@@ -18,7 +18,7 @@ export interface GrowthRateDetail {
     readonly id: number;
     name: string;
     formula: string;
-    descriptions: Array<GrowthRateDescription>;
-    levels: Array<Experience>;
-    pokemon_species: Array<PokemonSpeciesSummary>;
+    readonly descriptions: Array<GrowthRateDescription>;
+    readonly levels: Array<Experience>;
+    readonly pokemon_species: Array<PokemonSpeciesSummary>;
 }

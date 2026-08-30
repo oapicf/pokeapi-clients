@@ -25,6 +25,8 @@ ItemAttributeName::ItemAttributeName()
     
 }
 
+ItemAttributeName::~ItemAttributeName() = default;
+
 void ItemAttributeName::validate() const
 {
     std::stringstream msg;

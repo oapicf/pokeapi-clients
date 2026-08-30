@@ -163,10 +163,24 @@ class PokemonFormDetail {
       // Note 1: the values aren't checked for validity beyond being non-null.
       // Note 2: this code is stripped in release mode!
       assert(() {
-        requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "PokemonFormDetail[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "PokemonFormDetail[$key]" has a null value in JSON.');
-        });
+        assert(json.containsKey(r'id'), 'Required key "PokemonFormDetail[id]" is missing from JSON.');
+        assert(json[r'id'] != null, 'Required key "PokemonFormDetail[id]" has a null value in JSON.');
+        assert(json.containsKey(r'name'), 'Required key "PokemonFormDetail[name]" is missing from JSON.');
+        assert(json[r'name'] != null, 'Required key "PokemonFormDetail[name]" has a null value in JSON.');
+        assert(json.containsKey(r'form_name'), 'Required key "PokemonFormDetail[form_name]" is missing from JSON.');
+        assert(json[r'form_name'] != null, 'Required key "PokemonFormDetail[form_name]" has a null value in JSON.');
+        assert(json.containsKey(r'pokemon'), 'Required key "PokemonFormDetail[pokemon]" is missing from JSON.');
+        assert(json[r'pokemon'] != null, 'Required key "PokemonFormDetail[pokemon]" has a null value in JSON.');
+        assert(json.containsKey(r'sprites'), 'Required key "PokemonFormDetail[sprites]" is missing from JSON.');
+        assert(json[r'sprites'] != null, 'Required key "PokemonFormDetail[sprites]" has a null value in JSON.');
+        assert(json.containsKey(r'version_group'), 'Required key "PokemonFormDetail[version_group]" is missing from JSON.');
+        assert(json[r'version_group'] != null, 'Required key "PokemonFormDetail[version_group]" has a null value in JSON.');
+        assert(json.containsKey(r'form_names'), 'Required key "PokemonFormDetail[form_names]" is missing from JSON.');
+        assert(json[r'form_names'] != null, 'Required key "PokemonFormDetail[form_names]" has a null value in JSON.');
+        assert(json.containsKey(r'names'), 'Required key "PokemonFormDetail[names]" is missing from JSON.');
+        assert(json[r'names'] != null, 'Required key "PokemonFormDetail[names]" has a null value in JSON.');
+        assert(json.containsKey(r'types'), 'Required key "PokemonFormDetail[types]" is missing from JSON.');
+        assert(json[r'types'] != null, 'Required key "PokemonFormDetail[types]" has a null value in JSON.');
         return true;
       }());
 

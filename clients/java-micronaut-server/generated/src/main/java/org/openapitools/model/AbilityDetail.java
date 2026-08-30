@@ -46,7 +46,7 @@ import io.swagger.v3.oas.annotations.media.Schema;
   AbilityDetail.JSON_PROPERTY_POKEMON
 })
 @JsonTypeName("AbilityDetail")
-@Generated(value="org.openapitools.codegen.languages.JavaMicronautServerCodegen", date="2026-02-07T15:23:03.167972722Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@Generated(value="org.openapitools.codegen.languages.JavaMicronautServerCodegen", date="2026-08-30T01:55:54.631003115Z[Etc/UTC]", comments = "Generator version: 7.24.0")
 @Introspected
 public class AbilityDetail {
     public static final String JSON_PROPERTY_ID = "id";
@@ -170,42 +170,16 @@ public class AbilityDetail {
         this.generation = generation;
     }
 
-    public AbilityDetail names(List<@Valid AbilityName> names) {
-        this.names = names;
-        return this;
-    }
-
-    public AbilityDetail addNamesItem(AbilityName namesItem) {
-        this.names.add(namesItem);
-        return this;
-    }
-
     /**
      * Get names
      * @return names
      */
     @NotNull
-    @Schema(name = "names", requiredMode = Schema.RequiredMode.REQUIRED)
+    @Schema(name = "names", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
     @JsonProperty(JSON_PROPERTY_NAMES)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public List<@Valid AbilityName> getNames() {
         return names;
-    }
-
-    @JsonProperty(JSON_PROPERTY_NAMES)
-    @JsonInclude(value = JsonInclude.Include.ALWAYS)
-    public void setNames(List<@Valid AbilityName> names) {
-        this.names = names;
-    }
-
-    public AbilityDetail effectEntries(List<@Valid AbilityEffectText> effectEntries) {
-        this.effectEntries = effectEntries;
-        return this;
-    }
-
-    public AbilityDetail addEffectEntriesItem(AbilityEffectText effectEntriesItem) {
-        this.effectEntries.add(effectEntriesItem);
-        return this;
     }
 
     /**
@@ -213,27 +187,11 @@ public class AbilityDetail {
      * @return effectEntries
      */
     @NotNull
-    @Schema(name = "effect_entries", requiredMode = Schema.RequiredMode.REQUIRED)
+    @Schema(name = "effect_entries", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
     @JsonProperty(JSON_PROPERTY_EFFECT_ENTRIES)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public List<@Valid AbilityEffectText> getEffectEntries() {
         return effectEntries;
-    }
-
-    @JsonProperty(JSON_PROPERTY_EFFECT_ENTRIES)
-    @JsonInclude(value = JsonInclude.Include.ALWAYS)
-    public void setEffectEntries(List<@Valid AbilityEffectText> effectEntries) {
-        this.effectEntries = effectEntries;
-    }
-
-    public AbilityDetail effectChanges(List<@Valid AbilityChange> effectChanges) {
-        this.effectChanges = effectChanges;
-        return this;
-    }
-
-    public AbilityDetail addEffectChangesItem(AbilityChange effectChangesItem) {
-        this.effectChanges.add(effectChangesItem);
-        return this;
     }
 
     /**
@@ -241,27 +199,11 @@ public class AbilityDetail {
      * @return effectChanges
      */
     @NotNull
-    @Schema(name = "effect_changes", requiredMode = Schema.RequiredMode.REQUIRED)
+    @Schema(name = "effect_changes", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
     @JsonProperty(JSON_PROPERTY_EFFECT_CHANGES)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public List<@Valid AbilityChange> getEffectChanges() {
         return effectChanges;
-    }
-
-    @JsonProperty(JSON_PROPERTY_EFFECT_CHANGES)
-    @JsonInclude(value = JsonInclude.Include.ALWAYS)
-    public void setEffectChanges(List<@Valid AbilityChange> effectChanges) {
-        this.effectChanges = effectChanges;
-    }
-
-    public AbilityDetail flavorTextEntries(List<@Valid AbilityFlavorText> flavorTextEntries) {
-        this.flavorTextEntries = flavorTextEntries;
-        return this;
-    }
-
-    public AbilityDetail addFlavorTextEntriesItem(AbilityFlavorText flavorTextEntriesItem) {
-        this.flavorTextEntries.add(flavorTextEntriesItem);
-        return this;
     }
 
     /**
@@ -269,27 +211,11 @@ public class AbilityDetail {
      * @return flavorTextEntries
      */
     @NotNull
-    @Schema(name = "flavor_text_entries", requiredMode = Schema.RequiredMode.REQUIRED)
+    @Schema(name = "flavor_text_entries", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
     @JsonProperty(JSON_PROPERTY_FLAVOR_TEXT_ENTRIES)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public List<@Valid AbilityFlavorText> getFlavorTextEntries() {
         return flavorTextEntries;
-    }
-
-    @JsonProperty(JSON_PROPERTY_FLAVOR_TEXT_ENTRIES)
-    @JsonInclude(value = JsonInclude.Include.ALWAYS)
-    public void setFlavorTextEntries(List<@Valid AbilityFlavorText> flavorTextEntries) {
-        this.flavorTextEntries = flavorTextEntries;
-    }
-
-    public AbilityDetail pokemon(List<@Valid AbilityDetailPokemonInner> pokemon) {
-        this.pokemon = pokemon;
-        return this;
-    }
-
-    public AbilityDetail addPokemonItem(AbilityDetailPokemonInner pokemonItem) {
-        this.pokemon.add(pokemonItem);
-        return this;
     }
 
     /**
@@ -297,17 +223,11 @@ public class AbilityDetail {
      * @return pokemon
      */
     @NotNull
-    @Schema(name = "pokemon", requiredMode = Schema.RequiredMode.REQUIRED)
+    @Schema(name = "pokemon", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
     @JsonProperty(JSON_PROPERTY_POKEMON)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public List<@Valid AbilityDetailPokemonInner> getPokemon() {
         return pokemon;
-    }
-
-    @JsonProperty(JSON_PROPERTY_POKEMON)
-    @JsonInclude(value = JsonInclude.Include.ALWAYS)
-    public void setPokemon(List<@Valid AbilityDetailPokemonInner> pokemon) {
-        this.pokemon = pokemon;
     }
 
     @Override
@@ -357,10 +277,7 @@ public class AbilityDetail {
      * (except the first line).
      */
     private String toIndentedString(Object o) {
-        if (o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
+        return o == null ? "null" : o.toString().replace("\n", "\n    ");
     }
 
 }

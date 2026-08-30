@@ -21,7 +21,7 @@
 
 namespace OpenAPI {
 
-OAIMoveChange_effect_entries_inner::OAIMoveChange_effect_entries_inner(QString json) {
+OAIMoveChange_effect_entries_inner::OAIMoveChange_effect_entries_inner(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -44,7 +44,7 @@ void OAIMoveChange_effect_entries_inner::initializeModel() {
     m_language_isValid = false;
 }
 
-void OAIMoveChange_effect_entries_inner::fromJson(QString jsonString) {
+void OAIMoveChange_effect_entries_inner::fromJson(const QString &jsonString) {
     QByteArray array(jsonString.toStdString().c_str());
     QJsonDocument doc = QJsonDocument::fromJson(array);
     QJsonObject jsonObject = doc.object();

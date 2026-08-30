@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 **Id** | **int32** |  | [readonly] 
 **Name** | **string** |  | 
 **Order** | Pointer to **NullableInt32** |  | [optional] 
-**Names** | [**[]EncounterMethodName**](EncounterMethodName.md) |  | 
+**Names** | [**[]EncounterMethodName**](EncounterMethodName.md) |  | [readonly] 
 
 ## Methods
 

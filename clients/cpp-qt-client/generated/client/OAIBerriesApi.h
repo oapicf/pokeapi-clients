@@ -44,6 +44,7 @@ public:
     void initializeServerConfigs();
     int setDefaultServerValue(int serverIndex,const QString &operation, const QString &variable,const QString &val);
     void setServerIndex(const QString &operation, int serverIndex);
+    void setServerIndex(int serverIndex);
     void setApiKey(const QString &apiKeyName, const QString &apiKey);
     void setBearerToken(const QString &token);
     void setUsername(const QString &username);
@@ -100,6 +101,13 @@ public:
 
 
 private:
+    enum class OauthMethod : int {
+        INVALID_VALUE_OPENAPI_GENERATED = 0,
+        ImplicitFlow = 1,
+        AuthorizationFlow = 2,
+        ClientCredentialsFlow = 3,
+        ResourceOwnerPasswordFlow = 4
+    };
     QMap<QString,int> _serverIndices;
     QMap<QString,QList<OAIServerConfiguration>> _serverConfigs;
     QMap<QString, QString> _apiKeys;
@@ -119,7 +127,7 @@ private:
     OauthImplicit _implicitFlow;
     OauthCredentials _credentialFlow;
     OauthPassword _passwordFlow;
-    int _OauthMethod = 0;
+    OauthMethod _OauthMethod = OauthMethod::INVALID_VALUE_OPENAPI_GENERATED;
 
     void berryFirmnessListCallback(OAIHttpRequestWorker *worker);
     void berryFirmnessRetrieveCallback(OAIHttpRequestWorker *worker);
@@ -145,42 +153,18 @@ Q_SIGNALS:
     void berryListSignalFull(OAIHttpRequestWorker *worker, OAIPaginatedBerrySummaryList summary);
     void berryRetrieveSignalFull(OAIHttpRequestWorker *worker, OAIBerryDetail summary);
 
-    Q_DECL_DEPRECATED_X("Use berryFirmnessListSignalError() instead")
-    void berryFirmnessListSignalE(OAIPaginatedBerryFirmnessSummaryList summary, QNetworkReply::NetworkError error_type, QString error_str);
     void berryFirmnessListSignalError(OAIPaginatedBerryFirmnessSummaryList summary, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use berryFirmnessRetrieveSignalError() instead")
-    void berryFirmnessRetrieveSignalE(OAIBerryFirmnessDetail summary, QNetworkReply::NetworkError error_type, QString error_str);
     void berryFirmnessRetrieveSignalError(OAIBerryFirmnessDetail summary, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use berryFlavorListSignalError() instead")
-    void berryFlavorListSignalE(OAIPaginatedBerryFlavorSummaryList summary, QNetworkReply::NetworkError error_type, QString error_str);
     void berryFlavorListSignalError(OAIPaginatedBerryFlavorSummaryList summary, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use berryFlavorRetrieveSignalError() instead")
-    void berryFlavorRetrieveSignalE(OAIBerryFlavorDetail summary, QNetworkReply::NetworkError error_type, QString error_str);
     void berryFlavorRetrieveSignalError(OAIBerryFlavorDetail summary, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use berryListSignalError() instead")
-    void berryListSignalE(OAIPaginatedBerrySummaryList summary, QNetworkReply::NetworkError error_type, QString error_str);
     void berryListSignalError(OAIPaginatedBerrySummaryList summary, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use berryRetrieveSignalError() instead")
-    void berryRetrieveSignalE(OAIBerryDetail summary, QNetworkReply::NetworkError error_type, QString error_str);
     void berryRetrieveSignalError(OAIBerryDetail summary, QNetworkReply::NetworkError error_type, const QString &error_str);
 
-    Q_DECL_DEPRECATED_X("Use berryFirmnessListSignalErrorFull() instead")
-    void berryFirmnessListSignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void berryFirmnessListSignalErrorFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use berryFirmnessRetrieveSignalErrorFull() instead")
-    void berryFirmnessRetrieveSignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void berryFirmnessRetrieveSignalErrorFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use berryFlavorListSignalErrorFull() instead")
-    void berryFlavorListSignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void berryFlavorListSignalErrorFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use berryFlavorRetrieveSignalErrorFull() instead")
-    void berryFlavorRetrieveSignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void berryFlavorRetrieveSignalErrorFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use berryListSignalErrorFull() instead")
-    void berryListSignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void berryListSignalErrorFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use berryRetrieveSignalErrorFull() instead")
-    void berryRetrieveSignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void berryRetrieveSignalErrorFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
 
     void abortRequestsSignal();

@@ -104,25 +104,25 @@ export interface PokemonDetail  {
      * @type {Array<PokemonDetailAbilitiesInner>}
      * @memberof PokemonDetail
      */
-    abilities: Array<PokemonDetailAbilitiesInner>;
+    readonly abilities: Array<PokemonDetailAbilitiesInner>;
     /**
      * 
      * @type {Array<PokemonDetailPastAbilitiesInner>}
      * @memberof PokemonDetail
      */
-    pastAbilities: Array<PokemonDetailPastAbilitiesInner>;
+    readonly pastAbilities: Array<PokemonDetailPastAbilitiesInner>;
     /**
      * 
      * @type {Array<PokemonFormSummary>}
      * @memberof PokemonDetail
      */
-    forms: Array<PokemonFormSummary>;
+    readonly forms: Array<PokemonFormSummary>;
     /**
      * 
      * @type {Array<PokemonGameIndex>}
      * @memberof PokemonDetail
      */
-    gameIndices: Array<PokemonGameIndex>;
+    readonly gameIndices: Array<PokemonGameIndex>;
     /**
      * 
      * @type {PokemonDetailHeldItems}
@@ -140,7 +140,7 @@ export interface PokemonDetail  {
      * @type {Array<PokemonDetailMovesInner>}
      * @memberof PokemonDetail
      */
-    moves: Array<PokemonDetailMovesInner>;
+    readonly moves: Array<PokemonDetailMovesInner>;
     /**
      * 
      * @type {PokemonSpeciesSummary}
@@ -164,19 +164,19 @@ export interface PokemonDetail  {
      * @type {Array<PokemonStat>}
      * @memberof PokemonDetail
      */
-    stats: Array<PokemonStat>;
+    readonly stats: Array<PokemonStat>;
     /**
      * 
      * @type {Array<PokemonDetailTypesInner>}
      * @memberof PokemonDetail
      */
-    types: Array<PokemonDetailTypesInner>;
+    readonly types: Array<PokemonDetailTypesInner>;
     /**
      * 
      * @type {Array<PokemonDetailPastTypesInner>}
      * @memberof PokemonDetail
      */
-    pastTypes: Array<PokemonDetailPastTypesInner>;
+    readonly pastTypes: Array<PokemonDetailPastTypesInner>;
 }
 
 export function PokemonDetailFromJSON(json: any): PokemonDetail {
@@ -215,18 +215,10 @@ export function PokemonDetailToJSON(value?: PokemonDetail): any {
         'is_default': value.isDefault,
         'order': value.order,
         'weight': value.weight,
-        'abilities': (value.abilities as Array<any>).map(PokemonDetailAbilitiesInnerToJSON),
-        'past_abilities': (value.pastAbilities as Array<any>).map(PokemonDetailPastAbilitiesInnerToJSON),
-        'forms': (value.forms as Array<any>).map(PokemonFormSummaryToJSON),
-        'game_indices': (value.gameIndices as Array<any>).map(PokemonGameIndexToJSON),
         'held_items': PokemonDetailHeldItemsToJSON(value.heldItems),
-        'moves': (value.moves as Array<any>).map(PokemonDetailMovesInnerToJSON),
         'species': PokemonSpeciesSummaryToJSON(value.species),
         'sprites': PokemonDetailSpritesToJSON(value.sprites),
         'cries': PokemonDetailCriesToJSON(value.cries),
-        'stats': (value.stats as Array<any>).map(PokemonStatToJSON),
-        'types': (value.types as Array<any>).map(PokemonDetailTypesInnerToJSON),
-        'past_types': (value.pastTypes as Array<any>).map(PokemonDetailPastTypesInnerToJSON),
     };
 }
 

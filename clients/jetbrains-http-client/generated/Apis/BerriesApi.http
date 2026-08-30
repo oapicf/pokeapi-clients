@@ -1,0 +1,43 @@
+## BerriesApi
+
+### List berry firmness
+## List berry firmness
+GET https://pokeapi.co/api/v2/berry-firmness/?limit={{limit}}&offset={{offset}}&q={{q}}
+Accept: application/json
+Authorization: Basic: {{username-password}}
+Cookie: sessionid={{cookieKey}}
+
+### Get berry by firmness
+## Get berry by firmness
+GET https://pokeapi.co/api/v2/berry-firmness/{{id}}/
+Accept: application/json
+Authorization: Basic: {{username-password}}
+Cookie: sessionid={{cookieKey}}
+
+### List berry flavors
+## List berry flavors
+GET https://pokeapi.co/api/v2/berry-flavor/?limit={{limit}}&offset={{offset}}&q={{q}}
+Accept: application/json
+Authorization: Basic: {{username-password}}
+Cookie: sessionid={{cookieKey}}
+
+### Get berries by flavor
+## Get berries by flavor
+GET https://pokeapi.co/api/v2/berry-flavor/{{id}}/
+Accept: application/json
+Authorization: Basic: {{username-password}}
+Cookie: sessionid={{cookieKey}}
+
+### List berries
+## List berries
+GET https://pokeapi.co/api/v2/berry/?limit={{limit}}&offset={{offset}}&q={{q}}
+Accept: application/json
+Authorization: Basic: {{username-password}}
+Cookie: sessionid={{cookieKey}}
+
+### Get a berry
+## Get a berry
+GET https://pokeapi.co/api/v2/berry/{{id}}/
+Accept: application/json
+Authorization: Basic: {{username-password}}
+Cookie: sessionid={{cookieKey}}

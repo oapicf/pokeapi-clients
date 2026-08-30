@@ -25,6 +25,8 @@ MoveDetail_machines_inner_machine::MoveDetail_machines_inner_machine()
     
 }
 
+MoveDetail_machines_inner_machine::~MoveDetail_machines_inner_machine() = default;
+
 void MoveDetail_machines_inner_machine::validate() const
 {
     std::stringstream msg;

@@ -35,7 +35,7 @@ class  EggGroupDetail
 {
 public:
     EggGroupDetail();
-    virtual ~EggGroupDetail() = default;
+    virtual ~EggGroupDetail();
 
 
     /// <summary>

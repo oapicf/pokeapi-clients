@@ -86,7 +86,7 @@ BerryFirmnessName::getName()
 }
 
 void
-BerryFirmnessName::setName(std::string  name)
+BerryFirmnessName::setName(std::string name)
 {
 	this->name = name;
 }
@@ -98,7 +98,7 @@ BerryFirmnessName::getLanguage()
 }
 
 void
-BerryFirmnessName::setLanguage(LanguageSummary  language)
+BerryFirmnessName::setLanguage(LanguageSummary language)
 {
 	this->language = language;
 }

@@ -95,8 +95,18 @@ namespace Org.OpenAPITools.Model
     /// <summary>
     /// A Json converter for type <see cref="MoveFlavorText" />
     /// </summary>
-    public class MoveFlavorTextJsonConverter : JsonConverter<MoveFlavorText>
+    public partial class MoveFlavorTextJsonConverter : JsonConverter<MoveFlavorText>
     {
+        partial void OnCreated();
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="MoveFlavorTextJsonConverter" /> class.
+        /// </summary>
+        public MoveFlavorTextJsonConverter()
+        {
+            OnCreated();
+        }
+
         /// <summary>
         /// Deserializes json to <see cref="MoveFlavorText" />
         /// </summary>

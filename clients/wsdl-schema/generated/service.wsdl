@@ -747,8 +747,8 @@
           <xs:element minOccurs="1" name="gender" type="schemas:EvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner_gender" />
           <xs:element minOccurs="1" name="held_item" type="schemas:EvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner_gender" />
           <xs:element minOccurs="1" name="item" type="schemas:EvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner_gender" />
-          <xs:element minOccurs="1" name="known_move" type="xs:anyType" />
-          <xs:element minOccurs="1" name="known_move_type" type="xs:anyType" />
+          <xs:element minOccurs="1" name="known_move" type="schemas:EvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner_gender" />
+          <xs:element minOccurs="1" name="known_move_type" type="schemas:EvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner_gender" />
           <xs:element minOccurs="1" name="location" type="schemas:EvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner_gender" />
           <xs:element minOccurs="1" name="min_affection" type="xs:integer" />
           <xs:element minOccurs="1" name="min_beauty" type="xs:integer" />

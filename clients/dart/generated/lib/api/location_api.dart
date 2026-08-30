@@ -29,7 +29,7 @@ class LocationApi {
   ///
   /// * [int] offset:
   ///   The initial index from which to return the results.
-  Future<Response> locationAreaListWithHttpInfo({ int? limit, int? offset, }) async {
+  Future<Response> locationAreaListWithHttpInfo({ int? limit, int? offset, Future<void>? abortTrigger, }) async {
     // ignore: prefer_const_declarations
     final path = r'/api/v2/location-area/';
 
@@ -58,6 +58,7 @@ class LocationApi {
       headerParams,
       formParams,
       contentTypes.isEmpty ? null : contentTypes.first,
+      abortTrigger: abortTrigger,
     );
   }
 
@@ -72,8 +73,8 @@ class LocationApi {
   ///
   /// * [int] offset:
   ///   The initial index from which to return the results.
-  Future<PaginatedLocationAreaSummaryList?> locationAreaList({ int? limit, int? offset, }) async {
-    final response = await locationAreaListWithHttpInfo( limit: limit, offset: offset, );
+  Future<PaginatedLocationAreaSummaryList?> locationAreaList({ int? limit, int? offset, Future<void>? abortTrigger, }) async {
+    final response = await locationAreaListWithHttpInfo(limit: limit, offset: offset, abortTrigger: abortTrigger,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -97,7 +98,7 @@ class LocationApi {
   ///
   /// * [int] id (required):
   ///   A unique integer value identifying this location area.
-  Future<Response> locationAreaRetrieveWithHttpInfo(int id,) async {
+  Future<Response> locationAreaRetrieveWithHttpInfo(int id, { Future<void>? abortTrigger, }) async {
     // ignore: prefer_const_declarations
     final path = r'/api/v2/location-area/{id}/'
       .replaceAll('{id}', id.toString());
@@ -120,6 +121,7 @@ class LocationApi {
       headerParams,
       formParams,
       contentTypes.isEmpty ? null : contentTypes.first,
+      abortTrigger: abortTrigger,
     );
   }
 
@@ -131,8 +133,8 @@ class LocationApi {
   ///
   /// * [int] id (required):
   ///   A unique integer value identifying this location area.
-  Future<LocationAreaDetail?> locationAreaRetrieve(int id,) async {
-    final response = await locationAreaRetrieveWithHttpInfo(id,);
+  Future<LocationAreaDetail?> locationAreaRetrieve(int id, { Future<void>? abortTrigger, }) async {
+    final response = await locationAreaRetrieveWithHttpInfo(id, abortTrigger: abortTrigger,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -162,7 +164,7 @@ class LocationApi {
   ///
   /// * [String] q:
   ///   > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. 
-  Future<Response> locationListWithHttpInfo({ int? limit, int? offset, String? q, }) async {
+  Future<Response> locationListWithHttpInfo({ int? limit, int? offset, String? q, Future<void>? abortTrigger, }) async {
     // ignore: prefer_const_declarations
     final path = r'/api/v2/location/';
 
@@ -194,6 +196,7 @@ class LocationApi {
       headerParams,
       formParams,
       contentTypes.isEmpty ? null : contentTypes.first,
+      abortTrigger: abortTrigger,
     );
   }
 
@@ -211,8 +214,8 @@ class LocationApi {
   ///
   /// * [String] q:
   ///   > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. 
-  Future<PaginatedLocationSummaryList?> locationList({ int? limit, int? offset, String? q, }) async {
-    final response = await locationListWithHttpInfo( limit: limit, offset: offset, q: q, );
+  Future<PaginatedLocationSummaryList?> locationList({ int? limit, int? offset, String? q, Future<void>? abortTrigger, }) async {
+    final response = await locationListWithHttpInfo(limit: limit, offset: offset, q: q, abortTrigger: abortTrigger,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -236,7 +239,7 @@ class LocationApi {
   ///
   /// * [String] id (required):
   ///   This parameter can be a string or an integer.
-  Future<Response> locationRetrieveWithHttpInfo(String id,) async {
+  Future<Response> locationRetrieveWithHttpInfo(String id, { Future<void>? abortTrigger, }) async {
     // ignore: prefer_const_declarations
     final path = r'/api/v2/location/{id}/'
       .replaceAll('{id}', id);
@@ -259,6 +262,7 @@ class LocationApi {
       headerParams,
       formParams,
       contentTypes.isEmpty ? null : contentTypes.first,
+      abortTrigger: abortTrigger,
     );
   }
 
@@ -270,8 +274,8 @@ class LocationApi {
   ///
   /// * [String] id (required):
   ///   This parameter can be a string or an integer.
-  Future<LocationDetail?> locationRetrieve(String id,) async {
-    final response = await locationRetrieveWithHttpInfo(id,);
+  Future<LocationDetail?> locationRetrieve(String id, { Future<void>? abortTrigger, }) async {
+    final response = await locationRetrieveWithHttpInfo(id, abortTrigger: abortTrigger,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -301,7 +305,7 @@ class LocationApi {
   ///
   /// * [String] q:
   ///   > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. 
-  Future<Response> palParkAreaListWithHttpInfo({ int? limit, int? offset, String? q, }) async {
+  Future<Response> palParkAreaListWithHttpInfo({ int? limit, int? offset, String? q, Future<void>? abortTrigger, }) async {
     // ignore: prefer_const_declarations
     final path = r'/api/v2/pal-park-area/';
 
@@ -333,6 +337,7 @@ class LocationApi {
       headerParams,
       formParams,
       contentTypes.isEmpty ? null : contentTypes.first,
+      abortTrigger: abortTrigger,
     );
   }
 
@@ -350,8 +355,8 @@ class LocationApi {
   ///
   /// * [String] q:
   ///   > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. 
-  Future<PaginatedPalParkAreaSummaryList?> palParkAreaList({ int? limit, int? offset, String? q, }) async {
-    final response = await palParkAreaListWithHttpInfo( limit: limit, offset: offset, q: q, );
+  Future<PaginatedPalParkAreaSummaryList?> palParkAreaList({ int? limit, int? offset, String? q, Future<void>? abortTrigger, }) async {
+    final response = await palParkAreaListWithHttpInfo(limit: limit, offset: offset, q: q, abortTrigger: abortTrigger,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -375,7 +380,7 @@ class LocationApi {
   ///
   /// * [String] id (required):
   ///   This parameter can be a string or an integer.
-  Future<Response> palParkAreaRetrieveWithHttpInfo(String id,) async {
+  Future<Response> palParkAreaRetrieveWithHttpInfo(String id, { Future<void>? abortTrigger, }) async {
     // ignore: prefer_const_declarations
     final path = r'/api/v2/pal-park-area/{id}/'
       .replaceAll('{id}', id);
@@ -398,6 +403,7 @@ class LocationApi {
       headerParams,
       formParams,
       contentTypes.isEmpty ? null : contentTypes.first,
+      abortTrigger: abortTrigger,
     );
   }
 
@@ -409,8 +415,8 @@ class LocationApi {
   ///
   /// * [String] id (required):
   ///   This parameter can be a string or an integer.
-  Future<PalParkAreaDetail?> palParkAreaRetrieve(String id,) async {
-    final response = await palParkAreaRetrieveWithHttpInfo(id,);
+  Future<PalParkAreaDetail?> palParkAreaRetrieve(String id, { Future<void>? abortTrigger, }) async {
+    final response = await palParkAreaRetrieveWithHttpInfo(id, abortTrigger: abortTrigger,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -440,7 +446,7 @@ class LocationApi {
   ///
   /// * [String] q:
   ///   > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. 
-  Future<Response> regionListWithHttpInfo({ int? limit, int? offset, String? q, }) async {
+  Future<Response> regionListWithHttpInfo({ int? limit, int? offset, String? q, Future<void>? abortTrigger, }) async {
     // ignore: prefer_const_declarations
     final path = r'/api/v2/region/';
 
@@ -472,6 +478,7 @@ class LocationApi {
       headerParams,
       formParams,
       contentTypes.isEmpty ? null : contentTypes.first,
+      abortTrigger: abortTrigger,
     );
   }
 
@@ -489,8 +496,8 @@ class LocationApi {
   ///
   /// * [String] q:
   ///   > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. 
-  Future<PaginatedRegionSummaryList?> regionList({ int? limit, int? offset, String? q, }) async {
-    final response = await regionListWithHttpInfo( limit: limit, offset: offset, q: q, );
+  Future<PaginatedRegionSummaryList?> regionList({ int? limit, int? offset, String? q, Future<void>? abortTrigger, }) async {
+    final response = await regionListWithHttpInfo(limit: limit, offset: offset, q: q, abortTrigger: abortTrigger,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -514,7 +521,7 @@ class LocationApi {
   ///
   /// * [String] id (required):
   ///   This parameter can be a string or an integer.
-  Future<Response> regionRetrieveWithHttpInfo(String id,) async {
+  Future<Response> regionRetrieveWithHttpInfo(String id, { Future<void>? abortTrigger, }) async {
     // ignore: prefer_const_declarations
     final path = r'/api/v2/region/{id}/'
       .replaceAll('{id}', id);
@@ -537,6 +544,7 @@ class LocationApi {
       headerParams,
       formParams,
       contentTypes.isEmpty ? null : contentTypes.first,
+      abortTrigger: abortTrigger,
     );
   }
 
@@ -548,8 +556,8 @@ class LocationApi {
   ///
   /// * [String] id (required):
   ///   This parameter can be a string or an integer.
-  Future<RegionDetail?> regionRetrieve(String id,) async {
-    final response = await regionRetrieveWithHttpInfo(id,);
+  Future<RegionDetail?> regionRetrieve(String id, { Future<void>? abortTrigger, }) async {
+    final response = await regionRetrieveWithHttpInfo(id, abortTrigger: abortTrigger,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }

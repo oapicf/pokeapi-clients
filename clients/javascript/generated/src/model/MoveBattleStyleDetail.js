@@ -17,7 +17,7 @@ import MoveBattleStyleName from './MoveBattleStyleName';
 /**
  * The MoveBattleStyleDetail model module.
  * @module model/MoveBattleStyleDetail
- * @version 1.2.1-pre.0
+ * @version 2.0.1-pre.0
  */
 class MoveBattleStyleDetail {
     /**

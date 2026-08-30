@@ -13,6 +13,6 @@ import { AbilityChangeEffectText } from './abilityChangeEffectText';
 
 export interface AbilityChange { 
     version_group: VersionGroupSummary;
-    effect_entries: Array<AbilityChangeEffectText>;
+    readonly effect_entries: Array<AbilityChangeEffectText>;
 }
 

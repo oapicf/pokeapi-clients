@@ -1,0 +1,13 @@
+.openapi-generator-ignore
+pom.xml
+src/main/java/org/openapitools/mockserver/api/BerriesApiMockServer.java
+src/main/java/org/openapitools/mockserver/api/ContestsApiMockServer.java
+src/main/java/org/openapitools/mockserver/api/EncountersApiMockServer.java
+src/main/java/org/openapitools/mockserver/api/EvolutionApiMockServer.java
+src/main/java/org/openapitools/mockserver/api/GamesApiMockServer.java
+src/main/java/org/openapitools/mockserver/api/ItemsApiMockServer.java
+src/main/java/org/openapitools/mockserver/api/LocationApiMockServer.java
+src/main/java/org/openapitools/mockserver/api/MachinesApiMockServer.java
+src/main/java/org/openapitools/mockserver/api/MovesApiMockServer.java
+src/main/java/org/openapitools/mockserver/api/PokemonApiMockServer.java
+src/main/java/org/openapitools/mockserver/api/UtilityApiMockServer.java

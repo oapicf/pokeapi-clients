@@ -67,7 +67,8 @@ class PaginatedBerrySummaryList extends BaseModel
       "type" : "array",
       "items" : {
         "$ref" : "#/components/schemas/BerrySummary"
-      }
+      },
+      "default" : null
     }
   }
 }

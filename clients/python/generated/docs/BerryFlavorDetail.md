@@ -7,9 +7,9 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **int** |  | [readonly] 
 **name** | **str** |  | 
-**berries** | [**List[BerryFlavorDetailBerriesInner]**](BerryFlavorDetailBerriesInner.md) |  | 
+**berries** | [**List[BerryFlavorDetailBerriesInner]**](BerryFlavorDetailBerriesInner.md) |  | [readonly] 
 **contest_type** | [**ContestTypeSummary**](ContestTypeSummary.md) |  | 
-**names** | [**List[BerryFlavorName]**](BerryFlavorName.md) |  | 
+**names** | [**List[BerryFlavorName]**](BerryFlavorName.md) |  | [readonly] 
 
 ## Example
 

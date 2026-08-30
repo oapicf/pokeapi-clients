@@ -34,13 +34,13 @@ class OAIMoveMetaCategorySummary;
 class OAIMoveMeta : public OAIObject {
 public:
     OAIMoveMeta();
-    OAIMoveMeta(QString json);
+    OAIMoveMeta(const QString &json);
     ~OAIMoveMeta() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     OAIMoveMetaAilmentSummary getAilment() const;
     void setAilment(const OAIMoveMetaAilmentSummary &ailment);

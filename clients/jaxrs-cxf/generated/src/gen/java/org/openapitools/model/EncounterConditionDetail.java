@@ -74,19 +74,6 @@ public class EncounterConditionDetail  {
     return values;
   }
 
-  public void setValues(List<@Valid EncounterConditionValueSummary> values) {
-    this.values = values;
-  }
-
-  public EncounterConditionDetail values(List<@Valid EncounterConditionValueSummary> values) {
-    this.values = values;
-    return this;
-  }
-
-  public EncounterConditionDetail addValuesItem(EncounterConditionValueSummary valuesItem) {
-    this.values.add(valuesItem);
-    return this;
-  }
 
  /**
    * Get names
@@ -98,19 +85,6 @@ public class EncounterConditionDetail  {
     return names;
   }
 
-  public void setNames(List<@Valid EncounterConditionName> names) {
-    this.names = names;
-  }
-
-  public EncounterConditionDetail names(List<@Valid EncounterConditionName> names) {
-    this.names = names;
-    return this;
-  }
-
-  public EncounterConditionDetail addNamesItem(EncounterConditionName namesItem) {
-    this.names.add(namesItem);
-    return this;
-  }
 
   @Override
   public boolean equals(Object o) {
@@ -150,10 +124,7 @@ public class EncounterConditionDetail  {
    * (except the first line).
    */
   private static String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 }
 

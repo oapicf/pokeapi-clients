@@ -32,13 +32,13 @@ class OAIAbilityDetail_pokemon_inner_pokemon;
 class OAIPokedexDetail_pokemon_entries_inner : public OAIObject {
 public:
     OAIPokedexDetail_pokemon_entries_inner();
-    OAIPokedexDetail_pokemon_entries_inner(QString json);
+    OAIPokedexDetail_pokemon_entries_inner(const QString &json);
     ~OAIPokedexDetail_pokemon_entries_inner() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     qint32 getEntryNumber() const;
     void setEntryNumber(const qint32 &entry_number);

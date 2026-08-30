@@ -59,10 +59,12 @@ class AbilityEffectText {
       // Note 1: the values aren't checked for validity beyond being non-null.
       // Note 2: this code is stripped in release mode!
       assert(() {
-        requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "AbilityEffectText[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "AbilityEffectText[$key]" has a null value in JSON.');
-        });
+        assert(json.containsKey(r'effect'), 'Required key "AbilityEffectText[effect]" is missing from JSON.');
+        assert(json[r'effect'] != null, 'Required key "AbilityEffectText[effect]" has a null value in JSON.');
+        assert(json.containsKey(r'short_effect'), 'Required key "AbilityEffectText[short_effect]" is missing from JSON.');
+        assert(json[r'short_effect'] != null, 'Required key "AbilityEffectText[short_effect]" has a null value in JSON.');
+        assert(json.containsKey(r'language'), 'Required key "AbilityEffectText[language]" is missing from JSON.');
+        assert(json[r'language'] != null, 'Required key "AbilityEffectText[language]" has a null value in JSON.');
         return true;
       }());
 

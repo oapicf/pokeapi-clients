@@ -46,7 +46,7 @@ export interface GenderDetailPokemonSpeciesDetailsInner {
  */
 export function instanceOfGenderDetailPokemonSpeciesDetailsInner(value: object): value is GenderDetailPokemonSpeciesDetailsInner {
     if (!('rate' in value) || value['rate'] === undefined) return false;
-    if (!('pokemonSpecies' in value) || value['pokemonSpecies'] === undefined) return false;
+    if ((!('pokemonSpecies' in (value as Record<string, any>)) && !('pokemon_species' in (value as Record<string, any>))) || ((value as Record<string, any>)['pokemonSpecies'] === undefined && (value as Record<string, any>)['pokemon_species'] === undefined)) return false;
     return true;
 }
 

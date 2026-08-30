@@ -13,7 +13,7 @@
 | **smoothness** | **Integer** |  |  |
 | **soil_dryness** | **Integer** |  |  |
 | **firmness** | [**BerryFirmnessSummary**](BerryFirmnessSummary.md) |  |  |
-| **flavors** | [**Array&lt;BerryDetailFlavorsInner&gt;**](BerryDetailFlavorsInner.md) |  |  |
+| **flavors** | [**Array&lt;BerryDetailFlavorsInner&gt;**](BerryDetailFlavorsInner.md) |  | [readonly] |
 | **item** | [**ItemSummary**](ItemSummary.md) |  |  |
 | **natural_gift_type** | [**TypeSummary**](TypeSummary.md) |  |  |
 

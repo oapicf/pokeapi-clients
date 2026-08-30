@@ -86,7 +86,7 @@ PokeathlonStatName::getName()
 }
 
 void
-PokeathlonStatName::setName(std::string  name)
+PokeathlonStatName::setName(std::string name)
 {
 	this->name = name;
 }
@@ -98,7 +98,7 @@ PokeathlonStatName::getLanguage()
 }
 
 void
-PokeathlonStatName::setLanguage(LanguageSummary  language)
+PokeathlonStatName::setLanguage(LanguageSummary language)
 {
 	this->language = language;
 }

@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **id** | **number** |  | [readonly] [default to undefined]
 **name** | **string** |  | [default to undefined]
 **condition** | [**EncounterConditionSummary**](EncounterConditionSummary.md) |  | [default to undefined]
-**names** | [**Array&lt;EncounterConditionValueName&gt;**](EncounterConditionValueName.md) |  | [default to undefined]
+**names** | [**Array&lt;EncounterConditionValueName&gt;**](EncounterConditionValueName.md) |  | [readonly] [default to undefined]
 
 ## Example
 

@@ -25,6 +25,8 @@ MoveName::MoveName()
     
 }
 
+MoveName::~MoveName() = default;
+
 void MoveName::validate() const
 {
     std::stringstream msg;

@@ -35,10 +35,10 @@ export interface BerryFirmnessDetail {
      * @type {Array<BerrySummary>}
      * @memberof BerryFirmnessDetail
      */
-    berries: Array<BerrySummary>;
+    readonly berries: Array<BerrySummary>;
     /**
      * @type {Array<BerryFirmnessName>}
      * @memberof BerryFirmnessDetail
      */
-    names: Array<BerryFirmnessName>;
+    readonly names: Array<BerryFirmnessName>;
 }

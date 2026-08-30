@@ -150,7 +150,7 @@ LocationAreaDetail_pokemon_encounters_inner_version_details_inner_encounter_deta
 }
 
 void
-LocationAreaDetail_pokemon_encounters_inner_version_details_inner_encounter_details::setMinLevel(int  min_level)
+LocationAreaDetail_pokemon_encounters_inner_version_details_inner_encounter_details::setMinLevel(int min_level)
 {
 	this->min_level = min_level;
 }
@@ -162,7 +162,7 @@ LocationAreaDetail_pokemon_encounters_inner_version_details_inner_encounter_deta
 }
 
 void
-LocationAreaDetail_pokemon_encounters_inner_version_details_inner_encounter_details::setMaxLevel(int  max_level)
+LocationAreaDetail_pokemon_encounters_inner_version_details_inner_encounter_details::setMaxLevel(int max_level)
 {
 	this->max_level = max_level;
 }
@@ -174,7 +174,7 @@ LocationAreaDetail_pokemon_encounters_inner_version_details_inner_encounter_deta
 }
 
 void
-LocationAreaDetail_pokemon_encounters_inner_version_details_inner_encounter_details::setConditionValues(AbilityDetail_pokemon_inner_pokemon  condition_values)
+LocationAreaDetail_pokemon_encounters_inner_version_details_inner_encounter_details::setConditionValues(AbilityDetail_pokemon_inner_pokemon condition_values)
 {
 	this->condition_values = condition_values;
 }
@@ -186,7 +186,7 @@ LocationAreaDetail_pokemon_encounters_inner_version_details_inner_encounter_deta
 }
 
 void
-LocationAreaDetail_pokemon_encounters_inner_version_details_inner_encounter_details::setChance(int  chance)
+LocationAreaDetail_pokemon_encounters_inner_version_details_inner_encounter_details::setChance(int chance)
 {
 	this->chance = chance;
 }
@@ -198,7 +198,7 @@ LocationAreaDetail_pokemon_encounters_inner_version_details_inner_encounter_deta
 }
 
 void
-LocationAreaDetail_pokemon_encounters_inner_version_details_inner_encounter_details::setMethod(AbilityDetail_pokemon_inner_pokemon  method)
+LocationAreaDetail_pokemon_encounters_inner_version_details_inner_encounter_details::setMethod(AbilityDetail_pokemon_inner_pokemon method)
 {
 	this->method = method;
 }

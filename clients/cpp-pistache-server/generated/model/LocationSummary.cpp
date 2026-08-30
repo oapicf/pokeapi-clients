@@ -26,6 +26,8 @@ LocationSummary::LocationSummary()
     
 }
 
+LocationSummary::~LocationSummary() = default;
+
 void LocationSummary::validate() const
 {
     std::stringstream msg;

@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 **power** | **NSNumber*** |  | [optional] 
 **pp** | **NSNumber*** |  | [optional] 
 **effectChance** | **NSNumber*** |  | 
-**effectEntries** | [**NSArray&lt;OAIMoveChangeEffectEntriesInner&gt;***](OAIMoveChangeEffectEntriesInner.md) |  | 
+**effectEntries** | [**NSArray&lt;OAIMoveChangeEffectEntriesInner&gt;***](OAIMoveChangeEffectEntriesInner.md) |  | [readonly] 
 **type** | [**OAITypeSummary***](OAITypeSummary.md) |  | 
 **versionGroup** | [**OAIVersionGroupSummary***](OAIVersionGroupSummary.md) |  | 
 

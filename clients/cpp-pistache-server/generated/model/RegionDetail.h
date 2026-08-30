@@ -38,7 +38,7 @@ class  RegionDetail
 {
 public:
     RegionDetail();
-    virtual ~RegionDetail() = default;
+    virtual ~RegionDetail();
 
 
     /// <summary>

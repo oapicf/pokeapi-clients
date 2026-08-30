@@ -44,13 +44,13 @@ export interface MoveMetaCategoryDetail  {
      * @type {Array<MoveMetaCategoryDescription>}
      * @memberof MoveMetaCategoryDetail
      */
-    descriptions: Array<MoveMetaCategoryDescription>;
+    readonly descriptions: Array<MoveMetaCategoryDescription>;
     /**
      * 
      * @type {Array<AbilityDetailPokemonInnerPokemon>}
      * @memberof MoveMetaCategoryDetail
      */
-    moves: Array<AbilityDetailPokemonInnerPokemon>;
+    readonly moves: Array<AbilityDetailPokemonInnerPokemon>;
 }
 
 export function MoveMetaCategoryDetailFromJSON(json: any): MoveMetaCategoryDetail {
@@ -68,8 +68,6 @@ export function MoveMetaCategoryDetailToJSON(value?: MoveMetaCategoryDetail): an
     }
     return {
         'name': value.name,
-        'descriptions': (value.descriptions as Array<any>).map(MoveMetaCategoryDescriptionToJSON),
-        'moves': (value.moves as Array<any>).map(AbilityDetailPokemonInnerPokemonToJSON),
     };
 }
 

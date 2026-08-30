@@ -33,7 +33,7 @@ class  EggGroupName
 {
 public:
     EggGroupName();
-    virtual ~EggGroupName() = default;
+    virtual ~EggGroupName();
 
 
     /// <summary>

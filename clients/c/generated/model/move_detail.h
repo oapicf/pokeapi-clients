@@ -36,13 +36,13 @@ typedef struct move_detail_t move_detail_t;
 
 
 typedef struct move_detail_t {
-    int id; //numeric
+    int *id; //numeric
     char *name; // string
-    int accuracy; //numeric
-    int effect_chance; //numeric
-    int pp; //numeric
-    int priority; //numeric
-    int power; //numeric
+    int *accuracy; //numeric
+    int *effect_chance; //numeric
+    int *pp; //numeric
+    int *priority; //numeric
+    int *power; //numeric
     struct move_detail_contest_combos_t *contest_combos; //model
     struct contest_type_summary_t *contest_type; //model
     struct contest_effect_summary_t *contest_effect; //model
@@ -65,13 +65,13 @@ typedef struct move_detail_t {
 } move_detail_t;
 
 __attribute__((deprecated)) move_detail_t *move_detail_create(
-    int id,
+    int *id,
     char *name,
-    int accuracy,
-    int effect_chance,
-    int pp,
-    int priority,
-    int power,
+    int *accuracy,
+    int *effect_chance,
+    int *pp,
+    int *priority,
+    int *power,
     move_detail_contest_combos_t *contest_combos,
     contest_type_summary_t *contest_type,
     contest_effect_summary_t *contest_effect,

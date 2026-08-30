@@ -32,7 +32,7 @@ class  TypeSummary
 {
 public:
     TypeSummary();
-    virtual ~TypeSummary() = default;
+    virtual ~TypeSummary();
 
 
     /// <summary>

@@ -29,30 +29,37 @@ import io.swagger.v3.oas.annotations.media.Schema
  */
 data class LocationAreaDetail(
 
-    @Schema(example = "null", required = true, readOnly = true, description = "")
+    @Schema(required = true, readOnly = true, description = "")
+    @param:JsonProperty("id")
     @get:JsonProperty("id", required = true) val id: kotlin.Int,
 
     @get:Size(max=100)
-    @Schema(example = "null", required = true, description = "")
+    @Schema(required = true, description = "")
+    @param:JsonProperty("name")
     @get:JsonProperty("name", required = true) val name: kotlin.String,
 
-    @Schema(example = "null", required = true, description = "")
+    @Schema(required = true, description = "")
+    @param:JsonProperty("game_index")
     @get:JsonProperty("game_index", required = true) val gameIndex: kotlin.Int,
 
     @field:Valid
-    @Schema(example = "null", required = true, description = "")
+    @Schema(required = true, readOnly = true, description = "")
+    @param:JsonProperty("encounter_method_rates")
     @get:JsonProperty("encounter_method_rates", required = true) val encounterMethodRates: kotlin.collections.List<LocationAreaDetailEncounterMethodRatesInner>,
 
     @field:Valid
-    @Schema(example = "null", required = true, description = "")
+    @Schema(required = true, description = "")
+    @param:JsonProperty("location")
     @get:JsonProperty("location", required = true) val location: LocationSummary,
 
     @field:Valid
-    @Schema(example = "null", required = true, description = "")
+    @Schema(required = true, readOnly = true, description = "")
+    @param:JsonProperty("names")
     @get:JsonProperty("names", required = true) val names: kotlin.collections.List<LocationAreaName>,
 
     @field:Valid
-    @Schema(example = "null", required = true, description = "")
+    @Schema(required = true, readOnly = true, description = "")
+    @param:JsonProperty("pokemon_encounters")
     @get:JsonProperty("pokemon_encounters", required = true) val pokemonEncounters: kotlin.collections.List<LocationAreaDetailPokemonEncountersInner>
 ) {
 

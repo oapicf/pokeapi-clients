@@ -59,10 +59,12 @@ class PokemonStat {
       // Note 1: the values aren't checked for validity beyond being non-null.
       // Note 2: this code is stripped in release mode!
       assert(() {
-        requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "PokemonStat[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "PokemonStat[$key]" has a null value in JSON.');
-        });
+        assert(json.containsKey(r'base_stat'), 'Required key "PokemonStat[base_stat]" is missing from JSON.');
+        assert(json[r'base_stat'] != null, 'Required key "PokemonStat[base_stat]" has a null value in JSON.');
+        assert(json.containsKey(r'effort'), 'Required key "PokemonStat[effort]" is missing from JSON.');
+        assert(json[r'effort'] != null, 'Required key "PokemonStat[effort]" has a null value in JSON.');
+        assert(json.containsKey(r'stat'), 'Required key "PokemonStat[stat]" is missing from JSON.');
+        assert(json[r'stat'] != null, 'Required key "PokemonStat[stat]" has a null value in JSON.');
         return true;
       }());
 

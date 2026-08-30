@@ -96,15 +96,19 @@ class PokemonSpeciesDetail extends BaseModel
     },
     "pokedex_numbers" : {
       "type" : "array",
+      "readOnly" : true,
       "items" : {
         "$ref" : "#/components/schemas/PokemonDexEntry"
-      }
+      },
+      "default" : null
     },
     "egg_groups" : {
       "type" : "array",
+      "readOnly" : true,
       "items" : {
         "$ref" : "#/components/schemas/AbilityDetail_pokemon_inner_pokemon"
-      }
+      },
+      "default" : null
     },
     "color" : {
       "$ref" : "#/components/schemas/PokemonColorSummary"
@@ -126,39 +130,51 @@ class PokemonSpeciesDetail extends BaseModel
     },
     "names" : {
       "type" : "array",
+      "readOnly" : true,
       "items" : {
         "$ref" : "#/components/schemas/PokemonFormDetail_form_names_inner"
-      }
+      },
+      "default" : null
     },
     "pal_park_encounters" : {
       "type" : "array",
+      "readOnly" : true,
       "items" : {
         "$ref" : "#/components/schemas/PokemonSpeciesDetail_pal_park_encounters_inner"
-      }
+      },
+      "default" : null
     },
     "form_descriptions" : {
       "type" : "array",
+      "readOnly" : true,
       "items" : {
         "$ref" : "#/components/schemas/PokemonSpeciesDescription"
-      }
+      },
+      "default" : null
     },
     "flavor_text_entries" : {
       "type" : "array",
+      "readOnly" : true,
       "items" : {
         "$ref" : "#/components/schemas/PokemonSpeciesFlavorText"
-      }
+      },
+      "default" : null
     },
     "genera" : {
       "type" : "array",
+      "readOnly" : true,
       "items" : {
         "$ref" : "#/components/schemas/PokemonSpeciesDetail_genera_inner"
-      }
+      },
+      "default" : null
     },
     "varieties" : {
       "type" : "array",
+      "readOnly" : true,
       "items" : {
         "$ref" : "#/components/schemas/PokemonSpeciesDetail_varieties_inner"
-      }
+      },
+      "default" : null
     }
   }
 }

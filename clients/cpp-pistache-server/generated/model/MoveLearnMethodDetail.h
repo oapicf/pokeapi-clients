@@ -36,7 +36,7 @@ class  MoveLearnMethodDetail
 {
 public:
     MoveLearnMethodDetail();
-    virtual ~MoveLearnMethodDetail() = default;
+    virtual ~MoveLearnMethodDetail();
 
 
     /// <summary>

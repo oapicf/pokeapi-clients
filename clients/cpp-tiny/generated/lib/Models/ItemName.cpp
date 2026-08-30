@@ -86,7 +86,7 @@ ItemName::getName()
 }
 
 void
-ItemName::setName(std::string  name)
+ItemName::setName(std::string name)
 {
 	this->name = name;
 }
@@ -98,7 +98,7 @@ ItemName::getLanguage()
 }
 
 void
-ItemName::setLanguage(LanguageSummary  language)
+ItemName::setLanguage(LanguageSummary language)
 {
 	this->language = language;
 }

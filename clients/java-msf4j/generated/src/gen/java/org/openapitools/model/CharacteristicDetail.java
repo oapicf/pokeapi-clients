@@ -14,7 +14,7 @@ import org.openapitools.model.StatSummary;
 /**
  * CharacteristicDetail
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaMSF4JServerCodegen", date = "2026-02-07T15:23:10.683633502Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaMSF4JServerCodegen", date = "2026-08-30T01:55:58.248058654Z[Etc/UTC]", comments = "Generator version: 7.24.0")
 public class CharacteristicDetail   {
   @JsonProperty("id")
   private Integer id;
@@ -58,16 +58,6 @@ public class CharacteristicDetail   {
     this.geneModulo = geneModulo;
   }
 
-  public CharacteristicDetail possibleValues(List<Integer> possibleValues) {
-    this.possibleValues = possibleValues;
-    return this;
-  }
-
-  public CharacteristicDetail addPossibleValuesItem(Integer possibleValuesItem) {
-    this.possibleValues.add(possibleValuesItem);
-    return this;
-  }
-
    /**
    * Get possibleValues
    * @return possibleValues
@@ -75,10 +65,6 @@ public class CharacteristicDetail   {
   @ApiModelProperty(required = true, value = "")
   public List<Integer> getPossibleValues() {
     return possibleValues;
-  }
-
-  public void setPossibleValues(List<Integer> possibleValues) {
-    this.possibleValues = possibleValues;
   }
 
   public CharacteristicDetail highestStat(StatSummary highestStat) {
@@ -99,16 +85,6 @@ public class CharacteristicDetail   {
     this.highestStat = highestStat;
   }
 
-  public CharacteristicDetail descriptions(List<@Valid CharacteristicDescription> descriptions) {
-    this.descriptions = descriptions;
-    return this;
-  }
-
-  public CharacteristicDetail addDescriptionsItem(CharacteristicDescription descriptionsItem) {
-    this.descriptions.add(descriptionsItem);
-    return this;
-  }
-
    /**
    * Get descriptions
    * @return descriptions
@@ -116,10 +92,6 @@ public class CharacteristicDetail   {
   @ApiModelProperty(required = true, value = "")
   public List<@Valid CharacteristicDescription> getDescriptions() {
     return descriptions;
-  }
-
-  public void setDescriptions(List<@Valid CharacteristicDescription> descriptions) {
-    this.descriptions = descriptions;
   }
 
 
@@ -163,10 +135,7 @@ public class CharacteristicDetail   {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 }
 

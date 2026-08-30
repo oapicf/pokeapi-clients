@@ -47,7 +47,7 @@ class MoveDetailEffectChangesInnerEffectEntriesInner
      * @var string|null
      * @SerializedName("effect")
      * @Type("string")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Type("string")]
     protected ?string $effect = null;
@@ -56,7 +56,7 @@ class MoveDetailEffectChangesInnerEffectEntriesInner
      * @var AbilityDetailPokemonInnerPokemon|null
      * @SerializedName("language")
      * @Type("OpenAPI\Server\Model\AbilityDetailPokemonInnerPokemon")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Valid]
     #[Assert\Type("OpenAPI\Server\Model\AbilityDetailPokemonInnerPokemon")]
@@ -85,12 +85,12 @@ class MoveDetailEffectChangesInnerEffectEntriesInner
     }
 
     /**
-    * Sets effect.
-    *
-    * @param string|null $effect
-    *
-    * @return $this
-    */
+     * Sets effect.
+     *
+     * @param string|null $effect
+     *
+     * @return $this
+     */
     public function setEffect(?string $effect): self
     {
         $this->effect = $effect;
@@ -112,12 +112,12 @@ class MoveDetailEffectChangesInnerEffectEntriesInner
     }
 
     /**
-    * Sets language.
-    *
-    * @param AbilityDetailPokemonInnerPokemon|null $language
-    *
-    * @return $this
-    */
+     * Sets language.
+     *
+     * @param AbilityDetailPokemonInnerPokemon|null $language
+     *
+     * @return $this
+     */
     public function setLanguage(?AbilityDetailPokemonInnerPokemon $language): self
     {
         $this->language = $language;

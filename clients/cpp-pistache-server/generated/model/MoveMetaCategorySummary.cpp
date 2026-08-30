@@ -26,6 +26,8 @@ MoveMetaCategorySummary::MoveMetaCategorySummary()
     
 }
 
+MoveMetaCategorySummary::~MoveMetaCategorySummary() = default;
+
 void MoveMetaCategorySummary::validate() const
 {
     std::stringstream msg;

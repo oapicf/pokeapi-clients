@@ -47,7 +47,7 @@ class BerryFlavorDetail
      * @var int|null
      * @SerializedName("id")
      * @Type("int")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Type("int")]
     protected ?int $id = null;
@@ -56,7 +56,7 @@ class BerryFlavorDetail
      * @var string|null
      * @SerializedName("name")
      * @Type("string")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Type("string")]
     #[Assert\Length(max: 100)]
@@ -66,7 +66,7 @@ class BerryFlavorDetail
      * @var BerryFlavorDetailBerriesInner[]|null
      * @SerializedName("berries")
      * @Type("array<OpenAPI\Server\Model\BerryFlavorDetailBerriesInner>")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Valid]
     #[Assert\All([
@@ -78,7 +78,7 @@ class BerryFlavorDetail
      * @var ContestTypeSummary|null
      * @SerializedName("contest_type")
      * @Type("OpenAPI\Server\Model\ContestTypeSummary")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Valid]
     #[Assert\Type("OpenAPI\Server\Model\ContestTypeSummary")]
@@ -88,7 +88,7 @@ class BerryFlavorDetail
      * @var BerryFlavorName[]|null
      * @SerializedName("names")
      * @Type("array<OpenAPI\Server\Model\BerryFlavorName>")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Valid]
     #[Assert\All([
@@ -122,12 +122,12 @@ class BerryFlavorDetail
     }
 
     /**
-    * Sets id.
-    *
-    * @param int|null $id
-    *
-    * @return $this
-    */
+     * Sets id.
+     *
+     * @param int|null $id
+     *
+     * @return $this
+     */
     public function setId(?int $id): self
     {
         $this->id = $id;
@@ -149,12 +149,12 @@ class BerryFlavorDetail
     }
 
     /**
-    * Sets name.
-    *
-    * @param string|null $name
-    *
-    * @return $this
-    */
+     * Sets name.
+     *
+     * @param string|null $name
+     *
+     * @return $this
+     */
     public function setName(?string $name): self
     {
         $this->name = $name;
@@ -176,12 +176,12 @@ class BerryFlavorDetail
     }
 
     /**
-    * Sets berries.
-    *
-    * @param BerryFlavorDetailBerriesInner[]|null $berries
-    *
-    * @return $this
-    */
+     * Sets berries.
+     *
+     * @param BerryFlavorDetailBerriesInner[]|null $berries
+     *
+     * @return $this
+     */
     public function setBerries(?array $berries): self
     {
         $this->berries = $berries;
@@ -203,12 +203,12 @@ class BerryFlavorDetail
     }
 
     /**
-    * Sets contestType.
-    *
-    * @param ContestTypeSummary|null $contestType
-    *
-    * @return $this
-    */
+     * Sets contestType.
+     *
+     * @param ContestTypeSummary|null $contestType
+     *
+     * @return $this
+     */
     public function setContestType(?ContestTypeSummary $contestType): self
     {
         $this->contestType = $contestType;
@@ -230,12 +230,12 @@ class BerryFlavorDetail
     }
 
     /**
-    * Sets names.
-    *
-    * @param BerryFlavorName[]|null $names
-    *
-    * @return $this
-    */
+     * Sets names.
+     *
+     * @param BerryFlavorName[]|null $names
+     *
+     * @return $this
+     */
     public function setNames(?array $names): self
     {
         $this->names = $names;

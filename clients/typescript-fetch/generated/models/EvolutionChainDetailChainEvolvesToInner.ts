@@ -58,8 +58,8 @@ export interface EvolutionChainDetailChainEvolvesToInner {
  * Check if a given object implements the EvolutionChainDetailChainEvolvesToInner interface.
  */
 export function instanceOfEvolutionChainDetailChainEvolvesToInner(value: object): value is EvolutionChainDetailChainEvolvesToInner {
-    if (!('evolutionDetails' in value) || value['evolutionDetails'] === undefined) return false;
-    if (!('isBaby' in value) || value['isBaby'] === undefined) return false;
+    if ((!('evolutionDetails' in (value as Record<string, any>)) && !('evolution_details' in (value as Record<string, any>))) || ((value as Record<string, any>)['evolutionDetails'] === undefined && (value as Record<string, any>)['evolution_details'] === undefined)) return false;
+    if ((!('isBaby' in (value as Record<string, any>)) && !('is_baby' in (value as Record<string, any>))) || ((value as Record<string, any>)['isBaby'] === undefined && (value as Record<string, any>)['is_baby'] === undefined)) return false;
     if (!('species' in value) || value['species'] === undefined) return false;
     return true;
 }

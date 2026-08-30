@@ -47,7 +47,7 @@ class ItemFlavorText
      * @var string|null
      * @SerializedName("text")
      * @Type("string")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Type("string")]
     protected ?string $text = null;
@@ -56,7 +56,7 @@ class ItemFlavorText
      * @var VersionGroupSummary|null
      * @SerializedName("version_group")
      * @Type("OpenAPI\Server\Model\VersionGroupSummary")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Valid]
     #[Assert\Type("OpenAPI\Server\Model\VersionGroupSummary")]
@@ -66,7 +66,7 @@ class ItemFlavorText
      * @var LanguageSummary|null
      * @SerializedName("language")
      * @Type("OpenAPI\Server\Model\LanguageSummary")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Valid]
     #[Assert\Type("OpenAPI\Server\Model\LanguageSummary")]
@@ -96,12 +96,12 @@ class ItemFlavorText
     }
 
     /**
-    * Sets text.
-    *
-    * @param string|null $text
-    *
-    * @return $this
-    */
+     * Sets text.
+     *
+     * @param string|null $text
+     *
+     * @return $this
+     */
     public function setText(?string $text): self
     {
         $this->text = $text;
@@ -123,12 +123,12 @@ class ItemFlavorText
     }
 
     /**
-    * Sets versionGroup.
-    *
-    * @param VersionGroupSummary|null $versionGroup
-    *
-    * @return $this
-    */
+     * Sets versionGroup.
+     *
+     * @param VersionGroupSummary|null $versionGroup
+     *
+     * @return $this
+     */
     public function setVersionGroup(?VersionGroupSummary $versionGroup): self
     {
         $this->versionGroup = $versionGroup;
@@ -150,12 +150,12 @@ class ItemFlavorText
     }
 
     /**
-    * Sets language.
-    *
-    * @param LanguageSummary|null $language
-    *
-    * @return $this
-    */
+     * Sets language.
+     *
+     * @param LanguageSummary|null $language
+     *
+     * @return $this
+     */
     public function setLanguage(?LanguageSummary $language): self
     {
         $this->language = $language;

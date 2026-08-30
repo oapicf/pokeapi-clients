@@ -33,7 +33,7 @@ class  GenerationName
 {
 public:
     GenerationName();
-    virtual ~GenerationName() = default;
+    virtual ~GenerationName();
 
 
     /// <summary>

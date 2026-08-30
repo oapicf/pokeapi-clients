@@ -6,8 +6,8 @@ Name | Type | Description | Notes
 **gender** | [**OAIEvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender***](OAIEvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender.md) |  | 
 **heldItem** | [**OAIEvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender***](OAIEvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender.md) |  | 
 **item** | [**OAIEvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender***](OAIEvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender.md) |  | 
-**knownMove** | [**NSObject***](.md) |  | 
-**knownMoveType** | [**NSObject***](.md) |  | 
+**knownMove** | [**OAIEvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender***](OAIEvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender.md) |  | 
+**knownMoveType** | [**OAIEvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender***](OAIEvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender.md) |  | 
 **location** | [**OAIEvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender***](OAIEvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender.md) |  | 
 **minAffection** | **NSNumber*** |  | 
 **minBeauty** | **NSNumber*** |  | 

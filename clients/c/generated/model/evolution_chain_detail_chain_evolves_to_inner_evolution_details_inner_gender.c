@@ -13,10 +13,10 @@ static evolution_chain_detail_chain_evolves_to_inner_evolution_details_inner_gen
     if (!evolution_chain_detail_chain_evolves_to_inner_evolution_details_inner_gender_local_var) {
         return NULL;
     }
+    memset(evolution_chain_detail_chain_evolves_to_inner_evolution_details_inner_gender_local_var, 0, sizeof(evolution_chain_detail_chain_evolves_to_inner_evolution_details_inner_gender_t));
+    evolution_chain_detail_chain_evolves_to_inner_evolution_details_inner_gender_local_var->_library_owned = 1;
     evolution_chain_detail_chain_evolves_to_inner_evolution_details_inner_gender_local_var->name = name;
     evolution_chain_detail_chain_evolves_to_inner_evolution_details_inner_gender_local_var->url = url;
-
-    evolution_chain_detail_chain_evolves_to_inner_evolution_details_inner_gender_local_var->_library_owned = 1;
     return evolution_chain_detail_chain_evolves_to_inner_evolution_details_inner_gender_local_var;
 }
 
@@ -24,10 +24,13 @@ __attribute__((deprecated)) evolution_chain_detail_chain_evolves_to_inner_evolut
     char *name,
     char *url
     ) {
-    return evolution_chain_detail_chain_evolves_to_inner_evolution_details_inner_gender_create_internal (
+    evolution_chain_detail_chain_evolves_to_inner_evolution_details_inner_gender_t *result = evolution_chain_detail_chain_evolves_to_inner_evolution_details_inner_gender_create_internal (
         name,
         url
         );
+    if (!result) {
+    }
+    return result;
 }
 
 void evolution_chain_detail_chain_evolves_to_inner_evolution_details_inner_gender_free(evolution_chain_detail_chain_evolves_to_inner_evolution_details_inner_gender_t *evolution_chain_detail_chain_evolves_to_inner_evolution_details_inner_gender) {
@@ -82,6 +85,10 @@ evolution_chain_detail_chain_evolves_to_inner_evolution_details_inner_gender_t *
 
     evolution_chain_detail_chain_evolves_to_inner_evolution_details_inner_gender_t *evolution_chain_detail_chain_evolves_to_inner_evolution_details_inner_gender_local_var = NULL;
 
+    char *name_local_str = NULL;
+
+    char *url_local_str = NULL;
+
     // evolution_chain_detail_chain_evolves_to_inner_evolution_details_inner_gender->name
     cJSON *name = cJSON_GetObjectItemCaseSensitive(evolution_chain_detail_chain_evolves_to_inner_evolution_details_inner_genderJSON, "name");
     if (cJSON_IsNull(name)) {
@@ -113,13 +120,28 @@ evolution_chain_detail_chain_evolves_to_inner_evolution_details_inner_gender_t *
     }
 
 
+    if (name && !cJSON_IsNull(name)) name_local_str = strdup(name->valuestring);
+    if (url && !cJSON_IsNull(url)) url_local_str = strdup(url->valuestring);
+
     evolution_chain_detail_chain_evolves_to_inner_evolution_details_inner_gender_local_var = evolution_chain_detail_chain_evolves_to_inner_evolution_details_inner_gender_create_internal (
-        strdup(name->valuestring),
-        strdup(url->valuestring)
+        name_local_str,
+        url_local_str
         );
+
+    if (!evolution_chain_detail_chain_evolves_to_inner_evolution_details_inner_gender_local_var) {
+        goto end;
+    }
 
     return evolution_chain_detail_chain_evolves_to_inner_evolution_details_inner_gender_local_var;
 end:
+    if (name_local_str) {
+        free(name_local_str);
+        name_local_str = NULL;
+    }
+    if (url_local_str) {
+        free(url_local_str);
+        url_local_str = NULL;
+    }
     return NULL;
 
 }

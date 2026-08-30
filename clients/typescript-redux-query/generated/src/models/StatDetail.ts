@@ -77,7 +77,7 @@ export interface StatDetail  {
      * @type {Array<CharacteristicSummary>}
      * @memberof StatDetail
      */
-    characteristics: Array<CharacteristicSummary>;
+    readonly characteristics: Array<CharacteristicSummary>;
     /**
      * 
      * @type {MoveDamageClassSummary}
@@ -89,7 +89,7 @@ export interface StatDetail  {
      * @type {Array<StatName>}
      * @memberof StatDetail
      */
-    names: Array<StatName>;
+    readonly names: Array<StatName>;
 }
 
 export function StatDetailFromJSON(json: any): StatDetail {
@@ -116,9 +116,7 @@ export function StatDetailToJSON(value?: StatDetail): any {
         'is_battle_only': value.isBattleOnly,
         'affecting_moves': StatDetailAffectingMovesToJSON(value.affectingMoves),
         'affecting_natures': StatDetailAffectingNaturesToJSON(value.affectingNatures),
-        'characteristics': (value.characteristics as Array<any>).map(CharacteristicSummaryToJSON),
         'move_damage_class': MoveDamageClassSummaryToJSON(value.moveDamageClass),
-        'names': (value.names as Array<any>).map(StatNameToJSON),
     };
 }
 

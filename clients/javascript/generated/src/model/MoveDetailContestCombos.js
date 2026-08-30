@@ -17,7 +17,7 @@ import MoveDetailContestCombosNormal from './MoveDetailContestCombosNormal';
 /**
  * The MoveDetailContestCombos model module.
  * @module model/MoveDetailContestCombos
- * @version 1.2.1-pre.0
+ * @version 2.0.1-pre.0
  */
 class MoveDetailContestCombos {
     /**

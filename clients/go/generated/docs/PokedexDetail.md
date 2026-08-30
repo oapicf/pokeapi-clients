@@ -7,11 +7,11 @@ Name | Type | Description | Notes
 **Id** | **int32** |  | [readonly] 
 **Name** | **string** |  | 
 **IsMainSeries** | Pointer to **bool** |  | [optional] 
-**Descriptions** | [**[]PokedexDescription**](PokedexDescription.md) |  | 
-**Names** | [**[]PokedexName**](PokedexName.md) |  | 
-**PokemonEntries** | [**[]PokedexDetailPokemonEntriesInner**](PokedexDetailPokemonEntriesInner.md) |  | 
+**Descriptions** | [**[]PokedexDescription**](PokedexDescription.md) |  | [readonly] 
+**Names** | [**[]PokedexName**](PokedexName.md) |  | [readonly] 
+**PokemonEntries** | [**[]PokedexDetailPokemonEntriesInner**](PokedexDetailPokemonEntriesInner.md) |  | [readonly] 
 **Region** | [**RegionSummary**](RegionSummary.md) |  | 
-**VersionGroups** | [**[]AbilityDetailPokemonInnerPokemon**](AbilityDetailPokemonInnerPokemon.md) |  | 
+**VersionGroups** | [**[]AbilityDetailPokemonInnerPokemon**](AbilityDetailPokemonInnerPokemon.md) |  | [readonly] 
 
 ## Methods
 

@@ -71,10 +71,10 @@ function Initialize-MoveMetaCategoryDetail {
 
 
         $PSO = [PSCustomObject]@{
-            "id" = ${Id}
-            "name" = ${Name}
-            "descriptions" = ${Descriptions}
-            "moves" = ${Moves}
+            'id' = ${Id}
+            'name' = ${Name}
+            'descriptions' = ${Descriptions}
+            'moves' = ${Moves}
         }
 
 
@@ -112,7 +112,7 @@ function ConvertFrom-JsonToMoveMetaCategoryDetail {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in MoveMetaCategoryDetail
-        $AllProperties = ("id", "name", "descriptions", "moves")
+        $AllProperties = ('id', 'name', 'descriptions', 'moves')
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -123,35 +123,35 @@ function ConvertFrom-JsonToMoveMetaCategoryDetail {
             throw "Error! Empty JSON cannot be serialized due to the required property 'id' missing."
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "id"))) {
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'id'))) {
             throw "Error! JSON cannot be serialized due to the required property 'id' missing."
         } else {
-            $Id = $JsonParameters.PSobject.Properties["id"].value
+            $Id = $JsonParameters.PSobject.Properties['id'].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "name"))) {
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'name'))) {
             throw "Error! JSON cannot be serialized due to the required property 'name' missing."
         } else {
-            $Name = $JsonParameters.PSobject.Properties["name"].value
+            $Name = $JsonParameters.PSobject.Properties['name'].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "descriptions"))) {
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'descriptions'))) {
             throw "Error! JSON cannot be serialized due to the required property 'descriptions' missing."
         } else {
-            $Descriptions = $JsonParameters.PSobject.Properties["descriptions"].value
+            $Descriptions = $JsonParameters.PSobject.Properties['descriptions'].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "moves"))) {
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'moves'))) {
             throw "Error! JSON cannot be serialized due to the required property 'moves' missing."
         } else {
-            $Moves = $JsonParameters.PSobject.Properties["moves"].value
+            $Moves = $JsonParameters.PSobject.Properties['moves'].value
         }
 
         $PSO = [PSCustomObject]@{
-            "id" = ${Id}
-            "name" = ${Name}
-            "descriptions" = ${Descriptions}
-            "moves" = ${Moves}
+            'id' = ${Id}
+            'name' = ${Name}
+            'descriptions' = ${Descriptions}
+            'moves' = ${Moves}
         }
 
         return $PSO

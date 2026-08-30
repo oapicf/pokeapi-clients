@@ -7,8 +7,8 @@ Name | Mapping | SQL Type | Default | Type | Description | Notes
 ---- | ------- | -------- | ------- | ---- | ----------- | -----
 **id** | id | int NOT NULL PRIMARY KEY AUTOINCREMENT |  | **kotlin.Int** |  |  [readonly]
 **name** | name | text NOT NULL |  | **kotlin.String** |  | 
-**categories** | `One-To-Many` | `----` | `----`  | [**kotlin.Array&lt;ItemCategorySummary&gt;**](ItemCategorySummary.md) |  | 
-**names** | `One-To-Many` | `----` | `----`  | [**kotlin.Array&lt;ItemPocketName&gt;**](ItemPocketName.md) |  | 
+**categories** | `One-To-Many` | `----` | `----`  | [**kotlin.Array&lt;ItemCategorySummary&gt;**](ItemCategorySummary.md) |  |  [readonly]
+**names** | `One-To-Many` | `----` | `----`  | [**kotlin.Array&lt;ItemPocketName&gt;**](ItemPocketName.md) |  |  [readonly]
 
 
 

@@ -20,7 +20,8 @@ import io.swagger.v3.oas.annotations.media.Schema
 data class ItemDetailSprites(
 
     @field:Valid
-    @Schema(example = "null", required = true, description = "")
+    @Schema(required = true, description = "")
+    @param:JsonProperty("default")
     @get:JsonProperty("default", required = true) val default: java.net.URI
 ) {
 

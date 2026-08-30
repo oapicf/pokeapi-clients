@@ -17,7 +17,7 @@ export interface ContestEffectDetail {
     readonly id: number;
     appeal: number;
     jam: number;
-    effect_entries: Array<ContestEffectEffectText>;
-    flavor_text_entries: Array<ContestEffectFlavorText>;
+    readonly effect_entries: Array<ContestEffectEffectText>;
+    readonly flavor_text_entries: Array<ContestEffectFlavorText>;
 }
 

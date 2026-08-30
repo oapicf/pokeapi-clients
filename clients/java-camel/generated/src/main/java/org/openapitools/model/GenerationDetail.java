@@ -16,19 +16,19 @@ import org.openapitools.model.TypeSummary;
 import org.openapitools.model.VersionGroupSummary;
 import org.openapitools.jackson.nullable.JsonNullable;
 import java.time.OffsetDateTime;
-import javax.validation.Valid;
-import javax.validation.constraints.*;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.*;
 import io.swagger.v3.oas.annotations.media.Schema;
 
 
 import java.util.*;
-import javax.annotation.Generated;
+import jakarta.annotation.Generated;
 
 /**
  * GenerationDetail
  */
 
-@Generated(value = "org.openapitools.codegen.languages.JavaCamelServerCodegen", date = "2026-02-07T15:23:32.871052804Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@Generated(value = "org.openapitools.codegen.languages.JavaCamelServerCodegen", date = "2026-08-30T01:56:15.309401083Z[Etc/UTC]", comments = "Generator version: 7.24.0")
 public class GenerationDetail {
 
   private Integer id;
@@ -131,8 +131,8 @@ public class GenerationDetail {
    * Get abilities
    * @return abilities
    */
-  @NotNull @Valid 
-  @Schema(name = "abilities", requiredMode = Schema.RequiredMode.REQUIRED)
+  @Valid 
+  @Schema(name = "abilities", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("abilities")
   public List<@Valid AbilitySummary> getAbilities() {
     return abilities;
@@ -179,8 +179,8 @@ public class GenerationDetail {
    * Get moves
    * @return moves
    */
-  @NotNull @Valid 
-  @Schema(name = "moves", requiredMode = Schema.RequiredMode.REQUIRED)
+  @Valid 
+  @Schema(name = "moves", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("moves")
   public List<@Valid MoveSummary> getMoves() {
     return moves;
@@ -207,8 +207,8 @@ public class GenerationDetail {
    * Get names
    * @return names
    */
-  @NotNull @Valid 
-  @Schema(name = "names", requiredMode = Schema.RequiredMode.REQUIRED)
+  @Valid 
+  @Schema(name = "names", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("names")
   public List<@Valid GenerationName> getNames() {
     return names;
@@ -235,8 +235,8 @@ public class GenerationDetail {
    * Get pokemonSpecies
    * @return pokemonSpecies
    */
-  @NotNull @Valid 
-  @Schema(name = "pokemon_species", requiredMode = Schema.RequiredMode.REQUIRED)
+  @Valid 
+  @Schema(name = "pokemon_species", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("pokemon_species")
   public List<@Valid PokemonSpeciesSummary> getPokemonSpecies() {
     return pokemonSpecies;
@@ -263,8 +263,8 @@ public class GenerationDetail {
    * Get types
    * @return types
    */
-  @NotNull @Valid 
-  @Schema(name = "types", requiredMode = Schema.RequiredMode.REQUIRED)
+  @Valid 
+  @Schema(name = "types", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("types")
   public List<@Valid TypeSummary> getTypes() {
     return types;
@@ -291,8 +291,8 @@ public class GenerationDetail {
    * Get versionGroups
    * @return versionGroups
    */
-  @NotNull @Valid 
-  @Schema(name = "version_groups", requiredMode = Schema.RequiredMode.REQUIRED)
+  @Valid 
+  @Schema(name = "version_groups", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("version_groups")
   public List<@Valid VersionGroupSummary> getVersionGroups() {
     return versionGroups;
@@ -349,10 +349,7 @@ public class GenerationDetail {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 }
 

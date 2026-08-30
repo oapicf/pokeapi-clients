@@ -40,5 +40,5 @@ export interface PokeathlonStatDetail {
      * @type {Array<PokeathlonStatName>}
      * @memberof PokeathlonStatDetail
      */
-    names: Array<PokeathlonStatName>;
+    readonly names: Array<PokeathlonStatName>;
 }

@@ -52,12 +52,12 @@ import javax.validation.Valid;
  * <p>All the Pokémon data you'll ever need in one place, easily accessible through a modern free open-source RESTful API.  ## What is this?  This is a full RESTful API linked to an extensive database detailing everything about the Pokémon main game series.  We've covered everything from Pokémon to Berry Flavors.  ## Where do I start?  We have awesome [documentation](https://pokeapi.co/docs/v2) on how to use this API. It takes minutes to get started.  This API will always be publicly available and will never require any extensive setup process to consume.  Created by [**Paul Hallett**(]https://github.com/phalt) and other [**PokéAPI contributors***](https://github.com/PokeAPI/pokeapi#contributing) around the world. Pokémon and Pokémon character names are trademarks of Nintendo.     
  *
  */
-@Path("/api/v2")
+@Path("")
 @Api(value = "/", description = "")
 public interface PokemonApi  {
 
     @GET
-    @Path("/ability/")
+    @Path("/api/v2/ability/")
     @Produces({ "application/json" })
     @ApiOperation(value = "", tags={ "pokemon" })
     @ApiResponses(value = { 
@@ -65,7 +65,7 @@ public interface PokemonApi  {
     public PaginatedAbilitySummaryList abilityList(@QueryParam("limit") Integer limit, @QueryParam("offset") Integer offset, @QueryParam("q") String q);
 
     @GET
-    @Path("/ability/{id}/")
+    @Path("/api/v2/ability/{id}/")
     @Produces({ "application/json" })
     @ApiOperation(value = "", tags={ "pokemon" })
     @ApiResponses(value = { 
@@ -79,7 +79,7 @@ public interface PokemonApi  {
      *
      */
     @GET
-    @Path("/characteristic/")
+    @Path("/api/v2/characteristic/")
     @Produces({ "application/json" })
     @ApiOperation(value = "List charecterictics", tags={ "pokemon" })
     @ApiResponses(value = { 
@@ -93,7 +93,7 @@ public interface PokemonApi  {
      *
      */
     @GET
-    @Path("/characteristic/{id}/")
+    @Path("/api/v2/characteristic/{id}/")
     @Produces({ "application/json" })
     @ApiOperation(value = "Get characteristic", tags={ "pokemon" })
     @ApiResponses(value = { 
@@ -107,7 +107,7 @@ public interface PokemonApi  {
      *
      */
     @GET
-    @Path("/egg-group/")
+    @Path("/api/v2/egg-group/")
     @Produces({ "application/json" })
     @ApiOperation(value = "List egg groups", tags={ "pokemon" })
     @ApiResponses(value = { 
@@ -121,7 +121,7 @@ public interface PokemonApi  {
      *
      */
     @GET
-    @Path("/egg-group/{id}/")
+    @Path("/api/v2/egg-group/{id}/")
     @Produces({ "application/json" })
     @ApiOperation(value = "Get egg group", tags={ "pokemon" })
     @ApiResponses(value = { 
@@ -135,7 +135,7 @@ public interface PokemonApi  {
      *
      */
     @GET
-    @Path("/gender/")
+    @Path("/api/v2/gender/")
     @Produces({ "application/json" })
     @ApiOperation(value = "List genders", tags={ "pokemon" })
     @ApiResponses(value = { 
@@ -149,7 +149,7 @@ public interface PokemonApi  {
      *
      */
     @GET
-    @Path("/gender/{id}/")
+    @Path("/api/v2/gender/{id}/")
     @Produces({ "application/json" })
     @ApiOperation(value = "Get gender", tags={ "pokemon" })
     @ApiResponses(value = { 
@@ -163,7 +163,7 @@ public interface PokemonApi  {
      *
      */
     @GET
-    @Path("/growth-rate/")
+    @Path("/api/v2/growth-rate/")
     @Produces({ "application/json" })
     @ApiOperation(value = "List growth rates", tags={ "pokemon" })
     @ApiResponses(value = { 
@@ -177,7 +177,7 @@ public interface PokemonApi  {
      *
      */
     @GET
-    @Path("/growth-rate/{id}/")
+    @Path("/api/v2/growth-rate/{id}/")
     @Produces({ "application/json" })
     @ApiOperation(value = "Get growth rate", tags={ "pokemon" })
     @ApiResponses(value = { 
@@ -191,7 +191,7 @@ public interface PokemonApi  {
      *
      */
     @GET
-    @Path("/move-damage-class/")
+    @Path("/api/v2/move-damage-class/")
     @Produces({ "application/json" })
     @ApiOperation(value = "List move damage classes", tags={ "pokemon" })
     @ApiResponses(value = { 
@@ -205,7 +205,7 @@ public interface PokemonApi  {
      *
      */
     @GET
-    @Path("/move-damage-class/{id}/")
+    @Path("/api/v2/move-damage-class/{id}/")
     @Produces({ "application/json" })
     @ApiOperation(value = "Get move damage class", tags={ "pokemon" })
     @ApiResponses(value = { 
@@ -219,7 +219,7 @@ public interface PokemonApi  {
      *
      */
     @GET
-    @Path("/nature/")
+    @Path("/api/v2/nature/")
     @Produces({ "application/json" })
     @ApiOperation(value = "List natures", tags={ "pokemon" })
     @ApiResponses(value = { 
@@ -233,7 +233,7 @@ public interface PokemonApi  {
      *
      */
     @GET
-    @Path("/nature/{id}/")
+    @Path("/api/v2/nature/{id}/")
     @Produces({ "application/json" })
     @ApiOperation(value = "Get nature", tags={ "pokemon" })
     @ApiResponses(value = { 
@@ -247,7 +247,7 @@ public interface PokemonApi  {
      *
      */
     @GET
-    @Path("/pokeathlon-stat/")
+    @Path("/api/v2/pokeathlon-stat/")
     @Produces({ "application/json" })
     @ApiOperation(value = "List pokeathlon stats", tags={ "pokemon" })
     @ApiResponses(value = { 
@@ -261,7 +261,7 @@ public interface PokemonApi  {
      *
      */
     @GET
-    @Path("/pokeathlon-stat/{id}/")
+    @Path("/api/v2/pokeathlon-stat/{id}/")
     @Produces({ "application/json" })
     @ApiOperation(value = "Get pokeathlon stat", tags={ "pokemon" })
     @ApiResponses(value = { 
@@ -275,7 +275,7 @@ public interface PokemonApi  {
      *
      */
     @GET
-    @Path("/pokemon-color/")
+    @Path("/api/v2/pokemon-color/")
     @Produces({ "application/json" })
     @ApiOperation(value = "List pokemon colors", tags={ "pokemon" })
     @ApiResponses(value = { 
@@ -289,7 +289,7 @@ public interface PokemonApi  {
      *
      */
     @GET
-    @Path("/pokemon-color/{id}/")
+    @Path("/api/v2/pokemon-color/{id}/")
     @Produces({ "application/json" })
     @ApiOperation(value = "Get pokemon color", tags={ "pokemon" })
     @ApiResponses(value = { 
@@ -303,7 +303,7 @@ public interface PokemonApi  {
      *
      */
     @GET
-    @Path("/pokemon-form/")
+    @Path("/api/v2/pokemon-form/")
     @Produces({ "application/json" })
     @ApiOperation(value = "List pokemon forms", tags={ "pokemon" })
     @ApiResponses(value = { 
@@ -317,7 +317,7 @@ public interface PokemonApi  {
      *
      */
     @GET
-    @Path("/pokemon-form/{id}/")
+    @Path("/api/v2/pokemon-form/{id}/")
     @Produces({ "application/json" })
     @ApiOperation(value = "Get pokemon form", tags={ "pokemon" })
     @ApiResponses(value = { 
@@ -331,7 +331,7 @@ public interface PokemonApi  {
      *
      */
     @GET
-    @Path("/pokemon-habitat/")
+    @Path("/api/v2/pokemon-habitat/")
     @Produces({ "application/json" })
     @ApiOperation(value = "List pokemom habitas", tags={ "pokemon" })
     @ApiResponses(value = { 
@@ -345,7 +345,7 @@ public interface PokemonApi  {
      *
      */
     @GET
-    @Path("/pokemon-habitat/{id}/")
+    @Path("/api/v2/pokemon-habitat/{id}/")
     @Produces({ "application/json" })
     @ApiOperation(value = "Get pokemom habita", tags={ "pokemon" })
     @ApiResponses(value = { 
@@ -359,7 +359,7 @@ public interface PokemonApi  {
      *
      */
     @GET
-    @Path("/pokemon/")
+    @Path("/api/v2/pokemon/")
     @Produces({ "application/json" })
     @ApiOperation(value = "List pokemon", tags={ "pokemon" })
     @ApiResponses(value = { 
@@ -373,7 +373,7 @@ public interface PokemonApi  {
      *
      */
     @GET
-    @Path("/pokemon/{id}/")
+    @Path("/api/v2/pokemon/{id}/")
     @Produces({ "application/json" })
     @ApiOperation(value = "Get pokemon", tags={ "pokemon" })
     @ApiResponses(value = { 
@@ -387,7 +387,7 @@ public interface PokemonApi  {
      *
      */
     @GET
-    @Path("/pokemon-shape/")
+    @Path("/api/v2/pokemon-shape/")
     @Produces({ "application/json" })
     @ApiOperation(value = "List pokemon shapes", tags={ "pokemon" })
     @ApiResponses(value = { 
@@ -401,7 +401,7 @@ public interface PokemonApi  {
      *
      */
     @GET
-    @Path("/pokemon-shape/{id}/")
+    @Path("/api/v2/pokemon-shape/{id}/")
     @Produces({ "application/json" })
     @ApiOperation(value = "Get pokemon shape", tags={ "pokemon" })
     @ApiResponses(value = { 
@@ -415,7 +415,7 @@ public interface PokemonApi  {
      *
      */
     @GET
-    @Path("/pokemon-species/")
+    @Path("/api/v2/pokemon-species/")
     @Produces({ "application/json" })
     @ApiOperation(value = "List pokemon species", tags={ "pokemon" })
     @ApiResponses(value = { 
@@ -429,7 +429,7 @@ public interface PokemonApi  {
      *
      */
     @GET
-    @Path("/pokemon-species/{id}/")
+    @Path("/api/v2/pokemon-species/{id}/")
     @Produces({ "application/json" })
     @ApiOperation(value = "Get pokemon species", tags={ "pokemon" })
     @ApiResponses(value = { 
@@ -443,7 +443,7 @@ public interface PokemonApi  {
      *
      */
     @GET
-    @Path("/stat/")
+    @Path("/api/v2/stat/")
     @Produces({ "application/json" })
     @ApiOperation(value = "List stats", tags={ "pokemon" })
     @ApiResponses(value = { 
@@ -457,7 +457,7 @@ public interface PokemonApi  {
      *
      */
     @GET
-    @Path("/stat/{id}/")
+    @Path("/api/v2/stat/{id}/")
     @Produces({ "application/json" })
     @ApiOperation(value = "Get stat", tags={ "pokemon" })
     @ApiResponses(value = { 
@@ -471,7 +471,7 @@ public interface PokemonApi  {
      *
      */
     @GET
-    @Path("/type/")
+    @Path("/api/v2/type/")
     @Produces({ "application/json" })
     @ApiOperation(value = "List types", tags={ "pokemon" })
     @ApiResponses(value = { 
@@ -485,7 +485,7 @@ public interface PokemonApi  {
      *
      */
     @GET
-    @Path("/type/{id}/")
+    @Path("/api/v2/type/{id}/")
     @Produces({ "application/json" })
     @ApiOperation(value = "Get types", tags={ "pokemon" })
     @ApiResponses(value = { 

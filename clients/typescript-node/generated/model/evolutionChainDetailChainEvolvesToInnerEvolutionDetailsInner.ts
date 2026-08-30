@@ -18,8 +18,8 @@ export class EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner {
     'gender': EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender;
     'heldItem': EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender;
     'item': EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender;
-    'knownMove': object;
-    'knownMoveType': object;
+    'knownMove': EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender;
+    'knownMoveType': EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender;
     'location': EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender;
     'minAffection': number;
     'minBeauty': number;
@@ -55,12 +55,12 @@ export class EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner {
         {
             "name": "knownMove",
             "baseName": "known_move",
-            "type": "object"
+            "type": "EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender"
         },
         {
             "name": "knownMoveType",
             "baseName": "known_move_type",
-            "type": "object"
+            "type": "EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender"
         },
         {
             "name": "location",

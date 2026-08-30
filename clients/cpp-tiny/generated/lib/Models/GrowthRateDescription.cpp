@@ -86,7 +86,7 @@ GrowthRateDescription::getDescription()
 }
 
 void
-GrowthRateDescription::setDescription(std::string  description)
+GrowthRateDescription::setDescription(std::string description)
 {
 	this->description = description;
 }
@@ -98,7 +98,7 @@ GrowthRateDescription::getLanguage()
 }
 
 void
-GrowthRateDescription::setLanguage(LanguageSummary  language)
+GrowthRateDescription::setLanguage(LanguageSummary language)
 {
 	this->language = language;
 }

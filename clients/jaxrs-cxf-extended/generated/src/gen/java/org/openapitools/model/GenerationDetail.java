@@ -117,6 +117,7 @@ public class GenerationDetail  {
 
   /**
    * Sets the <code>abilities</code> property.
+   * <br><em>N.B. <code>abilities</code> is <b>read only</b>; client code should not call this method</em>.
    */
  public void setAbilities(List<@Valid AbilitySummary> abilities) {
     this.abilities = abilities;
@@ -124,6 +125,7 @@ public class GenerationDetail  {
 
   /**
    * Sets the <code>abilities</code> property.
+   * <br><em>N.B. <code>abilities</code> is <b>read only</b>; client code should not call this method</em>.
    */
   public GenerationDetail abilities(List<@Valid AbilitySummary> abilities) {
     this.abilities = abilities;
@@ -132,6 +134,7 @@ public class GenerationDetail  {
 
   /**
    * Adds a new item to the <code>abilities</code> list.
+   * <br><em>N.B. <code>abilities</code> is <b>read only</b>; client code should not call this method</em>.
    */
   public GenerationDetail addAbilitiesItem(AbilitySummary abilitiesItem) {
     this.abilities.add(abilitiesItem);
@@ -175,6 +178,7 @@ public class GenerationDetail  {
 
   /**
    * Sets the <code>moves</code> property.
+   * <br><em>N.B. <code>moves</code> is <b>read only</b>; client code should not call this method</em>.
    */
  public void setMoves(List<@Valid MoveSummary> moves) {
     this.moves = moves;
@@ -182,6 +186,7 @@ public class GenerationDetail  {
 
   /**
    * Sets the <code>moves</code> property.
+   * <br><em>N.B. <code>moves</code> is <b>read only</b>; client code should not call this method</em>.
    */
   public GenerationDetail moves(List<@Valid MoveSummary> moves) {
     this.moves = moves;
@@ -190,6 +195,7 @@ public class GenerationDetail  {
 
   /**
    * Adds a new item to the <code>moves</code> list.
+   * <br><em>N.B. <code>moves</code> is <b>read only</b>; client code should not call this method</em>.
    */
   public GenerationDetail addMovesItem(MoveSummary movesItem) {
     this.moves.add(movesItem);
@@ -208,6 +214,7 @@ public class GenerationDetail  {
 
   /**
    * Sets the <code>names</code> property.
+   * <br><em>N.B. <code>names</code> is <b>read only</b>; client code should not call this method</em>.
    */
  public void setNames(List<@Valid GenerationName> names) {
     this.names = names;
@@ -215,6 +222,7 @@ public class GenerationDetail  {
 
   /**
    * Sets the <code>names</code> property.
+   * <br><em>N.B. <code>names</code> is <b>read only</b>; client code should not call this method</em>.
    */
   public GenerationDetail names(List<@Valid GenerationName> names) {
     this.names = names;
@@ -223,6 +231,7 @@ public class GenerationDetail  {
 
   /**
    * Adds a new item to the <code>names</code> list.
+   * <br><em>N.B. <code>names</code> is <b>read only</b>; client code should not call this method</em>.
    */
   public GenerationDetail addNamesItem(GenerationName namesItem) {
     this.names.add(namesItem);
@@ -241,6 +250,7 @@ public class GenerationDetail  {
 
   /**
    * Sets the <code>pokemonSpecies</code> property.
+   * <br><em>N.B. <code>pokemonSpecies</code> is <b>read only</b>; client code should not call this method</em>.
    */
  public void setPokemonSpecies(List<@Valid PokemonSpeciesSummary> pokemonSpecies) {
     this.pokemonSpecies = pokemonSpecies;
@@ -248,6 +258,7 @@ public class GenerationDetail  {
 
   /**
    * Sets the <code>pokemonSpecies</code> property.
+   * <br><em>N.B. <code>pokemonSpecies</code> is <b>read only</b>; client code should not call this method</em>.
    */
   public GenerationDetail pokemonSpecies(List<@Valid PokemonSpeciesSummary> pokemonSpecies) {
     this.pokemonSpecies = pokemonSpecies;
@@ -256,6 +267,7 @@ public class GenerationDetail  {
 
   /**
    * Adds a new item to the <code>pokemonSpecies</code> list.
+   * <br><em>N.B. <code>pokemonSpecies</code> is <b>read only</b>; client code should not call this method</em>.
    */
   public GenerationDetail addPokemonSpeciesItem(PokemonSpeciesSummary pokemonSpeciesItem) {
     this.pokemonSpecies.add(pokemonSpeciesItem);
@@ -274,6 +286,7 @@ public class GenerationDetail  {
 
   /**
    * Sets the <code>types</code> property.
+   * <br><em>N.B. <code>types</code> is <b>read only</b>; client code should not call this method</em>.
    */
  public void setTypes(List<@Valid TypeSummary> types) {
     this.types = types;
@@ -281,6 +294,7 @@ public class GenerationDetail  {
 
   /**
    * Sets the <code>types</code> property.
+   * <br><em>N.B. <code>types</code> is <b>read only</b>; client code should not call this method</em>.
    */
   public GenerationDetail types(List<@Valid TypeSummary> types) {
     this.types = types;
@@ -289,6 +303,7 @@ public class GenerationDetail  {
 
   /**
    * Adds a new item to the <code>types</code> list.
+   * <br><em>N.B. <code>types</code> is <b>read only</b>; client code should not call this method</em>.
    */
   public GenerationDetail addTypesItem(TypeSummary typesItem) {
     this.types.add(typesItem);
@@ -307,6 +322,7 @@ public class GenerationDetail  {
 
   /**
    * Sets the <code>versionGroups</code> property.
+   * <br><em>N.B. <code>versionGroups</code> is <b>read only</b>; client code should not call this method</em>.
    */
  public void setVersionGroups(List<@Valid VersionGroupSummary> versionGroups) {
     this.versionGroups = versionGroups;
@@ -314,6 +330,7 @@ public class GenerationDetail  {
 
   /**
    * Sets the <code>versionGroups</code> property.
+   * <br><em>N.B. <code>versionGroups</code> is <b>read only</b>; client code should not call this method</em>.
    */
   public GenerationDetail versionGroups(List<@Valid VersionGroupSummary> versionGroups) {
     this.versionGroups = versionGroups;
@@ -322,6 +339,7 @@ public class GenerationDetail  {
 
   /**
    * Adds a new item to the <code>versionGroups</code> list.
+   * <br><em>N.B. <code>versionGroups</code> is <b>read only</b>; client code should not call this method</em>.
    */
   public GenerationDetail addVersionGroupsItem(VersionGroupSummary versionGroupsItem) {
     this.versionGroups.add(versionGroupsItem);
@@ -377,10 +395,7 @@ public class GenerationDetail  {
    * (except the first line).
    */
   private static String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 }
 

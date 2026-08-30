@@ -19,13 +19,13 @@ import org.openapitools.jackson.nullable.JsonNullable;
 
 
 @JsonTypeName("EvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2026-02-07T15:24:06.001755207Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2026-08-30T01:56:42.280002256Z[Etc/UTC]", comments = "Generator version: 7.24.0")
 public class EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner   {
   private EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender gender;
   private EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender heldItem;
   private EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender item;
-  private Object knownMove;
-  private Object knownMoveType;
+  private EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender knownMove;
+  private EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender knownMoveType;
   private EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender location;
   private Integer minAffection;
   private Integer minBeauty;
@@ -48,8 +48,8 @@ public class EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner   {
     @JsonProperty(required = true, value = "gender") EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender gender,
     @JsonProperty(required = true, value = "held_item") EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender heldItem,
     @JsonProperty(required = true, value = "item") EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender item,
-    @JsonProperty(required = true, value = "known_move") Object knownMove,
-    @JsonProperty(required = true, value = "known_move_type") Object knownMoveType,
+    @JsonProperty(required = true, value = "known_move") EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender knownMove,
+    @JsonProperty(required = true, value = "known_move_type") EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender knownMoveType,
     @JsonProperty(required = true, value = "location") EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender location,
     @JsonProperty(required = true, value = "min_affection") Integer minAffection,
     @JsonProperty(required = true, value = "min_beauty") Integer minBeauty,
@@ -143,7 +143,7 @@ public class EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner   {
 
   /**
    **/
-  public EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner knownMove(Object knownMove) {
+  public EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner knownMove(EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender knownMove) {
     this.knownMove = knownMove;
     return this;
   }
@@ -151,18 +151,18 @@ public class EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner   {
   
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(required = true, value = "known_move")
-  @NotNull public Object getKnownMove() {
+  @NotNull @Valid public EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender getKnownMove() {
     return knownMove;
   }
 
   @JsonProperty(required = true, value = "known_move")
-  public void setKnownMove(Object knownMove) {
+  public void setKnownMove(EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender knownMove) {
     this.knownMove = knownMove;
   }
 
   /**
    **/
-  public EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner knownMoveType(Object knownMoveType) {
+  public EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner knownMoveType(EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender knownMoveType) {
     this.knownMoveType = knownMoveType;
     return this;
   }
@@ -170,12 +170,12 @@ public class EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner   {
   
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(required = true, value = "known_move_type")
-  @NotNull public Object getKnownMoveType() {
+  @NotNull @Valid public EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender getKnownMoveType() {
     return knownMoveType;
   }
 
   @JsonProperty(required = true, value = "known_move_type")
-  public void setKnownMoveType(Object knownMoveType) {
+  public void setKnownMoveType(EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender knownMoveType) {
     this.knownMoveType = knownMoveType;
   }
 
@@ -493,12 +493,8 @@ public class EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner   {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 
 }
-

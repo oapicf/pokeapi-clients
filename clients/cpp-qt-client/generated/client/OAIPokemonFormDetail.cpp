@@ -21,7 +21,7 @@
 
 namespace OpenAPI {
 
-OAIPokemonFormDetail::OAIPokemonFormDetail(QString json) {
+OAIPokemonFormDetail::OAIPokemonFormDetail(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -77,7 +77,7 @@ void OAIPokemonFormDetail::initializeModel() {
     m_types_isValid = false;
 }
 
-void OAIPokemonFormDetail::fromJson(QString jsonString) {
+void OAIPokemonFormDetail::fromJson(const QString &jsonString) {
     QByteArray array(jsonString.toStdString().c_str());
     QJsonDocument doc = QJsonDocument::fromJson(array);
     QJsonObject jsonObject = doc.object();
@@ -327,10 +327,10 @@ bool OAIPokemonFormDetail::is_pokemon_Valid() const{
     return m_pokemon_isValid;
 }
 
-OAIPokemonFormDetail_sprites OAIPokemonFormDetail::getSprites() const {
+OAIPokemonFormDetail_sprites<QString, QString> OAIPokemonFormDetail::getSprites() const {
     return m_sprites;
 }
-void OAIPokemonFormDetail::setSprites(const OAIPokemonFormDetail_sprites &sprites) {
+void OAIPokemonFormDetail::setSprites(const OAIPokemonFormDetail_sprites<QString, QString> &sprites) {
     m_sprites = sprites;
     m_sprites_isSet = true;
 }

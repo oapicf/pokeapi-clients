@@ -122,8 +122,18 @@ namespace Org.OpenAPITools.Model
     /// <summary>
     /// A Json converter for type <see cref="TypeDetailPastDamageRelationsInnerDamageRelations" />
     /// </summary>
-    public class TypeDetailPastDamageRelationsInnerDamageRelationsJsonConverter : JsonConverter<TypeDetailPastDamageRelationsInnerDamageRelations>
+    public partial class TypeDetailPastDamageRelationsInnerDamageRelationsJsonConverter : JsonConverter<TypeDetailPastDamageRelationsInnerDamageRelations>
     {
+        partial void OnCreated();
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="TypeDetailPastDamageRelationsInnerDamageRelationsJsonConverter" /> class.
+        /// </summary>
+        public TypeDetailPastDamageRelationsInnerDamageRelationsJsonConverter()
+        {
+            OnCreated();
+        }
+
         /// <summary>
         /// Deserializes json to <see cref="TypeDetailPastDamageRelationsInnerDamageRelations" />
         /// </summary>

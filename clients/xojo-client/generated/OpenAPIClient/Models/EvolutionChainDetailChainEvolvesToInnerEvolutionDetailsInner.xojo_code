@@ -17,12 +17,12 @@ Protected Class EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner
 
 
 	#tag Property, Flags = &h0
-		known_move As Object
+		known_move As OpenAPIClient.Models.EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender
 	#tag EndProperty
 
 
 	#tag Property, Flags = &h0
-		known_move_type As Object
+		known_move_type As OpenAPIClient.Models.EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender
 	#tag EndProperty
 
 
@@ -156,7 +156,7 @@ Protected Class EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner
 			Visible=false
 			Group="Behavior"
 			InitialValue=""
-			Type="Object"
+			Type="EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender"
 			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
@@ -164,7 +164,7 @@ Protected Class EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner
 			Visible=false
 			Group="Behavior"
 			InitialValue=""
-			Type="Object"
+			Type="EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender"
 			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty

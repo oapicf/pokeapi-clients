@@ -9,10 +9,10 @@ Name | Type | Description | Notes
 **name** | **string** |  | [default to undefined]
 **order** | **number** |  | [optional] [default to undefined]
 **generation** | [**GenerationSummary**](GenerationSummary.md) |  | [default to undefined]
-**move_learn_methods** | [**Array&lt;AbilityDetailPokemonInnerPokemon&gt;**](AbilityDetailPokemonInnerPokemon.md) |  | [default to undefined]
-**pokedexes** | [**Array&lt;AbilityDetailPokemonInnerPokemon&gt;**](AbilityDetailPokemonInnerPokemon.md) |  | [default to undefined]
-**regions** | [**Array&lt;AbilityDetailPokemonInnerPokemon&gt;**](AbilityDetailPokemonInnerPokemon.md) |  | [default to undefined]
-**versions** | [**Array&lt;VersionSummary&gt;**](VersionSummary.md) |  | [default to undefined]
+**move_learn_methods** | [**Array&lt;AbilityDetailPokemonInnerPokemon&gt;**](AbilityDetailPokemonInnerPokemon.md) |  | [readonly] [default to undefined]
+**pokedexes** | [**Array&lt;AbilityDetailPokemonInnerPokemon&gt;**](AbilityDetailPokemonInnerPokemon.md) |  | [readonly] [default to undefined]
+**regions** | [**Array&lt;AbilityDetailPokemonInnerPokemon&gt;**](AbilityDetailPokemonInnerPokemon.md) |  | [readonly] [default to undefined]
+**versions** | [**Array&lt;VersionSummary&gt;**](VersionSummary.md) |  | [readonly] [default to undefined]
 
 ## Example
 

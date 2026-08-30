@@ -49,8 +49,8 @@ function Initialize-MoveDetailContestCombosNormal {
 
 
         $PSO = [PSCustomObject]@{
-            "use_before" = ${UseBefore}
-            "use_after" = ${UseAfter}
+            'use_before' = ${UseBefore}
+            'use_after' = ${UseAfter}
         }
 
 
@@ -88,7 +88,7 @@ function ConvertFrom-JsonToMoveDetailContestCombosNormal {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in MoveDetailContestCombosNormal
-        $AllProperties = ("use_before", "use_after")
+        $AllProperties = ('use_before', 'use_after')
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -99,21 +99,21 @@ function ConvertFrom-JsonToMoveDetailContestCombosNormal {
             throw "Error! Empty JSON cannot be serialized due to the required property 'use_before' missing."
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "use_before"))) {
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'use_before'))) {
             throw "Error! JSON cannot be serialized due to the required property 'use_before' missing."
         } else {
-            $UseBefore = $JsonParameters.PSobject.Properties["use_before"].value
+            $UseBefore = $JsonParameters.PSobject.Properties['use_before'].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "use_after"))) {
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'use_after'))) {
             throw "Error! JSON cannot be serialized due to the required property 'use_after' missing."
         } else {
-            $UseAfter = $JsonParameters.PSobject.Properties["use_after"].value
+            $UseAfter = $JsonParameters.PSobject.Properties['use_after'].value
         }
 
         $PSO = [PSCustomObject]@{
-            "use_before" = ${UseBefore}
-            "use_after" = ${UseAfter}
+            'use_before' = ${UseBefore}
+            'use_after' = ${UseAfter}
         }
 
         return $PSO

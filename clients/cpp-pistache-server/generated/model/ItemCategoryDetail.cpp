@@ -26,6 +26,8 @@ ItemCategoryDetail::ItemCategoryDetail()
     
 }
 
+ItemCategoryDetail::~ItemCategoryDetail() = default;
+
 void ItemCategoryDetail::validate() const
 {
     std::stringstream msg;

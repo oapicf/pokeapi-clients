@@ -26,6 +26,8 @@ MoveTargetSummary::MoveTargetSummary()
     
 }
 
+MoveTargetSummary::~MoveTargetSummary() = default;
+
 void MoveTargetSummary::validate() const
 {
     std::stringstream msg;

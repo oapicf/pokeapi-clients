@@ -92,8 +92,18 @@ namespace Org.OpenAPITools.Model
     /// <summary>
     /// A Json converter for type <see cref="RegionName" />
     /// </summary>
-    public class RegionNameJsonConverter : JsonConverter<RegionName>
+    public partial class RegionNameJsonConverter : JsonConverter<RegionName>
     {
+        partial void OnCreated();
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="RegionNameJsonConverter" /> class.
+        /// </summary>
+        public RegionNameJsonConverter()
+        {
+            OnCreated();
+        }
+
         /// <summary>
         /// Deserializes json to <see cref="RegionName" />
         /// </summary>

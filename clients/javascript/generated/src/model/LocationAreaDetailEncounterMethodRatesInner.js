@@ -18,7 +18,7 @@ import LocationAreaDetailEncounterMethodRatesInnerVersionDetailsInner from './Lo
 /**
  * The LocationAreaDetailEncounterMethodRatesInner model module.
  * @module model/LocationAreaDetailEncounterMethodRatesInner
- * @version 1.2.1-pre.0
+ * @version 2.0.1-pre.0
  */
 class LocationAreaDetailEncounterMethodRatesInner {
     /**

@@ -67,7 +67,8 @@ class PaginatedMoveBattleStyleSummaryList extends BaseModel
       "type" : "array",
       "items" : {
         "$ref" : "#/components/schemas/MoveBattleStyleSummary"
-      }
+      },
+      "default" : null
     }
   }
 }

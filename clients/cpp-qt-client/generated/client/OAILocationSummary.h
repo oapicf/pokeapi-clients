@@ -31,13 +31,13 @@ namespace OpenAPI {
 class OAILocationSummary : public OAIObject {
 public:
     OAILocationSummary();
-    OAILocationSummary(QString json);
+    OAILocationSummary(const QString &json);
     ~OAILocationSummary() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     QString getName() const;
     void setName(const QString &name);

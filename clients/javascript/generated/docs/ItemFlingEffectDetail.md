@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **Number** |  | [readonly] 
 **name** | **String** |  | 
-**effectEntries** | [**[ItemFlingEffectEffectText]**](ItemFlingEffectEffectText.md) |  | 
-**items** | [**[ItemSummary]**](ItemSummary.md) |  | 
+**effectEntries** | [**[ItemFlingEffectEffectText]**](ItemFlingEffectEffectText.md) |  | [readonly] 
+**items** | [**[ItemSummary]**](ItemSummary.md) |  | [readonly] 
 
 

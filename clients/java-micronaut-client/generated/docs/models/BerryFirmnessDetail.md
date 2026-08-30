@@ -10,8 +10,8 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | `Integer` |  |  [readonly property]
 **name** | `String` |  | 
-**berries** | [`List&lt;BerrySummary&gt;`](BerrySummary.md) |  | 
-**names** | [`List&lt;BerryFirmnessName&gt;`](BerryFirmnessName.md) |  | 
+**berries** | [`List&lt;BerrySummary&gt;`](BerrySummary.md) |  |  [readonly property]
+**names** | [`List&lt;BerryFirmnessName&gt;`](BerryFirmnessName.md) |  |  [readonly property]
 
 
 

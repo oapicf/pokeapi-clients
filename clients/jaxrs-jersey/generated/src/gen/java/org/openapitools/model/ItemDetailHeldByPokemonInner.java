@@ -35,7 +35,7 @@ import javax.validation.Valid;
   ItemDetailHeldByPokemonInner.JSON_PROPERTY_POKEMON,
   ItemDetailHeldByPokemonInner.JSON_PROPERTY_VERSION_DETAILS
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJerseyServerCodegen", date = "2026-02-07T15:23:51.865177194Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJerseyServerCodegen", date = "2026-08-30T01:56:28.710233113Z[Etc/UTC]", comments = "Generator version: 7.24.0")
 public class ItemDetailHeldByPokemonInner   {
   public static final String JSON_PROPERTY_POKEMON = "pokemon";
   @JsonProperty(JSON_PROPERTY_POKEMON)
@@ -128,10 +128,7 @@ public class ItemDetailHeldByPokemonInner   {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 }
 

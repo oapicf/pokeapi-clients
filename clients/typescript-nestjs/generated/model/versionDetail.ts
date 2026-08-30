@@ -19,7 +19,7 @@ import { VersionName } from './versionName';
 export interface VersionDetail { 
     readonly id: number;
     name: string;
-    names: Array<VersionName>;
+    readonly names: Array<VersionName>;
     version_group: VersionGroupSummary;
 }
 

@@ -26,6 +26,8 @@ CharacteristicDetail::CharacteristicDetail()
     
 }
 
+CharacteristicDetail::~CharacteristicDetail() = default;
+
 void CharacteristicDetail::validate() const
 {
     std::stringstream msg;

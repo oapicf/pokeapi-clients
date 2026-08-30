@@ -30,19 +30,19 @@ public class OASMoveLearnMethodDetail implements OAS.MappedProperties {
      * Get names
      * @return names
      */
-    public List<OASMoveLearnMethodName> names { get; set; }
+    public List<OASMoveLearnMethodName> names { get; private set; }
 
     /**
      * Get descriptions
      * @return descriptions
      */
-    public List<OASMoveLearnMethodDescription> descriptions { get; set; }
+    public List<OASMoveLearnMethodDescription> descriptions { get; private set; }
 
     /**
      * Get versionGroups
      * @return versionGroups
      */
-    public List<OASAbilityDetailPokemonInnerPokemon> versionGroups { get; set; }
+    public List<OASAbilityDetailPokemonInnerPokemon> versionGroups { get; private set; }
 
     private static final Map<String, String> propertyMappings = new Map<String, String>{
         'version_groups' => 'versionGroups'

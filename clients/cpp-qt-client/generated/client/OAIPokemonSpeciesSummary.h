@@ -31,13 +31,13 @@ namespace OpenAPI {
 class OAIPokemonSpeciesSummary : public OAIObject {
 public:
     OAIPokemonSpeciesSummary();
-    OAIPokemonSpeciesSummary(QString json);
+    OAIPokemonSpeciesSummary(const QString &json);
     ~OAIPokemonSpeciesSummary() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     QString getName() const;
     void setName(const QString &name);

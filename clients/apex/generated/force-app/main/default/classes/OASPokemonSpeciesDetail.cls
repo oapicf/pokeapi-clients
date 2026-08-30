@@ -96,13 +96,13 @@ public class OASPokemonSpeciesDetail implements OAS.MappedProperties {
      * Get pokedexNumbers
      * @return pokedexNumbers
      */
-    public List<OASPokemonDexEntry> pokedexNumbers { get; set; }
+    public List<OASPokemonDexEntry> pokedexNumbers { get; private set; }
 
     /**
      * Get eggGroups
      * @return eggGroups
      */
-    public List<OASAbilityDetailPokemonInnerPokemon> eggGroups { get; set; }
+    public List<OASAbilityDetailPokemonInnerPokemon> eggGroups { get; private set; }
 
     /**
      * Get color
@@ -144,37 +144,37 @@ public class OASPokemonSpeciesDetail implements OAS.MappedProperties {
      * Get names
      * @return names
      */
-    public List<OASPokemonFormDetailFormNamesInner> names { get; set; }
+    public List<OASPokemonFormDetailFormNamesInner> names { get; private set; }
 
     /**
      * Get palParkEncounters
      * @return palParkEncounters
      */
-    public List<OASPokemonSpeciesDetailPalParkEncoun> palParkEncounters { get; set; }
+    public List<OASPokemonSpeciesDetailPalParkEncoun> palParkEncounters { get; private set; }
 
     /**
      * Get formDescriptions
      * @return formDescriptions
      */
-    public List<OASPokemonSpeciesDescription> formDescriptions { get; set; }
+    public List<OASPokemonSpeciesDescription> formDescriptions { get; private set; }
 
     /**
      * Get flavorTextEntries
      * @return flavorTextEntries
      */
-    public List<OASPokemonSpeciesFlavorText> flavorTextEntries { get; set; }
+    public List<OASPokemonSpeciesFlavorText> flavorTextEntries { get; private set; }
 
     /**
      * Get genera
      * @return genera
      */
-    public List<OASPokemonSpeciesDetailGeneraInner> genera { get; set; }
+    public List<OASPokemonSpeciesDetailGeneraInner> genera { get; private set; }
 
     /**
      * Get varieties
      * @return varieties
      */
-    public List<OASPokemonSpeciesDetailVarietiesInne> varieties { get; set; }
+    public List<OASPokemonSpeciesDetailVarietiesInne> varieties { get; private set; }
 
     private static final Map<String, String> propertyMappings = new Map<String, String>{
         'gender_rate' => 'genderRate',

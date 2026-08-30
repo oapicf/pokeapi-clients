@@ -85,7 +85,7 @@ PokeathlonStatSummary::getName()
 }
 
 void
-PokeathlonStatSummary::setName(std::string  name)
+PokeathlonStatSummary::setName(std::string name)
 {
 	this->name = name;
 }
@@ -97,7 +97,7 @@ PokeathlonStatSummary::getUrl()
 }
 
 void
-PokeathlonStatSummary::setUrl(std::string  url)
+PokeathlonStatSummary::setUrl(std::string url)
 {
 	this->url = url;
 }

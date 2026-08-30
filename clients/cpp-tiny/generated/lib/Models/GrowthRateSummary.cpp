@@ -85,7 +85,7 @@ GrowthRateSummary::getName()
 }
 
 void
-GrowthRateSummary::setName(std::string  name)
+GrowthRateSummary::setName(std::string name)
 {
 	this->name = name;
 }
@@ -97,7 +97,7 @@ GrowthRateSummary::getUrl()
 }
 
 void
-GrowthRateSummary::setUrl(std::string  url)
+GrowthRateSummary::setUrl(std::string url)
 {
 	this->url = url;
 }

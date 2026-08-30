@@ -49,7 +49,7 @@ import javax.validation.Valid;
   PokemonFormDetail.JSON_PROPERTY_NAMES,
   PokemonFormDetail.JSON_PROPERTY_TYPES
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJerseyServerCodegen", date = "2026-02-07T15:23:51.865177194Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJerseyServerCodegen", date = "2026-08-30T01:56:28.710233113Z[Etc/UTC]", comments = "Generator version: 7.24.0")
 public class PokemonFormDetail   {
   public static final String JSON_PROPERTY_ID = "id";
   @JsonProperty(JSON_PROPERTY_ID)
@@ -344,9 +344,9 @@ public class PokemonFormDetail   {
    * Get formNames
    * @return formNames
    **/
-  @JsonProperty(value = "form_names")
+  @JsonProperty(value = "form_names", access = JsonProperty.Access.READ_ONLY)
   @ApiModelProperty(required = true, value = "")
-  @NotNull @Valid 
+  @Valid 
   public List<@Valid PokemonFormDetailFormNamesInner> getFormNames() {
     return formNames;
   }
@@ -372,9 +372,9 @@ public class PokemonFormDetail   {
    * Get names
    * @return names
    **/
-  @JsonProperty(value = "names")
+  @JsonProperty(value = "names", access = JsonProperty.Access.READ_ONLY)
   @ApiModelProperty(required = true, value = "")
-  @NotNull @Valid 
+  @Valid 
   public List<@Valid PokemonFormDetailFormNamesInner> getNames() {
     return names;
   }
@@ -400,9 +400,9 @@ public class PokemonFormDetail   {
    * Get types
    * @return types
    **/
-  @JsonProperty(value = "types")
+  @JsonProperty(value = "types", access = JsonProperty.Access.READ_ONLY)
   @ApiModelProperty(required = true, value = "")
-  @NotNull @Valid 
+  @Valid 
   public List<@Valid PokemonDetailTypesInner> getTypes() {
     return types;
   }
@@ -470,10 +470,7 @@ public class PokemonFormDetail   {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 }
 

@@ -161,7 +161,7 @@ PalParkAreaDetail::getId()
 }
 
 void
-PalParkAreaDetail::setId(int  id)
+PalParkAreaDetail::setId(int id)
 {
 	this->id = id;
 }
@@ -173,7 +173,7 @@ PalParkAreaDetail::getName()
 }
 
 void
-PalParkAreaDetail::setName(std::string  name)
+PalParkAreaDetail::setName(std::string name)
 {
 	this->name = name;
 }
@@ -185,7 +185,7 @@ PalParkAreaDetail::getNames()
 }
 
 void
-PalParkAreaDetail::setNames(std::list <PalParkAreaName> names)
+PalParkAreaDetail::setNames(std::list<PalParkAreaName> names)
 {
 	this->names = names;
 }
@@ -197,7 +197,7 @@ PalParkAreaDetail::getPokemonEncounters()
 }
 
 void
-PalParkAreaDetail::setPokemonEncounters(std::list <PalParkAreaDetail_pokemon_encounters_inner> pokemon_encounters)
+PalParkAreaDetail::setPokemonEncounters(std::list<PalParkAreaDetail_pokemon_encounters_inner> pokemon_encounters)
 {
 	this->pokemon_encounters = pokemon_encounters;
 }

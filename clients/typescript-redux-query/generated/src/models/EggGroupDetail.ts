@@ -44,13 +44,13 @@ export interface EggGroupDetail  {
      * @type {Array<EggGroupName>}
      * @memberof EggGroupDetail
      */
-    names: Array<EggGroupName>;
+    readonly names: Array<EggGroupName>;
     /**
      * 
      * @type {Array<EggGroupDetailPokemonSpeciesInner>}
      * @memberof EggGroupDetail
      */
-    pokemonSpecies: Array<EggGroupDetailPokemonSpeciesInner>;
+    readonly pokemonSpecies: Array<EggGroupDetailPokemonSpeciesInner>;
 }
 
 export function EggGroupDetailFromJSON(json: any): EggGroupDetail {
@@ -68,8 +68,6 @@ export function EggGroupDetailToJSON(value?: EggGroupDetail): any {
     }
     return {
         'name': value.name,
-        'names': (value.names as Array<any>).map(EggGroupNameToJSON),
-        'pokemon_species': (value.pokemonSpecies as Array<any>).map(EggGroupDetailPokemonSpeciesInnerToJSON),
     };
 }
 

@@ -21,7 +21,7 @@
 
 namespace OpenAPI {
 
-OAIAbilityEffectText::OAIAbilityEffectText(QString json) {
+OAIAbilityEffectText::OAIAbilityEffectText(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -44,7 +44,7 @@ void OAIAbilityEffectText::initializeModel() {
     m_language_isValid = false;
 }
 
-void OAIAbilityEffectText::fromJson(QString jsonString) {
+void OAIAbilityEffectText::fromJson(const QString &jsonString) {
     QByteArray array(jsonString.toStdString().c_str());
     QJsonDocument doc = QJsonDocument::fromJson(array);
     QJsonObject jsonObject = doc.object();

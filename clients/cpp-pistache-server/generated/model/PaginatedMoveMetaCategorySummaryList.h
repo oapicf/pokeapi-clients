@@ -34,7 +34,7 @@ class  PaginatedMoveMetaCategorySummaryList
 {
 public:
     PaginatedMoveMetaCategorySummaryList();
-    virtual ~PaginatedMoveMetaCategorySummaryList() = default;
+    virtual ~PaginatedMoveMetaCategorySummaryList();
 
 
     /// <summary>

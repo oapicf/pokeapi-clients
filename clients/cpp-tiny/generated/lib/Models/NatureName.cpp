@@ -86,7 +86,7 @@ NatureName::getName()
 }
 
 void
-NatureName::setName(std::string  name)
+NatureName::setName(std::string name)
 {
 	this->name = name;
 }
@@ -98,7 +98,7 @@ NatureName::getLanguage()
 }
 
 void
-NatureName::setLanguage(LanguageSummary  language)
+NatureName::setLanguage(LanguageSummary language)
 {
 	this->language = language;
 }

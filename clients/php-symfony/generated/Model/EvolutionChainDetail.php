@@ -47,7 +47,7 @@ class EvolutionChainDetail
      * @var int|null
      * @SerializedName("id")
      * @Type("int")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Type("int")]
     protected ?int $id = null;
@@ -56,7 +56,7 @@ class EvolutionChainDetail
      * @var ItemSummary|null
      * @SerializedName("baby_trigger_item")
      * @Type("OpenAPI\Server\Model\ItemSummary")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Valid]
     #[Assert\Type("OpenAPI\Server\Model\ItemSummary")]
@@ -66,7 +66,7 @@ class EvolutionChainDetail
      * @var EvolutionChainDetailChain|null
      * @SerializedName("chain")
      * @Type("OpenAPI\Server\Model\EvolutionChainDetailChain")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Valid]
     #[Assert\Type("OpenAPI\Server\Model\EvolutionChainDetailChain")]
@@ -96,12 +96,12 @@ class EvolutionChainDetail
     }
 
     /**
-    * Sets id.
-    *
-    * @param int|null $id
-    *
-    * @return $this
-    */
+     * Sets id.
+     *
+     * @param int|null $id
+     *
+     * @return $this
+     */
     public function setId(?int $id): self
     {
         $this->id = $id;
@@ -123,12 +123,12 @@ class EvolutionChainDetail
     }
 
     /**
-    * Sets babyTriggerItem.
-    *
-    * @param ItemSummary|null $babyTriggerItem
-    *
-    * @return $this
-    */
+     * Sets babyTriggerItem.
+     *
+     * @param ItemSummary|null $babyTriggerItem
+     *
+     * @return $this
+     */
     public function setBabyTriggerItem(?ItemSummary $babyTriggerItem): self
     {
         $this->babyTriggerItem = $babyTriggerItem;
@@ -150,12 +150,12 @@ class EvolutionChainDetail
     }
 
     /**
-    * Sets chain.
-    *
-    * @param EvolutionChainDetailChain|null $chain
-    *
-    * @return $this
-    */
+     * Sets chain.
+     *
+     * @param EvolutionChainDetailChain|null $chain
+     *
+     * @return $this
+     */
     public function setChain(?EvolutionChainDetailChain $chain): self
     {
         $this->chain = $chain;

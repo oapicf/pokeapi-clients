@@ -34,7 +34,7 @@ class  EvolutionChainDetail_chain_evolves_to_inner
 {
 public:
     EvolutionChainDetail_chain_evolves_to_inner();
-    virtual ~EvolutionChainDetail_chain_evolves_to_inner() = default;
+    virtual ~EvolutionChainDetail_chain_evolves_to_inner();
 
 
     /// <summary>

@@ -34,7 +34,7 @@ class  AbilityChange
 {
 public:
     AbilityChange();
-    virtual ~AbilityChange() = default;
+    virtual ~AbilityChange();
 
 
     /// <summary>

@@ -21,7 +21,7 @@
 
 namespace OpenAPI {
 
-OAIItemFlavorText::OAIItemFlavorText(QString json) {
+OAIItemFlavorText::OAIItemFlavorText(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -44,7 +44,7 @@ void OAIItemFlavorText::initializeModel() {
     m_language_isValid = false;
 }
 
-void OAIItemFlavorText::fromJson(QString jsonString) {
+void OAIItemFlavorText::fromJson(const QString &jsonString) {
     QByteArray array(jsonString.toStdString().c_str());
     QJsonDocument doc = QJsonDocument::fromJson(array);
     QJsonObject jsonObject = doc.object();

@@ -6,8 +6,8 @@
 | ---- | ---- | ----------- | ----- |
 | **id** | **Integer** |  | [readonly] |
 | **name** | **String** |  |  |
-| **items** | [**Array&lt;ItemSummary&gt;**](ItemSummary.md) |  |  |
-| **names** | [**Array&lt;ItemCategoryName&gt;**](ItemCategoryName.md) |  |  |
+| **items** | [**Array&lt;ItemSummary&gt;**](ItemSummary.md) |  | [readonly] |
+| **names** | [**Array&lt;ItemCategoryName&gt;**](ItemCategoryName.md) |  | [readonly] |
 | **pocket** | [**ItemPocketSummary**](ItemPocketSummary.md) |  |  |
 
 ## Example

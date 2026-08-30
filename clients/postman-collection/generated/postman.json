@@ -1,0 +1,5765 @@
+{
+	"info": {
+		"name": "PokéAPI",
+		"description": {
+		    "content": "All the Pokémon data you'll ever need in one place, easily accessible through a modern free open-source RESTful API.\n\n## What is this?\n\nThis is a full RESTful API linked to an extensive database detailing everything about the Pokémon main game series.\n\nWe've covered everything from Pokémon to Berry Flavors.\n\n## Where do I start?\n\nWe have awesome [documentation](https://pokeapi.co/docs/v2) on how to use this API. It takes minutes to get started.\n\nThis API will always be publicly available and will never require any extensive setup process to consume.\n\nCreated by [**Paul Hallett**(]https://github.com/phalt) and other [**PokéAPI contributors***](https://github.com/PokeAPI/pokeapi#contributing) around the world. Pokémon and Pokémon character names are trademarks of Nintendo.\n    ",
+		    "type": "text/markdown"
+		},
+		"version": "2.7.0",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+	        {
+	            "name": "moves",
+	            "description": "Moves are the skills of Pokémon in battle. In battle, a Pokémon uses one move each turn. Some moves (including those learned by Hidden Machine) can be used outside of battle as well, usually for the purpose of removing obstacles or exploring new areas.",
+	            "item": [
+	                        {
+    "name": "/api/v2/move-ailment/",
+                "description": "Move Ailments are status conditions caused by moves used during battle. See [Bulbapedia](https://bulbapedia.bulbagarden.net/wiki/Status_condition) for greater detail.",
+                 "item": [
+                            {
+                                "name": "List move meta ailments",
+                                "request": {
+    "method": "GET",
+    "header": [
+        {
+        "key": "Accept",
+        "value": "application/json",
+        "description": "",
+        "disabled": false
+        }
+    ],
+    "body": {
+    "mode": "raw",
+    "raw": "",
+    "options": {
+    "raw": {
+    "language": "json"
+    }
+    }
+    },
+    "url": {
+    "raw": "{{baseUrl}}/api/v2/move-ailment/",
+    "host": [
+    "{{baseUrl}}"
+    ],
+    "path": [
+        "api",
+        "v2",
+        "move-ailment"
+    ],
+    "variable": [
+    ],
+    "query": [
+        {
+        "key": "limit",
+        "value": "56",
+        "description": "Number of results to return per page.",
+        "disabled": true
+        },
+        {
+        "key": "offset",
+        "value": "56",
+        "description": "The initial index from which to return the results.",
+        "disabled": true
+        },
+        {
+        "key": "q",
+        "value": "q_example",
+        "description": "> Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. ",
+        "disabled": true
+        }
+    ]
+    },
+    "description": "Move Ailments are status conditions caused by moves used during battle. See [Bulbapedia](https://bulbapedia.bulbagarden.net/wiki/Status_condition) for greater detail."
+}
+                                ,"response": [
+                            ]
+                            }
+                            ]
+                        },
+	                        {
+    "name": "/api/v2/move-ailment/:id/",
+                "description": "Move Ailments are status conditions caused by moves used during battle. See [Bulbapedia](https://bulbapedia.bulbagarden.net/wiki/Status_condition) for greater detail.",
+                 "item": [
+                            {
+                                "name": "Get move meta ailment",
+                                "request": {
+    "method": "GET",
+    "header": [
+        {
+        "key": "Accept",
+        "value": "application/json",
+        "description": "",
+        "disabled": false
+        }
+    ],
+    "body": {
+    "mode": "raw",
+    "raw": "",
+    "options": {
+    "raw": {
+    "language": "json"
+    }
+    }
+    },
+    "url": {
+    "raw": "{{baseUrl}}/api/v2/move-ailment/:id/",
+    "host": [
+    "{{baseUrl}}"
+    ],
+    "path": [
+        "api",
+        "v2",
+        "move-ailment",
+        ":id"
+    ],
+    "variable": [
+        {
+        "key": "id",
+        "value": "",
+        "description": "This parameter can be a string or an integer."
+        }
+    ],
+    "query": [
+    ]
+    },
+    "description": "Move Ailments are status conditions caused by moves used during battle. See [Bulbapedia](https://bulbapedia.bulbagarden.net/wiki/Status_condition) for greater detail."
+}
+                                ,"response": [
+                            ]
+                            }
+                            ]
+                        },
+	                        {
+    "name": "/api/v2/move-battle-style/",
+                "description": "Styles of moves when used in the Battle Palace. See [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Battle_Frontier_(Generation_III)) for greater detail.",
+                 "item": [
+                            {
+                                "name": "List move battle styles",
+                                "request": {
+    "method": "GET",
+    "header": [
+        {
+        "key": "Accept",
+        "value": "application/json",
+        "description": "",
+        "disabled": false
+        }
+    ],
+    "body": {
+    "mode": "raw",
+    "raw": "",
+    "options": {
+    "raw": {
+    "language": "json"
+    }
+    }
+    },
+    "url": {
+    "raw": "{{baseUrl}}/api/v2/move-battle-style/",
+    "host": [
+    "{{baseUrl}}"
+    ],
+    "path": [
+        "api",
+        "v2",
+        "move-battle-style"
+    ],
+    "variable": [
+    ],
+    "query": [
+        {
+        "key": "limit",
+        "value": "56",
+        "description": "Number of results to return per page.",
+        "disabled": true
+        },
+        {
+        "key": "offset",
+        "value": "56",
+        "description": "The initial index from which to return the results.",
+        "disabled": true
+        },
+        {
+        "key": "q",
+        "value": "q_example",
+        "description": "> Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. ",
+        "disabled": true
+        }
+    ]
+    },
+    "description": "Styles of moves when used in the Battle Palace. See [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Battle_Frontier_(Generation_III)) for greater detail."
+}
+                                ,"response": [
+                            ]
+                            }
+                            ]
+                        },
+	                        {
+    "name": "/api/v2/move-battle-style/:id/",
+                "description": "Styles of moves when used in the Battle Palace. See [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Battle_Frontier_(Generation_III)) for greater detail.",
+                 "item": [
+                            {
+                                "name": "Get move battle style",
+                                "request": {
+    "method": "GET",
+    "header": [
+        {
+        "key": "Accept",
+        "value": "application/json",
+        "description": "",
+        "disabled": false
+        }
+    ],
+    "body": {
+    "mode": "raw",
+    "raw": "",
+    "options": {
+    "raw": {
+    "language": "json"
+    }
+    }
+    },
+    "url": {
+    "raw": "{{baseUrl}}/api/v2/move-battle-style/:id/",
+    "host": [
+    "{{baseUrl}}"
+    ],
+    "path": [
+        "api",
+        "v2",
+        "move-battle-style",
+        ":id"
+    ],
+    "variable": [
+        {
+        "key": "id",
+        "value": "",
+        "description": "This parameter can be a string or an integer."
+        }
+    ],
+    "query": [
+    ]
+    },
+    "description": "Styles of moves when used in the Battle Palace. See [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Battle_Frontier_(Generation_III)) for greater detail."
+}
+                                ,"response": [
+                            ]
+                            }
+                            ]
+                        },
+	                        {
+    "name": "/api/v2/move-category/",
+                "description": "Very general categories that loosely group move effects.",
+                 "item": [
+                            {
+                                "name": "List move meta categories",
+                                "request": {
+    "method": "GET",
+    "header": [
+        {
+        "key": "Accept",
+        "value": "application/json",
+        "description": "",
+        "disabled": false
+        }
+    ],
+    "body": {
+    "mode": "raw",
+    "raw": "",
+    "options": {
+    "raw": {
+    "language": "json"
+    }
+    }
+    },
+    "url": {
+    "raw": "{{baseUrl}}/api/v2/move-category/",
+    "host": [
+    "{{baseUrl}}"
+    ],
+    "path": [
+        "api",
+        "v2",
+        "move-category"
+    ],
+    "variable": [
+    ],
+    "query": [
+        {
+        "key": "limit",
+        "value": "56",
+        "description": "Number of results to return per page.",
+        "disabled": true
+        },
+        {
+        "key": "offset",
+        "value": "56",
+        "description": "The initial index from which to return the results.",
+        "disabled": true
+        },
+        {
+        "key": "q",
+        "value": "q_example",
+        "description": "> Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. ",
+        "disabled": true
+        }
+    ]
+    },
+    "description": "Very general categories that loosely group move effects."
+}
+                                ,"response": [
+                            ]
+                            }
+                            ]
+                        },
+	                        {
+    "name": "/api/v2/move-category/:id/",
+                "description": "Very general categories that loosely group move effects.",
+                 "item": [
+                            {
+                                "name": "Get move meta category",
+                                "request": {
+    "method": "GET",
+    "header": [
+        {
+        "key": "Accept",
+        "value": "application/json",
+        "description": "",
+        "disabled": false
+        }
+    ],
+    "body": {
+    "mode": "raw",
+    "raw": "",
+    "options": {
+    "raw": {
+    "language": "json"
+    }
+    }
+    },
+    "url": {
+    "raw": "{{baseUrl}}/api/v2/move-category/:id/",
+    "host": [
+    "{{baseUrl}}"
+    ],
+    "path": [
+        "api",
+        "v2",
+        "move-category",
+        ":id"
+    ],
+    "variable": [
+        {
+        "key": "id",
+        "value": "",
+        "description": "This parameter can be a string or an integer."
+        }
+    ],
+    "query": [
+    ]
+    },
+    "description": "Very general categories that loosely group move effects."
+}
+                                ,"response": [
+                            ]
+                            }
+                            ]
+                        },
+	                        {
+    "name": "/api/v2/move-learn-method/",
+                "description": "Methods by which Pokémon can learn moves.",
+                 "item": [
+                            {
+                                "name": "List move learn methods",
+                                "request": {
+    "method": "GET",
+    "header": [
+        {
+        "key": "Accept",
+        "value": "application/json",
+        "description": "",
+        "disabled": false
+        }
+    ],
+    "body": {
+    "mode": "raw",
+    "raw": "",
+    "options": {
+    "raw": {
+    "language": "json"
+    }
+    }
+    },
+    "url": {
+    "raw": "{{baseUrl}}/api/v2/move-learn-method/",
+    "host": [
+    "{{baseUrl}}"
+    ],
+    "path": [
+        "api",
+        "v2",
+        "move-learn-method"
+    ],
+    "variable": [
+    ],
+    "query": [
+        {
+        "key": "limit",
+        "value": "56",
+        "description": "Number of results to return per page.",
+        "disabled": true
+        },
+        {
+        "key": "offset",
+        "value": "56",
+        "description": "The initial index from which to return the results.",
+        "disabled": true
+        },
+        {
+        "key": "q",
+        "value": "q_example",
+        "description": "> Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. ",
+        "disabled": true
+        }
+    ]
+    },
+    "description": "Methods by which Pokémon can learn moves."
+}
+                                ,"response": [
+                            ]
+                            }
+                            ]
+                        },
+	                        {
+    "name": "/api/v2/move-learn-method/:id/",
+                "description": "Methods by which Pokémon can learn moves.",
+                 "item": [
+                            {
+                                "name": "Get move learn method",
+                                "request": {
+    "method": "GET",
+    "header": [
+        {
+        "key": "Accept",
+        "value": "application/json",
+        "description": "",
+        "disabled": false
+        }
+    ],
+    "body": {
+    "mode": "raw",
+    "raw": "",
+    "options": {
+    "raw": {
+    "language": "json"
+    }
+    }
+    },
+    "url": {
+    "raw": "{{baseUrl}}/api/v2/move-learn-method/:id/",
+    "host": [
+    "{{baseUrl}}"
+    ],
+    "path": [
+        "api",
+        "v2",
+        "move-learn-method",
+        ":id"
+    ],
+    "variable": [
+        {
+        "key": "id",
+        "value": "",
+        "description": "This parameter can be a string or an integer."
+        }
+    ],
+    "query": [
+    ]
+    },
+    "description": "Methods by which Pokémon can learn moves."
+}
+                                ,"response": [
+                            ]
+                            }
+                            ]
+                        },
+	                        {
+    "name": "/api/v2/move-target/",
+                "description": "Targets moves can be directed at during battle. Targets can be Pokémon, environments or even other moves.",
+                 "item": [
+                            {
+                                "name": "List move targets",
+                                "request": {
+    "method": "GET",
+    "header": [
+        {
+        "key": "Accept",
+        "value": "application/json",
+        "description": "",
+        "disabled": false
+        }
+    ],
+    "body": {
+    "mode": "raw",
+    "raw": "",
+    "options": {
+    "raw": {
+    "language": "json"
+    }
+    }
+    },
+    "url": {
+    "raw": "{{baseUrl}}/api/v2/move-target/",
+    "host": [
+    "{{baseUrl}}"
+    ],
+    "path": [
+        "api",
+        "v2",
+        "move-target"
+    ],
+    "variable": [
+    ],
+    "query": [
+        {
+        "key": "limit",
+        "value": "56",
+        "description": "Number of results to return per page.",
+        "disabled": true
+        },
+        {
+        "key": "offset",
+        "value": "56",
+        "description": "The initial index from which to return the results.",
+        "disabled": true
+        },
+        {
+        "key": "q",
+        "value": "q_example",
+        "description": "> Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. ",
+        "disabled": true
+        }
+    ]
+    },
+    "description": "Targets moves can be directed at during battle. Targets can be Pokémon, environments or even other moves."
+}
+                                ,"response": [
+                            ]
+                            }
+                            ]
+                        },
+	                        {
+    "name": "/api/v2/move-target/:id/",
+                "description": "Targets moves can be directed at during battle. Targets can be Pokémon, environments or even other moves.",
+                 "item": [
+                            {
+                                "name": "Get move target",
+                                "request": {
+    "method": "GET",
+    "header": [
+        {
+        "key": "Accept",
+        "value": "application/json",
+        "description": "",
+        "disabled": false
+        }
+    ],
+    "body": {
+    "mode": "raw",
+    "raw": "",
+    "options": {
+    "raw": {
+    "language": "json"
+    }
+    }
+    },
+    "url": {
+    "raw": "{{baseUrl}}/api/v2/move-target/:id/",
+    "host": [
+    "{{baseUrl}}"
+    ],
+    "path": [
+        "api",
+        "v2",
+        "move-target",
+        ":id"
+    ],
+    "variable": [
+        {
+        "key": "id",
+        "value": "",
+        "description": "This parameter can be a string or an integer."
+        }
+    ],
+    "query": [
+    ]
+    },
+    "description": "Targets moves can be directed at during battle. Targets can be Pokémon, environments or even other moves."
+}
+                                ,"response": [
+                            ]
+                            }
+                            ]
+                        },
+	                        {
+    "name": "/api/v2/move/",
+                "description": "Moves are the skills of Pokémon in battle. In battle, a Pokémon uses one move each turn. Some moves (including those learned by Hidden Machine) can be used outside of battle as well, usually for the purpose of removing obstacles or exploring new areas.",
+                 "item": [
+                            {
+                                "name": "List moves",
+                                "request": {
+    "method": "GET",
+    "header": [
+        {
+        "key": "Accept",
+        "value": "application/json",
+        "description": "",
+        "disabled": false
+        }
+    ],
+    "body": {
+    "mode": "raw",
+    "raw": "",
+    "options": {
+    "raw": {
+    "language": "json"
+    }
+    }
+    },
+    "url": {
+    "raw": "{{baseUrl}}/api/v2/move/",
+    "host": [
+    "{{baseUrl}}"
+    ],
+    "path": [
+        "api",
+        "v2",
+        "move"
+    ],
+    "variable": [
+    ],
+    "query": [
+        {
+        "key": "limit",
+        "value": "56",
+        "description": "Number of results to return per page.",
+        "disabled": true
+        },
+        {
+        "key": "offset",
+        "value": "56",
+        "description": "The initial index from which to return the results.",
+        "disabled": true
+        },
+        {
+        "key": "q",
+        "value": "q_example",
+        "description": "> Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. ",
+        "disabled": true
+        }
+    ]
+    },
+    "description": "Moves are the skills of Pokémon in battle. In battle, a Pokémon uses one move each turn. Some moves (including those learned by Hidden Machine) can be used outside of battle as well, usually for the purpose of removing obstacles or exploring new areas."
+}
+                                ,"response": [
+                            ]
+                            }
+                            ]
+                        },
+	                        {
+    "name": "/api/v2/move/:id/",
+                "description": "Moves are the skills of Pokémon in battle. In battle, a Pokémon uses one move each turn. Some moves (including those learned by Hidden Machine) can be used outside of battle as well, usually for the purpose of removing obstacles or exploring new areas.",
+                 "item": [
+                            {
+                                "name": "Get move",
+                                "request": {
+    "method": "GET",
+    "header": [
+        {
+        "key": "Accept",
+        "value": "application/json",
+        "description": "",
+        "disabled": false
+        }
+    ],
+    "body": {
+    "mode": "raw",
+    "raw": "",
+    "options": {
+    "raw": {
+    "language": "json"
+    }
+    }
+    },
+    "url": {
+    "raw": "{{baseUrl}}/api/v2/move/:id/",
+    "host": [
+    "{{baseUrl}}"
+    ],
+    "path": [
+        "api",
+        "v2",
+        "move",
+        ":id"
+    ],
+    "variable": [
+        {
+        "key": "id",
+        "value": "",
+        "description": "This parameter can be a string or an integer."
+        }
+    ],
+    "query": [
+    ]
+    },
+    "description": "Moves are the skills of Pokémon in battle. In battle, a Pokémon uses one move each turn. Some moves (including those learned by Hidden Machine) can be used outside of battle as well, usually for the purpose of removing obstacles or exploring new areas."
+}
+                                ,"response": [
+                            ]
+                            }
+                            ]
+                        }
+	                    ]
+	        },
+	        {
+	            "name": "berries",
+	            "description": "Berries can be soft or hard. Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Category:Berries_by_firmness) for greater detail.",
+	            "item": [
+	                        {
+    "name": "/api/v2/berry-firmness/",
+                "description": "Berries can be soft or hard. Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Category:Berries_by_firmness) for greater detail.",
+                 "item": [
+                            {
+                                "name": "List berry firmness",
+                                "request": {
+    "method": "GET",
+    "header": [
+        {
+        "key": "Accept",
+        "value": "application/json",
+        "description": "",
+        "disabled": false
+        }
+    ],
+    "body": {
+    "mode": "raw",
+    "raw": "",
+    "options": {
+    "raw": {
+    "language": "json"
+    }
+    }
+    },
+    "url": {
+    "raw": "{{baseUrl}}/api/v2/berry-firmness/",
+    "host": [
+    "{{baseUrl}}"
+    ],
+    "path": [
+        "api",
+        "v2",
+        "berry-firmness"
+    ],
+    "variable": [
+    ],
+    "query": [
+        {
+        "key": "limit",
+        "value": "56",
+        "description": "Number of results to return per page.",
+        "disabled": true
+        },
+        {
+        "key": "offset",
+        "value": "56",
+        "description": "The initial index from which to return the results.",
+        "disabled": true
+        },
+        {
+        "key": "q",
+        "value": "q_example",
+        "description": "> Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. ",
+        "disabled": true
+        }
+    ]
+    },
+    "description": "Berries can be soft or hard. Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Category:Berries_by_firmness) for greater detail."
+}
+                                ,"response": [
+                            ]
+                            }
+                            ]
+                        },
+	                        {
+    "name": "/api/v2/berry-firmness/:id/",
+                "description": "Berries can be soft or hard. Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Category:Berries_by_firmness) for greater detail.",
+                 "item": [
+                            {
+                                "name": "Get berry by firmness",
+                                "request": {
+    "method": "GET",
+    "header": [
+        {
+        "key": "Accept",
+        "value": "application/json",
+        "description": "",
+        "disabled": false
+        }
+    ],
+    "body": {
+    "mode": "raw",
+    "raw": "",
+    "options": {
+    "raw": {
+    "language": "json"
+    }
+    }
+    },
+    "url": {
+    "raw": "{{baseUrl}}/api/v2/berry-firmness/:id/",
+    "host": [
+    "{{baseUrl}}"
+    ],
+    "path": [
+        "api",
+        "v2",
+        "berry-firmness",
+        ":id"
+    ],
+    "variable": [
+        {
+        "key": "id",
+        "value": "",
+        "description": "This parameter can be a string or an integer."
+        }
+    ],
+    "query": [
+    ]
+    },
+    "description": "Berries can be soft or hard. Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Category:Berries_by_firmness) for greater detail."
+}
+                                ,"response": [
+                            ]
+                            }
+                            ]
+                        },
+	                        {
+    "name": "/api/v2/berry-flavor/",
+                "description": "Flavors determine whether a Pokémon will benefit or suffer from eating a berry based on their **nature**. Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Flavor) for greater detail.",
+                 "item": [
+                            {
+                                "name": "List berry flavors",
+                                "request": {
+    "method": "GET",
+    "header": [
+        {
+        "key": "Accept",
+        "value": "application/json",
+        "description": "",
+        "disabled": false
+        }
+    ],
+    "body": {
+    "mode": "raw",
+    "raw": "",
+    "options": {
+    "raw": {
+    "language": "json"
+    }
+    }
+    },
+    "url": {
+    "raw": "{{baseUrl}}/api/v2/berry-flavor/",
+    "host": [
+    "{{baseUrl}}"
+    ],
+    "path": [
+        "api",
+        "v2",
+        "berry-flavor"
+    ],
+    "variable": [
+    ],
+    "query": [
+        {
+        "key": "limit",
+        "value": "56",
+        "description": "Number of results to return per page.",
+        "disabled": true
+        },
+        {
+        "key": "offset",
+        "value": "56",
+        "description": "The initial index from which to return the results.",
+        "disabled": true
+        },
+        {
+        "key": "q",
+        "value": "q_example",
+        "description": "> Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. ",
+        "disabled": true
+        }
+    ]
+    },
+    "description": "Flavors determine whether a Pokémon will benefit or suffer from eating a berry based on their **nature**. Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Flavor) for greater detail."
+}
+                                ,"response": [
+                            ]
+                            }
+                            ]
+                        },
+	                        {
+    "name": "/api/v2/berry-flavor/:id/",
+                "description": "Flavors determine whether a Pokémon will benefit or suffer from eating a berry based on their **nature**. Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Flavor) for greater detail.",
+                 "item": [
+                            {
+                                "name": "Get berries by flavor",
+                                "request": {
+    "method": "GET",
+    "header": [
+        {
+        "key": "Accept",
+        "value": "application/json",
+        "description": "",
+        "disabled": false
+        }
+    ],
+    "body": {
+    "mode": "raw",
+    "raw": "",
+    "options": {
+    "raw": {
+    "language": "json"
+    }
+    }
+    },
+    "url": {
+    "raw": "{{baseUrl}}/api/v2/berry-flavor/:id/",
+    "host": [
+    "{{baseUrl}}"
+    ],
+    "path": [
+        "api",
+        "v2",
+        "berry-flavor",
+        ":id"
+    ],
+    "variable": [
+        {
+        "key": "id",
+        "value": "",
+        "description": "This parameter can be a string or an integer."
+        }
+    ],
+    "query": [
+    ]
+    },
+    "description": "Flavors determine whether a Pokémon will benefit or suffer from eating a berry based on their **nature**. Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Flavor) for greater detail."
+}
+                                ,"response": [
+                            ]
+                            }
+                            ]
+                        },
+	                        {
+    "name": "/api/v2/berry/",
+                "description": "Berries are small fruits that can provide HP and status condition restoration, stat enhancement, and even damage negation when eaten by Pokémon. Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Berry) for greater detail.",
+                 "item": [
+                            {
+                                "name": "List berries",
+                                "request": {
+    "method": "GET",
+    "header": [
+        {
+        "key": "Accept",
+        "value": "application/json",
+        "description": "",
+        "disabled": false
+        }
+    ],
+    "body": {
+    "mode": "raw",
+    "raw": "",
+    "options": {
+    "raw": {
+    "language": "json"
+    }
+    }
+    },
+    "url": {
+    "raw": "{{baseUrl}}/api/v2/berry/",
+    "host": [
+    "{{baseUrl}}"
+    ],
+    "path": [
+        "api",
+        "v2",
+        "berry"
+    ],
+    "variable": [
+    ],
+    "query": [
+        {
+        "key": "limit",
+        "value": "56",
+        "description": "Number of results to return per page.",
+        "disabled": true
+        },
+        {
+        "key": "offset",
+        "value": "56",
+        "description": "The initial index from which to return the results.",
+        "disabled": true
+        },
+        {
+        "key": "q",
+        "value": "q_example",
+        "description": "> Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. ",
+        "disabled": true
+        }
+    ]
+    },
+    "description": "Berries are small fruits that can provide HP and status condition restoration, stat enhancement, and even damage negation when eaten by Pokémon. Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Berry) for greater detail."
+}
+                                ,"response": [
+                            ]
+                            }
+                            ]
+                        },
+	                        {
+    "name": "/api/v2/berry/:id/",
+                "description": "Berries are small fruits that can provide HP and status condition restoration, stat enhancement, and even damage negation when eaten by Pokémon. Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Berry) for greater detail.",
+                 "item": [
+                            {
+                                "name": "Get a berry",
+                                "request": {
+    "method": "GET",
+    "header": [
+        {
+        "key": "Accept",
+        "value": "application/json",
+        "description": "",
+        "disabled": false
+        }
+    ],
+    "body": {
+    "mode": "raw",
+    "raw": "",
+    "options": {
+    "raw": {
+    "language": "json"
+    }
+    }
+    },
+    "url": {
+    "raw": "{{baseUrl}}/api/v2/berry/:id/",
+    "host": [
+    "{{baseUrl}}"
+    ],
+    "path": [
+        "api",
+        "v2",
+        "berry",
+        ":id"
+    ],
+    "variable": [
+        {
+        "key": "id",
+        "value": "",
+        "description": "This parameter can be a string or an integer."
+        }
+    ],
+    "query": [
+    ]
+    },
+    "description": "Berries are small fruits that can provide HP and status condition restoration, stat enhancement, and even damage negation when eaten by Pokémon. Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Berry) for greater detail."
+}
+                                ,"response": [
+                            ]
+                            }
+                            ]
+                        }
+	                    ]
+	        },
+	        {
+	            "name": "pokemon",
+	            "description": "Pokémon are the creatures that inhabit the world of the Pokémon games. They can be caught using Pokéballs and trained by battling with other Pokémon. Each Pokémon belongs to a specific species but may take on a variant which makes it differ from other Pokémon of the same species, such as base stats, available abilities and typings. See [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Pok%C3%A9mon_(species)) for greater detail.",
+	            "item": [
+	                        {
+    "name": "/api/v2/ability/",
+                "description": "Abilities provide passive effects for Pokémon in battle or in the overworld. Pokémon have multiple possible abilities but can have only one ability at a time. Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Ability) for greater detail.",
+                 "item": [
+                            {
+                                "name": "abilityList",
+                                "request": {
+    "method": "GET",
+    "header": [
+        {
+        "key": "Accept",
+        "value": "application/json",
+        "description": "",
+        "disabled": false
+        }
+    ],
+    "body": {
+    "mode": "raw",
+    "raw": "",
+    "options": {
+    "raw": {
+    "language": "json"
+    }
+    }
+    },
+    "url": {
+    "raw": "{{baseUrl}}/api/v2/ability/",
+    "host": [
+    "{{baseUrl}}"
+    ],
+    "path": [
+        "api",
+        "v2",
+        "ability"
+    ],
+    "variable": [
+    ],
+    "query": [
+        {
+        "key": "limit",
+        "value": "56",
+        "description": "Number of results to return per page.",
+        "disabled": true
+        },
+        {
+        "key": "offset",
+        "value": "56",
+        "description": "The initial index from which to return the results.",
+        "disabled": true
+        },
+        {
+        "key": "q",
+        "value": "q_example",
+        "description": "> Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. ",
+        "disabled": true
+        }
+    ]
+    },
+    "description": "Abilities provide passive effects for Pokémon in battle or in the overworld. Pokémon have multiple possible abilities but can have only one ability at a time. Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Ability) for greater detail."
+}
+                                ,"response": [
+                            ]
+                            }
+                            ]
+                        },
+	                        {
+    "name": "/api/v2/ability/:id/",
+                "description": "Abilities provide passive effects for Pokémon in battle or in the overworld. Pokémon have multiple possible abilities but can have only one ability at a time. Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Ability) for greater detail.",
+                 "item": [
+                            {
+                                "name": "abilityRetrieve",
+                                "request": {
+    "method": "GET",
+    "header": [
+        {
+        "key": "Accept",
+        "value": "application/json",
+        "description": "",
+        "disabled": false
+        }
+    ],
+    "body": {
+    "mode": "raw",
+    "raw": "",
+    "options": {
+    "raw": {
+    "language": "json"
+    }
+    }
+    },
+    "url": {
+    "raw": "{{baseUrl}}/api/v2/ability/:id/",
+    "host": [
+    "{{baseUrl}}"
+    ],
+    "path": [
+        "api",
+        "v2",
+        "ability",
+        ":id"
+    ],
+    "variable": [
+        {
+        "key": "id",
+        "value": "",
+        "description": "This parameter can be a string or an integer."
+        }
+    ],
+    "query": [
+    ]
+    },
+    "description": "Abilities provide passive effects for Pokémon in battle or in the overworld. Pokémon have multiple possible abilities but can have only one ability at a time. Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Ability) for greater detail."
+}
+                                ,"response": [
+                            ]
+                            }
+                            ]
+                        },
+	                        {
+    "name": "/api/v2/characteristic/",
+                "description": "Characteristics indicate which stat contains a Pokémon's highest IV. A Pokémon's Characteristic is determined by the remainder of its highest IV divided by 5 (gene_modulo). Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Characteristic) for greater detail.",
+                 "item": [
+                            {
+                                "name": "List charecterictics",
+                                "request": {
+    "method": "GET",
+    "header": [
+        {
+        "key": "Accept",
+        "value": "application/json",
+        "description": "",
+        "disabled": false
+        }
+    ],
+    "body": {
+    "mode": "raw",
+    "raw": "",
+    "options": {
+    "raw": {
+    "language": "json"
+    }
+    }
+    },
+    "url": {
+    "raw": "{{baseUrl}}/api/v2/characteristic/",
+    "host": [
+    "{{baseUrl}}"
+    ],
+    "path": [
+        "api",
+        "v2",
+        "characteristic"
+    ],
+    "variable": [
+    ],
+    "query": [
+        {
+        "key": "limit",
+        "value": "56",
+        "description": "Number of results to return per page.",
+        "disabled": true
+        },
+        {
+        "key": "offset",
+        "value": "56",
+        "description": "The initial index from which to return the results.",
+        "disabled": true
+        },
+        {
+        "key": "q",
+        "value": "q_example",
+        "description": "> Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. ",
+        "disabled": true
+        }
+    ]
+    },
+    "description": "Characteristics indicate which stat contains a Pokémon's highest IV. A Pokémon's Characteristic is determined by the remainder of its highest IV divided by 5 (gene_modulo). Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Characteristic) for greater detail."
+}
+                                ,"response": [
+                            ]
+                            }
+                            ]
+                        },
+	                        {
+    "name": "/api/v2/characteristic/:id/",
+                "description": "Characteristics indicate which stat contains a Pokémon's highest IV. A Pokémon's Characteristic is determined by the remainder of its highest IV divided by 5 (gene_modulo). Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Characteristic) for greater detail.",
+                 "item": [
+                            {
+                                "name": "Get characteristic",
+                                "request": {
+    "method": "GET",
+    "header": [
+        {
+        "key": "Accept",
+        "value": "application/json",
+        "description": "",
+        "disabled": false
+        }
+    ],
+    "body": {
+    "mode": "raw",
+    "raw": "",
+    "options": {
+    "raw": {
+    "language": "json"
+    }
+    }
+    },
+    "url": {
+    "raw": "{{baseUrl}}/api/v2/characteristic/:id/",
+    "host": [
+    "{{baseUrl}}"
+    ],
+    "path": [
+        "api",
+        "v2",
+        "characteristic",
+        ":id"
+    ],
+    "variable": [
+        {
+        "key": "id",
+        "value": "",
+        "description": "This parameter can be a string or an integer."
+        }
+    ],
+    "query": [
+    ]
+    },
+    "description": "Characteristics indicate which stat contains a Pokémon's highest IV. A Pokémon's Characteristic is determined by the remainder of its highest IV divided by 5 (gene_modulo). Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Characteristic) for greater detail."
+}
+                                ,"response": [
+                            ]
+                            }
+                            ]
+                        },
+	                        {
+    "name": "/api/v2/egg-group/",
+                "description": "Egg Groups are categories which determine which Pokémon are able to interbreed. Pokémon may belong to either one or two Egg Groups. Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Egg_Group) for greater detail.",
+                 "item": [
+                            {
+                                "name": "List egg groups",
+                                "request": {
+    "method": "GET",
+    "header": [
+        {
+        "key": "Accept",
+        "value": "application/json",
+        "description": "",
+        "disabled": false
+        }
+    ],
+    "body": {
+    "mode": "raw",
+    "raw": "",
+    "options": {
+    "raw": {
+    "language": "json"
+    }
+    }
+    },
+    "url": {
+    "raw": "{{baseUrl}}/api/v2/egg-group/",
+    "host": [
+    "{{baseUrl}}"
+    ],
+    "path": [
+        "api",
+        "v2",
+        "egg-group"
+    ],
+    "variable": [
+    ],
+    "query": [
+        {
+        "key": "limit",
+        "value": "56",
+        "description": "Number of results to return per page.",
+        "disabled": true
+        },
+        {
+        "key": "offset",
+        "value": "56",
+        "description": "The initial index from which to return the results.",
+        "disabled": true
+        },
+        {
+        "key": "q",
+        "value": "q_example",
+        "description": "> Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. ",
+        "disabled": true
+        }
+    ]
+    },
+    "description": "Egg Groups are categories which determine which Pokémon are able to interbreed. Pokémon may belong to either one or two Egg Groups. Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Egg_Group) for greater detail."
+}
+                                ,"response": [
+                            ]
+                            }
+                            ]
+                        },
+	                        {
+    "name": "/api/v2/egg-group/:id/",
+                "description": "Egg Groups are categories which determine which Pokémon are able to interbreed. Pokémon may belong to either one or two Egg Groups. Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Egg_Group) for greater detail.",
+                 "item": [
+                            {
+                                "name": "Get egg group",
+                                "request": {
+    "method": "GET",
+    "header": [
+        {
+        "key": "Accept",
+        "value": "application/json",
+        "description": "",
+        "disabled": false
+        }
+    ],
+    "body": {
+    "mode": "raw",
+    "raw": "",
+    "options": {
+    "raw": {
+    "language": "json"
+    }
+    }
+    },
+    "url": {
+    "raw": "{{baseUrl}}/api/v2/egg-group/:id/",
+    "host": [
+    "{{baseUrl}}"
+    ],
+    "path": [
+        "api",
+        "v2",
+        "egg-group",
+        ":id"
+    ],
+    "variable": [
+        {
+        "key": "id",
+        "value": "",
+        "description": "This parameter can be a string or an integer."
+        }
+    ],
+    "query": [
+    ]
+    },
+    "description": "Egg Groups are categories which determine which Pokémon are able to interbreed. Pokémon may belong to either one or two Egg Groups. Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Egg_Group) for greater detail."
+}
+                                ,"response": [
+                            ]
+                            }
+                            ]
+                        },
+	                        {
+    "name": "/api/v2/gender/",
+                "description": "Genders were introduced in Generation II for the purposes of breeding Pokémon but can also result in visual differences or even different evolutionary lines. Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Gender) for greater detail.",
+                 "item": [
+                            {
+                                "name": "List genders",
+                                "request": {
+    "method": "GET",
+    "header": [
+        {
+        "key": "Accept",
+        "value": "application/json",
+        "description": "",
+        "disabled": false
+        }
+    ],
+    "body": {
+    "mode": "raw",
+    "raw": "",
+    "options": {
+    "raw": {
+    "language": "json"
+    }
+    }
+    },
+    "url": {
+    "raw": "{{baseUrl}}/api/v2/gender/",
+    "host": [
+    "{{baseUrl}}"
+    ],
+    "path": [
+        "api",
+        "v2",
+        "gender"
+    ],
+    "variable": [
+    ],
+    "query": [
+        {
+        "key": "limit",
+        "value": "56",
+        "description": "Number of results to return per page.",
+        "disabled": true
+        },
+        {
+        "key": "offset",
+        "value": "56",
+        "description": "The initial index from which to return the results.",
+        "disabled": true
+        },
+        {
+        "key": "q",
+        "value": "q_example",
+        "description": "> Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. ",
+        "disabled": true
+        }
+    ]
+    },
+    "description": "Genders were introduced in Generation II for the purposes of breeding Pokémon but can also result in visual differences or even different evolutionary lines. Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Gender) for greater detail."
+}
+                                ,"response": [
+                            ]
+                            }
+                            ]
+                        },
+	                        {
+    "name": "/api/v2/gender/:id/",
+                "description": "Genders were introduced in Generation II for the purposes of breeding Pokémon but can also result in visual differences or even different evolutionary lines. Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Gender) for greater detail.",
+                 "item": [
+                            {
+                                "name": "Get gender",
+                                "request": {
+    "method": "GET",
+    "header": [
+        {
+        "key": "Accept",
+        "value": "application/json",
+        "description": "",
+        "disabled": false
+        }
+    ],
+    "body": {
+    "mode": "raw",
+    "raw": "",
+    "options": {
+    "raw": {
+    "language": "json"
+    }
+    }
+    },
+    "url": {
+    "raw": "{{baseUrl}}/api/v2/gender/:id/",
+    "host": [
+    "{{baseUrl}}"
+    ],
+    "path": [
+        "api",
+        "v2",
+        "gender",
+        ":id"
+    ],
+    "variable": [
+        {
+        "key": "id",
+        "value": "",
+        "description": "This parameter can be a string or an integer."
+        }
+    ],
+    "query": [
+    ]
+    },
+    "description": "Genders were introduced in Generation II for the purposes of breeding Pokémon but can also result in visual differences or even different evolutionary lines. Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Gender) for greater detail."
+}
+                                ,"response": [
+                            ]
+                            }
+                            ]
+                        },
+	                        {
+    "name": "/api/v2/growth-rate/",
+                "description": "Growth rates are the speed with which Pokémon gain levels through experience. Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Experience) for greater detail.",
+                 "item": [
+                            {
+                                "name": "List growth rates",
+                                "request": {
+    "method": "GET",
+    "header": [
+        {
+        "key": "Accept",
+        "value": "application/json",
+        "description": "",
+        "disabled": false
+        }
+    ],
+    "body": {
+    "mode": "raw",
+    "raw": "",
+    "options": {
+    "raw": {
+    "language": "json"
+    }
+    }
+    },
+    "url": {
+    "raw": "{{baseUrl}}/api/v2/growth-rate/",
+    "host": [
+    "{{baseUrl}}"
+    ],
+    "path": [
+        "api",
+        "v2",
+        "growth-rate"
+    ],
+    "variable": [
+    ],
+    "query": [
+        {
+        "key": "limit",
+        "value": "56",
+        "description": "Number of results to return per page.",
+        "disabled": true
+        },
+        {
+        "key": "offset",
+        "value": "56",
+        "description": "The initial index from which to return the results.",
+        "disabled": true
+        },
+        {
+        "key": "q",
+        "value": "q_example",
+        "description": "> Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. ",
+        "disabled": true
+        }
+    ]
+    },
+    "description": "Growth rates are the speed with which Pokémon gain levels through experience. Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Experience) for greater detail."
+}
+                                ,"response": [
+                            ]
+                            }
+                            ]
+                        },
+	                        {
+    "name": "/api/v2/growth-rate/:id/",
+                "description": "Growth rates are the speed with which Pokémon gain levels through experience. Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Experience) for greater detail.",
+                 "item": [
+                            {
+                                "name": "Get growth rate",
+                                "request": {
+    "method": "GET",
+    "header": [
+        {
+        "key": "Accept",
+        "value": "application/json",
+        "description": "",
+        "disabled": false
+        }
+    ],
+    "body": {
+    "mode": "raw",
+    "raw": "",
+    "options": {
+    "raw": {
+    "language": "json"
+    }
+    }
+    },
+    "url": {
+    "raw": "{{baseUrl}}/api/v2/growth-rate/:id/",
+    "host": [
+    "{{baseUrl}}"
+    ],
+    "path": [
+        "api",
+        "v2",
+        "growth-rate",
+        ":id"
+    ],
+    "variable": [
+        {
+        "key": "id",
+        "value": "",
+        "description": "This parameter can be a string or an integer."
+        }
+    ],
+    "query": [
+    ]
+    },
+    "description": "Growth rates are the speed with which Pokémon gain levels through experience. Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Experience) for greater detail."
+}
+                                ,"response": [
+                            ]
+                            }
+                            ]
+                        },
+	                        {
+    "name": "/api/v2/move-damage-class/",
+                "description": "Damage classes moves can have, e.g. physical, special, or non-damaging.",
+                 "item": [
+                            {
+                                "name": "List move damage classes",
+                                "request": {
+    "method": "GET",
+    "header": [
+        {
+        "key": "Accept",
+        "value": "application/json",
+        "description": "",
+        "disabled": false
+        }
+    ],
+    "body": {
+    "mode": "raw",
+    "raw": "",
+    "options": {
+    "raw": {
+    "language": "json"
+    }
+    }
+    },
+    "url": {
+    "raw": "{{baseUrl}}/api/v2/move-damage-class/",
+    "host": [
+    "{{baseUrl}}"
+    ],
+    "path": [
+        "api",
+        "v2",
+        "move-damage-class"
+    ],
+    "variable": [
+    ],
+    "query": [
+        {
+        "key": "limit",
+        "value": "56",
+        "description": "Number of results to return per page.",
+        "disabled": true
+        },
+        {
+        "key": "offset",
+        "value": "56",
+        "description": "The initial index from which to return the results.",
+        "disabled": true
+        },
+        {
+        "key": "q",
+        "value": "q_example",
+        "description": "> Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. ",
+        "disabled": true
+        }
+    ]
+    },
+    "description": "Damage classes moves can have, e.g. physical, special, or non-damaging."
+}
+                                ,"response": [
+                            ]
+                            }
+                            ]
+                        },
+	                        {
+    "name": "/api/v2/move-damage-class/:id/",
+                "description": "Damage classes moves can have, e.g. physical, special, or non-damaging.",
+                 "item": [
+                            {
+                                "name": "Get move damage class",
+                                "request": {
+    "method": "GET",
+    "header": [
+        {
+        "key": "Accept",
+        "value": "application/json",
+        "description": "",
+        "disabled": false
+        }
+    ],
+    "body": {
+    "mode": "raw",
+    "raw": "",
+    "options": {
+    "raw": {
+    "language": "json"
+    }
+    }
+    },
+    "url": {
+    "raw": "{{baseUrl}}/api/v2/move-damage-class/:id/",
+    "host": [
+    "{{baseUrl}}"
+    ],
+    "path": [
+        "api",
+        "v2",
+        "move-damage-class",
+        ":id"
+    ],
+    "variable": [
+        {
+        "key": "id",
+        "value": "",
+        "description": "This parameter can be a string or an integer."
+        }
+    ],
+    "query": [
+    ]
+    },
+    "description": "Damage classes moves can have, e.g. physical, special, or non-damaging."
+}
+                                ,"response": [
+                            ]
+                            }
+                            ]
+                        },
+	                        {
+    "name": "/api/v2/nature/",
+                "description": "Natures influence how a Pokémon's stats grow. See [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Nature) for greater detail.",
+                 "item": [
+                            {
+                                "name": "List natures",
+                                "request": {
+    "method": "GET",
+    "header": [
+        {
+        "key": "Accept",
+        "value": "application/json",
+        "description": "",
+        "disabled": false
+        }
+    ],
+    "body": {
+    "mode": "raw",
+    "raw": "",
+    "options": {
+    "raw": {
+    "language": "json"
+    }
+    }
+    },
+    "url": {
+    "raw": "{{baseUrl}}/api/v2/nature/",
+    "host": [
+    "{{baseUrl}}"
+    ],
+    "path": [
+        "api",
+        "v2",
+        "nature"
+    ],
+    "variable": [
+    ],
+    "query": [
+        {
+        "key": "limit",
+        "value": "56",
+        "description": "Number of results to return per page.",
+        "disabled": true
+        },
+        {
+        "key": "offset",
+        "value": "56",
+        "description": "The initial index from which to return the results.",
+        "disabled": true
+        },
+        {
+        "key": "q",
+        "value": "q_example",
+        "description": "> Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. ",
+        "disabled": true
+        }
+    ]
+    },
+    "description": "Natures influence how a Pokémon's stats grow. See [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Nature) for greater detail."
+}
+                                ,"response": [
+                            ]
+                            }
+                            ]
+                        },
+	                        {
+    "name": "/api/v2/nature/:id/",
+                "description": "Natures influence how a Pokémon's stats grow. See [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Nature) for greater detail.",
+                 "item": [
+                            {
+                                "name": "Get nature",
+                                "request": {
+    "method": "GET",
+    "header": [
+        {
+        "key": "Accept",
+        "value": "application/json",
+        "description": "",
+        "disabled": false
+        }
+    ],
+    "body": {
+    "mode": "raw",
+    "raw": "",
+    "options": {
+    "raw": {
+    "language": "json"
+    }
+    }
+    },
+    "url": {
+    "raw": "{{baseUrl}}/api/v2/nature/:id/",
+    "host": [
+    "{{baseUrl}}"
+    ],
+    "path": [
+        "api",
+        "v2",
+        "nature",
+        ":id"
+    ],
+    "variable": [
+        {
+        "key": "id",
+        "value": "",
+        "description": "This parameter can be a string or an integer."
+        }
+    ],
+    "query": [
+    ]
+    },
+    "description": "Natures influence how a Pokémon's stats grow. See [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Nature) for greater detail."
+}
+                                ,"response": [
+                            ]
+                            }
+                            ]
+                        },
+	                        {
+    "name": "/api/v2/pokeathlon-stat/",
+                "description": "Pokeathlon Stats are different attributes of a Pokémon's performance in Pokéathlons. In Pokéathlons, competitions happen on different courses; one for each of the different Pokéathlon stats. See [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Pok%C3%A9athlon) for greater detail.",
+                 "item": [
+                            {
+                                "name": "List pokeathlon stats",
+                                "request": {
+    "method": "GET",
+    "header": [
+        {
+        "key": "Accept",
+        "value": "application/json",
+        "description": "",
+        "disabled": false
+        }
+    ],
+    "body": {
+    "mode": "raw",
+    "raw": "",
+    "options": {
+    "raw": {
+    "language": "json"
+    }
+    }
+    },
+    "url": {
+    "raw": "{{baseUrl}}/api/v2/pokeathlon-stat/",
+    "host": [
+    "{{baseUrl}}"
+    ],
+    "path": [
+        "api",
+        "v2",
+        "pokeathlon-stat"
+    ],
+    "variable": [
+    ],
+    "query": [
+        {
+        "key": "limit",
+        "value": "56",
+        "description": "Number of results to return per page.",
+        "disabled": true
+        },
+        {
+        "key": "offset",
+        "value": "56",
+        "description": "The initial index from which to return the results.",
+        "disabled": true
+        },
+        {
+        "key": "q",
+        "value": "q_example",
+        "description": "> Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. ",
+        "disabled": true
+        }
+    ]
+    },
+    "description": "Pokeathlon Stats are different attributes of a Pokémon's performance in Pokéathlons. In Pokéathlons, competitions happen on different courses; one for each of the different Pokéathlon stats. See [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Pok%C3%A9athlon) for greater detail."
+}
+                                ,"response": [
+                            ]
+                            }
+                            ]
+                        },
+	                        {
+    "name": "/api/v2/pokeathlon-stat/:id/",
+                "description": "Pokeathlon Stats are different attributes of a Pokémon's performance in Pokéathlons. In Pokéathlons, competitions happen on different courses; one for each of the different Pokéathlon stats. See [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Pok%C3%A9athlon) for greater detail.",
+                 "item": [
+                            {
+                                "name": "Get pokeathlon stat",
+                                "request": {
+    "method": "GET",
+    "header": [
+        {
+        "key": "Accept",
+        "value": "application/json",
+        "description": "",
+        "disabled": false
+        }
+    ],
+    "body": {
+    "mode": "raw",
+    "raw": "",
+    "options": {
+    "raw": {
+    "language": "json"
+    }
+    }
+    },
+    "url": {
+    "raw": "{{baseUrl}}/api/v2/pokeathlon-stat/:id/",
+    "host": [
+    "{{baseUrl}}"
+    ],
+    "path": [
+        "api",
+        "v2",
+        "pokeathlon-stat",
+        ":id"
+    ],
+    "variable": [
+        {
+        "key": "id",
+        "value": "",
+        "description": "This parameter can be a string or an integer."
+        }
+    ],
+    "query": [
+    ]
+    },
+    "description": "Pokeathlon Stats are different attributes of a Pokémon's performance in Pokéathlons. In Pokéathlons, competitions happen on different courses; one for each of the different Pokéathlon stats. See [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Pok%C3%A9athlon) for greater detail."
+}
+                                ,"response": [
+                            ]
+                            }
+                            ]
+                        },
+	                        {
+    "name": "/api/v2/pokemon-color/",
+                "description": "Colors used for sorting Pokémon in a Pokédex. The color listed in the Pokédex is usually the color most apparent or covering each Pokémon's body. No orange category exists; Pokémon that are primarily orange are listed as red or brown.",
+                 "item": [
+                            {
+                                "name": "List pokemon colors",
+                                "request": {
+    "method": "GET",
+    "header": [
+        {
+        "key": "Accept",
+        "value": "application/json",
+        "description": "",
+        "disabled": false
+        }
+    ],
+    "body": {
+    "mode": "raw",
+    "raw": "",
+    "options": {
+    "raw": {
+    "language": "json"
+    }
+    }
+    },
+    "url": {
+    "raw": "{{baseUrl}}/api/v2/pokemon-color/",
+    "host": [
+    "{{baseUrl}}"
+    ],
+    "path": [
+        "api",
+        "v2",
+        "pokemon-color"
+    ],
+    "variable": [
+    ],
+    "query": [
+        {
+        "key": "limit",
+        "value": "56",
+        "description": "Number of results to return per page.",
+        "disabled": true
+        },
+        {
+        "key": "offset",
+        "value": "56",
+        "description": "The initial index from which to return the results.",
+        "disabled": true
+        },
+        {
+        "key": "q",
+        "value": "q_example",
+        "description": "> Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. ",
+        "disabled": true
+        }
+    ]
+    },
+    "description": "Colors used for sorting Pokémon in a Pokédex. The color listed in the Pokédex is usually the color most apparent or covering each Pokémon's body. No orange category exists; Pokémon that are primarily orange are listed as red or brown."
+}
+                                ,"response": [
+                            ]
+                            }
+                            ]
+                        },
+	                        {
+    "name": "/api/v2/pokemon-color/:id/",
+                "description": "Colors used for sorting Pokémon in a Pokédex. The color listed in the Pokédex is usually the color most apparent or covering each Pokémon's body. No orange category exists; Pokémon that are primarily orange are listed as red or brown.",
+                 "item": [
+                            {
+                                "name": "Get pokemon color",
+                                "request": {
+    "method": "GET",
+    "header": [
+        {
+        "key": "Accept",
+        "value": "application/json",
+        "description": "",
+        "disabled": false
+        }
+    ],
+    "body": {
+    "mode": "raw",
+    "raw": "",
+    "options": {
+    "raw": {
+    "language": "json"
+    }
+    }
+    },
+    "url": {
+    "raw": "{{baseUrl}}/api/v2/pokemon-color/:id/",
+    "host": [
+    "{{baseUrl}}"
+    ],
+    "path": [
+        "api",
+        "v2",
+        "pokemon-color",
+        ":id"
+    ],
+    "variable": [
+        {
+        "key": "id",
+        "value": "",
+        "description": "This parameter can be a string or an integer."
+        }
+    ],
+    "query": [
+    ]
+    },
+    "description": "Colors used for sorting Pokémon in a Pokédex. The color listed in the Pokédex is usually the color most apparent or covering each Pokémon's body. No orange category exists; Pokémon that are primarily orange are listed as red or brown."
+}
+                                ,"response": [
+                            ]
+                            }
+                            ]
+                        },
+	                        {
+    "name": "/api/v2/pokemon-form/",
+                "description": "Some Pokémon may appear in one of multiple, visually different forms. These differences are purely cosmetic. For variations within a Pokémon species, which do differ in more than just visuals, the 'Pokémon' entity is used to represent such a variety.",
+                 "item": [
+                            {
+                                "name": "List pokemon forms",
+                                "request": {
+    "method": "GET",
+    "header": [
+        {
+        "key": "Accept",
+        "value": "application/json",
+        "description": "",
+        "disabled": false
+        }
+    ],
+    "body": {
+    "mode": "raw",
+    "raw": "",
+    "options": {
+    "raw": {
+    "language": "json"
+    }
+    }
+    },
+    "url": {
+    "raw": "{{baseUrl}}/api/v2/pokemon-form/",
+    "host": [
+    "{{baseUrl}}"
+    ],
+    "path": [
+        "api",
+        "v2",
+        "pokemon-form"
+    ],
+    "variable": [
+    ],
+    "query": [
+        {
+        "key": "limit",
+        "value": "56",
+        "description": "Number of results to return per page.",
+        "disabled": true
+        },
+        {
+        "key": "offset",
+        "value": "56",
+        "description": "The initial index from which to return the results.",
+        "disabled": true
+        },
+        {
+        "key": "q",
+        "value": "q_example",
+        "description": "> Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. ",
+        "disabled": true
+        }
+    ]
+    },
+    "description": "Some Pokémon may appear in one of multiple, visually different forms. These differences are purely cosmetic. For variations within a Pokémon species, which do differ in more than just visuals, the 'Pokémon' entity is used to represent such a variety."
+}
+                                ,"response": [
+                            ]
+                            }
+                            ]
+                        },
+	                        {
+    "name": "/api/v2/pokemon-form/:id/",
+                "description": "Some Pokémon may appear in one of multiple, visually different forms. These differences are purely cosmetic. For variations within a Pokémon species, which do differ in more than just visuals, the 'Pokémon' entity is used to represent such a variety.",
+                 "item": [
+                            {
+                                "name": "Get pokemon form",
+                                "request": {
+    "method": "GET",
+    "header": [
+        {
+        "key": "Accept",
+        "value": "application/json",
+        "description": "",
+        "disabled": false
+        }
+    ],
+    "body": {
+    "mode": "raw",
+    "raw": "",
+    "options": {
+    "raw": {
+    "language": "json"
+    }
+    }
+    },
+    "url": {
+    "raw": "{{baseUrl}}/api/v2/pokemon-form/:id/",
+    "host": [
+    "{{baseUrl}}"
+    ],
+    "path": [
+        "api",
+        "v2",
+        "pokemon-form",
+        ":id"
+    ],
+    "variable": [
+        {
+        "key": "id",
+        "value": "",
+        "description": "This parameter can be a string or an integer."
+        }
+    ],
+    "query": [
+    ]
+    },
+    "description": "Some Pokémon may appear in one of multiple, visually different forms. These differences are purely cosmetic. For variations within a Pokémon species, which do differ in more than just visuals, the 'Pokémon' entity is used to represent such a variety."
+}
+                                ,"response": [
+                            ]
+                            }
+                            ]
+                        },
+	                        {
+    "name": "/api/v2/pokemon-habitat/",
+                "description": "Habitats are generally different terrain Pokémon can be found in but can also be areas designated for rare or legendary Pokémon.",
+                 "item": [
+                            {
+                                "name": "List pokemom habitas",
+                                "request": {
+    "method": "GET",
+    "header": [
+        {
+        "key": "Accept",
+        "value": "application/json",
+        "description": "",
+        "disabled": false
+        }
+    ],
+    "body": {
+    "mode": "raw",
+    "raw": "",
+    "options": {
+    "raw": {
+    "language": "json"
+    }
+    }
+    },
+    "url": {
+    "raw": "{{baseUrl}}/api/v2/pokemon-habitat/",
+    "host": [
+    "{{baseUrl}}"
+    ],
+    "path": [
+        "api",
+        "v2",
+        "pokemon-habitat"
+    ],
+    "variable": [
+    ],
+    "query": [
+        {
+        "key": "limit",
+        "value": "56",
+        "description": "Number of results to return per page.",
+        "disabled": true
+        },
+        {
+        "key": "offset",
+        "value": "56",
+        "description": "The initial index from which to return the results.",
+        "disabled": true
+        },
+        {
+        "key": "q",
+        "value": "q_example",
+        "description": "> Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. ",
+        "disabled": true
+        }
+    ]
+    },
+    "description": "Habitats are generally different terrain Pokémon can be found in but can also be areas designated for rare or legendary Pokémon."
+}
+                                ,"response": [
+                            ]
+                            }
+                            ]
+                        },
+	                        {
+    "name": "/api/v2/pokemon-habitat/:id/",
+                "description": "Habitats are generally different terrain Pokémon can be found in but can also be areas designated for rare or legendary Pokémon.",
+                 "item": [
+                            {
+                                "name": "Get pokemom habita",
+                                "request": {
+    "method": "GET",
+    "header": [
+        {
+        "key": "Accept",
+        "value": "application/json",
+        "description": "",
+        "disabled": false
+        }
+    ],
+    "body": {
+    "mode": "raw",
+    "raw": "",
+    "options": {
+    "raw": {
+    "language": "json"
+    }
+    }
+    },
+    "url": {
+    "raw": "{{baseUrl}}/api/v2/pokemon-habitat/:id/",
+    "host": [
+    "{{baseUrl}}"
+    ],
+    "path": [
+        "api",
+        "v2",
+        "pokemon-habitat",
+        ":id"
+    ],
+    "variable": [
+        {
+        "key": "id",
+        "value": "",
+        "description": "This parameter can be a string or an integer."
+        }
+    ],
+    "query": [
+    ]
+    },
+    "description": "Habitats are generally different terrain Pokémon can be found in but can also be areas designated for rare or legendary Pokémon."
+}
+                                ,"response": [
+                            ]
+                            }
+                            ]
+                        },
+	                        {
+    "name": "/api/v2/pokemon-shape/",
+                "description": "Shapes used for sorting Pokémon in a Pokédex.",
+                 "item": [
+                            {
+                                "name": "List pokemon shapes",
+                                "request": {
+    "method": "GET",
+    "header": [
+        {
+        "key": "Accept",
+        "value": "application/json",
+        "description": "",
+        "disabled": false
+        }
+    ],
+    "body": {
+    "mode": "raw",
+    "raw": "",
+    "options": {
+    "raw": {
+    "language": "json"
+    }
+    }
+    },
+    "url": {
+    "raw": "{{baseUrl}}/api/v2/pokemon-shape/",
+    "host": [
+    "{{baseUrl}}"
+    ],
+    "path": [
+        "api",
+        "v2",
+        "pokemon-shape"
+    ],
+    "variable": [
+    ],
+    "query": [
+        {
+        "key": "limit",
+        "value": "56",
+        "description": "Number of results to return per page.",
+        "disabled": true
+        },
+        {
+        "key": "offset",
+        "value": "56",
+        "description": "The initial index from which to return the results.",
+        "disabled": true
+        },
+        {
+        "key": "q",
+        "value": "q_example",
+        "description": "> Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. ",
+        "disabled": true
+        }
+    ]
+    },
+    "description": "Shapes used for sorting Pokémon in a Pokédex."
+}
+                                ,"response": [
+                            ]
+                            }
+                            ]
+                        },
+	                        {
+    "name": "/api/v2/pokemon-shape/:id/",
+                "description": "Shapes used for sorting Pokémon in a Pokédex.",
+                 "item": [
+                            {
+                                "name": "Get pokemon shape",
+                                "request": {
+    "method": "GET",
+    "header": [
+        {
+        "key": "Accept",
+        "value": "application/json",
+        "description": "",
+        "disabled": false
+        }
+    ],
+    "body": {
+    "mode": "raw",
+    "raw": "",
+    "options": {
+    "raw": {
+    "language": "json"
+    }
+    }
+    },
+    "url": {
+    "raw": "{{baseUrl}}/api/v2/pokemon-shape/:id/",
+    "host": [
+    "{{baseUrl}}"
+    ],
+    "path": [
+        "api",
+        "v2",
+        "pokemon-shape",
+        ":id"
+    ],
+    "variable": [
+        {
+        "key": "id",
+        "value": "",
+        "description": "This parameter can be a string or an integer."
+        }
+    ],
+    "query": [
+    ]
+    },
+    "description": "Shapes used for sorting Pokémon in a Pokédex."
+}
+                                ,"response": [
+                            ]
+                            }
+                            ]
+                        },
+	                        {
+    "name": "/api/v2/pokemon-species/",
+                "description": "A Pokémon Species forms the basis for at least one Pokémon. Attributes of a Pokémon species are shared across all varieties of Pokémon within the species. A good example is Wormadam; Wormadam is the species which can be found in three different varieties, Wormadam-Trash, Wormadam-Sandy and Wormadam-Plant.",
+                 "item": [
+                            {
+                                "name": "List pokemon species",
+                                "request": {
+    "method": "GET",
+    "header": [
+        {
+        "key": "Accept",
+        "value": "application/json",
+        "description": "",
+        "disabled": false
+        }
+    ],
+    "body": {
+    "mode": "raw",
+    "raw": "",
+    "options": {
+    "raw": {
+    "language": "json"
+    }
+    }
+    },
+    "url": {
+    "raw": "{{baseUrl}}/api/v2/pokemon-species/",
+    "host": [
+    "{{baseUrl}}"
+    ],
+    "path": [
+        "api",
+        "v2",
+        "pokemon-species"
+    ],
+    "variable": [
+    ],
+    "query": [
+        {
+        "key": "limit",
+        "value": "56",
+        "description": "Number of results to return per page.",
+        "disabled": true
+        },
+        {
+        "key": "offset",
+        "value": "56",
+        "description": "The initial index from which to return the results.",
+        "disabled": true
+        },
+        {
+        "key": "q",
+        "value": "q_example",
+        "description": "> Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. ",
+        "disabled": true
+        }
+    ]
+    },
+    "description": "A Pokémon Species forms the basis for at least one Pokémon. Attributes of a Pokémon species are shared across all varieties of Pokémon within the species. A good example is Wormadam; Wormadam is the species which can be found in three different varieties, Wormadam-Trash, Wormadam-Sandy and Wormadam-Plant."
+}
+                                ,"response": [
+                            ]
+                            }
+                            ]
+                        },
+	                        {
+    "name": "/api/v2/pokemon-species/:id/",
+                "description": "A Pokémon Species forms the basis for at least one Pokémon. Attributes of a Pokémon species are shared across all varieties of Pokémon within the species. A good example is Wormadam; Wormadam is the species which can be found in three different varieties, Wormadam-Trash, Wormadam-Sandy and Wormadam-Plant.",
+                 "item": [
+                            {
+                                "name": "Get pokemon species",
+                                "request": {
+    "method": "GET",
+    "header": [
+        {
+        "key": "Accept",
+        "value": "application/json",
+        "description": "",
+        "disabled": false
+        }
+    ],
+    "body": {
+    "mode": "raw",
+    "raw": "",
+    "options": {
+    "raw": {
+    "language": "json"
+    }
+    }
+    },
+    "url": {
+    "raw": "{{baseUrl}}/api/v2/pokemon-species/:id/",
+    "host": [
+    "{{baseUrl}}"
+    ],
+    "path": [
+        "api",
+        "v2",
+        "pokemon-species",
+        ":id"
+    ],
+    "variable": [
+        {
+        "key": "id",
+        "value": "",
+        "description": "This parameter can be a string or an integer."
+        }
+    ],
+    "query": [
+    ]
+    },
+    "description": "A Pokémon Species forms the basis for at least one Pokémon. Attributes of a Pokémon species are shared across all varieties of Pokémon within the species. A good example is Wormadam; Wormadam is the species which can be found in three different varieties, Wormadam-Trash, Wormadam-Sandy and Wormadam-Plant."
+}
+                                ,"response": [
+                            ]
+                            }
+                            ]
+                        },
+	                        {
+    "name": "/api/v2/pokemon/",
+                "description": "Pokémon are the creatures that inhabit the world of the Pokémon games. They can be caught using Pokéballs and trained by battling with other Pokémon. Each Pokémon belongs to a specific species but may take on a variant which makes it differ from other Pokémon of the same species, such as base stats, available abilities and typings. See [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Pok%C3%A9mon_(species)) for greater detail.",
+                 "item": [
+                            {
+                                "name": "List pokemon",
+                                "request": {
+    "method": "GET",
+    "header": [
+        {
+        "key": "Accept",
+        "value": "application/json",
+        "description": "",
+        "disabled": false
+        }
+    ],
+    "body": {
+    "mode": "raw",
+    "raw": "",
+    "options": {
+    "raw": {
+    "language": "json"
+    }
+    }
+    },
+    "url": {
+    "raw": "{{baseUrl}}/api/v2/pokemon/",
+    "host": [
+    "{{baseUrl}}"
+    ],
+    "path": [
+        "api",
+        "v2",
+        "pokemon"
+    ],
+    "variable": [
+    ],
+    "query": [
+        {
+        "key": "limit",
+        "value": "56",
+        "description": "Number of results to return per page.",
+        "disabled": true
+        },
+        {
+        "key": "offset",
+        "value": "56",
+        "description": "The initial index from which to return the results.",
+        "disabled": true
+        },
+        {
+        "key": "q",
+        "value": "q_example",
+        "description": "> Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. ",
+        "disabled": true
+        }
+    ]
+    },
+    "description": "Pokémon are the creatures that inhabit the world of the Pokémon games. They can be caught using Pokéballs and trained by battling with other Pokémon. Each Pokémon belongs to a specific species but may take on a variant which makes it differ from other Pokémon of the same species, such as base stats, available abilities and typings. See [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Pok%C3%A9mon_(species)) for greater detail."
+}
+                                ,"response": [
+                            ]
+                            }
+                            ]
+                        },
+	                        {
+    "name": "/api/v2/pokemon/:id/",
+                "description": "Pokémon are the creatures that inhabit the world of the Pokémon games. They can be caught using Pokéballs and trained by battling with other Pokémon. Each Pokémon belongs to a specific species but may take on a variant which makes it differ from other Pokémon of the same species, such as base stats, available abilities and typings. See [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Pok%C3%A9mon_(species)) for greater detail.",
+                 "item": [
+                            {
+                                "name": "Get pokemon",
+                                "request": {
+    "method": "GET",
+    "header": [
+        {
+        "key": "Accept",
+        "value": "application/json",
+        "description": "",
+        "disabled": false
+        }
+    ],
+    "body": {
+    "mode": "raw",
+    "raw": "",
+    "options": {
+    "raw": {
+    "language": "json"
+    }
+    }
+    },
+    "url": {
+    "raw": "{{baseUrl}}/api/v2/pokemon/:id/",
+    "host": [
+    "{{baseUrl}}"
+    ],
+    "path": [
+        "api",
+        "v2",
+        "pokemon",
+        ":id"
+    ],
+    "variable": [
+        {
+        "key": "id",
+        "value": "",
+        "description": "This parameter can be a string or an integer."
+        }
+    ],
+    "query": [
+    ]
+    },
+    "description": "Pokémon are the creatures that inhabit the world of the Pokémon games. They can be caught using Pokéballs and trained by battling with other Pokémon. Each Pokémon belongs to a specific species but may take on a variant which makes it differ from other Pokémon of the same species, such as base stats, available abilities and typings. See [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Pok%C3%A9mon_(species)) for greater detail."
+}
+                                ,"response": [
+                            ]
+                            }
+                            ]
+                        },
+	                        {
+    "name": "/api/v2/stat/",
+                "description": "Stats determine certain aspects of battles. Each Pokémon has a value for each stat which grows as they gain levels and can be altered momentarily by effects in battles.",
+                 "item": [
+                            {
+                                "name": "List stats",
+                                "request": {
+    "method": "GET",
+    "header": [
+        {
+        "key": "Accept",
+        "value": "application/json",
+        "description": "",
+        "disabled": false
+        }
+    ],
+    "body": {
+    "mode": "raw",
+    "raw": "",
+    "options": {
+    "raw": {
+    "language": "json"
+    }
+    }
+    },
+    "url": {
+    "raw": "{{baseUrl}}/api/v2/stat/",
+    "host": [
+    "{{baseUrl}}"
+    ],
+    "path": [
+        "api",
+        "v2",
+        "stat"
+    ],
+    "variable": [
+    ],
+    "query": [
+        {
+        "key": "limit",
+        "value": "56",
+        "description": "Number of results to return per page.",
+        "disabled": true
+        },
+        {
+        "key": "offset",
+        "value": "56",
+        "description": "The initial index from which to return the results.",
+        "disabled": true
+        },
+        {
+        "key": "q",
+        "value": "q_example",
+        "description": "> Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. ",
+        "disabled": true
+        }
+    ]
+    },
+    "description": "Stats determine certain aspects of battles. Each Pokémon has a value for each stat which grows as they gain levels and can be altered momentarily by effects in battles."
+}
+                                ,"response": [
+                            ]
+                            }
+                            ]
+                        },
+	                        {
+    "name": "/api/v2/stat/:id/",
+                "description": "Stats determine certain aspects of battles. Each Pokémon has a value for each stat which grows as they gain levels and can be altered momentarily by effects in battles.",
+                 "item": [
+                            {
+                                "name": "Get stat",
+                                "request": {
+    "method": "GET",
+    "header": [
+        {
+        "key": "Accept",
+        "value": "application/json",
+        "description": "",
+        "disabled": false
+        }
+    ],
+    "body": {
+    "mode": "raw",
+    "raw": "",
+    "options": {
+    "raw": {
+    "language": "json"
+    }
+    }
+    },
+    "url": {
+    "raw": "{{baseUrl}}/api/v2/stat/:id/",
+    "host": [
+    "{{baseUrl}}"
+    ],
+    "path": [
+        "api",
+        "v2",
+        "stat",
+        ":id"
+    ],
+    "variable": [
+        {
+        "key": "id",
+        "value": "",
+        "description": "This parameter can be a string or an integer."
+        }
+    ],
+    "query": [
+    ]
+    },
+    "description": "Stats determine certain aspects of battles. Each Pokémon has a value for each stat which grows as they gain levels and can be altered momentarily by effects in battles."
+}
+                                ,"response": [
+                            ]
+                            }
+                            ]
+                        },
+	                        {
+    "name": "/api/v2/type/",
+                "description": "Types are properties for Pokémon and their moves. Each type has three properties: which types of Pokémon it is super effective against, which types of Pokémon it is not very effective against, and which types of Pokémon it is completely ineffective against.",
+                 "item": [
+                            {
+                                "name": "List types",
+                                "request": {
+    "method": "GET",
+    "header": [
+        {
+        "key": "Accept",
+        "value": "application/json",
+        "description": "",
+        "disabled": false
+        }
+    ],
+    "body": {
+    "mode": "raw",
+    "raw": "",
+    "options": {
+    "raw": {
+    "language": "json"
+    }
+    }
+    },
+    "url": {
+    "raw": "{{baseUrl}}/api/v2/type/",
+    "host": [
+    "{{baseUrl}}"
+    ],
+    "path": [
+        "api",
+        "v2",
+        "type"
+    ],
+    "variable": [
+    ],
+    "query": [
+        {
+        "key": "limit",
+        "value": "56",
+        "description": "Number of results to return per page.",
+        "disabled": true
+        },
+        {
+        "key": "offset",
+        "value": "56",
+        "description": "The initial index from which to return the results.",
+        "disabled": true
+        },
+        {
+        "key": "q",
+        "value": "q_example",
+        "description": "> Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. ",
+        "disabled": true
+        }
+    ]
+    },
+    "description": "Types are properties for Pokémon and their moves. Each type has three properties: which types of Pokémon it is super effective against, which types of Pokémon it is not very effective against, and which types of Pokémon it is completely ineffective against."
+}
+                                ,"response": [
+                            ]
+                            }
+                            ]
+                        },
+	                        {
+    "name": "/api/v2/type/:id/",
+                "description": "Types are properties for Pokémon and their moves. Each type has three properties: which types of Pokémon it is super effective against, which types of Pokémon it is not very effective against, and which types of Pokémon it is completely ineffective against.",
+                 "item": [
+                            {
+                                "name": "Get types",
+                                "request": {
+    "method": "GET",
+    "header": [
+        {
+        "key": "Accept",
+        "value": "application/json",
+        "description": "",
+        "disabled": false
+        }
+    ],
+    "body": {
+    "mode": "raw",
+    "raw": "",
+    "options": {
+    "raw": {
+    "language": "json"
+    }
+    }
+    },
+    "url": {
+    "raw": "{{baseUrl}}/api/v2/type/:id/",
+    "host": [
+    "{{baseUrl}}"
+    ],
+    "path": [
+        "api",
+        "v2",
+        "type",
+        ":id"
+    ],
+    "variable": [
+        {
+        "key": "id",
+        "value": "",
+        "description": "This parameter can be a string or an integer."
+        }
+    ],
+    "query": [
+    ]
+    },
+    "description": "Types are properties for Pokémon and their moves. Each type has three properties: which types of Pokémon it is super effective against, which types of Pokémon it is not very effective against, and which types of Pokémon it is completely ineffective against."
+}
+                                ,"response": [
+                            ]
+                            }
+                            ]
+                        }
+	                    ]
+	        },
+	        {
+	            "name": "location",
+	            "description": "Locations that can be visited within the games. Locations make up sizable portions of regions, like cities or routes.",
+	            "item": [
+	                        {
+    "name": "/api/v2/location-area/",
+                "description": "Location areas are sections of areas, such as floors in a building or cave. Each area has its own set of possible Pokémon encounters.",
+                 "item": [
+                            {
+                                "name": "List location areas",
+                                "request": {
+    "method": "GET",
+    "header": [
+        {
+        "key": "Accept",
+        "value": "application/json",
+        "description": "",
+        "disabled": false
+        }
+    ],
+    "body": {
+    "mode": "raw",
+    "raw": "",
+    "options": {
+    "raw": {
+    "language": "json"
+    }
+    }
+    },
+    "url": {
+    "raw": "{{baseUrl}}/api/v2/location-area/",
+    "host": [
+    "{{baseUrl}}"
+    ],
+    "path": [
+        "api",
+        "v2",
+        "location-area"
+    ],
+    "variable": [
+    ],
+    "query": [
+        {
+        "key": "limit",
+        "value": "56",
+        "description": "Number of results to return per page.",
+        "disabled": true
+        },
+        {
+        "key": "offset",
+        "value": "56",
+        "description": "The initial index from which to return the results.",
+        "disabled": true
+        }
+    ]
+    },
+    "description": "Location areas are sections of areas, such as floors in a building or cave. Each area has its own set of possible Pokémon encounters."
+}
+                                ,"response": [
+                            ]
+                            }
+                            ]
+                        },
+	                        {
+    "name": "/api/v2/location-area/:id/",
+                "description": "Location areas are sections of areas, such as floors in a building or cave. Each area has its own set of possible Pokémon encounters.",
+                 "item": [
+                            {
+                                "name": "Get location area",
+                                "request": {
+    "method": "GET",
+    "header": [
+        {
+        "key": "Accept",
+        "value": "application/json",
+        "description": "",
+        "disabled": false
+        }
+    ],
+    "body": {
+    "mode": "raw",
+    "raw": "",
+    "options": {
+    "raw": {
+    "language": "json"
+    }
+    }
+    },
+    "url": {
+    "raw": "{{baseUrl}}/api/v2/location-area/:id/",
+    "host": [
+    "{{baseUrl}}"
+    ],
+    "path": [
+        "api",
+        "v2",
+        "location-area",
+        ":id"
+    ],
+    "variable": [
+        {
+        "key": "id",
+        "value": "",
+        "description": "A unique integer value identifying this location area."
+        }
+    ],
+    "query": [
+    ]
+    },
+    "description": "Location areas are sections of areas, such as floors in a building or cave. Each area has its own set of possible Pokémon encounters."
+}
+                                ,"response": [
+                            ]
+                            }
+                            ]
+                        },
+	                        {
+    "name": "/api/v2/location/",
+                "description": "Locations that can be visited within the games. Locations make up sizable portions of regions, like cities or routes.",
+                 "item": [
+                            {
+                                "name": "List locations",
+                                "request": {
+    "method": "GET",
+    "header": [
+        {
+        "key": "Accept",
+        "value": "application/json",
+        "description": "",
+        "disabled": false
+        }
+    ],
+    "body": {
+    "mode": "raw",
+    "raw": "",
+    "options": {
+    "raw": {
+    "language": "json"
+    }
+    }
+    },
+    "url": {
+    "raw": "{{baseUrl}}/api/v2/location/",
+    "host": [
+    "{{baseUrl}}"
+    ],
+    "path": [
+        "api",
+        "v2",
+        "location"
+    ],
+    "variable": [
+    ],
+    "query": [
+        {
+        "key": "limit",
+        "value": "56",
+        "description": "Number of results to return per page.",
+        "disabled": true
+        },
+        {
+        "key": "offset",
+        "value": "56",
+        "description": "The initial index from which to return the results.",
+        "disabled": true
+        },
+        {
+        "key": "q",
+        "value": "q_example",
+        "description": "> Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. ",
+        "disabled": true
+        }
+    ]
+    },
+    "description": "Locations that can be visited within the games. Locations make up sizable portions of regions, like cities or routes."
+}
+                                ,"response": [
+                            ]
+                            }
+                            ]
+                        },
+	                        {
+    "name": "/api/v2/location/:id/",
+                "description": "Locations that can be visited within the games. Locations make up sizable portions of regions, like cities or routes.",
+                 "item": [
+                            {
+                                "name": "Get location",
+                                "request": {
+    "method": "GET",
+    "header": [
+        {
+        "key": "Accept",
+        "value": "application/json",
+        "description": "",
+        "disabled": false
+        }
+    ],
+    "body": {
+    "mode": "raw",
+    "raw": "",
+    "options": {
+    "raw": {
+    "language": "json"
+    }
+    }
+    },
+    "url": {
+    "raw": "{{baseUrl}}/api/v2/location/:id/",
+    "host": [
+    "{{baseUrl}}"
+    ],
+    "path": [
+        "api",
+        "v2",
+        "location",
+        ":id"
+    ],
+    "variable": [
+        {
+        "key": "id",
+        "value": "",
+        "description": "This parameter can be a string or an integer."
+        }
+    ],
+    "query": [
+    ]
+    },
+    "description": "Locations that can be visited within the games. Locations make up sizable portions of regions, like cities or routes."
+}
+                                ,"response": [
+                            ]
+                            }
+                            ]
+                        },
+	                        {
+    "name": "/api/v2/pal-park-area/",
+                "description": "Areas used for grouping Pokémon encounters in Pal Park. They're like habitats that are specific to Pal Park.",
+                 "item": [
+                            {
+                                "name": "List pal park areas",
+                                "request": {
+    "method": "GET",
+    "header": [
+        {
+        "key": "Accept",
+        "value": "application/json",
+        "description": "",
+        "disabled": false
+        }
+    ],
+    "body": {
+    "mode": "raw",
+    "raw": "",
+    "options": {
+    "raw": {
+    "language": "json"
+    }
+    }
+    },
+    "url": {
+    "raw": "{{baseUrl}}/api/v2/pal-park-area/",
+    "host": [
+    "{{baseUrl}}"
+    ],
+    "path": [
+        "api",
+        "v2",
+        "pal-park-area"
+    ],
+    "variable": [
+    ],
+    "query": [
+        {
+        "key": "limit",
+        "value": "56",
+        "description": "Number of results to return per page.",
+        "disabled": true
+        },
+        {
+        "key": "offset",
+        "value": "56",
+        "description": "The initial index from which to return the results.",
+        "disabled": true
+        },
+        {
+        "key": "q",
+        "value": "q_example",
+        "description": "> Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. ",
+        "disabled": true
+        }
+    ]
+    },
+    "description": "Areas used for grouping Pokémon encounters in Pal Park. They're like habitats that are specific to Pal Park."
+}
+                                ,"response": [
+                            ]
+                            }
+                            ]
+                        },
+	                        {
+    "name": "/api/v2/pal-park-area/:id/",
+                "description": "Areas used for grouping Pokémon encounters in Pal Park. They're like habitats that are specific to Pal Park.",
+                 "item": [
+                            {
+                                "name": "Get pal park area",
+                                "request": {
+    "method": "GET",
+    "header": [
+        {
+        "key": "Accept",
+        "value": "application/json",
+        "description": "",
+        "disabled": false
+        }
+    ],
+    "body": {
+    "mode": "raw",
+    "raw": "",
+    "options": {
+    "raw": {
+    "language": "json"
+    }
+    }
+    },
+    "url": {
+    "raw": "{{baseUrl}}/api/v2/pal-park-area/:id/",
+    "host": [
+    "{{baseUrl}}"
+    ],
+    "path": [
+        "api",
+        "v2",
+        "pal-park-area",
+        ":id"
+    ],
+    "variable": [
+        {
+        "key": "id",
+        "value": "",
+        "description": "This parameter can be a string or an integer."
+        }
+    ],
+    "query": [
+    ]
+    },
+    "description": "Areas used for grouping Pokémon encounters in Pal Park. They're like habitats that are specific to Pal Park."
+}
+                                ,"response": [
+                            ]
+                            }
+                            ]
+                        },
+	                        {
+    "name": "/api/v2/region/",
+                "description": "A region is an organized area of the Pokémon world. Most often, the main difference between regions is the species of Pokémon that can be encountered within them.",
+                 "item": [
+                            {
+                                "name": "List regions",
+                                "request": {
+    "method": "GET",
+    "header": [
+        {
+        "key": "Accept",
+        "value": "application/json",
+        "description": "",
+        "disabled": false
+        }
+    ],
+    "body": {
+    "mode": "raw",
+    "raw": "",
+    "options": {
+    "raw": {
+    "language": "json"
+    }
+    }
+    },
+    "url": {
+    "raw": "{{baseUrl}}/api/v2/region/",
+    "host": [
+    "{{baseUrl}}"
+    ],
+    "path": [
+        "api",
+        "v2",
+        "region"
+    ],
+    "variable": [
+    ],
+    "query": [
+        {
+        "key": "limit",
+        "value": "56",
+        "description": "Number of results to return per page.",
+        "disabled": true
+        },
+        {
+        "key": "offset",
+        "value": "56",
+        "description": "The initial index from which to return the results.",
+        "disabled": true
+        },
+        {
+        "key": "q",
+        "value": "q_example",
+        "description": "> Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. ",
+        "disabled": true
+        }
+    ]
+    },
+    "description": "A region is an organized area of the Pokémon world. Most often, the main difference between regions is the species of Pokémon that can be encountered within them."
+}
+                                ,"response": [
+                            ]
+                            }
+                            ]
+                        },
+	                        {
+    "name": "/api/v2/region/:id/",
+                "description": "A region is an organized area of the Pokémon world. Most often, the main difference between regions is the species of Pokémon that can be encountered within them.",
+                 "item": [
+                            {
+                                "name": "Get region",
+                                "request": {
+    "method": "GET",
+    "header": [
+        {
+        "key": "Accept",
+        "value": "application/json",
+        "description": "",
+        "disabled": false
+        }
+    ],
+    "body": {
+    "mode": "raw",
+    "raw": "",
+    "options": {
+    "raw": {
+    "language": "json"
+    }
+    }
+    },
+    "url": {
+    "raw": "{{baseUrl}}/api/v2/region/:id/",
+    "host": [
+    "{{baseUrl}}"
+    ],
+    "path": [
+        "api",
+        "v2",
+        "region",
+        ":id"
+    ],
+    "variable": [
+        {
+        "key": "id",
+        "value": "",
+        "description": "This parameter can be a string or an integer."
+        }
+    ],
+    "query": [
+    ]
+    },
+    "description": "A region is an organized area of the Pokémon world. Most often, the main difference between regions is the species of Pokémon that can be encountered within them."
+}
+                                ,"response": [
+                            ]
+                            }
+                            ]
+                        }
+	                    ]
+	        },
+	        {
+	            "name": "utility",
+	            "description": "utility tag",
+	            "item": [
+	                        {
+    "name": "/api/v2/language/",
+                "description": "Languages for translations of API resource information.",
+                 "item": [
+                            {
+                                "name": "List languages",
+                                "request": {
+    "method": "GET",
+    "header": [
+        {
+        "key": "Accept",
+        "value": "application/json",
+        "description": "",
+        "disabled": false
+        }
+    ],
+    "body": {
+    "mode": "raw",
+    "raw": "",
+    "options": {
+    "raw": {
+    "language": "json"
+    }
+    }
+    },
+    "url": {
+    "raw": "{{baseUrl}}/api/v2/language/",
+    "host": [
+    "{{baseUrl}}"
+    ],
+    "path": [
+        "api",
+        "v2",
+        "language"
+    ],
+    "variable": [
+    ],
+    "query": [
+        {
+        "key": "limit",
+        "value": "56",
+        "description": "Number of results to return per page.",
+        "disabled": true
+        },
+        {
+        "key": "offset",
+        "value": "56",
+        "description": "The initial index from which to return the results.",
+        "disabled": true
+        },
+        {
+        "key": "q",
+        "value": "q_example",
+        "description": "> Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. ",
+        "disabled": true
+        }
+    ]
+    },
+    "description": "Languages for translations of API resource information."
+}
+                                ,"response": [
+                            ]
+                            }
+                            ]
+                        },
+	                        {
+    "name": "/api/v2/language/:id/",
+                "description": "Languages for translations of API resource information.",
+                 "item": [
+                            {
+                                "name": "Get language",
+                                "request": {
+    "method": "GET",
+    "header": [
+        {
+        "key": "Accept",
+        "value": "application/json",
+        "description": "",
+        "disabled": false
+        }
+    ],
+    "body": {
+    "mode": "raw",
+    "raw": "",
+    "options": {
+    "raw": {
+    "language": "json"
+    }
+    }
+    },
+    "url": {
+    "raw": "{{baseUrl}}/api/v2/language/:id/",
+    "host": [
+    "{{baseUrl}}"
+    ],
+    "path": [
+        "api",
+        "v2",
+        "language",
+        ":id"
+    ],
+    "variable": [
+        {
+        "key": "id",
+        "value": "",
+        "description": "This parameter can be a string or an integer."
+        }
+    ],
+    "query": [
+    ]
+    },
+    "description": "Languages for translations of API resource information."
+}
+                                ,"response": [
+                            ]
+                            }
+                            ]
+                        }
+	                    ]
+	        },
+	        {
+	            "name": "items",
+	            "description": "An item is an object in the games which the player can pick up, keep in their bag, and use in some manner. They have various uses, including healing, powering up, helping catch Pokémon, or to access a new area.",
+	            "item": [
+	                        {
+    "name": "/api/v2/item-attribute/",
+                "description": "Item attributes define particular aspects of items, e.g.\"usable in battle\" or \"consumable\".",
+                 "item": [
+                            {
+                                "name": "List item attributes",
+                                "request": {
+    "method": "GET",
+    "header": [
+        {
+        "key": "Accept",
+        "value": "application/json",
+        "description": "",
+        "disabled": false
+        }
+    ],
+    "body": {
+    "mode": "raw",
+    "raw": "",
+    "options": {
+    "raw": {
+    "language": "json"
+    }
+    }
+    },
+    "url": {
+    "raw": "{{baseUrl}}/api/v2/item-attribute/",
+    "host": [
+    "{{baseUrl}}"
+    ],
+    "path": [
+        "api",
+        "v2",
+        "item-attribute"
+    ],
+    "variable": [
+    ],
+    "query": [
+        {
+        "key": "limit",
+        "value": "56",
+        "description": "Number of results to return per page.",
+        "disabled": true
+        },
+        {
+        "key": "offset",
+        "value": "56",
+        "description": "The initial index from which to return the results.",
+        "disabled": true
+        },
+        {
+        "key": "q",
+        "value": "q_example",
+        "description": "> Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. ",
+        "disabled": true
+        }
+    ]
+    },
+    "description": "Item attributes define particular aspects of items, e.g.\"usable in battle\" or \"consumable\"."
+}
+                                ,"response": [
+                            ]
+                            }
+                            ]
+                        },
+	                        {
+    "name": "/api/v2/item-attribute/:id/",
+                "description": "Item attributes define particular aspects of items, e.g.\"usable in battle\" or \"consumable\".",
+                 "item": [
+                            {
+                                "name": "Get item attribute",
+                                "request": {
+    "method": "GET",
+    "header": [
+        {
+        "key": "Accept",
+        "value": "application/json",
+        "description": "",
+        "disabled": false
+        }
+    ],
+    "body": {
+    "mode": "raw",
+    "raw": "",
+    "options": {
+    "raw": {
+    "language": "json"
+    }
+    }
+    },
+    "url": {
+    "raw": "{{baseUrl}}/api/v2/item-attribute/:id/",
+    "host": [
+    "{{baseUrl}}"
+    ],
+    "path": [
+        "api",
+        "v2",
+        "item-attribute",
+        ":id"
+    ],
+    "variable": [
+        {
+        "key": "id",
+        "value": "",
+        "description": "This parameter can be a string or an integer."
+        }
+    ],
+    "query": [
+    ]
+    },
+    "description": "Item attributes define particular aspects of items, e.g.\"usable in battle\" or \"consumable\"."
+}
+                                ,"response": [
+                            ]
+                            }
+                            ]
+                        },
+	                        {
+    "name": "/api/v2/item-category/",
+                "description": "Item categories determine where items will be placed in the players bag.",
+                 "item": [
+                            {
+                                "name": "List item categories",
+                                "request": {
+    "method": "GET",
+    "header": [
+        {
+        "key": "Accept",
+        "value": "application/json",
+        "description": "",
+        "disabled": false
+        }
+    ],
+    "body": {
+    "mode": "raw",
+    "raw": "",
+    "options": {
+    "raw": {
+    "language": "json"
+    }
+    }
+    },
+    "url": {
+    "raw": "{{baseUrl}}/api/v2/item-category/",
+    "host": [
+    "{{baseUrl}}"
+    ],
+    "path": [
+        "api",
+        "v2",
+        "item-category"
+    ],
+    "variable": [
+    ],
+    "query": [
+        {
+        "key": "limit",
+        "value": "56",
+        "description": "Number of results to return per page.",
+        "disabled": true
+        },
+        {
+        "key": "offset",
+        "value": "56",
+        "description": "The initial index from which to return the results.",
+        "disabled": true
+        },
+        {
+        "key": "q",
+        "value": "q_example",
+        "description": "> Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. ",
+        "disabled": true
+        }
+    ]
+    },
+    "description": "Item categories determine where items will be placed in the players bag."
+}
+                                ,"response": [
+                            ]
+                            }
+                            ]
+                        },
+	                        {
+    "name": "/api/v2/item-category/:id/",
+                "description": "Item categories determine where items will be placed in the players bag.",
+                 "item": [
+                            {
+                                "name": "Get item category",
+                                "request": {
+    "method": "GET",
+    "header": [
+        {
+        "key": "Accept",
+        "value": "application/json",
+        "description": "",
+        "disabled": false
+        }
+    ],
+    "body": {
+    "mode": "raw",
+    "raw": "",
+    "options": {
+    "raw": {
+    "language": "json"
+    }
+    }
+    },
+    "url": {
+    "raw": "{{baseUrl}}/api/v2/item-category/:id/",
+    "host": [
+    "{{baseUrl}}"
+    ],
+    "path": [
+        "api",
+        "v2",
+        "item-category",
+        ":id"
+    ],
+    "variable": [
+        {
+        "key": "id",
+        "value": "",
+        "description": "This parameter can be a string or an integer."
+        }
+    ],
+    "query": [
+    ]
+    },
+    "description": "Item categories determine where items will be placed in the players bag."
+}
+                                ,"response": [
+                            ]
+                            }
+                            ]
+                        },
+	                        {
+    "name": "/api/v2/item-fling-effect/",
+                "description": "The various effects of the move\"Fling\" when used with different items.",
+                 "item": [
+                            {
+                                "name": "List item fling effects",
+                                "request": {
+    "method": "GET",
+    "header": [
+        {
+        "key": "Accept",
+        "value": "application/json",
+        "description": "",
+        "disabled": false
+        }
+    ],
+    "body": {
+    "mode": "raw",
+    "raw": "",
+    "options": {
+    "raw": {
+    "language": "json"
+    }
+    }
+    },
+    "url": {
+    "raw": "{{baseUrl}}/api/v2/item-fling-effect/",
+    "host": [
+    "{{baseUrl}}"
+    ],
+    "path": [
+        "api",
+        "v2",
+        "item-fling-effect"
+    ],
+    "variable": [
+    ],
+    "query": [
+        {
+        "key": "limit",
+        "value": "56",
+        "description": "Number of results to return per page.",
+        "disabled": true
+        },
+        {
+        "key": "offset",
+        "value": "56",
+        "description": "The initial index from which to return the results.",
+        "disabled": true
+        },
+        {
+        "key": "q",
+        "value": "q_example",
+        "description": "> Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. ",
+        "disabled": true
+        }
+    ]
+    },
+    "description": "The various effects of the move\"Fling\" when used with different items."
+}
+                                ,"response": [
+                            ]
+                            }
+                            ]
+                        },
+	                        {
+    "name": "/api/v2/item-fling-effect/:id/",
+                "description": "The various effects of the move\"Fling\" when used with different items.",
+                 "item": [
+                            {
+                                "name": "Get item fling effect",
+                                "request": {
+    "method": "GET",
+    "header": [
+        {
+        "key": "Accept",
+        "value": "application/json",
+        "description": "",
+        "disabled": false
+        }
+    ],
+    "body": {
+    "mode": "raw",
+    "raw": "",
+    "options": {
+    "raw": {
+    "language": "json"
+    }
+    }
+    },
+    "url": {
+    "raw": "{{baseUrl}}/api/v2/item-fling-effect/:id/",
+    "host": [
+    "{{baseUrl}}"
+    ],
+    "path": [
+        "api",
+        "v2",
+        "item-fling-effect",
+        ":id"
+    ],
+    "variable": [
+        {
+        "key": "id",
+        "value": "",
+        "description": "This parameter can be a string or an integer."
+        }
+    ],
+    "query": [
+    ]
+    },
+    "description": "The various effects of the move\"Fling\" when used with different items."
+}
+                                ,"response": [
+                            ]
+                            }
+                            ]
+                        },
+	                        {
+    "name": "/api/v2/item-pocket/",
+                "description": "Pockets within the players bag used for storing items by category.",
+                 "item": [
+                            {
+                                "name": "List item pockets",
+                                "request": {
+    "method": "GET",
+    "header": [
+        {
+        "key": "Accept",
+        "value": "application/json",
+        "description": "",
+        "disabled": false
+        }
+    ],
+    "body": {
+    "mode": "raw",
+    "raw": "",
+    "options": {
+    "raw": {
+    "language": "json"
+    }
+    }
+    },
+    "url": {
+    "raw": "{{baseUrl}}/api/v2/item-pocket/",
+    "host": [
+    "{{baseUrl}}"
+    ],
+    "path": [
+        "api",
+        "v2",
+        "item-pocket"
+    ],
+    "variable": [
+    ],
+    "query": [
+        {
+        "key": "limit",
+        "value": "56",
+        "description": "Number of results to return per page.",
+        "disabled": true
+        },
+        {
+        "key": "offset",
+        "value": "56",
+        "description": "The initial index from which to return the results.",
+        "disabled": true
+        },
+        {
+        "key": "q",
+        "value": "q_example",
+        "description": "> Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. ",
+        "disabled": true
+        }
+    ]
+    },
+    "description": "Pockets within the players bag used for storing items by category."
+}
+                                ,"response": [
+                            ]
+                            }
+                            ]
+                        },
+	                        {
+    "name": "/api/v2/item-pocket/:id/",
+                "description": "Pockets within the players bag used for storing items by category.",
+                 "item": [
+                            {
+                                "name": "Get item pocket",
+                                "request": {
+    "method": "GET",
+    "header": [
+        {
+        "key": "Accept",
+        "value": "application/json",
+        "description": "",
+        "disabled": false
+        }
+    ],
+    "body": {
+    "mode": "raw",
+    "raw": "",
+    "options": {
+    "raw": {
+    "language": "json"
+    }
+    }
+    },
+    "url": {
+    "raw": "{{baseUrl}}/api/v2/item-pocket/:id/",
+    "host": [
+    "{{baseUrl}}"
+    ],
+    "path": [
+        "api",
+        "v2",
+        "item-pocket",
+        ":id"
+    ],
+    "variable": [
+        {
+        "key": "id",
+        "value": "",
+        "description": "This parameter can be a string or an integer."
+        }
+    ],
+    "query": [
+    ]
+    },
+    "description": "Pockets within the players bag used for storing items by category."
+}
+                                ,"response": [
+                            ]
+                            }
+                            ]
+                        },
+	                        {
+    "name": "/api/v2/item/",
+                "description": "An item is an object in the games which the player can pick up, keep in their bag, and use in some manner. They have various uses, including healing, powering up, helping catch Pokémon, or to access a new area.",
+                 "item": [
+                            {
+                                "name": "List items",
+                                "request": {
+    "method": "GET",
+    "header": [
+        {
+        "key": "Accept",
+        "value": "application/json",
+        "description": "",
+        "disabled": false
+        }
+    ],
+    "body": {
+    "mode": "raw",
+    "raw": "",
+    "options": {
+    "raw": {
+    "language": "json"
+    }
+    }
+    },
+    "url": {
+    "raw": "{{baseUrl}}/api/v2/item/",
+    "host": [
+    "{{baseUrl}}"
+    ],
+    "path": [
+        "api",
+        "v2",
+        "item"
+    ],
+    "variable": [
+    ],
+    "query": [
+        {
+        "key": "limit",
+        "value": "56",
+        "description": "Number of results to return per page.",
+        "disabled": true
+        },
+        {
+        "key": "offset",
+        "value": "56",
+        "description": "The initial index from which to return the results.",
+        "disabled": true
+        },
+        {
+        "key": "q",
+        "value": "q_example",
+        "description": "> Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. ",
+        "disabled": true
+        }
+    ]
+    },
+    "description": "An item is an object in the games which the player can pick up, keep in their bag, and use in some manner. They have various uses, including healing, powering up, helping catch Pokémon, or to access a new area."
+}
+                                ,"response": [
+                            ]
+                            }
+                            ]
+                        },
+	                        {
+    "name": "/api/v2/item/:id/",
+                "description": "An item is an object in the games which the player can pick up, keep in their bag, and use in some manner. They have various uses, including healing, powering up, helping catch Pokémon, or to access a new area.",
+                 "item": [
+                            {
+                                "name": "Get item",
+                                "request": {
+    "method": "GET",
+    "header": [
+        {
+        "key": "Accept",
+        "value": "application/json",
+        "description": "",
+        "disabled": false
+        }
+    ],
+    "body": {
+    "mode": "raw",
+    "raw": "",
+    "options": {
+    "raw": {
+    "language": "json"
+    }
+    }
+    },
+    "url": {
+    "raw": "{{baseUrl}}/api/v2/item/:id/",
+    "host": [
+    "{{baseUrl}}"
+    ],
+    "path": [
+        "api",
+        "v2",
+        "item",
+        ":id"
+    ],
+    "variable": [
+        {
+        "key": "id",
+        "value": "",
+        "description": "This parameter can be a string or an integer."
+        }
+    ],
+    "query": [
+    ]
+    },
+    "description": "An item is an object in the games which the player can pick up, keep in their bag, and use in some manner. They have various uses, including healing, powering up, helping catch Pokémon, or to access a new area."
+}
+                                ,"response": [
+                            ]
+                            }
+                            ]
+                        }
+	                    ]
+	        },
+	        {
+	            "name": "encounters",
+	            "description": "encounters tag",
+	            "item": [
+	                        {
+    "name": "/api/v2/encounter-condition-value/",
+                "description": "Encounter condition values are the various states that an encounter condition can have, i.e., time of day can be either day or night.",
+                 "item": [
+                            {
+                                "name": "List encounter condition values",
+                                "request": {
+    "method": "GET",
+    "header": [
+        {
+        "key": "Accept",
+        "value": "application/json",
+        "description": "",
+        "disabled": false
+        }
+    ],
+    "body": {
+    "mode": "raw",
+    "raw": "",
+    "options": {
+    "raw": {
+    "language": "json"
+    }
+    }
+    },
+    "url": {
+    "raw": "{{baseUrl}}/api/v2/encounter-condition-value/",
+    "host": [
+    "{{baseUrl}}"
+    ],
+    "path": [
+        "api",
+        "v2",
+        "encounter-condition-value"
+    ],
+    "variable": [
+    ],
+    "query": [
+        {
+        "key": "limit",
+        "value": "56",
+        "description": "Number of results to return per page.",
+        "disabled": true
+        },
+        {
+        "key": "offset",
+        "value": "56",
+        "description": "The initial index from which to return the results.",
+        "disabled": true
+        },
+        {
+        "key": "q",
+        "value": "q_example",
+        "description": "> Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. ",
+        "disabled": true
+        }
+    ]
+    },
+    "description": "Encounter condition values are the various states that an encounter condition can have, i.e., time of day can be either day or night."
+}
+                                ,"response": [
+                            ]
+                            }
+                            ]
+                        },
+	                        {
+    "name": "/api/v2/encounter-condition-value/:id/",
+                "description": "Encounter condition values are the various states that an encounter condition can have, i.e., time of day can be either day or night.",
+                 "item": [
+                            {
+                                "name": "Get encounter condition value",
+                                "request": {
+    "method": "GET",
+    "header": [
+        {
+        "key": "Accept",
+        "value": "application/json",
+        "description": "",
+        "disabled": false
+        }
+    ],
+    "body": {
+    "mode": "raw",
+    "raw": "",
+    "options": {
+    "raw": {
+    "language": "json"
+    }
+    }
+    },
+    "url": {
+    "raw": "{{baseUrl}}/api/v2/encounter-condition-value/:id/",
+    "host": [
+    "{{baseUrl}}"
+    ],
+    "path": [
+        "api",
+        "v2",
+        "encounter-condition-value",
+        ":id"
+    ],
+    "variable": [
+        {
+        "key": "id",
+        "value": "",
+        "description": "This parameter can be a string or an integer."
+        }
+    ],
+    "query": [
+    ]
+    },
+    "description": "Encounter condition values are the various states that an encounter condition can have, i.e., time of day can be either day or night."
+}
+                                ,"response": [
+                            ]
+                            }
+                            ]
+                        },
+	                        {
+    "name": "/api/v2/encounter-condition/",
+                "description": "Conditions which affect what pokemon might appear in the wild, e.g., day or night.",
+                 "item": [
+                            {
+                                "name": "List encounter conditions",
+                                "request": {
+    "method": "GET",
+    "header": [
+        {
+        "key": "Accept",
+        "value": "application/json",
+        "description": "",
+        "disabled": false
+        }
+    ],
+    "body": {
+    "mode": "raw",
+    "raw": "",
+    "options": {
+    "raw": {
+    "language": "json"
+    }
+    }
+    },
+    "url": {
+    "raw": "{{baseUrl}}/api/v2/encounter-condition/",
+    "host": [
+    "{{baseUrl}}"
+    ],
+    "path": [
+        "api",
+        "v2",
+        "encounter-condition"
+    ],
+    "variable": [
+    ],
+    "query": [
+        {
+        "key": "limit",
+        "value": "56",
+        "description": "Number of results to return per page.",
+        "disabled": true
+        },
+        {
+        "key": "offset",
+        "value": "56",
+        "description": "The initial index from which to return the results.",
+        "disabled": true
+        },
+        {
+        "key": "q",
+        "value": "q_example",
+        "description": "> Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. ",
+        "disabled": true
+        }
+    ]
+    },
+    "description": "Conditions which affect what pokemon might appear in the wild, e.g., day or night."
+}
+                                ,"response": [
+                            ]
+                            }
+                            ]
+                        },
+	                        {
+    "name": "/api/v2/encounter-condition/:id/",
+                "description": "Conditions which affect what pokemon might appear in the wild, e.g., day or night.",
+                 "item": [
+                            {
+                                "name": "Get encounter condition",
+                                "request": {
+    "method": "GET",
+    "header": [
+        {
+        "key": "Accept",
+        "value": "application/json",
+        "description": "",
+        "disabled": false
+        }
+    ],
+    "body": {
+    "mode": "raw",
+    "raw": "",
+    "options": {
+    "raw": {
+    "language": "json"
+    }
+    }
+    },
+    "url": {
+    "raw": "{{baseUrl}}/api/v2/encounter-condition/:id/",
+    "host": [
+    "{{baseUrl}}"
+    ],
+    "path": [
+        "api",
+        "v2",
+        "encounter-condition",
+        ":id"
+    ],
+    "variable": [
+        {
+        "key": "id",
+        "value": "",
+        "description": "This parameter can be a string or an integer."
+        }
+    ],
+    "query": [
+    ]
+    },
+    "description": "Conditions which affect what pokemon might appear in the wild, e.g., day or night."
+}
+                                ,"response": [
+                            ]
+                            }
+                            ]
+                        },
+	                        {
+    "name": "/api/v2/encounter-method/",
+                "description": "Methods by which the player might can encounter Pokémon in the wild, e.g., walking in tall grass. Check out Bulbapedia for greater detail.",
+                 "item": [
+                            {
+                                "name": "List encounter methods",
+                                "request": {
+    "method": "GET",
+    "header": [
+        {
+        "key": "Accept",
+        "value": "application/json",
+        "description": "",
+        "disabled": false
+        }
+    ],
+    "body": {
+    "mode": "raw",
+    "raw": "",
+    "options": {
+    "raw": {
+    "language": "json"
+    }
+    }
+    },
+    "url": {
+    "raw": "{{baseUrl}}/api/v2/encounter-method/",
+    "host": [
+    "{{baseUrl}}"
+    ],
+    "path": [
+        "api",
+        "v2",
+        "encounter-method"
+    ],
+    "variable": [
+    ],
+    "query": [
+        {
+        "key": "limit",
+        "value": "56",
+        "description": "Number of results to return per page.",
+        "disabled": true
+        },
+        {
+        "key": "offset",
+        "value": "56",
+        "description": "The initial index from which to return the results.",
+        "disabled": true
+        },
+        {
+        "key": "q",
+        "value": "q_example",
+        "description": "> Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. ",
+        "disabled": true
+        }
+    ]
+    },
+    "description": "Methods by which the player might can encounter Pokémon in the wild, e.g., walking in tall grass. Check out Bulbapedia for greater detail."
+}
+                                ,"response": [
+                            ]
+                            }
+                            ]
+                        },
+	                        {
+    "name": "/api/v2/encounter-method/:id/",
+                "description": "Methods by which the player might can encounter Pokémon in the wild, e.g., walking in tall grass. Check out Bulbapedia for greater detail.",
+                 "item": [
+                            {
+                                "name": "Get encounter method",
+                                "request": {
+    "method": "GET",
+    "header": [
+        {
+        "key": "Accept",
+        "value": "application/json",
+        "description": "",
+        "disabled": false
+        }
+    ],
+    "body": {
+    "mode": "raw",
+    "raw": "",
+    "options": {
+    "raw": {
+    "language": "json"
+    }
+    }
+    },
+    "url": {
+    "raw": "{{baseUrl}}/api/v2/encounter-method/:id/",
+    "host": [
+    "{{baseUrl}}"
+    ],
+    "path": [
+        "api",
+        "v2",
+        "encounter-method",
+        ":id"
+    ],
+    "variable": [
+        {
+        "key": "id",
+        "value": "",
+        "description": "This parameter can be a string or an integer."
+        }
+    ],
+    "query": [
+    ]
+    },
+    "description": "Methods by which the player might can encounter Pokémon in the wild, e.g., walking in tall grass. Check out Bulbapedia for greater detail."
+}
+                                ,"response": [
+                            ]
+                            }
+                            ]
+                        }
+	                    ]
+	        },
+	        {
+	            "name": "games",
+	            "description": "The Pokémon games are all video games in the Pokémon franchise.",
+	            "item": [
+	                        {
+    "name": "/api/v2/generation/",
+                "description": "A generation is a grouping of the Pokémon games that separates them based on the Pokémon they include. In each generation, a new set of Pokémon, Moves, Abilities and Types that did not exist in the previous generation are released.",
+                 "item": [
+                            {
+                                "name": "List genrations",
+                                "request": {
+    "method": "GET",
+    "header": [
+        {
+        "key": "Accept",
+        "value": "application/json",
+        "description": "",
+        "disabled": false
+        }
+    ],
+    "body": {
+    "mode": "raw",
+    "raw": "",
+    "options": {
+    "raw": {
+    "language": "json"
+    }
+    }
+    },
+    "url": {
+    "raw": "{{baseUrl}}/api/v2/generation/",
+    "host": [
+    "{{baseUrl}}"
+    ],
+    "path": [
+        "api",
+        "v2",
+        "generation"
+    ],
+    "variable": [
+    ],
+    "query": [
+        {
+        "key": "limit",
+        "value": "56",
+        "description": "Number of results to return per page.",
+        "disabled": true
+        },
+        {
+        "key": "offset",
+        "value": "56",
+        "description": "The initial index from which to return the results.",
+        "disabled": true
+        },
+        {
+        "key": "q",
+        "value": "q_example",
+        "description": "> Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. ",
+        "disabled": true
+        }
+    ]
+    },
+    "description": "A generation is a grouping of the Pokémon games that separates them based on the Pokémon they include. In each generation, a new set of Pokémon, Moves, Abilities and Types that did not exist in the previous generation are released."
+}
+                                ,"response": [
+                            ]
+                            }
+                            ]
+                        },
+	                        {
+    "name": "/api/v2/generation/:id/",
+                "description": "A generation is a grouping of the Pokémon games that separates them based on the Pokémon they include. In each generation, a new set of Pokémon, Moves, Abilities and Types that did not exist in the previous generation are released.",
+                 "item": [
+                            {
+                                "name": "Get genration",
+                                "request": {
+    "method": "GET",
+    "header": [
+        {
+        "key": "Accept",
+        "value": "application/json",
+        "description": "",
+        "disabled": false
+        }
+    ],
+    "body": {
+    "mode": "raw",
+    "raw": "",
+    "options": {
+    "raw": {
+    "language": "json"
+    }
+    }
+    },
+    "url": {
+    "raw": "{{baseUrl}}/api/v2/generation/:id/",
+    "host": [
+    "{{baseUrl}}"
+    ],
+    "path": [
+        "api",
+        "v2",
+        "generation",
+        ":id"
+    ],
+    "variable": [
+        {
+        "key": "id",
+        "value": "",
+        "description": "This parameter can be a string or an integer."
+        }
+    ],
+    "query": [
+    ]
+    },
+    "description": "A generation is a grouping of the Pokémon games that separates them based on the Pokémon they include. In each generation, a new set of Pokémon, Moves, Abilities and Types that did not exist in the previous generation are released."
+}
+                                ,"response": [
+                            ]
+                            }
+                            ]
+                        },
+	                        {
+    "name": "/api/v2/pokedex/",
+                "description": "A Pokédex is a handheld electronic encyclopedia device; one which is capable of recording and retaining information of the various Pokémon in a given region with the exception of the national dex and some smaller dexes related to portions of a region. See [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Pokedex) for greater detail.",
+                 "item": [
+                            {
+                                "name": "List pokedex",
+                                "request": {
+    "method": "GET",
+    "header": [
+        {
+        "key": "Accept",
+        "value": "application/json",
+        "description": "",
+        "disabled": false
+        }
+    ],
+    "body": {
+    "mode": "raw",
+    "raw": "",
+    "options": {
+    "raw": {
+    "language": "json"
+    }
+    }
+    },
+    "url": {
+    "raw": "{{baseUrl}}/api/v2/pokedex/",
+    "host": [
+    "{{baseUrl}}"
+    ],
+    "path": [
+        "api",
+        "v2",
+        "pokedex"
+    ],
+    "variable": [
+    ],
+    "query": [
+        {
+        "key": "limit",
+        "value": "56",
+        "description": "Number of results to return per page.",
+        "disabled": true
+        },
+        {
+        "key": "offset",
+        "value": "56",
+        "description": "The initial index from which to return the results.",
+        "disabled": true
+        },
+        {
+        "key": "q",
+        "value": "q_example",
+        "description": "> Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. ",
+        "disabled": true
+        }
+    ]
+    },
+    "description": "A Pokédex is a handheld electronic encyclopedia device; one which is capable of recording and retaining information of the various Pokémon in a given region with the exception of the national dex and some smaller dexes related to portions of a region. See [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Pokedex) for greater detail."
+}
+                                ,"response": [
+                            ]
+                            }
+                            ]
+                        },
+	                        {
+    "name": "/api/v2/pokedex/:id/",
+                "description": "A Pokédex is a handheld electronic encyclopedia device; one which is capable of recording and retaining information of the various Pokémon in a given region with the exception of the national dex and some smaller dexes related to portions of a region. See [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Pokedex) for greater detail.",
+                 "item": [
+                            {
+                                "name": "Get pokedex",
+                                "request": {
+    "method": "GET",
+    "header": [
+        {
+        "key": "Accept",
+        "value": "application/json",
+        "description": "",
+        "disabled": false
+        }
+    ],
+    "body": {
+    "mode": "raw",
+    "raw": "",
+    "options": {
+    "raw": {
+    "language": "json"
+    }
+    }
+    },
+    "url": {
+    "raw": "{{baseUrl}}/api/v2/pokedex/:id/",
+    "host": [
+    "{{baseUrl}}"
+    ],
+    "path": [
+        "api",
+        "v2",
+        "pokedex",
+        ":id"
+    ],
+    "variable": [
+        {
+        "key": "id",
+        "value": "",
+        "description": "This parameter can be a string or an integer."
+        }
+    ],
+    "query": [
+    ]
+    },
+    "description": "A Pokédex is a handheld electronic encyclopedia device; one which is capable of recording and retaining information of the various Pokémon in a given region with the exception of the national dex and some smaller dexes related to portions of a region. See [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Pokedex) for greater detail."
+}
+                                ,"response": [
+                            ]
+                            }
+                            ]
+                        },
+	                        {
+    "name": "/api/v2/version-group/",
+                "description": "Version groups categorize highly similar versions of the games.",
+                 "item": [
+                            {
+                                "name": "List version groups",
+                                "request": {
+    "method": "GET",
+    "header": [
+        {
+        "key": "Accept",
+        "value": "application/json",
+        "description": "",
+        "disabled": false
+        }
+    ],
+    "body": {
+    "mode": "raw",
+    "raw": "",
+    "options": {
+    "raw": {
+    "language": "json"
+    }
+    }
+    },
+    "url": {
+    "raw": "{{baseUrl}}/api/v2/version-group/",
+    "host": [
+    "{{baseUrl}}"
+    ],
+    "path": [
+        "api",
+        "v2",
+        "version-group"
+    ],
+    "variable": [
+    ],
+    "query": [
+        {
+        "key": "limit",
+        "value": "56",
+        "description": "Number of results to return per page.",
+        "disabled": true
+        },
+        {
+        "key": "offset",
+        "value": "56",
+        "description": "The initial index from which to return the results.",
+        "disabled": true
+        },
+        {
+        "key": "q",
+        "value": "q_example",
+        "description": "> Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. ",
+        "disabled": true
+        }
+    ]
+    },
+    "description": "Version groups categorize highly similar versions of the games."
+}
+                                ,"response": [
+                            ]
+                            }
+                            ]
+                        },
+	                        {
+    "name": "/api/v2/version-group/:id/",
+                "description": "Version groups categorize highly similar versions of the games.",
+                 "item": [
+                            {
+                                "name": "Get version group",
+                                "request": {
+    "method": "GET",
+    "header": [
+        {
+        "key": "Accept",
+        "value": "application/json",
+        "description": "",
+        "disabled": false
+        }
+    ],
+    "body": {
+    "mode": "raw",
+    "raw": "",
+    "options": {
+    "raw": {
+    "language": "json"
+    }
+    }
+    },
+    "url": {
+    "raw": "{{baseUrl}}/api/v2/version-group/:id/",
+    "host": [
+    "{{baseUrl}}"
+    ],
+    "path": [
+        "api",
+        "v2",
+        "version-group",
+        ":id"
+    ],
+    "variable": [
+        {
+        "key": "id",
+        "value": "",
+        "description": "This parameter can be a string or an integer."
+        }
+    ],
+    "query": [
+    ]
+    },
+    "description": "Version groups categorize highly similar versions of the games."
+}
+                                ,"response": [
+                            ]
+                            }
+                            ]
+                        },
+	                        {
+    "name": "/api/v2/version/",
+                "description": "Versions of the games, e.g., Red, Blue or Yellow.",
+                 "item": [
+                            {
+                                "name": "List versions",
+                                "request": {
+    "method": "GET",
+    "header": [
+        {
+        "key": "Accept",
+        "value": "application/json",
+        "description": "",
+        "disabled": false
+        }
+    ],
+    "body": {
+    "mode": "raw",
+    "raw": "",
+    "options": {
+    "raw": {
+    "language": "json"
+    }
+    }
+    },
+    "url": {
+    "raw": "{{baseUrl}}/api/v2/version/",
+    "host": [
+    "{{baseUrl}}"
+    ],
+    "path": [
+        "api",
+        "v2",
+        "version"
+    ],
+    "variable": [
+    ],
+    "query": [
+        {
+        "key": "limit",
+        "value": "56",
+        "description": "Number of results to return per page.",
+        "disabled": true
+        },
+        {
+        "key": "offset",
+        "value": "56",
+        "description": "The initial index from which to return the results.",
+        "disabled": true
+        },
+        {
+        "key": "q",
+        "value": "q_example",
+        "description": "> Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. ",
+        "disabled": true
+        }
+    ]
+    },
+    "description": "Versions of the games, e.g., Red, Blue or Yellow."
+}
+                                ,"response": [
+                            ]
+                            }
+                            ]
+                        },
+	                        {
+    "name": "/api/v2/version/:id/",
+                "description": "Versions of the games, e.g., Red, Blue or Yellow.",
+                 "item": [
+                            {
+                                "name": "Get version",
+                                "request": {
+    "method": "GET",
+    "header": [
+        {
+        "key": "Accept",
+        "value": "application/json",
+        "description": "",
+        "disabled": false
+        }
+    ],
+    "body": {
+    "mode": "raw",
+    "raw": "",
+    "options": {
+    "raw": {
+    "language": "json"
+    }
+    }
+    },
+    "url": {
+    "raw": "{{baseUrl}}/api/v2/version/:id/",
+    "host": [
+    "{{baseUrl}}"
+    ],
+    "path": [
+        "api",
+        "v2",
+        "version",
+        ":id"
+    ],
+    "variable": [
+        {
+        "key": "id",
+        "value": "",
+        "description": "This parameter can be a string or an integer."
+        }
+    ],
+    "query": [
+    ]
+    },
+    "description": "Versions of the games, e.g., Red, Blue or Yellow."
+}
+                                ,"response": [
+                            ]
+                            }
+                            ]
+                        }
+	                    ]
+	        },
+	        {
+	            "name": "contests",
+	            "description": "contests tag",
+	            "item": [
+	                        {
+    "name": "/api/v2/contest-effect/",
+                "description": "Contest effects refer to the effects of moves when used in contests.",
+                 "item": [
+                            {
+                                "name": "List contest effects",
+                                "request": {
+    "method": "GET",
+    "header": [
+        {
+        "key": "Accept",
+        "value": "application/json",
+        "description": "",
+        "disabled": false
+        }
+    ],
+    "body": {
+    "mode": "raw",
+    "raw": "",
+    "options": {
+    "raw": {
+    "language": "json"
+    }
+    }
+    },
+    "url": {
+    "raw": "{{baseUrl}}/api/v2/contest-effect/",
+    "host": [
+    "{{baseUrl}}"
+    ],
+    "path": [
+        "api",
+        "v2",
+        "contest-effect"
+    ],
+    "variable": [
+    ],
+    "query": [
+        {
+        "key": "limit",
+        "value": "56",
+        "description": "Number of results to return per page.",
+        "disabled": true
+        },
+        {
+        "key": "offset",
+        "value": "56",
+        "description": "The initial index from which to return the results.",
+        "disabled": true
+        },
+        {
+        "key": "q",
+        "value": "q_example",
+        "description": "> Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. ",
+        "disabled": true
+        }
+    ]
+    },
+    "description": "Contest effects refer to the effects of moves when used in contests."
+}
+                                ,"response": [
+                            ]
+                            }
+                            ]
+                        },
+	                        {
+    "name": "/api/v2/contest-effect/:id/",
+                "description": "Contest effects refer to the effects of moves when used in contests.",
+                 "item": [
+                            {
+                                "name": "Get contest effect",
+                                "request": {
+    "method": "GET",
+    "header": [
+        {
+        "key": "Accept",
+        "value": "application/json",
+        "description": "",
+        "disabled": false
+        }
+    ],
+    "body": {
+    "mode": "raw",
+    "raw": "",
+    "options": {
+    "raw": {
+    "language": "json"
+    }
+    }
+    },
+    "url": {
+    "raw": "{{baseUrl}}/api/v2/contest-effect/:id/",
+    "host": [
+    "{{baseUrl}}"
+    ],
+    "path": [
+        "api",
+        "v2",
+        "contest-effect",
+        ":id"
+    ],
+    "variable": [
+        {
+        "key": "id",
+        "value": "",
+        "description": "This parameter can be a string or an integer."
+        }
+    ],
+    "query": [
+    ]
+    },
+    "description": "Contest effects refer to the effects of moves when used in contests."
+}
+                                ,"response": [
+                            ]
+                            }
+                            ]
+                        },
+	                        {
+    "name": "/api/v2/contest-type/",
+                "description": "Contest types are categories judges used to weigh a Pokémon's condition in Pokémon contests. Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Contest_condition) for greater detail.",
+                 "item": [
+                            {
+                                "name": "List contest types",
+                                "request": {
+    "method": "GET",
+    "header": [
+        {
+        "key": "Accept",
+        "value": "application/json",
+        "description": "",
+        "disabled": false
+        }
+    ],
+    "body": {
+    "mode": "raw",
+    "raw": "",
+    "options": {
+    "raw": {
+    "language": "json"
+    }
+    }
+    },
+    "url": {
+    "raw": "{{baseUrl}}/api/v2/contest-type/",
+    "host": [
+    "{{baseUrl}}"
+    ],
+    "path": [
+        "api",
+        "v2",
+        "contest-type"
+    ],
+    "variable": [
+    ],
+    "query": [
+        {
+        "key": "limit",
+        "value": "56",
+        "description": "Number of results to return per page.",
+        "disabled": true
+        },
+        {
+        "key": "offset",
+        "value": "56",
+        "description": "The initial index from which to return the results.",
+        "disabled": true
+        },
+        {
+        "key": "q",
+        "value": "q_example",
+        "description": "> Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. ",
+        "disabled": true
+        }
+    ]
+    },
+    "description": "Contest types are categories judges used to weigh a Pokémon's condition in Pokémon contests. Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Contest_condition) for greater detail."
+}
+                                ,"response": [
+                            ]
+                            }
+                            ]
+                        },
+	                        {
+    "name": "/api/v2/contest-type/:id/",
+                "description": "Contest types are categories judges used to weigh a Pokémon's condition in Pokémon contests. Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Contest_condition) for greater detail.",
+                 "item": [
+                            {
+                                "name": "Get contest type",
+                                "request": {
+    "method": "GET",
+    "header": [
+        {
+        "key": "Accept",
+        "value": "application/json",
+        "description": "",
+        "disabled": false
+        }
+    ],
+    "body": {
+    "mode": "raw",
+    "raw": "",
+    "options": {
+    "raw": {
+    "language": "json"
+    }
+    }
+    },
+    "url": {
+    "raw": "{{baseUrl}}/api/v2/contest-type/:id/",
+    "host": [
+    "{{baseUrl}}"
+    ],
+    "path": [
+        "api",
+        "v2",
+        "contest-type",
+        ":id"
+    ],
+    "variable": [
+        {
+        "key": "id",
+        "value": "",
+        "description": "This parameter can be a string or an integer."
+        }
+    ],
+    "query": [
+    ]
+    },
+    "description": "Contest types are categories judges used to weigh a Pokémon's condition in Pokémon contests. Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Contest_condition) for greater detail."
+}
+                                ,"response": [
+                            ]
+                            }
+                            ]
+                        },
+	                        {
+    "name": "/api/v2/super-contest-effect/",
+                "description": "Super contest effects refer to the effects of moves when used in super contests.",
+                 "item": [
+                            {
+                                "name": "List super contest effects",
+                                "request": {
+    "method": "GET",
+    "header": [
+        {
+        "key": "Accept",
+        "value": "application/json",
+        "description": "",
+        "disabled": false
+        }
+    ],
+    "body": {
+    "mode": "raw",
+    "raw": "",
+    "options": {
+    "raw": {
+    "language": "json"
+    }
+    }
+    },
+    "url": {
+    "raw": "{{baseUrl}}/api/v2/super-contest-effect/",
+    "host": [
+    "{{baseUrl}}"
+    ],
+    "path": [
+        "api",
+        "v2",
+        "super-contest-effect"
+    ],
+    "variable": [
+    ],
+    "query": [
+        {
+        "key": "limit",
+        "value": "56",
+        "description": "Number of results to return per page.",
+        "disabled": true
+        },
+        {
+        "key": "offset",
+        "value": "56",
+        "description": "The initial index from which to return the results.",
+        "disabled": true
+        },
+        {
+        "key": "q",
+        "value": "q_example",
+        "description": "> Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. ",
+        "disabled": true
+        }
+    ]
+    },
+    "description": "Super contest effects refer to the effects of moves when used in super contests."
+}
+                                ,"response": [
+                            ]
+                            }
+                            ]
+                        },
+	                        {
+    "name": "/api/v2/super-contest-effect/:id/",
+                "description": "Super contest effects refer to the effects of moves when used in super contests.",
+                 "item": [
+                            {
+                                "name": "Get super contest effect",
+                                "request": {
+    "method": "GET",
+    "header": [
+        {
+        "key": "Accept",
+        "value": "application/json",
+        "description": "",
+        "disabled": false
+        }
+    ],
+    "body": {
+    "mode": "raw",
+    "raw": "",
+    "options": {
+    "raw": {
+    "language": "json"
+    }
+    }
+    },
+    "url": {
+    "raw": "{{baseUrl}}/api/v2/super-contest-effect/:id/",
+    "host": [
+    "{{baseUrl}}"
+    ],
+    "path": [
+        "api",
+        "v2",
+        "super-contest-effect",
+        ":id"
+    ],
+    "variable": [
+        {
+        "key": "id",
+        "value": "",
+        "description": "This parameter can be a string or an integer."
+        }
+    ],
+    "query": [
+    ]
+    },
+    "description": "Super contest effects refer to the effects of moves when used in super contests."
+}
+                                ,"response": [
+                            ]
+                            }
+                            ]
+                        }
+	                    ]
+	        },
+	        {
+	            "name": "machines",
+	            "description": "Machines are the representation of items that teach moves to Pokémon. They vary from version to version, so it is not certain that one specific TM or HM corresponds to a single Machine.",
+	            "item": [
+	                        {
+    "name": "/api/v2/machine/",
+                "description": "Machines are the representation of items that teach moves to Pokémon. They vary from version to version, so it is not certain that one specific TM or HM corresponds to a single Machine.",
+                 "item": [
+                            {
+                                "name": "List machines",
+                                "request": {
+    "method": "GET",
+    "header": [
+        {
+        "key": "Accept",
+        "value": "application/json",
+        "description": "",
+        "disabled": false
+        }
+    ],
+    "body": {
+    "mode": "raw",
+    "raw": "",
+    "options": {
+    "raw": {
+    "language": "json"
+    }
+    }
+    },
+    "url": {
+    "raw": "{{baseUrl}}/api/v2/machine/",
+    "host": [
+    "{{baseUrl}}"
+    ],
+    "path": [
+        "api",
+        "v2",
+        "machine"
+    ],
+    "variable": [
+    ],
+    "query": [
+        {
+        "key": "limit",
+        "value": "56",
+        "description": "Number of results to return per page.",
+        "disabled": true
+        },
+        {
+        "key": "offset",
+        "value": "56",
+        "description": "The initial index from which to return the results.",
+        "disabled": true
+        },
+        {
+        "key": "q",
+        "value": "q_example",
+        "description": "> Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. ",
+        "disabled": true
+        }
+    ]
+    },
+    "description": "Machines are the representation of items that teach moves to Pokémon. They vary from version to version, so it is not certain that one specific TM or HM corresponds to a single Machine."
+}
+                                ,"response": [
+                            ]
+                            }
+                            ]
+                        },
+	                        {
+    "name": "/api/v2/machine/:id/",
+                "description": "Machines are the representation of items that teach moves to Pokémon. They vary from version to version, so it is not certain that one specific TM or HM corresponds to a single Machine.",
+                 "item": [
+                            {
+                                "name": "Get machine",
+                                "request": {
+    "method": "GET",
+    "header": [
+        {
+        "key": "Accept",
+        "value": "application/json",
+        "description": "",
+        "disabled": false
+        }
+    ],
+    "body": {
+    "mode": "raw",
+    "raw": "",
+    "options": {
+    "raw": {
+    "language": "json"
+    }
+    }
+    },
+    "url": {
+    "raw": "{{baseUrl}}/api/v2/machine/:id/",
+    "host": [
+    "{{baseUrl}}"
+    ],
+    "path": [
+        "api",
+        "v2",
+        "machine",
+        ":id"
+    ],
+    "variable": [
+        {
+        "key": "id",
+        "value": "",
+        "description": "This parameter can be a string or an integer."
+        }
+    ],
+    "query": [
+    ]
+    },
+    "description": "Machines are the representation of items that teach moves to Pokémon. They vary from version to version, so it is not certain that one specific TM or HM corresponds to a single Machine."
+}
+                                ,"response": [
+                            ]
+                            }
+                            ]
+                        }
+	                    ]
+	        },
+	        {
+	            "name": "evolution",
+	            "description": "Evolution is a process in which a Pokémon changes into a different species of Pokémon.",
+	            "item": [
+	                        {
+    "name": "/api/v2/evolution-chain/",
+                "description": "Evolution chains are essentially family trees. They start with the lowest stage within a family and detail evolution conditions for each as well as Pokémon they can evolve into up through the hierarchy.",
+                 "item": [
+                            {
+                                "name": "List evolution chains",
+                                "request": {
+    "method": "GET",
+    "header": [
+        {
+        "key": "Accept",
+        "value": "application/json",
+        "description": "",
+        "disabled": false
+        }
+    ],
+    "body": {
+    "mode": "raw",
+    "raw": "",
+    "options": {
+    "raw": {
+    "language": "json"
+    }
+    }
+    },
+    "url": {
+    "raw": "{{baseUrl}}/api/v2/evolution-chain/",
+    "host": [
+    "{{baseUrl}}"
+    ],
+    "path": [
+        "api",
+        "v2",
+        "evolution-chain"
+    ],
+    "variable": [
+    ],
+    "query": [
+        {
+        "key": "limit",
+        "value": "56",
+        "description": "Number of results to return per page.",
+        "disabled": true
+        },
+        {
+        "key": "offset",
+        "value": "56",
+        "description": "The initial index from which to return the results.",
+        "disabled": true
+        },
+        {
+        "key": "q",
+        "value": "q_example",
+        "description": "> Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. ",
+        "disabled": true
+        }
+    ]
+    },
+    "description": "Evolution chains are essentially family trees. They start with the lowest stage within a family and detail evolution conditions for each as well as Pokémon they can evolve into up through the hierarchy."
+}
+                                ,"response": [
+                            ]
+                            }
+                            ]
+                        },
+	                        {
+    "name": "/api/v2/evolution-chain/:id/",
+                "description": "Evolution chains are essentially family trees. They start with the lowest stage within a family and detail evolution conditions for each as well as Pokémon they can evolve into up through the hierarchy.",
+                 "item": [
+                            {
+                                "name": "Get evolution chain",
+                                "request": {
+    "method": "GET",
+    "header": [
+        {
+        "key": "Accept",
+        "value": "application/json",
+        "description": "",
+        "disabled": false
+        }
+    ],
+    "body": {
+    "mode": "raw",
+    "raw": "",
+    "options": {
+    "raw": {
+    "language": "json"
+    }
+    }
+    },
+    "url": {
+    "raw": "{{baseUrl}}/api/v2/evolution-chain/:id/",
+    "host": [
+    "{{baseUrl}}"
+    ],
+    "path": [
+        "api",
+        "v2",
+        "evolution-chain",
+        ":id"
+    ],
+    "variable": [
+        {
+        "key": "id",
+        "value": "",
+        "description": "This parameter can be a string or an integer."
+        }
+    ],
+    "query": [
+    ]
+    },
+    "description": "Evolution chains are essentially family trees. They start with the lowest stage within a family and detail evolution conditions for each as well as Pokémon they can evolve into up through the hierarchy."
+}
+                                ,"response": [
+                            ]
+                            }
+                            ]
+                        },
+	                        {
+    "name": "/api/v2/evolution-trigger/",
+                "description": "Evolution triggers are the events and conditions that cause a Pokémon to evolve. Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Methods_of_evolution) for greater detail.",
+                 "item": [
+                            {
+                                "name": "List evolution triggers",
+                                "request": {
+    "method": "GET",
+    "header": [
+        {
+        "key": "Accept",
+        "value": "application/json",
+        "description": "",
+        "disabled": false
+        }
+    ],
+    "body": {
+    "mode": "raw",
+    "raw": "",
+    "options": {
+    "raw": {
+    "language": "json"
+    }
+    }
+    },
+    "url": {
+    "raw": "{{baseUrl}}/api/v2/evolution-trigger/",
+    "host": [
+    "{{baseUrl}}"
+    ],
+    "path": [
+        "api",
+        "v2",
+        "evolution-trigger"
+    ],
+    "variable": [
+    ],
+    "query": [
+        {
+        "key": "limit",
+        "value": "56",
+        "description": "Number of results to return per page.",
+        "disabled": true
+        },
+        {
+        "key": "offset",
+        "value": "56",
+        "description": "The initial index from which to return the results.",
+        "disabled": true
+        },
+        {
+        "key": "q",
+        "value": "q_example",
+        "description": "> Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. ",
+        "disabled": true
+        }
+    ]
+    },
+    "description": "Evolution triggers are the events and conditions that cause a Pokémon to evolve. Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Methods_of_evolution) for greater detail."
+}
+                                ,"response": [
+                            ]
+                            }
+                            ]
+                        },
+	                        {
+    "name": "/api/v2/evolution-trigger/:id/",
+                "description": "Evolution triggers are the events and conditions that cause a Pokémon to evolve. Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Methods_of_evolution) for greater detail.",
+                 "item": [
+                            {
+                                "name": "Get evolution trigger",
+                                "request": {
+    "method": "GET",
+    "header": [
+        {
+        "key": "Accept",
+        "value": "application/json",
+        "description": "",
+        "disabled": false
+        }
+    ],
+    "body": {
+    "mode": "raw",
+    "raw": "",
+    "options": {
+    "raw": {
+    "language": "json"
+    }
+    }
+    },
+    "url": {
+    "raw": "{{baseUrl}}/api/v2/evolution-trigger/:id/",
+    "host": [
+    "{{baseUrl}}"
+    ],
+    "path": [
+        "api",
+        "v2",
+        "evolution-trigger",
+        ":id"
+    ],
+    "variable": [
+        {
+        "key": "id",
+        "value": "",
+        "description": "This parameter can be a string or an integer."
+        }
+    ],
+    "query": [
+    ]
+    },
+    "description": "Evolution triggers are the events and conditions that cause a Pokémon to evolve. Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Methods_of_evolution) for greater detail."
+}
+                                ,"response": [
+                            ]
+                            }
+                            ]
+                        }
+	                    ]
+	        }
+    ],
+    "auth": {
+            		"type": "basic",
+            		"basic": [
+            			{
+            				"key": "username",
+            				"value": "{{USERNAME}}",
+            				"type": "string"
+            			},
+            			{
+            				"key": "password",
+            				"value": "{{PASSWORD}}",
+            				"type": "string"
+            			}
+            		]
+            	},
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "https://pokeapi.co",
+			"type": "string"
+        },
+        {
+            "key": "sessionid",
+            "value": "",
+            "type": "string"
+        }
+	]
+}
+

@@ -86,7 +86,7 @@ BerryDetail_flavors_inner::getPotency()
 }
 
 void
-BerryDetail_flavors_inner::setPotency(int  potency)
+BerryDetail_flavors_inner::setPotency(int potency)
 {
 	this->potency = potency;
 }
@@ -98,7 +98,7 @@ BerryDetail_flavors_inner::getFlavor()
 }
 
 void
-BerryDetail_flavors_inner::setFlavor(BerryDetail_flavors_inner_flavor  flavor)
+BerryDetail_flavors_inner::setFlavor(BerryDetail_flavors_inner_flavor flavor)
 {
 	this->flavor = flavor;
 }

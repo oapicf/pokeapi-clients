@@ -95,10 +95,24 @@ class GenerationDetail {
       // Note 1: the values aren't checked for validity beyond being non-null.
       // Note 2: this code is stripped in release mode!
       assert(() {
-        requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "GenerationDetail[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "GenerationDetail[$key]" has a null value in JSON.');
-        });
+        assert(json.containsKey(r'id'), 'Required key "GenerationDetail[id]" is missing from JSON.');
+        assert(json[r'id'] != null, 'Required key "GenerationDetail[id]" has a null value in JSON.');
+        assert(json.containsKey(r'name'), 'Required key "GenerationDetail[name]" is missing from JSON.');
+        assert(json[r'name'] != null, 'Required key "GenerationDetail[name]" has a null value in JSON.');
+        assert(json.containsKey(r'abilities'), 'Required key "GenerationDetail[abilities]" is missing from JSON.');
+        assert(json[r'abilities'] != null, 'Required key "GenerationDetail[abilities]" has a null value in JSON.');
+        assert(json.containsKey(r'main_region'), 'Required key "GenerationDetail[main_region]" is missing from JSON.');
+        assert(json[r'main_region'] != null, 'Required key "GenerationDetail[main_region]" has a null value in JSON.');
+        assert(json.containsKey(r'moves'), 'Required key "GenerationDetail[moves]" is missing from JSON.');
+        assert(json[r'moves'] != null, 'Required key "GenerationDetail[moves]" has a null value in JSON.');
+        assert(json.containsKey(r'names'), 'Required key "GenerationDetail[names]" is missing from JSON.');
+        assert(json[r'names'] != null, 'Required key "GenerationDetail[names]" has a null value in JSON.');
+        assert(json.containsKey(r'pokemon_species'), 'Required key "GenerationDetail[pokemon_species]" is missing from JSON.');
+        assert(json[r'pokemon_species'] != null, 'Required key "GenerationDetail[pokemon_species]" has a null value in JSON.');
+        assert(json.containsKey(r'types'), 'Required key "GenerationDetail[types]" is missing from JSON.');
+        assert(json[r'types'] != null, 'Required key "GenerationDetail[types]" has a null value in JSON.');
+        assert(json.containsKey(r'version_groups'), 'Required key "GenerationDetail[version_groups]" is missing from JSON.');
+        assert(json[r'version_groups'] != null, 'Required key "GenerationDetail[version_groups]" has a null value in JSON.');
         return true;
       }());
 

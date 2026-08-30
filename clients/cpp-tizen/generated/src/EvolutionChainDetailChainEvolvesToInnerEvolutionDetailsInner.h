@@ -70,18 +70,18 @@ public:
 	void setItem(EvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner_gender  item);
 	/*! \brief Get 
 	 */
-	std::string getKnownMove();
+	EvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner_gender getKnownMove();
 
 	/*! \brief Set 
 	 */
-	void setKnownMove(std::string  known_move);
+	void setKnownMove(EvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner_gender  known_move);
 	/*! \brief Get 
 	 */
-	std::string getKnownMoveType();
+	EvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner_gender getKnownMoveType();
 
 	/*! \brief Set 
 	 */
-	void setKnownMoveType(std::string  known_move_type);
+	void setKnownMoveType(EvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner_gender  known_move_type);
 	/*! \brief Get 
 	 */
 	EvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner_gender getLocation();
@@ -178,8 +178,8 @@ private:
 	EvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner_gender gender;
 	EvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner_gender held_item;
 	EvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner_gender item;
-	std::string known_move;
-	std::string known_move_type;
+	EvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner_gender known_move;
+	EvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner_gender known_move_type;
 	EvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner_gender location;
 	int min_affection;
 	int min_beauty;

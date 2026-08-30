@@ -67,7 +67,8 @@ class PaginatedPalParkAreaSummaryList extends BaseModel
       "type" : "array",
       "items" : {
         "$ref" : "#/components/schemas/PalParkAreaSummary"
-      }
+      },
+      "default" : null
     }
   }
 }

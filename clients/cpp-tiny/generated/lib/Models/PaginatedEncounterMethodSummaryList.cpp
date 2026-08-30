@@ -144,7 +144,7 @@ PaginatedEncounterMethodSummaryList::getCount()
 }
 
 void
-PaginatedEncounterMethodSummaryList::setCount(int  count)
+PaginatedEncounterMethodSummaryList::setCount(int count)
 {
 	this->count = count;
 }
@@ -156,7 +156,7 @@ PaginatedEncounterMethodSummaryList::getNext()
 }
 
 void
-PaginatedEncounterMethodSummaryList::setNext(std::string  next)
+PaginatedEncounterMethodSummaryList::setNext(std::string next)
 {
 	this->next = next;
 }
@@ -168,7 +168,7 @@ PaginatedEncounterMethodSummaryList::getPrevious()
 }
 
 void
-PaginatedEncounterMethodSummaryList::setPrevious(std::string  previous)
+PaginatedEncounterMethodSummaryList::setPrevious(std::string previous)
 {
 	this->previous = previous;
 }
@@ -180,7 +180,7 @@ PaginatedEncounterMethodSummaryList::getResults()
 }
 
 void
-PaginatedEncounterMethodSummaryList::setResults(std::list <EncounterMethodSummary> results)
+PaginatedEncounterMethodSummaryList::setResults(std::list<EncounterMethodSummary> results)
 {
 	this->results = results;
 }

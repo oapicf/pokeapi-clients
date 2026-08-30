@@ -21,7 +21,7 @@
 
 namespace OpenAPI {
 
-OAIItemPocketDetail::OAIItemPocketDetail(QString json) {
+OAIItemPocketDetail::OAIItemPocketDetail(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -47,7 +47,7 @@ void OAIItemPocketDetail::initializeModel() {
     m_names_isValid = false;
 }
 
-void OAIItemPocketDetail::fromJson(QString jsonString) {
+void OAIItemPocketDetail::fromJson(const QString &jsonString) {
     QByteArray array(jsonString.toStdString().c_str());
     QJsonDocument doc = QJsonDocument::fromJson(array);
     QJsonObject jsonObject = doc.object();

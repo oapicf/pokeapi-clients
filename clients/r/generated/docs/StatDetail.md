@@ -10,8 +10,8 @@ Name | Type | Description | Notes
 **is_battle_only** | **character** |  | [optional] 
 **affecting_moves** | [**StatDetailAffectingMoves**](StatDetail_affecting_moves.md) |  | 
 **affecting_natures** | [**StatDetailAffectingNatures**](StatDetail_affecting_natures.md) |  | 
-**characteristics** | [**array[CharacteristicSummary]**](CharacteristicSummary.md) |  | 
+**characteristics** | [**array[CharacteristicSummary]**](CharacteristicSummary.md) |  | [readonly] 
 **move_damage_class** | [**MoveDamageClassSummary**](MoveDamageClassSummary.md) |  | 
-**names** | [**array[StatName]**](StatName.md) |  | 
+**names** | [**array[StatName]**](StatName.md) |  | [readonly] 
 
 

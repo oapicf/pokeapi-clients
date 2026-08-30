@@ -1,6 +1,5 @@
 .gitattributes
 .gitignore
-.openapi-generator-ignore
 README.md
 apis/BerriesApi.ts
 apis/ContestsApi.ts

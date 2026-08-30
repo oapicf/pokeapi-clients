@@ -86,7 +86,7 @@ MoveLearnMethodName::getName()
 }
 
 void
-MoveLearnMethodName::setName(std::string  name)
+MoveLearnMethodName::setName(std::string name)
 {
 	this->name = name;
 }
@@ -98,7 +98,7 @@ MoveLearnMethodName::getLanguage()
 }
 
 void
-MoveLearnMethodName::setLanguage(LanguageSummary  language)
+MoveLearnMethodName::setLanguage(LanguageSummary language)
 {
 	this->language = language;
 }

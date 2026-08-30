@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 **id** | `Integer` |  |  [readonly property]
 **name** | `String` |  | 
 **condition** | [`EncounterConditionSummary`](EncounterConditionSummary.md) |  | 
-**names** | [`List&lt;EncounterConditionValueName&gt;`](EncounterConditionValueName.md) |  | 
+**names** | [`List&lt;EncounterConditionValueName&gt;`](EncounterConditionValueName.md) |  |  [readonly property]
 
 
 

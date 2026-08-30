@@ -144,7 +144,7 @@ PaginatedStatSummaryList::getCount()
 }
 
 void
-PaginatedStatSummaryList::setCount(int  count)
+PaginatedStatSummaryList::setCount(int count)
 {
 	this->count = count;
 }
@@ -156,7 +156,7 @@ PaginatedStatSummaryList::getNext()
 }
 
 void
-PaginatedStatSummaryList::setNext(std::string  next)
+PaginatedStatSummaryList::setNext(std::string next)
 {
 	this->next = next;
 }
@@ -168,7 +168,7 @@ PaginatedStatSummaryList::getPrevious()
 }
 
 void
-PaginatedStatSummaryList::setPrevious(std::string  previous)
+PaginatedStatSummaryList::setPrevious(std::string previous)
 {
 	this->previous = previous;
 }
@@ -180,7 +180,7 @@ PaginatedStatSummaryList::getResults()
 }
 
 void
-PaginatedStatSummaryList::setResults(std::list <StatSummary> results)
+PaginatedStatSummaryList::setResults(std::list<StatSummary> results)
 {
 	this->results = results;
 }

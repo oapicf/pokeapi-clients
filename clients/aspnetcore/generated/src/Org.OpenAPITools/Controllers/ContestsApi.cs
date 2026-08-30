@@ -48,7 +48,7 @@ namespace Org.OpenAPITools.Controllers
             //TODO: Uncomment the next line to return response 200 or use other options such as return this.NotFound(), return this.BadRequest(..), ...
             // return StatusCode(200, default);
             string exampleJson = null;
-            exampleJson = "{\n  \"next\" : \"http://api.example.org/accounts/?offset=400&limit=100\",\n  \"previous\" : \"http://api.example.org/accounts/?offset=200&limit=100\",\n  \"count\" : 123,\n  \"results\" : [ {\n    \"url\" : \"https://openapi-generator.tech\"\n  }, {\n    \"url\" : \"https://openapi-generator.tech\"\n  } ]\n}";
+            exampleJson = "{\n  \"count\" : 123,\n  \"next\" : \"http://api.example.org/accounts/?offset=400&limit=100\",\n  \"previous\" : \"http://api.example.org/accounts/?offset=200&limit=100\",\n  \"results\" : [ {\n    \"url\" : \"https://openapi-generator.tech\"\n  }, {\n    \"url\" : \"https://openapi-generator.tech\"\n  } ]\n}";
             
             var example = exampleJson != null
             ? JsonConvert.DeserializeObject<PaginatedContestEffectSummaryList>(exampleJson)
@@ -75,7 +75,7 @@ namespace Org.OpenAPITools.Controllers
             //TODO: Uncomment the next line to return response 200 or use other options such as return this.NotFound(), return this.BadRequest(..), ...
             // return StatusCode(200, default);
             string exampleJson = null;
-            exampleJson = "{\n  \"effect_entries\" : [ {\n    \"effect\" : \"effect\",\n    \"language\" : {\n      \"name\" : \"name\",\n      \"url\" : \"https://openapi-generator.tech\"\n    }\n  }, {\n    \"effect\" : \"effect\",\n    \"language\" : {\n      \"name\" : \"name\",\n      \"url\" : \"https://openapi-generator.tech\"\n    }\n  } ],\n  \"jam\" : 1,\n  \"flavor_text_entries\" : [ {\n    \"language\" : {\n      \"name\" : \"name\",\n      \"url\" : \"https://openapi-generator.tech\"\n    },\n    \"flavor_text\" : \"flavor_text\"\n  }, {\n    \"language\" : {\n      \"name\" : \"name\",\n      \"url\" : \"https://openapi-generator.tech\"\n    },\n    \"flavor_text\" : \"flavor_text\"\n  } ],\n  \"id\" : 0,\n  \"appeal\" : 6\n}";
+            exampleJson = "{\n  \"id\" : 0,\n  \"appeal\" : 6,\n  \"jam\" : 1,\n  \"effect_entries\" : [ {\n    \"effect\" : \"effect\",\n    \"language\" : {\n      \"name\" : \"name\",\n      \"url\" : \"https://openapi-generator.tech\"\n    }\n  }, {\n    \"effect\" : \"effect\",\n    \"language\" : {\n      \"name\" : \"name\",\n      \"url\" : \"https://openapi-generator.tech\"\n    }\n  } ],\n  \"flavor_text_entries\" : [ {\n    \"flavor_text\" : \"flavor_text\",\n    \"language\" : {\n      \"name\" : \"name\",\n      \"url\" : \"https://openapi-generator.tech\"\n    }\n  }, {\n    \"flavor_text\" : \"flavor_text\",\n    \"language\" : {\n      \"name\" : \"name\",\n      \"url\" : \"https://openapi-generator.tech\"\n    }\n  } ]\n}";
             
             var example = exampleJson != null
             ? JsonConvert.DeserializeObject<ContestEffectDetail>(exampleJson)
@@ -104,7 +104,7 @@ namespace Org.OpenAPITools.Controllers
             //TODO: Uncomment the next line to return response 200 or use other options such as return this.NotFound(), return this.BadRequest(..), ...
             // return StatusCode(200, default);
             string exampleJson = null;
-            exampleJson = "{\n  \"next\" : \"http://api.example.org/accounts/?offset=400&limit=100\",\n  \"previous\" : \"http://api.example.org/accounts/?offset=200&limit=100\",\n  \"count\" : 123,\n  \"results\" : [ {\n    \"name\" : \"name\",\n    \"url\" : \"https://openapi-generator.tech\"\n  }, {\n    \"name\" : \"name\",\n    \"url\" : \"https://openapi-generator.tech\"\n  } ]\n}";
+            exampleJson = "{\n  \"count\" : 123,\n  \"next\" : \"http://api.example.org/accounts/?offset=400&limit=100\",\n  \"previous\" : \"http://api.example.org/accounts/?offset=200&limit=100\",\n  \"results\" : [ {\n    \"name\" : \"name\",\n    \"url\" : \"https://openapi-generator.tech\"\n  }, {\n    \"name\" : \"name\",\n    \"url\" : \"https://openapi-generator.tech\"\n  } ]\n}";
             
             var example = exampleJson != null
             ? JsonConvert.DeserializeObject<PaginatedContestTypeSummaryList>(exampleJson)
@@ -131,7 +131,7 @@ namespace Org.OpenAPITools.Controllers
             //TODO: Uncomment the next line to return response 200 or use other options such as return this.NotFound(), return this.BadRequest(..), ...
             // return StatusCode(200, default);
             string exampleJson = null;
-            exampleJson = "{\n  \"berry_flavor\" : \"\",\n  \"names\" : [ {\n    \"color\" : \"color\",\n    \"name\" : \"name\",\n    \"language\" : {\n      \"name\" : \"name\",\n      \"url\" : \"https://openapi-generator.tech\"\n    }\n  }, {\n    \"color\" : \"color\",\n    \"name\" : \"name\",\n    \"language\" : {\n      \"name\" : \"name\",\n      \"url\" : \"https://openapi-generator.tech\"\n    }\n  } ],\n  \"name\" : \"name\",\n  \"id\" : 0\n}";
+            exampleJson = "{\n  \"id\" : 0,\n  \"name\" : \"name\",\n  \"berry_flavor\" : \"\",\n  \"names\" : [ {\n    \"name\" : \"name\",\n    \"color\" : \"color\",\n    \"language\" : {\n      \"name\" : \"name\",\n      \"url\" : \"https://openapi-generator.tech\"\n    }\n  }, {\n    \"name\" : \"name\",\n    \"color\" : \"color\",\n    \"language\" : {\n      \"name\" : \"name\",\n      \"url\" : \"https://openapi-generator.tech\"\n    }\n  } ]\n}";
             
             var example = exampleJson != null
             ? JsonConvert.DeserializeObject<ContestTypeDetail>(exampleJson)
@@ -160,7 +160,7 @@ namespace Org.OpenAPITools.Controllers
             //TODO: Uncomment the next line to return response 200 or use other options such as return this.NotFound(), return this.BadRequest(..), ...
             // return StatusCode(200, default);
             string exampleJson = null;
-            exampleJson = "{\n  \"next\" : \"http://api.example.org/accounts/?offset=400&limit=100\",\n  \"previous\" : \"http://api.example.org/accounts/?offset=200&limit=100\",\n  \"count\" : 123,\n  \"results\" : [ {\n    \"url\" : \"https://openapi-generator.tech\"\n  }, {\n    \"url\" : \"https://openapi-generator.tech\"\n  } ]\n}";
+            exampleJson = "{\n  \"count\" : 123,\n  \"next\" : \"http://api.example.org/accounts/?offset=400&limit=100\",\n  \"previous\" : \"http://api.example.org/accounts/?offset=200&limit=100\",\n  \"results\" : [ {\n    \"url\" : \"https://openapi-generator.tech\"\n  }, {\n    \"url\" : \"https://openapi-generator.tech\"\n  } ]\n}";
             
             var example = exampleJson != null
             ? JsonConvert.DeserializeObject<PaginatedSuperContestEffectSummaryList>(exampleJson)
@@ -187,7 +187,7 @@ namespace Org.OpenAPITools.Controllers
             //TODO: Uncomment the next line to return response 200 or use other options such as return this.NotFound(), return this.BadRequest(..), ...
             // return StatusCode(200, default);
             string exampleJson = null;
-            exampleJson = "{\n  \"moves\" : [ {\n    \"name\" : \"name\",\n    \"url\" : \"https://openapi-generator.tech\"\n  }, {\n    \"name\" : \"name\",\n    \"url\" : \"https://openapi-generator.tech\"\n  } ],\n  \"flavor_text_entries\" : [ {\n    \"language\" : {\n      \"name\" : \"name\",\n      \"url\" : \"https://openapi-generator.tech\"\n    },\n    \"flavor_text\" : \"flavor_text\"\n  }, {\n    \"language\" : {\n      \"name\" : \"name\",\n      \"url\" : \"https://openapi-generator.tech\"\n    },\n    \"flavor_text\" : \"flavor_text\"\n  } ],\n  \"id\" : 0,\n  \"appeal\" : 6\n}";
+            exampleJson = "{\n  \"id\" : 0,\n  \"appeal\" : 6,\n  \"flavor_text_entries\" : [ {\n    \"flavor_text\" : \"flavor_text\",\n    \"language\" : {\n      \"name\" : \"name\",\n      \"url\" : \"https://openapi-generator.tech\"\n    }\n  }, {\n    \"flavor_text\" : \"flavor_text\",\n    \"language\" : {\n      \"name\" : \"name\",\n      \"url\" : \"https://openapi-generator.tech\"\n    }\n  } ],\n  \"moves\" : [ {\n    \"name\" : \"name\",\n    \"url\" : \"https://openapi-generator.tech\"\n  }, {\n    \"name\" : \"name\",\n    \"url\" : \"https://openapi-generator.tech\"\n  } ]\n}";
             
             var example = exampleJson != null
             ? JsonConvert.DeserializeObject<SuperContestEffectDetail>(exampleJson)

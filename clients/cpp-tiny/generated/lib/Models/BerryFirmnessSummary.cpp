@@ -85,7 +85,7 @@ BerryFirmnessSummary::getName()
 }
 
 void
-BerryFirmnessSummary::setName(std::string  name)
+BerryFirmnessSummary::setName(std::string name)
 {
 	this->name = name;
 }
@@ -97,7 +97,7 @@ BerryFirmnessSummary::getUrl()
 }
 
 void
-BerryFirmnessSummary::setUrl(std::string  url)
+BerryFirmnessSummary::setUrl(std::string url)
 {
 	this->url = url;
 }

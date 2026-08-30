@@ -53,7 +53,7 @@ import javax.validation.Valid;
   TypeDetail.JSON_PROPERTY_MOVES,
   TypeDetail.JSON_PROPERTY_SPRITES
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJerseyServerCodegen", date = "2026-02-07T15:23:51.865177194Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJerseyServerCodegen", date = "2026-08-30T01:56:28.710233113Z[Etc/UTC]", comments = "Generator version: 7.24.0")
 public class TypeDetail   {
   public static final String JSON_PROPERTY_ID = "id";
   @JsonProperty(JSON_PROPERTY_ID)
@@ -176,9 +176,9 @@ public class TypeDetail   {
    * Get pastDamageRelations
    * @return pastDamageRelations
    **/
-  @JsonProperty(value = "past_damage_relations")
+  @JsonProperty(value = "past_damage_relations", access = JsonProperty.Access.READ_ONLY)
   @ApiModelProperty(required = true, value = "")
-  @NotNull @Valid 
+  @Valid 
   public List<@Valid TypeDetailPastDamageRelationsInner> getPastDamageRelations() {
     return pastDamageRelations;
   }
@@ -204,9 +204,9 @@ public class TypeDetail   {
    * Get gameIndices
    * @return gameIndices
    **/
-  @JsonProperty(value = "game_indices")
+  @JsonProperty(value = "game_indices", access = JsonProperty.Access.READ_ONLY)
   @ApiModelProperty(required = true, value = "")
-  @NotNull @Valid 
+  @Valid 
   public List<@Valid TypeGameIndex> getGameIndices() {
     return gameIndices;
   }
@@ -272,9 +272,9 @@ public class TypeDetail   {
    * Get names
    * @return names
    **/
-  @JsonProperty(value = "names")
+  @JsonProperty(value = "names", access = JsonProperty.Access.READ_ONLY)
   @ApiModelProperty(required = true, value = "")
-  @NotNull @Valid 
+  @Valid 
   public List<@Valid AbilityName> getNames() {
     return names;
   }
@@ -300,9 +300,9 @@ public class TypeDetail   {
    * Get pokemon
    * @return pokemon
    **/
-  @JsonProperty(value = "pokemon")
+  @JsonProperty(value = "pokemon", access = JsonProperty.Access.READ_ONLY)
   @ApiModelProperty(required = true, value = "")
-  @NotNull @Valid 
+  @Valid 
   public List<@Valid TypeDetailPokemonInner> getPokemon() {
     return pokemon;
   }
@@ -328,9 +328,9 @@ public class TypeDetail   {
    * Get moves
    * @return moves
    **/
-  @JsonProperty(value = "moves")
+  @JsonProperty(value = "moves", access = JsonProperty.Access.READ_ONLY)
   @ApiModelProperty(required = true, value = "")
-  @NotNull @Valid 
+  @Valid 
   public List<@Valid MoveSummary> getMoves() {
     return moves;
   }
@@ -420,10 +420,7 @@ public class TypeDetail   {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 }
 

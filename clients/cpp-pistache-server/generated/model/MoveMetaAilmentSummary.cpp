@@ -26,6 +26,8 @@ MoveMetaAilmentSummary::MoveMetaAilmentSummary()
     
 }
 
+MoveMetaAilmentSummary::~MoveMetaAilmentSummary() = default;
+
 void MoveMetaAilmentSummary::validate() const
 {
     std::stringstream msg;

@@ -144,7 +144,7 @@ PaginatedMoveDamageClassSummaryList::getCount()
 }
 
 void
-PaginatedMoveDamageClassSummaryList::setCount(int  count)
+PaginatedMoveDamageClassSummaryList::setCount(int count)
 {
 	this->count = count;
 }
@@ -156,7 +156,7 @@ PaginatedMoveDamageClassSummaryList::getNext()
 }
 
 void
-PaginatedMoveDamageClassSummaryList::setNext(std::string  next)
+PaginatedMoveDamageClassSummaryList::setNext(std::string next)
 {
 	this->next = next;
 }
@@ -168,7 +168,7 @@ PaginatedMoveDamageClassSummaryList::getPrevious()
 }
 
 void
-PaginatedMoveDamageClassSummaryList::setPrevious(std::string  previous)
+PaginatedMoveDamageClassSummaryList::setPrevious(std::string previous)
 {
 	this->previous = previous;
 }
@@ -180,7 +180,7 @@ PaginatedMoveDamageClassSummaryList::getResults()
 }
 
 void
-PaginatedMoveDamageClassSummaryList::setResults(std::list <MoveDamageClassSummary> results)
+PaginatedMoveDamageClassSummaryList::setResults(std::list<MoveDamageClassSummary> results)
 {
 	this->results = results;
 }

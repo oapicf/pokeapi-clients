@@ -71,10 +71,16 @@ class CharacteristicDetail {
       // Note 1: the values aren't checked for validity beyond being non-null.
       // Note 2: this code is stripped in release mode!
       assert(() {
-        requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "CharacteristicDetail[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "CharacteristicDetail[$key]" has a null value in JSON.');
-        });
+        assert(json.containsKey(r'id'), 'Required key "CharacteristicDetail[id]" is missing from JSON.');
+        assert(json[r'id'] != null, 'Required key "CharacteristicDetail[id]" has a null value in JSON.');
+        assert(json.containsKey(r'gene_modulo'), 'Required key "CharacteristicDetail[gene_modulo]" is missing from JSON.');
+        assert(json[r'gene_modulo'] != null, 'Required key "CharacteristicDetail[gene_modulo]" has a null value in JSON.');
+        assert(json.containsKey(r'possible_values'), 'Required key "CharacteristicDetail[possible_values]" is missing from JSON.');
+        assert(json[r'possible_values'] != null, 'Required key "CharacteristicDetail[possible_values]" has a null value in JSON.');
+        assert(json.containsKey(r'highest_stat'), 'Required key "CharacteristicDetail[highest_stat]" is missing from JSON.');
+        assert(json[r'highest_stat'] != null, 'Required key "CharacteristicDetail[highest_stat]" has a null value in JSON.');
+        assert(json.containsKey(r'descriptions'), 'Required key "CharacteristicDetail[descriptions]" is missing from JSON.');
+        assert(json[r'descriptions'] != null, 'Required key "CharacteristicDetail[descriptions]" has a null value in JSON.');
         return true;
       }());
 

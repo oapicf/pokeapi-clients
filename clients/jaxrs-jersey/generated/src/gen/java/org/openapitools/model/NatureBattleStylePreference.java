@@ -31,7 +31,7 @@ import javax.validation.Valid;
   NatureBattleStylePreference.JSON_PROPERTY_HIGH_HP_PREFERENCE,
   NatureBattleStylePreference.JSON_PROPERTY_MOVE_BATTLE_STYLE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJerseyServerCodegen", date = "2026-02-07T15:23:51.865177194Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJerseyServerCodegen", date = "2026-08-30T01:56:28.710233113Z[Etc/UTC]", comments = "Generator version: 7.24.0")
 public class NatureBattleStylePreference   {
   public static final String JSON_PROPERTY_LOW_HP_PREFERENCE = "low_hp_preference";
   @JsonProperty(JSON_PROPERTY_LOW_HP_PREFERENCE)
@@ -142,10 +142,7 @@ public class NatureBattleStylePreference   {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 }
 

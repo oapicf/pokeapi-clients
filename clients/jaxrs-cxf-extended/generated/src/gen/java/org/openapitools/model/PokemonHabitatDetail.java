@@ -92,6 +92,7 @@ public class PokemonHabitatDetail  {
 
   /**
    * Sets the <code>names</code> property.
+   * <br><em>N.B. <code>names</code> is <b>read only</b>; client code should not call this method</em>.
    */
  public void setNames(List<@Valid PokemonHabitatName> names) {
     this.names = names;
@@ -99,6 +100,7 @@ public class PokemonHabitatDetail  {
 
   /**
    * Sets the <code>names</code> property.
+   * <br><em>N.B. <code>names</code> is <b>read only</b>; client code should not call this method</em>.
    */
   public PokemonHabitatDetail names(List<@Valid PokemonHabitatName> names) {
     this.names = names;
@@ -107,6 +109,7 @@ public class PokemonHabitatDetail  {
 
   /**
    * Adds a new item to the <code>names</code> list.
+   * <br><em>N.B. <code>names</code> is <b>read only</b>; client code should not call this method</em>.
    */
   public PokemonHabitatDetail addNamesItem(PokemonHabitatName namesItem) {
     this.names.add(namesItem);
@@ -125,6 +128,7 @@ public class PokemonHabitatDetail  {
 
   /**
    * Sets the <code>pokemonSpecies</code> property.
+   * <br><em>N.B. <code>pokemonSpecies</code> is <b>read only</b>; client code should not call this method</em>.
    */
  public void setPokemonSpecies(List<@Valid PokemonSpeciesSummary> pokemonSpecies) {
     this.pokemonSpecies = pokemonSpecies;
@@ -132,6 +136,7 @@ public class PokemonHabitatDetail  {
 
   /**
    * Sets the <code>pokemonSpecies</code> property.
+   * <br><em>N.B. <code>pokemonSpecies</code> is <b>read only</b>; client code should not call this method</em>.
    */
   public PokemonHabitatDetail pokemonSpecies(List<@Valid PokemonSpeciesSummary> pokemonSpecies) {
     this.pokemonSpecies = pokemonSpecies;
@@ -140,6 +145,7 @@ public class PokemonHabitatDetail  {
 
   /**
    * Adds a new item to the <code>pokemonSpecies</code> list.
+   * <br><em>N.B. <code>pokemonSpecies</code> is <b>read only</b>; client code should not call this method</em>.
    */
   public PokemonHabitatDetail addPokemonSpeciesItem(PokemonSpeciesSummary pokemonSpeciesItem) {
     this.pokemonSpecies.add(pokemonSpeciesItem);
@@ -185,10 +191,7 @@ public class PokemonHabitatDetail  {
    * (except the first line).
    */
   private static String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 }
 

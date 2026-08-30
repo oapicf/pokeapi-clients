@@ -86,7 +86,7 @@ ItemDetail_held_by_pokemon_inner_version_details_inner::getRarity()
 }
 
 void
-ItemDetail_held_by_pokemon_inner_version_details_inner::setRarity(int  rarity)
+ItemDetail_held_by_pokemon_inner_version_details_inner::setRarity(int rarity)
 {
 	this->rarity = rarity;
 }
@@ -98,7 +98,7 @@ ItemDetail_held_by_pokemon_inner_version_details_inner::getVersion()
 }
 
 void
-ItemDetail_held_by_pokemon_inner_version_details_inner::setVersion(AbilityDetail_pokemon_inner_pokemon  version)
+ItemDetail_held_by_pokemon_inner_version_details_inner::setVersion(AbilityDetail_pokemon_inner_pokemon version)
 {
 	this->version = version;
 }

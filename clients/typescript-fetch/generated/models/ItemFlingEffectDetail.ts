@@ -51,13 +51,13 @@ export interface ItemFlingEffectDetail {
      * @type {Array<ItemFlingEffectEffectText>}
      * @memberof ItemFlingEffectDetail
      */
-    effectEntries: Array<ItemFlingEffectEffectText>;
+    readonly effectEntries: Array<ItemFlingEffectEffectText>;
     /**
      * 
      * @type {Array<ItemSummary>}
      * @memberof ItemFlingEffectDetail
      */
-    items: Array<ItemSummary>;
+    readonly items: Array<ItemSummary>;
 }
 
 /**
@@ -66,7 +66,7 @@ export interface ItemFlingEffectDetail {
 export function instanceOfItemFlingEffectDetail(value: object): value is ItemFlingEffectDetail {
     if (!('id' in value) || value['id'] === undefined) return false;
     if (!('name' in value) || value['name'] === undefined) return false;
-    if (!('effectEntries' in value) || value['effectEntries'] === undefined) return false;
+    if ((!('effectEntries' in (value as Record<string, any>)) && !('effect_entries' in (value as Record<string, any>))) || ((value as Record<string, any>)['effectEntries'] === undefined && (value as Record<string, any>)['effect_entries'] === undefined)) return false;
     if (!('items' in value) || value['items'] === undefined) return false;
     return true;
 }
@@ -92,7 +92,7 @@ export function ItemFlingEffectDetailToJSON(json: any): ItemFlingEffectDetail {
     return ItemFlingEffectDetailToJSONTyped(json, false);
 }
 
-export function ItemFlingEffectDetailToJSONTyped(value?: Omit<ItemFlingEffectDetail, 'id'> | null, ignoreDiscriminator: boolean = false): any {
+export function ItemFlingEffectDetailToJSONTyped(value?: Omit<ItemFlingEffectDetail, 'id'|'effectEntries'|'items'> | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
@@ -100,8 +100,6 @@ export function ItemFlingEffectDetailToJSONTyped(value?: Omit<ItemFlingEffectDet
     return {
         
         'name': value['name'],
-        'effect_entries': ((value['effectEntries'] as Array<any>).map(ItemFlingEffectEffectTextToJSON)),
-        'items': ((value['items'] as Array<any>).map(ItemSummaryToJSON)),
     };
 }
 

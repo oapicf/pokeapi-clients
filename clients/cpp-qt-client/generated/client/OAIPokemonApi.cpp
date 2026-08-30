@@ -103,9 +103,9 @@ void OAIPokemonApi::initializeServerConfigs() {
 }
 
 /**
-* returns 0 on success and -1, -2 or -3 on failure.
-* -1 when the variable does not exist and -2 if the value is not defined in the enum and -3 if the operation or server index is not found
-*/
+ * returns 0 on success and -1, -2 or -3 on failure.
+ * -1 when the variable does not exist and -2 if the value is not defined in the enum and -3 if the operation or server index is not found
+ */
 int OAIPokemonApi::setDefaultServerValue(int serverIndex, const QString &operation, const QString &variable, const QString &value) {
     auto it = _serverConfigs.find(operation);
     if (it != _serverConfigs.end() && serverIndex < it.value().size()) {
@@ -113,9 +113,21 @@ int OAIPokemonApi::setDefaultServerValue(int serverIndex, const QString &operati
     }
     return -3;
 }
+
+/**
+ * Sets the server index.
+ * @param operation The id to the target operation.
+ * @param serverIndex The server index.
+ */
 void OAIPokemonApi::setServerIndex(const QString &operation, int serverIndex) {
     if (_serverIndices.contains(operation) && serverIndex < _serverConfigs.find(operation).value().size()) {
         _serverIndices[operation] = serverIndex;
+    }
+}
+
+void OAIPokemonApi::setServerIndex(int serverIndex) {
+    for (auto keyIt = _serverIndices.keyBegin(); keyIt != _serverIndices.keyEnd(); keyIt++) {
+        setServerIndex(*keyIt, serverIndex);
     }
 }
 
@@ -149,13 +161,13 @@ void OAIPokemonApi::setNetworkAccessManager(QNetworkAccessManager* manager) {
 }
 
 /**
-    * Appends a new ServerConfiguration to the config map for a specific operation.
-    * @param operation The id to the target operation.
-    * @param url A string that contains the URL of the server
-    * @param description A String that describes the server
-    * @param variables A map between a variable name and its value. The value is used for substitution in the server's URL template.
-    * returns the index of the new server config on success and -1 if the operation is not found
-    */
+ * Appends a new ServerConfiguration to the config map for a specific operation.
+ * @param operation The id to the target operation.
+ * @param url A string that contains the URL of the server
+ * @param description A String that describes the server
+ * @param variables A map between a variable name and its value. The value is used for substitution in the server's URL template.
+ * returns the index of the new server config on success and -1 if the operation is not found
+ */
 int OAIPokemonApi::addServerConfiguration(const QString &operation, const QUrl &url, const QString &description, const QMap<QString, OAIServerVariable> &variables) {
     if (_serverConfigs.contains(operation)) {
         _serverConfigs[operation].append(OAIServerConfiguration(
@@ -169,11 +181,11 @@ int OAIPokemonApi::addServerConfiguration(const QString &operation, const QUrl &
 }
 
 /**
-    * Appends a new ServerConfiguration to the config map for a all operations and sets the index to that server.
-    * @param url A string that contains the URL of the server
-    * @param description A String that describes the server
-    * @param variables A map between a variable name and its value. The value is used for substitution in the server's URL template.
-    */
+ * Appends a new ServerConfiguration to the config map for a all operations and sets the index to that server.
+ * @param url A string that contains the URL of the server
+ * @param description A String that describes the server
+ * @param variables A map between a variable name and its value. The value is used for substitution in the server's URL template.
+ */
 void OAIPokemonApi::setNewServerForAllOperations(const QUrl &url, const QString &description, const QMap<QString, OAIServerVariable> &variables) {
     for (auto keyIt = _serverIndices.keyBegin(); keyIt != _serverIndices.keyEnd(); keyIt++) {
         setServerIndex(*keyIt, addServerConfiguration(*keyIt, url, description, variables));
@@ -181,11 +193,11 @@ void OAIPokemonApi::setNewServerForAllOperations(const QUrl &url, const QString 
 }
 
 /**
-    * Appends a new ServerConfiguration to the config map for an operations and sets the index to that server.
-    * @param URL A string that contains the URL of the server
-    * @param description A String that describes the server
-    * @param variables A map between a variable name and its value. The value is used for substitution in the server's URL template.
-    */
+ * Appends a new ServerConfiguration to the config map for an operations and sets the index to that server.
+ * @param URL A string that contains the URL of the server
+ * @param description A String that describes the server
+ * @param variables A map between a variable name and its value. The value is used for substitution in the server's URL template.
+ */
 void OAIPokemonApi::setNewServer(const QString &operation, const QUrl &url, const QString &description, const QMap<QString, OAIServerVariable> &variables) {
     setServerIndex(operation, addServerConfiguration(operation, url, description, variables));
 }
@@ -359,32 +371,6 @@ void OAIPokemonApi::abilityListCallback(OAIHttpRequestWorker *worker) {
         Q_EMIT abilityListSignal(output);
         Q_EMIT abilityListSignalFull(worker, output);
     } else {
-
-#if defined(_MSC_VER)
-// For MSVC
-#pragma warning(push)
-#pragma warning(disable : 4996)
-#elif defined(__clang__)
-// For Clang
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
-#elif defined(__GNUC__)
-// For GCC
-#pragma GCC diagnostic push
-#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
-#endif
-
-        Q_EMIT abilityListSignalE(output, error_type, error_str);
-        Q_EMIT abilityListSignalEFull(worker, error_type, error_str);
-
-#if defined(_MSC_VER)
-#pragma warning(pop)
-#elif defined(__clang__)
-#pragma clang diagnostic pop
-#elif defined(__GNUC__)
-#pragma GCC diagnostic pop
-#endif
-
         Q_EMIT abilityListSignalError(output, error_type, error_str);
         Q_EMIT abilityListSignalErrorFull(worker, error_type, error_str);
     }
@@ -448,32 +434,6 @@ void OAIPokemonApi::abilityRetrieveCallback(OAIHttpRequestWorker *worker) {
         Q_EMIT abilityRetrieveSignal(output);
         Q_EMIT abilityRetrieveSignalFull(worker, output);
     } else {
-
-#if defined(_MSC_VER)
-// For MSVC
-#pragma warning(push)
-#pragma warning(disable : 4996)
-#elif defined(__clang__)
-// For Clang
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
-#elif defined(__GNUC__)
-// For GCC
-#pragma GCC diagnostic push
-#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
-#endif
-
-        Q_EMIT abilityRetrieveSignalE(output, error_type, error_str);
-        Q_EMIT abilityRetrieveSignalEFull(worker, error_type, error_str);
-
-#if defined(_MSC_VER)
-#pragma warning(pop)
-#elif defined(__clang__)
-#pragma clang diagnostic pop
-#elif defined(__GNUC__)
-#pragma GCC diagnostic pop
-#endif
-
         Q_EMIT abilityRetrieveSignalError(output, error_type, error_str);
         Q_EMIT abilityRetrieveSignalErrorFull(worker, error_type, error_str);
     }
@@ -569,32 +529,6 @@ void OAIPokemonApi::characteristicListCallback(OAIHttpRequestWorker *worker) {
         Q_EMIT characteristicListSignal(output);
         Q_EMIT characteristicListSignalFull(worker, output);
     } else {
-
-#if defined(_MSC_VER)
-// For MSVC
-#pragma warning(push)
-#pragma warning(disable : 4996)
-#elif defined(__clang__)
-// For Clang
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
-#elif defined(__GNUC__)
-// For GCC
-#pragma GCC diagnostic push
-#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
-#endif
-
-        Q_EMIT characteristicListSignalE(output, error_type, error_str);
-        Q_EMIT characteristicListSignalEFull(worker, error_type, error_str);
-
-#if defined(_MSC_VER)
-#pragma warning(pop)
-#elif defined(__clang__)
-#pragma clang diagnostic pop
-#elif defined(__GNUC__)
-#pragma GCC diagnostic pop
-#endif
-
         Q_EMIT characteristicListSignalError(output, error_type, error_str);
         Q_EMIT characteristicListSignalErrorFull(worker, error_type, error_str);
     }
@@ -658,32 +592,6 @@ void OAIPokemonApi::characteristicRetrieveCallback(OAIHttpRequestWorker *worker)
         Q_EMIT characteristicRetrieveSignal(output);
         Q_EMIT characteristicRetrieveSignalFull(worker, output);
     } else {
-
-#if defined(_MSC_VER)
-// For MSVC
-#pragma warning(push)
-#pragma warning(disable : 4996)
-#elif defined(__clang__)
-// For Clang
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
-#elif defined(__GNUC__)
-// For GCC
-#pragma GCC diagnostic push
-#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
-#endif
-
-        Q_EMIT characteristicRetrieveSignalE(output, error_type, error_str);
-        Q_EMIT characteristicRetrieveSignalEFull(worker, error_type, error_str);
-
-#if defined(_MSC_VER)
-#pragma warning(pop)
-#elif defined(__clang__)
-#pragma clang diagnostic pop
-#elif defined(__GNUC__)
-#pragma GCC diagnostic pop
-#endif
-
         Q_EMIT characteristicRetrieveSignalError(output, error_type, error_str);
         Q_EMIT characteristicRetrieveSignalErrorFull(worker, error_type, error_str);
     }
@@ -779,32 +687,6 @@ void OAIPokemonApi::eggGroupListCallback(OAIHttpRequestWorker *worker) {
         Q_EMIT eggGroupListSignal(output);
         Q_EMIT eggGroupListSignalFull(worker, output);
     } else {
-
-#if defined(_MSC_VER)
-// For MSVC
-#pragma warning(push)
-#pragma warning(disable : 4996)
-#elif defined(__clang__)
-// For Clang
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
-#elif defined(__GNUC__)
-// For GCC
-#pragma GCC diagnostic push
-#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
-#endif
-
-        Q_EMIT eggGroupListSignalE(output, error_type, error_str);
-        Q_EMIT eggGroupListSignalEFull(worker, error_type, error_str);
-
-#if defined(_MSC_VER)
-#pragma warning(pop)
-#elif defined(__clang__)
-#pragma clang diagnostic pop
-#elif defined(__GNUC__)
-#pragma GCC diagnostic pop
-#endif
-
         Q_EMIT eggGroupListSignalError(output, error_type, error_str);
         Q_EMIT eggGroupListSignalErrorFull(worker, error_type, error_str);
     }
@@ -868,32 +750,6 @@ void OAIPokemonApi::eggGroupRetrieveCallback(OAIHttpRequestWorker *worker) {
         Q_EMIT eggGroupRetrieveSignal(output);
         Q_EMIT eggGroupRetrieveSignalFull(worker, output);
     } else {
-
-#if defined(_MSC_VER)
-// For MSVC
-#pragma warning(push)
-#pragma warning(disable : 4996)
-#elif defined(__clang__)
-// For Clang
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
-#elif defined(__GNUC__)
-// For GCC
-#pragma GCC diagnostic push
-#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
-#endif
-
-        Q_EMIT eggGroupRetrieveSignalE(output, error_type, error_str);
-        Q_EMIT eggGroupRetrieveSignalEFull(worker, error_type, error_str);
-
-#if defined(_MSC_VER)
-#pragma warning(pop)
-#elif defined(__clang__)
-#pragma clang diagnostic pop
-#elif defined(__GNUC__)
-#pragma GCC diagnostic pop
-#endif
-
         Q_EMIT eggGroupRetrieveSignalError(output, error_type, error_str);
         Q_EMIT eggGroupRetrieveSignalErrorFull(worker, error_type, error_str);
     }
@@ -989,32 +845,6 @@ void OAIPokemonApi::genderListCallback(OAIHttpRequestWorker *worker) {
         Q_EMIT genderListSignal(output);
         Q_EMIT genderListSignalFull(worker, output);
     } else {
-
-#if defined(_MSC_VER)
-// For MSVC
-#pragma warning(push)
-#pragma warning(disable : 4996)
-#elif defined(__clang__)
-// For Clang
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
-#elif defined(__GNUC__)
-// For GCC
-#pragma GCC diagnostic push
-#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
-#endif
-
-        Q_EMIT genderListSignalE(output, error_type, error_str);
-        Q_EMIT genderListSignalEFull(worker, error_type, error_str);
-
-#if defined(_MSC_VER)
-#pragma warning(pop)
-#elif defined(__clang__)
-#pragma clang diagnostic pop
-#elif defined(__GNUC__)
-#pragma GCC diagnostic pop
-#endif
-
         Q_EMIT genderListSignalError(output, error_type, error_str);
         Q_EMIT genderListSignalErrorFull(worker, error_type, error_str);
     }
@@ -1078,32 +908,6 @@ void OAIPokemonApi::genderRetrieveCallback(OAIHttpRequestWorker *worker) {
         Q_EMIT genderRetrieveSignal(output);
         Q_EMIT genderRetrieveSignalFull(worker, output);
     } else {
-
-#if defined(_MSC_VER)
-// For MSVC
-#pragma warning(push)
-#pragma warning(disable : 4996)
-#elif defined(__clang__)
-// For Clang
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
-#elif defined(__GNUC__)
-// For GCC
-#pragma GCC diagnostic push
-#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
-#endif
-
-        Q_EMIT genderRetrieveSignalE(output, error_type, error_str);
-        Q_EMIT genderRetrieveSignalEFull(worker, error_type, error_str);
-
-#if defined(_MSC_VER)
-#pragma warning(pop)
-#elif defined(__clang__)
-#pragma clang diagnostic pop
-#elif defined(__GNUC__)
-#pragma GCC diagnostic pop
-#endif
-
         Q_EMIT genderRetrieveSignalError(output, error_type, error_str);
         Q_EMIT genderRetrieveSignalErrorFull(worker, error_type, error_str);
     }
@@ -1199,32 +1003,6 @@ void OAIPokemonApi::growthRateListCallback(OAIHttpRequestWorker *worker) {
         Q_EMIT growthRateListSignal(output);
         Q_EMIT growthRateListSignalFull(worker, output);
     } else {
-
-#if defined(_MSC_VER)
-// For MSVC
-#pragma warning(push)
-#pragma warning(disable : 4996)
-#elif defined(__clang__)
-// For Clang
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
-#elif defined(__GNUC__)
-// For GCC
-#pragma GCC diagnostic push
-#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
-#endif
-
-        Q_EMIT growthRateListSignalE(output, error_type, error_str);
-        Q_EMIT growthRateListSignalEFull(worker, error_type, error_str);
-
-#if defined(_MSC_VER)
-#pragma warning(pop)
-#elif defined(__clang__)
-#pragma clang diagnostic pop
-#elif defined(__GNUC__)
-#pragma GCC diagnostic pop
-#endif
-
         Q_EMIT growthRateListSignalError(output, error_type, error_str);
         Q_EMIT growthRateListSignalErrorFull(worker, error_type, error_str);
     }
@@ -1288,32 +1066,6 @@ void OAIPokemonApi::growthRateRetrieveCallback(OAIHttpRequestWorker *worker) {
         Q_EMIT growthRateRetrieveSignal(output);
         Q_EMIT growthRateRetrieveSignalFull(worker, output);
     } else {
-
-#if defined(_MSC_VER)
-// For MSVC
-#pragma warning(push)
-#pragma warning(disable : 4996)
-#elif defined(__clang__)
-// For Clang
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
-#elif defined(__GNUC__)
-// For GCC
-#pragma GCC diagnostic push
-#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
-#endif
-
-        Q_EMIT growthRateRetrieveSignalE(output, error_type, error_str);
-        Q_EMIT growthRateRetrieveSignalEFull(worker, error_type, error_str);
-
-#if defined(_MSC_VER)
-#pragma warning(pop)
-#elif defined(__clang__)
-#pragma clang diagnostic pop
-#elif defined(__GNUC__)
-#pragma GCC diagnostic pop
-#endif
-
         Q_EMIT growthRateRetrieveSignalError(output, error_type, error_str);
         Q_EMIT growthRateRetrieveSignalErrorFull(worker, error_type, error_str);
     }
@@ -1409,32 +1161,6 @@ void OAIPokemonApi::moveDamageClassListCallback(OAIHttpRequestWorker *worker) {
         Q_EMIT moveDamageClassListSignal(output);
         Q_EMIT moveDamageClassListSignalFull(worker, output);
     } else {
-
-#if defined(_MSC_VER)
-// For MSVC
-#pragma warning(push)
-#pragma warning(disable : 4996)
-#elif defined(__clang__)
-// For Clang
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
-#elif defined(__GNUC__)
-// For GCC
-#pragma GCC diagnostic push
-#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
-#endif
-
-        Q_EMIT moveDamageClassListSignalE(output, error_type, error_str);
-        Q_EMIT moveDamageClassListSignalEFull(worker, error_type, error_str);
-
-#if defined(_MSC_VER)
-#pragma warning(pop)
-#elif defined(__clang__)
-#pragma clang diagnostic pop
-#elif defined(__GNUC__)
-#pragma GCC diagnostic pop
-#endif
-
         Q_EMIT moveDamageClassListSignalError(output, error_type, error_str);
         Q_EMIT moveDamageClassListSignalErrorFull(worker, error_type, error_str);
     }
@@ -1498,32 +1224,6 @@ void OAIPokemonApi::moveDamageClassRetrieveCallback(OAIHttpRequestWorker *worker
         Q_EMIT moveDamageClassRetrieveSignal(output);
         Q_EMIT moveDamageClassRetrieveSignalFull(worker, output);
     } else {
-
-#if defined(_MSC_VER)
-// For MSVC
-#pragma warning(push)
-#pragma warning(disable : 4996)
-#elif defined(__clang__)
-// For Clang
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
-#elif defined(__GNUC__)
-// For GCC
-#pragma GCC diagnostic push
-#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
-#endif
-
-        Q_EMIT moveDamageClassRetrieveSignalE(output, error_type, error_str);
-        Q_EMIT moveDamageClassRetrieveSignalEFull(worker, error_type, error_str);
-
-#if defined(_MSC_VER)
-#pragma warning(pop)
-#elif defined(__clang__)
-#pragma clang diagnostic pop
-#elif defined(__GNUC__)
-#pragma GCC diagnostic pop
-#endif
-
         Q_EMIT moveDamageClassRetrieveSignalError(output, error_type, error_str);
         Q_EMIT moveDamageClassRetrieveSignalErrorFull(worker, error_type, error_str);
     }
@@ -1619,32 +1319,6 @@ void OAIPokemonApi::natureListCallback(OAIHttpRequestWorker *worker) {
         Q_EMIT natureListSignal(output);
         Q_EMIT natureListSignalFull(worker, output);
     } else {
-
-#if defined(_MSC_VER)
-// For MSVC
-#pragma warning(push)
-#pragma warning(disable : 4996)
-#elif defined(__clang__)
-// For Clang
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
-#elif defined(__GNUC__)
-// For GCC
-#pragma GCC diagnostic push
-#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
-#endif
-
-        Q_EMIT natureListSignalE(output, error_type, error_str);
-        Q_EMIT natureListSignalEFull(worker, error_type, error_str);
-
-#if defined(_MSC_VER)
-#pragma warning(pop)
-#elif defined(__clang__)
-#pragma clang diagnostic pop
-#elif defined(__GNUC__)
-#pragma GCC diagnostic pop
-#endif
-
         Q_EMIT natureListSignalError(output, error_type, error_str);
         Q_EMIT natureListSignalErrorFull(worker, error_type, error_str);
     }
@@ -1708,32 +1382,6 @@ void OAIPokemonApi::natureRetrieveCallback(OAIHttpRequestWorker *worker) {
         Q_EMIT natureRetrieveSignal(output);
         Q_EMIT natureRetrieveSignalFull(worker, output);
     } else {
-
-#if defined(_MSC_VER)
-// For MSVC
-#pragma warning(push)
-#pragma warning(disable : 4996)
-#elif defined(__clang__)
-// For Clang
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
-#elif defined(__GNUC__)
-// For GCC
-#pragma GCC diagnostic push
-#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
-#endif
-
-        Q_EMIT natureRetrieveSignalE(output, error_type, error_str);
-        Q_EMIT natureRetrieveSignalEFull(worker, error_type, error_str);
-
-#if defined(_MSC_VER)
-#pragma warning(pop)
-#elif defined(__clang__)
-#pragma clang diagnostic pop
-#elif defined(__GNUC__)
-#pragma GCC diagnostic pop
-#endif
-
         Q_EMIT natureRetrieveSignalError(output, error_type, error_str);
         Q_EMIT natureRetrieveSignalErrorFull(worker, error_type, error_str);
     }
@@ -1829,32 +1477,6 @@ void OAIPokemonApi::pokeathlonStatListCallback(OAIHttpRequestWorker *worker) {
         Q_EMIT pokeathlonStatListSignal(output);
         Q_EMIT pokeathlonStatListSignalFull(worker, output);
     } else {
-
-#if defined(_MSC_VER)
-// For MSVC
-#pragma warning(push)
-#pragma warning(disable : 4996)
-#elif defined(__clang__)
-// For Clang
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
-#elif defined(__GNUC__)
-// For GCC
-#pragma GCC diagnostic push
-#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
-#endif
-
-        Q_EMIT pokeathlonStatListSignalE(output, error_type, error_str);
-        Q_EMIT pokeathlonStatListSignalEFull(worker, error_type, error_str);
-
-#if defined(_MSC_VER)
-#pragma warning(pop)
-#elif defined(__clang__)
-#pragma clang diagnostic pop
-#elif defined(__GNUC__)
-#pragma GCC diagnostic pop
-#endif
-
         Q_EMIT pokeathlonStatListSignalError(output, error_type, error_str);
         Q_EMIT pokeathlonStatListSignalErrorFull(worker, error_type, error_str);
     }
@@ -1918,32 +1540,6 @@ void OAIPokemonApi::pokeathlonStatRetrieveCallback(OAIHttpRequestWorker *worker)
         Q_EMIT pokeathlonStatRetrieveSignal(output);
         Q_EMIT pokeathlonStatRetrieveSignalFull(worker, output);
     } else {
-
-#if defined(_MSC_VER)
-// For MSVC
-#pragma warning(push)
-#pragma warning(disable : 4996)
-#elif defined(__clang__)
-// For Clang
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
-#elif defined(__GNUC__)
-// For GCC
-#pragma GCC diagnostic push
-#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
-#endif
-
-        Q_EMIT pokeathlonStatRetrieveSignalE(output, error_type, error_str);
-        Q_EMIT pokeathlonStatRetrieveSignalEFull(worker, error_type, error_str);
-
-#if defined(_MSC_VER)
-#pragma warning(pop)
-#elif defined(__clang__)
-#pragma clang diagnostic pop
-#elif defined(__GNUC__)
-#pragma GCC diagnostic pop
-#endif
-
         Q_EMIT pokeathlonStatRetrieveSignalError(output, error_type, error_str);
         Q_EMIT pokeathlonStatRetrieveSignalErrorFull(worker, error_type, error_str);
     }
@@ -2039,32 +1635,6 @@ void OAIPokemonApi::pokemonColorListCallback(OAIHttpRequestWorker *worker) {
         Q_EMIT pokemonColorListSignal(output);
         Q_EMIT pokemonColorListSignalFull(worker, output);
     } else {
-
-#if defined(_MSC_VER)
-// For MSVC
-#pragma warning(push)
-#pragma warning(disable : 4996)
-#elif defined(__clang__)
-// For Clang
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
-#elif defined(__GNUC__)
-// For GCC
-#pragma GCC diagnostic push
-#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
-#endif
-
-        Q_EMIT pokemonColorListSignalE(output, error_type, error_str);
-        Q_EMIT pokemonColorListSignalEFull(worker, error_type, error_str);
-
-#if defined(_MSC_VER)
-#pragma warning(pop)
-#elif defined(__clang__)
-#pragma clang diagnostic pop
-#elif defined(__GNUC__)
-#pragma GCC diagnostic pop
-#endif
-
         Q_EMIT pokemonColorListSignalError(output, error_type, error_str);
         Q_EMIT pokemonColorListSignalErrorFull(worker, error_type, error_str);
     }
@@ -2128,32 +1698,6 @@ void OAIPokemonApi::pokemonColorRetrieveCallback(OAIHttpRequestWorker *worker) {
         Q_EMIT pokemonColorRetrieveSignal(output);
         Q_EMIT pokemonColorRetrieveSignalFull(worker, output);
     } else {
-
-#if defined(_MSC_VER)
-// For MSVC
-#pragma warning(push)
-#pragma warning(disable : 4996)
-#elif defined(__clang__)
-// For Clang
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
-#elif defined(__GNUC__)
-// For GCC
-#pragma GCC diagnostic push
-#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
-#endif
-
-        Q_EMIT pokemonColorRetrieveSignalE(output, error_type, error_str);
-        Q_EMIT pokemonColorRetrieveSignalEFull(worker, error_type, error_str);
-
-#if defined(_MSC_VER)
-#pragma warning(pop)
-#elif defined(__clang__)
-#pragma clang diagnostic pop
-#elif defined(__GNUC__)
-#pragma GCC diagnostic pop
-#endif
-
         Q_EMIT pokemonColorRetrieveSignalError(output, error_type, error_str);
         Q_EMIT pokemonColorRetrieveSignalErrorFull(worker, error_type, error_str);
     }
@@ -2249,32 +1793,6 @@ void OAIPokemonApi::pokemonFormListCallback(OAIHttpRequestWorker *worker) {
         Q_EMIT pokemonFormListSignal(output);
         Q_EMIT pokemonFormListSignalFull(worker, output);
     } else {
-
-#if defined(_MSC_VER)
-// For MSVC
-#pragma warning(push)
-#pragma warning(disable : 4996)
-#elif defined(__clang__)
-// For Clang
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
-#elif defined(__GNUC__)
-// For GCC
-#pragma GCC diagnostic push
-#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
-#endif
-
-        Q_EMIT pokemonFormListSignalE(output, error_type, error_str);
-        Q_EMIT pokemonFormListSignalEFull(worker, error_type, error_str);
-
-#if defined(_MSC_VER)
-#pragma warning(pop)
-#elif defined(__clang__)
-#pragma clang diagnostic pop
-#elif defined(__GNUC__)
-#pragma GCC diagnostic pop
-#endif
-
         Q_EMIT pokemonFormListSignalError(output, error_type, error_str);
         Q_EMIT pokemonFormListSignalErrorFull(worker, error_type, error_str);
     }
@@ -2338,32 +1856,6 @@ void OAIPokemonApi::pokemonFormRetrieveCallback(OAIHttpRequestWorker *worker) {
         Q_EMIT pokemonFormRetrieveSignal(output);
         Q_EMIT pokemonFormRetrieveSignalFull(worker, output);
     } else {
-
-#if defined(_MSC_VER)
-// For MSVC
-#pragma warning(push)
-#pragma warning(disable : 4996)
-#elif defined(__clang__)
-// For Clang
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
-#elif defined(__GNUC__)
-// For GCC
-#pragma GCC diagnostic push
-#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
-#endif
-
-        Q_EMIT pokemonFormRetrieveSignalE(output, error_type, error_str);
-        Q_EMIT pokemonFormRetrieveSignalEFull(worker, error_type, error_str);
-
-#if defined(_MSC_VER)
-#pragma warning(pop)
-#elif defined(__clang__)
-#pragma clang diagnostic pop
-#elif defined(__GNUC__)
-#pragma GCC diagnostic pop
-#endif
-
         Q_EMIT pokemonFormRetrieveSignalError(output, error_type, error_str);
         Q_EMIT pokemonFormRetrieveSignalErrorFull(worker, error_type, error_str);
     }
@@ -2459,32 +1951,6 @@ void OAIPokemonApi::pokemonHabitatListCallback(OAIHttpRequestWorker *worker) {
         Q_EMIT pokemonHabitatListSignal(output);
         Q_EMIT pokemonHabitatListSignalFull(worker, output);
     } else {
-
-#if defined(_MSC_VER)
-// For MSVC
-#pragma warning(push)
-#pragma warning(disable : 4996)
-#elif defined(__clang__)
-// For Clang
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
-#elif defined(__GNUC__)
-// For GCC
-#pragma GCC diagnostic push
-#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
-#endif
-
-        Q_EMIT pokemonHabitatListSignalE(output, error_type, error_str);
-        Q_EMIT pokemonHabitatListSignalEFull(worker, error_type, error_str);
-
-#if defined(_MSC_VER)
-#pragma warning(pop)
-#elif defined(__clang__)
-#pragma clang diagnostic pop
-#elif defined(__GNUC__)
-#pragma GCC diagnostic pop
-#endif
-
         Q_EMIT pokemonHabitatListSignalError(output, error_type, error_str);
         Q_EMIT pokemonHabitatListSignalErrorFull(worker, error_type, error_str);
     }
@@ -2548,32 +2014,6 @@ void OAIPokemonApi::pokemonHabitatRetrieveCallback(OAIHttpRequestWorker *worker)
         Q_EMIT pokemonHabitatRetrieveSignal(output);
         Q_EMIT pokemonHabitatRetrieveSignalFull(worker, output);
     } else {
-
-#if defined(_MSC_VER)
-// For MSVC
-#pragma warning(push)
-#pragma warning(disable : 4996)
-#elif defined(__clang__)
-// For Clang
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
-#elif defined(__GNUC__)
-// For GCC
-#pragma GCC diagnostic push
-#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
-#endif
-
-        Q_EMIT pokemonHabitatRetrieveSignalE(output, error_type, error_str);
-        Q_EMIT pokemonHabitatRetrieveSignalEFull(worker, error_type, error_str);
-
-#if defined(_MSC_VER)
-#pragma warning(pop)
-#elif defined(__clang__)
-#pragma clang diagnostic pop
-#elif defined(__GNUC__)
-#pragma GCC diagnostic pop
-#endif
-
         Q_EMIT pokemonHabitatRetrieveSignalError(output, error_type, error_str);
         Q_EMIT pokemonHabitatRetrieveSignalErrorFull(worker, error_type, error_str);
     }
@@ -2669,32 +2109,6 @@ void OAIPokemonApi::pokemonListCallback(OAIHttpRequestWorker *worker) {
         Q_EMIT pokemonListSignal(output);
         Q_EMIT pokemonListSignalFull(worker, output);
     } else {
-
-#if defined(_MSC_VER)
-// For MSVC
-#pragma warning(push)
-#pragma warning(disable : 4996)
-#elif defined(__clang__)
-// For Clang
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
-#elif defined(__GNUC__)
-// For GCC
-#pragma GCC diagnostic push
-#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
-#endif
-
-        Q_EMIT pokemonListSignalE(output, error_type, error_str);
-        Q_EMIT pokemonListSignalEFull(worker, error_type, error_str);
-
-#if defined(_MSC_VER)
-#pragma warning(pop)
-#elif defined(__clang__)
-#pragma clang diagnostic pop
-#elif defined(__GNUC__)
-#pragma GCC diagnostic pop
-#endif
-
         Q_EMIT pokemonListSignalError(output, error_type, error_str);
         Q_EMIT pokemonListSignalErrorFull(worker, error_type, error_str);
     }
@@ -2758,32 +2172,6 @@ void OAIPokemonApi::pokemonRetrieveCallback(OAIHttpRequestWorker *worker) {
         Q_EMIT pokemonRetrieveSignal(output);
         Q_EMIT pokemonRetrieveSignalFull(worker, output);
     } else {
-
-#if defined(_MSC_VER)
-// For MSVC
-#pragma warning(push)
-#pragma warning(disable : 4996)
-#elif defined(__clang__)
-// For Clang
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
-#elif defined(__GNUC__)
-// For GCC
-#pragma GCC diagnostic push
-#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
-#endif
-
-        Q_EMIT pokemonRetrieveSignalE(output, error_type, error_str);
-        Q_EMIT pokemonRetrieveSignalEFull(worker, error_type, error_str);
-
-#if defined(_MSC_VER)
-#pragma warning(pop)
-#elif defined(__clang__)
-#pragma clang diagnostic pop
-#elif defined(__GNUC__)
-#pragma GCC diagnostic pop
-#endif
-
         Q_EMIT pokemonRetrieveSignalError(output, error_type, error_str);
         Q_EMIT pokemonRetrieveSignalErrorFull(worker, error_type, error_str);
     }
@@ -2879,32 +2267,6 @@ void OAIPokemonApi::pokemonShapeListCallback(OAIHttpRequestWorker *worker) {
         Q_EMIT pokemonShapeListSignal(output);
         Q_EMIT pokemonShapeListSignalFull(worker, output);
     } else {
-
-#if defined(_MSC_VER)
-// For MSVC
-#pragma warning(push)
-#pragma warning(disable : 4996)
-#elif defined(__clang__)
-// For Clang
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
-#elif defined(__GNUC__)
-// For GCC
-#pragma GCC diagnostic push
-#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
-#endif
-
-        Q_EMIT pokemonShapeListSignalE(output, error_type, error_str);
-        Q_EMIT pokemonShapeListSignalEFull(worker, error_type, error_str);
-
-#if defined(_MSC_VER)
-#pragma warning(pop)
-#elif defined(__clang__)
-#pragma clang diagnostic pop
-#elif defined(__GNUC__)
-#pragma GCC diagnostic pop
-#endif
-
         Q_EMIT pokemonShapeListSignalError(output, error_type, error_str);
         Q_EMIT pokemonShapeListSignalErrorFull(worker, error_type, error_str);
     }
@@ -2968,32 +2330,6 @@ void OAIPokemonApi::pokemonShapeRetrieveCallback(OAIHttpRequestWorker *worker) {
         Q_EMIT pokemonShapeRetrieveSignal(output);
         Q_EMIT pokemonShapeRetrieveSignalFull(worker, output);
     } else {
-
-#if defined(_MSC_VER)
-// For MSVC
-#pragma warning(push)
-#pragma warning(disable : 4996)
-#elif defined(__clang__)
-// For Clang
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
-#elif defined(__GNUC__)
-// For GCC
-#pragma GCC diagnostic push
-#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
-#endif
-
-        Q_EMIT pokemonShapeRetrieveSignalE(output, error_type, error_str);
-        Q_EMIT pokemonShapeRetrieveSignalEFull(worker, error_type, error_str);
-
-#if defined(_MSC_VER)
-#pragma warning(pop)
-#elif defined(__clang__)
-#pragma clang diagnostic pop
-#elif defined(__GNUC__)
-#pragma GCC diagnostic pop
-#endif
-
         Q_EMIT pokemonShapeRetrieveSignalError(output, error_type, error_str);
         Q_EMIT pokemonShapeRetrieveSignalErrorFull(worker, error_type, error_str);
     }
@@ -3089,32 +2425,6 @@ void OAIPokemonApi::pokemonSpeciesListCallback(OAIHttpRequestWorker *worker) {
         Q_EMIT pokemonSpeciesListSignal(output);
         Q_EMIT pokemonSpeciesListSignalFull(worker, output);
     } else {
-
-#if defined(_MSC_VER)
-// For MSVC
-#pragma warning(push)
-#pragma warning(disable : 4996)
-#elif defined(__clang__)
-// For Clang
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
-#elif defined(__GNUC__)
-// For GCC
-#pragma GCC diagnostic push
-#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
-#endif
-
-        Q_EMIT pokemonSpeciesListSignalE(output, error_type, error_str);
-        Q_EMIT pokemonSpeciesListSignalEFull(worker, error_type, error_str);
-
-#if defined(_MSC_VER)
-#pragma warning(pop)
-#elif defined(__clang__)
-#pragma clang diagnostic pop
-#elif defined(__GNUC__)
-#pragma GCC diagnostic pop
-#endif
-
         Q_EMIT pokemonSpeciesListSignalError(output, error_type, error_str);
         Q_EMIT pokemonSpeciesListSignalErrorFull(worker, error_type, error_str);
     }
@@ -3178,32 +2488,6 @@ void OAIPokemonApi::pokemonSpeciesRetrieveCallback(OAIHttpRequestWorker *worker)
         Q_EMIT pokemonSpeciesRetrieveSignal(output);
         Q_EMIT pokemonSpeciesRetrieveSignalFull(worker, output);
     } else {
-
-#if defined(_MSC_VER)
-// For MSVC
-#pragma warning(push)
-#pragma warning(disable : 4996)
-#elif defined(__clang__)
-// For Clang
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
-#elif defined(__GNUC__)
-// For GCC
-#pragma GCC diagnostic push
-#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
-#endif
-
-        Q_EMIT pokemonSpeciesRetrieveSignalE(output, error_type, error_str);
-        Q_EMIT pokemonSpeciesRetrieveSignalEFull(worker, error_type, error_str);
-
-#if defined(_MSC_VER)
-#pragma warning(pop)
-#elif defined(__clang__)
-#pragma clang diagnostic pop
-#elif defined(__GNUC__)
-#pragma GCC diagnostic pop
-#endif
-
         Q_EMIT pokemonSpeciesRetrieveSignalError(output, error_type, error_str);
         Q_EMIT pokemonSpeciesRetrieveSignalErrorFull(worker, error_type, error_str);
     }
@@ -3299,32 +2583,6 @@ void OAIPokemonApi::statListCallback(OAIHttpRequestWorker *worker) {
         Q_EMIT statListSignal(output);
         Q_EMIT statListSignalFull(worker, output);
     } else {
-
-#if defined(_MSC_VER)
-// For MSVC
-#pragma warning(push)
-#pragma warning(disable : 4996)
-#elif defined(__clang__)
-// For Clang
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
-#elif defined(__GNUC__)
-// For GCC
-#pragma GCC diagnostic push
-#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
-#endif
-
-        Q_EMIT statListSignalE(output, error_type, error_str);
-        Q_EMIT statListSignalEFull(worker, error_type, error_str);
-
-#if defined(_MSC_VER)
-#pragma warning(pop)
-#elif defined(__clang__)
-#pragma clang diagnostic pop
-#elif defined(__GNUC__)
-#pragma GCC diagnostic pop
-#endif
-
         Q_EMIT statListSignalError(output, error_type, error_str);
         Q_EMIT statListSignalErrorFull(worker, error_type, error_str);
     }
@@ -3388,32 +2646,6 @@ void OAIPokemonApi::statRetrieveCallback(OAIHttpRequestWorker *worker) {
         Q_EMIT statRetrieveSignal(output);
         Q_EMIT statRetrieveSignalFull(worker, output);
     } else {
-
-#if defined(_MSC_VER)
-// For MSVC
-#pragma warning(push)
-#pragma warning(disable : 4996)
-#elif defined(__clang__)
-// For Clang
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
-#elif defined(__GNUC__)
-// For GCC
-#pragma GCC diagnostic push
-#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
-#endif
-
-        Q_EMIT statRetrieveSignalE(output, error_type, error_str);
-        Q_EMIT statRetrieveSignalEFull(worker, error_type, error_str);
-
-#if defined(_MSC_VER)
-#pragma warning(pop)
-#elif defined(__clang__)
-#pragma clang diagnostic pop
-#elif defined(__GNUC__)
-#pragma GCC diagnostic pop
-#endif
-
         Q_EMIT statRetrieveSignalError(output, error_type, error_str);
         Q_EMIT statRetrieveSignalErrorFull(worker, error_type, error_str);
     }
@@ -3509,32 +2741,6 @@ void OAIPokemonApi::typeListCallback(OAIHttpRequestWorker *worker) {
         Q_EMIT typeListSignal(output);
         Q_EMIT typeListSignalFull(worker, output);
     } else {
-
-#if defined(_MSC_VER)
-// For MSVC
-#pragma warning(push)
-#pragma warning(disable : 4996)
-#elif defined(__clang__)
-// For Clang
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
-#elif defined(__GNUC__)
-// For GCC
-#pragma GCC diagnostic push
-#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
-#endif
-
-        Q_EMIT typeListSignalE(output, error_type, error_str);
-        Q_EMIT typeListSignalEFull(worker, error_type, error_str);
-
-#if defined(_MSC_VER)
-#pragma warning(pop)
-#elif defined(__clang__)
-#pragma clang diagnostic pop
-#elif defined(__GNUC__)
-#pragma GCC diagnostic pop
-#endif
-
         Q_EMIT typeListSignalError(output, error_type, error_str);
         Q_EMIT typeListSignalErrorFull(worker, error_type, error_str);
     }
@@ -3598,42 +2804,16 @@ void OAIPokemonApi::typeRetrieveCallback(OAIHttpRequestWorker *worker) {
         Q_EMIT typeRetrieveSignal(output);
         Q_EMIT typeRetrieveSignalFull(worker, output);
     } else {
-
-#if defined(_MSC_VER)
-// For MSVC
-#pragma warning(push)
-#pragma warning(disable : 4996)
-#elif defined(__clang__)
-// For Clang
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
-#elif defined(__GNUC__)
-// For GCC
-#pragma GCC diagnostic push
-#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
-#endif
-
-        Q_EMIT typeRetrieveSignalE(output, error_type, error_str);
-        Q_EMIT typeRetrieveSignalEFull(worker, error_type, error_str);
-
-#if defined(_MSC_VER)
-#pragma warning(pop)
-#elif defined(__clang__)
-#pragma clang diagnostic pop
-#elif defined(__GNUC__)
-#pragma GCC diagnostic pop
-#endif
-
         Q_EMIT typeRetrieveSignalError(output, error_type, error_str);
         Q_EMIT typeRetrieveSignalErrorFull(worker, error_type, error_str);
     }
 }
 
-void OAIPokemonApi::tokenAvailable(){
+void OAIPokemonApi::tokenAvailable() {
 
     oauthToken token;
     switch (_OauthMethod) {
-    case 1: //implicit flow
+    case OauthMethod::ImplicitFlow:
         token = _implicitFlow.getToken(_latestScope.join(" "));
         if(token.isValid()){
             _latestInput.headers.insert("Authorization", "Bearer " + token.getToken());
@@ -3643,7 +2823,7 @@ void OAIPokemonApi::tokenAvailable(){
             qDebug() << "Could not retrieve a valid token";
         }
         break;
-    case 2: //authorization flow
+    case OauthMethod::AuthorizationFlow:
         token = _authFlow.getToken(_latestScope.join(" "));
         if(token.isValid()){
             _latestInput.headers.insert("Authorization", "Bearer " + token.getToken());
@@ -3653,7 +2833,7 @@ void OAIPokemonApi::tokenAvailable(){
             qDebug() << "Could not retrieve a valid token";
         }
         break;
-    case 3: //client credentials flow
+    case OauthMethod::ClientCredentialsFlow:
         token = _credentialFlow.getToken(_latestScope.join(" "));
         if(token.isValid()){
             _latestInput.headers.insert("Authorization", "Bearer " + token.getToken());
@@ -3663,7 +2843,7 @@ void OAIPokemonApi::tokenAvailable(){
             qDebug() << "Could not retrieve a valid token";
         }
         break;
-    case 4: //resource owner password flow
+    case OauthMethod::ResourceOwnerPasswordFlow:
         token = _passwordFlow.getToken(_latestScope.join(" "));
         if(token.isValid()){
             _latestInput.headers.insert("Authorization", "Bearer " + token.getToken());

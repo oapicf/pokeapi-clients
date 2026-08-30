@@ -175,10 +175,11 @@ EncountersApi <- R6::R6Class(
     #' @param q (optional) > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. 
     #' @param data_file (optional) name of the data file to save the result
     #' @param ... Other optional arguments
+    #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return PaginatedEncounterConditionSummaryList
-    EncounterConditionList = function(limit = NULL, offset = NULL, q = NULL, data_file = NULL, ...) {
-      local_var_response <- self$EncounterConditionListWithHttpInfo(limit, offset, q, data_file = data_file, ...)
+    EncounterConditionList = function(limit = NULL, offset = NULL, q = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$EncounterConditionListWithHttpInfo(limit, offset, q, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -198,9 +199,10 @@ EncountersApi <- R6::R6Class(
     #' @param q (optional) > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. 
     #' @param data_file (optional) name of the data file to save the result
     #' @param ... Other optional arguments
+    #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (PaginatedEncounterConditionSummaryList) with additional information such as HTTP status code, headers
-    EncounterConditionListWithHttpInfo = function(limit = NULL, offset = NULL, q = NULL, data_file = NULL, ...) {
+    EncounterConditionListWithHttpInfo = function(limit = NULL, offset = NULL, q = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -259,6 +261,10 @@ EncountersApi <- R6::R6Class(
         if (!is.null(data_file)) {
           self$api_client$WriteFile(local_var_resp, data_file)
         }
+        if (!.parse) {
+          local_var_resp$content <- local_var_resp$response_as_text()
+          return(local_var_resp)
+        }
 
         deserialized_resp_obj <- tryCatch(
           self$api_client$DeserializeResponse(local_var_resp, "PaginatedEncounterConditionSummaryList"),
@@ -272,11 +278,15 @@ EncountersApi <- R6::R6Class(
       
       local_var_error_msg <- local_var_resp$response_as_text()      
       if (local_var_resp$status_code >= 300 && local_var_resp$status_code <= 399) {
-        ApiResponse$new(paste("Server returned ", local_var_resp$status_code, " response status code."), local_var_resp)
+        ApiResponse$new(content = paste("Server returned ", local_var_resp$status_code, " response status code."),
+                        response = local_var_resp,
+                        status_code = local_var_resp$status_code)
       } else if (local_var_resp$status_code >= 400 && local_var_resp$status_code <= 499) {
-        ApiResponse$new("API client error", local_var_resp)
+        ApiResponse$new(content = "API client error",
+                        response = local_var_resp,
+                        status_code = local_var_resp$status_code)
       } else if (local_var_resp$status_code >= 500 && local_var_resp$status_code <= 599) {
-        if (is.null(local_var_resp$response) || local_var_resp$response == "") {
+        if (is.null(local_var_resp$response) || all(local_var_resp$response == "")) {
           local_var_resp$response <- "API server error"
         }
         return(local_var_resp)
@@ -289,10 +299,11 @@ EncountersApi <- R6::R6Class(
     #' @param id This parameter can be a string or an integer.
     #' @param data_file (optional) name of the data file to save the result
     #' @param ... Other optional arguments
+    #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return EncounterConditionDetail
-    EncounterConditionRetrieve = function(id, data_file = NULL, ...) {
-      local_var_response <- self$EncounterConditionRetrieveWithHttpInfo(id, data_file = data_file, ...)
+    EncounterConditionRetrieve = function(id, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$EncounterConditionRetrieveWithHttpInfo(id, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -310,9 +321,10 @@ EncountersApi <- R6::R6Class(
     #' @param id This parameter can be a string or an integer.
     #' @param data_file (optional) name of the data file to save the result
     #' @param ... Other optional arguments
+    #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (EncounterConditionDetail) with additional information such as HTTP status code, headers
-    EncounterConditionRetrieveWithHttpInfo = function(id, data_file = NULL, ...) {
+    EncounterConditionRetrieveWithHttpInfo = function(id, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -365,6 +377,10 @@ EncountersApi <- R6::R6Class(
         if (!is.null(data_file)) {
           self$api_client$WriteFile(local_var_resp, data_file)
         }
+        if (!.parse) {
+          local_var_resp$content <- local_var_resp$response_as_text()
+          return(local_var_resp)
+        }
 
         deserialized_resp_obj <- tryCatch(
           self$api_client$DeserializeResponse(local_var_resp, "EncounterConditionDetail"),
@@ -378,11 +394,15 @@ EncountersApi <- R6::R6Class(
       
       local_var_error_msg <- local_var_resp$response_as_text()      
       if (local_var_resp$status_code >= 300 && local_var_resp$status_code <= 399) {
-        ApiResponse$new(paste("Server returned ", local_var_resp$status_code, " response status code."), local_var_resp)
+        ApiResponse$new(content = paste("Server returned ", local_var_resp$status_code, " response status code."),
+                        response = local_var_resp,
+                        status_code = local_var_resp$status_code)
       } else if (local_var_resp$status_code >= 400 && local_var_resp$status_code <= 499) {
-        ApiResponse$new("API client error", local_var_resp)
+        ApiResponse$new(content = "API client error",
+                        response = local_var_resp,
+                        status_code = local_var_resp$status_code)
       } else if (local_var_resp$status_code >= 500 && local_var_resp$status_code <= 599) {
-        if (is.null(local_var_resp$response) || local_var_resp$response == "") {
+        if (is.null(local_var_resp$response) || all(local_var_resp$response == "")) {
           local_var_resp$response <- "API server error"
         }
         return(local_var_resp)
@@ -397,10 +417,11 @@ EncountersApi <- R6::R6Class(
     #' @param q (optional) > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. 
     #' @param data_file (optional) name of the data file to save the result
     #' @param ... Other optional arguments
+    #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return PaginatedEncounterConditionValueSummaryList
-    EncounterConditionValueList = function(limit = NULL, offset = NULL, q = NULL, data_file = NULL, ...) {
-      local_var_response <- self$EncounterConditionValueListWithHttpInfo(limit, offset, q, data_file = data_file, ...)
+    EncounterConditionValueList = function(limit = NULL, offset = NULL, q = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$EncounterConditionValueListWithHttpInfo(limit, offset, q, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -420,9 +441,10 @@ EncountersApi <- R6::R6Class(
     #' @param q (optional) > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. 
     #' @param data_file (optional) name of the data file to save the result
     #' @param ... Other optional arguments
+    #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (PaginatedEncounterConditionValueSummaryList) with additional information such as HTTP status code, headers
-    EncounterConditionValueListWithHttpInfo = function(limit = NULL, offset = NULL, q = NULL, data_file = NULL, ...) {
+    EncounterConditionValueListWithHttpInfo = function(limit = NULL, offset = NULL, q = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -481,6 +503,10 @@ EncountersApi <- R6::R6Class(
         if (!is.null(data_file)) {
           self$api_client$WriteFile(local_var_resp, data_file)
         }
+        if (!.parse) {
+          local_var_resp$content <- local_var_resp$response_as_text()
+          return(local_var_resp)
+        }
 
         deserialized_resp_obj <- tryCatch(
           self$api_client$DeserializeResponse(local_var_resp, "PaginatedEncounterConditionValueSummaryList"),
@@ -494,11 +520,15 @@ EncountersApi <- R6::R6Class(
       
       local_var_error_msg <- local_var_resp$response_as_text()      
       if (local_var_resp$status_code >= 300 && local_var_resp$status_code <= 399) {
-        ApiResponse$new(paste("Server returned ", local_var_resp$status_code, " response status code."), local_var_resp)
+        ApiResponse$new(content = paste("Server returned ", local_var_resp$status_code, " response status code."),
+                        response = local_var_resp,
+                        status_code = local_var_resp$status_code)
       } else if (local_var_resp$status_code >= 400 && local_var_resp$status_code <= 499) {
-        ApiResponse$new("API client error", local_var_resp)
+        ApiResponse$new(content = "API client error",
+                        response = local_var_resp,
+                        status_code = local_var_resp$status_code)
       } else if (local_var_resp$status_code >= 500 && local_var_resp$status_code <= 599) {
-        if (is.null(local_var_resp$response) || local_var_resp$response == "") {
+        if (is.null(local_var_resp$response) || all(local_var_resp$response == "")) {
           local_var_resp$response <- "API server error"
         }
         return(local_var_resp)
@@ -511,10 +541,11 @@ EncountersApi <- R6::R6Class(
     #' @param id This parameter can be a string or an integer.
     #' @param data_file (optional) name of the data file to save the result
     #' @param ... Other optional arguments
+    #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return EncounterConditionValueDetail
-    EncounterConditionValueRetrieve = function(id, data_file = NULL, ...) {
-      local_var_response <- self$EncounterConditionValueRetrieveWithHttpInfo(id, data_file = data_file, ...)
+    EncounterConditionValueRetrieve = function(id, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$EncounterConditionValueRetrieveWithHttpInfo(id, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -532,9 +563,10 @@ EncountersApi <- R6::R6Class(
     #' @param id This parameter can be a string or an integer.
     #' @param data_file (optional) name of the data file to save the result
     #' @param ... Other optional arguments
+    #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (EncounterConditionValueDetail) with additional information such as HTTP status code, headers
-    EncounterConditionValueRetrieveWithHttpInfo = function(id, data_file = NULL, ...) {
+    EncounterConditionValueRetrieveWithHttpInfo = function(id, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -587,6 +619,10 @@ EncountersApi <- R6::R6Class(
         if (!is.null(data_file)) {
           self$api_client$WriteFile(local_var_resp, data_file)
         }
+        if (!.parse) {
+          local_var_resp$content <- local_var_resp$response_as_text()
+          return(local_var_resp)
+        }
 
         deserialized_resp_obj <- tryCatch(
           self$api_client$DeserializeResponse(local_var_resp, "EncounterConditionValueDetail"),
@@ -600,11 +636,15 @@ EncountersApi <- R6::R6Class(
       
       local_var_error_msg <- local_var_resp$response_as_text()      
       if (local_var_resp$status_code >= 300 && local_var_resp$status_code <= 399) {
-        ApiResponse$new(paste("Server returned ", local_var_resp$status_code, " response status code."), local_var_resp)
+        ApiResponse$new(content = paste("Server returned ", local_var_resp$status_code, " response status code."),
+                        response = local_var_resp,
+                        status_code = local_var_resp$status_code)
       } else if (local_var_resp$status_code >= 400 && local_var_resp$status_code <= 499) {
-        ApiResponse$new("API client error", local_var_resp)
+        ApiResponse$new(content = "API client error",
+                        response = local_var_resp,
+                        status_code = local_var_resp$status_code)
       } else if (local_var_resp$status_code >= 500 && local_var_resp$status_code <= 599) {
-        if (is.null(local_var_resp$response) || local_var_resp$response == "") {
+        if (is.null(local_var_resp$response) || all(local_var_resp$response == "")) {
           local_var_resp$response <- "API server error"
         }
         return(local_var_resp)
@@ -619,10 +659,11 @@ EncountersApi <- R6::R6Class(
     #' @param q (optional) > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. 
     #' @param data_file (optional) name of the data file to save the result
     #' @param ... Other optional arguments
+    #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return PaginatedEncounterMethodSummaryList
-    EncounterMethodList = function(limit = NULL, offset = NULL, q = NULL, data_file = NULL, ...) {
-      local_var_response <- self$EncounterMethodListWithHttpInfo(limit, offset, q, data_file = data_file, ...)
+    EncounterMethodList = function(limit = NULL, offset = NULL, q = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$EncounterMethodListWithHttpInfo(limit, offset, q, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -642,9 +683,10 @@ EncountersApi <- R6::R6Class(
     #' @param q (optional) > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. 
     #' @param data_file (optional) name of the data file to save the result
     #' @param ... Other optional arguments
+    #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (PaginatedEncounterMethodSummaryList) with additional information such as HTTP status code, headers
-    EncounterMethodListWithHttpInfo = function(limit = NULL, offset = NULL, q = NULL, data_file = NULL, ...) {
+    EncounterMethodListWithHttpInfo = function(limit = NULL, offset = NULL, q = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -703,6 +745,10 @@ EncountersApi <- R6::R6Class(
         if (!is.null(data_file)) {
           self$api_client$WriteFile(local_var_resp, data_file)
         }
+        if (!.parse) {
+          local_var_resp$content <- local_var_resp$response_as_text()
+          return(local_var_resp)
+        }
 
         deserialized_resp_obj <- tryCatch(
           self$api_client$DeserializeResponse(local_var_resp, "PaginatedEncounterMethodSummaryList"),
@@ -716,11 +762,15 @@ EncountersApi <- R6::R6Class(
       
       local_var_error_msg <- local_var_resp$response_as_text()      
       if (local_var_resp$status_code >= 300 && local_var_resp$status_code <= 399) {
-        ApiResponse$new(paste("Server returned ", local_var_resp$status_code, " response status code."), local_var_resp)
+        ApiResponse$new(content = paste("Server returned ", local_var_resp$status_code, " response status code."),
+                        response = local_var_resp,
+                        status_code = local_var_resp$status_code)
       } else if (local_var_resp$status_code >= 400 && local_var_resp$status_code <= 499) {
-        ApiResponse$new("API client error", local_var_resp)
+        ApiResponse$new(content = "API client error",
+                        response = local_var_resp,
+                        status_code = local_var_resp$status_code)
       } else if (local_var_resp$status_code >= 500 && local_var_resp$status_code <= 599) {
-        if (is.null(local_var_resp$response) || local_var_resp$response == "") {
+        if (is.null(local_var_resp$response) || all(local_var_resp$response == "")) {
           local_var_resp$response <- "API server error"
         }
         return(local_var_resp)
@@ -733,10 +783,11 @@ EncountersApi <- R6::R6Class(
     #' @param id This parameter can be a string or an integer.
     #' @param data_file (optional) name of the data file to save the result
     #' @param ... Other optional arguments
+    #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return EncounterMethodDetail
-    EncounterMethodRetrieve = function(id, data_file = NULL, ...) {
-      local_var_response <- self$EncounterMethodRetrieveWithHttpInfo(id, data_file = data_file, ...)
+    EncounterMethodRetrieve = function(id, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$EncounterMethodRetrieveWithHttpInfo(id, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -754,9 +805,10 @@ EncountersApi <- R6::R6Class(
     #' @param id This parameter can be a string or an integer.
     #' @param data_file (optional) name of the data file to save the result
     #' @param ... Other optional arguments
+    #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (EncounterMethodDetail) with additional information such as HTTP status code, headers
-    EncounterMethodRetrieveWithHttpInfo = function(id, data_file = NULL, ...) {
+    EncounterMethodRetrieveWithHttpInfo = function(id, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -809,6 +861,10 @@ EncountersApi <- R6::R6Class(
         if (!is.null(data_file)) {
           self$api_client$WriteFile(local_var_resp, data_file)
         }
+        if (!.parse) {
+          local_var_resp$content <- local_var_resp$response_as_text()
+          return(local_var_resp)
+        }
 
         deserialized_resp_obj <- tryCatch(
           self$api_client$DeserializeResponse(local_var_resp, "EncounterMethodDetail"),
@@ -822,11 +878,15 @@ EncountersApi <- R6::R6Class(
       
       local_var_error_msg <- local_var_resp$response_as_text()      
       if (local_var_resp$status_code >= 300 && local_var_resp$status_code <= 399) {
-        ApiResponse$new(paste("Server returned ", local_var_resp$status_code, " response status code."), local_var_resp)
+        ApiResponse$new(content = paste("Server returned ", local_var_resp$status_code, " response status code."),
+                        response = local_var_resp,
+                        status_code = local_var_resp$status_code)
       } else if (local_var_resp$status_code >= 400 && local_var_resp$status_code <= 499) {
-        ApiResponse$new("API client error", local_var_resp)
+        ApiResponse$new(content = "API client error",
+                        response = local_var_resp,
+                        status_code = local_var_resp$status_code)
       } else if (local_var_resp$status_code >= 500 && local_var_resp$status_code <= 599) {
-        if (is.null(local_var_resp$response) || local_var_resp$response == "") {
+        if (is.null(local_var_resp$response) || all(local_var_resp$response == "")) {
           local_var_resp$response <- "API server error"
         }
         return(local_var_resp)

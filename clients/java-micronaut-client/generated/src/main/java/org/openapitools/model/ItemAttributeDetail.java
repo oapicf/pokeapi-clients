@@ -38,7 +38,7 @@ import javax.annotation.Generated;
   ItemAttributeDetail.JSON_PROPERTY_NAMES
 })
 @JsonTypeName("ItemAttributeDetail")
-@Generated(value="org.openapitools.codegen.languages.JavaMicronautClientCodegen", date="2026-02-07T15:22:54.857535619Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@Generated(value="org.openapitools.codegen.languages.JavaMicronautClientCodegen", date="2026-08-30T01:55:51.056116330Z[Etc/UTC]", comments = "Generator version: 7.24.0")
 @Introspected
 public class ItemAttributeDetail {
     public static final String JSON_PROPERTY_ID = "id";
@@ -98,16 +98,6 @@ public class ItemAttributeDetail {
         this.name = name;
     }
 
-    public ItemAttributeDetail descriptions(List<@Valid ItemAttributeDescription> descriptions) {
-        this.descriptions = descriptions;
-        return this;
-    }
-
-    public ItemAttributeDetail addDescriptionsItem(ItemAttributeDescription descriptionsItem) {
-        this.descriptions.add(descriptionsItem);
-        return this;
-    }
-
     /**
      * Get descriptions
      * @return descriptions
@@ -117,22 +107,6 @@ public class ItemAttributeDetail {
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public List<@Valid ItemAttributeDescription> getDescriptions() {
         return descriptions;
-    }
-
-    @JsonProperty(JSON_PROPERTY_DESCRIPTIONS)
-    @JsonInclude(value = JsonInclude.Include.ALWAYS)
-    public void setDescriptions(List<@Valid ItemAttributeDescription> descriptions) {
-        this.descriptions = descriptions;
-    }
-
-    public ItemAttributeDetail items(List<@Valid AbilityDetailPokemonInnerPokemon> items) {
-        this.items = items;
-        return this;
-    }
-
-    public ItemAttributeDetail addItemsItem(AbilityDetailPokemonInnerPokemon itemsItem) {
-        this.items.add(itemsItem);
-        return this;
     }
 
     /**
@@ -146,22 +120,6 @@ public class ItemAttributeDetail {
         return items;
     }
 
-    @JsonProperty(JSON_PROPERTY_ITEMS)
-    @JsonInclude(value = JsonInclude.Include.ALWAYS)
-    public void setItems(List<@Valid AbilityDetailPokemonInnerPokemon> items) {
-        this.items = items;
-    }
-
-    public ItemAttributeDetail names(List<@Valid ItemAttributeName> names) {
-        this.names = names;
-        return this;
-    }
-
-    public ItemAttributeDetail addNamesItem(ItemAttributeName namesItem) {
-        this.names.add(namesItem);
-        return this;
-    }
-
     /**
      * Get names
      * @return names
@@ -171,12 +129,6 @@ public class ItemAttributeDetail {
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public List<@Valid ItemAttributeName> getNames() {
         return names;
-    }
-
-    @JsonProperty(JSON_PROPERTY_NAMES)
-    @JsonInclude(value = JsonInclude.Include.ALWAYS)
-    public void setNames(List<@Valid ItemAttributeName> names) {
-        this.names = names;
     }
 
     @Override
@@ -218,10 +170,7 @@ public class ItemAttributeDetail {
      * (except the first line).
      */
     private String toIndentedString(Object o) {
-        if (o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
+        return o == null ? "null" : o.toString().replace("\n", "\n    ");
     }
 
 }

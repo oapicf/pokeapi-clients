@@ -193,24 +193,24 @@ function Initialize-EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner
 
 
         $PSO = [PSCustomObject]@{
-            "gender" = ${Gender}
-            "held_item" = ${HeldItem}
-            "item" = ${Item}
-            "known_move" = ${KnownMove}
-            "known_move_type" = ${KnownMoveType}
-            "location" = ${Location}
-            "min_affection" = ${MinAffection}
-            "min_beauty" = ${MinBeauty}
-            "min_happiness" = ${MinHappiness}
-            "min_level" = ${MinLevel}
-            "needs_overworld_rain" = ${NeedsOverworldRain}
-            "party_species" = ${PartySpecies}
-            "party_type" = ${PartyType}
-            "relative_physical_stats" = ${RelativePhysicalStats}
-            "time_of_day" = ${TimeOfDay}
-            "trade_species" = ${TradeSpecies}
-            "trigger" = ${Trigger}
-            "turn_upside_down" = ${TurnUpsideDown}
+            'gender' = ${Gender}
+            'held_item' = ${HeldItem}
+            'item' = ${Item}
+            'known_move' = ${KnownMove}
+            'known_move_type' = ${KnownMoveType}
+            'location' = ${Location}
+            'min_affection' = ${MinAffection}
+            'min_beauty' = ${MinBeauty}
+            'min_happiness' = ${MinHappiness}
+            'min_level' = ${MinLevel}
+            'needs_overworld_rain' = ${NeedsOverworldRain}
+            'party_species' = ${PartySpecies}
+            'party_type' = ${PartyType}
+            'relative_physical_stats' = ${RelativePhysicalStats}
+            'time_of_day' = ${TimeOfDay}
+            'trade_species' = ${TradeSpecies}
+            'trigger' = ${Trigger}
+            'turn_upside_down' = ${TurnUpsideDown}
         }
 
 
@@ -248,7 +248,7 @@ function ConvertFrom-JsonToEvolutionChainDetailChainEvolvesToInnerEvolutionDetai
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner
-        $AllProperties = ("gender", "held_item", "item", "known_move", "known_move_type", "location", "min_affection", "min_beauty", "min_happiness", "min_level", "needs_overworld_rain", "party_species", "party_type", "relative_physical_stats", "time_of_day", "trade_species", "trigger", "turn_upside_down")
+        $AllProperties = ('gender', 'held_item', 'item', 'known_move', 'known_move_type', 'location', 'min_affection', 'min_beauty', 'min_happiness', 'min_level', 'needs_overworld_rain', 'party_species', 'party_type', 'relative_physical_stats', 'time_of_day', 'trade_species', 'trigger', 'turn_upside_down')
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -259,133 +259,133 @@ function ConvertFrom-JsonToEvolutionChainDetailChainEvolvesToInnerEvolutionDetai
             throw "Error! Empty JSON cannot be serialized due to the required property 'gender' missing."
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "gender"))) {
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'gender'))) {
             throw "Error! JSON cannot be serialized due to the required property 'gender' missing."
         } else {
-            $Gender = $JsonParameters.PSobject.Properties["gender"].value
+            $Gender = $JsonParameters.PSobject.Properties['gender'].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "held_item"))) {
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'held_item'))) {
             throw "Error! JSON cannot be serialized due to the required property 'held_item' missing."
         } else {
-            $HeldItem = $JsonParameters.PSobject.Properties["held_item"].value
+            $HeldItem = $JsonParameters.PSobject.Properties['held_item'].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "item"))) {
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'item'))) {
             throw "Error! JSON cannot be serialized due to the required property 'item' missing."
         } else {
-            $Item = $JsonParameters.PSobject.Properties["item"].value
+            $Item = $JsonParameters.PSobject.Properties['item'].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "known_move"))) {
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'known_move'))) {
             throw "Error! JSON cannot be serialized due to the required property 'known_move' missing."
         } else {
-            $KnownMove = $JsonParameters.PSobject.Properties["known_move"].value
+            $KnownMove = $JsonParameters.PSobject.Properties['known_move'].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "known_move_type"))) {
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'known_move_type'))) {
             throw "Error! JSON cannot be serialized due to the required property 'known_move_type' missing."
         } else {
-            $KnownMoveType = $JsonParameters.PSobject.Properties["known_move_type"].value
+            $KnownMoveType = $JsonParameters.PSobject.Properties['known_move_type'].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "location"))) {
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'location'))) {
             throw "Error! JSON cannot be serialized due to the required property 'location' missing."
         } else {
-            $Location = $JsonParameters.PSobject.Properties["location"].value
+            $Location = $JsonParameters.PSobject.Properties['location'].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "min_affection"))) {
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'min_affection'))) {
             throw "Error! JSON cannot be serialized due to the required property 'min_affection' missing."
         } else {
-            $MinAffection = $JsonParameters.PSobject.Properties["min_affection"].value
+            $MinAffection = $JsonParameters.PSobject.Properties['min_affection'].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "min_beauty"))) {
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'min_beauty'))) {
             throw "Error! JSON cannot be serialized due to the required property 'min_beauty' missing."
         } else {
-            $MinBeauty = $JsonParameters.PSobject.Properties["min_beauty"].value
+            $MinBeauty = $JsonParameters.PSobject.Properties['min_beauty'].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "min_happiness"))) {
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'min_happiness'))) {
             throw "Error! JSON cannot be serialized due to the required property 'min_happiness' missing."
         } else {
-            $MinHappiness = $JsonParameters.PSobject.Properties["min_happiness"].value
+            $MinHappiness = $JsonParameters.PSobject.Properties['min_happiness'].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "min_level"))) {
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'min_level'))) {
             throw "Error! JSON cannot be serialized due to the required property 'min_level' missing."
         } else {
-            $MinLevel = $JsonParameters.PSobject.Properties["min_level"].value
+            $MinLevel = $JsonParameters.PSobject.Properties['min_level'].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "needs_overworld_rain"))) {
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'needs_overworld_rain'))) {
             throw "Error! JSON cannot be serialized due to the required property 'needs_overworld_rain' missing."
         } else {
-            $NeedsOverworldRain = $JsonParameters.PSobject.Properties["needs_overworld_rain"].value
+            $NeedsOverworldRain = $JsonParameters.PSobject.Properties['needs_overworld_rain'].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "party_species"))) {
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'party_species'))) {
             throw "Error! JSON cannot be serialized due to the required property 'party_species' missing."
         } else {
-            $PartySpecies = $JsonParameters.PSobject.Properties["party_species"].value
+            $PartySpecies = $JsonParameters.PSobject.Properties['party_species'].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "party_type"))) {
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'party_type'))) {
             throw "Error! JSON cannot be serialized due to the required property 'party_type' missing."
         } else {
-            $PartyType = $JsonParameters.PSobject.Properties["party_type"].value
+            $PartyType = $JsonParameters.PSobject.Properties['party_type'].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "relative_physical_stats"))) {
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'relative_physical_stats'))) {
             throw "Error! JSON cannot be serialized due to the required property 'relative_physical_stats' missing."
         } else {
-            $RelativePhysicalStats = $JsonParameters.PSobject.Properties["relative_physical_stats"].value
+            $RelativePhysicalStats = $JsonParameters.PSobject.Properties['relative_physical_stats'].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "time_of_day"))) {
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'time_of_day'))) {
             throw "Error! JSON cannot be serialized due to the required property 'time_of_day' missing."
         } else {
-            $TimeOfDay = $JsonParameters.PSobject.Properties["time_of_day"].value
+            $TimeOfDay = $JsonParameters.PSobject.Properties['time_of_day'].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "trade_species"))) {
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'trade_species'))) {
             throw "Error! JSON cannot be serialized due to the required property 'trade_species' missing."
         } else {
-            $TradeSpecies = $JsonParameters.PSobject.Properties["trade_species"].value
+            $TradeSpecies = $JsonParameters.PSobject.Properties['trade_species'].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "trigger"))) {
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'trigger'))) {
             throw "Error! JSON cannot be serialized due to the required property 'trigger' missing."
         } else {
-            $Trigger = $JsonParameters.PSobject.Properties["trigger"].value
+            $Trigger = $JsonParameters.PSobject.Properties['trigger'].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "turn_upside_down"))) {
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'turn_upside_down'))) {
             throw "Error! JSON cannot be serialized due to the required property 'turn_upside_down' missing."
         } else {
-            $TurnUpsideDown = $JsonParameters.PSobject.Properties["turn_upside_down"].value
+            $TurnUpsideDown = $JsonParameters.PSobject.Properties['turn_upside_down'].value
         }
 
         $PSO = [PSCustomObject]@{
-            "gender" = ${Gender}
-            "held_item" = ${HeldItem}
-            "item" = ${Item}
-            "known_move" = ${KnownMove}
-            "known_move_type" = ${KnownMoveType}
-            "location" = ${Location}
-            "min_affection" = ${MinAffection}
-            "min_beauty" = ${MinBeauty}
-            "min_happiness" = ${MinHappiness}
-            "min_level" = ${MinLevel}
-            "needs_overworld_rain" = ${NeedsOverworldRain}
-            "party_species" = ${PartySpecies}
-            "party_type" = ${PartyType}
-            "relative_physical_stats" = ${RelativePhysicalStats}
-            "time_of_day" = ${TimeOfDay}
-            "trade_species" = ${TradeSpecies}
-            "trigger" = ${Trigger}
-            "turn_upside_down" = ${TurnUpsideDown}
+            'gender' = ${Gender}
+            'held_item' = ${HeldItem}
+            'item' = ${Item}
+            'known_move' = ${KnownMove}
+            'known_move_type' = ${KnownMoveType}
+            'location' = ${Location}
+            'min_affection' = ${MinAffection}
+            'min_beauty' = ${MinBeauty}
+            'min_happiness' = ${MinHappiness}
+            'min_level' = ${MinLevel}
+            'needs_overworld_rain' = ${NeedsOverworldRain}
+            'party_species' = ${PartySpecies}
+            'party_type' = ${PartyType}
+            'relative_physical_stats' = ${RelativePhysicalStats}
+            'time_of_day' = ${TimeOfDay}
+            'trade_species' = ${TradeSpecies}
+            'trigger' = ${Trigger}
+            'turn_upside_down' = ${TurnUpsideDown}
         }
 
         return $PSO

@@ -116,7 +116,7 @@ export class PokemonApiRequestFactory extends BaseAPIRequestFactory {
 
         // Path Params
         const localVarPath = '/api/v2/ability/{id}/'
-            .replace('{' + 'id' + '}', encodeURIComponent(String(id)));
+            .replace('{id}', encodeURIComponent(String(id)));
 
         // Make Request Context
         const requestContext = _config.baseServer.makeRequestContext(localVarPath, HttpMethod.GET);
@@ -215,7 +215,7 @@ export class PokemonApiRequestFactory extends BaseAPIRequestFactory {
 
         // Path Params
         const localVarPath = '/api/v2/characteristic/{id}/'
-            .replace('{' + 'id' + '}', encodeURIComponent(String(id)));
+            .replace('{id}', encodeURIComponent(String(id)));
 
         // Make Request Context
         const requestContext = _config.baseServer.makeRequestContext(localVarPath, HttpMethod.GET);
@@ -314,7 +314,7 @@ export class PokemonApiRequestFactory extends BaseAPIRequestFactory {
 
         // Path Params
         const localVarPath = '/api/v2/egg-group/{id}/'
-            .replace('{' + 'id' + '}', encodeURIComponent(String(id)));
+            .replace('{id}', encodeURIComponent(String(id)));
 
         // Make Request Context
         const requestContext = _config.baseServer.makeRequestContext(localVarPath, HttpMethod.GET);
@@ -413,7 +413,7 @@ export class PokemonApiRequestFactory extends BaseAPIRequestFactory {
 
         // Path Params
         const localVarPath = '/api/v2/gender/{id}/'
-            .replace('{' + 'id' + '}', encodeURIComponent(String(id)));
+            .replace('{id}', encodeURIComponent(String(id)));
 
         // Make Request Context
         const requestContext = _config.baseServer.makeRequestContext(localVarPath, HttpMethod.GET);
@@ -512,7 +512,7 @@ export class PokemonApiRequestFactory extends BaseAPIRequestFactory {
 
         // Path Params
         const localVarPath = '/api/v2/growth-rate/{id}/'
-            .replace('{' + 'id' + '}', encodeURIComponent(String(id)));
+            .replace('{id}', encodeURIComponent(String(id)));
 
         // Make Request Context
         const requestContext = _config.baseServer.makeRequestContext(localVarPath, HttpMethod.GET);
@@ -611,7 +611,7 @@ export class PokemonApiRequestFactory extends BaseAPIRequestFactory {
 
         // Path Params
         const localVarPath = '/api/v2/move-damage-class/{id}/'
-            .replace('{' + 'id' + '}', encodeURIComponent(String(id)));
+            .replace('{id}', encodeURIComponent(String(id)));
 
         // Make Request Context
         const requestContext = _config.baseServer.makeRequestContext(localVarPath, HttpMethod.GET);
@@ -710,7 +710,7 @@ export class PokemonApiRequestFactory extends BaseAPIRequestFactory {
 
         // Path Params
         const localVarPath = '/api/v2/nature/{id}/'
-            .replace('{' + 'id' + '}', encodeURIComponent(String(id)));
+            .replace('{id}', encodeURIComponent(String(id)));
 
         // Make Request Context
         const requestContext = _config.baseServer.makeRequestContext(localVarPath, HttpMethod.GET);
@@ -809,7 +809,7 @@ export class PokemonApiRequestFactory extends BaseAPIRequestFactory {
 
         // Path Params
         const localVarPath = '/api/v2/pokeathlon-stat/{id}/'
-            .replace('{' + 'id' + '}', encodeURIComponent(String(id)));
+            .replace('{id}', encodeURIComponent(String(id)));
 
         // Make Request Context
         const requestContext = _config.baseServer.makeRequestContext(localVarPath, HttpMethod.GET);
@@ -908,7 +908,7 @@ export class PokemonApiRequestFactory extends BaseAPIRequestFactory {
 
         // Path Params
         const localVarPath = '/api/v2/pokemon-color/{id}/'
-            .replace('{' + 'id' + '}', encodeURIComponent(String(id)));
+            .replace('{id}', encodeURIComponent(String(id)));
 
         // Make Request Context
         const requestContext = _config.baseServer.makeRequestContext(localVarPath, HttpMethod.GET);
@@ -1007,7 +1007,7 @@ export class PokemonApiRequestFactory extends BaseAPIRequestFactory {
 
         // Path Params
         const localVarPath = '/api/v2/pokemon-form/{id}/'
-            .replace('{' + 'id' + '}', encodeURIComponent(String(id)));
+            .replace('{id}', encodeURIComponent(String(id)));
 
         // Make Request Context
         const requestContext = _config.baseServer.makeRequestContext(localVarPath, HttpMethod.GET);
@@ -1106,7 +1106,7 @@ export class PokemonApiRequestFactory extends BaseAPIRequestFactory {
 
         // Path Params
         const localVarPath = '/api/v2/pokemon-habitat/{id}/'
-            .replace('{' + 'id' + '}', encodeURIComponent(String(id)));
+            .replace('{id}', encodeURIComponent(String(id)));
 
         // Make Request Context
         const requestContext = _config.baseServer.makeRequestContext(localVarPath, HttpMethod.GET);
@@ -1205,7 +1205,7 @@ export class PokemonApiRequestFactory extends BaseAPIRequestFactory {
 
         // Path Params
         const localVarPath = '/api/v2/pokemon/{id}/'
-            .replace('{' + 'id' + '}', encodeURIComponent(String(id)));
+            .replace('{id}', encodeURIComponent(String(id)));
 
         // Make Request Context
         const requestContext = _config.baseServer.makeRequestContext(localVarPath, HttpMethod.GET);
@@ -1304,7 +1304,7 @@ export class PokemonApiRequestFactory extends BaseAPIRequestFactory {
 
         // Path Params
         const localVarPath = '/api/v2/pokemon-shape/{id}/'
-            .replace('{' + 'id' + '}', encodeURIComponent(String(id)));
+            .replace('{id}', encodeURIComponent(String(id)));
 
         // Make Request Context
         const requestContext = _config.baseServer.makeRequestContext(localVarPath, HttpMethod.GET);
@@ -1403,7 +1403,7 @@ export class PokemonApiRequestFactory extends BaseAPIRequestFactory {
 
         // Path Params
         const localVarPath = '/api/v2/pokemon-species/{id}/'
-            .replace('{' + 'id' + '}', encodeURIComponent(String(id)));
+            .replace('{id}', encodeURIComponent(String(id)));
 
         // Make Request Context
         const requestContext = _config.baseServer.makeRequestContext(localVarPath, HttpMethod.GET);
@@ -1502,7 +1502,7 @@ export class PokemonApiRequestFactory extends BaseAPIRequestFactory {
 
         // Path Params
         const localVarPath = '/api/v2/stat/{id}/'
-            .replace('{' + 'id' + '}', encodeURIComponent(String(id)));
+            .replace('{id}', encodeURIComponent(String(id)));
 
         // Make Request Context
         const requestContext = _config.baseServer.makeRequestContext(localVarPath, HttpMethod.GET);
@@ -1601,7 +1601,7 @@ export class PokemonApiRequestFactory extends BaseAPIRequestFactory {
 
         // Path Params
         const localVarPath = '/api/v2/type/{id}/'
-            .replace('{' + 'id' + '}', encodeURIComponent(String(id)));
+            .replace('{id}', encodeURIComponent(String(id)));
 
         // Make Request Context
         const requestContext = _config.baseServer.makeRequestContext(localVarPath, HttpMethod.GET);

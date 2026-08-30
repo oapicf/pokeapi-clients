@@ -15,19 +15,19 @@ Name | Type | Description | Notes
 **isDefault** | `Boolean` |  |  [optional property]
 **order** | `Integer` |  |  [optional property]
 **weight** | `Integer` |  |  [optional property]
-**abilities** | [`List&lt;PokemonDetailAbilitiesInner&gt;`](PokemonDetailAbilitiesInner.md) |  | 
-**pastAbilities** | [`List&lt;PokemonDetailPastAbilitiesInner&gt;`](PokemonDetailPastAbilitiesInner.md) |  | 
-**forms** | [`List&lt;PokemonFormSummary&gt;`](PokemonFormSummary.md) |  | 
-**gameIndices** | [`List&lt;PokemonGameIndex&gt;`](PokemonGameIndex.md) |  | 
+**abilities** | [`List&lt;PokemonDetailAbilitiesInner&gt;`](PokemonDetailAbilitiesInner.md) |  |  [readonly property]
+**pastAbilities** | [`List&lt;PokemonDetailPastAbilitiesInner&gt;`](PokemonDetailPastAbilitiesInner.md) |  |  [readonly property]
+**forms** | [`List&lt;PokemonFormSummary&gt;`](PokemonFormSummary.md) |  |  [readonly property]
+**gameIndices** | [`List&lt;PokemonGameIndex&gt;`](PokemonGameIndex.md) |  |  [readonly property]
 **heldItems** | [`PokemonDetailHeldItems`](PokemonDetailHeldItems.md) |  | 
 **locationAreaEncounters** | `String` |  |  [readonly property]
-**moves** | [`List&lt;PokemonDetailMovesInner&gt;`](PokemonDetailMovesInner.md) |  | 
+**moves** | [`List&lt;PokemonDetailMovesInner&gt;`](PokemonDetailMovesInner.md) |  |  [readonly property]
 **species** | [`PokemonSpeciesSummary`](PokemonSpeciesSummary.md) |  | 
 **sprites** | `PokemonDetailSprites` |  | 
 **cries** | [`PokemonDetailCries`](PokemonDetailCries.md) |  | 
-**stats** | [`List&lt;PokemonStat&gt;`](PokemonStat.md) |  | 
-**types** | [`List&lt;PokemonDetailTypesInner&gt;`](PokemonDetailTypesInner.md) |  | 
-**pastTypes** | [`List&lt;PokemonDetailPastTypesInner&gt;`](PokemonDetailPastTypesInner.md) |  | 
+**stats** | [`List&lt;PokemonStat&gt;`](PokemonStat.md) |  |  [readonly property]
+**types** | [`List&lt;PokemonDetailTypesInner&gt;`](PokemonDetailTypesInner.md) |  |  [readonly property]
+**pastTypes** | [`List&lt;PokemonDetailPastTypesInner&gt;`](PokemonDetailPastTypesInner.md) |  |  [readonly property]
 
 
 

@@ -77,8 +77,18 @@ namespace Org.OpenAPITools.Model
     /// <summary>
     /// A Json converter for type <see cref="CharacteristicSummary" />
     /// </summary>
-    public class CharacteristicSummaryJsonConverter : JsonConverter<CharacteristicSummary>
+    public partial class CharacteristicSummaryJsonConverter : JsonConverter<CharacteristicSummary>
     {
+        partial void OnCreated();
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="CharacteristicSummaryJsonConverter" /> class.
+        /// </summary>
+        public CharacteristicSummaryJsonConverter()
+        {
+            OnCreated();
+        }
+
         /// <summary>
         /// Deserializes json to <see cref="CharacteristicSummary" />
         /// </summary>

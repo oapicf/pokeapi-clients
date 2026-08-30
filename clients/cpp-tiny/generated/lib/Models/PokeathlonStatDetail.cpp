@@ -145,7 +145,7 @@ PokeathlonStatDetail::getId()
 }
 
 void
-PokeathlonStatDetail::setId(int  id)
+PokeathlonStatDetail::setId(int id)
 {
 	this->id = id;
 }
@@ -157,7 +157,7 @@ PokeathlonStatDetail::getName()
 }
 
 void
-PokeathlonStatDetail::setName(std::string  name)
+PokeathlonStatDetail::setName(std::string name)
 {
 	this->name = name;
 }
@@ -169,7 +169,7 @@ PokeathlonStatDetail::getAffectingNatures()
 }
 
 void
-PokeathlonStatDetail::setAffectingNatures(PokeathlonStatDetail_affecting_natures  affecting_natures)
+PokeathlonStatDetail::setAffectingNatures(PokeathlonStatDetail_affecting_natures affecting_natures)
 {
 	this->affecting_natures = affecting_natures;
 }
@@ -181,7 +181,7 @@ PokeathlonStatDetail::getNames()
 }
 
 void
-PokeathlonStatDetail::setNames(std::list <PokeathlonStatName> names)
+PokeathlonStatDetail::setNames(std::list<PokeathlonStatName> names)
 {
 	this->names = names;
 }

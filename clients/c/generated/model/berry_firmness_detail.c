@@ -6,7 +6,7 @@
 
 
 static berry_firmness_detail_t *berry_firmness_detail_create_internal(
-    int id,
+    int *id,
     char *name,
     list_t *berries,
     list_t *names
@@ -15,27 +15,36 @@ static berry_firmness_detail_t *berry_firmness_detail_create_internal(
     if (!berry_firmness_detail_local_var) {
         return NULL;
     }
+    memset(berry_firmness_detail_local_var, 0, sizeof(berry_firmness_detail_t));
+    berry_firmness_detail_local_var->_library_owned = 1;
     berry_firmness_detail_local_var->id = id;
     berry_firmness_detail_local_var->name = name;
     berry_firmness_detail_local_var->berries = berries;
     berry_firmness_detail_local_var->names = names;
-
-    berry_firmness_detail_local_var->_library_owned = 1;
     return berry_firmness_detail_local_var;
 }
 
 __attribute__((deprecated)) berry_firmness_detail_t *berry_firmness_detail_create(
-    int id,
+    int *id,
     char *name,
     list_t *berries,
     list_t *names
     ) {
-    return berry_firmness_detail_create_internal (
-        id,
+    int *id_copy = NULL;
+    if (id) {
+        id_copy = malloc(sizeof(int));
+        if (id_copy) *id_copy = *id;
+    }
+    berry_firmness_detail_t *result = berry_firmness_detail_create_internal (
+        id_copy,
         name,
         berries,
         names
         );
+    if (!result) {
+        free(id_copy);
+    }
+    return result;
 }
 
 void berry_firmness_detail_free(berry_firmness_detail_t *berry_firmness_detail) {
@@ -47,6 +56,10 @@ void berry_firmness_detail_free(berry_firmness_detail_t *berry_firmness_detail) 
         return ;
     }
     listEntry_t *listEntry;
+    if (berry_firmness_detail->id) {
+        free(berry_firmness_detail->id);
+        berry_firmness_detail->id = NULL;
+    }
     if (berry_firmness_detail->name) {
         free(berry_firmness_detail->name);
         berry_firmness_detail->name = NULL;
@@ -75,7 +88,7 @@ cJSON *berry_firmness_detail_convertToJSON(berry_firmness_detail_t *berry_firmne
     if (!berry_firmness_detail->id) {
         goto fail;
     }
-    if(cJSON_AddNumberToObject(item, "id", berry_firmness_detail->id) == NULL) {
+    if(cJSON_AddNumberToObject(item, "id", *berry_firmness_detail->id) == NULL) {
     goto fail; //Numeric
     }
 
@@ -142,6 +155,11 @@ berry_firmness_detail_t *berry_firmness_detail_parseFromJSON(cJSON *berry_firmne
 
     berry_firmness_detail_t *berry_firmness_detail_local_var = NULL;
 
+    // define the local variable for berry_firmness_detail->id
+    int *id_local_var = NULL;
+
+    char *name_local_str = NULL;
+
     // define the local list for berry_firmness_detail->berries
     list_t *berriesList = NULL;
 
@@ -162,6 +180,12 @@ berry_firmness_detail_t *berry_firmness_detail_parseFromJSON(cJSON *berry_firmne
     {
     goto end; //Numeric
     }
+    id_local_var = malloc(sizeof(int));
+    if(!id_local_var)
+    {
+        goto end;
+    }
+    *id_local_var = id->valuedouble;
 
     // berry_firmness_detail->name
     cJSON *name = cJSON_GetObjectItemCaseSensitive(berry_firmness_detailJSON, "name");
@@ -233,15 +257,29 @@ berry_firmness_detail_t *berry_firmness_detail_parseFromJSON(cJSON *berry_firmne
     }
 
 
+    if (name && !cJSON_IsNull(name)) name_local_str = strdup(name->valuestring);
+
     berry_firmness_detail_local_var = berry_firmness_detail_create_internal (
-        id->valuedouble,
-        strdup(name->valuestring),
+        id_local_var,
+        name_local_str,
         berriesList,
         namesList
         );
 
+    if (!berry_firmness_detail_local_var) {
+        goto end;
+    }
+
     return berry_firmness_detail_local_var;
 end:
+    if (id_local_var) {
+        free(id_local_var);
+        id_local_var = NULL;
+    }
+    if (name_local_str) {
+        free(name_local_str);
+        name_local_str = NULL;
+    }
     if (berriesList) {
         listEntry_t *listEntry = NULL;
         list_ForEach(listEntry, berriesList) {

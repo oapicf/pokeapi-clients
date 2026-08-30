@@ -10,8 +10,8 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | `Integer` |  |  [readonly property]
 **name** | `String` |  | 
-**moves** | [`List&lt;AbilityDetailPokemonInnerPokemon&gt;`](AbilityDetailPokemonInnerPokemon.md) |  | 
-**names** | [`List&lt;MoveMetaAilmentName&gt;`](MoveMetaAilmentName.md) |  | 
+**moves** | [`List&lt;AbilityDetailPokemonInnerPokemon&gt;`](AbilityDetailPokemonInnerPokemon.md) |  |  [readonly property]
+**names** | [`List&lt;MoveMetaAilmentName&gt;`](MoveMetaAilmentName.md) |  |  [readonly property]
 
 
 

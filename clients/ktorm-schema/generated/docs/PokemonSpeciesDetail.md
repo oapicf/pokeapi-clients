@@ -8,20 +8,20 @@ Name | Mapping | SQL Type | Default | Type | Description | Notes
 **id** | id | int NOT NULL PRIMARY KEY AUTOINCREMENT |  | **kotlin.Int** |  |  [readonly]
 **name** | name | text NOT NULL |  | **kotlin.String** |  | 
 **growthRate** | growth_rate | long NOT NULL |  | [**GrowthRateSummary**](GrowthRateSummary.md) |  |  [foreignkey]
-**pokedexNumbers** | `One-To-Many` | `----` | `----`  | [**kotlin.Array&lt;PokemonDexEntry&gt;**](PokemonDexEntry.md) |  | 
-**eggGroups** | `One-To-Many` | `----` | `----`  | [**kotlin.Array&lt;AbilityDetailPokemonInnerPokemon&gt;**](AbilityDetailPokemonInnerPokemon.md) |  | 
+**pokedexNumbers** | `One-To-Many` | `----` | `----`  | [**kotlin.Array&lt;PokemonDexEntry&gt;**](PokemonDexEntry.md) |  |  [readonly]
+**eggGroups** | `One-To-Many` | `----` | `----`  | [**kotlin.Array&lt;AbilityDetailPokemonInnerPokemon&gt;**](AbilityDetailPokemonInnerPokemon.md) |  |  [readonly]
 **color** | color | long NOT NULL |  | [**PokemonColorSummary**](PokemonColorSummary.md) |  |  [foreignkey]
 **shape** | shape | long NOT NULL |  | [**PokemonShapeSummary**](PokemonShapeSummary.md) |  |  [foreignkey]
 **evolvesFromSpecies** | evolves_from_species | long NOT NULL |  | [**PokemonSpeciesSummary**](PokemonSpeciesSummary.md) |  |  [foreignkey]
 **evolutionChain** | evolution_chain | long NOT NULL |  | [**EvolutionChainSummary**](EvolutionChainSummary.md) |  |  [foreignkey]
 **habitat** | habitat | long NOT NULL |  | [**PokemonHabitatSummary**](PokemonHabitatSummary.md) |  |  [foreignkey]
 **generation** | generation | long NOT NULL |  | [**GenerationSummary**](GenerationSummary.md) |  |  [foreignkey]
-**names** | `One-To-Many` | `----` | `----`  | [**kotlin.Array&lt;PokemonFormDetailFormNamesInner&gt;**](PokemonFormDetailFormNamesInner.md) |  | 
-**palParkEncounters** | `One-To-Many` | `----` | `----`  | [**kotlin.Array&lt;PokemonSpeciesDetailPalParkEncountersInner&gt;**](PokemonSpeciesDetailPalParkEncountersInner.md) |  | 
-**formDescriptions** | `One-To-Many` | `----` | `----`  | [**kotlin.Array&lt;PokemonSpeciesDescription&gt;**](PokemonSpeciesDescription.md) |  | 
-**flavorTextEntries** | `One-To-Many` | `----` | `----`  | [**kotlin.Array&lt;PokemonSpeciesFlavorText&gt;**](PokemonSpeciesFlavorText.md) |  | 
-**genera** | `One-To-Many` | `----` | `----`  | [**kotlin.Array&lt;PokemonSpeciesDetailGeneraInner&gt;**](PokemonSpeciesDetailGeneraInner.md) |  | 
-**varieties** | `One-To-Many` | `----` | `----`  | [**kotlin.Array&lt;PokemonSpeciesDetailVarietiesInner&gt;**](PokemonSpeciesDetailVarietiesInner.md) |  | 
+**names** | `One-To-Many` | `----` | `----`  | [**kotlin.Array&lt;PokemonFormDetailFormNamesInner&gt;**](PokemonFormDetailFormNamesInner.md) |  |  [readonly]
+**palParkEncounters** | `One-To-Many` | `----` | `----`  | [**kotlin.Array&lt;PokemonSpeciesDetailPalParkEncountersInner&gt;**](PokemonSpeciesDetailPalParkEncountersInner.md) |  |  [readonly]
+**formDescriptions** | `One-To-Many` | `----` | `----`  | [**kotlin.Array&lt;PokemonSpeciesDescription&gt;**](PokemonSpeciesDescription.md) |  |  [readonly]
+**flavorTextEntries** | `One-To-Many` | `----` | `----`  | [**kotlin.Array&lt;PokemonSpeciesFlavorText&gt;**](PokemonSpeciesFlavorText.md) |  |  [readonly]
+**genera** | `One-To-Many` | `----` | `----`  | [**kotlin.Array&lt;PokemonSpeciesDetailGeneraInner&gt;**](PokemonSpeciesDetailGeneraInner.md) |  |  [readonly]
+**varieties** | `One-To-Many` | `----` | `----`  | [**kotlin.Array&lt;PokemonSpeciesDetailVarietiesInner&gt;**](PokemonSpeciesDetailVarietiesInner.md) |  |  [readonly]
 **order** | order | int |  | **kotlin.Int** |  |  [optional]
 **genderRate** | gender_rate | int |  | **kotlin.Int** |  |  [optional]
 **captureRate** | capture_rate | int |  | **kotlin.Int** |  |  [optional]

@@ -146,7 +146,7 @@ function encounterConditionRetrieveRaw<T>(requestParameters: EncounterConditionR
 
     meta.authType = ['basic'];
     const config: QueryConfig<T> = {
-        url: `${runtime.Configuration.basePath}/api/v2/encounter-condition/{id}/`.replace(`{${"id"}}`, encodeURIComponent(String(requestParameters.id))),
+        url: `${runtime.Configuration.basePath}/api/v2/encounter-condition/{id}/`.replace('{id}', encodeURIComponent(String(requestParameters.id))),
         meta,
         update: requestConfig.update,
         queryKey: requestConfig.queryKey,
@@ -256,7 +256,7 @@ function encounterConditionValueRetrieveRaw<T>(requestParameters: EncounterCondi
 
     meta.authType = ['basic'];
     const config: QueryConfig<T> = {
-        url: `${runtime.Configuration.basePath}/api/v2/encounter-condition-value/{id}/`.replace(`{${"id"}}`, encodeURIComponent(String(requestParameters.id))),
+        url: `${runtime.Configuration.basePath}/api/v2/encounter-condition-value/{id}/`.replace('{id}', encodeURIComponent(String(requestParameters.id))),
         meta,
         update: requestConfig.update,
         queryKey: requestConfig.queryKey,
@@ -366,7 +366,7 @@ function encounterMethodRetrieveRaw<T>(requestParameters: EncounterMethodRetriev
 
     meta.authType = ['basic'];
     const config: QueryConfig<T> = {
-        url: `${runtime.Configuration.basePath}/api/v2/encounter-method/{id}/`.replace(`{${"id"}}`, encodeURIComponent(String(requestParameters.id))),
+        url: `${runtime.Configuration.basePath}/api/v2/encounter-method/{id}/`.replace('{id}', encodeURIComponent(String(requestParameters.id))),
         meta,
         update: requestConfig.update,
         queryKey: requestConfig.queryKey,

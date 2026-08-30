@@ -59,10 +59,12 @@ class EvolutionChainDetail {
       // Note 1: the values aren't checked for validity beyond being non-null.
       // Note 2: this code is stripped in release mode!
       assert(() {
-        requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "EvolutionChainDetail[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "EvolutionChainDetail[$key]" has a null value in JSON.');
-        });
+        assert(json.containsKey(r'id'), 'Required key "EvolutionChainDetail[id]" is missing from JSON.');
+        assert(json[r'id'] != null, 'Required key "EvolutionChainDetail[id]" has a null value in JSON.');
+        assert(json.containsKey(r'baby_trigger_item'), 'Required key "EvolutionChainDetail[baby_trigger_item]" is missing from JSON.');
+        assert(json[r'baby_trigger_item'] != null, 'Required key "EvolutionChainDetail[baby_trigger_item]" has a null value in JSON.');
+        assert(json.containsKey(r'chain'), 'Required key "EvolutionChainDetail[chain]" is missing from JSON.');
+        assert(json[r'chain'] != null, 'Required key "EvolutionChainDetail[chain]" has a null value in JSON.');
         return true;
       }());
 

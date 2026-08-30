@@ -24,7 +24,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
 
 
 @JsonTypeName("RegionDetail")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2026-02-07T15:24:06.001755207Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2026-08-30T01:56:42.280002256Z[Etc/UTC]", comments = "Generator version: 7.24.0")
 public class RegionDetail   {
   private Integer id;
   private String name;
@@ -104,7 +104,7 @@ public class RegionDetail   {
   
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(required = true, value = "locations")
-  @NotNull @Valid public List<@Valid LocationSummary> getLocations() {
+  @Valid public List<@Valid LocationSummary> getLocations() {
     return locations;
   }
 
@@ -158,7 +158,7 @@ public class RegionDetail   {
   
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(required = true, value = "names")
-  @NotNull @Valid public List<@Valid RegionName> getNames() {
+  @Valid public List<@Valid RegionName> getNames() {
     return names;
   }
 
@@ -193,7 +193,7 @@ public class RegionDetail   {
   
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(required = true, value = "pokedexes")
-  @NotNull @Valid public List<@Valid PokedexSummary> getPokedexes() {
+  @Valid public List<@Valid PokedexSummary> getPokedexes() {
     return pokedexes;
   }
 
@@ -228,7 +228,7 @@ public class RegionDetail   {
   
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(required = true, value = "version_groups")
-  @NotNull @Valid public List<@Valid AbilityDetailPokemonInnerPokemon> getVersionGroups() {
+  @Valid public List<@Valid AbilityDetailPokemonInnerPokemon> getVersionGroups() {
     return versionGroups;
   }
 
@@ -298,12 +298,8 @@ public class RegionDetail   {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 
 }
-

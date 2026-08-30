@@ -1,4 +1,3 @@
-.openapi-generator-ignore
 apis/BerriesApi.ts
 apis/ContestsApi.ts
 apis/EncountersApi.ts

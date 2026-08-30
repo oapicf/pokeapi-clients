@@ -6,28 +6,37 @@
 
 
 static stat_detail_affecting_moves_increase_inner_t *stat_detail_affecting_moves_increase_inner_create_internal(
-    int change,
+    int *change,
     ability_detail_pokemon_inner_pokemon_t *move
     ) {
     stat_detail_affecting_moves_increase_inner_t *stat_detail_affecting_moves_increase_inner_local_var = malloc(sizeof(stat_detail_affecting_moves_increase_inner_t));
     if (!stat_detail_affecting_moves_increase_inner_local_var) {
         return NULL;
     }
+    memset(stat_detail_affecting_moves_increase_inner_local_var, 0, sizeof(stat_detail_affecting_moves_increase_inner_t));
+    stat_detail_affecting_moves_increase_inner_local_var->_library_owned = 1;
     stat_detail_affecting_moves_increase_inner_local_var->change = change;
     stat_detail_affecting_moves_increase_inner_local_var->move = move;
-
-    stat_detail_affecting_moves_increase_inner_local_var->_library_owned = 1;
     return stat_detail_affecting_moves_increase_inner_local_var;
 }
 
 __attribute__((deprecated)) stat_detail_affecting_moves_increase_inner_t *stat_detail_affecting_moves_increase_inner_create(
-    int change,
+    int *change,
     ability_detail_pokemon_inner_pokemon_t *move
     ) {
-    return stat_detail_affecting_moves_increase_inner_create_internal (
-        change,
+    int *change_copy = NULL;
+    if (change) {
+        change_copy = malloc(sizeof(int));
+        if (change_copy) *change_copy = *change;
+    }
+    stat_detail_affecting_moves_increase_inner_t *result = stat_detail_affecting_moves_increase_inner_create_internal (
+        change_copy,
         move
         );
+    if (!result) {
+        free(change_copy);
+    }
+    return result;
 }
 
 void stat_detail_affecting_moves_increase_inner_free(stat_detail_affecting_moves_increase_inner_t *stat_detail_affecting_moves_increase_inner) {
@@ -39,6 +48,10 @@ void stat_detail_affecting_moves_increase_inner_free(stat_detail_affecting_moves
         return ;
     }
     listEntry_t *listEntry;
+    if (stat_detail_affecting_moves_increase_inner->change) {
+        free(stat_detail_affecting_moves_increase_inner->change);
+        stat_detail_affecting_moves_increase_inner->change = NULL;
+    }
     if (stat_detail_affecting_moves_increase_inner->move) {
         ability_detail_pokemon_inner_pokemon_free(stat_detail_affecting_moves_increase_inner->move);
         stat_detail_affecting_moves_increase_inner->move = NULL;
@@ -53,7 +66,7 @@ cJSON *stat_detail_affecting_moves_increase_inner_convertToJSON(stat_detail_affe
     if (!stat_detail_affecting_moves_increase_inner->change) {
         goto fail;
     }
-    if(cJSON_AddNumberToObject(item, "change", stat_detail_affecting_moves_increase_inner->change) == NULL) {
+    if(cJSON_AddNumberToObject(item, "change", *stat_detail_affecting_moves_increase_inner->change) == NULL) {
     goto fail; //Numeric
     }
 
@@ -83,6 +96,9 @@ stat_detail_affecting_moves_increase_inner_t *stat_detail_affecting_moves_increa
 
     stat_detail_affecting_moves_increase_inner_t *stat_detail_affecting_moves_increase_inner_local_var = NULL;
 
+    // define the local variable for stat_detail_affecting_moves_increase_inner->change
+    int *change_local_var = NULL;
+
     // define the local variable for stat_detail_affecting_moves_increase_inner->move
     ability_detail_pokemon_inner_pokemon_t *move_local_nonprim = NULL;
 
@@ -100,6 +116,12 @@ stat_detail_affecting_moves_increase_inner_t *stat_detail_affecting_moves_increa
     {
     goto end; //Numeric
     }
+    change_local_var = malloc(sizeof(int));
+    if(!change_local_var)
+    {
+        goto end;
+    }
+    *change_local_var = change->valuedouble;
 
     // stat_detail_affecting_moves_increase_inner->move
     cJSON *move = cJSON_GetObjectItemCaseSensitive(stat_detail_affecting_moves_increase_innerJSON, "move");
@@ -114,13 +136,22 @@ stat_detail_affecting_moves_increase_inner_t *stat_detail_affecting_moves_increa
     move_local_nonprim = ability_detail_pokemon_inner_pokemon_parseFromJSON(move); //nonprimitive
 
 
+
     stat_detail_affecting_moves_increase_inner_local_var = stat_detail_affecting_moves_increase_inner_create_internal (
-        change->valuedouble,
+        change_local_var,
         move_local_nonprim
         );
 
+    if (!stat_detail_affecting_moves_increase_inner_local_var) {
+        goto end;
+    }
+
     return stat_detail_affecting_moves_increase_inner_local_var;
 end:
+    if (change_local_var) {
+        free(change_local_var);
+        change_local_var = NULL;
+    }
     if (move_local_nonprim) {
         ability_detail_pokemon_inner_pokemon_free(move_local_nonprim);
         move_local_nonprim = NULL;

@@ -49,7 +49,7 @@ class VersionDetail
      * @var int|null
      * @SerializedName("id")
      * @Type("int")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Type("int")]
     protected ?int $id = null;
@@ -58,7 +58,7 @@ class VersionDetail
      * @var string|null
      * @SerializedName("name")
      * @Type("string")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Type("string")]
     #[Assert\Length(max: 100)]
@@ -68,7 +68,7 @@ class VersionDetail
      * @var VersionName[]|null
      * @SerializedName("names")
      * @Type("array<OpenAPI\Server\Model\VersionName>")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Valid]
     #[Assert\All([
@@ -80,7 +80,7 @@ class VersionDetail
      * @var VersionGroupSummary|null
      * @SerializedName("version_group")
      * @Type("OpenAPI\Server\Model\VersionGroupSummary")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Valid]
     #[Assert\Type("OpenAPI\Server\Model\VersionGroupSummary")]
@@ -111,12 +111,12 @@ class VersionDetail
     }
 
     /**
-    * Sets id.
-    *
-    * @param int|null $id
-    *
-    * @return $this
-    */
+     * Sets id.
+     *
+     * @param int|null $id
+     *
+     * @return $this
+     */
     public function setId(?int $id): self
     {
         $this->id = $id;
@@ -138,12 +138,12 @@ class VersionDetail
     }
 
     /**
-    * Sets name.
-    *
-    * @param string|null $name
-    *
-    * @return $this
-    */
+     * Sets name.
+     *
+     * @param string|null $name
+     *
+     * @return $this
+     */
     public function setName(?string $name): self
     {
         $this->name = $name;
@@ -165,12 +165,12 @@ class VersionDetail
     }
 
     /**
-    * Sets names.
-    *
-    * @param VersionName[]|null $names
-    *
-    * @return $this
-    */
+     * Sets names.
+     *
+     * @param VersionName[]|null $names
+     *
+     * @return $this
+     */
     public function setNames(?array $names): self
     {
         $this->names = $names;
@@ -192,12 +192,12 @@ class VersionDetail
     }
 
     /**
-    * Sets versionGroup.
-    *
-    * @param VersionGroupSummary|null $versionGroup
-    *
-    * @return $this
-    */
+     * Sets versionGroup.
+     *
+     * @param VersionGroupSummary|null $versionGroup
+     *
+     * @return $this
+     */
     public function setVersionGroup(?VersionGroupSummary $versionGroup): self
     {
         $this->versionGroup = $versionGroup;

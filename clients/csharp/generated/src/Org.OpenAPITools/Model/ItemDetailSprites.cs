@@ -77,8 +77,18 @@ namespace Org.OpenAPITools.Model
     /// <summary>
     /// A Json converter for type <see cref="ItemDetailSprites" />
     /// </summary>
-    public class ItemDetailSpritesJsonConverter : JsonConverter<ItemDetailSprites>
+    public partial class ItemDetailSpritesJsonConverter : JsonConverter<ItemDetailSprites>
     {
+        partial void OnCreated();
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ItemDetailSpritesJsonConverter" /> class.
+        /// </summary>
+        public ItemDetailSpritesJsonConverter()
+        {
+            OnCreated();
+        }
+
         /// <summary>
         /// Deserializes json to <see cref="ItemDetailSprites" />
         /// </summary>

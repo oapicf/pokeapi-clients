@@ -9,7 +9,7 @@ The class is defined in **[AbilityChange.java](../../src/main/java/org/openapito
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **versionGroup** | [`VersionGroupSummary`](VersionGroupSummary.md) |  | 
-**effectEntries** | [`List&lt;AbilityChangeEffectText&gt;`](AbilityChangeEffectText.md) |  | 
+**effectEntries** | [`List&lt;AbilityChangeEffectText&gt;`](AbilityChangeEffectText.md) |  |  [readonly property]
 
 
 

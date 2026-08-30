@@ -47,7 +47,7 @@ class PokemonShapeDetailAwesomeNamesInner
      * @var string|null
      * @SerializedName("awesome_name")
      * @Type("string")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Type("string")]
     protected ?string $awesomeName = null;
@@ -56,7 +56,7 @@ class PokemonShapeDetailAwesomeNamesInner
      * @var AbilityDetailPokemonInnerPokemon|null
      * @SerializedName("language")
      * @Type("OpenAPI\Server\Model\AbilityDetailPokemonInnerPokemon")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Valid]
     #[Assert\Type("OpenAPI\Server\Model\AbilityDetailPokemonInnerPokemon")]
@@ -85,12 +85,12 @@ class PokemonShapeDetailAwesomeNamesInner
     }
 
     /**
-    * Sets awesomeName.
-    *
-    * @param string|null $awesomeName
-    *
-    * @return $this
-    */
+     * Sets awesomeName.
+     *
+     * @param string|null $awesomeName
+     *
+     * @return $this
+     */
     public function setAwesomeName(?string $awesomeName): self
     {
         $this->awesomeName = $awesomeName;
@@ -112,12 +112,12 @@ class PokemonShapeDetailAwesomeNamesInner
     }
 
     /**
-    * Sets language.
-    *
-    * @param AbilityDetailPokemonInnerPokemon|null $language
-    *
-    * @return $this
-    */
+     * Sets language.
+     *
+     * @param AbilityDetailPokemonInnerPokemon|null $language
+     *
+     * @return $this
+     */
     public function setLanguage(?AbilityDetailPokemonInnerPokemon $language): self
     {
         $this->language = $language;

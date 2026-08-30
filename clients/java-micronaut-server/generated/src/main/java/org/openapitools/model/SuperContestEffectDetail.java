@@ -37,7 +37,7 @@ import io.swagger.v3.oas.annotations.media.Schema;
   SuperContestEffectDetail.JSON_PROPERTY_MOVES
 })
 @JsonTypeName("SuperContestEffectDetail")
-@Generated(value="org.openapitools.codegen.languages.JavaMicronautServerCodegen", date="2026-02-07T15:23:03.167972722Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@Generated(value="org.openapitools.codegen.languages.JavaMicronautServerCodegen", date="2026-08-30T01:55:54.631003115Z[Etc/UTC]", comments = "Generator version: 7.24.0")
 @Introspected
 public class SuperContestEffectDetail {
     public static final String JSON_PROPERTY_ID = "id";
@@ -94,42 +94,16 @@ public class SuperContestEffectDetail {
         this.appeal = appeal;
     }
 
-    public SuperContestEffectDetail flavorTextEntries(List<@Valid SuperContestEffectFlavorText> flavorTextEntries) {
-        this.flavorTextEntries = flavorTextEntries;
-        return this;
-    }
-
-    public SuperContestEffectDetail addFlavorTextEntriesItem(SuperContestEffectFlavorText flavorTextEntriesItem) {
-        this.flavorTextEntries.add(flavorTextEntriesItem);
-        return this;
-    }
-
     /**
      * Get flavorTextEntries
      * @return flavorTextEntries
      */
     @NotNull
-    @Schema(name = "flavor_text_entries", requiredMode = Schema.RequiredMode.REQUIRED)
+    @Schema(name = "flavor_text_entries", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
     @JsonProperty(JSON_PROPERTY_FLAVOR_TEXT_ENTRIES)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public List<@Valid SuperContestEffectFlavorText> getFlavorTextEntries() {
         return flavorTextEntries;
-    }
-
-    @JsonProperty(JSON_PROPERTY_FLAVOR_TEXT_ENTRIES)
-    @JsonInclude(value = JsonInclude.Include.ALWAYS)
-    public void setFlavorTextEntries(List<@Valid SuperContestEffectFlavorText> flavorTextEntries) {
-        this.flavorTextEntries = flavorTextEntries;
-    }
-
-    public SuperContestEffectDetail moves(List<@Valid MoveSummary> moves) {
-        this.moves = moves;
-        return this;
-    }
-
-    public SuperContestEffectDetail addMovesItem(MoveSummary movesItem) {
-        this.moves.add(movesItem);
-        return this;
     }
 
     /**
@@ -137,17 +111,11 @@ public class SuperContestEffectDetail {
      * @return moves
      */
     @NotNull
-    @Schema(name = "moves", requiredMode = Schema.RequiredMode.REQUIRED)
+    @Schema(name = "moves", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
     @JsonProperty(JSON_PROPERTY_MOVES)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public List<@Valid MoveSummary> getMoves() {
         return moves;
-    }
-
-    @JsonProperty(JSON_PROPERTY_MOVES)
-    @JsonInclude(value = JsonInclude.Include.ALWAYS)
-    public void setMoves(List<@Valid MoveSummary> moves) {
-        this.moves = moves;
     }
 
     @Override
@@ -187,10 +155,7 @@ public class SuperContestEffectDetail {
      * (except the first line).
      */
     private String toIndentedString(Object o) {
-        if (o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
+        return o == null ? "null" : o.toString().replace("\n", "\n    ");
     }
 
 }

@@ -10,9 +10,9 @@ Name | Type | Description | Notes
 **IsBattleOnly** | Pointer to **bool** |  | [optional] 
 **AffectingMoves** | [**StatDetailAffectingMoves**](StatDetailAffectingMoves.md) |  | 
 **AffectingNatures** | [**StatDetailAffectingNatures**](StatDetailAffectingNatures.md) |  | 
-**Characteristics** | [**[]CharacteristicSummary**](CharacteristicSummary.md) |  | 
+**Characteristics** | [**[]CharacteristicSummary**](CharacteristicSummary.md) |  | [readonly] 
 **MoveDamageClass** | [**MoveDamageClassSummary**](MoveDamageClassSummary.md) |  | 
-**Names** | [**[]StatName**](StatName.md) |  | 
+**Names** | [**[]StatName**](StatName.md) |  | [readonly] 
 
 ## Methods
 

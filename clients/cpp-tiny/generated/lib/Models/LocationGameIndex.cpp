@@ -86,7 +86,7 @@ LocationGameIndex::getGameIndex()
 }
 
 void
-LocationGameIndex::setGameIndex(int  game_index)
+LocationGameIndex::setGameIndex(int game_index)
 {
 	this->game_index = game_index;
 }
@@ -98,7 +98,7 @@ LocationGameIndex::getGeneration()
 }
 
 void
-LocationGameIndex::setGeneration(GenerationSummary  generation)
+LocationGameIndex::setGeneration(GenerationSummary generation)
 {
 	this->generation = generation;
 }

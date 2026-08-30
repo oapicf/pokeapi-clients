@@ -20,16 +20,16 @@ typedef struct nature_battle_style_preference_t nature_battle_style_preference_t
 
 
 typedef struct nature_battle_style_preference_t {
-    int low_hp_preference; //numeric
-    int high_hp_preference; //numeric
+    int *low_hp_preference; //numeric
+    int *high_hp_preference; //numeric
     struct move_battle_style_summary_t *move_battle_style; //model
 
     int _library_owned; // Is the library responsible for freeing this object?
 } nature_battle_style_preference_t;
 
 __attribute__((deprecated)) nature_battle_style_preference_t *nature_battle_style_preference_create(
-    int low_hp_preference,
-    int high_hp_preference,
+    int *low_hp_preference,
+    int *high_hp_preference,
     move_battle_style_summary_t *move_battle_style
 );
 

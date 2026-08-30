@@ -31,6 +31,8 @@ PaginatedContestEffectSummaryList::PaginatedContestEffectSummaryList()
     
 }
 
+PaginatedContestEffectSummaryList::~PaginatedContestEffectSummaryList() = default;
+
 void PaginatedContestEffectSummaryList::validate() const
 {
     std::stringstream msg;

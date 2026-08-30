@@ -220,7 +220,7 @@ export class PokemonApi {
      */
     public async abilityRetrieve (id: string, options: {headers: {[name: string]: string}} = {headers: {}}) : Promise<{ response: http.IncomingMessage; body: AbilityDetail;  }> {
         const localVarPath = this.basePath + '/api/v2/ability/{id}/'
-            .replace('{' + 'id' + '}', encodeURIComponent(String(id)));
+            .replace('{id}', encodeURIComponent(String(id)));
         let localVarQueryParameters: any = {};
         let localVarHeaderParams: any = (<any>Object).assign({}, this._defaultHeaders);
         const produces = ['application/json'];
@@ -378,7 +378,7 @@ export class PokemonApi {
      */
     public async characteristicRetrieve (id: string, options: {headers: {[name: string]: string}} = {headers: {}}) : Promise<{ response: http.IncomingMessage; body: CharacteristicDetail;  }> {
         const localVarPath = this.basePath + '/api/v2/characteristic/{id}/'
-            .replace('{' + 'id' + '}', encodeURIComponent(String(id)));
+            .replace('{id}', encodeURIComponent(String(id)));
         let localVarQueryParameters: any = {};
         let localVarHeaderParams: any = (<any>Object).assign({}, this._defaultHeaders);
         const produces = ['application/json'];
@@ -536,7 +536,7 @@ export class PokemonApi {
      */
     public async eggGroupRetrieve (id: string, options: {headers: {[name: string]: string}} = {headers: {}}) : Promise<{ response: http.IncomingMessage; body: EggGroupDetail;  }> {
         const localVarPath = this.basePath + '/api/v2/egg-group/{id}/'
-            .replace('{' + 'id' + '}', encodeURIComponent(String(id)));
+            .replace('{id}', encodeURIComponent(String(id)));
         let localVarQueryParameters: any = {};
         let localVarHeaderParams: any = (<any>Object).assign({}, this._defaultHeaders);
         const produces = ['application/json'];
@@ -694,7 +694,7 @@ export class PokemonApi {
      */
     public async genderRetrieve (id: string, options: {headers: {[name: string]: string}} = {headers: {}}) : Promise<{ response: http.IncomingMessage; body: GenderDetail;  }> {
         const localVarPath = this.basePath + '/api/v2/gender/{id}/'
-            .replace('{' + 'id' + '}', encodeURIComponent(String(id)));
+            .replace('{id}', encodeURIComponent(String(id)));
         let localVarQueryParameters: any = {};
         let localVarHeaderParams: any = (<any>Object).assign({}, this._defaultHeaders);
         const produces = ['application/json'];
@@ -852,7 +852,7 @@ export class PokemonApi {
      */
     public async growthRateRetrieve (id: string, options: {headers: {[name: string]: string}} = {headers: {}}) : Promise<{ response: http.IncomingMessage; body: GrowthRateDetail;  }> {
         const localVarPath = this.basePath + '/api/v2/growth-rate/{id}/'
-            .replace('{' + 'id' + '}', encodeURIComponent(String(id)));
+            .replace('{id}', encodeURIComponent(String(id)));
         let localVarQueryParameters: any = {};
         let localVarHeaderParams: any = (<any>Object).assign({}, this._defaultHeaders);
         const produces = ['application/json'];
@@ -1010,7 +1010,7 @@ export class PokemonApi {
      */
     public async moveDamageClassRetrieve (id: string, options: {headers: {[name: string]: string}} = {headers: {}}) : Promise<{ response: http.IncomingMessage; body: MoveDamageClassDetail;  }> {
         const localVarPath = this.basePath + '/api/v2/move-damage-class/{id}/'
-            .replace('{' + 'id' + '}', encodeURIComponent(String(id)));
+            .replace('{id}', encodeURIComponent(String(id)));
         let localVarQueryParameters: any = {};
         let localVarHeaderParams: any = (<any>Object).assign({}, this._defaultHeaders);
         const produces = ['application/json'];
@@ -1168,7 +1168,7 @@ export class PokemonApi {
      */
     public async natureRetrieve (id: string, options: {headers: {[name: string]: string}} = {headers: {}}) : Promise<{ response: http.IncomingMessage; body: NatureDetail;  }> {
         const localVarPath = this.basePath + '/api/v2/nature/{id}/'
-            .replace('{' + 'id' + '}', encodeURIComponent(String(id)));
+            .replace('{id}', encodeURIComponent(String(id)));
         let localVarQueryParameters: any = {};
         let localVarHeaderParams: any = (<any>Object).assign({}, this._defaultHeaders);
         const produces = ['application/json'];
@@ -1326,7 +1326,7 @@ export class PokemonApi {
      */
     public async pokeathlonStatRetrieve (id: string, options: {headers: {[name: string]: string}} = {headers: {}}) : Promise<{ response: http.IncomingMessage; body: PokeathlonStatDetail;  }> {
         const localVarPath = this.basePath + '/api/v2/pokeathlon-stat/{id}/'
-            .replace('{' + 'id' + '}', encodeURIComponent(String(id)));
+            .replace('{id}', encodeURIComponent(String(id)));
         let localVarQueryParameters: any = {};
         let localVarHeaderParams: any = (<any>Object).assign({}, this._defaultHeaders);
         const produces = ['application/json'];
@@ -1484,7 +1484,7 @@ export class PokemonApi {
      */
     public async pokemonColorRetrieve (id: string, options: {headers: {[name: string]: string}} = {headers: {}}) : Promise<{ response: http.IncomingMessage; body: PokemonColorDetail;  }> {
         const localVarPath = this.basePath + '/api/v2/pokemon-color/{id}/'
-            .replace('{' + 'id' + '}', encodeURIComponent(String(id)));
+            .replace('{id}', encodeURIComponent(String(id)));
         let localVarQueryParameters: any = {};
         let localVarHeaderParams: any = (<any>Object).assign({}, this._defaultHeaders);
         const produces = ['application/json'];
@@ -1642,7 +1642,7 @@ export class PokemonApi {
      */
     public async pokemonFormRetrieve (id: string, options: {headers: {[name: string]: string}} = {headers: {}}) : Promise<{ response: http.IncomingMessage; body: PokemonFormDetail;  }> {
         const localVarPath = this.basePath + '/api/v2/pokemon-form/{id}/'
-            .replace('{' + 'id' + '}', encodeURIComponent(String(id)));
+            .replace('{id}', encodeURIComponent(String(id)));
         let localVarQueryParameters: any = {};
         let localVarHeaderParams: any = (<any>Object).assign({}, this._defaultHeaders);
         const produces = ['application/json'];
@@ -1800,7 +1800,7 @@ export class PokemonApi {
      */
     public async pokemonHabitatRetrieve (id: string, options: {headers: {[name: string]: string}} = {headers: {}}) : Promise<{ response: http.IncomingMessage; body: PokemonHabitatDetail;  }> {
         const localVarPath = this.basePath + '/api/v2/pokemon-habitat/{id}/'
-            .replace('{' + 'id' + '}', encodeURIComponent(String(id)));
+            .replace('{id}', encodeURIComponent(String(id)));
         let localVarQueryParameters: any = {};
         let localVarHeaderParams: any = (<any>Object).assign({}, this._defaultHeaders);
         const produces = ['application/json'];
@@ -1958,7 +1958,7 @@ export class PokemonApi {
      */
     public async pokemonRetrieve (id: string, options: {headers: {[name: string]: string}} = {headers: {}}) : Promise<{ response: http.IncomingMessage; body: PokemonDetail;  }> {
         const localVarPath = this.basePath + '/api/v2/pokemon/{id}/'
-            .replace('{' + 'id' + '}', encodeURIComponent(String(id)));
+            .replace('{id}', encodeURIComponent(String(id)));
         let localVarQueryParameters: any = {};
         let localVarHeaderParams: any = (<any>Object).assign({}, this._defaultHeaders);
         const produces = ['application/json'];
@@ -2116,7 +2116,7 @@ export class PokemonApi {
      */
     public async pokemonShapeRetrieve (id: string, options: {headers: {[name: string]: string}} = {headers: {}}) : Promise<{ response: http.IncomingMessage; body: PokemonShapeDetail;  }> {
         const localVarPath = this.basePath + '/api/v2/pokemon-shape/{id}/'
-            .replace('{' + 'id' + '}', encodeURIComponent(String(id)));
+            .replace('{id}', encodeURIComponent(String(id)));
         let localVarQueryParameters: any = {};
         let localVarHeaderParams: any = (<any>Object).assign({}, this._defaultHeaders);
         const produces = ['application/json'];
@@ -2274,7 +2274,7 @@ export class PokemonApi {
      */
     public async pokemonSpeciesRetrieve (id: string, options: {headers: {[name: string]: string}} = {headers: {}}) : Promise<{ response: http.IncomingMessage; body: PokemonSpeciesDetail;  }> {
         const localVarPath = this.basePath + '/api/v2/pokemon-species/{id}/'
-            .replace('{' + 'id' + '}', encodeURIComponent(String(id)));
+            .replace('{id}', encodeURIComponent(String(id)));
         let localVarQueryParameters: any = {};
         let localVarHeaderParams: any = (<any>Object).assign({}, this._defaultHeaders);
         const produces = ['application/json'];
@@ -2432,7 +2432,7 @@ export class PokemonApi {
      */
     public async statRetrieve (id: string, options: {headers: {[name: string]: string}} = {headers: {}}) : Promise<{ response: http.IncomingMessage; body: StatDetail;  }> {
         const localVarPath = this.basePath + '/api/v2/stat/{id}/'
-            .replace('{' + 'id' + '}', encodeURIComponent(String(id)));
+            .replace('{id}', encodeURIComponent(String(id)));
         let localVarQueryParameters: any = {};
         let localVarHeaderParams: any = (<any>Object).assign({}, this._defaultHeaders);
         const produces = ['application/json'];
@@ -2590,7 +2590,7 @@ export class PokemonApi {
      */
     public async typeRetrieve (id: string, options: {headers: {[name: string]: string}} = {headers: {}}) : Promise<{ response: http.IncomingMessage; body: TypeDetail;  }> {
         const localVarPath = this.basePath + '/api/v2/type/{id}/'
-            .replace('{' + 'id' + '}', encodeURIComponent(String(id)));
+            .replace('{id}', encodeURIComponent(String(id)));
         let localVarQueryParameters: any = {};
         let localVarHeaderParams: any = (<any>Object).assign({}, this._defaultHeaders);
         const produces = ['application/json'];

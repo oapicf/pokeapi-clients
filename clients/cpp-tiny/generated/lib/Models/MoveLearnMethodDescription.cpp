@@ -86,7 +86,7 @@ MoveLearnMethodDescription::getDescription()
 }
 
 void
-MoveLearnMethodDescription::setDescription(std::string  description)
+MoveLearnMethodDescription::setDescription(std::string description)
 {
 	this->description = description;
 }
@@ -98,7 +98,7 @@ MoveLearnMethodDescription::getLanguage()
 }
 
 void
-MoveLearnMethodDescription::setLanguage(LanguageSummary  language)
+MoveLearnMethodDescription::setLanguage(LanguageSummary language)
 {
 	this->language = language;
 }

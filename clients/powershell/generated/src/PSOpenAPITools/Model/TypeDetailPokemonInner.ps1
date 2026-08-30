@@ -41,8 +41,8 @@ function Initialize-TypeDetailPokemonInner {
 
 
         $PSO = [PSCustomObject]@{
-            "slot" = ${Slot}
-            "pokemon" = ${Pokemon}
+            'slot' = ${Slot}
+            'pokemon' = ${Pokemon}
         }
 
 
@@ -80,28 +80,28 @@ function ConvertFrom-JsonToTypeDetailPokemonInner {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in TypeDetailPokemonInner
-        $AllProperties = ("slot", "pokemon")
+        $AllProperties = ('slot', 'pokemon')
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
             }
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "slot"))) { #optional property not found
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'slot'))) { #optional property not found
             $Slot = $null
         } else {
-            $Slot = $JsonParameters.PSobject.Properties["slot"].value
+            $Slot = $JsonParameters.PSobject.Properties['slot'].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "pokemon"))) { #optional property not found
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'pokemon'))) { #optional property not found
             $Pokemon = $null
         } else {
-            $Pokemon = $JsonParameters.PSobject.Properties["pokemon"].value
+            $Pokemon = $JsonParameters.PSobject.Properties['pokemon'].value
         }
 
         $PSO = [PSCustomObject]@{
-            "slot" = ${Slot}
-            "pokemon" = ${Pokemon}
+            'slot' = ${Slot}
+            'pokemon' = ${Pokemon}
         }
 
         return $PSO

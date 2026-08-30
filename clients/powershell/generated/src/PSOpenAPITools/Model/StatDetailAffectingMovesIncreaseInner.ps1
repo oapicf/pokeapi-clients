@@ -49,8 +49,8 @@ function Initialize-StatDetailAffectingMovesIncreaseInner {
 
 
         $PSO = [PSCustomObject]@{
-            "change" = ${Change}
-            "move" = ${Move}
+            'change' = ${Change}
+            'move' = ${Move}
         }
 
 
@@ -88,7 +88,7 @@ function ConvertFrom-JsonToStatDetailAffectingMovesIncreaseInner {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in StatDetailAffectingMovesIncreaseInner
-        $AllProperties = ("change", "move")
+        $AllProperties = ('change', 'move')
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -99,21 +99,21 @@ function ConvertFrom-JsonToStatDetailAffectingMovesIncreaseInner {
             throw "Error! Empty JSON cannot be serialized due to the required property 'change' missing."
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "change"))) {
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'change'))) {
             throw "Error! JSON cannot be serialized due to the required property 'change' missing."
         } else {
-            $Change = $JsonParameters.PSobject.Properties["change"].value
+            $Change = $JsonParameters.PSobject.Properties['change'].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "move"))) {
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'move'))) {
             throw "Error! JSON cannot be serialized due to the required property 'move' missing."
         } else {
-            $Move = $JsonParameters.PSobject.Properties["move"].value
+            $Move = $JsonParameters.PSobject.Properties['move'].value
         }
 
         $PSO = [PSCustomObject]@{
-            "change" = ${Change}
-            "move" = ${Move}
+            'change' = ${Change}
+            'move' = ${Move}
         }
 
         return $PSO

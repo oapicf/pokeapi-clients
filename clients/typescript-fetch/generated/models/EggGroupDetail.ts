@@ -51,13 +51,13 @@ export interface EggGroupDetail {
      * @type {Array<EggGroupName>}
      * @memberof EggGroupDetail
      */
-    names: Array<EggGroupName>;
+    readonly names: Array<EggGroupName>;
     /**
      * 
      * @type {Array<EggGroupDetailPokemonSpeciesInner>}
      * @memberof EggGroupDetail
      */
-    pokemonSpecies: Array<EggGroupDetailPokemonSpeciesInner>;
+    readonly pokemonSpecies: Array<EggGroupDetailPokemonSpeciesInner>;
 }
 
 /**
@@ -67,7 +67,7 @@ export function instanceOfEggGroupDetail(value: object): value is EggGroupDetail
     if (!('id' in value) || value['id'] === undefined) return false;
     if (!('name' in value) || value['name'] === undefined) return false;
     if (!('names' in value) || value['names'] === undefined) return false;
-    if (!('pokemonSpecies' in value) || value['pokemonSpecies'] === undefined) return false;
+    if ((!('pokemonSpecies' in (value as Record<string, any>)) && !('pokemon_species' in (value as Record<string, any>))) || ((value as Record<string, any>)['pokemonSpecies'] === undefined && (value as Record<string, any>)['pokemon_species'] === undefined)) return false;
     return true;
 }
 
@@ -92,7 +92,7 @@ export function EggGroupDetailToJSON(json: any): EggGroupDetail {
     return EggGroupDetailToJSONTyped(json, false);
 }
 
-export function EggGroupDetailToJSONTyped(value?: Omit<EggGroupDetail, 'id'> | null, ignoreDiscriminator: boolean = false): any {
+export function EggGroupDetailToJSONTyped(value?: Omit<EggGroupDetail, 'id'|'names'|'pokemonSpecies'> | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
@@ -100,8 +100,6 @@ export function EggGroupDetailToJSONTyped(value?: Omit<EggGroupDetail, 'id'> | n
     return {
         
         'name': value['name'],
-        'names': ((value['names'] as Array<any>).map(EggGroupNameToJSON)),
-        'pokemon_species': ((value['pokemonSpecies'] as Array<any>).map(EggGroupDetailPokemonSpeciesInnerToJSON)),
     };
 }
 

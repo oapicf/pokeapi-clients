@@ -92,6 +92,7 @@ public class ItemPocketDetail  {
 
   /**
    * Sets the <code>categories</code> property.
+   * <br><em>N.B. <code>categories</code> is <b>read only</b>; client code should not call this method</em>.
    */
  public void setCategories(List<@Valid ItemCategorySummary> categories) {
     this.categories = categories;
@@ -99,6 +100,7 @@ public class ItemPocketDetail  {
 
   /**
    * Sets the <code>categories</code> property.
+   * <br><em>N.B. <code>categories</code> is <b>read only</b>; client code should not call this method</em>.
    */
   public ItemPocketDetail categories(List<@Valid ItemCategorySummary> categories) {
     this.categories = categories;
@@ -107,6 +109,7 @@ public class ItemPocketDetail  {
 
   /**
    * Adds a new item to the <code>categories</code> list.
+   * <br><em>N.B. <code>categories</code> is <b>read only</b>; client code should not call this method</em>.
    */
   public ItemPocketDetail addCategoriesItem(ItemCategorySummary categoriesItem) {
     this.categories.add(categoriesItem);
@@ -125,6 +128,7 @@ public class ItemPocketDetail  {
 
   /**
    * Sets the <code>names</code> property.
+   * <br><em>N.B. <code>names</code> is <b>read only</b>; client code should not call this method</em>.
    */
  public void setNames(List<@Valid ItemPocketName> names) {
     this.names = names;
@@ -132,6 +136,7 @@ public class ItemPocketDetail  {
 
   /**
    * Sets the <code>names</code> property.
+   * <br><em>N.B. <code>names</code> is <b>read only</b>; client code should not call this method</em>.
    */
   public ItemPocketDetail names(List<@Valid ItemPocketName> names) {
     this.names = names;
@@ -140,6 +145,7 @@ public class ItemPocketDetail  {
 
   /**
    * Adds a new item to the <code>names</code> list.
+   * <br><em>N.B. <code>names</code> is <b>read only</b>; client code should not call this method</em>.
    */
   public ItemPocketDetail addNamesItem(ItemPocketName namesItem) {
     this.names.add(namesItem);
@@ -185,10 +191,7 @@ public class ItemPocketDetail  {
    * (except the first line).
    */
   private static String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 }
 

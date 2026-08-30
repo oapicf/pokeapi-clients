@@ -33,7 +33,7 @@ class  LanguageName
 {
 public:
     LanguageName();
-    virtual ~LanguageName() = default;
+    virtual ~LanguageName();
 
 
     /// <summary>

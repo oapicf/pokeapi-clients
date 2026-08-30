@@ -238,33 +238,33 @@ function Initialize-PokemonSpeciesDetail {
 
 
         $PSO = [PSCustomObject]@{
-            "id" = ${Id}
-            "name" = ${Name}
-            "order" = ${Order}
-            "gender_rate" = ${GenderRate}
-            "capture_rate" = ${CaptureRate}
-            "base_happiness" = ${BaseHappiness}
-            "is_baby" = ${IsBaby}
-            "is_legendary" = ${IsLegendary}
-            "is_mythical" = ${IsMythical}
-            "hatch_counter" = ${HatchCounter}
-            "has_gender_differences" = ${HasGenderDifferences}
-            "forms_switchable" = ${FormsSwitchable}
-            "growth_rate" = ${GrowthRate}
-            "pokedex_numbers" = ${PokedexNumbers}
-            "egg_groups" = ${EggGroups}
-            "color" = ${Color}
-            "shape" = ${Shape}
-            "evolves_from_species" = ${EvolvesFromSpecies}
-            "evolution_chain" = ${EvolutionChain}
-            "habitat" = ${Habitat}
-            "generation" = ${Generation}
-            "names" = ${Names}
-            "pal_park_encounters" = ${PalParkEncounters}
-            "form_descriptions" = ${FormDescriptions}
-            "flavor_text_entries" = ${FlavorTextEntries}
-            "genera" = ${Genera}
-            "varieties" = ${Varieties}
+            'id' = ${Id}
+            'name' = ${Name}
+            'order' = ${Order}
+            'gender_rate' = ${GenderRate}
+            'capture_rate' = ${CaptureRate}
+            'base_happiness' = ${BaseHappiness}
+            'is_baby' = ${IsBaby}
+            'is_legendary' = ${IsLegendary}
+            'is_mythical' = ${IsMythical}
+            'hatch_counter' = ${HatchCounter}
+            'has_gender_differences' = ${HasGenderDifferences}
+            'forms_switchable' = ${FormsSwitchable}
+            'growth_rate' = ${GrowthRate}
+            'pokedex_numbers' = ${PokedexNumbers}
+            'egg_groups' = ${EggGroups}
+            'color' = ${Color}
+            'shape' = ${Shape}
+            'evolves_from_species' = ${EvolvesFromSpecies}
+            'evolution_chain' = ${EvolutionChain}
+            'habitat' = ${Habitat}
+            'generation' = ${Generation}
+            'names' = ${Names}
+            'pal_park_encounters' = ${PalParkEncounters}
+            'form_descriptions' = ${FormDescriptions}
+            'flavor_text_entries' = ${FlavorTextEntries}
+            'genera' = ${Genera}
+            'varieties' = ${Varieties}
         }
 
 
@@ -302,7 +302,7 @@ function ConvertFrom-JsonToPokemonSpeciesDetail {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in PokemonSpeciesDetail
-        $AllProperties = ("id", "name", "order", "gender_rate", "capture_rate", "base_happiness", "is_baby", "is_legendary", "is_mythical", "hatch_counter", "has_gender_differences", "forms_switchable", "growth_rate", "pokedex_numbers", "egg_groups", "color", "shape", "evolves_from_species", "evolution_chain", "habitat", "generation", "names", "pal_park_encounters", "form_descriptions", "flavor_text_entries", "genera", "varieties")
+        $AllProperties = ('id', 'name', 'order', 'gender_rate', 'capture_rate', 'base_happiness', 'is_baby', 'is_legendary', 'is_mythical', 'hatch_counter', 'has_gender_differences', 'forms_switchable', 'growth_rate', 'pokedex_numbers', 'egg_groups', 'color', 'shape', 'evolves_from_species', 'evolution_chain', 'habitat', 'generation', 'names', 'pal_park_encounters', 'form_descriptions', 'flavor_text_entries', 'genera', 'varieties')
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -313,196 +313,196 @@ function ConvertFrom-JsonToPokemonSpeciesDetail {
             throw "Error! Empty JSON cannot be serialized due to the required property 'id' missing."
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "id"))) {
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'id'))) {
             throw "Error! JSON cannot be serialized due to the required property 'id' missing."
         } else {
-            $Id = $JsonParameters.PSobject.Properties["id"].value
+            $Id = $JsonParameters.PSobject.Properties['id'].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "name"))) {
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'name'))) {
             throw "Error! JSON cannot be serialized due to the required property 'name' missing."
         } else {
-            $Name = $JsonParameters.PSobject.Properties["name"].value
+            $Name = $JsonParameters.PSobject.Properties['name'].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "growth_rate"))) {
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'growth_rate'))) {
             throw "Error! JSON cannot be serialized due to the required property 'growth_rate' missing."
         } else {
-            $GrowthRate = $JsonParameters.PSobject.Properties["growth_rate"].value
+            $GrowthRate = $JsonParameters.PSobject.Properties['growth_rate'].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "pokedex_numbers"))) {
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'pokedex_numbers'))) {
             throw "Error! JSON cannot be serialized due to the required property 'pokedex_numbers' missing."
         } else {
-            $PokedexNumbers = $JsonParameters.PSobject.Properties["pokedex_numbers"].value
+            $PokedexNumbers = $JsonParameters.PSobject.Properties['pokedex_numbers'].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "egg_groups"))) {
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'egg_groups'))) {
             throw "Error! JSON cannot be serialized due to the required property 'egg_groups' missing."
         } else {
-            $EggGroups = $JsonParameters.PSobject.Properties["egg_groups"].value
+            $EggGroups = $JsonParameters.PSobject.Properties['egg_groups'].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "color"))) {
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'color'))) {
             throw "Error! JSON cannot be serialized due to the required property 'color' missing."
         } else {
-            $Color = $JsonParameters.PSobject.Properties["color"].value
+            $Color = $JsonParameters.PSobject.Properties['color'].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "shape"))) {
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'shape'))) {
             throw "Error! JSON cannot be serialized due to the required property 'shape' missing."
         } else {
-            $Shape = $JsonParameters.PSobject.Properties["shape"].value
+            $Shape = $JsonParameters.PSobject.Properties['shape'].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "evolves_from_species"))) {
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'evolves_from_species'))) {
             throw "Error! JSON cannot be serialized due to the required property 'evolves_from_species' missing."
         } else {
-            $EvolvesFromSpecies = $JsonParameters.PSobject.Properties["evolves_from_species"].value
+            $EvolvesFromSpecies = $JsonParameters.PSobject.Properties['evolves_from_species'].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "evolution_chain"))) {
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'evolution_chain'))) {
             throw "Error! JSON cannot be serialized due to the required property 'evolution_chain' missing."
         } else {
-            $EvolutionChain = $JsonParameters.PSobject.Properties["evolution_chain"].value
+            $EvolutionChain = $JsonParameters.PSobject.Properties['evolution_chain'].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "habitat"))) {
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'habitat'))) {
             throw "Error! JSON cannot be serialized due to the required property 'habitat' missing."
         } else {
-            $Habitat = $JsonParameters.PSobject.Properties["habitat"].value
+            $Habitat = $JsonParameters.PSobject.Properties['habitat'].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "generation"))) {
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'generation'))) {
             throw "Error! JSON cannot be serialized due to the required property 'generation' missing."
         } else {
-            $Generation = $JsonParameters.PSobject.Properties["generation"].value
+            $Generation = $JsonParameters.PSobject.Properties['generation'].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "names"))) {
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'names'))) {
             throw "Error! JSON cannot be serialized due to the required property 'names' missing."
         } else {
-            $Names = $JsonParameters.PSobject.Properties["names"].value
+            $Names = $JsonParameters.PSobject.Properties['names'].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "pal_park_encounters"))) {
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'pal_park_encounters'))) {
             throw "Error! JSON cannot be serialized due to the required property 'pal_park_encounters' missing."
         } else {
-            $PalParkEncounters = $JsonParameters.PSobject.Properties["pal_park_encounters"].value
+            $PalParkEncounters = $JsonParameters.PSobject.Properties['pal_park_encounters'].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "form_descriptions"))) {
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'form_descriptions'))) {
             throw "Error! JSON cannot be serialized due to the required property 'form_descriptions' missing."
         } else {
-            $FormDescriptions = $JsonParameters.PSobject.Properties["form_descriptions"].value
+            $FormDescriptions = $JsonParameters.PSobject.Properties['form_descriptions'].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "flavor_text_entries"))) {
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'flavor_text_entries'))) {
             throw "Error! JSON cannot be serialized due to the required property 'flavor_text_entries' missing."
         } else {
-            $FlavorTextEntries = $JsonParameters.PSobject.Properties["flavor_text_entries"].value
+            $FlavorTextEntries = $JsonParameters.PSobject.Properties['flavor_text_entries'].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "genera"))) {
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'genera'))) {
             throw "Error! JSON cannot be serialized due to the required property 'genera' missing."
         } else {
-            $Genera = $JsonParameters.PSobject.Properties["genera"].value
+            $Genera = $JsonParameters.PSobject.Properties['genera'].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "varieties"))) {
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'varieties'))) {
             throw "Error! JSON cannot be serialized due to the required property 'varieties' missing."
         } else {
-            $Varieties = $JsonParameters.PSobject.Properties["varieties"].value
+            $Varieties = $JsonParameters.PSobject.Properties['varieties'].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "order"))) { #optional property not found
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'order'))) { #optional property not found
             $Order = $null
         } else {
-            $Order = $JsonParameters.PSobject.Properties["order"].value
+            $Order = $JsonParameters.PSobject.Properties['order'].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "gender_rate"))) { #optional property not found
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'gender_rate'))) { #optional property not found
             $GenderRate = $null
         } else {
-            $GenderRate = $JsonParameters.PSobject.Properties["gender_rate"].value
+            $GenderRate = $JsonParameters.PSobject.Properties['gender_rate'].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "capture_rate"))) { #optional property not found
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'capture_rate'))) { #optional property not found
             $CaptureRate = $null
         } else {
-            $CaptureRate = $JsonParameters.PSobject.Properties["capture_rate"].value
+            $CaptureRate = $JsonParameters.PSobject.Properties['capture_rate'].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "base_happiness"))) { #optional property not found
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'base_happiness'))) { #optional property not found
             $BaseHappiness = $null
         } else {
-            $BaseHappiness = $JsonParameters.PSobject.Properties["base_happiness"].value
+            $BaseHappiness = $JsonParameters.PSobject.Properties['base_happiness'].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "is_baby"))) { #optional property not found
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'is_baby'))) { #optional property not found
             $IsBaby = $null
         } else {
-            $IsBaby = $JsonParameters.PSobject.Properties["is_baby"].value
+            $IsBaby = $JsonParameters.PSobject.Properties['is_baby'].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "is_legendary"))) { #optional property not found
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'is_legendary'))) { #optional property not found
             $IsLegendary = $null
         } else {
-            $IsLegendary = $JsonParameters.PSobject.Properties["is_legendary"].value
+            $IsLegendary = $JsonParameters.PSobject.Properties['is_legendary'].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "is_mythical"))) { #optional property not found
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'is_mythical'))) { #optional property not found
             $IsMythical = $null
         } else {
-            $IsMythical = $JsonParameters.PSobject.Properties["is_mythical"].value
+            $IsMythical = $JsonParameters.PSobject.Properties['is_mythical'].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "hatch_counter"))) { #optional property not found
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'hatch_counter'))) { #optional property not found
             $HatchCounter = $null
         } else {
-            $HatchCounter = $JsonParameters.PSobject.Properties["hatch_counter"].value
+            $HatchCounter = $JsonParameters.PSobject.Properties['hatch_counter'].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "has_gender_differences"))) { #optional property not found
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'has_gender_differences'))) { #optional property not found
             $HasGenderDifferences = $null
         } else {
-            $HasGenderDifferences = $JsonParameters.PSobject.Properties["has_gender_differences"].value
+            $HasGenderDifferences = $JsonParameters.PSobject.Properties['has_gender_differences'].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "forms_switchable"))) { #optional property not found
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'forms_switchable'))) { #optional property not found
             $FormsSwitchable = $null
         } else {
-            $FormsSwitchable = $JsonParameters.PSobject.Properties["forms_switchable"].value
+            $FormsSwitchable = $JsonParameters.PSobject.Properties['forms_switchable'].value
         }
 
         $PSO = [PSCustomObject]@{
-            "id" = ${Id}
-            "name" = ${Name}
-            "order" = ${Order}
-            "gender_rate" = ${GenderRate}
-            "capture_rate" = ${CaptureRate}
-            "base_happiness" = ${BaseHappiness}
-            "is_baby" = ${IsBaby}
-            "is_legendary" = ${IsLegendary}
-            "is_mythical" = ${IsMythical}
-            "hatch_counter" = ${HatchCounter}
-            "has_gender_differences" = ${HasGenderDifferences}
-            "forms_switchable" = ${FormsSwitchable}
-            "growth_rate" = ${GrowthRate}
-            "pokedex_numbers" = ${PokedexNumbers}
-            "egg_groups" = ${EggGroups}
-            "color" = ${Color}
-            "shape" = ${Shape}
-            "evolves_from_species" = ${EvolvesFromSpecies}
-            "evolution_chain" = ${EvolutionChain}
-            "habitat" = ${Habitat}
-            "generation" = ${Generation}
-            "names" = ${Names}
-            "pal_park_encounters" = ${PalParkEncounters}
-            "form_descriptions" = ${FormDescriptions}
-            "flavor_text_entries" = ${FlavorTextEntries}
-            "genera" = ${Genera}
-            "varieties" = ${Varieties}
+            'id' = ${Id}
+            'name' = ${Name}
+            'order' = ${Order}
+            'gender_rate' = ${GenderRate}
+            'capture_rate' = ${CaptureRate}
+            'base_happiness' = ${BaseHappiness}
+            'is_baby' = ${IsBaby}
+            'is_legendary' = ${IsLegendary}
+            'is_mythical' = ${IsMythical}
+            'hatch_counter' = ${HatchCounter}
+            'has_gender_differences' = ${HasGenderDifferences}
+            'forms_switchable' = ${FormsSwitchable}
+            'growth_rate' = ${GrowthRate}
+            'pokedex_numbers' = ${PokedexNumbers}
+            'egg_groups' = ${EggGroups}
+            'color' = ${Color}
+            'shape' = ${Shape}
+            'evolves_from_species' = ${EvolvesFromSpecies}
+            'evolution_chain' = ${EvolutionChain}
+            'habitat' = ${Habitat}
+            'generation' = ${Generation}
+            'names' = ${Names}
+            'pal_park_encounters' = ${PalParkEncounters}
+            'form_descriptions' = ${FormDescriptions}
+            'flavor_text_entries' = ${FlavorTextEntries}
+            'genera' = ${Genera}
+            'varieties' = ${Varieties}
         }
 
         return $PSO

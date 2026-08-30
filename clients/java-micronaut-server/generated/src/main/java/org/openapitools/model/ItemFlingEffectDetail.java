@@ -37,7 +37,7 @@ import io.swagger.v3.oas.annotations.media.Schema;
   ItemFlingEffectDetail.JSON_PROPERTY_ITEMS
 })
 @JsonTypeName("ItemFlingEffectDetail")
-@Generated(value="org.openapitools.codegen.languages.JavaMicronautServerCodegen", date="2026-02-07T15:23:03.167972722Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@Generated(value="org.openapitools.codegen.languages.JavaMicronautServerCodegen", date="2026-08-30T01:55:54.631003115Z[Etc/UTC]", comments = "Generator version: 7.24.0")
 @Introspected
 public class ItemFlingEffectDetail {
     public static final String JSON_PROPERTY_ID = "id";
@@ -95,42 +95,16 @@ public class ItemFlingEffectDetail {
         this.name = name;
     }
 
-    public ItemFlingEffectDetail effectEntries(List<@Valid ItemFlingEffectEffectText> effectEntries) {
-        this.effectEntries = effectEntries;
-        return this;
-    }
-
-    public ItemFlingEffectDetail addEffectEntriesItem(ItemFlingEffectEffectText effectEntriesItem) {
-        this.effectEntries.add(effectEntriesItem);
-        return this;
-    }
-
     /**
      * Get effectEntries
      * @return effectEntries
      */
     @NotNull
-    @Schema(name = "effect_entries", requiredMode = Schema.RequiredMode.REQUIRED)
+    @Schema(name = "effect_entries", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
     @JsonProperty(JSON_PROPERTY_EFFECT_ENTRIES)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public List<@Valid ItemFlingEffectEffectText> getEffectEntries() {
         return effectEntries;
-    }
-
-    @JsonProperty(JSON_PROPERTY_EFFECT_ENTRIES)
-    @JsonInclude(value = JsonInclude.Include.ALWAYS)
-    public void setEffectEntries(List<@Valid ItemFlingEffectEffectText> effectEntries) {
-        this.effectEntries = effectEntries;
-    }
-
-    public ItemFlingEffectDetail items(List<@Valid ItemSummary> items) {
-        this.items = items;
-        return this;
-    }
-
-    public ItemFlingEffectDetail addItemsItem(ItemSummary itemsItem) {
-        this.items.add(itemsItem);
-        return this;
     }
 
     /**
@@ -138,17 +112,11 @@ public class ItemFlingEffectDetail {
      * @return items
      */
     @NotNull
-    @Schema(name = "items", requiredMode = Schema.RequiredMode.REQUIRED)
+    @Schema(name = "items", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
     @JsonProperty(JSON_PROPERTY_ITEMS)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public List<@Valid ItemSummary> getItems() {
         return items;
-    }
-
-    @JsonProperty(JSON_PROPERTY_ITEMS)
-    @JsonInclude(value = JsonInclude.Include.ALWAYS)
-    public void setItems(List<@Valid ItemSummary> items) {
-        this.items = items;
     }
 
     @Override
@@ -188,10 +156,7 @@ public class ItemFlingEffectDetail {
      * (except the first line).
      */
     private String toIndentedString(Object o) {
-        if (o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
+        return o == null ? "null" : o.toString().replace("\n", "\n    ");
     }
 
 }

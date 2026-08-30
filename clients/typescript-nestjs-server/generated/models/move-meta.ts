@@ -1,0 +1,19 @@
+import { MoveMetaCategorySummary } from './move-meta-category-summary';
+import { MoveMetaAilmentSummary } from './move-meta-ailment-summary';
+
+
+export interface MoveMeta { 
+  ailment: MoveMetaAilmentSummary;
+  category: MoveMetaCategorySummary;
+  min_hits?: number | null;
+  max_hits?: number | null;
+  min_turns?: number | null;
+  max_turns?: number | null;
+  drain?: number | null;
+  healing?: number | null;
+  crit_rate?: number | null;
+  ailment_chance?: number | null;
+  flinch_chance?: number | null;
+  stat_chance?: number | null;
+}
+

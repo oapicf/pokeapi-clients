@@ -89,15 +89,19 @@ class MoveDetail extends BaseModel
     },
     "effect_entries" : {
       "type" : "array",
+      "readOnly" : true,
       "items" : {
         "$ref" : "#/components/schemas/MoveChange_effect_entries_inner"
-      }
+      },
+      "default" : null
     },
     "effect_changes" : {
       "type" : "array",
+      "readOnly" : true,
       "items" : {
         "$ref" : "#/components/schemas/MoveDetail_effect_changes_inner"
-      }
+      },
+      "default" : null
     },
     "generation" : {
       "$ref" : "#/components/schemas/GenerationSummary"
@@ -110,21 +114,27 @@ class MoveDetail extends BaseModel
     },
     "names" : {
       "type" : "array",
+      "readOnly" : true,
       "items" : {
         "$ref" : "#/components/schemas/MoveName"
-      }
+      },
+      "default" : null
     },
     "past_values" : {
       "type" : "array",
+      "readOnly" : true,
       "items" : {
         "$ref" : "#/components/schemas/MoveChange"
-      }
+      },
+      "default" : null
     },
     "stat_changes" : {
       "type" : "array",
+      "readOnly" : true,
       "items" : {
         "$ref" : "#/components/schemas/MoveDetail_stat_changes_inner"
-      }
+      },
+      "default" : null
     },
     "super_contest_effect" : {
       "$ref" : "#/components/schemas/SuperContestEffectSummary"
@@ -137,21 +147,27 @@ class MoveDetail extends BaseModel
     },
     "machines" : {
       "type" : "array",
+      "readOnly" : true,
       "items" : {
         "$ref" : "#/components/schemas/MoveDetail_machines_inner"
-      }
+      },
+      "default" : null
     },
     "flavor_text_entries" : {
       "type" : "array",
+      "readOnly" : true,
       "items" : {
         "$ref" : "#/components/schemas/MoveFlavorText"
-      }
+      },
+      "default" : null
     },
     "learned_by_pokemon" : {
       "type" : "array",
+      "readOnly" : true,
       "items" : {
         "$ref" : "#/components/schemas/AbilityDetail_pokemon_inner_pokemon"
-      }
+      },
+      "default" : null
     }
   }
 }

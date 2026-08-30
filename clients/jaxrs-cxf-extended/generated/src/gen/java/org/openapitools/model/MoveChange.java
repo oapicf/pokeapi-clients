@@ -149,6 +149,7 @@ public class MoveChange  {
 
   /**
    * Sets the <code>effectEntries</code> property.
+   * <br><em>N.B. <code>effectEntries</code> is <b>read only</b>; client code should not call this method</em>.
    */
  public void setEffectEntries(List<@Valid MoveChangeEffectEntriesInner> effectEntries) {
     this.effectEntries = effectEntries;
@@ -156,6 +157,7 @@ public class MoveChange  {
 
   /**
    * Sets the <code>effectEntries</code> property.
+   * <br><em>N.B. <code>effectEntries</code> is <b>read only</b>; client code should not call this method</em>.
    */
   public MoveChange effectEntries(List<@Valid MoveChangeEffectEntriesInner> effectEntries) {
     this.effectEntries = effectEntries;
@@ -164,6 +166,7 @@ public class MoveChange  {
 
   /**
    * Adds a new item to the <code>effectEntries</code> list.
+   * <br><em>N.B. <code>effectEntries</code> is <b>read only</b>; client code should not call this method</em>.
    */
   public MoveChange addEffectEntriesItem(MoveChangeEffectEntriesInner effectEntriesItem) {
     this.effectEntries.add(effectEntriesItem);
@@ -265,10 +268,7 @@ public class MoveChange  {
    * (except the first line).
    */
   private static String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 }
 

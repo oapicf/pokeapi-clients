@@ -30,19 +30,19 @@ public class OASMoveDamageClassDetail {
      * Get descriptions
      * @return descriptions
      */
-    public List<OASMoveDamageClassDescription> descriptions { get; set; }
+    public List<OASMoveDamageClassDescription> descriptions { get; private set; }
 
     /**
      * Get moves
      * @return moves
      */
-    public List<OASMoveSummary> moves { get; set; }
+    public List<OASMoveSummary> moves { get; private set; }
 
     /**
      * Get names
      * @return names
      */
-    public List<OASMoveDamageClassName> names { get; set; }
+    public List<OASMoveDamageClassName> names { get; private set; }
 
     public OASMoveDamageClassDetail() {
         descriptions = new List<OASMoveDamageClassDescription>();

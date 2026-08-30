@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 **power** | **int** |  | [optional] 
 **pp** | **int** |  | [optional] 
 **effectChance** | **int** |  | 
-**effectEntries** | [**OpenAPI\Server\Model\MoveChangeEffectEntriesInner**](MoveChangeEffectEntriesInner.md) |  | 
+**effectEntries** | [**OpenAPI\Server\Model\MoveChangeEffectEntriesInner**](MoveChangeEffectEntriesInner.md) |  | [readonly] 
 **type** | [**OpenAPI\Server\Model\TypeSummary**](TypeSummary.md) |  | 
 **versionGroup** | [**OpenAPI\Server\Model\VersionGroupSummary**](VersionGroupSummary.md) |  | 
 

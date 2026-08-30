@@ -41,7 +41,7 @@ import io.swagger.v3.oas.annotations.media.Schema;
   LocationDetail.JSON_PROPERTY_AREAS
 })
 @JsonTypeName("LocationDetail")
-@Generated(value="org.openapitools.codegen.languages.JavaMicronautServerCodegen", date="2026-02-07T15:23:03.167972722Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@Generated(value="org.openapitools.codegen.languages.JavaMicronautServerCodegen", date="2026-08-30T01:55:54.631003115Z[Etc/UTC]", comments = "Generator version: 7.24.0")
 @Introspected
 public class LocationDetail {
     public static final String JSON_PROPERTY_ID = "id";
@@ -131,42 +131,16 @@ public class LocationDetail {
         this.region = region;
     }
 
-    public LocationDetail names(List<@Valid LocationName> names) {
-        this.names = names;
-        return this;
-    }
-
-    public LocationDetail addNamesItem(LocationName namesItem) {
-        this.names.add(namesItem);
-        return this;
-    }
-
     /**
      * Get names
      * @return names
      */
     @NotNull
-    @Schema(name = "names", requiredMode = Schema.RequiredMode.REQUIRED)
+    @Schema(name = "names", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
     @JsonProperty(JSON_PROPERTY_NAMES)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public List<@Valid LocationName> getNames() {
         return names;
-    }
-
-    @JsonProperty(JSON_PROPERTY_NAMES)
-    @JsonInclude(value = JsonInclude.Include.ALWAYS)
-    public void setNames(List<@Valid LocationName> names) {
-        this.names = names;
-    }
-
-    public LocationDetail gameIndices(List<@Valid LocationGameIndex> gameIndices) {
-        this.gameIndices = gameIndices;
-        return this;
-    }
-
-    public LocationDetail addGameIndicesItem(LocationGameIndex gameIndicesItem) {
-        this.gameIndices.add(gameIndicesItem);
-        return this;
     }
 
     /**
@@ -174,27 +148,11 @@ public class LocationDetail {
      * @return gameIndices
      */
     @NotNull
-    @Schema(name = "game_indices", requiredMode = Schema.RequiredMode.REQUIRED)
+    @Schema(name = "game_indices", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
     @JsonProperty(JSON_PROPERTY_GAME_INDICES)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public List<@Valid LocationGameIndex> getGameIndices() {
         return gameIndices;
-    }
-
-    @JsonProperty(JSON_PROPERTY_GAME_INDICES)
-    @JsonInclude(value = JsonInclude.Include.ALWAYS)
-    public void setGameIndices(List<@Valid LocationGameIndex> gameIndices) {
-        this.gameIndices = gameIndices;
-    }
-
-    public LocationDetail areas(List<@Valid LocationAreaSummary> areas) {
-        this.areas = areas;
-        return this;
-    }
-
-    public LocationDetail addAreasItem(LocationAreaSummary areasItem) {
-        this.areas.add(areasItem);
-        return this;
     }
 
     /**
@@ -202,17 +160,11 @@ public class LocationDetail {
      * @return areas
      */
     @NotNull
-    @Schema(name = "areas", requiredMode = Schema.RequiredMode.REQUIRED)
+    @Schema(name = "areas", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
     @JsonProperty(JSON_PROPERTY_AREAS)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public List<@Valid LocationAreaSummary> getAreas() {
         return areas;
-    }
-
-    @JsonProperty(JSON_PROPERTY_AREAS)
-    @JsonInclude(value = JsonInclude.Include.ALWAYS)
-    public void setAreas(List<@Valid LocationAreaSummary> areas) {
-        this.areas = areas;
     }
 
     @Override
@@ -256,10 +208,7 @@ public class LocationDetail {
      * (except the first line).
      */
     private String toIndentedString(Object o) {
-        if (o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
+        return o == null ? "null" : o.toString().replace("\n", "\n    ");
     }
 
 }

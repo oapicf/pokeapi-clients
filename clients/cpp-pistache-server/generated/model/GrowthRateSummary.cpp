@@ -26,6 +26,8 @@ GrowthRateSummary::GrowthRateSummary()
     
 }
 
+GrowthRateSummary::~GrowthRateSummary() = default;
+
 void GrowthRateSummary::validate() const
 {
     std::stringstream msg;

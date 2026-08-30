@@ -13,10 +13,10 @@ static stat_detail_affecting_natures_t *stat_detail_affecting_natures_create_int
     if (!stat_detail_affecting_natures_local_var) {
         return NULL;
     }
+    memset(stat_detail_affecting_natures_local_var, 0, sizeof(stat_detail_affecting_natures_t));
+    stat_detail_affecting_natures_local_var->_library_owned = 1;
     stat_detail_affecting_natures_local_var->increase = increase;
     stat_detail_affecting_natures_local_var->decrease = decrease;
-
-    stat_detail_affecting_natures_local_var->_library_owned = 1;
     return stat_detail_affecting_natures_local_var;
 }
 
@@ -24,10 +24,13 @@ __attribute__((deprecated)) stat_detail_affecting_natures_t *stat_detail_affecti
     list_t *increase,
     list_t *decrease
     ) {
-    return stat_detail_affecting_natures_create_internal (
+    stat_detail_affecting_natures_t *result = stat_detail_affecting_natures_create_internal (
         increase,
         decrease
         );
+    if (!result) {
+    }
+    return result;
 }
 
 void stat_detail_affecting_natures_free(stat_detail_affecting_natures_t *stat_detail_affecting_natures) {
@@ -173,10 +176,15 @@ stat_detail_affecting_natures_t *stat_detail_affecting_natures_parseFromJSON(cJS
     }
 
 
+
     stat_detail_affecting_natures_local_var = stat_detail_affecting_natures_create_internal (
         increaseList,
         decreaseList
         );
+
+    if (!stat_detail_affecting_natures_local_var) {
+        goto end;
+    }
 
     return stat_detail_affecting_natures_local_var;
 end:

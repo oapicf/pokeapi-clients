@@ -55,56 +55,56 @@ public:
 
 	/*! \brief Set 
 	 */
-	void setId(int  id);
+	void setId(int id);
 	/*! \brief Get 
 	 */
 	std::string getName();
 
 	/*! \brief Set 
 	 */
-	void setName(std::string  name);
+	void setName(std::string name);
 	/*! \brief Get 
 	 */
 	int getOrder();
 
 	/*! \brief Set 
 	 */
-	void setOrder(int  order);
+	void setOrder(int order);
 	/*! \brief Get 
 	 */
 	GenerationSummary getGeneration();
 
 	/*! \brief Set 
 	 */
-	void setGeneration(GenerationSummary  generation);
+	void setGeneration(GenerationSummary generation);
 	/*! \brief Get 
 	 */
 	std::list<AbilityDetail_pokemon_inner_pokemon> getMoveLearnMethods();
 
 	/*! \brief Set 
 	 */
-	void setMoveLearnMethods(std::list <AbilityDetail_pokemon_inner_pokemon> move_learn_methods);
+	void setMoveLearnMethods(std::list<AbilityDetail_pokemon_inner_pokemon> move_learn_methods);
 	/*! \brief Get 
 	 */
 	std::list<AbilityDetail_pokemon_inner_pokemon> getPokedexes();
 
 	/*! \brief Set 
 	 */
-	void setPokedexes(std::list <AbilityDetail_pokemon_inner_pokemon> pokedexes);
+	void setPokedexes(std::list<AbilityDetail_pokemon_inner_pokemon> pokedexes);
 	/*! \brief Get 
 	 */
 	std::list<AbilityDetail_pokemon_inner_pokemon> getRegions();
 
 	/*! \brief Set 
 	 */
-	void setRegions(std::list <AbilityDetail_pokemon_inner_pokemon> regions);
+	void setRegions(std::list<AbilityDetail_pokemon_inner_pokemon> regions);
 	/*! \brief Get 
 	 */
 	std::list<VersionSummary> getVersions();
 
 	/*! \brief Set 
 	 */
-	void setVersions(std::list <VersionSummary> versions);
+	void setVersions(std::list<VersionSummary> versions);
 
 
     private:

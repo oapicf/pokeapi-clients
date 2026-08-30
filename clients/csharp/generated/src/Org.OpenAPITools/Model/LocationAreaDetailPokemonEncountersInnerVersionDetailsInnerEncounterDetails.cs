@@ -87,7 +87,7 @@ namespace Org.OpenAPITools.Model
         /// Gets or Sets ConditionValues
         /// </summary>
         [JsonPropertyName("condition_values")]
-        public AbilityDetailPokemonInnerPokemon? ConditionValues { get { return this.ConditionValuesOption; } set { this.ConditionValuesOption = new(value); } }
+        public AbilityDetailPokemonInnerPokemon? ConditionValues { get { return this.ConditionValuesOption.Value; } set { this.ConditionValuesOption = new(value); } }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -120,8 +120,18 @@ namespace Org.OpenAPITools.Model
     /// <summary>
     /// A Json converter for type <see cref="LocationAreaDetailPokemonEncountersInnerVersionDetailsInnerEncounterDetails" />
     /// </summary>
-    public class LocationAreaDetailPokemonEncountersInnerVersionDetailsInnerEncounterDetailsJsonConverter : JsonConverter<LocationAreaDetailPokemonEncountersInnerVersionDetailsInnerEncounterDetails>
+    public partial class LocationAreaDetailPokemonEncountersInnerVersionDetailsInnerEncounterDetailsJsonConverter : JsonConverter<LocationAreaDetailPokemonEncountersInnerVersionDetailsInnerEncounterDetails>
     {
+        partial void OnCreated();
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="LocationAreaDetailPokemonEncountersInnerVersionDetailsInnerEncounterDetailsJsonConverter" /> class.
+        /// </summary>
+        public LocationAreaDetailPokemonEncountersInnerVersionDetailsInnerEncounterDetailsJsonConverter()
+        {
+            OnCreated();
+        }
+
         /// <summary>
         /// Deserializes json to <see cref="LocationAreaDetailPokemonEncountersInnerVersionDetailsInnerEncounterDetails" />
         /// </summary>

@@ -85,7 +85,7 @@ PokemonColorSummary::getName()
 }
 
 void
-PokemonColorSummary::setName(std::string  name)
+PokemonColorSummary::setName(std::string name)
 {
 	this->name = name;
 }
@@ -97,7 +97,7 @@ PokemonColorSummary::getUrl()
 }
 
 void
-PokemonColorSummary::setUrl(std::string  url)
+PokemonColorSummary::setUrl(std::string url)
 {
 	this->url = url;
 }

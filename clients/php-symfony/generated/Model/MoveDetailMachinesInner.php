@@ -47,7 +47,7 @@ class MoveDetailMachinesInner
      * @var MoveDetailMachinesInnerMachine|null
      * @SerializedName("machine")
      * @Type("OpenAPI\Server\Model\MoveDetailMachinesInnerMachine")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Valid]
     #[Assert\Type("OpenAPI\Server\Model\MoveDetailMachinesInnerMachine")]
@@ -57,7 +57,7 @@ class MoveDetailMachinesInner
      * @var AbilityDetailPokemonInnerPokemon|null
      * @SerializedName("version_group")
      * @Type("OpenAPI\Server\Model\AbilityDetailPokemonInnerPokemon")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Valid]
     #[Assert\Type("OpenAPI\Server\Model\AbilityDetailPokemonInnerPokemon")]
@@ -86,12 +86,12 @@ class MoveDetailMachinesInner
     }
 
     /**
-    * Sets machine.
-    *
-    * @param MoveDetailMachinesInnerMachine|null $machine
-    *
-    * @return $this
-    */
+     * Sets machine.
+     *
+     * @param MoveDetailMachinesInnerMachine|null $machine
+     *
+     * @return $this
+     */
     public function setMachine(?MoveDetailMachinesInnerMachine $machine): self
     {
         $this->machine = $machine;
@@ -113,12 +113,12 @@ class MoveDetailMachinesInner
     }
 
     /**
-    * Sets versionGroup.
-    *
-    * @param AbilityDetailPokemonInnerPokemon|null $versionGroup
-    *
-    * @return $this
-    */
+     * Sets versionGroup.
+     *
+     * @param AbilityDetailPokemonInnerPokemon|null $versionGroup
+     *
+     * @return $this
+     */
     public function setVersionGroup(?AbilityDetailPokemonInnerPokemon $versionGroup): self
     {
         $this->versionGroup = $versionGroup;

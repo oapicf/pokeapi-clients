@@ -47,7 +47,7 @@ class VersionGroupDetail
      * @var int|null
      * @SerializedName("id")
      * @Type("int")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Type("int")]
     protected ?int $id = null;
@@ -56,7 +56,7 @@ class VersionGroupDetail
      * @var string|null
      * @SerializedName("name")
      * @Type("string")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Type("string")]
     #[Assert\Length(max: 100)]
@@ -66,7 +66,7 @@ class VersionGroupDetail
      * @var int|null
      * @SerializedName("order")
      * @Type("int")
-    */
+     */
     #[Assert\Type("int")]
     protected ?int $order = null;
 
@@ -74,7 +74,7 @@ class VersionGroupDetail
      * @var GenerationSummary|null
      * @SerializedName("generation")
      * @Type("OpenAPI\Server\Model\GenerationSummary")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Valid]
     #[Assert\Type("OpenAPI\Server\Model\GenerationSummary")]
@@ -84,7 +84,7 @@ class VersionGroupDetail
      * @var AbilityDetailPokemonInnerPokemon[]|null
      * @SerializedName("move_learn_methods")
      * @Type("array<OpenAPI\Server\Model\AbilityDetailPokemonInnerPokemon>")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Valid]
     #[Assert\All([
@@ -96,7 +96,7 @@ class VersionGroupDetail
      * @var AbilityDetailPokemonInnerPokemon[]|null
      * @SerializedName("pokedexes")
      * @Type("array<OpenAPI\Server\Model\AbilityDetailPokemonInnerPokemon>")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Valid]
     #[Assert\All([
@@ -108,7 +108,7 @@ class VersionGroupDetail
      * @var AbilityDetailPokemonInnerPokemon[]|null
      * @SerializedName("regions")
      * @Type("array<OpenAPI\Server\Model\AbilityDetailPokemonInnerPokemon>")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Valid]
     #[Assert\All([
@@ -120,7 +120,7 @@ class VersionGroupDetail
      * @var VersionSummary[]|null
      * @SerializedName("versions")
      * @Type("array<OpenAPI\Server\Model\VersionSummary>")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Valid]
     #[Assert\All([
@@ -157,12 +157,12 @@ class VersionGroupDetail
     }
 
     /**
-    * Sets id.
-    *
-    * @param int|null $id
-    *
-    * @return $this
-    */
+     * Sets id.
+     *
+     * @param int|null $id
+     *
+     * @return $this
+     */
     public function setId(?int $id): self
     {
         $this->id = $id;
@@ -184,12 +184,12 @@ class VersionGroupDetail
     }
 
     /**
-    * Sets name.
-    *
-    * @param string|null $name
-    *
-    * @return $this
-    */
+     * Sets name.
+     *
+     * @param string|null $name
+     *
+     * @return $this
+     */
     public function setName(?string $name): self
     {
         $this->name = $name;
@@ -211,12 +211,12 @@ class VersionGroupDetail
     }
 
     /**
-    * Sets order.
-    *
-    * @param int|null $order
-    *
-    * @return $this
-    */
+     * Sets order.
+     *
+     * @param int|null $order
+     *
+     * @return $this
+     */
     public function setOrder(?int $order = null): self
     {
         $this->order = $order;
@@ -238,12 +238,12 @@ class VersionGroupDetail
     }
 
     /**
-    * Sets generation.
-    *
-    * @param GenerationSummary|null $generation
-    *
-    * @return $this
-    */
+     * Sets generation.
+     *
+     * @param GenerationSummary|null $generation
+     *
+     * @return $this
+     */
     public function setGeneration(?GenerationSummary $generation): self
     {
         $this->generation = $generation;
@@ -265,12 +265,12 @@ class VersionGroupDetail
     }
 
     /**
-    * Sets moveLearnMethods.
-    *
-    * @param AbilityDetailPokemonInnerPokemon[]|null $moveLearnMethods
-    *
-    * @return $this
-    */
+     * Sets moveLearnMethods.
+     *
+     * @param AbilityDetailPokemonInnerPokemon[]|null $moveLearnMethods
+     *
+     * @return $this
+     */
     public function setMoveLearnMethods(?array $moveLearnMethods): self
     {
         $this->moveLearnMethods = $moveLearnMethods;
@@ -292,12 +292,12 @@ class VersionGroupDetail
     }
 
     /**
-    * Sets pokedexes.
-    *
-    * @param AbilityDetailPokemonInnerPokemon[]|null $pokedexes
-    *
-    * @return $this
-    */
+     * Sets pokedexes.
+     *
+     * @param AbilityDetailPokemonInnerPokemon[]|null $pokedexes
+     *
+     * @return $this
+     */
     public function setPokedexes(?array $pokedexes): self
     {
         $this->pokedexes = $pokedexes;
@@ -319,12 +319,12 @@ class VersionGroupDetail
     }
 
     /**
-    * Sets regions.
-    *
-    * @param AbilityDetailPokemonInnerPokemon[]|null $regions
-    *
-    * @return $this
-    */
+     * Sets regions.
+     *
+     * @param AbilityDetailPokemonInnerPokemon[]|null $regions
+     *
+     * @return $this
+     */
     public function setRegions(?array $regions): self
     {
         $this->regions = $regions;
@@ -346,12 +346,12 @@ class VersionGroupDetail
     }
 
     /**
-    * Sets versions.
-    *
-    * @param VersionSummary[]|null $versions
-    *
-    * @return $this
-    */
+     * Sets versions.
+     *
+     * @param VersionSummary[]|null $versions
+     *
+     * @return $this
+     */
     public function setVersions(?array $versions): self
     {
         $this->versions = $versions;

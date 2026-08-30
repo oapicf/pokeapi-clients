@@ -19,7 +19,7 @@ import org.openapitools.model.VersionGroupSummary;
 /**
  * GenerationDetail
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaMSF4JServerCodegen", date = "2026-02-07T15:23:10.683633502Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaMSF4JServerCodegen", date = "2026-08-30T01:55:58.248058654Z[Etc/UTC]", comments = "Generator version: 7.24.0")
 public class GenerationDetail   {
   @JsonProperty("id")
   private Integer id;
@@ -75,16 +75,6 @@ public class GenerationDetail   {
     this.name = name;
   }
 
-  public GenerationDetail abilities(List<@Valid AbilitySummary> abilities) {
-    this.abilities = abilities;
-    return this;
-  }
-
-  public GenerationDetail addAbilitiesItem(AbilitySummary abilitiesItem) {
-    this.abilities.add(abilitiesItem);
-    return this;
-  }
-
    /**
    * Get abilities
    * @return abilities
@@ -92,10 +82,6 @@ public class GenerationDetail   {
   @ApiModelProperty(required = true, value = "")
   public List<@Valid AbilitySummary> getAbilities() {
     return abilities;
-  }
-
-  public void setAbilities(List<@Valid AbilitySummary> abilities) {
-    this.abilities = abilities;
   }
 
   public GenerationDetail mainRegion(RegionSummary mainRegion) {
@@ -116,16 +102,6 @@ public class GenerationDetail   {
     this.mainRegion = mainRegion;
   }
 
-  public GenerationDetail moves(List<@Valid MoveSummary> moves) {
-    this.moves = moves;
-    return this;
-  }
-
-  public GenerationDetail addMovesItem(MoveSummary movesItem) {
-    this.moves.add(movesItem);
-    return this;
-  }
-
    /**
    * Get moves
    * @return moves
@@ -133,20 +109,6 @@ public class GenerationDetail   {
   @ApiModelProperty(required = true, value = "")
   public List<@Valid MoveSummary> getMoves() {
     return moves;
-  }
-
-  public void setMoves(List<@Valid MoveSummary> moves) {
-    this.moves = moves;
-  }
-
-  public GenerationDetail names(List<@Valid GenerationName> names) {
-    this.names = names;
-    return this;
-  }
-
-  public GenerationDetail addNamesItem(GenerationName namesItem) {
-    this.names.add(namesItem);
-    return this;
   }
 
    /**
@@ -158,20 +120,6 @@ public class GenerationDetail   {
     return names;
   }
 
-  public void setNames(List<@Valid GenerationName> names) {
-    this.names = names;
-  }
-
-  public GenerationDetail pokemonSpecies(List<@Valid PokemonSpeciesSummary> pokemonSpecies) {
-    this.pokemonSpecies = pokemonSpecies;
-    return this;
-  }
-
-  public GenerationDetail addPokemonSpeciesItem(PokemonSpeciesSummary pokemonSpeciesItem) {
-    this.pokemonSpecies.add(pokemonSpeciesItem);
-    return this;
-  }
-
    /**
    * Get pokemonSpecies
    * @return pokemonSpecies
@@ -179,20 +127,6 @@ public class GenerationDetail   {
   @ApiModelProperty(required = true, value = "")
   public List<@Valid PokemonSpeciesSummary> getPokemonSpecies() {
     return pokemonSpecies;
-  }
-
-  public void setPokemonSpecies(List<@Valid PokemonSpeciesSummary> pokemonSpecies) {
-    this.pokemonSpecies = pokemonSpecies;
-  }
-
-  public GenerationDetail types(List<@Valid TypeSummary> types) {
-    this.types = types;
-    return this;
-  }
-
-  public GenerationDetail addTypesItem(TypeSummary typesItem) {
-    this.types.add(typesItem);
-    return this;
   }
 
    /**
@@ -204,20 +138,6 @@ public class GenerationDetail   {
     return types;
   }
 
-  public void setTypes(List<@Valid TypeSummary> types) {
-    this.types = types;
-  }
-
-  public GenerationDetail versionGroups(List<@Valid VersionGroupSummary> versionGroups) {
-    this.versionGroups = versionGroups;
-    return this;
-  }
-
-  public GenerationDetail addVersionGroupsItem(VersionGroupSummary versionGroupsItem) {
-    this.versionGroups.add(versionGroupsItem);
-    return this;
-  }
-
    /**
    * Get versionGroups
    * @return versionGroups
@@ -225,10 +145,6 @@ public class GenerationDetail   {
   @ApiModelProperty(required = true, value = "")
   public List<@Valid VersionGroupSummary> getVersionGroups() {
     return versionGroups;
-  }
-
-  public void setVersionGroups(List<@Valid VersionGroupSummary> versionGroups) {
-    this.versionGroups = versionGroups;
   }
 
 
@@ -280,10 +196,7 @@ public class GenerationDetail   {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 }
 

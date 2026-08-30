@@ -28,8 +28,8 @@ export interface PokemonFormDetail {
     pokemon: PokemonSummary;
     sprites: PokemonFormDetailSprites;
     version_group: VersionGroupSummary;
-    form_names: Array<PokemonFormDetailFormNamesInner>;
-    names: Array<PokemonFormDetailFormNamesInner>;
-    types: Array<PokemonDetailTypesInner>;
+    readonly form_names: Array<PokemonFormDetailFormNamesInner>;
+    readonly names: Array<PokemonFormDetailFormNamesInner>;
+    readonly types: Array<PokemonDetailTypesInner>;
 }
 

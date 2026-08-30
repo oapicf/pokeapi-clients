@@ -12,6 +12,11 @@
 package openapi
 
 
+import (
+	"encoding/json"
+	"fmt"
+)
+
 
 
 type CharacteristicDetail struct {
@@ -26,15 +31,90 @@ type CharacteristicDetail struct {
 
 	Descriptions []CharacteristicDescription `json:"descriptions"`
 }
+// UnmarshalJSON validates required property keys then unmarshals into CharacteristicDetail
+func (o *CharacteristicDetail) UnmarshalJSON(data []byte) (err error) {
+	// Presence is checked against required fields that exist on this struct,
+	// including fields promoted from embedded allOf parents.
+	requiredProperties := []string{
+		"gene_modulo",
+		"highest_stat",
+	}
 
-// AssertCharacteristicDetailRequired checks if the required fields are not zero-ed
+	requiredNullableProperties := map[string]bool{
+		"gene_modulo": false,
+		"highest_stat": false,
+	}
+
+	allowedJsonKeys := map[string]struct{}{
+		"id": {},
+		"gene_modulo": {},
+		"possible_values": {},
+		"highest_stat": {},
+		"descriptions": {},
+	}
+
+	allProperties := make(map[string]json.RawMessage)
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err
+	}
+
+	for _, requiredProperty := range requiredProperties {
+		value, exists := allProperties[requiredProperty]
+		if !exists {
+			return &RequiredError{Field: requiredProperty}
+		}
+		if string(value) == "null" && !requiredNullableProperties[requiredProperty] {
+			return &RequiredError{Field: requiredProperty}
+		}
+	}
+
+	for key := range allProperties {
+		if _, exists := allowedJsonKeys[key]; !exists {
+			return fmt.Errorf("json: unknown field %q", key)
+		}
+	}
+
+	var decoded CharacteristicDetail
+
+	if value, exists := allProperties["id"]; exists {
+		if err = json.Unmarshal(value, &decoded.Id); err != nil {
+			return err
+		}
+	}
+	if value, exists := allProperties["gene_modulo"]; exists {
+		if err = json.Unmarshal(value, &decoded.GeneModulo); err != nil {
+			return err
+		}
+	}
+	if value, exists := allProperties["possible_values"]; exists {
+		if err = json.Unmarshal(value, &decoded.PossibleValues); err != nil {
+			return err
+		}
+	}
+	if value, exists := allProperties["highest_stat"]; exists {
+		if err = json.Unmarshal(value, &decoded.HighestStat); err != nil {
+			return err
+		}
+	}
+	if value, exists := allProperties["descriptions"]; exists {
+		if err = json.Unmarshal(value, &decoded.Descriptions); err != nil {
+			return err
+		}
+	}
+
+	*o = decoded
+
+	return nil
+}
+
+// AssertCharacteristicDetailRequired checks complex required fields (models, arrays, maps) and embedded parents.
+// Primitive required fields are validated for JSON request bodies in UnmarshalJSON so zero values remain valid.
 func AssertCharacteristicDetailRequired(obj CharacteristicDetail) error {
 	elements := map[string]interface{}{
-		"id": obj.Id,
-		"gene_modulo": obj.GeneModulo,
-		"possible_values": obj.PossibleValues,
 		"highest_stat": obj.HighestStat,
-		"descriptions": obj.Descriptions,
 	}
 	for name, el := range elements {
 		if isZero := IsZeroValue(el); isZero {
@@ -45,11 +125,6 @@ func AssertCharacteristicDetailRequired(obj CharacteristicDetail) error {
 	if err := AssertStatSummaryRequired(obj.HighestStat); err != nil {
 		return err
 	}
-	for _, el := range obj.Descriptions {
-		if err := AssertCharacteristicDescriptionRequired(el); err != nil {
-			return err
-		}
-	}
 	return nil
 }
 
@@ -57,11 +132,6 @@ func AssertCharacteristicDetailRequired(obj CharacteristicDetail) error {
 func AssertCharacteristicDetailConstraints(obj CharacteristicDetail) error {
 	if err := AssertStatSummaryConstraints(obj.HighestStat); err != nil {
 		return err
-	}
-	for _, el := range obj.Descriptions {
-		if err := AssertCharacteristicDescriptionConstraints(el); err != nil {
-			return err
-		}
 	}
 	return nil
 }

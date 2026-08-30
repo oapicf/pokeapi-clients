@@ -69,168 +69,168 @@ public:
 
 	/*! \brief Set 
 	 */
-	void setId(int  id);
+	void setId(int id);
 	/*! \brief Get 
 	 */
 	std::string getName();
 
 	/*! \brief Set 
 	 */
-	void setName(std::string  name);
+	void setName(std::string name);
 	/*! \brief Get 
 	 */
 	int getAccuracy();
 
 	/*! \brief Set 
 	 */
-	void setAccuracy(int  accuracy);
+	void setAccuracy(int accuracy);
 	/*! \brief Get 
 	 */
 	int getEffectChance();
 
 	/*! \brief Set 
 	 */
-	void setEffectChance(int  effect_chance);
+	void setEffectChance(int effect_chance);
 	/*! \brief Get 
 	 */
 	int getPp();
 
 	/*! \brief Set 
 	 */
-	void setPp(int  pp);
+	void setPp(int pp);
 	/*! \brief Get 
 	 */
 	int getPriority();
 
 	/*! \brief Set 
 	 */
-	void setPriority(int  priority);
+	void setPriority(int priority);
 	/*! \brief Get 
 	 */
 	int getPower();
 
 	/*! \brief Set 
 	 */
-	void setPower(int  power);
+	void setPower(int power);
 	/*! \brief Get 
 	 */
 	MoveDetail_contest_combos getContestCombos();
 
 	/*! \brief Set 
 	 */
-	void setContestCombos(MoveDetail_contest_combos  contest_combos);
+	void setContestCombos(MoveDetail_contest_combos contest_combos);
 	/*! \brief Get 
 	 */
 	ContestTypeSummary getContestType();
 
 	/*! \brief Set 
 	 */
-	void setContestType(ContestTypeSummary  contest_type);
+	void setContestType(ContestTypeSummary contest_type);
 	/*! \brief Get 
 	 */
 	ContestEffectSummary getContestEffect();
 
 	/*! \brief Set 
 	 */
-	void setContestEffect(ContestEffectSummary  contest_effect);
+	void setContestEffect(ContestEffectSummary contest_effect);
 	/*! \brief Get 
 	 */
 	MoveDamageClassSummary getDamageClass();
 
 	/*! \brief Set 
 	 */
-	void setDamageClass(MoveDamageClassSummary  damage_class);
+	void setDamageClass(MoveDamageClassSummary damage_class);
 	/*! \brief Get 
 	 */
 	std::list<MoveChange_effect_entries_inner> getEffectEntries();
 
 	/*! \brief Set 
 	 */
-	void setEffectEntries(std::list <MoveChange_effect_entries_inner> effect_entries);
+	void setEffectEntries(std::list<MoveChange_effect_entries_inner> effect_entries);
 	/*! \brief Get 
 	 */
 	std::list<MoveDetail_effect_changes_inner> getEffectChanges();
 
 	/*! \brief Set 
 	 */
-	void setEffectChanges(std::list <MoveDetail_effect_changes_inner> effect_changes);
+	void setEffectChanges(std::list<MoveDetail_effect_changes_inner> effect_changes);
 	/*! \brief Get 
 	 */
 	GenerationSummary getGeneration();
 
 	/*! \brief Set 
 	 */
-	void setGeneration(GenerationSummary  generation);
+	void setGeneration(GenerationSummary generation);
 	/*! \brief Get 
 	 */
 	MoveMeta getMeta();
 
 	/*! \brief Set 
 	 */
-	void setMeta(MoveMeta  meta);
+	void setMeta(MoveMeta meta);
 	/*! \brief Get 
 	 */
 	std::list<MoveName> getNames();
 
 	/*! \brief Set 
 	 */
-	void setNames(std::list <MoveName> names);
+	void setNames(std::list<MoveName> names);
 	/*! \brief Get 
 	 */
 	std::list<MoveChange> getPastValues();
 
 	/*! \brief Set 
 	 */
-	void setPastValues(std::list <MoveChange> past_values);
+	void setPastValues(std::list<MoveChange> past_values);
 	/*! \brief Get 
 	 */
 	std::list<MoveDetail_stat_changes_inner> getStatChanges();
 
 	/*! \brief Set 
 	 */
-	void setStatChanges(std::list <MoveDetail_stat_changes_inner> stat_changes);
+	void setStatChanges(std::list<MoveDetail_stat_changes_inner> stat_changes);
 	/*! \brief Get 
 	 */
 	SuperContestEffectSummary getSuperContestEffect();
 
 	/*! \brief Set 
 	 */
-	void setSuperContestEffect(SuperContestEffectSummary  super_contest_effect);
+	void setSuperContestEffect(SuperContestEffectSummary super_contest_effect);
 	/*! \brief Get 
 	 */
 	MoveTargetSummary getTarget();
 
 	/*! \brief Set 
 	 */
-	void setTarget(MoveTargetSummary  target);
+	void setTarget(MoveTargetSummary target);
 	/*! \brief Get 
 	 */
 	TypeSummary getType();
 
 	/*! \brief Set 
 	 */
-	void setType(TypeSummary  type);
+	void setType(TypeSummary type);
 	/*! \brief Get 
 	 */
 	std::list<MoveDetail_machines_inner> getMachines();
 
 	/*! \brief Set 
 	 */
-	void setMachines(std::list <MoveDetail_machines_inner> machines);
+	void setMachines(std::list<MoveDetail_machines_inner> machines);
 	/*! \brief Get 
 	 */
 	std::list<MoveFlavorText> getFlavorTextEntries();
 
 	/*! \brief Set 
 	 */
-	void setFlavorTextEntries(std::list <MoveFlavorText> flavor_text_entries);
+	void setFlavorTextEntries(std::list<MoveFlavorText> flavor_text_entries);
 	/*! \brief Get 
 	 */
 	std::list<AbilityDetail_pokemon_inner_pokemon> getLearnedByPokemon();
 
 	/*! \brief Set 
 	 */
-	void setLearnedByPokemon(std::list <AbilityDetail_pokemon_inner_pokemon> learned_by_pokemon);
+	void setLearnedByPokemon(std::list<AbilityDetail_pokemon_inner_pokemon> learned_by_pokemon);
 
 
     private:

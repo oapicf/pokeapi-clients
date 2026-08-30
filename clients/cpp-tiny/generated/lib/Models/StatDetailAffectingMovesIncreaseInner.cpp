@@ -86,7 +86,7 @@ StatDetail_affecting_moves_increase_inner::getChange()
 }
 
 void
-StatDetail_affecting_moves_increase_inner::setChange(int  change)
+StatDetail_affecting_moves_increase_inner::setChange(int change)
 {
 	this->change = change;
 }
@@ -98,7 +98,7 @@ StatDetail_affecting_moves_increase_inner::getMove()
 }
 
 void
-StatDetail_affecting_moves_increase_inner::setMove(AbilityDetail_pokemon_inner_pokemon  move)
+StatDetail_affecting_moves_increase_inner::setMove(AbilityDetail_pokemon_inner_pokemon move)
 {
 	this->move = move;
 }

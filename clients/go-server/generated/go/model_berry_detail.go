@@ -12,6 +12,11 @@
 package openapi
 
 
+import (
+	"encoding/json"
+	"fmt"
+)
+
 
 
 type BerryDetail struct {
@@ -40,20 +45,148 @@ type BerryDetail struct {
 
 	NaturalGiftType TypeSummary `json:"natural_gift_type"`
 }
+// UnmarshalJSON validates required property keys then unmarshals into BerryDetail
+func (o *BerryDetail) UnmarshalJSON(data []byte) (err error) {
+	// Presence is checked against required fields that exist on this struct,
+	// including fields promoted from embedded allOf parents.
+	requiredProperties := []string{
+		"name",
+		"growth_time",
+		"max_harvest",
+		"natural_gift_power",
+		"size",
+		"smoothness",
+		"soil_dryness",
+		"firmness",
+		"item",
+		"natural_gift_type",
+	}
 
-// AssertBerryDetailRequired checks if the required fields are not zero-ed
+	requiredNullableProperties := map[string]bool{
+		"name": false,
+		"growth_time": false,
+		"max_harvest": false,
+		"natural_gift_power": false,
+		"size": false,
+		"smoothness": false,
+		"soil_dryness": false,
+		"firmness": false,
+		"item": false,
+		"natural_gift_type": false,
+	}
+
+	allowedJsonKeys := map[string]struct{}{
+		"id": {},
+		"name": {},
+		"growth_time": {},
+		"max_harvest": {},
+		"natural_gift_power": {},
+		"size": {},
+		"smoothness": {},
+		"soil_dryness": {},
+		"firmness": {},
+		"flavors": {},
+		"item": {},
+		"natural_gift_type": {},
+	}
+
+	allProperties := make(map[string]json.RawMessage)
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err
+	}
+
+	for _, requiredProperty := range requiredProperties {
+		value, exists := allProperties[requiredProperty]
+		if !exists {
+			return &RequiredError{Field: requiredProperty}
+		}
+		if string(value) == "null" && !requiredNullableProperties[requiredProperty] {
+			return &RequiredError{Field: requiredProperty}
+		}
+	}
+
+	for key := range allProperties {
+		if _, exists := allowedJsonKeys[key]; !exists {
+			return fmt.Errorf("json: unknown field %q", key)
+		}
+	}
+
+	var decoded BerryDetail
+
+	if value, exists := allProperties["id"]; exists {
+		if err = json.Unmarshal(value, &decoded.Id); err != nil {
+			return err
+		}
+	}
+	if value, exists := allProperties["name"]; exists {
+		if err = json.Unmarshal(value, &decoded.Name); err != nil {
+			return err
+		}
+	}
+	if value, exists := allProperties["growth_time"]; exists {
+		if err = json.Unmarshal(value, &decoded.GrowthTime); err != nil {
+			return err
+		}
+	}
+	if value, exists := allProperties["max_harvest"]; exists {
+		if err = json.Unmarshal(value, &decoded.MaxHarvest); err != nil {
+			return err
+		}
+	}
+	if value, exists := allProperties["natural_gift_power"]; exists {
+		if err = json.Unmarshal(value, &decoded.NaturalGiftPower); err != nil {
+			return err
+		}
+	}
+	if value, exists := allProperties["size"]; exists {
+		if err = json.Unmarshal(value, &decoded.Size); err != nil {
+			return err
+		}
+	}
+	if value, exists := allProperties["smoothness"]; exists {
+		if err = json.Unmarshal(value, &decoded.Smoothness); err != nil {
+			return err
+		}
+	}
+	if value, exists := allProperties["soil_dryness"]; exists {
+		if err = json.Unmarshal(value, &decoded.SoilDryness); err != nil {
+			return err
+		}
+	}
+	if value, exists := allProperties["firmness"]; exists {
+		if err = json.Unmarshal(value, &decoded.Firmness); err != nil {
+			return err
+		}
+	}
+	if value, exists := allProperties["flavors"]; exists {
+		if err = json.Unmarshal(value, &decoded.Flavors); err != nil {
+			return err
+		}
+	}
+	if value, exists := allProperties["item"]; exists {
+		if err = json.Unmarshal(value, &decoded.Item); err != nil {
+			return err
+		}
+	}
+	if value, exists := allProperties["natural_gift_type"]; exists {
+		if err = json.Unmarshal(value, &decoded.NaturalGiftType); err != nil {
+			return err
+		}
+	}
+
+	*o = decoded
+
+	return nil
+}
+
+// AssertBerryDetailRequired checks complex required fields (models, arrays, maps) and embedded parents.
+// Primitive required fields are validated for JSON request bodies in UnmarshalJSON so zero values remain valid.
 func AssertBerryDetailRequired(obj BerryDetail) error {
 	elements := map[string]interface{}{
-		"id": obj.Id,
-		"name": obj.Name,
-		"growth_time": obj.GrowthTime,
-		"max_harvest": obj.MaxHarvest,
-		"natural_gift_power": obj.NaturalGiftPower,
-		"size": obj.Size,
-		"smoothness": obj.Smoothness,
-		"soil_dryness": obj.SoilDryness,
 		"firmness": obj.Firmness,
-		"flavors": obj.Flavors,
 		"item": obj.Item,
 		"natural_gift_type": obj.NaturalGiftType,
 	}
@@ -65,11 +198,6 @@ func AssertBerryDetailRequired(obj BerryDetail) error {
 
 	if err := AssertBerryFirmnessSummaryRequired(obj.Firmness); err != nil {
 		return err
-	}
-	for _, el := range obj.Flavors {
-		if err := AssertBerryDetailFlavorsInnerRequired(el); err != nil {
-			return err
-		}
 	}
 	if err := AssertItemSummaryRequired(obj.Item); err != nil {
 		return err
@@ -84,11 +212,6 @@ func AssertBerryDetailRequired(obj BerryDetail) error {
 func AssertBerryDetailConstraints(obj BerryDetail) error {
 	if err := AssertBerryFirmnessSummaryConstraints(obj.Firmness); err != nil {
 		return err
-	}
-	for _, el := range obj.Flavors {
-		if err := AssertBerryDetailFlavorsInnerConstraints(el); err != nil {
-			return err
-		}
 	}
 	if err := AssertItemSummaryConstraints(obj.Item); err != nil {
 		return err

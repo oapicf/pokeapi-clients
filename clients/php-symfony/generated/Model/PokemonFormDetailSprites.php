@@ -47,7 +47,7 @@ class PokemonFormDetailSprites
      * @var string|null
      * @SerializedName("default")
      * @Type("string")
-    */
+     */
     #[Assert\Type("string")]
     protected ?string $default = null;
 
@@ -73,12 +73,12 @@ class PokemonFormDetailSprites
     }
 
     /**
-    * Sets default.
-    *
-    * @param string|null $default
-    *
-    * @return $this
-    */
+     * Sets default.
+     *
+     * @param string|null $default
+     *
+     * @return $this
+     */
     public function setDefault(?string $default = null): self
     {
         $this->default = $default;

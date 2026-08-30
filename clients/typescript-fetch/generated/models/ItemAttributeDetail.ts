@@ -58,19 +58,19 @@ export interface ItemAttributeDetail {
      * @type {Array<ItemAttributeDescription>}
      * @memberof ItemAttributeDetail
      */
-    descriptions: Array<ItemAttributeDescription>;
+    readonly descriptions: Array<ItemAttributeDescription>;
     /**
      * 
      * @type {Array<AbilityDetailPokemonInnerPokemon>}
      * @memberof ItemAttributeDetail
      */
-    items: Array<AbilityDetailPokemonInnerPokemon>;
+    readonly items: Array<AbilityDetailPokemonInnerPokemon>;
     /**
      * 
      * @type {Array<ItemAttributeName>}
      * @memberof ItemAttributeDetail
      */
-    names: Array<ItemAttributeName>;
+    readonly names: Array<ItemAttributeName>;
 }
 
 /**
@@ -107,7 +107,7 @@ export function ItemAttributeDetailToJSON(json: any): ItemAttributeDetail {
     return ItemAttributeDetailToJSONTyped(json, false);
 }
 
-export function ItemAttributeDetailToJSONTyped(value?: Omit<ItemAttributeDetail, 'id'> | null, ignoreDiscriminator: boolean = false): any {
+export function ItemAttributeDetailToJSONTyped(value?: Omit<ItemAttributeDetail, 'id'|'descriptions'|'items'|'names'> | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
@@ -115,9 +115,6 @@ export function ItemAttributeDetailToJSONTyped(value?: Omit<ItemAttributeDetail,
     return {
         
         'name': value['name'],
-        'descriptions': ((value['descriptions'] as Array<any>).map(ItemAttributeDescriptionToJSON)),
-        'items': ((value['items'] as Array<any>).map(AbilityDetailPokemonInnerPokemonToJSON)),
-        'names': ((value['names'] as Array<any>).map(ItemAttributeNameToJSON)),
     };
 }
 

@@ -10,8 +10,8 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | `Integer` |  |  [readonly property]
 **name** | `String` |  | 
-**values** | [`List&lt;EncounterConditionValueSummary&gt;`](EncounterConditionValueSummary.md) |  | 
-**names** | [`List&lt;EncounterConditionName&gt;`](EncounterConditionName.md) |  | 
+**values** | [`List&lt;EncounterConditionValueSummary&gt;`](EncounterConditionValueSummary.md) |  |  [readonly property]
+**names** | [`List&lt;EncounterConditionName&gt;`](EncounterConditionName.md) |  |  [readonly property]
 
 
 

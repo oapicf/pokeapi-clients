@@ -21,7 +21,7 @@
 
 namespace OpenAPI {
 
-OAITypeDetail_past_damage_relations_inner::OAITypeDetail_past_damage_relations_inner(QString json) {
+OAITypeDetail_past_damage_relations_inner::OAITypeDetail_past_damage_relations_inner(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -41,7 +41,7 @@ void OAITypeDetail_past_damage_relations_inner::initializeModel() {
     m_damage_relations_isValid = false;
 }
 
-void OAITypeDetail_past_damage_relations_inner::fromJson(QString jsonString) {
+void OAITypeDetail_past_damage_relations_inner::fromJson(const QString &jsonString) {
     QByteArray array(jsonString.toStdString().c_str());
     QJsonDocument doc = QJsonDocument::fromJson(array);
     QJsonObject jsonObject = doc.object();

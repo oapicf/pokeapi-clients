@@ -6,8 +6,8 @@
 | ---- | ---- | ----------- | ----- |
 | **id** | **Integer** |  | [readonly] |
 | **appeal** | **Integer** |  |  |
-| **flavor_text_entries** | [**Array&lt;SuperContestEffectFlavorText&gt;**](SuperContestEffectFlavorText.md) |  |  |
-| **moves** | [**Array&lt;MoveSummary&gt;**](MoveSummary.md) |  |  |
+| **flavor_text_entries** | [**Array&lt;SuperContestEffectFlavorText&gt;**](SuperContestEffectFlavorText.md) |  | [readonly] |
+| **moves** | [**Array&lt;MoveSummary&gt;**](MoveSummary.md) |  | [readonly] |
 
 ## Example
 

@@ -6,9 +6,9 @@
 | ------------ | ------------- | ------------- | ------------- |
 | **id** | **kotlin.Int** |  |  [readonly] |
 | **name** | **kotlin.String** |  |  |
-| **awesomeNames** | [**kotlin.collections.List&lt;PokemonShapeDetailAwesomeNamesInner&gt;**](PokemonShapeDetailAwesomeNamesInner.md) |  |  |
-| **names** | [**kotlin.collections.List&lt;PokemonShapeDetailNamesInner&gt;**](PokemonShapeDetailNamesInner.md) |  |  |
-| **pokemonSpecies** | [**kotlin.collections.List&lt;PokemonSpeciesSummary&gt;**](PokemonSpeciesSummary.md) |  |  |
+| **awesomeNames** | [**kotlin.collections.List&lt;PokemonShapeDetailAwesomeNamesInner&gt;**](PokemonShapeDetailAwesomeNamesInner.md) |  |  [readonly] |
+| **names** | [**kotlin.collections.List&lt;PokemonShapeDetailNamesInner&gt;**](PokemonShapeDetailNamesInner.md) |  |  [readonly] |
+| **pokemonSpecies** | [**kotlin.collections.List&lt;PokemonSpeciesSummary&gt;**](PokemonSpeciesSummary.md) |  |  [readonly] |
 
 
 

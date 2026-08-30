@@ -2,6 +2,7 @@ package org.openapitools.model;
 
 import java.net.URI;
 import java.util.Objects;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import java.util.ArrayList;
@@ -16,42 +17,38 @@ import org.openapitools.model.GenerationSummary;
 import org.springframework.lang.Nullable;
 import org.openapitools.jackson.nullable.JsonNullable;
 import java.time.OffsetDateTime;
-import javax.validation.Valid;
-import javax.validation.constraints.*;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.*;
 import io.swagger.v3.oas.annotations.media.Schema;
 
 
 import java.util.*;
-import javax.annotation.Generated;
+import jakarta.annotation.Generated;
 
 /**
  * AbilityDetail
  */
 
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2026-02-07T15:29:13.146999890Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2026-08-30T02:00:43.960184425Z[Etc/UTC]", comments = "Generator version: 7.24.0")
 public class AbilityDetail {
 
   private Integer id;
 
   private String name;
 
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private @Nullable Boolean isMainSeries;
 
   private GenerationSummary generation;
 
-  @Valid
   private List<@Valid AbilityName> names = new ArrayList<>();
 
-  @Valid
   private List<@Valid AbilityEffectText> effectEntries = new ArrayList<>();
 
-  @Valid
   private List<@Valid AbilityChange> effectChanges = new ArrayList<>();
 
-  @Valid
   private List<@Valid AbilityFlavorText> flavorTextEntries = new ArrayList<>();
 
-  @Valid
   private List<@Valid AbilityDetailPokemonInner> pokemon = new ArrayList<>();
 
   public AbilityDetail() {
@@ -88,6 +85,7 @@ public class AbilityDetail {
     return id;
   }
 
+  @JsonProperty("id")
   public void setId(Integer id) {
     this.id = id;
   }
@@ -108,6 +106,7 @@ public class AbilityDetail {
     return name;
   }
 
+  @JsonProperty("name")
   public void setName(String name) {
     this.name = name;
   }
@@ -128,6 +127,7 @@ public class AbilityDetail {
     return isMainSeries;
   }
 
+  @JsonProperty("is_main_series")
   public void setIsMainSeries(@Nullable Boolean isMainSeries) {
     this.isMainSeries = isMainSeries;
   }
@@ -148,6 +148,7 @@ public class AbilityDetail {
     return generation;
   }
 
+  @JsonProperty("generation")
   public void setGeneration(GenerationSummary generation) {
     this.generation = generation;
   }
@@ -169,13 +170,14 @@ public class AbilityDetail {
    * Get names
    * @return names
    */
-  @NotNull @Valid 
-  @Schema(name = "names", requiredMode = Schema.RequiredMode.REQUIRED)
+  @Valid 
+  @Schema(name = "names", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("names")
   public List<@Valid AbilityName> getNames() {
     return names;
   }
 
+  @JsonProperty("names")
   public void setNames(List<@Valid AbilityName> names) {
     this.names = names;
   }
@@ -197,13 +199,14 @@ public class AbilityDetail {
    * Get effectEntries
    * @return effectEntries
    */
-  @NotNull @Valid 
-  @Schema(name = "effect_entries", requiredMode = Schema.RequiredMode.REQUIRED)
+  @Valid 
+  @Schema(name = "effect_entries", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("effect_entries")
   public List<@Valid AbilityEffectText> getEffectEntries() {
     return effectEntries;
   }
 
+  @JsonProperty("effect_entries")
   public void setEffectEntries(List<@Valid AbilityEffectText> effectEntries) {
     this.effectEntries = effectEntries;
   }
@@ -225,13 +228,14 @@ public class AbilityDetail {
    * Get effectChanges
    * @return effectChanges
    */
-  @NotNull @Valid 
-  @Schema(name = "effect_changes", requiredMode = Schema.RequiredMode.REQUIRED)
+  @Valid 
+  @Schema(name = "effect_changes", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("effect_changes")
   public List<@Valid AbilityChange> getEffectChanges() {
     return effectChanges;
   }
 
+  @JsonProperty("effect_changes")
   public void setEffectChanges(List<@Valid AbilityChange> effectChanges) {
     this.effectChanges = effectChanges;
   }
@@ -253,13 +257,14 @@ public class AbilityDetail {
    * Get flavorTextEntries
    * @return flavorTextEntries
    */
-  @NotNull @Valid 
-  @Schema(name = "flavor_text_entries", requiredMode = Schema.RequiredMode.REQUIRED)
+  @Valid 
+  @Schema(name = "flavor_text_entries", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("flavor_text_entries")
   public List<@Valid AbilityFlavorText> getFlavorTextEntries() {
     return flavorTextEntries;
   }
 
+  @JsonProperty("flavor_text_entries")
   public void setFlavorTextEntries(List<@Valid AbilityFlavorText> flavorTextEntries) {
     this.flavorTextEntries = flavorTextEntries;
   }
@@ -281,13 +286,14 @@ public class AbilityDetail {
    * Get pokemon
    * @return pokemon
    */
-  @NotNull @Valid 
-  @Schema(name = "pokemon", requiredMode = Schema.RequiredMode.REQUIRED)
+  @Valid 
+  @Schema(name = "pokemon", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("pokemon")
   public List<@Valid AbilityDetailPokemonInner> getPokemon() {
     return pokemon;
   }
 
+  @JsonProperty("pokemon")
   public void setPokemon(List<@Valid AbilityDetailPokemonInner> pokemon) {
     this.pokemon = pokemon;
   }
@@ -338,11 +344,8 @@ public class AbilityDetail {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+  private String toIndentedString(@Nullable Object o) {
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 }
 

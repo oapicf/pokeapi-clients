@@ -221,7 +221,7 @@ LocationDetail::getId()
 }
 
 void
-LocationDetail::setId(int  id)
+LocationDetail::setId(int id)
 {
 	this->id = id;
 }
@@ -233,7 +233,7 @@ LocationDetail::getName()
 }
 
 void
-LocationDetail::setName(std::string  name)
+LocationDetail::setName(std::string name)
 {
 	this->name = name;
 }
@@ -245,7 +245,7 @@ LocationDetail::getRegion()
 }
 
 void
-LocationDetail::setRegion(RegionSummary  region)
+LocationDetail::setRegion(RegionSummary region)
 {
 	this->region = region;
 }
@@ -257,7 +257,7 @@ LocationDetail::getNames()
 }
 
 void
-LocationDetail::setNames(std::list <LocationName> names)
+LocationDetail::setNames(std::list<LocationName> names)
 {
 	this->names = names;
 }
@@ -269,7 +269,7 @@ LocationDetail::getGameIndices()
 }
 
 void
-LocationDetail::setGameIndices(std::list <LocationGameIndex> game_indices)
+LocationDetail::setGameIndices(std::list<LocationGameIndex> game_indices)
 {
 	this->game_indices = game_indices;
 }
@@ -281,7 +281,7 @@ LocationDetail::getAreas()
 }
 
 void
-LocationDetail::setAreas(std::list <LocationAreaSummary> areas)
+LocationDetail::setAreas(std::list<LocationAreaSummary> areas)
 {
 	this->areas = areas;
 }

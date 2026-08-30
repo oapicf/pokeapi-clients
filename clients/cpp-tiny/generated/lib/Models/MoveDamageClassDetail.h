@@ -55,35 +55,35 @@ public:
 
 	/*! \brief Set 
 	 */
-	void setId(int  id);
+	void setId(int id);
 	/*! \brief Get 
 	 */
 	std::string getName();
 
 	/*! \brief Set 
 	 */
-	void setName(std::string  name);
+	void setName(std::string name);
 	/*! \brief Get 
 	 */
 	std::list<MoveDamageClassDescription> getDescriptions();
 
 	/*! \brief Set 
 	 */
-	void setDescriptions(std::list <MoveDamageClassDescription> descriptions);
+	void setDescriptions(std::list<MoveDamageClassDescription> descriptions);
 	/*! \brief Get 
 	 */
 	std::list<MoveSummary> getMoves();
 
 	/*! \brief Set 
 	 */
-	void setMoves(std::list <MoveSummary> moves);
+	void setMoves(std::list<MoveSummary> moves);
 	/*! \brief Get 
 	 */
 	std::list<MoveDamageClassName> getNames();
 
 	/*! \brief Set 
 	 */
-	void setNames(std::list <MoveDamageClassName> names);
+	void setNames(std::list<MoveDamageClassName> names);
 
 
     private:

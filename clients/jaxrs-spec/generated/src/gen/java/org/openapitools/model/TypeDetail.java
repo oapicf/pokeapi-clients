@@ -32,7 +32,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
  **/
 @ApiModel(description = "Serializer for the Type resource")
 @JsonTypeName("TypeDetail")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2026-02-07T15:24:06.001755207Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2026-08-30T01:56:42.280002256Z[Etc/UTC]", comments = "Generator version: 7.24.0")
 public class TypeDetail   {
   private Integer id;
   private String name;
@@ -143,7 +143,7 @@ public class TypeDetail   {
   
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(required = true, value = "past_damage_relations")
-  @NotNull @Valid public List<@Valid TypeDetailPastDamageRelationsInner> getPastDamageRelations() {
+  @Valid public List<@Valid TypeDetailPastDamageRelationsInner> getPastDamageRelations() {
     return pastDamageRelations;
   }
 
@@ -178,7 +178,7 @@ public class TypeDetail   {
   
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(required = true, value = "game_indices")
-  @NotNull @Valid public List<@Valid TypeGameIndex> getGameIndices() {
+  @Valid public List<@Valid TypeGameIndex> getGameIndices() {
     return gameIndices;
   }
 
@@ -251,7 +251,7 @@ public class TypeDetail   {
   
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(required = true, value = "names")
-  @NotNull @Valid public List<@Valid AbilityName> getNames() {
+  @Valid public List<@Valid AbilityName> getNames() {
     return names;
   }
 
@@ -286,7 +286,7 @@ public class TypeDetail   {
   
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(required = true, value = "pokemon")
-  @NotNull @Valid public List<@Valid TypeDetailPokemonInner> getPokemon() {
+  @Valid public List<@Valid TypeDetailPokemonInner> getPokemon() {
     return pokemon;
   }
 
@@ -321,7 +321,7 @@ public class TypeDetail   {
   
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(required = true, value = "moves")
-  @NotNull @Valid public List<@Valid MoveSummary> getMoves() {
+  @Valid public List<@Valid MoveSummary> getMoves() {
     return moves;
   }
 
@@ -434,12 +434,8 @@ public class TypeDetail   {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 
 }
-

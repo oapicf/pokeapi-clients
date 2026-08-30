@@ -175,10 +175,11 @@ BerriesApi <- R6::R6Class(
     #' @param q (optional) > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. 
     #' @param data_file (optional) name of the data file to save the result
     #' @param ... Other optional arguments
+    #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return PaginatedBerryFirmnessSummaryList
-    BerryFirmnessList = function(limit = NULL, offset = NULL, q = NULL, data_file = NULL, ...) {
-      local_var_response <- self$BerryFirmnessListWithHttpInfo(limit, offset, q, data_file = data_file, ...)
+    BerryFirmnessList = function(limit = NULL, offset = NULL, q = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$BerryFirmnessListWithHttpInfo(limit, offset, q, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -198,9 +199,10 @@ BerriesApi <- R6::R6Class(
     #' @param q (optional) > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. 
     #' @param data_file (optional) name of the data file to save the result
     #' @param ... Other optional arguments
+    #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (PaginatedBerryFirmnessSummaryList) with additional information such as HTTP status code, headers
-    BerryFirmnessListWithHttpInfo = function(limit = NULL, offset = NULL, q = NULL, data_file = NULL, ...) {
+    BerryFirmnessListWithHttpInfo = function(limit = NULL, offset = NULL, q = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -259,6 +261,10 @@ BerriesApi <- R6::R6Class(
         if (!is.null(data_file)) {
           self$api_client$WriteFile(local_var_resp, data_file)
         }
+        if (!.parse) {
+          local_var_resp$content <- local_var_resp$response_as_text()
+          return(local_var_resp)
+        }
 
         deserialized_resp_obj <- tryCatch(
           self$api_client$DeserializeResponse(local_var_resp, "PaginatedBerryFirmnessSummaryList"),
@@ -272,11 +278,15 @@ BerriesApi <- R6::R6Class(
       
       local_var_error_msg <- local_var_resp$response_as_text()      
       if (local_var_resp$status_code >= 300 && local_var_resp$status_code <= 399) {
-        ApiResponse$new(paste("Server returned ", local_var_resp$status_code, " response status code."), local_var_resp)
+        ApiResponse$new(content = paste("Server returned ", local_var_resp$status_code, " response status code."),
+                        response = local_var_resp,
+                        status_code = local_var_resp$status_code)
       } else if (local_var_resp$status_code >= 400 && local_var_resp$status_code <= 499) {
-        ApiResponse$new("API client error", local_var_resp)
+        ApiResponse$new(content = "API client error",
+                        response = local_var_resp,
+                        status_code = local_var_resp$status_code)
       } else if (local_var_resp$status_code >= 500 && local_var_resp$status_code <= 599) {
-        if (is.null(local_var_resp$response) || local_var_resp$response == "") {
+        if (is.null(local_var_resp$response) || all(local_var_resp$response == "")) {
           local_var_resp$response <- "API server error"
         }
         return(local_var_resp)
@@ -289,10 +299,11 @@ BerriesApi <- R6::R6Class(
     #' @param id This parameter can be a string or an integer.
     #' @param data_file (optional) name of the data file to save the result
     #' @param ... Other optional arguments
+    #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return BerryFirmnessDetail
-    BerryFirmnessRetrieve = function(id, data_file = NULL, ...) {
-      local_var_response <- self$BerryFirmnessRetrieveWithHttpInfo(id, data_file = data_file, ...)
+    BerryFirmnessRetrieve = function(id, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$BerryFirmnessRetrieveWithHttpInfo(id, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -310,9 +321,10 @@ BerriesApi <- R6::R6Class(
     #' @param id This parameter can be a string or an integer.
     #' @param data_file (optional) name of the data file to save the result
     #' @param ... Other optional arguments
+    #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (BerryFirmnessDetail) with additional information such as HTTP status code, headers
-    BerryFirmnessRetrieveWithHttpInfo = function(id, data_file = NULL, ...) {
+    BerryFirmnessRetrieveWithHttpInfo = function(id, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -365,6 +377,10 @@ BerriesApi <- R6::R6Class(
         if (!is.null(data_file)) {
           self$api_client$WriteFile(local_var_resp, data_file)
         }
+        if (!.parse) {
+          local_var_resp$content <- local_var_resp$response_as_text()
+          return(local_var_resp)
+        }
 
         deserialized_resp_obj <- tryCatch(
           self$api_client$DeserializeResponse(local_var_resp, "BerryFirmnessDetail"),
@@ -378,11 +394,15 @@ BerriesApi <- R6::R6Class(
       
       local_var_error_msg <- local_var_resp$response_as_text()      
       if (local_var_resp$status_code >= 300 && local_var_resp$status_code <= 399) {
-        ApiResponse$new(paste("Server returned ", local_var_resp$status_code, " response status code."), local_var_resp)
+        ApiResponse$new(content = paste("Server returned ", local_var_resp$status_code, " response status code."),
+                        response = local_var_resp,
+                        status_code = local_var_resp$status_code)
       } else if (local_var_resp$status_code >= 400 && local_var_resp$status_code <= 499) {
-        ApiResponse$new("API client error", local_var_resp)
+        ApiResponse$new(content = "API client error",
+                        response = local_var_resp,
+                        status_code = local_var_resp$status_code)
       } else if (local_var_resp$status_code >= 500 && local_var_resp$status_code <= 599) {
-        if (is.null(local_var_resp$response) || local_var_resp$response == "") {
+        if (is.null(local_var_resp$response) || all(local_var_resp$response == "")) {
           local_var_resp$response <- "API server error"
         }
         return(local_var_resp)
@@ -397,10 +417,11 @@ BerriesApi <- R6::R6Class(
     #' @param q (optional) > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. 
     #' @param data_file (optional) name of the data file to save the result
     #' @param ... Other optional arguments
+    #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return PaginatedBerryFlavorSummaryList
-    BerryFlavorList = function(limit = NULL, offset = NULL, q = NULL, data_file = NULL, ...) {
-      local_var_response <- self$BerryFlavorListWithHttpInfo(limit, offset, q, data_file = data_file, ...)
+    BerryFlavorList = function(limit = NULL, offset = NULL, q = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$BerryFlavorListWithHttpInfo(limit, offset, q, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -420,9 +441,10 @@ BerriesApi <- R6::R6Class(
     #' @param q (optional) > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. 
     #' @param data_file (optional) name of the data file to save the result
     #' @param ... Other optional arguments
+    #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (PaginatedBerryFlavorSummaryList) with additional information such as HTTP status code, headers
-    BerryFlavorListWithHttpInfo = function(limit = NULL, offset = NULL, q = NULL, data_file = NULL, ...) {
+    BerryFlavorListWithHttpInfo = function(limit = NULL, offset = NULL, q = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -481,6 +503,10 @@ BerriesApi <- R6::R6Class(
         if (!is.null(data_file)) {
           self$api_client$WriteFile(local_var_resp, data_file)
         }
+        if (!.parse) {
+          local_var_resp$content <- local_var_resp$response_as_text()
+          return(local_var_resp)
+        }
 
         deserialized_resp_obj <- tryCatch(
           self$api_client$DeserializeResponse(local_var_resp, "PaginatedBerryFlavorSummaryList"),
@@ -494,11 +520,15 @@ BerriesApi <- R6::R6Class(
       
       local_var_error_msg <- local_var_resp$response_as_text()      
       if (local_var_resp$status_code >= 300 && local_var_resp$status_code <= 399) {
-        ApiResponse$new(paste("Server returned ", local_var_resp$status_code, " response status code."), local_var_resp)
+        ApiResponse$new(content = paste("Server returned ", local_var_resp$status_code, " response status code."),
+                        response = local_var_resp,
+                        status_code = local_var_resp$status_code)
       } else if (local_var_resp$status_code >= 400 && local_var_resp$status_code <= 499) {
-        ApiResponse$new("API client error", local_var_resp)
+        ApiResponse$new(content = "API client error",
+                        response = local_var_resp,
+                        status_code = local_var_resp$status_code)
       } else if (local_var_resp$status_code >= 500 && local_var_resp$status_code <= 599) {
-        if (is.null(local_var_resp$response) || local_var_resp$response == "") {
+        if (is.null(local_var_resp$response) || all(local_var_resp$response == "")) {
           local_var_resp$response <- "API server error"
         }
         return(local_var_resp)
@@ -511,10 +541,11 @@ BerriesApi <- R6::R6Class(
     #' @param id This parameter can be a string or an integer.
     #' @param data_file (optional) name of the data file to save the result
     #' @param ... Other optional arguments
+    #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return BerryFlavorDetail
-    BerryFlavorRetrieve = function(id, data_file = NULL, ...) {
-      local_var_response <- self$BerryFlavorRetrieveWithHttpInfo(id, data_file = data_file, ...)
+    BerryFlavorRetrieve = function(id, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$BerryFlavorRetrieveWithHttpInfo(id, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -532,9 +563,10 @@ BerriesApi <- R6::R6Class(
     #' @param id This parameter can be a string or an integer.
     #' @param data_file (optional) name of the data file to save the result
     #' @param ... Other optional arguments
+    #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (BerryFlavorDetail) with additional information such as HTTP status code, headers
-    BerryFlavorRetrieveWithHttpInfo = function(id, data_file = NULL, ...) {
+    BerryFlavorRetrieveWithHttpInfo = function(id, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -587,6 +619,10 @@ BerriesApi <- R6::R6Class(
         if (!is.null(data_file)) {
           self$api_client$WriteFile(local_var_resp, data_file)
         }
+        if (!.parse) {
+          local_var_resp$content <- local_var_resp$response_as_text()
+          return(local_var_resp)
+        }
 
         deserialized_resp_obj <- tryCatch(
           self$api_client$DeserializeResponse(local_var_resp, "BerryFlavorDetail"),
@@ -600,11 +636,15 @@ BerriesApi <- R6::R6Class(
       
       local_var_error_msg <- local_var_resp$response_as_text()      
       if (local_var_resp$status_code >= 300 && local_var_resp$status_code <= 399) {
-        ApiResponse$new(paste("Server returned ", local_var_resp$status_code, " response status code."), local_var_resp)
+        ApiResponse$new(content = paste("Server returned ", local_var_resp$status_code, " response status code."),
+                        response = local_var_resp,
+                        status_code = local_var_resp$status_code)
       } else if (local_var_resp$status_code >= 400 && local_var_resp$status_code <= 499) {
-        ApiResponse$new("API client error", local_var_resp)
+        ApiResponse$new(content = "API client error",
+                        response = local_var_resp,
+                        status_code = local_var_resp$status_code)
       } else if (local_var_resp$status_code >= 500 && local_var_resp$status_code <= 599) {
-        if (is.null(local_var_resp$response) || local_var_resp$response == "") {
+        if (is.null(local_var_resp$response) || all(local_var_resp$response == "")) {
           local_var_resp$response <- "API server error"
         }
         return(local_var_resp)
@@ -619,10 +659,11 @@ BerriesApi <- R6::R6Class(
     #' @param q (optional) > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. 
     #' @param data_file (optional) name of the data file to save the result
     #' @param ... Other optional arguments
+    #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return PaginatedBerrySummaryList
-    BerryList = function(limit = NULL, offset = NULL, q = NULL, data_file = NULL, ...) {
-      local_var_response <- self$BerryListWithHttpInfo(limit, offset, q, data_file = data_file, ...)
+    BerryList = function(limit = NULL, offset = NULL, q = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$BerryListWithHttpInfo(limit, offset, q, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -642,9 +683,10 @@ BerriesApi <- R6::R6Class(
     #' @param q (optional) > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. 
     #' @param data_file (optional) name of the data file to save the result
     #' @param ... Other optional arguments
+    #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (PaginatedBerrySummaryList) with additional information such as HTTP status code, headers
-    BerryListWithHttpInfo = function(limit = NULL, offset = NULL, q = NULL, data_file = NULL, ...) {
+    BerryListWithHttpInfo = function(limit = NULL, offset = NULL, q = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -703,6 +745,10 @@ BerriesApi <- R6::R6Class(
         if (!is.null(data_file)) {
           self$api_client$WriteFile(local_var_resp, data_file)
         }
+        if (!.parse) {
+          local_var_resp$content <- local_var_resp$response_as_text()
+          return(local_var_resp)
+        }
 
         deserialized_resp_obj <- tryCatch(
           self$api_client$DeserializeResponse(local_var_resp, "PaginatedBerrySummaryList"),
@@ -716,11 +762,15 @@ BerriesApi <- R6::R6Class(
       
       local_var_error_msg <- local_var_resp$response_as_text()      
       if (local_var_resp$status_code >= 300 && local_var_resp$status_code <= 399) {
-        ApiResponse$new(paste("Server returned ", local_var_resp$status_code, " response status code."), local_var_resp)
+        ApiResponse$new(content = paste("Server returned ", local_var_resp$status_code, " response status code."),
+                        response = local_var_resp,
+                        status_code = local_var_resp$status_code)
       } else if (local_var_resp$status_code >= 400 && local_var_resp$status_code <= 499) {
-        ApiResponse$new("API client error", local_var_resp)
+        ApiResponse$new(content = "API client error",
+                        response = local_var_resp,
+                        status_code = local_var_resp$status_code)
       } else if (local_var_resp$status_code >= 500 && local_var_resp$status_code <= 599) {
-        if (is.null(local_var_resp$response) || local_var_resp$response == "") {
+        if (is.null(local_var_resp$response) || all(local_var_resp$response == "")) {
           local_var_resp$response <- "API server error"
         }
         return(local_var_resp)
@@ -733,10 +783,11 @@ BerriesApi <- R6::R6Class(
     #' @param id This parameter can be a string or an integer.
     #' @param data_file (optional) name of the data file to save the result
     #' @param ... Other optional arguments
+    #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return BerryDetail
-    BerryRetrieve = function(id, data_file = NULL, ...) {
-      local_var_response <- self$BerryRetrieveWithHttpInfo(id, data_file = data_file, ...)
+    BerryRetrieve = function(id, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$BerryRetrieveWithHttpInfo(id, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -754,9 +805,10 @@ BerriesApi <- R6::R6Class(
     #' @param id This parameter can be a string or an integer.
     #' @param data_file (optional) name of the data file to save the result
     #' @param ... Other optional arguments
+    #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (BerryDetail) with additional information such as HTTP status code, headers
-    BerryRetrieveWithHttpInfo = function(id, data_file = NULL, ...) {
+    BerryRetrieveWithHttpInfo = function(id, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -809,6 +861,10 @@ BerriesApi <- R6::R6Class(
         if (!is.null(data_file)) {
           self$api_client$WriteFile(local_var_resp, data_file)
         }
+        if (!.parse) {
+          local_var_resp$content <- local_var_resp$response_as_text()
+          return(local_var_resp)
+        }
 
         deserialized_resp_obj <- tryCatch(
           self$api_client$DeserializeResponse(local_var_resp, "BerryDetail"),
@@ -822,11 +878,15 @@ BerriesApi <- R6::R6Class(
       
       local_var_error_msg <- local_var_resp$response_as_text()      
       if (local_var_resp$status_code >= 300 && local_var_resp$status_code <= 399) {
-        ApiResponse$new(paste("Server returned ", local_var_resp$status_code, " response status code."), local_var_resp)
+        ApiResponse$new(content = paste("Server returned ", local_var_resp$status_code, " response status code."),
+                        response = local_var_resp,
+                        status_code = local_var_resp$status_code)
       } else if (local_var_resp$status_code >= 400 && local_var_resp$status_code <= 499) {
-        ApiResponse$new("API client error", local_var_resp)
+        ApiResponse$new(content = "API client error",
+                        response = local_var_resp,
+                        status_code = local_var_resp$status_code)
       } else if (local_var_resp$status_code >= 500 && local_var_resp$status_code <= 599) {
-        if (is.null(local_var_resp$response) || local_var_resp$response == "") {
+        if (is.null(local_var_resp$response) || all(local_var_resp$response == "")) {
           local_var_resp$response <- "API server error"
         }
         return(local_var_resp)

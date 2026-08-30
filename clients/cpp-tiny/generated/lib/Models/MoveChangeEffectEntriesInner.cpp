@@ -107,7 +107,7 @@ MoveChange_effect_entries_inner::getEffect()
 }
 
 void
-MoveChange_effect_entries_inner::setEffect(std::string  effect)
+MoveChange_effect_entries_inner::setEffect(std::string effect)
 {
 	this->effect = effect;
 }
@@ -119,7 +119,7 @@ MoveChange_effect_entries_inner::getShortEffect()
 }
 
 void
-MoveChange_effect_entries_inner::setShortEffect(std::string  short_effect)
+MoveChange_effect_entries_inner::setShortEffect(std::string short_effect)
 {
 	this->short_effect = short_effect;
 }
@@ -131,7 +131,7 @@ MoveChange_effect_entries_inner::getLanguage()
 }
 
 void
-MoveChange_effect_entries_inner::setLanguage(AbilityDetail_pokemon_inner_pokemon  language)
+MoveChange_effect_entries_inner::setLanguage(AbilityDetail_pokemon_inner_pokemon language)
 {
 	this->language = language;
 }

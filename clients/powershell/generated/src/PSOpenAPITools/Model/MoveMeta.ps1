@@ -99,18 +99,18 @@ function Initialize-MoveMeta {
 
 
         $PSO = [PSCustomObject]@{
-            "ailment" = ${Ailment}
-            "category" = ${Category}
-            "min_hits" = ${MinHits}
-            "max_hits" = ${MaxHits}
-            "min_turns" = ${MinTurns}
-            "max_turns" = ${MaxTurns}
-            "drain" = ${Drain}
-            "healing" = ${Healing}
-            "crit_rate" = ${CritRate}
-            "ailment_chance" = ${AilmentChance}
-            "flinch_chance" = ${FlinchChance}
-            "stat_chance" = ${StatChance}
+            'ailment' = ${Ailment}
+            'category' = ${Category}
+            'min_hits' = ${MinHits}
+            'max_hits' = ${MaxHits}
+            'min_turns' = ${MinTurns}
+            'max_turns' = ${MaxTurns}
+            'drain' = ${Drain}
+            'healing' = ${Healing}
+            'crit_rate' = ${CritRate}
+            'ailment_chance' = ${AilmentChance}
+            'flinch_chance' = ${FlinchChance}
+            'stat_chance' = ${StatChance}
         }
 
 
@@ -148,7 +148,7 @@ function ConvertFrom-JsonToMoveMeta {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in MoveMeta
-        $AllProperties = ("ailment", "category", "min_hits", "max_hits", "min_turns", "max_turns", "drain", "healing", "crit_rate", "ailment_chance", "flinch_chance", "stat_chance")
+        $AllProperties = ('ailment', 'category', 'min_hits', 'max_hits', 'min_turns', 'max_turns', 'drain', 'healing', 'crit_rate', 'ailment_chance', 'flinch_chance', 'stat_chance')
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -159,91 +159,91 @@ function ConvertFrom-JsonToMoveMeta {
             throw "Error! Empty JSON cannot be serialized due to the required property 'ailment' missing."
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "ailment"))) {
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'ailment'))) {
             throw "Error! JSON cannot be serialized due to the required property 'ailment' missing."
         } else {
-            $Ailment = $JsonParameters.PSobject.Properties["ailment"].value
+            $Ailment = $JsonParameters.PSobject.Properties['ailment'].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "category"))) {
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'category'))) {
             throw "Error! JSON cannot be serialized due to the required property 'category' missing."
         } else {
-            $Category = $JsonParameters.PSobject.Properties["category"].value
+            $Category = $JsonParameters.PSobject.Properties['category'].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "min_hits"))) { #optional property not found
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'min_hits'))) { #optional property not found
             $MinHits = $null
         } else {
-            $MinHits = $JsonParameters.PSobject.Properties["min_hits"].value
+            $MinHits = $JsonParameters.PSobject.Properties['min_hits'].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "max_hits"))) { #optional property not found
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'max_hits'))) { #optional property not found
             $MaxHits = $null
         } else {
-            $MaxHits = $JsonParameters.PSobject.Properties["max_hits"].value
+            $MaxHits = $JsonParameters.PSobject.Properties['max_hits'].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "min_turns"))) { #optional property not found
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'min_turns'))) { #optional property not found
             $MinTurns = $null
         } else {
-            $MinTurns = $JsonParameters.PSobject.Properties["min_turns"].value
+            $MinTurns = $JsonParameters.PSobject.Properties['min_turns'].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "max_turns"))) { #optional property not found
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'max_turns'))) { #optional property not found
             $MaxTurns = $null
         } else {
-            $MaxTurns = $JsonParameters.PSobject.Properties["max_turns"].value
+            $MaxTurns = $JsonParameters.PSobject.Properties['max_turns'].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "drain"))) { #optional property not found
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'drain'))) { #optional property not found
             $Drain = $null
         } else {
-            $Drain = $JsonParameters.PSobject.Properties["drain"].value
+            $Drain = $JsonParameters.PSobject.Properties['drain'].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "healing"))) { #optional property not found
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'healing'))) { #optional property not found
             $Healing = $null
         } else {
-            $Healing = $JsonParameters.PSobject.Properties["healing"].value
+            $Healing = $JsonParameters.PSobject.Properties['healing'].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "crit_rate"))) { #optional property not found
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'crit_rate'))) { #optional property not found
             $CritRate = $null
         } else {
-            $CritRate = $JsonParameters.PSobject.Properties["crit_rate"].value
+            $CritRate = $JsonParameters.PSobject.Properties['crit_rate'].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "ailment_chance"))) { #optional property not found
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'ailment_chance'))) { #optional property not found
             $AilmentChance = $null
         } else {
-            $AilmentChance = $JsonParameters.PSobject.Properties["ailment_chance"].value
+            $AilmentChance = $JsonParameters.PSobject.Properties['ailment_chance'].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "flinch_chance"))) { #optional property not found
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'flinch_chance'))) { #optional property not found
             $FlinchChance = $null
         } else {
-            $FlinchChance = $JsonParameters.PSobject.Properties["flinch_chance"].value
+            $FlinchChance = $JsonParameters.PSobject.Properties['flinch_chance'].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "stat_chance"))) { #optional property not found
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'stat_chance'))) { #optional property not found
             $StatChance = $null
         } else {
-            $StatChance = $JsonParameters.PSobject.Properties["stat_chance"].value
+            $StatChance = $JsonParameters.PSobject.Properties['stat_chance'].value
         }
 
         $PSO = [PSCustomObject]@{
-            "ailment" = ${Ailment}
-            "category" = ${Category}
-            "min_hits" = ${MinHits}
-            "max_hits" = ${MaxHits}
-            "min_turns" = ${MinTurns}
-            "max_turns" = ${MaxTurns}
-            "drain" = ${Drain}
-            "healing" = ${Healing}
-            "crit_rate" = ${CritRate}
-            "ailment_chance" = ${AilmentChance}
-            "flinch_chance" = ${FlinchChance}
-            "stat_chance" = ${StatChance}
+            'ailment' = ${Ailment}
+            'category' = ${Category}
+            'min_hits' = ${MinHits}
+            'max_hits' = ${MaxHits}
+            'min_turns' = ${MinTurns}
+            'max_turns' = ${MaxTurns}
+            'drain' = ${Drain}
+            'healing' = ${Healing}
+            'crit_rate' = ${CritRate}
+            'ailment_chance' = ${AilmentChance}
+            'flinch_chance' = ${FlinchChance}
+            'stat_chance' = ${StatChance}
         }
 
         return $PSO

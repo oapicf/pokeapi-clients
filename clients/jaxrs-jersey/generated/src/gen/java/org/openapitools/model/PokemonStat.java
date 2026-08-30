@@ -31,7 +31,7 @@ import javax.validation.Valid;
   PokemonStat.JSON_PROPERTY_EFFORT,
   PokemonStat.JSON_PROPERTY_STAT
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJerseyServerCodegen", date = "2026-02-07T15:23:51.865177194Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJerseyServerCodegen", date = "2026-08-30T01:56:28.710233113Z[Etc/UTC]", comments = "Generator version: 7.24.0")
 public class PokemonStat   {
   public static final String JSON_PROPERTY_BASE_STAT = "base_stat";
   @JsonProperty(JSON_PROPERTY_BASE_STAT)
@@ -142,10 +142,7 @@ public class PokemonStat   {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 }
 

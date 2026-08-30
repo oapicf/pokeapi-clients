@@ -58,15 +58,19 @@ class ItemFlingEffectDetail extends BaseModel
     },
     "effect_entries" : {
       "type" : "array",
+      "readOnly" : true,
       "items" : {
         "$ref" : "#/components/schemas/ItemFlingEffectEffectText"
-      }
+      },
+      "default" : null
     },
     "items" : {
       "type" : "array",
+      "readOnly" : true,
       "items" : {
         "$ref" : "#/components/schemas/ItemSummary"
-      }
+      },
+      "default" : null
     }
   }
 }

@@ -32,7 +32,7 @@ class  ContestEffectSummary
 {
 public:
     ContestEffectSummary();
-    virtual ~ContestEffectSummary() = default;
+    virtual ~ContestEffectSummary();
 
 
     /// <summary>

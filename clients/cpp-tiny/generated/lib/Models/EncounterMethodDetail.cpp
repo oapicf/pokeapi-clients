@@ -144,7 +144,7 @@ EncounterMethodDetail::getId()
 }
 
 void
-EncounterMethodDetail::setId(int  id)
+EncounterMethodDetail::setId(int id)
 {
 	this->id = id;
 }
@@ -156,7 +156,7 @@ EncounterMethodDetail::getName()
 }
 
 void
-EncounterMethodDetail::setName(std::string  name)
+EncounterMethodDetail::setName(std::string name)
 {
 	this->name = name;
 }
@@ -168,7 +168,7 @@ EncounterMethodDetail::getOrder()
 }
 
 void
-EncounterMethodDetail::setOrder(int  order)
+EncounterMethodDetail::setOrder(int order)
 {
 	this->order = order;
 }
@@ -180,7 +180,7 @@ EncounterMethodDetail::getNames()
 }
 
 void
-EncounterMethodDetail::setNames(std::list <EncounterMethodName> names)
+EncounterMethodDetail::setNames(std::list<EncounterMethodName> names)
 {
 	this->names = names;
 }

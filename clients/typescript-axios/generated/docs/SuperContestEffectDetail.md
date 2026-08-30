@@ -7,8 +7,8 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **number** |  | [readonly] [default to undefined]
 **appeal** | **number** |  | [default to undefined]
-**flavor_text_entries** | [**Array&lt;SuperContestEffectFlavorText&gt;**](SuperContestEffectFlavorText.md) |  | [default to undefined]
-**moves** | [**Array&lt;MoveSummary&gt;**](MoveSummary.md) |  | [default to undefined]
+**flavor_text_entries** | [**Array&lt;SuperContestEffectFlavorText&gt;**](SuperContestEffectFlavorText.md) |  | [readonly] [default to undefined]
+**moves** | [**Array&lt;MoveSummary&gt;**](MoveSummary.md) |  | [readonly] [default to undefined]
 
 ## Example
 

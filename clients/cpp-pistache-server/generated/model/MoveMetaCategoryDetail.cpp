@@ -26,6 +26,8 @@ MoveMetaCategoryDetail::MoveMetaCategoryDetail()
     
 }
 
+MoveMetaCategoryDetail::~MoveMetaCategoryDetail() = default;
+
 void MoveMetaCategoryDetail::validate() const
 {
     std::stringstream msg;

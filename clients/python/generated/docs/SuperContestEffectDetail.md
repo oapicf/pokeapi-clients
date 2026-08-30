@@ -7,8 +7,8 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **int** |  | [readonly] 
 **appeal** | **int** |  | 
-**flavor_text_entries** | [**List[SuperContestEffectFlavorText]**](SuperContestEffectFlavorText.md) |  | 
-**moves** | [**List[MoveSummary]**](MoveSummary.md) |  | 
+**flavor_text_entries** | [**List[SuperContestEffectFlavorText]**](SuperContestEffectFlavorText.md) |  | [readonly] 
+**moves** | [**List[MoveSummary]**](MoveSummary.md) |  | [readonly] 
 
 ## Example
 

@@ -30,13 +30,13 @@ public class OASSuperContestEffectDetail implements OAS.MappedProperties {
      * Get flavorTextEntries
      * @return flavorTextEntries
      */
-    public List<OASSuperContestEffectFlavorText> flavorTextEntries { get; set; }
+    public List<OASSuperContestEffectFlavorText> flavorTextEntries { get; private set; }
 
     /**
      * Get moves
      * @return moves
      */
-    public List<OASMoveSummary> moves { get; set; }
+    public List<OASMoveSummary> moves { get; private set; }
 
     private static final Map<String, String> propertyMappings = new Map<String, String>{
         'flavor_text_entries' => 'flavorTextEntries'

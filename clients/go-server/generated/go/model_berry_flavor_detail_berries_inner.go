@@ -12,6 +12,11 @@
 package openapi
 
 
+import (
+	"encoding/json"
+	"fmt"
+)
+
 
 
 type BerryFlavorDetailBerriesInner struct {
@@ -20,11 +25,71 @@ type BerryFlavorDetailBerriesInner struct {
 
 	Berry BerryFlavorDetailBerriesInnerBerry `json:"berry"`
 }
+// UnmarshalJSON validates required property keys then unmarshals into BerryFlavorDetailBerriesInner
+func (o *BerryFlavorDetailBerriesInner) UnmarshalJSON(data []byte) (err error) {
+	// Presence is checked against required fields that exist on this struct,
+	// including fields promoted from embedded allOf parents.
+	requiredProperties := []string{
+		"potency",
+		"berry",
+	}
 
-// AssertBerryFlavorDetailBerriesInnerRequired checks if the required fields are not zero-ed
+	requiredNullableProperties := map[string]bool{
+		"potency": false,
+		"berry": false,
+	}
+
+	allowedJsonKeys := map[string]struct{}{
+		"potency": {},
+		"berry": {},
+	}
+
+	allProperties := make(map[string]json.RawMessage)
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err
+	}
+
+	for _, requiredProperty := range requiredProperties {
+		value, exists := allProperties[requiredProperty]
+		if !exists {
+			return &RequiredError{Field: requiredProperty}
+		}
+		if string(value) == "null" && !requiredNullableProperties[requiredProperty] {
+			return &RequiredError{Field: requiredProperty}
+		}
+	}
+
+	for key := range allProperties {
+		if _, exists := allowedJsonKeys[key]; !exists {
+			return fmt.Errorf("json: unknown field %q", key)
+		}
+	}
+
+	var decoded BerryFlavorDetailBerriesInner
+
+	if value, exists := allProperties["potency"]; exists {
+		if err = json.Unmarshal(value, &decoded.Potency); err != nil {
+			return err
+		}
+	}
+	if value, exists := allProperties["berry"]; exists {
+		if err = json.Unmarshal(value, &decoded.Berry); err != nil {
+			return err
+		}
+	}
+
+	*o = decoded
+
+	return nil
+}
+
+// AssertBerryFlavorDetailBerriesInnerRequired checks complex required fields (models, arrays, maps) and embedded parents.
+// Primitive required fields are validated for JSON request bodies in UnmarshalJSON so zero values remain valid.
 func AssertBerryFlavorDetailBerriesInnerRequired(obj BerryFlavorDetailBerriesInner) error {
 	elements := map[string]interface{}{
-		"potency": obj.Potency,
 		"berry": obj.Berry,
 	}
 	for name, el := range elements {

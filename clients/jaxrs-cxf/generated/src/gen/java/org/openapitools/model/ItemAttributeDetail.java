@@ -81,19 +81,6 @@ public class ItemAttributeDetail  {
     return descriptions;
   }
 
-  public void setDescriptions(List<@Valid ItemAttributeDescription> descriptions) {
-    this.descriptions = descriptions;
-  }
-
-  public ItemAttributeDetail descriptions(List<@Valid ItemAttributeDescription> descriptions) {
-    this.descriptions = descriptions;
-    return this;
-  }
-
-  public ItemAttributeDetail addDescriptionsItem(ItemAttributeDescription descriptionsItem) {
-    this.descriptions.add(descriptionsItem);
-    return this;
-  }
 
  /**
    * Get items
@@ -105,19 +92,6 @@ public class ItemAttributeDetail  {
     return items;
   }
 
-  public void setItems(List<@Valid AbilityDetailPokemonInnerPokemon> items) {
-    this.items = items;
-  }
-
-  public ItemAttributeDetail items(List<@Valid AbilityDetailPokemonInnerPokemon> items) {
-    this.items = items;
-    return this;
-  }
-
-  public ItemAttributeDetail addItemsItem(AbilityDetailPokemonInnerPokemon itemsItem) {
-    this.items.add(itemsItem);
-    return this;
-  }
 
  /**
    * Get names
@@ -129,19 +103,6 @@ public class ItemAttributeDetail  {
     return names;
   }
 
-  public void setNames(List<@Valid ItemAttributeName> names) {
-    this.names = names;
-  }
-
-  public ItemAttributeDetail names(List<@Valid ItemAttributeName> names) {
-    this.names = names;
-    return this;
-  }
-
-  public ItemAttributeDetail addNamesItem(ItemAttributeName namesItem) {
-    this.names.add(namesItem);
-    return this;
-  }
 
   @Override
   public boolean equals(Object o) {
@@ -183,10 +144,7 @@ public class ItemAttributeDetail  {
    * (except the first line).
    */
   private static String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 }
 

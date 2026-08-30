@@ -49,7 +49,7 @@ class BerryFlavorDetailBerriesInnerBerry
      * @var string|null
      * @SerializedName("name")
      * @Type("string")
-    */
+     */
     #[Assert\Type("string")]
     protected ?string $name = null;
 
@@ -59,7 +59,7 @@ class BerryFlavorDetailBerriesInnerBerry
      * @var string|null
      * @SerializedName("url")
      * @Type("string")
-    */
+     */
     #[Assert\Type("string")]
     protected ?string $url = null;
 
@@ -86,12 +86,12 @@ class BerryFlavorDetailBerriesInnerBerry
     }
 
     /**
-    * Sets name.
-    *
-    * @param string|null $name  The name of the berry
-    *
-    * @return $this
-    */
+     * Sets name.
+     *
+     * @param string|null $name  The name of the berry
+     *
+     * @return $this
+     */
     public function setName(?string $name = null): self
     {
         $this->name = $name;
@@ -113,12 +113,12 @@ class BerryFlavorDetailBerriesInnerBerry
     }
 
     /**
-    * Sets url.
-    *
-    * @param string|null $url  The URL to get more information about the berry
-    *
-    * @return $this
-    */
+     * Sets url.
+     *
+     * @param string|null $url  The URL to get more information about the berry
+     *
+     * @return $this
+     */
     public function setUrl(?string $url = null): self
     {
         $this->url = $url;

@@ -161,7 +161,7 @@ MoveMetaCategoryDetail::getId()
 }
 
 void
-MoveMetaCategoryDetail::setId(int  id)
+MoveMetaCategoryDetail::setId(int id)
 {
 	this->id = id;
 }
@@ -173,7 +173,7 @@ MoveMetaCategoryDetail::getName()
 }
 
 void
-MoveMetaCategoryDetail::setName(std::string  name)
+MoveMetaCategoryDetail::setName(std::string name)
 {
 	this->name = name;
 }
@@ -185,7 +185,7 @@ MoveMetaCategoryDetail::getDescriptions()
 }
 
 void
-MoveMetaCategoryDetail::setDescriptions(std::list <MoveMetaCategoryDescription> descriptions)
+MoveMetaCategoryDetail::setDescriptions(std::list<MoveMetaCategoryDescription> descriptions)
 {
 	this->descriptions = descriptions;
 }
@@ -197,7 +197,7 @@ MoveMetaCategoryDetail::getMoves()
 }
 
 void
-MoveMetaCategoryDetail::setMoves(std::list <AbilityDetail_pokemon_inner_pokemon> moves)
+MoveMetaCategoryDetail::setMoves(std::list<AbilityDetail_pokemon_inner_pokemon> moves)
 {
 	this->moves = moves;
 }

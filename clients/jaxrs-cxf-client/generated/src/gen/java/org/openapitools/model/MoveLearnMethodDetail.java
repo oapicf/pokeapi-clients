@@ -70,19 +70,6 @@ public class MoveLearnMethodDetail  {
     return names;
   }
 
-  public void setNames(List<MoveLearnMethodName> names) {
-    this.names = names;
-  }
-
-  public MoveLearnMethodDetail names(List<MoveLearnMethodName> names) {
-    this.names = names;
-    return this;
-  }
-
-  public MoveLearnMethodDetail addNamesItem(MoveLearnMethodName namesItem) {
-    this.names.add(namesItem);
-    return this;
-  }
 
  /**
    * Get descriptions
@@ -93,19 +80,6 @@ public class MoveLearnMethodDetail  {
     return descriptions;
   }
 
-  public void setDescriptions(List<MoveLearnMethodDescription> descriptions) {
-    this.descriptions = descriptions;
-  }
-
-  public MoveLearnMethodDetail descriptions(List<MoveLearnMethodDescription> descriptions) {
-    this.descriptions = descriptions;
-    return this;
-  }
-
-  public MoveLearnMethodDetail addDescriptionsItem(MoveLearnMethodDescription descriptionsItem) {
-    this.descriptions.add(descriptionsItem);
-    return this;
-  }
 
  /**
    * Get versionGroups
@@ -116,19 +90,6 @@ public class MoveLearnMethodDetail  {
     return versionGroups;
   }
 
-  public void setVersionGroups(List<AbilityDetailPokemonInnerPokemon> versionGroups) {
-    this.versionGroups = versionGroups;
-  }
-
-  public MoveLearnMethodDetail versionGroups(List<AbilityDetailPokemonInnerPokemon> versionGroups) {
-    this.versionGroups = versionGroups;
-    return this;
-  }
-
-  public MoveLearnMethodDetail addVersionGroupsItem(AbilityDetailPokemonInnerPokemon versionGroupsItem) {
-    this.versionGroups.add(versionGroupsItem);
-    return this;
-  }
 
   @Override
   public boolean equals(Object o) {
@@ -170,10 +131,7 @@ public class MoveLearnMethodDetail  {
    * (except the first line).
    */
   private static String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 }
 

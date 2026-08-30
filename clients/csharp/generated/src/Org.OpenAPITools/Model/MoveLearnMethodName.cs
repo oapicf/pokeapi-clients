@@ -92,8 +92,18 @@ namespace Org.OpenAPITools.Model
     /// <summary>
     /// A Json converter for type <see cref="MoveLearnMethodName" />
     /// </summary>
-    public class MoveLearnMethodNameJsonConverter : JsonConverter<MoveLearnMethodName>
+    public partial class MoveLearnMethodNameJsonConverter : JsonConverter<MoveLearnMethodName>
     {
+        partial void OnCreated();
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="MoveLearnMethodNameJsonConverter" /> class.
+        /// </summary>
+        public MoveLearnMethodNameJsonConverter()
+        {
+            OnCreated();
+        }
+
         /// <summary>
         /// Deserializes json to <see cref="MoveLearnMethodName" />
         /// </summary>

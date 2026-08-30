@@ -47,7 +47,7 @@ class PokemonSpeciesDetailGeneraInner
      * @var string|null
      * @SerializedName("genus")
      * @Type("string")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Type("string")]
     protected ?string $genus = null;
@@ -56,7 +56,7 @@ class PokemonSpeciesDetailGeneraInner
      * @var AbilityDetailPokemonInnerPokemon|null
      * @SerializedName("language")
      * @Type("OpenAPI\Server\Model\AbilityDetailPokemonInnerPokemon")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Valid]
     #[Assert\Type("OpenAPI\Server\Model\AbilityDetailPokemonInnerPokemon")]
@@ -85,12 +85,12 @@ class PokemonSpeciesDetailGeneraInner
     }
 
     /**
-    * Sets genus.
-    *
-    * @param string|null $genus
-    *
-    * @return $this
-    */
+     * Sets genus.
+     *
+     * @param string|null $genus
+     *
+     * @return $this
+     */
     public function setGenus(?string $genus): self
     {
         $this->genus = $genus;
@@ -112,12 +112,12 @@ class PokemonSpeciesDetailGeneraInner
     }
 
     /**
-    * Sets language.
-    *
-    * @param AbilityDetailPokemonInnerPokemon|null $language
-    *
-    * @return $this
-    */
+     * Sets language.
+     *
+     * @param AbilityDetailPokemonInnerPokemon|null $language
+     *
+     * @return $this
+     */
     public function setLanguage(?AbilityDetailPokemonInnerPokemon $language): self
     {
         $this->language = $language;

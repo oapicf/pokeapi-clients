@@ -14,7 +14,7 @@ Name | Type | Description | Notes
 **smoothness** | **number** |  | [default to undefined]
 **soil_dryness** | **number** |  | [default to undefined]
 **firmness** | [**BerryFirmnessSummary**](BerryFirmnessSummary.md) |  | [default to undefined]
-**flavors** | [**Array&lt;BerryDetailFlavorsInner&gt;**](BerryDetailFlavorsInner.md) |  | [default to undefined]
+**flavors** | [**Array&lt;BerryDetailFlavorsInner&gt;**](BerryDetailFlavorsInner.md) |  | [readonly] [default to undefined]
 **item** | [**ItemSummary**](ItemSummary.md) |  | [default to undefined]
 **natural_gift_type** | [**TypeSummary**](TypeSummary.md) |  | [default to undefined]
 

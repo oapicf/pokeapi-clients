@@ -6,14 +6,14 @@
 
 
 static berry_detail_t *berry_detail_create_internal(
-    int id,
+    int *id,
     char *name,
-    int growth_time,
-    int max_harvest,
-    int natural_gift_power,
-    int size,
-    int smoothness,
-    int soil_dryness,
+    int *growth_time,
+    int *max_harvest,
+    int *natural_gift_power,
+    int *size,
+    int *smoothness,
+    int *soil_dryness,
     berry_firmness_summary_t *firmness,
     list_t *flavors,
     item_summary_t *item,
@@ -23,6 +23,8 @@ static berry_detail_t *berry_detail_create_internal(
     if (!berry_detail_local_var) {
         return NULL;
     }
+    memset(berry_detail_local_var, 0, sizeof(berry_detail_t));
+    berry_detail_local_var->_library_owned = 1;
     berry_detail_local_var->id = id;
     berry_detail_local_var->name = name;
     berry_detail_local_var->growth_time = growth_time;
@@ -35,39 +37,82 @@ static berry_detail_t *berry_detail_create_internal(
     berry_detail_local_var->flavors = flavors;
     berry_detail_local_var->item = item;
     berry_detail_local_var->natural_gift_type = natural_gift_type;
-
-    berry_detail_local_var->_library_owned = 1;
     return berry_detail_local_var;
 }
 
 __attribute__((deprecated)) berry_detail_t *berry_detail_create(
-    int id,
+    int *id,
     char *name,
-    int growth_time,
-    int max_harvest,
-    int natural_gift_power,
-    int size,
-    int smoothness,
-    int soil_dryness,
+    int *growth_time,
+    int *max_harvest,
+    int *natural_gift_power,
+    int *size,
+    int *smoothness,
+    int *soil_dryness,
     berry_firmness_summary_t *firmness,
     list_t *flavors,
     item_summary_t *item,
     type_summary_t *natural_gift_type
     ) {
-    return berry_detail_create_internal (
-        id,
+    int *id_copy = NULL;
+    if (id) {
+        id_copy = malloc(sizeof(int));
+        if (id_copy) *id_copy = *id;
+    }
+    int *growth_time_copy = NULL;
+    if (growth_time) {
+        growth_time_copy = malloc(sizeof(int));
+        if (growth_time_copy) *growth_time_copy = *growth_time;
+    }
+    int *max_harvest_copy = NULL;
+    if (max_harvest) {
+        max_harvest_copy = malloc(sizeof(int));
+        if (max_harvest_copy) *max_harvest_copy = *max_harvest;
+    }
+    int *natural_gift_power_copy = NULL;
+    if (natural_gift_power) {
+        natural_gift_power_copy = malloc(sizeof(int));
+        if (natural_gift_power_copy) *natural_gift_power_copy = *natural_gift_power;
+    }
+    int *size_copy = NULL;
+    if (size) {
+        size_copy = malloc(sizeof(int));
+        if (size_copy) *size_copy = *size;
+    }
+    int *smoothness_copy = NULL;
+    if (smoothness) {
+        smoothness_copy = malloc(sizeof(int));
+        if (smoothness_copy) *smoothness_copy = *smoothness;
+    }
+    int *soil_dryness_copy = NULL;
+    if (soil_dryness) {
+        soil_dryness_copy = malloc(sizeof(int));
+        if (soil_dryness_copy) *soil_dryness_copy = *soil_dryness;
+    }
+    berry_detail_t *result = berry_detail_create_internal (
+        id_copy,
         name,
-        growth_time,
-        max_harvest,
-        natural_gift_power,
-        size,
-        smoothness,
-        soil_dryness,
+        growth_time_copy,
+        max_harvest_copy,
+        natural_gift_power_copy,
+        size_copy,
+        smoothness_copy,
+        soil_dryness_copy,
         firmness,
         flavors,
         item,
         natural_gift_type
         );
+    if (!result) {
+        free(id_copy);
+        free(growth_time_copy);
+        free(max_harvest_copy);
+        free(natural_gift_power_copy);
+        free(size_copy);
+        free(smoothness_copy);
+        free(soil_dryness_copy);
+    }
+    return result;
 }
 
 void berry_detail_free(berry_detail_t *berry_detail) {
@@ -79,9 +124,37 @@ void berry_detail_free(berry_detail_t *berry_detail) {
         return ;
     }
     listEntry_t *listEntry;
+    if (berry_detail->id) {
+        free(berry_detail->id);
+        berry_detail->id = NULL;
+    }
     if (berry_detail->name) {
         free(berry_detail->name);
         berry_detail->name = NULL;
+    }
+    if (berry_detail->growth_time) {
+        free(berry_detail->growth_time);
+        berry_detail->growth_time = NULL;
+    }
+    if (berry_detail->max_harvest) {
+        free(berry_detail->max_harvest);
+        berry_detail->max_harvest = NULL;
+    }
+    if (berry_detail->natural_gift_power) {
+        free(berry_detail->natural_gift_power);
+        berry_detail->natural_gift_power = NULL;
+    }
+    if (berry_detail->size) {
+        free(berry_detail->size);
+        berry_detail->size = NULL;
+    }
+    if (berry_detail->smoothness) {
+        free(berry_detail->smoothness);
+        berry_detail->smoothness = NULL;
+    }
+    if (berry_detail->soil_dryness) {
+        free(berry_detail->soil_dryness);
+        berry_detail->soil_dryness = NULL;
     }
     if (berry_detail->firmness) {
         berry_firmness_summary_free(berry_detail->firmness);
@@ -112,7 +185,7 @@ cJSON *berry_detail_convertToJSON(berry_detail_t *berry_detail) {
     if (!berry_detail->id) {
         goto fail;
     }
-    if(cJSON_AddNumberToObject(item, "id", berry_detail->id) == NULL) {
+    if(cJSON_AddNumberToObject(item, "id", *berry_detail->id) == NULL) {
     goto fail; //Numeric
     }
 
@@ -130,7 +203,7 @@ cJSON *berry_detail_convertToJSON(berry_detail_t *berry_detail) {
     if (!berry_detail->growth_time) {
         goto fail;
     }
-    if(cJSON_AddNumberToObject(item, "growth_time", berry_detail->growth_time) == NULL) {
+    if(cJSON_AddNumberToObject(item, "growth_time", *berry_detail->growth_time) == NULL) {
     goto fail; //Numeric
     }
 
@@ -139,7 +212,7 @@ cJSON *berry_detail_convertToJSON(berry_detail_t *berry_detail) {
     if (!berry_detail->max_harvest) {
         goto fail;
     }
-    if(cJSON_AddNumberToObject(item, "max_harvest", berry_detail->max_harvest) == NULL) {
+    if(cJSON_AddNumberToObject(item, "max_harvest", *berry_detail->max_harvest) == NULL) {
     goto fail; //Numeric
     }
 
@@ -148,7 +221,7 @@ cJSON *berry_detail_convertToJSON(berry_detail_t *berry_detail) {
     if (!berry_detail->natural_gift_power) {
         goto fail;
     }
-    if(cJSON_AddNumberToObject(item, "natural_gift_power", berry_detail->natural_gift_power) == NULL) {
+    if(cJSON_AddNumberToObject(item, "natural_gift_power", *berry_detail->natural_gift_power) == NULL) {
     goto fail; //Numeric
     }
 
@@ -157,7 +230,7 @@ cJSON *berry_detail_convertToJSON(berry_detail_t *berry_detail) {
     if (!berry_detail->size) {
         goto fail;
     }
-    if(cJSON_AddNumberToObject(item, "size", berry_detail->size) == NULL) {
+    if(cJSON_AddNumberToObject(item, "size", *berry_detail->size) == NULL) {
     goto fail; //Numeric
     }
 
@@ -166,7 +239,7 @@ cJSON *berry_detail_convertToJSON(berry_detail_t *berry_detail) {
     if (!berry_detail->smoothness) {
         goto fail;
     }
-    if(cJSON_AddNumberToObject(item, "smoothness", berry_detail->smoothness) == NULL) {
+    if(cJSON_AddNumberToObject(item, "smoothness", *berry_detail->smoothness) == NULL) {
     goto fail; //Numeric
     }
 
@@ -175,7 +248,7 @@ cJSON *berry_detail_convertToJSON(berry_detail_t *berry_detail) {
     if (!berry_detail->soil_dryness) {
         goto fail;
     }
-    if(cJSON_AddNumberToObject(item, "soil_dryness", berry_detail->soil_dryness) == NULL) {
+    if(cJSON_AddNumberToObject(item, "soil_dryness", *berry_detail->soil_dryness) == NULL) {
     goto fail; //Numeric
     }
 
@@ -254,6 +327,29 @@ berry_detail_t *berry_detail_parseFromJSON(cJSON *berry_detailJSON){
 
     berry_detail_t *berry_detail_local_var = NULL;
 
+    // define the local variable for berry_detail->id
+    int *id_local_var = NULL;
+
+    char *name_local_str = NULL;
+
+    // define the local variable for berry_detail->growth_time
+    int *growth_time_local_var = NULL;
+
+    // define the local variable for berry_detail->max_harvest
+    int *max_harvest_local_var = NULL;
+
+    // define the local variable for berry_detail->natural_gift_power
+    int *natural_gift_power_local_var = NULL;
+
+    // define the local variable for berry_detail->size
+    int *size_local_var = NULL;
+
+    // define the local variable for berry_detail->smoothness
+    int *smoothness_local_var = NULL;
+
+    // define the local variable for berry_detail->soil_dryness
+    int *soil_dryness_local_var = NULL;
+
     // define the local variable for berry_detail->firmness
     berry_firmness_summary_t *firmness_local_nonprim = NULL;
 
@@ -280,6 +376,12 @@ berry_detail_t *berry_detail_parseFromJSON(cJSON *berry_detailJSON){
     {
     goto end; //Numeric
     }
+    id_local_var = malloc(sizeof(int));
+    if(!id_local_var)
+    {
+        goto end;
+    }
+    *id_local_var = id->valuedouble;
 
     // berry_detail->name
     cJSON *name = cJSON_GetObjectItemCaseSensitive(berry_detailJSON, "name");
@@ -310,6 +412,12 @@ berry_detail_t *berry_detail_parseFromJSON(cJSON *berry_detailJSON){
     {
     goto end; //Numeric
     }
+    growth_time_local_var = malloc(sizeof(int));
+    if(!growth_time_local_var)
+    {
+        goto end;
+    }
+    *growth_time_local_var = growth_time->valuedouble;
 
     // berry_detail->max_harvest
     cJSON *max_harvest = cJSON_GetObjectItemCaseSensitive(berry_detailJSON, "max_harvest");
@@ -325,6 +433,12 @@ berry_detail_t *berry_detail_parseFromJSON(cJSON *berry_detailJSON){
     {
     goto end; //Numeric
     }
+    max_harvest_local_var = malloc(sizeof(int));
+    if(!max_harvest_local_var)
+    {
+        goto end;
+    }
+    *max_harvest_local_var = max_harvest->valuedouble;
 
     // berry_detail->natural_gift_power
     cJSON *natural_gift_power = cJSON_GetObjectItemCaseSensitive(berry_detailJSON, "natural_gift_power");
@@ -340,6 +454,12 @@ berry_detail_t *berry_detail_parseFromJSON(cJSON *berry_detailJSON){
     {
     goto end; //Numeric
     }
+    natural_gift_power_local_var = malloc(sizeof(int));
+    if(!natural_gift_power_local_var)
+    {
+        goto end;
+    }
+    *natural_gift_power_local_var = natural_gift_power->valuedouble;
 
     // berry_detail->size
     cJSON *size = cJSON_GetObjectItemCaseSensitive(berry_detailJSON, "size");
@@ -355,6 +475,12 @@ berry_detail_t *berry_detail_parseFromJSON(cJSON *berry_detailJSON){
     {
     goto end; //Numeric
     }
+    size_local_var = malloc(sizeof(int));
+    if(!size_local_var)
+    {
+        goto end;
+    }
+    *size_local_var = size->valuedouble;
 
     // berry_detail->smoothness
     cJSON *smoothness = cJSON_GetObjectItemCaseSensitive(berry_detailJSON, "smoothness");
@@ -370,6 +496,12 @@ berry_detail_t *berry_detail_parseFromJSON(cJSON *berry_detailJSON){
     {
     goto end; //Numeric
     }
+    smoothness_local_var = malloc(sizeof(int));
+    if(!smoothness_local_var)
+    {
+        goto end;
+    }
+    *smoothness_local_var = smoothness->valuedouble;
 
     // berry_detail->soil_dryness
     cJSON *soil_dryness = cJSON_GetObjectItemCaseSensitive(berry_detailJSON, "soil_dryness");
@@ -385,6 +517,12 @@ berry_detail_t *berry_detail_parseFromJSON(cJSON *berry_detailJSON){
     {
     goto end; //Numeric
     }
+    soil_dryness_local_var = malloc(sizeof(int));
+    if(!soil_dryness_local_var)
+    {
+        goto end;
+    }
+    *soil_dryness_local_var = soil_dryness->valuedouble;
 
     // berry_detail->firmness
     cJSON *firmness = cJSON_GetObjectItemCaseSensitive(berry_detailJSON, "firmness");
@@ -450,23 +588,61 @@ berry_detail_t *berry_detail_parseFromJSON(cJSON *berry_detailJSON){
     natural_gift_type_local_nonprim = type_summary_parseFromJSON(natural_gift_type); //nonprimitive
 
 
+    if (name && !cJSON_IsNull(name)) name_local_str = strdup(name->valuestring);
+
     berry_detail_local_var = berry_detail_create_internal (
-        id->valuedouble,
-        strdup(name->valuestring),
-        growth_time->valuedouble,
-        max_harvest->valuedouble,
-        natural_gift_power->valuedouble,
-        size->valuedouble,
-        smoothness->valuedouble,
-        soil_dryness->valuedouble,
+        id_local_var,
+        name_local_str,
+        growth_time_local_var,
+        max_harvest_local_var,
+        natural_gift_power_local_var,
+        size_local_var,
+        smoothness_local_var,
+        soil_dryness_local_var,
         firmness_local_nonprim,
         flavorsList,
         item_local_nonprim,
         natural_gift_type_local_nonprim
         );
 
+    if (!berry_detail_local_var) {
+        goto end;
+    }
+
     return berry_detail_local_var;
 end:
+    if (id_local_var) {
+        free(id_local_var);
+        id_local_var = NULL;
+    }
+    if (name_local_str) {
+        free(name_local_str);
+        name_local_str = NULL;
+    }
+    if (growth_time_local_var) {
+        free(growth_time_local_var);
+        growth_time_local_var = NULL;
+    }
+    if (max_harvest_local_var) {
+        free(max_harvest_local_var);
+        max_harvest_local_var = NULL;
+    }
+    if (natural_gift_power_local_var) {
+        free(natural_gift_power_local_var);
+        natural_gift_power_local_var = NULL;
+    }
+    if (size_local_var) {
+        free(size_local_var);
+        size_local_var = NULL;
+    }
+    if (smoothness_local_var) {
+        free(smoothness_local_var);
+        smoothness_local_var = NULL;
+    }
+    if (soil_dryness_local_var) {
+        free(soil_dryness_local_var);
+        soil_dryness_local_var = NULL;
+    }
     if (firmness_local_nonprim) {
         berry_firmness_summary_free(firmness_local_nonprim);
         firmness_local_nonprim = NULL;

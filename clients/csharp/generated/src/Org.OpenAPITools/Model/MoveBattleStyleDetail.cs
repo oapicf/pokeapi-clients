@@ -64,7 +64,7 @@ namespace Org.OpenAPITools.Model
         /// Gets or Sets Names
         /// </summary>
         [JsonPropertyName("names")]
-        public List<MoveBattleStyleName> Names { get; set; }
+        public List<MoveBattleStyleName> Names { get; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -101,8 +101,18 @@ namespace Org.OpenAPITools.Model
     /// <summary>
     /// A Json converter for type <see cref="MoveBattleStyleDetail" />
     /// </summary>
-    public class MoveBattleStyleDetailJsonConverter : JsonConverter<MoveBattleStyleDetail>
+    public partial class MoveBattleStyleDetailJsonConverter : JsonConverter<MoveBattleStyleDetail>
     {
+        partial void OnCreated();
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="MoveBattleStyleDetailJsonConverter" /> class.
+        /// </summary>
+        public MoveBattleStyleDetailJsonConverter()
+        {
+            OnCreated();
+        }
+
         /// <summary>
         /// Deserializes json to <see cref="MoveBattleStyleDetail" />
         /// </summary>

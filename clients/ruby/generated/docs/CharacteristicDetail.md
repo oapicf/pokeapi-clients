@@ -6,9 +6,9 @@
 | ---- | ---- | ----------- | ----- |
 | **id** | **Integer** |  | [readonly] |
 | **gene_modulo** | **Integer** |  |  |
-| **possible_values** | **Array&lt;Integer&gt;** |  |  |
+| **possible_values** | **Array&lt;Integer&gt;** |  | [readonly] |
 | **highest_stat** | [**StatSummary**](StatSummary.md) |  |  |
-| **descriptions** | [**Array&lt;CharacteristicDescription&gt;**](CharacteristicDescription.md) |  |  |
+| **descriptions** | [**Array&lt;CharacteristicDescription&gt;**](CharacteristicDescription.md) |  | [readonly] |
 
 ## Example
 

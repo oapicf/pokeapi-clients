@@ -78,7 +78,7 @@ namespace Org.OpenAPITools.Model
         /// Gets or Sets EncounterMethodRates
         /// </summary>
         [JsonPropertyName("encounter_method_rates")]
-        public List<LocationAreaDetailEncounterMethodRatesInner> EncounterMethodRates { get; set; }
+        public List<LocationAreaDetailEncounterMethodRatesInner> EncounterMethodRates { get; }
 
         /// <summary>
         /// Gets or Sets Location
@@ -90,13 +90,13 @@ namespace Org.OpenAPITools.Model
         /// Gets or Sets Names
         /// </summary>
         [JsonPropertyName("names")]
-        public List<LocationAreaName> Names { get; set; }
+        public List<LocationAreaName> Names { get; }
 
         /// <summary>
         /// Gets or Sets PokemonEncounters
         /// </summary>
         [JsonPropertyName("pokemon_encounters")]
-        public List<LocationAreaDetailPokemonEncountersInner> PokemonEncounters { get; set; }
+        public List<LocationAreaDetailPokemonEncountersInner> PokemonEncounters { get; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -137,8 +137,18 @@ namespace Org.OpenAPITools.Model
     /// <summary>
     /// A Json converter for type <see cref="LocationAreaDetail" />
     /// </summary>
-    public class LocationAreaDetailJsonConverter : JsonConverter<LocationAreaDetail>
+    public partial class LocationAreaDetailJsonConverter : JsonConverter<LocationAreaDetail>
     {
+        partial void OnCreated();
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="LocationAreaDetailJsonConverter" /> class.
+        /// </summary>
+        public LocationAreaDetailJsonConverter()
+        {
+            OnCreated();
+        }
+
         /// <summary>
         /// Deserializes json to <see cref="LocationAreaDetail" />
         /// </summary>

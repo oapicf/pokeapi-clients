@@ -7,8 +7,8 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **number** |  | [readonly] [default to undefined]
 **name** | **string** |  | [default to undefined]
-**names** | [**Array&lt;EggGroupName&gt;**](EggGroupName.md) |  | [default to undefined]
-**pokemon_species** | [**Array&lt;EggGroupDetailPokemonSpeciesInner&gt;**](EggGroupDetailPokemonSpeciesInner.md) |  | [default to undefined]
+**names** | [**Array&lt;EggGroupName&gt;**](EggGroupName.md) |  | [readonly] [default to undefined]
+**pokemon_species** | [**Array&lt;EggGroupDetailPokemonSpeciesInner&gt;**](EggGroupDetailPokemonSpeciesInner.md) |  | [readonly] [default to undefined]
 
 ## Example
 

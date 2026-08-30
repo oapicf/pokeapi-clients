@@ -21,7 +21,7 @@ typedef struct move_meta_ailment_detail_t move_meta_ailment_detail_t;
 
 
 typedef struct move_meta_ailment_detail_t {
-    int id; //numeric
+    int *id; //numeric
     char *name; // string
     list_t *moves; //nonprimitive container
     list_t *names; //nonprimitive container
@@ -30,7 +30,7 @@ typedef struct move_meta_ailment_detail_t {
 } move_meta_ailment_detail_t;
 
 __attribute__((deprecated)) move_meta_ailment_detail_t *move_meta_ailment_detail_create(
-    int id,
+    int *id,
     char *name,
     list_t *moves,
     list_t *names

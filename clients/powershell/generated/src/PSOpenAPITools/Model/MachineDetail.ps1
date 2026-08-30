@@ -67,10 +67,10 @@ function Initialize-MachineDetail {
 
 
         $PSO = [PSCustomObject]@{
-            "id" = ${Id}
-            "item" = ${Item}
-            "version_group" = ${VersionGroup}
-            "move" = ${Move}
+            'id' = ${Id}
+            'item' = ${Item}
+            'version_group' = ${VersionGroup}
+            'move' = ${Move}
         }
 
 
@@ -108,7 +108,7 @@ function ConvertFrom-JsonToMachineDetail {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in MachineDetail
-        $AllProperties = ("id", "item", "version_group", "move")
+        $AllProperties = ('id', 'item', 'version_group', 'move')
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -119,35 +119,35 @@ function ConvertFrom-JsonToMachineDetail {
             throw "Error! Empty JSON cannot be serialized due to the required property 'id' missing."
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "id"))) {
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'id'))) {
             throw "Error! JSON cannot be serialized due to the required property 'id' missing."
         } else {
-            $Id = $JsonParameters.PSobject.Properties["id"].value
+            $Id = $JsonParameters.PSobject.Properties['id'].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "item"))) {
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'item'))) {
             throw "Error! JSON cannot be serialized due to the required property 'item' missing."
         } else {
-            $Item = $JsonParameters.PSobject.Properties["item"].value
+            $Item = $JsonParameters.PSobject.Properties['item'].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "version_group"))) {
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'version_group'))) {
             throw "Error! JSON cannot be serialized due to the required property 'version_group' missing."
         } else {
-            $VersionGroup = $JsonParameters.PSobject.Properties["version_group"].value
+            $VersionGroup = $JsonParameters.PSobject.Properties['version_group'].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "move"))) {
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'move'))) {
             throw "Error! JSON cannot be serialized due to the required property 'move' missing."
         } else {
-            $Move = $JsonParameters.PSobject.Properties["move"].value
+            $Move = $JsonParameters.PSobject.Properties['move'].value
         }
 
         $PSO = [PSCustomObject]@{
-            "id" = ${Id}
-            "item" = ${Item}
-            "version_group" = ${VersionGroup}
-            "move" = ${Move}
+            'id' = ${Id}
+            'item' = ${Item}
+            'version_group' = ${VersionGroup}
+            'move' = ${Move}
         }
 
         return $PSO

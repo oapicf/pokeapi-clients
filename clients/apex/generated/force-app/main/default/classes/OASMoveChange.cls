@@ -42,7 +42,7 @@ public class OASMoveChange implements OAS.MappedProperties {
      * Get effectEntries
      * @return effectEntries
      */
-    public List<OASMoveChangeEffectEntriesInner> effectEntries { get; set; }
+    public List<OASMoveChangeEffectEntriesInner> effectEntries { get; private set; }
 
     /**
      * Get type

@@ -58,19 +58,19 @@ export interface MoveDamageClassDetail {
      * @type {Array<MoveDamageClassDescription>}
      * @memberof MoveDamageClassDetail
      */
-    descriptions: Array<MoveDamageClassDescription>;
+    readonly descriptions: Array<MoveDamageClassDescription>;
     /**
      * 
      * @type {Array<MoveSummary>}
      * @memberof MoveDamageClassDetail
      */
-    moves: Array<MoveSummary>;
+    readonly moves: Array<MoveSummary>;
     /**
      * 
      * @type {Array<MoveDamageClassName>}
      * @memberof MoveDamageClassDetail
      */
-    names: Array<MoveDamageClassName>;
+    readonly names: Array<MoveDamageClassName>;
 }
 
 /**
@@ -107,7 +107,7 @@ export function MoveDamageClassDetailToJSON(json: any): MoveDamageClassDetail {
     return MoveDamageClassDetailToJSONTyped(json, false);
 }
 
-export function MoveDamageClassDetailToJSONTyped(value?: Omit<MoveDamageClassDetail, 'id'> | null, ignoreDiscriminator: boolean = false): any {
+export function MoveDamageClassDetailToJSONTyped(value?: Omit<MoveDamageClassDetail, 'id'|'descriptions'|'moves'|'names'> | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
@@ -115,9 +115,6 @@ export function MoveDamageClassDetailToJSONTyped(value?: Omit<MoveDamageClassDet
     return {
         
         'name': value['name'],
-        'descriptions': ((value['descriptions'] as Array<any>).map(MoveDamageClassDescriptionToJSON)),
-        'moves': ((value['moves'] as Array<any>).map(MoveSummaryToJSON)),
-        'names': ((value['names'] as Array<any>).map(MoveDamageClassNameToJSON)),
     };
 }
 

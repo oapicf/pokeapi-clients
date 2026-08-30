@@ -30,7 +30,7 @@ import org.openapitools.model.TypeSummary;
 /**
  * MoveDetail
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaMSF4JServerCodegen", date = "2026-02-07T15:23:10.683633502Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaMSF4JServerCodegen", date = "2026-08-30T01:55:58.248058654Z[Etc/UTC]", comments = "Generator version: 7.24.0")
 public class MoveDetail   {
   @JsonProperty("id")
   private Integer id;
@@ -293,16 +293,6 @@ public class MoveDetail   {
     this.damageClass = damageClass;
   }
 
-  public MoveDetail effectEntries(List<@Valid MoveChangeEffectEntriesInner> effectEntries) {
-    this.effectEntries = effectEntries;
-    return this;
-  }
-
-  public MoveDetail addEffectEntriesItem(MoveChangeEffectEntriesInner effectEntriesItem) {
-    this.effectEntries.add(effectEntriesItem);
-    return this;
-  }
-
    /**
    * Get effectEntries
    * @return effectEntries
@@ -312,20 +302,6 @@ public class MoveDetail   {
     return effectEntries;
   }
 
-  public void setEffectEntries(List<@Valid MoveChangeEffectEntriesInner> effectEntries) {
-    this.effectEntries = effectEntries;
-  }
-
-  public MoveDetail effectChanges(List<@Valid MoveDetailEffectChangesInner> effectChanges) {
-    this.effectChanges = effectChanges;
-    return this;
-  }
-
-  public MoveDetail addEffectChangesItem(MoveDetailEffectChangesInner effectChangesItem) {
-    this.effectChanges.add(effectChangesItem);
-    return this;
-  }
-
    /**
    * Get effectChanges
    * @return effectChanges
@@ -333,10 +309,6 @@ public class MoveDetail   {
   @ApiModelProperty(required = true, value = "")
   public List<@Valid MoveDetailEffectChangesInner> getEffectChanges() {
     return effectChanges;
-  }
-
-  public void setEffectChanges(List<@Valid MoveDetailEffectChangesInner> effectChanges) {
-    this.effectChanges = effectChanges;
   }
 
   public MoveDetail generation(GenerationSummary generation) {
@@ -366,16 +338,6 @@ public class MoveDetail   {
     return meta;
   }
 
-  public MoveDetail names(List<@Valid MoveName> names) {
-    this.names = names;
-    return this;
-  }
-
-  public MoveDetail addNamesItem(MoveName namesItem) {
-    this.names.add(namesItem);
-    return this;
-  }
-
    /**
    * Get names
    * @return names
@@ -383,20 +345,6 @@ public class MoveDetail   {
   @ApiModelProperty(required = true, value = "")
   public List<@Valid MoveName> getNames() {
     return names;
-  }
-
-  public void setNames(List<@Valid MoveName> names) {
-    this.names = names;
-  }
-
-  public MoveDetail pastValues(List<@Valid MoveChange> pastValues) {
-    this.pastValues = pastValues;
-    return this;
-  }
-
-  public MoveDetail addPastValuesItem(MoveChange pastValuesItem) {
-    this.pastValues.add(pastValuesItem);
-    return this;
   }
 
    /**
@@ -408,20 +356,6 @@ public class MoveDetail   {
     return pastValues;
   }
 
-  public void setPastValues(List<@Valid MoveChange> pastValues) {
-    this.pastValues = pastValues;
-  }
-
-  public MoveDetail statChanges(List<@Valid MoveDetailStatChangesInner> statChanges) {
-    this.statChanges = statChanges;
-    return this;
-  }
-
-  public MoveDetail addStatChangesItem(MoveDetailStatChangesInner statChangesItem) {
-    this.statChanges.add(statChangesItem);
-    return this;
-  }
-
    /**
    * Get statChanges
    * @return statChanges
@@ -429,10 +363,6 @@ public class MoveDetail   {
   @ApiModelProperty(required = true, value = "")
   public List<@Valid MoveDetailStatChangesInner> getStatChanges() {
     return statChanges;
-  }
-
-  public void setStatChanges(List<@Valid MoveDetailStatChangesInner> statChanges) {
-    this.statChanges = statChanges;
   }
 
   public MoveDetail superContestEffect(SuperContestEffectSummary superContestEffect) {
@@ -489,16 +419,6 @@ public class MoveDetail   {
     this.type = type;
   }
 
-  public MoveDetail machines(List<@Valid MoveDetailMachinesInner> machines) {
-    this.machines = machines;
-    return this;
-  }
-
-  public MoveDetail addMachinesItem(MoveDetailMachinesInner machinesItem) {
-    this.machines.add(machinesItem);
-    return this;
-  }
-
    /**
    * Get machines
    * @return machines
@@ -506,20 +426,6 @@ public class MoveDetail   {
   @ApiModelProperty(required = true, value = "")
   public List<@Valid MoveDetailMachinesInner> getMachines() {
     return machines;
-  }
-
-  public void setMachines(List<@Valid MoveDetailMachinesInner> machines) {
-    this.machines = machines;
-  }
-
-  public MoveDetail flavorTextEntries(List<@Valid MoveFlavorText> flavorTextEntries) {
-    this.flavorTextEntries = flavorTextEntries;
-    return this;
-  }
-
-  public MoveDetail addFlavorTextEntriesItem(MoveFlavorText flavorTextEntriesItem) {
-    this.flavorTextEntries.add(flavorTextEntriesItem);
-    return this;
   }
 
    /**
@@ -531,20 +437,6 @@ public class MoveDetail   {
     return flavorTextEntries;
   }
 
-  public void setFlavorTextEntries(List<@Valid MoveFlavorText> flavorTextEntries) {
-    this.flavorTextEntries = flavorTextEntries;
-  }
-
-  public MoveDetail learnedByPokemon(List<@Valid AbilityDetailPokemonInnerPokemon> learnedByPokemon) {
-    this.learnedByPokemon = learnedByPokemon;
-    return this;
-  }
-
-  public MoveDetail addLearnedByPokemonItem(AbilityDetailPokemonInnerPokemon learnedByPokemonItem) {
-    this.learnedByPokemon.add(learnedByPokemonItem);
-    return this;
-  }
-
    /**
    * Get learnedByPokemon
    * @return learnedByPokemon
@@ -552,10 +444,6 @@ public class MoveDetail   {
   @ApiModelProperty(required = true, value = "")
   public List<@Valid AbilityDetailPokemonInnerPokemon> getLearnedByPokemon() {
     return learnedByPokemon;
-  }
-
-  public void setLearnedByPokemon(List<@Valid AbilityDetailPokemonInnerPokemon> learnedByPokemon) {
-    this.learnedByPokemon = learnedByPokemon;
   }
 
 
@@ -637,10 +525,7 @@ public class MoveDetail   {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 }
 

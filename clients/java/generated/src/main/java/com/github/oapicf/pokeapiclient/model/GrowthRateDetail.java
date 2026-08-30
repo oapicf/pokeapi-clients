@@ -53,7 +53,7 @@ import com.github.oapicf.pokeapiclient.JSON;
 /**
  * GrowthRateDetail
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-07T15:22:35.747827932Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-08-30T01:55:28.842792947Z[Etc/UTC]", comments = "Generator version: 7.24.0")
 public class GrowthRateDetail {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -89,10 +89,16 @@ public class GrowthRateDetail {
   }
 
   public GrowthRateDetail(
-     Integer id
+     Integer id, 
+     List<GrowthRateDescription> descriptions, 
+     List<Experience> levels, 
+     List<PokemonSpeciesSummary> pokemonSpecies
   ) {
     this();
     this.id = id;
+    this.descriptions = descriptions;
+    this.levels = levels;
+    this.pokemonSpecies = pokemonSpecies;
   }
 
   /**
@@ -144,19 +150,6 @@ public class GrowthRateDetail {
   }
 
 
-  public GrowthRateDetail descriptions(@javax.annotation.Nonnull List<GrowthRateDescription> descriptions) {
-    this.descriptions = descriptions;
-    return this;
-  }
-
-  public GrowthRateDetail addDescriptionsItem(GrowthRateDescription descriptionsItem) {
-    if (this.descriptions == null) {
-      this.descriptions = new ArrayList<>();
-    }
-    this.descriptions.add(descriptionsItem);
-    return this;
-  }
-
   /**
    * Get descriptions
    * @return descriptions
@@ -166,23 +159,7 @@ public class GrowthRateDetail {
     return descriptions;
   }
 
-  public void setDescriptions(@javax.annotation.Nonnull List<GrowthRateDescription> descriptions) {
-    this.descriptions = descriptions;
-  }
 
-
-  public GrowthRateDetail levels(@javax.annotation.Nonnull List<Experience> levels) {
-    this.levels = levels;
-    return this;
-  }
-
-  public GrowthRateDetail addLevelsItem(Experience levelsItem) {
-    if (this.levels == null) {
-      this.levels = new ArrayList<>();
-    }
-    this.levels.add(levelsItem);
-    return this;
-  }
 
   /**
    * Get levels
@@ -193,23 +170,7 @@ public class GrowthRateDetail {
     return levels;
   }
 
-  public void setLevels(@javax.annotation.Nonnull List<Experience> levels) {
-    this.levels = levels;
-  }
 
-
-  public GrowthRateDetail pokemonSpecies(@javax.annotation.Nonnull List<PokemonSpeciesSummary> pokemonSpecies) {
-    this.pokemonSpecies = pokemonSpecies;
-    return this;
-  }
-
-  public GrowthRateDetail addPokemonSpeciesItem(PokemonSpeciesSummary pokemonSpeciesItem) {
-    if (this.pokemonSpecies == null) {
-      this.pokemonSpecies = new ArrayList<>();
-    }
-    this.pokemonSpecies.add(pokemonSpeciesItem);
-    return this;
-  }
 
   /**
    * Get pokemonSpecies
@@ -220,9 +181,6 @@ public class GrowthRateDetail {
     return pokemonSpecies;
   }
 
-  public void setPokemonSpecies(@javax.annotation.Nonnull List<PokemonSpeciesSummary> pokemonSpecies) {
-    this.pokemonSpecies = pokemonSpecies;
-  }
 
 
 
@@ -267,10 +225,7 @@ public class GrowthRateDetail {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 
@@ -319,36 +274,36 @@ public class GrowthRateDetail {
       if (!jsonObj.get("formula").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `formula` to be a primitive type in the JSON string but got `%s`", jsonObj.get("formula").toString()));
       }
-      // ensure the json data is an array
-      if (!jsonObj.get("descriptions").isJsonArray()) {
-        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `descriptions` to be an array in the JSON string but got `%s`", jsonObj.get("descriptions").toString()));
+      if (jsonObj.get("descriptions") != null) {
+        if (!jsonObj.get("descriptions").isJsonArray()) {
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `descriptions` to be an array in the JSON string but got `%s`", jsonObj.get("descriptions").toString()));
+        }
+        JsonArray jsonArraydescriptions = jsonObj.getAsJsonArray("descriptions");
+        // validate the required field `descriptions` (array)
+        for (int i = 0; i < jsonArraydescriptions.size(); i++) {
+          GrowthRateDescription.validateJsonElement(jsonArraydescriptions.get(i));
+        }
       }
-
-      JsonArray jsonArraydescriptions = jsonObj.getAsJsonArray("descriptions");
-      // validate the required field `descriptions` (array)
-      for (int i = 0; i < jsonArraydescriptions.size(); i++) {
-        GrowthRateDescription.validateJsonElement(jsonArraydescriptions.get(i));
-      };
-      // ensure the json data is an array
-      if (!jsonObj.get("levels").isJsonArray()) {
-        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `levels` to be an array in the JSON string but got `%s`", jsonObj.get("levels").toString()));
+      if (jsonObj.get("levels") != null) {
+        if (!jsonObj.get("levels").isJsonArray()) {
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `levels` to be an array in the JSON string but got `%s`", jsonObj.get("levels").toString()));
+        }
+        JsonArray jsonArraylevels = jsonObj.getAsJsonArray("levels");
+        // validate the required field `levels` (array)
+        for (int i = 0; i < jsonArraylevels.size(); i++) {
+          Experience.validateJsonElement(jsonArraylevels.get(i));
+        }
       }
-
-      JsonArray jsonArraylevels = jsonObj.getAsJsonArray("levels");
-      // validate the required field `levels` (array)
-      for (int i = 0; i < jsonArraylevels.size(); i++) {
-        Experience.validateJsonElement(jsonArraylevels.get(i));
-      };
-      // ensure the json data is an array
-      if (!jsonObj.get("pokemon_species").isJsonArray()) {
-        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `pokemon_species` to be an array in the JSON string but got `%s`", jsonObj.get("pokemon_species").toString()));
+      if (jsonObj.get("pokemon_species") != null) {
+        if (!jsonObj.get("pokemon_species").isJsonArray()) {
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `pokemon_species` to be an array in the JSON string but got `%s`", jsonObj.get("pokemon_species").toString()));
+        }
+        JsonArray jsonArraypokemonSpecies = jsonObj.getAsJsonArray("pokemon_species");
+        // validate the required field `pokemon_species` (array)
+        for (int i = 0; i < jsonArraypokemonSpecies.size(); i++) {
+          PokemonSpeciesSummary.validateJsonElement(jsonArraypokemonSpecies.get(i));
+        }
       }
-
-      JsonArray jsonArraypokemonSpecies = jsonObj.getAsJsonArray("pokemon_species");
-      // validate the required field `pokemon_species` (array)
-      for (int i = 0; i < jsonArraypokemonSpecies.size(); i++) {
-        PokemonSpeciesSummary.validateJsonElement(jsonArraypokemonSpecies.get(i));
-      };
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {

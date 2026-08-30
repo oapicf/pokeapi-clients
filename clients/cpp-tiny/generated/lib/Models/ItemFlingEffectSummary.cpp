@@ -85,7 +85,7 @@ ItemFlingEffectSummary::getName()
 }
 
 void
-ItemFlingEffectSummary::setName(std::string  name)
+ItemFlingEffectSummary::setName(std::string name)
 {
 	this->name = name;
 }
@@ -97,7 +97,7 @@ ItemFlingEffectSummary::getUrl()
 }
 
 void
-ItemFlingEffectSummary::setUrl(std::string  url)
+ItemFlingEffectSummary::setUrl(std::string url)
 {
 	this->url = url;
 }

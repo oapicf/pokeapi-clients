@@ -56,19 +56,19 @@ export interface LocationDetail  {
      * @type {Array<LocationName>}
      * @memberof LocationDetail
      */
-    names: Array<LocationName>;
+    readonly names: Array<LocationName>;
     /**
      * 
      * @type {Array<LocationGameIndex>}
      * @memberof LocationDetail
      */
-    gameIndices: Array<LocationGameIndex>;
+    readonly gameIndices: Array<LocationGameIndex>;
     /**
      * 
      * @type {Array<LocationAreaSummary>}
      * @memberof LocationDetail
      */
-    areas: Array<LocationAreaSummary>;
+    readonly areas: Array<LocationAreaSummary>;
 }
 
 export function LocationDetailFromJSON(json: any): LocationDetail {
@@ -89,9 +89,6 @@ export function LocationDetailToJSON(value?: LocationDetail): any {
     return {
         'name': value.name,
         'region': RegionSummaryToJSON(value.region),
-        'names': (value.names as Array<any>).map(LocationNameToJSON),
-        'game_indices': (value.gameIndices as Array<any>).map(LocationGameIndexToJSON),
-        'areas': (value.areas as Array<any>).map(LocationAreaSummaryToJSON),
     };
 }
 

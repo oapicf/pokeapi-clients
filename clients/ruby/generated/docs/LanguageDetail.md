@@ -9,7 +9,7 @@
 | **official** | **Boolean** |  | [optional] |
 | **iso639** | **String** |  |  |
 | **iso3166** | **String** |  |  |
-| **names** | [**Array&lt;LanguageName&gt;**](LanguageName.md) |  |  |
+| **names** | [**Array&lt;LanguageName&gt;**](LanguageName.md) |  | [readonly] |
 
 ## Example
 

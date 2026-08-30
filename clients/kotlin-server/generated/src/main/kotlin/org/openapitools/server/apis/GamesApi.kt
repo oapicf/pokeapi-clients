@@ -35,11 +35,9 @@ import org.openapitools.server.models.VersionDetail
 import org.openapitools.server.models.VersionGroupDetail
 
 fun Route.GamesApi() {
-    val empty = mutableMapOf<String, Any?>()
-
     authenticate("basicAuth") {
     authenticate("cookieAuth") {
-    get<Paths.generationList> {
+    get<Paths.generationList> { generationList ->
         val principal = call.authentication.principal<UserIdPrincipal>()
         
         
@@ -48,9 +46,9 @@ fun Route.GamesApi() {
         
         val exampleContentType = "application/json"
             val exampleContentString = """{
+              "count" : 123,
               "next" : "http://api.example.org/accounts/?offset=400&limit=100",
               "previous" : "http://api.example.org/accounts/?offset=200&limit=100",
-              "count" : 123,
               "results" : [ {
                 "name" : "name",
                 "url" : "https://openapi-generator.tech"
@@ -68,10 +66,9 @@ fun Route.GamesApi() {
         
     }
     }
-
     authenticate("basicAuth") {
     authenticate("cookieAuth") {
-    get<Paths.generationRetrieve> {
+    get<Paths.generationRetrieve> { generationRetrieve ->
         val principal = call.authentication.principal<UserIdPrincipal>()
         
         
@@ -80,7 +77,40 @@ fun Route.GamesApi() {
         
         val exampleContentType = "application/json"
             val exampleContentString = """{
+              "id" : 0,
+              "name" : "name",
               "abilities" : [ {
+                "name" : "name",
+                "url" : "https://openapi-generator.tech"
+              }, {
+                "name" : "name",
+                "url" : "https://openapi-generator.tech"
+              } ],
+              "main_region" : {
+                "name" : "name",
+                "url" : "https://openapi-generator.tech"
+              },
+              "moves" : [ {
+                "name" : "name",
+                "url" : "https://openapi-generator.tech"
+              }, {
+                "name" : "name",
+                "url" : "https://openapi-generator.tech"
+              } ],
+              "names" : [ {
+                "name" : "name",
+                "language" : {
+                  "name" : "name",
+                  "url" : "https://openapi-generator.tech"
+                }
+              }, {
+                "name" : "name",
+                "language" : {
+                  "name" : "name",
+                  "url" : "https://openapi-generator.tech"
+                }
+              } ],
+              "pokemon_species" : [ {
                 "name" : "name",
                 "url" : "https://openapi-generator.tech"
               }, {
@@ -94,40 +124,7 @@ fun Route.GamesApi() {
                 "name" : "name",
                 "url" : "https://openapi-generator.tech"
               } ],
-              "names" : [ {
-                "name" : "name",
-                "language" : {
-                  "name" : "name",
-                  "url" : "https://openapi-generator.tech"
-                }
-              }, {
-                "name" : "name",
-                "language" : {
-                  "name" : "name",
-                  "url" : "https://openapi-generator.tech"
-                }
-              } ],
-              "main_region" : {
-                "name" : "name",
-                "url" : "https://openapi-generator.tech"
-              },
               "version_groups" : [ {
-                "name" : "name",
-                "url" : "https://openapi-generator.tech"
-              }, {
-                "name" : "name",
-                "url" : "https://openapi-generator.tech"
-              } ],
-              "moves" : [ {
-                "name" : "name",
-                "url" : "https://openapi-generator.tech"
-              }, {
-                "name" : "name",
-                "url" : "https://openapi-generator.tech"
-              } ],
-              "name" : "name",
-              "id" : 0,
-              "pokemon_species" : [ {
                 "name" : "name",
                 "url" : "https://openapi-generator.tech"
               }, {
@@ -144,10 +141,9 @@ fun Route.GamesApi() {
         
     }
     }
-
     authenticate("basicAuth") {
     authenticate("cookieAuth") {
-    get<Paths.pokedexList> {
+    get<Paths.pokedexList> { pokedexList ->
         val principal = call.authentication.principal<UserIdPrincipal>()
         
         
@@ -156,9 +152,9 @@ fun Route.GamesApi() {
         
         val exampleContentType = "application/json"
             val exampleContentString = """{
+              "count" : 123,
               "next" : "http://api.example.org/accounts/?offset=400&limit=100",
               "previous" : "http://api.example.org/accounts/?offset=200&limit=100",
-              "count" : 123,
               "results" : [ {
                 "name" : "name",
                 "url" : "https://openapi-generator.tech"
@@ -176,10 +172,9 @@ fun Route.GamesApi() {
         
     }
     }
-
     authenticate("basicAuth") {
     authenticate("cookieAuth") {
-    get<Paths.pokedexRetrieve> {
+    get<Paths.pokedexRetrieve> { pokedexRetrieve ->
         val principal = call.authentication.principal<UserIdPrincipal>()
         
         
@@ -188,7 +183,35 @@ fun Route.GamesApi() {
         
         val exampleContentType = "application/json"
             val exampleContentString = """{
+              "id" : 0,
+              "name" : "name",
               "is_main_series" : true,
+              "descriptions" : [ {
+                "description" : "description",
+                "language" : {
+                  "name" : "name",
+                  "url" : "https://openapi-generator.tech"
+                }
+              }, {
+                "description" : "description",
+                "language" : {
+                  "name" : "name",
+                  "url" : "https://openapi-generator.tech"
+                }
+              } ],
+              "names" : [ {
+                "name" : "name",
+                "language" : {
+                  "name" : "name",
+                  "url" : "https://openapi-generator.tech"
+                }
+              }, {
+                "name" : "name",
+                "language" : {
+                  "name" : "name",
+                  "url" : "https://openapi-generator.tech"
+                }
+              } ],
               "pokemon_entries" : [ {
                 "entry_number" : 6,
                 "pokemon_species" : {
@@ -202,44 +225,16 @@ fun Route.GamesApi() {
                   "url" : "https://openapi-generator.tech"
                 }
               } ],
-              "names" : [ {
+              "region" : {
                 "name" : "name",
-                "language" : {
-                  "name" : "name",
-                  "url" : "https://openapi-generator.tech"
-                }
-              }, {
-                "name" : "name",
-                "language" : {
-                  "name" : "name",
-                  "url" : "https://openapi-generator.tech"
-                }
-              } ],
+                "url" : "https://openapi-generator.tech"
+              },
               "version_groups" : [ {
                 "name" : "name",
                 "url" : "https://openapi-generator.tech"
               }, {
                 "name" : "name",
                 "url" : "https://openapi-generator.tech"
-              } ],
-              "name" : "name",
-              "id" : 0,
-              "region" : {
-                "name" : "name",
-                "url" : "https://openapi-generator.tech"
-              },
-              "descriptions" : [ {
-                "description" : "description",
-                "language" : {
-                  "name" : "name",
-                  "url" : "https://openapi-generator.tech"
-                }
-              }, {
-                "description" : "description",
-                "language" : {
-                  "name" : "name",
-                  "url" : "https://openapi-generator.tech"
-                }
               } ]
             }"""
             
@@ -251,10 +246,9 @@ fun Route.GamesApi() {
         
     }
     }
-
     authenticate("basicAuth") {
     authenticate("cookieAuth") {
-    get<Paths.versionGroupList> {
+    get<Paths.versionGroupList> { versionGroupList ->
         val principal = call.authentication.principal<UserIdPrincipal>()
         
         
@@ -263,9 +257,9 @@ fun Route.GamesApi() {
         
         val exampleContentType = "application/json"
             val exampleContentString = """{
+              "count" : 123,
               "next" : "http://api.example.org/accounts/?offset=400&limit=100",
               "previous" : "http://api.example.org/accounts/?offset=200&limit=100",
-              "count" : 123,
               "results" : [ {
                 "name" : "name",
                 "url" : "https://openapi-generator.tech"
@@ -283,10 +277,9 @@ fun Route.GamesApi() {
         
     }
     }
-
     authenticate("basicAuth") {
     authenticate("cookieAuth") {
-    get<Paths.versionGroupRetrieve> {
+    get<Paths.versionGroupRetrieve> { versionGroupRetrieve ->
         val principal = call.authentication.principal<UserIdPrincipal>()
         
         
@@ -295,11 +288,14 @@ fun Route.GamesApi() {
         
         val exampleContentType = "application/json"
             val exampleContentString = """{
+              "id" : 0,
+              "name" : "name",
+              "order" : 6,
               "generation" : {
                 "name" : "name",
                 "url" : "https://openapi-generator.tech"
               },
-              "regions" : [ {
+              "move_learn_methods" : [ {
                 "name" : "name",
                 "url" : "https://openapi-generator.tech"
               }, {
@@ -313,23 +309,20 @@ fun Route.GamesApi() {
                 "name" : "name",
                 "url" : "https://openapi-generator.tech"
               } ],
+              "regions" : [ {
+                "name" : "name",
+                "url" : "https://openapi-generator.tech"
+              }, {
+                "name" : "name",
+                "url" : "https://openapi-generator.tech"
+              } ],
               "versions" : [ {
                 "name" : "name",
                 "url" : "https://openapi-generator.tech"
               }, {
                 "name" : "name",
                 "url" : "https://openapi-generator.tech"
-              } ],
-              "name" : "name",
-              "id" : 0,
-              "move_learn_methods" : [ {
-                "name" : "name",
-                "url" : "https://openapi-generator.tech"
-              }, {
-                "name" : "name",
-                "url" : "https://openapi-generator.tech"
-              } ],
-              "order" : 6
+              } ]
             }"""
             
             when (exampleContentType) {
@@ -340,10 +333,9 @@ fun Route.GamesApi() {
         
     }
     }
-
     authenticate("basicAuth") {
     authenticate("cookieAuth") {
-    get<Paths.versionList> {
+    get<Paths.versionList> { versionList ->
         val principal = call.authentication.principal<UserIdPrincipal>()
         
         
@@ -352,9 +344,9 @@ fun Route.GamesApi() {
         
         val exampleContentType = "application/json"
             val exampleContentString = """{
+              "count" : 123,
               "next" : "http://api.example.org/accounts/?offset=400&limit=100",
               "previous" : "http://api.example.org/accounts/?offset=200&limit=100",
-              "count" : 123,
               "results" : [ {
                 "name" : "name",
                 "url" : "https://openapi-generator.tech"
@@ -372,10 +364,9 @@ fun Route.GamesApi() {
         
     }
     }
-
     authenticate("basicAuth") {
     authenticate("cookieAuth") {
-    get<Paths.versionRetrieve> {
+    get<Paths.versionRetrieve> { versionRetrieve ->
         val principal = call.authentication.principal<UserIdPrincipal>()
         
         
@@ -384,6 +375,8 @@ fun Route.GamesApi() {
         
         val exampleContentType = "application/json"
             val exampleContentString = """{
+              "id" : 0,
+              "name" : "name",
               "names" : [ {
                 "name" : "name",
                 "language" : {
@@ -400,9 +393,7 @@ fun Route.GamesApi() {
               "version_group" : {
                 "name" : "name",
                 "url" : "https://openapi-generator.tech"
-              },
-              "name" : "name",
-              "id" : 0
+              }
             }"""
             
             when (exampleContentType) {
@@ -413,5 +404,4 @@ fun Route.GamesApi() {
         
     }
     }
-
 }

@@ -6,8 +6,8 @@
 | ---- | ---- | ----------- | ----- |
 | **id** | **Integer** |  | [readonly] |
 | **name** | **String** |  |  |
-| **pokemon_species_details** | [**Array&lt;GenderDetailPokemonSpeciesDetailsInner&gt;**](GenderDetailPokemonSpeciesDetailsInner.md) |  |  |
-| **required_for_evolution** | [**Array&lt;AbilityDetailPokemonInnerPokemon&gt;**](AbilityDetailPokemonInnerPokemon.md) |  |  |
+| **pokemon_species_details** | [**Array&lt;GenderDetailPokemonSpeciesDetailsInner&gt;**](GenderDetailPokemonSpeciesDetailsInner.md) |  | [readonly] |
+| **required_for_evolution** | [**Array&lt;AbilityDetailPokemonInnerPokemon&gt;**](AbilityDetailPokemonInnerPokemon.md) |  | [readonly] |
 
 ## Example
 

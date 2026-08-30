@@ -12,6 +12,11 @@
 package openapi
 
 
+import (
+	"encoding/json"
+	"fmt"
+)
+
 
 
 type EvolutionTriggerDetail struct {
@@ -24,45 +29,84 @@ type EvolutionTriggerDetail struct {
 
 	PokemonSpecies []AbilityDetailPokemonInnerPokemon `json:"pokemon_species"`
 }
+// UnmarshalJSON validates required property keys then unmarshals into EvolutionTriggerDetail
+func (o *EvolutionTriggerDetail) UnmarshalJSON(data []byte) (err error) {
+	// Presence is checked against required fields that exist on this struct,
+	// including fields promoted from embedded allOf parents.
+	requiredProperties := []string{
+		"name",
+	}
 
-// AssertEvolutionTriggerDetailRequired checks if the required fields are not zero-ed
+	requiredNullableProperties := map[string]bool{
+		"name": false,
+	}
+
+	allowedJsonKeys := map[string]struct{}{
+		"id": {},
+		"name": {},
+		"names": {},
+		"pokemon_species": {},
+	}
+
+	allProperties := make(map[string]json.RawMessage)
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err
+	}
+
+	for _, requiredProperty := range requiredProperties {
+		value, exists := allProperties[requiredProperty]
+		if !exists {
+			return &RequiredError{Field: requiredProperty}
+		}
+		if string(value) == "null" && !requiredNullableProperties[requiredProperty] {
+			return &RequiredError{Field: requiredProperty}
+		}
+	}
+
+	for key := range allProperties {
+		if _, exists := allowedJsonKeys[key]; !exists {
+			return fmt.Errorf("json: unknown field %q", key)
+		}
+	}
+
+	var decoded EvolutionTriggerDetail
+
+	if value, exists := allProperties["id"]; exists {
+		if err = json.Unmarshal(value, &decoded.Id); err != nil {
+			return err
+		}
+	}
+	if value, exists := allProperties["name"]; exists {
+		if err = json.Unmarshal(value, &decoded.Name); err != nil {
+			return err
+		}
+	}
+	if value, exists := allProperties["names"]; exists {
+		if err = json.Unmarshal(value, &decoded.Names); err != nil {
+			return err
+		}
+	}
+	if value, exists := allProperties["pokemon_species"]; exists {
+		if err = json.Unmarshal(value, &decoded.PokemonSpecies); err != nil {
+			return err
+		}
+	}
+
+	*o = decoded
+
+	return nil
+}
+
+// AssertEvolutionTriggerDetailRequired checks complex required fields (models, arrays, maps) and embedded parents.
+// Primitive required fields are validated for JSON request bodies in UnmarshalJSON so zero values remain valid.
 func AssertEvolutionTriggerDetailRequired(obj EvolutionTriggerDetail) error {
-	elements := map[string]interface{}{
-		"id": obj.Id,
-		"name": obj.Name,
-		"names": obj.Names,
-		"pokemon_species": obj.PokemonSpecies,
-	}
-	for name, el := range elements {
-		if isZero := IsZeroValue(el); isZero {
-			return &RequiredError{Field: name}
-		}
-	}
-
-	for _, el := range obj.Names {
-		if err := AssertEvolutionTriggerNameRequired(el); err != nil {
-			return err
-		}
-	}
-	for _, el := range obj.PokemonSpecies {
-		if err := AssertAbilityDetailPokemonInnerPokemonRequired(el); err != nil {
-			return err
-		}
-	}
 	return nil
 }
 
 // AssertEvolutionTriggerDetailConstraints checks if the values respects the defined constraints
 func AssertEvolutionTriggerDetailConstraints(obj EvolutionTriggerDetail) error {
-	for _, el := range obj.Names {
-		if err := AssertEvolutionTriggerNameConstraints(el); err != nil {
-			return err
-		}
-	}
-	for _, el := range obj.PokemonSpecies {
-		if err := AssertAbilityDetailPokemonInnerPokemonConstraints(el); err != nil {
-			return err
-		}
-	}
 	return nil
 }

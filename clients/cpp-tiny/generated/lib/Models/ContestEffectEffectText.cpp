@@ -86,7 +86,7 @@ ContestEffectEffectText::getEffect()
 }
 
 void
-ContestEffectEffectText::setEffect(std::string  effect)
+ContestEffectEffectText::setEffect(std::string effect)
 {
 	this->effect = effect;
 }
@@ -98,7 +98,7 @@ ContestEffectEffectText::getLanguage()
 }
 
 void
-ContestEffectEffectText::setLanguage(LanguageSummary  language)
+ContestEffectEffectText::setLanguage(LanguageSummary language)
 {
 	this->language = language;
 }

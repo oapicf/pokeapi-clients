@@ -40,7 +40,7 @@ function Initialize-ItemDetailSprites {
 
 
         $PSO = [PSCustomObject]@{
-            "default" = ${Default}
+            'default' = ${Default}
         }
 
 
@@ -78,7 +78,7 @@ function ConvertFrom-JsonToItemDetailSprites {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in ItemDetailSprites
-        $AllProperties = ("default")
+        $AllProperties = ('default')
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -89,14 +89,14 @@ function ConvertFrom-JsonToItemDetailSprites {
             throw "Error! Empty JSON cannot be serialized due to the required property 'default' missing."
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "default"))) {
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'default'))) {
             throw "Error! JSON cannot be serialized due to the required property 'default' missing."
         } else {
-            $Default = $JsonParameters.PSobject.Properties["default"].value
+            $Default = $JsonParameters.PSobject.Properties['default'].value
         }
 
         $PSO = [PSCustomObject]@{
-            "default" = ${Default}
+            'default' = ${Default}
         }
 
         return $PSO

@@ -26,6 +26,8 @@ TypeDetail::TypeDetail()
     
 }
 
+TypeDetail::~TypeDetail() = default;
+
 void TypeDetail::validate() const
 {
     std::stringstream msg;

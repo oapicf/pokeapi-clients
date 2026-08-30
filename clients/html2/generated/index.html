@@ -852,9 +852,11 @@ ul.nav-tabs {
     },
     "effect_entries" : {
       "type" : "array",
+      "readOnly" : true,
       "items" : {
         "$ref" : "#/components/schemas/AbilityChangeEffectText"
-      }
+      },
+      "default" : null
     }
   }
 };
@@ -889,33 +891,43 @@ ul.nav-tabs {
     },
     "names" : {
       "type" : "array",
+      "readOnly" : true,
       "items" : {
         "$ref" : "#/components/schemas/AbilityName"
-      }
+      },
+      "default" : null
     },
     "effect_entries" : {
       "type" : "array",
+      "readOnly" : true,
       "items" : {
         "$ref" : "#/components/schemas/AbilityEffectText"
-      }
+      },
+      "default" : null
     },
     "effect_changes" : {
       "type" : "array",
+      "readOnly" : true,
       "items" : {
         "$ref" : "#/components/schemas/AbilityChange"
-      }
+      },
+      "default" : null
     },
     "flavor_text_entries" : {
       "type" : "array",
+      "readOnly" : true,
       "items" : {
         "$ref" : "#/components/schemas/AbilityFlavorText"
-      }
+      },
+      "default" : null
     },
     "pokemon" : {
       "type" : "array",
+      "readOnly" : true,
       "items" : {
         "$ref" : "#/components/schemas/AbilityDetail_pokemon_inner"
-      }
+      },
+      "default" : null
     }
   }
 };
@@ -1036,9 +1048,11 @@ ul.nav-tabs {
     },
     "flavors" : {
       "type" : "array",
+      "readOnly" : true,
       "items" : {
         "$ref" : "#/components/schemas/BerryDetail_flavors_inner"
-      }
+      },
+      "default" : null
     },
     "item" : {
       "$ref" : "#/components/schemas/ItemSummary"
@@ -1086,15 +1100,19 @@ ul.nav-tabs {
     },
     "berries" : {
       "type" : "array",
+      "readOnly" : true,
       "items" : {
         "$ref" : "#/components/schemas/BerrySummary"
-      }
+      },
+      "default" : null
     },
     "names" : {
       "type" : "array",
+      "readOnly" : true,
       "items" : {
         "$ref" : "#/components/schemas/BerryFirmnessName"
-      }
+      },
+      "default" : null
     }
   }
 };
@@ -1137,18 +1155,22 @@ ul.nav-tabs {
     },
     "berries" : {
       "type" : "array",
+      "readOnly" : true,
       "items" : {
         "$ref" : "#/components/schemas/BerryFlavorDetail_berries_inner"
-      }
+      },
+      "default" : null
     },
     "contest_type" : {
       "$ref" : "#/components/schemas/ContestTypeSummary"
     },
     "names" : {
       "type" : "array",
+      "readOnly" : true,
       "items" : {
         "$ref" : "#/components/schemas/BerryFlavorName"
-      }
+      },
+      "default" : null
     }
   }
 };
@@ -1241,19 +1263,23 @@ ul.nav-tabs {
     },
     "possible_values" : {
       "type" : "array",
+      "readOnly" : true,
       "items" : {
         "type" : "integer",
         "format" : "int32"
-      }
+      },
+      "default" : null
     },
     "highest_stat" : {
       "$ref" : "#/components/schemas/StatSummary"
     },
     "descriptions" : {
       "type" : "array",
+      "readOnly" : true,
       "items" : {
         "$ref" : "#/components/schemas/CharacteristicDescription"
-      }
+      },
+      "default" : null
     }
   }
 };
@@ -1282,15 +1308,19 @@ ul.nav-tabs {
     },
     "effect_entries" : {
       "type" : "array",
+      "readOnly" : true,
       "items" : {
         "$ref" : "#/components/schemas/ContestEffectEffectText"
-      }
+      },
+      "default" : null
     },
     "flavor_text_entries" : {
       "type" : "array",
+      "readOnly" : true,
       "items" : {
         "$ref" : "#/components/schemas/ContestEffectFlavorText"
-      }
+      },
+      "default" : null
     }
   }
 };
@@ -1347,9 +1377,11 @@ ul.nav-tabs {
     },
     "names" : {
       "type" : "array",
+      "readOnly" : true,
       "items" : {
         "$ref" : "#/components/schemas/ContestTypeName"
-      }
+      },
+      "default" : null
     }
   }
 };
@@ -1396,15 +1428,19 @@ ul.nav-tabs {
     },
     "names" : {
       "type" : "array",
+      "readOnly" : true,
       "items" : {
         "$ref" : "#/components/schemas/EggGroupName"
-      }
+      },
+      "default" : null
     },
     "pokemon_species" : {
       "type" : "array",
+      "readOnly" : true,
       "items" : {
         "$ref" : "#/components/schemas/EggGroupDetail_pokemon_species_inner"
-      }
+      },
+      "default" : null
     }
   }
 };
@@ -1460,15 +1496,19 @@ ul.nav-tabs {
     },
     "values" : {
       "type" : "array",
+      "readOnly" : true,
       "items" : {
         "$ref" : "#/components/schemas/EncounterConditionValueSummary"
-      }
+      },
+      "default" : null
     },
     "names" : {
       "type" : "array",
+      "readOnly" : true,
       "items" : {
         "$ref" : "#/components/schemas/EncounterConditionName"
-      }
+      },
+      "default" : null
     }
   }
 };
@@ -1514,9 +1554,11 @@ ul.nav-tabs {
     },
     "names" : {
       "type" : "array",
+      "readOnly" : true,
       "items" : {
         "$ref" : "#/components/schemas/EncounterConditionValueName"
-      }
+      },
+      "default" : null
     }
   }
 };
@@ -1563,9 +1605,11 @@ ul.nav-tabs {
     },
     "names" : {
       "type" : "array",
+      "readOnly" : true,
       "items" : {
         "$ref" : "#/components/schemas/EncounterMethodName"
-      }
+      },
+      "default" : null
     }
   }
 };
@@ -1615,13 +1659,15 @@ ul.nav-tabs {
   "properties" : {
     "evolution_details" : {
       "type" : "array",
-      "items" : { }
+      "items" : { },
+      "default" : null
     },
     "evolves_to" : {
       "type" : "array",
       "items" : {
         "$ref" : "#/components/schemas/EvolutionChainDetail_chain_evolves_to_inner"
-      }
+      },
+      "default" : null
     },
     "is_baby" : {
       "type" : "boolean"
@@ -1639,7 +1685,8 @@ ul.nav-tabs {
       "type" : "array",
       "items" : {
         "$ref" : "#/components/schemas/EvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner"
-      }
+      },
+      "default" : null
     },
     "is_baby" : {
       "type" : "boolean"
@@ -1662,12 +1709,10 @@ ul.nav-tabs {
       "$ref" : "#/components/schemas/EvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner_gender"
     },
     "known_move" : {
-      "type" : "object",
-      "nullable" : true
+      "$ref" : "#/components/schemas/EvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner_gender"
     },
     "known_move_type" : {
-      "type" : "object",
-      "nullable" : true
+      "$ref" : "#/components/schemas/EvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner_gender"
     },
     "location" : {
       "$ref" : "#/components/schemas/EvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner_gender"
@@ -1759,15 +1804,19 @@ ul.nav-tabs {
     },
     "names" : {
       "type" : "array",
+      "readOnly" : true,
       "items" : {
         "$ref" : "#/components/schemas/EvolutionTriggerName"
-      }
+      },
+      "default" : null
     },
     "pokemon_species" : {
       "type" : "array",
+      "readOnly" : true,
       "items" : {
         "$ref" : "#/components/schemas/AbilityDetail_pokemon_inner_pokemon"
-      }
+      },
+      "default" : null
     }
   }
 };
@@ -1821,15 +1870,19 @@ ul.nav-tabs {
     },
     "pokemon_species_details" : {
       "type" : "array",
+      "readOnly" : true,
       "items" : {
         "$ref" : "#/components/schemas/GenderDetail_pokemon_species_details_inner"
-      }
+      },
+      "default" : null
     },
     "required_for_evolution" : {
       "type" : "array",
+      "readOnly" : true,
       "items" : {
         "$ref" : "#/components/schemas/AbilityDetail_pokemon_inner_pokemon"
-      }
+      },
+      "default" : null
     }
   }
 };
@@ -1872,42 +1925,54 @@ ul.nav-tabs {
     },
     "abilities" : {
       "type" : "array",
+      "readOnly" : true,
       "items" : {
         "$ref" : "#/components/schemas/AbilitySummary"
-      }
+      },
+      "default" : null
     },
     "main_region" : {
       "$ref" : "#/components/schemas/RegionSummary"
     },
     "moves" : {
       "type" : "array",
+      "readOnly" : true,
       "items" : {
         "$ref" : "#/components/schemas/MoveSummary"
-      }
+      },
+      "default" : null
     },
     "names" : {
       "type" : "array",
+      "readOnly" : true,
       "items" : {
         "$ref" : "#/components/schemas/GenerationName"
-      }
+      },
+      "default" : null
     },
     "pokemon_species" : {
       "type" : "array",
+      "readOnly" : true,
       "items" : {
         "$ref" : "#/components/schemas/PokemonSpeciesSummary"
-      }
+      },
+      "default" : null
     },
     "types" : {
       "type" : "array",
+      "readOnly" : true,
       "items" : {
         "$ref" : "#/components/schemas/TypeSummary"
-      }
+      },
+      "default" : null
     },
     "version_groups" : {
       "type" : "array",
+      "readOnly" : true,
       "items" : {
         "$ref" : "#/components/schemas/VersionGroupSummary"
-      }
+      },
+      "default" : null
     }
   }
 };
@@ -1966,21 +2031,27 @@ ul.nav-tabs {
     },
     "descriptions" : {
       "type" : "array",
+      "readOnly" : true,
       "items" : {
         "$ref" : "#/components/schemas/GrowthRateDescription"
-      }
+      },
+      "default" : null
     },
     "levels" : {
       "type" : "array",
+      "readOnly" : true,
       "items" : {
         "$ref" : "#/components/schemas/Experience"
-      }
+      },
+      "default" : null
     },
     "pokemon_species" : {
       "type" : "array",
+      "readOnly" : true,
       "items" : {
         "$ref" : "#/components/schemas/PokemonSpeciesSummary"
-      }
+      },
+      "default" : null
     }
   }
 };
@@ -2023,21 +2094,27 @@ ul.nav-tabs {
     },
     "descriptions" : {
       "type" : "array",
+      "readOnly" : true,
       "items" : {
         "$ref" : "#/components/schemas/ItemAttributeDescription"
-      }
+      },
+      "default" : null
     },
     "items" : {
       "type" : "array",
+      "readOnly" : true,
       "items" : {
         "$ref" : "#/components/schemas/AbilityDetail_pokemon_inner_pokemon"
-      }
+      },
+      "default" : null
     },
     "names" : {
       "type" : "array",
+      "readOnly" : true,
       "items" : {
         "$ref" : "#/components/schemas/ItemAttributeName"
-      }
+      },
+      "default" : null
     }
   }
 };
@@ -2080,15 +2157,19 @@ ul.nav-tabs {
     },
     "items" : {
       "type" : "array",
+      "readOnly" : true,
       "items" : {
         "$ref" : "#/components/schemas/ItemSummary"
-      }
+      },
+      "default" : null
     },
     "names" : {
       "type" : "array",
+      "readOnly" : true,
       "items" : {
         "$ref" : "#/components/schemas/ItemCategoryName"
-      }
+      },
+      "default" : null
     },
     "pocket" : {
       "$ref" : "#/components/schemas/ItemPocketSummary"
@@ -2145,42 +2226,54 @@ ul.nav-tabs {
     },
     "attributes" : {
       "type" : "array",
+      "readOnly" : true,
       "items" : {
         "$ref" : "#/components/schemas/AbilityDetail_pokemon_inner_pokemon"
-      }
+      },
+      "default" : null
     },
     "category" : {
       "$ref" : "#/components/schemas/ItemCategorySummary"
     },
     "effect_entries" : {
       "type" : "array",
+      "readOnly" : true,
       "items" : {
         "$ref" : "#/components/schemas/ItemEffectText"
-      }
+      },
+      "default" : null
     },
     "flavor_text_entries" : {
       "type" : "array",
+      "readOnly" : true,
       "items" : {
         "$ref" : "#/components/schemas/ItemFlavorText"
-      }
+      },
+      "default" : null
     },
     "game_indices" : {
       "type" : "array",
+      "readOnly" : true,
       "items" : {
         "$ref" : "#/components/schemas/ItemGameIndex"
-      }
+      },
+      "default" : null
     },
     "names" : {
       "type" : "array",
+      "readOnly" : true,
       "items" : {
         "$ref" : "#/components/schemas/ItemName"
-      }
+      },
+      "default" : null
     },
     "held_by_pokemon" : {
       "type" : "array",
+      "readOnly" : true,
       "items" : {
         "$ref" : "#/components/schemas/ItemDetail_held_by_pokemon_inner"
-      }
+      },
+      "default" : null
     },
     "sprites" : {
       "$ref" : "#/components/schemas/ItemDetail_sprites"
@@ -2190,9 +2283,11 @@ ul.nav-tabs {
     },
     "machines" : {
       "type" : "array",
+      "readOnly" : true,
       "items" : {
         "$ref" : "#/components/schemas/ItemDetail_machines_inner"
-      }
+      },
+      "default" : null
     }
   }
 };
@@ -2216,7 +2311,8 @@ ul.nav-tabs {
       "type" : "array",
       "items" : {
         "$ref" : "#/components/schemas/ItemDetail_held_by_pokemon_inner_version_details_inner"
-      }
+      },
+      "default" : null
     }
   }
 };
@@ -2297,15 +2393,19 @@ ul.nav-tabs {
     },
     "effect_entries" : {
       "type" : "array",
+      "readOnly" : true,
       "items" : {
         "$ref" : "#/components/schemas/ItemFlingEffectEffectText"
-      }
+      },
+      "default" : null
     },
     "items" : {
       "type" : "array",
+      "readOnly" : true,
       "items" : {
         "$ref" : "#/components/schemas/ItemSummary"
-      }
+      },
+      "default" : null
     }
   }
 };
@@ -2371,15 +2471,19 @@ ul.nav-tabs {
     },
     "categories" : {
       "type" : "array",
+      "readOnly" : true,
       "items" : {
         "$ref" : "#/components/schemas/ItemCategorySummary"
-      }
+      },
+      "default" : null
     },
     "names" : {
       "type" : "array",
+      "readOnly" : true,
       "items" : {
         "$ref" : "#/components/schemas/ItemPocketName"
-      }
+      },
+      "default" : null
     }
   }
 };
@@ -2447,9 +2551,11 @@ ul.nav-tabs {
     },
     "names" : {
       "type" : "array",
+      "readOnly" : true,
       "items" : {
         "$ref" : "#/components/schemas/LanguageName"
-      }
+      },
+      "default" : null
     }
   }
 };
@@ -2495,24 +2601,30 @@ ul.nav-tabs {
     },
     "encounter_method_rates" : {
       "type" : "array",
+      "readOnly" : true,
       "items" : {
         "$ref" : "#/components/schemas/LocationAreaDetail_encounter_method_rates_inner"
-      }
+      },
+      "default" : null
     },
     "location" : {
       "$ref" : "#/components/schemas/LocationSummary"
     },
     "names" : {
       "type" : "array",
+      "readOnly" : true,
       "items" : {
         "$ref" : "#/components/schemas/LocationAreaName"
-      }
+      },
+      "default" : null
     },
     "pokemon_encounters" : {
       "type" : "array",
+      "readOnly" : true,
       "items" : {
         "$ref" : "#/components/schemas/LocationAreaDetail_pokemon_encounters_inner"
-      }
+      },
+      "default" : null
     }
   }
 };
@@ -2526,7 +2638,8 @@ ul.nav-tabs {
       "type" : "array",
       "items" : {
         "$ref" : "#/components/schemas/LocationAreaDetail_encounter_method_rates_inner_version_details_inner"
-      }
+      },
+      "default" : null
     }
   }
 };
@@ -2552,7 +2665,8 @@ ul.nav-tabs {
       "type" : "array",
       "items" : {
         "$ref" : "#/components/schemas/LocationAreaDetail_pokemon_encounters_inner_version_details_inner"
-      }
+      },
+      "default" : null
     }
   }
 };
@@ -2636,21 +2750,27 @@ ul.nav-tabs {
     },
     "names" : {
       "type" : "array",
+      "readOnly" : true,
       "items" : {
         "$ref" : "#/components/schemas/LocationName"
-      }
+      },
+      "default" : null
     },
     "game_indices" : {
       "type" : "array",
+      "readOnly" : true,
       "items" : {
         "$ref" : "#/components/schemas/LocationGameIndex"
-      }
+      },
+      "default" : null
     },
     "areas" : {
       "type" : "array",
+      "readOnly" : true,
       "items" : {
         "$ref" : "#/components/schemas/LocationAreaSummary"
-      }
+      },
+      "default" : null
     }
   }
 };
@@ -2732,9 +2852,11 @@ ul.nav-tabs {
     },
     "names" : {
       "type" : "array",
+      "readOnly" : true,
       "items" : {
         "$ref" : "#/components/schemas/MoveBattleStyleName"
-      }
+      },
+      "default" : null
     }
   }
 };
@@ -2784,9 +2906,11 @@ ul.nav-tabs {
     },
     "effect_entries" : {
       "type" : "array",
+      "readOnly" : true,
       "items" : {
         "$ref" : "#/components/schemas/MoveChange_effect_entries_inner"
-      }
+      },
+      "default" : null
     },
     "type" : {
       "$ref" : "#/components/schemas/TypeSummary"
@@ -2835,21 +2959,27 @@ ul.nav-tabs {
     },
     "descriptions" : {
       "type" : "array",
+      "readOnly" : true,
       "items" : {
         "$ref" : "#/components/schemas/MoveDamageClassDescription"
-      }
+      },
+      "default" : null
     },
     "moves" : {
       "type" : "array",
+      "readOnly" : true,
       "items" : {
         "$ref" : "#/components/schemas/MoveSummary"
-      }
+      },
+      "default" : null
     },
     "names" : {
       "type" : "array",
+      "readOnly" : true,
       "items" : {
         "$ref" : "#/components/schemas/MoveDamageClassName"
-      }
+      },
+      "default" : null
     }
   }
 };
@@ -2923,15 +3053,19 @@ ul.nav-tabs {
     },
     "effect_entries" : {
       "type" : "array",
+      "readOnly" : true,
       "items" : {
         "$ref" : "#/components/schemas/MoveChange_effect_entries_inner"
-      }
+      },
+      "default" : null
     },
     "effect_changes" : {
       "type" : "array",
+      "readOnly" : true,
       "items" : {
         "$ref" : "#/components/schemas/MoveDetail_effect_changes_inner"
-      }
+      },
+      "default" : null
     },
     "generation" : {
       "$ref" : "#/components/schemas/GenerationSummary"
@@ -2944,21 +3078,27 @@ ul.nav-tabs {
     },
     "names" : {
       "type" : "array",
+      "readOnly" : true,
       "items" : {
         "$ref" : "#/components/schemas/MoveName"
-      }
+      },
+      "default" : null
     },
     "past_values" : {
       "type" : "array",
+      "readOnly" : true,
       "items" : {
         "$ref" : "#/components/schemas/MoveChange"
-      }
+      },
+      "default" : null
     },
     "stat_changes" : {
       "type" : "array",
+      "readOnly" : true,
       "items" : {
         "$ref" : "#/components/schemas/MoveDetail_stat_changes_inner"
-      }
+      },
+      "default" : null
     },
     "super_contest_effect" : {
       "$ref" : "#/components/schemas/SuperContestEffectSummary"
@@ -2971,21 +3111,27 @@ ul.nav-tabs {
     },
     "machines" : {
       "type" : "array",
+      "readOnly" : true,
       "items" : {
         "$ref" : "#/components/schemas/MoveDetail_machines_inner"
-      }
+      },
+      "default" : null
     },
     "flavor_text_entries" : {
       "type" : "array",
+      "readOnly" : true,
       "items" : {
         "$ref" : "#/components/schemas/MoveFlavorText"
-      }
+      },
+      "default" : null
     },
     "learned_by_pokemon" : {
       "type" : "array",
+      "readOnly" : true,
       "items" : {
         "$ref" : "#/components/schemas/AbilityDetail_pokemon_inner_pokemon"
-      }
+      },
+      "default" : null
     }
   }
 };
@@ -3009,14 +3155,16 @@ ul.nav-tabs {
       "items" : {
         "$ref" : "#/components/schemas/AbilityDetail_pokemon_inner_pokemon"
       },
-      "nullable" : true
+      "nullable" : true,
+      "default" : null
     },
     "use_after" : {
       "type" : "array",
       "items" : {
         "$ref" : "#/components/schemas/AbilityDetail_pokemon_inner_pokemon"
       },
-      "nullable" : true
+      "nullable" : true,
+      "default" : null
     }
   }
 };
@@ -3027,7 +3175,8 @@ ul.nav-tabs {
       "type" : "array",
       "items" : {
         "$ref" : "#/components/schemas/MoveDetail_effect_changes_inner_effect_entries_inner"
-      }
+      },
+      "default" : null
     },
     "version_group" : {
       "$ref" : "#/components/schemas/AbilityDetail_pokemon_inner_pokemon"
@@ -3116,21 +3265,27 @@ ul.nav-tabs {
     },
     "names" : {
       "type" : "array",
+      "readOnly" : true,
       "items" : {
         "$ref" : "#/components/schemas/MoveLearnMethodName"
-      }
+      },
+      "default" : null
     },
     "descriptions" : {
       "type" : "array",
+      "readOnly" : true,
       "items" : {
         "$ref" : "#/components/schemas/MoveLearnMethodDescription"
-      }
+      },
+      "default" : null
     },
     "version_groups" : {
       "type" : "array",
+      "readOnly" : true,
       "items" : {
         "$ref" : "#/components/schemas/AbilityDetail_pokemon_inner_pokemon"
-      }
+      },
+      "default" : null
     }
   }
 };
@@ -3224,15 +3379,19 @@ ul.nav-tabs {
     },
     "moves" : {
       "type" : "array",
+      "readOnly" : true,
       "items" : {
         "$ref" : "#/components/schemas/AbilityDetail_pokemon_inner_pokemon"
-      }
+      },
+      "default" : null
     },
     "names" : {
       "type" : "array",
+      "readOnly" : true,
       "items" : {
         "$ref" : "#/components/schemas/MoveMetaAilmentName"
-      }
+      },
+      "default" : null
     }
   }
 };
@@ -3287,15 +3446,19 @@ ul.nav-tabs {
     },
     "descriptions" : {
       "type" : "array",
+      "readOnly" : true,
       "items" : {
         "$ref" : "#/components/schemas/MoveMetaCategoryDescription"
-      }
+      },
+      "default" : null
     },
     "moves" : {
       "type" : "array",
+      "readOnly" : true,
       "items" : {
         "$ref" : "#/components/schemas/AbilityDetail_pokemon_inner_pokemon"
-      }
+      },
+      "default" : null
     }
   }
 };
@@ -3364,21 +3527,27 @@ ul.nav-tabs {
     },
     "descriptions" : {
       "type" : "array",
+      "readOnly" : true,
       "items" : {
         "$ref" : "#/components/schemas/MoveTargetDescription"
-      }
+      },
+      "default" : null
     },
     "moves" : {
       "type" : "array",
+      "readOnly" : true,
       "items" : {
         "$ref" : "#/components/schemas/MoveSummary"
-      }
+      },
+      "default" : null
     },
     "names" : {
       "type" : "array",
+      "readOnly" : true,
       "items" : {
         "$ref" : "#/components/schemas/MoveTargetName"
-      }
+      },
+      "default" : null
     }
   }
 };
@@ -3447,27 +3616,35 @@ ul.nav-tabs {
     },
     "berries" : {
       "type" : "array",
+      "readOnly" : true,
       "items" : {
         "$ref" : "#/components/schemas/BerrySummary"
-      }
+      },
+      "default" : null
     },
     "pokeathlon_stat_changes" : {
       "type" : "array",
+      "readOnly" : true,
       "items" : {
         "$ref" : "#/components/schemas/NatureDetail_pokeathlon_stat_changes_inner"
-      }
+      },
+      "default" : null
     },
     "move_battle_style_preferences" : {
       "type" : "array",
+      "readOnly" : true,
       "items" : {
         "$ref" : "#/components/schemas/NatureBattleStylePreference"
-      }
+      },
+      "default" : null
     },
     "names" : {
       "type" : "array",
+      "readOnly" : true,
       "items" : {
         "$ref" : "#/components/schemas/NatureName"
-      }
+      },
+      "default" : null
     }
   }
 };
@@ -3531,7 +3708,8 @@ ul.nav-tabs {
       "type" : "array",
       "items" : {
         "$ref" : "#/components/schemas/AbilitySummary"
-      }
+      },
+      "default" : null
     }
   }
 };
@@ -3557,7 +3735,8 @@ ul.nav-tabs {
       "type" : "array",
       "items" : {
         "$ref" : "#/components/schemas/BerryFirmnessSummary"
-      }
+      },
+      "default" : null
     }
   }
 };
@@ -3583,7 +3762,8 @@ ul.nav-tabs {
       "type" : "array",
       "items" : {
         "$ref" : "#/components/schemas/BerryFlavorSummary"
-      }
+      },
+      "default" : null
     }
   }
 };
@@ -3609,7 +3789,8 @@ ul.nav-tabs {
       "type" : "array",
       "items" : {
         "$ref" : "#/components/schemas/BerrySummary"
-      }
+      },
+      "default" : null
     }
   }
 };
@@ -3635,7 +3816,8 @@ ul.nav-tabs {
       "type" : "array",
       "items" : {
         "$ref" : "#/components/schemas/CharacteristicSummary"
-      }
+      },
+      "default" : null
     }
   }
 };
@@ -3661,7 +3843,8 @@ ul.nav-tabs {
       "type" : "array",
       "items" : {
         "$ref" : "#/components/schemas/ContestEffectSummary"
-      }
+      },
+      "default" : null
     }
   }
 };
@@ -3687,7 +3870,8 @@ ul.nav-tabs {
       "type" : "array",
       "items" : {
         "$ref" : "#/components/schemas/ContestTypeSummary"
-      }
+      },
+      "default" : null
     }
   }
 };
@@ -3713,7 +3897,8 @@ ul.nav-tabs {
       "type" : "array",
       "items" : {
         "$ref" : "#/components/schemas/EggGroupSummary"
-      }
+      },
+      "default" : null
     }
   }
 };
@@ -3739,7 +3924,8 @@ ul.nav-tabs {
       "type" : "array",
       "items" : {
         "$ref" : "#/components/schemas/EncounterConditionSummary"
-      }
+      },
+      "default" : null
     }
   }
 };
@@ -3765,7 +3951,8 @@ ul.nav-tabs {
       "type" : "array",
       "items" : {
         "$ref" : "#/components/schemas/EncounterConditionValueSummary"
-      }
+      },
+      "default" : null
     }
   }
 };
@@ -3791,7 +3978,8 @@ ul.nav-tabs {
       "type" : "array",
       "items" : {
         "$ref" : "#/components/schemas/EncounterMethodSummary"
-      }
+      },
+      "default" : null
     }
   }
 };
@@ -3817,7 +4005,8 @@ ul.nav-tabs {
       "type" : "array",
       "items" : {
         "$ref" : "#/components/schemas/EvolutionChainSummary"
-      }
+      },
+      "default" : null
     }
   }
 };
@@ -3843,7 +4032,8 @@ ul.nav-tabs {
       "type" : "array",
       "items" : {
         "$ref" : "#/components/schemas/EvolutionTriggerSummary"
-      }
+      },
+      "default" : null
     }
   }
 };
@@ -3869,7 +4059,8 @@ ul.nav-tabs {
       "type" : "array",
       "items" : {
         "$ref" : "#/components/schemas/GenderSummary"
-      }
+      },
+      "default" : null
     }
   }
 };
@@ -3895,7 +4086,8 @@ ul.nav-tabs {
       "type" : "array",
       "items" : {
         "$ref" : "#/components/schemas/GenerationSummary"
-      }
+      },
+      "default" : null
     }
   }
 };
@@ -3921,7 +4113,8 @@ ul.nav-tabs {
       "type" : "array",
       "items" : {
         "$ref" : "#/components/schemas/GrowthRateSummary"
-      }
+      },
+      "default" : null
     }
   }
 };
@@ -3947,7 +4140,8 @@ ul.nav-tabs {
       "type" : "array",
       "items" : {
         "$ref" : "#/components/schemas/ItemAttributeSummary"
-      }
+      },
+      "default" : null
     }
   }
 };
@@ -3973,7 +4167,8 @@ ul.nav-tabs {
       "type" : "array",
       "items" : {
         "$ref" : "#/components/schemas/ItemCategorySummary"
-      }
+      },
+      "default" : null
     }
   }
 };
@@ -3999,7 +4194,8 @@ ul.nav-tabs {
       "type" : "array",
       "items" : {
         "$ref" : "#/components/schemas/ItemFlingEffectSummary"
-      }
+      },
+      "default" : null
     }
   }
 };
@@ -4025,7 +4221,8 @@ ul.nav-tabs {
       "type" : "array",
       "items" : {
         "$ref" : "#/components/schemas/ItemPocketSummary"
-      }
+      },
+      "default" : null
     }
   }
 };
@@ -4051,7 +4248,8 @@ ul.nav-tabs {
       "type" : "array",
       "items" : {
         "$ref" : "#/components/schemas/ItemSummary"
-      }
+      },
+      "default" : null
     }
   }
 };
@@ -4077,7 +4275,8 @@ ul.nav-tabs {
       "type" : "array",
       "items" : {
         "$ref" : "#/components/schemas/LanguageSummary"
-      }
+      },
+      "default" : null
     }
   }
 };
@@ -4103,7 +4302,8 @@ ul.nav-tabs {
       "type" : "array",
       "items" : {
         "$ref" : "#/components/schemas/LocationAreaSummary"
-      }
+      },
+      "default" : null
     }
   }
 };
@@ -4129,7 +4329,8 @@ ul.nav-tabs {
       "type" : "array",
       "items" : {
         "$ref" : "#/components/schemas/LocationSummary"
-      }
+      },
+      "default" : null
     }
   }
 };
@@ -4155,7 +4356,8 @@ ul.nav-tabs {
       "type" : "array",
       "items" : {
         "$ref" : "#/components/schemas/MachineSummary"
-      }
+      },
+      "default" : null
     }
   }
 };
@@ -4181,7 +4383,8 @@ ul.nav-tabs {
       "type" : "array",
       "items" : {
         "$ref" : "#/components/schemas/MoveBattleStyleSummary"
-      }
+      },
+      "default" : null
     }
   }
 };
@@ -4207,7 +4410,8 @@ ul.nav-tabs {
       "type" : "array",
       "items" : {
         "$ref" : "#/components/schemas/MoveDamageClassSummary"
-      }
+      },
+      "default" : null
     }
   }
 };
@@ -4233,7 +4437,8 @@ ul.nav-tabs {
       "type" : "array",
       "items" : {
         "$ref" : "#/components/schemas/MoveLearnMethodSummary"
-      }
+      },
+      "default" : null
     }
   }
 };
@@ -4259,7 +4464,8 @@ ul.nav-tabs {
       "type" : "array",
       "items" : {
         "$ref" : "#/components/schemas/MoveMetaAilmentSummary"
-      }
+      },
+      "default" : null
     }
   }
 };
@@ -4285,7 +4491,8 @@ ul.nav-tabs {
       "type" : "array",
       "items" : {
         "$ref" : "#/components/schemas/MoveMetaCategorySummary"
-      }
+      },
+      "default" : null
     }
   }
 };
@@ -4311,7 +4518,8 @@ ul.nav-tabs {
       "type" : "array",
       "items" : {
         "$ref" : "#/components/schemas/MoveSummary"
-      }
+      },
+      "default" : null
     }
   }
 };
@@ -4337,7 +4545,8 @@ ul.nav-tabs {
       "type" : "array",
       "items" : {
         "$ref" : "#/components/schemas/MoveTargetSummary"
-      }
+      },
+      "default" : null
     }
   }
 };
@@ -4363,7 +4572,8 @@ ul.nav-tabs {
       "type" : "array",
       "items" : {
         "$ref" : "#/components/schemas/NatureSummary"
-      }
+      },
+      "default" : null
     }
   }
 };
@@ -4389,7 +4599,8 @@ ul.nav-tabs {
       "type" : "array",
       "items" : {
         "$ref" : "#/components/schemas/PalParkAreaSummary"
-      }
+      },
+      "default" : null
     }
   }
 };
@@ -4415,7 +4626,8 @@ ul.nav-tabs {
       "type" : "array",
       "items" : {
         "$ref" : "#/components/schemas/PokeathlonStatSummary"
-      }
+      },
+      "default" : null
     }
   }
 };
@@ -4441,7 +4653,8 @@ ul.nav-tabs {
       "type" : "array",
       "items" : {
         "$ref" : "#/components/schemas/PokedexSummary"
-      }
+      },
+      "default" : null
     }
   }
 };
@@ -4467,7 +4680,8 @@ ul.nav-tabs {
       "type" : "array",
       "items" : {
         "$ref" : "#/components/schemas/PokemonColorSummary"
-      }
+      },
+      "default" : null
     }
   }
 };
@@ -4493,7 +4707,8 @@ ul.nav-tabs {
       "type" : "array",
       "items" : {
         "$ref" : "#/components/schemas/PokemonFormSummary"
-      }
+      },
+      "default" : null
     }
   }
 };
@@ -4519,7 +4734,8 @@ ul.nav-tabs {
       "type" : "array",
       "items" : {
         "$ref" : "#/components/schemas/PokemonHabitatSummary"
-      }
+      },
+      "default" : null
     }
   }
 };
@@ -4545,7 +4761,8 @@ ul.nav-tabs {
       "type" : "array",
       "items" : {
         "$ref" : "#/components/schemas/PokemonShapeSummary"
-      }
+      },
+      "default" : null
     }
   }
 };
@@ -4571,7 +4788,8 @@ ul.nav-tabs {
       "type" : "array",
       "items" : {
         "$ref" : "#/components/schemas/PokemonSpeciesSummary"
-      }
+      },
+      "default" : null
     }
   }
 };
@@ -4597,7 +4815,8 @@ ul.nav-tabs {
       "type" : "array",
       "items" : {
         "$ref" : "#/components/schemas/PokemonSummary"
-      }
+      },
+      "default" : null
     }
   }
 };
@@ -4623,7 +4842,8 @@ ul.nav-tabs {
       "type" : "array",
       "items" : {
         "$ref" : "#/components/schemas/RegionSummary"
-      }
+      },
+      "default" : null
     }
   }
 };
@@ -4649,7 +4869,8 @@ ul.nav-tabs {
       "type" : "array",
       "items" : {
         "$ref" : "#/components/schemas/StatSummary"
-      }
+      },
+      "default" : null
     }
   }
 };
@@ -4675,7 +4896,8 @@ ul.nav-tabs {
       "type" : "array",
       "items" : {
         "$ref" : "#/components/schemas/SuperContestEffectSummary"
-      }
+      },
+      "default" : null
     }
   }
 };
@@ -4701,7 +4923,8 @@ ul.nav-tabs {
       "type" : "array",
       "items" : {
         "$ref" : "#/components/schemas/TypeSummary"
-      }
+      },
+      "default" : null
     }
   }
 };
@@ -4727,7 +4950,8 @@ ul.nav-tabs {
       "type" : "array",
       "items" : {
         "$ref" : "#/components/schemas/VersionGroupSummary"
-      }
+      },
+      "default" : null
     }
   }
 };
@@ -4753,7 +4977,8 @@ ul.nav-tabs {
       "type" : "array",
       "items" : {
         "$ref" : "#/components/schemas/VersionSummary"
-      }
+      },
+      "default" : null
     }
   }
 };
@@ -4770,15 +4995,19 @@ ul.nav-tabs {
     },
     "names" : {
       "type" : "array",
+      "readOnly" : true,
       "items" : {
         "$ref" : "#/components/schemas/PalParkAreaName"
-      }
+      },
+      "default" : null
     },
     "pokemon_encounters" : {
       "type" : "array",
+      "readOnly" : true,
       "items" : {
         "$ref" : "#/components/schemas/PalParkAreaDetail_pokemon_encounters_inner"
-      }
+      },
+      "default" : null
     }
   }
 };
@@ -4840,9 +5069,11 @@ ul.nav-tabs {
     },
     "names" : {
       "type" : "array",
+      "readOnly" : true,
       "items" : {
         "$ref" : "#/components/schemas/PokeathlonStatName"
-      }
+      },
+      "default" : null
     }
   }
 };
@@ -4853,13 +5084,15 @@ ul.nav-tabs {
       "type" : "array",
       "items" : {
         "$ref" : "#/components/schemas/PokeathlonStatDetail_affecting_natures_decrease_inner"
-      }
+      },
+      "default" : null
     },
     "increase" : {
       "type" : "array",
       "items" : {
         "$ref" : "#/components/schemas/PokeathlonStatDetail_affecting_natures_increase_inner"
-      }
+      },
+      "default" : null
     }
   },
   "readOnly" : true
@@ -4944,30 +5177,38 @@ ul.nav-tabs {
     },
     "descriptions" : {
       "type" : "array",
+      "readOnly" : true,
       "items" : {
         "$ref" : "#/components/schemas/PokedexDescription"
-      }
+      },
+      "default" : null
     },
     "names" : {
       "type" : "array",
+      "readOnly" : true,
       "items" : {
         "$ref" : "#/components/schemas/PokedexName"
-      }
+      },
+      "default" : null
     },
     "pokemon_entries" : {
       "type" : "array",
+      "readOnly" : true,
       "items" : {
         "$ref" : "#/components/schemas/PokedexDetail_pokemon_entries_inner"
-      }
+      },
+      "default" : null
     },
     "region" : {
       "$ref" : "#/components/schemas/RegionSummary"
     },
     "version_groups" : {
       "type" : "array",
+      "readOnly" : true,
       "items" : {
         "$ref" : "#/components/schemas/AbilityDetail_pokemon_inner_pokemon"
-      }
+      },
+      "default" : null
     }
   }
 };
@@ -5022,15 +5263,19 @@ ul.nav-tabs {
     },
     "names" : {
       "type" : "array",
+      "readOnly" : true,
       "items" : {
         "$ref" : "#/components/schemas/PokemonColorName"
-      }
+      },
+      "default" : null
     },
     "pokemon_species" : {
       "type" : "array",
+      "readOnly" : true,
       "items" : {
         "$ref" : "#/components/schemas/PokemonSpeciesSummary"
-      }
+      },
+      "default" : null
     }
   }
 };
@@ -5092,27 +5337,35 @@ ul.nav-tabs {
     },
     "abilities" : {
       "type" : "array",
+      "readOnly" : true,
       "items" : {
         "$ref" : "#/components/schemas/PokemonDetail_abilities_inner"
-      }
+      },
+      "default" : null
     },
     "past_abilities" : {
       "type" : "array",
+      "readOnly" : true,
       "items" : {
         "$ref" : "#/components/schemas/PokemonDetail_past_abilities_inner"
-      }
+      },
+      "default" : null
     },
     "forms" : {
       "type" : "array",
+      "readOnly" : true,
       "items" : {
         "$ref" : "#/components/schemas/PokemonFormSummary"
-      }
+      },
+      "default" : null
     },
     "game_indices" : {
       "type" : "array",
+      "readOnly" : true,
       "items" : {
         "$ref" : "#/components/schemas/PokemonGameIndex"
-      }
+      },
+      "default" : null
     },
     "held_items" : {
       "$ref" : "#/components/schemas/PokemonDetail_held_items"
@@ -5123,9 +5376,11 @@ ul.nav-tabs {
     },
     "moves" : {
       "type" : "array",
+      "readOnly" : true,
       "items" : {
         "$ref" : "#/components/schemas/PokemonDetail_moves_inner"
-      }
+      },
+      "default" : null
     },
     "species" : {
       "$ref" : "#/components/schemas/PokemonSpeciesSummary"
@@ -5138,21 +5393,27 @@ ul.nav-tabs {
     },
     "stats" : {
       "type" : "array",
+      "readOnly" : true,
       "items" : {
         "$ref" : "#/components/schemas/PokemonStat"
-      }
+      },
+      "default" : null
     },
     "types" : {
       "type" : "array",
+      "readOnly" : true,
       "items" : {
         "$ref" : "#/components/schemas/PokemonDetail_types_inner"
-      }
+      },
+      "default" : null
     },
     "past_types" : {
       "type" : "array",
+      "readOnly" : true,
       "items" : {
         "$ref" : "#/components/schemas/PokemonDetail_past_types_inner"
-      }
+      },
+      "default" : null
     }
   }
 };
@@ -5195,7 +5456,8 @@ ul.nav-tabs {
       "type" : "array",
       "items" : {
         "$ref" : "#/components/schemas/ItemDetail_held_by_pokemon_inner_version_details_inner"
-      }
+      },
+      "default" : null
     }
   },
   "readOnly" : true
@@ -5210,7 +5472,8 @@ ul.nav-tabs {
       "type" : "array",
       "items" : {
         "$ref" : "#/components/schemas/PokemonDetail_moves_inner_version_group_details_inner"
-      }
+      },
+      "default" : null
     }
   }
 };
@@ -5236,7 +5499,8 @@ ul.nav-tabs {
       "type" : "array",
       "items" : {
         "$ref" : "#/components/schemas/PokemonDetail_abilities_inner"
-      }
+      },
+      "default" : null
     },
     "generation" : {
       "$ref" : "#/components/schemas/AbilityDetail_pokemon_inner_pokemon"
@@ -5253,7 +5517,8 @@ ul.nav-tabs {
       "type" : "array",
       "items" : {
         "$ref" : "#/components/schemas/PokemonDetail_types_inner"
-      }
+      },
+      "default" : null
     }
   }
 };
@@ -5337,21 +5602,27 @@ ul.nav-tabs {
     },
     "form_names" : {
       "type" : "array",
+      "readOnly" : true,
       "items" : {
         "$ref" : "#/components/schemas/PokemonFormDetail_form_names_inner"
-      }
+      },
+      "default" : null
     },
     "names" : {
       "type" : "array",
+      "readOnly" : true,
       "items" : {
         "$ref" : "#/components/schemas/PokemonFormDetail_form_names_inner"
-      }
+      },
+      "default" : null
     },
     "types" : {
       "type" : "array",
+      "readOnly" : true,
       "items" : {
         "$ref" : "#/components/schemas/PokemonDetail_types_inner"
-      }
+      },
+      "default" : null
     }
   }
 };
@@ -5417,15 +5688,19 @@ ul.nav-tabs {
     },
     "names" : {
       "type" : "array",
+      "readOnly" : true,
       "items" : {
         "$ref" : "#/components/schemas/PokemonHabitatName"
-      }
+      },
+      "default" : null
     },
     "pokemon_species" : {
       "type" : "array",
+      "readOnly" : true,
       "items" : {
         "$ref" : "#/components/schemas/PokemonSpeciesSummary"
-      }
+      },
+      "default" : null
     }
   }
 };
@@ -5468,21 +5743,27 @@ ul.nav-tabs {
     },
     "awesome_names" : {
       "type" : "array",
+      "readOnly" : true,
       "items" : {
         "$ref" : "#/components/schemas/PokemonShapeDetail_awesome_names_inner"
-      }
+      },
+      "default" : null
     },
     "names" : {
       "type" : "array",
+      "readOnly" : true,
       "items" : {
         "$ref" : "#/components/schemas/PokemonShapeDetail_names_inner"
-      }
+      },
+      "default" : null
     },
     "pokemon_species" : {
       "type" : "array",
+      "readOnly" : true,
       "items" : {
         "$ref" : "#/components/schemas/PokemonSpeciesSummary"
-      }
+      },
+      "default" : null
     }
   }
 };
@@ -5586,15 +5867,19 @@ ul.nav-tabs {
     },
     "pokedex_numbers" : {
       "type" : "array",
+      "readOnly" : true,
       "items" : {
         "$ref" : "#/components/schemas/PokemonDexEntry"
-      }
+      },
+      "default" : null
     },
     "egg_groups" : {
       "type" : "array",
+      "readOnly" : true,
       "items" : {
         "$ref" : "#/components/schemas/AbilityDetail_pokemon_inner_pokemon"
-      }
+      },
+      "default" : null
     },
     "color" : {
       "$ref" : "#/components/schemas/PokemonColorSummary"
@@ -5616,39 +5901,51 @@ ul.nav-tabs {
     },
     "names" : {
       "type" : "array",
+      "readOnly" : true,
       "items" : {
         "$ref" : "#/components/schemas/PokemonFormDetail_form_names_inner"
-      }
+      },
+      "default" : null
     },
     "pal_park_encounters" : {
       "type" : "array",
+      "readOnly" : true,
       "items" : {
         "$ref" : "#/components/schemas/PokemonSpeciesDetail_pal_park_encounters_inner"
-      }
+      },
+      "default" : null
     },
     "form_descriptions" : {
       "type" : "array",
+      "readOnly" : true,
       "items" : {
         "$ref" : "#/components/schemas/PokemonSpeciesDescription"
-      }
+      },
+      "default" : null
     },
     "flavor_text_entries" : {
       "type" : "array",
+      "readOnly" : true,
       "items" : {
         "$ref" : "#/components/schemas/PokemonSpeciesFlavorText"
-      }
+      },
+      "default" : null
     },
     "genera" : {
       "type" : "array",
+      "readOnly" : true,
       "items" : {
         "$ref" : "#/components/schemas/PokemonSpeciesDetail_genera_inner"
-      }
+      },
+      "default" : null
     },
     "varieties" : {
       "type" : "array",
+      "readOnly" : true,
       "items" : {
         "$ref" : "#/components/schemas/PokemonSpeciesDetail_varieties_inner"
-      }
+      },
+      "default" : null
     }
   }
 };
@@ -5759,9 +6056,11 @@ ul.nav-tabs {
     },
     "locations" : {
       "type" : "array",
+      "readOnly" : true,
       "items" : {
         "$ref" : "#/components/schemas/LocationSummary"
-      }
+      },
+      "default" : null
     },
     "main_generation" : {
       "readOnly" : true,
@@ -5771,21 +6070,27 @@ ul.nav-tabs {
     },
     "names" : {
       "type" : "array",
+      "readOnly" : true,
       "items" : {
         "$ref" : "#/components/schemas/RegionName"
-      }
+      },
+      "default" : null
     },
     "pokedexes" : {
       "type" : "array",
+      "readOnly" : true,
       "items" : {
         "$ref" : "#/components/schemas/PokedexSummary"
-      }
+      },
+      "default" : null
     },
     "version_groups" : {
       "type" : "array",
+      "readOnly" : true,
       "items" : {
         "$ref" : "#/components/schemas/AbilityDetail_pokemon_inner_pokemon"
-      }
+      },
+      "default" : null
     }
   }
 };
@@ -5840,18 +6145,22 @@ ul.nav-tabs {
     },
     "characteristics" : {
       "type" : "array",
+      "readOnly" : true,
       "items" : {
         "$ref" : "#/components/schemas/CharacteristicSummary"
-      }
+      },
+      "default" : null
     },
     "move_damage_class" : {
       "$ref" : "#/components/schemas/MoveDamageClassSummary"
     },
     "names" : {
       "type" : "array",
+      "readOnly" : true,
       "items" : {
         "$ref" : "#/components/schemas/StatName"
-      }
+      },
+      "default" : null
     }
   }
 };
@@ -5862,13 +6171,15 @@ ul.nav-tabs {
       "type" : "array",
       "items" : {
         "$ref" : "#/components/schemas/StatDetail_affecting_moves_increase_inner"
-      }
+      },
+      "default" : null
     },
     "decrease" : {
       "type" : "array",
       "items" : {
         "$ref" : "#/components/schemas/StatDetail_affecting_moves_increase_inner"
-      }
+      },
+      "default" : null
     }
   },
   "readOnly" : true
@@ -5892,13 +6203,15 @@ ul.nav-tabs {
       "type" : "array",
       "items" : {
         "$ref" : "#/components/schemas/AbilityDetail_pokemon_inner_pokemon"
-      }
+      },
+      "default" : null
     },
     "decrease" : {
       "type" : "array",
       "items" : {
         "$ref" : "#/components/schemas/AbilityDetail_pokemon_inner_pokemon"
-      }
+      },
+      "default" : null
     }
   },
   "readOnly" : true
@@ -5941,15 +6254,19 @@ ul.nav-tabs {
     },
     "flavor_text_entries" : {
       "type" : "array",
+      "readOnly" : true,
       "items" : {
         "$ref" : "#/components/schemas/SuperContestEffectFlavorText"
-      }
+      },
+      "default" : null
     },
     "moves" : {
       "type" : "array",
+      "readOnly" : true,
       "items" : {
         "$ref" : "#/components/schemas/MoveSummary"
-      }
+      },
+      "default" : null
     }
   }
 };
@@ -5991,15 +6308,19 @@ ul.nav-tabs {
     },
     "past_damage_relations" : {
       "type" : "array",
+      "readOnly" : true,
       "items" : {
         "$ref" : "#/components/schemas/TypeDetail_past_damage_relations_inner"
-      }
+      },
+      "default" : null
     },
     "game_indices" : {
       "type" : "array",
+      "readOnly" : true,
       "items" : {
         "$ref" : "#/components/schemas/TypeGameIndex"
-      }
+      },
+      "default" : null
     },
     "generation" : {
       "$ref" : "#/components/schemas/GenerationSummary"
@@ -6009,21 +6330,27 @@ ul.nav-tabs {
     },
     "names" : {
       "type" : "array",
+      "readOnly" : true,
       "items" : {
         "$ref" : "#/components/schemas/AbilityName"
-      }
+      },
+      "default" : null
     },
     "pokemon" : {
       "type" : "array",
+      "readOnly" : true,
       "items" : {
         "$ref" : "#/components/schemas/TypeDetail_pokemon_inner"
-      }
+      },
+      "default" : null
     },
     "moves" : {
       "type" : "array",
+      "readOnly" : true,
       "items" : {
         "$ref" : "#/components/schemas/MoveSummary"
-      }
+      },
+      "default" : null
     },
     "sprites" : {
       "additionalProperties" : {
@@ -6043,37 +6370,43 @@ ul.nav-tabs {
       "type" : "array",
       "items" : {
         "$ref" : "#/components/schemas/AbilityDetail_pokemon_inner_pokemon"
-      }
+      },
+      "default" : null
     },
     "half_damage_to" : {
       "type" : "array",
       "items" : {
         "$ref" : "#/components/schemas/AbilityDetail_pokemon_inner_pokemon"
-      }
+      },
+      "default" : null
     },
     "double_damage_to" : {
       "type" : "array",
       "items" : {
         "$ref" : "#/components/schemas/AbilityDetail_pokemon_inner_pokemon"
-      }
+      },
+      "default" : null
     },
     "no_damage_from" : {
       "type" : "array",
       "items" : {
         "$ref" : "#/components/schemas/AbilityDetail_pokemon_inner_pokemon"
-      }
+      },
+      "default" : null
     },
     "half_damage_from" : {
       "type" : "array",
       "items" : {
         "$ref" : "#/components/schemas/AbilityDetail_pokemon_inner_pokemon"
-      }
+      },
+      "default" : null
     },
     "double_damage_from" : {
       "type" : "array",
       "items" : {
         "$ref" : "#/components/schemas/AbilityDetail_pokemon_inner_pokemon"
-      }
+      },
+      "default" : null
     }
   },
   "readOnly" : true
@@ -6096,37 +6429,43 @@ ul.nav-tabs {
       "type" : "array",
       "items" : {
         "$ref" : "#/components/schemas/AbilityDetail_pokemon_inner_pokemon"
-      }
+      },
+      "default" : null
     },
     "half_damage_to" : {
       "type" : "array",
       "items" : {
         "$ref" : "#/components/schemas/AbilityDetail_pokemon_inner_pokemon"
-      }
+      },
+      "default" : null
     },
     "double_damage_to" : {
       "type" : "array",
       "items" : {
         "$ref" : "#/components/schemas/AbilityDetail_pokemon_inner_pokemon"
-      }
+      },
+      "default" : null
     },
     "no_damage_from" : {
       "type" : "array",
       "items" : {
         "$ref" : "#/components/schemas/AbilityDetail_pokemon_inner_pokemon"
-      }
+      },
+      "default" : null
     },
     "half_damage_from" : {
       "type" : "array",
       "items" : {
         "$ref" : "#/components/schemas/AbilityDetail_pokemon_inner_pokemon"
-      }
+      },
+      "default" : null
     },
     "double_damage_from" : {
       "type" : "array",
       "items" : {
         "$ref" : "#/components/schemas/AbilityDetail_pokemon_inner_pokemon"
-      }
+      },
+      "default" : null
     }
   }
 };
@@ -6200,9 +6539,11 @@ ul.nav-tabs {
     },
     "names" : {
       "type" : "array",
+      "readOnly" : true,
       "items" : {
         "$ref" : "#/components/schemas/VersionName"
-      }
+      },
+      "default" : null
     },
     "version_group" : {
       "$ref" : "#/components/schemas/VersionGroupSummary"
@@ -6230,27 +6571,35 @@ ul.nav-tabs {
     },
     "move_learn_methods" : {
       "type" : "array",
+      "readOnly" : true,
       "items" : {
         "$ref" : "#/components/schemas/AbilityDetail_pokemon_inner_pokemon"
-      }
+      },
+      "default" : null
     },
     "pokedexes" : {
       "type" : "array",
+      "readOnly" : true,
       "items" : {
         "$ref" : "#/components/schemas/AbilityDetail_pokemon_inner_pokemon"
-      }
+      },
+      "default" : null
     },
     "regions" : {
       "type" : "array",
+      "readOnly" : true,
       "items" : {
         "$ref" : "#/components/schemas/AbilityDetail_pokemon_inner_pokemon"
-      }
+      },
+      "default" : null
     },
     "versions" : {
       "type" : "array",
+      "readOnly" : true,
       "items" : {
         "$ref" : "#/components/schemas/VersionSummary"
-      }
+      },
+      "default" : null
     }
   }
 };

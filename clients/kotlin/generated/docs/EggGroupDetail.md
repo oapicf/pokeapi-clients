@@ -6,8 +6,8 @@
 | ------------ | ------------- | ------------- | ------------- |
 | **id** | **kotlin.Int** |  |  [readonly] |
 | **name** | **kotlin.String** |  |  |
-| **names** | [**kotlin.collections.List&lt;EggGroupName&gt;**](EggGroupName.md) |  |  |
-| **pokemonSpecies** | [**kotlin.collections.List&lt;EggGroupDetailPokemonSpeciesInner&gt;**](EggGroupDetailPokemonSpeciesInner.md) |  |  |
+| **names** | [**kotlin.collections.List&lt;EggGroupName&gt;**](EggGroupName.md) |  |  [readonly] |
+| **pokemonSpecies** | [**kotlin.collections.List&lt;EggGroupDetailPokemonSpeciesInner&gt;**](EggGroupDetailPokemonSpeciesInner.md) |  |  [readonly] |
 
 
 

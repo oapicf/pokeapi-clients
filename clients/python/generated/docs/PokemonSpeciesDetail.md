@@ -18,20 +18,20 @@ Name | Type | Description | Notes
 **has_gender_differences** | **bool** |  | [optional] 
 **forms_switchable** | **bool** |  | [optional] 
 **growth_rate** | [**GrowthRateSummary**](GrowthRateSummary.md) |  | 
-**pokedex_numbers** | [**List[PokemonDexEntry]**](PokemonDexEntry.md) |  | 
-**egg_groups** | [**List[AbilityDetailPokemonInnerPokemon]**](AbilityDetailPokemonInnerPokemon.md) |  | 
+**pokedex_numbers** | [**List[PokemonDexEntry]**](PokemonDexEntry.md) |  | [readonly] 
+**egg_groups** | [**List[AbilityDetailPokemonInnerPokemon]**](AbilityDetailPokemonInnerPokemon.md) |  | [readonly] 
 **color** | [**PokemonColorSummary**](PokemonColorSummary.md) |  | 
 **shape** | [**PokemonShapeSummary**](PokemonShapeSummary.md) |  | 
 **evolves_from_species** | [**PokemonSpeciesSummary**](PokemonSpeciesSummary.md) |  | 
 **evolution_chain** | [**EvolutionChainSummary**](EvolutionChainSummary.md) |  | 
 **habitat** | [**PokemonHabitatSummary**](PokemonHabitatSummary.md) |  | 
 **generation** | [**GenerationSummary**](GenerationSummary.md) |  | 
-**names** | [**List[PokemonFormDetailFormNamesInner]**](PokemonFormDetailFormNamesInner.md) |  | 
-**pal_park_encounters** | [**List[PokemonSpeciesDetailPalParkEncountersInner]**](PokemonSpeciesDetailPalParkEncountersInner.md) |  | 
-**form_descriptions** | [**List[PokemonSpeciesDescription]**](PokemonSpeciesDescription.md) |  | 
-**flavor_text_entries** | [**List[PokemonSpeciesFlavorText]**](PokemonSpeciesFlavorText.md) |  | 
-**genera** | [**List[PokemonSpeciesDetailGeneraInner]**](PokemonSpeciesDetailGeneraInner.md) |  | 
-**varieties** | [**List[PokemonSpeciesDetailVarietiesInner]**](PokemonSpeciesDetailVarietiesInner.md) |  | 
+**names** | [**List[PokemonFormDetailFormNamesInner]**](PokemonFormDetailFormNamesInner.md) |  | [readonly] 
+**pal_park_encounters** | [**List[PokemonSpeciesDetailPalParkEncountersInner]**](PokemonSpeciesDetailPalParkEncountersInner.md) |  | [readonly] 
+**form_descriptions** | [**List[PokemonSpeciesDescription]**](PokemonSpeciesDescription.md) |  | [readonly] 
+**flavor_text_entries** | [**List[PokemonSpeciesFlavorText]**](PokemonSpeciesFlavorText.md) |  | [readonly] 
+**genera** | [**List[PokemonSpeciesDetailGeneraInner]**](PokemonSpeciesDetailGeneraInner.md) |  | [readonly] 
+**varieties** | [**List[PokemonSpeciesDetailVarietiesInner]**](PokemonSpeciesDetailVarietiesInner.md) |  | [readonly] 
 
 ## Example
 

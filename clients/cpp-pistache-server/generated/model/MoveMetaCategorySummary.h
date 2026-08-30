@@ -32,7 +32,7 @@ class  MoveMetaCategorySummary
 {
 public:
     MoveMetaCategorySummary();
-    virtual ~MoveMetaCategorySummary() = default;
+    virtual ~MoveMetaCategorySummary();
 
 
     /// <summary>

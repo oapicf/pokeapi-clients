@@ -95,8 +95,18 @@ namespace Org.OpenAPITools.Model
     /// <summary>
     /// A Json converter for type <see cref="PokemonSpeciesFlavorText" />
     /// </summary>
-    public class PokemonSpeciesFlavorTextJsonConverter : JsonConverter<PokemonSpeciesFlavorText>
+    public partial class PokemonSpeciesFlavorTextJsonConverter : JsonConverter<PokemonSpeciesFlavorText>
     {
+        partial void OnCreated();
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="PokemonSpeciesFlavorTextJsonConverter" /> class.
+        /// </summary>
+        public PokemonSpeciesFlavorTextJsonConverter()
+        {
+            OnCreated();
+        }
+
         /// <summary>
         /// Deserializes json to <see cref="PokemonSpeciesFlavorText" />
         /// </summary>

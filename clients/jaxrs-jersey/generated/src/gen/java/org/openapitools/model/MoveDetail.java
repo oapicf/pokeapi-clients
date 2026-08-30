@@ -71,7 +71,7 @@ import javax.validation.Valid;
   MoveDetail.JSON_PROPERTY_FLAVOR_TEXT_ENTRIES,
   MoveDetail.JSON_PROPERTY_LEARNED_BY_POKEMON
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJerseyServerCodegen", date = "2026-02-07T15:23:51.865177194Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJerseyServerCodegen", date = "2026-08-30T01:56:28.710233113Z[Etc/UTC]", comments = "Generator version: 7.24.0")
 public class MoveDetail   {
   public static final String JSON_PROPERTY_ID = "id";
   @JsonProperty(JSON_PROPERTY_ID)
@@ -406,9 +406,9 @@ public class MoveDetail   {
    * Get effectEntries
    * @return effectEntries
    **/
-  @JsonProperty(value = "effect_entries")
+  @JsonProperty(value = "effect_entries", access = JsonProperty.Access.READ_ONLY)
   @ApiModelProperty(required = true, value = "")
-  @NotNull @Valid 
+  @Valid 
   public List<@Valid MoveChangeEffectEntriesInner> getEffectEntries() {
     return effectEntries;
   }
@@ -434,9 +434,9 @@ public class MoveDetail   {
    * Get effectChanges
    * @return effectChanges
    **/
-  @JsonProperty(value = "effect_changes")
+  @JsonProperty(value = "effect_changes", access = JsonProperty.Access.READ_ONLY)
   @ApiModelProperty(required = true, value = "")
-  @NotNull @Valid 
+  @Valid 
   public List<@Valid MoveDetailEffectChangesInner> getEffectChanges() {
     return effectChanges;
   }
@@ -502,9 +502,9 @@ public class MoveDetail   {
    * Get names
    * @return names
    **/
-  @JsonProperty(value = "names")
+  @JsonProperty(value = "names", access = JsonProperty.Access.READ_ONLY)
   @ApiModelProperty(required = true, value = "")
-  @NotNull @Valid 
+  @Valid 
   public List<@Valid MoveName> getNames() {
     return names;
   }
@@ -530,9 +530,9 @@ public class MoveDetail   {
    * Get pastValues
    * @return pastValues
    **/
-  @JsonProperty(value = "past_values")
+  @JsonProperty(value = "past_values", access = JsonProperty.Access.READ_ONLY)
   @ApiModelProperty(required = true, value = "")
-  @NotNull @Valid 
+  @Valid 
   public List<@Valid MoveChange> getPastValues() {
     return pastValues;
   }
@@ -558,9 +558,9 @@ public class MoveDetail   {
    * Get statChanges
    * @return statChanges
    **/
-  @JsonProperty(value = "stat_changes")
+  @JsonProperty(value = "stat_changes", access = JsonProperty.Access.READ_ONLY)
   @ApiModelProperty(required = true, value = "")
-  @NotNull @Valid 
+  @Valid 
   public List<@Valid MoveDetailStatChangesInner> getStatChanges() {
     return statChanges;
   }
@@ -646,9 +646,9 @@ public class MoveDetail   {
    * Get machines
    * @return machines
    **/
-  @JsonProperty(value = "machines")
+  @JsonProperty(value = "machines", access = JsonProperty.Access.READ_ONLY)
   @ApiModelProperty(required = true, value = "")
-  @NotNull @Valid 
+  @Valid 
   public List<@Valid MoveDetailMachinesInner> getMachines() {
     return machines;
   }
@@ -674,9 +674,9 @@ public class MoveDetail   {
    * Get flavorTextEntries
    * @return flavorTextEntries
    **/
-  @JsonProperty(value = "flavor_text_entries")
+  @JsonProperty(value = "flavor_text_entries", access = JsonProperty.Access.READ_ONLY)
   @ApiModelProperty(required = true, value = "")
-  @NotNull @Valid 
+  @Valid 
   public List<@Valid MoveFlavorText> getFlavorTextEntries() {
     return flavorTextEntries;
   }
@@ -702,9 +702,9 @@ public class MoveDetail   {
    * Get learnedByPokemon
    * @return learnedByPokemon
    **/
-  @JsonProperty(value = "learned_by_pokemon")
+  @JsonProperty(value = "learned_by_pokemon", access = JsonProperty.Access.READ_ONLY)
   @ApiModelProperty(required = true, value = "")
-  @NotNull @Valid 
+  @Valid 
   public List<@Valid AbilityDetailPokemonInnerPokemon> getLearnedByPokemon() {
     return learnedByPokemon;
   }
@@ -792,10 +792,7 @@ public class MoveDetail   {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 }
 

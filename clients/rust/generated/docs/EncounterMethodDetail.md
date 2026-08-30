@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 **id** | **i32** |  | [readonly]
 **name** | **String** |  | 
 **order** | Option<**i32**> |  | [optional]
-**names** | [**Vec<models::EncounterMethodName>**](EncounterMethodName.md) |  | 
+**names** | [**Vec<models::EncounterMethodName>**](EncounterMethodName.md) |  | [readonly]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

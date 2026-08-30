@@ -10,9 +10,9 @@ Name | Mapping | SQL Type | Default | Type | Description | Notes
 **gameIndex** | game_index | int NOT NULL |  | **kotlin.Int** |  | 
 **affectingMoves** | affecting_moves | long NOT NULL |  | [**StatDetailAffectingMoves**](StatDetailAffectingMoves.md) |  |  [foreignkey]
 **affectingNatures** | affecting_natures | long NOT NULL |  | [**StatDetailAffectingNatures**](StatDetailAffectingNatures.md) |  |  [foreignkey]
-**characteristics** | `One-To-Many` | `----` | `----`  | [**kotlin.Array&lt;CharacteristicSummary&gt;**](CharacteristicSummary.md) |  | 
+**characteristics** | `One-To-Many` | `----` | `----`  | [**kotlin.Array&lt;CharacteristicSummary&gt;**](CharacteristicSummary.md) |  |  [readonly]
 **moveDamageClass** | move_damage_class | long NOT NULL |  | [**MoveDamageClassSummary**](MoveDamageClassSummary.md) |  |  [foreignkey]
-**names** | `One-To-Many` | `----` | `----`  | [**kotlin.Array&lt;StatName&gt;**](StatName.md) |  | 
+**names** | `One-To-Many` | `----` | `----`  | [**kotlin.Array&lt;StatName&gt;**](StatName.md) |  |  [readonly]
 **isBattleOnly** | is_battle_only | boolean |  | **kotlin.Boolean** |  |  [optional]
 
 

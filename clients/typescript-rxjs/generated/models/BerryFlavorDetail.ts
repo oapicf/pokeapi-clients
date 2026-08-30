@@ -36,7 +36,7 @@ export interface BerryFlavorDetail {
      * @type {Array<BerryFlavorDetailBerriesInner>}
      * @memberof BerryFlavorDetail
      */
-    berries: Array<BerryFlavorDetailBerriesInner>;
+    readonly berries: Array<BerryFlavorDetailBerriesInner>;
     /**
      * @type {ContestTypeSummary}
      * @memberof BerryFlavorDetail
@@ -46,5 +46,5 @@ export interface BerryFlavorDetail {
      * @type {Array<BerryFlavorName>}
      * @memberof BerryFlavorDetail
      */
-    names: Array<BerryFlavorName>;
+    readonly names: Array<BerryFlavorName>;
 }

@@ -65,10 +65,14 @@ class PokemonHabitatDetail {
       // Note 1: the values aren't checked for validity beyond being non-null.
       // Note 2: this code is stripped in release mode!
       assert(() {
-        requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "PokemonHabitatDetail[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "PokemonHabitatDetail[$key]" has a null value in JSON.');
-        });
+        assert(json.containsKey(r'id'), 'Required key "PokemonHabitatDetail[id]" is missing from JSON.');
+        assert(json[r'id'] != null, 'Required key "PokemonHabitatDetail[id]" has a null value in JSON.');
+        assert(json.containsKey(r'name'), 'Required key "PokemonHabitatDetail[name]" is missing from JSON.');
+        assert(json[r'name'] != null, 'Required key "PokemonHabitatDetail[name]" has a null value in JSON.');
+        assert(json.containsKey(r'names'), 'Required key "PokemonHabitatDetail[names]" is missing from JSON.');
+        assert(json[r'names'] != null, 'Required key "PokemonHabitatDetail[names]" has a null value in JSON.');
+        assert(json.containsKey(r'pokemon_species'), 'Required key "PokemonHabitatDetail[pokemon_species]" is missing from JSON.');
+        assert(json[r'pokemon_species'] != null, 'Required key "PokemonHabitatDetail[pokemon_species]" has a null value in JSON.');
         return true;
       }());
 

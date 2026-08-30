@@ -81,13 +81,36 @@ ItemFlavorText <- R6::R6Class(
       }
       if (!is.null(self$`version_group`)) {
         ItemFlavorTextObject[["version_group"]] <-
-          self$`version_group`$toSimpleType()
+          self$extractSimpleType(self$`version_group`)
       }
       if (!is.null(self$`language`)) {
         ItemFlavorTextObject[["language"]] <-
-          self$`language`$toSimpleType()
+          self$extractSimpleType(self$`language`)
       }
       return(ItemFlavorTextObject)
+    },
+
+    extractSimpleType = function(x) {
+      if (R6::is.R6(x)) {
+        return(x$toSimpleType())
+      } else if (!self$hasNestedR6(x)) {
+        return(x)
+      }
+      lapply(x, self$extractSimpleType)
+    },
+
+    hasNestedR6 = function(x) {
+      if (R6::is.R6(x)) {
+        return(TRUE)
+      }
+      if (is.list(x)) {
+        for (item in x) {
+          if (self$hasNestedR6(item)) {
+            return(TRUE)
+          }
+        }
+      }
+      FALSE
     },
 
     #' @description

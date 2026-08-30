@@ -25,6 +25,8 @@ MoveDetail_stat_changes_inner::MoveDetail_stat_changes_inner()
     
 }
 
+MoveDetail_stat_changes_inner::~MoveDetail_stat_changes_inner() = default;
+
 void MoveDetail_stat_changes_inner::validate() const
 {
     std::stringstream msg;

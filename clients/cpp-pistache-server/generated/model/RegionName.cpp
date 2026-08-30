@@ -25,6 +25,8 @@ RegionName::RegionName()
     
 }
 
+RegionName::~RegionName() = default;
+
 void RegionName::validate() const
 {
     std::stringstream msg;

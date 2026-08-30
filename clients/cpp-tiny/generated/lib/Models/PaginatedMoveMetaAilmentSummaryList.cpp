@@ -144,7 +144,7 @@ PaginatedMoveMetaAilmentSummaryList::getCount()
 }
 
 void
-PaginatedMoveMetaAilmentSummaryList::setCount(int  count)
+PaginatedMoveMetaAilmentSummaryList::setCount(int count)
 {
 	this->count = count;
 }
@@ -156,7 +156,7 @@ PaginatedMoveMetaAilmentSummaryList::getNext()
 }
 
 void
-PaginatedMoveMetaAilmentSummaryList::setNext(std::string  next)
+PaginatedMoveMetaAilmentSummaryList::setNext(std::string next)
 {
 	this->next = next;
 }
@@ -168,7 +168,7 @@ PaginatedMoveMetaAilmentSummaryList::getPrevious()
 }
 
 void
-PaginatedMoveMetaAilmentSummaryList::setPrevious(std::string  previous)
+PaginatedMoveMetaAilmentSummaryList::setPrevious(std::string previous)
 {
 	this->previous = previous;
 }
@@ -180,7 +180,7 @@ PaginatedMoveMetaAilmentSummaryList::getResults()
 }
 
 void
-PaginatedMoveMetaAilmentSummaryList::setResults(std::list <MoveMetaAilmentSummary> results)
+PaginatedMoveMetaAilmentSummaryList::setResults(std::list<MoveMetaAilmentSummary> results)
 {
 	this->results = results;
 }

@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 **Id** | **Int32** |  | [readonly] 
 **Name** | **String** |  | 
 **Order** | **Int32** |  | [optional] 
-**Names** | [**EncounterMethodName[]**](EncounterMethodName.md) |  | 
+**Names** | [**EncounterMethodName[]**](EncounterMethodName.md) |  | [readonly] 
 
 ## Examples
 

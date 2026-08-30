@@ -2,6 +2,7 @@ package org.openapitools.model;
 
 import java.net.URI;
 import java.util.Objects;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import java.util.ArrayList;
@@ -23,56 +24,51 @@ import org.springframework.lang.Nullable;
 import java.util.NoSuchElementException;
 import org.openapitools.jackson.nullable.JsonNullable;
 import java.time.OffsetDateTime;
-import javax.validation.Valid;
-import javax.validation.constraints.*;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.*;
 import io.swagger.v3.oas.annotations.media.Schema;
 
 
 import java.util.*;
-import javax.annotation.Generated;
+import jakarta.annotation.Generated;
 
 /**
  * ItemDetail
  */
 
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2026-02-07T15:29:13.146999890Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2026-08-30T02:00:43.960184425Z[Etc/UTC]", comments = "Generator version: 7.24.0")
 public class ItemDetail {
 
   private Integer id;
 
   private String name;
 
+  @JsonInclude(JsonInclude.Include.NON_ABSENT)
   private JsonNullable<Integer> cost = JsonNullable.<Integer>undefined();
 
+  @JsonInclude(JsonInclude.Include.NON_ABSENT)
   private JsonNullable<Integer> flingPower = JsonNullable.<Integer>undefined();
 
   private ItemFlingEffectSummary flingEffect;
 
-  @Valid
   private List<@Valid AbilityDetailPokemonInnerPokemon> attributes = new ArrayList<>();
 
   private ItemCategorySummary category;
 
-  @Valid
   private List<@Valid ItemEffectText> effectEntries = new ArrayList<>();
 
-  @Valid
   private List<@Valid ItemFlavorText> flavorTextEntries = new ArrayList<>();
 
-  @Valid
   private List<@Valid ItemGameIndex> gameIndices = new ArrayList<>();
 
-  @Valid
   private List<@Valid ItemName> names = new ArrayList<>();
 
-  @Valid
   private List<@Valid ItemDetailHeldByPokemonInner> heldByPokemon = new ArrayList<>();
 
   private ItemDetailSprites sprites;
 
   private ItemDetailBabyTriggerFor babyTriggerFor;
 
-  @Valid
   private List<@Valid ItemDetailMachinesInner> machines = new ArrayList<>();
 
   public ItemDetail() {
@@ -114,6 +110,7 @@ public class ItemDetail {
     return id;
   }
 
+  @JsonProperty("id")
   public void setId(Integer id) {
     this.id = id;
   }
@@ -134,6 +131,7 @@ public class ItemDetail {
     return name;
   }
 
+  @JsonProperty("name")
   public void setName(String name) {
     this.name = name;
   }
@@ -194,6 +192,7 @@ public class ItemDetail {
     return flingEffect;
   }
 
+  @JsonProperty("fling_effect")
   public void setFlingEffect(ItemFlingEffectSummary flingEffect) {
     this.flingEffect = flingEffect;
   }
@@ -215,13 +214,14 @@ public class ItemDetail {
    * Get attributes
    * @return attributes
    */
-  @NotNull @Valid 
-  @Schema(name = "attributes", requiredMode = Schema.RequiredMode.REQUIRED)
+  @Valid 
+  @Schema(name = "attributes", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("attributes")
   public List<@Valid AbilityDetailPokemonInnerPokemon> getAttributes() {
     return attributes;
   }
 
+  @JsonProperty("attributes")
   public void setAttributes(List<@Valid AbilityDetailPokemonInnerPokemon> attributes) {
     this.attributes = attributes;
   }
@@ -242,6 +242,7 @@ public class ItemDetail {
     return category;
   }
 
+  @JsonProperty("category")
   public void setCategory(ItemCategorySummary category) {
     this.category = category;
   }
@@ -263,13 +264,14 @@ public class ItemDetail {
    * Get effectEntries
    * @return effectEntries
    */
-  @NotNull @Valid 
-  @Schema(name = "effect_entries", requiredMode = Schema.RequiredMode.REQUIRED)
+  @Valid 
+  @Schema(name = "effect_entries", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("effect_entries")
   public List<@Valid ItemEffectText> getEffectEntries() {
     return effectEntries;
   }
 
+  @JsonProperty("effect_entries")
   public void setEffectEntries(List<@Valid ItemEffectText> effectEntries) {
     this.effectEntries = effectEntries;
   }
@@ -291,13 +293,14 @@ public class ItemDetail {
    * Get flavorTextEntries
    * @return flavorTextEntries
    */
-  @NotNull @Valid 
-  @Schema(name = "flavor_text_entries", requiredMode = Schema.RequiredMode.REQUIRED)
+  @Valid 
+  @Schema(name = "flavor_text_entries", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("flavor_text_entries")
   public List<@Valid ItemFlavorText> getFlavorTextEntries() {
     return flavorTextEntries;
   }
 
+  @JsonProperty("flavor_text_entries")
   public void setFlavorTextEntries(List<@Valid ItemFlavorText> flavorTextEntries) {
     this.flavorTextEntries = flavorTextEntries;
   }
@@ -319,13 +322,14 @@ public class ItemDetail {
    * Get gameIndices
    * @return gameIndices
    */
-  @NotNull @Valid 
-  @Schema(name = "game_indices", requiredMode = Schema.RequiredMode.REQUIRED)
+  @Valid 
+  @Schema(name = "game_indices", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("game_indices")
   public List<@Valid ItemGameIndex> getGameIndices() {
     return gameIndices;
   }
 
+  @JsonProperty("game_indices")
   public void setGameIndices(List<@Valid ItemGameIndex> gameIndices) {
     this.gameIndices = gameIndices;
   }
@@ -347,13 +351,14 @@ public class ItemDetail {
    * Get names
    * @return names
    */
-  @NotNull @Valid 
-  @Schema(name = "names", requiredMode = Schema.RequiredMode.REQUIRED)
+  @Valid 
+  @Schema(name = "names", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("names")
   public List<@Valid ItemName> getNames() {
     return names;
   }
 
+  @JsonProperty("names")
   public void setNames(List<@Valid ItemName> names) {
     this.names = names;
   }
@@ -375,13 +380,14 @@ public class ItemDetail {
    * Get heldByPokemon
    * @return heldByPokemon
    */
-  @NotNull @Valid 
-  @Schema(name = "held_by_pokemon", requiredMode = Schema.RequiredMode.REQUIRED)
+  @Valid 
+  @Schema(name = "held_by_pokemon", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("held_by_pokemon")
   public List<@Valid ItemDetailHeldByPokemonInner> getHeldByPokemon() {
     return heldByPokemon;
   }
 
+  @JsonProperty("held_by_pokemon")
   public void setHeldByPokemon(List<@Valid ItemDetailHeldByPokemonInner> heldByPokemon) {
     this.heldByPokemon = heldByPokemon;
   }
@@ -402,6 +408,7 @@ public class ItemDetail {
     return sprites;
   }
 
+  @JsonProperty("sprites")
   public void setSprites(ItemDetailSprites sprites) {
     this.sprites = sprites;
   }
@@ -422,6 +429,7 @@ public class ItemDetail {
     return babyTriggerFor;
   }
 
+  @JsonProperty("baby_trigger_for")
   public void setBabyTriggerFor(ItemDetailBabyTriggerFor babyTriggerFor) {
     this.babyTriggerFor = babyTriggerFor;
   }
@@ -443,13 +451,14 @@ public class ItemDetail {
    * Get machines
    * @return machines
    */
-  @NotNull @Valid 
-  @Schema(name = "machines", requiredMode = Schema.RequiredMode.REQUIRED)
+  @Valid 
+  @Schema(name = "machines", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("machines")
   public List<@Valid ItemDetailMachinesInner> getMachines() {
     return machines;
   }
 
+  @JsonProperty("machines")
   public void setMachines(List<@Valid ItemDetailMachinesInner> machines) {
     this.machines = machines;
   }
@@ -523,11 +532,8 @@ public class ItemDetail {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+  private String toIndentedString(@Nullable Object o) {
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 }
 

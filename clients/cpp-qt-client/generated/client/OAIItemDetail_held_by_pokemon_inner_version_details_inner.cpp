@@ -21,7 +21,7 @@
 
 namespace OpenAPI {
 
-OAIItemDetail_held_by_pokemon_inner_version_details_inner::OAIItemDetail_held_by_pokemon_inner_version_details_inner(QString json) {
+OAIItemDetail_held_by_pokemon_inner_version_details_inner::OAIItemDetail_held_by_pokemon_inner_version_details_inner(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -41,7 +41,7 @@ void OAIItemDetail_held_by_pokemon_inner_version_details_inner::initializeModel(
     m_version_isValid = false;
 }
 
-void OAIItemDetail_held_by_pokemon_inner_version_details_inner::fromJson(QString jsonString) {
+void OAIItemDetail_held_by_pokemon_inner_version_details_inner::fromJson(const QString &jsonString) {
     QByteArray array(jsonString.toStdString().c_str());
     QJsonDocument doc = QJsonDocument::fromJson(array);
     QJsonObject jsonObject = doc.object();

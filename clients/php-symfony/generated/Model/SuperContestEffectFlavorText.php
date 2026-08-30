@@ -47,7 +47,7 @@ class SuperContestEffectFlavorText
      * @var string|null
      * @SerializedName("flavor_text")
      * @Type("string")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Type("string")]
     #[Assert\Length(max: 500)]
@@ -57,7 +57,7 @@ class SuperContestEffectFlavorText
      * @var LanguageSummary|null
      * @SerializedName("language")
      * @Type("OpenAPI\Server\Model\LanguageSummary")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Valid]
     #[Assert\Type("OpenAPI\Server\Model\LanguageSummary")]
@@ -86,12 +86,12 @@ class SuperContestEffectFlavorText
     }
 
     /**
-    * Sets flavorText.
-    *
-    * @param string|null $flavorText
-    *
-    * @return $this
-    */
+     * Sets flavorText.
+     *
+     * @param string|null $flavorText
+     *
+     * @return $this
+     */
     public function setFlavorText(?string $flavorText): self
     {
         $this->flavorText = $flavorText;
@@ -113,12 +113,12 @@ class SuperContestEffectFlavorText
     }
 
     /**
-    * Sets language.
-    *
-    * @param LanguageSummary|null $language
-    *
-    * @return $this
-    */
+     * Sets language.
+     *
+     * @param LanguageSummary|null $language
+     *
+     * @return $this
+     */
     public function setLanguage(?LanguageSummary $language): self
     {
         $this->language = $language;

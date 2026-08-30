@@ -86,7 +86,7 @@ PokemonDetail_types_inner::getSlot()
 }
 
 void
-PokemonDetail_types_inner::setSlot(int  slot)
+PokemonDetail_types_inner::setSlot(int slot)
 {
 	this->slot = slot;
 }
@@ -98,7 +98,7 @@ PokemonDetail_types_inner::getType()
 }
 
 void
-PokemonDetail_types_inner::setType(AbilityDetail_pokemon_inner_pokemon  type)
+PokemonDetail_types_inner::setType(AbilityDetail_pokemon_inner_pokemon type)
 {
 	this->type = type;
 }

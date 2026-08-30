@@ -13,10 +13,10 @@ static pokemon_form_detail_form_names_inner_t *pokemon_form_detail_form_names_in
     if (!pokemon_form_detail_form_names_inner_local_var) {
         return NULL;
     }
+    memset(pokemon_form_detail_form_names_inner_local_var, 0, sizeof(pokemon_form_detail_form_names_inner_t));
+    pokemon_form_detail_form_names_inner_local_var->_library_owned = 1;
     pokemon_form_detail_form_names_inner_local_var->language = language;
     pokemon_form_detail_form_names_inner_local_var->name = name;
-
-    pokemon_form_detail_form_names_inner_local_var->_library_owned = 1;
     return pokemon_form_detail_form_names_inner_local_var;
 }
 
@@ -24,10 +24,13 @@ __attribute__((deprecated)) pokemon_form_detail_form_names_inner_t *pokemon_form
     ability_detail_pokemon_inner_pokemon_t *language,
     char *name
     ) {
-    return pokemon_form_detail_form_names_inner_create_internal (
+    pokemon_form_detail_form_names_inner_t *result = pokemon_form_detail_form_names_inner_create_internal (
         language,
         name
         );
+    if (!result) {
+    }
+    return result;
 }
 
 void pokemon_form_detail_form_names_inner_free(pokemon_form_detail_form_names_inner_t *pokemon_form_detail_form_names_inner) {
@@ -90,6 +93,8 @@ pokemon_form_detail_form_names_inner_t *pokemon_form_detail_form_names_inner_par
     // define the local variable for pokemon_form_detail_form_names_inner->language
     ability_detail_pokemon_inner_pokemon_t *language_local_nonprim = NULL;
 
+    char *name_local_str = NULL;
+
     // pokemon_form_detail_form_names_inner->language
     cJSON *language = cJSON_GetObjectItemCaseSensitive(pokemon_form_detail_form_names_innerJSON, "language");
     if (cJSON_IsNull(language)) {
@@ -118,16 +123,26 @@ pokemon_form_detail_form_names_inner_t *pokemon_form_detail_form_names_inner_par
     }
 
 
+    if (name && !cJSON_IsNull(name)) name_local_str = strdup(name->valuestring);
+
     pokemon_form_detail_form_names_inner_local_var = pokemon_form_detail_form_names_inner_create_internal (
         language_local_nonprim,
-        strdup(name->valuestring)
+        name_local_str
         );
+
+    if (!pokemon_form_detail_form_names_inner_local_var) {
+        goto end;
+    }
 
     return pokemon_form_detail_form_names_inner_local_var;
 end:
     if (language_local_nonprim) {
         ability_detail_pokemon_inner_pokemon_free(language_local_nonprim);
         language_local_nonprim = NULL;
+    }
+    if (name_local_str) {
+        free(name_local_str);
+        name_local_str = NULL;
     }
     return NULL;
 

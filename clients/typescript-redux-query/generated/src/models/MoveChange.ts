@@ -59,7 +59,7 @@ export interface MoveChange  {
      * @type {Array<MoveChangeEffectEntriesInner>}
      * @memberof MoveChange
      */
-    effectEntries: Array<MoveChangeEffectEntriesInner>;
+    readonly effectEntries: Array<MoveChangeEffectEntriesInner>;
     /**
      * 
      * @type {TypeSummary}
@@ -95,7 +95,6 @@ export function MoveChangeToJSON(value?: MoveChange): any {
         'power': value.power,
         'pp': value.pp,
         'effect_chance': value.effectChance,
-        'effect_entries': (value.effectEntries as Array<any>).map(MoveChangeEffectEntriesInnerToJSON),
         'type': TypeSummaryToJSON(value.type),
         'version_group': VersionGroupSummaryToJSON(value.versionGroup),
     };

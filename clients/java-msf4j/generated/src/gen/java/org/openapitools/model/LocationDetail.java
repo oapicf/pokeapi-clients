@@ -16,7 +16,7 @@ import org.openapitools.model.RegionSummary;
 /**
  * LocationDetail
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaMSF4JServerCodegen", date = "2026-02-07T15:23:10.683633502Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaMSF4JServerCodegen", date = "2026-08-30T01:55:58.248058654Z[Etc/UTC]", comments = "Generator version: 7.24.0")
 public class LocationDetail   {
   @JsonProperty("id")
   private Integer id;
@@ -81,16 +81,6 @@ public class LocationDetail   {
     this.region = region;
   }
 
-  public LocationDetail names(List<@Valid LocationName> names) {
-    this.names = names;
-    return this;
-  }
-
-  public LocationDetail addNamesItem(LocationName namesItem) {
-    this.names.add(namesItem);
-    return this;
-  }
-
    /**
    * Get names
    * @return names
@@ -98,20 +88,6 @@ public class LocationDetail   {
   @ApiModelProperty(required = true, value = "")
   public List<@Valid LocationName> getNames() {
     return names;
-  }
-
-  public void setNames(List<@Valid LocationName> names) {
-    this.names = names;
-  }
-
-  public LocationDetail gameIndices(List<@Valid LocationGameIndex> gameIndices) {
-    this.gameIndices = gameIndices;
-    return this;
-  }
-
-  public LocationDetail addGameIndicesItem(LocationGameIndex gameIndicesItem) {
-    this.gameIndices.add(gameIndicesItem);
-    return this;
   }
 
    /**
@@ -123,20 +99,6 @@ public class LocationDetail   {
     return gameIndices;
   }
 
-  public void setGameIndices(List<@Valid LocationGameIndex> gameIndices) {
-    this.gameIndices = gameIndices;
-  }
-
-  public LocationDetail areas(List<@Valid LocationAreaSummary> areas) {
-    this.areas = areas;
-    return this;
-  }
-
-  public LocationDetail addAreasItem(LocationAreaSummary areasItem) {
-    this.areas.add(areasItem);
-    return this;
-  }
-
    /**
    * Get areas
    * @return areas
@@ -144,10 +106,6 @@ public class LocationDetail   {
   @ApiModelProperty(required = true, value = "")
   public List<@Valid LocationAreaSummary> getAreas() {
     return areas;
-  }
-
-  public void setAreas(List<@Valid LocationAreaSummary> areas) {
-    this.areas = areas;
   }
 
 
@@ -193,10 +151,7 @@ public class LocationDetail   {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 }
 

@@ -92,7 +92,7 @@ export interface BerryDetail  {
      * @type {Array<BerryDetailFlavorsInner>}
      * @memberof BerryDetail
      */
-    flavors: Array<BerryDetailFlavorsInner>;
+    readonly flavors: Array<BerryDetailFlavorsInner>;
     /**
      * 
      * @type {ItemSummary}
@@ -137,7 +137,6 @@ export function BerryDetailToJSON(value?: BerryDetail): any {
         'smoothness': value.smoothness,
         'soil_dryness': value.soilDryness,
         'firmness': BerryFirmnessSummaryToJSON(value.firmness),
-        'flavors': (value.flavors as Array<any>).map(BerryDetailFlavorsInnerToJSON),
         'item': ItemSummaryToJSON(value.item),
         'natural_gift_type': TypeSummaryToJSON(value.naturalGiftType),
     };

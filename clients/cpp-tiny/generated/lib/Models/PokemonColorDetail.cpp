@@ -161,7 +161,7 @@ PokemonColorDetail::getId()
 }
 
 void
-PokemonColorDetail::setId(int  id)
+PokemonColorDetail::setId(int id)
 {
 	this->id = id;
 }
@@ -173,7 +173,7 @@ PokemonColorDetail::getName()
 }
 
 void
-PokemonColorDetail::setName(std::string  name)
+PokemonColorDetail::setName(std::string name)
 {
 	this->name = name;
 }
@@ -185,7 +185,7 @@ PokemonColorDetail::getNames()
 }
 
 void
-PokemonColorDetail::setNames(std::list <PokemonColorName> names)
+PokemonColorDetail::setNames(std::list<PokemonColorName> names)
 {
 	this->names = names;
 }
@@ -197,7 +197,7 @@ PokemonColorDetail::getPokemonSpecies()
 }
 
 void
-PokemonColorDetail::setPokemonSpecies(std::list <PokemonSpeciesSummary> pokemon_species)
+PokemonColorDetail::setPokemonSpecies(std::list<PokemonSpeciesSummary> pokemon_species)
 {
 	this->pokemon_species = pokemon_species;
 }

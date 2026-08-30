@@ -25,6 +25,8 @@ MoveFlavorText::MoveFlavorText()
     
 }
 
+MoveFlavorText::~MoveFlavorText() = default;
+
 void MoveFlavorText::validate() const
 {
     std::stringstream msg;

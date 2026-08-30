@@ -33,7 +33,7 @@ class  EvolutionTriggerName
 {
 public:
     EvolutionTriggerName();
-    virtual ~EvolutionTriggerName() = default;
+    virtual ~EvolutionTriggerName();
 
 
     /// <summary>

@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **Name** | **string** |  | 
 **Iso639** | **string** |  | 
 **Iso3166** | **string** |  | 
-**Names** | [**List&lt;LanguageName&gt;**](LanguageName.md) |  | 
+**Names** | [**List&lt;LanguageName&gt;**](LanguageName.md) |  | [readonly] 
 **Official** | **bool** |  | [optional] 
 
 [[Back to Model list]](../../README.md#documentation-for-models) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)

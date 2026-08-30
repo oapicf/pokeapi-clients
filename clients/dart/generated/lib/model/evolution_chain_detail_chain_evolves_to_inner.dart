@@ -59,10 +59,12 @@ class EvolutionChainDetailChainEvolvesToInner {
       // Note 1: the values aren't checked for validity beyond being non-null.
       // Note 2: this code is stripped in release mode!
       assert(() {
-        requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "EvolutionChainDetailChainEvolvesToInner[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "EvolutionChainDetailChainEvolvesToInner[$key]" has a null value in JSON.');
-        });
+        assert(json.containsKey(r'evolution_details'), 'Required key "EvolutionChainDetailChainEvolvesToInner[evolution_details]" is missing from JSON.');
+        assert(json[r'evolution_details'] != null, 'Required key "EvolutionChainDetailChainEvolvesToInner[evolution_details]" has a null value in JSON.');
+        assert(json.containsKey(r'is_baby'), 'Required key "EvolutionChainDetailChainEvolvesToInner[is_baby]" is missing from JSON.');
+        assert(json[r'is_baby'] != null, 'Required key "EvolutionChainDetailChainEvolvesToInner[is_baby]" has a null value in JSON.');
+        assert(json.containsKey(r'species'), 'Required key "EvolutionChainDetailChainEvolvesToInner[species]" is missing from JSON.');
+        assert(json[r'species'] != null, 'Required key "EvolutionChainDetailChainEvolvesToInner[species]" has a null value in JSON.');
         return true;
       }());
 

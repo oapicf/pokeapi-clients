@@ -32,7 +32,7 @@ class UtilityApi {
   ///
   /// * [String] q:
   ///   > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. 
-  Future<Response> languageListWithHttpInfo({ int? limit, int? offset, String? q, }) async {
+  Future<Response> languageListWithHttpInfo({ int? limit, int? offset, String? q, Future<void>? abortTrigger, }) async {
     // ignore: prefer_const_declarations
     final path = r'/api/v2/language/';
 
@@ -64,6 +64,7 @@ class UtilityApi {
       headerParams,
       formParams,
       contentTypes.isEmpty ? null : contentTypes.first,
+      abortTrigger: abortTrigger,
     );
   }
 
@@ -81,8 +82,8 @@ class UtilityApi {
   ///
   /// * [String] q:
   ///   > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. 
-  Future<PaginatedLanguageSummaryList?> languageList({ int? limit, int? offset, String? q, }) async {
-    final response = await languageListWithHttpInfo( limit: limit, offset: offset, q: q, );
+  Future<PaginatedLanguageSummaryList?> languageList({ int? limit, int? offset, String? q, Future<void>? abortTrigger, }) async {
+    final response = await languageListWithHttpInfo(limit: limit, offset: offset, q: q, abortTrigger: abortTrigger,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -106,7 +107,7 @@ class UtilityApi {
   ///
   /// * [String] id (required):
   ///   This parameter can be a string or an integer.
-  Future<Response> languageRetrieveWithHttpInfo(String id,) async {
+  Future<Response> languageRetrieveWithHttpInfo(String id, { Future<void>? abortTrigger, }) async {
     // ignore: prefer_const_declarations
     final path = r'/api/v2/language/{id}/'
       .replaceAll('{id}', id);
@@ -129,6 +130,7 @@ class UtilityApi {
       headerParams,
       formParams,
       contentTypes.isEmpty ? null : contentTypes.first,
+      abortTrigger: abortTrigger,
     );
   }
 
@@ -140,8 +142,8 @@ class UtilityApi {
   ///
   /// * [String] id (required):
   ///   This parameter can be a string or an integer.
-  Future<LanguageDetail?> languageRetrieve(String id,) async {
-    final response = await languageRetrieveWithHttpInfo(id,);
+  Future<LanguageDetail?> languageRetrieve(String id, { Future<void>? abortTrigger, }) async {
+    final response = await languageRetrieveWithHttpInfo(id, abortTrigger: abortTrigger,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }

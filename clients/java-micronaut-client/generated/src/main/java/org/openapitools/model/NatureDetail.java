@@ -46,7 +46,7 @@ import javax.annotation.Generated;
   NatureDetail.JSON_PROPERTY_NAMES
 })
 @JsonTypeName("NatureDetail")
-@Generated(value="org.openapitools.codegen.languages.JavaMicronautClientCodegen", date="2026-02-07T15:22:54.857535619Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@Generated(value="org.openapitools.codegen.languages.JavaMicronautClientCodegen", date="2026-08-30T01:55:51.056116330Z[Etc/UTC]", comments = "Generator version: 7.24.0")
 @Introspected
 public class NatureDetail {
     public static final String JSON_PROPERTY_ID = "id";
@@ -218,16 +218,6 @@ public class NatureDetail {
         this.hatesFlavor = hatesFlavor;
     }
 
-    public NatureDetail berries(List<@Valid BerrySummary> berries) {
-        this.berries = berries;
-        return this;
-    }
-
-    public NatureDetail addBerriesItem(BerrySummary berriesItem) {
-        this.berries.add(berriesItem);
-        return this;
-    }
-
     /**
      * Get berries
      * @return berries
@@ -237,22 +227,6 @@ public class NatureDetail {
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public List<@Valid BerrySummary> getBerries() {
         return berries;
-    }
-
-    @JsonProperty(JSON_PROPERTY_BERRIES)
-    @JsonInclude(value = JsonInclude.Include.ALWAYS)
-    public void setBerries(List<@Valid BerrySummary> berries) {
-        this.berries = berries;
-    }
-
-    public NatureDetail pokeathlonStatChanges(List<@Valid NatureDetailPokeathlonStatChangesInner> pokeathlonStatChanges) {
-        this.pokeathlonStatChanges = pokeathlonStatChanges;
-        return this;
-    }
-
-    public NatureDetail addPokeathlonStatChangesItem(NatureDetailPokeathlonStatChangesInner pokeathlonStatChangesItem) {
-        this.pokeathlonStatChanges.add(pokeathlonStatChangesItem);
-        return this;
     }
 
     /**
@@ -266,22 +240,6 @@ public class NatureDetail {
         return pokeathlonStatChanges;
     }
 
-    @JsonProperty(JSON_PROPERTY_POKEATHLON_STAT_CHANGES)
-    @JsonInclude(value = JsonInclude.Include.ALWAYS)
-    public void setPokeathlonStatChanges(List<@Valid NatureDetailPokeathlonStatChangesInner> pokeathlonStatChanges) {
-        this.pokeathlonStatChanges = pokeathlonStatChanges;
-    }
-
-    public NatureDetail moveBattleStylePreferences(List<@Valid NatureBattleStylePreference> moveBattleStylePreferences) {
-        this.moveBattleStylePreferences = moveBattleStylePreferences;
-        return this;
-    }
-
-    public NatureDetail addMoveBattleStylePreferencesItem(NatureBattleStylePreference moveBattleStylePreferencesItem) {
-        this.moveBattleStylePreferences.add(moveBattleStylePreferencesItem);
-        return this;
-    }
-
     /**
      * Get moveBattleStylePreferences
      * @return moveBattleStylePreferences
@@ -293,22 +251,6 @@ public class NatureDetail {
         return moveBattleStylePreferences;
     }
 
-    @JsonProperty(JSON_PROPERTY_MOVE_BATTLE_STYLE_PREFERENCES)
-    @JsonInclude(value = JsonInclude.Include.ALWAYS)
-    public void setMoveBattleStylePreferences(List<@Valid NatureBattleStylePreference> moveBattleStylePreferences) {
-        this.moveBattleStylePreferences = moveBattleStylePreferences;
-    }
-
-    public NatureDetail names(List<@Valid NatureName> names) {
-        this.names = names;
-        return this;
-    }
-
-    public NatureDetail addNamesItem(NatureName namesItem) {
-        this.names.add(namesItem);
-        return this;
-    }
-
     /**
      * Get names
      * @return names
@@ -318,12 +260,6 @@ public class NatureDetail {
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public List<@Valid NatureName> getNames() {
         return names;
-    }
-
-    @JsonProperty(JSON_PROPERTY_NAMES)
-    @JsonInclude(value = JsonInclude.Include.ALWAYS)
-    public void setNames(List<@Valid NatureName> names) {
-        this.names = names;
     }
 
     @Override
@@ -375,10 +311,7 @@ public class NatureDetail {
      * (except the first line).
      */
     private String toIndentedString(Object o) {
-        if (o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
+        return o == null ? "null" : o.toString().replace("\n", "\n    ");
     }
 
 }

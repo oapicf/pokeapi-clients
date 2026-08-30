@@ -53,10 +53,10 @@ class Experience {
       // Note 1: the values aren't checked for validity beyond being non-null.
       // Note 2: this code is stripped in release mode!
       assert(() {
-        requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "Experience[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "Experience[$key]" has a null value in JSON.');
-        });
+        assert(json.containsKey(r'level'), 'Required key "Experience[level]" is missing from JSON.');
+        assert(json[r'level'] != null, 'Required key "Experience[level]" has a null value in JSON.');
+        assert(json.containsKey(r'experience'), 'Required key "Experience[experience]" is missing from JSON.');
+        assert(json[r'experience'] != null, 'Required key "Experience[experience]" has a null value in JSON.');
         return true;
       }());
 

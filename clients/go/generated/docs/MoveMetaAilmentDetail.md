@@ -6,8 +6,8 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **int32** |  | [readonly] 
 **Name** | **string** |  | 
-**Moves** | [**[]AbilityDetailPokemonInnerPokemon**](AbilityDetailPokemonInnerPokemon.md) |  | 
-**Names** | [**[]MoveMetaAilmentName**](MoveMetaAilmentName.md) |  | 
+**Moves** | [**[]AbilityDetailPokemonInnerPokemon**](AbilityDetailPokemonInnerPokemon.md) |  | [readonly] 
+**Names** | [**[]MoveMetaAilmentName**](MoveMetaAilmentName.md) |  | [readonly] 
 
 ## Methods
 

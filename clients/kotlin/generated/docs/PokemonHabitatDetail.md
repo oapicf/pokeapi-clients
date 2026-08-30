@@ -6,8 +6,8 @@
 | ------------ | ------------- | ------------- | ------------- |
 | **id** | **kotlin.Int** |  |  [readonly] |
 | **name** | **kotlin.String** |  |  |
-| **names** | [**kotlin.collections.List&lt;PokemonHabitatName&gt;**](PokemonHabitatName.md) |  |  |
-| **pokemonSpecies** | [**kotlin.collections.List&lt;PokemonSpeciesSummary&gt;**](PokemonSpeciesSummary.md) |  |  |
+| **names** | [**kotlin.collections.List&lt;PokemonHabitatName&gt;**](PokemonHabitatName.md) |  |  [readonly] |
+| **pokemonSpecies** | [**kotlin.collections.List&lt;PokemonSpeciesSummary&gt;**](PokemonSpeciesSummary.md) |  |  [readonly] |
 
 
 

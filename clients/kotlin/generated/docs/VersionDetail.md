@@ -6,7 +6,7 @@
 | ------------ | ------------- | ------------- | ------------- |
 | **id** | **kotlin.Int** |  |  [readonly] |
 | **name** | **kotlin.String** |  |  |
-| **names** | [**kotlin.collections.List&lt;VersionName&gt;**](VersionName.md) |  |  |
+| **names** | [**kotlin.collections.List&lt;VersionName&gt;**](VersionName.md) |  |  [readonly] |
 | **versionGroup** | [**VersionGroupSummary**](VersionGroupSummary.md) |  |  |
 
 

@@ -24,9 +24,9 @@ typedef struct pokedex_detail_t pokedex_detail_t;
 
 
 typedef struct pokedex_detail_t {
-    int id; //numeric
+    int *id; //numeric
     char *name; // string
-    int is_main_series; //boolean
+    int *is_main_series; //boolean
     list_t *descriptions; //nonprimitive container
     list_t *names; //nonprimitive container
     list_t *pokemon_entries; //nonprimitive container
@@ -37,9 +37,9 @@ typedef struct pokedex_detail_t {
 } pokedex_detail_t;
 
 __attribute__((deprecated)) pokedex_detail_t *pokedex_detail_create(
-    int id,
+    int *id,
     char *name,
-    int is_main_series,
+    int *is_main_series,
     list_t *descriptions,
     list_t *names,
     list_t *pokemon_entries,

@@ -52,7 +52,7 @@ import com.github.oapicf.pokeapiclient.JSON;
 /**
  * PokemonDetailPastTypesInner
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-07T15:22:35.747827932Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-08-30T01:55:28.842792947Z[Etc/UTC]", comments = "Generator version: 7.24.0")
 public class PokemonDetailPastTypesInner {
   public static final String SERIALIZED_NAME_GENERATION = "generation";
   @SerializedName(SERIALIZED_NAME_GENERATION)
@@ -147,10 +147,7 @@ public class PokemonDetailPastTypesInner {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 
@@ -195,16 +192,16 @@ public class PokemonDetailPastTypesInner {
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       // validate the required field `generation`
       AbilityDetailPokemonInnerPokemon.validateJsonElement(jsonObj.get("generation"));
-      // ensure the json data is an array
-      if (!jsonObj.get("types").isJsonArray()) {
-        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `types` to be an array in the JSON string but got `%s`", jsonObj.get("types").toString()));
+      if (jsonObj.get("types") != null) {
+        if (!jsonObj.get("types").isJsonArray()) {
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `types` to be an array in the JSON string but got `%s`", jsonObj.get("types").toString()));
+        }
+        JsonArray jsonArraytypes = jsonObj.getAsJsonArray("types");
+        // validate the required field `types` (array)
+        for (int i = 0; i < jsonArraytypes.size(); i++) {
+          PokemonDetailTypesInner.validateJsonElement(jsonArraytypes.get(i));
+        }
       }
-
-      JsonArray jsonArraytypes = jsonObj.getAsJsonArray("types");
-      // validate the required field `types` (array)
-      for (int i = 0; i < jsonArraytypes.size(); i++) {
-        PokemonDetailTypesInner.validateJsonElement(jsonArraytypes.get(i));
-      };
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {

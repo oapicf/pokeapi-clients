@@ -12,6 +12,11 @@
 package openapi
 
 
+import (
+	"encoding/json"
+	"fmt"
+)
+
 
 
 type ContestTypeDetail struct {
@@ -24,41 +29,84 @@ type ContestTypeDetail struct {
 
 	Names []ContestTypeName `json:"names"`
 }
-
-// AssertContestTypeDetailRequired checks if the required fields are not zero-ed
-func AssertContestTypeDetailRequired(obj ContestTypeDetail) error {
-	elements := map[string]interface{}{
-		"id": obj.Id,
-		"name": obj.Name,
-		"berry_flavor": obj.BerryFlavor,
-		"names": obj.Names,
+// UnmarshalJSON validates required property keys then unmarshals into ContestTypeDetail
+func (o *ContestTypeDetail) UnmarshalJSON(data []byte) (err error) {
+	// Presence is checked against required fields that exist on this struct,
+	// including fields promoted from embedded allOf parents.
+	requiredProperties := []string{
+		"name",
 	}
-	for name, el := range elements {
-		if isZero := IsZeroValue(el); isZero {
-			return &RequiredError{Field: name}
+
+	requiredNullableProperties := map[string]bool{
+		"name": false,
+	}
+
+	allowedJsonKeys := map[string]struct{}{
+		"id": {},
+		"name": {},
+		"berry_flavor": {},
+		"names": {},
+	}
+
+	allProperties := make(map[string]json.RawMessage)
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err
+	}
+
+	for _, requiredProperty := range requiredProperties {
+		value, exists := allProperties[requiredProperty]
+		if !exists {
+			return &RequiredError{Field: requiredProperty}
+		}
+		if string(value) == "null" && !requiredNullableProperties[requiredProperty] {
+			return &RequiredError{Field: requiredProperty}
 		}
 	}
 
-	if err := AssertBerryFlavorSummaryRequired(obj.BerryFlavor); err != nil {
-		return err
+	for key := range allProperties {
+		if _, exists := allowedJsonKeys[key]; !exists {
+			return fmt.Errorf("json: unknown field %q", key)
+		}
 	}
-	for _, el := range obj.Names {
-		if err := AssertContestTypeNameRequired(el); err != nil {
+
+	var decoded ContestTypeDetail
+
+	if value, exists := allProperties["id"]; exists {
+		if err = json.Unmarshal(value, &decoded.Id); err != nil {
 			return err
 		}
 	}
+	if value, exists := allProperties["name"]; exists {
+		if err = json.Unmarshal(value, &decoded.Name); err != nil {
+			return err
+		}
+	}
+	if value, exists := allProperties["berry_flavor"]; exists {
+		if err = json.Unmarshal(value, &decoded.BerryFlavor); err != nil {
+			return err
+		}
+	}
+	if value, exists := allProperties["names"]; exists {
+		if err = json.Unmarshal(value, &decoded.Names); err != nil {
+			return err
+		}
+	}
+
+	*o = decoded
+
+	return nil
+}
+
+// AssertContestTypeDetailRequired checks complex required fields (models, arrays, maps) and embedded parents.
+// Primitive required fields are validated for JSON request bodies in UnmarshalJSON so zero values remain valid.
+func AssertContestTypeDetailRequired(obj ContestTypeDetail) error {
 	return nil
 }
 
 // AssertContestTypeDetailConstraints checks if the values respects the defined constraints
 func AssertContestTypeDetailConstraints(obj ContestTypeDetail) error {
-	if err := AssertBerryFlavorSummaryConstraints(obj.BerryFlavor); err != nil {
-		return err
-	}
-	for _, el := range obj.Names {
-		if err := AssertContestTypeNameConstraints(el); err != nil {
-			return err
-		}
-	}
 	return nil
 }

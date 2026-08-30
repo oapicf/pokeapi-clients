@@ -70,25 +70,25 @@ export interface VersionGroupDetail {
      * @type {Array<AbilityDetailPokemonInnerPokemon>}
      * @memberof VersionGroupDetail
      */
-    moveLearnMethods: Array<AbilityDetailPokemonInnerPokemon>;
+    readonly moveLearnMethods: Array<AbilityDetailPokemonInnerPokemon>;
     /**
      * 
      * @type {Array<AbilityDetailPokemonInnerPokemon>}
      * @memberof VersionGroupDetail
      */
-    pokedexes: Array<AbilityDetailPokemonInnerPokemon>;
+    readonly pokedexes: Array<AbilityDetailPokemonInnerPokemon>;
     /**
      * 
      * @type {Array<AbilityDetailPokemonInnerPokemon>}
      * @memberof VersionGroupDetail
      */
-    regions: Array<AbilityDetailPokemonInnerPokemon>;
+    readonly regions: Array<AbilityDetailPokemonInnerPokemon>;
     /**
      * 
      * @type {Array<VersionSummary>}
      * @memberof VersionGroupDetail
      */
-    versions: Array<VersionSummary>;
+    readonly versions: Array<VersionSummary>;
 }
 
 /**
@@ -98,7 +98,7 @@ export function instanceOfVersionGroupDetail(value: object): value is VersionGro
     if (!('id' in value) || value['id'] === undefined) return false;
     if (!('name' in value) || value['name'] === undefined) return false;
     if (!('generation' in value) || value['generation'] === undefined) return false;
-    if (!('moveLearnMethods' in value) || value['moveLearnMethods'] === undefined) return false;
+    if ((!('moveLearnMethods' in (value as Record<string, any>)) && !('move_learn_methods' in (value as Record<string, any>))) || ((value as Record<string, any>)['moveLearnMethods'] === undefined && (value as Record<string, any>)['move_learn_methods'] === undefined)) return false;
     if (!('pokedexes' in value) || value['pokedexes'] === undefined) return false;
     if (!('regions' in value) || value['regions'] === undefined) return false;
     if (!('versions' in value) || value['versions'] === undefined) return false;
@@ -117,7 +117,7 @@ export function VersionGroupDetailFromJSONTyped(json: any, ignoreDiscriminator: 
         
         'id': json['id'],
         'name': json['name'],
-        'order': json['order'] == null ? undefined : json['order'],
+        'order': json['order'] === undefined ? undefined : json['order'] === null ? null : json['order'],
         'generation': GenerationSummaryFromJSON(json['generation']),
         'moveLearnMethods': ((json['move_learn_methods'] as Array<any>).map(AbilityDetailPokemonInnerPokemonFromJSON)),
         'pokedexes': ((json['pokedexes'] as Array<any>).map(AbilityDetailPokemonInnerPokemonFromJSON)),
@@ -130,7 +130,7 @@ export function VersionGroupDetailToJSON(json: any): VersionGroupDetail {
     return VersionGroupDetailToJSONTyped(json, false);
 }
 
-export function VersionGroupDetailToJSONTyped(value?: Omit<VersionGroupDetail, 'id'> | null, ignoreDiscriminator: boolean = false): any {
+export function VersionGroupDetailToJSONTyped(value?: Omit<VersionGroupDetail, 'id'|'moveLearnMethods'|'pokedexes'|'regions'|'versions'> | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
@@ -140,10 +140,6 @@ export function VersionGroupDetailToJSONTyped(value?: Omit<VersionGroupDetail, '
         'name': value['name'],
         'order': value['order'],
         'generation': GenerationSummaryToJSON(value['generation']),
-        'move_learn_methods': ((value['moveLearnMethods'] as Array<any>).map(AbilityDetailPokemonInnerPokemonToJSON)),
-        'pokedexes': ((value['pokedexes'] as Array<any>).map(AbilityDetailPokemonInnerPokemonToJSON)),
-        'regions': ((value['regions'] as Array<any>).map(AbilityDetailPokemonInnerPokemonToJSON)),
-        'versions': ((value['versions'] as Array<any>).map(VersionSummaryToJSON)),
     };
 }
 

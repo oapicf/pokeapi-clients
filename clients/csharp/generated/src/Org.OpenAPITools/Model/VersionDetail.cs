@@ -66,7 +66,7 @@ namespace Org.OpenAPITools.Model
         /// Gets or Sets Names
         /// </summary>
         [JsonPropertyName("names")]
-        public List<VersionName> Names { get; set; }
+        public List<VersionName> Names { get; }
 
         /// <summary>
         /// Gets or Sets VersionGroup
@@ -110,8 +110,18 @@ namespace Org.OpenAPITools.Model
     /// <summary>
     /// A Json converter for type <see cref="VersionDetail" />
     /// </summary>
-    public class VersionDetailJsonConverter : JsonConverter<VersionDetail>
+    public partial class VersionDetailJsonConverter : JsonConverter<VersionDetail>
     {
+        partial void OnCreated();
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="VersionDetailJsonConverter" /> class.
+        /// </summary>
+        public VersionDetailJsonConverter()
+        {
+            OnCreated();
+        }
+
         /// <summary>
         /// Deserializes json to <see cref="VersionDetail" />
         /// </summary>

@@ -34,7 +34,7 @@ class  PaginatedAbilitySummaryList
 {
 public:
     PaginatedAbilitySummaryList();
-    virtual ~PaginatedAbilitySummaryList() = default;
+    virtual ~PaginatedAbilitySummaryList();
 
 
     /// <summary>

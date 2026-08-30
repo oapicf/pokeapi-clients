@@ -64,9 +64,11 @@ class ContestTypeDetail extends BaseModel
     },
     "names" : {
       "type" : "array",
+      "readOnly" : true,
       "items" : {
         "$ref" : "#/components/schemas/ContestTypeName"
-      }
+      },
+      "default" : null
     }
   }
 }

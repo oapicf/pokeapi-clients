@@ -67,7 +67,8 @@ class PaginatedContestEffectSummaryList extends BaseModel
       "type" : "array",
       "items" : {
         "$ref" : "#/components/schemas/ContestEffectSummary"
-      }
+      },
+      "default" : null
     }
   }
 }

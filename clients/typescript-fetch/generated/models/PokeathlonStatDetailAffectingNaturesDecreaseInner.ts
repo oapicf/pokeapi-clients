@@ -45,7 +45,7 @@ export interface PokeathlonStatDetailAffectingNaturesDecreaseInner {
  * Check if a given object implements the PokeathlonStatDetailAffectingNaturesDecreaseInner interface.
  */
 export function instanceOfPokeathlonStatDetailAffectingNaturesDecreaseInner(value: object): value is PokeathlonStatDetailAffectingNaturesDecreaseInner {
-    if (!('maxChange' in value) || value['maxChange'] === undefined) return false;
+    if ((!('maxChange' in (value as Record<string, any>)) && !('max_change' in (value as Record<string, any>))) || ((value as Record<string, any>)['maxChange'] === undefined && (value as Record<string, any>)['max_change'] === undefined)) return false;
     if (!('nature' in value) || value['nature'] === undefined) return false;
     return true;
 }

@@ -47,7 +47,7 @@ class PokemonDexEntry
      * @var int|null
      * @SerializedName("entry_number")
      * @Type("int")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Type("int")]
     protected ?int $entryNumber = null;
@@ -56,7 +56,7 @@ class PokemonDexEntry
      * @var PokedexSummary|null
      * @SerializedName("pokedex")
      * @Type("OpenAPI\Server\Model\PokedexSummary")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Valid]
     #[Assert\Type("OpenAPI\Server\Model\PokedexSummary")]
@@ -85,12 +85,12 @@ class PokemonDexEntry
     }
 
     /**
-    * Sets entryNumber.
-    *
-    * @param int|null $entryNumber
-    *
-    * @return $this
-    */
+     * Sets entryNumber.
+     *
+     * @param int|null $entryNumber
+     *
+     * @return $this
+     */
     public function setEntryNumber(?int $entryNumber): self
     {
         $this->entryNumber = $entryNumber;
@@ -112,12 +112,12 @@ class PokemonDexEntry
     }
 
     /**
-    * Sets pokedex.
-    *
-    * @param PokedexSummary|null $pokedex
-    *
-    * @return $this
-    */
+     * Sets pokedex.
+     *
+     * @param PokedexSummary|null $pokedex
+     *
+     * @return $this
+     */
     public function setPokedex(?PokedexSummary $pokedex): self
     {
         $this->pokedex = $pokedex;

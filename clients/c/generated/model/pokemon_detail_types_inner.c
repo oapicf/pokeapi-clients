@@ -6,28 +6,37 @@
 
 
 static pokemon_detail_types_inner_t *pokemon_detail_types_inner_create_internal(
-    int slot,
+    int *slot,
     ability_detail_pokemon_inner_pokemon_t *type
     ) {
     pokemon_detail_types_inner_t *pokemon_detail_types_inner_local_var = malloc(sizeof(pokemon_detail_types_inner_t));
     if (!pokemon_detail_types_inner_local_var) {
         return NULL;
     }
+    memset(pokemon_detail_types_inner_local_var, 0, sizeof(pokemon_detail_types_inner_t));
+    pokemon_detail_types_inner_local_var->_library_owned = 1;
     pokemon_detail_types_inner_local_var->slot = slot;
     pokemon_detail_types_inner_local_var->type = type;
-
-    pokemon_detail_types_inner_local_var->_library_owned = 1;
     return pokemon_detail_types_inner_local_var;
 }
 
 __attribute__((deprecated)) pokemon_detail_types_inner_t *pokemon_detail_types_inner_create(
-    int slot,
+    int *slot,
     ability_detail_pokemon_inner_pokemon_t *type
     ) {
-    return pokemon_detail_types_inner_create_internal (
-        slot,
+    int *slot_copy = NULL;
+    if (slot) {
+        slot_copy = malloc(sizeof(int));
+        if (slot_copy) *slot_copy = *slot;
+    }
+    pokemon_detail_types_inner_t *result = pokemon_detail_types_inner_create_internal (
+        slot_copy,
         type
         );
+    if (!result) {
+        free(slot_copy);
+    }
+    return result;
 }
 
 void pokemon_detail_types_inner_free(pokemon_detail_types_inner_t *pokemon_detail_types_inner) {
@@ -39,6 +48,10 @@ void pokemon_detail_types_inner_free(pokemon_detail_types_inner_t *pokemon_detai
         return ;
     }
     listEntry_t *listEntry;
+    if (pokemon_detail_types_inner->slot) {
+        free(pokemon_detail_types_inner->slot);
+        pokemon_detail_types_inner->slot = NULL;
+    }
     if (pokemon_detail_types_inner->type) {
         ability_detail_pokemon_inner_pokemon_free(pokemon_detail_types_inner->type);
         pokemon_detail_types_inner->type = NULL;
@@ -53,7 +66,7 @@ cJSON *pokemon_detail_types_inner_convertToJSON(pokemon_detail_types_inner_t *po
     if (!pokemon_detail_types_inner->slot) {
         goto fail;
     }
-    if(cJSON_AddNumberToObject(item, "slot", pokemon_detail_types_inner->slot) == NULL) {
+    if(cJSON_AddNumberToObject(item, "slot", *pokemon_detail_types_inner->slot) == NULL) {
     goto fail; //Numeric
     }
 
@@ -83,6 +96,9 @@ pokemon_detail_types_inner_t *pokemon_detail_types_inner_parseFromJSON(cJSON *po
 
     pokemon_detail_types_inner_t *pokemon_detail_types_inner_local_var = NULL;
 
+    // define the local variable for pokemon_detail_types_inner->slot
+    int *slot_local_var = NULL;
+
     // define the local variable for pokemon_detail_types_inner->type
     ability_detail_pokemon_inner_pokemon_t *type_local_nonprim = NULL;
 
@@ -100,6 +116,12 @@ pokemon_detail_types_inner_t *pokemon_detail_types_inner_parseFromJSON(cJSON *po
     {
     goto end; //Numeric
     }
+    slot_local_var = malloc(sizeof(int));
+    if(!slot_local_var)
+    {
+        goto end;
+    }
+    *slot_local_var = slot->valuedouble;
 
     // pokemon_detail_types_inner->type
     cJSON *type = cJSON_GetObjectItemCaseSensitive(pokemon_detail_types_innerJSON, "type");
@@ -114,13 +136,22 @@ pokemon_detail_types_inner_t *pokemon_detail_types_inner_parseFromJSON(cJSON *po
     type_local_nonprim = ability_detail_pokemon_inner_pokemon_parseFromJSON(type); //nonprimitive
 
 
+
     pokemon_detail_types_inner_local_var = pokemon_detail_types_inner_create_internal (
-        slot->valuedouble,
+        slot_local_var,
         type_local_nonprim
         );
 
+    if (!pokemon_detail_types_inner_local_var) {
+        goto end;
+    }
+
     return pokemon_detail_types_inner_local_var;
 end:
+    if (slot_local_var) {
+        free(slot_local_var);
+        slot_local_var = NULL;
+    }
     if (type_local_nonprim) {
         ability_detail_pokemon_inner_pokemon_free(type_local_nonprim);
         type_local_nonprim = NULL;

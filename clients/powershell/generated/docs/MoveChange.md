@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 **Power** | **Int32** |  | [optional] 
 **Pp** | **Int32** |  | [optional] 
 **EffectChance** | **Int32** |  | 
-**EffectEntries** | [**MoveChangeEffectEntriesInner[]**](MoveChangeEffectEntriesInner.md) |  | 
+**EffectEntries** | [**MoveChangeEffectEntriesInner[]**](MoveChangeEffectEntriesInner.md) |  | [readonly] 
 **Type** | [**TypeSummary**](TypeSummary.md) |  | 
 **VersionGroup** | [**VersionGroupSummary**](VersionGroupSummary.md) |  | 
 

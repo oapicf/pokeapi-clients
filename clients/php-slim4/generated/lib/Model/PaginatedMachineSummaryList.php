@@ -67,7 +67,8 @@ class PaginatedMachineSummaryList extends BaseModel
       "type" : "array",
       "items" : {
         "$ref" : "#/components/schemas/MachineSummary"
-      }
+      },
+      "default" : null
     }
   }
 }

@@ -12,18 +12,21 @@ static contest_effect_summary_t *contest_effect_summary_create_internal(
     if (!contest_effect_summary_local_var) {
         return NULL;
     }
-    contest_effect_summary_local_var->url = url;
-
+    memset(contest_effect_summary_local_var, 0, sizeof(contest_effect_summary_t));
     contest_effect_summary_local_var->_library_owned = 1;
+    contest_effect_summary_local_var->url = url;
     return contest_effect_summary_local_var;
 }
 
 __attribute__((deprecated)) contest_effect_summary_t *contest_effect_summary_create(
     char *url
     ) {
-    return contest_effect_summary_create_internal (
+    contest_effect_summary_t *result = contest_effect_summary_create_internal (
         url
         );
+    if (!result) {
+    }
+    return result;
 }
 
 void contest_effect_summary_free(contest_effect_summary_t *contest_effect_summary) {
@@ -65,6 +68,8 @@ contest_effect_summary_t *contest_effect_summary_parseFromJSON(cJSON *contest_ef
 
     contest_effect_summary_t *contest_effect_summary_local_var = NULL;
 
+    char *url_local_str = NULL;
+
     // contest_effect_summary->url
     cJSON *url = cJSON_GetObjectItemCaseSensitive(contest_effect_summaryJSON, "url");
     if (cJSON_IsNull(url)) {
@@ -81,12 +86,22 @@ contest_effect_summary_t *contest_effect_summary_parseFromJSON(cJSON *contest_ef
     }
 
 
+    if (url && !cJSON_IsNull(url)) url_local_str = strdup(url->valuestring);
+
     contest_effect_summary_local_var = contest_effect_summary_create_internal (
-        strdup(url->valuestring)
+        url_local_str
         );
+
+    if (!contest_effect_summary_local_var) {
+        goto end;
+    }
 
     return contest_effect_summary_local_var;
 end:
+    if (url_local_str) {
+        free(url_local_str);
+        url_local_str = NULL;
+    }
     return NULL;
 
 }

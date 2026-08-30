@@ -13,10 +13,10 @@ static pokemon_detail_past_types_inner_t *pokemon_detail_past_types_inner_create
     if (!pokemon_detail_past_types_inner_local_var) {
         return NULL;
     }
+    memset(pokemon_detail_past_types_inner_local_var, 0, sizeof(pokemon_detail_past_types_inner_t));
+    pokemon_detail_past_types_inner_local_var->_library_owned = 1;
     pokemon_detail_past_types_inner_local_var->generation = generation;
     pokemon_detail_past_types_inner_local_var->types = types;
-
-    pokemon_detail_past_types_inner_local_var->_library_owned = 1;
     return pokemon_detail_past_types_inner_local_var;
 }
 
@@ -24,10 +24,13 @@ __attribute__((deprecated)) pokemon_detail_past_types_inner_t *pokemon_detail_pa
     ability_detail_pokemon_inner_pokemon_t *generation,
     list_t *types
     ) {
-    return pokemon_detail_past_types_inner_create_internal (
+    pokemon_detail_past_types_inner_t *result = pokemon_detail_past_types_inner_create_internal (
         generation,
         types
         );
+    if (!result) {
+    }
+    return result;
 }
 
 void pokemon_detail_past_types_inner_free(pokemon_detail_past_types_inner_t *pokemon_detail_past_types_inner) {
@@ -148,10 +151,15 @@ pokemon_detail_past_types_inner_t *pokemon_detail_past_types_inner_parseFromJSON
     }
 
 
+
     pokemon_detail_past_types_inner_local_var = pokemon_detail_past_types_inner_create_internal (
         generation_local_nonprim,
         typesList
         );
+
+    if (!pokemon_detail_past_types_inner_local_var) {
+        goto end;
+    }
 
     return pokemon_detail_past_types_inner_local_var;
 end:

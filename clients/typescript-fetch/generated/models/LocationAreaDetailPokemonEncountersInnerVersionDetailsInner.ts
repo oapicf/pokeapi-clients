@@ -59,8 +59,8 @@ export interface LocationAreaDetailPokemonEncountersInnerVersionDetailsInner {
  */
 export function instanceOfLocationAreaDetailPokemonEncountersInnerVersionDetailsInner(value: object): value is LocationAreaDetailPokemonEncountersInnerVersionDetailsInner {
     if (!('version' in value) || value['version'] === undefined) return false;
-    if (!('maxChance' in value) || value['maxChance'] === undefined) return false;
-    if (!('encounterDetails' in value) || value['encounterDetails'] === undefined) return false;
+    if ((!('maxChance' in (value as Record<string, any>)) && !('max_chance' in (value as Record<string, any>))) || ((value as Record<string, any>)['maxChance'] === undefined && (value as Record<string, any>)['max_chance'] === undefined)) return false;
+    if ((!('encounterDetails' in (value as Record<string, any>)) && !('encounter_details' in (value as Record<string, any>))) || ((value as Record<string, any>)['encounterDetails'] === undefined && (value as Record<string, any>)['encounter_details'] === undefined)) return false;
     return true;
 }
 

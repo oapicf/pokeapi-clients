@@ -1,0 +1,57 @@
+## GamesApi
+
+### List genrations
+## List genrations
+GET https://pokeapi.co/api/v2/generation/?limit={{limit}}&offset={{offset}}&q={{q}}
+Accept: application/json
+Authorization: Basic: {{username-password}}
+Cookie: sessionid={{cookieKey}}
+
+### Get genration
+## Get genration
+GET https://pokeapi.co/api/v2/generation/{{id}}/
+Accept: application/json
+Authorization: Basic: {{username-password}}
+Cookie: sessionid={{cookieKey}}
+
+### List pokedex
+## List pokedex
+GET https://pokeapi.co/api/v2/pokedex/?limit={{limit}}&offset={{offset}}&q={{q}}
+Accept: application/json
+Authorization: Basic: {{username-password}}
+Cookie: sessionid={{cookieKey}}
+
+### Get pokedex
+## Get pokedex
+GET https://pokeapi.co/api/v2/pokedex/{{id}}/
+Accept: application/json
+Authorization: Basic: {{username-password}}
+Cookie: sessionid={{cookieKey}}
+
+### List version groups
+## List version groups
+GET https://pokeapi.co/api/v2/version-group/?limit={{limit}}&offset={{offset}}&q={{q}}
+Accept: application/json
+Authorization: Basic: {{username-password}}
+Cookie: sessionid={{cookieKey}}
+
+### Get version group
+## Get version group
+GET https://pokeapi.co/api/v2/version-group/{{id}}/
+Accept: application/json
+Authorization: Basic: {{username-password}}
+Cookie: sessionid={{cookieKey}}
+
+### List versions
+## List versions
+GET https://pokeapi.co/api/v2/version/?limit={{limit}}&offset={{offset}}&q={{q}}
+Accept: application/json
+Authorization: Basic: {{username-password}}
+Cookie: sessionid={{cookieKey}}
+
+### Get version
+## Get version
+GET https://pokeapi.co/api/v2/version/{{id}}/
+Accept: application/json
+Authorization: Basic: {{username-password}}
+Cookie: sessionid={{cookieKey}}

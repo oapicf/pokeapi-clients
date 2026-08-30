@@ -16,6 +16,6 @@ import { SuperContestEffectFlavorText } from './superContestEffectFlavorText';
 export interface SuperContestEffectDetail { 
     readonly id: number;
     appeal: number;
-    flavor_text_entries: Array<SuperContestEffectFlavorText>;
-    moves: Array<MoveSummary>;
+    readonly flavor_text_entries: Array<SuperContestEffectFlavorText>;
+    readonly moves: Array<MoveSummary>;
 }

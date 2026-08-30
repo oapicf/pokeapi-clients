@@ -144,7 +144,7 @@ PaginatedMoveLearnMethodSummaryList::getCount()
 }
 
 void
-PaginatedMoveLearnMethodSummaryList::setCount(int  count)
+PaginatedMoveLearnMethodSummaryList::setCount(int count)
 {
 	this->count = count;
 }
@@ -156,7 +156,7 @@ PaginatedMoveLearnMethodSummaryList::getNext()
 }
 
 void
-PaginatedMoveLearnMethodSummaryList::setNext(std::string  next)
+PaginatedMoveLearnMethodSummaryList::setNext(std::string next)
 {
 	this->next = next;
 }
@@ -168,7 +168,7 @@ PaginatedMoveLearnMethodSummaryList::getPrevious()
 }
 
 void
-PaginatedMoveLearnMethodSummaryList::setPrevious(std::string  previous)
+PaginatedMoveLearnMethodSummaryList::setPrevious(std::string previous)
 {
 	this->previous = previous;
 }
@@ -180,7 +180,7 @@ PaginatedMoveLearnMethodSummaryList::getResults()
 }
 
 void
-PaginatedMoveLearnMethodSummaryList::setResults(std::list <MoveLearnMethodSummary> results)
+PaginatedMoveLearnMethodSummaryList::setResults(std::list<MoveLearnMethodSummary> results)
 {
 	this->results = results;
 }

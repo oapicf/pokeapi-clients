@@ -7,9 +7,9 @@ Name | Mapping | SQL Type | Default | Type | Description | Notes
 ---- | ------- | -------- | ------- | ---- | ----------- | -----
 **id** | id | int NOT NULL PRIMARY KEY AUTOINCREMENT |  | **kotlin.Int** |  |  [readonly]
 **name** | name | text NOT NULL |  | **kotlin.String** |  | 
-**descriptions** | `One-To-Many` | `----` | `----`  | [**kotlin.Array&lt;MoveTargetDescription&gt;**](MoveTargetDescription.md) |  | 
-**moves** | `One-To-Many` | `----` | `----`  | [**kotlin.Array&lt;MoveSummary&gt;**](MoveSummary.md) |  | 
-**names** | `One-To-Many` | `----` | `----`  | [**kotlin.Array&lt;MoveTargetName&gt;**](MoveTargetName.md) |  | 
+**descriptions** | `One-To-Many` | `----` | `----`  | [**kotlin.Array&lt;MoveTargetDescription&gt;**](MoveTargetDescription.md) |  |  [readonly]
+**moves** | `One-To-Many` | `----` | `----`  | [**kotlin.Array&lt;MoveSummary&gt;**](MoveSummary.md) |  |  [readonly]
+**names** | `One-To-Many` | `----` | `----`  | [**kotlin.Array&lt;MoveTargetName&gt;**](MoveTargetName.md) |  |  [readonly]
 
 
 

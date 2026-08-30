@@ -33,7 +33,7 @@ class  ItemFlingEffectEffectText
 {
 public:
     ItemFlingEffectEffectText();
-    virtual ~ItemFlingEffectEffectText() = default;
+    virtual ~ItemFlingEffectEffectText();
 
 
     /// <summary>

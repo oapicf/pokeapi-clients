@@ -47,7 +47,7 @@ class MachineDetail
      * @var int|null
      * @SerializedName("id")
      * @Type("int")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Type("int")]
     protected ?int $id = null;
@@ -56,7 +56,7 @@ class MachineDetail
      * @var ItemSummary|null
      * @SerializedName("item")
      * @Type("OpenAPI\Server\Model\ItemSummary")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Valid]
     #[Assert\Type("OpenAPI\Server\Model\ItemSummary")]
@@ -66,7 +66,7 @@ class MachineDetail
      * @var VersionGroupSummary|null
      * @SerializedName("version_group")
      * @Type("OpenAPI\Server\Model\VersionGroupSummary")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Valid]
     #[Assert\Type("OpenAPI\Server\Model\VersionGroupSummary")]
@@ -76,7 +76,7 @@ class MachineDetail
      * @var MoveSummary|null
      * @SerializedName("move")
      * @Type("OpenAPI\Server\Model\MoveSummary")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Valid]
     #[Assert\Type("OpenAPI\Server\Model\MoveSummary")]
@@ -107,12 +107,12 @@ class MachineDetail
     }
 
     /**
-    * Sets id.
-    *
-    * @param int|null $id
-    *
-    * @return $this
-    */
+     * Sets id.
+     *
+     * @param int|null $id
+     *
+     * @return $this
+     */
     public function setId(?int $id): self
     {
         $this->id = $id;
@@ -134,12 +134,12 @@ class MachineDetail
     }
 
     /**
-    * Sets item.
-    *
-    * @param ItemSummary|null $item
-    *
-    * @return $this
-    */
+     * Sets item.
+     *
+     * @param ItemSummary|null $item
+     *
+     * @return $this
+     */
     public function setItem(?ItemSummary $item): self
     {
         $this->item = $item;
@@ -161,12 +161,12 @@ class MachineDetail
     }
 
     /**
-    * Sets versionGroup.
-    *
-    * @param VersionGroupSummary|null $versionGroup
-    *
-    * @return $this
-    */
+     * Sets versionGroup.
+     *
+     * @param VersionGroupSummary|null $versionGroup
+     *
+     * @return $this
+     */
     public function setVersionGroup(?VersionGroupSummary $versionGroup): self
     {
         $this->versionGroup = $versionGroup;
@@ -188,12 +188,12 @@ class MachineDetail
     }
 
     /**
-    * Sets move.
-    *
-    * @param MoveSummary|null $move
-    *
-    * @return $this
-    */
+     * Sets move.
+     *
+     * @param MoveSummary|null $move
+     *
+     * @return $this
+     */
     public function setMove(?MoveSummary $move): self
     {
         $this->move = $move;

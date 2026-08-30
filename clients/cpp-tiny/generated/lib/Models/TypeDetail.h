@@ -62,77 +62,77 @@ public:
 
 	/*! \brief Set 
 	 */
-	void setId(int  id);
+	void setId(int id);
 	/*! \brief Get 
 	 */
 	std::string getName();
 
 	/*! \brief Set 
 	 */
-	void setName(std::string  name);
+	void setName(std::string name);
 	/*! \brief Get 
 	 */
 	TypeDetail_damage_relations getDamageRelations();
 
 	/*! \brief Set 
 	 */
-	void setDamageRelations(TypeDetail_damage_relations  damage_relations);
+	void setDamageRelations(TypeDetail_damage_relations damage_relations);
 	/*! \brief Get 
 	 */
 	std::list<TypeDetail_past_damage_relations_inner> getPastDamageRelations();
 
 	/*! \brief Set 
 	 */
-	void setPastDamageRelations(std::list <TypeDetail_past_damage_relations_inner> past_damage_relations);
+	void setPastDamageRelations(std::list<TypeDetail_past_damage_relations_inner> past_damage_relations);
 	/*! \brief Get 
 	 */
 	std::list<TypeGameIndex> getGameIndices();
 
 	/*! \brief Set 
 	 */
-	void setGameIndices(std::list <TypeGameIndex> game_indices);
+	void setGameIndices(std::list<TypeGameIndex> game_indices);
 	/*! \brief Get 
 	 */
 	GenerationSummary getGeneration();
 
 	/*! \brief Set 
 	 */
-	void setGeneration(GenerationSummary  generation);
+	void setGeneration(GenerationSummary generation);
 	/*! \brief Get 
 	 */
 	MoveDamageClassSummary getMoveDamageClass();
 
 	/*! \brief Set 
 	 */
-	void setMoveDamageClass(MoveDamageClassSummary  move_damage_class);
+	void setMoveDamageClass(MoveDamageClassSummary move_damage_class);
 	/*! \brief Get 
 	 */
 	std::list<AbilityName> getNames();
 
 	/*! \brief Set 
 	 */
-	void setNames(std::list <AbilityName> names);
+	void setNames(std::list<AbilityName> names);
 	/*! \brief Get 
 	 */
 	std::list<TypeDetail_pokemon_inner> getPokemon();
 
 	/*! \brief Set 
 	 */
-	void setPokemon(std::list <TypeDetail_pokemon_inner> pokemon);
+	void setPokemon(std::list<TypeDetail_pokemon_inner> pokemon);
 	/*! \brief Get 
 	 */
 	std::list<MoveSummary> getMoves();
 
 	/*! \brief Set 
 	 */
-	void setMoves(std::list <MoveSummary> moves);
+	void setMoves(std::list<MoveSummary> moves);
 	/*! \brief Get 
 	 */
-	Map<std::string, std::string> getSprites();
+	std::map<std::string, std::map<std::string, TypeDetail_sprites_value_value>> getSprites();
 
 	/*! \brief Set 
 	 */
-	void setSprites(Map <std::string, std::string> sprites);
+	void setSprites(std::map<std::string, std::map<std::string, TypeDetail_sprites_value_value>> sprites);
 
 
     private:
@@ -146,7 +146,7 @@ public:
     std::list<AbilityName> names;
     std::list<TypeDetail_pokemon_inner> pokemon;
     std::list<MoveSummary> moves;
-    Map<std::string, std::string> sprites;
+    std::map<std::string, std::map<std::string, TypeDetail_sprites_value_value>> sprites;
 };
 }
 

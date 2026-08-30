@@ -6,7 +6,7 @@
 | ------------ | ------------- | ------------- | ------------- |
 | **id** | **kotlin.Int** |  |  [readonly] |
 | **name** | **kotlin.String** |  |  |
-| **names** | [**kotlin.collections.List&lt;MoveBattleStyleName&gt;**](MoveBattleStyleName.md) |  |  |
+| **names** | [**kotlin.collections.List&lt;MoveBattleStyleName&gt;**](MoveBattleStyleName.md) |  |  [readonly] |
 
 
 

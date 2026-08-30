@@ -32,6 +32,7 @@ from pokeapiclient.models.type_detail_sprites_value_value import TypeDetailSprit
 from pokeapiclient.models.type_game_index import TypeGameIndex
 from typing import Optional, Set
 from typing_extensions import Self
+from pydantic_core import to_jsonable_python
 
 class TypeDetail(BaseModel):
     """
@@ -51,7 +52,8 @@ class TypeDetail(BaseModel):
     __properties: ClassVar[List[str]] = ["id", "name", "damage_relations", "past_damage_relations", "game_indices", "generation", "move_damage_class", "names", "pokemon", "moves", "sprites"]
 
     model_config = ConfigDict(
-        populate_by_name=True,
+        validate_by_name=True,
+        validate_by_alias=True,
         validate_assignment=True,
         protected_namespaces=(),
     )
@@ -63,8 +65,7 @@ class TypeDetail(BaseModel):
 
     def to_json(self) -> str:
         """Returns the JSON representation of the model using alias"""
-        # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
-        return json.dumps(self.to_dict())
+        return json.dumps(to_jsonable_python(self.to_dict()))
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
@@ -82,9 +83,19 @@ class TypeDetail(BaseModel):
           are ignored.
         * OpenAPI `readOnly` fields are excluded.
         * OpenAPI `readOnly` fields are excluded.
+        * OpenAPI `readOnly` fields are excluded.
+        * OpenAPI `readOnly` fields are excluded.
+        * OpenAPI `readOnly` fields are excluded.
+        * OpenAPI `readOnly` fields are excluded.
+        * OpenAPI `readOnly` fields are excluded.
         """
         excluded_fields: Set[str] = set([
             "id",
+            "past_damage_relations",
+            "game_indices",
+            "names",
+            "pokemon",
+            "moves",
             "sprites",
         ])
 
@@ -137,13 +148,15 @@ class TypeDetail(BaseModel):
                 if _item_moves:
                     _items.append(_item_moves.to_dict())
             _dict['moves'] = _items
-        # override the default output from pydantic by calling `to_dict()` of each value in sprites (dict)
-        _field_dict = {}
+        # override the default output from pydantic by calling `to_dict()` of each value in sprites (dict of dict)
+        _field_dict_of_dict = {}
         if self.sprites:
-            for _key_sprites in self.sprites:
-                if self.sprites[_key_sprites]:
-                    _field_dict[_key_sprites] = self.sprites[_key_sprites].to_dict()
-            _dict['sprites'] = _field_dict
+            for _key_sprites, _value_sprites in self.sprites.items():
+                if _value_sprites is not None:
+                    _field_dict_of_dict[_key_sprites] = {
+                        _key: _value.to_dict() for _key, _value in _value_sprites.items()
+                    }
+            _dict['sprites'] = _field_dict_of_dict
         return _dict
 
     @classmethod
@@ -174,7 +187,7 @@ class TypeDetail(BaseModel):
                     if _v is not None
                     else None
                 )
-                for _k, _v in obj.get("sprites").items()
+                for _k, _v in obj["sprites"].items()
             )
             if obj.get("sprites") is not None
             else None

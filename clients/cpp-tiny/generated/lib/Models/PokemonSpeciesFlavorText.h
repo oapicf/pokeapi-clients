@@ -53,21 +53,21 @@ public:
 
 	/*! \brief Set 
 	 */
-	void setFlavorText(std::string  flavor_text);
+	void setFlavorText(std::string flavor_text);
 	/*! \brief Get 
 	 */
 	LanguageSummary getLanguage();
 
 	/*! \brief Set 
 	 */
-	void setLanguage(LanguageSummary  language);
+	void setLanguage(LanguageSummary language);
 	/*! \brief Get 
 	 */
 	VersionSummary getVersion();
 
 	/*! \brief Set 
 	 */
-	void setVersion(VersionSummary  version);
+	void setVersion(VersionSummary version);
 
 
     private:

@@ -52,14 +52,14 @@ public:
 
 	/*! \brief Set 
 	 */
-	void setAwesomeName(std::string  awesome_name);
+	void setAwesomeName(std::string awesome_name);
 	/*! \brief Get 
 	 */
 	AbilityDetail_pokemon_inner_pokemon getLanguage();
 
 	/*! \brief Set 
 	 */
-	void setLanguage(AbilityDetail_pokemon_inner_pokemon  language);
+	void setLanguage(AbilityDetail_pokemon_inner_pokemon language);
 
 
     private:

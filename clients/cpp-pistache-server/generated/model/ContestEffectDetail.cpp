@@ -27,6 +27,8 @@ ContestEffectDetail::ContestEffectDetail()
     
 }
 
+ContestEffectDetail::~ContestEffectDetail() = default;
+
 void ContestEffectDetail::validate() const
 {
     std::stringstream msg;

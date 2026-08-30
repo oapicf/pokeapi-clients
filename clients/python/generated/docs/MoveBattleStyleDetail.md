@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **int** |  | [readonly] 
 **name** | **str** |  | 
-**names** | [**List[MoveBattleStyleName]**](MoveBattleStyleName.md) |  | 
+**names** | [**List[MoveBattleStyleName]**](MoveBattleStyleName.md) |  | [readonly] 
 
 ## Example
 

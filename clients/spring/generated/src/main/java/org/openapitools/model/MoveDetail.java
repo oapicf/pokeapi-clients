@@ -2,6 +2,7 @@ package org.openapitools.model;
 
 import java.net.URI;
 import java.util.Objects;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import java.util.ArrayList;
@@ -29,33 +30,37 @@ import org.springframework.lang.Nullable;
 import java.util.NoSuchElementException;
 import org.openapitools.jackson.nullable.JsonNullable;
 import java.time.OffsetDateTime;
-import javax.validation.Valid;
-import javax.validation.constraints.*;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.*;
 import io.swagger.v3.oas.annotations.media.Schema;
 
 
 import java.util.*;
-import javax.annotation.Generated;
+import jakarta.annotation.Generated;
 
 /**
  * MoveDetail
  */
 
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2026-02-07T15:29:13.146999890Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2026-08-30T02:00:43.960184425Z[Etc/UTC]", comments = "Generator version: 7.24.0")
 public class MoveDetail {
 
   private Integer id;
 
   private String name;
 
+  @JsonInclude(JsonInclude.Include.NON_ABSENT)
   private JsonNullable<Integer> accuracy = JsonNullable.<Integer>undefined();
 
   private Integer effectChance;
 
+  @JsonInclude(JsonInclude.Include.NON_ABSENT)
   private JsonNullable<Integer> pp = JsonNullable.<Integer>undefined();
 
+  @JsonInclude(JsonInclude.Include.NON_ABSENT)
   private JsonNullable<Integer> priority = JsonNullable.<Integer>undefined();
 
+  @JsonInclude(JsonInclude.Include.NON_ABSENT)
   private JsonNullable<Integer> power = JsonNullable.<Integer>undefined();
 
   private MoveDetailContestCombos contestCombos;
@@ -66,23 +71,18 @@ public class MoveDetail {
 
   private MoveDamageClassSummary damageClass;
 
-  @Valid
   private List<@Valid MoveChangeEffectEntriesInner> effectEntries = new ArrayList<>();
 
-  @Valid
   private List<@Valid MoveDetailEffectChangesInner> effectChanges = new ArrayList<>();
 
   private GenerationSummary generation;
 
   private MoveMeta meta;
 
-  @Valid
   private List<@Valid MoveName> names = new ArrayList<>();
 
-  @Valid
   private List<@Valid MoveChange> pastValues = new ArrayList<>();
 
-  @Valid
   private List<@Valid MoveDetailStatChangesInner> statChanges = new ArrayList<>();
 
   private SuperContestEffectSummary superContestEffect;
@@ -91,13 +91,10 @@ public class MoveDetail {
 
   private TypeSummary type;
 
-  @Valid
   private List<@Valid MoveDetailMachinesInner> machines = new ArrayList<>();
 
-  @Valid
   private List<@Valid MoveFlavorText> flavorTextEntries = new ArrayList<>();
 
-  @Valid
   private List<@Valid AbilityDetailPokemonInnerPokemon> learnedByPokemon = new ArrayList<>();
 
   public MoveDetail() {
@@ -146,6 +143,7 @@ public class MoveDetail {
     return id;
   }
 
+  @JsonProperty("id")
   public void setId(Integer id) {
     this.id = id;
   }
@@ -166,6 +164,7 @@ public class MoveDetail {
     return name;
   }
 
+  @JsonProperty("name")
   public void setName(String name) {
     this.name = name;
   }
@@ -206,6 +205,7 @@ public class MoveDetail {
     return effectChance;
   }
 
+  @JsonProperty("effect_chance")
   public void setEffectChance(Integer effectChance) {
     this.effectChance = effectChance;
   }
@@ -286,6 +286,7 @@ public class MoveDetail {
     return contestCombos;
   }
 
+  @JsonProperty("contest_combos")
   public void setContestCombos(MoveDetailContestCombos contestCombos) {
     this.contestCombos = contestCombos;
   }
@@ -306,6 +307,7 @@ public class MoveDetail {
     return contestType;
   }
 
+  @JsonProperty("contest_type")
   public void setContestType(ContestTypeSummary contestType) {
     this.contestType = contestType;
   }
@@ -326,6 +328,7 @@ public class MoveDetail {
     return contestEffect;
   }
 
+  @JsonProperty("contest_effect")
   public void setContestEffect(ContestEffectSummary contestEffect) {
     this.contestEffect = contestEffect;
   }
@@ -346,6 +349,7 @@ public class MoveDetail {
     return damageClass;
   }
 
+  @JsonProperty("damage_class")
   public void setDamageClass(MoveDamageClassSummary damageClass) {
     this.damageClass = damageClass;
   }
@@ -367,13 +371,14 @@ public class MoveDetail {
    * Get effectEntries
    * @return effectEntries
    */
-  @NotNull @Valid 
-  @Schema(name = "effect_entries", requiredMode = Schema.RequiredMode.REQUIRED)
+  @Valid 
+  @Schema(name = "effect_entries", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("effect_entries")
   public List<@Valid MoveChangeEffectEntriesInner> getEffectEntries() {
     return effectEntries;
   }
 
+  @JsonProperty("effect_entries")
   public void setEffectEntries(List<@Valid MoveChangeEffectEntriesInner> effectEntries) {
     this.effectEntries = effectEntries;
   }
@@ -395,13 +400,14 @@ public class MoveDetail {
    * Get effectChanges
    * @return effectChanges
    */
-  @NotNull @Valid 
-  @Schema(name = "effect_changes", requiredMode = Schema.RequiredMode.REQUIRED)
+  @Valid 
+  @Schema(name = "effect_changes", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("effect_changes")
   public List<@Valid MoveDetailEffectChangesInner> getEffectChanges() {
     return effectChanges;
   }
 
+  @JsonProperty("effect_changes")
   public void setEffectChanges(List<@Valid MoveDetailEffectChangesInner> effectChanges) {
     this.effectChanges = effectChanges;
   }
@@ -422,6 +428,7 @@ public class MoveDetail {
     return generation;
   }
 
+  @JsonProperty("generation")
   public void setGeneration(GenerationSummary generation) {
     this.generation = generation;
   }
@@ -442,6 +449,7 @@ public class MoveDetail {
     return meta;
   }
 
+  @JsonProperty("meta")
   public void setMeta(MoveMeta meta) {
     this.meta = meta;
   }
@@ -463,13 +471,14 @@ public class MoveDetail {
    * Get names
    * @return names
    */
-  @NotNull @Valid 
-  @Schema(name = "names", requiredMode = Schema.RequiredMode.REQUIRED)
+  @Valid 
+  @Schema(name = "names", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("names")
   public List<@Valid MoveName> getNames() {
     return names;
   }
 
+  @JsonProperty("names")
   public void setNames(List<@Valid MoveName> names) {
     this.names = names;
   }
@@ -491,13 +500,14 @@ public class MoveDetail {
    * Get pastValues
    * @return pastValues
    */
-  @NotNull @Valid 
-  @Schema(name = "past_values", requiredMode = Schema.RequiredMode.REQUIRED)
+  @Valid 
+  @Schema(name = "past_values", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("past_values")
   public List<@Valid MoveChange> getPastValues() {
     return pastValues;
   }
 
+  @JsonProperty("past_values")
   public void setPastValues(List<@Valid MoveChange> pastValues) {
     this.pastValues = pastValues;
   }
@@ -519,13 +529,14 @@ public class MoveDetail {
    * Get statChanges
    * @return statChanges
    */
-  @NotNull @Valid 
-  @Schema(name = "stat_changes", requiredMode = Schema.RequiredMode.REQUIRED)
+  @Valid 
+  @Schema(name = "stat_changes", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("stat_changes")
   public List<@Valid MoveDetailStatChangesInner> getStatChanges() {
     return statChanges;
   }
 
+  @JsonProperty("stat_changes")
   public void setStatChanges(List<@Valid MoveDetailStatChangesInner> statChanges) {
     this.statChanges = statChanges;
   }
@@ -546,6 +557,7 @@ public class MoveDetail {
     return superContestEffect;
   }
 
+  @JsonProperty("super_contest_effect")
   public void setSuperContestEffect(SuperContestEffectSummary superContestEffect) {
     this.superContestEffect = superContestEffect;
   }
@@ -566,6 +578,7 @@ public class MoveDetail {
     return target;
   }
 
+  @JsonProperty("target")
   public void setTarget(MoveTargetSummary target) {
     this.target = target;
   }
@@ -586,6 +599,7 @@ public class MoveDetail {
     return type;
   }
 
+  @JsonProperty("type")
   public void setType(TypeSummary type) {
     this.type = type;
   }
@@ -607,13 +621,14 @@ public class MoveDetail {
    * Get machines
    * @return machines
    */
-  @NotNull @Valid 
-  @Schema(name = "machines", requiredMode = Schema.RequiredMode.REQUIRED)
+  @Valid 
+  @Schema(name = "machines", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("machines")
   public List<@Valid MoveDetailMachinesInner> getMachines() {
     return machines;
   }
 
+  @JsonProperty("machines")
   public void setMachines(List<@Valid MoveDetailMachinesInner> machines) {
     this.machines = machines;
   }
@@ -635,13 +650,14 @@ public class MoveDetail {
    * Get flavorTextEntries
    * @return flavorTextEntries
    */
-  @NotNull @Valid 
-  @Schema(name = "flavor_text_entries", requiredMode = Schema.RequiredMode.REQUIRED)
+  @Valid 
+  @Schema(name = "flavor_text_entries", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("flavor_text_entries")
   public List<@Valid MoveFlavorText> getFlavorTextEntries() {
     return flavorTextEntries;
   }
 
+  @JsonProperty("flavor_text_entries")
   public void setFlavorTextEntries(List<@Valid MoveFlavorText> flavorTextEntries) {
     this.flavorTextEntries = flavorTextEntries;
   }
@@ -663,13 +679,14 @@ public class MoveDetail {
    * Get learnedByPokemon
    * @return learnedByPokemon
    */
-  @NotNull @Valid 
-  @Schema(name = "learned_by_pokemon", requiredMode = Schema.RequiredMode.REQUIRED)
+  @Valid 
+  @Schema(name = "learned_by_pokemon", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("learned_by_pokemon")
   public List<@Valid AbilityDetailPokemonInnerPokemon> getLearnedByPokemon() {
     return learnedByPokemon;
   }
 
+  @JsonProperty("learned_by_pokemon")
   public void setLearnedByPokemon(List<@Valid AbilityDetailPokemonInnerPokemon> learnedByPokemon) {
     this.learnedByPokemon = learnedByPokemon;
   }
@@ -761,11 +778,8 @@ public class MoveDetail {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+  private String toIndentedString(@Nullable Object o) {
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 }
 

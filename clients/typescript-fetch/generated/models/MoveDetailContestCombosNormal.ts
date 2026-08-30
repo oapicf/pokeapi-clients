@@ -45,8 +45,8 @@ export interface MoveDetailContestCombosNormal {
  * Check if a given object implements the MoveDetailContestCombosNormal interface.
  */
 export function instanceOfMoveDetailContestCombosNormal(value: object): value is MoveDetailContestCombosNormal {
-    if (!('useBefore' in value) || value['useBefore'] === undefined) return false;
-    if (!('useAfter' in value) || value['useAfter'] === undefined) return false;
+    if ((!('useBefore' in (value as Record<string, any>)) && !('use_before' in (value as Record<string, any>))) || ((value as Record<string, any>)['useBefore'] === undefined && (value as Record<string, any>)['use_before'] === undefined)) return false;
+    if ((!('useAfter' in (value as Record<string, any>)) && !('use_after' in (value as Record<string, any>))) || ((value as Record<string, any>)['useAfter'] === undefined && (value as Record<string, any>)['use_after'] === undefined)) return false;
     return true;
 }
 

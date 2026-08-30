@@ -44,13 +44,13 @@ export interface EvolutionTriggerDetail  {
      * @type {Array<EvolutionTriggerName>}
      * @memberof EvolutionTriggerDetail
      */
-    names: Array<EvolutionTriggerName>;
+    readonly names: Array<EvolutionTriggerName>;
     /**
      * 
      * @type {Array<AbilityDetailPokemonInnerPokemon>}
      * @memberof EvolutionTriggerDetail
      */
-    pokemonSpecies: Array<AbilityDetailPokemonInnerPokemon>;
+    readonly pokemonSpecies: Array<AbilityDetailPokemonInnerPokemon>;
 }
 
 export function EvolutionTriggerDetailFromJSON(json: any): EvolutionTriggerDetail {
@@ -68,8 +68,6 @@ export function EvolutionTriggerDetailToJSON(value?: EvolutionTriggerDetail): an
     }
     return {
         'name': value.name,
-        'names': (value.names as Array<any>).map(EvolutionTriggerNameToJSON),
-        'pokemon_species': (value.pokemonSpecies as Array<any>).map(AbilityDetailPokemonInnerPokemonToJSON),
     };
 }
 

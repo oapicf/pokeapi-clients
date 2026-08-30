@@ -12,6 +12,11 @@
 package openapi
 
 
+import (
+	"encoding/json"
+	"fmt"
+)
+
 
 
 type SuperContestEffectDetail struct {
@@ -24,45 +29,84 @@ type SuperContestEffectDetail struct {
 
 	Moves []MoveSummary `json:"moves"`
 }
+// UnmarshalJSON validates required property keys then unmarshals into SuperContestEffectDetail
+func (o *SuperContestEffectDetail) UnmarshalJSON(data []byte) (err error) {
+	// Presence is checked against required fields that exist on this struct,
+	// including fields promoted from embedded allOf parents.
+	requiredProperties := []string{
+		"appeal",
+	}
 
-// AssertSuperContestEffectDetailRequired checks if the required fields are not zero-ed
+	requiredNullableProperties := map[string]bool{
+		"appeal": false,
+	}
+
+	allowedJsonKeys := map[string]struct{}{
+		"id": {},
+		"appeal": {},
+		"flavor_text_entries": {},
+		"moves": {},
+	}
+
+	allProperties := make(map[string]json.RawMessage)
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err
+	}
+
+	for _, requiredProperty := range requiredProperties {
+		value, exists := allProperties[requiredProperty]
+		if !exists {
+			return &RequiredError{Field: requiredProperty}
+		}
+		if string(value) == "null" && !requiredNullableProperties[requiredProperty] {
+			return &RequiredError{Field: requiredProperty}
+		}
+	}
+
+	for key := range allProperties {
+		if _, exists := allowedJsonKeys[key]; !exists {
+			return fmt.Errorf("json: unknown field %q", key)
+		}
+	}
+
+	var decoded SuperContestEffectDetail
+
+	if value, exists := allProperties["id"]; exists {
+		if err = json.Unmarshal(value, &decoded.Id); err != nil {
+			return err
+		}
+	}
+	if value, exists := allProperties["appeal"]; exists {
+		if err = json.Unmarshal(value, &decoded.Appeal); err != nil {
+			return err
+		}
+	}
+	if value, exists := allProperties["flavor_text_entries"]; exists {
+		if err = json.Unmarshal(value, &decoded.FlavorTextEntries); err != nil {
+			return err
+		}
+	}
+	if value, exists := allProperties["moves"]; exists {
+		if err = json.Unmarshal(value, &decoded.Moves); err != nil {
+			return err
+		}
+	}
+
+	*o = decoded
+
+	return nil
+}
+
+// AssertSuperContestEffectDetailRequired checks complex required fields (models, arrays, maps) and embedded parents.
+// Primitive required fields are validated for JSON request bodies in UnmarshalJSON so zero values remain valid.
 func AssertSuperContestEffectDetailRequired(obj SuperContestEffectDetail) error {
-	elements := map[string]interface{}{
-		"id": obj.Id,
-		"appeal": obj.Appeal,
-		"flavor_text_entries": obj.FlavorTextEntries,
-		"moves": obj.Moves,
-	}
-	for name, el := range elements {
-		if isZero := IsZeroValue(el); isZero {
-			return &RequiredError{Field: name}
-		}
-	}
-
-	for _, el := range obj.FlavorTextEntries {
-		if err := AssertSuperContestEffectFlavorTextRequired(el); err != nil {
-			return err
-		}
-	}
-	for _, el := range obj.Moves {
-		if err := AssertMoveSummaryRequired(el); err != nil {
-			return err
-		}
-	}
 	return nil
 }
 
 // AssertSuperContestEffectDetailConstraints checks if the values respects the defined constraints
 func AssertSuperContestEffectDetailConstraints(obj SuperContestEffectDetail) error {
-	for _, el := range obj.FlavorTextEntries {
-		if err := AssertSuperContestEffectFlavorTextConstraints(el); err != nil {
-			return err
-		}
-	}
-	for _, el := range obj.Moves {
-		if err := AssertMoveSummaryConstraints(el); err != nil {
-			return err
-		}
-	}
 	return nil
 }

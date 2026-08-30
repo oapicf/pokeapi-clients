@@ -49,8 +49,8 @@ function Initialize-NatureDetailPokeathlonStatChangesInner {
 
 
         $PSO = [PSCustomObject]@{
-            "max_change" = ${MaxChange}
-            "pokeathlon_stat" = ${PokeathlonStat}
+            'max_change' = ${MaxChange}
+            'pokeathlon_stat' = ${PokeathlonStat}
         }
 
 
@@ -88,7 +88,7 @@ function ConvertFrom-JsonToNatureDetailPokeathlonStatChangesInner {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in NatureDetailPokeathlonStatChangesInner
-        $AllProperties = ("max_change", "pokeathlon_stat")
+        $AllProperties = ('max_change', 'pokeathlon_stat')
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -99,21 +99,21 @@ function ConvertFrom-JsonToNatureDetailPokeathlonStatChangesInner {
             throw "Error! Empty JSON cannot be serialized due to the required property 'max_change' missing."
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "max_change"))) {
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'max_change'))) {
             throw "Error! JSON cannot be serialized due to the required property 'max_change' missing."
         } else {
-            $MaxChange = $JsonParameters.PSobject.Properties["max_change"].value
+            $MaxChange = $JsonParameters.PSobject.Properties['max_change'].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "pokeathlon_stat"))) {
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'pokeathlon_stat'))) {
             throw "Error! JSON cannot be serialized due to the required property 'pokeathlon_stat' missing."
         } else {
-            $PokeathlonStat = $JsonParameters.PSobject.Properties["pokeathlon_stat"].value
+            $PokeathlonStat = $JsonParameters.PSobject.Properties['pokeathlon_stat'].value
         }
 
         $PSO = [PSCustomObject]@{
-            "max_change" = ${MaxChange}
-            "pokeathlon_stat" = ${PokeathlonStat}
+            'max_change' = ${MaxChange}
+            'pokeathlon_stat' = ${PokeathlonStat}
         }
 
         return $PSO

@@ -53,28 +53,28 @@ public:
 
 	/*! \brief Set 
 	 */
-	void setId(int  id);
+	void setId(int id);
 	/*! \brief Get 
 	 */
 	std::string getName();
 
 	/*! \brief Set 
 	 */
-	void setName(std::string  name);
+	void setName(std::string name);
 	/*! \brief Get 
 	 */
 	int getOrder();
 
 	/*! \brief Set 
 	 */
-	void setOrder(int  order);
+	void setOrder(int order);
 	/*! \brief Get 
 	 */
 	std::list<EncounterMethodName> getNames();
 
 	/*! \brief Set 
 	 */
-	void setNames(std::list <EncounterMethodName> names);
+	void setNames(std::list<EncounterMethodName> names);
 
 
     private:

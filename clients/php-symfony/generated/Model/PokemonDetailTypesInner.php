@@ -47,7 +47,7 @@ class PokemonDetailTypesInner
      * @var int|null
      * @SerializedName("slot")
      * @Type("int")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Type("int")]
     protected ?int $slot = null;
@@ -56,7 +56,7 @@ class PokemonDetailTypesInner
      * @var AbilityDetailPokemonInnerPokemon|null
      * @SerializedName("type")
      * @Type("OpenAPI\Server\Model\AbilityDetailPokemonInnerPokemon")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Valid]
     #[Assert\Type("OpenAPI\Server\Model\AbilityDetailPokemonInnerPokemon")]
@@ -85,12 +85,12 @@ class PokemonDetailTypesInner
     }
 
     /**
-    * Sets slot.
-    *
-    * @param int|null $slot
-    *
-    * @return $this
-    */
+     * Sets slot.
+     *
+     * @param int|null $slot
+     *
+     * @return $this
+     */
     public function setSlot(?int $slot): self
     {
         $this->slot = $slot;
@@ -112,12 +112,12 @@ class PokemonDetailTypesInner
     }
 
     /**
-    * Sets type.
-    *
-    * @param AbilityDetailPokemonInnerPokemon|null $type
-    *
-    * @return $this
-    */
+     * Sets type.
+     *
+     * @param AbilityDetailPokemonInnerPokemon|null $type
+     *
+     * @return $this
+     */
     public function setType(?AbilityDetailPokemonInnerPokemon $type): self
     {
         $this->type = $type;

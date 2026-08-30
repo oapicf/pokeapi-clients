@@ -162,7 +162,7 @@ EvolutionChainDetail_chain::getEvolutionDetails()
 }
 
 void
-EvolutionChainDetail_chain::setEvolutionDetails(std::list <AnyType> evolution_details)
+EvolutionChainDetail_chain::setEvolutionDetails(std::list<AnyType> evolution_details)
 {
 	this->evolution_details = evolution_details;
 }
@@ -174,7 +174,7 @@ EvolutionChainDetail_chain::getEvolvesTo()
 }
 
 void
-EvolutionChainDetail_chain::setEvolvesTo(std::list <EvolutionChainDetail_chain_evolves_to_inner> evolves_to)
+EvolutionChainDetail_chain::setEvolvesTo(std::list<EvolutionChainDetail_chain_evolves_to_inner> evolves_to)
 {
 	this->evolves_to = evolves_to;
 }
@@ -186,7 +186,7 @@ EvolutionChainDetail_chain::isIsBaby()
 }
 
 void
-EvolutionChainDetail_chain::setIsBaby(bool  is_baby)
+EvolutionChainDetail_chain::setIsBaby(bool is_baby)
 {
 	this->is_baby = is_baby;
 }
@@ -198,7 +198,7 @@ EvolutionChainDetail_chain::getSpecies()
 }
 
 void
-EvolutionChainDetail_chain::setSpecies(AbilityDetail_pokemon_inner_pokemon  species)
+EvolutionChainDetail_chain::setSpecies(AbilityDetail_pokemon_inner_pokemon species)
 {
 	this->species = species;
 }

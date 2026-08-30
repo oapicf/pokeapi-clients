@@ -26,6 +26,8 @@ PokemonDetail_cries::PokemonDetail_cries()
     
 }
 
+PokemonDetail_cries::~PokemonDetail_cries() = default;
+
 void PokemonDetail_cries::validate() const
 {
     std::stringstream msg;

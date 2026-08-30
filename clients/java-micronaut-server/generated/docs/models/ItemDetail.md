@@ -13,16 +13,16 @@ Name | Type | Description | Notes
 **cost** | `Integer` |  |  [optional property]
 **flingPower** | `Integer` |  |  [optional property]
 **flingEffect** | [`ItemFlingEffectSummary`](ItemFlingEffectSummary.md) |  | 
-**attributes** | [`List&lt;AbilityDetailPokemonInnerPokemon&gt;`](AbilityDetailPokemonInnerPokemon.md) |  | 
+**attributes** | [`List&lt;AbilityDetailPokemonInnerPokemon&gt;`](AbilityDetailPokemonInnerPokemon.md) |  |  [readonly property]
 **category** | [`ItemCategorySummary`](ItemCategorySummary.md) |  | 
-**effectEntries** | [`List&lt;ItemEffectText&gt;`](ItemEffectText.md) |  | 
-**flavorTextEntries** | [`List&lt;ItemFlavorText&gt;`](ItemFlavorText.md) |  | 
-**gameIndices** | [`List&lt;ItemGameIndex&gt;`](ItemGameIndex.md) |  | 
-**names** | [`List&lt;ItemName&gt;`](ItemName.md) |  | 
-**heldByPokemon** | [`List&lt;ItemDetailHeldByPokemonInner&gt;`](ItemDetailHeldByPokemonInner.md) |  | 
+**effectEntries** | [`List&lt;ItemEffectText&gt;`](ItemEffectText.md) |  |  [readonly property]
+**flavorTextEntries** | [`List&lt;ItemFlavorText&gt;`](ItemFlavorText.md) |  |  [readonly property]
+**gameIndices** | [`List&lt;ItemGameIndex&gt;`](ItemGameIndex.md) |  |  [readonly property]
+**names** | [`List&lt;ItemName&gt;`](ItemName.md) |  |  [readonly property]
+**heldByPokemon** | [`List&lt;ItemDetailHeldByPokemonInner&gt;`](ItemDetailHeldByPokemonInner.md) |  |  [readonly property]
 **sprites** | [`ItemDetailSprites`](ItemDetailSprites.md) |  | 
 **babyTriggerFor** | [`ItemDetailBabyTriggerFor`](ItemDetailBabyTriggerFor.md) |  | 
-**machines** | [`List&lt;ItemDetailMachinesInner&gt;`](ItemDetailMachinesInner.md) |  | 
+**machines** | [`List&lt;ItemDetailMachinesInner&gt;`](ItemDetailMachinesInner.md) |  |  [readonly property]
 
 
 

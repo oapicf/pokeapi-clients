@@ -196,7 +196,7 @@ export class ContestsApi {
      */
     public async contestEffectRetrieve (id: string, options: {headers: {[name: string]: string}} = {headers: {}}) : Promise<{ response: http.IncomingMessage; body: ContestEffectDetail;  }> {
         const localVarPath = this.basePath + '/api/v2/contest-effect/{id}/'
-            .replace('{' + 'id' + '}', encodeURIComponent(String(id)));
+            .replace('{id}', encodeURIComponent(String(id)));
         let localVarQueryParameters: any = {};
         let localVarHeaderParams: any = (<any>Object).assign({}, this._defaultHeaders);
         const produces = ['application/json'];
@@ -354,7 +354,7 @@ export class ContestsApi {
      */
     public async contestTypeRetrieve (id: string, options: {headers: {[name: string]: string}} = {headers: {}}) : Promise<{ response: http.IncomingMessage; body: ContestTypeDetail;  }> {
         const localVarPath = this.basePath + '/api/v2/contest-type/{id}/'
-            .replace('{' + 'id' + '}', encodeURIComponent(String(id)));
+            .replace('{id}', encodeURIComponent(String(id)));
         let localVarQueryParameters: any = {};
         let localVarHeaderParams: any = (<any>Object).assign({}, this._defaultHeaders);
         const produces = ['application/json'];
@@ -512,7 +512,7 @@ export class ContestsApi {
      */
     public async superContestEffectRetrieve (id: string, options: {headers: {[name: string]: string}} = {headers: {}}) : Promise<{ response: http.IncomingMessage; body: SuperContestEffectDetail;  }> {
         const localVarPath = this.basePath + '/api/v2/super-contest-effect/{id}/'
-            .replace('{' + 'id' + '}', encodeURIComponent(String(id)));
+            .replace('{id}', encodeURIComponent(String(id)));
         let localVarQueryParameters: any = {};
         let localVarHeaderParams: any = (<any>Object).assign({}, this._defaultHeaders);
         const produces = ['application/json'];

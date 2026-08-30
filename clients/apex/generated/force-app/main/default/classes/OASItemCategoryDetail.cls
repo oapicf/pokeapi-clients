@@ -30,13 +30,13 @@ public class OASItemCategoryDetail {
      * Get items
      * @return items
      */
-    public List<OASItemSummary> items { get; set; }
+    public List<OASItemSummary> items { get; private set; }
 
     /**
      * Get names
      * @return names
      */
-    public List<OASItemCategoryName> names { get; set; }
+    public List<OASItemCategoryName> names { get; private set; }
 
     /**
      * Get pocket

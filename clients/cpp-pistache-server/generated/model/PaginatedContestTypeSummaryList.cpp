@@ -31,6 +31,8 @@ PaginatedContestTypeSummaryList::PaginatedContestTypeSummaryList()
     
 }
 
+PaginatedContestTypeSummaryList::~PaginatedContestTypeSummaryList() = default;
+
 void PaginatedContestTypeSummaryList::validate() const
 {
     std::stringstream msg;

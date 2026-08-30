@@ -32,7 +32,7 @@ class  EvolutionTriggerSummary
 {
 public:
     EvolutionTriggerSummary();
-    virtual ~EvolutionTriggerSummary() = default;
+    virtual ~EvolutionTriggerSummary();
 
 
     /// <summary>

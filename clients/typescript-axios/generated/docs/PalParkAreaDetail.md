@@ -7,8 +7,8 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **number** |  | [readonly] [default to undefined]
 **name** | **string** |  | [default to undefined]
-**names** | [**Array&lt;PalParkAreaName&gt;**](PalParkAreaName.md) |  | [default to undefined]
-**pokemon_encounters** | [**Array&lt;PalParkAreaDetailPokemonEncountersInner&gt;**](PalParkAreaDetailPokemonEncountersInner.md) |  | [default to undefined]
+**names** | [**Array&lt;PalParkAreaName&gt;**](PalParkAreaName.md) |  | [readonly] [default to undefined]
+**pokemon_encounters** | [**Array&lt;PalParkAreaDetailPokemonEncountersInner&gt;**](PalParkAreaDetailPokemonEncountersInner.md) |  | [readonly] [default to undefined]
 
 ## Example
 

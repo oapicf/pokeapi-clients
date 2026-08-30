@@ -8,9 +8,17 @@
 
 @file:Suppress(
     "ArrayInDataClass",
+    "DuplicatedCode",
     "EnumEntryName",
     "RemoveRedundantQualifierName",
-    "UnusedImport"
+    "RemoveRedundantCallsOfConversionMethods",
+    "REDUNDANT_CALL_OF_CONVERSION_METHOD",
+    "RedundantUnitReturnType",
+    "RemoveEmptyClassBody",
+    "UnnecessaryVariable",
+    "UnusedImport",
+    "UnnecessaryVariable",
+    "unused"
 )
 
 package org.openapitools.client.models
@@ -57,10 +65,10 @@ data class EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner (
     val item: EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender,
 
     @Json(name = "known_move")
-    val knownMove: kotlin.Any,
+    val knownMove: EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender,
 
     @Json(name = "known_move_type")
-    val knownMoveType: kotlin.Any,
+    val knownMoveType: EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender,
 
     @Json(name = "location")
     val location: EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender,

@@ -14,7 +14,7 @@ import org.openapitools.model.SuperContestEffectFlavorText;
 /**
  * SuperContestEffectDetail
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaMSF4JServerCodegen", date = "2026-02-07T15:23:10.683633502Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaMSF4JServerCodegen", date = "2026-08-30T01:55:58.248058654Z[Etc/UTC]", comments = "Generator version: 7.24.0")
 public class SuperContestEffectDetail   {
   @JsonProperty("id")
   private Integer id;
@@ -55,16 +55,6 @@ public class SuperContestEffectDetail   {
     this.appeal = appeal;
   }
 
-  public SuperContestEffectDetail flavorTextEntries(List<@Valid SuperContestEffectFlavorText> flavorTextEntries) {
-    this.flavorTextEntries = flavorTextEntries;
-    return this;
-  }
-
-  public SuperContestEffectDetail addFlavorTextEntriesItem(SuperContestEffectFlavorText flavorTextEntriesItem) {
-    this.flavorTextEntries.add(flavorTextEntriesItem);
-    return this;
-  }
-
    /**
    * Get flavorTextEntries
    * @return flavorTextEntries
@@ -74,20 +64,6 @@ public class SuperContestEffectDetail   {
     return flavorTextEntries;
   }
 
-  public void setFlavorTextEntries(List<@Valid SuperContestEffectFlavorText> flavorTextEntries) {
-    this.flavorTextEntries = flavorTextEntries;
-  }
-
-  public SuperContestEffectDetail moves(List<@Valid MoveSummary> moves) {
-    this.moves = moves;
-    return this;
-  }
-
-  public SuperContestEffectDetail addMovesItem(MoveSummary movesItem) {
-    this.moves.add(movesItem);
-    return this;
-  }
-
    /**
    * Get moves
    * @return moves
@@ -95,10 +71,6 @@ public class SuperContestEffectDetail   {
   @ApiModelProperty(required = true, value = "")
   public List<@Valid MoveSummary> getMoves() {
     return moves;
-  }
-
-  public void setMoves(List<@Valid MoveSummary> moves) {
-    this.moves = moves;
   }
 
 
@@ -140,10 +112,7 @@ public class SuperContestEffectDetail   {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 }
 

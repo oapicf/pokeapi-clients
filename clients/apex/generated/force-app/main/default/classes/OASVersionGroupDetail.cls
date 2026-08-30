@@ -42,25 +42,25 @@ public class OASVersionGroupDetail implements OAS.MappedProperties {
      * Get moveLearnMethods
      * @return moveLearnMethods
      */
-    public List<OASAbilityDetailPokemonInnerPokemon> moveLearnMethods { get; set; }
+    public List<OASAbilityDetailPokemonInnerPokemon> moveLearnMethods { get; private set; }
 
     /**
      * Get pokedexes
      * @return pokedexes
      */
-    public List<OASAbilityDetailPokemonInnerPokemon> pokedexes { get; set; }
+    public List<OASAbilityDetailPokemonInnerPokemon> pokedexes { get; private set; }
 
     /**
      * Get regions
      * @return regions
      */
-    public List<OASAbilityDetailPokemonInnerPokemon> regions { get; set; }
+    public List<OASAbilityDetailPokemonInnerPokemon> regions { get; private set; }
 
     /**
      * Get versions
      * @return versions
      */
-    public List<OASVersionSummary> versions { get; set; }
+    public List<OASVersionSummary> versions { get; private set; }
 
     private static final Map<String, String> propertyMappings = new Map<String, String>{
         'move_learn_methods' => 'moveLearnMethods'

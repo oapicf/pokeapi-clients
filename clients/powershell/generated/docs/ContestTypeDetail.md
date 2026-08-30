@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 **Id** | **Int32** |  | [readonly] 
 **Name** | **String** |  | 
 **BerryFlavor** | [**BerryFlavorSummary**](BerryFlavorSummary.md) |  | [readonly] 
-**Names** | [**ContestTypeName[]**](ContestTypeName.md) |  | 
+**Names** | [**ContestTypeName[]**](ContestTypeName.md) |  | [readonly] 
 
 ## Examples
 

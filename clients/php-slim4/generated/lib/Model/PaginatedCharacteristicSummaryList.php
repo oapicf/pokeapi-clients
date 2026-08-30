@@ -67,7 +67,8 @@ class PaginatedCharacteristicSummaryList extends BaseModel
       "type" : "array",
       "items" : {
         "$ref" : "#/components/schemas/CharacteristicSummary"
-      }
+      },
+      "default" : null
     }
   }
 }

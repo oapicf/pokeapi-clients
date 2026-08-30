@@ -85,7 +85,7 @@ MoveMetaAilmentSummary::getName()
 }
 
 void
-MoveMetaAilmentSummary::setName(std::string  name)
+MoveMetaAilmentSummary::setName(std::string name)
 {
 	this->name = name;
 }
@@ -97,7 +97,7 @@ MoveMetaAilmentSummary::getUrl()
 }
 
 void
-MoveMetaAilmentSummary::setUrl(std::string  url)
+MoveMetaAilmentSummary::setUrl(std::string url)
 {
 	this->url = url;
 }

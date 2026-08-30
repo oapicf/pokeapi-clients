@@ -12,36 +12,47 @@
  * Do not edit the class manually.
  */
 
-
 import * as runtime from '../runtime';
-import type {
-  LocationAreaDetail,
-  LocationDetail,
-  PaginatedLocationAreaSummaryList,
-  PaginatedLocationSummaryList,
-  PaginatedPalParkAreaSummaryList,
-  PaginatedRegionSummaryList,
-  PalParkAreaDetail,
-  RegionDetail,
-} from '../models/index';
 import {
+    type LocationAreaDetail,
     LocationAreaDetailFromJSON,
     LocationAreaDetailToJSON,
+} from '../models/LocationAreaDetail';
+import {
+    type LocationDetail,
     LocationDetailFromJSON,
     LocationDetailToJSON,
+} from '../models/LocationDetail';
+import {
+    type PaginatedLocationAreaSummaryList,
     PaginatedLocationAreaSummaryListFromJSON,
     PaginatedLocationAreaSummaryListToJSON,
+} from '../models/PaginatedLocationAreaSummaryList';
+import {
+    type PaginatedLocationSummaryList,
     PaginatedLocationSummaryListFromJSON,
     PaginatedLocationSummaryListToJSON,
+} from '../models/PaginatedLocationSummaryList';
+import {
+    type PaginatedPalParkAreaSummaryList,
     PaginatedPalParkAreaSummaryListFromJSON,
     PaginatedPalParkAreaSummaryListToJSON,
+} from '../models/PaginatedPalParkAreaSummaryList';
+import {
+    type PaginatedRegionSummaryList,
     PaginatedRegionSummaryListFromJSON,
     PaginatedRegionSummaryListToJSON,
+} from '../models/PaginatedRegionSummaryList';
+import {
+    type PalParkAreaDetail,
     PalParkAreaDetailFromJSON,
     PalParkAreaDetailToJSON,
+} from '../models/PalParkAreaDetail';
+import {
+    type RegionDetail,
     RegionDetailFromJSON,
     RegionDetailToJSON,
-} from '../models/index';
+} from '../models/RegionDetail';
 
 export interface LocationAreaListRequest {
     limit?: number;
@@ -88,10 +99,9 @@ export interface RegionRetrieveRequest {
 export class LocationApi extends runtime.BaseAPI {
 
     /**
-     * Location areas are sections of areas, such as floors in a building or cave. Each area has its own set of possible Pokémon encounters.
-     * List location areas
+     * Creates request options for locationAreaList without sending the request
      */
-    async locationAreaListRaw(requestParameters: LocationAreaListRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PaginatedLocationAreaSummaryList>> {
+    async locationAreaListRequestOpts(requestParameters: LocationAreaListRequest): Promise<runtime.RequestOpts> {
         const queryParameters: any = {};
 
         if (requestParameters['limit'] != null) {
@@ -110,12 +120,21 @@ export class LocationApi extends runtime.BaseAPI {
 
         let urlPath = `/api/v2/location-area/`;
 
-        const response = await this.request({
+        return {
             path: urlPath,
             method: 'GET',
             headers: headerParameters,
             query: queryParameters,
-        }, initOverrides);
+        };
+    }
+
+    /**
+     * Location areas are sections of areas, such as floors in a building or cave. Each area has its own set of possible Pokémon encounters.
+     * List location areas
+     */
+    async locationAreaListRaw(requestParameters: LocationAreaListRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PaginatedLocationAreaSummaryList>> {
+        const requestOptions = await this.locationAreaListRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => PaginatedLocationAreaSummaryListFromJSON(jsonValue));
     }
@@ -130,10 +149,9 @@ export class LocationApi extends runtime.BaseAPI {
     }
 
     /**
-     * Location areas are sections of areas, such as floors in a building or cave. Each area has its own set of possible Pokémon encounters.
-     * Get location area
+     * Creates request options for locationAreaRetrieve without sending the request
      */
-    async locationAreaRetrieveRaw(requestParameters: LocationAreaRetrieveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<LocationAreaDetail>> {
+    async locationAreaRetrieveRequestOpts(requestParameters: LocationAreaRetrieveRequest): Promise<runtime.RequestOpts> {
         if (requestParameters['id'] == null) {
             throw new runtime.RequiredError(
                 'id',
@@ -150,14 +168,23 @@ export class LocationApi extends runtime.BaseAPI {
         }
 
         let urlPath = `/api/v2/location-area/{id}/`;
-        urlPath = urlPath.replace(`{${"id"}}`, encodeURIComponent(String(requestParameters['id'])));
+        urlPath = urlPath.replace('{id}', encodeURIComponent(String(requestParameters['id'])));
 
-        const response = await this.request({
+        return {
             path: urlPath,
             method: 'GET',
             headers: headerParameters,
             query: queryParameters,
-        }, initOverrides);
+        };
+    }
+
+    /**
+     * Location areas are sections of areas, such as floors in a building or cave. Each area has its own set of possible Pokémon encounters.
+     * Get location area
+     */
+    async locationAreaRetrieveRaw(requestParameters: LocationAreaRetrieveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<LocationAreaDetail>> {
+        const requestOptions = await this.locationAreaRetrieveRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => LocationAreaDetailFromJSON(jsonValue));
     }
@@ -172,10 +199,9 @@ export class LocationApi extends runtime.BaseAPI {
     }
 
     /**
-     * Locations that can be visited within the games. Locations make up sizable portions of regions, like cities or routes.
-     * List locations
+     * Creates request options for locationList without sending the request
      */
-    async locationListRaw(requestParameters: LocationListRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PaginatedLocationSummaryList>> {
+    async locationListRequestOpts(requestParameters: LocationListRequest): Promise<runtime.RequestOpts> {
         const queryParameters: any = {};
 
         if (requestParameters['limit'] != null) {
@@ -198,12 +224,21 @@ export class LocationApi extends runtime.BaseAPI {
 
         let urlPath = `/api/v2/location/`;
 
-        const response = await this.request({
+        return {
             path: urlPath,
             method: 'GET',
             headers: headerParameters,
             query: queryParameters,
-        }, initOverrides);
+        };
+    }
+
+    /**
+     * Locations that can be visited within the games. Locations make up sizable portions of regions, like cities or routes.
+     * List locations
+     */
+    async locationListRaw(requestParameters: LocationListRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PaginatedLocationSummaryList>> {
+        const requestOptions = await this.locationListRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => PaginatedLocationSummaryListFromJSON(jsonValue));
     }
@@ -218,10 +253,9 @@ export class LocationApi extends runtime.BaseAPI {
     }
 
     /**
-     * Locations that can be visited within the games. Locations make up sizable portions of regions, like cities or routes.
-     * Get location
+     * Creates request options for locationRetrieve without sending the request
      */
-    async locationRetrieveRaw(requestParameters: LocationRetrieveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<LocationDetail>> {
+    async locationRetrieveRequestOpts(requestParameters: LocationRetrieveRequest): Promise<runtime.RequestOpts> {
         if (requestParameters['id'] == null) {
             throw new runtime.RequiredError(
                 'id',
@@ -238,14 +272,23 @@ export class LocationApi extends runtime.BaseAPI {
         }
 
         let urlPath = `/api/v2/location/{id}/`;
-        urlPath = urlPath.replace(`{${"id"}}`, encodeURIComponent(String(requestParameters['id'])));
+        urlPath = urlPath.replace('{id}', encodeURIComponent(String(requestParameters['id'])));
 
-        const response = await this.request({
+        return {
             path: urlPath,
             method: 'GET',
             headers: headerParameters,
             query: queryParameters,
-        }, initOverrides);
+        };
+    }
+
+    /**
+     * Locations that can be visited within the games. Locations make up sizable portions of regions, like cities or routes.
+     * Get location
+     */
+    async locationRetrieveRaw(requestParameters: LocationRetrieveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<LocationDetail>> {
+        const requestOptions = await this.locationRetrieveRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => LocationDetailFromJSON(jsonValue));
     }
@@ -260,10 +303,9 @@ export class LocationApi extends runtime.BaseAPI {
     }
 
     /**
-     * Areas used for grouping Pokémon encounters in Pal Park. They\'re like habitats that are specific to Pal Park.
-     * List pal park areas
+     * Creates request options for palParkAreaList without sending the request
      */
-    async palParkAreaListRaw(requestParameters: PalParkAreaListRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PaginatedPalParkAreaSummaryList>> {
+    async palParkAreaListRequestOpts(requestParameters: PalParkAreaListRequest): Promise<runtime.RequestOpts> {
         const queryParameters: any = {};
 
         if (requestParameters['limit'] != null) {
@@ -286,12 +328,21 @@ export class LocationApi extends runtime.BaseAPI {
 
         let urlPath = `/api/v2/pal-park-area/`;
 
-        const response = await this.request({
+        return {
             path: urlPath,
             method: 'GET',
             headers: headerParameters,
             query: queryParameters,
-        }, initOverrides);
+        };
+    }
+
+    /**
+     * Areas used for grouping Pokémon encounters in Pal Park. They\'re like habitats that are specific to Pal Park.
+     * List pal park areas
+     */
+    async palParkAreaListRaw(requestParameters: PalParkAreaListRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PaginatedPalParkAreaSummaryList>> {
+        const requestOptions = await this.palParkAreaListRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => PaginatedPalParkAreaSummaryListFromJSON(jsonValue));
     }
@@ -306,10 +357,9 @@ export class LocationApi extends runtime.BaseAPI {
     }
 
     /**
-     * Areas used for grouping Pokémon encounters in Pal Park. They\'re like habitats that are specific to Pal Park.
-     * Get pal park area
+     * Creates request options for palParkAreaRetrieve without sending the request
      */
-    async palParkAreaRetrieveRaw(requestParameters: PalParkAreaRetrieveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PalParkAreaDetail>> {
+    async palParkAreaRetrieveRequestOpts(requestParameters: PalParkAreaRetrieveRequest): Promise<runtime.RequestOpts> {
         if (requestParameters['id'] == null) {
             throw new runtime.RequiredError(
                 'id',
@@ -326,14 +376,23 @@ export class LocationApi extends runtime.BaseAPI {
         }
 
         let urlPath = `/api/v2/pal-park-area/{id}/`;
-        urlPath = urlPath.replace(`{${"id"}}`, encodeURIComponent(String(requestParameters['id'])));
+        urlPath = urlPath.replace('{id}', encodeURIComponent(String(requestParameters['id'])));
 
-        const response = await this.request({
+        return {
             path: urlPath,
             method: 'GET',
             headers: headerParameters,
             query: queryParameters,
-        }, initOverrides);
+        };
+    }
+
+    /**
+     * Areas used for grouping Pokémon encounters in Pal Park. They\'re like habitats that are specific to Pal Park.
+     * Get pal park area
+     */
+    async palParkAreaRetrieveRaw(requestParameters: PalParkAreaRetrieveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PalParkAreaDetail>> {
+        const requestOptions = await this.palParkAreaRetrieveRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => PalParkAreaDetailFromJSON(jsonValue));
     }
@@ -348,10 +407,9 @@ export class LocationApi extends runtime.BaseAPI {
     }
 
     /**
-     * A region is an organized area of the Pokémon world. Most often, the main difference between regions is the species of Pokémon that can be encountered within them.
-     * List regions
+     * Creates request options for regionList without sending the request
      */
-    async regionListRaw(requestParameters: RegionListRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PaginatedRegionSummaryList>> {
+    async regionListRequestOpts(requestParameters: RegionListRequest): Promise<runtime.RequestOpts> {
         const queryParameters: any = {};
 
         if (requestParameters['limit'] != null) {
@@ -374,12 +432,21 @@ export class LocationApi extends runtime.BaseAPI {
 
         let urlPath = `/api/v2/region/`;
 
-        const response = await this.request({
+        return {
             path: urlPath,
             method: 'GET',
             headers: headerParameters,
             query: queryParameters,
-        }, initOverrides);
+        };
+    }
+
+    /**
+     * A region is an organized area of the Pokémon world. Most often, the main difference between regions is the species of Pokémon that can be encountered within them.
+     * List regions
+     */
+    async regionListRaw(requestParameters: RegionListRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PaginatedRegionSummaryList>> {
+        const requestOptions = await this.regionListRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => PaginatedRegionSummaryListFromJSON(jsonValue));
     }
@@ -394,10 +461,9 @@ export class LocationApi extends runtime.BaseAPI {
     }
 
     /**
-     * A region is an organized area of the Pokémon world. Most often, the main difference between regions is the species of Pokémon that can be encountered within them.
-     * Get region
+     * Creates request options for regionRetrieve without sending the request
      */
-    async regionRetrieveRaw(requestParameters: RegionRetrieveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RegionDetail>> {
+    async regionRetrieveRequestOpts(requestParameters: RegionRetrieveRequest): Promise<runtime.RequestOpts> {
         if (requestParameters['id'] == null) {
             throw new runtime.RequiredError(
                 'id',
@@ -414,14 +480,23 @@ export class LocationApi extends runtime.BaseAPI {
         }
 
         let urlPath = `/api/v2/region/{id}/`;
-        urlPath = urlPath.replace(`{${"id"}}`, encodeURIComponent(String(requestParameters['id'])));
+        urlPath = urlPath.replace('{id}', encodeURIComponent(String(requestParameters['id'])));
 
-        const response = await this.request({
+        return {
             path: urlPath,
             method: 'GET',
             headers: headerParameters,
             query: queryParameters,
-        }, initOverrides);
+        };
+    }
+
+    /**
+     * A region is an organized area of the Pokémon world. Most often, the main difference between regions is the species of Pokémon that can be encountered within them.
+     * Get region
+     */
+    async regionRetrieveRaw(requestParameters: RegionRetrieveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RegionDetail>> {
+        const requestOptions = await this.regionRetrieveRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => RegionDetailFromJSON(jsonValue));
     }

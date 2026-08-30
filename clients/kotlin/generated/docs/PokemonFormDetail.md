@@ -10,9 +10,9 @@
 | **pokemon** | [**PokemonSummary**](PokemonSummary.md) |  |  |
 | **sprites** | [**PokemonFormDetailSprites**](PokemonFormDetailSprites.md) |  |  |
 | **versionGroup** | [**VersionGroupSummary**](VersionGroupSummary.md) |  |  |
-| **formNames** | [**kotlin.collections.List&lt;PokemonFormDetailFormNamesInner&gt;**](PokemonFormDetailFormNamesInner.md) |  |  |
-| **names** | [**kotlin.collections.List&lt;PokemonFormDetailFormNamesInner&gt;**](PokemonFormDetailFormNamesInner.md) |  |  |
-| **types** | [**kotlin.collections.List&lt;PokemonDetailTypesInner&gt;**](PokemonDetailTypesInner.md) |  |  |
+| **formNames** | [**kotlin.collections.List&lt;PokemonFormDetailFormNamesInner&gt;**](PokemonFormDetailFormNamesInner.md) |  |  [readonly] |
+| **names** | [**kotlin.collections.List&lt;PokemonFormDetailFormNamesInner&gt;**](PokemonFormDetailFormNamesInner.md) |  |  [readonly] |
+| **types** | [**kotlin.collections.List&lt;PokemonDetailTypesInner&gt;**](PokemonDetailTypesInner.md) |  |  [readonly] |
 | **order** | **kotlin.Int** |  |  [optional] |
 | **formOrder** | **kotlin.Int** |  |  [optional] |
 | **isDefault** | **kotlin.Boolean** |  |  [optional] |

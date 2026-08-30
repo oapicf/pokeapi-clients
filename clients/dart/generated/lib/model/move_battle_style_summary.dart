@@ -53,10 +53,10 @@ class MoveBattleStyleSummary {
       // Note 1: the values aren't checked for validity beyond being non-null.
       // Note 2: this code is stripped in release mode!
       assert(() {
-        requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "MoveBattleStyleSummary[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "MoveBattleStyleSummary[$key]" has a null value in JSON.');
-        });
+        assert(json.containsKey(r'name'), 'Required key "MoveBattleStyleSummary[name]" is missing from JSON.');
+        assert(json[r'name'] != null, 'Required key "MoveBattleStyleSummary[name]" has a null value in JSON.');
+        assert(json.containsKey(r'url'), 'Required key "MoveBattleStyleSummary[url]" is missing from JSON.');
+        assert(json[r'url'] != null, 'Required key "MoveBattleStyleSummary[url]" has a null value in JSON.');
         return true;
       }());
 

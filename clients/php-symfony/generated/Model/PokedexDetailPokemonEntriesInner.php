@@ -47,7 +47,7 @@ class PokedexDetailPokemonEntriesInner
      * @var int|null
      * @SerializedName("entry_number")
      * @Type("int")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Type("int")]
     protected ?int $entryNumber = null;
@@ -56,7 +56,7 @@ class PokedexDetailPokemonEntriesInner
      * @var AbilityDetailPokemonInnerPokemon|null
      * @SerializedName("pokemon_species")
      * @Type("OpenAPI\Server\Model\AbilityDetailPokemonInnerPokemon")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Valid]
     #[Assert\Type("OpenAPI\Server\Model\AbilityDetailPokemonInnerPokemon")]
@@ -85,12 +85,12 @@ class PokedexDetailPokemonEntriesInner
     }
 
     /**
-    * Sets entryNumber.
-    *
-    * @param int|null $entryNumber
-    *
-    * @return $this
-    */
+     * Sets entryNumber.
+     *
+     * @param int|null $entryNumber
+     *
+     * @return $this
+     */
     public function setEntryNumber(?int $entryNumber): self
     {
         $this->entryNumber = $entryNumber;
@@ -112,12 +112,12 @@ class PokedexDetailPokemonEntriesInner
     }
 
     /**
-    * Sets pokemonSpecies.
-    *
-    * @param AbilityDetailPokemonInnerPokemon|null $pokemonSpecies
-    *
-    * @return $this
-    */
+     * Sets pokemonSpecies.
+     *
+     * @param AbilityDetailPokemonInnerPokemon|null $pokemonSpecies
+     *
+     * @return $this
+     */
     public function setPokemonSpecies(?AbilityDetailPokemonInnerPokemon $pokemonSpecies): self
     {
         $this->pokemonSpecies = $pokemonSpecies;

@@ -22,11 +22,13 @@ import io.swagger.v3.oas.annotations.media.Schema
 data class SuperContestEffectFlavorText(
 
     @get:Size(max=500)
-    @Schema(example = "null", required = true, description = "")
+    @Schema(required = true, description = "")
+    @param:JsonProperty("flavor_text")
     @get:JsonProperty("flavor_text", required = true) val flavorText: kotlin.String,
 
     @field:Valid
-    @Schema(example = "null", required = true, description = "")
+    @Schema(required = true, description = "")
+    @param:JsonProperty("language")
     @get:JsonProperty("language", required = true) val language: LanguageSummary
 ) {
 

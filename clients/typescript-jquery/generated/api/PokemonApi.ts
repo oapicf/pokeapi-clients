@@ -128,7 +128,7 @@ export class PokemonApi {
     { response: JQueryXHR; body: models.AbilityDetail;  },
     { response: JQueryXHR; errorThrown: string }
     > {
-        let localVarPath = this.basePath + '/api/v2/ability/{id}/'.replace('{' + 'id' + '}', encodeURIComponent(String(id)));
+        let localVarPath = this.basePath + '/api/v2/ability/{id}/'.replace('{id}', encodeURIComponent(String(id)));
 
         let queryParameters: any = {};
         let headerParams: any = {};
@@ -272,7 +272,7 @@ export class PokemonApi {
     { response: JQueryXHR; body: models.CharacteristicDetail;  },
     { response: JQueryXHR; errorThrown: string }
     > {
-        let localVarPath = this.basePath + '/api/v2/characteristic/{id}/'.replace('{' + 'id' + '}', encodeURIComponent(String(id)));
+        let localVarPath = this.basePath + '/api/v2/characteristic/{id}/'.replace('{id}', encodeURIComponent(String(id)));
 
         let queryParameters: any = {};
         let headerParams: any = {};
@@ -416,7 +416,7 @@ export class PokemonApi {
     { response: JQueryXHR; body: models.EggGroupDetail;  },
     { response: JQueryXHR; errorThrown: string }
     > {
-        let localVarPath = this.basePath + '/api/v2/egg-group/{id}/'.replace('{' + 'id' + '}', encodeURIComponent(String(id)));
+        let localVarPath = this.basePath + '/api/v2/egg-group/{id}/'.replace('{id}', encodeURIComponent(String(id)));
 
         let queryParameters: any = {};
         let headerParams: any = {};
@@ -560,7 +560,7 @@ export class PokemonApi {
     { response: JQueryXHR; body: models.GenderDetail;  },
     { response: JQueryXHR; errorThrown: string }
     > {
-        let localVarPath = this.basePath + '/api/v2/gender/{id}/'.replace('{' + 'id' + '}', encodeURIComponent(String(id)));
+        let localVarPath = this.basePath + '/api/v2/gender/{id}/'.replace('{id}', encodeURIComponent(String(id)));
 
         let queryParameters: any = {};
         let headerParams: any = {};
@@ -704,7 +704,7 @@ export class PokemonApi {
     { response: JQueryXHR; body: models.GrowthRateDetail;  },
     { response: JQueryXHR; errorThrown: string }
     > {
-        let localVarPath = this.basePath + '/api/v2/growth-rate/{id}/'.replace('{' + 'id' + '}', encodeURIComponent(String(id)));
+        let localVarPath = this.basePath + '/api/v2/growth-rate/{id}/'.replace('{id}', encodeURIComponent(String(id)));
 
         let queryParameters: any = {};
         let headerParams: any = {};
@@ -848,7 +848,7 @@ export class PokemonApi {
     { response: JQueryXHR; body: models.MoveDamageClassDetail;  },
     { response: JQueryXHR; errorThrown: string }
     > {
-        let localVarPath = this.basePath + '/api/v2/move-damage-class/{id}/'.replace('{' + 'id' + '}', encodeURIComponent(String(id)));
+        let localVarPath = this.basePath + '/api/v2/move-damage-class/{id}/'.replace('{id}', encodeURIComponent(String(id)));
 
         let queryParameters: any = {};
         let headerParams: any = {};
@@ -992,7 +992,7 @@ export class PokemonApi {
     { response: JQueryXHR; body: models.NatureDetail;  },
     { response: JQueryXHR; errorThrown: string }
     > {
-        let localVarPath = this.basePath + '/api/v2/nature/{id}/'.replace('{' + 'id' + '}', encodeURIComponent(String(id)));
+        let localVarPath = this.basePath + '/api/v2/nature/{id}/'.replace('{id}', encodeURIComponent(String(id)));
 
         let queryParameters: any = {};
         let headerParams: any = {};
@@ -1136,7 +1136,7 @@ export class PokemonApi {
     { response: JQueryXHR; body: models.PokeathlonStatDetail;  },
     { response: JQueryXHR; errorThrown: string }
     > {
-        let localVarPath = this.basePath + '/api/v2/pokeathlon-stat/{id}/'.replace('{' + 'id' + '}', encodeURIComponent(String(id)));
+        let localVarPath = this.basePath + '/api/v2/pokeathlon-stat/{id}/'.replace('{id}', encodeURIComponent(String(id)));
 
         let queryParameters: any = {};
         let headerParams: any = {};
@@ -1280,7 +1280,7 @@ export class PokemonApi {
     { response: JQueryXHR; body: models.PokemonColorDetail;  },
     { response: JQueryXHR; errorThrown: string }
     > {
-        let localVarPath = this.basePath + '/api/v2/pokemon-color/{id}/'.replace('{' + 'id' + '}', encodeURIComponent(String(id)));
+        let localVarPath = this.basePath + '/api/v2/pokemon-color/{id}/'.replace('{id}', encodeURIComponent(String(id)));
 
         let queryParameters: any = {};
         let headerParams: any = {};
@@ -1424,7 +1424,7 @@ export class PokemonApi {
     { response: JQueryXHR; body: models.PokemonFormDetail;  },
     { response: JQueryXHR; errorThrown: string }
     > {
-        let localVarPath = this.basePath + '/api/v2/pokemon-form/{id}/'.replace('{' + 'id' + '}', encodeURIComponent(String(id)));
+        let localVarPath = this.basePath + '/api/v2/pokemon-form/{id}/'.replace('{id}', encodeURIComponent(String(id)));
 
         let queryParameters: any = {};
         let headerParams: any = {};
@@ -1568,7 +1568,7 @@ export class PokemonApi {
     { response: JQueryXHR; body: models.PokemonHabitatDetail;  },
     { response: JQueryXHR; errorThrown: string }
     > {
-        let localVarPath = this.basePath + '/api/v2/pokemon-habitat/{id}/'.replace('{' + 'id' + '}', encodeURIComponent(String(id)));
+        let localVarPath = this.basePath + '/api/v2/pokemon-habitat/{id}/'.replace('{id}', encodeURIComponent(String(id)));
 
         let queryParameters: any = {};
         let headerParams: any = {};
@@ -1712,7 +1712,7 @@ export class PokemonApi {
     { response: JQueryXHR; body: models.PokemonDetail;  },
     { response: JQueryXHR; errorThrown: string }
     > {
-        let localVarPath = this.basePath + '/api/v2/pokemon/{id}/'.replace('{' + 'id' + '}', encodeURIComponent(String(id)));
+        let localVarPath = this.basePath + '/api/v2/pokemon/{id}/'.replace('{id}', encodeURIComponent(String(id)));
 
         let queryParameters: any = {};
         let headerParams: any = {};
@@ -1856,7 +1856,7 @@ export class PokemonApi {
     { response: JQueryXHR; body: models.PokemonShapeDetail;  },
     { response: JQueryXHR; errorThrown: string }
     > {
-        let localVarPath = this.basePath + '/api/v2/pokemon-shape/{id}/'.replace('{' + 'id' + '}', encodeURIComponent(String(id)));
+        let localVarPath = this.basePath + '/api/v2/pokemon-shape/{id}/'.replace('{id}', encodeURIComponent(String(id)));
 
         let queryParameters: any = {};
         let headerParams: any = {};
@@ -2000,7 +2000,7 @@ export class PokemonApi {
     { response: JQueryXHR; body: models.PokemonSpeciesDetail;  },
     { response: JQueryXHR; errorThrown: string }
     > {
-        let localVarPath = this.basePath + '/api/v2/pokemon-species/{id}/'.replace('{' + 'id' + '}', encodeURIComponent(String(id)));
+        let localVarPath = this.basePath + '/api/v2/pokemon-species/{id}/'.replace('{id}', encodeURIComponent(String(id)));
 
         let queryParameters: any = {};
         let headerParams: any = {};
@@ -2144,7 +2144,7 @@ export class PokemonApi {
     { response: JQueryXHR; body: models.StatDetail;  },
     { response: JQueryXHR; errorThrown: string }
     > {
-        let localVarPath = this.basePath + '/api/v2/stat/{id}/'.replace('{' + 'id' + '}', encodeURIComponent(String(id)));
+        let localVarPath = this.basePath + '/api/v2/stat/{id}/'.replace('{id}', encodeURIComponent(String(id)));
 
         let queryParameters: any = {};
         let headerParams: any = {};
@@ -2288,7 +2288,7 @@ export class PokemonApi {
     { response: JQueryXHR; body: models.TypeDetail;  },
     { response: JQueryXHR; errorThrown: string }
     > {
-        let localVarPath = this.basePath + '/api/v2/type/{id}/'.replace('{' + 'id' + '}', encodeURIComponent(String(id)));
+        let localVarPath = this.basePath + '/api/v2/type/{id}/'.replace('{id}', encodeURIComponent(String(id)));
 
         let queryParameters: any = {};
         let headerParams: any = {};

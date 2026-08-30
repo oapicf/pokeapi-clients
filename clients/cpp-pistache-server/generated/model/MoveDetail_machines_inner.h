@@ -33,7 +33,7 @@ class  MoveDetail_machines_inner
 {
 public:
     MoveDetail_machines_inner();
-    virtual ~MoveDetail_machines_inner() = default;
+    virtual ~MoveDetail_machines_inner();
 
 
     /// <summary>

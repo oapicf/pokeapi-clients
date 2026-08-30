@@ -96,13 +96,36 @@ ItemFlingEffectDetail <- R6::R6Class(
       }
       if (!is.null(self$`effect_entries`)) {
         ItemFlingEffectDetailObject[["effect_entries"]] <-
-          lapply(self$`effect_entries`, function(x) x$toSimpleType())
+          self$extractSimpleType(self$`effect_entries`)
       }
       if (!is.null(self$`items`)) {
         ItemFlingEffectDetailObject[["items"]] <-
-          lapply(self$`items`, function(x) x$toSimpleType())
+          self$extractSimpleType(self$`items`)
       }
       return(ItemFlingEffectDetailObject)
+    },
+
+    extractSimpleType = function(x) {
+      if (R6::is.R6(x)) {
+        return(x$toSimpleType())
+      } else if (!self$hasNestedR6(x)) {
+        return(x)
+      }
+      lapply(x, self$extractSimpleType)
+    },
+
+    hasNestedR6 = function(x) {
+      if (R6::is.R6(x)) {
+        return(TRUE)
+      }
+      if (is.list(x)) {
+        for (item in x) {
+          if (self$hasNestedR6(item)) {
+            return(TRUE)
+          }
+        }
+      }
+      FALSE
     },
 
     #' @description

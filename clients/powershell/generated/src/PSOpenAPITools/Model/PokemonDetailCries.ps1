@@ -49,8 +49,8 @@ function Initialize-PokemonDetailCries {
 
 
         $PSO = [PSCustomObject]@{
-            "latest" = ${Latest}
-            "legacy" = ${Legacy}
+            'latest' = ${Latest}
+            'legacy' = ${Legacy}
         }
 
 
@@ -88,7 +88,7 @@ function ConvertFrom-JsonToPokemonDetailCries {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in PokemonDetailCries
-        $AllProperties = ("latest", "legacy")
+        $AllProperties = ('latest', 'legacy')
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -99,21 +99,21 @@ function ConvertFrom-JsonToPokemonDetailCries {
             throw "Error! Empty JSON cannot be serialized due to the required property 'latest' missing."
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "latest"))) {
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'latest'))) {
             throw "Error! JSON cannot be serialized due to the required property 'latest' missing."
         } else {
-            $Latest = $JsonParameters.PSobject.Properties["latest"].value
+            $Latest = $JsonParameters.PSobject.Properties['latest'].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "legacy"))) {
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'legacy'))) {
             throw "Error! JSON cannot be serialized due to the required property 'legacy' missing."
         } else {
-            $Legacy = $JsonParameters.PSobject.Properties["legacy"].value
+            $Legacy = $JsonParameters.PSobject.Properties['legacy'].value
         }
 
         $PSO = [PSCustomObject]@{
-            "latest" = ${Latest}
-            "legacy" = ${Legacy}
+            'latest' = ${Latest}
+            'legacy' = ${Legacy}
         }
 
         return $PSO

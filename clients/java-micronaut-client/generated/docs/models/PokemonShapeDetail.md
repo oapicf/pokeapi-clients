@@ -10,9 +10,9 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | `Integer` |  |  [readonly property]
 **name** | `String` |  | 
-**awesomeNames** | [`List&lt;PokemonShapeDetailAwesomeNamesInner&gt;`](PokemonShapeDetailAwesomeNamesInner.md) |  | 
-**names** | [`List&lt;PokemonShapeDetailNamesInner&gt;`](PokemonShapeDetailNamesInner.md) |  | 
-**pokemonSpecies** | [`List&lt;PokemonSpeciesSummary&gt;`](PokemonSpeciesSummary.md) |  | 
+**awesomeNames** | [`List&lt;PokemonShapeDetailAwesomeNamesInner&gt;`](PokemonShapeDetailAwesomeNamesInner.md) |  |  [readonly property]
+**names** | [`List&lt;PokemonShapeDetailNamesInner&gt;`](PokemonShapeDetailNamesInner.md) |  |  [readonly property]
+**pokemonSpecies** | [`List&lt;PokemonSpeciesSummary&gt;`](PokemonSpeciesSummary.md) |  |  [readonly property]
 
 
 

@@ -44,13 +44,13 @@ export interface PalParkAreaDetail  {
      * @type {Array<PalParkAreaName>}
      * @memberof PalParkAreaDetail
      */
-    names: Array<PalParkAreaName>;
+    readonly names: Array<PalParkAreaName>;
     /**
      * 
      * @type {Array<PalParkAreaDetailPokemonEncountersInner>}
      * @memberof PalParkAreaDetail
      */
-    pokemonEncounters: Array<PalParkAreaDetailPokemonEncountersInner>;
+    readonly pokemonEncounters: Array<PalParkAreaDetailPokemonEncountersInner>;
 }
 
 export function PalParkAreaDetailFromJSON(json: any): PalParkAreaDetail {
@@ -68,8 +68,6 @@ export function PalParkAreaDetailToJSON(value?: PalParkAreaDetail): any {
     }
     return {
         'name': value.name,
-        'names': (value.names as Array<any>).map(PalParkAreaNameToJSON),
-        'pokemon_encounters': (value.pokemonEncounters as Array<any>).map(PalParkAreaDetailPokemonEncountersInnerToJSON),
     };
 }
 

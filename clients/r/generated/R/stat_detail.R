@@ -143,25 +143,48 @@ StatDetail <- R6::R6Class(
       }
       if (!is.null(self$`affecting_moves`)) {
         StatDetailObject[["affecting_moves"]] <-
-          self$`affecting_moves`$toSimpleType()
+          self$extractSimpleType(self$`affecting_moves`)
       }
       if (!is.null(self$`affecting_natures`)) {
         StatDetailObject[["affecting_natures"]] <-
-          self$`affecting_natures`$toSimpleType()
+          self$extractSimpleType(self$`affecting_natures`)
       }
       if (!is.null(self$`characteristics`)) {
         StatDetailObject[["characteristics"]] <-
-          lapply(self$`characteristics`, function(x) x$toSimpleType())
+          self$extractSimpleType(self$`characteristics`)
       }
       if (!is.null(self$`move_damage_class`)) {
         StatDetailObject[["move_damage_class"]] <-
-          self$`move_damage_class`$toSimpleType()
+          self$extractSimpleType(self$`move_damage_class`)
       }
       if (!is.null(self$`names`)) {
         StatDetailObject[["names"]] <-
-          lapply(self$`names`, function(x) x$toSimpleType())
+          self$extractSimpleType(self$`names`)
       }
       return(StatDetailObject)
+    },
+
+    extractSimpleType = function(x) {
+      if (R6::is.R6(x)) {
+        return(x$toSimpleType())
+      } else if (!self$hasNestedR6(x)) {
+        return(x)
+      }
+      lapply(x, self$extractSimpleType)
+    },
+
+    hasNestedR6 = function(x) {
+      if (R6::is.R6(x)) {
+        return(TRUE)
+      }
+      if (is.list(x)) {
+        for (item in x) {
+          if (self$hasNestedR6(item)) {
+            return(TRUE)
+          }
+        }
+      }
+      FALSE
     },
 
     #' @description

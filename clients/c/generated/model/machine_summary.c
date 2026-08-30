@@ -12,18 +12,21 @@ static machine_summary_t *machine_summary_create_internal(
     if (!machine_summary_local_var) {
         return NULL;
     }
-    machine_summary_local_var->url = url;
-
+    memset(machine_summary_local_var, 0, sizeof(machine_summary_t));
     machine_summary_local_var->_library_owned = 1;
+    machine_summary_local_var->url = url;
     return machine_summary_local_var;
 }
 
 __attribute__((deprecated)) machine_summary_t *machine_summary_create(
     char *url
     ) {
-    return machine_summary_create_internal (
+    machine_summary_t *result = machine_summary_create_internal (
         url
         );
+    if (!result) {
+    }
+    return result;
 }
 
 void machine_summary_free(machine_summary_t *machine_summary) {
@@ -65,6 +68,8 @@ machine_summary_t *machine_summary_parseFromJSON(cJSON *machine_summaryJSON){
 
     machine_summary_t *machine_summary_local_var = NULL;
 
+    char *url_local_str = NULL;
+
     // machine_summary->url
     cJSON *url = cJSON_GetObjectItemCaseSensitive(machine_summaryJSON, "url");
     if (cJSON_IsNull(url)) {
@@ -81,12 +86,22 @@ machine_summary_t *machine_summary_parseFromJSON(cJSON *machine_summaryJSON){
     }
 
 
+    if (url && !cJSON_IsNull(url)) url_local_str = strdup(url->valuestring);
+
     machine_summary_local_var = machine_summary_create_internal (
-        strdup(url->valuestring)
+        url_local_str
         );
+
+    if (!machine_summary_local_var) {
+        goto end;
+    }
 
     return machine_summary_local_var;
 end:
+    if (url_local_str) {
+        free(url_local_str);
+        url_local_str = NULL;
+    }
     return NULL;
 
 }

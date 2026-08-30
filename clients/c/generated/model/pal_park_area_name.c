@@ -13,10 +13,10 @@ static pal_park_area_name_t *pal_park_area_name_create_internal(
     if (!pal_park_area_name_local_var) {
         return NULL;
     }
+    memset(pal_park_area_name_local_var, 0, sizeof(pal_park_area_name_t));
+    pal_park_area_name_local_var->_library_owned = 1;
     pal_park_area_name_local_var->name = name;
     pal_park_area_name_local_var->language = language;
-
-    pal_park_area_name_local_var->_library_owned = 1;
     return pal_park_area_name_local_var;
 }
 
@@ -24,10 +24,13 @@ __attribute__((deprecated)) pal_park_area_name_t *pal_park_area_name_create(
     char *name,
     language_summary_t *language
     ) {
-    return pal_park_area_name_create_internal (
+    pal_park_area_name_t *result = pal_park_area_name_create_internal (
         name,
         language
         );
+    if (!result) {
+    }
+    return result;
 }
 
 void pal_park_area_name_free(pal_park_area_name_t *pal_park_area_name) {
@@ -87,6 +90,8 @@ pal_park_area_name_t *pal_park_area_name_parseFromJSON(cJSON *pal_park_area_name
 
     pal_park_area_name_t *pal_park_area_name_local_var = NULL;
 
+    char *name_local_str = NULL;
+
     // define the local variable for pal_park_area_name->language
     language_summary_t *language_local_nonprim = NULL;
 
@@ -118,13 +123,23 @@ pal_park_area_name_t *pal_park_area_name_parseFromJSON(cJSON *pal_park_area_name
     language_local_nonprim = language_summary_parseFromJSON(language); //nonprimitive
 
 
+    if (name && !cJSON_IsNull(name)) name_local_str = strdup(name->valuestring);
+
     pal_park_area_name_local_var = pal_park_area_name_create_internal (
-        strdup(name->valuestring),
+        name_local_str,
         language_local_nonprim
         );
 
+    if (!pal_park_area_name_local_var) {
+        goto end;
+    }
+
     return pal_park_area_name_local_var;
 end:
+    if (name_local_str) {
+        free(name_local_str);
+        name_local_str = NULL;
+    }
     if (language_local_nonprim) {
         language_summary_free(language_local_nonprim);
         language_local_nonprim = NULL;

@@ -13,10 +13,10 @@ static pokemon_shape_detail_names_inner_t *pokemon_shape_detail_names_inner_crea
     if (!pokemon_shape_detail_names_inner_local_var) {
         return NULL;
     }
+    memset(pokemon_shape_detail_names_inner_local_var, 0, sizeof(pokemon_shape_detail_names_inner_t));
+    pokemon_shape_detail_names_inner_local_var->_library_owned = 1;
     pokemon_shape_detail_names_inner_local_var->url = url;
     pokemon_shape_detail_names_inner_local_var->name = name;
-
-    pokemon_shape_detail_names_inner_local_var->_library_owned = 1;
     return pokemon_shape_detail_names_inner_local_var;
 }
 
@@ -24,10 +24,13 @@ __attribute__((deprecated)) pokemon_shape_detail_names_inner_t *pokemon_shape_de
     char *url,
     char *name
     ) {
-    return pokemon_shape_detail_names_inner_create_internal (
+    pokemon_shape_detail_names_inner_t *result = pokemon_shape_detail_names_inner_create_internal (
         url,
         name
         );
+    if (!result) {
+    }
+    return result;
 }
 
 void pokemon_shape_detail_names_inner_free(pokemon_shape_detail_names_inner_t *pokemon_shape_detail_names_inner) {
@@ -82,6 +85,10 @@ pokemon_shape_detail_names_inner_t *pokemon_shape_detail_names_inner_parseFromJS
 
     pokemon_shape_detail_names_inner_t *pokemon_shape_detail_names_inner_local_var = NULL;
 
+    char *url_local_str = NULL;
+
+    char *name_local_str = NULL;
+
     // pokemon_shape_detail_names_inner->url
     cJSON *url = cJSON_GetObjectItemCaseSensitive(pokemon_shape_detail_names_innerJSON, "url");
     if (cJSON_IsNull(url)) {
@@ -113,13 +120,28 @@ pokemon_shape_detail_names_inner_t *pokemon_shape_detail_names_inner_parseFromJS
     }
 
 
+    if (url && !cJSON_IsNull(url)) url_local_str = strdup(url->valuestring);
+    if (name && !cJSON_IsNull(name)) name_local_str = strdup(name->valuestring);
+
     pokemon_shape_detail_names_inner_local_var = pokemon_shape_detail_names_inner_create_internal (
-        strdup(url->valuestring),
-        strdup(name->valuestring)
+        url_local_str,
+        name_local_str
         );
+
+    if (!pokemon_shape_detail_names_inner_local_var) {
+        goto end;
+    }
 
     return pokemon_shape_detail_names_inner_local_var;
 end:
+    if (url_local_str) {
+        free(url_local_str);
+        url_local_str = NULL;
+    }
+    if (name_local_str) {
+        free(name_local_str);
+        name_local_str = NULL;
+    }
     return NULL;
 
 }

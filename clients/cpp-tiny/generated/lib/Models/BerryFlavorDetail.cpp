@@ -183,7 +183,7 @@ BerryFlavorDetail::getId()
 }
 
 void
-BerryFlavorDetail::setId(int  id)
+BerryFlavorDetail::setId(int id)
 {
 	this->id = id;
 }
@@ -195,7 +195,7 @@ BerryFlavorDetail::getName()
 }
 
 void
-BerryFlavorDetail::setName(std::string  name)
+BerryFlavorDetail::setName(std::string name)
 {
 	this->name = name;
 }
@@ -207,7 +207,7 @@ BerryFlavorDetail::getBerries()
 }
 
 void
-BerryFlavorDetail::setBerries(std::list <BerryFlavorDetail_berries_inner> berries)
+BerryFlavorDetail::setBerries(std::list<BerryFlavorDetail_berries_inner> berries)
 {
 	this->berries = berries;
 }
@@ -219,7 +219,7 @@ BerryFlavorDetail::getContestType()
 }
 
 void
-BerryFlavorDetail::setContestType(ContestTypeSummary  contest_type)
+BerryFlavorDetail::setContestType(ContestTypeSummary contest_type)
 {
 	this->contest_type = contest_type;
 }
@@ -231,7 +231,7 @@ BerryFlavorDetail::getNames()
 }
 
 void
-BerryFlavorDetail::setNames(std::list <BerryFlavorName> names)
+BerryFlavorDetail::setNames(std::list<BerryFlavorName> names)
 {
 	this->names = names;
 }

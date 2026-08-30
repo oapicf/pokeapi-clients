@@ -69,12 +69,12 @@ export interface TypeDetailDamageRelations {
  * Check if a given object implements the TypeDetailDamageRelations interface.
  */
 export function instanceOfTypeDetailDamageRelations(value: object): value is TypeDetailDamageRelations {
-    if (!('noDamageTo' in value) || value['noDamageTo'] === undefined) return false;
-    if (!('halfDamageTo' in value) || value['halfDamageTo'] === undefined) return false;
-    if (!('doubleDamageTo' in value) || value['doubleDamageTo'] === undefined) return false;
-    if (!('noDamageFrom' in value) || value['noDamageFrom'] === undefined) return false;
-    if (!('halfDamageFrom' in value) || value['halfDamageFrom'] === undefined) return false;
-    if (!('doubleDamageFrom' in value) || value['doubleDamageFrom'] === undefined) return false;
+    if ((!('noDamageTo' in (value as Record<string, any>)) && !('no_damage_to' in (value as Record<string, any>))) || ((value as Record<string, any>)['noDamageTo'] === undefined && (value as Record<string, any>)['no_damage_to'] === undefined)) return false;
+    if ((!('halfDamageTo' in (value as Record<string, any>)) && !('half_damage_to' in (value as Record<string, any>))) || ((value as Record<string, any>)['halfDamageTo'] === undefined && (value as Record<string, any>)['half_damage_to'] === undefined)) return false;
+    if ((!('doubleDamageTo' in (value as Record<string, any>)) && !('double_damage_to' in (value as Record<string, any>))) || ((value as Record<string, any>)['doubleDamageTo'] === undefined && (value as Record<string, any>)['double_damage_to'] === undefined)) return false;
+    if ((!('noDamageFrom' in (value as Record<string, any>)) && !('no_damage_from' in (value as Record<string, any>))) || ((value as Record<string, any>)['noDamageFrom'] === undefined && (value as Record<string, any>)['no_damage_from'] === undefined)) return false;
+    if ((!('halfDamageFrom' in (value as Record<string, any>)) && !('half_damage_from' in (value as Record<string, any>))) || ((value as Record<string, any>)['halfDamageFrom'] === undefined && (value as Record<string, any>)['half_damage_from'] === undefined)) return false;
+    if ((!('doubleDamageFrom' in (value as Record<string, any>)) && !('double_damage_from' in (value as Record<string, any>))) || ((value as Record<string, any>)['doubleDamageFrom'] === undefined && (value as Record<string, any>)['double_damage_from'] === undefined)) return false;
     return true;
 }
 

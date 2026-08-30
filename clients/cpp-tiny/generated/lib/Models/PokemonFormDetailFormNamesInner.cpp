@@ -86,7 +86,7 @@ PokemonFormDetail_form_names_inner::getLanguage()
 }
 
 void
-PokemonFormDetail_form_names_inner::setLanguage(AbilityDetail_pokemon_inner_pokemon  language)
+PokemonFormDetail_form_names_inner::setLanguage(AbilityDetail_pokemon_inner_pokemon language)
 {
 	this->language = language;
 }
@@ -98,7 +98,7 @@ PokemonFormDetail_form_names_inner::getName()
 }
 
 void
-PokemonFormDetail_form_names_inner::setName(std::string  name)
+PokemonFormDetail_form_names_inner::setName(std::string name)
 {
 	this->name = name;
 }

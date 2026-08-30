@@ -15,6 +15,6 @@ import { MoveBattleStyleName } from './moveBattleStyleName';
 export interface MoveBattleStyleDetail { 
     readonly id: number;
     name: string;
-    names: Array<MoveBattleStyleName>;
+    readonly names: Array<MoveBattleStyleName>;
 }
 

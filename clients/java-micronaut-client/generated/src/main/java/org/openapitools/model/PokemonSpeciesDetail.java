@@ -73,7 +73,7 @@ import javax.annotation.Generated;
   PokemonSpeciesDetail.JSON_PROPERTY_VARIETIES
 })
 @JsonTypeName("PokemonSpeciesDetail")
-@Generated(value="org.openapitools.codegen.languages.JavaMicronautClientCodegen", date="2026-02-07T15:22:54.857535619Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@Generated(value="org.openapitools.codegen.languages.JavaMicronautClientCodegen", date="2026-08-30T01:55:51.056116330Z[Etc/UTC]", comments = "Generator version: 7.24.0")
 @Introspected
 public class PokemonSpeciesDetail {
     public static final String JSON_PROPERTY_ID = "id";
@@ -454,16 +454,6 @@ public class PokemonSpeciesDetail {
         this.growthRate = growthRate;
     }
 
-    public PokemonSpeciesDetail pokedexNumbers(List<@Valid PokemonDexEntry> pokedexNumbers) {
-        this.pokedexNumbers = pokedexNumbers;
-        return this;
-    }
-
-    public PokemonSpeciesDetail addPokedexNumbersItem(PokemonDexEntry pokedexNumbersItem) {
-        this.pokedexNumbers.add(pokedexNumbersItem);
-        return this;
-    }
-
     /**
      * Get pokedexNumbers
      * @return pokedexNumbers
@@ -475,22 +465,6 @@ public class PokemonSpeciesDetail {
         return pokedexNumbers;
     }
 
-    @JsonProperty(JSON_PROPERTY_POKEDEX_NUMBERS)
-    @JsonInclude(value = JsonInclude.Include.ALWAYS)
-    public void setPokedexNumbers(List<@Valid PokemonDexEntry> pokedexNumbers) {
-        this.pokedexNumbers = pokedexNumbers;
-    }
-
-    public PokemonSpeciesDetail eggGroups(List<@Valid AbilityDetailPokemonInnerPokemon> eggGroups) {
-        this.eggGroups = eggGroups;
-        return this;
-    }
-
-    public PokemonSpeciesDetail addEggGroupsItem(AbilityDetailPokemonInnerPokemon eggGroupsItem) {
-        this.eggGroups.add(eggGroupsItem);
-        return this;
-    }
-
     /**
      * Get eggGroups
      * @return eggGroups
@@ -500,12 +474,6 @@ public class PokemonSpeciesDetail {
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public List<@Valid AbilityDetailPokemonInnerPokemon> getEggGroups() {
         return eggGroups;
-    }
-
-    @JsonProperty(JSON_PROPERTY_EGG_GROUPS)
-    @JsonInclude(value = JsonInclude.Include.ALWAYS)
-    public void setEggGroups(List<@Valid AbilityDetailPokemonInnerPokemon> eggGroups) {
-        this.eggGroups = eggGroups;
     }
 
     public PokemonSpeciesDetail color(PokemonColorSummary color) {
@@ -646,16 +614,6 @@ public class PokemonSpeciesDetail {
         this.generation = generation;
     }
 
-    public PokemonSpeciesDetail names(List<@Valid PokemonFormDetailFormNamesInner> names) {
-        this.names = names;
-        return this;
-    }
-
-    public PokemonSpeciesDetail addNamesItem(PokemonFormDetailFormNamesInner namesItem) {
-        this.names.add(namesItem);
-        return this;
-    }
-
     /**
      * Get names
      * @return names
@@ -665,22 +623,6 @@ public class PokemonSpeciesDetail {
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public List<@Valid PokemonFormDetailFormNamesInner> getNames() {
         return names;
-    }
-
-    @JsonProperty(JSON_PROPERTY_NAMES)
-    @JsonInclude(value = JsonInclude.Include.ALWAYS)
-    public void setNames(List<@Valid PokemonFormDetailFormNamesInner> names) {
-        this.names = names;
-    }
-
-    public PokemonSpeciesDetail palParkEncounters(List<@Valid PokemonSpeciesDetailPalParkEncountersInner> palParkEncounters) {
-        this.palParkEncounters = palParkEncounters;
-        return this;
-    }
-
-    public PokemonSpeciesDetail addPalParkEncountersItem(PokemonSpeciesDetailPalParkEncountersInner palParkEncountersItem) {
-        this.palParkEncounters.add(palParkEncountersItem);
-        return this;
     }
 
     /**
@@ -694,22 +636,6 @@ public class PokemonSpeciesDetail {
         return palParkEncounters;
     }
 
-    @JsonProperty(JSON_PROPERTY_PAL_PARK_ENCOUNTERS)
-    @JsonInclude(value = JsonInclude.Include.ALWAYS)
-    public void setPalParkEncounters(List<@Valid PokemonSpeciesDetailPalParkEncountersInner> palParkEncounters) {
-        this.palParkEncounters = palParkEncounters;
-    }
-
-    public PokemonSpeciesDetail formDescriptions(List<@Valid PokemonSpeciesDescription> formDescriptions) {
-        this.formDescriptions = formDescriptions;
-        return this;
-    }
-
-    public PokemonSpeciesDetail addFormDescriptionsItem(PokemonSpeciesDescription formDescriptionsItem) {
-        this.formDescriptions.add(formDescriptionsItem);
-        return this;
-    }
-
     /**
      * Get formDescriptions
      * @return formDescriptions
@@ -719,22 +645,6 @@ public class PokemonSpeciesDetail {
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public List<@Valid PokemonSpeciesDescription> getFormDescriptions() {
         return formDescriptions;
-    }
-
-    @JsonProperty(JSON_PROPERTY_FORM_DESCRIPTIONS)
-    @JsonInclude(value = JsonInclude.Include.ALWAYS)
-    public void setFormDescriptions(List<@Valid PokemonSpeciesDescription> formDescriptions) {
-        this.formDescriptions = formDescriptions;
-    }
-
-    public PokemonSpeciesDetail flavorTextEntries(List<@Valid PokemonSpeciesFlavorText> flavorTextEntries) {
-        this.flavorTextEntries = flavorTextEntries;
-        return this;
-    }
-
-    public PokemonSpeciesDetail addFlavorTextEntriesItem(PokemonSpeciesFlavorText flavorTextEntriesItem) {
-        this.flavorTextEntries.add(flavorTextEntriesItem);
-        return this;
     }
 
     /**
@@ -748,22 +658,6 @@ public class PokemonSpeciesDetail {
         return flavorTextEntries;
     }
 
-    @JsonProperty(JSON_PROPERTY_FLAVOR_TEXT_ENTRIES)
-    @JsonInclude(value = JsonInclude.Include.ALWAYS)
-    public void setFlavorTextEntries(List<@Valid PokemonSpeciesFlavorText> flavorTextEntries) {
-        this.flavorTextEntries = flavorTextEntries;
-    }
-
-    public PokemonSpeciesDetail genera(List<@Valid PokemonSpeciesDetailGeneraInner> genera) {
-        this.genera = genera;
-        return this;
-    }
-
-    public PokemonSpeciesDetail addGeneraItem(PokemonSpeciesDetailGeneraInner generaItem) {
-        this.genera.add(generaItem);
-        return this;
-    }
-
     /**
      * Get genera
      * @return genera
@@ -775,22 +669,6 @@ public class PokemonSpeciesDetail {
         return genera;
     }
 
-    @JsonProperty(JSON_PROPERTY_GENERA)
-    @JsonInclude(value = JsonInclude.Include.ALWAYS)
-    public void setGenera(List<@Valid PokemonSpeciesDetailGeneraInner> genera) {
-        this.genera = genera;
-    }
-
-    public PokemonSpeciesDetail varieties(List<@Valid PokemonSpeciesDetailVarietiesInner> varieties) {
-        this.varieties = varieties;
-        return this;
-    }
-
-    public PokemonSpeciesDetail addVarietiesItem(PokemonSpeciesDetailVarietiesInner varietiesItem) {
-        this.varieties.add(varietiesItem);
-        return this;
-    }
-
     /**
      * Get varieties
      * @return varieties
@@ -800,12 +678,6 @@ public class PokemonSpeciesDetail {
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public List<@Valid PokemonSpeciesDetailVarietiesInner> getVarieties() {
         return varieties;
-    }
-
-    @JsonProperty(JSON_PROPERTY_VARIETIES)
-    @JsonInclude(value = JsonInclude.Include.ALWAYS)
-    public void setVarieties(List<@Valid PokemonSpeciesDetailVarietiesInner> varieties) {
-        this.varieties = varieties;
     }
 
     @Override
@@ -891,10 +763,7 @@ public class PokemonSpeciesDetail {
      * (except the first line).
      */
     private String toIndentedString(Object o) {
-        if (o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
+        return o == null ? "null" : o.toString().replace("\n", "\n    ");
     }
 
 }

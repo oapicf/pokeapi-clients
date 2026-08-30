@@ -13,10 +13,10 @@ static pokemon_detail_moves_inner_t *pokemon_detail_moves_inner_create_internal(
     if (!pokemon_detail_moves_inner_local_var) {
         return NULL;
     }
+    memset(pokemon_detail_moves_inner_local_var, 0, sizeof(pokemon_detail_moves_inner_t));
+    pokemon_detail_moves_inner_local_var->_library_owned = 1;
     pokemon_detail_moves_inner_local_var->move = move;
     pokemon_detail_moves_inner_local_var->version_group_details = version_group_details;
-
-    pokemon_detail_moves_inner_local_var->_library_owned = 1;
     return pokemon_detail_moves_inner_local_var;
 }
 
@@ -24,10 +24,13 @@ __attribute__((deprecated)) pokemon_detail_moves_inner_t *pokemon_detail_moves_i
     ability_detail_pokemon_inner_pokemon_t *move,
     list_t *version_group_details
     ) {
-    return pokemon_detail_moves_inner_create_internal (
+    pokemon_detail_moves_inner_t *result = pokemon_detail_moves_inner_create_internal (
         move,
         version_group_details
         );
+    if (!result) {
+    }
+    return result;
 }
 
 void pokemon_detail_moves_inner_free(pokemon_detail_moves_inner_t *pokemon_detail_moves_inner) {
@@ -148,10 +151,15 @@ pokemon_detail_moves_inner_t *pokemon_detail_moves_inner_parseFromJSON(cJSON *po
     }
 
 
+
     pokemon_detail_moves_inner_local_var = pokemon_detail_moves_inner_create_internal (
         move_local_nonprim,
         version_group_detailsList
         );
+
+    if (!pokemon_detail_moves_inner_local_var) {
+        goto end;
+    }
 
     return pokemon_detail_moves_inner_local_var;
 end:

@@ -33,11 +33,9 @@ import org.openapitools.server.models.PaginatedBerryFlavorSummaryList
 import org.openapitools.server.models.PaginatedBerrySummaryList
 
 fun Route.BerriesApi() {
-    val empty = mutableMapOf<String, Any?>()
-
     authenticate("basicAuth") {
     authenticate("cookieAuth") {
-    get<Paths.berryFirmnessList> {
+    get<Paths.berryFirmnessList> { berryFirmnessList ->
         val principal = call.authentication.principal<UserIdPrincipal>()
         
         
@@ -46,9 +44,9 @@ fun Route.BerriesApi() {
         
         val exampleContentType = "application/json"
             val exampleContentString = """{
+              "count" : 123,
               "next" : "http://api.example.org/accounts/?offset=400&limit=100",
               "previous" : "http://api.example.org/accounts/?offset=200&limit=100",
-              "count" : 123,
               "results" : [ {
                 "name" : "name",
                 "url" : "https://openapi-generator.tech"
@@ -66,10 +64,9 @@ fun Route.BerriesApi() {
         
     }
     }
-
     authenticate("basicAuth") {
     authenticate("cookieAuth") {
-    get<Paths.berryFirmnessRetrieve> {
+    get<Paths.berryFirmnessRetrieve> { berryFirmnessRetrieve ->
         val principal = call.authentication.principal<UserIdPrincipal>()
         
         
@@ -78,6 +75,15 @@ fun Route.BerriesApi() {
         
         val exampleContentType = "application/json"
             val exampleContentString = """{
+              "id" : 0,
+              "name" : "name",
+              "berries" : [ {
+                "name" : "name",
+                "url" : "https://openapi-generator.tech"
+              }, {
+                "name" : "name",
+                "url" : "https://openapi-generator.tech"
+              } ],
               "names" : [ {
                 "name" : "name",
                 "language" : {
@@ -90,15 +96,6 @@ fun Route.BerriesApi() {
                   "name" : "name",
                   "url" : "https://openapi-generator.tech"
                 }
-              } ],
-              "name" : "name",
-              "id" : 0,
-              "berries" : [ {
-                "name" : "name",
-                "url" : "https://openapi-generator.tech"
-              }, {
-                "name" : "name",
-                "url" : "https://openapi-generator.tech"
               } ]
             }"""
             
@@ -110,10 +107,9 @@ fun Route.BerriesApi() {
         
     }
     }
-
     authenticate("basicAuth") {
     authenticate("cookieAuth") {
-    get<Paths.berryFlavorList> {
+    get<Paths.berryFlavorList> { berryFlavorList ->
         val principal = call.authentication.principal<UserIdPrincipal>()
         
         
@@ -122,9 +118,9 @@ fun Route.BerriesApi() {
         
         val exampleContentType = "application/json"
             val exampleContentString = """{
+              "count" : 123,
               "next" : "http://api.example.org/accounts/?offset=400&limit=100",
               "previous" : "http://api.example.org/accounts/?offset=200&limit=100",
-              "count" : 123,
               "results" : [ {
                 "name" : "name",
                 "url" : "https://openapi-generator.tech"
@@ -142,10 +138,9 @@ fun Route.BerriesApi() {
         
     }
     }
-
     authenticate("basicAuth") {
     authenticate("cookieAuth") {
-    get<Paths.berryFlavorRetrieve> {
+    get<Paths.berryFlavorRetrieve> { berryFlavorRetrieve ->
         val principal = call.authentication.principal<UserIdPrincipal>()
         
         
@@ -154,6 +149,21 @@ fun Route.BerriesApi() {
         
         val exampleContentType = "application/json"
             val exampleContentString = """{
+              "id" : 0,
+              "name" : "name",
+              "berries" : [ {
+                "potency" : 6,
+                "berry" : {
+                  "name" : "name",
+                  "url" : "https://openapi-generator.tech"
+                }
+              }, {
+                "potency" : 6,
+                "berry" : {
+                  "name" : "name",
+                  "url" : "https://openapi-generator.tech"
+                }
+              } ],
               "contest_type" : {
                 "name" : "name",
                 "url" : "https://openapi-generator.tech"
@@ -170,21 +180,6 @@ fun Route.BerriesApi() {
                   "name" : "name",
                   "url" : "https://openapi-generator.tech"
                 }
-              } ],
-              "name" : "name",
-              "id" : 0,
-              "berries" : [ {
-                "potency" : 6,
-                "berry" : {
-                  "name" : "name",
-                  "url" : "https://openapi-generator.tech"
-                }
-              }, {
-                "potency" : 6,
-                "berry" : {
-                  "name" : "name",
-                  "url" : "https://openapi-generator.tech"
-                }
               } ]
             }"""
             
@@ -196,10 +191,9 @@ fun Route.BerriesApi() {
         
     }
     }
-
     authenticate("basicAuth") {
     authenticate("cookieAuth") {
-    get<Paths.berryList> {
+    get<Paths.berryList> { berryList ->
         val principal = call.authentication.principal<UserIdPrincipal>()
         
         
@@ -208,9 +202,9 @@ fun Route.BerriesApi() {
         
         val exampleContentType = "application/json"
             val exampleContentString = """{
+              "count" : 123,
               "next" : "http://api.example.org/accounts/?offset=400&limit=100",
               "previous" : "http://api.example.org/accounts/?offset=200&limit=100",
-              "count" : 123,
               "results" : [ {
                 "name" : "name",
                 "url" : "https://openapi-generator.tech"
@@ -228,10 +222,9 @@ fun Route.BerriesApi() {
         
     }
     }
-
     authenticate("basicAuth") {
     authenticate("cookieAuth") {
-    get<Paths.berryRetrieve> {
+    get<Paths.berryRetrieve> { berryRetrieve ->
         val principal = call.authentication.principal<UserIdPrincipal>()
         
         
@@ -240,39 +233,39 @@ fun Route.BerriesApi() {
         
         val exampleContentType = "application/json"
             val exampleContentString = """{
-              "flavors" : [ {
-                "flavor" : {
-                  "name" : "name",
-                  "url" : "https://openapi-generator.tech"
-                },
-                "potency" : 9
-              }, {
-                "flavor" : {
-                  "name" : "name",
-                  "url" : "https://openapi-generator.tech"
-                },
-                "potency" : 9
-              } ],
-              "natural_gift_type" : {
-                "name" : "name",
-                "url" : "https://openapi-generator.tech"
-              },
-              "item" : {
-                "name" : "name",
-                "url" : "https://openapi-generator.tech"
-              },
-              "smoothness" : 2,
-              "size" : 5,
+              "id" : 0,
+              "name" : "name",
+              "growth_time" : 6,
+              "max_harvest" : 1,
               "natural_gift_power" : 5,
+              "size" : 5,
+              "smoothness" : 2,
+              "soil_dryness" : 7,
               "firmness" : {
                 "name" : "name",
                 "url" : "https://openapi-generator.tech"
               },
-              "name" : "name",
-              "growth_time" : 6,
-              "soil_dryness" : 7,
-              "id" : 0,
-              "max_harvest" : 1
+              "flavors" : [ {
+                "potency" : 9,
+                "flavor" : {
+                  "name" : "name",
+                  "url" : "https://openapi-generator.tech"
+                }
+              }, {
+                "potency" : 9,
+                "flavor" : {
+                  "name" : "name",
+                  "url" : "https://openapi-generator.tech"
+                }
+              } ],
+              "item" : {
+                "name" : "name",
+                "url" : "https://openapi-generator.tech"
+              },
+              "natural_gift_type" : {
+                "name" : "name",
+                "url" : "https://openapi-generator.tech"
+              }
             }"""
             
             when (exampleContentType) {
@@ -283,5 +276,4 @@ fun Route.BerriesApi() {
         
     }
     }
-
 }

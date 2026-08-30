@@ -32,7 +32,7 @@ class  LocationGameIndex
 {
 public:
     LocationGameIndex();
-    virtual ~LocationGameIndex() = default;
+    virtual ~LocationGameIndex();
 
 
     /// <summary>

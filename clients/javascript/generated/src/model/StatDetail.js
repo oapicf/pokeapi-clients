@@ -21,7 +21,7 @@ import StatName from './StatName';
 /**
  * The StatDetail model module.
  * @module model/StatDetail
- * @version 1.2.1-pre.0
+ * @version 2.0.1-pre.0
  */
 class StatDetail {
     /**

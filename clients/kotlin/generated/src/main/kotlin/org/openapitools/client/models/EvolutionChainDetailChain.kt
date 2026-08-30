@@ -8,9 +8,17 @@
 
 @file:Suppress(
     "ArrayInDataClass",
+    "DuplicatedCode",
     "EnumEntryName",
     "RemoveRedundantQualifierName",
-    "UnusedImport"
+    "RemoveRedundantCallsOfConversionMethods",
+    "REDUNDANT_CALL_OF_CONVERSION_METHOD",
+    "RedundantUnitReturnType",
+    "RemoveEmptyClassBody",
+    "UnnecessaryVariable",
+    "UnusedImport",
+    "UnnecessaryVariable",
+    "unused"
 )
 
 package org.openapitools.client.models
@@ -34,7 +42,7 @@ import com.squareup.moshi.JsonClass
 data class EvolutionChainDetailChain (
 
     @Json(name = "evolution_details")
-    val evolutionDetails: kotlin.collections.List<kotlin.Any>,
+    val evolutionDetails: kotlin.collections.List<kotlin.Any?>,
 
     @Json(name = "evolves_to")
     val evolvesTo: kotlin.collections.List<EvolutionChainDetailChainEvolvesToInner>,

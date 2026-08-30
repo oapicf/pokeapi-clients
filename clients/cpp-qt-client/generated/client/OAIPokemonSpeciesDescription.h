@@ -33,13 +33,13 @@ class OAILanguageSummary;
 class OAIPokemonSpeciesDescription : public OAIObject {
 public:
     OAIPokemonSpeciesDescription();
-    OAIPokemonSpeciesDescription(QString json);
+    OAIPokemonSpeciesDescription(const QString &json);
     ~OAIPokemonSpeciesDescription() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     QString getDescription() const;
     void setDescription(const QString &description);

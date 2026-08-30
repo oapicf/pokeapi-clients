@@ -44,13 +44,13 @@ export interface BerryFirmnessDetail  {
      * @type {Array<BerrySummary>}
      * @memberof BerryFirmnessDetail
      */
-    berries: Array<BerrySummary>;
+    readonly berries: Array<BerrySummary>;
     /**
      * 
      * @type {Array<BerryFirmnessName>}
      * @memberof BerryFirmnessDetail
      */
-    names: Array<BerryFirmnessName>;
+    readonly names: Array<BerryFirmnessName>;
 }
 
 export function BerryFirmnessDetailFromJSON(json: any): BerryFirmnessDetail {
@@ -68,8 +68,6 @@ export function BerryFirmnessDetailToJSON(value?: BerryFirmnessDetail): any {
     }
     return {
         'name': value.name,
-        'berries': (value.berries as Array<any>).map(BerrySummaryToJSON),
-        'names': (value.names as Array<any>).map(BerryFirmnessNameToJSON),
     };
 }
 

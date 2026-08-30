@@ -10,9 +10,9 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | `Integer` |  |  [readonly property]
 **geneModulo** | `Integer` |  | 
-**possibleValues** | `List&lt;Integer&gt;` |  | 
+**possibleValues** | `List&lt;Integer&gt;` |  |  [readonly property]
 **highestStat** | [`StatSummary`](StatSummary.md) |  | 
-**descriptions** | [`List&lt;CharacteristicDescription&gt;`](CharacteristicDescription.md) |  | 
+**descriptions** | [`List&lt;CharacteristicDescription&gt;`](CharacteristicDescription.md) |  |  [readonly property]
 
 
 

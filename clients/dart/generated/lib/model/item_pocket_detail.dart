@@ -65,10 +65,14 @@ class ItemPocketDetail {
       // Note 1: the values aren't checked for validity beyond being non-null.
       // Note 2: this code is stripped in release mode!
       assert(() {
-        requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "ItemPocketDetail[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "ItemPocketDetail[$key]" has a null value in JSON.');
-        });
+        assert(json.containsKey(r'id'), 'Required key "ItemPocketDetail[id]" is missing from JSON.');
+        assert(json[r'id'] != null, 'Required key "ItemPocketDetail[id]" has a null value in JSON.');
+        assert(json.containsKey(r'name'), 'Required key "ItemPocketDetail[name]" is missing from JSON.');
+        assert(json[r'name'] != null, 'Required key "ItemPocketDetail[name]" has a null value in JSON.');
+        assert(json.containsKey(r'categories'), 'Required key "ItemPocketDetail[categories]" is missing from JSON.');
+        assert(json[r'categories'] != null, 'Required key "ItemPocketDetail[categories]" has a null value in JSON.');
+        assert(json.containsKey(r'names'), 'Required key "ItemPocketDetail[names]" is missing from JSON.');
+        assert(json[r'names'] != null, 'Required key "ItemPocketDetail[names]" has a null value in JSON.');
         return true;
       }());
 

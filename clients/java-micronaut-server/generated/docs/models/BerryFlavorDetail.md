@@ -10,9 +10,9 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | `Integer` |  |  [readonly property]
 **name** | `String` |  | 
-**berries** | [`List&lt;BerryFlavorDetailBerriesInner&gt;`](BerryFlavorDetailBerriesInner.md) |  | 
+**berries** | [`List&lt;BerryFlavorDetailBerriesInner&gt;`](BerryFlavorDetailBerriesInner.md) |  |  [readonly property]
 **contestType** | [`ContestTypeSummary`](ContestTypeSummary.md) |  | 
-**names** | [`List&lt;BerryFlavorName&gt;`](BerryFlavorName.md) |  | 
+**names** | [`List&lt;BerryFlavorName&gt;`](BerryFlavorName.md) |  |  [readonly property]
 
 
 

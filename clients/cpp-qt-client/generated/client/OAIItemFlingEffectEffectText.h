@@ -33,13 +33,13 @@ class OAILanguageSummary;
 class OAIItemFlingEffectEffectText : public OAIObject {
 public:
     OAIItemFlingEffectEffectText();
-    OAIItemFlingEffectEffectText(QString json);
+    OAIItemFlingEffectEffectText(const QString &json);
     ~OAIItemFlingEffectEffectText() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     QString getEffect() const;
     void setEffect(const QString &effect);

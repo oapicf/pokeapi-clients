@@ -57,7 +57,7 @@ export interface ContestTypeDetail {
      * @type {Array<ContestTypeName>}
      * @memberof ContestTypeDetail
      */
-    names: Array<ContestTypeName>;
+    readonly names: Array<ContestTypeName>;
 }
 
 /**
@@ -66,7 +66,7 @@ export interface ContestTypeDetail {
 export function instanceOfContestTypeDetail(value: object): value is ContestTypeDetail {
     if (!('id' in value) || value['id'] === undefined) return false;
     if (!('name' in value) || value['name'] === undefined) return false;
-    if (!('berryFlavor' in value) || value['berryFlavor'] === undefined) return false;
+    if ((!('berryFlavor' in (value as Record<string, any>)) && !('berry_flavor' in (value as Record<string, any>))) || ((value as Record<string, any>)['berryFlavor'] === undefined && (value as Record<string, any>)['berry_flavor'] === undefined)) return false;
     if (!('names' in value) || value['names'] === undefined) return false;
     return true;
 }
@@ -92,7 +92,7 @@ export function ContestTypeDetailToJSON(json: any): ContestTypeDetail {
     return ContestTypeDetailToJSONTyped(json, false);
 }
 
-export function ContestTypeDetailToJSONTyped(value?: Omit<ContestTypeDetail, 'id'|'berry_flavor'> | null, ignoreDiscriminator: boolean = false): any {
+export function ContestTypeDetailToJSONTyped(value?: Omit<ContestTypeDetail, 'id'|'berryFlavor'|'names'> | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
@@ -100,7 +100,6 @@ export function ContestTypeDetailToJSONTyped(value?: Omit<ContestTypeDetail, 'id
     return {
         
         'name': value['name'],
-        'names': ((value['names'] as Array<any>).map(ContestTypeNameToJSON)),
     };
 }
 

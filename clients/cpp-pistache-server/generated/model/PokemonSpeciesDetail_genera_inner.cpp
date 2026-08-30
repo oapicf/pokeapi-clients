@@ -25,6 +25,8 @@ PokemonSpeciesDetail_genera_inner::PokemonSpeciesDetail_genera_inner()
     
 }
 
+PokemonSpeciesDetail_genera_inner::~PokemonSpeciesDetail_genera_inner() = default;
+
 void PokemonSpeciesDetail_genera_inner::validate() const
 {
     std::stringstream msg;

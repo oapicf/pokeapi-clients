@@ -10,19 +10,19 @@ Name | Type | Description | Notes
 **isDefault** | **NSNumber*** |  | [optional] 
 **order** | **NSNumber*** |  | [optional] 
 **weight** | **NSNumber*** |  | [optional] 
-**abilities** | [**NSArray&lt;OAIPokemonDetailAbilitiesInner&gt;***](OAIPokemonDetailAbilitiesInner.md) |  | 
-**pastAbilities** | [**NSArray&lt;OAIPokemonDetailPastAbilitiesInner&gt;***](OAIPokemonDetailPastAbilitiesInner.md) |  | 
-**forms** | [**NSArray&lt;OAIPokemonFormSummary&gt;***](OAIPokemonFormSummary.md) |  | 
-**gameIndices** | [**NSArray&lt;OAIPokemonGameIndex&gt;***](OAIPokemonGameIndex.md) |  | 
+**abilities** | [**NSArray&lt;OAIPokemonDetailAbilitiesInner&gt;***](OAIPokemonDetailAbilitiesInner.md) |  | [readonly] 
+**pastAbilities** | [**NSArray&lt;OAIPokemonDetailPastAbilitiesInner&gt;***](OAIPokemonDetailPastAbilitiesInner.md) |  | [readonly] 
+**forms** | [**NSArray&lt;OAIPokemonFormSummary&gt;***](OAIPokemonFormSummary.md) |  | [readonly] 
+**gameIndices** | [**NSArray&lt;OAIPokemonGameIndex&gt;***](OAIPokemonGameIndex.md) |  | [readonly] 
 **heldItems** | [**OAIPokemonDetailHeldItems***](OAIPokemonDetailHeldItems.md) |  | 
 **locationAreaEncounters** | **NSString*** |  | [readonly] 
-**moves** | [**NSArray&lt;OAIPokemonDetailMovesInner&gt;***](OAIPokemonDetailMovesInner.md) |  | 
+**moves** | [**NSArray&lt;OAIPokemonDetailMovesInner&gt;***](OAIPokemonDetailMovesInner.md) |  | [readonly] 
 **species** | [**OAIPokemonSpeciesSummary***](OAIPokemonSpeciesSummary.md) |  | 
 **sprites** | [**OAIPokemonDetailSprites***](OAIPokemonDetailSprites.md) |  | 
 **cries** | [**OAIPokemonDetailCries***](OAIPokemonDetailCries.md) |  | 
-**stats** | [**NSArray&lt;OAIPokemonStat&gt;***](OAIPokemonStat.md) |  | 
-**types** | [**NSArray&lt;OAIPokemonDetailTypesInner&gt;***](OAIPokemonDetailTypesInner.md) |  | 
-**pastTypes** | [**NSArray&lt;OAIPokemonDetailPastTypesInner&gt;***](OAIPokemonDetailPastTypesInner.md) |  | 
+**stats** | [**NSArray&lt;OAIPokemonStat&gt;***](OAIPokemonStat.md) |  | [readonly] 
+**types** | [**NSArray&lt;OAIPokemonDetailTypesInner&gt;***](OAIPokemonDetailTypesInner.md) |  | [readonly] 
+**pastTypes** | [**NSArray&lt;OAIPokemonDetailPastTypesInner&gt;***](OAIPokemonDetailPastTypesInner.md) |  | [readonly] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

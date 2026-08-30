@@ -25,6 +25,8 @@ MachineDetail::MachineDetail()
     
 }
 
+MachineDetail::~MachineDetail() = default;
+
 void MachineDetail::validate() const
 {
     std::stringstream msg;

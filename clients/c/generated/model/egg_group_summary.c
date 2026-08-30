@@ -13,10 +13,10 @@ static egg_group_summary_t *egg_group_summary_create_internal(
     if (!egg_group_summary_local_var) {
         return NULL;
     }
+    memset(egg_group_summary_local_var, 0, sizeof(egg_group_summary_t));
+    egg_group_summary_local_var->_library_owned = 1;
     egg_group_summary_local_var->name = name;
     egg_group_summary_local_var->url = url;
-
-    egg_group_summary_local_var->_library_owned = 1;
     return egg_group_summary_local_var;
 }
 
@@ -24,10 +24,13 @@ __attribute__((deprecated)) egg_group_summary_t *egg_group_summary_create(
     char *name,
     char *url
     ) {
-    return egg_group_summary_create_internal (
+    egg_group_summary_t *result = egg_group_summary_create_internal (
         name,
         url
         );
+    if (!result) {
+    }
+    return result;
 }
 
 void egg_group_summary_free(egg_group_summary_t *egg_group_summary) {
@@ -82,6 +85,10 @@ egg_group_summary_t *egg_group_summary_parseFromJSON(cJSON *egg_group_summaryJSO
 
     egg_group_summary_t *egg_group_summary_local_var = NULL;
 
+    char *name_local_str = NULL;
+
+    char *url_local_str = NULL;
+
     // egg_group_summary->name
     cJSON *name = cJSON_GetObjectItemCaseSensitive(egg_group_summaryJSON, "name");
     if (cJSON_IsNull(name)) {
@@ -113,13 +120,28 @@ egg_group_summary_t *egg_group_summary_parseFromJSON(cJSON *egg_group_summaryJSO
     }
 
 
+    if (name && !cJSON_IsNull(name)) name_local_str = strdup(name->valuestring);
+    if (url && !cJSON_IsNull(url)) url_local_str = strdup(url->valuestring);
+
     egg_group_summary_local_var = egg_group_summary_create_internal (
-        strdup(name->valuestring),
-        strdup(url->valuestring)
+        name_local_str,
+        url_local_str
         );
+
+    if (!egg_group_summary_local_var) {
+        goto end;
+    }
 
     return egg_group_summary_local_var;
 end:
+    if (name_local_str) {
+        free(name_local_str);
+        name_local_str = NULL;
+    }
+    if (url_local_str) {
+        free(url_local_str);
+        url_local_str = NULL;
+    }
     return NULL;
 
 }

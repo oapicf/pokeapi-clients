@@ -25,6 +25,8 @@ ItemDetail_sprites::ItemDetail_sprites()
     
 }
 
+ItemDetail_sprites::~ItemDetail_sprites() = default;
+
 void ItemDetail_sprites::validate() const
 {
     std::stringstream msg;

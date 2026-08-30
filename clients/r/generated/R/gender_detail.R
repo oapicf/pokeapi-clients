@@ -96,13 +96,36 @@ GenderDetail <- R6::R6Class(
       }
       if (!is.null(self$`pokemon_species_details`)) {
         GenderDetailObject[["pokemon_species_details"]] <-
-          lapply(self$`pokemon_species_details`, function(x) x$toSimpleType())
+          self$extractSimpleType(self$`pokemon_species_details`)
       }
       if (!is.null(self$`required_for_evolution`)) {
         GenderDetailObject[["required_for_evolution"]] <-
-          lapply(self$`required_for_evolution`, function(x) x$toSimpleType())
+          self$extractSimpleType(self$`required_for_evolution`)
       }
       return(GenderDetailObject)
+    },
+
+    extractSimpleType = function(x) {
+      if (R6::is.R6(x)) {
+        return(x$toSimpleType())
+      } else if (!self$hasNestedR6(x)) {
+        return(x)
+      }
+      lapply(x, self$extractSimpleType)
+    },
+
+    hasNestedR6 = function(x) {
+      if (R6::is.R6(x)) {
+        return(TRUE)
+      }
+      if (is.list(x)) {
+        for (item in x) {
+          if (self$hasNestedR6(item)) {
+            return(TRUE)
+          }
+        }
+      }
+      FALSE
     },
 
     #' @description

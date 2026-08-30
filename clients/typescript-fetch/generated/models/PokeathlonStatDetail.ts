@@ -57,7 +57,7 @@ export interface PokeathlonStatDetail {
      * @type {Array<PokeathlonStatName>}
      * @memberof PokeathlonStatDetail
      */
-    names: Array<PokeathlonStatName>;
+    readonly names: Array<PokeathlonStatName>;
 }
 
 /**
@@ -66,7 +66,7 @@ export interface PokeathlonStatDetail {
 export function instanceOfPokeathlonStatDetail(value: object): value is PokeathlonStatDetail {
     if (!('id' in value) || value['id'] === undefined) return false;
     if (!('name' in value) || value['name'] === undefined) return false;
-    if (!('affectingNatures' in value) || value['affectingNatures'] === undefined) return false;
+    if ((!('affectingNatures' in (value as Record<string, any>)) && !('affecting_natures' in (value as Record<string, any>))) || ((value as Record<string, any>)['affectingNatures'] === undefined && (value as Record<string, any>)['affecting_natures'] === undefined)) return false;
     if (!('names' in value) || value['names'] === undefined) return false;
     return true;
 }
@@ -92,7 +92,7 @@ export function PokeathlonStatDetailToJSON(json: any): PokeathlonStatDetail {
     return PokeathlonStatDetailToJSONTyped(json, false);
 }
 
-export function PokeathlonStatDetailToJSONTyped(value?: Omit<PokeathlonStatDetail, 'id'> | null, ignoreDiscriminator: boolean = false): any {
+export function PokeathlonStatDetailToJSONTyped(value?: Omit<PokeathlonStatDetail, 'id'|'names'> | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
@@ -101,7 +101,6 @@ export function PokeathlonStatDetailToJSONTyped(value?: Omit<PokeathlonStatDetai
         
         'name': value['name'],
         'affecting_natures': PokeathlonStatDetailAffectingNaturesToJSON(value['affectingNatures']),
-        'names': ((value['names'] as Array<any>).map(PokeathlonStatNameToJSON)),
     };
 }
 

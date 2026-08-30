@@ -26,6 +26,8 @@ StatSummary::StatSummary()
     
 }
 
+StatSummary::~StatSummary() = default;
+
 void StatSummary::validate() const
 {
     std::stringstream msg;

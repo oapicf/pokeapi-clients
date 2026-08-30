@@ -59,7 +59,7 @@ export interface EvolutionChainDetail {
  */
 export function instanceOfEvolutionChainDetail(value: object): value is EvolutionChainDetail {
     if (!('id' in value) || value['id'] === undefined) return false;
-    if (!('babyTriggerItem' in value) || value['babyTriggerItem'] === undefined) return false;
+    if ((!('babyTriggerItem' in (value as Record<string, any>)) && !('baby_trigger_item' in (value as Record<string, any>))) || ((value as Record<string, any>)['babyTriggerItem'] === undefined && (value as Record<string, any>)['baby_trigger_item'] === undefined)) return false;
     if (!('chain' in value) || value['chain'] === undefined) return false;
     return true;
 }

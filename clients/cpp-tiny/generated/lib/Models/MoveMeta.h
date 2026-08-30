@@ -53,84 +53,84 @@ public:
 
 	/*! \brief Set 
 	 */
-	void setAilment(MoveMetaAilmentSummary  ailment);
+	void setAilment(MoveMetaAilmentSummary ailment);
 	/*! \brief Get 
 	 */
 	MoveMetaCategorySummary getCategory();
 
 	/*! \brief Set 
 	 */
-	void setCategory(MoveMetaCategorySummary  category);
+	void setCategory(MoveMetaCategorySummary category);
 	/*! \brief Get 
 	 */
 	int getMinHits();
 
 	/*! \brief Set 
 	 */
-	void setMinHits(int  min_hits);
+	void setMinHits(int min_hits);
 	/*! \brief Get 
 	 */
 	int getMaxHits();
 
 	/*! \brief Set 
 	 */
-	void setMaxHits(int  max_hits);
+	void setMaxHits(int max_hits);
 	/*! \brief Get 
 	 */
 	int getMinTurns();
 
 	/*! \brief Set 
 	 */
-	void setMinTurns(int  min_turns);
+	void setMinTurns(int min_turns);
 	/*! \brief Get 
 	 */
 	int getMaxTurns();
 
 	/*! \brief Set 
 	 */
-	void setMaxTurns(int  max_turns);
+	void setMaxTurns(int max_turns);
 	/*! \brief Get 
 	 */
 	int getDrain();
 
 	/*! \brief Set 
 	 */
-	void setDrain(int  drain);
+	void setDrain(int drain);
 	/*! \brief Get 
 	 */
 	int getHealing();
 
 	/*! \brief Set 
 	 */
-	void setHealing(int  healing);
+	void setHealing(int healing);
 	/*! \brief Get 
 	 */
 	int getCritRate();
 
 	/*! \brief Set 
 	 */
-	void setCritRate(int  crit_rate);
+	void setCritRate(int crit_rate);
 	/*! \brief Get 
 	 */
 	int getAilmentChance();
 
 	/*! \brief Set 
 	 */
-	void setAilmentChance(int  ailment_chance);
+	void setAilmentChance(int ailment_chance);
 	/*! \brief Get 
 	 */
 	int getFlinchChance();
 
 	/*! \brief Set 
 	 */
-	void setFlinchChance(int  flinch_chance);
+	void setFlinchChance(int flinch_chance);
 	/*! \brief Get 
 	 */
 	int getStatChance();
 
 	/*! \brief Set 
 	 */
-	void setStatChance(int  stat_chance);
+	void setStatChance(int stat_chance);
 
 
     private:

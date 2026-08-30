@@ -26,6 +26,8 @@ BerryFlavorDetail::BerryFlavorDetail()
     
 }
 
+BerryFlavorDetail::~BerryFlavorDetail() = default;
+
 void BerryFlavorDetail::validate() const
 {
     std::stringstream msg;

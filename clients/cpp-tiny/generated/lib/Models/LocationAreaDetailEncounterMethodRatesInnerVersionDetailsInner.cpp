@@ -86,7 +86,7 @@ LocationAreaDetail_encounter_method_rates_inner_version_details_inner::getRate()
 }
 
 void
-LocationAreaDetail_encounter_method_rates_inner_version_details_inner::setRate(int  rate)
+LocationAreaDetail_encounter_method_rates_inner_version_details_inner::setRate(int rate)
 {
 	this->rate = rate;
 }
@@ -98,7 +98,7 @@ LocationAreaDetail_encounter_method_rates_inner_version_details_inner::getVersio
 }
 
 void
-LocationAreaDetail_encounter_method_rates_inner_version_details_inner::setVersion(AbilityDetail_pokemon_inner_pokemon  version)
+LocationAreaDetail_encounter_method_rates_inner_version_details_inner::setVersion(AbilityDetail_pokemon_inner_pokemon version)
 {
 	this->version = version;
 }

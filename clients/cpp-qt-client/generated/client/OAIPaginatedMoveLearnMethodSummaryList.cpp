@@ -21,7 +21,7 @@
 
 namespace OpenAPI {
 
-OAIPaginatedMoveLearnMethodSummaryList::OAIPaginatedMoveLearnMethodSummaryList(QString json) {
+OAIPaginatedMoveLearnMethodSummaryList::OAIPaginatedMoveLearnMethodSummaryList(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -47,7 +47,7 @@ void OAIPaginatedMoveLearnMethodSummaryList::initializeModel() {
     m_results_isValid = false;
 }
 
-void OAIPaginatedMoveLearnMethodSummaryList::fromJson(QString jsonString) {
+void OAIPaginatedMoveLearnMethodSummaryList::fromJson(const QString &jsonString) {
     QByteArray array(jsonString.toStdString().c_str());
     QJsonDocument doc = QJsonDocument::fromJson(array);
     QJsonObject jsonObject = doc.object();

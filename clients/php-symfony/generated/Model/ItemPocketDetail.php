@@ -47,7 +47,7 @@ class ItemPocketDetail
      * @var int|null
      * @SerializedName("id")
      * @Type("int")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Type("int")]
     protected ?int $id = null;
@@ -56,7 +56,7 @@ class ItemPocketDetail
      * @var string|null
      * @SerializedName("name")
      * @Type("string")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Type("string")]
     #[Assert\Length(max: 100)]
@@ -66,7 +66,7 @@ class ItemPocketDetail
      * @var ItemCategorySummary[]|null
      * @SerializedName("categories")
      * @Type("array<OpenAPI\Server\Model\ItemCategorySummary>")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Valid]
     #[Assert\All([
@@ -78,7 +78,7 @@ class ItemPocketDetail
      * @var ItemPocketName[]|null
      * @SerializedName("names")
      * @Type("array<OpenAPI\Server\Model\ItemPocketName>")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Valid]
     #[Assert\All([
@@ -111,12 +111,12 @@ class ItemPocketDetail
     }
 
     /**
-    * Sets id.
-    *
-    * @param int|null $id
-    *
-    * @return $this
-    */
+     * Sets id.
+     *
+     * @param int|null $id
+     *
+     * @return $this
+     */
     public function setId(?int $id): self
     {
         $this->id = $id;
@@ -138,12 +138,12 @@ class ItemPocketDetail
     }
 
     /**
-    * Sets name.
-    *
-    * @param string|null $name
-    *
-    * @return $this
-    */
+     * Sets name.
+     *
+     * @param string|null $name
+     *
+     * @return $this
+     */
     public function setName(?string $name): self
     {
         $this->name = $name;
@@ -165,12 +165,12 @@ class ItemPocketDetail
     }
 
     /**
-    * Sets categories.
-    *
-    * @param ItemCategorySummary[]|null $categories
-    *
-    * @return $this
-    */
+     * Sets categories.
+     *
+     * @param ItemCategorySummary[]|null $categories
+     *
+     * @return $this
+     */
     public function setCategories(?array $categories): self
     {
         $this->categories = $categories;
@@ -192,12 +192,12 @@ class ItemPocketDetail
     }
 
     /**
-    * Sets names.
-    *
-    * @param ItemPocketName[]|null $names
-    *
-    * @return $this
-    */
+     * Sets names.
+     *
+     * @param ItemPocketName[]|null $names
+     *
+     * @return $this
+     */
     public function setNames(?array $names): self
     {
         $this->names = $names;

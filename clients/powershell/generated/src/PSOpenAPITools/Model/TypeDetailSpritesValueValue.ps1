@@ -36,7 +36,7 @@ function Initialize-TypeDetailSpritesValueValue {
 
 
         $PSO = [PSCustomObject]@{
-            "name-icon" = ${NameIcon}
+            'name-icon' = ${NameIcon}
         }
 
 
@@ -74,21 +74,21 @@ function ConvertFrom-JsonToTypeDetailSpritesValueValue {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in TypeDetailSpritesValueValue
-        $AllProperties = ("name-icon")
+        $AllProperties = ('name-icon')
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
             }
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "name-icon"))) { #optional property not found
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'name-icon'))) { #optional property not found
             $NameIcon = $null
         } else {
-            $NameIcon = $JsonParameters.PSobject.Properties["name-icon"].value
+            $NameIcon = $JsonParameters.PSobject.Properties['name-icon'].value
         }
 
         $PSO = [PSCustomObject]@{
-            "name-icon" = ${NameIcon}
+            'name-icon' = ${NameIcon}
         }
 
         return $PSO

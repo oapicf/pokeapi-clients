@@ -50,13 +50,15 @@ class EvolutionChainDetailChain extends BaseModel
   "properties" : {
     "evolution_details" : {
       "type" : "array",
-      "items" : { }
+      "items" : { },
+      "default" : null
     },
     "evolves_to" : {
       "type" : "array",
       "items" : {
         "$ref" : "#/components/schemas/EvolutionChainDetail_chain_evolves_to_inner"
-      }
+      },
+      "default" : null
     },
     "is_baby" : {
       "type" : "boolean"

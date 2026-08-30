@@ -33,13 +33,13 @@ class OAILanguageSummary;
 class OAIContestEffectFlavorText : public OAIObject {
 public:
     OAIContestEffectFlavorText();
-    OAIContestEffectFlavorText(QString json);
+    OAIContestEffectFlavorText(const QString &json);
     ~OAIContestEffectFlavorText() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     QString getFlavorText() const;
     void setFlavorText(const QString &flavor_text);

@@ -5,8 +5,8 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **int** |  | [readonly] 
 **name** | **char \*** |  | 
-**categories** | [**list_t**](item_category_summary.md) \* |  | 
-**names** | [**list_t**](item_pocket_name.md) \* |  | 
+**categories** | [**list_t**](item_category_summary.md) \* |  | [readonly] 
+**names** | [**list_t**](item_pocket_name.md) \* |  | [readonly] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

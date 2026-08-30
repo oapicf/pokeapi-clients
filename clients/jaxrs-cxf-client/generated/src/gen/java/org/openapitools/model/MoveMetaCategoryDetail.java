@@ -65,19 +65,6 @@ public class MoveMetaCategoryDetail  {
     return descriptions;
   }
 
-  public void setDescriptions(List<MoveMetaCategoryDescription> descriptions) {
-    this.descriptions = descriptions;
-  }
-
-  public MoveMetaCategoryDetail descriptions(List<MoveMetaCategoryDescription> descriptions) {
-    this.descriptions = descriptions;
-    return this;
-  }
-
-  public MoveMetaCategoryDetail addDescriptionsItem(MoveMetaCategoryDescription descriptionsItem) {
-    this.descriptions.add(descriptionsItem);
-    return this;
-  }
 
  /**
    * Get moves
@@ -88,19 +75,6 @@ public class MoveMetaCategoryDetail  {
     return moves;
   }
 
-  public void setMoves(List<AbilityDetailPokemonInnerPokemon> moves) {
-    this.moves = moves;
-  }
-
-  public MoveMetaCategoryDetail moves(List<AbilityDetailPokemonInnerPokemon> moves) {
-    this.moves = moves;
-    return this;
-  }
-
-  public MoveMetaCategoryDetail addMovesItem(AbilityDetailPokemonInnerPokemon movesItem) {
-    this.moves.add(movesItem);
-    return this;
-  }
 
   @Override
   public boolean equals(Object o) {
@@ -140,10 +114,7 @@ public class MoveMetaCategoryDetail  {
    * (except the first line).
    */
   private static String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 }
 

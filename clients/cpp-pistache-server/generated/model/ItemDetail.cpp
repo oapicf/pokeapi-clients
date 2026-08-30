@@ -30,6 +30,8 @@ ItemDetail::ItemDetail()
     
 }
 
+ItemDetail::~ItemDetail() = default;
+
 void ItemDetail::validate() const
 {
     std::stringstream msg;

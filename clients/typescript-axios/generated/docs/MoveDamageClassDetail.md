@@ -7,9 +7,9 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **number** |  | [readonly] [default to undefined]
 **name** | **string** |  | [default to undefined]
-**descriptions** | [**Array&lt;MoveDamageClassDescription&gt;**](MoveDamageClassDescription.md) |  | [default to undefined]
-**moves** | [**Array&lt;MoveSummary&gt;**](MoveSummary.md) |  | [default to undefined]
-**names** | [**Array&lt;MoveDamageClassName&gt;**](MoveDamageClassName.md) |  | [default to undefined]
+**descriptions** | [**Array&lt;MoveDamageClassDescription&gt;**](MoveDamageClassDescription.md) |  | [readonly] [default to undefined]
+**moves** | [**Array&lt;MoveSummary&gt;**](MoveSummary.md) |  | [readonly] [default to undefined]
+**names** | [**Array&lt;MoveDamageClassName&gt;**](MoveDamageClassName.md) |  | [readonly] [default to undefined]
 
 ## Example
 

@@ -2,6 +2,7 @@ package org.openapitools.model;
 
 import java.net.URI;
 import java.util.Objects;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
@@ -9,24 +10,26 @@ import org.openapitools.model.TypeDetailPokemonInnerPokemon;
 import org.springframework.lang.Nullable;
 import org.openapitools.jackson.nullable.JsonNullable;
 import java.time.OffsetDateTime;
-import javax.validation.Valid;
-import javax.validation.constraints.*;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.*;
 import io.swagger.v3.oas.annotations.media.Schema;
 
 
 import java.util.*;
-import javax.annotation.Generated;
+import jakarta.annotation.Generated;
 
 /**
  * TypeDetailPokemonInner
  */
 
 @JsonTypeName("TypeDetail_pokemon_inner")
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2026-02-07T15:29:13.146999890Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2026-08-30T02:00:43.960184425Z[Etc/UTC]", comments = "Generator version: 7.24.0")
 public class TypeDetailPokemonInner {
 
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private @Nullable Integer slot;
 
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private @Nullable TypeDetailPokemonInnerPokemon pokemon;
 
   public TypeDetailPokemonInner slot(@Nullable Integer slot) {
@@ -45,6 +48,7 @@ public class TypeDetailPokemonInner {
     return slot;
   }
 
+  @JsonProperty("slot")
   public void setSlot(@Nullable Integer slot) {
     this.slot = slot;
   }
@@ -65,6 +69,7 @@ public class TypeDetailPokemonInner {
     return pokemon;
   }
 
+  @JsonProperty("pokemon")
   public void setPokemon(@Nullable TypeDetailPokemonInnerPokemon pokemon) {
     this.pokemon = pokemon;
   }
@@ -101,11 +106,8 @@ public class TypeDetailPokemonInner {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+  private String toIndentedString(@Nullable Object o) {
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 }
 

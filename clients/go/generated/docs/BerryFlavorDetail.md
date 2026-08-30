@@ -6,9 +6,9 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **int32** |  | [readonly] 
 **Name** | **string** |  | 
-**Berries** | [**[]BerryFlavorDetailBerriesInner**](BerryFlavorDetailBerriesInner.md) |  | 
+**Berries** | [**[]BerryFlavorDetailBerriesInner**](BerryFlavorDetailBerriesInner.md) |  | [readonly] 
 **ContestType** | [**ContestTypeSummary**](ContestTypeSummary.md) |  | 
-**Names** | [**[]BerryFlavorName**](BerryFlavorName.md) |  | 
+**Names** | [**[]BerryFlavorName**](BerryFlavorName.md) |  | [readonly] 
 
 ## Methods
 

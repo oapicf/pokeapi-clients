@@ -52,14 +52,14 @@ public:
 
 	/*! \brief Set 
 	 */
-	void setEntryNumber(int  entry_number);
+	void setEntryNumber(int entry_number);
 	/*! \brief Get 
 	 */
 	AbilityDetail_pokemon_inner_pokemon getPokemonSpecies();
 
 	/*! \brief Set 
 	 */
-	void setPokemonSpecies(AbilityDetail_pokemon_inner_pokemon  pokemon_species);
+	void setPokemonSpecies(AbilityDetail_pokemon_inner_pokemon pokemon_species);
 
 
     private:

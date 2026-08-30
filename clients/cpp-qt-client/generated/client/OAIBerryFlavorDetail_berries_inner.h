@@ -32,13 +32,13 @@ class OAIBerryFlavorDetail_berries_inner_berry;
 class OAIBerryFlavorDetail_berries_inner : public OAIObject {
 public:
     OAIBerryFlavorDetail_berries_inner();
-    OAIBerryFlavorDetail_berries_inner(QString json);
+    OAIBerryFlavorDetail_berries_inner(const QString &json);
     ~OAIBerryFlavorDetail_berries_inner() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     qint32 getPotency() const;
     void setPotency(const qint32 &potency);

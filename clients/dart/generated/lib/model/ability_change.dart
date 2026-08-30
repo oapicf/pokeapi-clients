@@ -53,10 +53,10 @@ class AbilityChange {
       // Note 1: the values aren't checked for validity beyond being non-null.
       // Note 2: this code is stripped in release mode!
       assert(() {
-        requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "AbilityChange[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "AbilityChange[$key]" has a null value in JSON.');
-        });
+        assert(json.containsKey(r'version_group'), 'Required key "AbilityChange[version_group]" is missing from JSON.');
+        assert(json[r'version_group'] != null, 'Required key "AbilityChange[version_group]" has a null value in JSON.');
+        assert(json.containsKey(r'effect_entries'), 'Required key "AbilityChange[effect_entries]" is missing from JSON.');
+        assert(json[r'effect_entries'] != null, 'Required key "AbilityChange[effect_entries]" has a null value in JSON.');
         return true;
       }());
 

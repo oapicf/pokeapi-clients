@@ -32,7 +32,7 @@ class  NatureDetail_pokeathlon_stat_changes_inner
 {
 public:
     NatureDetail_pokeathlon_stat_changes_inner();
-    virtual ~NatureDetail_pokeathlon_stat_changes_inner() = default;
+    virtual ~NatureDetail_pokeathlon_stat_changes_inner();
 
 
     /// <summary>

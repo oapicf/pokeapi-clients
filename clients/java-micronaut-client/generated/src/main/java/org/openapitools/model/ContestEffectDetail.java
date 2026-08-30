@@ -37,7 +37,7 @@ import javax.annotation.Generated;
   ContestEffectDetail.JSON_PROPERTY_FLAVOR_TEXT_ENTRIES
 })
 @JsonTypeName("ContestEffectDetail")
-@Generated(value="org.openapitools.codegen.languages.JavaMicronautClientCodegen", date="2026-02-07T15:22:54.857535619Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@Generated(value="org.openapitools.codegen.languages.JavaMicronautClientCodegen", date="2026-08-30T01:55:51.056116330Z[Etc/UTC]", comments = "Generator version: 7.24.0")
 @Introspected
 public class ContestEffectDetail {
     public static final String JSON_PROPERTY_ID = "id";
@@ -118,16 +118,6 @@ public class ContestEffectDetail {
         this.jam = jam;
     }
 
-    public ContestEffectDetail effectEntries(List<@Valid ContestEffectEffectText> effectEntries) {
-        this.effectEntries = effectEntries;
-        return this;
-    }
-
-    public ContestEffectDetail addEffectEntriesItem(ContestEffectEffectText effectEntriesItem) {
-        this.effectEntries.add(effectEntriesItem);
-        return this;
-    }
-
     /**
      * Get effectEntries
      * @return effectEntries
@@ -139,22 +129,6 @@ public class ContestEffectDetail {
         return effectEntries;
     }
 
-    @JsonProperty(JSON_PROPERTY_EFFECT_ENTRIES)
-    @JsonInclude(value = JsonInclude.Include.ALWAYS)
-    public void setEffectEntries(List<@Valid ContestEffectEffectText> effectEntries) {
-        this.effectEntries = effectEntries;
-    }
-
-    public ContestEffectDetail flavorTextEntries(List<@Valid ContestEffectFlavorText> flavorTextEntries) {
-        this.flavorTextEntries = flavorTextEntries;
-        return this;
-    }
-
-    public ContestEffectDetail addFlavorTextEntriesItem(ContestEffectFlavorText flavorTextEntriesItem) {
-        this.flavorTextEntries.add(flavorTextEntriesItem);
-        return this;
-    }
-
     /**
      * Get flavorTextEntries
      * @return flavorTextEntries
@@ -164,12 +138,6 @@ public class ContestEffectDetail {
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public List<@Valid ContestEffectFlavorText> getFlavorTextEntries() {
         return flavorTextEntries;
-    }
-
-    @JsonProperty(JSON_PROPERTY_FLAVOR_TEXT_ENTRIES)
-    @JsonInclude(value = JsonInclude.Include.ALWAYS)
-    public void setFlavorTextEntries(List<@Valid ContestEffectFlavorText> flavorTextEntries) {
-        this.flavorTextEntries = flavorTextEntries;
     }
 
     @Override
@@ -211,10 +179,7 @@ public class ContestEffectDetail {
      * (except the first line).
      */
     private String toIndentedString(Object o) {
-        if (o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
+        return o == null ? "null" : o.toString().replace("\n", "\n    ");
     }
 
 }

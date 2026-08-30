@@ -28,7 +28,7 @@ import javax.validation.Valid;
  * <p>All the Pokémon data you'll ever need in one place, easily accessible through a modern free open-source RESTful API.  ## What is this?  This is a full RESTful API linked to an extensive database detailing everything about the Pokémon main game series.  We've covered everything from Pokémon to Berry Flavors.  ## Where do I start?  We have awesome [documentation](https://pokeapi.co/docs/v2) on how to use this API. It takes minutes to get started.  This API will always be publicly available and will never require any extensive setup process to consume.  Created by [**Paul Hallett**(]https://github.com/phalt) and other [**PokéAPI contributors***](https://github.com/PokeAPI/pokeapi#contributing) around the world. Pokémon and Pokémon character names are trademarks of Nintendo.     
  *
  */
-@Path("/api/v2")
+@Path("")
 @Api(value = "/", description = "")
 public interface GamesApi  {
 
@@ -39,7 +39,7 @@ public interface GamesApi  {
      *
      */
     @GET
-    @Path("/generation/")
+    @Path("/api/v2/generation/")
     @Produces({ "application/json" })
     @ApiOperation(value = "List genrations", tags={ "games" })
     @ApiResponses(value = { 
@@ -53,7 +53,7 @@ public interface GamesApi  {
      *
      */
     @GET
-    @Path("/generation/{id}/")
+    @Path("/api/v2/generation/{id}/")
     @Produces({ "application/json" })
     @ApiOperation(value = "Get genration", tags={ "games" })
     @ApiResponses(value = { 
@@ -67,7 +67,7 @@ public interface GamesApi  {
      *
      */
     @GET
-    @Path("/pokedex/")
+    @Path("/api/v2/pokedex/")
     @Produces({ "application/json" })
     @ApiOperation(value = "List pokedex", tags={ "games" })
     @ApiResponses(value = { 
@@ -81,7 +81,7 @@ public interface GamesApi  {
      *
      */
     @GET
-    @Path("/pokedex/{id}/")
+    @Path("/api/v2/pokedex/{id}/")
     @Produces({ "application/json" })
     @ApiOperation(value = "Get pokedex", tags={ "games" })
     @ApiResponses(value = { 
@@ -95,7 +95,7 @@ public interface GamesApi  {
      *
      */
     @GET
-    @Path("/version-group/")
+    @Path("/api/v2/version-group/")
     @Produces({ "application/json" })
     @ApiOperation(value = "List version groups", tags={ "games" })
     @ApiResponses(value = { 
@@ -109,7 +109,7 @@ public interface GamesApi  {
      *
      */
     @GET
-    @Path("/version-group/{id}/")
+    @Path("/api/v2/version-group/{id}/")
     @Produces({ "application/json" })
     @ApiOperation(value = "Get version group", tags={ "games" })
     @ApiResponses(value = { 
@@ -123,7 +123,7 @@ public interface GamesApi  {
      *
      */
     @GET
-    @Path("/version/")
+    @Path("/api/v2/version/")
     @Produces({ "application/json" })
     @ApiOperation(value = "List versions", tags={ "games" })
     @ApiResponses(value = { 
@@ -137,7 +137,7 @@ public interface GamesApi  {
      *
      */
     @GET
-    @Path("/version/{id}/")
+    @Path("/api/v2/version/{id}/")
     @Produces({ "application/json" })
     @ApiOperation(value = "Get version", tags={ "games" })
     @ApiResponses(value = { 

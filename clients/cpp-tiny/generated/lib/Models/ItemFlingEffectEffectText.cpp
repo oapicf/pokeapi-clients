@@ -86,7 +86,7 @@ ItemFlingEffectEffectText::getEffect()
 }
 
 void
-ItemFlingEffectEffectText::setEffect(std::string  effect)
+ItemFlingEffectEffectText::setEffect(std::string effect)
 {
 	this->effect = effect;
 }
@@ -98,7 +98,7 @@ ItemFlingEffectEffectText::getLanguage()
 }
 
 void
-ItemFlingEffectEffectText::setLanguage(LanguageSummary  language)
+ItemFlingEffectEffectText::setLanguage(LanguageSummary language)
 {
 	this->language = language;
 }

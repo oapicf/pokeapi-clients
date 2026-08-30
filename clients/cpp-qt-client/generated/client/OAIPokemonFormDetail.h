@@ -41,13 +41,13 @@ class OAIPokemonDetail_types_inner;
 class OAIPokemonFormDetail : public OAIObject {
 public:
     OAIPokemonFormDetail();
-    OAIPokemonFormDetail(QString json);
+    OAIPokemonFormDetail(const QString &json);
     ~OAIPokemonFormDetail() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     qint32 getId() const;
     void setId(const qint32 &id);
@@ -94,8 +94,8 @@ public:
     bool is_pokemon_Set() const;
     bool is_pokemon_Valid() const;
 
-    OAIPokemonFormDetail_sprites getSprites() const;
-    void setSprites(const OAIPokemonFormDetail_sprites &sprites);
+    OAIPokemonFormDetail_sprites<QString, QString> getSprites() const;
+    void setSprites(const OAIPokemonFormDetail_sprites<QString, QString> &sprites);
     bool is_sprites_Set() const;
     bool is_sprites_Valid() const;
 
@@ -161,7 +161,7 @@ private:
     bool m_pokemon_isSet;
     bool m_pokemon_isValid;
 
-    OAIPokemonFormDetail_sprites m_sprites;
+    OAIPokemonFormDetail_sprites<QString, QString> m_sprites;
     bool m_sprites_isSet;
     bool m_sprites_isValid;
 

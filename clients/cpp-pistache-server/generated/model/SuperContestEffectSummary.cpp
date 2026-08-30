@@ -25,6 +25,8 @@ SuperContestEffectSummary::SuperContestEffectSummary()
     
 }
 
+SuperContestEffectSummary::~SuperContestEffectSummary() = default;
+
 void SuperContestEffectSummary::validate() const
 {
     std::stringstream msg;

@@ -161,7 +161,7 @@ ItemPocketDetail::getId()
 }
 
 void
-ItemPocketDetail::setId(int  id)
+ItemPocketDetail::setId(int id)
 {
 	this->id = id;
 }
@@ -173,7 +173,7 @@ ItemPocketDetail::getName()
 }
 
 void
-ItemPocketDetail::setName(std::string  name)
+ItemPocketDetail::setName(std::string name)
 {
 	this->name = name;
 }
@@ -185,7 +185,7 @@ ItemPocketDetail::getCategories()
 }
 
 void
-ItemPocketDetail::setCategories(std::list <ItemCategorySummary> categories)
+ItemPocketDetail::setCategories(std::list<ItemCategorySummary> categories)
 {
 	this->categories = categories;
 }
@@ -197,7 +197,7 @@ ItemPocketDetail::getNames()
 }
 
 void
-ItemPocketDetail::setNames(std::list <ItemPocketName> names)
+ItemPocketDetail::setNames(std::list<ItemPocketName> names)
 {
 	this->names = names;
 }

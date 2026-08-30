@@ -99,12 +99,28 @@ class PokemonDetail(BaseModel):
           are ignored.
         * OpenAPI `readOnly` fields are excluded.
         * OpenAPI `readOnly` fields are excluded.
+        * OpenAPI `readOnly` fields are excluded.
+        * OpenAPI `readOnly` fields are excluded.
+        * OpenAPI `readOnly` fields are excluded.
+        * OpenAPI `readOnly` fields are excluded.
+        * OpenAPI `readOnly` fields are excluded.
+        * OpenAPI `readOnly` fields are excluded.
+        * OpenAPI `readOnly` fields are excluded.
+        * OpenAPI `readOnly` fields are excluded.
         """
         _dict = self.model_dump(
             by_alias=True,
             exclude={
                 "id",
+                "abilities",
+                "past_abilities",
+                "forms",
+                "game_indices",
                 "location_area_encounters",
+                "moves",
+                "stats",
+                "types",
+                "past_types",
             },
             exclude_none=True,
         )

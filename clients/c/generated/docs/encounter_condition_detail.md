@@ -5,8 +5,8 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **int** |  | [readonly] 
 **name** | **char \*** |  | 
-**values** | [**list_t**](encounter_condition_value_summary.md) \* |  | 
-**names** | [**list_t**](encounter_condition_name.md) \* |  | 
+**values** | [**list_t**](encounter_condition_value_summary.md) \* |  | [readonly] 
+**names** | [**list_t**](encounter_condition_name.md) \* |  | [readonly] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

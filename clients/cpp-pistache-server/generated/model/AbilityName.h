@@ -33,7 +33,7 @@ class  AbilityName
 {
 public:
     AbilityName();
-    virtual ~AbilityName() = default;
+    virtual ~AbilityName();
 
 
     /// <summary>

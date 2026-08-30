@@ -161,7 +161,7 @@ GenderDetail::getId()
 }
 
 void
-GenderDetail::setId(int  id)
+GenderDetail::setId(int id)
 {
 	this->id = id;
 }
@@ -173,7 +173,7 @@ GenderDetail::getName()
 }
 
 void
-GenderDetail::setName(std::string  name)
+GenderDetail::setName(std::string name)
 {
 	this->name = name;
 }
@@ -185,7 +185,7 @@ GenderDetail::getPokemonSpeciesDetails()
 }
 
 void
-GenderDetail::setPokemonSpeciesDetails(std::list <GenderDetail_pokemon_species_details_inner> pokemon_species_details)
+GenderDetail::setPokemonSpeciesDetails(std::list<GenderDetail_pokemon_species_details_inner> pokemon_species_details)
 {
 	this->pokemon_species_details = pokemon_species_details;
 }
@@ -197,7 +197,7 @@ GenderDetail::getRequiredForEvolution()
 }
 
 void
-GenderDetail::setRequiredForEvolution(std::list <AbilityDetail_pokemon_inner_pokemon> required_for_evolution)
+GenderDetail::setRequiredForEvolution(std::list<AbilityDetail_pokemon_inner_pokemon> required_for_evolution)
 {
 	this->required_for_evolution = required_for_evolution;
 }

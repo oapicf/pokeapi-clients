@@ -6,8 +6,8 @@
 | ---- | ---- | ----------- | ----- |
 | **id** | **Integer** |  | [readonly] |
 | **name** | **String** |  |  |
-| **names** | [**Array&lt;PalParkAreaName&gt;**](PalParkAreaName.md) |  |  |
-| **pokemon_encounters** | [**Array&lt;PalParkAreaDetailPokemonEncountersInner&gt;**](PalParkAreaDetailPokemonEncountersInner.md) |  |  |
+| **names** | [**Array&lt;PalParkAreaName&gt;**](PalParkAreaName.md) |  | [readonly] |
+| **pokemon_encounters** | [**Array&lt;PalParkAreaDetailPokemonEncountersInner&gt;**](PalParkAreaDetailPokemonEncountersInner.md) |  | [readonly] |
 
 ## Example
 

@@ -13,7 +13,7 @@ import model.PaginatedRegionSummaryList
 import model.PalParkAreaDetail
 import model.RegionDetail
 
-@javax.annotation.Generated(value = Array("org.openapitools.codegen.languages.ScalaPlayFrameworkServerCodegen"), date = "2026-02-07T15:28:57.811621661Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@javax.annotation.Generated(value = Array("org.openapitools.codegen.languages.ScalaPlayFrameworkServerCodegen"), date = "2026-08-30T02:00:26.523807909Z[Etc/UTC]", comments = "Generator version: 7.24.0")
 @Singleton
 class LocationApiController @Inject()(cc: ControllerComponents, api: LocationApi) extends AbstractController(cc) {
   /**

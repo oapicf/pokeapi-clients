@@ -34,7 +34,7 @@ class  PaginatedGenderSummaryList
 {
 public:
     PaginatedGenderSummaryList();
-    virtual ~PaginatedGenderSummaryList() = default;
+    virtual ~PaginatedGenderSummaryList();
 
 
     /// <summary>

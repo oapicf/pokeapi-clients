@@ -26,6 +26,8 @@ Experience::Experience()
     
 }
 
+Experience::~Experience() = default;
+
 void Experience::validate() const
 {
     std::stringstream msg;

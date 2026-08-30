@@ -12,6 +12,11 @@
 package openapi
 
 
+import (
+	"encoding/json"
+	"fmt"
+)
+
 
 
 type PokedexDetailPokemonEntriesInner struct {
@@ -20,11 +25,71 @@ type PokedexDetailPokemonEntriesInner struct {
 
 	PokemonSpecies AbilityDetailPokemonInnerPokemon `json:"pokemon_species"`
 }
+// UnmarshalJSON validates required property keys then unmarshals into PokedexDetailPokemonEntriesInner
+func (o *PokedexDetailPokemonEntriesInner) UnmarshalJSON(data []byte) (err error) {
+	// Presence is checked against required fields that exist on this struct,
+	// including fields promoted from embedded allOf parents.
+	requiredProperties := []string{
+		"entry_number",
+		"pokemon_species",
+	}
 
-// AssertPokedexDetailPokemonEntriesInnerRequired checks if the required fields are not zero-ed
+	requiredNullableProperties := map[string]bool{
+		"entry_number": false,
+		"pokemon_species": false,
+	}
+
+	allowedJsonKeys := map[string]struct{}{
+		"entry_number": {},
+		"pokemon_species": {},
+	}
+
+	allProperties := make(map[string]json.RawMessage)
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err
+	}
+
+	for _, requiredProperty := range requiredProperties {
+		value, exists := allProperties[requiredProperty]
+		if !exists {
+			return &RequiredError{Field: requiredProperty}
+		}
+		if string(value) == "null" && !requiredNullableProperties[requiredProperty] {
+			return &RequiredError{Field: requiredProperty}
+		}
+	}
+
+	for key := range allProperties {
+		if _, exists := allowedJsonKeys[key]; !exists {
+			return fmt.Errorf("json: unknown field %q", key)
+		}
+	}
+
+	var decoded PokedexDetailPokemonEntriesInner
+
+	if value, exists := allProperties["entry_number"]; exists {
+		if err = json.Unmarshal(value, &decoded.EntryNumber); err != nil {
+			return err
+		}
+	}
+	if value, exists := allProperties["pokemon_species"]; exists {
+		if err = json.Unmarshal(value, &decoded.PokemonSpecies); err != nil {
+			return err
+		}
+	}
+
+	*o = decoded
+
+	return nil
+}
+
+// AssertPokedexDetailPokemonEntriesInnerRequired checks complex required fields (models, arrays, maps) and embedded parents.
+// Primitive required fields are validated for JSON request bodies in UnmarshalJSON so zero values remain valid.
 func AssertPokedexDetailPokemonEntriesInnerRequired(obj PokedexDetailPokemonEntriesInner) error {
 	elements := map[string]interface{}{
-		"entry_number": obj.EntryNumber,
 		"pokemon_species": obj.PokemonSpecies,
 	}
 	for name, el := range elements {

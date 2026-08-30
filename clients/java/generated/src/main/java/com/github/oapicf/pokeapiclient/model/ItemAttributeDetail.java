@@ -53,7 +53,7 @@ import com.github.oapicf.pokeapiclient.JSON;
 /**
  * ItemAttributeDetail
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-07T15:22:35.747827932Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-08-30T01:55:28.842792947Z[Etc/UTC]", comments = "Generator version: 7.24.0")
 public class ItemAttributeDetail {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -84,10 +84,16 @@ public class ItemAttributeDetail {
   }
 
   public ItemAttributeDetail(
-     Integer id
+     Integer id, 
+     List<ItemAttributeDescription> descriptions, 
+     List<AbilityDetailPokemonInnerPokemon> items, 
+     List<ItemAttributeName> names
   ) {
     this();
     this.id = id;
+    this.descriptions = descriptions;
+    this.items = items;
+    this.names = names;
   }
 
   /**
@@ -120,19 +126,6 @@ public class ItemAttributeDetail {
   }
 
 
-  public ItemAttributeDetail descriptions(@javax.annotation.Nonnull List<ItemAttributeDescription> descriptions) {
-    this.descriptions = descriptions;
-    return this;
-  }
-
-  public ItemAttributeDetail addDescriptionsItem(ItemAttributeDescription descriptionsItem) {
-    if (this.descriptions == null) {
-      this.descriptions = new ArrayList<>();
-    }
-    this.descriptions.add(descriptionsItem);
-    return this;
-  }
-
   /**
    * Get descriptions
    * @return descriptions
@@ -142,23 +135,7 @@ public class ItemAttributeDetail {
     return descriptions;
   }
 
-  public void setDescriptions(@javax.annotation.Nonnull List<ItemAttributeDescription> descriptions) {
-    this.descriptions = descriptions;
-  }
 
-
-  public ItemAttributeDetail items(@javax.annotation.Nonnull List<AbilityDetailPokemonInnerPokemon> items) {
-    this.items = items;
-    return this;
-  }
-
-  public ItemAttributeDetail addItemsItem(AbilityDetailPokemonInnerPokemon itemsItem) {
-    if (this.items == null) {
-      this.items = new ArrayList<>();
-    }
-    this.items.add(itemsItem);
-    return this;
-  }
 
   /**
    * Get items
@@ -169,23 +146,7 @@ public class ItemAttributeDetail {
     return items;
   }
 
-  public void setItems(@javax.annotation.Nonnull List<AbilityDetailPokemonInnerPokemon> items) {
-    this.items = items;
-  }
 
-
-  public ItemAttributeDetail names(@javax.annotation.Nonnull List<ItemAttributeName> names) {
-    this.names = names;
-    return this;
-  }
-
-  public ItemAttributeDetail addNamesItem(ItemAttributeName namesItem) {
-    if (this.names == null) {
-      this.names = new ArrayList<>();
-    }
-    this.names.add(namesItem);
-    return this;
-  }
 
   /**
    * Get names
@@ -196,9 +157,6 @@ public class ItemAttributeDetail {
     return names;
   }
 
-  public void setNames(@javax.annotation.Nonnull List<ItemAttributeName> names) {
-    this.names = names;
-  }
 
 
 
@@ -241,10 +199,7 @@ public class ItemAttributeDetail {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 
@@ -290,36 +245,36 @@ public class ItemAttributeDetail {
       if (!jsonObj.get("name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
       }
-      // ensure the json data is an array
-      if (!jsonObj.get("descriptions").isJsonArray()) {
-        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `descriptions` to be an array in the JSON string but got `%s`", jsonObj.get("descriptions").toString()));
+      if (jsonObj.get("descriptions") != null) {
+        if (!jsonObj.get("descriptions").isJsonArray()) {
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `descriptions` to be an array in the JSON string but got `%s`", jsonObj.get("descriptions").toString()));
+        }
+        JsonArray jsonArraydescriptions = jsonObj.getAsJsonArray("descriptions");
+        // validate the required field `descriptions` (array)
+        for (int i = 0; i < jsonArraydescriptions.size(); i++) {
+          ItemAttributeDescription.validateJsonElement(jsonArraydescriptions.get(i));
+        }
       }
-
-      JsonArray jsonArraydescriptions = jsonObj.getAsJsonArray("descriptions");
-      // validate the required field `descriptions` (array)
-      for (int i = 0; i < jsonArraydescriptions.size(); i++) {
-        ItemAttributeDescription.validateJsonElement(jsonArraydescriptions.get(i));
-      };
-      // ensure the json data is an array
-      if (!jsonObj.get("items").isJsonArray()) {
-        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `items` to be an array in the JSON string but got `%s`", jsonObj.get("items").toString()));
+      if (jsonObj.get("items") != null) {
+        if (!jsonObj.get("items").isJsonArray()) {
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `items` to be an array in the JSON string but got `%s`", jsonObj.get("items").toString()));
+        }
+        JsonArray jsonArrayitems = jsonObj.getAsJsonArray("items");
+        // validate the required field `items` (array)
+        for (int i = 0; i < jsonArrayitems.size(); i++) {
+          AbilityDetailPokemonInnerPokemon.validateJsonElement(jsonArrayitems.get(i));
+        }
       }
-
-      JsonArray jsonArrayitems = jsonObj.getAsJsonArray("items");
-      // validate the required field `items` (array)
-      for (int i = 0; i < jsonArrayitems.size(); i++) {
-        AbilityDetailPokemonInnerPokemon.validateJsonElement(jsonArrayitems.get(i));
-      };
-      // ensure the json data is an array
-      if (!jsonObj.get("names").isJsonArray()) {
-        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `names` to be an array in the JSON string but got `%s`", jsonObj.get("names").toString()));
+      if (jsonObj.get("names") != null) {
+        if (!jsonObj.get("names").isJsonArray()) {
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `names` to be an array in the JSON string but got `%s`", jsonObj.get("names").toString()));
+        }
+        JsonArray jsonArraynames = jsonObj.getAsJsonArray("names");
+        // validate the required field `names` (array)
+        for (int i = 0; i < jsonArraynames.size(); i++) {
+          ItemAttributeName.validateJsonElement(jsonArraynames.get(i));
+        }
       }
-
-      JsonArray jsonArraynames = jsonObj.getAsJsonArray("names");
-      // validate the required field `names` (array)
-      for (int i = 0; i < jsonArraynames.size(); i++) {
-        ItemAttributeName.validateJsonElement(jsonArraynames.get(i));
-      };
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {

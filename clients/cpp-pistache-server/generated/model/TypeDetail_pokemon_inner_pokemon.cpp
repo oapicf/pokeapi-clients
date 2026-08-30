@@ -28,6 +28,8 @@ TypeDetail_pokemon_inner_pokemon::TypeDetail_pokemon_inner_pokemon()
     
 }
 
+TypeDetail_pokemon_inner_pokemon::~TypeDetail_pokemon_inner_pokemon() = default;
+
 void TypeDetail_pokemon_inner_pokemon::validate() const
 {
     std::stringstream msg;

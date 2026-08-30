@@ -92,8 +92,18 @@ namespace Org.OpenAPITools.Model
     /// <summary>
     /// A Json converter for type <see cref="MoveTargetSummary" />
     /// </summary>
-    public class MoveTargetSummaryJsonConverter : JsonConverter<MoveTargetSummary>
+    public partial class MoveTargetSummaryJsonConverter : JsonConverter<MoveTargetSummary>
     {
+        partial void OnCreated();
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="MoveTargetSummaryJsonConverter" /> class.
+        /// </summary>
+        public MoveTargetSummaryJsonConverter()
+        {
+            OnCreated();
+        }
+
         /// <summary>
         /// Deserializes json to <see cref="MoveTargetSummary" />
         /// </summary>

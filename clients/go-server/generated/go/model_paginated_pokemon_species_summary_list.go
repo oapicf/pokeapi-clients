@@ -25,7 +25,8 @@ type PaginatedPokemonSpeciesSummaryList struct {
 	Results []PokemonSpeciesSummary `json:"results,omitempty"`
 }
 
-// AssertPaginatedPokemonSpeciesSummaryListRequired checks if the required fields are not zero-ed
+// AssertPaginatedPokemonSpeciesSummaryListRequired checks complex required fields (models, arrays, maps) and embedded parents.
+// Primitive required fields are validated for JSON request bodies in UnmarshalJSON so zero values remain valid.
 func AssertPaginatedPokemonSpeciesSummaryListRequired(obj PaginatedPokemonSpeciesSummaryList) error {
 	for _, el := range obj.Results {
 		if err := AssertPokemonSpeciesSummaryRequired(el); err != nil {

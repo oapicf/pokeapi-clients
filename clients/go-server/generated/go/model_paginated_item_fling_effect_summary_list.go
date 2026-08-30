@@ -25,7 +25,8 @@ type PaginatedItemFlingEffectSummaryList struct {
 	Results []ItemFlingEffectSummary `json:"results,omitempty"`
 }
 
-// AssertPaginatedItemFlingEffectSummaryListRequired checks if the required fields are not zero-ed
+// AssertPaginatedItemFlingEffectSummaryListRequired checks complex required fields (models, arrays, maps) and embedded parents.
+// Primitive required fields are validated for JSON request bodies in UnmarshalJSON so zero values remain valid.
 func AssertPaginatedItemFlingEffectSummaryListRequired(obj PaginatedItemFlingEffectSummaryList) error {
 	for _, el := range obj.Results {
 		if err := AssertItemFlingEffectSummaryRequired(el); err != nil {

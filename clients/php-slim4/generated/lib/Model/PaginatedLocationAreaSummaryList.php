@@ -67,7 +67,8 @@ class PaginatedLocationAreaSummaryList extends BaseModel
       "type" : "array",
       "items" : {
         "$ref" : "#/components/schemas/LocationAreaSummary"
-      }
+      },
+      "default" : null
     }
   }
 }

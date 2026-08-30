@@ -24,6 +24,8 @@ LocationAreaDetail_encounter_method_rates_inner::LocationAreaDetail_encounter_me
     
 }
 
+LocationAreaDetail_encounter_method_rates_inner::~LocationAreaDetail_encounter_method_rates_inner() = default;
+
 void LocationAreaDetail_encounter_method_rates_inner::validate() const
 {
     std::stringstream msg;

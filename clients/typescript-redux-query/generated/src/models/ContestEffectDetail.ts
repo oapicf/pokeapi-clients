@@ -50,13 +50,13 @@ export interface ContestEffectDetail  {
      * @type {Array<ContestEffectEffectText>}
      * @memberof ContestEffectDetail
      */
-    effectEntries: Array<ContestEffectEffectText>;
+    readonly effectEntries: Array<ContestEffectEffectText>;
     /**
      * 
      * @type {Array<ContestEffectFlavorText>}
      * @memberof ContestEffectDetail
      */
-    flavorTextEntries: Array<ContestEffectFlavorText>;
+    readonly flavorTextEntries: Array<ContestEffectFlavorText>;
 }
 
 export function ContestEffectDetailFromJSON(json: any): ContestEffectDetail {
@@ -76,8 +76,6 @@ export function ContestEffectDetailToJSON(value?: ContestEffectDetail): any {
     return {
         'appeal': value.appeal,
         'jam': value.jam,
-        'effect_entries': (value.effectEntries as Array<any>).map(ContestEffectEffectTextToJSON),
-        'flavor_text_entries': (value.flavorTextEntries as Array<any>).map(ContestEffectFlavorTextToJSON),
     };
 }
 

@@ -35,9 +35,9 @@
 
 @property(nonatomic) OAIEvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender* item;
 
-@property(nonatomic) NSObject* knownMove;
+@property(nonatomic) OAIEvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender* knownMove;
 
-@property(nonatomic) NSObject* knownMoveType;
+@property(nonatomic) OAIEvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender* knownMoveType;
 
 @property(nonatomic) OAIEvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender* location;
 

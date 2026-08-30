@@ -22,7 +22,7 @@ typedef struct evolution_chain_detail_chain_evolves_to_inner_t evolution_chain_d
 
 typedef struct evolution_chain_detail_chain_evolves_to_inner_t {
     list_t *evolution_details; //nonprimitive container
-    int is_baby; //boolean
+    int *is_baby; //boolean
     struct ability_detail_pokemon_inner_pokemon_t *species; //model
 
     int _library_owned; // Is the library responsible for freeing this object?
@@ -30,7 +30,7 @@ typedef struct evolution_chain_detail_chain_evolves_to_inner_t {
 
 __attribute__((deprecated)) evolution_chain_detail_chain_evolves_to_inner_t *evolution_chain_detail_chain_evolves_to_inner_create(
     list_t *evolution_details,
-    int is_baby,
+    int *is_baby,
     ability_detail_pokemon_inner_pokemon_t *species
 );
 

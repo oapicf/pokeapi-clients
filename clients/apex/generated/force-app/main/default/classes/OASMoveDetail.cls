@@ -84,13 +84,13 @@ public class OASMoveDetail implements OAS.MappedProperties {
      * Get effectEntries
      * @return effectEntries
      */
-    public List<OASMoveChangeEffectEntriesInner> effectEntries { get; set; }
+    public List<OASMoveChangeEffectEntriesInner> effectEntries { get; private set; }
 
     /**
      * Get effectChanges
      * @return effectChanges
      */
-    public List<OASMoveDetailEffectChangesInner> effectChanges { get; set; }
+    public List<OASMoveDetailEffectChangesInner> effectChanges { get; private set; }
 
     /**
      * Get generation
@@ -108,19 +108,19 @@ public class OASMoveDetail implements OAS.MappedProperties {
      * Get names
      * @return names
      */
-    public List<OASMoveName> names { get; set; }
+    public List<OASMoveName> names { get; private set; }
 
     /**
      * Get pastValues
      * @return pastValues
      */
-    public List<OASMoveChange> pastValues { get; set; }
+    public List<OASMoveChange> pastValues { get; private set; }
 
     /**
      * Get statChanges
      * @return statChanges
      */
-    public List<OASMoveDetailStatChangesInner> statChanges { get; set; }
+    public List<OASMoveDetailStatChangesInner> statChanges { get; private set; }
 
     /**
      * Get superContestEffect
@@ -144,19 +144,19 @@ public class OASMoveDetail implements OAS.MappedProperties {
      * Get machines
      * @return machines
      */
-    public List<OASMoveDetailMachinesInner> machines { get; set; }
+    public List<OASMoveDetailMachinesInner> machines { get; private set; }
 
     /**
      * Get flavorTextEntries
      * @return flavorTextEntries
      */
-    public List<OASMoveFlavorText> flavorTextEntries { get; set; }
+    public List<OASMoveFlavorText> flavorTextEntries { get; private set; }
 
     /**
      * Get learnedByPokemon
      * @return learnedByPokemon
      */
-    public List<OASAbilityDetailPokemonInnerPokemon> learnedByPokemon { get; set; }
+    public List<OASAbilityDetailPokemonInnerPokemon> learnedByPokemon { get; private set; }
 
     private static final Map<String, String> propertyMappings = new Map<String, String>{
         'effect_chance' => 'effectChance',

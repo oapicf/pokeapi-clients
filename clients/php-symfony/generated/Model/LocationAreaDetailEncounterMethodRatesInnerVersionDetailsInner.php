@@ -47,7 +47,7 @@ class LocationAreaDetailEncounterMethodRatesInnerVersionDetailsInner
      * @var int|null
      * @SerializedName("rate")
      * @Type("int")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Type("int")]
     protected ?int $rate = null;
@@ -56,7 +56,7 @@ class LocationAreaDetailEncounterMethodRatesInnerVersionDetailsInner
      * @var AbilityDetailPokemonInnerPokemon|null
      * @SerializedName("version")
      * @Type("OpenAPI\Server\Model\AbilityDetailPokemonInnerPokemon")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Valid]
     #[Assert\Type("OpenAPI\Server\Model\AbilityDetailPokemonInnerPokemon")]
@@ -85,12 +85,12 @@ class LocationAreaDetailEncounterMethodRatesInnerVersionDetailsInner
     }
 
     /**
-    * Sets rate.
-    *
-    * @param int|null $rate
-    *
-    * @return $this
-    */
+     * Sets rate.
+     *
+     * @param int|null $rate
+     *
+     * @return $this
+     */
     public function setRate(?int $rate): self
     {
         $this->rate = $rate;
@@ -112,12 +112,12 @@ class LocationAreaDetailEncounterMethodRatesInnerVersionDetailsInner
     }
 
     /**
-    * Sets version.
-    *
-    * @param AbilityDetailPokemonInnerPokemon|null $version
-    *
-    * @return $this
-    */
+     * Sets version.
+     *
+     * @param AbilityDetailPokemonInnerPokemon|null $version
+     *
+     * @return $this
+     */
     public function setVersion(?AbilityDetailPokemonInnerPokemon $version): self
     {
         $this->version = $version;

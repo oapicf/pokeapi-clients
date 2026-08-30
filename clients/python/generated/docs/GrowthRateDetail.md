@@ -8,9 +8,9 @@ Name | Type | Description | Notes
 **id** | **int** |  | [readonly] 
 **name** | **str** |  | 
 **formula** | **str** |  | 
-**descriptions** | [**List[GrowthRateDescription]**](GrowthRateDescription.md) |  | 
-**levels** | [**List[Experience]**](Experience.md) |  | 
-**pokemon_species** | [**List[PokemonSpeciesSummary]**](PokemonSpeciesSummary.md) |  | 
+**descriptions** | [**List[GrowthRateDescription]**](GrowthRateDescription.md) |  | [readonly] 
+**levels** | [**List[Experience]**](Experience.md) |  | [readonly] 
+**pokemon_species** | [**List[PokemonSpeciesSummary]**](PokemonSpeciesSummary.md) |  | [readonly] 
 
 ## Example
 

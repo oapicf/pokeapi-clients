@@ -38,7 +38,7 @@ import javax.annotation.Generated;
   PokemonShapeDetail.JSON_PROPERTY_POKEMON_SPECIES
 })
 @JsonTypeName("PokemonShapeDetail")
-@Generated(value="org.openapitools.codegen.languages.JavaMicronautClientCodegen", date="2026-02-07T15:22:54.857535619Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@Generated(value="org.openapitools.codegen.languages.JavaMicronautClientCodegen", date="2026-08-30T01:55:51.056116330Z[Etc/UTC]", comments = "Generator version: 7.24.0")
 @Introspected
 public class PokemonShapeDetail {
     public static final String JSON_PROPERTY_ID = "id";
@@ -98,16 +98,6 @@ public class PokemonShapeDetail {
         this.name = name;
     }
 
-    public PokemonShapeDetail awesomeNames(List<@Valid PokemonShapeDetailAwesomeNamesInner> awesomeNames) {
-        this.awesomeNames = awesomeNames;
-        return this;
-    }
-
-    public PokemonShapeDetail addAwesomeNamesItem(PokemonShapeDetailAwesomeNamesInner awesomeNamesItem) {
-        this.awesomeNames.add(awesomeNamesItem);
-        return this;
-    }
-
     /**
      * Get awesomeNames
      * @return awesomeNames
@@ -117,22 +107,6 @@ public class PokemonShapeDetail {
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public List<@Valid PokemonShapeDetailAwesomeNamesInner> getAwesomeNames() {
         return awesomeNames;
-    }
-
-    @JsonProperty(JSON_PROPERTY_AWESOME_NAMES)
-    @JsonInclude(value = JsonInclude.Include.ALWAYS)
-    public void setAwesomeNames(List<@Valid PokemonShapeDetailAwesomeNamesInner> awesomeNames) {
-        this.awesomeNames = awesomeNames;
-    }
-
-    public PokemonShapeDetail names(List<@Valid PokemonShapeDetailNamesInner> names) {
-        this.names = names;
-        return this;
-    }
-
-    public PokemonShapeDetail addNamesItem(PokemonShapeDetailNamesInner namesItem) {
-        this.names.add(namesItem);
-        return this;
     }
 
     /**
@@ -146,22 +120,6 @@ public class PokemonShapeDetail {
         return names;
     }
 
-    @JsonProperty(JSON_PROPERTY_NAMES)
-    @JsonInclude(value = JsonInclude.Include.ALWAYS)
-    public void setNames(List<@Valid PokemonShapeDetailNamesInner> names) {
-        this.names = names;
-    }
-
-    public PokemonShapeDetail pokemonSpecies(List<@Valid PokemonSpeciesSummary> pokemonSpecies) {
-        this.pokemonSpecies = pokemonSpecies;
-        return this;
-    }
-
-    public PokemonShapeDetail addPokemonSpeciesItem(PokemonSpeciesSummary pokemonSpeciesItem) {
-        this.pokemonSpecies.add(pokemonSpeciesItem);
-        return this;
-    }
-
     /**
      * Get pokemonSpecies
      * @return pokemonSpecies
@@ -171,12 +129,6 @@ public class PokemonShapeDetail {
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public List<@Valid PokemonSpeciesSummary> getPokemonSpecies() {
         return pokemonSpecies;
-    }
-
-    @JsonProperty(JSON_PROPERTY_POKEMON_SPECIES)
-    @JsonInclude(value = JsonInclude.Include.ALWAYS)
-    public void setPokemonSpecies(List<@Valid PokemonSpeciesSummary> pokemonSpecies) {
-        this.pokemonSpecies = pokemonSpecies;
     }
 
     @Override
@@ -218,10 +170,7 @@ public class PokemonShapeDetail {
      * (except the first line).
      */
     private String toIndentedString(Object o) {
-        if (o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
+        return o == null ? "null" : o.toString().replace("\n", "\n    ");
     }
 
 }

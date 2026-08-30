@@ -34,7 +34,7 @@ class  PaginatedLanguageSummaryList
 {
 public:
     PaginatedLanguageSummaryList();
-    virtual ~PaginatedLanguageSummaryList() = default;
+    virtual ~PaginatedLanguageSummaryList();
 
 
     /// <summary>

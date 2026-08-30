@@ -21,7 +21,7 @@
 
 namespace OpenAPI {
 
-OAIPokemonSpeciesDetail_pal_park_encounters_inner::OAIPokemonSpeciesDetail_pal_park_encounters_inner(QString json) {
+OAIPokemonSpeciesDetail_pal_park_encounters_inner::OAIPokemonSpeciesDetail_pal_park_encounters_inner(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -44,7 +44,7 @@ void OAIPokemonSpeciesDetail_pal_park_encounters_inner::initializeModel() {
     m_rate_isValid = false;
 }
 
-void OAIPokemonSpeciesDetail_pal_park_encounters_inner::fromJson(QString jsonString) {
+void OAIPokemonSpeciesDetail_pal_park_encounters_inner::fromJson(const QString &jsonString) {
     QByteArray array(jsonString.toStdString().c_str());
     QJsonDocument doc = QJsonDocument::fromJson(array);
     QJsonObject jsonObject = doc.object();

@@ -33,7 +33,7 @@ class  ItemDetail_machines_inner
 {
 public:
     ItemDetail_machines_inner();
-    virtual ~ItemDetail_machines_inner() = default;
+    virtual ~ItemDetail_machines_inner();
 
 
     /// <summary>

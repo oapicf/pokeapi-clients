@@ -113,10 +113,30 @@ class BerryDetail {
       // Note 1: the values aren't checked for validity beyond being non-null.
       // Note 2: this code is stripped in release mode!
       assert(() {
-        requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "BerryDetail[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "BerryDetail[$key]" has a null value in JSON.');
-        });
+        assert(json.containsKey(r'id'), 'Required key "BerryDetail[id]" is missing from JSON.');
+        assert(json[r'id'] != null, 'Required key "BerryDetail[id]" has a null value in JSON.');
+        assert(json.containsKey(r'name'), 'Required key "BerryDetail[name]" is missing from JSON.');
+        assert(json[r'name'] != null, 'Required key "BerryDetail[name]" has a null value in JSON.');
+        assert(json.containsKey(r'growth_time'), 'Required key "BerryDetail[growth_time]" is missing from JSON.');
+        assert(json[r'growth_time'] != null, 'Required key "BerryDetail[growth_time]" has a null value in JSON.');
+        assert(json.containsKey(r'max_harvest'), 'Required key "BerryDetail[max_harvest]" is missing from JSON.');
+        assert(json[r'max_harvest'] != null, 'Required key "BerryDetail[max_harvest]" has a null value in JSON.');
+        assert(json.containsKey(r'natural_gift_power'), 'Required key "BerryDetail[natural_gift_power]" is missing from JSON.');
+        assert(json[r'natural_gift_power'] != null, 'Required key "BerryDetail[natural_gift_power]" has a null value in JSON.');
+        assert(json.containsKey(r'size'), 'Required key "BerryDetail[size]" is missing from JSON.');
+        assert(json[r'size'] != null, 'Required key "BerryDetail[size]" has a null value in JSON.');
+        assert(json.containsKey(r'smoothness'), 'Required key "BerryDetail[smoothness]" is missing from JSON.');
+        assert(json[r'smoothness'] != null, 'Required key "BerryDetail[smoothness]" has a null value in JSON.');
+        assert(json.containsKey(r'soil_dryness'), 'Required key "BerryDetail[soil_dryness]" is missing from JSON.');
+        assert(json[r'soil_dryness'] != null, 'Required key "BerryDetail[soil_dryness]" has a null value in JSON.');
+        assert(json.containsKey(r'firmness'), 'Required key "BerryDetail[firmness]" is missing from JSON.');
+        assert(json[r'firmness'] != null, 'Required key "BerryDetail[firmness]" has a null value in JSON.');
+        assert(json.containsKey(r'flavors'), 'Required key "BerryDetail[flavors]" is missing from JSON.');
+        assert(json[r'flavors'] != null, 'Required key "BerryDetail[flavors]" has a null value in JSON.');
+        assert(json.containsKey(r'item'), 'Required key "BerryDetail[item]" is missing from JSON.');
+        assert(json[r'item'] != null, 'Required key "BerryDetail[item]" has a null value in JSON.');
+        assert(json.containsKey(r'natural_gift_type'), 'Required key "BerryDetail[natural_gift_type]" is missing from JSON.');
+        assert(json[r'natural_gift_type'] != null, 'Required key "BerryDetail[natural_gift_type]" has a null value in JSON.');
         return true;
       }());
 

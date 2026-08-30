@@ -25,6 +25,8 @@ ItemFlavorText::ItemFlavorText()
     
 }
 
+ItemFlavorText::~ItemFlavorText() = default;
+
 void ItemFlavorText::validate() const
 {
     std::stringstream msg;

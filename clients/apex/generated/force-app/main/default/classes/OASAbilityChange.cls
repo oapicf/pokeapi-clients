@@ -24,7 +24,7 @@ public class OASAbilityChange implements OAS.MappedProperties {
      * Get effectEntries
      * @return effectEntries
      */
-    public List<OASAbilityChangeEffectText> effectEntries { get; set; }
+    public List<OASAbilityChangeEffectText> effectEntries { get; private set; }
 
     private static final Map<String, String> propertyMappings = new Map<String, String>{
         'version_group' => 'versionGroup',

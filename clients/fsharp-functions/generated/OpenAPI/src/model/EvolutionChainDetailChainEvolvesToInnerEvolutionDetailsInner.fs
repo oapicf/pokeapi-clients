@@ -19,9 +19,9 @@ module EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner =
     [<JsonProperty(PropertyName = "item")>]
     Item : EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender;
     [<JsonProperty(PropertyName = "known_move")>]
-    KnownMove : obj;
+    KnownMove : EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender;
     [<JsonProperty(PropertyName = "known_move_type")>]
-    KnownMoveType : obj;
+    KnownMoveType : EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender;
     [<JsonProperty(PropertyName = "location")>]
     Location : EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender;
     [<JsonProperty(PropertyName = "min_affection")>]

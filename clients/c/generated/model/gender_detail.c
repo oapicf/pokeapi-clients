@@ -6,7 +6,7 @@
 
 
 static gender_detail_t *gender_detail_create_internal(
-    int id,
+    int *id,
     char *name,
     list_t *pokemon_species_details,
     list_t *required_for_evolution
@@ -15,27 +15,36 @@ static gender_detail_t *gender_detail_create_internal(
     if (!gender_detail_local_var) {
         return NULL;
     }
+    memset(gender_detail_local_var, 0, sizeof(gender_detail_t));
+    gender_detail_local_var->_library_owned = 1;
     gender_detail_local_var->id = id;
     gender_detail_local_var->name = name;
     gender_detail_local_var->pokemon_species_details = pokemon_species_details;
     gender_detail_local_var->required_for_evolution = required_for_evolution;
-
-    gender_detail_local_var->_library_owned = 1;
     return gender_detail_local_var;
 }
 
 __attribute__((deprecated)) gender_detail_t *gender_detail_create(
-    int id,
+    int *id,
     char *name,
     list_t *pokemon_species_details,
     list_t *required_for_evolution
     ) {
-    return gender_detail_create_internal (
-        id,
+    int *id_copy = NULL;
+    if (id) {
+        id_copy = malloc(sizeof(int));
+        if (id_copy) *id_copy = *id;
+    }
+    gender_detail_t *result = gender_detail_create_internal (
+        id_copy,
         name,
         pokemon_species_details,
         required_for_evolution
         );
+    if (!result) {
+        free(id_copy);
+    }
+    return result;
 }
 
 void gender_detail_free(gender_detail_t *gender_detail) {
@@ -47,6 +56,10 @@ void gender_detail_free(gender_detail_t *gender_detail) {
         return ;
     }
     listEntry_t *listEntry;
+    if (gender_detail->id) {
+        free(gender_detail->id);
+        gender_detail->id = NULL;
+    }
     if (gender_detail->name) {
         free(gender_detail->name);
         gender_detail->name = NULL;
@@ -75,7 +88,7 @@ cJSON *gender_detail_convertToJSON(gender_detail_t *gender_detail) {
     if (!gender_detail->id) {
         goto fail;
     }
-    if(cJSON_AddNumberToObject(item, "id", gender_detail->id) == NULL) {
+    if(cJSON_AddNumberToObject(item, "id", *gender_detail->id) == NULL) {
     goto fail; //Numeric
     }
 
@@ -142,6 +155,11 @@ gender_detail_t *gender_detail_parseFromJSON(cJSON *gender_detailJSON){
 
     gender_detail_t *gender_detail_local_var = NULL;
 
+    // define the local variable for gender_detail->id
+    int *id_local_var = NULL;
+
+    char *name_local_str = NULL;
+
     // define the local list for gender_detail->pokemon_species_details
     list_t *pokemon_species_detailsList = NULL;
 
@@ -162,6 +180,12 @@ gender_detail_t *gender_detail_parseFromJSON(cJSON *gender_detailJSON){
     {
     goto end; //Numeric
     }
+    id_local_var = malloc(sizeof(int));
+    if(!id_local_var)
+    {
+        goto end;
+    }
+    *id_local_var = id->valuedouble;
 
     // gender_detail->name
     cJSON *name = cJSON_GetObjectItemCaseSensitive(gender_detailJSON, "name");
@@ -233,15 +257,29 @@ gender_detail_t *gender_detail_parseFromJSON(cJSON *gender_detailJSON){
     }
 
 
+    if (name && !cJSON_IsNull(name)) name_local_str = strdup(name->valuestring);
+
     gender_detail_local_var = gender_detail_create_internal (
-        id->valuedouble,
-        strdup(name->valuestring),
+        id_local_var,
+        name_local_str,
         pokemon_species_detailsList,
         required_for_evolutionList
         );
 
+    if (!gender_detail_local_var) {
+        goto end;
+    }
+
     return gender_detail_local_var;
 end:
+    if (id_local_var) {
+        free(id_local_var);
+        id_local_var = NULL;
+    }
+    if (name_local_str) {
+        free(name_local_str);
+        name_local_str = NULL;
+    }
     if (pokemon_species_detailsList) {
         listEntry_t *listEntry = NULL;
         list_ForEach(listEntry, pokemon_species_detailsList) {

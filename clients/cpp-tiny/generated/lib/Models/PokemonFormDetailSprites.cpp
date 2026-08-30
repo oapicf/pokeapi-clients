@@ -64,7 +64,7 @@ PokemonFormDetail_sprites::getRDefault()
 }
 
 void
-PokemonFormDetail_sprites::setRDefault(std::string  r_default)
+PokemonFormDetail_sprites::setRDefault(std::string r_default)
 {
 	this->r_default = r_default;
 }

@@ -86,7 +86,7 @@ LanguageName::getName()
 }
 
 void
-LanguageName::setName(std::string  name)
+LanguageName::setName(std::string name)
 {
 	this->name = name;
 }
@@ -98,7 +98,7 @@ LanguageName::getLanguage()
 }
 
 void
-LanguageName::setLanguage(LanguageSummary  language)
+LanguageName::setLanguage(LanguageSummary language)
 {
 	this->language = language;
 }

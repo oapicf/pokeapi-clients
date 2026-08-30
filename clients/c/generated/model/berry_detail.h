@@ -23,14 +23,14 @@ typedef struct berry_detail_t berry_detail_t;
 
 
 typedef struct berry_detail_t {
-    int id; //numeric
+    int *id; //numeric
     char *name; // string
-    int growth_time; //numeric
-    int max_harvest; //numeric
-    int natural_gift_power; //numeric
-    int size; //numeric
-    int smoothness; //numeric
-    int soil_dryness; //numeric
+    int *growth_time; //numeric
+    int *max_harvest; //numeric
+    int *natural_gift_power; //numeric
+    int *size; //numeric
+    int *smoothness; //numeric
+    int *soil_dryness; //numeric
     struct berry_firmness_summary_t *firmness; //model
     list_t *flavors; //nonprimitive container
     struct item_summary_t *item; //model
@@ -40,14 +40,14 @@ typedef struct berry_detail_t {
 } berry_detail_t;
 
 __attribute__((deprecated)) berry_detail_t *berry_detail_create(
-    int id,
+    int *id,
     char *name,
-    int growth_time,
-    int max_harvest,
-    int natural_gift_power,
-    int size,
-    int smoothness,
-    int soil_dryness,
+    int *growth_time,
+    int *max_harvest,
+    int *natural_gift_power,
+    int *size,
+    int *smoothness,
+    int *soil_dryness,
     berry_firmness_summary_t *firmness,
     list_t *flavors,
     item_summary_t *item,

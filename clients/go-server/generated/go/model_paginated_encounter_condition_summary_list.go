@@ -25,7 +25,8 @@ type PaginatedEncounterConditionSummaryList struct {
 	Results []EncounterConditionSummary `json:"results,omitempty"`
 }
 
-// AssertPaginatedEncounterConditionSummaryListRequired checks if the required fields are not zero-ed
+// AssertPaginatedEncounterConditionSummaryListRequired checks complex required fields (models, arrays, maps) and embedded parents.
+// Primitive required fields are validated for JSON request bodies in UnmarshalJSON so zero values remain valid.
 func AssertPaginatedEncounterConditionSummaryListRequired(obj PaginatedEncounterConditionSummaryList) error {
 	for _, el := range obj.Results {
 		if err := AssertEncounterConditionSummaryRequired(el); err != nil {

@@ -47,7 +47,7 @@ class PokemonSpeciesDetailPalParkEncountersInner
      * @var AbilityDetailPokemonInnerPokemon|null
      * @SerializedName("area")
      * @Type("OpenAPI\Server\Model\AbilityDetailPokemonInnerPokemon")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Valid]
     #[Assert\Type("OpenAPI\Server\Model\AbilityDetailPokemonInnerPokemon")]
@@ -57,7 +57,7 @@ class PokemonSpeciesDetailPalParkEncountersInner
      * @var int|null
      * @SerializedName("base_score")
      * @Type("int")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Type("int")]
     protected ?int $baseScore = null;
@@ -66,7 +66,7 @@ class PokemonSpeciesDetailPalParkEncountersInner
      * @var int|null
      * @SerializedName("rate")
      * @Type("int")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Type("int")]
     protected ?int $rate = null;
@@ -95,12 +95,12 @@ class PokemonSpeciesDetailPalParkEncountersInner
     }
 
     /**
-    * Sets area.
-    *
-    * @param AbilityDetailPokemonInnerPokemon|null $area
-    *
-    * @return $this
-    */
+     * Sets area.
+     *
+     * @param AbilityDetailPokemonInnerPokemon|null $area
+     *
+     * @return $this
+     */
     public function setArea(?AbilityDetailPokemonInnerPokemon $area): self
     {
         $this->area = $area;
@@ -122,12 +122,12 @@ class PokemonSpeciesDetailPalParkEncountersInner
     }
 
     /**
-    * Sets baseScore.
-    *
-    * @param int|null $baseScore
-    *
-    * @return $this
-    */
+     * Sets baseScore.
+     *
+     * @param int|null $baseScore
+     *
+     * @return $this
+     */
     public function setBaseScore(?int $baseScore): self
     {
         $this->baseScore = $baseScore;
@@ -149,12 +149,12 @@ class PokemonSpeciesDetailPalParkEncountersInner
     }
 
     /**
-    * Sets rate.
-    *
-    * @param int|null $rate
-    *
-    * @return $this
-    */
+     * Sets rate.
+     *
+     * @param int|null $rate
+     *
+     * @return $this
+     */
     public function setRate(?int $rate): self
     {
         $this->rate = $rate;

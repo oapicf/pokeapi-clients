@@ -47,7 +47,7 @@ class GrowthRateDetail
      * @var int|null
      * @SerializedName("id")
      * @Type("int")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Type("int")]
     protected ?int $id = null;
@@ -56,7 +56,7 @@ class GrowthRateDetail
      * @var string|null
      * @SerializedName("name")
      * @Type("string")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Type("string")]
     #[Assert\Length(max: 100)]
@@ -66,7 +66,7 @@ class GrowthRateDetail
      * @var string|null
      * @SerializedName("formula")
      * @Type("string")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Type("string")]
     #[Assert\Length(max: 500)]
@@ -76,7 +76,7 @@ class GrowthRateDetail
      * @var GrowthRateDescription[]|null
      * @SerializedName("descriptions")
      * @Type("array<OpenAPI\Server\Model\GrowthRateDescription>")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Valid]
     #[Assert\All([
@@ -88,7 +88,7 @@ class GrowthRateDetail
      * @var Experience[]|null
      * @SerializedName("levels")
      * @Type("array<OpenAPI\Server\Model\Experience>")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Valid]
     #[Assert\All([
@@ -100,7 +100,7 @@ class GrowthRateDetail
      * @var PokemonSpeciesSummary[]|null
      * @SerializedName("pokemon_species")
      * @Type("array<OpenAPI\Server\Model\PokemonSpeciesSummary>")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Valid]
     #[Assert\All([
@@ -135,12 +135,12 @@ class GrowthRateDetail
     }
 
     /**
-    * Sets id.
-    *
-    * @param int|null $id
-    *
-    * @return $this
-    */
+     * Sets id.
+     *
+     * @param int|null $id
+     *
+     * @return $this
+     */
     public function setId(?int $id): self
     {
         $this->id = $id;
@@ -162,12 +162,12 @@ class GrowthRateDetail
     }
 
     /**
-    * Sets name.
-    *
-    * @param string|null $name
-    *
-    * @return $this
-    */
+     * Sets name.
+     *
+     * @param string|null $name
+     *
+     * @return $this
+     */
     public function setName(?string $name): self
     {
         $this->name = $name;
@@ -189,12 +189,12 @@ class GrowthRateDetail
     }
 
     /**
-    * Sets formula.
-    *
-    * @param string|null $formula
-    *
-    * @return $this
-    */
+     * Sets formula.
+     *
+     * @param string|null $formula
+     *
+     * @return $this
+     */
     public function setFormula(?string $formula): self
     {
         $this->formula = $formula;
@@ -216,12 +216,12 @@ class GrowthRateDetail
     }
 
     /**
-    * Sets descriptions.
-    *
-    * @param GrowthRateDescription[]|null $descriptions
-    *
-    * @return $this
-    */
+     * Sets descriptions.
+     *
+     * @param GrowthRateDescription[]|null $descriptions
+     *
+     * @return $this
+     */
     public function setDescriptions(?array $descriptions): self
     {
         $this->descriptions = $descriptions;
@@ -243,12 +243,12 @@ class GrowthRateDetail
     }
 
     /**
-    * Sets levels.
-    *
-    * @param Experience[]|null $levels
-    *
-    * @return $this
-    */
+     * Sets levels.
+     *
+     * @param Experience[]|null $levels
+     *
+     * @return $this
+     */
     public function setLevels(?array $levels): self
     {
         $this->levels = $levels;
@@ -270,12 +270,12 @@ class GrowthRateDetail
     }
 
     /**
-    * Sets pokemonSpecies.
-    *
-    * @param PokemonSpeciesSummary[]|null $pokemonSpecies
-    *
-    * @return $this
-    */
+     * Sets pokemonSpecies.
+     *
+     * @param PokemonSpeciesSummary[]|null $pokemonSpecies
+     *
+     * @return $this
+     */
     public function setPokemonSpecies(?array $pokemonSpecies): self
     {
         $this->pokemonSpecies = $pokemonSpecies;

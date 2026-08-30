@@ -31,6 +31,8 @@ PaginatedEvolutionChainSummaryList::PaginatedEvolutionChainSummaryList()
     
 }
 
+PaginatedEvolutionChainSummaryList::~PaginatedEvolutionChainSummaryList() = default;
+
 void PaginatedEvolutionChainSummaryList::validate() const
 {
     std::stringstream msg;

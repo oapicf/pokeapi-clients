@@ -107,7 +107,7 @@ AbilityEffectText::getEffect()
 }
 
 void
-AbilityEffectText::setEffect(std::string  effect)
+AbilityEffectText::setEffect(std::string effect)
 {
 	this->effect = effect;
 }
@@ -119,7 +119,7 @@ AbilityEffectText::getShortEffect()
 }
 
 void
-AbilityEffectText::setShortEffect(std::string  short_effect)
+AbilityEffectText::setShortEffect(std::string short_effect)
 {
 	this->short_effect = short_effect;
 }
@@ -131,7 +131,7 @@ AbilityEffectText::getLanguage()
 }
 
 void
-AbilityEffectText::setLanguage(LanguageSummary  language)
+AbilityEffectText::setLanguage(LanguageSummary language)
 {
 	this->language = language;
 }

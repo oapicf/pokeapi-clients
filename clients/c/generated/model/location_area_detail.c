@@ -6,9 +6,9 @@
 
 
 static location_area_detail_t *location_area_detail_create_internal(
-    int id,
+    int *id,
     char *name,
-    int game_index,
+    int *game_index,
     list_t *encounter_method_rates,
     location_summary_t *location,
     list_t *names,
@@ -18,6 +18,8 @@ static location_area_detail_t *location_area_detail_create_internal(
     if (!location_area_detail_local_var) {
         return NULL;
     }
+    memset(location_area_detail_local_var, 0, sizeof(location_area_detail_t));
+    location_area_detail_local_var->_library_owned = 1;
     location_area_detail_local_var->id = id;
     location_area_detail_local_var->name = name;
     location_area_detail_local_var->game_index = game_index;
@@ -25,29 +27,42 @@ static location_area_detail_t *location_area_detail_create_internal(
     location_area_detail_local_var->location = location;
     location_area_detail_local_var->names = names;
     location_area_detail_local_var->pokemon_encounters = pokemon_encounters;
-
-    location_area_detail_local_var->_library_owned = 1;
     return location_area_detail_local_var;
 }
 
 __attribute__((deprecated)) location_area_detail_t *location_area_detail_create(
-    int id,
+    int *id,
     char *name,
-    int game_index,
+    int *game_index,
     list_t *encounter_method_rates,
     location_summary_t *location,
     list_t *names,
     list_t *pokemon_encounters
     ) {
-    return location_area_detail_create_internal (
-        id,
+    int *id_copy = NULL;
+    if (id) {
+        id_copy = malloc(sizeof(int));
+        if (id_copy) *id_copy = *id;
+    }
+    int *game_index_copy = NULL;
+    if (game_index) {
+        game_index_copy = malloc(sizeof(int));
+        if (game_index_copy) *game_index_copy = *game_index;
+    }
+    location_area_detail_t *result = location_area_detail_create_internal (
+        id_copy,
         name,
-        game_index,
+        game_index_copy,
         encounter_method_rates,
         location,
         names,
         pokemon_encounters
         );
+    if (!result) {
+        free(id_copy);
+        free(game_index_copy);
+    }
+    return result;
 }
 
 void location_area_detail_free(location_area_detail_t *location_area_detail) {
@@ -59,9 +74,17 @@ void location_area_detail_free(location_area_detail_t *location_area_detail) {
         return ;
     }
     listEntry_t *listEntry;
+    if (location_area_detail->id) {
+        free(location_area_detail->id);
+        location_area_detail->id = NULL;
+    }
     if (location_area_detail->name) {
         free(location_area_detail->name);
         location_area_detail->name = NULL;
+    }
+    if (location_area_detail->game_index) {
+        free(location_area_detail->game_index);
+        location_area_detail->game_index = NULL;
     }
     if (location_area_detail->encounter_method_rates) {
         list_ForEach(listEntry, location_area_detail->encounter_method_rates) {
@@ -98,7 +121,7 @@ cJSON *location_area_detail_convertToJSON(location_area_detail_t *location_area_
     if (!location_area_detail->id) {
         goto fail;
     }
-    if(cJSON_AddNumberToObject(item, "id", location_area_detail->id) == NULL) {
+    if(cJSON_AddNumberToObject(item, "id", *location_area_detail->id) == NULL) {
     goto fail; //Numeric
     }
 
@@ -116,7 +139,7 @@ cJSON *location_area_detail_convertToJSON(location_area_detail_t *location_area_
     if (!location_area_detail->game_index) {
         goto fail;
     }
-    if(cJSON_AddNumberToObject(item, "game_index", location_area_detail->game_index) == NULL) {
+    if(cJSON_AddNumberToObject(item, "game_index", *location_area_detail->game_index) == NULL) {
     goto fail; //Numeric
     }
 
@@ -209,6 +232,14 @@ location_area_detail_t *location_area_detail_parseFromJSON(cJSON *location_area_
 
     location_area_detail_t *location_area_detail_local_var = NULL;
 
+    // define the local variable for location_area_detail->id
+    int *id_local_var = NULL;
+
+    char *name_local_str = NULL;
+
+    // define the local variable for location_area_detail->game_index
+    int *game_index_local_var = NULL;
+
     // define the local list for location_area_detail->encounter_method_rates
     list_t *encounter_method_ratesList = NULL;
 
@@ -235,6 +266,12 @@ location_area_detail_t *location_area_detail_parseFromJSON(cJSON *location_area_
     {
     goto end; //Numeric
     }
+    id_local_var = malloc(sizeof(int));
+    if(!id_local_var)
+    {
+        goto end;
+    }
+    *id_local_var = id->valuedouble;
 
     // location_area_detail->name
     cJSON *name = cJSON_GetObjectItemCaseSensitive(location_area_detailJSON, "name");
@@ -265,6 +302,12 @@ location_area_detail_t *location_area_detail_parseFromJSON(cJSON *location_area_
     {
     goto end; //Numeric
     }
+    game_index_local_var = malloc(sizeof(int));
+    if(!game_index_local_var)
+    {
+        goto end;
+    }
+    *game_index_local_var = game_index->valuedouble;
 
     // location_area_detail->encounter_method_rates
     cJSON *encounter_method_rates = cJSON_GetObjectItemCaseSensitive(location_area_detailJSON, "encounter_method_rates");
@@ -360,18 +403,36 @@ location_area_detail_t *location_area_detail_parseFromJSON(cJSON *location_area_
     }
 
 
+    if (name && !cJSON_IsNull(name)) name_local_str = strdup(name->valuestring);
+
     location_area_detail_local_var = location_area_detail_create_internal (
-        id->valuedouble,
-        strdup(name->valuestring),
-        game_index->valuedouble,
+        id_local_var,
+        name_local_str,
+        game_index_local_var,
         encounter_method_ratesList,
         location_local_nonprim,
         namesList,
         pokemon_encountersList
         );
 
+    if (!location_area_detail_local_var) {
+        goto end;
+    }
+
     return location_area_detail_local_var;
 end:
+    if (id_local_var) {
+        free(id_local_var);
+        id_local_var = NULL;
+    }
+    if (name_local_str) {
+        free(name_local_str);
+        name_local_str = NULL;
+    }
+    if (game_index_local_var) {
+        free(game_index_local_var);
+        game_index_local_var = NULL;
+    }
     if (encounter_method_ratesList) {
         listEntry_t *listEntry = NULL;
         list_ForEach(listEntry, encounter_method_ratesList) {

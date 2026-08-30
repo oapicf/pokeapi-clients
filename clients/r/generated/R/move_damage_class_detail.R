@@ -104,17 +104,40 @@ MoveDamageClassDetail <- R6::R6Class(
       }
       if (!is.null(self$`descriptions`)) {
         MoveDamageClassDetailObject[["descriptions"]] <-
-          lapply(self$`descriptions`, function(x) x$toSimpleType())
+          self$extractSimpleType(self$`descriptions`)
       }
       if (!is.null(self$`moves`)) {
         MoveDamageClassDetailObject[["moves"]] <-
-          lapply(self$`moves`, function(x) x$toSimpleType())
+          self$extractSimpleType(self$`moves`)
       }
       if (!is.null(self$`names`)) {
         MoveDamageClassDetailObject[["names"]] <-
-          lapply(self$`names`, function(x) x$toSimpleType())
+          self$extractSimpleType(self$`names`)
       }
       return(MoveDamageClassDetailObject)
+    },
+
+    extractSimpleType = function(x) {
+      if (R6::is.R6(x)) {
+        return(x$toSimpleType())
+      } else if (!self$hasNestedR6(x)) {
+        return(x)
+      }
+      lapply(x, self$extractSimpleType)
+    },
+
+    hasNestedR6 = function(x) {
+      if (R6::is.R6(x)) {
+        return(TRUE)
+      }
+      if (is.list(x)) {
+        for (item in x) {
+          if (self$hasNestedR6(item)) {
+            return(TRUE)
+          }
+        }
+      }
+      FALSE
     },
 
     #' @description

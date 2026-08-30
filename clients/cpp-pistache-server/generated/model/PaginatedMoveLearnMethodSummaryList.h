@@ -34,7 +34,7 @@ class  PaginatedMoveLearnMethodSummaryList
 {
 public:
     PaginatedMoveLearnMethodSummaryList();
-    virtual ~PaginatedMoveLearnMethodSummaryList() = default;
+    virtual ~PaginatedMoveLearnMethodSummaryList();
 
 
     /// <summary>

@@ -6,13 +6,13 @@
 
 
 static pokemon_detail_t *pokemon_detail_create_internal(
-    int id,
+    int *id,
     char *name,
-    int base_experience,
-    int height,
-    int is_default,
-    int order,
-    int weight,
+    int *base_experience,
+    int *height,
+    int *is_default,
+    int *order,
+    int *weight,
     list_t *abilities,
     list_t *past_abilities,
     list_t *forms,
@@ -31,6 +31,8 @@ static pokemon_detail_t *pokemon_detail_create_internal(
     if (!pokemon_detail_local_var) {
         return NULL;
     }
+    memset(pokemon_detail_local_var, 0, sizeof(pokemon_detail_t));
+    pokemon_detail_local_var->_library_owned = 1;
     pokemon_detail_local_var->id = id;
     pokemon_detail_local_var->name = name;
     pokemon_detail_local_var->base_experience = base_experience;
@@ -51,19 +53,17 @@ static pokemon_detail_t *pokemon_detail_create_internal(
     pokemon_detail_local_var->stats = stats;
     pokemon_detail_local_var->types = types;
     pokemon_detail_local_var->past_types = past_types;
-
-    pokemon_detail_local_var->_library_owned = 1;
     return pokemon_detail_local_var;
 }
 
 __attribute__((deprecated)) pokemon_detail_t *pokemon_detail_create(
-    int id,
+    int *id,
     char *name,
-    int base_experience,
-    int height,
-    int is_default,
-    int order,
-    int weight,
+    int *base_experience,
+    int *height,
+    int *is_default,
+    int *order,
+    int *weight,
     list_t *abilities,
     list_t *past_abilities,
     list_t *forms,
@@ -78,14 +78,44 @@ __attribute__((deprecated)) pokemon_detail_t *pokemon_detail_create(
     list_t *types,
     list_t *past_types
     ) {
-    return pokemon_detail_create_internal (
-        id,
+    int *id_copy = NULL;
+    if (id) {
+        id_copy = malloc(sizeof(int));
+        if (id_copy) *id_copy = *id;
+    }
+    int *base_experience_copy = NULL;
+    if (base_experience) {
+        base_experience_copy = malloc(sizeof(int));
+        if (base_experience_copy) *base_experience_copy = *base_experience;
+    }
+    int *height_copy = NULL;
+    if (height) {
+        height_copy = malloc(sizeof(int));
+        if (height_copy) *height_copy = *height;
+    }
+    int *is_default_copy = NULL;
+    if (is_default) {
+        is_default_copy = malloc(sizeof(int));
+        if (is_default_copy) *is_default_copy = *is_default;
+    }
+    int *order_copy = NULL;
+    if (order) {
+        order_copy = malloc(sizeof(int));
+        if (order_copy) *order_copy = *order;
+    }
+    int *weight_copy = NULL;
+    if (weight) {
+        weight_copy = malloc(sizeof(int));
+        if (weight_copy) *weight_copy = *weight;
+    }
+    pokemon_detail_t *result = pokemon_detail_create_internal (
+        id_copy,
         name,
-        base_experience,
-        height,
-        is_default,
-        order,
-        weight,
+        base_experience_copy,
+        height_copy,
+        is_default_copy,
+        order_copy,
+        weight_copy,
         abilities,
         past_abilities,
         forms,
@@ -100,6 +130,15 @@ __attribute__((deprecated)) pokemon_detail_t *pokemon_detail_create(
         types,
         past_types
         );
+    if (!result) {
+        free(id_copy);
+        free(base_experience_copy);
+        free(height_copy);
+        free(is_default_copy);
+        free(order_copy);
+        free(weight_copy);
+    }
+    return result;
 }
 
 void pokemon_detail_free(pokemon_detail_t *pokemon_detail) {
@@ -111,9 +150,33 @@ void pokemon_detail_free(pokemon_detail_t *pokemon_detail) {
         return ;
     }
     listEntry_t *listEntry;
+    if (pokemon_detail->id) {
+        free(pokemon_detail->id);
+        pokemon_detail->id = NULL;
+    }
     if (pokemon_detail->name) {
         free(pokemon_detail->name);
         pokemon_detail->name = NULL;
+    }
+    if (pokemon_detail->base_experience) {
+        free(pokemon_detail->base_experience);
+        pokemon_detail->base_experience = NULL;
+    }
+    if (pokemon_detail->height) {
+        free(pokemon_detail->height);
+        pokemon_detail->height = NULL;
+    }
+    if (pokemon_detail->is_default) {
+        free(pokemon_detail->is_default);
+        pokemon_detail->is_default = NULL;
+    }
+    if (pokemon_detail->order) {
+        free(pokemon_detail->order);
+        pokemon_detail->order = NULL;
+    }
+    if (pokemon_detail->weight) {
+        free(pokemon_detail->weight);
+        pokemon_detail->weight = NULL;
     }
     if (pokemon_detail->abilities) {
         list_ForEach(listEntry, pokemon_detail->abilities) {
@@ -201,7 +264,7 @@ cJSON *pokemon_detail_convertToJSON(pokemon_detail_t *pokemon_detail) {
     if (!pokemon_detail->id) {
         goto fail;
     }
-    if(cJSON_AddNumberToObject(item, "id", pokemon_detail->id) == NULL) {
+    if(cJSON_AddNumberToObject(item, "id", *pokemon_detail->id) == NULL) {
     goto fail; //Numeric
     }
 
@@ -217,7 +280,7 @@ cJSON *pokemon_detail_convertToJSON(pokemon_detail_t *pokemon_detail) {
 
     // pokemon_detail->base_experience
     if(pokemon_detail->base_experience) {
-    if(cJSON_AddNumberToObject(item, "base_experience", pokemon_detail->base_experience) == NULL) {
+    if(cJSON_AddNumberToObject(item, "base_experience", *pokemon_detail->base_experience) == NULL) {
     goto fail; //Numeric
     }
     }
@@ -225,7 +288,7 @@ cJSON *pokemon_detail_convertToJSON(pokemon_detail_t *pokemon_detail) {
 
     // pokemon_detail->height
     if(pokemon_detail->height) {
-    if(cJSON_AddNumberToObject(item, "height", pokemon_detail->height) == NULL) {
+    if(cJSON_AddNumberToObject(item, "height", *pokemon_detail->height) == NULL) {
     goto fail; //Numeric
     }
     }
@@ -233,7 +296,7 @@ cJSON *pokemon_detail_convertToJSON(pokemon_detail_t *pokemon_detail) {
 
     // pokemon_detail->is_default
     if(pokemon_detail->is_default) {
-    if(cJSON_AddBoolToObject(item, "is_default", pokemon_detail->is_default) == NULL) {
+    if(cJSON_AddBoolToObject(item, "is_default", *pokemon_detail->is_default) == NULL) {
     goto fail; //Bool
     }
     }
@@ -241,7 +304,7 @@ cJSON *pokemon_detail_convertToJSON(pokemon_detail_t *pokemon_detail) {
 
     // pokemon_detail->order
     if(pokemon_detail->order) {
-    if(cJSON_AddNumberToObject(item, "order", pokemon_detail->order) == NULL) {
+    if(cJSON_AddNumberToObject(item, "order", *pokemon_detail->order) == NULL) {
     goto fail; //Numeric
     }
     }
@@ -249,7 +312,7 @@ cJSON *pokemon_detail_convertToJSON(pokemon_detail_t *pokemon_detail) {
 
     // pokemon_detail->weight
     if(pokemon_detail->weight) {
-    if(cJSON_AddNumberToObject(item, "weight", pokemon_detail->weight) == NULL) {
+    if(cJSON_AddNumberToObject(item, "weight", *pokemon_detail->weight) == NULL) {
     goto fail; //Numeric
     }
     }
@@ -499,6 +562,26 @@ pokemon_detail_t *pokemon_detail_parseFromJSON(cJSON *pokemon_detailJSON){
 
     pokemon_detail_t *pokemon_detail_local_var = NULL;
 
+    // define the local variable for pokemon_detail->id
+    int *id_local_var = NULL;
+
+    char *name_local_str = NULL;
+
+    // define the local variable for pokemon_detail->base_experience
+    int *base_experience_local_var = NULL;
+
+    // define the local variable for pokemon_detail->height
+    int *height_local_var = NULL;
+
+    // define the local variable for pokemon_detail->is_default
+    int *is_default_local_var = NULL;
+
+    // define the local variable for pokemon_detail->order
+    int *order_local_var = NULL;
+
+    // define the local variable for pokemon_detail->weight
+    int *weight_local_var = NULL;
+
     // define the local list for pokemon_detail->abilities
     list_t *abilitiesList = NULL;
 
@@ -513,6 +596,8 @@ pokemon_detail_t *pokemon_detail_parseFromJSON(cJSON *pokemon_detailJSON){
 
     // define the local variable for pokemon_detail->held_items
     pokemon_detail_held_items_t *held_items_local_nonprim = NULL;
+
+    char *location_area_encounters_local_str = NULL;
 
     // define the local list for pokemon_detail->moves
     list_t *movesList = NULL;
@@ -549,6 +634,12 @@ pokemon_detail_t *pokemon_detail_parseFromJSON(cJSON *pokemon_detailJSON){
     {
     goto end; //Numeric
     }
+    id_local_var = malloc(sizeof(int));
+    if(!id_local_var)
+    {
+        goto end;
+    }
+    *id_local_var = id->valuedouble;
 
     // pokemon_detail->name
     cJSON *name = cJSON_GetObjectItemCaseSensitive(pokemon_detailJSON, "name");
@@ -575,6 +666,12 @@ pokemon_detail_t *pokemon_detail_parseFromJSON(cJSON *pokemon_detailJSON){
     {
     goto end; //Numeric
     }
+    base_experience_local_var = malloc(sizeof(int));
+    if(!base_experience_local_var)
+    {
+        goto end;
+    }
+    *base_experience_local_var = base_experience->valuedouble;
     }
 
     // pokemon_detail->height
@@ -587,6 +684,12 @@ pokemon_detail_t *pokemon_detail_parseFromJSON(cJSON *pokemon_detailJSON){
     {
     goto end; //Numeric
     }
+    height_local_var = malloc(sizeof(int));
+    if(!height_local_var)
+    {
+        goto end;
+    }
+    *height_local_var = height->valuedouble;
     }
 
     // pokemon_detail->is_default
@@ -599,6 +702,12 @@ pokemon_detail_t *pokemon_detail_parseFromJSON(cJSON *pokemon_detailJSON){
     {
     goto end; //Bool
     }
+    is_default_local_var = malloc(sizeof(int));
+    if(!is_default_local_var)
+    {
+        goto end;
+    }
+    *is_default_local_var = is_default->valueint;
     }
 
     // pokemon_detail->order
@@ -611,6 +720,12 @@ pokemon_detail_t *pokemon_detail_parseFromJSON(cJSON *pokemon_detailJSON){
     {
     goto end; //Numeric
     }
+    order_local_var = malloc(sizeof(int));
+    if(!order_local_var)
+    {
+        goto end;
+    }
+    *order_local_var = order->valuedouble;
     }
 
     // pokemon_detail->weight
@@ -623,6 +738,12 @@ pokemon_detail_t *pokemon_detail_parseFromJSON(cJSON *pokemon_detailJSON){
     {
     goto end; //Numeric
     }
+    weight_local_var = malloc(sizeof(int));
+    if(!weight_local_var)
+    {
+        goto end;
+    }
+    *weight_local_var = weight->valuedouble;
     }
 
     // pokemon_detail->abilities
@@ -905,20 +1026,23 @@ pokemon_detail_t *pokemon_detail_parseFromJSON(cJSON *pokemon_detailJSON){
     }
 
 
+    if (name && !cJSON_IsNull(name)) name_local_str = strdup(name->valuestring);
+    if (location_area_encounters && !cJSON_IsNull(location_area_encounters)) location_area_encounters_local_str = strdup(location_area_encounters->valuestring);
+
     pokemon_detail_local_var = pokemon_detail_create_internal (
-        id->valuedouble,
-        strdup(name->valuestring),
-        base_experience ? base_experience->valuedouble : 0,
-        height ? height->valuedouble : 0,
-        is_default ? is_default->valueint : 0,
-        order ? order->valuedouble : 0,
-        weight ? weight->valuedouble : 0,
+        id_local_var,
+        name_local_str,
+        base_experience_local_var,
+        height_local_var,
+        is_default_local_var,
+        order_local_var,
+        weight_local_var,
         abilitiesList,
         past_abilitiesList,
         formsList,
         game_indicesList,
         held_items_local_nonprim,
-        strdup(location_area_encounters->valuestring),
+        location_area_encounters_local_str,
         movesList,
         species_local_nonprim,
         sprites_local_nonprim,
@@ -928,8 +1052,40 @@ pokemon_detail_t *pokemon_detail_parseFromJSON(cJSON *pokemon_detailJSON){
         past_typesList
         );
 
+    if (!pokemon_detail_local_var) {
+        goto end;
+    }
+
     return pokemon_detail_local_var;
 end:
+    if (id_local_var) {
+        free(id_local_var);
+        id_local_var = NULL;
+    }
+    if (name_local_str) {
+        free(name_local_str);
+        name_local_str = NULL;
+    }
+    if (base_experience_local_var) {
+        free(base_experience_local_var);
+        base_experience_local_var = NULL;
+    }
+    if (height_local_var) {
+        free(height_local_var);
+        height_local_var = NULL;
+    }
+    if (is_default_local_var) {
+        free(is_default_local_var);
+        is_default_local_var = NULL;
+    }
+    if (order_local_var) {
+        free(order_local_var);
+        order_local_var = NULL;
+    }
+    if (weight_local_var) {
+        free(weight_local_var);
+        weight_local_var = NULL;
+    }
     if (abilitiesList) {
         listEntry_t *listEntry = NULL;
         list_ForEach(listEntry, abilitiesList) {
@@ -969,6 +1125,10 @@ end:
     if (held_items_local_nonprim) {
         pokemon_detail_held_items_free(held_items_local_nonprim);
         held_items_local_nonprim = NULL;
+    }
+    if (location_area_encounters_local_str) {
+        free(location_area_encounters_local_str);
+        location_area_encounters_local_str = NULL;
     }
     if (movesList) {
         listEntry_t *listEntry = NULL;

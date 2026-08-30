@@ -21,7 +21,7 @@ import json
 
 
 
-from pydantic import BaseModel, ConfigDict, StrictInt, StrictStr
+from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from openapi_server.models.berry_firmness_summary import BerryFirmnessSummary
 try:
@@ -33,9 +33,9 @@ class PaginatedBerryFirmnessSummaryList(BaseModel):
     """
     PaginatedBerryFirmnessSummaryList
     """ # noqa: E501
-    count: Optional[StrictInt] = None
-    next: Optional[StrictStr] = None
-    previous: Optional[StrictStr] = None
+    count: Optional[StrictInt] = Field(default=None, json_schema_extra={"examples": [123]})
+    next: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["http://api.example.org/accounts/?offset=400&limit=100"]})
+    previous: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["http://api.example.org/accounts/?offset=200&limit=100"]})
     results: Optional[List[BerryFirmnessSummary]] = None
     __properties: ClassVar[List[str]] = ["count", "next", "previous", "results"]
 

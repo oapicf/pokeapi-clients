@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **id** | **int** |  | [readonly] 
 **name** | **str** |  | 
 **berry_flavor** | [**BerryFlavorSummary**](BerryFlavorSummary.md) |  | [readonly] 
-**names** | [**List[ContestTypeName]**](ContestTypeName.md) |  | 
+**names** | [**List[ContestTypeName]**](ContestTypeName.md) |  | [readonly] 
 
 ## Example
 

@@ -23,7 +23,7 @@ import java.util.List;
  * NatureDetail
  */
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPKMSTServerCodegen", date = "2026-02-07T15:23:15.032724200Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPKMSTServerCodegen", date = "2026-08-30T01:56:01.724492951Z[Etc/UTC]", comments = "Generator version: 7.24.0")
 public class NatureDetail   {
   @JsonProperty("id")
   private Integer id;
@@ -184,7 +184,7 @@ public class NatureDetail   {
    * Get berries
    * @return berries
    */
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, readOnly = true, value = "")
   public List<BerrySummary> getBerries() {
     return berries;
   }
@@ -210,7 +210,7 @@ public class NatureDetail   {
    * Get pokeathlonStatChanges
    * @return pokeathlonStatChanges
    */
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, readOnly = true, value = "")
   public List<NatureDetailPokeathlonStatChangesInner> getPokeathlonStatChanges() {
     return pokeathlonStatChanges;
   }
@@ -236,7 +236,7 @@ public class NatureDetail   {
    * Get moveBattleStylePreferences
    * @return moveBattleStylePreferences
    */
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, readOnly = true, value = "")
   public List<NatureBattleStylePreference> getMoveBattleStylePreferences() {
     return moveBattleStylePreferences;
   }
@@ -262,7 +262,7 @@ public class NatureDetail   {
    * Get names
    * @return names
    */
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, readOnly = true, value = "")
   public List<NatureName> getNames() {
     return names;
   }
@@ -322,10 +322,7 @@ public class NatureDetail   {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 }
 

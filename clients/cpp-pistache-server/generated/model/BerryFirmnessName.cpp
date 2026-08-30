@@ -25,6 +25,8 @@ BerryFirmnessName::BerryFirmnessName()
     
 }
 
+BerryFirmnessName::~BerryFirmnessName() = default;
+
 void BerryFirmnessName::validate() const
 {
     std::stringstream msg;

@@ -17,7 +17,7 @@ import org.openapitools.model.RegionName;
 /**
  * RegionDetail
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaMSF4JServerCodegen", date = "2026-02-07T15:23:10.683633502Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaMSF4JServerCodegen", date = "2026-08-30T01:55:58.248058654Z[Etc/UTC]", comments = "Generator version: 7.24.0")
 public class RegionDetail   {
   @JsonProperty("id")
   private Integer id;
@@ -67,16 +67,6 @@ public class RegionDetail   {
     this.name = name;
   }
 
-  public RegionDetail locations(List<@Valid LocationSummary> locations) {
-    this.locations = locations;
-    return this;
-  }
-
-  public RegionDetail addLocationsItem(LocationSummary locationsItem) {
-    this.locations.add(locationsItem);
-    return this;
-  }
-
    /**
    * Get locations
    * @return locations
@@ -84,10 +74,6 @@ public class RegionDetail   {
   @ApiModelProperty(required = true, value = "")
   public List<@Valid LocationSummary> getLocations() {
     return locations;
-  }
-
-  public void setLocations(List<@Valid LocationSummary> locations) {
-    this.locations = locations;
   }
 
    /**
@@ -99,16 +85,6 @@ public class RegionDetail   {
     return mainGeneration;
   }
 
-  public RegionDetail names(List<@Valid RegionName> names) {
-    this.names = names;
-    return this;
-  }
-
-  public RegionDetail addNamesItem(RegionName namesItem) {
-    this.names.add(namesItem);
-    return this;
-  }
-
    /**
    * Get names
    * @return names
@@ -116,20 +92,6 @@ public class RegionDetail   {
   @ApiModelProperty(required = true, value = "")
   public List<@Valid RegionName> getNames() {
     return names;
-  }
-
-  public void setNames(List<@Valid RegionName> names) {
-    this.names = names;
-  }
-
-  public RegionDetail pokedexes(List<@Valid PokedexSummary> pokedexes) {
-    this.pokedexes = pokedexes;
-    return this;
-  }
-
-  public RegionDetail addPokedexesItem(PokedexSummary pokedexesItem) {
-    this.pokedexes.add(pokedexesItem);
-    return this;
   }
 
    /**
@@ -141,20 +103,6 @@ public class RegionDetail   {
     return pokedexes;
   }
 
-  public void setPokedexes(List<@Valid PokedexSummary> pokedexes) {
-    this.pokedexes = pokedexes;
-  }
-
-  public RegionDetail versionGroups(List<@Valid AbilityDetailPokemonInnerPokemon> versionGroups) {
-    this.versionGroups = versionGroups;
-    return this;
-  }
-
-  public RegionDetail addVersionGroupsItem(AbilityDetailPokemonInnerPokemon versionGroupsItem) {
-    this.versionGroups.add(versionGroupsItem);
-    return this;
-  }
-
    /**
    * Get versionGroups
    * @return versionGroups
@@ -162,10 +110,6 @@ public class RegionDetail   {
   @ApiModelProperty(required = true, value = "")
   public List<@Valid AbilityDetailPokemonInnerPokemon> getVersionGroups() {
     return versionGroups;
-  }
-
-  public void setVersionGroups(List<@Valid AbilityDetailPokemonInnerPokemon> versionGroups) {
-    this.versionGroups = versionGroups;
   }
 
 
@@ -213,10 +157,7 @@ public class RegionDetail   {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 }
 

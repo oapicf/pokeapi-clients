@@ -24,19 +24,23 @@ import io.swagger.v3.oas.annotations.media.Schema
  */
 data class EncounterConditionDetail(
 
-    @Schema(example = "null", required = true, readOnly = true, description = "")
+    @Schema(required = true, readOnly = true, description = "")
+    @param:JsonProperty("id")
     @get:JsonProperty("id", required = true) val id: kotlin.Int,
 
     @get:Size(max=100)
-    @Schema(example = "null", required = true, description = "")
+    @Schema(required = true, description = "")
+    @param:JsonProperty("name")
     @get:JsonProperty("name", required = true) val name: kotlin.String,
 
     @field:Valid
-    @Schema(example = "null", required = true, description = "")
+    @Schema(required = true, readOnly = true, description = "")
+    @param:JsonProperty("values")
     @get:JsonProperty("values", required = true) val propertyValues: kotlin.collections.List<EncounterConditionValueSummary>,
 
     @field:Valid
-    @Schema(example = "null", required = true, description = "")
+    @Schema(required = true, readOnly = true, description = "")
+    @param:JsonProperty("names")
     @get:JsonProperty("names", required = true) val names: kotlin.collections.List<EncounterConditionName>
 ) {
 

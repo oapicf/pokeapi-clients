@@ -21,11 +21,13 @@ import io.swagger.v3.oas.annotations.media.Schema
 data class PokeathlonStatSummary(
 
     @get:Size(max=100)
-    @Schema(example = "null", required = true, description = "")
+    @Schema(required = true, description = "")
+    @param:JsonProperty("name")
     @get:JsonProperty("name", required = true) val name: kotlin.String,
 
     @field:Valid
-    @Schema(example = "null", required = true, readOnly = true, description = "")
+    @Schema(required = true, readOnly = true, description = "")
+    @param:JsonProperty("url")
     @get:JsonProperty("url", required = true) val url: java.net.URI
 ) {
 

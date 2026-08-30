@@ -7,8 +7,8 @@
 | **id** | **kotlin.Int** |  |  [readonly] |
 | **appeal** | **kotlin.Int** |  |  |
 | **jam** | **kotlin.Int** |  |  |
-| **effectEntries** | [**kotlin.collections.List&lt;ContestEffectEffectText&gt;**](ContestEffectEffectText.md) |  |  |
-| **flavorTextEntries** | [**kotlin.collections.List&lt;ContestEffectFlavorText&gt;**](ContestEffectFlavorText.md) |  |  |
+| **effectEntries** | [**kotlin.collections.List&lt;ContestEffectEffectText&gt;**](ContestEffectEffectText.md) |  |  [readonly] |
+| **flavorTextEntries** | [**kotlin.collections.List&lt;ContestEffectFlavorText&gt;**](ContestEffectFlavorText.md) |  |  [readonly] |
 
 
 

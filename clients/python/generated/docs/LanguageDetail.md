@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 **official** | **bool** |  | [optional] 
 **iso639** | **str** |  | 
 **iso3166** | **str** |  | 
-**names** | [**List[LanguageName]**](LanguageName.md) |  | 
+**names** | [**List[LanguageName]**](LanguageName.md) |  | [readonly] 
 
 ## Example
 

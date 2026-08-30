@@ -53,14 +53,14 @@ public:
 
 	/*! \brief Set 
 	 */
-	void setIncrease(std::list <StatDetail_affecting_moves_increase_inner> increase);
+	void setIncrease(std::list<StatDetail_affecting_moves_increase_inner> increase);
 	/*! \brief Get 
 	 */
 	std::list<StatDetail_affecting_moves_increase_inner> getDecrease();
 
 	/*! \brief Set 
 	 */
-	void setDecrease(std::list <StatDetail_affecting_moves_increase_inner> decrease);
+	void setDecrease(std::list<StatDetail_affecting_moves_increase_inner> decrease);
 
 
     private:

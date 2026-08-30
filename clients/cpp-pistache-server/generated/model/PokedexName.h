@@ -33,7 +33,7 @@ class  PokedexName
 {
 public:
     PokedexName();
-    virtual ~PokedexName() = default;
+    virtual ~PokedexName();
 
 
     /// <summary>

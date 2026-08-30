@@ -21,7 +21,7 @@
 
 namespace OpenAPI {
 
-OAIPaginatedContestTypeSummaryList::OAIPaginatedContestTypeSummaryList(QString json) {
+OAIPaginatedContestTypeSummaryList::OAIPaginatedContestTypeSummaryList(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -47,7 +47,7 @@ void OAIPaginatedContestTypeSummaryList::initializeModel() {
     m_results_isValid = false;
 }
 
-void OAIPaginatedContestTypeSummaryList::fromJson(QString jsonString) {
+void OAIPaginatedContestTypeSummaryList::fromJson(const QString &jsonString) {
     QByteArray array(jsonString.toStdString().c_str());
     QJsonDocument doc = QJsonDocument::fromJson(array);
     QJsonObject jsonObject = doc.object();

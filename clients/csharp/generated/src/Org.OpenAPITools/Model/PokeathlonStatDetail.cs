@@ -72,7 +72,7 @@ namespace Org.OpenAPITools.Model
         /// Gets or Sets Names
         /// </summary>
         [JsonPropertyName("names")]
-        public List<PokeathlonStatName> Names { get; set; }
+        public List<PokeathlonStatName> Names { get; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -110,8 +110,18 @@ namespace Org.OpenAPITools.Model
     /// <summary>
     /// A Json converter for type <see cref="PokeathlonStatDetail" />
     /// </summary>
-    public class PokeathlonStatDetailJsonConverter : JsonConverter<PokeathlonStatDetail>
+    public partial class PokeathlonStatDetailJsonConverter : JsonConverter<PokeathlonStatDetail>
     {
+        partial void OnCreated();
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="PokeathlonStatDetailJsonConverter" /> class.
+        /// </summary>
+        public PokeathlonStatDetailJsonConverter()
+        {
+            OnCreated();
+        }
+
         /// <summary>
         /// Deserializes json to <see cref="PokeathlonStatDetail" />
         /// </summary>

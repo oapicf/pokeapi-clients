@@ -7,8 +7,8 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **int** |  | [readonly] 
 **name** | **str** |  | 
-**effect_entries** | [**List[ItemFlingEffectEffectText]**](ItemFlingEffectEffectText.md) |  | 
-**items** | [**List[ItemSummary]**](ItemSummary.md) |  | 
+**effect_entries** | [**List[ItemFlingEffectEffectText]**](ItemFlingEffectEffectText.md) |  | [readonly] 
+**items** | [**List[ItemSummary]**](ItemSummary.md) |  | [readonly] 
 
 ## Example
 

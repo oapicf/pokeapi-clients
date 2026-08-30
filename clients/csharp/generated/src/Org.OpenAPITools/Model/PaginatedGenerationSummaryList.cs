@@ -62,7 +62,7 @@ namespace Org.OpenAPITools.Model
         /// </summary>
         /* <example>123</example> */
         [JsonPropertyName("count")]
-        public int? Count { get { return this.CountOption; } set { this.CountOption = new(value); } }
+        public int? Count { get { return this.CountOption.Value; } set { this.CountOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of Next
@@ -76,7 +76,7 @@ namespace Org.OpenAPITools.Model
         /// </summary>
         /* <example>http://api.example.org/accounts/?offset&#x3D;400&amp;limit&#x3D;100</example> */
         [JsonPropertyName("next")]
-        public string? Next { get { return this.NextOption; } set { this.NextOption = new(value); } }
+        public string? Next { get { return this.NextOption.Value; } set { this.NextOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of Previous
@@ -90,7 +90,7 @@ namespace Org.OpenAPITools.Model
         /// </summary>
         /* <example>http://api.example.org/accounts/?offset&#x3D;200&amp;limit&#x3D;100</example> */
         [JsonPropertyName("previous")]
-        public string? Previous { get { return this.PreviousOption; } set { this.PreviousOption = new(value); } }
+        public string? Previous { get { return this.PreviousOption.Value; } set { this.PreviousOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of Results
@@ -103,7 +103,7 @@ namespace Org.OpenAPITools.Model
         /// Gets or Sets Results
         /// </summary>
         [JsonPropertyName("results")]
-        public List<GenerationSummary>? Results { get { return this.ResultsOption; } set { this.ResultsOption = new(value); } }
+        public List<GenerationSummary>? Results { get { return this.ResultsOption.Value; } set { this.ResultsOption = new(value); } }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -135,8 +135,18 @@ namespace Org.OpenAPITools.Model
     /// <summary>
     /// A Json converter for type <see cref="PaginatedGenerationSummaryList" />
     /// </summary>
-    public class PaginatedGenerationSummaryListJsonConverter : JsonConverter<PaginatedGenerationSummaryList>
+    public partial class PaginatedGenerationSummaryListJsonConverter : JsonConverter<PaginatedGenerationSummaryList>
     {
+        partial void OnCreated();
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="PaginatedGenerationSummaryListJsonConverter" /> class.
+        /// </summary>
+        public PaginatedGenerationSummaryListJsonConverter()
+        {
+            OnCreated();
+        }
+
         /// <summary>
         /// Deserializes json to <see cref="PaginatedGenerationSummaryList" />
         /// </summary>

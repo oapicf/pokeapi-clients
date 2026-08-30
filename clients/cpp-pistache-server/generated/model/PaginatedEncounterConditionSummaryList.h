@@ -34,7 +34,7 @@ class  PaginatedEncounterConditionSummaryList
 {
 public:
     PaginatedEncounterConditionSummaryList();
-    virtual ~PaginatedEncounterConditionSummaryList() = default;
+    virtual ~PaginatedEncounterConditionSummaryList();
 
 
     /// <summary>

@@ -64,7 +64,7 @@ ItemDetail_baby_trigger_for::getUrl()
 }
 
 void
-ItemDetail_baby_trigger_for::setUrl(std::string  url)
+ItemDetail_baby_trigger_for::setUrl(std::string url)
 {
 	this->url = url;
 }

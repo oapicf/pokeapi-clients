@@ -32,7 +32,7 @@ class  PokeathlonStatDetail_affecting_natures_decrease_inner
 {
 public:
     PokeathlonStatDetail_affecting_natures_decrease_inner();
-    virtual ~PokeathlonStatDetail_affecting_natures_decrease_inner() = default;
+    virtual ~PokeathlonStatDetail_affecting_natures_decrease_inner();
 
 
     /// <summary>

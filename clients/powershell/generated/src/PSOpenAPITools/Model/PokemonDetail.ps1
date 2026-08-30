@@ -195,26 +195,26 @@ function Initialize-PokemonDetail {
 
 
         $PSO = [PSCustomObject]@{
-            "id" = ${Id}
-            "name" = ${Name}
-            "base_experience" = ${BaseExperience}
-            "height" = ${Height}
-            "is_default" = ${IsDefault}
-            "order" = ${Order}
-            "weight" = ${Weight}
-            "abilities" = ${Abilities}
-            "past_abilities" = ${PastAbilities}
-            "forms" = ${Forms}
-            "game_indices" = ${GameIndices}
-            "held_items" = ${HeldItems}
-            "location_area_encounters" = ${LocationAreaEncounters}
-            "moves" = ${Moves}
-            "species" = ${Species}
-            "sprites" = ${Sprites}
-            "cries" = ${Cries}
-            "stats" = ${Stats}
-            "types" = ${Types}
-            "past_types" = ${PastTypes}
+            'id' = ${Id}
+            'name' = ${Name}
+            'base_experience' = ${BaseExperience}
+            'height' = ${Height}
+            'is_default' = ${IsDefault}
+            'order' = ${Order}
+            'weight' = ${Weight}
+            'abilities' = ${Abilities}
+            'past_abilities' = ${PastAbilities}
+            'forms' = ${Forms}
+            'game_indices' = ${GameIndices}
+            'held_items' = ${HeldItems}
+            'location_area_encounters' = ${LocationAreaEncounters}
+            'moves' = ${Moves}
+            'species' = ${Species}
+            'sprites' = ${Sprites}
+            'cries' = ${Cries}
+            'stats' = ${Stats}
+            'types' = ${Types}
+            'past_types' = ${PastTypes}
         }
 
 
@@ -252,7 +252,7 @@ function ConvertFrom-JsonToPokemonDetail {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in PokemonDetail
-        $AllProperties = ("id", "name", "base_experience", "height", "is_default", "order", "weight", "abilities", "past_abilities", "forms", "game_indices", "held_items", "location_area_encounters", "moves", "species", "sprites", "cries", "stats", "types", "past_types")
+        $AllProperties = ('id', 'name', 'base_experience', 'height', 'is_default', 'order', 'weight', 'abilities', 'past_abilities', 'forms', 'game_indices', 'held_items', 'location_area_encounters', 'moves', 'species', 'sprites', 'cries', 'stats', 'types', 'past_types')
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -263,147 +263,147 @@ function ConvertFrom-JsonToPokemonDetail {
             throw "Error! Empty JSON cannot be serialized due to the required property 'id' missing."
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "id"))) {
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'id'))) {
             throw "Error! JSON cannot be serialized due to the required property 'id' missing."
         } else {
-            $Id = $JsonParameters.PSobject.Properties["id"].value
+            $Id = $JsonParameters.PSobject.Properties['id'].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "name"))) {
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'name'))) {
             throw "Error! JSON cannot be serialized due to the required property 'name' missing."
         } else {
-            $Name = $JsonParameters.PSobject.Properties["name"].value
+            $Name = $JsonParameters.PSobject.Properties['name'].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "abilities"))) {
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'abilities'))) {
             throw "Error! JSON cannot be serialized due to the required property 'abilities' missing."
         } else {
-            $Abilities = $JsonParameters.PSobject.Properties["abilities"].value
+            $Abilities = $JsonParameters.PSobject.Properties['abilities'].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "past_abilities"))) {
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'past_abilities'))) {
             throw "Error! JSON cannot be serialized due to the required property 'past_abilities' missing."
         } else {
-            $PastAbilities = $JsonParameters.PSobject.Properties["past_abilities"].value
+            $PastAbilities = $JsonParameters.PSobject.Properties['past_abilities'].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "forms"))) {
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'forms'))) {
             throw "Error! JSON cannot be serialized due to the required property 'forms' missing."
         } else {
-            $Forms = $JsonParameters.PSobject.Properties["forms"].value
+            $Forms = $JsonParameters.PSobject.Properties['forms'].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "game_indices"))) {
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'game_indices'))) {
             throw "Error! JSON cannot be serialized due to the required property 'game_indices' missing."
         } else {
-            $GameIndices = $JsonParameters.PSobject.Properties["game_indices"].value
+            $GameIndices = $JsonParameters.PSobject.Properties['game_indices'].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "held_items"))) {
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'held_items'))) {
             throw "Error! JSON cannot be serialized due to the required property 'held_items' missing."
         } else {
-            $HeldItems = $JsonParameters.PSobject.Properties["held_items"].value
+            $HeldItems = $JsonParameters.PSobject.Properties['held_items'].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "location_area_encounters"))) {
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'location_area_encounters'))) {
             throw "Error! JSON cannot be serialized due to the required property 'location_area_encounters' missing."
         } else {
-            $LocationAreaEncounters = $JsonParameters.PSobject.Properties["location_area_encounters"].value
+            $LocationAreaEncounters = $JsonParameters.PSobject.Properties['location_area_encounters'].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "moves"))) {
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'moves'))) {
             throw "Error! JSON cannot be serialized due to the required property 'moves' missing."
         } else {
-            $Moves = $JsonParameters.PSobject.Properties["moves"].value
+            $Moves = $JsonParameters.PSobject.Properties['moves'].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "species"))) {
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'species'))) {
             throw "Error! JSON cannot be serialized due to the required property 'species' missing."
         } else {
-            $Species = $JsonParameters.PSobject.Properties["species"].value
+            $Species = $JsonParameters.PSobject.Properties['species'].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "sprites"))) {
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'sprites'))) {
             throw "Error! JSON cannot be serialized due to the required property 'sprites' missing."
         } else {
-            $Sprites = $JsonParameters.PSobject.Properties["sprites"].value
+            $Sprites = $JsonParameters.PSobject.Properties['sprites'].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "cries"))) {
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'cries'))) {
             throw "Error! JSON cannot be serialized due to the required property 'cries' missing."
         } else {
-            $Cries = $JsonParameters.PSobject.Properties["cries"].value
+            $Cries = $JsonParameters.PSobject.Properties['cries'].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "stats"))) {
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'stats'))) {
             throw "Error! JSON cannot be serialized due to the required property 'stats' missing."
         } else {
-            $Stats = $JsonParameters.PSobject.Properties["stats"].value
+            $Stats = $JsonParameters.PSobject.Properties['stats'].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "types"))) {
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'types'))) {
             throw "Error! JSON cannot be serialized due to the required property 'types' missing."
         } else {
-            $Types = $JsonParameters.PSobject.Properties["types"].value
+            $Types = $JsonParameters.PSobject.Properties['types'].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "past_types"))) {
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'past_types'))) {
             throw "Error! JSON cannot be serialized due to the required property 'past_types' missing."
         } else {
-            $PastTypes = $JsonParameters.PSobject.Properties["past_types"].value
+            $PastTypes = $JsonParameters.PSobject.Properties['past_types'].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "base_experience"))) { #optional property not found
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'base_experience'))) { #optional property not found
             $BaseExperience = $null
         } else {
-            $BaseExperience = $JsonParameters.PSobject.Properties["base_experience"].value
+            $BaseExperience = $JsonParameters.PSobject.Properties['base_experience'].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "height"))) { #optional property not found
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'height'))) { #optional property not found
             $Height = $null
         } else {
-            $Height = $JsonParameters.PSobject.Properties["height"].value
+            $Height = $JsonParameters.PSobject.Properties['height'].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "is_default"))) { #optional property not found
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'is_default'))) { #optional property not found
             $IsDefault = $null
         } else {
-            $IsDefault = $JsonParameters.PSobject.Properties["is_default"].value
+            $IsDefault = $JsonParameters.PSobject.Properties['is_default'].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "order"))) { #optional property not found
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'order'))) { #optional property not found
             $Order = $null
         } else {
-            $Order = $JsonParameters.PSobject.Properties["order"].value
+            $Order = $JsonParameters.PSobject.Properties['order'].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "weight"))) { #optional property not found
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'weight'))) { #optional property not found
             $Weight = $null
         } else {
-            $Weight = $JsonParameters.PSobject.Properties["weight"].value
+            $Weight = $JsonParameters.PSobject.Properties['weight'].value
         }
 
         $PSO = [PSCustomObject]@{
-            "id" = ${Id}
-            "name" = ${Name}
-            "base_experience" = ${BaseExperience}
-            "height" = ${Height}
-            "is_default" = ${IsDefault}
-            "order" = ${Order}
-            "weight" = ${Weight}
-            "abilities" = ${Abilities}
-            "past_abilities" = ${PastAbilities}
-            "forms" = ${Forms}
-            "game_indices" = ${GameIndices}
-            "held_items" = ${HeldItems}
-            "location_area_encounters" = ${LocationAreaEncounters}
-            "moves" = ${Moves}
-            "species" = ${Species}
-            "sprites" = ${Sprites}
-            "cries" = ${Cries}
-            "stats" = ${Stats}
-            "types" = ${Types}
-            "past_types" = ${PastTypes}
+            'id' = ${Id}
+            'name' = ${Name}
+            'base_experience' = ${BaseExperience}
+            'height' = ${Height}
+            'is_default' = ${IsDefault}
+            'order' = ${Order}
+            'weight' = ${Weight}
+            'abilities' = ${Abilities}
+            'past_abilities' = ${PastAbilities}
+            'forms' = ${Forms}
+            'game_indices' = ${GameIndices}
+            'held_items' = ${HeldItems}
+            'location_area_encounters' = ${LocationAreaEncounters}
+            'moves' = ${Moves}
+            'species' = ${Species}
+            'sprites' = ${Sprites}
+            'cries' = ${Cries}
+            'stats' = ${Stats}
+            'types' = ${Types}
+            'past_types' = ${PastTypes}
         }
 
         return $PSO

@@ -85,7 +85,7 @@ PokemonSummary::getName()
 }
 
 void
-PokemonSummary::setName(std::string  name)
+PokemonSummary::setName(std::string name)
 {
 	this->name = name;
 }
@@ -97,7 +97,7 @@ PokemonSummary::getUrl()
 }
 
 void
-PokemonSummary::setUrl(std::string  url)
+PokemonSummary::setUrl(std::string url)
 {
 	this->url = url;
 }

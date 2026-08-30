@@ -21,7 +21,7 @@ typedef struct egg_group_detail_t egg_group_detail_t;
 
 
 typedef struct egg_group_detail_t {
-    int id; //numeric
+    int *id; //numeric
     char *name; // string
     list_t *names; //nonprimitive container
     list_t *pokemon_species; //nonprimitive container
@@ -30,7 +30,7 @@ typedef struct egg_group_detail_t {
 } egg_group_detail_t;
 
 __attribute__((deprecated)) egg_group_detail_t *egg_group_detail_create(
-    int id,
+    int *id,
     char *name,
     list_t *names,
     list_t *pokemon_species

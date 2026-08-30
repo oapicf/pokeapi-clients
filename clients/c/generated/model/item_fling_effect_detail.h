@@ -21,7 +21,7 @@ typedef struct item_fling_effect_detail_t item_fling_effect_detail_t;
 
 
 typedef struct item_fling_effect_detail_t {
-    int id; //numeric
+    int *id; //numeric
     char *name; // string
     list_t *effect_entries; //nonprimitive container
     list_t *items; //nonprimitive container
@@ -30,7 +30,7 @@ typedef struct item_fling_effect_detail_t {
 } item_fling_effect_detail_t;
 
 __attribute__((deprecated)) item_fling_effect_detail_t *item_fling_effect_detail_create(
-    int id,
+    int *id,
     char *name,
     list_t *effect_entries,
     list_t *items

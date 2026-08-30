@@ -40,18 +40,18 @@ export interface MoveDetail {
     contest_type: ContestTypeSummary;
     contest_effect: ContestEffectSummary;
     damage_class: MoveDamageClassSummary;
-    effect_entries: Array<MoveChangeEffectEntriesInner>;
-    effect_changes: Array<MoveDetailEffectChangesInner>;
+    readonly effect_entries: Array<MoveChangeEffectEntriesInner>;
+    readonly effect_changes: Array<MoveDetailEffectChangesInner>;
     generation: GenerationSummary;
     readonly meta: MoveMeta;
-    names: Array<MoveName>;
-    past_values: Array<MoveChange>;
-    stat_changes: Array<MoveDetailStatChangesInner>;
+    readonly names: Array<MoveName>;
+    readonly past_values: Array<MoveChange>;
+    readonly stat_changes: Array<MoveDetailStatChangesInner>;
     super_contest_effect: SuperContestEffectSummary;
     target: MoveTargetSummary;
     type: TypeSummary;
-    machines: Array<MoveDetailMachinesInner>;
-    flavor_text_entries: Array<MoveFlavorText>;
-    learned_by_pokemon: Array<AbilityDetailPokemonInnerPokemon>;
+    readonly machines: Array<MoveDetailMachinesInner>;
+    readonly flavor_text_entries: Array<MoveFlavorText>;
+    readonly learned_by_pokemon: Array<AbilityDetailPokemonInnerPokemon>;
 }
 

@@ -25,6 +25,8 @@ PokedexName::PokedexName()
     
 }
 
+PokedexName::~PokedexName() = default;
+
 void PokedexName::validate() const
 {
     std::stringstream msg;

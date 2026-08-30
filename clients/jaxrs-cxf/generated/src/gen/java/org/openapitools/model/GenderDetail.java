@@ -74,19 +74,6 @@ public class GenderDetail  {
     return pokemonSpeciesDetails;
   }
 
-  public void setPokemonSpeciesDetails(List<@Valid GenderDetailPokemonSpeciesDetailsInner> pokemonSpeciesDetails) {
-    this.pokemonSpeciesDetails = pokemonSpeciesDetails;
-  }
-
-  public GenderDetail pokemonSpeciesDetails(List<@Valid GenderDetailPokemonSpeciesDetailsInner> pokemonSpeciesDetails) {
-    this.pokemonSpeciesDetails = pokemonSpeciesDetails;
-    return this;
-  }
-
-  public GenderDetail addPokemonSpeciesDetailsItem(GenderDetailPokemonSpeciesDetailsInner pokemonSpeciesDetailsItem) {
-    this.pokemonSpeciesDetails.add(pokemonSpeciesDetailsItem);
-    return this;
-  }
 
  /**
    * Get requiredForEvolution
@@ -98,19 +85,6 @@ public class GenderDetail  {
     return requiredForEvolution;
   }
 
-  public void setRequiredForEvolution(List<@Valid AbilityDetailPokemonInnerPokemon> requiredForEvolution) {
-    this.requiredForEvolution = requiredForEvolution;
-  }
-
-  public GenderDetail requiredForEvolution(List<@Valid AbilityDetailPokemonInnerPokemon> requiredForEvolution) {
-    this.requiredForEvolution = requiredForEvolution;
-    return this;
-  }
-
-  public GenderDetail addRequiredForEvolutionItem(AbilityDetailPokemonInnerPokemon requiredForEvolutionItem) {
-    this.requiredForEvolution.add(requiredForEvolutionItem);
-    return this;
-  }
 
   @Override
   public boolean equals(Object o) {
@@ -150,10 +124,7 @@ public class GenderDetail  {
    * (except the first line).
    */
   private static String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 }
 

@@ -184,7 +184,7 @@ CharacteristicDetail::getId()
 }
 
 void
-CharacteristicDetail::setId(int  id)
+CharacteristicDetail::setId(int id)
 {
 	this->id = id;
 }
@@ -196,7 +196,7 @@ CharacteristicDetail::getGeneModulo()
 }
 
 void
-CharacteristicDetail::setGeneModulo(int  gene_modulo)
+CharacteristicDetail::setGeneModulo(int gene_modulo)
 {
 	this->gene_modulo = gene_modulo;
 }
@@ -208,7 +208,7 @@ CharacteristicDetail::getPossibleValues()
 }
 
 void
-CharacteristicDetail::setPossibleValues(std::list <int> possible_values)
+CharacteristicDetail::setPossibleValues(std::list<int> possible_values)
 {
 	this->possible_values = possible_values;
 }
@@ -220,7 +220,7 @@ CharacteristicDetail::getHighestStat()
 }
 
 void
-CharacteristicDetail::setHighestStat(StatSummary  highest_stat)
+CharacteristicDetail::setHighestStat(StatSummary highest_stat)
 {
 	this->highest_stat = highest_stat;
 }
@@ -232,7 +232,7 @@ CharacteristicDetail::getDescriptions()
 }
 
 void
-CharacteristicDetail::setDescriptions(std::list <CharacteristicDescription> descriptions)
+CharacteristicDetail::setDescriptions(std::list<CharacteristicDescription> descriptions)
 {
 	this->descriptions = descriptions;
 }

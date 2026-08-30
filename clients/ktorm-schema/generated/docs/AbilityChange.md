@@ -6,7 +6,7 @@
 Name | Mapping | SQL Type | Default | Type | Description | Notes
 ---- | ------- | -------- | ------- | ---- | ----------- | -----
 **versionGroup** | version_group | long NOT NULL |  | [**VersionGroupSummary**](VersionGroupSummary.md) |  |  [foreignkey]
-**effectEntries** | `One-To-Many` | `----` | `----`  | [**kotlin.Array&lt;AbilityChangeEffectText&gt;**](AbilityChangeEffectText.md) |  | 
+**effectEntries** | `One-To-Many` | `----` | `----`  | [**kotlin.Array&lt;AbilityChangeEffectText&gt;**](AbilityChangeEffectText.md) |  |  [readonly]
 
 
 

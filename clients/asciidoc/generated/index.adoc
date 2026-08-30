@@ -10230,14 +10230,14 @@ endif::internal-generation[]
 | known_move
 | X
 | 
-|   Object  
+| <<EvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner_gender>>    
 | 
 |     
 
 | known_move_type
 | X
 | 
-|   Object  
+| <<EvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner_gender>>    
 | 
 |     
 

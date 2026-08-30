@@ -31,6 +31,8 @@ PaginatedLocationSummaryList::PaginatedLocationSummaryList()
     
 }
 
+PaginatedLocationSummaryList::~PaginatedLocationSummaryList() = default;
+
 void PaginatedLocationSummaryList::validate() const
 {
     std::stringstream msg;

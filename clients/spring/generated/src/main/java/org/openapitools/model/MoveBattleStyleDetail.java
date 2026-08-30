@@ -11,26 +11,25 @@ import org.openapitools.model.MoveBattleStyleName;
 import org.springframework.lang.Nullable;
 import org.openapitools.jackson.nullable.JsonNullable;
 import java.time.OffsetDateTime;
-import javax.validation.Valid;
-import javax.validation.constraints.*;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.*;
 import io.swagger.v3.oas.annotations.media.Schema;
 
 
 import java.util.*;
-import javax.annotation.Generated;
+import jakarta.annotation.Generated;
 
 /**
  * MoveBattleStyleDetail
  */
 
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2026-02-07T15:29:13.146999890Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2026-08-30T02:00:43.960184425Z[Etc/UTC]", comments = "Generator version: 7.24.0")
 public class MoveBattleStyleDetail {
 
   private Integer id;
 
   private String name;
 
-  @Valid
   private List<@Valid MoveBattleStyleName> names = new ArrayList<>();
 
   public MoveBattleStyleDetail() {
@@ -62,6 +61,7 @@ public class MoveBattleStyleDetail {
     return id;
   }
 
+  @JsonProperty("id")
   public void setId(Integer id) {
     this.id = id;
   }
@@ -82,6 +82,7 @@ public class MoveBattleStyleDetail {
     return name;
   }
 
+  @JsonProperty("name")
   public void setName(String name) {
     this.name = name;
   }
@@ -103,13 +104,14 @@ public class MoveBattleStyleDetail {
    * Get names
    * @return names
    */
-  @NotNull @Valid 
-  @Schema(name = "names", requiredMode = Schema.RequiredMode.REQUIRED)
+  @Valid 
+  @Schema(name = "names", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("names")
   public List<@Valid MoveBattleStyleName> getNames() {
     return names;
   }
 
+  @JsonProperty("names")
   public void setNames(List<@Valid MoveBattleStyleName> names) {
     this.names = names;
   }
@@ -148,11 +150,8 @@ public class MoveBattleStyleDetail {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+  private String toIndentedString(@Nullable Object o) {
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 }
 

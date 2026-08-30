@@ -13,10 +13,10 @@ static pokemon_shape_detail_awesome_names_inner_t *pokemon_shape_detail_awesome_
     if (!pokemon_shape_detail_awesome_names_inner_local_var) {
         return NULL;
     }
+    memset(pokemon_shape_detail_awesome_names_inner_local_var, 0, sizeof(pokemon_shape_detail_awesome_names_inner_t));
+    pokemon_shape_detail_awesome_names_inner_local_var->_library_owned = 1;
     pokemon_shape_detail_awesome_names_inner_local_var->awesome_name = awesome_name;
     pokemon_shape_detail_awesome_names_inner_local_var->language = language;
-
-    pokemon_shape_detail_awesome_names_inner_local_var->_library_owned = 1;
     return pokemon_shape_detail_awesome_names_inner_local_var;
 }
 
@@ -24,10 +24,13 @@ __attribute__((deprecated)) pokemon_shape_detail_awesome_names_inner_t *pokemon_
     char *awesome_name,
     ability_detail_pokemon_inner_pokemon_t *language
     ) {
-    return pokemon_shape_detail_awesome_names_inner_create_internal (
+    pokemon_shape_detail_awesome_names_inner_t *result = pokemon_shape_detail_awesome_names_inner_create_internal (
         awesome_name,
         language
         );
+    if (!result) {
+    }
+    return result;
 }
 
 void pokemon_shape_detail_awesome_names_inner_free(pokemon_shape_detail_awesome_names_inner_t *pokemon_shape_detail_awesome_names_inner) {
@@ -87,6 +90,8 @@ pokemon_shape_detail_awesome_names_inner_t *pokemon_shape_detail_awesome_names_i
 
     pokemon_shape_detail_awesome_names_inner_t *pokemon_shape_detail_awesome_names_inner_local_var = NULL;
 
+    char *awesome_name_local_str = NULL;
+
     // define the local variable for pokemon_shape_detail_awesome_names_inner->language
     ability_detail_pokemon_inner_pokemon_t *language_local_nonprim = NULL;
 
@@ -118,13 +123,23 @@ pokemon_shape_detail_awesome_names_inner_t *pokemon_shape_detail_awesome_names_i
     language_local_nonprim = ability_detail_pokemon_inner_pokemon_parseFromJSON(language); //nonprimitive
 
 
+    if (awesome_name && !cJSON_IsNull(awesome_name)) awesome_name_local_str = strdup(awesome_name->valuestring);
+
     pokemon_shape_detail_awesome_names_inner_local_var = pokemon_shape_detail_awesome_names_inner_create_internal (
-        strdup(awesome_name->valuestring),
+        awesome_name_local_str,
         language_local_nonprim
         );
 
+    if (!pokemon_shape_detail_awesome_names_inner_local_var) {
+        goto end;
+    }
+
     return pokemon_shape_detail_awesome_names_inner_local_var;
 end:
+    if (awesome_name_local_str) {
+        free(awesome_name_local_str);
+        awesome_name_local_str = NULL;
+    }
     if (language_local_nonprim) {
         ability_detail_pokemon_inner_pokemon_free(language_local_nonprim);
         language_local_nonprim = NULL;

@@ -34,7 +34,7 @@ class  ItemDetail_held_by_pokemon_inner
 {
 public:
     ItemDetail_held_by_pokemon_inner();
-    virtual ~ItemDetail_held_by_pokemon_inner() = default;
+    virtual ~ItemDetail_held_by_pokemon_inner();
 
 
     /// <summary>

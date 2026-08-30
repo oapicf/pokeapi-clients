@@ -32,7 +32,7 @@ class  ItemPocketSummary
 {
 public:
     ItemPocketSummary();
-    virtual ~ItemPocketSummary() = default;
+    virtual ~ItemPocketSummary();
 
 
     /// <summary>

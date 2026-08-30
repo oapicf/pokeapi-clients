@@ -44,6 +44,8 @@ MoveMeta::MoveMeta()
     
 }
 
+MoveMeta::~MoveMeta() = default;
+
 void MoveMeta::validate() const
 {
     std::stringstream msg;

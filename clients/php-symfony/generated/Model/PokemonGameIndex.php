@@ -47,7 +47,7 @@ class PokemonGameIndex
      * @var int|null
      * @SerializedName("game_index")
      * @Type("int")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Type("int")]
     protected ?int $gameIndex = null;
@@ -56,7 +56,7 @@ class PokemonGameIndex
      * @var VersionSummary|null
      * @SerializedName("version")
      * @Type("OpenAPI\Server\Model\VersionSummary")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Valid]
     #[Assert\Type("OpenAPI\Server\Model\VersionSummary")]
@@ -85,12 +85,12 @@ class PokemonGameIndex
     }
 
     /**
-    * Sets gameIndex.
-    *
-    * @param int|null $gameIndex
-    *
-    * @return $this
-    */
+     * Sets gameIndex.
+     *
+     * @param int|null $gameIndex
+     *
+     * @return $this
+     */
     public function setGameIndex(?int $gameIndex): self
     {
         $this->gameIndex = $gameIndex;
@@ -112,12 +112,12 @@ class PokemonGameIndex
     }
 
     /**
-    * Sets version.
-    *
-    * @param VersionSummary|null $version
-    *
-    * @return $this
-    */
+     * Sets version.
+     *
+     * @param VersionSummary|null $version
+     *
+     * @return $this
+     */
     public function setVersion(?VersionSummary $version): self
     {
         $this->version = $version;

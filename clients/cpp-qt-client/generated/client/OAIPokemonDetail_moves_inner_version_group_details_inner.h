@@ -32,13 +32,13 @@ class OAIAbilityDetail_pokemon_inner_pokemon;
 class OAIPokemonDetail_moves_inner_version_group_details_inner : public OAIObject {
 public:
     OAIPokemonDetail_moves_inner_version_group_details_inner();
-    OAIPokemonDetail_moves_inner_version_group_details_inner(QString json);
+    OAIPokemonDetail_moves_inner_version_group_details_inner(const QString &json);
     ~OAIPokemonDetail_moves_inner_version_group_details_inner() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     qint32 getLevelLearnedAt() const;
     void setLevelLearnedAt(const qint32 &level_learned_at);

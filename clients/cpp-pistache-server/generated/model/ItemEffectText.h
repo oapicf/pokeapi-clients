@@ -33,7 +33,7 @@ class  ItemEffectText
 {
 public:
     ItemEffectText();
-    virtual ~ItemEffectText() = default;
+    virtual ~ItemEffectText();
 
 
     /// <summary>

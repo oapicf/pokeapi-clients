@@ -17,7 +17,7 @@ import MoveTargetSummary from './MoveTargetSummary';
 /**
  * The PaginatedMoveTargetSummaryList model module.
  * @module model/PaginatedMoveTargetSummaryList
- * @version 1.2.1-pre.0
+ * @version 2.0.1-pre.0
  */
 class PaginatedMoveTargetSummaryList {
     /**

@@ -8,7 +8,7 @@
 | **name** | **kotlin.String** |  |  |
 | **iso639** | **kotlin.String** |  |  |
 | **iso3166** | **kotlin.String** |  |  |
-| **names** | [**kotlin.collections.List&lt;LanguageName&gt;**](LanguageName.md) |  |  |
+| **names** | [**kotlin.collections.List&lt;LanguageName&gt;**](LanguageName.md) |  |  [readonly] |
 | **official** | **kotlin.Boolean** |  |  [optional] |
 
 

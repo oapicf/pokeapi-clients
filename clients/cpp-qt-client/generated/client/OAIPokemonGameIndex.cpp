@@ -21,7 +21,7 @@
 
 namespace OpenAPI {
 
-OAIPokemonGameIndex::OAIPokemonGameIndex(QString json) {
+OAIPokemonGameIndex::OAIPokemonGameIndex(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -41,7 +41,7 @@ void OAIPokemonGameIndex::initializeModel() {
     m_version_isValid = false;
 }
 
-void OAIPokemonGameIndex::fromJson(QString jsonString) {
+void OAIPokemonGameIndex::fromJson(const QString &jsonString) {
     QByteArray array(jsonString.toStdString().c_str());
     QJsonDocument doc = QJsonDocument::fromJson(array);
     QJsonObject jsonObject = doc.object();

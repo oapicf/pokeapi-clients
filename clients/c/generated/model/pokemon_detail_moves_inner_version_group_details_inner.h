@@ -20,7 +20,7 @@ typedef struct pokemon_detail_moves_inner_version_group_details_inner_t pokemon_
 
 
 typedef struct pokemon_detail_moves_inner_version_group_details_inner_t {
-    int level_learned_at; //numeric
+    int *level_learned_at; //numeric
     struct ability_detail_pokemon_inner_pokemon_t *move_learn_method; //model
     struct ability_detail_pokemon_inner_pokemon_t *version_group; //model
 
@@ -28,7 +28,7 @@ typedef struct pokemon_detail_moves_inner_version_group_details_inner_t {
 } pokemon_detail_moves_inner_version_group_details_inner_t;
 
 __attribute__((deprecated)) pokemon_detail_moves_inner_version_group_details_inner_t *pokemon_detail_moves_inner_version_group_details_inner_create(
-    int level_learned_at,
+    int *level_learned_at,
     ability_detail_pokemon_inner_pokemon_t *move_learn_method,
     ability_detail_pokemon_inner_pokemon_t *version_group
 );

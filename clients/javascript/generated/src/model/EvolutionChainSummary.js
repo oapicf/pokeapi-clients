@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The EvolutionChainSummary model module.
  * @module model/EvolutionChainSummary
- * @version 1.2.1-pre.0
+ * @version 2.0.1-pre.0
  */
 class EvolutionChainSummary {
     /**

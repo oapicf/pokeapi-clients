@@ -47,7 +47,7 @@ class TypeDetailSpritesValueValue
      * @var string|null
      * @SerializedName("name-icon")
      * @Type("string")
-    */
+     */
     #[Assert\Type("string")]
     protected ?string $nameIcon = null;
 
@@ -73,12 +73,12 @@ class TypeDetailSpritesValueValue
     }
 
     /**
-    * Sets nameIcon.
-    *
-    * @param string|null $nameIcon
-    *
-    * @return $this
-    */
+     * Sets nameIcon.
+     *
+     * @param string|null $nameIcon
+     *
+     * @return $this
+     */
     public function setNameIcon(?string $nameIcon = null): self
     {
         $this->nameIcon = $nameIcon;

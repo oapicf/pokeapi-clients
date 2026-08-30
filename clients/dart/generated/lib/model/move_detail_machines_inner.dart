@@ -53,10 +53,10 @@ class MoveDetailMachinesInner {
       // Note 1: the values aren't checked for validity beyond being non-null.
       // Note 2: this code is stripped in release mode!
       assert(() {
-        requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "MoveDetailMachinesInner[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "MoveDetailMachinesInner[$key]" has a null value in JSON.');
-        });
+        assert(json.containsKey(r'machine'), 'Required key "MoveDetailMachinesInner[machine]" is missing from JSON.');
+        assert(json[r'machine'] != null, 'Required key "MoveDetailMachinesInner[machine]" has a null value in JSON.');
+        assert(json.containsKey(r'version_group'), 'Required key "MoveDetailMachinesInner[version_group]" is missing from JSON.');
+        assert(json[r'version_group'] != null, 'Required key "MoveDetailMachinesInner[version_group]" has a null value in JSON.');
         return true;
       }());
 

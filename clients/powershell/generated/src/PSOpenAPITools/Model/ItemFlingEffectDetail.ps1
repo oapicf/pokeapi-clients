@@ -71,10 +71,10 @@ function Initialize-ItemFlingEffectDetail {
 
 
         $PSO = [PSCustomObject]@{
-            "id" = ${Id}
-            "name" = ${Name}
-            "effect_entries" = ${EffectEntries}
-            "items" = ${Items}
+            'id' = ${Id}
+            'name' = ${Name}
+            'effect_entries' = ${EffectEntries}
+            'items' = ${Items}
         }
 
 
@@ -112,7 +112,7 @@ function ConvertFrom-JsonToItemFlingEffectDetail {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in ItemFlingEffectDetail
-        $AllProperties = ("id", "name", "effect_entries", "items")
+        $AllProperties = ('id', 'name', 'effect_entries', 'items')
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -123,35 +123,35 @@ function ConvertFrom-JsonToItemFlingEffectDetail {
             throw "Error! Empty JSON cannot be serialized due to the required property 'id' missing."
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "id"))) {
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'id'))) {
             throw "Error! JSON cannot be serialized due to the required property 'id' missing."
         } else {
-            $Id = $JsonParameters.PSobject.Properties["id"].value
+            $Id = $JsonParameters.PSobject.Properties['id'].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "name"))) {
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'name'))) {
             throw "Error! JSON cannot be serialized due to the required property 'name' missing."
         } else {
-            $Name = $JsonParameters.PSobject.Properties["name"].value
+            $Name = $JsonParameters.PSobject.Properties['name'].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "effect_entries"))) {
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'effect_entries'))) {
             throw "Error! JSON cannot be serialized due to the required property 'effect_entries' missing."
         } else {
-            $EffectEntries = $JsonParameters.PSobject.Properties["effect_entries"].value
+            $EffectEntries = $JsonParameters.PSobject.Properties['effect_entries'].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "items"))) {
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'items'))) {
             throw "Error! JSON cannot be serialized due to the required property 'items' missing."
         } else {
-            $Items = $JsonParameters.PSobject.Properties["items"].value
+            $Items = $JsonParameters.PSobject.Properties['items'].value
         }
 
         $PSO = [PSCustomObject]@{
-            "id" = ${Id}
-            "name" = ${Name}
-            "effect_entries" = ${EffectEntries}
-            "items" = ${Items}
+            'id' = ${Id}
+            'name' = ${Name}
+            'effect_entries' = ${EffectEntries}
+            'items' = ${Items}
         }
 
         return $PSO

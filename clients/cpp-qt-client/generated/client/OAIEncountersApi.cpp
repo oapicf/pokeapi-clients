@@ -51,9 +51,9 @@ void OAIEncountersApi::initializeServerConfigs() {
 }
 
 /**
-* returns 0 on success and -1, -2 or -3 on failure.
-* -1 when the variable does not exist and -2 if the value is not defined in the enum and -3 if the operation or server index is not found
-*/
+ * returns 0 on success and -1, -2 or -3 on failure.
+ * -1 when the variable does not exist and -2 if the value is not defined in the enum and -3 if the operation or server index is not found
+ */
 int OAIEncountersApi::setDefaultServerValue(int serverIndex, const QString &operation, const QString &variable, const QString &value) {
     auto it = _serverConfigs.find(operation);
     if (it != _serverConfigs.end() && serverIndex < it.value().size()) {
@@ -61,9 +61,21 @@ int OAIEncountersApi::setDefaultServerValue(int serverIndex, const QString &oper
     }
     return -3;
 }
+
+/**
+ * Sets the server index.
+ * @param operation The id to the target operation.
+ * @param serverIndex The server index.
+ */
 void OAIEncountersApi::setServerIndex(const QString &operation, int serverIndex) {
     if (_serverIndices.contains(operation) && serverIndex < _serverConfigs.find(operation).value().size()) {
         _serverIndices[operation] = serverIndex;
+    }
+}
+
+void OAIEncountersApi::setServerIndex(int serverIndex) {
+    for (auto keyIt = _serverIndices.keyBegin(); keyIt != _serverIndices.keyEnd(); keyIt++) {
+        setServerIndex(*keyIt, serverIndex);
     }
 }
 
@@ -97,13 +109,13 @@ void OAIEncountersApi::setNetworkAccessManager(QNetworkAccessManager* manager) {
 }
 
 /**
-    * Appends a new ServerConfiguration to the config map for a specific operation.
-    * @param operation The id to the target operation.
-    * @param url A string that contains the URL of the server
-    * @param description A String that describes the server
-    * @param variables A map between a variable name and its value. The value is used for substitution in the server's URL template.
-    * returns the index of the new server config on success and -1 if the operation is not found
-    */
+ * Appends a new ServerConfiguration to the config map for a specific operation.
+ * @param operation The id to the target operation.
+ * @param url A string that contains the URL of the server
+ * @param description A String that describes the server
+ * @param variables A map between a variable name and its value. The value is used for substitution in the server's URL template.
+ * returns the index of the new server config on success and -1 if the operation is not found
+ */
 int OAIEncountersApi::addServerConfiguration(const QString &operation, const QUrl &url, const QString &description, const QMap<QString, OAIServerVariable> &variables) {
     if (_serverConfigs.contains(operation)) {
         _serverConfigs[operation].append(OAIServerConfiguration(
@@ -117,11 +129,11 @@ int OAIEncountersApi::addServerConfiguration(const QString &operation, const QUr
 }
 
 /**
-    * Appends a new ServerConfiguration to the config map for a all operations and sets the index to that server.
-    * @param url A string that contains the URL of the server
-    * @param description A String that describes the server
-    * @param variables A map between a variable name and its value. The value is used for substitution in the server's URL template.
-    */
+ * Appends a new ServerConfiguration to the config map for a all operations and sets the index to that server.
+ * @param url A string that contains the URL of the server
+ * @param description A String that describes the server
+ * @param variables A map between a variable name and its value. The value is used for substitution in the server's URL template.
+ */
 void OAIEncountersApi::setNewServerForAllOperations(const QUrl &url, const QString &description, const QMap<QString, OAIServerVariable> &variables) {
     for (auto keyIt = _serverIndices.keyBegin(); keyIt != _serverIndices.keyEnd(); keyIt++) {
         setServerIndex(*keyIt, addServerConfiguration(*keyIt, url, description, variables));
@@ -129,11 +141,11 @@ void OAIEncountersApi::setNewServerForAllOperations(const QUrl &url, const QStri
 }
 
 /**
-    * Appends a new ServerConfiguration to the config map for an operations and sets the index to that server.
-    * @param URL A string that contains the URL of the server
-    * @param description A String that describes the server
-    * @param variables A map between a variable name and its value. The value is used for substitution in the server's URL template.
-    */
+ * Appends a new ServerConfiguration to the config map for an operations and sets the index to that server.
+ * @param URL A string that contains the URL of the server
+ * @param description A String that describes the server
+ * @param variables A map between a variable name and its value. The value is used for substitution in the server's URL template.
+ */
 void OAIEncountersApi::setNewServer(const QString &operation, const QUrl &url, const QString &description, const QMap<QString, OAIServerVariable> &variables) {
     setServerIndex(operation, addServerConfiguration(operation, url, description, variables));
 }
@@ -307,32 +319,6 @@ void OAIEncountersApi::encounterConditionListCallback(OAIHttpRequestWorker *work
         Q_EMIT encounterConditionListSignal(output);
         Q_EMIT encounterConditionListSignalFull(worker, output);
     } else {
-
-#if defined(_MSC_VER)
-// For MSVC
-#pragma warning(push)
-#pragma warning(disable : 4996)
-#elif defined(__clang__)
-// For Clang
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
-#elif defined(__GNUC__)
-// For GCC
-#pragma GCC diagnostic push
-#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
-#endif
-
-        Q_EMIT encounterConditionListSignalE(output, error_type, error_str);
-        Q_EMIT encounterConditionListSignalEFull(worker, error_type, error_str);
-
-#if defined(_MSC_VER)
-#pragma warning(pop)
-#elif defined(__clang__)
-#pragma clang diagnostic pop
-#elif defined(__GNUC__)
-#pragma GCC diagnostic pop
-#endif
-
         Q_EMIT encounterConditionListSignalError(output, error_type, error_str);
         Q_EMIT encounterConditionListSignalErrorFull(worker, error_type, error_str);
     }
@@ -396,32 +382,6 @@ void OAIEncountersApi::encounterConditionRetrieveCallback(OAIHttpRequestWorker *
         Q_EMIT encounterConditionRetrieveSignal(output);
         Q_EMIT encounterConditionRetrieveSignalFull(worker, output);
     } else {
-
-#if defined(_MSC_VER)
-// For MSVC
-#pragma warning(push)
-#pragma warning(disable : 4996)
-#elif defined(__clang__)
-// For Clang
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
-#elif defined(__GNUC__)
-// For GCC
-#pragma GCC diagnostic push
-#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
-#endif
-
-        Q_EMIT encounterConditionRetrieveSignalE(output, error_type, error_str);
-        Q_EMIT encounterConditionRetrieveSignalEFull(worker, error_type, error_str);
-
-#if defined(_MSC_VER)
-#pragma warning(pop)
-#elif defined(__clang__)
-#pragma clang diagnostic pop
-#elif defined(__GNUC__)
-#pragma GCC diagnostic pop
-#endif
-
         Q_EMIT encounterConditionRetrieveSignalError(output, error_type, error_str);
         Q_EMIT encounterConditionRetrieveSignalErrorFull(worker, error_type, error_str);
     }
@@ -517,32 +477,6 @@ void OAIEncountersApi::encounterConditionValueListCallback(OAIHttpRequestWorker 
         Q_EMIT encounterConditionValueListSignal(output);
         Q_EMIT encounterConditionValueListSignalFull(worker, output);
     } else {
-
-#if defined(_MSC_VER)
-// For MSVC
-#pragma warning(push)
-#pragma warning(disable : 4996)
-#elif defined(__clang__)
-// For Clang
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
-#elif defined(__GNUC__)
-// For GCC
-#pragma GCC diagnostic push
-#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
-#endif
-
-        Q_EMIT encounterConditionValueListSignalE(output, error_type, error_str);
-        Q_EMIT encounterConditionValueListSignalEFull(worker, error_type, error_str);
-
-#if defined(_MSC_VER)
-#pragma warning(pop)
-#elif defined(__clang__)
-#pragma clang diagnostic pop
-#elif defined(__GNUC__)
-#pragma GCC diagnostic pop
-#endif
-
         Q_EMIT encounterConditionValueListSignalError(output, error_type, error_str);
         Q_EMIT encounterConditionValueListSignalErrorFull(worker, error_type, error_str);
     }
@@ -606,32 +540,6 @@ void OAIEncountersApi::encounterConditionValueRetrieveCallback(OAIHttpRequestWor
         Q_EMIT encounterConditionValueRetrieveSignal(output);
         Q_EMIT encounterConditionValueRetrieveSignalFull(worker, output);
     } else {
-
-#if defined(_MSC_VER)
-// For MSVC
-#pragma warning(push)
-#pragma warning(disable : 4996)
-#elif defined(__clang__)
-// For Clang
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
-#elif defined(__GNUC__)
-// For GCC
-#pragma GCC diagnostic push
-#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
-#endif
-
-        Q_EMIT encounterConditionValueRetrieveSignalE(output, error_type, error_str);
-        Q_EMIT encounterConditionValueRetrieveSignalEFull(worker, error_type, error_str);
-
-#if defined(_MSC_VER)
-#pragma warning(pop)
-#elif defined(__clang__)
-#pragma clang diagnostic pop
-#elif defined(__GNUC__)
-#pragma GCC diagnostic pop
-#endif
-
         Q_EMIT encounterConditionValueRetrieveSignalError(output, error_type, error_str);
         Q_EMIT encounterConditionValueRetrieveSignalErrorFull(worker, error_type, error_str);
     }
@@ -727,32 +635,6 @@ void OAIEncountersApi::encounterMethodListCallback(OAIHttpRequestWorker *worker)
         Q_EMIT encounterMethodListSignal(output);
         Q_EMIT encounterMethodListSignalFull(worker, output);
     } else {
-
-#if defined(_MSC_VER)
-// For MSVC
-#pragma warning(push)
-#pragma warning(disable : 4996)
-#elif defined(__clang__)
-// For Clang
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
-#elif defined(__GNUC__)
-// For GCC
-#pragma GCC diagnostic push
-#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
-#endif
-
-        Q_EMIT encounterMethodListSignalE(output, error_type, error_str);
-        Q_EMIT encounterMethodListSignalEFull(worker, error_type, error_str);
-
-#if defined(_MSC_VER)
-#pragma warning(pop)
-#elif defined(__clang__)
-#pragma clang diagnostic pop
-#elif defined(__GNUC__)
-#pragma GCC diagnostic pop
-#endif
-
         Q_EMIT encounterMethodListSignalError(output, error_type, error_str);
         Q_EMIT encounterMethodListSignalErrorFull(worker, error_type, error_str);
     }
@@ -816,42 +698,16 @@ void OAIEncountersApi::encounterMethodRetrieveCallback(OAIHttpRequestWorker *wor
         Q_EMIT encounterMethodRetrieveSignal(output);
         Q_EMIT encounterMethodRetrieveSignalFull(worker, output);
     } else {
-
-#if defined(_MSC_VER)
-// For MSVC
-#pragma warning(push)
-#pragma warning(disable : 4996)
-#elif defined(__clang__)
-// For Clang
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
-#elif defined(__GNUC__)
-// For GCC
-#pragma GCC diagnostic push
-#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
-#endif
-
-        Q_EMIT encounterMethodRetrieveSignalE(output, error_type, error_str);
-        Q_EMIT encounterMethodRetrieveSignalEFull(worker, error_type, error_str);
-
-#if defined(_MSC_VER)
-#pragma warning(pop)
-#elif defined(__clang__)
-#pragma clang diagnostic pop
-#elif defined(__GNUC__)
-#pragma GCC diagnostic pop
-#endif
-
         Q_EMIT encounterMethodRetrieveSignalError(output, error_type, error_str);
         Q_EMIT encounterMethodRetrieveSignalErrorFull(worker, error_type, error_str);
     }
 }
 
-void OAIEncountersApi::tokenAvailable(){
+void OAIEncountersApi::tokenAvailable() {
 
     oauthToken token;
     switch (_OauthMethod) {
-    case 1: //implicit flow
+    case OauthMethod::ImplicitFlow:
         token = _implicitFlow.getToken(_latestScope.join(" "));
         if(token.isValid()){
             _latestInput.headers.insert("Authorization", "Bearer " + token.getToken());
@@ -861,7 +717,7 @@ void OAIEncountersApi::tokenAvailable(){
             qDebug() << "Could not retrieve a valid token";
         }
         break;
-    case 2: //authorization flow
+    case OauthMethod::AuthorizationFlow:
         token = _authFlow.getToken(_latestScope.join(" "));
         if(token.isValid()){
             _latestInput.headers.insert("Authorization", "Bearer " + token.getToken());
@@ -871,7 +727,7 @@ void OAIEncountersApi::tokenAvailable(){
             qDebug() << "Could not retrieve a valid token";
         }
         break;
-    case 3: //client credentials flow
+    case OauthMethod::ClientCredentialsFlow:
         token = _credentialFlow.getToken(_latestScope.join(" "));
         if(token.isValid()){
             _latestInput.headers.insert("Authorization", "Bearer " + token.getToken());
@@ -881,7 +737,7 @@ void OAIEncountersApi::tokenAvailable(){
             qDebug() << "Could not retrieve a valid token";
         }
         break;
-    case 4: //resource owner password flow
+    case OauthMethod::ResourceOwnerPasswordFlow:
         token = _passwordFlow.getToken(_latestScope.join(" "));
         if(token.isValid()){
             _latestInput.headers.insert("Authorization", "Bearer " + token.getToken());

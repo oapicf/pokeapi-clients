@@ -164,6 +164,7 @@ public class AbilityDetail  {
 
   /**
    * Sets the <code>names</code> property.
+   * <br><em>N.B. <code>names</code> is <b>read only</b>; client code should not call this method</em>.
    */
  public void setNames(List<@Valid AbilityName> names) {
     this.names = names;
@@ -171,6 +172,7 @@ public class AbilityDetail  {
 
   /**
    * Sets the <code>names</code> property.
+   * <br><em>N.B. <code>names</code> is <b>read only</b>; client code should not call this method</em>.
    */
   public AbilityDetail names(List<@Valid AbilityName> names) {
     this.names = names;
@@ -179,6 +181,7 @@ public class AbilityDetail  {
 
   /**
    * Adds a new item to the <code>names</code> list.
+   * <br><em>N.B. <code>names</code> is <b>read only</b>; client code should not call this method</em>.
    */
   public AbilityDetail addNamesItem(AbilityName namesItem) {
     this.names.add(namesItem);
@@ -197,6 +200,7 @@ public class AbilityDetail  {
 
   /**
    * Sets the <code>effectEntries</code> property.
+   * <br><em>N.B. <code>effectEntries</code> is <b>read only</b>; client code should not call this method</em>.
    */
  public void setEffectEntries(List<@Valid AbilityEffectText> effectEntries) {
     this.effectEntries = effectEntries;
@@ -204,6 +208,7 @@ public class AbilityDetail  {
 
   /**
    * Sets the <code>effectEntries</code> property.
+   * <br><em>N.B. <code>effectEntries</code> is <b>read only</b>; client code should not call this method</em>.
    */
   public AbilityDetail effectEntries(List<@Valid AbilityEffectText> effectEntries) {
     this.effectEntries = effectEntries;
@@ -212,6 +217,7 @@ public class AbilityDetail  {
 
   /**
    * Adds a new item to the <code>effectEntries</code> list.
+   * <br><em>N.B. <code>effectEntries</code> is <b>read only</b>; client code should not call this method</em>.
    */
   public AbilityDetail addEffectEntriesItem(AbilityEffectText effectEntriesItem) {
     this.effectEntries.add(effectEntriesItem);
@@ -230,6 +236,7 @@ public class AbilityDetail  {
 
   /**
    * Sets the <code>effectChanges</code> property.
+   * <br><em>N.B. <code>effectChanges</code> is <b>read only</b>; client code should not call this method</em>.
    */
  public void setEffectChanges(List<@Valid AbilityChange> effectChanges) {
     this.effectChanges = effectChanges;
@@ -237,6 +244,7 @@ public class AbilityDetail  {
 
   /**
    * Sets the <code>effectChanges</code> property.
+   * <br><em>N.B. <code>effectChanges</code> is <b>read only</b>; client code should not call this method</em>.
    */
   public AbilityDetail effectChanges(List<@Valid AbilityChange> effectChanges) {
     this.effectChanges = effectChanges;
@@ -245,6 +253,7 @@ public class AbilityDetail  {
 
   /**
    * Adds a new item to the <code>effectChanges</code> list.
+   * <br><em>N.B. <code>effectChanges</code> is <b>read only</b>; client code should not call this method</em>.
    */
   public AbilityDetail addEffectChangesItem(AbilityChange effectChangesItem) {
     this.effectChanges.add(effectChangesItem);
@@ -263,6 +272,7 @@ public class AbilityDetail  {
 
   /**
    * Sets the <code>flavorTextEntries</code> property.
+   * <br><em>N.B. <code>flavorTextEntries</code> is <b>read only</b>; client code should not call this method</em>.
    */
  public void setFlavorTextEntries(List<@Valid AbilityFlavorText> flavorTextEntries) {
     this.flavorTextEntries = flavorTextEntries;
@@ -270,6 +280,7 @@ public class AbilityDetail  {
 
   /**
    * Sets the <code>flavorTextEntries</code> property.
+   * <br><em>N.B. <code>flavorTextEntries</code> is <b>read only</b>; client code should not call this method</em>.
    */
   public AbilityDetail flavorTextEntries(List<@Valid AbilityFlavorText> flavorTextEntries) {
     this.flavorTextEntries = flavorTextEntries;
@@ -278,6 +289,7 @@ public class AbilityDetail  {
 
   /**
    * Adds a new item to the <code>flavorTextEntries</code> list.
+   * <br><em>N.B. <code>flavorTextEntries</code> is <b>read only</b>; client code should not call this method</em>.
    */
   public AbilityDetail addFlavorTextEntriesItem(AbilityFlavorText flavorTextEntriesItem) {
     this.flavorTextEntries.add(flavorTextEntriesItem);
@@ -296,6 +308,7 @@ public class AbilityDetail  {
 
   /**
    * Sets the <code>pokemon</code> property.
+   * <br><em>N.B. <code>pokemon</code> is <b>read only</b>; client code should not call this method</em>.
    */
  public void setPokemon(List<@Valid AbilityDetailPokemonInner> pokemon) {
     this.pokemon = pokemon;
@@ -303,6 +316,7 @@ public class AbilityDetail  {
 
   /**
    * Sets the <code>pokemon</code> property.
+   * <br><em>N.B. <code>pokemon</code> is <b>read only</b>; client code should not call this method</em>.
    */
   public AbilityDetail pokemon(List<@Valid AbilityDetailPokemonInner> pokemon) {
     this.pokemon = pokemon;
@@ -311,6 +325,7 @@ public class AbilityDetail  {
 
   /**
    * Adds a new item to the <code>pokemon</code> list.
+   * <br><em>N.B. <code>pokemon</code> is <b>read only</b>; client code should not call this method</em>.
    */
   public AbilityDetail addPokemonItem(AbilityDetailPokemonInner pokemonItem) {
     this.pokemon.add(pokemonItem);
@@ -366,10 +381,7 @@ public class AbilityDetail  {
    * (except the first line).
    */
   private static String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 }
 

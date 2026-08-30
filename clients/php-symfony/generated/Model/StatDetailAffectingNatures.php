@@ -47,7 +47,7 @@ class StatDetailAffectingNatures
      * @var AbilityDetailPokemonInnerPokemon[]|null
      * @SerializedName("increase")
      * @Type("array<OpenAPI\Server\Model\AbilityDetailPokemonInnerPokemon>")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Valid]
     #[Assert\All([
@@ -59,7 +59,7 @@ class StatDetailAffectingNatures
      * @var AbilityDetailPokemonInnerPokemon[]|null
      * @SerializedName("decrease")
      * @Type("array<OpenAPI\Server\Model\AbilityDetailPokemonInnerPokemon>")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Valid]
     #[Assert\All([
@@ -90,12 +90,12 @@ class StatDetailAffectingNatures
     }
 
     /**
-    * Sets increase.
-    *
-    * @param AbilityDetailPokemonInnerPokemon[]|null $increase
-    *
-    * @return $this
-    */
+     * Sets increase.
+     *
+     * @param AbilityDetailPokemonInnerPokemon[]|null $increase
+     *
+     * @return $this
+     */
     public function setIncrease(?array $increase): self
     {
         $this->increase = $increase;
@@ -117,12 +117,12 @@ class StatDetailAffectingNatures
     }
 
     /**
-    * Sets decrease.
-    *
-    * @param AbilityDetailPokemonInnerPokemon[]|null $decrease
-    *
-    * @return $this
-    */
+     * Sets decrease.
+     *
+     * @param AbilityDetailPokemonInnerPokemon[]|null $decrease
+     *
+     * @return $this
+     */
     public function setDecrease(?array $decrease): self
     {
         $this->decrease = $decrease;

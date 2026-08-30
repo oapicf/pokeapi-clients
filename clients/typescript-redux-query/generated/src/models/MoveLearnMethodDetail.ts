@@ -47,19 +47,19 @@ export interface MoveLearnMethodDetail  {
      * @type {Array<MoveLearnMethodName>}
      * @memberof MoveLearnMethodDetail
      */
-    names: Array<MoveLearnMethodName>;
+    readonly names: Array<MoveLearnMethodName>;
     /**
      * 
      * @type {Array<MoveLearnMethodDescription>}
      * @memberof MoveLearnMethodDetail
      */
-    descriptions: Array<MoveLearnMethodDescription>;
+    readonly descriptions: Array<MoveLearnMethodDescription>;
     /**
      * 
      * @type {Array<AbilityDetailPokemonInnerPokemon>}
      * @memberof MoveLearnMethodDetail
      */
-    versionGroups: Array<AbilityDetailPokemonInnerPokemon>;
+    readonly versionGroups: Array<AbilityDetailPokemonInnerPokemon>;
 }
 
 export function MoveLearnMethodDetailFromJSON(json: any): MoveLearnMethodDetail {
@@ -78,9 +78,6 @@ export function MoveLearnMethodDetailToJSON(value?: MoveLearnMethodDetail): any 
     }
     return {
         'name': value.name,
-        'names': (value.names as Array<any>).map(MoveLearnMethodNameToJSON),
-        'descriptions': (value.descriptions as Array<any>).map(MoveLearnMethodDescriptionToJSON),
-        'version_groups': (value.versionGroups as Array<any>).map(AbilityDetailPokemonInnerPokemonToJSON),
     };
 }
 

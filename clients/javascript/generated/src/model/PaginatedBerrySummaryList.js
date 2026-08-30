@@ -17,7 +17,7 @@ import BerrySummary from './BerrySummary';
 /**
  * The PaginatedBerrySummaryList model module.
  * @module model/PaginatedBerrySummaryList
- * @version 1.2.1-pre.0
+ * @version 2.0.1-pre.0
  */
 class PaginatedBerrySummaryList {
     /**

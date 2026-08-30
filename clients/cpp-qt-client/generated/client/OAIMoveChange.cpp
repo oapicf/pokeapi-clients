@@ -21,7 +21,7 @@
 
 namespace OpenAPI {
 
-OAIMoveChange::OAIMoveChange(QString json) {
+OAIMoveChange::OAIMoveChange(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -56,7 +56,7 @@ void OAIMoveChange::initializeModel() {
     m_version_group_isValid = false;
 }
 
-void OAIMoveChange::fromJson(QString jsonString) {
+void OAIMoveChange::fromJson(const QString &jsonString) {
     QByteArray array(jsonString.toStdString().c_str());
     QJsonDocument doc = QJsonDocument::fromJson(array);
     QJsonObject jsonObject = doc.object();

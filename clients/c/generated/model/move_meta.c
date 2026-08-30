@@ -8,21 +8,23 @@
 static move_meta_t *move_meta_create_internal(
     move_meta_ailment_summary_t *ailment,
     move_meta_category_summary_t *category,
-    int min_hits,
-    int max_hits,
-    int min_turns,
-    int max_turns,
-    int drain,
-    int healing,
-    int crit_rate,
-    int ailment_chance,
-    int flinch_chance,
-    int stat_chance
+    int *min_hits,
+    int *max_hits,
+    int *min_turns,
+    int *max_turns,
+    int *drain,
+    int *healing,
+    int *crit_rate,
+    int *ailment_chance,
+    int *flinch_chance,
+    int *stat_chance
     ) {
     move_meta_t *move_meta_local_var = malloc(sizeof(move_meta_t));
     if (!move_meta_local_var) {
         return NULL;
     }
+    memset(move_meta_local_var, 0, sizeof(move_meta_t));
+    move_meta_local_var->_library_owned = 1;
     move_meta_local_var->ailment = ailment;
     move_meta_local_var->category = category;
     move_meta_local_var->min_hits = min_hits;
@@ -35,39 +37,100 @@ static move_meta_t *move_meta_create_internal(
     move_meta_local_var->ailment_chance = ailment_chance;
     move_meta_local_var->flinch_chance = flinch_chance;
     move_meta_local_var->stat_chance = stat_chance;
-
-    move_meta_local_var->_library_owned = 1;
     return move_meta_local_var;
 }
 
 __attribute__((deprecated)) move_meta_t *move_meta_create(
     move_meta_ailment_summary_t *ailment,
     move_meta_category_summary_t *category,
-    int min_hits,
-    int max_hits,
-    int min_turns,
-    int max_turns,
-    int drain,
-    int healing,
-    int crit_rate,
-    int ailment_chance,
-    int flinch_chance,
-    int stat_chance
+    int *min_hits,
+    int *max_hits,
+    int *min_turns,
+    int *max_turns,
+    int *drain,
+    int *healing,
+    int *crit_rate,
+    int *ailment_chance,
+    int *flinch_chance,
+    int *stat_chance
     ) {
-    return move_meta_create_internal (
+    int *min_hits_copy = NULL;
+    if (min_hits) {
+        min_hits_copy = malloc(sizeof(int));
+        if (min_hits_copy) *min_hits_copy = *min_hits;
+    }
+    int *max_hits_copy = NULL;
+    if (max_hits) {
+        max_hits_copy = malloc(sizeof(int));
+        if (max_hits_copy) *max_hits_copy = *max_hits;
+    }
+    int *min_turns_copy = NULL;
+    if (min_turns) {
+        min_turns_copy = malloc(sizeof(int));
+        if (min_turns_copy) *min_turns_copy = *min_turns;
+    }
+    int *max_turns_copy = NULL;
+    if (max_turns) {
+        max_turns_copy = malloc(sizeof(int));
+        if (max_turns_copy) *max_turns_copy = *max_turns;
+    }
+    int *drain_copy = NULL;
+    if (drain) {
+        drain_copy = malloc(sizeof(int));
+        if (drain_copy) *drain_copy = *drain;
+    }
+    int *healing_copy = NULL;
+    if (healing) {
+        healing_copy = malloc(sizeof(int));
+        if (healing_copy) *healing_copy = *healing;
+    }
+    int *crit_rate_copy = NULL;
+    if (crit_rate) {
+        crit_rate_copy = malloc(sizeof(int));
+        if (crit_rate_copy) *crit_rate_copy = *crit_rate;
+    }
+    int *ailment_chance_copy = NULL;
+    if (ailment_chance) {
+        ailment_chance_copy = malloc(sizeof(int));
+        if (ailment_chance_copy) *ailment_chance_copy = *ailment_chance;
+    }
+    int *flinch_chance_copy = NULL;
+    if (flinch_chance) {
+        flinch_chance_copy = malloc(sizeof(int));
+        if (flinch_chance_copy) *flinch_chance_copy = *flinch_chance;
+    }
+    int *stat_chance_copy = NULL;
+    if (stat_chance) {
+        stat_chance_copy = malloc(sizeof(int));
+        if (stat_chance_copy) *stat_chance_copy = *stat_chance;
+    }
+    move_meta_t *result = move_meta_create_internal (
         ailment,
         category,
-        min_hits,
-        max_hits,
-        min_turns,
-        max_turns,
-        drain,
-        healing,
-        crit_rate,
-        ailment_chance,
-        flinch_chance,
-        stat_chance
+        min_hits_copy,
+        max_hits_copy,
+        min_turns_copy,
+        max_turns_copy,
+        drain_copy,
+        healing_copy,
+        crit_rate_copy,
+        ailment_chance_copy,
+        flinch_chance_copy,
+        stat_chance_copy
         );
+    if (!result) {
+        free(min_hits_copy);
+        free(max_hits_copy);
+        free(min_turns_copy);
+        free(max_turns_copy);
+        free(drain_copy);
+        free(healing_copy);
+        free(crit_rate_copy);
+        free(ailment_chance_copy);
+        free(flinch_chance_copy);
+        free(stat_chance_copy);
+    }
+    return result;
 }
 
 void move_meta_free(move_meta_t *move_meta) {
@@ -86,6 +149,46 @@ void move_meta_free(move_meta_t *move_meta) {
     if (move_meta->category) {
         move_meta_category_summary_free(move_meta->category);
         move_meta->category = NULL;
+    }
+    if (move_meta->min_hits) {
+        free(move_meta->min_hits);
+        move_meta->min_hits = NULL;
+    }
+    if (move_meta->max_hits) {
+        free(move_meta->max_hits);
+        move_meta->max_hits = NULL;
+    }
+    if (move_meta->min_turns) {
+        free(move_meta->min_turns);
+        move_meta->min_turns = NULL;
+    }
+    if (move_meta->max_turns) {
+        free(move_meta->max_turns);
+        move_meta->max_turns = NULL;
+    }
+    if (move_meta->drain) {
+        free(move_meta->drain);
+        move_meta->drain = NULL;
+    }
+    if (move_meta->healing) {
+        free(move_meta->healing);
+        move_meta->healing = NULL;
+    }
+    if (move_meta->crit_rate) {
+        free(move_meta->crit_rate);
+        move_meta->crit_rate = NULL;
+    }
+    if (move_meta->ailment_chance) {
+        free(move_meta->ailment_chance);
+        move_meta->ailment_chance = NULL;
+    }
+    if (move_meta->flinch_chance) {
+        free(move_meta->flinch_chance);
+        move_meta->flinch_chance = NULL;
+    }
+    if (move_meta->stat_chance) {
+        free(move_meta->stat_chance);
+        move_meta->stat_chance = NULL;
     }
     free(move_meta);
 }
@@ -123,7 +226,7 @@ cJSON *move_meta_convertToJSON(move_meta_t *move_meta) {
 
     // move_meta->min_hits
     if(move_meta->min_hits) {
-    if(cJSON_AddNumberToObject(item, "min_hits", move_meta->min_hits) == NULL) {
+    if(cJSON_AddNumberToObject(item, "min_hits", *move_meta->min_hits) == NULL) {
     goto fail; //Numeric
     }
     }
@@ -131,7 +234,7 @@ cJSON *move_meta_convertToJSON(move_meta_t *move_meta) {
 
     // move_meta->max_hits
     if(move_meta->max_hits) {
-    if(cJSON_AddNumberToObject(item, "max_hits", move_meta->max_hits) == NULL) {
+    if(cJSON_AddNumberToObject(item, "max_hits", *move_meta->max_hits) == NULL) {
     goto fail; //Numeric
     }
     }
@@ -139,7 +242,7 @@ cJSON *move_meta_convertToJSON(move_meta_t *move_meta) {
 
     // move_meta->min_turns
     if(move_meta->min_turns) {
-    if(cJSON_AddNumberToObject(item, "min_turns", move_meta->min_turns) == NULL) {
+    if(cJSON_AddNumberToObject(item, "min_turns", *move_meta->min_turns) == NULL) {
     goto fail; //Numeric
     }
     }
@@ -147,7 +250,7 @@ cJSON *move_meta_convertToJSON(move_meta_t *move_meta) {
 
     // move_meta->max_turns
     if(move_meta->max_turns) {
-    if(cJSON_AddNumberToObject(item, "max_turns", move_meta->max_turns) == NULL) {
+    if(cJSON_AddNumberToObject(item, "max_turns", *move_meta->max_turns) == NULL) {
     goto fail; //Numeric
     }
     }
@@ -155,7 +258,7 @@ cJSON *move_meta_convertToJSON(move_meta_t *move_meta) {
 
     // move_meta->drain
     if(move_meta->drain) {
-    if(cJSON_AddNumberToObject(item, "drain", move_meta->drain) == NULL) {
+    if(cJSON_AddNumberToObject(item, "drain", *move_meta->drain) == NULL) {
     goto fail; //Numeric
     }
     }
@@ -163,7 +266,7 @@ cJSON *move_meta_convertToJSON(move_meta_t *move_meta) {
 
     // move_meta->healing
     if(move_meta->healing) {
-    if(cJSON_AddNumberToObject(item, "healing", move_meta->healing) == NULL) {
+    if(cJSON_AddNumberToObject(item, "healing", *move_meta->healing) == NULL) {
     goto fail; //Numeric
     }
     }
@@ -171,7 +274,7 @@ cJSON *move_meta_convertToJSON(move_meta_t *move_meta) {
 
     // move_meta->crit_rate
     if(move_meta->crit_rate) {
-    if(cJSON_AddNumberToObject(item, "crit_rate", move_meta->crit_rate) == NULL) {
+    if(cJSON_AddNumberToObject(item, "crit_rate", *move_meta->crit_rate) == NULL) {
     goto fail; //Numeric
     }
     }
@@ -179,7 +282,7 @@ cJSON *move_meta_convertToJSON(move_meta_t *move_meta) {
 
     // move_meta->ailment_chance
     if(move_meta->ailment_chance) {
-    if(cJSON_AddNumberToObject(item, "ailment_chance", move_meta->ailment_chance) == NULL) {
+    if(cJSON_AddNumberToObject(item, "ailment_chance", *move_meta->ailment_chance) == NULL) {
     goto fail; //Numeric
     }
     }
@@ -187,7 +290,7 @@ cJSON *move_meta_convertToJSON(move_meta_t *move_meta) {
 
     // move_meta->flinch_chance
     if(move_meta->flinch_chance) {
-    if(cJSON_AddNumberToObject(item, "flinch_chance", move_meta->flinch_chance) == NULL) {
+    if(cJSON_AddNumberToObject(item, "flinch_chance", *move_meta->flinch_chance) == NULL) {
     goto fail; //Numeric
     }
     }
@@ -195,7 +298,7 @@ cJSON *move_meta_convertToJSON(move_meta_t *move_meta) {
 
     // move_meta->stat_chance
     if(move_meta->stat_chance) {
-    if(cJSON_AddNumberToObject(item, "stat_chance", move_meta->stat_chance) == NULL) {
+    if(cJSON_AddNumberToObject(item, "stat_chance", *move_meta->stat_chance) == NULL) {
     goto fail; //Numeric
     }
     }
@@ -217,6 +320,36 @@ move_meta_t *move_meta_parseFromJSON(cJSON *move_metaJSON){
 
     // define the local variable for move_meta->category
     move_meta_category_summary_t *category_local_nonprim = NULL;
+
+    // define the local variable for move_meta->min_hits
+    int *min_hits_local_var = NULL;
+
+    // define the local variable for move_meta->max_hits
+    int *max_hits_local_var = NULL;
+
+    // define the local variable for move_meta->min_turns
+    int *min_turns_local_var = NULL;
+
+    // define the local variable for move_meta->max_turns
+    int *max_turns_local_var = NULL;
+
+    // define the local variable for move_meta->drain
+    int *drain_local_var = NULL;
+
+    // define the local variable for move_meta->healing
+    int *healing_local_var = NULL;
+
+    // define the local variable for move_meta->crit_rate
+    int *crit_rate_local_var = NULL;
+
+    // define the local variable for move_meta->ailment_chance
+    int *ailment_chance_local_var = NULL;
+
+    // define the local variable for move_meta->flinch_chance
+    int *flinch_chance_local_var = NULL;
+
+    // define the local variable for move_meta->stat_chance
+    int *stat_chance_local_var = NULL;
 
     // move_meta->ailment
     cJSON *ailment = cJSON_GetObjectItemCaseSensitive(move_metaJSON, "ailment");
@@ -252,6 +385,12 @@ move_meta_t *move_meta_parseFromJSON(cJSON *move_metaJSON){
     {
     goto end; //Numeric
     }
+    min_hits_local_var = malloc(sizeof(int));
+    if(!min_hits_local_var)
+    {
+        goto end;
+    }
+    *min_hits_local_var = min_hits->valuedouble;
     }
 
     // move_meta->max_hits
@@ -264,6 +403,12 @@ move_meta_t *move_meta_parseFromJSON(cJSON *move_metaJSON){
     {
     goto end; //Numeric
     }
+    max_hits_local_var = malloc(sizeof(int));
+    if(!max_hits_local_var)
+    {
+        goto end;
+    }
+    *max_hits_local_var = max_hits->valuedouble;
     }
 
     // move_meta->min_turns
@@ -276,6 +421,12 @@ move_meta_t *move_meta_parseFromJSON(cJSON *move_metaJSON){
     {
     goto end; //Numeric
     }
+    min_turns_local_var = malloc(sizeof(int));
+    if(!min_turns_local_var)
+    {
+        goto end;
+    }
+    *min_turns_local_var = min_turns->valuedouble;
     }
 
     // move_meta->max_turns
@@ -288,6 +439,12 @@ move_meta_t *move_meta_parseFromJSON(cJSON *move_metaJSON){
     {
     goto end; //Numeric
     }
+    max_turns_local_var = malloc(sizeof(int));
+    if(!max_turns_local_var)
+    {
+        goto end;
+    }
+    *max_turns_local_var = max_turns->valuedouble;
     }
 
     // move_meta->drain
@@ -300,6 +457,12 @@ move_meta_t *move_meta_parseFromJSON(cJSON *move_metaJSON){
     {
     goto end; //Numeric
     }
+    drain_local_var = malloc(sizeof(int));
+    if(!drain_local_var)
+    {
+        goto end;
+    }
+    *drain_local_var = drain->valuedouble;
     }
 
     // move_meta->healing
@@ -312,6 +475,12 @@ move_meta_t *move_meta_parseFromJSON(cJSON *move_metaJSON){
     {
     goto end; //Numeric
     }
+    healing_local_var = malloc(sizeof(int));
+    if(!healing_local_var)
+    {
+        goto end;
+    }
+    *healing_local_var = healing->valuedouble;
     }
 
     // move_meta->crit_rate
@@ -324,6 +493,12 @@ move_meta_t *move_meta_parseFromJSON(cJSON *move_metaJSON){
     {
     goto end; //Numeric
     }
+    crit_rate_local_var = malloc(sizeof(int));
+    if(!crit_rate_local_var)
+    {
+        goto end;
+    }
+    *crit_rate_local_var = crit_rate->valuedouble;
     }
 
     // move_meta->ailment_chance
@@ -336,6 +511,12 @@ move_meta_t *move_meta_parseFromJSON(cJSON *move_metaJSON){
     {
     goto end; //Numeric
     }
+    ailment_chance_local_var = malloc(sizeof(int));
+    if(!ailment_chance_local_var)
+    {
+        goto end;
+    }
+    *ailment_chance_local_var = ailment_chance->valuedouble;
     }
 
     // move_meta->flinch_chance
@@ -348,6 +529,12 @@ move_meta_t *move_meta_parseFromJSON(cJSON *move_metaJSON){
     {
     goto end; //Numeric
     }
+    flinch_chance_local_var = malloc(sizeof(int));
+    if(!flinch_chance_local_var)
+    {
+        goto end;
+    }
+    *flinch_chance_local_var = flinch_chance->valuedouble;
     }
 
     // move_meta->stat_chance
@@ -360,23 +547,34 @@ move_meta_t *move_meta_parseFromJSON(cJSON *move_metaJSON){
     {
     goto end; //Numeric
     }
+    stat_chance_local_var = malloc(sizeof(int));
+    if(!stat_chance_local_var)
+    {
+        goto end;
     }
+    *stat_chance_local_var = stat_chance->valuedouble;
+    }
+
 
 
     move_meta_local_var = move_meta_create_internal (
         ailment_local_nonprim,
         category_local_nonprim,
-        min_hits ? min_hits->valuedouble : 0,
-        max_hits ? max_hits->valuedouble : 0,
-        min_turns ? min_turns->valuedouble : 0,
-        max_turns ? max_turns->valuedouble : 0,
-        drain ? drain->valuedouble : 0,
-        healing ? healing->valuedouble : 0,
-        crit_rate ? crit_rate->valuedouble : 0,
-        ailment_chance ? ailment_chance->valuedouble : 0,
-        flinch_chance ? flinch_chance->valuedouble : 0,
-        stat_chance ? stat_chance->valuedouble : 0
+        min_hits_local_var,
+        max_hits_local_var,
+        min_turns_local_var,
+        max_turns_local_var,
+        drain_local_var,
+        healing_local_var,
+        crit_rate_local_var,
+        ailment_chance_local_var,
+        flinch_chance_local_var,
+        stat_chance_local_var
         );
+
+    if (!move_meta_local_var) {
+        goto end;
+    }
 
     return move_meta_local_var;
 end:
@@ -387,6 +585,46 @@ end:
     if (category_local_nonprim) {
         move_meta_category_summary_free(category_local_nonprim);
         category_local_nonprim = NULL;
+    }
+    if (min_hits_local_var) {
+        free(min_hits_local_var);
+        min_hits_local_var = NULL;
+    }
+    if (max_hits_local_var) {
+        free(max_hits_local_var);
+        max_hits_local_var = NULL;
+    }
+    if (min_turns_local_var) {
+        free(min_turns_local_var);
+        min_turns_local_var = NULL;
+    }
+    if (max_turns_local_var) {
+        free(max_turns_local_var);
+        max_turns_local_var = NULL;
+    }
+    if (drain_local_var) {
+        free(drain_local_var);
+        drain_local_var = NULL;
+    }
+    if (healing_local_var) {
+        free(healing_local_var);
+        healing_local_var = NULL;
+    }
+    if (crit_rate_local_var) {
+        free(crit_rate_local_var);
+        crit_rate_local_var = NULL;
+    }
+    if (ailment_chance_local_var) {
+        free(ailment_chance_local_var);
+        ailment_chance_local_var = NULL;
+    }
+    if (flinch_chance_local_var) {
+        free(flinch_chance_local_var);
+        flinch_chance_local_var = NULL;
+    }
+    if (stat_chance_local_var) {
+        free(stat_chance_local_var);
+        stat_chance_local_var = NULL;
     }
     return NULL;
 

@@ -119,6 +119,7 @@ public class ContestTypeDetail  {
 
   /**
    * Sets the <code>names</code> property.
+   * <br><em>N.B. <code>names</code> is <b>read only</b>; client code should not call this method</em>.
    */
  public void setNames(List<@Valid ContestTypeName> names) {
     this.names = names;
@@ -126,6 +127,7 @@ public class ContestTypeDetail  {
 
   /**
    * Sets the <code>names</code> property.
+   * <br><em>N.B. <code>names</code> is <b>read only</b>; client code should not call this method</em>.
    */
   public ContestTypeDetail names(List<@Valid ContestTypeName> names) {
     this.names = names;
@@ -134,6 +136,7 @@ public class ContestTypeDetail  {
 
   /**
    * Adds a new item to the <code>names</code> list.
+   * <br><em>N.B. <code>names</code> is <b>read only</b>; client code should not call this method</em>.
    */
   public ContestTypeDetail addNamesItem(ContestTypeName namesItem) {
     this.names.add(namesItem);
@@ -179,10 +182,7 @@ public class ContestTypeDetail  {
    * (except the first line).
    */
   private static String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 }
 

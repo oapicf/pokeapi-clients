@@ -50,7 +50,7 @@ export interface EncounterMethodDetail {
      * @type {Array<EncounterMethodName>}
      * @memberof EncounterMethodDetail
      */
-    names: Array<EncounterMethodName>;
+    readonly names: Array<EncounterMethodName>;
 }
 
 /**
@@ -75,7 +75,7 @@ export function EncounterMethodDetailFromJSONTyped(json: any, ignoreDiscriminato
         
         'id': json['id'],
         'name': json['name'],
-        'order': json['order'] == null ? undefined : json['order'],
+        'order': json['order'] === undefined ? undefined : json['order'] === null ? null : json['order'],
         'names': ((json['names'] as Array<any>).map(EncounterMethodNameFromJSON)),
     };
 }
@@ -84,7 +84,7 @@ export function EncounterMethodDetailToJSON(json: any): EncounterMethodDetail {
     return EncounterMethodDetailToJSONTyped(json, false);
 }
 
-export function EncounterMethodDetailToJSONTyped(value?: Omit<EncounterMethodDetail, 'id'> | null, ignoreDiscriminator: boolean = false): any {
+export function EncounterMethodDetailToJSONTyped(value?: Omit<EncounterMethodDetail, 'id'|'names'> | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
@@ -93,7 +93,6 @@ export function EncounterMethodDetailToJSONTyped(value?: Omit<EncounterMethodDet
         
         'name': value['name'],
         'order': value['order'],
-        'names': ((value['names'] as Array<any>).map(EncounterMethodNameToJSON)),
     };
 }
 

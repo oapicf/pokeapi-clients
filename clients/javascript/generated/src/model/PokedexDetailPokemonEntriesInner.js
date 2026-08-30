@@ -17,7 +17,7 @@ import AbilityDetailPokemonInnerPokemon from './AbilityDetailPokemonInnerPokemon
 /**
  * The PokedexDetailPokemonEntriesInner model module.
  * @module model/PokedexDetailPokemonEntriesInner
- * @version 1.2.1-pre.0
+ * @version 2.0.1-pre.0
  */
 class PokedexDetailPokemonEntriesInner {
     /**

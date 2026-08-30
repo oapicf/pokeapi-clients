@@ -85,7 +85,7 @@ GenerationSummary::getName()
 }
 
 void
-GenerationSummary::setName(std::string  name)
+GenerationSummary::setName(std::string name)
 {
 	this->name = name;
 }
@@ -97,7 +97,7 @@ GenerationSummary::getUrl()
 }
 
 void
-GenerationSummary::setUrl(std::string  url)
+GenerationSummary::setUrl(std::string url)
 {
 	this->url = url;
 }

@@ -36,7 +36,7 @@ import javax.annotation.Generated;
   ItemPocketDetail.JSON_PROPERTY_NAMES
 })
 @JsonTypeName("ItemPocketDetail")
-@Generated(value="org.openapitools.codegen.languages.JavaMicronautClientCodegen", date="2026-02-07T15:22:54.857535619Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@Generated(value="org.openapitools.codegen.languages.JavaMicronautClientCodegen", date="2026-08-30T01:55:51.056116330Z[Etc/UTC]", comments = "Generator version: 7.24.0")
 @Introspected
 public class ItemPocketDetail {
     public static final String JSON_PROPERTY_ID = "id";
@@ -92,16 +92,6 @@ public class ItemPocketDetail {
         this.name = name;
     }
 
-    public ItemPocketDetail categories(List<@Valid ItemCategorySummary> categories) {
-        this.categories = categories;
-        return this;
-    }
-
-    public ItemPocketDetail addCategoriesItem(ItemCategorySummary categoriesItem) {
-        this.categories.add(categoriesItem);
-        return this;
-    }
-
     /**
      * Get categories
      * @return categories
@@ -113,22 +103,6 @@ public class ItemPocketDetail {
         return categories;
     }
 
-    @JsonProperty(JSON_PROPERTY_CATEGORIES)
-    @JsonInclude(value = JsonInclude.Include.ALWAYS)
-    public void setCategories(List<@Valid ItemCategorySummary> categories) {
-        this.categories = categories;
-    }
-
-    public ItemPocketDetail names(List<@Valid ItemPocketName> names) {
-        this.names = names;
-        return this;
-    }
-
-    public ItemPocketDetail addNamesItem(ItemPocketName namesItem) {
-        this.names.add(namesItem);
-        return this;
-    }
-
     /**
      * Get names
      * @return names
@@ -138,12 +112,6 @@ public class ItemPocketDetail {
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public List<@Valid ItemPocketName> getNames() {
         return names;
-    }
-
-    @JsonProperty(JSON_PROPERTY_NAMES)
-    @JsonInclude(value = JsonInclude.Include.ALWAYS)
-    public void setNames(List<@Valid ItemPocketName> names) {
-        this.names = names;
     }
 
     @Override
@@ -183,10 +151,7 @@ public class ItemPocketDetail {
      * (except the first line).
      */
     private String toIndentedString(Object o) {
-        if (o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
+        return o == null ? "null" : o.toString().replace("\n", "\n    ");
     }
 
 }

@@ -13,10 +13,10 @@ static pokeathlon_stat_name_t *pokeathlon_stat_name_create_internal(
     if (!pokeathlon_stat_name_local_var) {
         return NULL;
     }
+    memset(pokeathlon_stat_name_local_var, 0, sizeof(pokeathlon_stat_name_t));
+    pokeathlon_stat_name_local_var->_library_owned = 1;
     pokeathlon_stat_name_local_var->name = name;
     pokeathlon_stat_name_local_var->language = language;
-
-    pokeathlon_stat_name_local_var->_library_owned = 1;
     return pokeathlon_stat_name_local_var;
 }
 
@@ -24,10 +24,13 @@ __attribute__((deprecated)) pokeathlon_stat_name_t *pokeathlon_stat_name_create(
     char *name,
     language_summary_t *language
     ) {
-    return pokeathlon_stat_name_create_internal (
+    pokeathlon_stat_name_t *result = pokeathlon_stat_name_create_internal (
         name,
         language
         );
+    if (!result) {
+    }
+    return result;
 }
 
 void pokeathlon_stat_name_free(pokeathlon_stat_name_t *pokeathlon_stat_name) {
@@ -87,6 +90,8 @@ pokeathlon_stat_name_t *pokeathlon_stat_name_parseFromJSON(cJSON *pokeathlon_sta
 
     pokeathlon_stat_name_t *pokeathlon_stat_name_local_var = NULL;
 
+    char *name_local_str = NULL;
+
     // define the local variable for pokeathlon_stat_name->language
     language_summary_t *language_local_nonprim = NULL;
 
@@ -118,13 +123,23 @@ pokeathlon_stat_name_t *pokeathlon_stat_name_parseFromJSON(cJSON *pokeathlon_sta
     language_local_nonprim = language_summary_parseFromJSON(language); //nonprimitive
 
 
+    if (name && !cJSON_IsNull(name)) name_local_str = strdup(name->valuestring);
+
     pokeathlon_stat_name_local_var = pokeathlon_stat_name_create_internal (
-        strdup(name->valuestring),
+        name_local_str,
         language_local_nonprim
         );
 
+    if (!pokeathlon_stat_name_local_var) {
+        goto end;
+    }
+
     return pokeathlon_stat_name_local_var;
 end:
+    if (name_local_str) {
+        free(name_local_str);
+        name_local_str = NULL;
+    }
     if (language_local_nonprim) {
         language_summary_free(language_local_nonprim);
         language_local_nonprim = NULL;

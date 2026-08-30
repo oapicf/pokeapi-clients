@@ -19,7 +19,7 @@ export interface MoveChange {
     power?: number | null;
     pp?: number | null;
     effect_chance: number;
-    effect_entries: Array<MoveChangeEffectEntriesInner>;
+    readonly effect_entries: Array<MoveChangeEffectEntriesInner>;
     type: TypeSummary;
     version_group: VersionGroupSummary;
 }

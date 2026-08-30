@@ -119,7 +119,7 @@ StatDetail_affecting_moves::getIncrease()
 }
 
 void
-StatDetail_affecting_moves::setIncrease(std::list <StatDetail_affecting_moves_increase_inner> increase)
+StatDetail_affecting_moves::setIncrease(std::list<StatDetail_affecting_moves_increase_inner> increase)
 {
 	this->increase = increase;
 }
@@ -131,7 +131,7 @@ StatDetail_affecting_moves::getDecrease()
 }
 
 void
-StatDetail_affecting_moves::setDecrease(std::list <StatDetail_affecting_moves_increase_inner> decrease)
+StatDetail_affecting_moves::setDecrease(std::list<StatDetail_affecting_moves_increase_inner> decrease)
 {
 	this->decrease = decrease;
 }

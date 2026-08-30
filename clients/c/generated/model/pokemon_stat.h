@@ -20,16 +20,16 @@ typedef struct pokemon_stat_t pokemon_stat_t;
 
 
 typedef struct pokemon_stat_t {
-    int base_stat; //numeric
-    int effort; //numeric
+    int *base_stat; //numeric
+    int *effort; //numeric
     struct stat_summary_t *stat; //model
 
     int _library_owned; // Is the library responsible for freeing this object?
 } pokemon_stat_t;
 
 __attribute__((deprecated)) pokemon_stat_t *pokemon_stat_create(
-    int base_stat,
-    int effort,
+    int *base_stat,
+    int *effort,
     stat_summary_t *stat
 );
 

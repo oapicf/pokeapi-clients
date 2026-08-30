@@ -7,9 +7,9 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **int** |  | [readonly] 
 **name** | **str** |  | 
-**descriptions** | [**List[MoveDamageClassDescription]**](MoveDamageClassDescription.md) |  | 
-**moves** | [**List[MoveSummary]**](MoveSummary.md) |  | 
-**names** | [**List[MoveDamageClassName]**](MoveDamageClassName.md) |  | 
+**descriptions** | [**List[MoveDamageClassDescription]**](MoveDamageClassDescription.md) |  | [readonly] 
+**moves** | [**List[MoveSummary]**](MoveSummary.md) |  | [readonly] 
+**names** | [**List[MoveDamageClassName]**](MoveDamageClassName.md) |  | [readonly] 
 
 ## Example
 

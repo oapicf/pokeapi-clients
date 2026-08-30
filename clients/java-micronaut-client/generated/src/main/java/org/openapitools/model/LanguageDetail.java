@@ -37,7 +37,7 @@ import javax.annotation.Generated;
   LanguageDetail.JSON_PROPERTY_NAMES
 })
 @JsonTypeName("LanguageDetail")
-@Generated(value="org.openapitools.codegen.languages.JavaMicronautClientCodegen", date="2026-02-07T15:22:54.857535619Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@Generated(value="org.openapitools.codegen.languages.JavaMicronautClientCodegen", date="2026-08-30T01:55:51.056116330Z[Etc/UTC]", comments = "Generator version: 7.24.0")
 @Introspected
 public class LanguageDetail {
     public static final String JSON_PROPERTY_ID = "id";
@@ -168,16 +168,6 @@ public class LanguageDetail {
         this.iso3166 = iso3166;
     }
 
-    public LanguageDetail names(List<@Valid LanguageName> names) {
-        this.names = names;
-        return this;
-    }
-
-    public LanguageDetail addNamesItem(LanguageName namesItem) {
-        this.names.add(namesItem);
-        return this;
-    }
-
     /**
      * Get names
      * @return names
@@ -187,12 +177,6 @@ public class LanguageDetail {
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public List<@Valid LanguageName> getNames() {
         return names;
-    }
-
-    @JsonProperty(JSON_PROPERTY_NAMES)
-    @JsonInclude(value = JsonInclude.Include.ALWAYS)
-    public void setNames(List<@Valid LanguageName> names) {
-        this.names = names;
     }
 
     @Override
@@ -236,10 +220,7 @@ public class LanguageDetail {
      * (except the first line).
      */
     private String toIndentedString(Object o) {
-        if (o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
+        return o == null ? "null" : o.toString().replace("\n", "\n    ");
     }
 
 }

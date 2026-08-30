@@ -86,7 +86,7 @@ export interface GenerationDetail {
      * @type {Array<AbilitySummary>}
      * @memberof GenerationDetail
      */
-    abilities: Array<AbilitySummary>;
+    readonly abilities: Array<AbilitySummary>;
     /**
      * 
      * @type {RegionSummary}
@@ -98,31 +98,31 @@ export interface GenerationDetail {
      * @type {Array<MoveSummary>}
      * @memberof GenerationDetail
      */
-    moves: Array<MoveSummary>;
+    readonly moves: Array<MoveSummary>;
     /**
      * 
      * @type {Array<GenerationName>}
      * @memberof GenerationDetail
      */
-    names: Array<GenerationName>;
+    readonly names: Array<GenerationName>;
     /**
      * 
      * @type {Array<PokemonSpeciesSummary>}
      * @memberof GenerationDetail
      */
-    pokemonSpecies: Array<PokemonSpeciesSummary>;
+    readonly pokemonSpecies: Array<PokemonSpeciesSummary>;
     /**
      * 
      * @type {Array<TypeSummary>}
      * @memberof GenerationDetail
      */
-    types: Array<TypeSummary>;
+    readonly types: Array<TypeSummary>;
     /**
      * 
      * @type {Array<VersionGroupSummary>}
      * @memberof GenerationDetail
      */
-    versionGroups: Array<VersionGroupSummary>;
+    readonly versionGroups: Array<VersionGroupSummary>;
 }
 
 /**
@@ -132,12 +132,12 @@ export function instanceOfGenerationDetail(value: object): value is GenerationDe
     if (!('id' in value) || value['id'] === undefined) return false;
     if (!('name' in value) || value['name'] === undefined) return false;
     if (!('abilities' in value) || value['abilities'] === undefined) return false;
-    if (!('mainRegion' in value) || value['mainRegion'] === undefined) return false;
+    if ((!('mainRegion' in (value as Record<string, any>)) && !('main_region' in (value as Record<string, any>))) || ((value as Record<string, any>)['mainRegion'] === undefined && (value as Record<string, any>)['main_region'] === undefined)) return false;
     if (!('moves' in value) || value['moves'] === undefined) return false;
     if (!('names' in value) || value['names'] === undefined) return false;
-    if (!('pokemonSpecies' in value) || value['pokemonSpecies'] === undefined) return false;
+    if ((!('pokemonSpecies' in (value as Record<string, any>)) && !('pokemon_species' in (value as Record<string, any>))) || ((value as Record<string, any>)['pokemonSpecies'] === undefined && (value as Record<string, any>)['pokemon_species'] === undefined)) return false;
     if (!('types' in value) || value['types'] === undefined) return false;
-    if (!('versionGroups' in value) || value['versionGroups'] === undefined) return false;
+    if ((!('versionGroups' in (value as Record<string, any>)) && !('version_groups' in (value as Record<string, any>))) || ((value as Record<string, any>)['versionGroups'] === undefined && (value as Record<string, any>)['version_groups'] === undefined)) return false;
     return true;
 }
 
@@ -167,7 +167,7 @@ export function GenerationDetailToJSON(json: any): GenerationDetail {
     return GenerationDetailToJSONTyped(json, false);
 }
 
-export function GenerationDetailToJSONTyped(value?: Omit<GenerationDetail, 'id'> | null, ignoreDiscriminator: boolean = false): any {
+export function GenerationDetailToJSONTyped(value?: Omit<GenerationDetail, 'id'|'abilities'|'moves'|'names'|'pokemonSpecies'|'types'|'versionGroups'> | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
@@ -175,13 +175,7 @@ export function GenerationDetailToJSONTyped(value?: Omit<GenerationDetail, 'id'>
     return {
         
         'name': value['name'],
-        'abilities': ((value['abilities'] as Array<any>).map(AbilitySummaryToJSON)),
         'main_region': RegionSummaryToJSON(value['mainRegion']),
-        'moves': ((value['moves'] as Array<any>).map(MoveSummaryToJSON)),
-        'names': ((value['names'] as Array<any>).map(GenerationNameToJSON)),
-        'pokemon_species': ((value['pokemonSpecies'] as Array<any>).map(PokemonSpeciesSummaryToJSON)),
-        'types': ((value['types'] as Array<any>).map(TypeSummaryToJSON)),
-        'version_groups': ((value['versionGroups'] as Array<any>).map(VersionGroupSummaryToJSON)),
     };
 }
 

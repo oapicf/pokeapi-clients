@@ -6,7 +6,7 @@
 
 
 static region_detail_t *region_detail_create_internal(
-    int id,
+    int *id,
     char *name,
     list_t *locations,
     generation_summary_t *main_generation,
@@ -18,6 +18,8 @@ static region_detail_t *region_detail_create_internal(
     if (!region_detail_local_var) {
         return NULL;
     }
+    memset(region_detail_local_var, 0, sizeof(region_detail_t));
+    region_detail_local_var->_library_owned = 1;
     region_detail_local_var->id = id;
     region_detail_local_var->name = name;
     region_detail_local_var->locations = locations;
@@ -25,13 +27,11 @@ static region_detail_t *region_detail_create_internal(
     region_detail_local_var->names = names;
     region_detail_local_var->pokedexes = pokedexes;
     region_detail_local_var->version_groups = version_groups;
-
-    region_detail_local_var->_library_owned = 1;
     return region_detail_local_var;
 }
 
 __attribute__((deprecated)) region_detail_t *region_detail_create(
-    int id,
+    int *id,
     char *name,
     list_t *locations,
     generation_summary_t *main_generation,
@@ -39,8 +39,13 @@ __attribute__((deprecated)) region_detail_t *region_detail_create(
     list_t *pokedexes,
     list_t *version_groups
     ) {
-    return region_detail_create_internal (
-        id,
+    int *id_copy = NULL;
+    if (id) {
+        id_copy = malloc(sizeof(int));
+        if (id_copy) *id_copy = *id;
+    }
+    region_detail_t *result = region_detail_create_internal (
+        id_copy,
         name,
         locations,
         main_generation,
@@ -48,6 +53,10 @@ __attribute__((deprecated)) region_detail_t *region_detail_create(
         pokedexes,
         version_groups
         );
+    if (!result) {
+        free(id_copy);
+    }
+    return result;
 }
 
 void region_detail_free(region_detail_t *region_detail) {
@@ -59,6 +68,10 @@ void region_detail_free(region_detail_t *region_detail) {
         return ;
     }
     listEntry_t *listEntry;
+    if (region_detail->id) {
+        free(region_detail->id);
+        region_detail->id = NULL;
+    }
     if (region_detail->name) {
         free(region_detail->name);
         region_detail->name = NULL;
@@ -105,7 +118,7 @@ cJSON *region_detail_convertToJSON(region_detail_t *region_detail) {
     if (!region_detail->id) {
         goto fail;
     }
-    if(cJSON_AddNumberToObject(item, "id", region_detail->id) == NULL) {
+    if(cJSON_AddNumberToObject(item, "id", *region_detail->id) == NULL) {
     goto fail; //Numeric
     }
 
@@ -228,6 +241,11 @@ region_detail_t *region_detail_parseFromJSON(cJSON *region_detailJSON){
 
     region_detail_t *region_detail_local_var = NULL;
 
+    // define the local variable for region_detail->id
+    int *id_local_var = NULL;
+
+    char *name_local_str = NULL;
+
     // define the local list for region_detail->locations
     list_t *locationsList = NULL;
 
@@ -257,6 +275,12 @@ region_detail_t *region_detail_parseFromJSON(cJSON *region_detailJSON){
     {
     goto end; //Numeric
     }
+    id_local_var = malloc(sizeof(int));
+    if(!id_local_var)
+    {
+        goto end;
+    }
+    *id_local_var = id->valuedouble;
 
     // region_detail->name
     cJSON *name = cJSON_GetObjectItemCaseSensitive(region_detailJSON, "name");
@@ -394,9 +418,11 @@ region_detail_t *region_detail_parseFromJSON(cJSON *region_detailJSON){
     }
 
 
+    if (name && !cJSON_IsNull(name)) name_local_str = strdup(name->valuestring);
+
     region_detail_local_var = region_detail_create_internal (
-        id->valuedouble,
-        strdup(name->valuestring),
+        id_local_var,
+        name_local_str,
         locationsList,
         main_generation_local_nonprim,
         namesList,
@@ -404,8 +430,20 @@ region_detail_t *region_detail_parseFromJSON(cJSON *region_detailJSON){
         version_groupsList
         );
 
+    if (!region_detail_local_var) {
+        goto end;
+    }
+
     return region_detail_local_var;
 end:
+    if (id_local_var) {
+        free(id_local_var);
+        id_local_var = NULL;
+    }
+    if (name_local_str) {
+        free(name_local_str);
+        name_local_str = NULL;
+    }
     if (locationsList) {
         listEntry_t *listEntry = NULL;
         list_ForEach(listEntry, locationsList) {

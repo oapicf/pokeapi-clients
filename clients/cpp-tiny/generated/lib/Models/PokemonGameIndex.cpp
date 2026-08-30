@@ -86,7 +86,7 @@ PokemonGameIndex::getGameIndex()
 }
 
 void
-PokemonGameIndex::setGameIndex(int  game_index)
+PokemonGameIndex::setGameIndex(int game_index)
 {
 	this->game_index = game_index;
 }
@@ -98,7 +98,7 @@ PokemonGameIndex::getVersion()
 }
 
 void
-PokemonGameIndex::setVersion(VersionSummary  version)
+PokemonGameIndex::setVersion(VersionSummary version)
 {
 	this->version = version;
 }

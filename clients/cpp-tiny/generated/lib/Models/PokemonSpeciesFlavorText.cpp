@@ -108,7 +108,7 @@ PokemonSpeciesFlavorText::getFlavorText()
 }
 
 void
-PokemonSpeciesFlavorText::setFlavorText(std::string  flavor_text)
+PokemonSpeciesFlavorText::setFlavorText(std::string flavor_text)
 {
 	this->flavor_text = flavor_text;
 }
@@ -120,7 +120,7 @@ PokemonSpeciesFlavorText::getLanguage()
 }
 
 void
-PokemonSpeciesFlavorText::setLanguage(LanguageSummary  language)
+PokemonSpeciesFlavorText::setLanguage(LanguageSummary language)
 {
 	this->language = language;
 }
@@ -132,7 +132,7 @@ PokemonSpeciesFlavorText::getVersion()
 }
 
 void
-PokemonSpeciesFlavorText::setVersion(VersionSummary  version)
+PokemonSpeciesFlavorText::setVersion(VersionSummary version)
 {
 	this->version = version;
 }

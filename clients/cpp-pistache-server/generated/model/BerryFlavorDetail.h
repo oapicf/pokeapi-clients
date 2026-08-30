@@ -36,7 +36,7 @@ class  BerryFlavorDetail
 {
 public:
     BerryFlavorDetail();
-    virtual ~BerryFlavorDetail() = default;
+    virtual ~BerryFlavorDetail();
 
 
     /// <summary>

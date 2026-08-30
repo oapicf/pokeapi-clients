@@ -54,28 +54,28 @@ public:
 
 	/*! \brief Set 
 	 */
-	void setId(int  id);
+	void setId(int id);
 	/*! \brief Get 
 	 */
 	std::string getName();
 
 	/*! \brief Set 
 	 */
-	void setName(std::string  name);
+	void setName(std::string name);
 	/*! \brief Get 
 	 */
 	BerryFlavorSummary getBerryFlavor();
 
 	/*! \brief Set 
 	 */
-	void setBerryFlavor(BerryFlavorSummary  berry_flavor);
+	void setBerryFlavor(BerryFlavorSummary berry_flavor);
 	/*! \brief Get 
 	 */
 	std::list<ContestTypeName> getNames();
 
 	/*! \brief Set 
 	 */
-	void setNames(std::list <ContestTypeName> names);
+	void setNames(std::list<ContestTypeName> names);
 
 
     private:

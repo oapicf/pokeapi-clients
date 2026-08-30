@@ -19,7 +19,6 @@
 #define EvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner_H_
 
 
-#include <nlohmann/json.hpp>
 #include <string>
 #include "AbilityDetail_pokemon_inner_pokemon.h"
 #include "EvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner_gender.h"
@@ -35,7 +34,7 @@ class  EvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner
 {
 public:
     EvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner();
-    virtual ~EvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner() = default;
+    virtual ~EvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner();
 
 
     /// <summary>
@@ -79,13 +78,13 @@ public:
     /// <summary>
     /// 
     /// </summary>
-    nlohmann::json getKnownMove() const;
-    void setKnownMove(nlohmann::json const& value);
+    org::openapitools::server::model::EvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner_gender getKnownMove() const;
+    void setKnownMove(org::openapitools::server::model::EvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner_gender const& value);
     /// <summary>
     /// 
     /// </summary>
-    nlohmann::json getKnownMoveType() const;
-    void setKnownMoveType(nlohmann::json const& value);
+    org::openapitools::server::model::EvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner_gender getKnownMoveType() const;
+    void setKnownMoveType(org::openapitools::server::model::EvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner_gender const& value);
     /// <summary>
     /// 
     /// </summary>
@@ -161,9 +160,9 @@ protected:
 
     org::openapitools::server::model::EvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner_gender m_Item;
 
-    nlohmann::json m_Known_move;
+    org::openapitools::server::model::EvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner_gender m_Known_move;
 
-    nlohmann::json m_Known_move_type;
+    org::openapitools::server::model::EvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner_gender m_Known_move_type;
 
     org::openapitools::server::model::EvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner_gender m_Location;
 

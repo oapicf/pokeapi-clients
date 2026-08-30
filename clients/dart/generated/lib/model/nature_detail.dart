@@ -101,10 +101,26 @@ class NatureDetail {
       // Note 1: the values aren't checked for validity beyond being non-null.
       // Note 2: this code is stripped in release mode!
       assert(() {
-        requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "NatureDetail[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "NatureDetail[$key]" has a null value in JSON.');
-        });
+        assert(json.containsKey(r'id'), 'Required key "NatureDetail[id]" is missing from JSON.');
+        assert(json[r'id'] != null, 'Required key "NatureDetail[id]" has a null value in JSON.');
+        assert(json.containsKey(r'name'), 'Required key "NatureDetail[name]" is missing from JSON.');
+        assert(json[r'name'] != null, 'Required key "NatureDetail[name]" has a null value in JSON.');
+        assert(json.containsKey(r'decreased_stat'), 'Required key "NatureDetail[decreased_stat]" is missing from JSON.');
+        assert(json[r'decreased_stat'] != null, 'Required key "NatureDetail[decreased_stat]" has a null value in JSON.');
+        assert(json.containsKey(r'increased_stat'), 'Required key "NatureDetail[increased_stat]" is missing from JSON.');
+        assert(json[r'increased_stat'] != null, 'Required key "NatureDetail[increased_stat]" has a null value in JSON.');
+        assert(json.containsKey(r'likes_flavor'), 'Required key "NatureDetail[likes_flavor]" is missing from JSON.');
+        assert(json[r'likes_flavor'] != null, 'Required key "NatureDetail[likes_flavor]" has a null value in JSON.');
+        assert(json.containsKey(r'hates_flavor'), 'Required key "NatureDetail[hates_flavor]" is missing from JSON.');
+        assert(json[r'hates_flavor'] != null, 'Required key "NatureDetail[hates_flavor]" has a null value in JSON.');
+        assert(json.containsKey(r'berries'), 'Required key "NatureDetail[berries]" is missing from JSON.');
+        assert(json[r'berries'] != null, 'Required key "NatureDetail[berries]" has a null value in JSON.');
+        assert(json.containsKey(r'pokeathlon_stat_changes'), 'Required key "NatureDetail[pokeathlon_stat_changes]" is missing from JSON.');
+        assert(json[r'pokeathlon_stat_changes'] != null, 'Required key "NatureDetail[pokeathlon_stat_changes]" has a null value in JSON.');
+        assert(json.containsKey(r'move_battle_style_preferences'), 'Required key "NatureDetail[move_battle_style_preferences]" is missing from JSON.');
+        assert(json[r'move_battle_style_preferences'] != null, 'Required key "NatureDetail[move_battle_style_preferences]" has a null value in JSON.');
+        assert(json.containsKey(r'names'), 'Required key "NatureDetail[names]" is missing from JSON.');
+        assert(json[r'names'] != null, 'Required key "NatureDetail[names]" has a null value in JSON.');
         return true;
       }());
 

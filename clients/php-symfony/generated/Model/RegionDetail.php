@@ -47,7 +47,7 @@ class RegionDetail
      * @var int|null
      * @SerializedName("id")
      * @Type("int")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Type("int")]
     protected ?int $id = null;
@@ -56,7 +56,7 @@ class RegionDetail
      * @var string|null
      * @SerializedName("name")
      * @Type("string")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Type("string")]
     #[Assert\Length(max: 100)]
@@ -66,7 +66,7 @@ class RegionDetail
      * @var LocationSummary[]|null
      * @SerializedName("locations")
      * @Type("array<OpenAPI\Server\Model\LocationSummary>")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Valid]
     #[Assert\All([
@@ -78,7 +78,7 @@ class RegionDetail
      * @var GenerationSummary|null
      * @SerializedName("main_generation")
      * @Type("OpenAPI\Server\Model\GenerationSummary")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Valid]
     #[Assert\Type("OpenAPI\Server\Model\GenerationSummary")]
@@ -88,7 +88,7 @@ class RegionDetail
      * @var RegionName[]|null
      * @SerializedName("names")
      * @Type("array<OpenAPI\Server\Model\RegionName>")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Valid]
     #[Assert\All([
@@ -100,7 +100,7 @@ class RegionDetail
      * @var PokedexSummary[]|null
      * @SerializedName("pokedexes")
      * @Type("array<OpenAPI\Server\Model\PokedexSummary>")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Valid]
     #[Assert\All([
@@ -112,7 +112,7 @@ class RegionDetail
      * @var AbilityDetailPokemonInnerPokemon[]|null
      * @SerializedName("version_groups")
      * @Type("array<OpenAPI\Server\Model\AbilityDetailPokemonInnerPokemon>")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Valid]
     #[Assert\All([
@@ -148,12 +148,12 @@ class RegionDetail
     }
 
     /**
-    * Sets id.
-    *
-    * @param int|null $id
-    *
-    * @return $this
-    */
+     * Sets id.
+     *
+     * @param int|null $id
+     *
+     * @return $this
+     */
     public function setId(?int $id): self
     {
         $this->id = $id;
@@ -175,12 +175,12 @@ class RegionDetail
     }
 
     /**
-    * Sets name.
-    *
-    * @param string|null $name
-    *
-    * @return $this
-    */
+     * Sets name.
+     *
+     * @param string|null $name
+     *
+     * @return $this
+     */
     public function setName(?string $name): self
     {
         $this->name = $name;
@@ -202,12 +202,12 @@ class RegionDetail
     }
 
     /**
-    * Sets locations.
-    *
-    * @param LocationSummary[]|null $locations
-    *
-    * @return $this
-    */
+     * Sets locations.
+     *
+     * @param LocationSummary[]|null $locations
+     *
+     * @return $this
+     */
     public function setLocations(?array $locations): self
     {
         $this->locations = $locations;
@@ -229,12 +229,12 @@ class RegionDetail
     }
 
     /**
-    * Sets mainGeneration.
-    *
-    * @param GenerationSummary|null $mainGeneration
-    *
-    * @return $this
-    */
+     * Sets mainGeneration.
+     *
+     * @param GenerationSummary|null $mainGeneration
+     *
+     * @return $this
+     */
     public function setMainGeneration(?GenerationSummary $mainGeneration): self
     {
         $this->mainGeneration = $mainGeneration;
@@ -256,12 +256,12 @@ class RegionDetail
     }
 
     /**
-    * Sets names.
-    *
-    * @param RegionName[]|null $names
-    *
-    * @return $this
-    */
+     * Sets names.
+     *
+     * @param RegionName[]|null $names
+     *
+     * @return $this
+     */
     public function setNames(?array $names): self
     {
         $this->names = $names;
@@ -283,12 +283,12 @@ class RegionDetail
     }
 
     /**
-    * Sets pokedexes.
-    *
-    * @param PokedexSummary[]|null $pokedexes
-    *
-    * @return $this
-    */
+     * Sets pokedexes.
+     *
+     * @param PokedexSummary[]|null $pokedexes
+     *
+     * @return $this
+     */
     public function setPokedexes(?array $pokedexes): self
     {
         $this->pokedexes = $pokedexes;
@@ -310,12 +310,12 @@ class RegionDetail
     }
 
     /**
-    * Sets versionGroups.
-    *
-    * @param AbilityDetailPokemonInnerPokemon[]|null $versionGroups
-    *
-    * @return $this
-    */
+     * Sets versionGroups.
+     *
+     * @param AbilityDetailPokemonInnerPokemon[]|null $versionGroups
+     *
+     * @return $this
+     */
     public function setVersionGroups(?array $versionGroups): self
     {
         $this->versionGroups = $versionGroups;

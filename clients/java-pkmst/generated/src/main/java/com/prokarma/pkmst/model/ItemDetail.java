@@ -29,7 +29,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
  * ItemDetail
  */
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPKMSTServerCodegen", date = "2026-02-07T15:23:15.032724200Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPKMSTServerCodegen", date = "2026-08-30T01:56:01.724492951Z[Etc/UTC]", comments = "Generator version: 7.24.0")
 public class ItemDetail   {
   @JsonProperty("id")
   private Integer id;
@@ -190,7 +190,7 @@ public class ItemDetail   {
    * Get attributes
    * @return attributes
    */
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, readOnly = true, value = "")
   public List<AbilityDetailPokemonInnerPokemon> getAttributes() {
     return attributes;
   }
@@ -234,7 +234,7 @@ public class ItemDetail   {
    * Get effectEntries
    * @return effectEntries
    */
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, readOnly = true, value = "")
   public List<ItemEffectText> getEffectEntries() {
     return effectEntries;
   }
@@ -260,7 +260,7 @@ public class ItemDetail   {
    * Get flavorTextEntries
    * @return flavorTextEntries
    */
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, readOnly = true, value = "")
   public List<ItemFlavorText> getFlavorTextEntries() {
     return flavorTextEntries;
   }
@@ -286,7 +286,7 @@ public class ItemDetail   {
    * Get gameIndices
    * @return gameIndices
    */
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, readOnly = true, value = "")
   public List<ItemGameIndex> getGameIndices() {
     return gameIndices;
   }
@@ -312,7 +312,7 @@ public class ItemDetail   {
    * Get names
    * @return names
    */
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, readOnly = true, value = "")
   public List<ItemName> getNames() {
     return names;
   }
@@ -338,7 +338,7 @@ public class ItemDetail   {
    * Get heldByPokemon
    * @return heldByPokemon
    */
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, readOnly = true, value = "")
   public List<ItemDetailHeldByPokemonInner> getHeldByPokemon() {
     return heldByPokemon;
   }
@@ -400,7 +400,7 @@ public class ItemDetail   {
    * Get machines
    * @return machines
    */
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, readOnly = true, value = "")
   public List<ItemDetailMachinesInner> getMachines() {
     return machines;
   }
@@ -470,10 +470,7 @@ public class ItemDetail   {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 }
 

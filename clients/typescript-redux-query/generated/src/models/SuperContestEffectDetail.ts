@@ -44,13 +44,13 @@ export interface SuperContestEffectDetail  {
      * @type {Array<SuperContestEffectFlavorText>}
      * @memberof SuperContestEffectDetail
      */
-    flavorTextEntries: Array<SuperContestEffectFlavorText>;
+    readonly flavorTextEntries: Array<SuperContestEffectFlavorText>;
     /**
      * 
      * @type {Array<MoveSummary>}
      * @memberof SuperContestEffectDetail
      */
-    moves: Array<MoveSummary>;
+    readonly moves: Array<MoveSummary>;
 }
 
 export function SuperContestEffectDetailFromJSON(json: any): SuperContestEffectDetail {
@@ -68,8 +68,6 @@ export function SuperContestEffectDetailToJSON(value?: SuperContestEffectDetail)
     }
     return {
         'appeal': value.appeal,
-        'flavor_text_entries': (value.flavorTextEntries as Array<any>).map(SuperContestEffectFlavorTextToJSON),
-        'moves': (value.moves as Array<any>).map(MoveSummaryToJSON),
     };
 }
 

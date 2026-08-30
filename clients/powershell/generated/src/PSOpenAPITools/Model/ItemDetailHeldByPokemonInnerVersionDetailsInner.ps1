@@ -49,8 +49,8 @@ function Initialize-ItemDetailHeldByPokemonInnerVersionDetailsInner {
 
 
         $PSO = [PSCustomObject]@{
-            "rarity" = ${Rarity}
-            "version" = ${Version}
+            'rarity' = ${Rarity}
+            'version' = ${Version}
         }
 
 
@@ -88,7 +88,7 @@ function ConvertFrom-JsonToItemDetailHeldByPokemonInnerVersionDetailsInner {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in ItemDetailHeldByPokemonInnerVersionDetailsInner
-        $AllProperties = ("rarity", "version")
+        $AllProperties = ('rarity', 'version')
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -99,21 +99,21 @@ function ConvertFrom-JsonToItemDetailHeldByPokemonInnerVersionDetailsInner {
             throw "Error! Empty JSON cannot be serialized due to the required property 'rarity' missing."
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "rarity"))) {
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'rarity'))) {
             throw "Error! JSON cannot be serialized due to the required property 'rarity' missing."
         } else {
-            $Rarity = $JsonParameters.PSobject.Properties["rarity"].value
+            $Rarity = $JsonParameters.PSobject.Properties['rarity'].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "version"))) {
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'version'))) {
             throw "Error! JSON cannot be serialized due to the required property 'version' missing."
         } else {
-            $Version = $JsonParameters.PSobject.Properties["version"].value
+            $Version = $JsonParameters.PSobject.Properties['version'].value
         }
 
         $PSO = [PSCustomObject]@{
-            "rarity" = ${Rarity}
-            "version" = ${Version}
+            'rarity' = ${Rarity}
+            'version' = ${Version}
         }
 
         return $PSO

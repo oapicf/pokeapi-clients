@@ -31,13 +31,13 @@ namespace OpenAPI {
 class OAIItemDetail_sprites : public OAIObject {
 public:
     OAIItemDetail_sprites();
-    OAIItemDetail_sprites(QString json);
+    OAIItemDetail_sprites(const QString &json);
     ~OAIItemDetail_sprites() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     QString getRDefault() const;
     void setRDefault(const QString &r_default);

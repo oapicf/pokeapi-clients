@@ -31,6 +31,8 @@ PaginatedBerrySummaryList::PaginatedBerrySummaryList()
     
 }
 
+PaginatedBerrySummaryList::~PaginatedBerrySummaryList() = default;
+
 void PaginatedBerrySummaryList::validate() const
 {
     std::stringstream msg;

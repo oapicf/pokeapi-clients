@@ -31,13 +31,13 @@ typedef struct pokemon_detail_t pokemon_detail_t;
 
 
 typedef struct pokemon_detail_t {
-    int id; //numeric
+    int *id; //numeric
     char *name; // string
-    int base_experience; //numeric
-    int height; //numeric
-    int is_default; //boolean
-    int order; //numeric
-    int weight; //numeric
+    int *base_experience; //numeric
+    int *height; //numeric
+    int *is_default; //boolean
+    int *order; //numeric
+    int *weight; //numeric
     list_t *abilities; //nonprimitive container
     list_t *past_abilities; //nonprimitive container
     list_t *forms; //nonprimitive container
@@ -56,13 +56,13 @@ typedef struct pokemon_detail_t {
 } pokemon_detail_t;
 
 __attribute__((deprecated)) pokemon_detail_t *pokemon_detail_create(
-    int id,
+    int *id,
     char *name,
-    int base_experience,
-    int height,
-    int is_default,
-    int order,
-    int weight,
+    int *base_experience,
+    int *height,
+    int *is_default,
+    int *order,
+    int *weight,
     list_t *abilities,
     list_t *past_abilities,
     list_t *forms,

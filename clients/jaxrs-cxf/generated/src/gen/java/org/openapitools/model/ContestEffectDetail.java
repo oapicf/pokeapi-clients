@@ -97,19 +97,6 @@ public class ContestEffectDetail  {
     return effectEntries;
   }
 
-  public void setEffectEntries(List<@Valid ContestEffectEffectText> effectEntries) {
-    this.effectEntries = effectEntries;
-  }
-
-  public ContestEffectDetail effectEntries(List<@Valid ContestEffectEffectText> effectEntries) {
-    this.effectEntries = effectEntries;
-    return this;
-  }
-
-  public ContestEffectDetail addEffectEntriesItem(ContestEffectEffectText effectEntriesItem) {
-    this.effectEntries.add(effectEntriesItem);
-    return this;
-  }
 
  /**
    * Get flavorTextEntries
@@ -121,19 +108,6 @@ public class ContestEffectDetail  {
     return flavorTextEntries;
   }
 
-  public void setFlavorTextEntries(List<@Valid ContestEffectFlavorText> flavorTextEntries) {
-    this.flavorTextEntries = flavorTextEntries;
-  }
-
-  public ContestEffectDetail flavorTextEntries(List<@Valid ContestEffectFlavorText> flavorTextEntries) {
-    this.flavorTextEntries = flavorTextEntries;
-    return this;
-  }
-
-  public ContestEffectDetail addFlavorTextEntriesItem(ContestEffectFlavorText flavorTextEntriesItem) {
-    this.flavorTextEntries.add(flavorTextEntriesItem);
-    return this;
-  }
 
   @Override
   public boolean equals(Object o) {
@@ -175,10 +149,7 @@ public class ContestEffectDetail  {
    * (except the first line).
    */
   private static String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 }
 

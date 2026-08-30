@@ -53,10 +53,10 @@ class GenerationName {
       // Note 1: the values aren't checked for validity beyond being non-null.
       // Note 2: this code is stripped in release mode!
       assert(() {
-        requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "GenerationName[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "GenerationName[$key]" has a null value in JSON.');
-        });
+        assert(json.containsKey(r'name'), 'Required key "GenerationName[name]" is missing from JSON.');
+        assert(json[r'name'] != null, 'Required key "GenerationName[name]" has a null value in JSON.');
+        assert(json.containsKey(r'language'), 'Required key "GenerationName[language]" is missing from JSON.');
+        assert(json[r'language'] != null, 'Required key "GenerationName[language]" has a null value in JSON.');
         return true;
       }());
 

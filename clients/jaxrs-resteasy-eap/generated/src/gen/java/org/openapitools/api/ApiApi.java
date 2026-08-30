@@ -118,7 +118,7 @@ import javax.validation.Valid;
 
 
 @io.swagger.annotations.Api(description = "the api API")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaResteasyEapServerCodegen", date = "2026-02-07T15:24:02.238725160Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaResteasyEapServerCodegen", date = "2026-08-30T01:56:39.042251164Z[Etc/UTC]", comments = "Generator version: 7.24.0")
 public interface ApiApi  {
 
     @GET

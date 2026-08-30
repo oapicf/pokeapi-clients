@@ -36,7 +36,7 @@ class  ItemCategoryDetail
 {
 public:
     ItemCategoryDetail();
-    virtual ~ItemCategoryDetail() = default;
+    virtual ~ItemCategoryDetail();
 
 
     /// <summary>

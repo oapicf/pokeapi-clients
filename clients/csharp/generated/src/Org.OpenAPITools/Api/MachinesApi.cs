@@ -13,13 +13,16 @@
 
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Net;
+using System.IO;
 using System.Threading.Tasks;
 using Microsoft.Extensions.Logging;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Text.Json;
 using Org.OpenAPITools.Client;
+using Org.OpenAPITools.Logging;
 using Org.OpenAPITools.Model;
 using System.Diagnostics.CodeAnalysis;
 
@@ -165,11 +168,6 @@ namespace Org.OpenAPITools.Api
         private JsonSerializerOptions _jsonSerializerOptions;
 
         /// <summary>
-        /// The logger factory
-        /// </summary>
-        public ILoggerFactory LoggerFactory { get; }
-
-        /// <summary>
         /// The logger
         /// </summary>
         public ILogger<MachinesApi> Logger { get; }
@@ -198,13 +196,12 @@ namespace Org.OpenAPITools.Api
         /// Initializes a new instance of the <see cref="MachinesApi"/> class.
         /// </summary>
         /// <returns></returns>
-        public MachinesApi(ILogger<MachinesApi> logger, ILoggerFactory loggerFactory, HttpClient httpClient, JsonSerializerOptionsProvider jsonSerializerOptionsProvider, MachinesApiEvents machinesApiEvents,
+        public MachinesApi(ILogger<MachinesApi> logger, HttpClient httpClient, JsonSerializerOptionsProvider jsonSerializerOptionsProvider, MachinesApiEvents machinesApiEvents,
             TokenProvider<ApiKeyToken> apiKeyProvider,
             TokenProvider<BasicToken> basicTokenProvider)
         {
             _jsonSerializerOptions = jsonSerializerOptionsProvider.Options;
-            LoggerFactory = loggerFactory;
-            Logger = LoggerFactory.CreateLogger<MachinesApi>();
+            Logger = logger;
             HttpClient = httpClient;
             Events = machinesApiEvents;
             ApiKeyProvider = apiKeyProvider;
@@ -236,7 +233,7 @@ namespace Org.OpenAPITools.Api
             bool suppressDefaultLog = false;
             AfterMachineList(ref suppressDefaultLog, apiResponseLocalVar, limit, offset, q);
             if (!suppressDefaultLog)
-                Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
+                Logger.LogInformation(RestLogEvents.ApiRequestCompleted, "{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
 
         /// <summary>
@@ -263,7 +260,7 @@ namespace Org.OpenAPITools.Api
             bool suppressDefaultLogLocalVar = false;
             OnErrorMachineList(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, limit, offset, q);
             if (!suppressDefaultLogLocalVar)
-                Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
+                Logger.LogError(RestLogEvents.ApiRequestFailed, exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
 
         /// <summary>
@@ -324,7 +321,7 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
                         ? "/api/v2/machine/"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/v2/machine/");
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath.TrimEnd('/'), "/api/v2/machine/");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -352,10 +349,10 @@ namespace Org.OpenAPITools.Api
                         "application/json"
                     };
 
-                    string? acceptLocalVar = ClientUtils.SelectHeaderAccept(acceptLocalVars);
+                    IEnumerable<MediaTypeWithQualityHeaderValue> acceptHeaderValuesLocalVar = ClientUtils.SelectHeaderAcceptArray(acceptLocalVars);
 
-                    if (acceptLocalVar != null)
-                        httpRequestMessageLocalVar.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue(acceptLocalVar));
+                    foreach (var acceptLocalVar in acceptHeaderValuesLocalVar)
+                        httpRequestMessageLocalVar.Headers.Accept.Add(acceptLocalVar);
 
                     httpRequestMessageLocalVar.Method = HttpMethod.Get;
 
@@ -363,13 +360,12 @@ namespace Org.OpenAPITools.Api
 
                     using (HttpResponseMessage httpResponseMessageLocalVar = await HttpClient.SendAsync(httpRequestMessageLocalVar, cancellationToken).ConfigureAwait(false))
                     {
-                        ILogger<MachineListApiResponse> apiResponseLoggerLocalVar = LoggerFactory.CreateLogger<MachineListApiResponse>();
                         MachineListApiResponse apiResponseLocalVar;
 
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/v2/machine/", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(Logger, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/v2/machine/", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
@@ -403,7 +399,7 @@ namespace Org.OpenAPITools.Api
             /// <summary>
             /// The logger
             /// </summary>
-            public ILogger<MachineListApiResponse> Logger { get; }
+            public ILogger<MachinesApi> Logger { get; }
 
             /// <summary>
             /// The <see cref="MachineListApiResponse"/>
@@ -415,7 +411,7 @@ namespace Org.OpenAPITools.Api
             /// <param name="path"></param>
             /// <param name="requestedAt"></param>
             /// <param name="jsonSerializerOptions"></param>
-            public MachineListApiResponse(ILogger<MachineListApiResponse> logger, System.Net.Http.HttpRequestMessage httpRequestMessage, System.Net.Http.HttpResponseMessage httpResponseMessage, string rawContent, string path, DateTime requestedAt, System.Text.Json.JsonSerializerOptions jsonSerializerOptions) : base(httpRequestMessage, httpResponseMessage, rawContent, path, requestedAt, jsonSerializerOptions)
+            public MachineListApiResponse(ILogger<MachinesApi> logger, System.Net.Http.HttpRequestMessage httpRequestMessage, System.Net.Http.HttpResponseMessage httpResponseMessage, string rawContent, string path, DateTime requestedAt, System.Text.Json.JsonSerializerOptions jsonSerializerOptions) : base(httpRequestMessage, httpResponseMessage, rawContent, path, requestedAt, jsonSerializerOptions)
             {
                 Logger = logger;
                 OnCreated(httpRequestMessage, httpResponseMessage);
@@ -431,7 +427,7 @@ namespace Org.OpenAPITools.Api
             /// <param name="path"></param>
             /// <param name="requestedAt"></param>
             /// <param name="jsonSerializerOptions"></param>
-            public MachineListApiResponse(ILogger<MachineListApiResponse> logger, System.Net.Http.HttpRequestMessage httpRequestMessage, System.Net.Http.HttpResponseMessage httpResponseMessage, System.IO.Stream contentStream, string path, DateTime requestedAt, System.Text.Json.JsonSerializerOptions jsonSerializerOptions) : base(httpRequestMessage, httpResponseMessage, contentStream, path, requestedAt, jsonSerializerOptions)
+            public MachineListApiResponse(ILogger<MachinesApi> logger, System.Net.Http.HttpRequestMessage httpRequestMessage, System.Net.Http.HttpResponseMessage httpResponseMessage, System.IO.Stream contentStream, string path, DateTime requestedAt, System.Text.Json.JsonSerializerOptions jsonSerializerOptions) : base(httpRequestMessage, httpResponseMessage, contentStream, path, requestedAt, jsonSerializerOptions)
             {
                 Logger = logger;
                 OnCreated(httpRequestMessage, httpResponseMessage);
@@ -482,7 +478,7 @@ namespace Org.OpenAPITools.Api
                 bool suppressDefaultLog = false;
                 OnDeserializationError(ref suppressDefaultLog, exception, httpStatusCode);
                 if (!suppressDefaultLog)
-                    Logger.LogError(exception, "An error occurred while deserializing the {code} response.", httpStatusCode);
+                    Logger.LogError(RestLogEvents.ApiDeserializationFailed, exception, "An error occurred while deserializing the {code} response.", httpStatusCode);
             }
 
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
@@ -511,7 +507,7 @@ namespace Org.OpenAPITools.Api
             bool suppressDefaultLog = false;
             AfterMachineRetrieve(ref suppressDefaultLog, apiResponseLocalVar, id);
             if (!suppressDefaultLog)
-                Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
+                Logger.LogInformation(RestLogEvents.ApiRequestCompleted, "{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
 
         /// <summary>
@@ -534,7 +530,7 @@ namespace Org.OpenAPITools.Api
             bool suppressDefaultLogLocalVar = false;
             OnErrorMachineRetrieve(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, id);
             if (!suppressDefaultLogLocalVar)
-                Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
+                Logger.LogError(RestLogEvents.ApiRequestFailed, exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
 
         /// <summary>
@@ -589,7 +585,7 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
                         ? "/api/v2/machine/{id}/"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/v2/machine/{id}/");
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath.TrimEnd('/'), "/api/v2/machine/{id}/");
                     uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bid%7D", Uri.EscapeDataString(id.ToString()));
 
                     List<TokenBase> tokenBaseLocalVars = new List<TokenBase>();
@@ -605,10 +601,10 @@ namespace Org.OpenAPITools.Api
                         "application/json"
                     };
 
-                    string? acceptLocalVar = ClientUtils.SelectHeaderAccept(acceptLocalVars);
+                    IEnumerable<MediaTypeWithQualityHeaderValue> acceptHeaderValuesLocalVar = ClientUtils.SelectHeaderAcceptArray(acceptLocalVars);
 
-                    if (acceptLocalVar != null)
-                        httpRequestMessageLocalVar.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue(acceptLocalVar));
+                    foreach (var acceptLocalVar in acceptHeaderValuesLocalVar)
+                        httpRequestMessageLocalVar.Headers.Accept.Add(acceptLocalVar);
 
                     httpRequestMessageLocalVar.Method = HttpMethod.Get;
 
@@ -616,13 +612,12 @@ namespace Org.OpenAPITools.Api
 
                     using (HttpResponseMessage httpResponseMessageLocalVar = await HttpClient.SendAsync(httpRequestMessageLocalVar, cancellationToken).ConfigureAwait(false))
                     {
-                        ILogger<MachineRetrieveApiResponse> apiResponseLoggerLocalVar = LoggerFactory.CreateLogger<MachineRetrieveApiResponse>();
                         MachineRetrieveApiResponse apiResponseLocalVar;
 
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/v2/machine/{id}/", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(Logger, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/v2/machine/{id}/", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
@@ -656,7 +651,7 @@ namespace Org.OpenAPITools.Api
             /// <summary>
             /// The logger
             /// </summary>
-            public ILogger<MachineRetrieveApiResponse> Logger { get; }
+            public ILogger<MachinesApi> Logger { get; }
 
             /// <summary>
             /// The <see cref="MachineRetrieveApiResponse"/>
@@ -668,7 +663,7 @@ namespace Org.OpenAPITools.Api
             /// <param name="path"></param>
             /// <param name="requestedAt"></param>
             /// <param name="jsonSerializerOptions"></param>
-            public MachineRetrieveApiResponse(ILogger<MachineRetrieveApiResponse> logger, System.Net.Http.HttpRequestMessage httpRequestMessage, System.Net.Http.HttpResponseMessage httpResponseMessage, string rawContent, string path, DateTime requestedAt, System.Text.Json.JsonSerializerOptions jsonSerializerOptions) : base(httpRequestMessage, httpResponseMessage, rawContent, path, requestedAt, jsonSerializerOptions)
+            public MachineRetrieveApiResponse(ILogger<MachinesApi> logger, System.Net.Http.HttpRequestMessage httpRequestMessage, System.Net.Http.HttpResponseMessage httpResponseMessage, string rawContent, string path, DateTime requestedAt, System.Text.Json.JsonSerializerOptions jsonSerializerOptions) : base(httpRequestMessage, httpResponseMessage, rawContent, path, requestedAt, jsonSerializerOptions)
             {
                 Logger = logger;
                 OnCreated(httpRequestMessage, httpResponseMessage);
@@ -684,7 +679,7 @@ namespace Org.OpenAPITools.Api
             /// <param name="path"></param>
             /// <param name="requestedAt"></param>
             /// <param name="jsonSerializerOptions"></param>
-            public MachineRetrieveApiResponse(ILogger<MachineRetrieveApiResponse> logger, System.Net.Http.HttpRequestMessage httpRequestMessage, System.Net.Http.HttpResponseMessage httpResponseMessage, System.IO.Stream contentStream, string path, DateTime requestedAt, System.Text.Json.JsonSerializerOptions jsonSerializerOptions) : base(httpRequestMessage, httpResponseMessage, contentStream, path, requestedAt, jsonSerializerOptions)
+            public MachineRetrieveApiResponse(ILogger<MachinesApi> logger, System.Net.Http.HttpRequestMessage httpRequestMessage, System.Net.Http.HttpResponseMessage httpResponseMessage, System.IO.Stream contentStream, string path, DateTime requestedAt, System.Text.Json.JsonSerializerOptions jsonSerializerOptions) : base(httpRequestMessage, httpResponseMessage, contentStream, path, requestedAt, jsonSerializerOptions)
             {
                 Logger = logger;
                 OnCreated(httpRequestMessage, httpResponseMessage);
@@ -735,7 +730,7 @@ namespace Org.OpenAPITools.Api
                 bool suppressDefaultLog = false;
                 OnDeserializationError(ref suppressDefaultLog, exception, httpStatusCode);
                 if (!suppressDefaultLog)
-                    Logger.LogError(exception, "An error occurred while deserializing the {code} response.", httpStatusCode);
+                    Logger.LogError(RestLogEvents.ApiDeserializationFailed, exception, "An error occurred while deserializing the {code} response.", httpStatusCode);
             }
 
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);

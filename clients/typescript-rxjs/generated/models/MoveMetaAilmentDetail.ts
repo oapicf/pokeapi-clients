@@ -35,10 +35,10 @@ export interface MoveMetaAilmentDetail {
      * @type {Array<AbilityDetailPokemonInnerPokemon>}
      * @memberof MoveMetaAilmentDetail
      */
-    moves: Array<AbilityDetailPokemonInnerPokemon>;
+    readonly moves: Array<AbilityDetailPokemonInnerPokemon>;
     /**
      * @type {Array<MoveMetaAilmentName>}
      * @memberof MoveMetaAilmentDetail
      */
-    names: Array<MoveMetaAilmentName>;
+    readonly names: Array<MoveMetaAilmentName>;
 }

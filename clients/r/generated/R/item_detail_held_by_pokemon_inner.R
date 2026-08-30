@@ -69,13 +69,36 @@ ItemDetailHeldByPokemonInner <- R6::R6Class(
       ItemDetailHeldByPokemonInnerObject <- list()
       if (!is.null(self$`pokemon`)) {
         ItemDetailHeldByPokemonInnerObject[["pokemon"]] <-
-          self$`pokemon`$toSimpleType()
+          self$extractSimpleType(self$`pokemon`)
       }
       if (!is.null(self$`version-details`)) {
         ItemDetailHeldByPokemonInnerObject[["version-details"]] <-
-          lapply(self$`version-details`, function(x) x$toSimpleType())
+          self$extractSimpleType(self$`version-details`)
       }
       return(ItemDetailHeldByPokemonInnerObject)
+    },
+
+    extractSimpleType = function(x) {
+      if (R6::is.R6(x)) {
+        return(x$toSimpleType())
+      } else if (!self$hasNestedR6(x)) {
+        return(x)
+      }
+      lapply(x, self$extractSimpleType)
+    },
+
+    hasNestedR6 = function(x) {
+      if (R6::is.R6(x)) {
+        return(TRUE)
+      }
+      if (is.list(x)) {
+        for (item in x) {
+          if (self$hasNestedR6(item)) {
+            return(TRUE)
+          }
+        }
+      }
+      FALSE
     },
 
     #' @description

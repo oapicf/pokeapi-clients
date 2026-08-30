@@ -52,13 +52,15 @@ class PokeathlonStatDetailAffectingNatures extends BaseModel
       "type" : "array",
       "items" : {
         "$ref" : "#/components/schemas/PokeathlonStatDetail_affecting_natures_decrease_inner"
-      }
+      },
+      "default" : null
     },
     "increase" : {
       "type" : "array",
       "items" : {
         "$ref" : "#/components/schemas/PokeathlonStatDetail_affecting_natures_increase_inner"
-      }
+      },
+      "default" : null
     }
   },
   "readOnly" : true

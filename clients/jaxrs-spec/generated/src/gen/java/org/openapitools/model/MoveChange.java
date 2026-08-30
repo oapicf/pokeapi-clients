@@ -23,7 +23,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
 
 
 @JsonTypeName("MoveChange")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2026-02-07T15:24:06.001755207Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2026-08-30T01:56:42.280002256Z[Etc/UTC]", comments = "Generator version: 7.24.0")
 public class MoveChange   {
   private Integer accuracy;
   private Integer power;
@@ -135,7 +135,7 @@ public class MoveChange   {
   
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(required = true, value = "effect_entries")
-  @NotNull @Valid public List<@Valid MoveChangeEffectEntriesInner> getEffectEntries() {
+  @Valid public List<@Valid MoveChangeEffectEntriesInner> getEffectEntries() {
     return effectEntries;
   }
 
@@ -243,12 +243,8 @@ public class MoveChange   {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 
 }
-

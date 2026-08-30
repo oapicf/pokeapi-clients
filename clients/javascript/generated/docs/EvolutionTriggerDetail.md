@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **Number** |  | [readonly] 
 **name** | **String** |  | 
-**names** | [**[EvolutionTriggerName]**](EvolutionTriggerName.md) |  | 
-**pokemonSpecies** | [**[AbilityDetailPokemonInnerPokemon]**](AbilityDetailPokemonInnerPokemon.md) |  | 
+**names** | [**[EvolutionTriggerName]**](EvolutionTriggerName.md) |  | [readonly] 
+**pokemonSpecies** | [**[AbilityDetailPokemonInnerPokemon]**](AbilityDetailPokemonInnerPokemon.md) |  | [readonly] 
 
 

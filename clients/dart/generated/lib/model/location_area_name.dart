@@ -53,10 +53,10 @@ class LocationAreaName {
       // Note 1: the values aren't checked for validity beyond being non-null.
       // Note 2: this code is stripped in release mode!
       assert(() {
-        requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "LocationAreaName[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "LocationAreaName[$key]" has a null value in JSON.');
-        });
+        assert(json.containsKey(r'name'), 'Required key "LocationAreaName[name]" is missing from JSON.');
+        assert(json[r'name'] != null, 'Required key "LocationAreaName[name]" has a null value in JSON.');
+        assert(json.containsKey(r'language'), 'Required key "LocationAreaName[language]" is missing from JSON.');
+        assert(json[r'language'] != null, 'Required key "LocationAreaName[language]" has a null value in JSON.');
         return true;
       }());
 

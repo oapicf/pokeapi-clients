@@ -269,7 +269,7 @@ StatDetail::getId()
 }
 
 void
-StatDetail::setId(int  id)
+StatDetail::setId(int id)
 {
 	this->id = id;
 }
@@ -281,7 +281,7 @@ StatDetail::getName()
 }
 
 void
-StatDetail::setName(std::string  name)
+StatDetail::setName(std::string name)
 {
 	this->name = name;
 }
@@ -293,7 +293,7 @@ StatDetail::getGameIndex()
 }
 
 void
-StatDetail::setGameIndex(int  game_index)
+StatDetail::setGameIndex(int game_index)
 {
 	this->game_index = game_index;
 }
@@ -305,7 +305,7 @@ StatDetail::isIsBattleOnly()
 }
 
 void
-StatDetail::setIsBattleOnly(bool  is_battle_only)
+StatDetail::setIsBattleOnly(bool is_battle_only)
 {
 	this->is_battle_only = is_battle_only;
 }
@@ -317,7 +317,7 @@ StatDetail::getAffectingMoves()
 }
 
 void
-StatDetail::setAffectingMoves(StatDetail_affecting_moves  affecting_moves)
+StatDetail::setAffectingMoves(StatDetail_affecting_moves affecting_moves)
 {
 	this->affecting_moves = affecting_moves;
 }
@@ -329,7 +329,7 @@ StatDetail::getAffectingNatures()
 }
 
 void
-StatDetail::setAffectingNatures(StatDetail_affecting_natures  affecting_natures)
+StatDetail::setAffectingNatures(StatDetail_affecting_natures affecting_natures)
 {
 	this->affecting_natures = affecting_natures;
 }
@@ -341,7 +341,7 @@ StatDetail::getCharacteristics()
 }
 
 void
-StatDetail::setCharacteristics(std::list <CharacteristicSummary> characteristics)
+StatDetail::setCharacteristics(std::list<CharacteristicSummary> characteristics)
 {
 	this->characteristics = characteristics;
 }
@@ -353,7 +353,7 @@ StatDetail::getMoveDamageClass()
 }
 
 void
-StatDetail::setMoveDamageClass(MoveDamageClassSummary  move_damage_class)
+StatDetail::setMoveDamageClass(MoveDamageClassSummary move_damage_class)
 {
 	this->move_damage_class = move_damage_class;
 }
@@ -365,7 +365,7 @@ StatDetail::getNames()
 }
 
 void
-StatDetail::setNames(std::list <StatName> names)
+StatDetail::setNames(std::list<StatName> names)
 {
 	this->names = names;
 }

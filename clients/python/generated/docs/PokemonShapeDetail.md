@@ -7,9 +7,9 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **int** |  | [readonly] 
 **name** | **str** |  | 
-**awesome_names** | [**List[PokemonShapeDetailAwesomeNamesInner]**](PokemonShapeDetailAwesomeNamesInner.md) |  | 
-**names** | [**List[PokemonShapeDetailNamesInner]**](PokemonShapeDetailNamesInner.md) |  | 
-**pokemon_species** | [**List[PokemonSpeciesSummary]**](PokemonSpeciesSummary.md) |  | 
+**awesome_names** | [**List[PokemonShapeDetailAwesomeNamesInner]**](PokemonShapeDetailAwesomeNamesInner.md) |  | [readonly] 
+**names** | [**List[PokemonShapeDetailNamesInner]**](PokemonShapeDetailNamesInner.md) |  | [readonly] 
+**pokemon_species** | [**List[PokemonSpeciesSummary]**](PokemonSpeciesSummary.md) |  | [readonly] 
 
 ## Example
 

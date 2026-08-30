@@ -53,7 +53,7 @@ export interface TypeDetailPastDamageRelationsInner {
  */
 export function instanceOfTypeDetailPastDamageRelationsInner(value: object): value is TypeDetailPastDamageRelationsInner {
     if (!('generation' in value) || value['generation'] === undefined) return false;
-    if (!('damageRelations' in value) || value['damageRelations'] === undefined) return false;
+    if ((!('damageRelations' in (value as Record<string, any>)) && !('damage_relations' in (value as Record<string, any>))) || ((value as Record<string, any>)['damageRelations'] === undefined && (value as Record<string, any>)['damage_relations'] === undefined)) return false;
     return true;
 }
 

@@ -24,6 +24,7 @@ class ItemsApi {
         def queryParams = [:]
         def headerParams = [:]
         def bodyParams
+        def accept
         def contentType
 
 
@@ -40,7 +41,9 @@ class ItemsApi {
 
 
 
-        apiUtils.invokeApi(onSuccess, onFailure, basePath, versionPath, resourcePath, queryParams, headerParams, bodyParams, contentType,
+        accept = apiUtils.selectHeaderAccept(["application/json"])
+
+        apiUtils.invokeApi(onSuccess, onFailure, basePath, versionPath, resourcePath, queryParams, headerParams, bodyParams, accept, contentType,
                     "GET", "",
                     PaginatedItemAttributeSummaryList.class )
 
@@ -53,6 +56,7 @@ class ItemsApi {
         def queryParams = [:]
         def headerParams = [:]
         def bodyParams
+        def accept
         def contentType
 
         // verify required params are set
@@ -64,7 +68,9 @@ class ItemsApi {
 
 
 
-        apiUtils.invokeApi(onSuccess, onFailure, basePath, versionPath, resourcePath, queryParams, headerParams, bodyParams, contentType,
+        accept = apiUtils.selectHeaderAccept(["application/json"])
+
+        apiUtils.invokeApi(onSuccess, onFailure, basePath, versionPath, resourcePath, queryParams, headerParams, bodyParams, accept, contentType,
                     "GET", "",
                     ItemAttributeDetail.class )
 
@@ -77,6 +83,7 @@ class ItemsApi {
         def queryParams = [:]
         def headerParams = [:]
         def bodyParams
+        def accept
         def contentType
 
 
@@ -93,7 +100,9 @@ class ItemsApi {
 
 
 
-        apiUtils.invokeApi(onSuccess, onFailure, basePath, versionPath, resourcePath, queryParams, headerParams, bodyParams, contentType,
+        accept = apiUtils.selectHeaderAccept(["application/json"])
+
+        apiUtils.invokeApi(onSuccess, onFailure, basePath, versionPath, resourcePath, queryParams, headerParams, bodyParams, accept, contentType,
                     "GET", "",
                     PaginatedItemCategorySummaryList.class )
 
@@ -106,6 +115,7 @@ class ItemsApi {
         def queryParams = [:]
         def headerParams = [:]
         def bodyParams
+        def accept
         def contentType
 
         // verify required params are set
@@ -117,7 +127,9 @@ class ItemsApi {
 
 
 
-        apiUtils.invokeApi(onSuccess, onFailure, basePath, versionPath, resourcePath, queryParams, headerParams, bodyParams, contentType,
+        accept = apiUtils.selectHeaderAccept(["application/json"])
+
+        apiUtils.invokeApi(onSuccess, onFailure, basePath, versionPath, resourcePath, queryParams, headerParams, bodyParams, accept, contentType,
                     "GET", "",
                     ItemCategoryDetail.class )
 
@@ -130,6 +142,7 @@ class ItemsApi {
         def queryParams = [:]
         def headerParams = [:]
         def bodyParams
+        def accept
         def contentType
 
 
@@ -146,7 +159,9 @@ class ItemsApi {
 
 
 
-        apiUtils.invokeApi(onSuccess, onFailure, basePath, versionPath, resourcePath, queryParams, headerParams, bodyParams, contentType,
+        accept = apiUtils.selectHeaderAccept(["application/json"])
+
+        apiUtils.invokeApi(onSuccess, onFailure, basePath, versionPath, resourcePath, queryParams, headerParams, bodyParams, accept, contentType,
                     "GET", "",
                     PaginatedItemFlingEffectSummaryList.class )
 
@@ -159,6 +174,7 @@ class ItemsApi {
         def queryParams = [:]
         def headerParams = [:]
         def bodyParams
+        def accept
         def contentType
 
         // verify required params are set
@@ -170,7 +186,9 @@ class ItemsApi {
 
 
 
-        apiUtils.invokeApi(onSuccess, onFailure, basePath, versionPath, resourcePath, queryParams, headerParams, bodyParams, contentType,
+        accept = apiUtils.selectHeaderAccept(["application/json"])
+
+        apiUtils.invokeApi(onSuccess, onFailure, basePath, versionPath, resourcePath, queryParams, headerParams, bodyParams, accept, contentType,
                     "GET", "",
                     ItemFlingEffectDetail.class )
 
@@ -183,6 +201,7 @@ class ItemsApi {
         def queryParams = [:]
         def headerParams = [:]
         def bodyParams
+        def accept
         def contentType
 
 
@@ -199,7 +218,9 @@ class ItemsApi {
 
 
 
-        apiUtils.invokeApi(onSuccess, onFailure, basePath, versionPath, resourcePath, queryParams, headerParams, bodyParams, contentType,
+        accept = apiUtils.selectHeaderAccept(["application/json"])
+
+        apiUtils.invokeApi(onSuccess, onFailure, basePath, versionPath, resourcePath, queryParams, headerParams, bodyParams, accept, contentType,
                     "GET", "",
                     PaginatedItemSummaryList.class )
 
@@ -212,6 +233,7 @@ class ItemsApi {
         def queryParams = [:]
         def headerParams = [:]
         def bodyParams
+        def accept
         def contentType
 
 
@@ -228,7 +250,9 @@ class ItemsApi {
 
 
 
-        apiUtils.invokeApi(onSuccess, onFailure, basePath, versionPath, resourcePath, queryParams, headerParams, bodyParams, contentType,
+        accept = apiUtils.selectHeaderAccept(["application/json"])
+
+        apiUtils.invokeApi(onSuccess, onFailure, basePath, versionPath, resourcePath, queryParams, headerParams, bodyParams, accept, contentType,
                     "GET", "",
                     PaginatedItemPocketSummaryList.class )
 
@@ -241,6 +265,7 @@ class ItemsApi {
         def queryParams = [:]
         def headerParams = [:]
         def bodyParams
+        def accept
         def contentType
 
         // verify required params are set
@@ -252,7 +277,9 @@ class ItemsApi {
 
 
 
-        apiUtils.invokeApi(onSuccess, onFailure, basePath, versionPath, resourcePath, queryParams, headerParams, bodyParams, contentType,
+        accept = apiUtils.selectHeaderAccept(["application/json"])
+
+        apiUtils.invokeApi(onSuccess, onFailure, basePath, versionPath, resourcePath, queryParams, headerParams, bodyParams, accept, contentType,
                     "GET", "",
                     ItemPocketDetail.class )
 
@@ -265,6 +292,7 @@ class ItemsApi {
         def queryParams = [:]
         def headerParams = [:]
         def bodyParams
+        def accept
         def contentType
 
         // verify required params are set
@@ -276,7 +304,9 @@ class ItemsApi {
 
 
 
-        apiUtils.invokeApi(onSuccess, onFailure, basePath, versionPath, resourcePath, queryParams, headerParams, bodyParams, contentType,
+        accept = apiUtils.selectHeaderAccept(["application/json"])
+
+        apiUtils.invokeApi(onSuccess, onFailure, basePath, versionPath, resourcePath, queryParams, headerParams, bodyParams, accept, contentType,
                     "GET", "",
                     ItemDetail.class )
 

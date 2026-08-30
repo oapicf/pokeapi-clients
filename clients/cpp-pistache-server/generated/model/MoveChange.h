@@ -35,7 +35,7 @@ class  MoveChange
 {
 public:
     MoveChange();
-    virtual ~MoveChange() = default;
+    virtual ~MoveChange();
 
 
     /// <summary>

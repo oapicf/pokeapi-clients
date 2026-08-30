@@ -49,8 +49,8 @@ function Initialize-PokemonDexEntry {
 
 
         $PSO = [PSCustomObject]@{
-            "entry_number" = ${EntryNumber}
-            "pokedex" = ${Pokedex}
+            'entry_number' = ${EntryNumber}
+            'pokedex' = ${Pokedex}
         }
 
 
@@ -88,7 +88,7 @@ function ConvertFrom-JsonToPokemonDexEntry {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in PokemonDexEntry
-        $AllProperties = ("entry_number", "pokedex")
+        $AllProperties = ('entry_number', 'pokedex')
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -99,21 +99,21 @@ function ConvertFrom-JsonToPokemonDexEntry {
             throw "Error! Empty JSON cannot be serialized due to the required property 'entry_number' missing."
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "entry_number"))) {
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'entry_number'))) {
             throw "Error! JSON cannot be serialized due to the required property 'entry_number' missing."
         } else {
-            $EntryNumber = $JsonParameters.PSobject.Properties["entry_number"].value
+            $EntryNumber = $JsonParameters.PSobject.Properties['entry_number'].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "pokedex"))) {
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'pokedex'))) {
             throw "Error! JSON cannot be serialized due to the required property 'pokedex' missing."
         } else {
-            $Pokedex = $JsonParameters.PSobject.Properties["pokedex"].value
+            $Pokedex = $JsonParameters.PSobject.Properties['pokedex'].value
         }
 
         $PSO = [PSCustomObject]@{
-            "entry_number" = ${EntryNumber}
-            "pokedex" = ${Pokedex}
+            'entry_number' = ${EntryNumber}
+            'pokedex' = ${Pokedex}
         }
 
         return $PSO

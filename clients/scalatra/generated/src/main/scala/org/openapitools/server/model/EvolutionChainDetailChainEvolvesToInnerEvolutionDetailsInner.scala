@@ -18,9 +18,9 @@ case class EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner(
 
   item: EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender,
 
-  knownMove: Any,
+  knownMove: EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender,
 
-  knownMoveType: Any,
+  knownMoveType: EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender,
 
   location: EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender,
 

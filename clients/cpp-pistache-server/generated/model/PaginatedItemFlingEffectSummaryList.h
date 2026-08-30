@@ -34,7 +34,7 @@ class  PaginatedItemFlingEffectSummaryList
 {
 public:
     PaginatedItemFlingEffectSummaryList();
-    virtual ~PaginatedItemFlingEffectSummaryList() = default;
+    virtual ~PaginatedItemFlingEffectSummaryList();
 
 
     /// <summary>

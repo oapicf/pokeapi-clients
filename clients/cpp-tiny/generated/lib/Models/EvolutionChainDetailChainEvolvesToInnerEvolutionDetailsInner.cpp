@@ -9,8 +9,8 @@ EvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner::EvolutionCh
 	gender = EvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner_gender();
 	held_item = EvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner_gender();
 	item = EvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner_gender();
-	known_move = null;
-	known_move_type = null;
+	known_move = EvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner_gender();
+	known_move_type = EvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner_gender();
 	location = EvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner_gender();
 	min_affection = int(0);
 	min_beauty = int(0);
@@ -92,7 +92,7 @@ EvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner::fromJson(st
 
 
 
-        Object* obj = &known_move;
+        EvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner_gender* obj = &known_move;
 		obj->fromJson(value.dump());
 
     }
@@ -106,7 +106,7 @@ EvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner::fromJson(st
 
 
 
-        Object* obj = &known_move_type;
+        EvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner_gender* obj = &known_move_type;
 		obj->fromJson(value.dump());
 
     }
@@ -428,7 +428,7 @@ EvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner::getGender()
 }
 
 void
-EvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner::setGender(EvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner_gender  gender)
+EvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner::setGender(EvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner_gender gender)
 {
 	this->gender = gender;
 }
@@ -440,7 +440,7 @@ EvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner::getHeldItem
 }
 
 void
-EvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner::setHeldItem(EvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner_gender  held_item)
+EvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner::setHeldItem(EvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner_gender held_item)
 {
 	this->held_item = held_item;
 }
@@ -452,31 +452,31 @@ EvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner::getItem()
 }
 
 void
-EvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner::setItem(EvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner_gender  item)
+EvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner::setItem(EvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner_gender item)
 {
 	this->item = item;
 }
 
-Object
+EvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner_gender
 EvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner::getKnownMove()
 {
 	return known_move;
 }
 
 void
-EvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner::setKnownMove(Object  known_move)
+EvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner::setKnownMove(EvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner_gender known_move)
 {
 	this->known_move = known_move;
 }
 
-Object
+EvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner_gender
 EvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner::getKnownMoveType()
 {
 	return known_move_type;
 }
 
 void
-EvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner::setKnownMoveType(Object  known_move_type)
+EvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner::setKnownMoveType(EvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner_gender known_move_type)
 {
 	this->known_move_type = known_move_type;
 }
@@ -488,7 +488,7 @@ EvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner::getLocation
 }
 
 void
-EvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner::setLocation(EvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner_gender  location)
+EvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner::setLocation(EvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner_gender location)
 {
 	this->location = location;
 }
@@ -500,7 +500,7 @@ EvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner::getMinAffec
 }
 
 void
-EvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner::setMinAffection(int  min_affection)
+EvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner::setMinAffection(int min_affection)
 {
 	this->min_affection = min_affection;
 }
@@ -512,7 +512,7 @@ EvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner::getMinBeaut
 }
 
 void
-EvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner::setMinBeauty(int  min_beauty)
+EvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner::setMinBeauty(int min_beauty)
 {
 	this->min_beauty = min_beauty;
 }
@@ -524,7 +524,7 @@ EvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner::getMinHappi
 }
 
 void
-EvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner::setMinHappiness(int  min_happiness)
+EvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner::setMinHappiness(int min_happiness)
 {
 	this->min_happiness = min_happiness;
 }
@@ -536,7 +536,7 @@ EvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner::getMinLevel
 }
 
 void
-EvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner::setMinLevel(int  min_level)
+EvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner::setMinLevel(int min_level)
 {
 	this->min_level = min_level;
 }
@@ -548,7 +548,7 @@ EvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner::isNeedsOver
 }
 
 void
-EvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner::setNeedsOverworldRain(bool  needs_overworld_rain)
+EvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner::setNeedsOverworldRain(bool needs_overworld_rain)
 {
 	this->needs_overworld_rain = needs_overworld_rain;
 }
@@ -560,7 +560,7 @@ EvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner::getPartySpe
 }
 
 void
-EvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner::setPartySpecies(std::string  party_species)
+EvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner::setPartySpecies(std::string party_species)
 {
 	this->party_species = party_species;
 }
@@ -572,7 +572,7 @@ EvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner::getPartyTyp
 }
 
 void
-EvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner::setPartyType(std::string  party_type)
+EvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner::setPartyType(std::string party_type)
 {
 	this->party_type = party_type;
 }
@@ -584,7 +584,7 @@ EvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner::getRelative
 }
 
 void
-EvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner::setRelativePhysicalStats(std::string  relative_physical_stats)
+EvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner::setRelativePhysicalStats(std::string relative_physical_stats)
 {
 	this->relative_physical_stats = relative_physical_stats;
 }
@@ -596,7 +596,7 @@ EvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner::getTimeOfDa
 }
 
 void
-EvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner::setTimeOfDay(std::string  time_of_day)
+EvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner::setTimeOfDay(std::string time_of_day)
 {
 	this->time_of_day = time_of_day;
 }
@@ -608,7 +608,7 @@ EvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner::getTradeSpe
 }
 
 void
-EvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner::setTradeSpecies(std::string  trade_species)
+EvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner::setTradeSpecies(std::string trade_species)
 {
 	this->trade_species = trade_species;
 }
@@ -620,7 +620,7 @@ EvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner::getTrigger(
 }
 
 void
-EvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner::setTrigger(AbilityDetail_pokemon_inner_pokemon  trigger)
+EvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner::setTrigger(AbilityDetail_pokemon_inner_pokemon trigger)
 {
 	this->trigger = trigger;
 }
@@ -632,7 +632,7 @@ EvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner::isTurnUpsid
 }
 
 void
-EvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner::setTurnUpsideDown(bool  turn_upside_down)
+EvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner::setTurnUpsideDown(bool turn_upside_down)
 {
 	this->turn_upside_down = turn_upside_down;
 }

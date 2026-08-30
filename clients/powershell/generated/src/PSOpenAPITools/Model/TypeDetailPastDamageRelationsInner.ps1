@@ -49,8 +49,8 @@ function Initialize-TypeDetailPastDamageRelationsInner {
 
 
         $PSO = [PSCustomObject]@{
-            "generation" = ${Generation}
-            "damage_relations" = ${DamageRelations}
+            'generation' = ${Generation}
+            'damage_relations' = ${DamageRelations}
         }
 
 
@@ -88,7 +88,7 @@ function ConvertFrom-JsonToTypeDetailPastDamageRelationsInner {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in TypeDetailPastDamageRelationsInner
-        $AllProperties = ("generation", "damage_relations")
+        $AllProperties = ('generation', 'damage_relations')
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -99,21 +99,21 @@ function ConvertFrom-JsonToTypeDetailPastDamageRelationsInner {
             throw "Error! Empty JSON cannot be serialized due to the required property 'generation' missing."
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "generation"))) {
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'generation'))) {
             throw "Error! JSON cannot be serialized due to the required property 'generation' missing."
         } else {
-            $Generation = $JsonParameters.PSobject.Properties["generation"].value
+            $Generation = $JsonParameters.PSobject.Properties['generation'].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "damage_relations"))) {
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'damage_relations'))) {
             throw "Error! JSON cannot be serialized due to the required property 'damage_relations' missing."
         } else {
-            $DamageRelations = $JsonParameters.PSobject.Properties["damage_relations"].value
+            $DamageRelations = $JsonParameters.PSobject.Properties['damage_relations'].value
         }
 
         $PSO = [PSCustomObject]@{
-            "generation" = ${Generation}
-            "damage_relations" = ${DamageRelations}
+            'generation' = ${Generation}
+            'damage_relations' = ${DamageRelations}
         }
 
         return $PSO

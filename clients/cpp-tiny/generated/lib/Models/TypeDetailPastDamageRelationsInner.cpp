@@ -87,7 +87,7 @@ TypeDetail_past_damage_relations_inner::getGeneration()
 }
 
 void
-TypeDetail_past_damage_relations_inner::setGeneration(AbilityDetail_pokemon_inner_pokemon  generation)
+TypeDetail_past_damage_relations_inner::setGeneration(AbilityDetail_pokemon_inner_pokemon generation)
 {
 	this->generation = generation;
 }
@@ -99,7 +99,7 @@ TypeDetail_past_damage_relations_inner::getDamageRelations()
 }
 
 void
-TypeDetail_past_damage_relations_inner::setDamageRelations(TypeDetail_past_damage_relations_inner_damage_relations  damage_relations)
+TypeDetail_past_damage_relations_inner::setDamageRelations(TypeDetail_past_damage_relations_inner_damage_relations damage_relations)
 {
 	this->damage_relations = damage_relations;
 }

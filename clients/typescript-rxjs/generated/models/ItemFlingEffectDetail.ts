@@ -35,10 +35,10 @@ export interface ItemFlingEffectDetail {
      * @type {Array<ItemFlingEffectEffectText>}
      * @memberof ItemFlingEffectDetail
      */
-    effect_entries: Array<ItemFlingEffectEffectText>;
+    readonly effect_entries: Array<ItemFlingEffectEffectText>;
     /**
      * @type {Array<ItemSummary>}
      * @memberof ItemFlingEffectDetail
      */
-    items: Array<ItemSummary>;
+    readonly items: Array<ItemSummary>;
 }

@@ -6,13 +6,13 @@
 | ---- | ---- | ----------- | ----- |
 | **id** | **Integer** |  | [readonly] |
 | **name** | **String** |  |  |
-| **abilities** | [**Array&lt;AbilitySummary&gt;**](AbilitySummary.md) |  |  |
+| **abilities** | [**Array&lt;AbilitySummary&gt;**](AbilitySummary.md) |  | [readonly] |
 | **main_region** | [**RegionSummary**](RegionSummary.md) |  |  |
-| **moves** | [**Array&lt;MoveSummary&gt;**](MoveSummary.md) |  |  |
-| **names** | [**Array&lt;GenerationName&gt;**](GenerationName.md) |  |  |
-| **pokemon_species** | [**Array&lt;PokemonSpeciesSummary&gt;**](PokemonSpeciesSummary.md) |  |  |
-| **types** | [**Array&lt;TypeSummary&gt;**](TypeSummary.md) |  |  |
-| **version_groups** | [**Array&lt;VersionGroupSummary&gt;**](VersionGroupSummary.md) |  |  |
+| **moves** | [**Array&lt;MoveSummary&gt;**](MoveSummary.md) |  | [readonly] |
+| **names** | [**Array&lt;GenerationName&gt;**](GenerationName.md) |  | [readonly] |
+| **pokemon_species** | [**Array&lt;PokemonSpeciesSummary&gt;**](PokemonSpeciesSummary.md) |  | [readonly] |
+| **types** | [**Array&lt;TypeSummary&gt;**](TypeSummary.md) |  | [readonly] |
+| **version_groups** | [**Array&lt;VersionGroupSummary&gt;**](VersionGroupSummary.md) |  | [readonly] |
 
 ## Example
 

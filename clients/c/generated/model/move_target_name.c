@@ -13,10 +13,10 @@ static move_target_name_t *move_target_name_create_internal(
     if (!move_target_name_local_var) {
         return NULL;
     }
+    memset(move_target_name_local_var, 0, sizeof(move_target_name_t));
+    move_target_name_local_var->_library_owned = 1;
     move_target_name_local_var->name = name;
     move_target_name_local_var->language = language;
-
-    move_target_name_local_var->_library_owned = 1;
     return move_target_name_local_var;
 }
 
@@ -24,10 +24,13 @@ __attribute__((deprecated)) move_target_name_t *move_target_name_create(
     char *name,
     language_summary_t *language
     ) {
-    return move_target_name_create_internal (
+    move_target_name_t *result = move_target_name_create_internal (
         name,
         language
         );
+    if (!result) {
+    }
+    return result;
 }
 
 void move_target_name_free(move_target_name_t *move_target_name) {
@@ -87,6 +90,8 @@ move_target_name_t *move_target_name_parseFromJSON(cJSON *move_target_nameJSON){
 
     move_target_name_t *move_target_name_local_var = NULL;
 
+    char *name_local_str = NULL;
+
     // define the local variable for move_target_name->language
     language_summary_t *language_local_nonprim = NULL;
 
@@ -118,13 +123,23 @@ move_target_name_t *move_target_name_parseFromJSON(cJSON *move_target_nameJSON){
     language_local_nonprim = language_summary_parseFromJSON(language); //nonprimitive
 
 
+    if (name && !cJSON_IsNull(name)) name_local_str = strdup(name->valuestring);
+
     move_target_name_local_var = move_target_name_create_internal (
-        strdup(name->valuestring),
+        name_local_str,
         language_local_nonprim
         );
 
+    if (!move_target_name_local_var) {
+        goto end;
+    }
+
     return move_target_name_local_var;
 end:
+    if (name_local_str) {
+        free(name_local_str);
+        name_local_str = NULL;
+    }
     if (language_local_nonprim) {
         language_summary_free(language_local_nonprim);
         language_local_nonprim = NULL;

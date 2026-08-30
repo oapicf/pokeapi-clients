@@ -281,6 +281,7 @@ public class PokemonDetail  {
 
   /**
    * Sets the <code>abilities</code> property.
+   * <br><em>N.B. <code>abilities</code> is <b>read only</b>; client code should not call this method</em>.
    */
  public void setAbilities(List<@Valid PokemonDetailAbilitiesInner> abilities) {
     this.abilities = abilities;
@@ -288,6 +289,7 @@ public class PokemonDetail  {
 
   /**
    * Sets the <code>abilities</code> property.
+   * <br><em>N.B. <code>abilities</code> is <b>read only</b>; client code should not call this method</em>.
    */
   public PokemonDetail abilities(List<@Valid PokemonDetailAbilitiesInner> abilities) {
     this.abilities = abilities;
@@ -296,6 +298,7 @@ public class PokemonDetail  {
 
   /**
    * Adds a new item to the <code>abilities</code> list.
+   * <br><em>N.B. <code>abilities</code> is <b>read only</b>; client code should not call this method</em>.
    */
   public PokemonDetail addAbilitiesItem(PokemonDetailAbilitiesInner abilitiesItem) {
     this.abilities.add(abilitiesItem);
@@ -314,6 +317,7 @@ public class PokemonDetail  {
 
   /**
    * Sets the <code>pastAbilities</code> property.
+   * <br><em>N.B. <code>pastAbilities</code> is <b>read only</b>; client code should not call this method</em>.
    */
  public void setPastAbilities(List<@Valid PokemonDetailPastAbilitiesInner> pastAbilities) {
     this.pastAbilities = pastAbilities;
@@ -321,6 +325,7 @@ public class PokemonDetail  {
 
   /**
    * Sets the <code>pastAbilities</code> property.
+   * <br><em>N.B. <code>pastAbilities</code> is <b>read only</b>; client code should not call this method</em>.
    */
   public PokemonDetail pastAbilities(List<@Valid PokemonDetailPastAbilitiesInner> pastAbilities) {
     this.pastAbilities = pastAbilities;
@@ -329,6 +334,7 @@ public class PokemonDetail  {
 
   /**
    * Adds a new item to the <code>pastAbilities</code> list.
+   * <br><em>N.B. <code>pastAbilities</code> is <b>read only</b>; client code should not call this method</em>.
    */
   public PokemonDetail addPastAbilitiesItem(PokemonDetailPastAbilitiesInner pastAbilitiesItem) {
     this.pastAbilities.add(pastAbilitiesItem);
@@ -347,6 +353,7 @@ public class PokemonDetail  {
 
   /**
    * Sets the <code>forms</code> property.
+   * <br><em>N.B. <code>forms</code> is <b>read only</b>; client code should not call this method</em>.
    */
  public void setForms(List<@Valid PokemonFormSummary> forms) {
     this.forms = forms;
@@ -354,6 +361,7 @@ public class PokemonDetail  {
 
   /**
    * Sets the <code>forms</code> property.
+   * <br><em>N.B. <code>forms</code> is <b>read only</b>; client code should not call this method</em>.
    */
   public PokemonDetail forms(List<@Valid PokemonFormSummary> forms) {
     this.forms = forms;
@@ -362,6 +370,7 @@ public class PokemonDetail  {
 
   /**
    * Adds a new item to the <code>forms</code> list.
+   * <br><em>N.B. <code>forms</code> is <b>read only</b>; client code should not call this method</em>.
    */
   public PokemonDetail addFormsItem(PokemonFormSummary formsItem) {
     this.forms.add(formsItem);
@@ -380,6 +389,7 @@ public class PokemonDetail  {
 
   /**
    * Sets the <code>gameIndices</code> property.
+   * <br><em>N.B. <code>gameIndices</code> is <b>read only</b>; client code should not call this method</em>.
    */
  public void setGameIndices(List<@Valid PokemonGameIndex> gameIndices) {
     this.gameIndices = gameIndices;
@@ -387,6 +397,7 @@ public class PokemonDetail  {
 
   /**
    * Sets the <code>gameIndices</code> property.
+   * <br><em>N.B. <code>gameIndices</code> is <b>read only</b>; client code should not call this method</em>.
    */
   public PokemonDetail gameIndices(List<@Valid PokemonGameIndex> gameIndices) {
     this.gameIndices = gameIndices;
@@ -395,6 +406,7 @@ public class PokemonDetail  {
 
   /**
    * Adds a new item to the <code>gameIndices</code> list.
+   * <br><em>N.B. <code>gameIndices</code> is <b>read only</b>; client code should not call this method</em>.
    */
   public PokemonDetail addGameIndicesItem(PokemonGameIndex gameIndicesItem) {
     this.gameIndices.add(gameIndicesItem);
@@ -465,6 +477,7 @@ public class PokemonDetail  {
 
   /**
    * Sets the <code>moves</code> property.
+   * <br><em>N.B. <code>moves</code> is <b>read only</b>; client code should not call this method</em>.
    */
  public void setMoves(List<@Valid PokemonDetailMovesInner> moves) {
     this.moves = moves;
@@ -472,6 +485,7 @@ public class PokemonDetail  {
 
   /**
    * Sets the <code>moves</code> property.
+   * <br><em>N.B. <code>moves</code> is <b>read only</b>; client code should not call this method</em>.
    */
   public PokemonDetail moves(List<@Valid PokemonDetailMovesInner> moves) {
     this.moves = moves;
@@ -480,6 +494,7 @@ public class PokemonDetail  {
 
   /**
    * Adds a new item to the <code>moves</code> list.
+   * <br><em>N.B. <code>moves</code> is <b>read only</b>; client code should not call this method</em>.
    */
   public PokemonDetail addMovesItem(PokemonDetailMovesInner movesItem) {
     this.moves.add(movesItem);
@@ -573,6 +588,7 @@ public class PokemonDetail  {
 
   /**
    * Sets the <code>stats</code> property.
+   * <br><em>N.B. <code>stats</code> is <b>read only</b>; client code should not call this method</em>.
    */
  public void setStats(List<@Valid PokemonStat> stats) {
     this.stats = stats;
@@ -580,6 +596,7 @@ public class PokemonDetail  {
 
   /**
    * Sets the <code>stats</code> property.
+   * <br><em>N.B. <code>stats</code> is <b>read only</b>; client code should not call this method</em>.
    */
   public PokemonDetail stats(List<@Valid PokemonStat> stats) {
     this.stats = stats;
@@ -588,6 +605,7 @@ public class PokemonDetail  {
 
   /**
    * Adds a new item to the <code>stats</code> list.
+   * <br><em>N.B. <code>stats</code> is <b>read only</b>; client code should not call this method</em>.
    */
   public PokemonDetail addStatsItem(PokemonStat statsItem) {
     this.stats.add(statsItem);
@@ -606,6 +624,7 @@ public class PokemonDetail  {
 
   /**
    * Sets the <code>types</code> property.
+   * <br><em>N.B. <code>types</code> is <b>read only</b>; client code should not call this method</em>.
    */
  public void setTypes(List<@Valid PokemonDetailTypesInner> types) {
     this.types = types;
@@ -613,6 +632,7 @@ public class PokemonDetail  {
 
   /**
    * Sets the <code>types</code> property.
+   * <br><em>N.B. <code>types</code> is <b>read only</b>; client code should not call this method</em>.
    */
   public PokemonDetail types(List<@Valid PokemonDetailTypesInner> types) {
     this.types = types;
@@ -621,6 +641,7 @@ public class PokemonDetail  {
 
   /**
    * Adds a new item to the <code>types</code> list.
+   * <br><em>N.B. <code>types</code> is <b>read only</b>; client code should not call this method</em>.
    */
   public PokemonDetail addTypesItem(PokemonDetailTypesInner typesItem) {
     this.types.add(typesItem);
@@ -639,6 +660,7 @@ public class PokemonDetail  {
 
   /**
    * Sets the <code>pastTypes</code> property.
+   * <br><em>N.B. <code>pastTypes</code> is <b>read only</b>; client code should not call this method</em>.
    */
  public void setPastTypes(List<@Valid PokemonDetailPastTypesInner> pastTypes) {
     this.pastTypes = pastTypes;
@@ -646,6 +668,7 @@ public class PokemonDetail  {
 
   /**
    * Sets the <code>pastTypes</code> property.
+   * <br><em>N.B. <code>pastTypes</code> is <b>read only</b>; client code should not call this method</em>.
    */
   public PokemonDetail pastTypes(List<@Valid PokemonDetailPastTypesInner> pastTypes) {
     this.pastTypes = pastTypes;
@@ -654,6 +677,7 @@ public class PokemonDetail  {
 
   /**
    * Adds a new item to the <code>pastTypes</code> list.
+   * <br><em>N.B. <code>pastTypes</code> is <b>read only</b>; client code should not call this method</em>.
    */
   public PokemonDetail addPastTypesItem(PokemonDetailPastTypesInner pastTypesItem) {
     this.pastTypes.add(pastTypesItem);
@@ -731,10 +755,7 @@ public class PokemonDetail  {
    * (except the first line).
    */
   private static String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 }
 

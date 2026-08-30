@@ -67,7 +67,8 @@ class PaginatedMoveMetaCategorySummaryList extends BaseModel
       "type" : "array",
       "items" : {
         "$ref" : "#/components/schemas/MoveMetaCategorySummary"
-      }
+      },
+      "default" : null
     }
   }
 }

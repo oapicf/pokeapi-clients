@@ -16,7 +16,7 @@ TypeDetail::TypeDetail()
 	names = std::list<AbilityName>();
 	pokemon = std::list<TypeDetail_pokemon_inner>();
 	moves = std::list<MoveSummary>();
-	sprites = null<Map>();
+	sprites = null<std::map>();
 }
 
 TypeDetail::TypeDetail(std::string jsonString)
@@ -354,7 +354,7 @@ TypeDetail::getId()
 }
 
 void
-TypeDetail::setId(int  id)
+TypeDetail::setId(int id)
 {
 	this->id = id;
 }
@@ -366,7 +366,7 @@ TypeDetail::getName()
 }
 
 void
-TypeDetail::setName(std::string  name)
+TypeDetail::setName(std::string name)
 {
 	this->name = name;
 }
@@ -378,7 +378,7 @@ TypeDetail::getDamageRelations()
 }
 
 void
-TypeDetail::setDamageRelations(TypeDetail_damage_relations  damage_relations)
+TypeDetail::setDamageRelations(TypeDetail_damage_relations damage_relations)
 {
 	this->damage_relations = damage_relations;
 }
@@ -390,7 +390,7 @@ TypeDetail::getPastDamageRelations()
 }
 
 void
-TypeDetail::setPastDamageRelations(std::list <TypeDetail_past_damage_relations_inner> past_damage_relations)
+TypeDetail::setPastDamageRelations(std::list<TypeDetail_past_damage_relations_inner> past_damage_relations)
 {
 	this->past_damage_relations = past_damage_relations;
 }
@@ -402,7 +402,7 @@ TypeDetail::getGameIndices()
 }
 
 void
-TypeDetail::setGameIndices(std::list <TypeGameIndex> game_indices)
+TypeDetail::setGameIndices(std::list<TypeGameIndex> game_indices)
 {
 	this->game_indices = game_indices;
 }
@@ -414,7 +414,7 @@ TypeDetail::getGeneration()
 }
 
 void
-TypeDetail::setGeneration(GenerationSummary  generation)
+TypeDetail::setGeneration(GenerationSummary generation)
 {
 	this->generation = generation;
 }
@@ -426,7 +426,7 @@ TypeDetail::getMoveDamageClass()
 }
 
 void
-TypeDetail::setMoveDamageClass(MoveDamageClassSummary  move_damage_class)
+TypeDetail::setMoveDamageClass(MoveDamageClassSummary move_damage_class)
 {
 	this->move_damage_class = move_damage_class;
 }
@@ -438,7 +438,7 @@ TypeDetail::getNames()
 }
 
 void
-TypeDetail::setNames(std::list <AbilityName> names)
+TypeDetail::setNames(std::list<AbilityName> names)
 {
 	this->names = names;
 }
@@ -450,7 +450,7 @@ TypeDetail::getPokemon()
 }
 
 void
-TypeDetail::setPokemon(std::list <TypeDetail_pokemon_inner> pokemon)
+TypeDetail::setPokemon(std::list<TypeDetail_pokemon_inner> pokemon)
 {
 	this->pokemon = pokemon;
 }
@@ -462,19 +462,19 @@ TypeDetail::getMoves()
 }
 
 void
-TypeDetail::setMoves(std::list <MoveSummary> moves)
+TypeDetail::setMoves(std::list<MoveSummary> moves)
 {
 	this->moves = moves;
 }
 
-Map<string, string>
+std::map<std::string, std::map<std::string, TypeDetail_sprites_value_value>>
 TypeDetail::getSprites()
 {
 	return sprites;
 }
 
 void
-TypeDetail::setSprites(Map <string, string> sprites)
+TypeDetail::setSprites(std::map<std::string, std::map<std::string, TypeDetail_sprites_value_value>> sprites)
 {
 	this->sprites = sprites;
 }

@@ -26,7 +26,7 @@ typedef struct generation_detail_t generation_detail_t;
 
 
 typedef struct generation_detail_t {
-    int id; //numeric
+    int *id; //numeric
     char *name; // string
     list_t *abilities; //nonprimitive container
     struct region_summary_t *main_region; //model
@@ -40,7 +40,7 @@ typedef struct generation_detail_t {
 } generation_detail_t;
 
 __attribute__((deprecated)) generation_detail_t *generation_detail_create(
-    int id,
+    int *id,
     char *name,
     list_t *abilities,
     region_summary_t *main_region,

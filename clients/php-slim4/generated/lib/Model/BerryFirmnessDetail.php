@@ -58,15 +58,19 @@ class BerryFirmnessDetail extends BaseModel
     },
     "berries" : {
       "type" : "array",
+      "readOnly" : true,
       "items" : {
         "$ref" : "#/components/schemas/BerrySummary"
-      }
+      },
+      "default" : null
     },
     "names" : {
       "type" : "array",
+      "readOnly" : true,
       "items" : {
         "$ref" : "#/components/schemas/BerryFirmnessName"
-      }
+      },
+      "default" : null
     }
   }
 }

@@ -108,7 +108,7 @@ PokemonDetail_moves_inner_version_group_details_inner::getLevelLearnedAt()
 }
 
 void
-PokemonDetail_moves_inner_version_group_details_inner::setLevelLearnedAt(int  level_learned_at)
+PokemonDetail_moves_inner_version_group_details_inner::setLevelLearnedAt(int level_learned_at)
 {
 	this->level_learned_at = level_learned_at;
 }
@@ -120,7 +120,7 @@ PokemonDetail_moves_inner_version_group_details_inner::getMoveLearnMethod()
 }
 
 void
-PokemonDetail_moves_inner_version_group_details_inner::setMoveLearnMethod(AbilityDetail_pokemon_inner_pokemon  move_learn_method)
+PokemonDetail_moves_inner_version_group_details_inner::setMoveLearnMethod(AbilityDetail_pokemon_inner_pokemon move_learn_method)
 {
 	this->move_learn_method = move_learn_method;
 }
@@ -132,7 +132,7 @@ PokemonDetail_moves_inner_version_group_details_inner::getVersionGroup()
 }
 
 void
-PokemonDetail_moves_inner_version_group_details_inner::setVersionGroup(AbilityDetail_pokemon_inner_pokemon  version_group)
+PokemonDetail_moves_inner_version_group_details_inner::setVersionGroup(AbilityDetail_pokemon_inner_pokemon version_group)
 {
 	this->version_group = version_group;
 }

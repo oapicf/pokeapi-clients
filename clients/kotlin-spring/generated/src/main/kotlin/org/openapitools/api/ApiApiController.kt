@@ -109,7 +109,6 @@ import org.springframework.web.bind.annotation.*
 import org.springframework.validation.annotation.Validated
 import org.springframework.web.context.request.NativeWebRequest
 import org.springframework.beans.factory.annotation.Autowired
-import org.openapitools.api.ApiApiController.Companion.BASE_PATH
 
 import javax.validation.Valid
 import javax.validation.constraints.DecimalMax
@@ -126,7 +125,7 @@ import kotlin.collections.Map
 
 @RestController
 @Validated
-@RequestMapping("\${openapi.pok.base-path:\${api.base-path:$BASE_PATH}}")
+@RequestMapping("\${api.base-path:}")
 class ApiApiController() {
 
     @Operation(
@@ -139,7 +138,8 @@ class ApiApiController() {
     )
     @RequestMapping(
         method = [RequestMethod.GET],
-        value = [PATH_ABILITY_LIST /* "/api/v2/ability/" */],
+        // "/api/v2/ability/"
+        value = [PATH_ABILITY_LIST],
         produces = ["application/json"]
     )
     fun abilityList(
@@ -160,7 +160,8 @@ class ApiApiController() {
     )
     @RequestMapping(
         method = [RequestMethod.GET],
-        value = [PATH_ABILITY_RETRIEVE /* "/api/v2/ability/{id}/" */],
+        // "/api/v2/ability/{id}/"
+        value = [PATH_ABILITY_RETRIEVE],
         produces = ["application/json"]
     )
     fun abilityRetrieve(
@@ -179,7 +180,8 @@ class ApiApiController() {
     )
     @RequestMapping(
         method = [RequestMethod.GET],
-        value = [PATH_BERRY_FIRMNESS_LIST /* "/api/v2/berry-firmness/" */],
+        // "/api/v2/berry-firmness/"
+        value = [PATH_BERRY_FIRMNESS_LIST],
         produces = ["application/json"]
     )
     fun berryFirmnessList(
@@ -200,7 +202,8 @@ class ApiApiController() {
     )
     @RequestMapping(
         method = [RequestMethod.GET],
-        value = [PATH_BERRY_FIRMNESS_RETRIEVE /* "/api/v2/berry-firmness/{id}/" */],
+        // "/api/v2/berry-firmness/{id}/"
+        value = [PATH_BERRY_FIRMNESS_RETRIEVE],
         produces = ["application/json"]
     )
     fun berryFirmnessRetrieve(
@@ -219,7 +222,8 @@ class ApiApiController() {
     )
     @RequestMapping(
         method = [RequestMethod.GET],
-        value = [PATH_BERRY_FLAVOR_LIST /* "/api/v2/berry-flavor/" */],
+        // "/api/v2/berry-flavor/"
+        value = [PATH_BERRY_FLAVOR_LIST],
         produces = ["application/json"]
     )
     fun berryFlavorList(
@@ -240,7 +244,8 @@ class ApiApiController() {
     )
     @RequestMapping(
         method = [RequestMethod.GET],
-        value = [PATH_BERRY_FLAVOR_RETRIEVE /* "/api/v2/berry-flavor/{id}/" */],
+        // "/api/v2/berry-flavor/{id}/"
+        value = [PATH_BERRY_FLAVOR_RETRIEVE],
         produces = ["application/json"]
     )
     fun berryFlavorRetrieve(
@@ -259,7 +264,8 @@ class ApiApiController() {
     )
     @RequestMapping(
         method = [RequestMethod.GET],
-        value = [PATH_BERRY_LIST /* "/api/v2/berry/" */],
+        // "/api/v2/berry/"
+        value = [PATH_BERRY_LIST],
         produces = ["application/json"]
     )
     fun berryList(
@@ -280,7 +286,8 @@ class ApiApiController() {
     )
     @RequestMapping(
         method = [RequestMethod.GET],
-        value = [PATH_BERRY_RETRIEVE /* "/api/v2/berry/{id}/" */],
+        // "/api/v2/berry/{id}/"
+        value = [PATH_BERRY_RETRIEVE],
         produces = ["application/json"]
     )
     fun berryRetrieve(
@@ -299,7 +306,8 @@ class ApiApiController() {
     )
     @RequestMapping(
         method = [RequestMethod.GET],
-        value = [PATH_CHARACTERISTIC_LIST /* "/api/v2/characteristic/" */],
+        // "/api/v2/characteristic/"
+        value = [PATH_CHARACTERISTIC_LIST],
         produces = ["application/json"]
     )
     fun characteristicList(
@@ -320,7 +328,8 @@ class ApiApiController() {
     )
     @RequestMapping(
         method = [RequestMethod.GET],
-        value = [PATH_CHARACTERISTIC_RETRIEVE /* "/api/v2/characteristic/{id}/" */],
+        // "/api/v2/characteristic/{id}/"
+        value = [PATH_CHARACTERISTIC_RETRIEVE],
         produces = ["application/json"]
     )
     fun characteristicRetrieve(
@@ -339,7 +348,8 @@ class ApiApiController() {
     )
     @RequestMapping(
         method = [RequestMethod.GET],
-        value = [PATH_CONTEST_EFFECT_LIST /* "/api/v2/contest-effect/" */],
+        // "/api/v2/contest-effect/"
+        value = [PATH_CONTEST_EFFECT_LIST],
         produces = ["application/json"]
     )
     fun contestEffectList(
@@ -360,7 +370,8 @@ class ApiApiController() {
     )
     @RequestMapping(
         method = [RequestMethod.GET],
-        value = [PATH_CONTEST_EFFECT_RETRIEVE /* "/api/v2/contest-effect/{id}/" */],
+        // "/api/v2/contest-effect/{id}/"
+        value = [PATH_CONTEST_EFFECT_RETRIEVE],
         produces = ["application/json"]
     )
     fun contestEffectRetrieve(
@@ -379,7 +390,8 @@ class ApiApiController() {
     )
     @RequestMapping(
         method = [RequestMethod.GET],
-        value = [PATH_CONTEST_TYPE_LIST /* "/api/v2/contest-type/" */],
+        // "/api/v2/contest-type/"
+        value = [PATH_CONTEST_TYPE_LIST],
         produces = ["application/json"]
     )
     fun contestTypeList(
@@ -400,7 +412,8 @@ class ApiApiController() {
     )
     @RequestMapping(
         method = [RequestMethod.GET],
-        value = [PATH_CONTEST_TYPE_RETRIEVE /* "/api/v2/contest-type/{id}/" */],
+        // "/api/v2/contest-type/{id}/"
+        value = [PATH_CONTEST_TYPE_RETRIEVE],
         produces = ["application/json"]
     )
     fun contestTypeRetrieve(
@@ -419,7 +432,8 @@ class ApiApiController() {
     )
     @RequestMapping(
         method = [RequestMethod.GET],
-        value = [PATH_EGG_GROUP_LIST /* "/api/v2/egg-group/" */],
+        // "/api/v2/egg-group/"
+        value = [PATH_EGG_GROUP_LIST],
         produces = ["application/json"]
     )
     fun eggGroupList(
@@ -440,7 +454,8 @@ class ApiApiController() {
     )
     @RequestMapping(
         method = [RequestMethod.GET],
-        value = [PATH_EGG_GROUP_RETRIEVE /* "/api/v2/egg-group/{id}/" */],
+        // "/api/v2/egg-group/{id}/"
+        value = [PATH_EGG_GROUP_RETRIEVE],
         produces = ["application/json"]
     )
     fun eggGroupRetrieve(
@@ -459,7 +474,8 @@ class ApiApiController() {
     )
     @RequestMapping(
         method = [RequestMethod.GET],
-        value = [PATH_ENCOUNTER_CONDITION_LIST /* "/api/v2/encounter-condition/" */],
+        // "/api/v2/encounter-condition/"
+        value = [PATH_ENCOUNTER_CONDITION_LIST],
         produces = ["application/json"]
     )
     fun encounterConditionList(
@@ -480,7 +496,8 @@ class ApiApiController() {
     )
     @RequestMapping(
         method = [RequestMethod.GET],
-        value = [PATH_ENCOUNTER_CONDITION_RETRIEVE /* "/api/v2/encounter-condition/{id}/" */],
+        // "/api/v2/encounter-condition/{id}/"
+        value = [PATH_ENCOUNTER_CONDITION_RETRIEVE],
         produces = ["application/json"]
     )
     fun encounterConditionRetrieve(
@@ -499,7 +516,8 @@ class ApiApiController() {
     )
     @RequestMapping(
         method = [RequestMethod.GET],
-        value = [PATH_ENCOUNTER_CONDITION_VALUE_LIST /* "/api/v2/encounter-condition-value/" */],
+        // "/api/v2/encounter-condition-value/"
+        value = [PATH_ENCOUNTER_CONDITION_VALUE_LIST],
         produces = ["application/json"]
     )
     fun encounterConditionValueList(
@@ -520,7 +538,8 @@ class ApiApiController() {
     )
     @RequestMapping(
         method = [RequestMethod.GET],
-        value = [PATH_ENCOUNTER_CONDITION_VALUE_RETRIEVE /* "/api/v2/encounter-condition-value/{id}/" */],
+        // "/api/v2/encounter-condition-value/{id}/"
+        value = [PATH_ENCOUNTER_CONDITION_VALUE_RETRIEVE],
         produces = ["application/json"]
     )
     fun encounterConditionValueRetrieve(
@@ -539,7 +558,8 @@ class ApiApiController() {
     )
     @RequestMapping(
         method = [RequestMethod.GET],
-        value = [PATH_ENCOUNTER_METHOD_LIST /* "/api/v2/encounter-method/" */],
+        // "/api/v2/encounter-method/"
+        value = [PATH_ENCOUNTER_METHOD_LIST],
         produces = ["application/json"]
     )
     fun encounterMethodList(
@@ -560,7 +580,8 @@ class ApiApiController() {
     )
     @RequestMapping(
         method = [RequestMethod.GET],
-        value = [PATH_ENCOUNTER_METHOD_RETRIEVE /* "/api/v2/encounter-method/{id}/" */],
+        // "/api/v2/encounter-method/{id}/"
+        value = [PATH_ENCOUNTER_METHOD_RETRIEVE],
         produces = ["application/json"]
     )
     fun encounterMethodRetrieve(
@@ -579,7 +600,8 @@ class ApiApiController() {
     )
     @RequestMapping(
         method = [RequestMethod.GET],
-        value = [PATH_EVOLUTION_CHAIN_LIST /* "/api/v2/evolution-chain/" */],
+        // "/api/v2/evolution-chain/"
+        value = [PATH_EVOLUTION_CHAIN_LIST],
         produces = ["application/json"]
     )
     fun evolutionChainList(
@@ -600,7 +622,8 @@ class ApiApiController() {
     )
     @RequestMapping(
         method = [RequestMethod.GET],
-        value = [PATH_EVOLUTION_CHAIN_RETRIEVE /* "/api/v2/evolution-chain/{id}/" */],
+        // "/api/v2/evolution-chain/{id}/"
+        value = [PATH_EVOLUTION_CHAIN_RETRIEVE],
         produces = ["application/json"]
     )
     fun evolutionChainRetrieve(
@@ -619,7 +642,8 @@ class ApiApiController() {
     )
     @RequestMapping(
         method = [RequestMethod.GET],
-        value = [PATH_EVOLUTION_TRIGGER_LIST /* "/api/v2/evolution-trigger/" */],
+        // "/api/v2/evolution-trigger/"
+        value = [PATH_EVOLUTION_TRIGGER_LIST],
         produces = ["application/json"]
     )
     fun evolutionTriggerList(
@@ -640,7 +664,8 @@ class ApiApiController() {
     )
     @RequestMapping(
         method = [RequestMethod.GET],
-        value = [PATH_EVOLUTION_TRIGGER_RETRIEVE /* "/api/v2/evolution-trigger/{id}/" */],
+        // "/api/v2/evolution-trigger/{id}/"
+        value = [PATH_EVOLUTION_TRIGGER_RETRIEVE],
         produces = ["application/json"]
     )
     fun evolutionTriggerRetrieve(
@@ -659,7 +684,8 @@ class ApiApiController() {
     )
     @RequestMapping(
         method = [RequestMethod.GET],
-        value = [PATH_GENDER_LIST /* "/api/v2/gender/" */],
+        // "/api/v2/gender/"
+        value = [PATH_GENDER_LIST],
         produces = ["application/json"]
     )
     fun genderList(
@@ -680,7 +706,8 @@ class ApiApiController() {
     )
     @RequestMapping(
         method = [RequestMethod.GET],
-        value = [PATH_GENDER_RETRIEVE /* "/api/v2/gender/{id}/" */],
+        // "/api/v2/gender/{id}/"
+        value = [PATH_GENDER_RETRIEVE],
         produces = ["application/json"]
     )
     fun genderRetrieve(
@@ -699,7 +726,8 @@ class ApiApiController() {
     )
     @RequestMapping(
         method = [RequestMethod.GET],
-        value = [PATH_GENERATION_LIST /* "/api/v2/generation/" */],
+        // "/api/v2/generation/"
+        value = [PATH_GENERATION_LIST],
         produces = ["application/json"]
     )
     fun generationList(
@@ -720,7 +748,8 @@ class ApiApiController() {
     )
     @RequestMapping(
         method = [RequestMethod.GET],
-        value = [PATH_GENERATION_RETRIEVE /* "/api/v2/generation/{id}/" */],
+        // "/api/v2/generation/{id}/"
+        value = [PATH_GENERATION_RETRIEVE],
         produces = ["application/json"]
     )
     fun generationRetrieve(
@@ -739,7 +768,8 @@ class ApiApiController() {
     )
     @RequestMapping(
         method = [RequestMethod.GET],
-        value = [PATH_GROWTH_RATE_LIST /* "/api/v2/growth-rate/" */],
+        // "/api/v2/growth-rate/"
+        value = [PATH_GROWTH_RATE_LIST],
         produces = ["application/json"]
     )
     fun growthRateList(
@@ -760,7 +790,8 @@ class ApiApiController() {
     )
     @RequestMapping(
         method = [RequestMethod.GET],
-        value = [PATH_GROWTH_RATE_RETRIEVE /* "/api/v2/growth-rate/{id}/" */],
+        // "/api/v2/growth-rate/{id}/"
+        value = [PATH_GROWTH_RATE_RETRIEVE],
         produces = ["application/json"]
     )
     fun growthRateRetrieve(
@@ -779,7 +810,8 @@ class ApiApiController() {
     )
     @RequestMapping(
         method = [RequestMethod.GET],
-        value = [PATH_ITEM_ATTRIBUTE_LIST /* "/api/v2/item-attribute/" */],
+        // "/api/v2/item-attribute/"
+        value = [PATH_ITEM_ATTRIBUTE_LIST],
         produces = ["application/json"]
     )
     fun itemAttributeList(
@@ -800,7 +832,8 @@ class ApiApiController() {
     )
     @RequestMapping(
         method = [RequestMethod.GET],
-        value = [PATH_ITEM_ATTRIBUTE_RETRIEVE /* "/api/v2/item-attribute/{id}/" */],
+        // "/api/v2/item-attribute/{id}/"
+        value = [PATH_ITEM_ATTRIBUTE_RETRIEVE],
         produces = ["application/json"]
     )
     fun itemAttributeRetrieve(
@@ -819,7 +852,8 @@ class ApiApiController() {
     )
     @RequestMapping(
         method = [RequestMethod.GET],
-        value = [PATH_ITEM_CATEGORY_LIST /* "/api/v2/item-category/" */],
+        // "/api/v2/item-category/"
+        value = [PATH_ITEM_CATEGORY_LIST],
         produces = ["application/json"]
     )
     fun itemCategoryList(
@@ -840,7 +874,8 @@ class ApiApiController() {
     )
     @RequestMapping(
         method = [RequestMethod.GET],
-        value = [PATH_ITEM_CATEGORY_RETRIEVE /* "/api/v2/item-category/{id}/" */],
+        // "/api/v2/item-category/{id}/"
+        value = [PATH_ITEM_CATEGORY_RETRIEVE],
         produces = ["application/json"]
     )
     fun itemCategoryRetrieve(
@@ -859,7 +894,8 @@ class ApiApiController() {
     )
     @RequestMapping(
         method = [RequestMethod.GET],
-        value = [PATH_ITEM_FLING_EFFECT_LIST /* "/api/v2/item-fling-effect/" */],
+        // "/api/v2/item-fling-effect/"
+        value = [PATH_ITEM_FLING_EFFECT_LIST],
         produces = ["application/json"]
     )
     fun itemFlingEffectList(
@@ -880,7 +916,8 @@ class ApiApiController() {
     )
     @RequestMapping(
         method = [RequestMethod.GET],
-        value = [PATH_ITEM_FLING_EFFECT_RETRIEVE /* "/api/v2/item-fling-effect/{id}/" */],
+        // "/api/v2/item-fling-effect/{id}/"
+        value = [PATH_ITEM_FLING_EFFECT_RETRIEVE],
         produces = ["application/json"]
     )
     fun itemFlingEffectRetrieve(
@@ -899,7 +936,8 @@ class ApiApiController() {
     )
     @RequestMapping(
         method = [RequestMethod.GET],
-        value = [PATH_ITEM_LIST /* "/api/v2/item/" */],
+        // "/api/v2/item/"
+        value = [PATH_ITEM_LIST],
         produces = ["application/json"]
     )
     fun itemList(
@@ -920,7 +958,8 @@ class ApiApiController() {
     )
     @RequestMapping(
         method = [RequestMethod.GET],
-        value = [PATH_ITEM_POCKET_LIST /* "/api/v2/item-pocket/" */],
+        // "/api/v2/item-pocket/"
+        value = [PATH_ITEM_POCKET_LIST],
         produces = ["application/json"]
     )
     fun itemPocketList(
@@ -941,7 +980,8 @@ class ApiApiController() {
     )
     @RequestMapping(
         method = [RequestMethod.GET],
-        value = [PATH_ITEM_POCKET_RETRIEVE /* "/api/v2/item-pocket/{id}/" */],
+        // "/api/v2/item-pocket/{id}/"
+        value = [PATH_ITEM_POCKET_RETRIEVE],
         produces = ["application/json"]
     )
     fun itemPocketRetrieve(
@@ -960,7 +1000,8 @@ class ApiApiController() {
     )
     @RequestMapping(
         method = [RequestMethod.GET],
-        value = [PATH_ITEM_RETRIEVE /* "/api/v2/item/{id}/" */],
+        // "/api/v2/item/{id}/"
+        value = [PATH_ITEM_RETRIEVE],
         produces = ["application/json"]
     )
     fun itemRetrieve(
@@ -979,7 +1020,8 @@ class ApiApiController() {
     )
     @RequestMapping(
         method = [RequestMethod.GET],
-        value = [PATH_LANGUAGE_LIST /* "/api/v2/language/" */],
+        // "/api/v2/language/"
+        value = [PATH_LANGUAGE_LIST],
         produces = ["application/json"]
     )
     fun languageList(
@@ -1000,7 +1042,8 @@ class ApiApiController() {
     )
     @RequestMapping(
         method = [RequestMethod.GET],
-        value = [PATH_LANGUAGE_RETRIEVE /* "/api/v2/language/{id}/" */],
+        // "/api/v2/language/{id}/"
+        value = [PATH_LANGUAGE_RETRIEVE],
         produces = ["application/json"]
     )
     fun languageRetrieve(
@@ -1019,7 +1062,8 @@ class ApiApiController() {
     )
     @RequestMapping(
         method = [RequestMethod.GET],
-        value = [PATH_LOCATION_AREA_LIST /* "/api/v2/location-area/" */],
+        // "/api/v2/location-area/"
+        value = [PATH_LOCATION_AREA_LIST],
         produces = ["application/json"]
     )
     fun locationAreaList(
@@ -1039,7 +1083,8 @@ class ApiApiController() {
     )
     @RequestMapping(
         method = [RequestMethod.GET],
-        value = [PATH_LOCATION_AREA_RETRIEVE /* "/api/v2/location-area/{id}/" */],
+        // "/api/v2/location-area/{id}/"
+        value = [PATH_LOCATION_AREA_RETRIEVE],
         produces = ["application/json"]
     )
     fun locationAreaRetrieve(
@@ -1058,7 +1103,8 @@ class ApiApiController() {
     )
     @RequestMapping(
         method = [RequestMethod.GET],
-        value = [PATH_LOCATION_LIST /* "/api/v2/location/" */],
+        // "/api/v2/location/"
+        value = [PATH_LOCATION_LIST],
         produces = ["application/json"]
     )
     fun locationList(
@@ -1079,7 +1125,8 @@ class ApiApiController() {
     )
     @RequestMapping(
         method = [RequestMethod.GET],
-        value = [PATH_LOCATION_RETRIEVE /* "/api/v2/location/{id}/" */],
+        // "/api/v2/location/{id}/"
+        value = [PATH_LOCATION_RETRIEVE],
         produces = ["application/json"]
     )
     fun locationRetrieve(
@@ -1098,7 +1145,8 @@ class ApiApiController() {
     )
     @RequestMapping(
         method = [RequestMethod.GET],
-        value = [PATH_MACHINE_LIST /* "/api/v2/machine/" */],
+        // "/api/v2/machine/"
+        value = [PATH_MACHINE_LIST],
         produces = ["application/json"]
     )
     fun machineList(
@@ -1119,7 +1167,8 @@ class ApiApiController() {
     )
     @RequestMapping(
         method = [RequestMethod.GET],
-        value = [PATH_MACHINE_RETRIEVE /* "/api/v2/machine/{id}/" */],
+        // "/api/v2/machine/{id}/"
+        value = [PATH_MACHINE_RETRIEVE],
         produces = ["application/json"]
     )
     fun machineRetrieve(
@@ -1138,7 +1187,8 @@ class ApiApiController() {
     )
     @RequestMapping(
         method = [RequestMethod.GET],
-        value = [PATH_MOVE_AILMENT_LIST /* "/api/v2/move-ailment/" */],
+        // "/api/v2/move-ailment/"
+        value = [PATH_MOVE_AILMENT_LIST],
         produces = ["application/json"]
     )
     fun moveAilmentList(
@@ -1159,7 +1209,8 @@ class ApiApiController() {
     )
     @RequestMapping(
         method = [RequestMethod.GET],
-        value = [PATH_MOVE_AILMENT_RETRIEVE /* "/api/v2/move-ailment/{id}/" */],
+        // "/api/v2/move-ailment/{id}/"
+        value = [PATH_MOVE_AILMENT_RETRIEVE],
         produces = ["application/json"]
     )
     fun moveAilmentRetrieve(
@@ -1178,7 +1229,8 @@ class ApiApiController() {
     )
     @RequestMapping(
         method = [RequestMethod.GET],
-        value = [PATH_MOVE_BATTLE_STYLE_LIST /* "/api/v2/move-battle-style/" */],
+        // "/api/v2/move-battle-style/"
+        value = [PATH_MOVE_BATTLE_STYLE_LIST],
         produces = ["application/json"]
     )
     fun moveBattleStyleList(
@@ -1199,7 +1251,8 @@ class ApiApiController() {
     )
     @RequestMapping(
         method = [RequestMethod.GET],
-        value = [PATH_MOVE_BATTLE_STYLE_RETRIEVE /* "/api/v2/move-battle-style/{id}/" */],
+        // "/api/v2/move-battle-style/{id}/"
+        value = [PATH_MOVE_BATTLE_STYLE_RETRIEVE],
         produces = ["application/json"]
     )
     fun moveBattleStyleRetrieve(
@@ -1218,7 +1271,8 @@ class ApiApiController() {
     )
     @RequestMapping(
         method = [RequestMethod.GET],
-        value = [PATH_MOVE_CATEGORY_LIST /* "/api/v2/move-category/" */],
+        // "/api/v2/move-category/"
+        value = [PATH_MOVE_CATEGORY_LIST],
         produces = ["application/json"]
     )
     fun moveCategoryList(
@@ -1239,7 +1293,8 @@ class ApiApiController() {
     )
     @RequestMapping(
         method = [RequestMethod.GET],
-        value = [PATH_MOVE_CATEGORY_RETRIEVE /* "/api/v2/move-category/{id}/" */],
+        // "/api/v2/move-category/{id}/"
+        value = [PATH_MOVE_CATEGORY_RETRIEVE],
         produces = ["application/json"]
     )
     fun moveCategoryRetrieve(
@@ -1258,7 +1313,8 @@ class ApiApiController() {
     )
     @RequestMapping(
         method = [RequestMethod.GET],
-        value = [PATH_MOVE_DAMAGE_CLASS_LIST /* "/api/v2/move-damage-class/" */],
+        // "/api/v2/move-damage-class/"
+        value = [PATH_MOVE_DAMAGE_CLASS_LIST],
         produces = ["application/json"]
     )
     fun moveDamageClassList(
@@ -1279,7 +1335,8 @@ class ApiApiController() {
     )
     @RequestMapping(
         method = [RequestMethod.GET],
-        value = [PATH_MOVE_DAMAGE_CLASS_RETRIEVE /* "/api/v2/move-damage-class/{id}/" */],
+        // "/api/v2/move-damage-class/{id}/"
+        value = [PATH_MOVE_DAMAGE_CLASS_RETRIEVE],
         produces = ["application/json"]
     )
     fun moveDamageClassRetrieve(
@@ -1298,7 +1355,8 @@ class ApiApiController() {
     )
     @RequestMapping(
         method = [RequestMethod.GET],
-        value = [PATH_MOVE_LEARN_METHOD_LIST /* "/api/v2/move-learn-method/" */],
+        // "/api/v2/move-learn-method/"
+        value = [PATH_MOVE_LEARN_METHOD_LIST],
         produces = ["application/json"]
     )
     fun moveLearnMethodList(
@@ -1319,7 +1377,8 @@ class ApiApiController() {
     )
     @RequestMapping(
         method = [RequestMethod.GET],
-        value = [PATH_MOVE_LEARN_METHOD_RETRIEVE /* "/api/v2/move-learn-method/{id}/" */],
+        // "/api/v2/move-learn-method/{id}/"
+        value = [PATH_MOVE_LEARN_METHOD_RETRIEVE],
         produces = ["application/json"]
     )
     fun moveLearnMethodRetrieve(
@@ -1338,7 +1397,8 @@ class ApiApiController() {
     )
     @RequestMapping(
         method = [RequestMethod.GET],
-        value = [PATH_MOVE_LIST /* "/api/v2/move/" */],
+        // "/api/v2/move/"
+        value = [PATH_MOVE_LIST],
         produces = ["application/json"]
     )
     fun moveList(
@@ -1359,7 +1419,8 @@ class ApiApiController() {
     )
     @RequestMapping(
         method = [RequestMethod.GET],
-        value = [PATH_MOVE_RETRIEVE /* "/api/v2/move/{id}/" */],
+        // "/api/v2/move/{id}/"
+        value = [PATH_MOVE_RETRIEVE],
         produces = ["application/json"]
     )
     fun moveRetrieve(
@@ -1378,7 +1439,8 @@ class ApiApiController() {
     )
     @RequestMapping(
         method = [RequestMethod.GET],
-        value = [PATH_MOVE_TARGET_LIST /* "/api/v2/move-target/" */],
+        // "/api/v2/move-target/"
+        value = [PATH_MOVE_TARGET_LIST],
         produces = ["application/json"]
     )
     fun moveTargetList(
@@ -1399,7 +1461,8 @@ class ApiApiController() {
     )
     @RequestMapping(
         method = [RequestMethod.GET],
-        value = [PATH_MOVE_TARGET_RETRIEVE /* "/api/v2/move-target/{id}/" */],
+        // "/api/v2/move-target/{id}/"
+        value = [PATH_MOVE_TARGET_RETRIEVE],
         produces = ["application/json"]
     )
     fun moveTargetRetrieve(
@@ -1418,7 +1481,8 @@ class ApiApiController() {
     )
     @RequestMapping(
         method = [RequestMethod.GET],
-        value = [PATH_NATURE_LIST /* "/api/v2/nature/" */],
+        // "/api/v2/nature/"
+        value = [PATH_NATURE_LIST],
         produces = ["application/json"]
     )
     fun natureList(
@@ -1439,7 +1503,8 @@ class ApiApiController() {
     )
     @RequestMapping(
         method = [RequestMethod.GET],
-        value = [PATH_NATURE_RETRIEVE /* "/api/v2/nature/{id}/" */],
+        // "/api/v2/nature/{id}/"
+        value = [PATH_NATURE_RETRIEVE],
         produces = ["application/json"]
     )
     fun natureRetrieve(
@@ -1458,7 +1523,8 @@ class ApiApiController() {
     )
     @RequestMapping(
         method = [RequestMethod.GET],
-        value = [PATH_PAL_PARK_AREA_LIST /* "/api/v2/pal-park-area/" */],
+        // "/api/v2/pal-park-area/"
+        value = [PATH_PAL_PARK_AREA_LIST],
         produces = ["application/json"]
     )
     fun palParkAreaList(
@@ -1479,7 +1545,8 @@ class ApiApiController() {
     )
     @RequestMapping(
         method = [RequestMethod.GET],
-        value = [PATH_PAL_PARK_AREA_RETRIEVE /* "/api/v2/pal-park-area/{id}/" */],
+        // "/api/v2/pal-park-area/{id}/"
+        value = [PATH_PAL_PARK_AREA_RETRIEVE],
         produces = ["application/json"]
     )
     fun palParkAreaRetrieve(
@@ -1498,7 +1565,8 @@ class ApiApiController() {
     )
     @RequestMapping(
         method = [RequestMethod.GET],
-        value = [PATH_POKEATHLON_STAT_LIST /* "/api/v2/pokeathlon-stat/" */],
+        // "/api/v2/pokeathlon-stat/"
+        value = [PATH_POKEATHLON_STAT_LIST],
         produces = ["application/json"]
     )
     fun pokeathlonStatList(
@@ -1519,7 +1587,8 @@ class ApiApiController() {
     )
     @RequestMapping(
         method = [RequestMethod.GET],
-        value = [PATH_POKEATHLON_STAT_RETRIEVE /* "/api/v2/pokeathlon-stat/{id}/" */],
+        // "/api/v2/pokeathlon-stat/{id}/"
+        value = [PATH_POKEATHLON_STAT_RETRIEVE],
         produces = ["application/json"]
     )
     fun pokeathlonStatRetrieve(
@@ -1538,7 +1607,8 @@ class ApiApiController() {
     )
     @RequestMapping(
         method = [RequestMethod.GET],
-        value = [PATH_POKEDEX_LIST /* "/api/v2/pokedex/" */],
+        // "/api/v2/pokedex/"
+        value = [PATH_POKEDEX_LIST],
         produces = ["application/json"]
     )
     fun pokedexList(
@@ -1559,7 +1629,8 @@ class ApiApiController() {
     )
     @RequestMapping(
         method = [RequestMethod.GET],
-        value = [PATH_POKEDEX_RETRIEVE /* "/api/v2/pokedex/{id}/" */],
+        // "/api/v2/pokedex/{id}/"
+        value = [PATH_POKEDEX_RETRIEVE],
         produces = ["application/json"]
     )
     fun pokedexRetrieve(
@@ -1578,7 +1649,8 @@ class ApiApiController() {
     )
     @RequestMapping(
         method = [RequestMethod.GET],
-        value = [PATH_POKEMON_COLOR_LIST /* "/api/v2/pokemon-color/" */],
+        // "/api/v2/pokemon-color/"
+        value = [PATH_POKEMON_COLOR_LIST],
         produces = ["application/json"]
     )
     fun pokemonColorList(
@@ -1599,7 +1671,8 @@ class ApiApiController() {
     )
     @RequestMapping(
         method = [RequestMethod.GET],
-        value = [PATH_POKEMON_COLOR_RETRIEVE /* "/api/v2/pokemon-color/{id}/" */],
+        // "/api/v2/pokemon-color/{id}/"
+        value = [PATH_POKEMON_COLOR_RETRIEVE],
         produces = ["application/json"]
     )
     fun pokemonColorRetrieve(
@@ -1618,7 +1691,8 @@ class ApiApiController() {
     )
     @RequestMapping(
         method = [RequestMethod.GET],
-        value = [PATH_POKEMON_FORM_LIST /* "/api/v2/pokemon-form/" */],
+        // "/api/v2/pokemon-form/"
+        value = [PATH_POKEMON_FORM_LIST],
         produces = ["application/json"]
     )
     fun pokemonFormList(
@@ -1639,7 +1713,8 @@ class ApiApiController() {
     )
     @RequestMapping(
         method = [RequestMethod.GET],
-        value = [PATH_POKEMON_FORM_RETRIEVE /* "/api/v2/pokemon-form/{id}/" */],
+        // "/api/v2/pokemon-form/{id}/"
+        value = [PATH_POKEMON_FORM_RETRIEVE],
         produces = ["application/json"]
     )
     fun pokemonFormRetrieve(
@@ -1658,7 +1733,8 @@ class ApiApiController() {
     )
     @RequestMapping(
         method = [RequestMethod.GET],
-        value = [PATH_POKEMON_HABITAT_LIST /* "/api/v2/pokemon-habitat/" */],
+        // "/api/v2/pokemon-habitat/"
+        value = [PATH_POKEMON_HABITAT_LIST],
         produces = ["application/json"]
     )
     fun pokemonHabitatList(
@@ -1679,7 +1755,8 @@ class ApiApiController() {
     )
     @RequestMapping(
         method = [RequestMethod.GET],
-        value = [PATH_POKEMON_HABITAT_RETRIEVE /* "/api/v2/pokemon-habitat/{id}/" */],
+        // "/api/v2/pokemon-habitat/{id}/"
+        value = [PATH_POKEMON_HABITAT_RETRIEVE],
         produces = ["application/json"]
     )
     fun pokemonHabitatRetrieve(
@@ -1698,7 +1775,8 @@ class ApiApiController() {
     )
     @RequestMapping(
         method = [RequestMethod.GET],
-        value = [PATH_POKEMON_LIST /* "/api/v2/pokemon/" */],
+        // "/api/v2/pokemon/"
+        value = [PATH_POKEMON_LIST],
         produces = ["application/json"]
     )
     fun pokemonList(
@@ -1719,7 +1797,8 @@ class ApiApiController() {
     )
     @RequestMapping(
         method = [RequestMethod.GET],
-        value = [PATH_POKEMON_RETRIEVE /* "/api/v2/pokemon/{id}/" */],
+        // "/api/v2/pokemon/{id}/"
+        value = [PATH_POKEMON_RETRIEVE],
         produces = ["application/json"]
     )
     fun pokemonRetrieve(
@@ -1738,7 +1817,8 @@ class ApiApiController() {
     )
     @RequestMapping(
         method = [RequestMethod.GET],
-        value = [PATH_POKEMON_SHAPE_LIST /* "/api/v2/pokemon-shape/" */],
+        // "/api/v2/pokemon-shape/"
+        value = [PATH_POKEMON_SHAPE_LIST],
         produces = ["application/json"]
     )
     fun pokemonShapeList(
@@ -1759,7 +1839,8 @@ class ApiApiController() {
     )
     @RequestMapping(
         method = [RequestMethod.GET],
-        value = [PATH_POKEMON_SHAPE_RETRIEVE /* "/api/v2/pokemon-shape/{id}/" */],
+        // "/api/v2/pokemon-shape/{id}/"
+        value = [PATH_POKEMON_SHAPE_RETRIEVE],
         produces = ["application/json"]
     )
     fun pokemonShapeRetrieve(
@@ -1778,7 +1859,8 @@ class ApiApiController() {
     )
     @RequestMapping(
         method = [RequestMethod.GET],
-        value = [PATH_POKEMON_SPECIES_LIST /* "/api/v2/pokemon-species/" */],
+        // "/api/v2/pokemon-species/"
+        value = [PATH_POKEMON_SPECIES_LIST],
         produces = ["application/json"]
     )
     fun pokemonSpeciesList(
@@ -1799,7 +1881,8 @@ class ApiApiController() {
     )
     @RequestMapping(
         method = [RequestMethod.GET],
-        value = [PATH_POKEMON_SPECIES_RETRIEVE /* "/api/v2/pokemon-species/{id}/" */],
+        // "/api/v2/pokemon-species/{id}/"
+        value = [PATH_POKEMON_SPECIES_RETRIEVE],
         produces = ["application/json"]
     )
     fun pokemonSpeciesRetrieve(
@@ -1818,7 +1901,8 @@ class ApiApiController() {
     )
     @RequestMapping(
         method = [RequestMethod.GET],
-        value = [PATH_REGION_LIST /* "/api/v2/region/" */],
+        // "/api/v2/region/"
+        value = [PATH_REGION_LIST],
         produces = ["application/json"]
     )
     fun regionList(
@@ -1839,7 +1923,8 @@ class ApiApiController() {
     )
     @RequestMapping(
         method = [RequestMethod.GET],
-        value = [PATH_REGION_RETRIEVE /* "/api/v2/region/{id}/" */],
+        // "/api/v2/region/{id}/"
+        value = [PATH_REGION_RETRIEVE],
         produces = ["application/json"]
     )
     fun regionRetrieve(
@@ -1858,7 +1943,8 @@ class ApiApiController() {
     )
     @RequestMapping(
         method = [RequestMethod.GET],
-        value = [PATH_STAT_LIST /* "/api/v2/stat/" */],
+        // "/api/v2/stat/"
+        value = [PATH_STAT_LIST],
         produces = ["application/json"]
     )
     fun statList(
@@ -1879,7 +1965,8 @@ class ApiApiController() {
     )
     @RequestMapping(
         method = [RequestMethod.GET],
-        value = [PATH_STAT_RETRIEVE /* "/api/v2/stat/{id}/" */],
+        // "/api/v2/stat/{id}/"
+        value = [PATH_STAT_RETRIEVE],
         produces = ["application/json"]
     )
     fun statRetrieve(
@@ -1898,7 +1985,8 @@ class ApiApiController() {
     )
     @RequestMapping(
         method = [RequestMethod.GET],
-        value = [PATH_SUPER_CONTEST_EFFECT_LIST /* "/api/v2/super-contest-effect/" */],
+        // "/api/v2/super-contest-effect/"
+        value = [PATH_SUPER_CONTEST_EFFECT_LIST],
         produces = ["application/json"]
     )
     fun superContestEffectList(
@@ -1919,7 +2007,8 @@ class ApiApiController() {
     )
     @RequestMapping(
         method = [RequestMethod.GET],
-        value = [PATH_SUPER_CONTEST_EFFECT_RETRIEVE /* "/api/v2/super-contest-effect/{id}/" */],
+        // "/api/v2/super-contest-effect/{id}/"
+        value = [PATH_SUPER_CONTEST_EFFECT_RETRIEVE],
         produces = ["application/json"]
     )
     fun superContestEffectRetrieve(
@@ -1938,7 +2027,8 @@ class ApiApiController() {
     )
     @RequestMapping(
         method = [RequestMethod.GET],
-        value = [PATH_TYPE_LIST /* "/api/v2/type/" */],
+        // "/api/v2/type/"
+        value = [PATH_TYPE_LIST],
         produces = ["application/json"]
     )
     fun typeList(
@@ -1959,7 +2049,8 @@ class ApiApiController() {
     )
     @RequestMapping(
         method = [RequestMethod.GET],
-        value = [PATH_TYPE_RETRIEVE /* "/api/v2/type/{id}/" */],
+        // "/api/v2/type/{id}/"
+        value = [PATH_TYPE_RETRIEVE],
         produces = ["application/json"]
     )
     fun typeRetrieve(
@@ -1978,7 +2069,8 @@ class ApiApiController() {
     )
     @RequestMapping(
         method = [RequestMethod.GET],
-        value = [PATH_VERSION_GROUP_LIST /* "/api/v2/version-group/" */],
+        // "/api/v2/version-group/"
+        value = [PATH_VERSION_GROUP_LIST],
         produces = ["application/json"]
     )
     fun versionGroupList(
@@ -1999,7 +2091,8 @@ class ApiApiController() {
     )
     @RequestMapping(
         method = [RequestMethod.GET],
-        value = [PATH_VERSION_GROUP_RETRIEVE /* "/api/v2/version-group/{id}/" */],
+        // "/api/v2/version-group/{id}/"
+        value = [PATH_VERSION_GROUP_RETRIEVE],
         produces = ["application/json"]
     )
     fun versionGroupRetrieve(
@@ -2018,7 +2111,8 @@ class ApiApiController() {
     )
     @RequestMapping(
         method = [RequestMethod.GET],
-        value = [PATH_VERSION_LIST /* "/api/v2/version/" */],
+        // "/api/v2/version/"
+        value = [PATH_VERSION_LIST],
         produces = ["application/json"]
     )
     fun versionList(
@@ -2039,7 +2133,8 @@ class ApiApiController() {
     )
     @RequestMapping(
         method = [RequestMethod.GET],
-        value = [PATH_VERSION_RETRIEVE /* "/api/v2/version/{id}/" */],
+        // "/api/v2/version/{id}/"
+        value = [PATH_VERSION_RETRIEVE],
         produces = ["application/json"]
     )
     fun versionRetrieve(

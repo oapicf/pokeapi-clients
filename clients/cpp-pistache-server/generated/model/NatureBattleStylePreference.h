@@ -32,7 +32,7 @@ class  NatureBattleStylePreference
 {
 public:
     NatureBattleStylePreference();
-    virtual ~NatureBattleStylePreference() = default;
+    virtual ~NatureBattleStylePreference();
 
 
     /// <summary>

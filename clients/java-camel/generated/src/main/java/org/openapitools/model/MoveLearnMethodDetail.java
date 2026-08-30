@@ -12,19 +12,19 @@ import org.openapitools.model.MoveLearnMethodDescription;
 import org.openapitools.model.MoveLearnMethodName;
 import org.openapitools.jackson.nullable.JsonNullable;
 import java.time.OffsetDateTime;
-import javax.validation.Valid;
-import javax.validation.constraints.*;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.*;
 import io.swagger.v3.oas.annotations.media.Schema;
 
 
 import java.util.*;
-import javax.annotation.Generated;
+import jakarta.annotation.Generated;
 
 /**
  * MoveLearnMethodDetail
  */
 
-@Generated(value = "org.openapitools.codegen.languages.JavaCamelServerCodegen", date = "2026-02-07T15:23:32.871052804Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@Generated(value = "org.openapitools.codegen.languages.JavaCamelServerCodegen", date = "2026-08-30T01:56:15.309401083Z[Etc/UTC]", comments = "Generator version: 7.24.0")
 public class MoveLearnMethodDetail {
 
   private Integer id;
@@ -112,8 +112,8 @@ public class MoveLearnMethodDetail {
    * Get names
    * @return names
    */
-  @NotNull @Valid 
-  @Schema(name = "names", requiredMode = Schema.RequiredMode.REQUIRED)
+  @Valid 
+  @Schema(name = "names", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("names")
   public List<@Valid MoveLearnMethodName> getNames() {
     return names;
@@ -140,8 +140,8 @@ public class MoveLearnMethodDetail {
    * Get descriptions
    * @return descriptions
    */
-  @NotNull @Valid 
-  @Schema(name = "descriptions", requiredMode = Schema.RequiredMode.REQUIRED)
+  @Valid 
+  @Schema(name = "descriptions", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("descriptions")
   public List<@Valid MoveLearnMethodDescription> getDescriptions() {
     return descriptions;
@@ -168,8 +168,8 @@ public class MoveLearnMethodDetail {
    * Get versionGroups
    * @return versionGroups
    */
-  @NotNull @Valid 
-  @Schema(name = "version_groups", requiredMode = Schema.RequiredMode.REQUIRED)
+  @Valid 
+  @Schema(name = "version_groups", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("version_groups")
   public List<@Valid AbilityDetailPokemonInnerPokemon> getVersionGroups() {
     return versionGroups;
@@ -218,10 +218,7 @@ public class MoveLearnMethodDetail {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 }
 

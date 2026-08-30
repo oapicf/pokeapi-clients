@@ -23,11 +23,13 @@ import io.swagger.v3.oas.annotations.media.Schema
 data class TypeDetailPastDamageRelationsInner(
 
     @field:Valid
-    @Schema(example = "null", required = true, description = "")
+    @Schema(required = true, description = "")
+    @param:JsonProperty("generation")
     @get:JsonProperty("generation", required = true) val generation: AbilityDetailPokemonInnerPokemon,
 
     @field:Valid
-    @Schema(example = "null", required = true, description = "")
+    @Schema(required = true, description = "")
+    @param:JsonProperty("damage_relations")
     @get:JsonProperty("damage_relations", required = true) val damageRelations: TypeDetailPastDamageRelationsInnerDamageRelations
 ) {
 

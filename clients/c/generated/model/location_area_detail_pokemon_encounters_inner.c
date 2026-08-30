@@ -13,10 +13,10 @@ static location_area_detail_pokemon_encounters_inner_t *location_area_detail_pok
     if (!location_area_detail_pokemon_encounters_inner_local_var) {
         return NULL;
     }
+    memset(location_area_detail_pokemon_encounters_inner_local_var, 0, sizeof(location_area_detail_pokemon_encounters_inner_t));
+    location_area_detail_pokemon_encounters_inner_local_var->_library_owned = 1;
     location_area_detail_pokemon_encounters_inner_local_var->pokemon = pokemon;
     location_area_detail_pokemon_encounters_inner_local_var->version_details = version_details;
-
-    location_area_detail_pokemon_encounters_inner_local_var->_library_owned = 1;
     return location_area_detail_pokemon_encounters_inner_local_var;
 }
 
@@ -24,10 +24,13 @@ __attribute__((deprecated)) location_area_detail_pokemon_encounters_inner_t *loc
     ability_detail_pokemon_inner_pokemon_t *pokemon,
     list_t *version_details
     ) {
-    return location_area_detail_pokemon_encounters_inner_create_internal (
+    location_area_detail_pokemon_encounters_inner_t *result = location_area_detail_pokemon_encounters_inner_create_internal (
         pokemon,
         version_details
         );
+    if (!result) {
+    }
+    return result;
 }
 
 void location_area_detail_pokemon_encounters_inner_free(location_area_detail_pokemon_encounters_inner_t *location_area_detail_pokemon_encounters_inner) {
@@ -148,10 +151,15 @@ location_area_detail_pokemon_encounters_inner_t *location_area_detail_pokemon_en
     }
 
 
+
     location_area_detail_pokemon_encounters_inner_local_var = location_area_detail_pokemon_encounters_inner_create_internal (
         pokemon_local_nonprim,
         version_detailsList
         );
+
+    if (!location_area_detail_pokemon_encounters_inner_local_var) {
+        goto end;
+    }
 
     return location_area_detail_pokemon_encounters_inner_local_var;
 end:

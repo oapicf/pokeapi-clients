@@ -105,10 +105,22 @@ class StatDetail {
       // Note 1: the values aren't checked for validity beyond being non-null.
       // Note 2: this code is stripped in release mode!
       assert(() {
-        requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "StatDetail[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "StatDetail[$key]" has a null value in JSON.');
-        });
+        assert(json.containsKey(r'id'), 'Required key "StatDetail[id]" is missing from JSON.');
+        assert(json[r'id'] != null, 'Required key "StatDetail[id]" has a null value in JSON.');
+        assert(json.containsKey(r'name'), 'Required key "StatDetail[name]" is missing from JSON.');
+        assert(json[r'name'] != null, 'Required key "StatDetail[name]" has a null value in JSON.');
+        assert(json.containsKey(r'game_index'), 'Required key "StatDetail[game_index]" is missing from JSON.');
+        assert(json[r'game_index'] != null, 'Required key "StatDetail[game_index]" has a null value in JSON.');
+        assert(json.containsKey(r'affecting_moves'), 'Required key "StatDetail[affecting_moves]" is missing from JSON.');
+        assert(json[r'affecting_moves'] != null, 'Required key "StatDetail[affecting_moves]" has a null value in JSON.');
+        assert(json.containsKey(r'affecting_natures'), 'Required key "StatDetail[affecting_natures]" is missing from JSON.');
+        assert(json[r'affecting_natures'] != null, 'Required key "StatDetail[affecting_natures]" has a null value in JSON.');
+        assert(json.containsKey(r'characteristics'), 'Required key "StatDetail[characteristics]" is missing from JSON.');
+        assert(json[r'characteristics'] != null, 'Required key "StatDetail[characteristics]" has a null value in JSON.');
+        assert(json.containsKey(r'move_damage_class'), 'Required key "StatDetail[move_damage_class]" is missing from JSON.');
+        assert(json[r'move_damage_class'] != null, 'Required key "StatDetail[move_damage_class]" has a null value in JSON.');
+        assert(json.containsKey(r'names'), 'Required key "StatDetail[names]" is missing from JSON.');
+        assert(json[r'names'] != null, 'Required key "StatDetail[names]" has a null value in JSON.');
         return true;
       }());
 

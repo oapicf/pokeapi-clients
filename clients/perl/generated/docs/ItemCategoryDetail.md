@@ -10,8 +10,8 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **int** |  | [readonly] 
 **name** | **string** |  | 
-**items** | [**ARRAY[ItemSummary]**](ItemSummary.md) |  | 
-**names** | [**ARRAY[ItemCategoryName]**](ItemCategoryName.md) |  | 
+**items** | [**ARRAY[ItemSummary]**](ItemSummary.md) |  | [readonly] 
+**names** | [**ARRAY[ItemCategoryName]**](ItemCategoryName.md) |  | [readonly] 
 **pocket** | [**ItemPocketSummary**](ItemPocketSummary.md) |  | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

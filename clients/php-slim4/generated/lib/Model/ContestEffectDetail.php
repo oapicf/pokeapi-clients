@@ -60,15 +60,19 @@ class ContestEffectDetail extends BaseModel
     },
     "effect_entries" : {
       "type" : "array",
+      "readOnly" : true,
       "items" : {
         "$ref" : "#/components/schemas/ContestEffectEffectText"
-      }
+      },
+      "default" : null
     },
     "flavor_text_entries" : {
       "type" : "array",
+      "readOnly" : true,
       "items" : {
         "$ref" : "#/components/schemas/ContestEffectFlavorText"
-      }
+      },
+      "default" : null
     }
   }
 }

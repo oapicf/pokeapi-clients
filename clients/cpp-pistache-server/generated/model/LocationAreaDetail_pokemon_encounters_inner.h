@@ -34,7 +34,7 @@ class  LocationAreaDetail_pokemon_encounters_inner
 {
 public:
     LocationAreaDetail_pokemon_encounters_inner();
-    virtual ~LocationAreaDetail_pokemon_encounters_inner() = default;
+    virtual ~LocationAreaDetail_pokemon_encounters_inner();
 
 
     /// <summary>

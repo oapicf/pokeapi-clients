@@ -51,13 +51,13 @@ export interface MoveMetaCategoryDetail {
      * @type {Array<MoveMetaCategoryDescription>}
      * @memberof MoveMetaCategoryDetail
      */
-    descriptions: Array<MoveMetaCategoryDescription>;
+    readonly descriptions: Array<MoveMetaCategoryDescription>;
     /**
      * 
      * @type {Array<AbilityDetailPokemonInnerPokemon>}
      * @memberof MoveMetaCategoryDetail
      */
-    moves: Array<AbilityDetailPokemonInnerPokemon>;
+    readonly moves: Array<AbilityDetailPokemonInnerPokemon>;
 }
 
 /**
@@ -92,7 +92,7 @@ export function MoveMetaCategoryDetailToJSON(json: any): MoveMetaCategoryDetail 
     return MoveMetaCategoryDetailToJSONTyped(json, false);
 }
 
-export function MoveMetaCategoryDetailToJSONTyped(value?: Omit<MoveMetaCategoryDetail, 'id'> | null, ignoreDiscriminator: boolean = false): any {
+export function MoveMetaCategoryDetailToJSONTyped(value?: Omit<MoveMetaCategoryDetail, 'id'|'descriptions'|'moves'> | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
@@ -100,8 +100,6 @@ export function MoveMetaCategoryDetailToJSONTyped(value?: Omit<MoveMetaCategoryD
     return {
         
         'name': value['name'],
-        'descriptions': ((value['descriptions'] as Array<any>).map(MoveMetaCategoryDescriptionToJSON)),
-        'moves': ((value['moves'] as Array<any>).map(AbilityDetailPokemonInnerPokemonToJSON)),
     };
 }
 

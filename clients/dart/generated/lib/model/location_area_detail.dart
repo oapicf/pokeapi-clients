@@ -83,10 +83,20 @@ class LocationAreaDetail {
       // Note 1: the values aren't checked for validity beyond being non-null.
       // Note 2: this code is stripped in release mode!
       assert(() {
-        requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "LocationAreaDetail[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "LocationAreaDetail[$key]" has a null value in JSON.');
-        });
+        assert(json.containsKey(r'id'), 'Required key "LocationAreaDetail[id]" is missing from JSON.');
+        assert(json[r'id'] != null, 'Required key "LocationAreaDetail[id]" has a null value in JSON.');
+        assert(json.containsKey(r'name'), 'Required key "LocationAreaDetail[name]" is missing from JSON.');
+        assert(json[r'name'] != null, 'Required key "LocationAreaDetail[name]" has a null value in JSON.');
+        assert(json.containsKey(r'game_index'), 'Required key "LocationAreaDetail[game_index]" is missing from JSON.');
+        assert(json[r'game_index'] != null, 'Required key "LocationAreaDetail[game_index]" has a null value in JSON.');
+        assert(json.containsKey(r'encounter_method_rates'), 'Required key "LocationAreaDetail[encounter_method_rates]" is missing from JSON.');
+        assert(json[r'encounter_method_rates'] != null, 'Required key "LocationAreaDetail[encounter_method_rates]" has a null value in JSON.');
+        assert(json.containsKey(r'location'), 'Required key "LocationAreaDetail[location]" is missing from JSON.');
+        assert(json[r'location'] != null, 'Required key "LocationAreaDetail[location]" has a null value in JSON.');
+        assert(json.containsKey(r'names'), 'Required key "LocationAreaDetail[names]" is missing from JSON.');
+        assert(json[r'names'] != null, 'Required key "LocationAreaDetail[names]" has a null value in JSON.');
+        assert(json.containsKey(r'pokemon_encounters'), 'Required key "LocationAreaDetail[pokemon_encounters]" is missing from JSON.');
+        assert(json[r'pokemon_encounters'] != null, 'Required key "LocationAreaDetail[pokemon_encounters]" has a null value in JSON.');
         return true;
       }());
 

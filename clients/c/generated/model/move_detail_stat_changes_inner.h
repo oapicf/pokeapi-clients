@@ -20,14 +20,14 @@ typedef struct move_detail_stat_changes_inner_t move_detail_stat_changes_inner_t
 
 
 typedef struct move_detail_stat_changes_inner_t {
-    int change; //numeric
+    int *change; //numeric
     struct ability_detail_pokemon_inner_pokemon_t *stat; //model
 
     int _library_owned; // Is the library responsible for freeing this object?
 } move_detail_stat_changes_inner_t;
 
 __attribute__((deprecated)) move_detail_stat_changes_inner_t *move_detail_stat_changes_inner_create(
-    int change,
+    int *change,
     ability_detail_pokemon_inner_pokemon_t *stat
 );
 

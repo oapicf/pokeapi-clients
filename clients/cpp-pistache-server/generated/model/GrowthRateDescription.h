@@ -33,7 +33,7 @@ class  GrowthRateDescription
 {
 public:
     GrowthRateDescription();
-    virtual ~GrowthRateDescription() = default;
+    virtual ~GrowthRateDescription();
 
 
     /// <summary>

@@ -68,13 +68,13 @@ namespace Org.OpenAPITools.Model
         /// Gets or Sets Items
         /// </summary>
         [JsonPropertyName("items")]
-        public List<ItemSummary> Items { get; set; }
+        public List<ItemSummary> Items { get; }
 
         /// <summary>
         /// Gets or Sets Names
         /// </summary>
         [JsonPropertyName("names")]
-        public List<ItemCategoryName> Names { get; set; }
+        public List<ItemCategoryName> Names { get; }
 
         /// <summary>
         /// Gets or Sets Pocket
@@ -119,8 +119,18 @@ namespace Org.OpenAPITools.Model
     /// <summary>
     /// A Json converter for type <see cref="ItemCategoryDetail" />
     /// </summary>
-    public class ItemCategoryDetailJsonConverter : JsonConverter<ItemCategoryDetail>
+    public partial class ItemCategoryDetailJsonConverter : JsonConverter<ItemCategoryDetail>
     {
+        partial void OnCreated();
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ItemCategoryDetailJsonConverter" /> class.
+        /// </summary>
+        public ItemCategoryDetailJsonConverter()
+        {
+            OnCreated();
+        }
+
         /// <summary>
         /// Deserializes json to <see cref="ItemCategoryDetail" />
         /// </summary>

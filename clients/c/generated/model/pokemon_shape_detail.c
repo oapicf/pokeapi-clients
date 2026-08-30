@@ -6,7 +6,7 @@
 
 
 static pokemon_shape_detail_t *pokemon_shape_detail_create_internal(
-    int id,
+    int *id,
     char *name,
     list_t *awesome_names,
     list_t *names,
@@ -16,30 +16,39 @@ static pokemon_shape_detail_t *pokemon_shape_detail_create_internal(
     if (!pokemon_shape_detail_local_var) {
         return NULL;
     }
+    memset(pokemon_shape_detail_local_var, 0, sizeof(pokemon_shape_detail_t));
+    pokemon_shape_detail_local_var->_library_owned = 1;
     pokemon_shape_detail_local_var->id = id;
     pokemon_shape_detail_local_var->name = name;
     pokemon_shape_detail_local_var->awesome_names = awesome_names;
     pokemon_shape_detail_local_var->names = names;
     pokemon_shape_detail_local_var->pokemon_species = pokemon_species;
-
-    pokemon_shape_detail_local_var->_library_owned = 1;
     return pokemon_shape_detail_local_var;
 }
 
 __attribute__((deprecated)) pokemon_shape_detail_t *pokemon_shape_detail_create(
-    int id,
+    int *id,
     char *name,
     list_t *awesome_names,
     list_t *names,
     list_t *pokemon_species
     ) {
-    return pokemon_shape_detail_create_internal (
-        id,
+    int *id_copy = NULL;
+    if (id) {
+        id_copy = malloc(sizeof(int));
+        if (id_copy) *id_copy = *id;
+    }
+    pokemon_shape_detail_t *result = pokemon_shape_detail_create_internal (
+        id_copy,
         name,
         awesome_names,
         names,
         pokemon_species
         );
+    if (!result) {
+        free(id_copy);
+    }
+    return result;
 }
 
 void pokemon_shape_detail_free(pokemon_shape_detail_t *pokemon_shape_detail) {
@@ -51,6 +60,10 @@ void pokemon_shape_detail_free(pokemon_shape_detail_t *pokemon_shape_detail) {
         return ;
     }
     listEntry_t *listEntry;
+    if (pokemon_shape_detail->id) {
+        free(pokemon_shape_detail->id);
+        pokemon_shape_detail->id = NULL;
+    }
     if (pokemon_shape_detail->name) {
         free(pokemon_shape_detail->name);
         pokemon_shape_detail->name = NULL;
@@ -86,7 +99,7 @@ cJSON *pokemon_shape_detail_convertToJSON(pokemon_shape_detail_t *pokemon_shape_
     if (!pokemon_shape_detail->id) {
         goto fail;
     }
-    if(cJSON_AddNumberToObject(item, "id", pokemon_shape_detail->id) == NULL) {
+    if(cJSON_AddNumberToObject(item, "id", *pokemon_shape_detail->id) == NULL) {
     goto fail; //Numeric
     }
 
@@ -174,6 +187,11 @@ pokemon_shape_detail_t *pokemon_shape_detail_parseFromJSON(cJSON *pokemon_shape_
 
     pokemon_shape_detail_t *pokemon_shape_detail_local_var = NULL;
 
+    // define the local variable for pokemon_shape_detail->id
+    int *id_local_var = NULL;
+
+    char *name_local_str = NULL;
+
     // define the local list for pokemon_shape_detail->awesome_names
     list_t *awesome_namesList = NULL;
 
@@ -197,6 +215,12 @@ pokemon_shape_detail_t *pokemon_shape_detail_parseFromJSON(cJSON *pokemon_shape_
     {
     goto end; //Numeric
     }
+    id_local_var = malloc(sizeof(int));
+    if(!id_local_var)
+    {
+        goto end;
+    }
+    *id_local_var = id->valuedouble;
 
     // pokemon_shape_detail->name
     cJSON *name = cJSON_GetObjectItemCaseSensitive(pokemon_shape_detailJSON, "name");
@@ -295,16 +319,30 @@ pokemon_shape_detail_t *pokemon_shape_detail_parseFromJSON(cJSON *pokemon_shape_
     }
 
 
+    if (name && !cJSON_IsNull(name)) name_local_str = strdup(name->valuestring);
+
     pokemon_shape_detail_local_var = pokemon_shape_detail_create_internal (
-        id->valuedouble,
-        strdup(name->valuestring),
+        id_local_var,
+        name_local_str,
         awesome_namesList,
         namesList,
         pokemon_speciesList
         );
 
+    if (!pokemon_shape_detail_local_var) {
+        goto end;
+    }
+
     return pokemon_shape_detail_local_var;
 end:
+    if (id_local_var) {
+        free(id_local_var);
+        id_local_var = NULL;
+    }
+    if (name_local_str) {
+        free(name_local_str);
+        name_local_str = NULL;
+    }
     if (awesome_namesList) {
         listEntry_t *listEntry = NULL;
         list_ForEach(listEntry, awesome_namesList) {

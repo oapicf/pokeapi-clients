@@ -86,7 +86,7 @@ PalParkAreaName::getName()
 }
 
 void
-PalParkAreaName::setName(std::string  name)
+PalParkAreaName::setName(std::string name)
 {
 	this->name = name;
 }
@@ -98,7 +98,7 @@ PalParkAreaName::getLanguage()
 }
 
 void
-PalParkAreaName::setLanguage(LanguageSummary  language)
+PalParkAreaName::setLanguage(LanguageSummary language)
 {
 	this->language = language;
 }

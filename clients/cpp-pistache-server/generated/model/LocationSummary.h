@@ -32,7 +32,7 @@ class  LocationSummary
 {
 public:
     LocationSummary();
-    virtual ~LocationSummary() = default;
+    virtual ~LocationSummary();
 
 
     /// <summary>

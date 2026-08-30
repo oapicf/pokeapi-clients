@@ -55,7 +55,8 @@ class ItemDetailHeldByPokemonInner extends BaseModel
       "type" : "array",
       "items" : {
         "$ref" : "#/components/schemas/ItemDetail_held_by_pokemon_inner_version_details_inner"
-      }
+      },
+      "default" : null
     }
   }
 }

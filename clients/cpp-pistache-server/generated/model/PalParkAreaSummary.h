@@ -32,7 +32,7 @@ class  PalParkAreaSummary
 {
 public:
     PalParkAreaSummary();
-    virtual ~PalParkAreaSummary() = default;
+    virtual ~PalParkAreaSummary();
 
 
     /// <summary>

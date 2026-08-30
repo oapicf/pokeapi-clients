@@ -87,7 +87,7 @@ MoveDetail_machines_inner::getMachine()
 }
 
 void
-MoveDetail_machines_inner::setMachine(MoveDetail_machines_inner_machine  machine)
+MoveDetail_machines_inner::setMachine(MoveDetail_machines_inner_machine machine)
 {
 	this->machine = machine;
 }
@@ -99,7 +99,7 @@ MoveDetail_machines_inner::getVersionGroup()
 }
 
 void
-MoveDetail_machines_inner::setVersionGroup(AbilityDetail_pokemon_inner_pokemon  version_group)
+MoveDetail_machines_inner::setVersionGroup(AbilityDetail_pokemon_inner_pokemon version_group)
 {
 	this->version_group = version_group;
 }

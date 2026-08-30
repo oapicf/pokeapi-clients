@@ -481,7 +481,7 @@ ItemDetail::getId()
 }
 
 void
-ItemDetail::setId(int  id)
+ItemDetail::setId(int id)
 {
 	this->id = id;
 }
@@ -493,7 +493,7 @@ ItemDetail::getName()
 }
 
 void
-ItemDetail::setName(std::string  name)
+ItemDetail::setName(std::string name)
 {
 	this->name = name;
 }
@@ -505,7 +505,7 @@ ItemDetail::getCost()
 }
 
 void
-ItemDetail::setCost(int  cost)
+ItemDetail::setCost(int cost)
 {
 	this->cost = cost;
 }
@@ -517,7 +517,7 @@ ItemDetail::getFlingPower()
 }
 
 void
-ItemDetail::setFlingPower(int  fling_power)
+ItemDetail::setFlingPower(int fling_power)
 {
 	this->fling_power = fling_power;
 }
@@ -529,7 +529,7 @@ ItemDetail::getFlingEffect()
 }
 
 void
-ItemDetail::setFlingEffect(ItemFlingEffectSummary  fling_effect)
+ItemDetail::setFlingEffect(ItemFlingEffectSummary fling_effect)
 {
 	this->fling_effect = fling_effect;
 }
@@ -541,7 +541,7 @@ ItemDetail::getAttributes()
 }
 
 void
-ItemDetail::setAttributes(std::list <AbilityDetail_pokemon_inner_pokemon> attributes)
+ItemDetail::setAttributes(std::list<AbilityDetail_pokemon_inner_pokemon> attributes)
 {
 	this->attributes = attributes;
 }
@@ -553,7 +553,7 @@ ItemDetail::getCategory()
 }
 
 void
-ItemDetail::setCategory(ItemCategorySummary  category)
+ItemDetail::setCategory(ItemCategorySummary category)
 {
 	this->category = category;
 }
@@ -565,7 +565,7 @@ ItemDetail::getEffectEntries()
 }
 
 void
-ItemDetail::setEffectEntries(std::list <ItemEffectText> effect_entries)
+ItemDetail::setEffectEntries(std::list<ItemEffectText> effect_entries)
 {
 	this->effect_entries = effect_entries;
 }
@@ -577,7 +577,7 @@ ItemDetail::getFlavorTextEntries()
 }
 
 void
-ItemDetail::setFlavorTextEntries(std::list <ItemFlavorText> flavor_text_entries)
+ItemDetail::setFlavorTextEntries(std::list<ItemFlavorText> flavor_text_entries)
 {
 	this->flavor_text_entries = flavor_text_entries;
 }
@@ -589,7 +589,7 @@ ItemDetail::getGameIndices()
 }
 
 void
-ItemDetail::setGameIndices(std::list <ItemGameIndex> game_indices)
+ItemDetail::setGameIndices(std::list<ItemGameIndex> game_indices)
 {
 	this->game_indices = game_indices;
 }
@@ -601,7 +601,7 @@ ItemDetail::getNames()
 }
 
 void
-ItemDetail::setNames(std::list <ItemName> names)
+ItemDetail::setNames(std::list<ItemName> names)
 {
 	this->names = names;
 }
@@ -613,7 +613,7 @@ ItemDetail::getHeldByPokemon()
 }
 
 void
-ItemDetail::setHeldByPokemon(std::list <ItemDetail_held_by_pokemon_inner> held_by_pokemon)
+ItemDetail::setHeldByPokemon(std::list<ItemDetail_held_by_pokemon_inner> held_by_pokemon)
 {
 	this->held_by_pokemon = held_by_pokemon;
 }
@@ -625,7 +625,7 @@ ItemDetail::getSprites()
 }
 
 void
-ItemDetail::setSprites(ItemDetail_sprites  sprites)
+ItemDetail::setSprites(ItemDetail_sprites sprites)
 {
 	this->sprites = sprites;
 }
@@ -637,7 +637,7 @@ ItemDetail::getBabyTriggerFor()
 }
 
 void
-ItemDetail::setBabyTriggerFor(ItemDetail_baby_trigger_for  baby_trigger_for)
+ItemDetail::setBabyTriggerFor(ItemDetail_baby_trigger_for baby_trigger_for)
 {
 	this->baby_trigger_for = baby_trigger_for;
 }
@@ -649,7 +649,7 @@ ItemDetail::getMachines()
 }
 
 void
-ItemDetail::setMachines(std::list <ItemDetail_machines_inner> machines)
+ItemDetail::setMachines(std::list<ItemDetail_machines_inner> machines)
 {
 	this->machines = machines;
 }

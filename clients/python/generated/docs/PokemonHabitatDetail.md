@@ -7,8 +7,8 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **int** |  | [readonly] 
 **name** | **str** |  | 
-**names** | [**List[PokemonHabitatName]**](PokemonHabitatName.md) |  | 
-**pokemon_species** | [**List[PokemonSpeciesSummary]**](PokemonSpeciesSummary.md) |  | 
+**names** | [**List[PokemonHabitatName]**](PokemonHabitatName.md) |  | [readonly] 
+**pokemon_species** | [**List[PokemonSpeciesSummary]**](PokemonSpeciesSummary.md) |  | [readonly] 
 
 ## Example
 

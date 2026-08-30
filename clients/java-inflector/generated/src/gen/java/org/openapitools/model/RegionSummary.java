@@ -11,7 +11,7 @@ import java.net.URI;
 
 
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaInflectorServerCodegen", date = "2026-02-07T15:22:50.575598517Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaInflectorServerCodegen", date = "2026-08-30T01:55:47.615704535Z[Etc/UTC]", comments = "Generator version: 7.24.0")
 public class RegionSummary   {
   @JsonProperty("name")
   private String name;
@@ -88,10 +88,7 @@ public class RegionSummary   {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 }
 

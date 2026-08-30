@@ -58,9 +58,9 @@ function Initialize-PokemonDetailMovesInnerVersionGroupDetailsInner {
 
 
         $PSO = [PSCustomObject]@{
-            "level_learned_at" = ${LevelLearnedAt}
-            "move_learn_method" = ${MoveLearnMethod}
-            "version_group" = ${VersionGroup}
+            'level_learned_at' = ${LevelLearnedAt}
+            'move_learn_method' = ${MoveLearnMethod}
+            'version_group' = ${VersionGroup}
         }
 
 
@@ -98,7 +98,7 @@ function ConvertFrom-JsonToPokemonDetailMovesInnerVersionGroupDetailsInner {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in PokemonDetailMovesInnerVersionGroupDetailsInner
-        $AllProperties = ("level_learned_at", "move_learn_method", "version_group")
+        $AllProperties = ('level_learned_at', 'move_learn_method', 'version_group')
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -109,28 +109,28 @@ function ConvertFrom-JsonToPokemonDetailMovesInnerVersionGroupDetailsInner {
             throw "Error! Empty JSON cannot be serialized due to the required property 'level_learned_at' missing."
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "level_learned_at"))) {
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'level_learned_at'))) {
             throw "Error! JSON cannot be serialized due to the required property 'level_learned_at' missing."
         } else {
-            $LevelLearnedAt = $JsonParameters.PSobject.Properties["level_learned_at"].value
+            $LevelLearnedAt = $JsonParameters.PSobject.Properties['level_learned_at'].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "move_learn_method"))) {
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'move_learn_method'))) {
             throw "Error! JSON cannot be serialized due to the required property 'move_learn_method' missing."
         } else {
-            $MoveLearnMethod = $JsonParameters.PSobject.Properties["move_learn_method"].value
+            $MoveLearnMethod = $JsonParameters.PSobject.Properties['move_learn_method'].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "version_group"))) {
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'version_group'))) {
             throw "Error! JSON cannot be serialized due to the required property 'version_group' missing."
         } else {
-            $VersionGroup = $JsonParameters.PSobject.Properties["version_group"].value
+            $VersionGroup = $JsonParameters.PSobject.Properties['version_group'].value
         }
 
         $PSO = [PSCustomObject]@{
-            "level_learned_at" = ${LevelLearnedAt}
-            "move_learn_method" = ${MoveLearnMethod}
-            "version_group" = ${VersionGroup}
+            'level_learned_at' = ${LevelLearnedAt}
+            'move_learn_method' = ${MoveLearnMethod}
+            'version_group' = ${VersionGroup}
         }
 
         return $PSO

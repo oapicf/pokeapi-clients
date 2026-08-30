@@ -144,7 +144,7 @@ PaginatedMoveBattleStyleSummaryList::getCount()
 }
 
 void
-PaginatedMoveBattleStyleSummaryList::setCount(int  count)
+PaginatedMoveBattleStyleSummaryList::setCount(int count)
 {
 	this->count = count;
 }
@@ -156,7 +156,7 @@ PaginatedMoveBattleStyleSummaryList::getNext()
 }
 
 void
-PaginatedMoveBattleStyleSummaryList::setNext(std::string  next)
+PaginatedMoveBattleStyleSummaryList::setNext(std::string next)
 {
 	this->next = next;
 }
@@ -168,7 +168,7 @@ PaginatedMoveBattleStyleSummaryList::getPrevious()
 }
 
 void
-PaginatedMoveBattleStyleSummaryList::setPrevious(std::string  previous)
+PaginatedMoveBattleStyleSummaryList::setPrevious(std::string previous)
 {
 	this->previous = previous;
 }
@@ -180,7 +180,7 @@ PaginatedMoveBattleStyleSummaryList::getResults()
 }
 
 void
-PaginatedMoveBattleStyleSummaryList::setResults(std::list <MoveBattleStyleSummary> results)
+PaginatedMoveBattleStyleSummaryList::setResults(std::list<MoveBattleStyleSummary> results)
 {
 	this->results = results;
 }

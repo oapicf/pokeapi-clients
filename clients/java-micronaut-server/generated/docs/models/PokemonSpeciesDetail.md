@@ -21,20 +21,20 @@ Name | Type | Description | Notes
 **hasGenderDifferences** | `Boolean` |  |  [optional property]
 **formsSwitchable** | `Boolean` |  |  [optional property]
 **growthRate** | [`GrowthRateSummary`](GrowthRateSummary.md) |  | 
-**pokedexNumbers** | [`List&lt;PokemonDexEntry&gt;`](PokemonDexEntry.md) |  | 
-**eggGroups** | [`List&lt;AbilityDetailPokemonInnerPokemon&gt;`](AbilityDetailPokemonInnerPokemon.md) |  | 
+**pokedexNumbers** | [`List&lt;PokemonDexEntry&gt;`](PokemonDexEntry.md) |  |  [readonly property]
+**eggGroups** | [`List&lt;AbilityDetailPokemonInnerPokemon&gt;`](AbilityDetailPokemonInnerPokemon.md) |  |  [readonly property]
 **color** | [`PokemonColorSummary`](PokemonColorSummary.md) |  | 
 **shape** | [`PokemonShapeSummary`](PokemonShapeSummary.md) |  | 
 **evolvesFromSpecies** | [`PokemonSpeciesSummary`](PokemonSpeciesSummary.md) |  | 
 **evolutionChain** | [`EvolutionChainSummary`](EvolutionChainSummary.md) |  | 
 **habitat** | [`PokemonHabitatSummary`](PokemonHabitatSummary.md) |  | 
 **generation** | [`GenerationSummary`](GenerationSummary.md) |  | 
-**names** | [`List&lt;PokemonFormDetailFormNamesInner&gt;`](PokemonFormDetailFormNamesInner.md) |  | 
-**palParkEncounters** | [`List&lt;PokemonSpeciesDetailPalParkEncountersInner&gt;`](PokemonSpeciesDetailPalParkEncountersInner.md) |  | 
-**formDescriptions** | [`List&lt;PokemonSpeciesDescription&gt;`](PokemonSpeciesDescription.md) |  | 
-**flavorTextEntries** | [`List&lt;PokemonSpeciesFlavorText&gt;`](PokemonSpeciesFlavorText.md) |  | 
-**genera** | [`List&lt;PokemonSpeciesDetailGeneraInner&gt;`](PokemonSpeciesDetailGeneraInner.md) |  | 
-**varieties** | [`List&lt;PokemonSpeciesDetailVarietiesInner&gt;`](PokemonSpeciesDetailVarietiesInner.md) |  | 
+**names** | [`List&lt;PokemonFormDetailFormNamesInner&gt;`](PokemonFormDetailFormNamesInner.md) |  |  [readonly property]
+**palParkEncounters** | [`List&lt;PokemonSpeciesDetailPalParkEncountersInner&gt;`](PokemonSpeciesDetailPalParkEncountersInner.md) |  |  [readonly property]
+**formDescriptions** | [`List&lt;PokemonSpeciesDescription&gt;`](PokemonSpeciesDescription.md) |  |  [readonly property]
+**flavorTextEntries** | [`List&lt;PokemonSpeciesFlavorText&gt;`](PokemonSpeciesFlavorText.md) |  |  [readonly property]
+**genera** | [`List&lt;PokemonSpeciesDetailGeneraInner&gt;`](PokemonSpeciesDetailGeneraInner.md) |  |  [readonly property]
+**varieties** | [`List&lt;PokemonSpeciesDetailVarietiesInner&gt;`](PokemonSpeciesDetailVarietiesInner.md) |  |  [readonly property]
 
 
 

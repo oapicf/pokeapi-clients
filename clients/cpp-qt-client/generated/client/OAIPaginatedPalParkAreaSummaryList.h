@@ -34,13 +34,13 @@ class OAIPalParkAreaSummary;
 class OAIPaginatedPalParkAreaSummaryList : public OAIObject {
 public:
     OAIPaginatedPalParkAreaSummaryList();
-    OAIPaginatedPalParkAreaSummaryList(QString json);
+    OAIPaginatedPalParkAreaSummaryList(const QString &json);
     ~OAIPaginatedPalParkAreaSummaryList() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     qint32 getCount() const;
     void setCount(const qint32 &count);

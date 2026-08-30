@@ -12,6 +12,11 @@
 package openapi
 
 
+import (
+	"encoding/json"
+	"fmt"
+)
+
 
 
 type ItemFlingEffectDetail struct {
@@ -24,45 +29,84 @@ type ItemFlingEffectDetail struct {
 
 	Items []ItemSummary `json:"items"`
 }
+// UnmarshalJSON validates required property keys then unmarshals into ItemFlingEffectDetail
+func (o *ItemFlingEffectDetail) UnmarshalJSON(data []byte) (err error) {
+	// Presence is checked against required fields that exist on this struct,
+	// including fields promoted from embedded allOf parents.
+	requiredProperties := []string{
+		"name",
+	}
 
-// AssertItemFlingEffectDetailRequired checks if the required fields are not zero-ed
+	requiredNullableProperties := map[string]bool{
+		"name": false,
+	}
+
+	allowedJsonKeys := map[string]struct{}{
+		"id": {},
+		"name": {},
+		"effect_entries": {},
+		"items": {},
+	}
+
+	allProperties := make(map[string]json.RawMessage)
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err
+	}
+
+	for _, requiredProperty := range requiredProperties {
+		value, exists := allProperties[requiredProperty]
+		if !exists {
+			return &RequiredError{Field: requiredProperty}
+		}
+		if string(value) == "null" && !requiredNullableProperties[requiredProperty] {
+			return &RequiredError{Field: requiredProperty}
+		}
+	}
+
+	for key := range allProperties {
+		if _, exists := allowedJsonKeys[key]; !exists {
+			return fmt.Errorf("json: unknown field %q", key)
+		}
+	}
+
+	var decoded ItemFlingEffectDetail
+
+	if value, exists := allProperties["id"]; exists {
+		if err = json.Unmarshal(value, &decoded.Id); err != nil {
+			return err
+		}
+	}
+	if value, exists := allProperties["name"]; exists {
+		if err = json.Unmarshal(value, &decoded.Name); err != nil {
+			return err
+		}
+	}
+	if value, exists := allProperties["effect_entries"]; exists {
+		if err = json.Unmarshal(value, &decoded.EffectEntries); err != nil {
+			return err
+		}
+	}
+	if value, exists := allProperties["items"]; exists {
+		if err = json.Unmarshal(value, &decoded.Items); err != nil {
+			return err
+		}
+	}
+
+	*o = decoded
+
+	return nil
+}
+
+// AssertItemFlingEffectDetailRequired checks complex required fields (models, arrays, maps) and embedded parents.
+// Primitive required fields are validated for JSON request bodies in UnmarshalJSON so zero values remain valid.
 func AssertItemFlingEffectDetailRequired(obj ItemFlingEffectDetail) error {
-	elements := map[string]interface{}{
-		"id": obj.Id,
-		"name": obj.Name,
-		"effect_entries": obj.EffectEntries,
-		"items": obj.Items,
-	}
-	for name, el := range elements {
-		if isZero := IsZeroValue(el); isZero {
-			return &RequiredError{Field: name}
-		}
-	}
-
-	for _, el := range obj.EffectEntries {
-		if err := AssertItemFlingEffectEffectTextRequired(el); err != nil {
-			return err
-		}
-	}
-	for _, el := range obj.Items {
-		if err := AssertItemSummaryRequired(el); err != nil {
-			return err
-		}
-	}
 	return nil
 }
 
 // AssertItemFlingEffectDetailConstraints checks if the values respects the defined constraints
 func AssertItemFlingEffectDetailConstraints(obj ItemFlingEffectDetail) error {
-	for _, el := range obj.EffectEntries {
-		if err := AssertItemFlingEffectEffectTextConstraints(el); err != nil {
-			return err
-		}
-	}
-	for _, el := range obj.Items {
-		if err := AssertItemSummaryConstraints(el); err != nil {
-			return err
-		}
-	}
 	return nil
 }

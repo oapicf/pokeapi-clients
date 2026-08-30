@@ -64,7 +64,7 @@ EvolutionChainSummary::getUrl()
 }
 
 void
-EvolutionChainSummary::setUrl(std::string  url)
+EvolutionChainSummary::setUrl(std::string url)
 {
 	this->url = url;
 }

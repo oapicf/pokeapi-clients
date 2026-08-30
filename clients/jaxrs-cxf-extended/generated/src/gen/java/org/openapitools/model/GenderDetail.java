@@ -92,6 +92,7 @@ public class GenderDetail  {
 
   /**
    * Sets the <code>pokemonSpeciesDetails</code> property.
+   * <br><em>N.B. <code>pokemonSpeciesDetails</code> is <b>read only</b>; client code should not call this method</em>.
    */
  public void setPokemonSpeciesDetails(List<@Valid GenderDetailPokemonSpeciesDetailsInner> pokemonSpeciesDetails) {
     this.pokemonSpeciesDetails = pokemonSpeciesDetails;
@@ -99,6 +100,7 @@ public class GenderDetail  {
 
   /**
    * Sets the <code>pokemonSpeciesDetails</code> property.
+   * <br><em>N.B. <code>pokemonSpeciesDetails</code> is <b>read only</b>; client code should not call this method</em>.
    */
   public GenderDetail pokemonSpeciesDetails(List<@Valid GenderDetailPokemonSpeciesDetailsInner> pokemonSpeciesDetails) {
     this.pokemonSpeciesDetails = pokemonSpeciesDetails;
@@ -107,6 +109,7 @@ public class GenderDetail  {
 
   /**
    * Adds a new item to the <code>pokemonSpeciesDetails</code> list.
+   * <br><em>N.B. <code>pokemonSpeciesDetails</code> is <b>read only</b>; client code should not call this method</em>.
    */
   public GenderDetail addPokemonSpeciesDetailsItem(GenderDetailPokemonSpeciesDetailsInner pokemonSpeciesDetailsItem) {
     this.pokemonSpeciesDetails.add(pokemonSpeciesDetailsItem);
@@ -125,6 +128,7 @@ public class GenderDetail  {
 
   /**
    * Sets the <code>requiredForEvolution</code> property.
+   * <br><em>N.B. <code>requiredForEvolution</code> is <b>read only</b>; client code should not call this method</em>.
    */
  public void setRequiredForEvolution(List<@Valid AbilityDetailPokemonInnerPokemon> requiredForEvolution) {
     this.requiredForEvolution = requiredForEvolution;
@@ -132,6 +136,7 @@ public class GenderDetail  {
 
   /**
    * Sets the <code>requiredForEvolution</code> property.
+   * <br><em>N.B. <code>requiredForEvolution</code> is <b>read only</b>; client code should not call this method</em>.
    */
   public GenderDetail requiredForEvolution(List<@Valid AbilityDetailPokemonInnerPokemon> requiredForEvolution) {
     this.requiredForEvolution = requiredForEvolution;
@@ -140,6 +145,7 @@ public class GenderDetail  {
 
   /**
    * Adds a new item to the <code>requiredForEvolution</code> list.
+   * <br><em>N.B. <code>requiredForEvolution</code> is <b>read only</b>; client code should not call this method</em>.
    */
   public GenderDetail addRequiredForEvolutionItem(AbilityDetailPokemonInnerPokemon requiredForEvolutionItem) {
     this.requiredForEvolution.add(requiredForEvolutionItem);
@@ -185,10 +191,7 @@ public class GenderDetail  {
    * (except the first line).
    */
   private static String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 }
 

@@ -71,10 +71,10 @@ function Initialize-VersionDetail {
 
 
         $PSO = [PSCustomObject]@{
-            "id" = ${Id}
-            "name" = ${Name}
-            "names" = ${Names}
-            "version_group" = ${VersionGroup}
+            'id' = ${Id}
+            'name' = ${Name}
+            'names' = ${Names}
+            'version_group' = ${VersionGroup}
         }
 
 
@@ -112,7 +112,7 @@ function ConvertFrom-JsonToVersionDetail {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in VersionDetail
-        $AllProperties = ("id", "name", "names", "version_group")
+        $AllProperties = ('id', 'name', 'names', 'version_group')
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -123,35 +123,35 @@ function ConvertFrom-JsonToVersionDetail {
             throw "Error! Empty JSON cannot be serialized due to the required property 'id' missing."
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "id"))) {
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'id'))) {
             throw "Error! JSON cannot be serialized due to the required property 'id' missing."
         } else {
-            $Id = $JsonParameters.PSobject.Properties["id"].value
+            $Id = $JsonParameters.PSobject.Properties['id'].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "name"))) {
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'name'))) {
             throw "Error! JSON cannot be serialized due to the required property 'name' missing."
         } else {
-            $Name = $JsonParameters.PSobject.Properties["name"].value
+            $Name = $JsonParameters.PSobject.Properties['name'].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "names"))) {
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'names'))) {
             throw "Error! JSON cannot be serialized due to the required property 'names' missing."
         } else {
-            $Names = $JsonParameters.PSobject.Properties["names"].value
+            $Names = $JsonParameters.PSobject.Properties['names'].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "version_group"))) {
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'version_group'))) {
             throw "Error! JSON cannot be serialized due to the required property 'version_group' missing."
         } else {
-            $VersionGroup = $JsonParameters.PSobject.Properties["version_group"].value
+            $VersionGroup = $JsonParameters.PSobject.Properties['version_group'].value
         }
 
         $PSO = [PSCustomObject]@{
-            "id" = ${Id}
-            "name" = ${Name}
-            "names" = ${Names}
-            "version_group" = ${VersionGroup}
+            'id' = ${Id}
+            'name' = ${Name}
+            'names' = ${Names}
+            'version_group' = ${VersionGroup}
         }
 
         return $PSO

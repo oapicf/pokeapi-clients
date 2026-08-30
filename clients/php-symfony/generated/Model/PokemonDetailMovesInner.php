@@ -47,7 +47,7 @@ class PokemonDetailMovesInner
      * @var AbilityDetailPokemonInnerPokemon|null
      * @SerializedName("move")
      * @Type("OpenAPI\Server\Model\AbilityDetailPokemonInnerPokemon")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Valid]
     #[Assert\Type("OpenAPI\Server\Model\AbilityDetailPokemonInnerPokemon")]
@@ -57,7 +57,7 @@ class PokemonDetailMovesInner
      * @var PokemonDetailMovesInnerVersionGroupDetailsInner[]|null
      * @SerializedName("version_group_details")
      * @Type("array<OpenAPI\Server\Model\PokemonDetailMovesInnerVersionGroupDetailsInner>")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Valid]
     #[Assert\All([
@@ -88,12 +88,12 @@ class PokemonDetailMovesInner
     }
 
     /**
-    * Sets move.
-    *
-    * @param AbilityDetailPokemonInnerPokemon|null $move
-    *
-    * @return $this
-    */
+     * Sets move.
+     *
+     * @param AbilityDetailPokemonInnerPokemon|null $move
+     *
+     * @return $this
+     */
     public function setMove(?AbilityDetailPokemonInnerPokemon $move): self
     {
         $this->move = $move;
@@ -115,12 +115,12 @@ class PokemonDetailMovesInner
     }
 
     /**
-    * Sets versionGroupDetails.
-    *
-    * @param PokemonDetailMovesInnerVersionGroupDetailsInner[]|null $versionGroupDetails
-    *
-    * @return $this
-    */
+     * Sets versionGroupDetails.
+     *
+     * @param PokemonDetailMovesInnerVersionGroupDetailsInner[]|null $versionGroupDetails
+     *
+     * @return $this
+     */
     public function setVersionGroupDetails(?array $versionGroupDetails): self
     {
         $this->versionGroupDetails = $versionGroupDetails;

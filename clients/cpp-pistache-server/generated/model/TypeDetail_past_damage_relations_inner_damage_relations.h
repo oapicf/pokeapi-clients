@@ -33,7 +33,7 @@ class  TypeDetail_past_damage_relations_inner_damage_relations
 {
 public:
     TypeDetail_past_damage_relations_inner_damage_relations();
-    virtual ~TypeDetail_past_damage_relations_inner_damage_relations() = default;
+    virtual ~TypeDetail_past_damage_relations_inner_damage_relations();
 
 
     /// <summary>

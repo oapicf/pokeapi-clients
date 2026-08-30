@@ -92,8 +92,18 @@ namespace Org.OpenAPITools.Model
     /// <summary>
     /// A Json converter for type <see cref="GenerationSummary" />
     /// </summary>
-    public class GenerationSummaryJsonConverter : JsonConverter<GenerationSummary>
+    public partial class GenerationSummaryJsonConverter : JsonConverter<GenerationSummary>
     {
+        partial void OnCreated();
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="GenerationSummaryJsonConverter" /> class.
+        /// </summary>
+        public GenerationSummaryJsonConverter()
+        {
+            OnCreated();
+        }
+
         /// <summary>
         /// Deserializes json to <see cref="GenerationSummary" />
         /// </summary>

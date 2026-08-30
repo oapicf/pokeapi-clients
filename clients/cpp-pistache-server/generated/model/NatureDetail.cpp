@@ -26,6 +26,8 @@ NatureDetail::NatureDetail()
     
 }
 
+NatureDetail::~NatureDetail() = default;
+
 void NatureDetail::validate() const
 {
     std::stringstream msg;

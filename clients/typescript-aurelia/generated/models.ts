@@ -359,8 +359,8 @@ export interface EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner {
   gender: EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender;
   held_item: EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender;
   item: EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender;
-  known_move: object;
-  known_move_type: object;
+  known_move: EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender;
+  known_move_type: EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender;
   location: EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender;
   min_affection: number;
   min_beauty: number;

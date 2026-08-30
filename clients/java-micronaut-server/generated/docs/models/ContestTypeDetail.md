@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 **id** | `Integer` |  |  [readonly property]
 **name** | `String` |  | 
 **berryFlavor** | [`BerryFlavorSummary`](BerryFlavorSummary.md) |  |  [readonly property]
-**names** | [`List&lt;ContestTypeName&gt;`](ContestTypeName.md) |  | 
+**names** | [`List&lt;ContestTypeName&gt;`](ContestTypeName.md) |  |  [readonly property]
 
 
 

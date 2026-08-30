@@ -32,7 +32,7 @@ class  PokemonSpeciesDetail_pal_park_encounters_inner
 {
 public:
     PokemonSpeciesDetail_pal_park_encounters_inner();
-    virtual ~PokemonSpeciesDetail_pal_park_encounters_inner() = default;
+    virtual ~PokemonSpeciesDetail_pal_park_encounters_inner();
 
 
     /// <summary>

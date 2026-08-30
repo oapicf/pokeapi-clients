@@ -51,7 +51,7 @@ public:
 
 	/*! \brief Set 
 	 */
-	void setUrl(std::string  url);
+	void setUrl(std::string url);
 
 
     private:

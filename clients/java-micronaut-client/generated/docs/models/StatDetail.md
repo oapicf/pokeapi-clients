@@ -14,9 +14,9 @@ Name | Type | Description | Notes
 **isBattleOnly** | `Boolean` |  |  [optional property]
 **affectingMoves** | [`StatDetailAffectingMoves`](StatDetailAffectingMoves.md) |  | 
 **affectingNatures** | [`StatDetailAffectingNatures`](StatDetailAffectingNatures.md) |  | 
-**characteristics** | [`List&lt;CharacteristicSummary&gt;`](CharacteristicSummary.md) |  | 
+**characteristics** | [`List&lt;CharacteristicSummary&gt;`](CharacteristicSummary.md) |  |  [readonly property]
 **moveDamageClass** | [`MoveDamageClassSummary`](MoveDamageClassSummary.md) |  | 
-**names** | [`List&lt;StatName&gt;`](StatName.md) |  | 
+**names** | [`List&lt;StatName&gt;`](StatName.md) |  |  [readonly property]
 
 
 

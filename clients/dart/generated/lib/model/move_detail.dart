@@ -201,10 +201,46 @@ class MoveDetail {
       // Note 1: the values aren't checked for validity beyond being non-null.
       // Note 2: this code is stripped in release mode!
       assert(() {
-        requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "MoveDetail[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "MoveDetail[$key]" has a null value in JSON.');
-        });
+        assert(json.containsKey(r'id'), 'Required key "MoveDetail[id]" is missing from JSON.');
+        assert(json[r'id'] != null, 'Required key "MoveDetail[id]" has a null value in JSON.');
+        assert(json.containsKey(r'name'), 'Required key "MoveDetail[name]" is missing from JSON.');
+        assert(json[r'name'] != null, 'Required key "MoveDetail[name]" has a null value in JSON.');
+        assert(json.containsKey(r'effect_chance'), 'Required key "MoveDetail[effect_chance]" is missing from JSON.');
+        assert(json[r'effect_chance'] != null, 'Required key "MoveDetail[effect_chance]" has a null value in JSON.');
+        assert(json.containsKey(r'contest_combos'), 'Required key "MoveDetail[contest_combos]" is missing from JSON.');
+        assert(json[r'contest_combos'] != null, 'Required key "MoveDetail[contest_combos]" has a null value in JSON.');
+        assert(json.containsKey(r'contest_type'), 'Required key "MoveDetail[contest_type]" is missing from JSON.');
+        assert(json[r'contest_type'] != null, 'Required key "MoveDetail[contest_type]" has a null value in JSON.');
+        assert(json.containsKey(r'contest_effect'), 'Required key "MoveDetail[contest_effect]" is missing from JSON.');
+        assert(json[r'contest_effect'] != null, 'Required key "MoveDetail[contest_effect]" has a null value in JSON.');
+        assert(json.containsKey(r'damage_class'), 'Required key "MoveDetail[damage_class]" is missing from JSON.');
+        assert(json[r'damage_class'] != null, 'Required key "MoveDetail[damage_class]" has a null value in JSON.');
+        assert(json.containsKey(r'effect_entries'), 'Required key "MoveDetail[effect_entries]" is missing from JSON.');
+        assert(json[r'effect_entries'] != null, 'Required key "MoveDetail[effect_entries]" has a null value in JSON.');
+        assert(json.containsKey(r'effect_changes'), 'Required key "MoveDetail[effect_changes]" is missing from JSON.');
+        assert(json[r'effect_changes'] != null, 'Required key "MoveDetail[effect_changes]" has a null value in JSON.');
+        assert(json.containsKey(r'generation'), 'Required key "MoveDetail[generation]" is missing from JSON.');
+        assert(json[r'generation'] != null, 'Required key "MoveDetail[generation]" has a null value in JSON.');
+        assert(json.containsKey(r'meta'), 'Required key "MoveDetail[meta]" is missing from JSON.');
+        assert(json[r'meta'] != null, 'Required key "MoveDetail[meta]" has a null value in JSON.');
+        assert(json.containsKey(r'names'), 'Required key "MoveDetail[names]" is missing from JSON.');
+        assert(json[r'names'] != null, 'Required key "MoveDetail[names]" has a null value in JSON.');
+        assert(json.containsKey(r'past_values'), 'Required key "MoveDetail[past_values]" is missing from JSON.');
+        assert(json[r'past_values'] != null, 'Required key "MoveDetail[past_values]" has a null value in JSON.');
+        assert(json.containsKey(r'stat_changes'), 'Required key "MoveDetail[stat_changes]" is missing from JSON.');
+        assert(json[r'stat_changes'] != null, 'Required key "MoveDetail[stat_changes]" has a null value in JSON.');
+        assert(json.containsKey(r'super_contest_effect'), 'Required key "MoveDetail[super_contest_effect]" is missing from JSON.');
+        assert(json[r'super_contest_effect'] != null, 'Required key "MoveDetail[super_contest_effect]" has a null value in JSON.');
+        assert(json.containsKey(r'target'), 'Required key "MoveDetail[target]" is missing from JSON.');
+        assert(json[r'target'] != null, 'Required key "MoveDetail[target]" has a null value in JSON.');
+        assert(json.containsKey(r'type'), 'Required key "MoveDetail[type]" is missing from JSON.');
+        assert(json[r'type'] != null, 'Required key "MoveDetail[type]" has a null value in JSON.');
+        assert(json.containsKey(r'machines'), 'Required key "MoveDetail[machines]" is missing from JSON.');
+        assert(json[r'machines'] != null, 'Required key "MoveDetail[machines]" has a null value in JSON.');
+        assert(json.containsKey(r'flavor_text_entries'), 'Required key "MoveDetail[flavor_text_entries]" is missing from JSON.');
+        assert(json[r'flavor_text_entries'] != null, 'Required key "MoveDetail[flavor_text_entries]" has a null value in JSON.');
+        assert(json.containsKey(r'learned_by_pokemon'), 'Required key "MoveDetail[learned_by_pokemon]" is missing from JSON.');
+        assert(json[r'learned_by_pokemon'] != null, 'Required key "MoveDetail[learned_by_pokemon]" has a null value in JSON.');
         return true;
       }());
 

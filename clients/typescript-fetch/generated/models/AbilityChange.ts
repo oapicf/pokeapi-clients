@@ -45,15 +45,15 @@ export interface AbilityChange {
      * @type {Array<AbilityChangeEffectText>}
      * @memberof AbilityChange
      */
-    effectEntries: Array<AbilityChangeEffectText>;
+    readonly effectEntries: Array<AbilityChangeEffectText>;
 }
 
 /**
  * Check if a given object implements the AbilityChange interface.
  */
 export function instanceOfAbilityChange(value: object): value is AbilityChange {
-    if (!('versionGroup' in value) || value['versionGroup'] === undefined) return false;
-    if (!('effectEntries' in value) || value['effectEntries'] === undefined) return false;
+    if ((!('versionGroup' in (value as Record<string, any>)) && !('version_group' in (value as Record<string, any>))) || ((value as Record<string, any>)['versionGroup'] === undefined && (value as Record<string, any>)['version_group'] === undefined)) return false;
+    if ((!('effectEntries' in (value as Record<string, any>)) && !('effect_entries' in (value as Record<string, any>))) || ((value as Record<string, any>)['effectEntries'] === undefined && (value as Record<string, any>)['effect_entries'] === undefined)) return false;
     return true;
 }
 
@@ -76,7 +76,7 @@ export function AbilityChangeToJSON(json: any): AbilityChange {
     return AbilityChangeToJSONTyped(json, false);
 }
 
-export function AbilityChangeToJSONTyped(value?: AbilityChange | null, ignoreDiscriminator: boolean = false): any {
+export function AbilityChangeToJSONTyped(value?: Omit<AbilityChange, 'effectEntries'> | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
@@ -84,7 +84,6 @@ export function AbilityChangeToJSONTyped(value?: AbilityChange | null, ignoreDis
     return {
         
         'version_group': VersionGroupSummaryToJSON(value['versionGroup']),
-        'effect_entries': ((value['effectEntries'] as Array<any>).map(AbilityChangeEffectTextToJSON)),
     };
 }
 

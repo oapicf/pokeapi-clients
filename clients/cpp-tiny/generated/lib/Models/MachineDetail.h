@@ -54,28 +54,28 @@ public:
 
 	/*! \brief Set 
 	 */
-	void setId(int  id);
+	void setId(int id);
 	/*! \brief Get 
 	 */
 	ItemSummary getItem();
 
 	/*! \brief Set 
 	 */
-	void setItem(ItemSummary  item);
+	void setItem(ItemSummary item);
 	/*! \brief Get 
 	 */
 	VersionGroupSummary getVersionGroup();
 
 	/*! \brief Set 
 	 */
-	void setVersionGroup(VersionGroupSummary  version_group);
+	void setVersionGroup(VersionGroupSummary version_group);
 	/*! \brief Get 
 	 */
 	MoveSummary getMove();
 
 	/*! \brief Set 
 	 */
-	void setMove(MoveSummary  move);
+	void setMove(MoveSummary move);
 
 
     private:

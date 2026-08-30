@@ -25,6 +25,8 @@ ItemCategoryName::ItemCategoryName()
     
 }
 
+ItemCategoryName::~ItemCategoryName() = default;
+
 void ItemCategoryName::validate() const
 {
     std::stringstream msg;

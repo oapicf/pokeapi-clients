@@ -36,7 +36,7 @@ import javax.annotation.Generated;
   MoveMetaCategoryDetail.JSON_PROPERTY_MOVES
 })
 @JsonTypeName("MoveMetaCategoryDetail")
-@Generated(value="org.openapitools.codegen.languages.JavaMicronautClientCodegen", date="2026-02-07T15:22:54.857535619Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@Generated(value="org.openapitools.codegen.languages.JavaMicronautClientCodegen", date="2026-08-30T01:55:51.056116330Z[Etc/UTC]", comments = "Generator version: 7.24.0")
 @Introspected
 public class MoveMetaCategoryDetail {
     public static final String JSON_PROPERTY_ID = "id";
@@ -92,16 +92,6 @@ public class MoveMetaCategoryDetail {
         this.name = name;
     }
 
-    public MoveMetaCategoryDetail descriptions(List<@Valid MoveMetaCategoryDescription> descriptions) {
-        this.descriptions = descriptions;
-        return this;
-    }
-
-    public MoveMetaCategoryDetail addDescriptionsItem(MoveMetaCategoryDescription descriptionsItem) {
-        this.descriptions.add(descriptionsItem);
-        return this;
-    }
-
     /**
      * Get descriptions
      * @return descriptions
@@ -113,22 +103,6 @@ public class MoveMetaCategoryDetail {
         return descriptions;
     }
 
-    @JsonProperty(JSON_PROPERTY_DESCRIPTIONS)
-    @JsonInclude(value = JsonInclude.Include.ALWAYS)
-    public void setDescriptions(List<@Valid MoveMetaCategoryDescription> descriptions) {
-        this.descriptions = descriptions;
-    }
-
-    public MoveMetaCategoryDetail moves(List<@Valid AbilityDetailPokemonInnerPokemon> moves) {
-        this.moves = moves;
-        return this;
-    }
-
-    public MoveMetaCategoryDetail addMovesItem(AbilityDetailPokemonInnerPokemon movesItem) {
-        this.moves.add(movesItem);
-        return this;
-    }
-
     /**
      * Get moves
      * @return moves
@@ -138,12 +112,6 @@ public class MoveMetaCategoryDetail {
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public List<@Valid AbilityDetailPokemonInnerPokemon> getMoves() {
         return moves;
-    }
-
-    @JsonProperty(JSON_PROPERTY_MOVES)
-    @JsonInclude(value = JsonInclude.Include.ALWAYS)
-    public void setMoves(List<@Valid AbilityDetailPokemonInnerPokemon> moves) {
-        this.moves = moves;
     }
 
     @Override
@@ -183,10 +151,7 @@ public class MoveMetaCategoryDetail {
      * (except the first line).
      */
     private String toIndentedString(Object o) {
-        if (o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
+        return o == null ? "null" : o.toString().replace("\n", "\n    ");
     }
 
 }

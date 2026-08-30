@@ -16,9 +16,9 @@ Name | Type | Description | Notes
 **pokemon** | [**PokemonSummary**](PokemonSummary.md) |  | [default to undefined]
 **sprites** | [**PokemonFormDetailSprites**](PokemonFormDetailSprites.md) |  | [default to undefined]
 **version_group** | [**VersionGroupSummary**](VersionGroupSummary.md) |  | [default to undefined]
-**form_names** | [**Array&lt;PokemonFormDetailFormNamesInner&gt;**](PokemonFormDetailFormNamesInner.md) |  | [default to undefined]
-**names** | [**Array&lt;PokemonFormDetailFormNamesInner&gt;**](PokemonFormDetailFormNamesInner.md) |  | [default to undefined]
-**types** | [**Array&lt;PokemonDetailTypesInner&gt;**](PokemonDetailTypesInner.md) |  | [default to undefined]
+**form_names** | [**Array&lt;PokemonFormDetailFormNamesInner&gt;**](PokemonFormDetailFormNamesInner.md) |  | [readonly] [default to undefined]
+**names** | [**Array&lt;PokemonFormDetailFormNamesInner&gt;**](PokemonFormDetailFormNamesInner.md) |  | [readonly] [default to undefined]
+**types** | [**Array&lt;PokemonDetailTypesInner&gt;**](PokemonDetailTypesInner.md) |  | [readonly] [default to undefined]
 
 ## Example
 

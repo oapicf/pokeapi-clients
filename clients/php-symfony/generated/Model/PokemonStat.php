@@ -47,7 +47,7 @@ class PokemonStat
      * @var int|null
      * @SerializedName("base_stat")
      * @Type("int")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Type("int")]
     protected ?int $baseStat = null;
@@ -56,7 +56,7 @@ class PokemonStat
      * @var int|null
      * @SerializedName("effort")
      * @Type("int")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Type("int")]
     protected ?int $effort = null;
@@ -65,7 +65,7 @@ class PokemonStat
      * @var StatSummary|null
      * @SerializedName("stat")
      * @Type("OpenAPI\Server\Model\StatSummary")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Valid]
     #[Assert\Type("OpenAPI\Server\Model\StatSummary")]
@@ -95,12 +95,12 @@ class PokemonStat
     }
 
     /**
-    * Sets baseStat.
-    *
-    * @param int|null $baseStat
-    *
-    * @return $this
-    */
+     * Sets baseStat.
+     *
+     * @param int|null $baseStat
+     *
+     * @return $this
+     */
     public function setBaseStat(?int $baseStat): self
     {
         $this->baseStat = $baseStat;
@@ -122,12 +122,12 @@ class PokemonStat
     }
 
     /**
-    * Sets effort.
-    *
-    * @param int|null $effort
-    *
-    * @return $this
-    */
+     * Sets effort.
+     *
+     * @param int|null $effort
+     *
+     * @return $this
+     */
     public function setEffort(?int $effort): self
     {
         $this->effort = $effort;
@@ -149,12 +149,12 @@ class PokemonStat
     }
 
     /**
-    * Sets stat.
-    *
-    * @param StatSummary|null $stat
-    *
-    * @return $this
-    */
+     * Sets stat.
+     *
+     * @param StatSummary|null $stat
+     *
+     * @return $this
+     */
     public function setStat(?StatSummary $stat): self
     {
         $this->stat = $stat;

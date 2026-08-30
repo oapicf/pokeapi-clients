@@ -32,7 +32,7 @@ class  PokemonDetail_moves_inner_version_group_details_inner
 {
 public:
     PokemonDetail_moves_inner_version_group_details_inner();
-    virtual ~PokemonDetail_moves_inner_version_group_details_inner() = default;
+    virtual ~PokemonDetail_moves_inner_version_group_details_inner();
 
 
     /// <summary>

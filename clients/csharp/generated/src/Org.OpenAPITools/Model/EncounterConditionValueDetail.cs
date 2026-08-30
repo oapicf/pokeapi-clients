@@ -72,7 +72,7 @@ namespace Org.OpenAPITools.Model
         /// Gets or Sets Names
         /// </summary>
         [JsonPropertyName("names")]
-        public List<EncounterConditionValueName> Names { get; set; }
+        public List<EncounterConditionValueName> Names { get; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -110,8 +110,18 @@ namespace Org.OpenAPITools.Model
     /// <summary>
     /// A Json converter for type <see cref="EncounterConditionValueDetail" />
     /// </summary>
-    public class EncounterConditionValueDetailJsonConverter : JsonConverter<EncounterConditionValueDetail>
+    public partial class EncounterConditionValueDetailJsonConverter : JsonConverter<EncounterConditionValueDetail>
     {
+        partial void OnCreated();
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="EncounterConditionValueDetailJsonConverter" /> class.
+        /// </summary>
+        public EncounterConditionValueDetailJsonConverter()
+        {
+            OnCreated();
+        }
+
         /// <summary>
         /// Deserializes json to <see cref="EncounterConditionValueDetail" />
         /// </summary>

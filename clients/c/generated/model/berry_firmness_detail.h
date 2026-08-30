@@ -21,7 +21,7 @@ typedef struct berry_firmness_detail_t berry_firmness_detail_t;
 
 
 typedef struct berry_firmness_detail_t {
-    int id; //numeric
+    int *id; //numeric
     char *name; // string
     list_t *berries; //nonprimitive container
     list_t *names; //nonprimitive container
@@ -30,7 +30,7 @@ typedef struct berry_firmness_detail_t {
 } berry_firmness_detail_t;
 
 __attribute__((deprecated)) berry_firmness_detail_t *berry_firmness_detail_create(
-    int id,
+    int *id,
     char *name,
     list_t *berries,
     list_t *names

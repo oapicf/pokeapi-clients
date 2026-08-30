@@ -92,8 +92,18 @@ namespace Org.OpenAPITools.Model
     /// <summary>
     /// A Json converter for type <see cref="AbilityChangeEffectText" />
     /// </summary>
-    public class AbilityChangeEffectTextJsonConverter : JsonConverter<AbilityChangeEffectText>
+    public partial class AbilityChangeEffectTextJsonConverter : JsonConverter<AbilityChangeEffectText>
     {
+        partial void OnCreated();
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="AbilityChangeEffectTextJsonConverter" /> class.
+        /// </summary>
+        public AbilityChangeEffectTextJsonConverter()
+        {
+            OnCreated();
+        }
+
         /// <summary>
         /// Deserializes json to <see cref="AbilityChangeEffectText" />
         /// </summary>

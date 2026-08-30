@@ -31,6 +31,8 @@ PaginatedMachineSummaryList::PaginatedMachineSummaryList()
     
 }
 
+PaginatedMachineSummaryList::~PaginatedMachineSummaryList() = default;
+
 void PaginatedMachineSummaryList::validate() const
 {
     std::stringstream msg;

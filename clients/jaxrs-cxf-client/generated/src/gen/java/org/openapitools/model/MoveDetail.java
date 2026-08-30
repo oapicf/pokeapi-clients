@@ -323,19 +323,6 @@ public class MoveDetail  {
     return effectEntries;
   }
 
-  public void setEffectEntries(List<MoveChangeEffectEntriesInner> effectEntries) {
-    this.effectEntries = effectEntries;
-  }
-
-  public MoveDetail effectEntries(List<MoveChangeEffectEntriesInner> effectEntries) {
-    this.effectEntries = effectEntries;
-    return this;
-  }
-
-  public MoveDetail addEffectEntriesItem(MoveChangeEffectEntriesInner effectEntriesItem) {
-    this.effectEntries.add(effectEntriesItem);
-    return this;
-  }
 
  /**
    * Get effectChanges
@@ -346,19 +333,6 @@ public class MoveDetail  {
     return effectChanges;
   }
 
-  public void setEffectChanges(List<MoveDetailEffectChangesInner> effectChanges) {
-    this.effectChanges = effectChanges;
-  }
-
-  public MoveDetail effectChanges(List<MoveDetailEffectChangesInner> effectChanges) {
-    this.effectChanges = effectChanges;
-    return this;
-  }
-
-  public MoveDetail addEffectChangesItem(MoveDetailEffectChangesInner effectChangesItem) {
-    this.effectChanges.add(effectChangesItem);
-    return this;
-  }
 
  /**
    * Get generation
@@ -397,19 +371,6 @@ public class MoveDetail  {
     return names;
   }
 
-  public void setNames(List<MoveName> names) {
-    this.names = names;
-  }
-
-  public MoveDetail names(List<MoveName> names) {
-    this.names = names;
-    return this;
-  }
-
-  public MoveDetail addNamesItem(MoveName namesItem) {
-    this.names.add(namesItem);
-    return this;
-  }
 
  /**
    * Get pastValues
@@ -420,19 +381,6 @@ public class MoveDetail  {
     return pastValues;
   }
 
-  public void setPastValues(List<MoveChange> pastValues) {
-    this.pastValues = pastValues;
-  }
-
-  public MoveDetail pastValues(List<MoveChange> pastValues) {
-    this.pastValues = pastValues;
-    return this;
-  }
-
-  public MoveDetail addPastValuesItem(MoveChange pastValuesItem) {
-    this.pastValues.add(pastValuesItem);
-    return this;
-  }
 
  /**
    * Get statChanges
@@ -443,19 +391,6 @@ public class MoveDetail  {
     return statChanges;
   }
 
-  public void setStatChanges(List<MoveDetailStatChangesInner> statChanges) {
-    this.statChanges = statChanges;
-  }
-
-  public MoveDetail statChanges(List<MoveDetailStatChangesInner> statChanges) {
-    this.statChanges = statChanges;
-    return this;
-  }
-
-  public MoveDetail addStatChangesItem(MoveDetailStatChangesInner statChangesItem) {
-    this.statChanges.add(statChangesItem);
-    return this;
-  }
 
  /**
    * Get superContestEffect
@@ -520,19 +455,6 @@ public class MoveDetail  {
     return machines;
   }
 
-  public void setMachines(List<MoveDetailMachinesInner> machines) {
-    this.machines = machines;
-  }
-
-  public MoveDetail machines(List<MoveDetailMachinesInner> machines) {
-    this.machines = machines;
-    return this;
-  }
-
-  public MoveDetail addMachinesItem(MoveDetailMachinesInner machinesItem) {
-    this.machines.add(machinesItem);
-    return this;
-  }
 
  /**
    * Get flavorTextEntries
@@ -543,19 +465,6 @@ public class MoveDetail  {
     return flavorTextEntries;
   }
 
-  public void setFlavorTextEntries(List<MoveFlavorText> flavorTextEntries) {
-    this.flavorTextEntries = flavorTextEntries;
-  }
-
-  public MoveDetail flavorTextEntries(List<MoveFlavorText> flavorTextEntries) {
-    this.flavorTextEntries = flavorTextEntries;
-    return this;
-  }
-
-  public MoveDetail addFlavorTextEntriesItem(MoveFlavorText flavorTextEntriesItem) {
-    this.flavorTextEntries.add(flavorTextEntriesItem);
-    return this;
-  }
 
  /**
    * Get learnedByPokemon
@@ -566,19 +475,6 @@ public class MoveDetail  {
     return learnedByPokemon;
   }
 
-  public void setLearnedByPokemon(List<AbilityDetailPokemonInnerPokemon> learnedByPokemon) {
-    this.learnedByPokemon = learnedByPokemon;
-  }
-
-  public MoveDetail learnedByPokemon(List<AbilityDetailPokemonInnerPokemon> learnedByPokemon) {
-    this.learnedByPokemon = learnedByPokemon;
-    return this;
-  }
-
-  public MoveDetail addLearnedByPokemonItem(AbilityDetailPokemonInnerPokemon learnedByPokemonItem) {
-    this.learnedByPokemon.add(learnedByPokemonItem);
-    return this;
-  }
 
   @Override
   public boolean equals(Object o) {
@@ -658,10 +554,7 @@ public class MoveDetail  {
    * (except the first line).
    */
   private static String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 }
 

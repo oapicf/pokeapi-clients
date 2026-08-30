@@ -54,14 +54,14 @@ public:
 
 	/*! \brief Set 
 	 */
-	void setEffectEntries(std::list <MoveDetail_effect_changes_inner_effect_entries_inner> effect_entries);
+	void setEffectEntries(std::list<MoveDetail_effect_changes_inner_effect_entries_inner> effect_entries);
 	/*! \brief Get 
 	 */
 	AbilityDetail_pokemon_inner_pokemon getVersionGroup();
 
 	/*! \brief Set 
 	 */
-	void setVersionGroup(AbilityDetail_pokemon_inner_pokemon  version_group);
+	void setVersionGroup(AbilityDetail_pokemon_inner_pokemon version_group);
 
 
     private:

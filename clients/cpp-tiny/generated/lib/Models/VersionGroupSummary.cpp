@@ -85,7 +85,7 @@ VersionGroupSummary::getName()
 }
 
 void
-VersionGroupSummary::setName(std::string  name)
+VersionGroupSummary::setName(std::string name)
 {
 	this->name = name;
 }
@@ -97,7 +97,7 @@ VersionGroupSummary::getUrl()
 }
 
 void
-VersionGroupSummary::setUrl(std::string  url)
+VersionGroupSummary::setUrl(std::string url)
 {
 	this->url = url;
 }

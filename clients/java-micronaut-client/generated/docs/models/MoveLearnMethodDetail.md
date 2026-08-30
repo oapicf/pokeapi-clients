@@ -10,9 +10,9 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | `Integer` |  |  [readonly property]
 **name** | `String` |  | 
-**names** | [`List&lt;MoveLearnMethodName&gt;`](MoveLearnMethodName.md) |  | 
-**descriptions** | [`List&lt;MoveLearnMethodDescription&gt;`](MoveLearnMethodDescription.md) |  | 
-**versionGroups** | [`List&lt;AbilityDetailPokemonInnerPokemon&gt;`](AbilityDetailPokemonInnerPokemon.md) |  | 
+**names** | [`List&lt;MoveLearnMethodName&gt;`](MoveLearnMethodName.md) |  |  [readonly property]
+**descriptions** | [`List&lt;MoveLearnMethodDescription&gt;`](MoveLearnMethodDescription.md) |  |  [readonly property]
+**versionGroups** | [`List&lt;AbilityDetailPokemonInnerPokemon&gt;`](AbilityDetailPokemonInnerPokemon.md) |  |  [readonly property]
 
 
 

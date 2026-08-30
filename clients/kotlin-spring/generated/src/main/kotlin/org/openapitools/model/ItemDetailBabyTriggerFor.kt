@@ -20,7 +20,8 @@ import io.swagger.v3.oas.annotations.media.Schema
 data class ItemDetailBabyTriggerFor(
 
     @field:Valid
-    @Schema(example = "null", required = true, description = "")
+    @Schema(required = true, description = "")
+    @param:JsonProperty("url")
     @get:JsonProperty("url", required = true) val url: java.net.URI
 ) {
 

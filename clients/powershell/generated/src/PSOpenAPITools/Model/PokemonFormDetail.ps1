@@ -145,20 +145,20 @@ function Initialize-PokemonFormDetail {
 
 
         $PSO = [PSCustomObject]@{
-            "id" = ${Id}
-            "name" = ${Name}
-            "order" = ${Order}
-            "form_order" = ${FormOrder}
-            "is_default" = ${IsDefault}
-            "is_battle_only" = ${IsBattleOnly}
-            "is_mega" = ${IsMega}
-            "form_name" = ${FormName}
-            "pokemon" = ${Pokemon}
-            "sprites" = ${Sprites}
-            "version_group" = ${VersionGroup}
-            "form_names" = ${FormNames}
-            "names" = ${Names}
-            "types" = ${Types}
+            'id' = ${Id}
+            'name' = ${Name}
+            'order' = ${Order}
+            'form_order' = ${FormOrder}
+            'is_default' = ${IsDefault}
+            'is_battle_only' = ${IsBattleOnly}
+            'is_mega' = ${IsMega}
+            'form_name' = ${FormName}
+            'pokemon' = ${Pokemon}
+            'sprites' = ${Sprites}
+            'version_group' = ${VersionGroup}
+            'form_names' = ${FormNames}
+            'names' = ${Names}
+            'types' = ${Types}
         }
 
 
@@ -196,7 +196,7 @@ function ConvertFrom-JsonToPokemonFormDetail {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in PokemonFormDetail
-        $AllProperties = ("id", "name", "order", "form_order", "is_default", "is_battle_only", "is_mega", "form_name", "pokemon", "sprites", "version_group", "form_names", "names", "types")
+        $AllProperties = ('id', 'name', 'order', 'form_order', 'is_default', 'is_battle_only', 'is_mega', 'form_name', 'pokemon', 'sprites', 'version_group', 'form_names', 'names', 'types')
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -207,105 +207,105 @@ function ConvertFrom-JsonToPokemonFormDetail {
             throw "Error! Empty JSON cannot be serialized due to the required property 'id' missing."
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "id"))) {
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'id'))) {
             throw "Error! JSON cannot be serialized due to the required property 'id' missing."
         } else {
-            $Id = $JsonParameters.PSobject.Properties["id"].value
+            $Id = $JsonParameters.PSobject.Properties['id'].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "name"))) {
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'name'))) {
             throw "Error! JSON cannot be serialized due to the required property 'name' missing."
         } else {
-            $Name = $JsonParameters.PSobject.Properties["name"].value
+            $Name = $JsonParameters.PSobject.Properties['name'].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "form_name"))) {
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'form_name'))) {
             throw "Error! JSON cannot be serialized due to the required property 'form_name' missing."
         } else {
-            $FormName = $JsonParameters.PSobject.Properties["form_name"].value
+            $FormName = $JsonParameters.PSobject.Properties['form_name'].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "pokemon"))) {
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'pokemon'))) {
             throw "Error! JSON cannot be serialized due to the required property 'pokemon' missing."
         } else {
-            $Pokemon = $JsonParameters.PSobject.Properties["pokemon"].value
+            $Pokemon = $JsonParameters.PSobject.Properties['pokemon'].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "sprites"))) {
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'sprites'))) {
             throw "Error! JSON cannot be serialized due to the required property 'sprites' missing."
         } else {
-            $Sprites = $JsonParameters.PSobject.Properties["sprites"].value
+            $Sprites = $JsonParameters.PSobject.Properties['sprites'].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "version_group"))) {
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'version_group'))) {
             throw "Error! JSON cannot be serialized due to the required property 'version_group' missing."
         } else {
-            $VersionGroup = $JsonParameters.PSobject.Properties["version_group"].value
+            $VersionGroup = $JsonParameters.PSobject.Properties['version_group'].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "form_names"))) {
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'form_names'))) {
             throw "Error! JSON cannot be serialized due to the required property 'form_names' missing."
         } else {
-            $FormNames = $JsonParameters.PSobject.Properties["form_names"].value
+            $FormNames = $JsonParameters.PSobject.Properties['form_names'].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "names"))) {
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'names'))) {
             throw "Error! JSON cannot be serialized due to the required property 'names' missing."
         } else {
-            $Names = $JsonParameters.PSobject.Properties["names"].value
+            $Names = $JsonParameters.PSobject.Properties['names'].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "types"))) {
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'types'))) {
             throw "Error! JSON cannot be serialized due to the required property 'types' missing."
         } else {
-            $Types = $JsonParameters.PSobject.Properties["types"].value
+            $Types = $JsonParameters.PSobject.Properties['types'].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "order"))) { #optional property not found
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'order'))) { #optional property not found
             $Order = $null
         } else {
-            $Order = $JsonParameters.PSobject.Properties["order"].value
+            $Order = $JsonParameters.PSobject.Properties['order'].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "form_order"))) { #optional property not found
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'form_order'))) { #optional property not found
             $FormOrder = $null
         } else {
-            $FormOrder = $JsonParameters.PSobject.Properties["form_order"].value
+            $FormOrder = $JsonParameters.PSobject.Properties['form_order'].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "is_default"))) { #optional property not found
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'is_default'))) { #optional property not found
             $IsDefault = $null
         } else {
-            $IsDefault = $JsonParameters.PSobject.Properties["is_default"].value
+            $IsDefault = $JsonParameters.PSobject.Properties['is_default'].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "is_battle_only"))) { #optional property not found
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'is_battle_only'))) { #optional property not found
             $IsBattleOnly = $null
         } else {
-            $IsBattleOnly = $JsonParameters.PSobject.Properties["is_battle_only"].value
+            $IsBattleOnly = $JsonParameters.PSobject.Properties['is_battle_only'].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "is_mega"))) { #optional property not found
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'is_mega'))) { #optional property not found
             $IsMega = $null
         } else {
-            $IsMega = $JsonParameters.PSobject.Properties["is_mega"].value
+            $IsMega = $JsonParameters.PSobject.Properties['is_mega'].value
         }
 
         $PSO = [PSCustomObject]@{
-            "id" = ${Id}
-            "name" = ${Name}
-            "order" = ${Order}
-            "form_order" = ${FormOrder}
-            "is_default" = ${IsDefault}
-            "is_battle_only" = ${IsBattleOnly}
-            "is_mega" = ${IsMega}
-            "form_name" = ${FormName}
-            "pokemon" = ${Pokemon}
-            "sprites" = ${Sprites}
-            "version_group" = ${VersionGroup}
-            "form_names" = ${FormNames}
-            "names" = ${Names}
-            "types" = ${Types}
+            'id' = ${Id}
+            'name' = ${Name}
+            'order' = ${Order}
+            'form_order' = ${FormOrder}
+            'is_default' = ${IsDefault}
+            'is_battle_only' = ${IsBattleOnly}
+            'is_mega' = ${IsMega}
+            'form_name' = ${FormName}
+            'pokemon' = ${Pokemon}
+            'sprites' = ${Sprites}
+            'version_group' = ${VersionGroup}
+            'form_names' = ${FormNames}
+            'names' = ${Names}
+            'types' = ${Types}
         }
 
         return $PSO

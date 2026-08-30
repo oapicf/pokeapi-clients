@@ -6,8 +6,8 @@
 | ---- | ---- | ----------- | ----- |
 | **id** | **Integer** |  | [readonly] |
 | **name** | **String** |  |  |
-| **categories** | [**Array&lt;ItemCategorySummary&gt;**](ItemCategorySummary.md) |  |  |
-| **names** | [**Array&lt;ItemPocketName&gt;**](ItemPocketName.md) |  |  |
+| **categories** | [**Array&lt;ItemCategorySummary&gt;**](ItemCategorySummary.md) |  | [readonly] |
+| **names** | [**Array&lt;ItemPocketName&gt;**](ItemPocketName.md) |  | [readonly] |
 
 ## Example
 

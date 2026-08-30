@@ -35,7 +35,7 @@ class  MoveMetaAilmentDetail
 {
 public:
     MoveMetaAilmentDetail();
-    virtual ~MoveMetaAilmentDetail() = default;
+    virtual ~MoveMetaAilmentDetail();
 
 
     /// <summary>

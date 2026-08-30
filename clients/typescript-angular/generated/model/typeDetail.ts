@@ -25,13 +25,13 @@ export interface TypeDetail {
     readonly id: number;
     name: string;
     damage_relations: TypeDetailDamageRelations;
-    past_damage_relations: Array<TypeDetailPastDamageRelationsInner>;
-    game_indices: Array<TypeGameIndex>;
+    readonly past_damage_relations: Array<TypeDetailPastDamageRelationsInner>;
+    readonly game_indices: Array<TypeGameIndex>;
     generation: GenerationSummary;
     move_damage_class: MoveDamageClassSummary;
-    names: Array<AbilityName>;
-    pokemon: Array<TypeDetailPokemonInner>;
-    moves: Array<MoveSummary>;
+    readonly names: Array<AbilityName>;
+    readonly pokemon: Array<TypeDetailPokemonInner>;
+    readonly moves: Array<MoveSummary>;
     readonly sprites: { [key: string]: { [key: string]: TypeDetailSpritesValueValue; }; };
 }
 

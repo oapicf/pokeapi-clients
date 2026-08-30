@@ -7,8 +7,8 @@
 | **id** | **Integer** |  | [readonly] |
 | **appeal** | **Integer** |  |  |
 | **jam** | **Integer** |  |  |
-| **effect_entries** | [**Array&lt;ContestEffectEffectText&gt;**](ContestEffectEffectText.md) |  |  |
-| **flavor_text_entries** | [**Array&lt;ContestEffectFlavorText&gt;**](ContestEffectFlavorText.md) |  |  |
+| **effect_entries** | [**Array&lt;ContestEffectEffectText&gt;**](ContestEffectEffectText.md) |  | [readonly] |
+| **flavor_text_entries** | [**Array&lt;ContestEffectFlavorText&gt;**](ContestEffectFlavorText.md) |  | [readonly] |
 
 ## Example
 

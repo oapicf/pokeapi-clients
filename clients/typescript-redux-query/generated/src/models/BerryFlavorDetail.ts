@@ -47,7 +47,7 @@ export interface BerryFlavorDetail  {
      * @type {Array<BerryFlavorDetailBerriesInner>}
      * @memberof BerryFlavorDetail
      */
-    berries: Array<BerryFlavorDetailBerriesInner>;
+    readonly berries: Array<BerryFlavorDetailBerriesInner>;
     /**
      * 
      * @type {ContestTypeSummary}
@@ -59,7 +59,7 @@ export interface BerryFlavorDetail  {
      * @type {Array<BerryFlavorName>}
      * @memberof BerryFlavorDetail
      */
-    names: Array<BerryFlavorName>;
+    readonly names: Array<BerryFlavorName>;
 }
 
 export function BerryFlavorDetailFromJSON(json: any): BerryFlavorDetail {
@@ -78,9 +78,7 @@ export function BerryFlavorDetailToJSON(value?: BerryFlavorDetail): any {
     }
     return {
         'name': value.name,
-        'berries': (value.berries as Array<any>).map(BerryFlavorDetailBerriesInnerToJSON),
         'contest_type': ContestTypeSummaryToJSON(value.contestType),
-        'names': (value.names as Array<any>).map(BerryFlavorNameToJSON),
     };
 }
 

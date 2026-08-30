@@ -55,7 +55,8 @@ class LocationAreaDetailPokemonEncountersInner extends BaseModel
       "type" : "array",
       "items" : {
         "$ref" : "#/components/schemas/LocationAreaDetail_pokemon_encounters_inner_version_details_inner"
-      }
+      },
+      "default" : null
     }
   }
 }

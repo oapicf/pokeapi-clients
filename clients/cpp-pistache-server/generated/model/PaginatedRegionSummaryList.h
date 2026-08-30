@@ -34,7 +34,7 @@ class  PaginatedRegionSummaryList
 {
 public:
     PaginatedRegionSummaryList();
-    virtual ~PaginatedRegionSummaryList() = default;
+    virtual ~PaginatedRegionSummaryList();
 
 
     /// <summary>

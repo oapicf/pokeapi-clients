@@ -186,7 +186,7 @@ LanguageDetail::getId()
 }
 
 void
-LanguageDetail::setId(int  id)
+LanguageDetail::setId(int id)
 {
 	this->id = id;
 }
@@ -198,7 +198,7 @@ LanguageDetail::getName()
 }
 
 void
-LanguageDetail::setName(std::string  name)
+LanguageDetail::setName(std::string name)
 {
 	this->name = name;
 }
@@ -210,7 +210,7 @@ LanguageDetail::isOfficial()
 }
 
 void
-LanguageDetail::setOfficial(bool  official)
+LanguageDetail::setOfficial(bool official)
 {
 	this->official = official;
 }
@@ -222,7 +222,7 @@ LanguageDetail::getIso639()
 }
 
 void
-LanguageDetail::setIso639(std::string  iso639)
+LanguageDetail::setIso639(std::string iso639)
 {
 	this->iso639 = iso639;
 }
@@ -234,7 +234,7 @@ LanguageDetail::getIso3166()
 }
 
 void
-LanguageDetail::setIso3166(std::string  iso3166)
+LanguageDetail::setIso3166(std::string iso3166)
 {
 	this->iso3166 = iso3166;
 }
@@ -246,7 +246,7 @@ LanguageDetail::getNames()
 }
 
 void
-LanguageDetail::setNames(std::list <LanguageName> names)
+LanguageDetail::setNames(std::list<LanguageName> names)
 {
 	this->names = names;
 }

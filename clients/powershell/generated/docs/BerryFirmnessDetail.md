@@ -5,8 +5,8 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **Int32** |  | [readonly] 
 **Name** | **String** |  | 
-**Berries** | [**BerrySummary[]**](BerrySummary.md) |  | 
-**Names** | [**BerryFirmnessName[]**](BerryFirmnessName.md) |  | 
+**Berries** | [**BerrySummary[]**](BerrySummary.md) |  | [readonly] 
+**Names** | [**BerryFirmnessName[]**](BerryFirmnessName.md) |  | [readonly] 
 
 ## Examples
 

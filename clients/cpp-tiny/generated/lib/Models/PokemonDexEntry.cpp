@@ -86,7 +86,7 @@ PokemonDexEntry::getEntryNumber()
 }
 
 void
-PokemonDexEntry::setEntryNumber(int  entry_number)
+PokemonDexEntry::setEntryNumber(int entry_number)
 {
 	this->entry_number = entry_number;
 }
@@ -98,7 +98,7 @@ PokemonDexEntry::getPokedex()
 }
 
 void
-PokemonDexEntry::setPokedex(PokedexSummary  pokedex)
+PokemonDexEntry::setPokedex(PokedexSummary pokedex)
 {
 	this->pokedex = pokedex;
 }

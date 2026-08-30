@@ -13,10 +13,10 @@ static characteristic_description_t *characteristic_description_create_internal(
     if (!characteristic_description_local_var) {
         return NULL;
     }
+    memset(characteristic_description_local_var, 0, sizeof(characteristic_description_t));
+    characteristic_description_local_var->_library_owned = 1;
     characteristic_description_local_var->description = description;
     characteristic_description_local_var->language = language;
-
-    characteristic_description_local_var->_library_owned = 1;
     return characteristic_description_local_var;
 }
 
@@ -24,10 +24,13 @@ __attribute__((deprecated)) characteristic_description_t *characteristic_descrip
     char *description,
     language_summary_t *language
     ) {
-    return characteristic_description_create_internal (
+    characteristic_description_t *result = characteristic_description_create_internal (
         description,
         language
         );
+    if (!result) {
+    }
+    return result;
 }
 
 void characteristic_description_free(characteristic_description_t *characteristic_description) {
@@ -86,6 +89,8 @@ characteristic_description_t *characteristic_description_parseFromJSON(cJSON *ch
 
     characteristic_description_t *characteristic_description_local_var = NULL;
 
+    char *description_local_str = NULL;
+
     // define the local variable for characteristic_description->language
     language_summary_t *language_local_nonprim = NULL;
 
@@ -114,13 +119,23 @@ characteristic_description_t *characteristic_description_parseFromJSON(cJSON *ch
     language_local_nonprim = language_summary_parseFromJSON(language); //nonprimitive
 
 
+    if (description && !cJSON_IsNull(description)) description_local_str = strdup(description->valuestring);
+
     characteristic_description_local_var = characteristic_description_create_internal (
-        description && !cJSON_IsNull(description) ? strdup(description->valuestring) : NULL,
+        description_local_str,
         language_local_nonprim
         );
 
+    if (!characteristic_description_local_var) {
+        goto end;
+    }
+
     return characteristic_description_local_var;
 end:
+    if (description_local_str) {
+        free(description_local_str);
+        description_local_str = NULL;
+    }
     if (language_local_nonprim) {
         language_summary_free(language_local_nonprim);
         language_local_nonprim = NULL;

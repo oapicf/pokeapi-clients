@@ -65,19 +65,6 @@ public class EvolutionTriggerDetail  {
     return names;
   }
 
-  public void setNames(List<EvolutionTriggerName> names) {
-    this.names = names;
-  }
-
-  public EvolutionTriggerDetail names(List<EvolutionTriggerName> names) {
-    this.names = names;
-    return this;
-  }
-
-  public EvolutionTriggerDetail addNamesItem(EvolutionTriggerName namesItem) {
-    this.names.add(namesItem);
-    return this;
-  }
 
  /**
    * Get pokemonSpecies
@@ -88,19 +75,6 @@ public class EvolutionTriggerDetail  {
     return pokemonSpecies;
   }
 
-  public void setPokemonSpecies(List<AbilityDetailPokemonInnerPokemon> pokemonSpecies) {
-    this.pokemonSpecies = pokemonSpecies;
-  }
-
-  public EvolutionTriggerDetail pokemonSpecies(List<AbilityDetailPokemonInnerPokemon> pokemonSpecies) {
-    this.pokemonSpecies = pokemonSpecies;
-    return this;
-  }
-
-  public EvolutionTriggerDetail addPokemonSpeciesItem(AbilityDetailPokemonInnerPokemon pokemonSpeciesItem) {
-    this.pokemonSpecies.add(pokemonSpeciesItem);
-    return this;
-  }
 
   @Override
   public boolean equals(Object o) {
@@ -140,10 +114,7 @@ public class EvolutionTriggerDetail  {
    * (except the first line).
    */
   private static String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 }
 

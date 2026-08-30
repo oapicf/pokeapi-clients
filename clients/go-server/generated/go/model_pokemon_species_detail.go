@@ -12,6 +12,11 @@
 package openapi
 
 
+import (
+	"encoding/json"
+	"fmt"
+)
+
 
 
 type PokemonSpeciesDetail struct {
@@ -70,27 +75,240 @@ type PokemonSpeciesDetail struct {
 
 	Varieties []PokemonSpeciesDetailVarietiesInner `json:"varieties"`
 }
+// UnmarshalJSON validates required property keys then unmarshals into PokemonSpeciesDetail
+func (o *PokemonSpeciesDetail) UnmarshalJSON(data []byte) (err error) {
+	// Presence is checked against required fields that exist on this struct,
+	// including fields promoted from embedded allOf parents.
+	requiredProperties := []string{
+		"name",
+		"growth_rate",
+		"color",
+		"shape",
+		"evolves_from_species",
+		"evolution_chain",
+		"habitat",
+		"generation",
+	}
 
-// AssertPokemonSpeciesDetailRequired checks if the required fields are not zero-ed
+	requiredNullableProperties := map[string]bool{
+		"name": false,
+		"growth_rate": false,
+		"color": false,
+		"shape": false,
+		"evolves_from_species": false,
+		"evolution_chain": false,
+		"habitat": false,
+		"generation": false,
+	}
+
+	allowedJsonKeys := map[string]struct{}{
+		"id": {},
+		"name": {},
+		"order": {},
+		"gender_rate": {},
+		"capture_rate": {},
+		"base_happiness": {},
+		"is_baby": {},
+		"is_legendary": {},
+		"is_mythical": {},
+		"hatch_counter": {},
+		"has_gender_differences": {},
+		"forms_switchable": {},
+		"growth_rate": {},
+		"pokedex_numbers": {},
+		"egg_groups": {},
+		"color": {},
+		"shape": {},
+		"evolves_from_species": {},
+		"evolution_chain": {},
+		"habitat": {},
+		"generation": {},
+		"names": {},
+		"pal_park_encounters": {},
+		"form_descriptions": {},
+		"flavor_text_entries": {},
+		"genera": {},
+		"varieties": {},
+	}
+
+	allProperties := make(map[string]json.RawMessage)
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err
+	}
+
+	for _, requiredProperty := range requiredProperties {
+		value, exists := allProperties[requiredProperty]
+		if !exists {
+			return &RequiredError{Field: requiredProperty}
+		}
+		if string(value) == "null" && !requiredNullableProperties[requiredProperty] {
+			return &RequiredError{Field: requiredProperty}
+		}
+	}
+
+	for key := range allProperties {
+		if _, exists := allowedJsonKeys[key]; !exists {
+			return fmt.Errorf("json: unknown field %q", key)
+		}
+	}
+
+	var decoded PokemonSpeciesDetail
+
+	if value, exists := allProperties["id"]; exists {
+		if err = json.Unmarshal(value, &decoded.Id); err != nil {
+			return err
+		}
+	}
+	if value, exists := allProperties["name"]; exists {
+		if err = json.Unmarshal(value, &decoded.Name); err != nil {
+			return err
+		}
+	}
+	if value, exists := allProperties["order"]; exists {
+		if err = json.Unmarshal(value, &decoded.Order); err != nil {
+			return err
+		}
+	}
+	if value, exists := allProperties["gender_rate"]; exists {
+		if err = json.Unmarshal(value, &decoded.GenderRate); err != nil {
+			return err
+		}
+	}
+	if value, exists := allProperties["capture_rate"]; exists {
+		if err = json.Unmarshal(value, &decoded.CaptureRate); err != nil {
+			return err
+		}
+	}
+	if value, exists := allProperties["base_happiness"]; exists {
+		if err = json.Unmarshal(value, &decoded.BaseHappiness); err != nil {
+			return err
+		}
+	}
+	if value, exists := allProperties["is_baby"]; exists {
+		if err = json.Unmarshal(value, &decoded.IsBaby); err != nil {
+			return err
+		}
+	}
+	if value, exists := allProperties["is_legendary"]; exists {
+		if err = json.Unmarshal(value, &decoded.IsLegendary); err != nil {
+			return err
+		}
+	}
+	if value, exists := allProperties["is_mythical"]; exists {
+		if err = json.Unmarshal(value, &decoded.IsMythical); err != nil {
+			return err
+		}
+	}
+	if value, exists := allProperties["hatch_counter"]; exists {
+		if err = json.Unmarshal(value, &decoded.HatchCounter); err != nil {
+			return err
+		}
+	}
+	if value, exists := allProperties["has_gender_differences"]; exists {
+		if err = json.Unmarshal(value, &decoded.HasGenderDifferences); err != nil {
+			return err
+		}
+	}
+	if value, exists := allProperties["forms_switchable"]; exists {
+		if err = json.Unmarshal(value, &decoded.FormsSwitchable); err != nil {
+			return err
+		}
+	}
+	if value, exists := allProperties["growth_rate"]; exists {
+		if err = json.Unmarshal(value, &decoded.GrowthRate); err != nil {
+			return err
+		}
+	}
+	if value, exists := allProperties["pokedex_numbers"]; exists {
+		if err = json.Unmarshal(value, &decoded.PokedexNumbers); err != nil {
+			return err
+		}
+	}
+	if value, exists := allProperties["egg_groups"]; exists {
+		if err = json.Unmarshal(value, &decoded.EggGroups); err != nil {
+			return err
+		}
+	}
+	if value, exists := allProperties["color"]; exists {
+		if err = json.Unmarshal(value, &decoded.Color); err != nil {
+			return err
+		}
+	}
+	if value, exists := allProperties["shape"]; exists {
+		if err = json.Unmarshal(value, &decoded.Shape); err != nil {
+			return err
+		}
+	}
+	if value, exists := allProperties["evolves_from_species"]; exists {
+		if err = json.Unmarshal(value, &decoded.EvolvesFromSpecies); err != nil {
+			return err
+		}
+	}
+	if value, exists := allProperties["evolution_chain"]; exists {
+		if err = json.Unmarshal(value, &decoded.EvolutionChain); err != nil {
+			return err
+		}
+	}
+	if value, exists := allProperties["habitat"]; exists {
+		if err = json.Unmarshal(value, &decoded.Habitat); err != nil {
+			return err
+		}
+	}
+	if value, exists := allProperties["generation"]; exists {
+		if err = json.Unmarshal(value, &decoded.Generation); err != nil {
+			return err
+		}
+	}
+	if value, exists := allProperties["names"]; exists {
+		if err = json.Unmarshal(value, &decoded.Names); err != nil {
+			return err
+		}
+	}
+	if value, exists := allProperties["pal_park_encounters"]; exists {
+		if err = json.Unmarshal(value, &decoded.PalParkEncounters); err != nil {
+			return err
+		}
+	}
+	if value, exists := allProperties["form_descriptions"]; exists {
+		if err = json.Unmarshal(value, &decoded.FormDescriptions); err != nil {
+			return err
+		}
+	}
+	if value, exists := allProperties["flavor_text_entries"]; exists {
+		if err = json.Unmarshal(value, &decoded.FlavorTextEntries); err != nil {
+			return err
+		}
+	}
+	if value, exists := allProperties["genera"]; exists {
+		if err = json.Unmarshal(value, &decoded.Genera); err != nil {
+			return err
+		}
+	}
+	if value, exists := allProperties["varieties"]; exists {
+		if err = json.Unmarshal(value, &decoded.Varieties); err != nil {
+			return err
+		}
+	}
+
+	*o = decoded
+
+	return nil
+}
+
+// AssertPokemonSpeciesDetailRequired checks complex required fields (models, arrays, maps) and embedded parents.
+// Primitive required fields are validated for JSON request bodies in UnmarshalJSON so zero values remain valid.
 func AssertPokemonSpeciesDetailRequired(obj PokemonSpeciesDetail) error {
 	elements := map[string]interface{}{
-		"id": obj.Id,
-		"name": obj.Name,
 		"growth_rate": obj.GrowthRate,
-		"pokedex_numbers": obj.PokedexNumbers,
-		"egg_groups": obj.EggGroups,
 		"color": obj.Color,
 		"shape": obj.Shape,
 		"evolves_from_species": obj.EvolvesFromSpecies,
 		"evolution_chain": obj.EvolutionChain,
 		"habitat": obj.Habitat,
 		"generation": obj.Generation,
-		"names": obj.Names,
-		"pal_park_encounters": obj.PalParkEncounters,
-		"form_descriptions": obj.FormDescriptions,
-		"flavor_text_entries": obj.FlavorTextEntries,
-		"genera": obj.Genera,
-		"varieties": obj.Varieties,
 	}
 	for name, el := range elements {
 		if isZero := IsZeroValue(el); isZero {
@@ -100,16 +318,6 @@ func AssertPokemonSpeciesDetailRequired(obj PokemonSpeciesDetail) error {
 
 	if err := AssertGrowthRateSummaryRequired(obj.GrowthRate); err != nil {
 		return err
-	}
-	for _, el := range obj.PokedexNumbers {
-		if err := AssertPokemonDexEntryRequired(el); err != nil {
-			return err
-		}
-	}
-	for _, el := range obj.EggGroups {
-		if err := AssertAbilityDetailPokemonInnerPokemonRequired(el); err != nil {
-			return err
-		}
 	}
 	if err := AssertPokemonColorSummaryRequired(obj.Color); err != nil {
 		return err
@@ -129,36 +337,6 @@ func AssertPokemonSpeciesDetailRequired(obj PokemonSpeciesDetail) error {
 	if err := AssertGenerationSummaryRequired(obj.Generation); err != nil {
 		return err
 	}
-	for _, el := range obj.Names {
-		if err := AssertPokemonFormDetailFormNamesInnerRequired(el); err != nil {
-			return err
-		}
-	}
-	for _, el := range obj.PalParkEncounters {
-		if err := AssertPokemonSpeciesDetailPalParkEncountersInnerRequired(el); err != nil {
-			return err
-		}
-	}
-	for _, el := range obj.FormDescriptions {
-		if err := AssertPokemonSpeciesDescriptionRequired(el); err != nil {
-			return err
-		}
-	}
-	for _, el := range obj.FlavorTextEntries {
-		if err := AssertPokemonSpeciesFlavorTextRequired(el); err != nil {
-			return err
-		}
-	}
-	for _, el := range obj.Genera {
-		if err := AssertPokemonSpeciesDetailGeneraInnerRequired(el); err != nil {
-			return err
-		}
-	}
-	for _, el := range obj.Varieties {
-		if err := AssertPokemonSpeciesDetailVarietiesInnerRequired(el); err != nil {
-			return err
-		}
-	}
 	return nil
 }
 
@@ -166,16 +344,6 @@ func AssertPokemonSpeciesDetailRequired(obj PokemonSpeciesDetail) error {
 func AssertPokemonSpeciesDetailConstraints(obj PokemonSpeciesDetail) error {
 	if err := AssertGrowthRateSummaryConstraints(obj.GrowthRate); err != nil {
 		return err
-	}
-	for _, el := range obj.PokedexNumbers {
-		if err := AssertPokemonDexEntryConstraints(el); err != nil {
-			return err
-		}
-	}
-	for _, el := range obj.EggGroups {
-		if err := AssertAbilityDetailPokemonInnerPokemonConstraints(el); err != nil {
-			return err
-		}
 	}
 	if err := AssertPokemonColorSummaryConstraints(obj.Color); err != nil {
 		return err
@@ -194,36 +362,6 @@ func AssertPokemonSpeciesDetailConstraints(obj PokemonSpeciesDetail) error {
 	}
 	if err := AssertGenerationSummaryConstraints(obj.Generation); err != nil {
 		return err
-	}
-	for _, el := range obj.Names {
-		if err := AssertPokemonFormDetailFormNamesInnerConstraints(el); err != nil {
-			return err
-		}
-	}
-	for _, el := range obj.PalParkEncounters {
-		if err := AssertPokemonSpeciesDetailPalParkEncountersInnerConstraints(el); err != nil {
-			return err
-		}
-	}
-	for _, el := range obj.FormDescriptions {
-		if err := AssertPokemonSpeciesDescriptionConstraints(el); err != nil {
-			return err
-		}
-	}
-	for _, el := range obj.FlavorTextEntries {
-		if err := AssertPokemonSpeciesFlavorTextConstraints(el); err != nil {
-			return err
-		}
-	}
-	for _, el := range obj.Genera {
-		if err := AssertPokemonSpeciesDetailGeneraInnerConstraints(el); err != nil {
-			return err
-		}
-	}
-	for _, el := range obj.Varieties {
-		if err := AssertPokemonSpeciesDetailVarietiesInnerConstraints(el); err != nil {
-			return err
-		}
 	}
 	return nil
 }

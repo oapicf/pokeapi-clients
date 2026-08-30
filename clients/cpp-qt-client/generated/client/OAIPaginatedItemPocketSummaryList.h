@@ -34,13 +34,13 @@ class OAIItemPocketSummary;
 class OAIPaginatedItemPocketSummaryList : public OAIObject {
 public:
     OAIPaginatedItemPocketSummaryList();
-    OAIPaginatedItemPocketSummaryList(QString json);
+    OAIPaginatedItemPocketSummaryList(const QString &json);
     ~OAIPaginatedItemPocketSummaryList() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     qint32 getCount() const;
     void setCount(const qint32 &count);

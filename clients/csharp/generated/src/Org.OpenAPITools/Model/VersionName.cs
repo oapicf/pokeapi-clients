@@ -92,8 +92,18 @@ namespace Org.OpenAPITools.Model
     /// <summary>
     /// A Json converter for type <see cref="VersionName" />
     /// </summary>
-    public class VersionNameJsonConverter : JsonConverter<VersionName>
+    public partial class VersionNameJsonConverter : JsonConverter<VersionName>
     {
+        partial void OnCreated();
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="VersionNameJsonConverter" /> class.
+        /// </summary>
+        public VersionNameJsonConverter()
+        {
+            OnCreated();
+        }
+
         /// <summary>
         /// Deserializes json to <see cref="VersionName" />
         /// </summary>

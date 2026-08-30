@@ -30,7 +30,7 @@ public class OASGenerationDetail implements OAS.MappedProperties {
      * Get abilities
      * @return abilities
      */
-    public List<OASAbilitySummary> abilities { get; set; }
+    public List<OASAbilitySummary> abilities { get; private set; }
 
     /**
      * Get mainRegion
@@ -42,31 +42,31 @@ public class OASGenerationDetail implements OAS.MappedProperties {
      * Get moves
      * @return moves
      */
-    public List<OASMoveSummary> moves { get; set; }
+    public List<OASMoveSummary> moves { get; private set; }
 
     /**
      * Get names
      * @return names
      */
-    public List<OASGenerationName> names { get; set; }
+    public List<OASGenerationName> names { get; private set; }
 
     /**
      * Get pokemonSpecies
      * @return pokemonSpecies
      */
-    public List<OASPokemonSpeciesSummary> pokemonSpecies { get; set; }
+    public List<OASPokemonSpeciesSummary> pokemonSpecies { get; private set; }
 
     /**
      * Get types
      * @return types
      */
-    public List<OASTypeSummary> types { get; set; }
+    public List<OASTypeSummary> types { get; private set; }
 
     /**
      * Get versionGroups
      * @return versionGroups
      */
-    public List<OASVersionGroupSummary> versionGroups { get; set; }
+    public List<OASVersionGroupSummary> versionGroups { get; private set; }
 
     private static final Map<String, String> propertyMappings = new Map<String, String>{
         'main_region' => 'mainRegion',

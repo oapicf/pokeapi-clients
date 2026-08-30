@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**area** | [**models::AbilityDetailPokemonInnerPokemon**](AbilityDetail_pokemon_inner_pokemon.md) |  | 
+**area** | [**models::AbilityDetailPokemonInnerPokemon**](AbilityDetailPokemonInnerPokemon.md) |  | 
 **base_score** | **i32** |  | 
 **rate** | **i32** |  | 
 

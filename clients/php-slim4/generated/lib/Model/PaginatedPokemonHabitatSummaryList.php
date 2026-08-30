@@ -67,7 +67,8 @@ class PaginatedPokemonHabitatSummaryList extends BaseModel
       "type" : "array",
       "items" : {
         "$ref" : "#/components/schemas/PokemonHabitatSummary"
-      }
+      },
+      "default" : null
     }
   }
 }

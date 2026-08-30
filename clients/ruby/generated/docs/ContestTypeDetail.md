@@ -7,7 +7,7 @@
 | **id** | **Integer** |  | [readonly] |
 | **name** | **String** |  |  |
 | **berry_flavor** | [**BerryFlavorSummary**](BerryFlavorSummary.md) |  | [readonly] |
-| **names** | [**Array&lt;ContestTypeName&gt;**](ContestTypeName.md) |  |  |
+| **names** | [**Array&lt;ContestTypeName&gt;**](ContestTypeName.md) |  | [readonly] |
 
 ## Example
 

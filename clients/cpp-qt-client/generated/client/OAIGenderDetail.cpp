@@ -21,7 +21,7 @@
 
 namespace OpenAPI {
 
-OAIGenderDetail::OAIGenderDetail(QString json) {
+OAIGenderDetail::OAIGenderDetail(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -47,7 +47,7 @@ void OAIGenderDetail::initializeModel() {
     m_required_for_evolution_isValid = false;
 }
 
-void OAIGenderDetail::fromJson(QString jsonString) {
+void OAIGenderDetail::fromJson(const QString &jsonString) {
     QByteArray array(jsonString.toStdString().c_str());
     QJsonDocument doc = QJsonDocument::fromJson(array);
     QJsonObject jsonObject = doc.object();

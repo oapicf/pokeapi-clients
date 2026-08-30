@@ -32,7 +32,7 @@ class  NatureSummary
 {
 public:
     NatureSummary();
-    virtual ~NatureSummary() = default;
+    virtual ~NatureSummary();
 
 
     /// <summary>

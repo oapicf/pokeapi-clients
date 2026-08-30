@@ -25,7 +25,7 @@ typedef struct nature_detail_t nature_detail_t;
 
 
 typedef struct nature_detail_t {
-    int id; //numeric
+    int *id; //numeric
     char *name; // string
     struct stat_summary_t *decreased_stat; //model
     struct stat_summary_t *increased_stat; //model
@@ -40,7 +40,7 @@ typedef struct nature_detail_t {
 } nature_detail_t;
 
 __attribute__((deprecated)) nature_detail_t *nature_detail_create(
-    int id,
+    int *id,
     char *name,
     stat_summary_t *decreased_stat,
     stat_summary_t *increased_stat,

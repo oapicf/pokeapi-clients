@@ -30,5 +30,5 @@ export interface AbilityChange {
      * @type {Array<AbilityChangeEffectText>}
      * @memberof AbilityChange
      */
-    effect_entries: Array<AbilityChangeEffectText>;
+    readonly effect_entries: Array<AbilityChangeEffectText>;
 }

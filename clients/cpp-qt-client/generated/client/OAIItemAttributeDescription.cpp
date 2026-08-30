@@ -21,7 +21,7 @@
 
 namespace OpenAPI {
 
-OAIItemAttributeDescription::OAIItemAttributeDescription(QString json) {
+OAIItemAttributeDescription::OAIItemAttributeDescription(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -41,7 +41,7 @@ void OAIItemAttributeDescription::initializeModel() {
     m_language_isValid = false;
 }
 
-void OAIItemAttributeDescription::fromJson(QString jsonString) {
+void OAIItemAttributeDescription::fromJson(const QString &jsonString) {
     QByteArray array(jsonString.toStdString().c_str());
     QJsonDocument doc = QJsonDocument::fromJson(array);
     QJsonObject jsonObject = doc.object();

@@ -30,13 +30,13 @@ namespace OpenAPI {
 class OAIExperience : public OAIObject {
 public:
     OAIExperience();
-    OAIExperience(QString json);
+    OAIExperience(const QString &json);
     ~OAIExperience() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     qint32 getLevel() const;
     void setLevel(const qint32 &level);

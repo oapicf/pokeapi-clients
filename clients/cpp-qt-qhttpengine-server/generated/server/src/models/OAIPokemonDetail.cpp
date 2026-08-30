@@ -477,10 +477,10 @@ bool OAIPokemonDetail::is_species_Valid() const{
     return m_species_isValid;
 }
 
-OAIPokemonDetail_sprites OAIPokemonDetail::getSprites() const {
+OAIPokemonDetail_sprites<QString, QString> OAIPokemonDetail::getSprites() const {
     return sprites;
 }
-void OAIPokemonDetail::setSprites(const OAIPokemonDetail_sprites &sprites) {
+void OAIPokemonDetail::setSprites(const OAIPokemonDetail_sprites<QString, QString> &sprites) {
     this->sprites = sprites;
     this->m_sprites_isSet = true;
 }

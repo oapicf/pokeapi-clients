@@ -25,7 +25,8 @@ type PaginatedCharacteristicSummaryList struct {
 	Results []CharacteristicSummary `json:"results,omitempty"`
 }
 
-// AssertPaginatedCharacteristicSummaryListRequired checks if the required fields are not zero-ed
+// AssertPaginatedCharacteristicSummaryListRequired checks complex required fields (models, arrays, maps) and embedded parents.
+// Primitive required fields are validated for JSON request bodies in UnmarshalJSON so zero values remain valid.
 func AssertPaginatedCharacteristicSummaryListRequired(obj PaginatedCharacteristicSummaryList) error {
 	for _, el := range obj.Results {
 		if err := AssertCharacteristicSummaryRequired(el); err != nil {

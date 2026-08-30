@@ -127,8 +127,8 @@ public:
     bool is_species_Set() const;
     bool is_species_Valid() const;
 
-    OAIPokemonDetail_sprites getSprites() const;
-    void setSprites(const OAIPokemonDetail_sprites &sprites);
+    OAIPokemonDetail_sprites<QString, QString> getSprites() const;
+    void setSprites(const OAIPokemonDetail_sprites<QString, QString> &sprites);
     bool is_sprites_Set() const;
     bool is_sprites_Valid() const;
 
@@ -218,7 +218,7 @@ private:
     bool m_species_isSet;
     bool m_species_isValid;
 
-    OAIPokemonDetail_sprites sprites;
+    OAIPokemonDetail_sprites<QString, QString> sprites;
     bool m_sprites_isSet;
     bool m_sprites_isValid;
 

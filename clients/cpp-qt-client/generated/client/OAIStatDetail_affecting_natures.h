@@ -33,13 +33,13 @@ class OAIAbilityDetail_pokemon_inner_pokemon;
 class OAIStatDetail_affecting_natures : public OAIObject {
 public:
     OAIStatDetail_affecting_natures();
-    OAIStatDetail_affecting_natures(QString json);
+    OAIStatDetail_affecting_natures(const QString &json);
     ~OAIStatDetail_affecting_natures() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     QList<OAIAbilityDetail_pokemon_inner_pokemon> getIncrease() const;
     void setIncrease(const QList<OAIAbilityDetail_pokemon_inner_pokemon> &increase);

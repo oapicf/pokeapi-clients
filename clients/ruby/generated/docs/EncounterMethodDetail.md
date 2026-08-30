@@ -7,7 +7,7 @@
 | **id** | **Integer** |  | [readonly] |
 | **name** | **String** |  |  |
 | **order** | **Integer** |  | [optional] |
-| **names** | [**Array&lt;EncounterMethodName&gt;**](EncounterMethodName.md) |  |  |
+| **names** | [**Array&lt;EncounterMethodName&gt;**](EncounterMethodName.md) |  | [readonly] |
 
 ## Example
 

@@ -30,13 +30,13 @@ public class OASMoveMetaAilmentDetail {
      * Get moves
      * @return moves
      */
-    public List<OASAbilityDetailPokemonInnerPokemon> moves { get; set; }
+    public List<OASAbilityDetailPokemonInnerPokemon> moves { get; private set; }
 
     /**
      * Get names
      * @return names
      */
-    public List<OASMoveMetaAilmentName> names { get; set; }
+    public List<OASMoveMetaAilmentName> names { get; private set; }
 
     public OASMoveMetaAilmentDetail() {
         moves = new List<OASAbilityDetailPokemonInnerPokemon>();

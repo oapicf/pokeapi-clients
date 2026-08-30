@@ -12,6 +12,11 @@
 package openapi
 
 
+import (
+	"encoding/json"
+	"fmt"
+)
+
 
 
 type MoveDetail struct {
@@ -64,30 +69,227 @@ type MoveDetail struct {
 
 	LearnedByPokemon []AbilityDetailPokemonInnerPokemon `json:"learned_by_pokemon"`
 }
+// UnmarshalJSON validates required property keys then unmarshals into MoveDetail
+func (o *MoveDetail) UnmarshalJSON(data []byte) (err error) {
+	// Presence is checked against required fields that exist on this struct,
+	// including fields promoted from embedded allOf parents.
+	requiredProperties := []string{
+		"name",
+		"effect_chance",
+		"contest_combos",
+		"contest_type",
+		"contest_effect",
+		"damage_class",
+		"generation",
+		"super_contest_effect",
+		"target",
+		"type",
+	}
 
-// AssertMoveDetailRequired checks if the required fields are not zero-ed
+	requiredNullableProperties := map[string]bool{
+		"name": false,
+		"effect_chance": false,
+		"contest_combos": false,
+		"contest_type": false,
+		"contest_effect": false,
+		"damage_class": false,
+		"generation": false,
+		"super_contest_effect": false,
+		"target": false,
+		"type": false,
+	}
+
+	allowedJsonKeys := map[string]struct{}{
+		"id": {},
+		"name": {},
+		"accuracy": {},
+		"effect_chance": {},
+		"pp": {},
+		"priority": {},
+		"power": {},
+		"contest_combos": {},
+		"contest_type": {},
+		"contest_effect": {},
+		"damage_class": {},
+		"effect_entries": {},
+		"effect_changes": {},
+		"generation": {},
+		"meta": {},
+		"names": {},
+		"past_values": {},
+		"stat_changes": {},
+		"super_contest_effect": {},
+		"target": {},
+		"type": {},
+		"machines": {},
+		"flavor_text_entries": {},
+		"learned_by_pokemon": {},
+	}
+
+	allProperties := make(map[string]json.RawMessage)
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err
+	}
+
+	for _, requiredProperty := range requiredProperties {
+		value, exists := allProperties[requiredProperty]
+		if !exists {
+			return &RequiredError{Field: requiredProperty}
+		}
+		if string(value) == "null" && !requiredNullableProperties[requiredProperty] {
+			return &RequiredError{Field: requiredProperty}
+		}
+	}
+
+	for key := range allProperties {
+		if _, exists := allowedJsonKeys[key]; !exists {
+			return fmt.Errorf("json: unknown field %q", key)
+		}
+	}
+
+	var decoded MoveDetail
+
+	if value, exists := allProperties["id"]; exists {
+		if err = json.Unmarshal(value, &decoded.Id); err != nil {
+			return err
+		}
+	}
+	if value, exists := allProperties["name"]; exists {
+		if err = json.Unmarshal(value, &decoded.Name); err != nil {
+			return err
+		}
+	}
+	if value, exists := allProperties["accuracy"]; exists {
+		if err = json.Unmarshal(value, &decoded.Accuracy); err != nil {
+			return err
+		}
+	}
+	if value, exists := allProperties["effect_chance"]; exists {
+		if err = json.Unmarshal(value, &decoded.EffectChance); err != nil {
+			return err
+		}
+	}
+	if value, exists := allProperties["pp"]; exists {
+		if err = json.Unmarshal(value, &decoded.Pp); err != nil {
+			return err
+		}
+	}
+	if value, exists := allProperties["priority"]; exists {
+		if err = json.Unmarshal(value, &decoded.Priority); err != nil {
+			return err
+		}
+	}
+	if value, exists := allProperties["power"]; exists {
+		if err = json.Unmarshal(value, &decoded.Power); err != nil {
+			return err
+		}
+	}
+	if value, exists := allProperties["contest_combos"]; exists {
+		if err = json.Unmarshal(value, &decoded.ContestCombos); err != nil {
+			return err
+		}
+	}
+	if value, exists := allProperties["contest_type"]; exists {
+		if err = json.Unmarshal(value, &decoded.ContestType); err != nil {
+			return err
+		}
+	}
+	if value, exists := allProperties["contest_effect"]; exists {
+		if err = json.Unmarshal(value, &decoded.ContestEffect); err != nil {
+			return err
+		}
+	}
+	if value, exists := allProperties["damage_class"]; exists {
+		if err = json.Unmarshal(value, &decoded.DamageClass); err != nil {
+			return err
+		}
+	}
+	if value, exists := allProperties["effect_entries"]; exists {
+		if err = json.Unmarshal(value, &decoded.EffectEntries); err != nil {
+			return err
+		}
+	}
+	if value, exists := allProperties["effect_changes"]; exists {
+		if err = json.Unmarshal(value, &decoded.EffectChanges); err != nil {
+			return err
+		}
+	}
+	if value, exists := allProperties["generation"]; exists {
+		if err = json.Unmarshal(value, &decoded.Generation); err != nil {
+			return err
+		}
+	}
+	if value, exists := allProperties["meta"]; exists {
+		if err = json.Unmarshal(value, &decoded.Meta); err != nil {
+			return err
+		}
+	}
+	if value, exists := allProperties["names"]; exists {
+		if err = json.Unmarshal(value, &decoded.Names); err != nil {
+			return err
+		}
+	}
+	if value, exists := allProperties["past_values"]; exists {
+		if err = json.Unmarshal(value, &decoded.PastValues); err != nil {
+			return err
+		}
+	}
+	if value, exists := allProperties["stat_changes"]; exists {
+		if err = json.Unmarshal(value, &decoded.StatChanges); err != nil {
+			return err
+		}
+	}
+	if value, exists := allProperties["super_contest_effect"]; exists {
+		if err = json.Unmarshal(value, &decoded.SuperContestEffect); err != nil {
+			return err
+		}
+	}
+	if value, exists := allProperties["target"]; exists {
+		if err = json.Unmarshal(value, &decoded.Target); err != nil {
+			return err
+		}
+	}
+	if value, exists := allProperties["type"]; exists {
+		if err = json.Unmarshal(value, &decoded.Type); err != nil {
+			return err
+		}
+	}
+	if value, exists := allProperties["machines"]; exists {
+		if err = json.Unmarshal(value, &decoded.Machines); err != nil {
+			return err
+		}
+	}
+	if value, exists := allProperties["flavor_text_entries"]; exists {
+		if err = json.Unmarshal(value, &decoded.FlavorTextEntries); err != nil {
+			return err
+		}
+	}
+	if value, exists := allProperties["learned_by_pokemon"]; exists {
+		if err = json.Unmarshal(value, &decoded.LearnedByPokemon); err != nil {
+			return err
+		}
+	}
+
+	*o = decoded
+
+	return nil
+}
+
+// AssertMoveDetailRequired checks complex required fields (models, arrays, maps) and embedded parents.
+// Primitive required fields are validated for JSON request bodies in UnmarshalJSON so zero values remain valid.
 func AssertMoveDetailRequired(obj MoveDetail) error {
 	elements := map[string]interface{}{
-		"id": obj.Id,
-		"name": obj.Name,
-		"effect_chance": obj.EffectChance,
 		"contest_combos": obj.ContestCombos,
 		"contest_type": obj.ContestType,
 		"contest_effect": obj.ContestEffect,
 		"damage_class": obj.DamageClass,
-		"effect_entries": obj.EffectEntries,
-		"effect_changes": obj.EffectChanges,
 		"generation": obj.Generation,
-		"meta": obj.Meta,
-		"names": obj.Names,
-		"past_values": obj.PastValues,
-		"stat_changes": obj.StatChanges,
 		"super_contest_effect": obj.SuperContestEffect,
 		"target": obj.Target,
 		"type": obj.Type,
-		"machines": obj.Machines,
-		"flavor_text_entries": obj.FlavorTextEntries,
-		"learned_by_pokemon": obj.LearnedByPokemon,
 	}
 	for name, el := range elements {
 		if isZero := IsZeroValue(el); isZero {
@@ -107,36 +309,8 @@ func AssertMoveDetailRequired(obj MoveDetail) error {
 	if err := AssertMoveDamageClassSummaryRequired(obj.DamageClass); err != nil {
 		return err
 	}
-	for _, el := range obj.EffectEntries {
-		if err := AssertMoveChangeEffectEntriesInnerRequired(el); err != nil {
-			return err
-		}
-	}
-	for _, el := range obj.EffectChanges {
-		if err := AssertMoveDetailEffectChangesInnerRequired(el); err != nil {
-			return err
-		}
-	}
 	if err := AssertGenerationSummaryRequired(obj.Generation); err != nil {
 		return err
-	}
-	if err := AssertMoveMetaRequired(obj.Meta); err != nil {
-		return err
-	}
-	for _, el := range obj.Names {
-		if err := AssertMoveNameRequired(el); err != nil {
-			return err
-		}
-	}
-	for _, el := range obj.PastValues {
-		if err := AssertMoveChangeRequired(el); err != nil {
-			return err
-		}
-	}
-	for _, el := range obj.StatChanges {
-		if err := AssertMoveDetailStatChangesInnerRequired(el); err != nil {
-			return err
-		}
 	}
 	if err := AssertSuperContestEffectSummaryRequired(obj.SuperContestEffect); err != nil {
 		return err
@@ -146,21 +320,6 @@ func AssertMoveDetailRequired(obj MoveDetail) error {
 	}
 	if err := AssertTypeSummaryRequired(obj.Type); err != nil {
 		return err
-	}
-	for _, el := range obj.Machines {
-		if err := AssertMoveDetailMachinesInnerRequired(el); err != nil {
-			return err
-		}
-	}
-	for _, el := range obj.FlavorTextEntries {
-		if err := AssertMoveFlavorTextRequired(el); err != nil {
-			return err
-		}
-	}
-	for _, el := range obj.LearnedByPokemon {
-		if err := AssertAbilityDetailPokemonInnerPokemonRequired(el); err != nil {
-			return err
-		}
 	}
 	return nil
 }
@@ -179,36 +338,8 @@ func AssertMoveDetailConstraints(obj MoveDetail) error {
 	if err := AssertMoveDamageClassSummaryConstraints(obj.DamageClass); err != nil {
 		return err
 	}
-	for _, el := range obj.EffectEntries {
-		if err := AssertMoveChangeEffectEntriesInnerConstraints(el); err != nil {
-			return err
-		}
-	}
-	for _, el := range obj.EffectChanges {
-		if err := AssertMoveDetailEffectChangesInnerConstraints(el); err != nil {
-			return err
-		}
-	}
 	if err := AssertGenerationSummaryConstraints(obj.Generation); err != nil {
 		return err
-	}
-	if err := AssertMoveMetaConstraints(obj.Meta); err != nil {
-		return err
-	}
-	for _, el := range obj.Names {
-		if err := AssertMoveNameConstraints(el); err != nil {
-			return err
-		}
-	}
-	for _, el := range obj.PastValues {
-		if err := AssertMoveChangeConstraints(el); err != nil {
-			return err
-		}
-	}
-	for _, el := range obj.StatChanges {
-		if err := AssertMoveDetailStatChangesInnerConstraints(el); err != nil {
-			return err
-		}
 	}
 	if err := AssertSuperContestEffectSummaryConstraints(obj.SuperContestEffect); err != nil {
 		return err
@@ -218,21 +349,6 @@ func AssertMoveDetailConstraints(obj MoveDetail) error {
 	}
 	if err := AssertTypeSummaryConstraints(obj.Type); err != nil {
 		return err
-	}
-	for _, el := range obj.Machines {
-		if err := AssertMoveDetailMachinesInnerConstraints(el); err != nil {
-			return err
-		}
-	}
-	for _, el := range obj.FlavorTextEntries {
-		if err := AssertMoveFlavorTextConstraints(el); err != nil {
-			return err
-		}
-	}
-	for _, el := range obj.LearnedByPokemon {
-		if err := AssertAbilityDetailPokemonInnerPokemonConstraints(el); err != nil {
-			return err
-		}
 	}
 	return nil
 }

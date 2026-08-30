@@ -8,10 +8,10 @@ Name | Type | Description | Notes
 **name** | **String** |  | 
 **isMainSeries** | **Boolean** |  | [optional] 
 **generation** | [**GenerationSummary**](GenerationSummary.md) |  | 
-**names** | [**[AbilityName]**](AbilityName.md) |  | 
-**effectEntries** | [**[AbilityEffectText]**](AbilityEffectText.md) |  | 
-**effectChanges** | [**[AbilityChange]**](AbilityChange.md) |  | 
-**flavorTextEntries** | [**[AbilityFlavorText]**](AbilityFlavorText.md) |  | 
-**pokemon** | [**[AbilityDetailPokemonInner]**](AbilityDetailPokemonInner.md) |  | 
+**names** | [**[AbilityName]**](AbilityName.md) |  | [readonly] 
+**effectEntries** | [**[AbilityEffectText]**](AbilityEffectText.md) |  | [readonly] 
+**effectChanges** | [**[AbilityChange]**](AbilityChange.md) |  | [readonly] 
+**flavorTextEntries** | [**[AbilityFlavorText]**](AbilityFlavorText.md) |  | [readonly] 
+**pokemon** | [**[AbilityDetailPokemonInner]**](AbilityDetailPokemonInner.md) |  | [readonly] 
 
 

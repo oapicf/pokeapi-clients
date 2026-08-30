@@ -21,7 +21,7 @@
 
 namespace OpenAPI {
 
-OAITypeDetail_sprites_value_value::OAITypeDetail_sprites_value_value(QString json) {
+OAITypeDetail_sprites_value_value::OAITypeDetail_sprites_value_value(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -38,7 +38,7 @@ void OAITypeDetail_sprites_value_value::initializeModel() {
     m_name_icon_isValid = false;
 }
 
-void OAITypeDetail_sprites_value_value::fromJson(QString jsonString) {
+void OAITypeDetail_sprites_value_value::fromJson(const QString &jsonString) {
     QByteArray array(jsonString.toStdString().c_str());
     QJsonDocument doc = QJsonDocument::fromJson(array);
     QJsonObject jsonObject = doc.object();

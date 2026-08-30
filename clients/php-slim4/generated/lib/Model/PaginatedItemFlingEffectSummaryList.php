@@ -67,7 +67,8 @@ class PaginatedItemFlingEffectSummaryList extends BaseModel
       "type" : "array",
       "items" : {
         "$ref" : "#/components/schemas/ItemFlingEffectSummary"
-      }
+      },
+      "default" : null
     }
   }
 }

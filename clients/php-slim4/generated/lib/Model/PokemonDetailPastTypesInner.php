@@ -55,7 +55,8 @@ class PokemonDetailPastTypesInner extends BaseModel
       "type" : "array",
       "items" : {
         "$ref" : "#/components/schemas/PokemonDetail_types_inner"
-      }
+      },
+      "default" : null
     }
   }
 }

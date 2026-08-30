@@ -178,7 +178,7 @@ function itemAttributeRetrieveRaw<T>(requestParameters: ItemAttributeRetrieveReq
 
     meta.authType = ['basic'];
     const config: QueryConfig<T> = {
-        url: `${runtime.Configuration.basePath}/api/v2/item-attribute/{id}/`.replace(`{${"id"}}`, encodeURIComponent(String(requestParameters.id))),
+        url: `${runtime.Configuration.basePath}/api/v2/item-attribute/{id}/`.replace('{id}', encodeURIComponent(String(requestParameters.id))),
         meta,
         update: requestConfig.update,
         queryKey: requestConfig.queryKey,
@@ -288,7 +288,7 @@ function itemCategoryRetrieveRaw<T>(requestParameters: ItemCategoryRetrieveReque
 
     meta.authType = ['basic'];
     const config: QueryConfig<T> = {
-        url: `${runtime.Configuration.basePath}/api/v2/item-category/{id}/`.replace(`{${"id"}}`, encodeURIComponent(String(requestParameters.id))),
+        url: `${runtime.Configuration.basePath}/api/v2/item-category/{id}/`.replace('{id}', encodeURIComponent(String(requestParameters.id))),
         meta,
         update: requestConfig.update,
         queryKey: requestConfig.queryKey,
@@ -398,7 +398,7 @@ function itemFlingEffectRetrieveRaw<T>(requestParameters: ItemFlingEffectRetriev
 
     meta.authType = ['basic'];
     const config: QueryConfig<T> = {
-        url: `${runtime.Configuration.basePath}/api/v2/item-fling-effect/{id}/`.replace(`{${"id"}}`, encodeURIComponent(String(requestParameters.id))),
+        url: `${runtime.Configuration.basePath}/api/v2/item-fling-effect/{id}/`.replace('{id}', encodeURIComponent(String(requestParameters.id))),
         meta,
         update: requestConfig.update,
         queryKey: requestConfig.queryKey,
@@ -569,7 +569,7 @@ function itemPocketRetrieveRaw<T>(requestParameters: ItemPocketRetrieveRequest, 
 
     meta.authType = ['basic'];
     const config: QueryConfig<T> = {
-        url: `${runtime.Configuration.basePath}/api/v2/item-pocket/{id}/`.replace(`{${"id"}}`, encodeURIComponent(String(requestParameters.id))),
+        url: `${runtime.Configuration.basePath}/api/v2/item-pocket/{id}/`.replace('{id}', encodeURIComponent(String(requestParameters.id))),
         meta,
         update: requestConfig.update,
         queryKey: requestConfig.queryKey,
@@ -618,7 +618,7 @@ function itemRetrieveRaw<T>(requestParameters: ItemRetrieveRequest, requestConfi
 
     meta.authType = ['basic'];
     const config: QueryConfig<T> = {
-        url: `${runtime.Configuration.basePath}/api/v2/item/{id}/`.replace(`{${"id"}}`, encodeURIComponent(String(requestParameters.id))),
+        url: `${runtime.Configuration.basePath}/api/v2/item/{id}/`.replace('{id}', encodeURIComponent(String(requestParameters.id))),
         meta,
         update: requestConfig.update,
         queryKey: requestConfig.queryKey,

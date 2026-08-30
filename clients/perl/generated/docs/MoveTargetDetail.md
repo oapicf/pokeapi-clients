@@ -10,9 +10,9 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **int** |  | [readonly] 
 **name** | **string** |  | 
-**descriptions** | [**ARRAY[MoveTargetDescription]**](MoveTargetDescription.md) |  | 
-**moves** | [**ARRAY[MoveSummary]**](MoveSummary.md) |  | 
-**names** | [**ARRAY[MoveTargetName]**](MoveTargetName.md) |  | 
+**descriptions** | [**ARRAY[MoveTargetDescription]**](MoveTargetDescription.md) |  | [readonly] 
+**moves** | [**ARRAY[MoveSummary]**](MoveSummary.md) |  | [readonly] 
+**names** | [**ARRAY[MoveTargetName]**](MoveTargetName.md) |  | [readonly] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

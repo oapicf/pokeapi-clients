@@ -41,7 +41,7 @@ import javax.annotation.Generated;
   LocationAreaDetail.JSON_PROPERTY_POKEMON_ENCOUNTERS
 })
 @JsonTypeName("LocationAreaDetail")
-@Generated(value="org.openapitools.codegen.languages.JavaMicronautClientCodegen", date="2026-02-07T15:22:54.857535619Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@Generated(value="org.openapitools.codegen.languages.JavaMicronautClientCodegen", date="2026-08-30T01:55:51.056116330Z[Etc/UTC]", comments = "Generator version: 7.24.0")
 @Introspected
 public class LocationAreaDetail {
     public static final String JSON_PROPERTY_ID = "id";
@@ -131,16 +131,6 @@ public class LocationAreaDetail {
         this.gameIndex = gameIndex;
     }
 
-    public LocationAreaDetail encounterMethodRates(List<@Valid LocationAreaDetailEncounterMethodRatesInner> encounterMethodRates) {
-        this.encounterMethodRates = encounterMethodRates;
-        return this;
-    }
-
-    public LocationAreaDetail addEncounterMethodRatesItem(LocationAreaDetailEncounterMethodRatesInner encounterMethodRatesItem) {
-        this.encounterMethodRates.add(encounterMethodRatesItem);
-        return this;
-    }
-
     /**
      * Get encounterMethodRates
      * @return encounterMethodRates
@@ -150,12 +140,6 @@ public class LocationAreaDetail {
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public List<@Valid LocationAreaDetailEncounterMethodRatesInner> getEncounterMethodRates() {
         return encounterMethodRates;
-    }
-
-    @JsonProperty(JSON_PROPERTY_ENCOUNTER_METHOD_RATES)
-    @JsonInclude(value = JsonInclude.Include.ALWAYS)
-    public void setEncounterMethodRates(List<@Valid LocationAreaDetailEncounterMethodRatesInner> encounterMethodRates) {
-        this.encounterMethodRates = encounterMethodRates;
     }
 
     public LocationAreaDetail location(LocationSummary location) {
@@ -181,16 +165,6 @@ public class LocationAreaDetail {
         this.location = location;
     }
 
-    public LocationAreaDetail names(List<@Valid LocationAreaName> names) {
-        this.names = names;
-        return this;
-    }
-
-    public LocationAreaDetail addNamesItem(LocationAreaName namesItem) {
-        this.names.add(namesItem);
-        return this;
-    }
-
     /**
      * Get names
      * @return names
@@ -202,22 +176,6 @@ public class LocationAreaDetail {
         return names;
     }
 
-    @JsonProperty(JSON_PROPERTY_NAMES)
-    @JsonInclude(value = JsonInclude.Include.ALWAYS)
-    public void setNames(List<@Valid LocationAreaName> names) {
-        this.names = names;
-    }
-
-    public LocationAreaDetail pokemonEncounters(List<@Valid LocationAreaDetailPokemonEncountersInner> pokemonEncounters) {
-        this.pokemonEncounters = pokemonEncounters;
-        return this;
-    }
-
-    public LocationAreaDetail addPokemonEncountersItem(LocationAreaDetailPokemonEncountersInner pokemonEncountersItem) {
-        this.pokemonEncounters.add(pokemonEncountersItem);
-        return this;
-    }
-
     /**
      * Get pokemonEncounters
      * @return pokemonEncounters
@@ -227,12 +185,6 @@ public class LocationAreaDetail {
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public List<@Valid LocationAreaDetailPokemonEncountersInner> getPokemonEncounters() {
         return pokemonEncounters;
-    }
-
-    @JsonProperty(JSON_PROPERTY_POKEMON_ENCOUNTERS)
-    @JsonInclude(value = JsonInclude.Include.ALWAYS)
-    public void setPokemonEncounters(List<@Valid LocationAreaDetailPokemonEncountersInner> pokemonEncounters) {
-        this.pokemonEncounters = pokemonEncounters;
     }
 
     @Override
@@ -278,10 +230,7 @@ public class LocationAreaDetail {
      * (except the first line).
      */
     private String toIndentedString(Object o) {
-        if (o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
+        return o == null ? "null" : o.toString().replace("\n", "\n    ");
     }
 
 }

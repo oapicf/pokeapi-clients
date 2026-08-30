@@ -92,6 +92,7 @@ public class PalParkAreaDetail  {
 
   /**
    * Sets the <code>names</code> property.
+   * <br><em>N.B. <code>names</code> is <b>read only</b>; client code should not call this method</em>.
    */
  public void setNames(List<@Valid PalParkAreaName> names) {
     this.names = names;
@@ -99,6 +100,7 @@ public class PalParkAreaDetail  {
 
   /**
    * Sets the <code>names</code> property.
+   * <br><em>N.B. <code>names</code> is <b>read only</b>; client code should not call this method</em>.
    */
   public PalParkAreaDetail names(List<@Valid PalParkAreaName> names) {
     this.names = names;
@@ -107,6 +109,7 @@ public class PalParkAreaDetail  {
 
   /**
    * Adds a new item to the <code>names</code> list.
+   * <br><em>N.B. <code>names</code> is <b>read only</b>; client code should not call this method</em>.
    */
   public PalParkAreaDetail addNamesItem(PalParkAreaName namesItem) {
     this.names.add(namesItem);
@@ -125,6 +128,7 @@ public class PalParkAreaDetail  {
 
   /**
    * Sets the <code>pokemonEncounters</code> property.
+   * <br><em>N.B. <code>pokemonEncounters</code> is <b>read only</b>; client code should not call this method</em>.
    */
  public void setPokemonEncounters(List<@Valid PalParkAreaDetailPokemonEncountersInner> pokemonEncounters) {
     this.pokemonEncounters = pokemonEncounters;
@@ -132,6 +136,7 @@ public class PalParkAreaDetail  {
 
   /**
    * Sets the <code>pokemonEncounters</code> property.
+   * <br><em>N.B. <code>pokemonEncounters</code> is <b>read only</b>; client code should not call this method</em>.
    */
   public PalParkAreaDetail pokemonEncounters(List<@Valid PalParkAreaDetailPokemonEncountersInner> pokemonEncounters) {
     this.pokemonEncounters = pokemonEncounters;
@@ -140,6 +145,7 @@ public class PalParkAreaDetail  {
 
   /**
    * Adds a new item to the <code>pokemonEncounters</code> list.
+   * <br><em>N.B. <code>pokemonEncounters</code> is <b>read only</b>; client code should not call this method</em>.
    */
   public PalParkAreaDetail addPokemonEncountersItem(PalParkAreaDetailPokemonEncountersInner pokemonEncountersItem) {
     this.pokemonEncounters.add(pokemonEncountersItem);
@@ -185,10 +191,7 @@ public class PalParkAreaDetail  {
    * (except the first line).
    */
   private static String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 }
 

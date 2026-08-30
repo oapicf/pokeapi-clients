@@ -51,7 +51,7 @@ export interface PokemonStat {
  * Check if a given object implements the PokemonStat interface.
  */
 export function instanceOfPokemonStat(value: object): value is PokemonStat {
-    if (!('baseStat' in value) || value['baseStat'] === undefined) return false;
+    if ((!('baseStat' in (value as Record<string, any>)) && !('base_stat' in (value as Record<string, any>))) || ((value as Record<string, any>)['baseStat'] === undefined && (value as Record<string, any>)['base_stat'] === undefined)) return false;
     if (!('effort' in value) || value['effort'] === undefined) return false;
     if (!('stat' in value) || value['stat'] === undefined) return false;
     return true;

@@ -33,7 +33,7 @@ class  StatDetail_affecting_moves
 {
 public:
     StatDetail_affecting_moves();
-    virtual ~StatDetail_affecting_moves() = default;
+    virtual ~StatDetail_affecting_moves();
 
 
     /// <summary>

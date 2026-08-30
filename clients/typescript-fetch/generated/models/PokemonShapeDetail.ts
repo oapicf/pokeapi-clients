@@ -58,19 +58,19 @@ export interface PokemonShapeDetail {
      * @type {Array<PokemonShapeDetailAwesomeNamesInner>}
      * @memberof PokemonShapeDetail
      */
-    awesomeNames: Array<PokemonShapeDetailAwesomeNamesInner>;
+    readonly awesomeNames: Array<PokemonShapeDetailAwesomeNamesInner>;
     /**
      * 
      * @type {Array<PokemonShapeDetailNamesInner>}
      * @memberof PokemonShapeDetail
      */
-    names: Array<PokemonShapeDetailNamesInner>;
+    readonly names: Array<PokemonShapeDetailNamesInner>;
     /**
      * 
      * @type {Array<PokemonSpeciesSummary>}
      * @memberof PokemonShapeDetail
      */
-    pokemonSpecies: Array<PokemonSpeciesSummary>;
+    readonly pokemonSpecies: Array<PokemonSpeciesSummary>;
 }
 
 /**
@@ -79,9 +79,9 @@ export interface PokemonShapeDetail {
 export function instanceOfPokemonShapeDetail(value: object): value is PokemonShapeDetail {
     if (!('id' in value) || value['id'] === undefined) return false;
     if (!('name' in value) || value['name'] === undefined) return false;
-    if (!('awesomeNames' in value) || value['awesomeNames'] === undefined) return false;
+    if ((!('awesomeNames' in (value as Record<string, any>)) && !('awesome_names' in (value as Record<string, any>))) || ((value as Record<string, any>)['awesomeNames'] === undefined && (value as Record<string, any>)['awesome_names'] === undefined)) return false;
     if (!('names' in value) || value['names'] === undefined) return false;
-    if (!('pokemonSpecies' in value) || value['pokemonSpecies'] === undefined) return false;
+    if ((!('pokemonSpecies' in (value as Record<string, any>)) && !('pokemon_species' in (value as Record<string, any>))) || ((value as Record<string, any>)['pokemonSpecies'] === undefined && (value as Record<string, any>)['pokemon_species'] === undefined)) return false;
     return true;
 }
 
@@ -107,7 +107,7 @@ export function PokemonShapeDetailToJSON(json: any): PokemonShapeDetail {
     return PokemonShapeDetailToJSONTyped(json, false);
 }
 
-export function PokemonShapeDetailToJSONTyped(value?: Omit<PokemonShapeDetail, 'id'> | null, ignoreDiscriminator: boolean = false): any {
+export function PokemonShapeDetailToJSONTyped(value?: Omit<PokemonShapeDetail, 'id'|'awesomeNames'|'names'|'pokemonSpecies'> | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
@@ -115,9 +115,6 @@ export function PokemonShapeDetailToJSONTyped(value?: Omit<PokemonShapeDetail, '
     return {
         
         'name': value['name'],
-        'awesome_names': ((value['awesomeNames'] as Array<any>).map(PokemonShapeDetailAwesomeNamesInnerToJSON)),
-        'names': ((value['names'] as Array<any>).map(PokemonShapeDetailNamesInnerToJSON)),
-        'pokemon_species': ((value['pokemonSpecies'] as Array<any>).map(PokemonSpeciesSummaryToJSON)),
     };
 }
 

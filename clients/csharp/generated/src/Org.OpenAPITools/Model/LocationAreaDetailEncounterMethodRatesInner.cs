@@ -86,8 +86,18 @@ namespace Org.OpenAPITools.Model
     /// <summary>
     /// A Json converter for type <see cref="LocationAreaDetailEncounterMethodRatesInner" />
     /// </summary>
-    public class LocationAreaDetailEncounterMethodRatesInnerJsonConverter : JsonConverter<LocationAreaDetailEncounterMethodRatesInner>
+    public partial class LocationAreaDetailEncounterMethodRatesInnerJsonConverter : JsonConverter<LocationAreaDetailEncounterMethodRatesInner>
     {
+        partial void OnCreated();
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="LocationAreaDetailEncounterMethodRatesInnerJsonConverter" /> class.
+        /// </summary>
+        public LocationAreaDetailEncounterMethodRatesInnerJsonConverter()
+        {
+            OnCreated();
+        }
+
         /// <summary>
         /// Deserializes json to <see cref="LocationAreaDetailEncounterMethodRatesInner" />
         /// </summary>

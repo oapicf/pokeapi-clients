@@ -26,7 +26,7 @@ import javax.validation.Valid;
  * <p>All the Pokémon data you'll ever need in one place, easily accessible through a modern free open-source RESTful API.  ## What is this?  This is a full RESTful API linked to an extensive database detailing everything about the Pokémon main game series.  We've covered everything from Pokémon to Berry Flavors.  ## Where do I start?  We have awesome [documentation](https://pokeapi.co/docs/v2) on how to use this API. It takes minutes to get started.  This API will always be publicly available and will never require any extensive setup process to consume.  Created by [**Paul Hallett**(]https://github.com/phalt) and other [**PokéAPI contributors***](https://github.com/PokeAPI/pokeapi#contributing) around the world. Pokémon and Pokémon character names are trademarks of Nintendo.     
  *
  */
-@Path("/api/v2")
+@Path("")
 @Api(value = "/", description = "")
 public interface ContestsApi  {
 
@@ -37,7 +37,7 @@ public interface ContestsApi  {
      *
      */
     @GET
-    @Path("/contest-effect/")
+    @Path("/api/v2/contest-effect/")
     @Produces({ "application/json" })
     @ApiOperation(value = "List contest effects", tags={ "contests" })
     @ApiResponses(value = { 
@@ -51,7 +51,7 @@ public interface ContestsApi  {
      *
      */
     @GET
-    @Path("/contest-effect/{id}/")
+    @Path("/api/v2/contest-effect/{id}/")
     @Produces({ "application/json" })
     @ApiOperation(value = "Get contest effect", tags={ "contests" })
     @ApiResponses(value = { 
@@ -65,7 +65,7 @@ public interface ContestsApi  {
      *
      */
     @GET
-    @Path("/contest-type/")
+    @Path("/api/v2/contest-type/")
     @Produces({ "application/json" })
     @ApiOperation(value = "List contest types", tags={ "contests" })
     @ApiResponses(value = { 
@@ -79,7 +79,7 @@ public interface ContestsApi  {
      *
      */
     @GET
-    @Path("/contest-type/{id}/")
+    @Path("/api/v2/contest-type/{id}/")
     @Produces({ "application/json" })
     @ApiOperation(value = "Get contest type", tags={ "contests" })
     @ApiResponses(value = { 
@@ -93,7 +93,7 @@ public interface ContestsApi  {
      *
      */
     @GET
-    @Path("/super-contest-effect/")
+    @Path("/api/v2/super-contest-effect/")
     @Produces({ "application/json" })
     @ApiOperation(value = "List super contest effects", tags={ "contests" })
     @ApiResponses(value = { 
@@ -107,7 +107,7 @@ public interface ContestsApi  {
      *
      */
     @GET
-    @Path("/super-contest-effect/{id}/")
+    @Path("/api/v2/super-contest-effect/{id}/")
     @Produces({ "application/json" })
     @ApiOperation(value = "Get super contest effect", tags={ "contests" })
     @ApiResponses(value = { 

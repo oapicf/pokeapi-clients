@@ -67,7 +67,8 @@ class PaginatedGenderSummaryList extends BaseModel
       "type" : "array",
       "items" : {
         "$ref" : "#/components/schemas/GenderSummary"
-      }
+      },
+      "default" : null
     }
   }
 }

@@ -76,11 +76,17 @@ class LocationDetail(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         * OpenAPI `readOnly` fields are excluded.
+        * OpenAPI `readOnly` fields are excluded.
+        * OpenAPI `readOnly` fields are excluded.
+        * OpenAPI `readOnly` fields are excluded.
         """
         _dict = self.model_dump(
             by_alias=True,
             exclude={
                 "id",
+                "names",
+                "game_indices",
+                "areas",
             },
             exclude_none=True,
         )

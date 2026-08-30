@@ -143,13 +143,13 @@ export interface MoveDetail  {
      * @type {Array<MoveChangeEffectEntriesInner>}
      * @memberof MoveDetail
      */
-    effectEntries: Array<MoveChangeEffectEntriesInner>;
+    readonly effectEntries: Array<MoveChangeEffectEntriesInner>;
     /**
      * 
      * @type {Array<MoveDetailEffectChangesInner>}
      * @memberof MoveDetail
      */
-    effectChanges: Array<MoveDetailEffectChangesInner>;
+    readonly effectChanges: Array<MoveDetailEffectChangesInner>;
     /**
      * 
      * @type {GenerationSummary}
@@ -167,19 +167,19 @@ export interface MoveDetail  {
      * @type {Array<MoveName>}
      * @memberof MoveDetail
      */
-    names: Array<MoveName>;
+    readonly names: Array<MoveName>;
     /**
      * 
      * @type {Array<MoveChange>}
      * @memberof MoveDetail
      */
-    pastValues: Array<MoveChange>;
+    readonly pastValues: Array<MoveChange>;
     /**
      * 
      * @type {Array<MoveDetailStatChangesInner>}
      * @memberof MoveDetail
      */
-    statChanges: Array<MoveDetailStatChangesInner>;
+    readonly statChanges: Array<MoveDetailStatChangesInner>;
     /**
      * 
      * @type {SuperContestEffectSummary}
@@ -203,19 +203,19 @@ export interface MoveDetail  {
      * @type {Array<MoveDetailMachinesInner>}
      * @memberof MoveDetail
      */
-    machines: Array<MoveDetailMachinesInner>;
+    readonly machines: Array<MoveDetailMachinesInner>;
     /**
      * 
      * @type {Array<MoveFlavorText>}
      * @memberof MoveDetail
      */
-    flavorTextEntries: Array<MoveFlavorText>;
+    readonly flavorTextEntries: Array<MoveFlavorText>;
     /**
      * 
      * @type {Array<AbilityDetailPokemonInnerPokemon>}
      * @memberof MoveDetail
      */
-    learnedByPokemon: Array<AbilityDetailPokemonInnerPokemon>;
+    readonly learnedByPokemon: Array<AbilityDetailPokemonInnerPokemon>;
 }
 
 export function MoveDetailFromJSON(json: any): MoveDetail {
@@ -262,18 +262,10 @@ export function MoveDetailToJSON(value?: MoveDetail): any {
         'contest_type': ContestTypeSummaryToJSON(value.contestType),
         'contest_effect': ContestEffectSummaryToJSON(value.contestEffect),
         'damage_class': MoveDamageClassSummaryToJSON(value.damageClass),
-        'effect_entries': (value.effectEntries as Array<any>).map(MoveChangeEffectEntriesInnerToJSON),
-        'effect_changes': (value.effectChanges as Array<any>).map(MoveDetailEffectChangesInnerToJSON),
         'generation': GenerationSummaryToJSON(value.generation),
-        'names': (value.names as Array<any>).map(MoveNameToJSON),
-        'past_values': (value.pastValues as Array<any>).map(MoveChangeToJSON),
-        'stat_changes': (value.statChanges as Array<any>).map(MoveDetailStatChangesInnerToJSON),
         'super_contest_effect': SuperContestEffectSummaryToJSON(value.superContestEffect),
         'target': MoveTargetSummaryToJSON(value.target),
         'type': TypeSummaryToJSON(value.type),
-        'machines': (value.machines as Array<any>).map(MoveDetailMachinesInnerToJSON),
-        'flavor_text_entries': (value.flavorTextEntries as Array<any>).map(MoveFlavorTextToJSON),
-        'learned_by_pokemon': (value.learnedByPokemon as Array<any>).map(AbilityDetailPokemonInnerPokemonToJSON),
     };
 }
 

@@ -21,7 +21,7 @@
 
 namespace OpenAPI {
 
-OAIEggGroupName::OAIEggGroupName(QString json) {
+OAIEggGroupName::OAIEggGroupName(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -41,7 +41,7 @@ void OAIEggGroupName::initializeModel() {
     m_language_isValid = false;
 }
 
-void OAIEggGroupName::fromJson(QString jsonString) {
+void OAIEggGroupName::fromJson(const QString &jsonString) {
     QByteArray array(jsonString.toStdString().c_str());
     QJsonDocument doc = QJsonDocument::fromJson(array);
     QJsonObject jsonObject = doc.object();

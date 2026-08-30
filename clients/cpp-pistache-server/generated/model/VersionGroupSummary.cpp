@@ -26,6 +26,8 @@ VersionGroupSummary::VersionGroupSummary()
     
 }
 
+VersionGroupSummary::~VersionGroupSummary() = default;
+
 void VersionGroupSummary::validate() const
 {
     std::stringstream msg;

@@ -14,7 +14,7 @@ import org.openapitools.model.VersionGroupSummary;
 /**
  * AbilityChange
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaMSF4JServerCodegen", date = "2026-02-07T15:23:10.683633502Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaMSF4JServerCodegen", date = "2026-08-30T01:55:58.248058654Z[Etc/UTC]", comments = "Generator version: 7.24.0")
 public class AbilityChange   {
   @JsonProperty("version_group")
   private VersionGroupSummary versionGroup;
@@ -40,16 +40,6 @@ public class AbilityChange   {
     this.versionGroup = versionGroup;
   }
 
-  public AbilityChange effectEntries(List<@Valid AbilityChangeEffectText> effectEntries) {
-    this.effectEntries = effectEntries;
-    return this;
-  }
-
-  public AbilityChange addEffectEntriesItem(AbilityChangeEffectText effectEntriesItem) {
-    this.effectEntries.add(effectEntriesItem);
-    return this;
-  }
-
    /**
    * Get effectEntries
    * @return effectEntries
@@ -57,10 +47,6 @@ public class AbilityChange   {
   @ApiModelProperty(required = true, value = "")
   public List<@Valid AbilityChangeEffectText> getEffectEntries() {
     return effectEntries;
-  }
-
-  public void setEffectEntries(List<@Valid AbilityChangeEffectText> effectEntries) {
-    this.effectEntries = effectEntries;
   }
 
 
@@ -98,10 +84,7 @@ public class AbilityChange   {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 }
 

@@ -32,7 +32,7 @@ class  PokemonDexEntry
 {
 public:
     PokemonDexEntry();
-    virtual ~PokemonDexEntry() = default;
+    virtual ~PokemonDexEntry();
 
 
     /// <summary>

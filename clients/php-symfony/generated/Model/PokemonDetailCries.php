@@ -47,7 +47,7 @@ class PokemonDetailCries
      * @var string|null
      * @SerializedName("latest")
      * @Type("string")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Type("string")]
     protected ?string $latest = null;
@@ -56,7 +56,7 @@ class PokemonDetailCries
      * @var string|null
      * @SerializedName("legacy")
      * @Type("string")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Type("string")]
     protected ?string $legacy = null;
@@ -84,12 +84,12 @@ class PokemonDetailCries
     }
 
     /**
-    * Sets latest.
-    *
-    * @param string|null $latest
-    *
-    * @return $this
-    */
+     * Sets latest.
+     *
+     * @param string|null $latest
+     *
+     * @return $this
+     */
     public function setLatest(?string $latest): self
     {
         $this->latest = $latest;
@@ -111,12 +111,12 @@ class PokemonDetailCries
     }
 
     /**
-    * Sets legacy.
-    *
-    * @param string|null $legacy
-    *
-    * @return $this
-    */
+     * Sets legacy.
+     *
+     * @param string|null $legacy
+     *
+     * @return $this
+     */
     public function setLegacy(?string $legacy): self
     {
         $this->legacy = $legacy;

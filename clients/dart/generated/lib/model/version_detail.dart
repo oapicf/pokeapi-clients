@@ -65,10 +65,14 @@ class VersionDetail {
       // Note 1: the values aren't checked for validity beyond being non-null.
       // Note 2: this code is stripped in release mode!
       assert(() {
-        requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "VersionDetail[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "VersionDetail[$key]" has a null value in JSON.');
-        });
+        assert(json.containsKey(r'id'), 'Required key "VersionDetail[id]" is missing from JSON.');
+        assert(json[r'id'] != null, 'Required key "VersionDetail[id]" has a null value in JSON.');
+        assert(json.containsKey(r'name'), 'Required key "VersionDetail[name]" is missing from JSON.');
+        assert(json[r'name'] != null, 'Required key "VersionDetail[name]" has a null value in JSON.');
+        assert(json.containsKey(r'names'), 'Required key "VersionDetail[names]" is missing from JSON.');
+        assert(json[r'names'] != null, 'Required key "VersionDetail[names]" has a null value in JSON.');
+        assert(json.containsKey(r'version_group'), 'Required key "VersionDetail[version_group]" is missing from JSON.');
+        assert(json[r'version_group'] != null, 'Required key "VersionDetail[version_group]" has a null value in JSON.');
         return true;
       }());
 

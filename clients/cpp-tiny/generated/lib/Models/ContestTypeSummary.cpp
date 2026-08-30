@@ -85,7 +85,7 @@ ContestTypeSummary::getName()
 }
 
 void
-ContestTypeSummary::setName(std::string  name)
+ContestTypeSummary::setName(std::string name)
 {
 	this->name = name;
 }
@@ -97,7 +97,7 @@ ContestTypeSummary::getUrl()
 }
 
 void
-ContestTypeSummary::setUrl(std::string  url)
+ContestTypeSummary::setUrl(std::string url)
 {
 	this->url = url;
 }

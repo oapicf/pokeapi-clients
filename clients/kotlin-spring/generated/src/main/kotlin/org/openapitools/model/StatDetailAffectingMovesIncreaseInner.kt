@@ -21,11 +21,13 @@ import io.swagger.v3.oas.annotations.media.Schema
  */
 data class StatDetailAffectingMovesIncreaseInner(
 
-    @Schema(example = "null", required = true, description = "")
+    @Schema(required = true, description = "")
+    @param:JsonProperty("change")
     @get:JsonProperty("change", required = true) val change: kotlin.Int,
 
     @field:Valid
-    @Schema(example = "null", required = true, description = "")
+    @Schema(required = true, description = "")
+    @param:JsonProperty("move")
     @get:JsonProperty("move", required = true) val move: AbilityDetailPokemonInnerPokemon
 ) {
 

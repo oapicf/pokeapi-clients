@@ -17,5 +17,5 @@ export interface PokeathlonStatDetail {
     readonly id: number;
     name: string;
     affecting_natures: PokeathlonStatDetailAffectingNatures;
-    names: Array<PokeathlonStatName>;
+    readonly names: Array<PokeathlonStatName>;
 }

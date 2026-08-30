@@ -16,7 +16,7 @@ import org.openapitools.model.LocationSummary;
 /**
  * LocationAreaDetail
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaMSF4JServerCodegen", date = "2026-02-07T15:23:10.683633502Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaMSF4JServerCodegen", date = "2026-08-30T01:55:58.248058654Z[Etc/UTC]", comments = "Generator version: 7.24.0")
 public class LocationAreaDetail   {
   @JsonProperty("id")
   private Integer id;
@@ -84,16 +84,6 @@ public class LocationAreaDetail   {
     this.gameIndex = gameIndex;
   }
 
-  public LocationAreaDetail encounterMethodRates(List<@Valid LocationAreaDetailEncounterMethodRatesInner> encounterMethodRates) {
-    this.encounterMethodRates = encounterMethodRates;
-    return this;
-  }
-
-  public LocationAreaDetail addEncounterMethodRatesItem(LocationAreaDetailEncounterMethodRatesInner encounterMethodRatesItem) {
-    this.encounterMethodRates.add(encounterMethodRatesItem);
-    return this;
-  }
-
    /**
    * Get encounterMethodRates
    * @return encounterMethodRates
@@ -101,10 +91,6 @@ public class LocationAreaDetail   {
   @ApiModelProperty(required = true, value = "")
   public List<@Valid LocationAreaDetailEncounterMethodRatesInner> getEncounterMethodRates() {
     return encounterMethodRates;
-  }
-
-  public void setEncounterMethodRates(List<@Valid LocationAreaDetailEncounterMethodRatesInner> encounterMethodRates) {
-    this.encounterMethodRates = encounterMethodRates;
   }
 
   public LocationAreaDetail location(LocationSummary location) {
@@ -125,16 +111,6 @@ public class LocationAreaDetail   {
     this.location = location;
   }
 
-  public LocationAreaDetail names(List<@Valid LocationAreaName> names) {
-    this.names = names;
-    return this;
-  }
-
-  public LocationAreaDetail addNamesItem(LocationAreaName namesItem) {
-    this.names.add(namesItem);
-    return this;
-  }
-
    /**
    * Get names
    * @return names
@@ -144,20 +120,6 @@ public class LocationAreaDetail   {
     return names;
   }
 
-  public void setNames(List<@Valid LocationAreaName> names) {
-    this.names = names;
-  }
-
-  public LocationAreaDetail pokemonEncounters(List<@Valid LocationAreaDetailPokemonEncountersInner> pokemonEncounters) {
-    this.pokemonEncounters = pokemonEncounters;
-    return this;
-  }
-
-  public LocationAreaDetail addPokemonEncountersItem(LocationAreaDetailPokemonEncountersInner pokemonEncountersItem) {
-    this.pokemonEncounters.add(pokemonEncountersItem);
-    return this;
-  }
-
    /**
    * Get pokemonEncounters
    * @return pokemonEncounters
@@ -165,10 +127,6 @@ public class LocationAreaDetail   {
   @ApiModelProperty(required = true, value = "")
   public List<@Valid LocationAreaDetailPokemonEncountersInner> getPokemonEncounters() {
     return pokemonEncounters;
-  }
-
-  public void setPokemonEncounters(List<@Valid LocationAreaDetailPokemonEncountersInner> pokemonEncounters) {
-    this.pokemonEncounters = pokemonEncounters;
   }
 
 
@@ -216,10 +174,7 @@ public class LocationAreaDetail   {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 }
 

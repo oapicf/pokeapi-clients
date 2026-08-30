@@ -144,7 +144,7 @@ PaginatedEggGroupSummaryList::getCount()
 }
 
 void
-PaginatedEggGroupSummaryList::setCount(int  count)
+PaginatedEggGroupSummaryList::setCount(int count)
 {
 	this->count = count;
 }
@@ -156,7 +156,7 @@ PaginatedEggGroupSummaryList::getNext()
 }
 
 void
-PaginatedEggGroupSummaryList::setNext(std::string  next)
+PaginatedEggGroupSummaryList::setNext(std::string next)
 {
 	this->next = next;
 }
@@ -168,7 +168,7 @@ PaginatedEggGroupSummaryList::getPrevious()
 }
 
 void
-PaginatedEggGroupSummaryList::setPrevious(std::string  previous)
+PaginatedEggGroupSummaryList::setPrevious(std::string previous)
 {
 	this->previous = previous;
 }
@@ -180,7 +180,7 @@ PaginatedEggGroupSummaryList::getResults()
 }
 
 void
-PaginatedEggGroupSummaryList::setResults(std::list <EggGroupSummary> results)
+PaginatedEggGroupSummaryList::setResults(std::list<EggGroupSummary> results)
 {
 	this->results = results;
 }

@@ -21,7 +21,7 @@
 
 namespace OpenAPI {
 
-OAIEncounterConditionName::OAIEncounterConditionName(QString json) {
+OAIEncounterConditionName::OAIEncounterConditionName(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -41,7 +41,7 @@ void OAIEncounterConditionName::initializeModel() {
     m_language_isValid = false;
 }
 
-void OAIEncounterConditionName::fromJson(QString jsonString) {
+void OAIEncounterConditionName::fromJson(const QString &jsonString) {
     QByteArray array(jsonString.toStdString().c_str());
     QJsonDocument doc = QJsonDocument::fromJson(array);
     QJsonObject jsonObject = doc.object();

@@ -47,7 +47,7 @@ class MoveDetailStatChangesInner
      * @var int|null
      * @SerializedName("change")
      * @Type("int")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Type("int")]
     protected ?int $change = null;
@@ -56,7 +56,7 @@ class MoveDetailStatChangesInner
      * @var AbilityDetailPokemonInnerPokemon|null
      * @SerializedName("stat")
      * @Type("OpenAPI\Server\Model\AbilityDetailPokemonInnerPokemon")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Valid]
     #[Assert\Type("OpenAPI\Server\Model\AbilityDetailPokemonInnerPokemon")]
@@ -85,12 +85,12 @@ class MoveDetailStatChangesInner
     }
 
     /**
-    * Sets change.
-    *
-    * @param int|null $change
-    *
-    * @return $this
-    */
+     * Sets change.
+     *
+     * @param int|null $change
+     *
+     * @return $this
+     */
     public function setChange(?int $change): self
     {
         $this->change = $change;
@@ -112,12 +112,12 @@ class MoveDetailStatChangesInner
     }
 
     /**
-    * Sets stat.
-    *
-    * @param AbilityDetailPokemonInnerPokemon|null $stat
-    *
-    * @return $this
-    */
+     * Sets stat.
+     *
+     * @param AbilityDetailPokemonInnerPokemon|null $stat
+     *
+     * @return $this
+     */
     public function setStat(?AbilityDetailPokemonInnerPokemon $stat): self
     {
         $this->stat = $stat;

@@ -230,19 +230,6 @@ public class PokemonDetail  {
     return abilities;
   }
 
-  public void setAbilities(List<PokemonDetailAbilitiesInner> abilities) {
-    this.abilities = abilities;
-  }
-
-  public PokemonDetail abilities(List<PokemonDetailAbilitiesInner> abilities) {
-    this.abilities = abilities;
-    return this;
-  }
-
-  public PokemonDetail addAbilitiesItem(PokemonDetailAbilitiesInner abilitiesItem) {
-    this.abilities.add(abilitiesItem);
-    return this;
-  }
 
  /**
    * Get pastAbilities
@@ -253,19 +240,6 @@ public class PokemonDetail  {
     return pastAbilities;
   }
 
-  public void setPastAbilities(List<PokemonDetailPastAbilitiesInner> pastAbilities) {
-    this.pastAbilities = pastAbilities;
-  }
-
-  public PokemonDetail pastAbilities(List<PokemonDetailPastAbilitiesInner> pastAbilities) {
-    this.pastAbilities = pastAbilities;
-    return this;
-  }
-
-  public PokemonDetail addPastAbilitiesItem(PokemonDetailPastAbilitiesInner pastAbilitiesItem) {
-    this.pastAbilities.add(pastAbilitiesItem);
-    return this;
-  }
 
  /**
    * Get forms
@@ -276,19 +250,6 @@ public class PokemonDetail  {
     return forms;
   }
 
-  public void setForms(List<PokemonFormSummary> forms) {
-    this.forms = forms;
-  }
-
-  public PokemonDetail forms(List<PokemonFormSummary> forms) {
-    this.forms = forms;
-    return this;
-  }
-
-  public PokemonDetail addFormsItem(PokemonFormSummary formsItem) {
-    this.forms.add(formsItem);
-    return this;
-  }
 
  /**
    * Get gameIndices
@@ -299,19 +260,6 @@ public class PokemonDetail  {
     return gameIndices;
   }
 
-  public void setGameIndices(List<PokemonGameIndex> gameIndices) {
-    this.gameIndices = gameIndices;
-  }
-
-  public PokemonDetail gameIndices(List<PokemonGameIndex> gameIndices) {
-    this.gameIndices = gameIndices;
-    return this;
-  }
-
-  public PokemonDetail addGameIndicesItem(PokemonGameIndex gameIndicesItem) {
-    this.gameIndices.add(gameIndicesItem);
-    return this;
-  }
 
  /**
    * Get heldItems
@@ -350,19 +298,6 @@ public class PokemonDetail  {
     return moves;
   }
 
-  public void setMoves(List<PokemonDetailMovesInner> moves) {
-    this.moves = moves;
-  }
-
-  public PokemonDetail moves(List<PokemonDetailMovesInner> moves) {
-    this.moves = moves;
-    return this;
-  }
-
-  public PokemonDetail addMovesItem(PokemonDetailMovesInner movesItem) {
-    this.moves.add(movesItem);
-    return this;
-  }
 
  /**
    * Get species
@@ -427,19 +362,6 @@ public class PokemonDetail  {
     return stats;
   }
 
-  public void setStats(List<PokemonStat> stats) {
-    this.stats = stats;
-  }
-
-  public PokemonDetail stats(List<PokemonStat> stats) {
-    this.stats = stats;
-    return this;
-  }
-
-  public PokemonDetail addStatsItem(PokemonStat statsItem) {
-    this.stats.add(statsItem);
-    return this;
-  }
 
  /**
    * Get types
@@ -450,19 +372,6 @@ public class PokemonDetail  {
     return types;
   }
 
-  public void setTypes(List<PokemonDetailTypesInner> types) {
-    this.types = types;
-  }
-
-  public PokemonDetail types(List<PokemonDetailTypesInner> types) {
-    this.types = types;
-    return this;
-  }
-
-  public PokemonDetail addTypesItem(PokemonDetailTypesInner typesItem) {
-    this.types.add(typesItem);
-    return this;
-  }
 
  /**
    * Get pastTypes
@@ -473,19 +382,6 @@ public class PokemonDetail  {
     return pastTypes;
   }
 
-  public void setPastTypes(List<PokemonDetailPastTypesInner> pastTypes) {
-    this.pastTypes = pastTypes;
-  }
-
-  public PokemonDetail pastTypes(List<PokemonDetailPastTypesInner> pastTypes) {
-    this.pastTypes = pastTypes;
-    return this;
-  }
-
-  public PokemonDetail addPastTypesItem(PokemonDetailPastTypesInner pastTypesItem) {
-    this.pastTypes.add(pastTypesItem);
-    return this;
-  }
 
   @Override
   public boolean equals(Object o) {
@@ -557,10 +453,7 @@ public class PokemonDetail  {
    * (except the first line).
    */
   private static String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 }
 

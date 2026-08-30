@@ -6,7 +6,7 @@
 
 
 static pokemon_color_detail_t *pokemon_color_detail_create_internal(
-    int id,
+    int *id,
     char *name,
     list_t *names,
     list_t *pokemon_species
@@ -15,27 +15,36 @@ static pokemon_color_detail_t *pokemon_color_detail_create_internal(
     if (!pokemon_color_detail_local_var) {
         return NULL;
     }
+    memset(pokemon_color_detail_local_var, 0, sizeof(pokemon_color_detail_t));
+    pokemon_color_detail_local_var->_library_owned = 1;
     pokemon_color_detail_local_var->id = id;
     pokemon_color_detail_local_var->name = name;
     pokemon_color_detail_local_var->names = names;
     pokemon_color_detail_local_var->pokemon_species = pokemon_species;
-
-    pokemon_color_detail_local_var->_library_owned = 1;
     return pokemon_color_detail_local_var;
 }
 
 __attribute__((deprecated)) pokemon_color_detail_t *pokemon_color_detail_create(
-    int id,
+    int *id,
     char *name,
     list_t *names,
     list_t *pokemon_species
     ) {
-    return pokemon_color_detail_create_internal (
-        id,
+    int *id_copy = NULL;
+    if (id) {
+        id_copy = malloc(sizeof(int));
+        if (id_copy) *id_copy = *id;
+    }
+    pokemon_color_detail_t *result = pokemon_color_detail_create_internal (
+        id_copy,
         name,
         names,
         pokemon_species
         );
+    if (!result) {
+        free(id_copy);
+    }
+    return result;
 }
 
 void pokemon_color_detail_free(pokemon_color_detail_t *pokemon_color_detail) {
@@ -47,6 +56,10 @@ void pokemon_color_detail_free(pokemon_color_detail_t *pokemon_color_detail) {
         return ;
     }
     listEntry_t *listEntry;
+    if (pokemon_color_detail->id) {
+        free(pokemon_color_detail->id);
+        pokemon_color_detail->id = NULL;
+    }
     if (pokemon_color_detail->name) {
         free(pokemon_color_detail->name);
         pokemon_color_detail->name = NULL;
@@ -75,7 +88,7 @@ cJSON *pokemon_color_detail_convertToJSON(pokemon_color_detail_t *pokemon_color_
     if (!pokemon_color_detail->id) {
         goto fail;
     }
-    if(cJSON_AddNumberToObject(item, "id", pokemon_color_detail->id) == NULL) {
+    if(cJSON_AddNumberToObject(item, "id", *pokemon_color_detail->id) == NULL) {
     goto fail; //Numeric
     }
 
@@ -142,6 +155,11 @@ pokemon_color_detail_t *pokemon_color_detail_parseFromJSON(cJSON *pokemon_color_
 
     pokemon_color_detail_t *pokemon_color_detail_local_var = NULL;
 
+    // define the local variable for pokemon_color_detail->id
+    int *id_local_var = NULL;
+
+    char *name_local_str = NULL;
+
     // define the local list for pokemon_color_detail->names
     list_t *namesList = NULL;
 
@@ -162,6 +180,12 @@ pokemon_color_detail_t *pokemon_color_detail_parseFromJSON(cJSON *pokemon_color_
     {
     goto end; //Numeric
     }
+    id_local_var = malloc(sizeof(int));
+    if(!id_local_var)
+    {
+        goto end;
+    }
+    *id_local_var = id->valuedouble;
 
     // pokemon_color_detail->name
     cJSON *name = cJSON_GetObjectItemCaseSensitive(pokemon_color_detailJSON, "name");
@@ -233,15 +257,29 @@ pokemon_color_detail_t *pokemon_color_detail_parseFromJSON(cJSON *pokemon_color_
     }
 
 
+    if (name && !cJSON_IsNull(name)) name_local_str = strdup(name->valuestring);
+
     pokemon_color_detail_local_var = pokemon_color_detail_create_internal (
-        id->valuedouble,
-        strdup(name->valuestring),
+        id_local_var,
+        name_local_str,
         namesList,
         pokemon_speciesList
         );
 
+    if (!pokemon_color_detail_local_var) {
+        goto end;
+    }
+
     return pokemon_color_detail_local_var;
 end:
+    if (id_local_var) {
+        free(id_local_var);
+        id_local_var = NULL;
+    }
+    if (name_local_str) {
+        free(name_local_str);
+        name_local_str = NULL;
+    }
     if (namesList) {
         listEntry_t *listEntry = NULL;
         list_ForEach(listEntry, namesList) {

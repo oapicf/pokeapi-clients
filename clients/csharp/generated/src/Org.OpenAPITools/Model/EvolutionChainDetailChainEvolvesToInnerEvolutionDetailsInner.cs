@@ -53,7 +53,7 @@ namespace Org.OpenAPITools.Model
         /// <param name="trigger">trigger</param>
         /// <param name="turnUpsideDown">turnUpsideDown</param>
         [JsonConstructor]
-        public EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner(EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender gender, EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender heldItem, EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender item, Object knownMove, Object knownMoveType, EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender location, int minAffection, int minBeauty, int minHappiness, int minLevel, bool needsOverworldRain, string partySpecies, string partyType, string relativePhysicalStats, string timeOfDay, string tradeSpecies, AbilityDetailPokemonInnerPokemon trigger, bool turnUpsideDown)
+        public EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner(EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender gender, EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender heldItem, EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender item, EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender knownMove, EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender knownMoveType, EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender location, int minAffection, int minBeauty, int minHappiness, int minLevel, bool needsOverworldRain, string partySpecies, string partyType, string relativePhysicalStats, string timeOfDay, string tradeSpecies, AbilityDetailPokemonInnerPokemon trigger, bool turnUpsideDown)
         {
             Gender = gender;
             HeldItem = heldItem;
@@ -100,13 +100,13 @@ namespace Org.OpenAPITools.Model
         /// Gets or Sets KnownMove
         /// </summary>
         [JsonPropertyName("known_move")]
-        public Object KnownMove { get; set; }
+        public EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender KnownMove { get; set; }
 
         /// <summary>
         /// Gets or Sets KnownMoveType
         /// </summary>
         [JsonPropertyName("known_move_type")]
-        public Object KnownMoveType { get; set; }
+        public EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender KnownMoveType { get; set; }
 
         /// <summary>
         /// Gets or Sets Location
@@ -230,8 +230,18 @@ namespace Org.OpenAPITools.Model
     /// <summary>
     /// A Json converter for type <see cref="EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner" />
     /// </summary>
-    public class EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerJsonConverter : JsonConverter<EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner>
+    public partial class EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerJsonConverter : JsonConverter<EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner>
     {
+        partial void OnCreated();
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerJsonConverter" /> class.
+        /// </summary>
+        public EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerJsonConverter()
+        {
+            OnCreated();
+        }
+
         /// <summary>
         /// Deserializes json to <see cref="EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner" />
         /// </summary>
@@ -252,8 +262,8 @@ namespace Org.OpenAPITools.Model
             Option<EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender?> gender = default;
             Option<EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender?> heldItem = default;
             Option<EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender?> item = default;
-            Option<Object?> knownMove = default;
-            Option<Object?> knownMoveType = default;
+            Option<EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender?> knownMove = default;
+            Option<EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender?> knownMoveType = default;
             Option<EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender?> location = default;
             Option<int?> minAffection = default;
             Option<int?> minBeauty = default;
@@ -293,10 +303,10 @@ namespace Org.OpenAPITools.Model
                             item = new Option<EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender?>(JsonSerializer.Deserialize<EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender>(ref utf8JsonReader, jsonSerializerOptions)!);
                             break;
                         case "known_move":
-                            knownMove = new Option<Object?>(JsonSerializer.Deserialize<Object>(ref utf8JsonReader, jsonSerializerOptions)!);
+                            knownMove = new Option<EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender?>(JsonSerializer.Deserialize<EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender>(ref utf8JsonReader, jsonSerializerOptions)!);
                             break;
                         case "known_move_type":
-                            knownMoveType = new Option<Object?>(JsonSerializer.Deserialize<Object>(ref utf8JsonReader, jsonSerializerOptions)!);
+                            knownMoveType = new Option<EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender?>(JsonSerializer.Deserialize<EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender>(ref utf8JsonReader, jsonSerializerOptions)!);
                             break;
                         case "location":
                             location = new Option<EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender?>(JsonSerializer.Deserialize<EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender>(ref utf8JsonReader, jsonSerializerOptions)!);

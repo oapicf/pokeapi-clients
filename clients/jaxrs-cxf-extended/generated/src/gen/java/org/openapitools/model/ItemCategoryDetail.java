@@ -97,6 +97,7 @@ public class ItemCategoryDetail  {
 
   /**
    * Sets the <code>items</code> property.
+   * <br><em>N.B. <code>items</code> is <b>read only</b>; client code should not call this method</em>.
    */
  public void setItems(List<@Valid ItemSummary> items) {
     this.items = items;
@@ -104,6 +105,7 @@ public class ItemCategoryDetail  {
 
   /**
    * Sets the <code>items</code> property.
+   * <br><em>N.B. <code>items</code> is <b>read only</b>; client code should not call this method</em>.
    */
   public ItemCategoryDetail items(List<@Valid ItemSummary> items) {
     this.items = items;
@@ -112,6 +114,7 @@ public class ItemCategoryDetail  {
 
   /**
    * Adds a new item to the <code>items</code> list.
+   * <br><em>N.B. <code>items</code> is <b>read only</b>; client code should not call this method</em>.
    */
   public ItemCategoryDetail addItemsItem(ItemSummary itemsItem) {
     this.items.add(itemsItem);
@@ -130,6 +133,7 @@ public class ItemCategoryDetail  {
 
   /**
    * Sets the <code>names</code> property.
+   * <br><em>N.B. <code>names</code> is <b>read only</b>; client code should not call this method</em>.
    */
  public void setNames(List<@Valid ItemCategoryName> names) {
     this.names = names;
@@ -137,6 +141,7 @@ public class ItemCategoryDetail  {
 
   /**
    * Sets the <code>names</code> property.
+   * <br><em>N.B. <code>names</code> is <b>read only</b>; client code should not call this method</em>.
    */
   public ItemCategoryDetail names(List<@Valid ItemCategoryName> names) {
     this.names = names;
@@ -145,6 +150,7 @@ public class ItemCategoryDetail  {
 
   /**
    * Adds a new item to the <code>names</code> list.
+   * <br><em>N.B. <code>names</code> is <b>read only</b>; client code should not call this method</em>.
    */
   public ItemCategoryDetail addNamesItem(ItemCategoryName namesItem) {
     this.names.add(namesItem);
@@ -217,10 +223,7 @@ public class ItemCategoryDetail  {
    * (except the first line).
    */
   private static String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 }
 

@@ -13,10 +13,10 @@ static contest_effect_effect_text_t *contest_effect_effect_text_create_internal(
     if (!contest_effect_effect_text_local_var) {
         return NULL;
     }
+    memset(contest_effect_effect_text_local_var, 0, sizeof(contest_effect_effect_text_t));
+    contest_effect_effect_text_local_var->_library_owned = 1;
     contest_effect_effect_text_local_var->effect = effect;
     contest_effect_effect_text_local_var->language = language;
-
-    contest_effect_effect_text_local_var->_library_owned = 1;
     return contest_effect_effect_text_local_var;
 }
 
@@ -24,10 +24,13 @@ __attribute__((deprecated)) contest_effect_effect_text_t *contest_effect_effect_
     char *effect,
     language_summary_t *language
     ) {
-    return contest_effect_effect_text_create_internal (
+    contest_effect_effect_text_t *result = contest_effect_effect_text_create_internal (
         effect,
         language
         );
+    if (!result) {
+    }
+    return result;
 }
 
 void contest_effect_effect_text_free(contest_effect_effect_text_t *contest_effect_effect_text) {
@@ -87,6 +90,8 @@ contest_effect_effect_text_t *contest_effect_effect_text_parseFromJSON(cJSON *co
 
     contest_effect_effect_text_t *contest_effect_effect_text_local_var = NULL;
 
+    char *effect_local_str = NULL;
+
     // define the local variable for contest_effect_effect_text->language
     language_summary_t *language_local_nonprim = NULL;
 
@@ -118,13 +123,23 @@ contest_effect_effect_text_t *contest_effect_effect_text_parseFromJSON(cJSON *co
     language_local_nonprim = language_summary_parseFromJSON(language); //nonprimitive
 
 
+    if (effect && !cJSON_IsNull(effect)) effect_local_str = strdup(effect->valuestring);
+
     contest_effect_effect_text_local_var = contest_effect_effect_text_create_internal (
-        strdup(effect->valuestring),
+        effect_local_str,
         language_local_nonprim
         );
 
+    if (!contest_effect_effect_text_local_var) {
+        goto end;
+    }
+
     return contest_effect_effect_text_local_var;
 end:
+    if (effect_local_str) {
+        free(effect_local_str);
+        effect_local_str = NULL;
+    }
     if (language_local_nonprim) {
         language_summary_free(language_local_nonprim);
         language_local_nonprim = NULL;

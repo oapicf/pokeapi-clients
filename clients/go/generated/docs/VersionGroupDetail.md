@@ -8,10 +8,10 @@ Name | Type | Description | Notes
 **Name** | **string** |  | 
 **Order** | Pointer to **NullableInt32** |  | [optional] 
 **Generation** | [**GenerationSummary**](GenerationSummary.md) |  | 
-**MoveLearnMethods** | [**[]AbilityDetailPokemonInnerPokemon**](AbilityDetailPokemonInnerPokemon.md) |  | 
-**Pokedexes** | [**[]AbilityDetailPokemonInnerPokemon**](AbilityDetailPokemonInnerPokemon.md) |  | 
-**Regions** | [**[]AbilityDetailPokemonInnerPokemon**](AbilityDetailPokemonInnerPokemon.md) |  | 
-**Versions** | [**[]VersionSummary**](VersionSummary.md) |  | 
+**MoveLearnMethods** | [**[]AbilityDetailPokemonInnerPokemon**](AbilityDetailPokemonInnerPokemon.md) |  | [readonly] 
+**Pokedexes** | [**[]AbilityDetailPokemonInnerPokemon**](AbilityDetailPokemonInnerPokemon.md) |  | [readonly] 
+**Regions** | [**[]AbilityDetailPokemonInnerPokemon**](AbilityDetailPokemonInnerPokemon.md) |  | [readonly] 
+**Versions** | [**[]VersionSummary**](VersionSummary.md) |  | [readonly] 
 
 ## Methods
 

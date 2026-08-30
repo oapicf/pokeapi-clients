@@ -21,16 +21,16 @@ typedef struct pokemon_species_detail_pal_park_encounters_inner_t pokemon_specie
 
 typedef struct pokemon_species_detail_pal_park_encounters_inner_t {
     struct ability_detail_pokemon_inner_pokemon_t *area; //model
-    int base_score; //numeric
-    int rate; //numeric
+    int *base_score; //numeric
+    int *rate; //numeric
 
     int _library_owned; // Is the library responsible for freeing this object?
 } pokemon_species_detail_pal_park_encounters_inner_t;
 
 __attribute__((deprecated)) pokemon_species_detail_pal_park_encounters_inner_t *pokemon_species_detail_pal_park_encounters_inner_create(
     ability_detail_pokemon_inner_pokemon_t *area,
-    int base_score,
-    int rate
+    int *base_score,
+    int *rate
 );
 
 void pokemon_species_detail_pal_park_encounters_inner_free(pokemon_species_detail_pal_park_encounters_inner_t *pokemon_species_detail_pal_park_encounters_inner);

@@ -33,13 +33,13 @@ class OAILanguageSummary;
 class OAIAbilityEffectText : public OAIObject {
 public:
     OAIAbilityEffectText();
-    OAIAbilityEffectText(QString json);
+    OAIAbilityEffectText(const QString &json);
     ~OAIAbilityEffectText() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     QString getEffect() const;
     void setEffect(const QString &effect);

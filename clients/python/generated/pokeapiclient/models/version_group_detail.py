@@ -26,6 +26,7 @@ from pokeapiclient.models.generation_summary import GenerationSummary
 from pokeapiclient.models.version_summary import VersionSummary
 from typing import Optional, Set
 from typing_extensions import Self
+from pydantic_core import to_jsonable_python
 
 class VersionGroupDetail(BaseModel):
     """
@@ -42,7 +43,8 @@ class VersionGroupDetail(BaseModel):
     __properties: ClassVar[List[str]] = ["id", "name", "order", "generation", "move_learn_methods", "pokedexes", "regions", "versions"]
 
     model_config = ConfigDict(
-        populate_by_name=True,
+        validate_by_name=True,
+        validate_by_alias=True,
         validate_assignment=True,
         protected_namespaces=(),
     )
@@ -54,8 +56,7 @@ class VersionGroupDetail(BaseModel):
 
     def to_json(self) -> str:
         """Returns the JSON representation of the model using alias"""
-        # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
-        return json.dumps(self.to_dict())
+        return json.dumps(to_jsonable_python(self.to_dict()))
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
@@ -72,9 +73,17 @@ class VersionGroupDetail(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         * OpenAPI `readOnly` fields are excluded.
+        * OpenAPI `readOnly` fields are excluded.
+        * OpenAPI `readOnly` fields are excluded.
+        * OpenAPI `readOnly` fields are excluded.
+        * OpenAPI `readOnly` fields are excluded.
         """
         excluded_fields: Set[str] = set([
             "id",
+            "move_learn_methods",
+            "pokedexes",
+            "regions",
+            "versions",
         ])
 
         _dict = self.model_dump(

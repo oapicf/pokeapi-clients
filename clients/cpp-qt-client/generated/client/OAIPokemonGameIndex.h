@@ -32,13 +32,13 @@ class OAIVersionSummary;
 class OAIPokemonGameIndex : public OAIObject {
 public:
     OAIPokemonGameIndex();
-    OAIPokemonGameIndex(QString json);
+    OAIPokemonGameIndex(const QString &json);
     ~OAIPokemonGameIndex() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     qint32 getGameIndex() const;
     void setGameIndex(const qint32 &game_index);

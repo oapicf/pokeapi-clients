@@ -7,10 +7,10 @@ Name | Type | Description | Notes
 **Id** | **int32** |  | [readonly] 
 **Name** | **string** |  | 
 **GameIndex** | **int32** |  | 
-**EncounterMethodRates** | [**[]LocationAreaDetailEncounterMethodRatesInner**](LocationAreaDetailEncounterMethodRatesInner.md) |  | 
+**EncounterMethodRates** | [**[]LocationAreaDetailEncounterMethodRatesInner**](LocationAreaDetailEncounterMethodRatesInner.md) |  | [readonly] 
 **Location** | [**LocationSummary**](LocationSummary.md) |  | 
-**Names** | [**[]LocationAreaName**](LocationAreaName.md) |  | 
-**PokemonEncounters** | [**[]LocationAreaDetailPokemonEncountersInner**](LocationAreaDetailPokemonEncountersInner.md) |  | 
+**Names** | [**[]LocationAreaName**](LocationAreaName.md) |  | [readonly] 
+**PokemonEncounters** | [**[]LocationAreaDetailPokemonEncountersInner**](LocationAreaDetailPokemonEncountersInner.md) |  | [readonly] 
 
 ## Methods
 

@@ -18,7 +18,7 @@ import org.openapitools.model.VersionGroupSummary;
 /**
  * PokemonFormDetail
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaMSF4JServerCodegen", date = "2026-02-07T15:23:10.683633502Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaMSF4JServerCodegen", date = "2026-08-30T01:55:58.248058654Z[Etc/UTC]", comments = "Generator version: 7.24.0")
 public class PokemonFormDetail   {
   @JsonProperty("id")
   private Integer id;
@@ -251,16 +251,6 @@ public class PokemonFormDetail   {
     this.versionGroup = versionGroup;
   }
 
-  public PokemonFormDetail formNames(List<@Valid PokemonFormDetailFormNamesInner> formNames) {
-    this.formNames = formNames;
-    return this;
-  }
-
-  public PokemonFormDetail addFormNamesItem(PokemonFormDetailFormNamesInner formNamesItem) {
-    this.formNames.add(formNamesItem);
-    return this;
-  }
-
    /**
    * Get formNames
    * @return formNames
@@ -268,20 +258,6 @@ public class PokemonFormDetail   {
   @ApiModelProperty(required = true, value = "")
   public List<@Valid PokemonFormDetailFormNamesInner> getFormNames() {
     return formNames;
-  }
-
-  public void setFormNames(List<@Valid PokemonFormDetailFormNamesInner> formNames) {
-    this.formNames = formNames;
-  }
-
-  public PokemonFormDetail names(List<@Valid PokemonFormDetailFormNamesInner> names) {
-    this.names = names;
-    return this;
-  }
-
-  public PokemonFormDetail addNamesItem(PokemonFormDetailFormNamesInner namesItem) {
-    this.names.add(namesItem);
-    return this;
   }
 
    /**
@@ -293,20 +269,6 @@ public class PokemonFormDetail   {
     return names;
   }
 
-  public void setNames(List<@Valid PokemonFormDetailFormNamesInner> names) {
-    this.names = names;
-  }
-
-  public PokemonFormDetail types(List<@Valid PokemonDetailTypesInner> types) {
-    this.types = types;
-    return this;
-  }
-
-  public PokemonFormDetail addTypesItem(PokemonDetailTypesInner typesItem) {
-    this.types.add(typesItem);
-    return this;
-  }
-
    /**
    * Get types
    * @return types
@@ -314,10 +276,6 @@ public class PokemonFormDetail   {
   @ApiModelProperty(required = true, value = "")
   public List<@Valid PokemonDetailTypesInner> getTypes() {
     return types;
-  }
-
-  public void setTypes(List<@Valid PokemonDetailTypesInner> types) {
-    this.types = types;
   }
 
 
@@ -379,10 +337,7 @@ public class PokemonFormDetail   {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 }
 

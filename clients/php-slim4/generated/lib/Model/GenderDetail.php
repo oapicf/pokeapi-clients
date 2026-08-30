@@ -58,15 +58,19 @@ class GenderDetail extends BaseModel
     },
     "pokemon_species_details" : {
       "type" : "array",
+      "readOnly" : true,
       "items" : {
         "$ref" : "#/components/schemas/GenderDetail_pokemon_species_details_inner"
-      }
+      },
+      "default" : null
     },
     "required_for_evolution" : {
       "type" : "array",
+      "readOnly" : true,
       "items" : {
         "$ref" : "#/components/schemas/AbilityDetail_pokemon_inner_pokemon"
-      }
+      },
+      "default" : null
     }
   }
 }

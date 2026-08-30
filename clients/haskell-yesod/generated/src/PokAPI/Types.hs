@@ -1507,8 +1507,8 @@ data EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner = EvolutionCha
   { evolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender :: EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender -- ^ 
   , evolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerHeldUnderscoreitem :: EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender -- ^ 
   , evolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerItem :: EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender -- ^ 
-  , evolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerKnownUnderscoremove :: Object -- ^ 
-  , evolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerKnownUnderscoremoveUnderscoretype :: Object -- ^ 
+  , evolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerKnownUnderscoremove :: EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender -- ^ 
+  , evolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerKnownUnderscoremoveUnderscoretype :: EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender -- ^ 
   , evolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerLocation :: EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender -- ^ 
   , evolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerMinUnderscoreaffection :: Int -- ^ 
   , evolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerMinUnderscorebeauty :: Int -- ^ 

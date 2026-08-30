@@ -162,21 +162,21 @@ function Initialize-ItemDetail {
 
 
         $PSO = [PSCustomObject]@{
-            "id" = ${Id}
-            "name" = ${Name}
-            "cost" = ${Cost}
-            "fling_power" = ${FlingPower}
-            "fling_effect" = ${FlingEffect}
-            "attributes" = ${Attributes}
-            "category" = ${Category}
-            "effect_entries" = ${EffectEntries}
-            "flavor_text_entries" = ${FlavorTextEntries}
-            "game_indices" = ${GameIndices}
-            "names" = ${Names}
-            "held_by_pokemon" = ${HeldByPokemon}
-            "sprites" = ${Sprites}
-            "baby_trigger_for" = ${BabyTriggerFor}
-            "machines" = ${Machines}
+            'id' = ${Id}
+            'name' = ${Name}
+            'cost' = ${Cost}
+            'fling_power' = ${FlingPower}
+            'fling_effect' = ${FlingEffect}
+            'attributes' = ${Attributes}
+            'category' = ${Category}
+            'effect_entries' = ${EffectEntries}
+            'flavor_text_entries' = ${FlavorTextEntries}
+            'game_indices' = ${GameIndices}
+            'names' = ${Names}
+            'held_by_pokemon' = ${HeldByPokemon}
+            'sprites' = ${Sprites}
+            'baby_trigger_for' = ${BabyTriggerFor}
+            'machines' = ${Machines}
         }
 
 
@@ -214,7 +214,7 @@ function ConvertFrom-JsonToItemDetail {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in ItemDetail
-        $AllProperties = ("id", "name", "cost", "fling_power", "fling_effect", "attributes", "category", "effect_entries", "flavor_text_entries", "game_indices", "names", "held_by_pokemon", "sprites", "baby_trigger_for", "machines")
+        $AllProperties = ('id', 'name', 'cost', 'fling_power', 'fling_effect', 'attributes', 'category', 'effect_entries', 'flavor_text_entries', 'game_indices', 'names', 'held_by_pokemon', 'sprites', 'baby_trigger_for', 'machines')
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -225,112 +225,112 @@ function ConvertFrom-JsonToItemDetail {
             throw "Error! Empty JSON cannot be serialized due to the required property 'id' missing."
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "id"))) {
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'id'))) {
             throw "Error! JSON cannot be serialized due to the required property 'id' missing."
         } else {
-            $Id = $JsonParameters.PSobject.Properties["id"].value
+            $Id = $JsonParameters.PSobject.Properties['id'].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "name"))) {
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'name'))) {
             throw "Error! JSON cannot be serialized due to the required property 'name' missing."
         } else {
-            $Name = $JsonParameters.PSobject.Properties["name"].value
+            $Name = $JsonParameters.PSobject.Properties['name'].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "fling_effect"))) {
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'fling_effect'))) {
             throw "Error! JSON cannot be serialized due to the required property 'fling_effect' missing."
         } else {
-            $FlingEffect = $JsonParameters.PSobject.Properties["fling_effect"].value
+            $FlingEffect = $JsonParameters.PSobject.Properties['fling_effect'].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "attributes"))) {
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'attributes'))) {
             throw "Error! JSON cannot be serialized due to the required property 'attributes' missing."
         } else {
-            $Attributes = $JsonParameters.PSobject.Properties["attributes"].value
+            $Attributes = $JsonParameters.PSobject.Properties['attributes'].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "category"))) {
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'category'))) {
             throw "Error! JSON cannot be serialized due to the required property 'category' missing."
         } else {
-            $Category = $JsonParameters.PSobject.Properties["category"].value
+            $Category = $JsonParameters.PSobject.Properties['category'].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "effect_entries"))) {
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'effect_entries'))) {
             throw "Error! JSON cannot be serialized due to the required property 'effect_entries' missing."
         } else {
-            $EffectEntries = $JsonParameters.PSobject.Properties["effect_entries"].value
+            $EffectEntries = $JsonParameters.PSobject.Properties['effect_entries'].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "flavor_text_entries"))) {
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'flavor_text_entries'))) {
             throw "Error! JSON cannot be serialized due to the required property 'flavor_text_entries' missing."
         } else {
-            $FlavorTextEntries = $JsonParameters.PSobject.Properties["flavor_text_entries"].value
+            $FlavorTextEntries = $JsonParameters.PSobject.Properties['flavor_text_entries'].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "game_indices"))) {
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'game_indices'))) {
             throw "Error! JSON cannot be serialized due to the required property 'game_indices' missing."
         } else {
-            $GameIndices = $JsonParameters.PSobject.Properties["game_indices"].value
+            $GameIndices = $JsonParameters.PSobject.Properties['game_indices'].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "names"))) {
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'names'))) {
             throw "Error! JSON cannot be serialized due to the required property 'names' missing."
         } else {
-            $Names = $JsonParameters.PSobject.Properties["names"].value
+            $Names = $JsonParameters.PSobject.Properties['names'].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "held_by_pokemon"))) {
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'held_by_pokemon'))) {
             throw "Error! JSON cannot be serialized due to the required property 'held_by_pokemon' missing."
         } else {
-            $HeldByPokemon = $JsonParameters.PSobject.Properties["held_by_pokemon"].value
+            $HeldByPokemon = $JsonParameters.PSobject.Properties['held_by_pokemon'].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "sprites"))) {
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'sprites'))) {
             throw "Error! JSON cannot be serialized due to the required property 'sprites' missing."
         } else {
-            $Sprites = $JsonParameters.PSobject.Properties["sprites"].value
+            $Sprites = $JsonParameters.PSobject.Properties['sprites'].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "baby_trigger_for"))) {
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'baby_trigger_for'))) {
             throw "Error! JSON cannot be serialized due to the required property 'baby_trigger_for' missing."
         } else {
-            $BabyTriggerFor = $JsonParameters.PSobject.Properties["baby_trigger_for"].value
+            $BabyTriggerFor = $JsonParameters.PSobject.Properties['baby_trigger_for'].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "machines"))) {
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'machines'))) {
             throw "Error! JSON cannot be serialized due to the required property 'machines' missing."
         } else {
-            $Machines = $JsonParameters.PSobject.Properties["machines"].value
+            $Machines = $JsonParameters.PSobject.Properties['machines'].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "cost"))) { #optional property not found
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'cost'))) { #optional property not found
             $Cost = $null
         } else {
-            $Cost = $JsonParameters.PSobject.Properties["cost"].value
+            $Cost = $JsonParameters.PSobject.Properties['cost'].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "fling_power"))) { #optional property not found
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'fling_power'))) { #optional property not found
             $FlingPower = $null
         } else {
-            $FlingPower = $JsonParameters.PSobject.Properties["fling_power"].value
+            $FlingPower = $JsonParameters.PSobject.Properties['fling_power'].value
         }
 
         $PSO = [PSCustomObject]@{
-            "id" = ${Id}
-            "name" = ${Name}
-            "cost" = ${Cost}
-            "fling_power" = ${FlingPower}
-            "fling_effect" = ${FlingEffect}
-            "attributes" = ${Attributes}
-            "category" = ${Category}
-            "effect_entries" = ${EffectEntries}
-            "flavor_text_entries" = ${FlavorTextEntries}
-            "game_indices" = ${GameIndices}
-            "names" = ${Names}
-            "held_by_pokemon" = ${HeldByPokemon}
-            "sprites" = ${Sprites}
-            "baby_trigger_for" = ${BabyTriggerFor}
-            "machines" = ${Machines}
+            'id' = ${Id}
+            'name' = ${Name}
+            'cost' = ${Cost}
+            'fling_power' = ${FlingPower}
+            'fling_effect' = ${FlingEffect}
+            'attributes' = ${Attributes}
+            'category' = ${Category}
+            'effect_entries' = ${EffectEntries}
+            'flavor_text_entries' = ${FlavorTextEntries}
+            'game_indices' = ${GameIndices}
+            'names' = ${Names}
+            'held_by_pokemon' = ${HeldByPokemon}
+            'sprites' = ${Sprites}
+            'baby_trigger_for' = ${BabyTriggerFor}
+            'machines' = ${Machines}
         }
 
         return $PSO

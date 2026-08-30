@@ -54,14 +54,14 @@ public:
 
 	/*! \brief Set 
 	 */
-	void setVersionGroup(VersionGroupSummary  version_group);
+	void setVersionGroup(VersionGroupSummary version_group);
 	/*! \brief Get 
 	 */
 	std::list<AbilityChangeEffectText> getEffectEntries();
 
 	/*! \brief Set 
 	 */
-	void setEffectEntries(std::list <AbilityChangeEffectText> effect_entries);
+	void setEffectEntries(std::list<AbilityChangeEffectText> effect_entries);
 
 
     private:

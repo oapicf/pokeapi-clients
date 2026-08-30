@@ -35,10 +35,10 @@ export interface PalParkAreaDetail {
      * @type {Array<PalParkAreaName>}
      * @memberof PalParkAreaDetail
      */
-    names: Array<PalParkAreaName>;
+    readonly names: Array<PalParkAreaName>;
     /**
      * @type {Array<PalParkAreaDetailPokemonEncountersInner>}
      * @memberof PalParkAreaDetail
      */
-    pokemon_encounters: Array<PalParkAreaDetailPokemonEncountersInner>;
+    readonly pokemon_encounters: Array<PalParkAreaDetailPokemonEncountersInner>;
 }

@@ -59,11 +59,9 @@ import org.openapitools.server.models.StatDetail
 import org.openapitools.server.models.TypeDetail
 
 fun Route.PokemonApi() {
-    val empty = mutableMapOf<String, Any?>()
-
     authenticate("basicAuth") {
     authenticate("cookieAuth") {
-    get<Paths.abilityList> {
+    get<Paths.abilityList> { abilityList ->
         val principal = call.authentication.principal<UserIdPrincipal>()
         
         
@@ -72,9 +70,9 @@ fun Route.PokemonApi() {
         
         val exampleContentType = "application/json"
             val exampleContentString = """{
+              "count" : 123,
               "next" : "http://api.example.org/accounts/?offset=400&limit=100",
               "previous" : "http://api.example.org/accounts/?offset=200&limit=100",
-              "count" : 123,
               "results" : [ {
                 "name" : "name",
                 "url" : "https://openapi-generator.tech"
@@ -92,10 +90,9 @@ fun Route.PokemonApi() {
         
     }
     }
-
     authenticate("basicAuth") {
     authenticate("cookieAuth") {
-    get<Paths.abilityRetrieve> {
+    get<Paths.abilityRetrieve> { abilityRetrieve ->
         val principal = call.authentication.principal<UserIdPrincipal>()
         
         
@@ -104,26 +101,13 @@ fun Route.PokemonApi() {
         
         val exampleContentType = "application/json"
             val exampleContentString = """{
+              "id" : 0,
+              "name" : "name",
               "is_main_series" : true,
               "generation" : {
                 "name" : "name",
                 "url" : "https://openapi-generator.tech"
               },
-              "effect_entries" : [ {
-                "short_effect" : "short_effect",
-                "effect" : "effect",
-                "language" : {
-                  "name" : "name",
-                  "url" : "https://openapi-generator.tech"
-                }
-              }, {
-                "short_effect" : "short_effect",
-                "effect" : "effect",
-                "language" : {
-                  "name" : "name",
-                  "url" : "https://openapi-generator.tech"
-                }
-              } ],
               "names" : [ {
                 "name" : "name",
                 "language" : {
@@ -137,45 +121,26 @@ fun Route.PokemonApi() {
                   "url" : "https://openapi-generator.tech"
                 }
               } ],
-              "pokemon" : [ {
-                "pokemon" : {
-                  "name" : "name",
-                  "url" : "https://openapi-generator.tech"
-                },
-                "is_hidden" : true,
-                "slot" : 6
-              }, {
-                "pokemon" : {
-                  "name" : "name",
-                  "url" : "https://openapi-generator.tech"
-                },
-                "is_hidden" : true,
-                "slot" : 6
-              } ],
-              "flavor_text_entries" : [ {
-                "version_group" : {
-                  "name" : "name",
-                  "url" : "https://openapi-generator.tech"
-                },
+              "effect_entries" : [ {
+                "effect" : "effect",
+                "short_effect" : "short_effect",
                 "language" : {
                   "name" : "name",
                   "url" : "https://openapi-generator.tech"
-                },
-                "flavor_text" : "flavor_text"
+                }
               }, {
-                "version_group" : {
-                  "name" : "name",
-                  "url" : "https://openapi-generator.tech"
-                },
+                "effect" : "effect",
+                "short_effect" : "short_effect",
                 "language" : {
                   "name" : "name",
                   "url" : "https://openapi-generator.tech"
-                },
-                "flavor_text" : "flavor_text"
+                }
               } ],
-              "name" : "name",
-              "id" : 0,
               "effect_changes" : [ {
+                "version_group" : {
+                  "name" : "name",
+                  "url" : "https://openapi-generator.tech"
+                },
                 "effect_entries" : [ {
                   "effect" : "effect",
                   "language" : {
@@ -188,26 +153,58 @@ fun Route.PokemonApi() {
                     "name" : "name",
                     "url" : "https://openapi-generator.tech"
                   }
-                } ],
+                } ]
+              }, {
+                "version_group" : {
+                  "name" : "name",
+                  "url" : "https://openapi-generator.tech"
+                },
+                "effect_entries" : [ {
+                  "effect" : "effect",
+                  "language" : {
+                    "name" : "name",
+                    "url" : "https://openapi-generator.tech"
+                  }
+                }, {
+                  "effect" : "effect",
+                  "language" : {
+                    "name" : "name",
+                    "url" : "https://openapi-generator.tech"
+                  }
+                } ]
+              } ],
+              "flavor_text_entries" : [ {
+                "flavor_text" : "flavor_text",
+                "language" : {
+                  "name" : "name",
+                  "url" : "https://openapi-generator.tech"
+                },
                 "version_group" : {
                   "name" : "name",
                   "url" : "https://openapi-generator.tech"
                 }
               }, {
-                "effect_entries" : [ {
-                  "effect" : "effect",
-                  "language" : {
-                    "name" : "name",
-                    "url" : "https://openapi-generator.tech"
-                  }
-                }, {
-                  "effect" : "effect",
-                  "language" : {
-                    "name" : "name",
-                    "url" : "https://openapi-generator.tech"
-                  }
-                } ],
+                "flavor_text" : "flavor_text",
+                "language" : {
+                  "name" : "name",
+                  "url" : "https://openapi-generator.tech"
+                },
                 "version_group" : {
+                  "name" : "name",
+                  "url" : "https://openapi-generator.tech"
+                }
+              } ],
+              "pokemon" : [ {
+                "is_hidden" : true,
+                "slot" : 6,
+                "pokemon" : {
+                  "name" : "name",
+                  "url" : "https://openapi-generator.tech"
+                }
+              }, {
+                "is_hidden" : true,
+                "slot" : 6,
+                "pokemon" : {
                   "name" : "name",
                   "url" : "https://openapi-generator.tech"
                 }
@@ -222,10 +219,9 @@ fun Route.PokemonApi() {
         
     }
     }
-
     authenticate("basicAuth") {
     authenticate("cookieAuth") {
-    get<Paths.characteristicList> {
+    get<Paths.characteristicList> { characteristicList ->
         val principal = call.authentication.principal<UserIdPrincipal>()
         
         
@@ -234,9 +230,9 @@ fun Route.PokemonApi() {
         
         val exampleContentType = "application/json"
             val exampleContentString = """{
+              "count" : 123,
               "next" : "http://api.example.org/accounts/?offset=400&limit=100",
               "previous" : "http://api.example.org/accounts/?offset=200&limit=100",
-              "count" : 123,
               "results" : [ {
                 "url" : "https://openapi-generator.tech"
               }, {
@@ -252,10 +248,9 @@ fun Route.PokemonApi() {
         
     }
     }
-
     authenticate("basicAuth") {
     authenticate("cookieAuth") {
-    get<Paths.characteristicRetrieve> {
+    get<Paths.characteristicRetrieve> { characteristicRetrieve ->
         val principal = call.authentication.principal<UserIdPrincipal>()
         
         
@@ -264,13 +259,13 @@ fun Route.PokemonApi() {
         
         val exampleContentType = "application/json"
             val exampleContentString = """{
+              "id" : 0,
               "gene_modulo" : 6,
               "possible_values" : [ 1, 1 ],
               "highest_stat" : {
                 "name" : "name",
                 "url" : "https://openapi-generator.tech"
               },
-              "id" : 0,
               "descriptions" : [ {
                 "description" : "description",
                 "language" : {
@@ -294,10 +289,9 @@ fun Route.PokemonApi() {
         
     }
     }
-
     authenticate("basicAuth") {
     authenticate("cookieAuth") {
-    get<Paths.eggGroupList> {
+    get<Paths.eggGroupList> { eggGroupList ->
         val principal = call.authentication.principal<UserIdPrincipal>()
         
         
@@ -306,9 +300,9 @@ fun Route.PokemonApi() {
         
         val exampleContentType = "application/json"
             val exampleContentString = """{
+              "count" : 123,
               "next" : "http://api.example.org/accounts/?offset=400&limit=100",
               "previous" : "http://api.example.org/accounts/?offset=200&limit=100",
-              "count" : 123,
               "results" : [ {
                 "name" : "name",
                 "url" : "https://openapi-generator.tech"
@@ -326,10 +320,9 @@ fun Route.PokemonApi() {
         
     }
     }
-
     authenticate("basicAuth") {
     authenticate("cookieAuth") {
-    get<Paths.eggGroupRetrieve> {
+    get<Paths.eggGroupRetrieve> { eggGroupRetrieve ->
         val principal = call.authentication.principal<UserIdPrincipal>()
         
         
@@ -338,6 +331,8 @@ fun Route.PokemonApi() {
         
         val exampleContentType = "application/json"
             val exampleContentString = """{
+              "id" : 0,
+              "name" : "name",
               "names" : [ {
                 "name" : "name",
                 "language" : {
@@ -351,8 +346,6 @@ fun Route.PokemonApi() {
                   "url" : "https://openapi-generator.tech"
                 }
               } ],
-              "name" : "name",
-              "id" : 0,
               "pokemon_species" : [ {
                 "name" : "name",
                 "url" : "https://openapi-generator.tech"
@@ -370,10 +363,9 @@ fun Route.PokemonApi() {
         
     }
     }
-
     authenticate("basicAuth") {
     authenticate("cookieAuth") {
-    get<Paths.genderList> {
+    get<Paths.genderList> { genderList ->
         val principal = call.authentication.principal<UserIdPrincipal>()
         
         
@@ -382,9 +374,9 @@ fun Route.PokemonApi() {
         
         val exampleContentType = "application/json"
             val exampleContentString = """{
+              "count" : 123,
               "next" : "http://api.example.org/accounts/?offset=400&limit=100",
               "previous" : "http://api.example.org/accounts/?offset=200&limit=100",
-              "count" : 123,
               "results" : [ {
                 "name" : "name",
                 "url" : "https://openapi-generator.tech"
@@ -402,10 +394,9 @@ fun Route.PokemonApi() {
         
     }
     }
-
     authenticate("basicAuth") {
     authenticate("cookieAuth") {
-    get<Paths.genderRetrieve> {
+    get<Paths.genderRetrieve> { genderRetrieve ->
         val principal = call.authentication.principal<UserIdPrincipal>()
         
         
@@ -414,15 +405,8 @@ fun Route.PokemonApi() {
         
         val exampleContentType = "application/json"
             val exampleContentString = """{
-              "required_for_evolution" : [ {
-                "name" : "name",
-                "url" : "https://openapi-generator.tech"
-              }, {
-                "name" : "name",
-                "url" : "https://openapi-generator.tech"
-              } ],
-              "name" : "name",
               "id" : 0,
+              "name" : "name",
               "pokemon_species_details" : [ {
                 "rate" : 6,
                 "pokemon_species" : {
@@ -435,6 +419,13 @@ fun Route.PokemonApi() {
                   "name" : "name",
                   "url" : "https://openapi-generator.tech"
                 }
+              } ],
+              "required_for_evolution" : [ {
+                "name" : "name",
+                "url" : "https://openapi-generator.tech"
+              }, {
+                "name" : "name",
+                "url" : "https://openapi-generator.tech"
               } ]
             }"""
             
@@ -446,10 +437,9 @@ fun Route.PokemonApi() {
         
     }
     }
-
     authenticate("basicAuth") {
     authenticate("cookieAuth") {
-    get<Paths.growthRateList> {
+    get<Paths.growthRateList> { growthRateList ->
         val principal = call.authentication.principal<UserIdPrincipal>()
         
         
@@ -458,9 +448,9 @@ fun Route.PokemonApi() {
         
         val exampleContentType = "application/json"
             val exampleContentString = """{
+              "count" : 123,
               "next" : "http://api.example.org/accounts/?offset=400&limit=100",
               "previous" : "http://api.example.org/accounts/?offset=200&limit=100",
-              "count" : 123,
               "results" : [ {
                 "name" : "name",
                 "url" : "https://openapi-generator.tech"
@@ -478,10 +468,9 @@ fun Route.PokemonApi() {
         
     }
     }
-
     authenticate("basicAuth") {
     authenticate("cookieAuth") {
-    get<Paths.growthRateRetrieve> {
+    get<Paths.growthRateRetrieve> { growthRateRetrieve ->
         val principal = call.authentication.principal<UserIdPrincipal>()
         
         
@@ -490,16 +479,9 @@ fun Route.PokemonApi() {
         
         val exampleContentType = "application/json"
             val exampleContentString = """{
+              "id" : 0,
               "name" : "name",
               "formula" : "formula",
-              "id" : 0,
-              "pokemon_species" : [ {
-                "name" : "name",
-                "url" : "https://openapi-generator.tech"
-              }, {
-                "name" : "name",
-                "url" : "https://openapi-generator.tech"
-              } ],
               "descriptions" : [ {
                 "description" : "description",
                 "language" : {
@@ -519,6 +501,13 @@ fun Route.PokemonApi() {
               }, {
                 "level" : 6,
                 "experience" : 1
+              } ],
+              "pokemon_species" : [ {
+                "name" : "name",
+                "url" : "https://openapi-generator.tech"
+              }, {
+                "name" : "name",
+                "url" : "https://openapi-generator.tech"
               } ]
             }"""
             
@@ -530,10 +519,9 @@ fun Route.PokemonApi() {
         
     }
     }
-
     authenticate("basicAuth") {
     authenticate("cookieAuth") {
-    get<Paths.moveDamageClassList> {
+    get<Paths.moveDamageClassList> { moveDamageClassList ->
         val principal = call.authentication.principal<UserIdPrincipal>()
         
         
@@ -542,9 +530,9 @@ fun Route.PokemonApi() {
         
         val exampleContentType = "application/json"
             val exampleContentString = """{
+              "count" : 123,
               "next" : "http://api.example.org/accounts/?offset=400&limit=100",
               "previous" : "http://api.example.org/accounts/?offset=200&limit=100",
-              "count" : 123,
               "results" : [ {
                 "name" : "name",
                 "url" : "https://openapi-generator.tech"
@@ -562,10 +550,9 @@ fun Route.PokemonApi() {
         
     }
     }
-
     authenticate("basicAuth") {
     authenticate("cookieAuth") {
-    get<Paths.moveDamageClassRetrieve> {
+    get<Paths.moveDamageClassRetrieve> { moveDamageClassRetrieve ->
         val principal = call.authentication.principal<UserIdPrincipal>()
         
         
@@ -574,28 +561,8 @@ fun Route.PokemonApi() {
         
         val exampleContentType = "application/json"
             val exampleContentString = """{
-              "names" : [ {
-                "name" : "name",
-                "language" : {
-                  "name" : "name",
-                  "url" : "https://openapi-generator.tech"
-                }
-              }, {
-                "name" : "name",
-                "language" : {
-                  "name" : "name",
-                  "url" : "https://openapi-generator.tech"
-                }
-              } ],
-              "moves" : [ {
-                "name" : "name",
-                "url" : "https://openapi-generator.tech"
-              }, {
-                "name" : "name",
-                "url" : "https://openapi-generator.tech"
-              } ],
-              "name" : "name",
               "id" : 0,
+              "name" : "name",
               "descriptions" : [ {
                 "description" : "description",
                 "language" : {
@@ -608,6 +575,26 @@ fun Route.PokemonApi() {
                   "name" : "name",
                   "url" : "https://openapi-generator.tech"
                 }
+              } ],
+              "moves" : [ {
+                "name" : "name",
+                "url" : "https://openapi-generator.tech"
+              }, {
+                "name" : "name",
+                "url" : "https://openapi-generator.tech"
+              } ],
+              "names" : [ {
+                "name" : "name",
+                "language" : {
+                  "name" : "name",
+                  "url" : "https://openapi-generator.tech"
+                }
+              }, {
+                "name" : "name",
+                "language" : {
+                  "name" : "name",
+                  "url" : "https://openapi-generator.tech"
+                }
               } ]
             }"""
             
@@ -619,10 +606,9 @@ fun Route.PokemonApi() {
         
     }
     }
-
     authenticate("basicAuth") {
     authenticate("cookieAuth") {
-    get<Paths.natureList> {
+    get<Paths.natureList> { natureList ->
         val principal = call.authentication.principal<UserIdPrincipal>()
         
         
@@ -631,9 +617,9 @@ fun Route.PokemonApi() {
         
         val exampleContentType = "application/json"
             val exampleContentString = """{
+              "count" : 123,
               "next" : "http://api.example.org/accounts/?offset=400&limit=100",
               "previous" : "http://api.example.org/accounts/?offset=200&limit=100",
-              "count" : 123,
               "results" : [ {
                 "name" : "name",
                 "url" : "https://openapi-generator.tech"
@@ -651,10 +637,9 @@ fun Route.PokemonApi() {
         
     }
     }
-
     authenticate("basicAuth") {
     authenticate("cookieAuth") {
-    get<Paths.natureRetrieve> {
+    get<Paths.natureRetrieve> { natureRetrieve ->
         val principal = call.authentication.principal<UserIdPrincipal>()
         
         
@@ -663,18 +648,43 @@ fun Route.PokemonApi() {
         
         val exampleContentType = "application/json"
             val exampleContentString = """{
-              "pokeathlon_stat_changes" : [ {
-                "pokeathlon_stat" : {
-                  "name" : "name",
-                  "url" : "https://openapi-generator.tech"
-                },
-                "max_change" : 6
+              "id" : 0,
+              "name" : "name",
+              "decreased_stat" : {
+                "name" : "name",
+                "url" : "https://openapi-generator.tech"
+              },
+              "increased_stat" : {
+                "name" : "name",
+                "url" : "https://openapi-generator.tech"
+              },
+              "likes_flavor" : {
+                "name" : "name",
+                "url" : "https://openapi-generator.tech"
+              },
+              "hates_flavor" : {
+                "name" : "name",
+                "url" : "https://openapi-generator.tech"
+              },
+              "berries" : [ {
+                "name" : "name",
+                "url" : "https://openapi-generator.tech"
               }, {
+                "name" : "name",
+                "url" : "https://openapi-generator.tech"
+              } ],
+              "pokeathlon_stat_changes" : [ {
+                "max_change" : 6,
                 "pokeathlon_stat" : {
                   "name" : "name",
                   "url" : "https://openapi-generator.tech"
-                },
-                "max_change" : 6
+                }
+              }, {
+                "max_change" : 6,
+                "pokeathlon_stat" : {
+                  "name" : "name",
+                  "url" : "https://openapi-generator.tech"
+                }
               } ],
               "move_battle_style_preferences" : [ {
                 "low_hp_preference" : 1,
@@ -703,31 +713,6 @@ fun Route.PokemonApi() {
                   "name" : "name",
                   "url" : "https://openapi-generator.tech"
                 }
-              } ],
-              "decreased_stat" : {
-                "name" : "name",
-                "url" : "https://openapi-generator.tech"
-              },
-              "likes_flavor" : {
-                "name" : "name",
-                "url" : "https://openapi-generator.tech"
-              },
-              "name" : "name",
-              "increased_stat" : {
-                "name" : "name",
-                "url" : "https://openapi-generator.tech"
-              },
-              "id" : 0,
-              "hates_flavor" : {
-                "name" : "name",
-                "url" : "https://openapi-generator.tech"
-              },
-              "berries" : [ {
-                "name" : "name",
-                "url" : "https://openapi-generator.tech"
-              }, {
-                "name" : "name",
-                "url" : "https://openapi-generator.tech"
               } ]
             }"""
             
@@ -739,10 +724,9 @@ fun Route.PokemonApi() {
         
     }
     }
-
     authenticate("basicAuth") {
     authenticate("cookieAuth") {
-    get<Paths.pokeathlonStatList> {
+    get<Paths.pokeathlonStatList> { pokeathlonStatList ->
         val principal = call.authentication.principal<UserIdPrincipal>()
         
         
@@ -751,9 +735,9 @@ fun Route.PokemonApi() {
         
         val exampleContentType = "application/json"
             val exampleContentString = """{
+              "count" : 123,
               "next" : "http://api.example.org/accounts/?offset=400&limit=100",
               "previous" : "http://api.example.org/accounts/?offset=200&limit=100",
-              "count" : 123,
               "results" : [ {
                 "name" : "name",
                 "url" : "https://openapi-generator.tech"
@@ -771,10 +755,9 @@ fun Route.PokemonApi() {
         
     }
     }
-
     authenticate("basicAuth") {
     authenticate("cookieAuth") {
-    get<Paths.pokeathlonStatRetrieve> {
+    get<Paths.pokeathlonStatRetrieve> { pokeathlonStatRetrieve ->
         val principal = call.authentication.principal<UserIdPrincipal>()
         
         
@@ -783,49 +766,49 @@ fun Route.PokemonApi() {
         
         val exampleContentType = "application/json"
             val exampleContentString = """{
-              "names" : [ {
-                "name" : "name",
-                "language" : {
-                  "name" : "name",
-                  "url" : "https://openapi-generator.tech"
-                }
-              }, {
-                "name" : "name",
-                "language" : {
-                  "name" : "name",
-                  "url" : "https://openapi-generator.tech"
-                }
-              } ],
-              "name" : "name",
               "id" : 0,
+              "name" : "name",
               "affecting_natures" : {
-                "increase" : [ {
-                  "nature" : {
-                    "name" : "name",
-                    "url" : "https://openapi-generator.tech"
-                  },
-                  "max_change" : 1
-                }, {
-                  "nature" : {
-                    "name" : "name",
-                    "url" : "https://openapi-generator.tech"
-                  },
-                  "max_change" : 1
-                } ],
                 "decrease" : [ {
+                  "max_change" : 0,
                   "nature" : {
                     "name" : "name",
                     "url" : "https://openapi-generator.tech"
-                  },
-                  "max_change" : 0
+                  }
                 }, {
+                  "max_change" : 0,
                   "nature" : {
                     "name" : "name",
                     "url" : "https://openapi-generator.tech"
-                  },
-                  "max_change" : 0
+                  }
+                } ],
+                "increase" : [ {
+                  "max_change" : 1,
+                  "nature" : {
+                    "name" : "name",
+                    "url" : "https://openapi-generator.tech"
+                  }
+                }, {
+                  "max_change" : 1,
+                  "nature" : {
+                    "name" : "name",
+                    "url" : "https://openapi-generator.tech"
+                  }
                 } ]
-              }
+              },
+              "names" : [ {
+                "name" : "name",
+                "language" : {
+                  "name" : "name",
+                  "url" : "https://openapi-generator.tech"
+                }
+              }, {
+                "name" : "name",
+                "language" : {
+                  "name" : "name",
+                  "url" : "https://openapi-generator.tech"
+                }
+              } ]
             }"""
             
             when (exampleContentType) {
@@ -836,10 +819,9 @@ fun Route.PokemonApi() {
         
     }
     }
-
     authenticate("basicAuth") {
     authenticate("cookieAuth") {
-    get<Paths.pokemonColorList> {
+    get<Paths.pokemonColorList> { pokemonColorList ->
         val principal = call.authentication.principal<UserIdPrincipal>()
         
         
@@ -848,9 +830,9 @@ fun Route.PokemonApi() {
         
         val exampleContentType = "application/json"
             val exampleContentString = """{
+              "count" : 123,
               "next" : "http://api.example.org/accounts/?offset=400&limit=100",
               "previous" : "http://api.example.org/accounts/?offset=200&limit=100",
-              "count" : 123,
               "results" : [ {
                 "name" : "name",
                 "url" : "https://openapi-generator.tech"
@@ -868,10 +850,9 @@ fun Route.PokemonApi() {
         
     }
     }
-
     authenticate("basicAuth") {
     authenticate("cookieAuth") {
-    get<Paths.pokemonColorRetrieve> {
+    get<Paths.pokemonColorRetrieve> { pokemonColorRetrieve ->
         val principal = call.authentication.principal<UserIdPrincipal>()
         
         
@@ -880,6 +861,8 @@ fun Route.PokemonApi() {
         
         val exampleContentType = "application/json"
             val exampleContentString = """{
+              "id" : 0,
+              "name" : "name",
               "names" : [ {
                 "name" : "name",
                 "language" : {
@@ -893,8 +876,6 @@ fun Route.PokemonApi() {
                   "url" : "https://openapi-generator.tech"
                 }
               } ],
-              "name" : "name",
-              "id" : 0,
               "pokemon_species" : [ {
                 "name" : "name",
                 "url" : "https://openapi-generator.tech"
@@ -912,10 +893,9 @@ fun Route.PokemonApi() {
         
     }
     }
-
     authenticate("basicAuth") {
     authenticate("cookieAuth") {
-    get<Paths.pokemonFormList> {
+    get<Paths.pokemonFormList> { pokemonFormList ->
         val principal = call.authentication.principal<UserIdPrincipal>()
         
         
@@ -924,9 +904,9 @@ fun Route.PokemonApi() {
         
         val exampleContentType = "application/json"
             val exampleContentString = """{
+              "count" : 123,
               "next" : "http://api.example.org/accounts/?offset=400&limit=100",
               "previous" : "http://api.example.org/accounts/?offset=200&limit=100",
-              "count" : 123,
               "results" : [ {
                 "name" : "name",
                 "url" : "https://openapi-generator.tech"
@@ -944,10 +924,9 @@ fun Route.PokemonApi() {
         
     }
     }
-
     authenticate("basicAuth") {
     authenticate("cookieAuth") {
-    get<Paths.pokemonFormRetrieve> {
+    get<Paths.pokemonFormRetrieve> { pokemonFormRetrieve ->
         val principal = call.authentication.principal<UserIdPrincipal>()
         
         
@@ -956,64 +935,64 @@ fun Route.PokemonApi() {
         
         val exampleContentType = "application/json"
             val exampleContentString = """{
-              "types" : [ {
-                "slot" : 4,
-                "type" : {
-                  "name" : "name",
-                  "url" : "https://openapi-generator.tech"
-                }
-              }, {
-                "slot" : 4,
-                "type" : {
-                  "name" : "name",
-                  "url" : "https://openapi-generator.tech"
-                }
-              } ],
+              "id" : 0,
+              "name" : "name",
+              "order" : 6,
+              "form_order" : 1,
+              "is_default" : true,
+              "is_battle_only" : true,
+              "is_mega" : true,
+              "form_name" : "form_name",
               "pokemon" : {
                 "name" : "name",
                 "url" : "https://openapi-generator.tech"
               },
-              "is_battle_only" : true,
-              "is_default" : true,
               "sprites" : {
                 "default" : "https://openapi-generator.tech"
               },
-              "names" : [ {
-                "name" : "name",
-                "language" : {
-                  "name" : "name",
-                  "url" : "https://openapi-generator.tech"
-                }
-              }, {
-                "name" : "name",
-                "language" : {
-                  "name" : "name",
-                  "url" : "https://openapi-generator.tech"
-                }
-              } ],
               "version_group" : {
                 "name" : "name",
                 "url" : "https://openapi-generator.tech"
               },
-              "name" : "name",
-              "form_order" : 1,
               "form_names" : [ {
-                "name" : "name",
                 "language" : {
+                  "name" : "name",
+                  "url" : "https://openapi-generator.tech"
+                },
+                "name" : "name"
+              }, {
+                "language" : {
+                  "name" : "name",
+                  "url" : "https://openapi-generator.tech"
+                },
+                "name" : "name"
+              } ],
+              "names" : [ {
+                "language" : {
+                  "name" : "name",
+                  "url" : "https://openapi-generator.tech"
+                },
+                "name" : "name"
+              }, {
+                "language" : {
+                  "name" : "name",
+                  "url" : "https://openapi-generator.tech"
+                },
+                "name" : "name"
+              } ],
+              "types" : [ {
+                "slot" : 4,
+                "type" : {
                   "name" : "name",
                   "url" : "https://openapi-generator.tech"
                 }
               }, {
-                "name" : "name",
-                "language" : {
+                "slot" : 4,
+                "type" : {
                   "name" : "name",
                   "url" : "https://openapi-generator.tech"
                 }
-              } ],
-              "id" : 0,
-              "form_name" : "form_name",
-              "is_mega" : true,
-              "order" : 6
+              } ]
             }"""
             
             when (exampleContentType) {
@@ -1024,10 +1003,9 @@ fun Route.PokemonApi() {
         
     }
     }
-
     authenticate("basicAuth") {
     authenticate("cookieAuth") {
-    get<Paths.pokemonHabitatList> {
+    get<Paths.pokemonHabitatList> { pokemonHabitatList ->
         val principal = call.authentication.principal<UserIdPrincipal>()
         
         
@@ -1036,9 +1014,9 @@ fun Route.PokemonApi() {
         
         val exampleContentType = "application/json"
             val exampleContentString = """{
+              "count" : 123,
               "next" : "http://api.example.org/accounts/?offset=400&limit=100",
               "previous" : "http://api.example.org/accounts/?offset=200&limit=100",
-              "count" : 123,
               "results" : [ {
                 "name" : "name",
                 "url" : "https://openapi-generator.tech"
@@ -1056,10 +1034,9 @@ fun Route.PokemonApi() {
         
     }
     }
-
     authenticate("basicAuth") {
     authenticate("cookieAuth") {
-    get<Paths.pokemonHabitatRetrieve> {
+    get<Paths.pokemonHabitatRetrieve> { pokemonHabitatRetrieve ->
         val principal = call.authentication.principal<UserIdPrincipal>()
         
         
@@ -1068,6 +1045,8 @@ fun Route.PokemonApi() {
         
         val exampleContentType = "application/json"
             val exampleContentString = """{
+              "id" : 0,
+              "name" : "name",
               "names" : [ {
                 "name" : "name",
                 "language" : {
@@ -1081,8 +1060,6 @@ fun Route.PokemonApi() {
                   "url" : "https://openapi-generator.tech"
                 }
               } ],
-              "name" : "name",
-              "id" : 0,
               "pokemon_species" : [ {
                 "name" : "name",
                 "url" : "https://openapi-generator.tech"
@@ -1100,10 +1077,9 @@ fun Route.PokemonApi() {
         
     }
     }
-
     authenticate("basicAuth") {
     authenticate("cookieAuth") {
-    get<Paths.pokemonList> {
+    get<Paths.pokemonList> { pokemonList ->
         val principal = call.authentication.principal<UserIdPrincipal>()
         
         
@@ -1112,9 +1088,9 @@ fun Route.PokemonApi() {
         
         val exampleContentType = "application/json"
             val exampleContentString = """{
+              "count" : 123,
               "next" : "http://api.example.org/accounts/?offset=400&limit=100",
               "previous" : "http://api.example.org/accounts/?offset=200&limit=100",
-              "count" : 123,
               "results" : [ {
                 "name" : "name",
                 "url" : "https://openapi-generator.tech"
@@ -1132,10 +1108,9 @@ fun Route.PokemonApi() {
         
     }
     }
-
     authenticate("basicAuth") {
     authenticate("cookieAuth") {
-    get<Paths.pokemonRetrieve> {
+    get<Paths.pokemonRetrieve> { pokemonRetrieve ->
         val principal = call.authentication.principal<UserIdPrincipal>()
         
         
@@ -1144,49 +1119,201 @@ fun Route.PokemonApi() {
         
         val exampleContentType = "application/json"
             val exampleContentString = """{
-              "location_area_encounters" : "location_area_encounters",
-              "cries" : {
-                "legacy" : "https://openapi-generator.tech",
-                "latest" : "https://openapi-generator.tech"
-              },
-              "types" : [ {
-                "slot" : 4,
-                "type" : {
+              "id" : 0,
+              "name" : "name",
+              "base_experience" : 6,
+              "height" : 1,
+              "is_default" : true,
+              "order" : 5,
+              "weight" : 5,
+              "abilities" : [ {
+                "ability" : {
+                  "name" : "name",
+                  "url" : "https://openapi-generator.tech"
+                },
+                "is_hidden" : true,
+                "slot" : 2
+              }, {
+                "ability" : {
+                  "name" : "name",
+                  "url" : "https://openapi-generator.tech"
+                },
+                "is_hidden" : true,
+                "slot" : 2
+              } ],
+              "past_abilities" : [ {
+                "abilities" : [ {
+                  "ability" : {
+                    "name" : "name",
+                    "url" : "https://openapi-generator.tech"
+                  },
+                  "is_hidden" : true,
+                  "slot" : 2
+                }, {
+                  "ability" : {
+                    "name" : "name",
+                    "url" : "https://openapi-generator.tech"
+                  },
+                  "is_hidden" : true,
+                  "slot" : 2
+                } ],
+                "generation" : {
                   "name" : "name",
                   "url" : "https://openapi-generator.tech"
                 }
               }, {
-                "slot" : 4,
-                "type" : {
+                "abilities" : [ {
+                  "ability" : {
+                    "name" : "name",
+                    "url" : "https://openapi-generator.tech"
+                  },
+                  "is_hidden" : true,
+                  "slot" : 2
+                }, {
+                  "ability" : {
+                    "name" : "name",
+                    "url" : "https://openapi-generator.tech"
+                  },
+                  "is_hidden" : true,
+                  "slot" : 2
+                } ],
+                "generation" : {
                   "name" : "name",
                   "url" : "https://openapi-generator.tech"
                 }
               } ],
-              "base_experience" : 6,
+              "forms" : [ {
+                "name" : "name",
+                "url" : "https://openapi-generator.tech"
+              }, {
+                "name" : "name",
+                "url" : "https://openapi-generator.tech"
+              } ],
+              "game_indices" : [ {
+                "game_index" : 7,
+                "version" : {
+                  "name" : "name",
+                  "url" : "https://openapi-generator.tech"
+                }
+              }, {
+                "game_index" : 7,
+                "version" : {
+                  "name" : "name",
+                  "url" : "https://openapi-generator.tech"
+                }
+              } ],
               "held_items" : {
                 "item" : {
                   "name" : "name",
                   "url" : "https://openapi-generator.tech"
                 },
                 "version_details" : [ {
+                  "rarity" : 5,
                   "version" : {
                     "name" : "name",
                     "url" : "https://openapi-generator.tech"
-                  },
-                  "rarity" : 5
+                  }
                 }, {
+                  "rarity" : 5,
                   "version" : {
                     "name" : "name",
                     "url" : "https://openapi-generator.tech"
-                  },
-                  "rarity" : 5
+                  }
                 } ]
               },
-              "weight" : 5,
-              "is_default" : true,
+              "location_area_encounters" : "location_area_encounters",
+              "moves" : [ {
+                "move" : {
+                  "name" : "name",
+                  "url" : "https://openapi-generator.tech"
+                },
+                "version_group_details" : [ {
+                  "level_learned_at" : 9,
+                  "move_learn_method" : {
+                    "name" : "name",
+                    "url" : "https://openapi-generator.tech"
+                  },
+                  "version_group" : {
+                    "name" : "name",
+                    "url" : "https://openapi-generator.tech"
+                  }
+                }, {
+                  "level_learned_at" : 9,
+                  "move_learn_method" : {
+                    "name" : "name",
+                    "url" : "https://openapi-generator.tech"
+                  },
+                  "version_group" : {
+                    "name" : "name",
+                    "url" : "https://openapi-generator.tech"
+                  }
+                } ]
+              }, {
+                "move" : {
+                  "name" : "name",
+                  "url" : "https://openapi-generator.tech"
+                },
+                "version_group_details" : [ {
+                  "level_learned_at" : 9,
+                  "move_learn_method" : {
+                    "name" : "name",
+                    "url" : "https://openapi-generator.tech"
+                  },
+                  "version_group" : {
+                    "name" : "name",
+                    "url" : "https://openapi-generator.tech"
+                  }
+                }, {
+                  "level_learned_at" : 9,
+                  "move_learn_method" : {
+                    "name" : "name",
+                    "url" : "https://openapi-generator.tech"
+                  },
+                  "version_group" : {
+                    "name" : "name",
+                    "url" : "https://openapi-generator.tech"
+                  }
+                } ]
+              } ],
+              "species" : {
+                "name" : "name",
+                "url" : "https://openapi-generator.tech"
+              },
               "sprites" : {
                 "front_default" : "https://openapi-generator.tech"
               },
+              "cries" : {
+                "latest" : "https://openapi-generator.tech",
+                "legacy" : "https://openapi-generator.tech"
+              },
+              "stats" : [ {
+                "base_stat" : 3,
+                "effort" : 2,
+                "stat" : {
+                  "name" : "name",
+                  "url" : "https://openapi-generator.tech"
+                }
+              }, {
+                "base_stat" : 3,
+                "effort" : 2,
+                "stat" : {
+                  "name" : "name",
+                  "url" : "https://openapi-generator.tech"
+                }
+              } ],
+              "types" : [ {
+                "slot" : 4,
+                "type" : {
+                  "name" : "name",
+                  "url" : "https://openapi-generator.tech"
+                }
+              }, {
+                "slot" : 4,
+                "type" : {
+                  "name" : "name",
+                  "url" : "https://openapi-generator.tech"
+                }
+              } ],
               "past_types" : [ {
                 "generation" : {
                   "name" : "name",
@@ -1223,159 +1350,7 @@ fun Route.PokemonApi() {
                     "url" : "https://openapi-generator.tech"
                   }
                 } ]
-              } ],
-              "past_abilities" : [ {
-                "abilities" : [ {
-                  "is_hidden" : true,
-                  "ability" : {
-                    "name" : "name",
-                    "url" : "https://openapi-generator.tech"
-                  },
-                  "slot" : 2
-                }, {
-                  "is_hidden" : true,
-                  "ability" : {
-                    "name" : "name",
-                    "url" : "https://openapi-generator.tech"
-                  },
-                  "slot" : 2
-                } ],
-                "generation" : {
-                  "name" : "name",
-                  "url" : "https://openapi-generator.tech"
-                }
-              }, {
-                "abilities" : [ {
-                  "is_hidden" : true,
-                  "ability" : {
-                    "name" : "name",
-                    "url" : "https://openapi-generator.tech"
-                  },
-                  "slot" : 2
-                }, {
-                  "is_hidden" : true,
-                  "ability" : {
-                    "name" : "name",
-                    "url" : "https://openapi-generator.tech"
-                  },
-                  "slot" : 2
-                } ],
-                "generation" : {
-                  "name" : "name",
-                  "url" : "https://openapi-generator.tech"
-                }
-              } ],
-              "abilities" : [ {
-                "is_hidden" : true,
-                "ability" : {
-                  "name" : "name",
-                  "url" : "https://openapi-generator.tech"
-                },
-                "slot" : 2
-              }, {
-                "is_hidden" : true,
-                "ability" : {
-                  "name" : "name",
-                  "url" : "https://openapi-generator.tech"
-                },
-                "slot" : 2
-              } ],
-              "game_indices" : [ {
-                "game_index" : 7,
-                "version" : {
-                  "name" : "name",
-                  "url" : "https://openapi-generator.tech"
-                }
-              }, {
-                "game_index" : 7,
-                "version" : {
-                  "name" : "name",
-                  "url" : "https://openapi-generator.tech"
-                }
-              } ],
-              "species" : {
-                "name" : "name",
-                "url" : "https://openapi-generator.tech"
-              },
-              "stats" : [ {
-                "stat" : {
-                  "name" : "name",
-                  "url" : "https://openapi-generator.tech"
-                },
-                "base_stat" : 3,
-                "effort" : 2
-              }, {
-                "stat" : {
-                  "name" : "name",
-                  "url" : "https://openapi-generator.tech"
-                },
-                "base_stat" : 3,
-                "effort" : 2
-              } ],
-              "moves" : [ {
-                "version_group_details" : [ {
-                  "level_learned_at" : 9,
-                  "version_group" : {
-                    "name" : "name",
-                    "url" : "https://openapi-generator.tech"
-                  },
-                  "move_learn_method" : {
-                    "name" : "name",
-                    "url" : "https://openapi-generator.tech"
-                  }
-                }, {
-                  "level_learned_at" : 9,
-                  "version_group" : {
-                    "name" : "name",
-                    "url" : "https://openapi-generator.tech"
-                  },
-                  "move_learn_method" : {
-                    "name" : "name",
-                    "url" : "https://openapi-generator.tech"
-                  }
-                } ],
-                "move" : {
-                  "name" : "name",
-                  "url" : "https://openapi-generator.tech"
-                }
-              }, {
-                "version_group_details" : [ {
-                  "level_learned_at" : 9,
-                  "version_group" : {
-                    "name" : "name",
-                    "url" : "https://openapi-generator.tech"
-                  },
-                  "move_learn_method" : {
-                    "name" : "name",
-                    "url" : "https://openapi-generator.tech"
-                  }
-                }, {
-                  "level_learned_at" : 9,
-                  "version_group" : {
-                    "name" : "name",
-                    "url" : "https://openapi-generator.tech"
-                  },
-                  "move_learn_method" : {
-                    "name" : "name",
-                    "url" : "https://openapi-generator.tech"
-                  }
-                } ],
-                "move" : {
-                  "name" : "name",
-                  "url" : "https://openapi-generator.tech"
-                }
-              } ],
-              "name" : "name",
-              "id" : 0,
-              "forms" : [ {
-                "name" : "name",
-                "url" : "https://openapi-generator.tech"
-              }, {
-                "name" : "name",
-                "url" : "https://openapi-generator.tech"
-              } ],
-              "height" : 1,
-              "order" : 5
+              } ]
             }"""
             
             when (exampleContentType) {
@@ -1386,10 +1361,9 @@ fun Route.PokemonApi() {
         
     }
     }
-
     authenticate("basicAuth") {
     authenticate("cookieAuth") {
-    get<Paths.pokemonShapeList> {
+    get<Paths.pokemonShapeList> { pokemonShapeList ->
         val principal = call.authentication.principal<UserIdPrincipal>()
         
         
@@ -1398,9 +1372,9 @@ fun Route.PokemonApi() {
         
         val exampleContentType = "application/json"
             val exampleContentString = """{
+              "count" : 123,
               "next" : "http://api.example.org/accounts/?offset=400&limit=100",
               "previous" : "http://api.example.org/accounts/?offset=200&limit=100",
-              "count" : 123,
               "results" : [ {
                 "name" : "name",
                 "url" : "https://openapi-generator.tech"
@@ -1418,10 +1392,9 @@ fun Route.PokemonApi() {
         
     }
     }
-
     authenticate("basicAuth") {
     authenticate("cookieAuth") {
-    get<Paths.pokemonShapeRetrieve> {
+    get<Paths.pokemonShapeRetrieve> { pokemonShapeRetrieve ->
         val principal = call.authentication.principal<UserIdPrincipal>()
         
         
@@ -1430,13 +1403,8 @@ fun Route.PokemonApi() {
         
         val exampleContentType = "application/json"
             val exampleContentString = """{
-              "names" : [ {
-                "name" : "name",
-                "url" : "https://openapi-generator.tech"
-              }, {
-                "name" : "name",
-                "url" : "https://openapi-generator.tech"
-              } ],
+              "id" : 0,
+              "name" : "name",
               "awesome_names" : [ {
                 "awesome_name" : "awesome_name",
                 "language" : {
@@ -1450,8 +1418,13 @@ fun Route.PokemonApi() {
                   "url" : "https://openapi-generator.tech"
                 }
               } ],
-              "name" : "name",
-              "id" : 0,
+              "names" : [ {
+                "url" : "https://openapi-generator.tech",
+                "name" : "name"
+              }, {
+                "url" : "https://openapi-generator.tech",
+                "name" : "name"
+              } ],
               "pokemon_species" : [ {
                 "name" : "name",
                 "url" : "https://openapi-generator.tech"
@@ -1469,10 +1442,9 @@ fun Route.PokemonApi() {
         
     }
     }
-
     authenticate("basicAuth") {
     authenticate("cookieAuth") {
-    get<Paths.pokemonSpeciesList> {
+    get<Paths.pokemonSpeciesList> { pokemonSpeciesList ->
         val principal = call.authentication.principal<UserIdPrincipal>()
         
         
@@ -1481,9 +1453,9 @@ fun Route.PokemonApi() {
         
         val exampleContentType = "application/json"
             val exampleContentString = """{
+              "count" : 123,
               "next" : "http://api.example.org/accounts/?offset=400&limit=100",
               "previous" : "http://api.example.org/accounts/?offset=200&limit=100",
-              "count" : 123,
               "results" : [ {
                 "name" : "name",
                 "url" : "https://openapi-generator.tech"
@@ -1501,10 +1473,9 @@ fun Route.PokemonApi() {
         
     }
     }
-
     authenticate("basicAuth") {
     authenticate("cookieAuth") {
-    get<Paths.pokemonSpeciesRetrieve> {
+    get<Paths.pokemonSpeciesRetrieve> { pokemonSpeciesRetrieve ->
         val principal = call.authentication.principal<UserIdPrincipal>()
         
         
@@ -1513,38 +1484,22 @@ fun Route.PokemonApi() {
         
         val exampleContentType = "application/json"
             val exampleContentString = """{
-              "evolution_chain" : {
-                "url" : "https://openapi-generator.tech"
-              },
-              "genera" : [ {
-                "genus" : "genus",
-                "language" : {
-                  "name" : "name",
-                  "url" : "https://openapi-generator.tech"
-                }
-              }, {
-                "genus" : "genus",
-                "language" : {
-                  "name" : "name",
-                  "url" : "https://openapi-generator.tech"
-                }
-              } ],
-              "habitat" : {
-                "name" : "name",
-                "url" : "https://openapi-generator.tech"
-              },
-              "color" : {
-                "name" : "name",
-                "url" : "https://openapi-generator.tech"
-              },
-              "egg_groups" : [ {
-                "name" : "name",
-                "url" : "https://openapi-generator.tech"
-              }, {
-                "name" : "name",
-                "url" : "https://openapi-generator.tech"
-              } ],
+              "id" : 0,
+              "name" : "name",
+              "order" : 6,
+              "gender_rate" : 1,
               "capture_rate" : 5,
+              "base_happiness" : 5,
+              "is_baby" : true,
+              "is_legendary" : true,
+              "is_mythical" : true,
+              "hatch_counter" : 2,
+              "has_gender_differences" : true,
+              "forms_switchable" : true,
+              "growth_rate" : {
+                "name" : "name",
+                "url" : "https://openapi-generator.tech"
+              },
               "pokedex_numbers" : [ {
                 "entry_number" : 7,
                 "pokedex" : {
@@ -1558,40 +1513,49 @@ fun Route.PokemonApi() {
                   "url" : "https://openapi-generator.tech"
                 }
               } ],
-              "forms_switchable" : true,
-              "growth_rate" : {
+              "egg_groups" : [ {
+                "name" : "name",
+                "url" : "https://openapi-generator.tech"
+              }, {
+                "name" : "name",
+                "url" : "https://openapi-generator.tech"
+              } ],
+              "color" : {
                 "name" : "name",
                 "url" : "https://openapi-generator.tech"
               },
-              "flavor_text_entries" : [ {
+              "shape" : {
+                "name" : "name",
+                "url" : "https://openapi-generator.tech"
+              },
+              "evolves_from_species" : {
+                "name" : "name",
+                "url" : "https://openapi-generator.tech"
+              },
+              "evolution_chain" : {
+                "url" : "https://openapi-generator.tech"
+              },
+              "habitat" : {
+                "name" : "name",
+                "url" : "https://openapi-generator.tech"
+              },
+              "generation" : {
+                "name" : "name",
+                "url" : "https://openapi-generator.tech"
+              },
+              "names" : [ {
                 "language" : {
                   "name" : "name",
                   "url" : "https://openapi-generator.tech"
                 },
-                "version" : {
-                  "name" : "name",
-                  "url" : "https://openapi-generator.tech"
-                },
-                "flavor_text" : "flavor_text"
+                "name" : "name"
               }, {
                 "language" : {
                   "name" : "name",
                   "url" : "https://openapi-generator.tech"
                 },
-                "version" : {
-                  "name" : "name",
-                  "url" : "https://openapi-generator.tech"
-                },
-                "flavor_text" : "flavor_text"
+                "name" : "name"
               } ],
-              "id" : 0,
-              "order" : 6,
-              "is_baby" : true,
-              "generation" : {
-                "name" : "name",
-                "url" : "https://openapi-generator.tech"
-              },
-              "is_legendary" : true,
               "pal_park_encounters" : [ {
                 "area" : {
                   "name" : "name",
@@ -1607,42 +1571,6 @@ fun Route.PokemonApi() {
                 "base_score" : 9,
                 "rate" : 3
               } ],
-              "shape" : {
-                "name" : "name",
-                "url" : "https://openapi-generator.tech"
-              },
-              "is_mythical" : true,
-              "base_happiness" : 5,
-              "names" : [ {
-                "name" : "name",
-                "language" : {
-                  "name" : "name",
-                  "url" : "https://openapi-generator.tech"
-                }
-              }, {
-                "name" : "name",
-                "language" : {
-                  "name" : "name",
-                  "url" : "https://openapi-generator.tech"
-                }
-              } ],
-              "varieties" : [ {
-                "pokemon" : {
-                  "name" : "name",
-                  "url" : "https://openapi-generator.tech"
-                },
-                "is_default" : true
-              }, {
-                "pokemon" : {
-                  "name" : "name",
-                  "url" : "https://openapi-generator.tech"
-                },
-                "is_default" : true
-              } ],
-              "gender_rate" : 1,
-              "name" : "name",
-              "has_gender_differences" : true,
-              "hatch_counter" : 2,
               "form_descriptions" : [ {
                 "description" : "description",
                 "language" : {
@@ -1656,10 +1584,53 @@ fun Route.PokemonApi() {
                   "url" : "https://openapi-generator.tech"
                 }
               } ],
-              "evolves_from_species" : {
-                "name" : "name",
-                "url" : "https://openapi-generator.tech"
-              }
+              "flavor_text_entries" : [ {
+                "flavor_text" : "flavor_text",
+                "language" : {
+                  "name" : "name",
+                  "url" : "https://openapi-generator.tech"
+                },
+                "version" : {
+                  "name" : "name",
+                  "url" : "https://openapi-generator.tech"
+                }
+              }, {
+                "flavor_text" : "flavor_text",
+                "language" : {
+                  "name" : "name",
+                  "url" : "https://openapi-generator.tech"
+                },
+                "version" : {
+                  "name" : "name",
+                  "url" : "https://openapi-generator.tech"
+                }
+              } ],
+              "genera" : [ {
+                "genus" : "genus",
+                "language" : {
+                  "name" : "name",
+                  "url" : "https://openapi-generator.tech"
+                }
+              }, {
+                "genus" : "genus",
+                "language" : {
+                  "name" : "name",
+                  "url" : "https://openapi-generator.tech"
+                }
+              } ],
+              "varieties" : [ {
+                "is_default" : true,
+                "pokemon" : {
+                  "name" : "name",
+                  "url" : "https://openapi-generator.tech"
+                }
+              }, {
+                "is_default" : true,
+                "pokemon" : {
+                  "name" : "name",
+                  "url" : "https://openapi-generator.tech"
+                }
+              } ]
             }"""
             
             when (exampleContentType) {
@@ -1670,10 +1641,9 @@ fun Route.PokemonApi() {
         
     }
     }
-
     authenticate("basicAuth") {
     authenticate("cookieAuth") {
-    get<Paths.statList> {
+    get<Paths.statList> { statList ->
         val principal = call.authentication.principal<UserIdPrincipal>()
         
         
@@ -1682,9 +1652,9 @@ fun Route.PokemonApi() {
         
         val exampleContentType = "application/json"
             val exampleContentString = """{
+              "count" : 123,
               "next" : "http://api.example.org/accounts/?offset=400&limit=100",
               "previous" : "http://api.example.org/accounts/?offset=200&limit=100",
-              "count" : 123,
               "results" : [ {
                 "name" : "name",
                 "url" : "https://openapi-generator.tech"
@@ -1702,10 +1672,9 @@ fun Route.PokemonApi() {
         
     }
     }
-
     authenticate("basicAuth") {
     authenticate("cookieAuth") {
-    get<Paths.statRetrieve> {
+    get<Paths.statRetrieve> { statRetrieve ->
         val principal = call.authentication.principal<UserIdPrincipal>()
         
         
@@ -1714,7 +1683,54 @@ fun Route.PokemonApi() {
         
         val exampleContentType = "application/json"
             val exampleContentString = """{
+              "id" : 0,
+              "name" : "name",
               "game_index" : 6,
+              "is_battle_only" : true,
+              "affecting_moves" : {
+                "increase" : [ {
+                  "change" : 1,
+                  "move" : {
+                    "name" : "name",
+                    "url" : "https://openapi-generator.tech"
+                  }
+                }, {
+                  "change" : 1,
+                  "move" : {
+                    "name" : "name",
+                    "url" : "https://openapi-generator.tech"
+                  }
+                } ],
+                "decrease" : [ {
+                  "change" : 1,
+                  "move" : {
+                    "name" : "name",
+                    "url" : "https://openapi-generator.tech"
+                  }
+                }, {
+                  "change" : 1,
+                  "move" : {
+                    "name" : "name",
+                    "url" : "https://openapi-generator.tech"
+                  }
+                } ]
+              },
+              "affecting_natures" : {
+                "increase" : [ {
+                  "name" : "name",
+                  "url" : "https://openapi-generator.tech"
+                }, {
+                  "name" : "name",
+                  "url" : "https://openapi-generator.tech"
+                } ],
+                "decrease" : [ {
+                  "name" : "name",
+                  "url" : "https://openapi-generator.tech"
+                }, {
+                  "name" : "name",
+                  "url" : "https://openapi-generator.tech"
+                } ]
+              },
               "characteristics" : [ {
                 "url" : "https://openapi-generator.tech"
               }, {
@@ -1736,54 +1752,7 @@ fun Route.PokemonApi() {
                   "name" : "name",
                   "url" : "https://openapi-generator.tech"
                 }
-              } ],
-              "name" : "name",
-              "is_battle_only" : true,
-              "affecting_moves" : {
-                "increase" : [ {
-                  "move" : {
-                    "name" : "name",
-                    "url" : "https://openapi-generator.tech"
-                  },
-                  "change" : 1
-                }, {
-                  "move" : {
-                    "name" : "name",
-                    "url" : "https://openapi-generator.tech"
-                  },
-                  "change" : 1
-                } ],
-                "decrease" : [ {
-                  "move" : {
-                    "name" : "name",
-                    "url" : "https://openapi-generator.tech"
-                  },
-                  "change" : 1
-                }, {
-                  "move" : {
-                    "name" : "name",
-                    "url" : "https://openapi-generator.tech"
-                  },
-                  "change" : 1
-                } ]
-              },
-              "id" : 0,
-              "affecting_natures" : {
-                "increase" : [ {
-                  "name" : "name",
-                  "url" : "https://openapi-generator.tech"
-                }, {
-                  "name" : "name",
-                  "url" : "https://openapi-generator.tech"
-                } ],
-                "decrease" : [ {
-                  "name" : "name",
-                  "url" : "https://openapi-generator.tech"
-                }, {
-                  "name" : "name",
-                  "url" : "https://openapi-generator.tech"
-                } ]
-              }
+              } ]
             }"""
             
             when (exampleContentType) {
@@ -1794,10 +1763,9 @@ fun Route.PokemonApi() {
         
     }
     }
-
     authenticate("basicAuth") {
     authenticate("cookieAuth") {
-    get<Paths.typeList> {
+    get<Paths.typeList> { typeList ->
         val principal = call.authentication.principal<UserIdPrincipal>()
         
         
@@ -1806,9 +1774,9 @@ fun Route.PokemonApi() {
         
         val exampleContentType = "application/json"
             val exampleContentString = """{
+              "count" : 123,
               "next" : "http://api.example.org/accounts/?offset=400&limit=100",
               "previous" : "http://api.example.org/accounts/?offset=200&limit=100",
-              "count" : 123,
               "results" : [ {
                 "name" : "name",
                 "url" : "https://openapi-generator.tech"
@@ -1826,10 +1794,9 @@ fun Route.PokemonApi() {
         
     }
     }
-
     authenticate("basicAuth") {
     authenticate("cookieAuth") {
-    get<Paths.typeRetrieve> {
+    get<Paths.typeRetrieve> { typeRetrieve ->
         val principal = call.authentication.principal<UserIdPrincipal>()
         
         
@@ -1838,68 +1805,9 @@ fun Route.PokemonApi() {
         
         val exampleContentType = "application/json"
             val exampleContentString = """{
-              "generation" : {
-                "name" : "name",
-                "url" : "https://openapi-generator.tech"
-              },
-              "game_indices" : [ {
-                "generation" : {
-                  "name" : "name",
-                  "url" : "https://openapi-generator.tech"
-                },
-                "game_index" : 5
-              }, {
-                "generation" : {
-                  "name" : "name",
-                  "url" : "https://openapi-generator.tech"
-                },
-                "game_index" : 5
-              } ],
-              "move_damage_class" : {
-                "name" : "name",
-                "url" : "https://openapi-generator.tech"
-              },
-              "names" : [ {
-                "name" : "name",
-                "language" : {
-                  "name" : "name",
-                  "url" : "https://openapi-generator.tech"
-                }
-              }, {
-                "name" : "name",
-                "language" : {
-                  "name" : "name",
-                  "url" : "https://openapi-generator.tech"
-                }
-              } ],
-              "pokemon" : [ {
-                "pokemon" : {
-                  "name" : "name",
-                  "url" : "https://openapi-generator.tech"
-                },
-                "slot" : 6
-              }, {
-                "pokemon" : {
-                  "name" : "name",
-                  "url" : "https://openapi-generator.tech"
-                },
-                "slot" : 6
-              } ],
+              "id" : 0,
+              "name" : "name",
               "damage_relations" : {
-                "no_damage_from" : [ {
-                  "name" : "name",
-                  "url" : "https://openapi-generator.tech"
-                }, {
-                  "name" : "name",
-                  "url" : "https://openapi-generator.tech"
-                } ],
-                "half_damage_from" : [ {
-                  "name" : "name",
-                  "url" : "https://openapi-generator.tech"
-                }, {
-                  "name" : "name",
-                  "url" : "https://openapi-generator.tech"
-                } ],
                 "no_damage_to" : [ {
                   "name" : "name",
                   "url" : "https://openapi-generator.tech"
@@ -1921,6 +1829,20 @@ fun Route.PokemonApi() {
                   "name" : "name",
                   "url" : "https://openapi-generator.tech"
                 } ],
+                "no_damage_from" : [ {
+                  "name" : "name",
+                  "url" : "https://openapi-generator.tech"
+                }, {
+                  "name" : "name",
+                  "url" : "https://openapi-generator.tech"
+                } ],
+                "half_damage_from" : [ {
+                  "name" : "name",
+                  "url" : "https://openapi-generator.tech"
+                }, {
+                  "name" : "name",
+                  "url" : "https://openapi-generator.tech"
+                } ],
                 "double_damage_from" : [ {
                   "name" : "name",
                   "url" : "https://openapi-generator.tech"
@@ -1929,6 +1851,152 @@ fun Route.PokemonApi() {
                   "url" : "https://openapi-generator.tech"
                 } ]
               },
+              "past_damage_relations" : [ {
+                "generation" : {
+                  "name" : "name",
+                  "url" : "https://openapi-generator.tech"
+                },
+                "damage_relations" : {
+                  "no_damage_to" : [ {
+                    "name" : "name",
+                    "url" : "https://openapi-generator.tech"
+                  }, {
+                    "name" : "name",
+                    "url" : "https://openapi-generator.tech"
+                  } ],
+                  "half_damage_to" : [ {
+                    "name" : "name",
+                    "url" : "https://openapi-generator.tech"
+                  }, {
+                    "name" : "name",
+                    "url" : "https://openapi-generator.tech"
+                  } ],
+                  "double_damage_to" : [ {
+                    "name" : "name",
+                    "url" : "https://openapi-generator.tech"
+                  }, {
+                    "name" : "name",
+                    "url" : "https://openapi-generator.tech"
+                  } ],
+                  "no_damage_from" : [ {
+                    "name" : "name",
+                    "url" : "https://openapi-generator.tech"
+                  }, {
+                    "name" : "name",
+                    "url" : "https://openapi-generator.tech"
+                  } ],
+                  "half_damage_from" : [ {
+                    "name" : "name",
+                    "url" : "https://openapi-generator.tech"
+                  }, {
+                    "name" : "name",
+                    "url" : "https://openapi-generator.tech"
+                  } ],
+                  "double_damage_from" : [ {
+                    "name" : "name",
+                    "url" : "https://openapi-generator.tech"
+                  }, {
+                    "name" : "name",
+                    "url" : "https://openapi-generator.tech"
+                  } ]
+                }
+              }, {
+                "generation" : {
+                  "name" : "name",
+                  "url" : "https://openapi-generator.tech"
+                },
+                "damage_relations" : {
+                  "no_damage_to" : [ {
+                    "name" : "name",
+                    "url" : "https://openapi-generator.tech"
+                  }, {
+                    "name" : "name",
+                    "url" : "https://openapi-generator.tech"
+                  } ],
+                  "half_damage_to" : [ {
+                    "name" : "name",
+                    "url" : "https://openapi-generator.tech"
+                  }, {
+                    "name" : "name",
+                    "url" : "https://openapi-generator.tech"
+                  } ],
+                  "double_damage_to" : [ {
+                    "name" : "name",
+                    "url" : "https://openapi-generator.tech"
+                  }, {
+                    "name" : "name",
+                    "url" : "https://openapi-generator.tech"
+                  } ],
+                  "no_damage_from" : [ {
+                    "name" : "name",
+                    "url" : "https://openapi-generator.tech"
+                  }, {
+                    "name" : "name",
+                    "url" : "https://openapi-generator.tech"
+                  } ],
+                  "half_damage_from" : [ {
+                    "name" : "name",
+                    "url" : "https://openapi-generator.tech"
+                  }, {
+                    "name" : "name",
+                    "url" : "https://openapi-generator.tech"
+                  } ],
+                  "double_damage_from" : [ {
+                    "name" : "name",
+                    "url" : "https://openapi-generator.tech"
+                  }, {
+                    "name" : "name",
+                    "url" : "https://openapi-generator.tech"
+                  } ]
+                }
+              } ],
+              "game_indices" : [ {
+                "game_index" : 5,
+                "generation" : {
+                  "name" : "name",
+                  "url" : "https://openapi-generator.tech"
+                }
+              }, {
+                "game_index" : 5,
+                "generation" : {
+                  "name" : "name",
+                  "url" : "https://openapi-generator.tech"
+                }
+              } ],
+              "generation" : {
+                "name" : "name",
+                "url" : "https://openapi-generator.tech"
+              },
+              "move_damage_class" : {
+                "name" : "name",
+                "url" : "https://openapi-generator.tech"
+              },
+              "names" : [ {
+                "name" : "name",
+                "language" : {
+                  "name" : "name",
+                  "url" : "https://openapi-generator.tech"
+                }
+              }, {
+                "name" : "name",
+                "language" : {
+                  "name" : "name",
+                  "url" : "https://openapi-generator.tech"
+                }
+              } ],
+              "pokemon" : [ {
+                "slot" : 6,
+                "pokemon" : {
+                  "name" : "name",
+                  "url" : "https://openapi-generator.tech"
+                }
+              }, {
+                "slot" : 6,
+                "pokemon" : {
+                  "name" : "name",
+                  "url" : "https://openapi-generator.tech"
+                }
+              } ],
               "moves" : [ {
                 "name" : "name",
                 "url" : "https://openapi-generator.tech"
@@ -1936,107 +2004,6 @@ fun Route.PokemonApi() {
                 "name" : "name",
                 "url" : "https://openapi-generator.tech"
               } ],
-              "name" : "name",
-              "past_damage_relations" : [ {
-                "generation" : {
-                  "name" : "name",
-                  "url" : "https://openapi-generator.tech"
-                },
-                "damage_relations" : {
-                  "no_damage_from" : [ {
-                    "name" : "name",
-                    "url" : "https://openapi-generator.tech"
-                  }, {
-                    "name" : "name",
-                    "url" : "https://openapi-generator.tech"
-                  } ],
-                  "half_damage_from" : [ {
-                    "name" : "name",
-                    "url" : "https://openapi-generator.tech"
-                  }, {
-                    "name" : "name",
-                    "url" : "https://openapi-generator.tech"
-                  } ],
-                  "no_damage_to" : [ {
-                    "name" : "name",
-                    "url" : "https://openapi-generator.tech"
-                  }, {
-                    "name" : "name",
-                    "url" : "https://openapi-generator.tech"
-                  } ],
-                  "half_damage_to" : [ {
-                    "name" : "name",
-                    "url" : "https://openapi-generator.tech"
-                  }, {
-                    "name" : "name",
-                    "url" : "https://openapi-generator.tech"
-                  } ],
-                  "double_damage_to" : [ {
-                    "name" : "name",
-                    "url" : "https://openapi-generator.tech"
-                  }, {
-                    "name" : "name",
-                    "url" : "https://openapi-generator.tech"
-                  } ],
-                  "double_damage_from" : [ {
-                    "name" : "name",
-                    "url" : "https://openapi-generator.tech"
-                  }, {
-                    "name" : "name",
-                    "url" : "https://openapi-generator.tech"
-                  } ]
-                }
-              }, {
-                "generation" : {
-                  "name" : "name",
-                  "url" : "https://openapi-generator.tech"
-                },
-                "damage_relations" : {
-                  "no_damage_from" : [ {
-                    "name" : "name",
-                    "url" : "https://openapi-generator.tech"
-                  }, {
-                    "name" : "name",
-                    "url" : "https://openapi-generator.tech"
-                  } ],
-                  "half_damage_from" : [ {
-                    "name" : "name",
-                    "url" : "https://openapi-generator.tech"
-                  }, {
-                    "name" : "name",
-                    "url" : "https://openapi-generator.tech"
-                  } ],
-                  "no_damage_to" : [ {
-                    "name" : "name",
-                    "url" : "https://openapi-generator.tech"
-                  }, {
-                    "name" : "name",
-                    "url" : "https://openapi-generator.tech"
-                  } ],
-                  "half_damage_to" : [ {
-                    "name" : "name",
-                    "url" : "https://openapi-generator.tech"
-                  }, {
-                    "name" : "name",
-                    "url" : "https://openapi-generator.tech"
-                  } ],
-                  "double_damage_to" : [ {
-                    "name" : "name",
-                    "url" : "https://openapi-generator.tech"
-                  }, {
-                    "name" : "name",
-                    "url" : "https://openapi-generator.tech"
-                  } ],
-                  "double_damage_from" : [ {
-                    "name" : "name",
-                    "url" : "https://openapi-generator.tech"
-                  }, {
-                    "name" : "name",
-                    "url" : "https://openapi-generator.tech"
-                  } ]
-                }
-              } ],
-              "id" : 0,
               "sprites" : {
                 "key" : {
                   "key" : {
@@ -2054,5 +2021,4 @@ fun Route.PokemonApi() {
         
     }
     }
-
 }

@@ -6,7 +6,7 @@
 
 
 static item_attribute_detail_t *item_attribute_detail_create_internal(
-    int id,
+    int *id,
     char *name,
     list_t *descriptions,
     list_t *items,
@@ -16,30 +16,39 @@ static item_attribute_detail_t *item_attribute_detail_create_internal(
     if (!item_attribute_detail_local_var) {
         return NULL;
     }
+    memset(item_attribute_detail_local_var, 0, sizeof(item_attribute_detail_t));
+    item_attribute_detail_local_var->_library_owned = 1;
     item_attribute_detail_local_var->id = id;
     item_attribute_detail_local_var->name = name;
     item_attribute_detail_local_var->descriptions = descriptions;
     item_attribute_detail_local_var->items = items;
     item_attribute_detail_local_var->names = names;
-
-    item_attribute_detail_local_var->_library_owned = 1;
     return item_attribute_detail_local_var;
 }
 
 __attribute__((deprecated)) item_attribute_detail_t *item_attribute_detail_create(
-    int id,
+    int *id,
     char *name,
     list_t *descriptions,
     list_t *items,
     list_t *names
     ) {
-    return item_attribute_detail_create_internal (
-        id,
+    int *id_copy = NULL;
+    if (id) {
+        id_copy = malloc(sizeof(int));
+        if (id_copy) *id_copy = *id;
+    }
+    item_attribute_detail_t *result = item_attribute_detail_create_internal (
+        id_copy,
         name,
         descriptions,
         items,
         names
         );
+    if (!result) {
+        free(id_copy);
+    }
+    return result;
 }
 
 void item_attribute_detail_free(item_attribute_detail_t *item_attribute_detail) {
@@ -51,6 +60,10 @@ void item_attribute_detail_free(item_attribute_detail_t *item_attribute_detail) 
         return ;
     }
     listEntry_t *listEntry;
+    if (item_attribute_detail->id) {
+        free(item_attribute_detail->id);
+        item_attribute_detail->id = NULL;
+    }
     if (item_attribute_detail->name) {
         free(item_attribute_detail->name);
         item_attribute_detail->name = NULL;
@@ -86,7 +99,7 @@ cJSON *item_attribute_detail_convertToJSON(item_attribute_detail_t *item_attribu
     if (!item_attribute_detail->id) {
         goto fail;
     }
-    if(cJSON_AddNumberToObject(item, "id", item_attribute_detail->id) == NULL) {
+    if(cJSON_AddNumberToObject(item, "id", *item_attribute_detail->id) == NULL) {
     goto fail; //Numeric
     }
 
@@ -174,6 +187,11 @@ item_attribute_detail_t *item_attribute_detail_parseFromJSON(cJSON *item_attribu
 
     item_attribute_detail_t *item_attribute_detail_local_var = NULL;
 
+    // define the local variable for item_attribute_detail->id
+    int *id_local_var = NULL;
+
+    char *name_local_str = NULL;
+
     // define the local list for item_attribute_detail->descriptions
     list_t *descriptionsList = NULL;
 
@@ -197,6 +215,12 @@ item_attribute_detail_t *item_attribute_detail_parseFromJSON(cJSON *item_attribu
     {
     goto end; //Numeric
     }
+    id_local_var = malloc(sizeof(int));
+    if(!id_local_var)
+    {
+        goto end;
+    }
+    *id_local_var = id->valuedouble;
 
     // item_attribute_detail->name
     cJSON *name = cJSON_GetObjectItemCaseSensitive(item_attribute_detailJSON, "name");
@@ -295,16 +319,30 @@ item_attribute_detail_t *item_attribute_detail_parseFromJSON(cJSON *item_attribu
     }
 
 
+    if (name && !cJSON_IsNull(name)) name_local_str = strdup(name->valuestring);
+
     item_attribute_detail_local_var = item_attribute_detail_create_internal (
-        id->valuedouble,
-        strdup(name->valuestring),
+        id_local_var,
+        name_local_str,
         descriptionsList,
         itemsList,
         namesList
         );
 
+    if (!item_attribute_detail_local_var) {
+        goto end;
+    }
+
     return item_attribute_detail_local_var;
 end:
+    if (id_local_var) {
+        free(id_local_var);
+        id_local_var = NULL;
+    }
+    if (name_local_str) {
+        free(name_local_str);
+        name_local_str = NULL;
+    }
     if (descriptionsList) {
         listEntry_t *listEntry = NULL;
         list_ForEach(listEntry, descriptionsList) {

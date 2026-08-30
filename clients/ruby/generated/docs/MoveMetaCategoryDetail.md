@@ -6,8 +6,8 @@
 | ---- | ---- | ----------- | ----- |
 | **id** | **Integer** |  | [readonly] |
 | **name** | **String** |  |  |
-| **descriptions** | [**Array&lt;MoveMetaCategoryDescription&gt;**](MoveMetaCategoryDescription.md) |  |  |
-| **moves** | [**Array&lt;AbilityDetailPokemonInnerPokemon&gt;**](AbilityDetailPokemonInnerPokemon.md) |  |  |
+| **descriptions** | [**Array&lt;MoveMetaCategoryDescription&gt;**](MoveMetaCategoryDescription.md) |  | [readonly] |
+| **moves** | [**Array&lt;AbilityDetailPokemonInnerPokemon&gt;**](AbilityDetailPokemonInnerPokemon.md) |  | [readonly] |
 
 ## Example
 

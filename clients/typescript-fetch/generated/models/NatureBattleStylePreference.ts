@@ -51,9 +51,9 @@ export interface NatureBattleStylePreference {
  * Check if a given object implements the NatureBattleStylePreference interface.
  */
 export function instanceOfNatureBattleStylePreference(value: object): value is NatureBattleStylePreference {
-    if (!('lowHpPreference' in value) || value['lowHpPreference'] === undefined) return false;
-    if (!('highHpPreference' in value) || value['highHpPreference'] === undefined) return false;
-    if (!('moveBattleStyle' in value) || value['moveBattleStyle'] === undefined) return false;
+    if ((!('lowHpPreference' in (value as Record<string, any>)) && !('low_hp_preference' in (value as Record<string, any>))) || ((value as Record<string, any>)['lowHpPreference'] === undefined && (value as Record<string, any>)['low_hp_preference'] === undefined)) return false;
+    if ((!('highHpPreference' in (value as Record<string, any>)) && !('high_hp_preference' in (value as Record<string, any>))) || ((value as Record<string, any>)['highHpPreference'] === undefined && (value as Record<string, any>)['high_hp_preference'] === undefined)) return false;
+    if ((!('moveBattleStyle' in (value as Record<string, any>)) && !('move_battle_style' in (value as Record<string, any>))) || ((value as Record<string, any>)['moveBattleStyle'] === undefined && (value as Record<string, any>)['move_battle_style'] === undefined)) return false;
     return true;
 }
 

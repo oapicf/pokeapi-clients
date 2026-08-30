@@ -15,7 +15,7 @@ import org.openapitools.model.MoveSummary;
 /**
  * MoveDamageClassDetail
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaMSF4JServerCodegen", date = "2026-02-07T15:23:10.683633502Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaMSF4JServerCodegen", date = "2026-08-30T01:55:58.248058654Z[Etc/UTC]", comments = "Generator version: 7.24.0")
 public class MoveDamageClassDetail   {
   @JsonProperty("id")
   private Integer id;
@@ -59,16 +59,6 @@ public class MoveDamageClassDetail   {
     this.name = name;
   }
 
-  public MoveDamageClassDetail descriptions(List<@Valid MoveDamageClassDescription> descriptions) {
-    this.descriptions = descriptions;
-    return this;
-  }
-
-  public MoveDamageClassDetail addDescriptionsItem(MoveDamageClassDescription descriptionsItem) {
-    this.descriptions.add(descriptionsItem);
-    return this;
-  }
-
    /**
    * Get descriptions
    * @return descriptions
@@ -76,20 +66,6 @@ public class MoveDamageClassDetail   {
   @ApiModelProperty(required = true, value = "")
   public List<@Valid MoveDamageClassDescription> getDescriptions() {
     return descriptions;
-  }
-
-  public void setDescriptions(List<@Valid MoveDamageClassDescription> descriptions) {
-    this.descriptions = descriptions;
-  }
-
-  public MoveDamageClassDetail moves(List<@Valid MoveSummary> moves) {
-    this.moves = moves;
-    return this;
-  }
-
-  public MoveDamageClassDetail addMovesItem(MoveSummary movesItem) {
-    this.moves.add(movesItem);
-    return this;
   }
 
    /**
@@ -101,20 +77,6 @@ public class MoveDamageClassDetail   {
     return moves;
   }
 
-  public void setMoves(List<@Valid MoveSummary> moves) {
-    this.moves = moves;
-  }
-
-  public MoveDamageClassDetail names(List<@Valid MoveDamageClassName> names) {
-    this.names = names;
-    return this;
-  }
-
-  public MoveDamageClassDetail addNamesItem(MoveDamageClassName namesItem) {
-    this.names.add(namesItem);
-    return this;
-  }
-
    /**
    * Get names
    * @return names
@@ -122,10 +84,6 @@ public class MoveDamageClassDetail   {
   @ApiModelProperty(required = true, value = "")
   public List<@Valid MoveDamageClassName> getNames() {
     return names;
-  }
-
-  public void setNames(List<@Valid MoveDamageClassName> names) {
-    this.names = names;
   }
 
 
@@ -169,10 +127,7 @@ public class MoveDamageClassDetail   {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 }
 

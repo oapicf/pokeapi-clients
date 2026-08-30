@@ -13,10 +13,10 @@ static move_detail_contest_combos_t *move_detail_contest_combos_create_internal(
     if (!move_detail_contest_combos_local_var) {
         return NULL;
     }
+    memset(move_detail_contest_combos_local_var, 0, sizeof(move_detail_contest_combos_t));
+    move_detail_contest_combos_local_var->_library_owned = 1;
     move_detail_contest_combos_local_var->normal = normal;
     move_detail_contest_combos_local_var->super = super;
-
-    move_detail_contest_combos_local_var->_library_owned = 1;
     return move_detail_contest_combos_local_var;
 }
 
@@ -24,10 +24,13 @@ __attribute__((deprecated)) move_detail_contest_combos_t *move_detail_contest_co
     move_detail_contest_combos_normal_t *normal,
     move_detail_contest_combos_normal_t *super
     ) {
-    return move_detail_contest_combos_create_internal (
+    move_detail_contest_combos_t *result = move_detail_contest_combos_create_internal (
         normal,
         super
         );
+    if (!result) {
+    }
+    return result;
 }
 
 void move_detail_contest_combos_free(move_detail_contest_combos_t *move_detail_contest_combos) {
@@ -123,10 +126,15 @@ move_detail_contest_combos_t *move_detail_contest_combos_parseFromJSON(cJSON *mo
     super_local_nonprim = move_detail_contest_combos_normal_parseFromJSON(super); //nonprimitive
 
 
+
     move_detail_contest_combos_local_var = move_detail_contest_combos_create_internal (
         normal_local_nonprim,
         super_local_nonprim
         );
+
+    if (!move_detail_contest_combos_local_var) {
+        goto end;
+    }
 
     return move_detail_contest_combos_local_var;
 end:

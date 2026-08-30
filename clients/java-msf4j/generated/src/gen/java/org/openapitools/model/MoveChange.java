@@ -16,7 +16,7 @@ import org.openapitools.model.VersionGroupSummary;
 /**
  * MoveChange
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaMSF4JServerCodegen", date = "2026-02-07T15:23:10.683633502Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaMSF4JServerCodegen", date = "2026-08-30T01:55:58.248058654Z[Etc/UTC]", comments = "Generator version: 7.24.0")
 public class MoveChange   {
   @JsonProperty("accuracy")
   private Integer accuracy;
@@ -111,16 +111,6 @@ public class MoveChange   {
     this.effectChance = effectChance;
   }
 
-  public MoveChange effectEntries(List<@Valid MoveChangeEffectEntriesInner> effectEntries) {
-    this.effectEntries = effectEntries;
-    return this;
-  }
-
-  public MoveChange addEffectEntriesItem(MoveChangeEffectEntriesInner effectEntriesItem) {
-    this.effectEntries.add(effectEntriesItem);
-    return this;
-  }
-
    /**
    * Get effectEntries
    * @return effectEntries
@@ -128,10 +118,6 @@ public class MoveChange   {
   @ApiModelProperty(required = true, value = "")
   public List<@Valid MoveChangeEffectEntriesInner> getEffectEntries() {
     return effectEntries;
-  }
-
-  public void setEffectEntries(List<@Valid MoveChangeEffectEntriesInner> effectEntries) {
-    this.effectEntries = effectEntries;
   }
 
   public MoveChange type(TypeSummary type) {
@@ -215,10 +201,7 @@ public class MoveChange   {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 }
 

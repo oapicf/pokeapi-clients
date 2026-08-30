@@ -36,7 +36,7 @@ public class OASLocationAreaDetail implements OAS.MappedProperties {
      * Get encounterMethodRates
      * @return encounterMethodRates
      */
-    public List<OASLocationAreaDetailEncounterMethod> encounterMethodRates { get; set; }
+    public List<OASLocationAreaDetailEncounterMethod> encounterMethodRates { get; private set; }
 
     /**
      * Get location
@@ -48,13 +48,13 @@ public class OASLocationAreaDetail implements OAS.MappedProperties {
      * Get names
      * @return names
      */
-    public List<OASLocationAreaName> names { get; set; }
+    public List<OASLocationAreaName> names { get; private set; }
 
     /**
      * Get pokemonEncounters
      * @return pokemonEncounters
      */
-    public List<OASLocationAreaDetailPokemonEncounte> pokemonEncounters { get; set; }
+    public List<OASLocationAreaDetailPokemonEncounte> pokemonEncounters { get; private set; }
 
     private static final Map<String, String> propertyMappings = new Map<String, String>{
         'game_index' => 'gameIndex',

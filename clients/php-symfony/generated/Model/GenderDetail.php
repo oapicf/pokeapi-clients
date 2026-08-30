@@ -47,7 +47,7 @@ class GenderDetail
      * @var int|null
      * @SerializedName("id")
      * @Type("int")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Type("int")]
     protected ?int $id = null;
@@ -56,7 +56,7 @@ class GenderDetail
      * @var string|null
      * @SerializedName("name")
      * @Type("string")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Type("string")]
     #[Assert\Length(max: 100)]
@@ -66,7 +66,7 @@ class GenderDetail
      * @var GenderDetailPokemonSpeciesDetailsInner[]|null
      * @SerializedName("pokemon_species_details")
      * @Type("array<OpenAPI\Server\Model\GenderDetailPokemonSpeciesDetailsInner>")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Valid]
     #[Assert\All([
@@ -78,7 +78,7 @@ class GenderDetail
      * @var AbilityDetailPokemonInnerPokemon[]|null
      * @SerializedName("required_for_evolution")
      * @Type("array<OpenAPI\Server\Model\AbilityDetailPokemonInnerPokemon>")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Valid]
     #[Assert\All([
@@ -111,12 +111,12 @@ class GenderDetail
     }
 
     /**
-    * Sets id.
-    *
-    * @param int|null $id
-    *
-    * @return $this
-    */
+     * Sets id.
+     *
+     * @param int|null $id
+     *
+     * @return $this
+     */
     public function setId(?int $id): self
     {
         $this->id = $id;
@@ -138,12 +138,12 @@ class GenderDetail
     }
 
     /**
-    * Sets name.
-    *
-    * @param string|null $name
-    *
-    * @return $this
-    */
+     * Sets name.
+     *
+     * @param string|null $name
+     *
+     * @return $this
+     */
     public function setName(?string $name): self
     {
         $this->name = $name;
@@ -165,12 +165,12 @@ class GenderDetail
     }
 
     /**
-    * Sets pokemonSpeciesDetails.
-    *
-    * @param GenderDetailPokemonSpeciesDetailsInner[]|null $pokemonSpeciesDetails
-    *
-    * @return $this
-    */
+     * Sets pokemonSpeciesDetails.
+     *
+     * @param GenderDetailPokemonSpeciesDetailsInner[]|null $pokemonSpeciesDetails
+     *
+     * @return $this
+     */
     public function setPokemonSpeciesDetails(?array $pokemonSpeciesDetails): self
     {
         $this->pokemonSpeciesDetails = $pokemonSpeciesDetails;
@@ -192,12 +192,12 @@ class GenderDetail
     }
 
     /**
-    * Sets requiredForEvolution.
-    *
-    * @param AbilityDetailPokemonInnerPokemon[]|null $requiredForEvolution
-    *
-    * @return $this
-    */
+     * Sets requiredForEvolution.
+     *
+     * @param AbilityDetailPokemonInnerPokemon[]|null $requiredForEvolution
+     *
+     * @return $this
+     */
     public function setRequiredForEvolution(?array $requiredForEvolution): self
     {
         $this->requiredForEvolution = $requiredForEvolution;

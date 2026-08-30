@@ -31,6 +31,8 @@ PaginatedPalParkAreaSummaryList::PaginatedPalParkAreaSummaryList()
     
 }
 
+PaginatedPalParkAreaSummaryList::~PaginatedPalParkAreaSummaryList() = default;
+
 void PaginatedPalParkAreaSummaryList::validate() const
 {
     std::stringstream msg;

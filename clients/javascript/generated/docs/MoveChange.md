@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **power** | **Number** |  | [optional] 
 **pp** | **Number** |  | [optional] 
 **effectChance** | **Number** |  | 
-**effectEntries** | [**[MoveChangeEffectEntriesInner]**](MoveChangeEffectEntriesInner.md) |  | 
+**effectEntries** | [**[MoveChangeEffectEntriesInner]**](MoveChangeEffectEntriesInner.md) |  | [readonly] 
 **type** | [**TypeSummary**](TypeSummary.md) |  | 
 **versionGroup** | [**VersionGroupSummary**](VersionGroupSummary.md) |  | 
 

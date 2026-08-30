@@ -47,7 +47,7 @@ class MoveDamageClassDetail
      * @var int|null
      * @SerializedName("id")
      * @Type("int")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Type("int")]
     protected ?int $id = null;
@@ -56,7 +56,7 @@ class MoveDamageClassDetail
      * @var string|null
      * @SerializedName("name")
      * @Type("string")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Type("string")]
     #[Assert\Length(max: 100)]
@@ -66,7 +66,7 @@ class MoveDamageClassDetail
      * @var MoveDamageClassDescription[]|null
      * @SerializedName("descriptions")
      * @Type("array<OpenAPI\Server\Model\MoveDamageClassDescription>")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Valid]
     #[Assert\All([
@@ -78,7 +78,7 @@ class MoveDamageClassDetail
      * @var MoveSummary[]|null
      * @SerializedName("moves")
      * @Type("array<OpenAPI\Server\Model\MoveSummary>")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Valid]
     #[Assert\All([
@@ -90,7 +90,7 @@ class MoveDamageClassDetail
      * @var MoveDamageClassName[]|null
      * @SerializedName("names")
      * @Type("array<OpenAPI\Server\Model\MoveDamageClassName>")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Valid]
     #[Assert\All([
@@ -124,12 +124,12 @@ class MoveDamageClassDetail
     }
 
     /**
-    * Sets id.
-    *
-    * @param int|null $id
-    *
-    * @return $this
-    */
+     * Sets id.
+     *
+     * @param int|null $id
+     *
+     * @return $this
+     */
     public function setId(?int $id): self
     {
         $this->id = $id;
@@ -151,12 +151,12 @@ class MoveDamageClassDetail
     }
 
     /**
-    * Sets name.
-    *
-    * @param string|null $name
-    *
-    * @return $this
-    */
+     * Sets name.
+     *
+     * @param string|null $name
+     *
+     * @return $this
+     */
     public function setName(?string $name): self
     {
         $this->name = $name;
@@ -178,12 +178,12 @@ class MoveDamageClassDetail
     }
 
     /**
-    * Sets descriptions.
-    *
-    * @param MoveDamageClassDescription[]|null $descriptions
-    *
-    * @return $this
-    */
+     * Sets descriptions.
+     *
+     * @param MoveDamageClassDescription[]|null $descriptions
+     *
+     * @return $this
+     */
     public function setDescriptions(?array $descriptions): self
     {
         $this->descriptions = $descriptions;
@@ -205,12 +205,12 @@ class MoveDamageClassDetail
     }
 
     /**
-    * Sets moves.
-    *
-    * @param MoveSummary[]|null $moves
-    *
-    * @return $this
-    */
+     * Sets moves.
+     *
+     * @param MoveSummary[]|null $moves
+     *
+     * @return $this
+     */
     public function setMoves(?array $moves): self
     {
         $this->moves = $moves;
@@ -232,12 +232,12 @@ class MoveDamageClassDetail
     }
 
     /**
-    * Sets names.
-    *
-    * @param MoveDamageClassName[]|null $names
-    *
-    * @return $this
-    */
+     * Sets names.
+     *
+     * @param MoveDamageClassName[]|null $names
+     *
+     * @return $this
+     */
     public function setNames(?array $names): self
     {
         $this->names = $names;

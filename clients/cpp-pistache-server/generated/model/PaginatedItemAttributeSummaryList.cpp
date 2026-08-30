@@ -31,6 +31,8 @@ PaginatedItemAttributeSummaryList::PaginatedItemAttributeSummaryList()
     
 }
 
+PaginatedItemAttributeSummaryList::~PaginatedItemAttributeSummaryList() = default;
+
 void PaginatedItemAttributeSummaryList::validate() const
 {
     std::stringstream msg;

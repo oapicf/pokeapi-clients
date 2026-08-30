@@ -1,0 +1,85 @@
+## MovesApi
+
+### List move meta ailments
+## List move meta ailments
+GET https://pokeapi.co/api/v2/move-ailment/?limit={{limit}}&offset={{offset}}&q={{q}}
+Accept: application/json
+Authorization: Basic: {{username-password}}
+Cookie: sessionid={{cookieKey}}
+
+### Get move meta ailment
+## Get move meta ailment
+GET https://pokeapi.co/api/v2/move-ailment/{{id}}/
+Accept: application/json
+Authorization: Basic: {{username-password}}
+Cookie: sessionid={{cookieKey}}
+
+### List move battle styles
+## List move battle styles
+GET https://pokeapi.co/api/v2/move-battle-style/?limit={{limit}}&offset={{offset}}&q={{q}}
+Accept: application/json
+Authorization: Basic: {{username-password}}
+Cookie: sessionid={{cookieKey}}
+
+### Get move battle style
+## Get move battle style
+GET https://pokeapi.co/api/v2/move-battle-style/{{id}}/
+Accept: application/json
+Authorization: Basic: {{username-password}}
+Cookie: sessionid={{cookieKey}}
+
+### List move meta categories
+## List move meta categories
+GET https://pokeapi.co/api/v2/move-category/?limit={{limit}}&offset={{offset}}&q={{q}}
+Accept: application/json
+Authorization: Basic: {{username-password}}
+Cookie: sessionid={{cookieKey}}
+
+### Get move meta category
+## Get move meta category
+GET https://pokeapi.co/api/v2/move-category/{{id}}/
+Accept: application/json
+Authorization: Basic: {{username-password}}
+Cookie: sessionid={{cookieKey}}
+
+### List move learn methods
+## List move learn methods
+GET https://pokeapi.co/api/v2/move-learn-method/?limit={{limit}}&offset={{offset}}&q={{q}}
+Accept: application/json
+Authorization: Basic: {{username-password}}
+Cookie: sessionid={{cookieKey}}
+
+### Get move learn method
+## Get move learn method
+GET https://pokeapi.co/api/v2/move-learn-method/{{id}}/
+Accept: application/json
+Authorization: Basic: {{username-password}}
+Cookie: sessionid={{cookieKey}}
+
+### List moves
+## List moves
+GET https://pokeapi.co/api/v2/move/?limit={{limit}}&offset={{offset}}&q={{q}}
+Accept: application/json
+Authorization: Basic: {{username-password}}
+Cookie: sessionid={{cookieKey}}
+
+### Get move
+## Get move
+GET https://pokeapi.co/api/v2/move/{{id}}/
+Accept: application/json
+Authorization: Basic: {{username-password}}
+Cookie: sessionid={{cookieKey}}
+
+### List move targets
+## List move targets
+GET https://pokeapi.co/api/v2/move-target/?limit={{limit}}&offset={{offset}}&q={{q}}
+Accept: application/json
+Authorization: Basic: {{username-password}}
+Cookie: sessionid={{cookieKey}}
+
+### Get move target
+## Get move target
+GET https://pokeapi.co/api/v2/move-target/{{id}}/
+Accept: application/json
+Authorization: Basic: {{username-password}}
+Cookie: sessionid={{cookieKey}}

@@ -32,7 +32,7 @@ class  PokemonColorSummary
 {
 public:
     PokemonColorSummary();
-    virtual ~PokemonColorSummary() = default;
+    virtual ~PokemonColorSummary();
 
 
     /// <summary>

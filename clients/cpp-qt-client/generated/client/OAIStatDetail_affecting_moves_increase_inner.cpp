@@ -21,7 +21,7 @@
 
 namespace OpenAPI {
 
-OAIStatDetail_affecting_moves_increase_inner::OAIStatDetail_affecting_moves_increase_inner(QString json) {
+OAIStatDetail_affecting_moves_increase_inner::OAIStatDetail_affecting_moves_increase_inner(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -41,7 +41,7 @@ void OAIStatDetail_affecting_moves_increase_inner::initializeModel() {
     m_move_isValid = false;
 }
 
-void OAIStatDetail_affecting_moves_increase_inner::fromJson(QString jsonString) {
+void OAIStatDetail_affecting_moves_increase_inner::fromJson(const QString &jsonString) {
     QByteArray array(jsonString.toStdString().c_str());
     QJsonDocument doc = QJsonDocument::fromJson(array);
     QJsonObject jsonObject = doc.object();

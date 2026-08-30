@@ -59,20 +59,20 @@ export interface NatureDetail {
      * @type {Array<BerrySummary>}
      * @memberof NatureDetail
      */
-    berries: Array<BerrySummary>;
+    readonly berries: Array<BerrySummary>;
     /**
      * @type {Array<NatureDetailPokeathlonStatChangesInner>}
      * @memberof NatureDetail
      */
-    pokeathlon_stat_changes: Array<NatureDetailPokeathlonStatChangesInner>;
+    readonly pokeathlon_stat_changes: Array<NatureDetailPokeathlonStatChangesInner>;
     /**
      * @type {Array<NatureBattleStylePreference>}
      * @memberof NatureDetail
      */
-    move_battle_style_preferences: Array<NatureBattleStylePreference>;
+    readonly move_battle_style_preferences: Array<NatureBattleStylePreference>;
     /**
      * @type {Array<NatureName>}
      * @memberof NatureDetail
      */
-    names: Array<NatureName>;
+    readonly names: Array<NatureName>;
 }

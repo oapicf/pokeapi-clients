@@ -44,13 +44,13 @@ export interface PokemonColorDetail  {
      * @type {Array<PokemonColorName>}
      * @memberof PokemonColorDetail
      */
-    names: Array<PokemonColorName>;
+    readonly names: Array<PokemonColorName>;
     /**
      * 
      * @type {Array<PokemonSpeciesSummary>}
      * @memberof PokemonColorDetail
      */
-    pokemonSpecies: Array<PokemonSpeciesSummary>;
+    readonly pokemonSpecies: Array<PokemonSpeciesSummary>;
 }
 
 export function PokemonColorDetailFromJSON(json: any): PokemonColorDetail {
@@ -68,8 +68,6 @@ export function PokemonColorDetailToJSON(value?: PokemonColorDetail): any {
     }
     return {
         'name': value.name,
-        'names': (value.names as Array<any>).map(PokemonColorNameToJSON),
-        'pokemon_species': (value.pokemonSpecies as Array<any>).map(PokemonSpeciesSummaryToJSON),
     };
 }
 

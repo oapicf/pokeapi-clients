@@ -144,7 +144,7 @@ PaginatedItemAttributeSummaryList::getCount()
 }
 
 void
-PaginatedItemAttributeSummaryList::setCount(int  count)
+PaginatedItemAttributeSummaryList::setCount(int count)
 {
 	this->count = count;
 }
@@ -156,7 +156,7 @@ PaginatedItemAttributeSummaryList::getNext()
 }
 
 void
-PaginatedItemAttributeSummaryList::setNext(std::string  next)
+PaginatedItemAttributeSummaryList::setNext(std::string next)
 {
 	this->next = next;
 }
@@ -168,7 +168,7 @@ PaginatedItemAttributeSummaryList::getPrevious()
 }
 
 void
-PaginatedItemAttributeSummaryList::setPrevious(std::string  previous)
+PaginatedItemAttributeSummaryList::setPrevious(std::string previous)
 {
 	this->previous = previous;
 }
@@ -180,7 +180,7 @@ PaginatedItemAttributeSummaryList::getResults()
 }
 
 void
-PaginatedItemAttributeSummaryList::setResults(std::list <ItemAttributeSummary> results)
+PaginatedItemAttributeSummaryList::setResults(std::list<ItemAttributeSummary> results)
 {
 	this->results = results;
 }

@@ -33,7 +33,7 @@ class  MoveLearnMethodName
 {
 public:
     MoveLearnMethodName();
-    virtual ~MoveLearnMethodName() = default;
+    virtual ~MoveLearnMethodName();
 
 
     /// <summary>

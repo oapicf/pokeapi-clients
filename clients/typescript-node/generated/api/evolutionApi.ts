@@ -194,7 +194,7 @@ export class EvolutionApi {
      */
     public async evolutionChainRetrieve (id: string, options: {headers: {[name: string]: string}} = {headers: {}}) : Promise<{ response: http.IncomingMessage; body: EvolutionChainDetail;  }> {
         const localVarPath = this.basePath + '/api/v2/evolution-chain/{id}/'
-            .replace('{' + 'id' + '}', encodeURIComponent(String(id)));
+            .replace('{id}', encodeURIComponent(String(id)));
         let localVarQueryParameters: any = {};
         let localVarHeaderParams: any = (<any>Object).assign({}, this._defaultHeaders);
         const produces = ['application/json'];
@@ -352,7 +352,7 @@ export class EvolutionApi {
      */
     public async evolutionTriggerRetrieve (id: string, options: {headers: {[name: string]: string}} = {headers: {}}) : Promise<{ response: http.IncomingMessage; body: EvolutionTriggerDetail;  }> {
         const localVarPath = this.basePath + '/api/v2/evolution-trigger/{id}/'
-            .replace('{' + 'id' + '}', encodeURIComponent(String(id)));
+            .replace('{id}', encodeURIComponent(String(id)));
         let localVarQueryParameters: any = {};
         let localVarHeaderParams: any = (<any>Object).assign({}, this._defaultHeaders);
         const produces = ['application/json'];

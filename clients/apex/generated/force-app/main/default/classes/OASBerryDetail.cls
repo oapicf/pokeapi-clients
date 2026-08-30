@@ -72,7 +72,7 @@ public class OASBerryDetail implements OAS.MappedProperties {
      * Get flavors
      * @return flavors
      */
-    public List<OASBerryDetailFlavorsInner> flavors { get; set; }
+    public List<OASBerryDetailFlavorsInner> flavors { get; private set; }
 
     /**
      * Get item

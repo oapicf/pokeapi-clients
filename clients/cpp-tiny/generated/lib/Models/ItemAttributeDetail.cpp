@@ -199,7 +199,7 @@ ItemAttributeDetail::getId()
 }
 
 void
-ItemAttributeDetail::setId(int  id)
+ItemAttributeDetail::setId(int id)
 {
 	this->id = id;
 }
@@ -211,7 +211,7 @@ ItemAttributeDetail::getName()
 }
 
 void
-ItemAttributeDetail::setName(std::string  name)
+ItemAttributeDetail::setName(std::string name)
 {
 	this->name = name;
 }
@@ -223,7 +223,7 @@ ItemAttributeDetail::getDescriptions()
 }
 
 void
-ItemAttributeDetail::setDescriptions(std::list <ItemAttributeDescription> descriptions)
+ItemAttributeDetail::setDescriptions(std::list<ItemAttributeDescription> descriptions)
 {
 	this->descriptions = descriptions;
 }
@@ -235,7 +235,7 @@ ItemAttributeDetail::getItems()
 }
 
 void
-ItemAttributeDetail::setItems(std::list <AbilityDetail_pokemon_inner_pokemon> items)
+ItemAttributeDetail::setItems(std::list<AbilityDetail_pokemon_inner_pokemon> items)
 {
 	this->items = items;
 }
@@ -247,7 +247,7 @@ ItemAttributeDetail::getNames()
 }
 
 void
-ItemAttributeDetail::setNames(std::list <ItemAttributeName> names)
+ItemAttributeDetail::setNames(std::list<ItemAttributeName> names)
 {
 	this->names = names;
 }

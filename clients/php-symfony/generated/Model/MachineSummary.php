@@ -47,7 +47,7 @@ class MachineSummary
      * @var string|null
      * @SerializedName("url")
      * @Type("string")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Type("string")]
     protected ?string $url = null;
@@ -74,12 +74,12 @@ class MachineSummary
     }
 
     /**
-    * Sets url.
-    *
-    * @param string|null $url
-    *
-    * @return $this
-    */
+     * Sets url.
+     *
+     * @param string|null $url
+     *
+     * @return $this
+     */
     public function setUrl(?string $url): self
     {
         $this->url = $url;

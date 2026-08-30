@@ -61,7 +61,7 @@ import com.github.oapicf.pokeapiclient.JSON;
 /**
  * Serializer for the Type resource
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-07T15:22:35.747827932Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-08-30T01:55:28.842792947Z[Etc/UTC]", comments = "Generator version: 7.24.0")
 public class TypeDetail {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -123,10 +123,20 @@ public class TypeDetail {
 
   public TypeDetail(
      Integer id, 
+     List<TypeDetailPastDamageRelationsInner> pastDamageRelations, 
+     List<TypeGameIndex> gameIndices, 
+     List<AbilityName> names, 
+     List<TypeDetailPokemonInner> pokemon, 
+     List<MoveSummary> moves, 
      Map<String, Map<String, TypeDetailSpritesValueValue>> sprites
   ) {
     this();
     this.id = id;
+    this.pastDamageRelations = pastDamageRelations;
+    this.gameIndices = gameIndices;
+    this.names = names;
+    this.pokemon = pokemon;
+    this.moves = moves;
     this.sprites = sprites;
   }
 
@@ -179,19 +189,6 @@ public class TypeDetail {
   }
 
 
-  public TypeDetail pastDamageRelations(@javax.annotation.Nonnull List<TypeDetailPastDamageRelationsInner> pastDamageRelations) {
-    this.pastDamageRelations = pastDamageRelations;
-    return this;
-  }
-
-  public TypeDetail addPastDamageRelationsItem(TypeDetailPastDamageRelationsInner pastDamageRelationsItem) {
-    if (this.pastDamageRelations == null) {
-      this.pastDamageRelations = new ArrayList<>();
-    }
-    this.pastDamageRelations.add(pastDamageRelationsItem);
-    return this;
-  }
-
   /**
    * Get pastDamageRelations
    * @return pastDamageRelations
@@ -201,23 +198,7 @@ public class TypeDetail {
     return pastDamageRelations;
   }
 
-  public void setPastDamageRelations(@javax.annotation.Nonnull List<TypeDetailPastDamageRelationsInner> pastDamageRelations) {
-    this.pastDamageRelations = pastDamageRelations;
-  }
 
-
-  public TypeDetail gameIndices(@javax.annotation.Nonnull List<TypeGameIndex> gameIndices) {
-    this.gameIndices = gameIndices;
-    return this;
-  }
-
-  public TypeDetail addGameIndicesItem(TypeGameIndex gameIndicesItem) {
-    if (this.gameIndices == null) {
-      this.gameIndices = new ArrayList<>();
-    }
-    this.gameIndices.add(gameIndicesItem);
-    return this;
-  }
 
   /**
    * Get gameIndices
@@ -228,9 +209,6 @@ public class TypeDetail {
     return gameIndices;
   }
 
-  public void setGameIndices(@javax.annotation.Nonnull List<TypeGameIndex> gameIndices) {
-    this.gameIndices = gameIndices;
-  }
 
 
   public TypeDetail generation(@javax.annotation.Nonnull GenerationSummary generation) {
@@ -271,19 +249,6 @@ public class TypeDetail {
   }
 
 
-  public TypeDetail names(@javax.annotation.Nonnull List<AbilityName> names) {
-    this.names = names;
-    return this;
-  }
-
-  public TypeDetail addNamesItem(AbilityName namesItem) {
-    if (this.names == null) {
-      this.names = new ArrayList<>();
-    }
-    this.names.add(namesItem);
-    return this;
-  }
-
   /**
    * Get names
    * @return names
@@ -293,23 +258,7 @@ public class TypeDetail {
     return names;
   }
 
-  public void setNames(@javax.annotation.Nonnull List<AbilityName> names) {
-    this.names = names;
-  }
 
-
-  public TypeDetail pokemon(@javax.annotation.Nonnull List<TypeDetailPokemonInner> pokemon) {
-    this.pokemon = pokemon;
-    return this;
-  }
-
-  public TypeDetail addPokemonItem(TypeDetailPokemonInner pokemonItem) {
-    if (this.pokemon == null) {
-      this.pokemon = new ArrayList<>();
-    }
-    this.pokemon.add(pokemonItem);
-    return this;
-  }
 
   /**
    * Get pokemon
@@ -320,23 +269,7 @@ public class TypeDetail {
     return pokemon;
   }
 
-  public void setPokemon(@javax.annotation.Nonnull List<TypeDetailPokemonInner> pokemon) {
-    this.pokemon = pokemon;
-  }
 
-
-  public TypeDetail moves(@javax.annotation.Nonnull List<MoveSummary> moves) {
-    this.moves = moves;
-    return this;
-  }
-
-  public TypeDetail addMovesItem(MoveSummary movesItem) {
-    if (this.moves == null) {
-      this.moves = new ArrayList<>();
-    }
-    this.moves.add(movesItem);
-    return this;
-  }
 
   /**
    * Get moves
@@ -347,9 +280,6 @@ public class TypeDetail {
     return moves;
   }
 
-  public void setMoves(@javax.annotation.Nonnull List<MoveSummary> moves) {
-    this.moves = moves;
-  }
 
 
   /**
@@ -415,10 +345,7 @@ public class TypeDetail {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 
@@ -466,60 +393,60 @@ public class TypeDetail {
       }
       // validate the required field `damage_relations`
       TypeDetailDamageRelations.validateJsonElement(jsonObj.get("damage_relations"));
-      // ensure the json data is an array
-      if (!jsonObj.get("past_damage_relations").isJsonArray()) {
-        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `past_damage_relations` to be an array in the JSON string but got `%s`", jsonObj.get("past_damage_relations").toString()));
+      if (jsonObj.get("past_damage_relations") != null) {
+        if (!jsonObj.get("past_damage_relations").isJsonArray()) {
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `past_damage_relations` to be an array in the JSON string but got `%s`", jsonObj.get("past_damage_relations").toString()));
+        }
+        JsonArray jsonArraypastDamageRelations = jsonObj.getAsJsonArray("past_damage_relations");
+        // validate the required field `past_damage_relations` (array)
+        for (int i = 0; i < jsonArraypastDamageRelations.size(); i++) {
+          TypeDetailPastDamageRelationsInner.validateJsonElement(jsonArraypastDamageRelations.get(i));
+        }
       }
-
-      JsonArray jsonArraypastDamageRelations = jsonObj.getAsJsonArray("past_damage_relations");
-      // validate the required field `past_damage_relations` (array)
-      for (int i = 0; i < jsonArraypastDamageRelations.size(); i++) {
-        TypeDetailPastDamageRelationsInner.validateJsonElement(jsonArraypastDamageRelations.get(i));
-      };
-      // ensure the json data is an array
-      if (!jsonObj.get("game_indices").isJsonArray()) {
-        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `game_indices` to be an array in the JSON string but got `%s`", jsonObj.get("game_indices").toString()));
+      if (jsonObj.get("game_indices") != null) {
+        if (!jsonObj.get("game_indices").isJsonArray()) {
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `game_indices` to be an array in the JSON string but got `%s`", jsonObj.get("game_indices").toString()));
+        }
+        JsonArray jsonArraygameIndices = jsonObj.getAsJsonArray("game_indices");
+        // validate the required field `game_indices` (array)
+        for (int i = 0; i < jsonArraygameIndices.size(); i++) {
+          TypeGameIndex.validateJsonElement(jsonArraygameIndices.get(i));
+        }
       }
-
-      JsonArray jsonArraygameIndices = jsonObj.getAsJsonArray("game_indices");
-      // validate the required field `game_indices` (array)
-      for (int i = 0; i < jsonArraygameIndices.size(); i++) {
-        TypeGameIndex.validateJsonElement(jsonArraygameIndices.get(i));
-      };
       // validate the required field `generation`
       GenerationSummary.validateJsonElement(jsonObj.get("generation"));
       // validate the required field `move_damage_class`
       MoveDamageClassSummary.validateJsonElement(jsonObj.get("move_damage_class"));
-      // ensure the json data is an array
-      if (!jsonObj.get("names").isJsonArray()) {
-        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `names` to be an array in the JSON string but got `%s`", jsonObj.get("names").toString()));
+      if (jsonObj.get("names") != null) {
+        if (!jsonObj.get("names").isJsonArray()) {
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `names` to be an array in the JSON string but got `%s`", jsonObj.get("names").toString()));
+        }
+        JsonArray jsonArraynames = jsonObj.getAsJsonArray("names");
+        // validate the required field `names` (array)
+        for (int i = 0; i < jsonArraynames.size(); i++) {
+          AbilityName.validateJsonElement(jsonArraynames.get(i));
+        }
       }
-
-      JsonArray jsonArraynames = jsonObj.getAsJsonArray("names");
-      // validate the required field `names` (array)
-      for (int i = 0; i < jsonArraynames.size(); i++) {
-        AbilityName.validateJsonElement(jsonArraynames.get(i));
-      };
-      // ensure the json data is an array
-      if (!jsonObj.get("pokemon").isJsonArray()) {
-        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `pokemon` to be an array in the JSON string but got `%s`", jsonObj.get("pokemon").toString()));
+      if (jsonObj.get("pokemon") != null) {
+        if (!jsonObj.get("pokemon").isJsonArray()) {
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `pokemon` to be an array in the JSON string but got `%s`", jsonObj.get("pokemon").toString()));
+        }
+        JsonArray jsonArraypokemon = jsonObj.getAsJsonArray("pokemon");
+        // validate the required field `pokemon` (array)
+        for (int i = 0; i < jsonArraypokemon.size(); i++) {
+          TypeDetailPokemonInner.validateJsonElement(jsonArraypokemon.get(i));
+        }
       }
-
-      JsonArray jsonArraypokemon = jsonObj.getAsJsonArray("pokemon");
-      // validate the required field `pokemon` (array)
-      for (int i = 0; i < jsonArraypokemon.size(); i++) {
-        TypeDetailPokemonInner.validateJsonElement(jsonArraypokemon.get(i));
-      };
-      // ensure the json data is an array
-      if (!jsonObj.get("moves").isJsonArray()) {
-        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `moves` to be an array in the JSON string but got `%s`", jsonObj.get("moves").toString()));
+      if (jsonObj.get("moves") != null) {
+        if (!jsonObj.get("moves").isJsonArray()) {
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `moves` to be an array in the JSON string but got `%s`", jsonObj.get("moves").toString()));
+        }
+        JsonArray jsonArraymoves = jsonObj.getAsJsonArray("moves");
+        // validate the required field `moves` (array)
+        for (int i = 0; i < jsonArraymoves.size(); i++) {
+          MoveSummary.validateJsonElement(jsonArraymoves.get(i));
+        }
       }
-
-      JsonArray jsonArraymoves = jsonObj.getAsJsonArray("moves");
-      // validate the required field `moves` (array)
-      for (int i = 0; i < jsonArraymoves.size(); i++) {
-        MoveSummary.validateJsonElement(jsonArraymoves.get(i));
-      };
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {

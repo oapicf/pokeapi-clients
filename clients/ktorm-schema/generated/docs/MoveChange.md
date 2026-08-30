@@ -6,7 +6,7 @@
 Name | Mapping | SQL Type | Default | Type | Description | Notes
 ---- | ------- | -------- | ------- | ---- | ----------- | -----
 **effectChance** | effect_chance | int NOT NULL |  | **kotlin.Int** |  | 
-**effectEntries** | `One-To-Many` | `----` | `----`  | [**kotlin.Array&lt;MoveChangeEffectEntriesInner&gt;**](MoveChangeEffectEntriesInner.md) |  | 
+**effectEntries** | `One-To-Many` | `----` | `----`  | [**kotlin.Array&lt;MoveChangeEffectEntriesInner&gt;**](MoveChangeEffectEntriesInner.md) |  |  [readonly]
 **type** | type | long NOT NULL |  | [**TypeSummary**](TypeSummary.md) |  |  [foreignkey]
 **versionGroup** | version_group | long NOT NULL |  | [**VersionGroupSummary**](VersionGroupSummary.md) |  |  [foreignkey]
 **accuracy** | accuracy | int |  | **kotlin.Int** |  |  [optional]

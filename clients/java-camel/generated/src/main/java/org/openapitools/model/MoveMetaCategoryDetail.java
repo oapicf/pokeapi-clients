@@ -11,19 +11,19 @@ import org.openapitools.model.AbilityDetailPokemonInnerPokemon;
 import org.openapitools.model.MoveMetaCategoryDescription;
 import org.openapitools.jackson.nullable.JsonNullable;
 import java.time.OffsetDateTime;
-import javax.validation.Valid;
-import javax.validation.constraints.*;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.*;
 import io.swagger.v3.oas.annotations.media.Schema;
 
 
 import java.util.*;
-import javax.annotation.Generated;
+import jakarta.annotation.Generated;
 
 /**
  * MoveMetaCategoryDetail
  */
 
-@Generated(value = "org.openapitools.codegen.languages.JavaCamelServerCodegen", date = "2026-02-07T15:23:32.871052804Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@Generated(value = "org.openapitools.codegen.languages.JavaCamelServerCodegen", date = "2026-08-30T01:56:15.309401083Z[Etc/UTC]", comments = "Generator version: 7.24.0")
 public class MoveMetaCategoryDetail {
 
   private Integer id;
@@ -107,8 +107,8 @@ public class MoveMetaCategoryDetail {
    * Get descriptions
    * @return descriptions
    */
-  @NotNull @Valid 
-  @Schema(name = "descriptions", requiredMode = Schema.RequiredMode.REQUIRED)
+  @Valid 
+  @Schema(name = "descriptions", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("descriptions")
   public List<@Valid MoveMetaCategoryDescription> getDescriptions() {
     return descriptions;
@@ -135,8 +135,8 @@ public class MoveMetaCategoryDetail {
    * Get moves
    * @return moves
    */
-  @NotNull @Valid 
-  @Schema(name = "moves", requiredMode = Schema.RequiredMode.REQUIRED)
+  @Valid 
+  @Schema(name = "moves", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("moves")
   public List<@Valid AbilityDetailPokemonInnerPokemon> getMoves() {
     return moves;
@@ -183,10 +183,7 @@ public class MoveMetaCategoryDetail {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 }
 

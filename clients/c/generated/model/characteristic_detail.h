@@ -21,8 +21,8 @@ typedef struct characteristic_detail_t characteristic_detail_t;
 
 
 typedef struct characteristic_detail_t {
-    int id; //numeric
-    int gene_modulo; //numeric
+    int *id; //numeric
+    int *gene_modulo; //numeric
     list_t *possible_values; //primitive container
     struct stat_summary_t *highest_stat; //model
     list_t *descriptions; //nonprimitive container
@@ -31,8 +31,8 @@ typedef struct characteristic_detail_t {
 } characteristic_detail_t;
 
 __attribute__((deprecated)) characteristic_detail_t *characteristic_detail_create(
-    int id,
-    int gene_modulo,
+    int *id,
+    int *gene_modulo,
     list_t *possible_values,
     stat_summary_t *highest_stat,
     list_t *descriptions

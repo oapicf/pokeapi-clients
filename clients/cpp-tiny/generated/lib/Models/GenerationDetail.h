@@ -59,63 +59,63 @@ public:
 
 	/*! \brief Set 
 	 */
-	void setId(int  id);
+	void setId(int id);
 	/*! \brief Get 
 	 */
 	std::string getName();
 
 	/*! \brief Set 
 	 */
-	void setName(std::string  name);
+	void setName(std::string name);
 	/*! \brief Get 
 	 */
 	std::list<AbilitySummary> getAbilities();
 
 	/*! \brief Set 
 	 */
-	void setAbilities(std::list <AbilitySummary> abilities);
+	void setAbilities(std::list<AbilitySummary> abilities);
 	/*! \brief Get 
 	 */
 	RegionSummary getMainRegion();
 
 	/*! \brief Set 
 	 */
-	void setMainRegion(RegionSummary  main_region);
+	void setMainRegion(RegionSummary main_region);
 	/*! \brief Get 
 	 */
 	std::list<MoveSummary> getMoves();
 
 	/*! \brief Set 
 	 */
-	void setMoves(std::list <MoveSummary> moves);
+	void setMoves(std::list<MoveSummary> moves);
 	/*! \brief Get 
 	 */
 	std::list<GenerationName> getNames();
 
 	/*! \brief Set 
 	 */
-	void setNames(std::list <GenerationName> names);
+	void setNames(std::list<GenerationName> names);
 	/*! \brief Get 
 	 */
 	std::list<PokemonSpeciesSummary> getPokemonSpecies();
 
 	/*! \brief Set 
 	 */
-	void setPokemonSpecies(std::list <PokemonSpeciesSummary> pokemon_species);
+	void setPokemonSpecies(std::list<PokemonSpeciesSummary> pokemon_species);
 	/*! \brief Get 
 	 */
 	std::list<TypeSummary> getTypes();
 
 	/*! \brief Set 
 	 */
-	void setTypes(std::list <TypeSummary> types);
+	void setTypes(std::list<TypeSummary> types);
 	/*! \brief Get 
 	 */
 	std::list<VersionGroupSummary> getVersionGroups();
 
 	/*! \brief Set 
 	 */
-	void setVersionGroups(std::list <VersionGroupSummary> version_groups);
+	void setVersionGroups(std::list<VersionGroupSummary> version_groups);
 
 
     private:

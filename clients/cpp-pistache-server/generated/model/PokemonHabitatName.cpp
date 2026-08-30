@@ -25,6 +25,8 @@ PokemonHabitatName::PokemonHabitatName()
     
 }
 
+PokemonHabitatName::~PokemonHabitatName() = default;
+
 void PokemonHabitatName::validate() const
 {
     std::stringstream msg;

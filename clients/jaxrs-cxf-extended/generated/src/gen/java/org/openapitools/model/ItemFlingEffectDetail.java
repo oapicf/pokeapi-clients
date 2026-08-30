@@ -92,6 +92,7 @@ public class ItemFlingEffectDetail  {
 
   /**
    * Sets the <code>effectEntries</code> property.
+   * <br><em>N.B. <code>effectEntries</code> is <b>read only</b>; client code should not call this method</em>.
    */
  public void setEffectEntries(List<@Valid ItemFlingEffectEffectText> effectEntries) {
     this.effectEntries = effectEntries;
@@ -99,6 +100,7 @@ public class ItemFlingEffectDetail  {
 
   /**
    * Sets the <code>effectEntries</code> property.
+   * <br><em>N.B. <code>effectEntries</code> is <b>read only</b>; client code should not call this method</em>.
    */
   public ItemFlingEffectDetail effectEntries(List<@Valid ItemFlingEffectEffectText> effectEntries) {
     this.effectEntries = effectEntries;
@@ -107,6 +109,7 @@ public class ItemFlingEffectDetail  {
 
   /**
    * Adds a new item to the <code>effectEntries</code> list.
+   * <br><em>N.B. <code>effectEntries</code> is <b>read only</b>; client code should not call this method</em>.
    */
   public ItemFlingEffectDetail addEffectEntriesItem(ItemFlingEffectEffectText effectEntriesItem) {
     this.effectEntries.add(effectEntriesItem);
@@ -125,6 +128,7 @@ public class ItemFlingEffectDetail  {
 
   /**
    * Sets the <code>items</code> property.
+   * <br><em>N.B. <code>items</code> is <b>read only</b>; client code should not call this method</em>.
    */
  public void setItems(List<@Valid ItemSummary> items) {
     this.items = items;
@@ -132,6 +136,7 @@ public class ItemFlingEffectDetail  {
 
   /**
    * Sets the <code>items</code> property.
+   * <br><em>N.B. <code>items</code> is <b>read only</b>; client code should not call this method</em>.
    */
   public ItemFlingEffectDetail items(List<@Valid ItemSummary> items) {
     this.items = items;
@@ -140,6 +145,7 @@ public class ItemFlingEffectDetail  {
 
   /**
    * Adds a new item to the <code>items</code> list.
+   * <br><em>N.B. <code>items</code> is <b>read only</b>; client code should not call this method</em>.
    */
   public ItemFlingEffectDetail addItemsItem(ItemSummary itemsItem) {
     this.items.add(itemsItem);
@@ -185,10 +191,7 @@ public class ItemFlingEffectDetail  {
    * (except the first line).
    */
   private static String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 }
 

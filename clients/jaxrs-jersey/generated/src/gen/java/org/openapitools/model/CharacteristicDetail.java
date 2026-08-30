@@ -37,7 +37,7 @@ import javax.validation.Valid;
   CharacteristicDetail.JSON_PROPERTY_HIGHEST_STAT,
   CharacteristicDetail.JSON_PROPERTY_DESCRIPTIONS
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJerseyServerCodegen", date = "2026-02-07T15:23:51.865177194Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJerseyServerCodegen", date = "2026-08-30T01:56:28.710233113Z[Etc/UTC]", comments = "Generator version: 7.24.0")
 public class CharacteristicDetail   {
   public static final String JSON_PROPERTY_ID = "id";
   @JsonProperty(JSON_PROPERTY_ID)
@@ -116,9 +116,9 @@ public class CharacteristicDetail   {
    * Get possibleValues
    * @return possibleValues
    **/
-  @JsonProperty(value = "possible_values")
+  @JsonProperty(value = "possible_values", access = JsonProperty.Access.READ_ONLY)
   @ApiModelProperty(required = true, value = "")
-  @NotNull 
+  
   public List<Integer> getPossibleValues() {
     return possibleValues;
   }
@@ -164,9 +164,9 @@ public class CharacteristicDetail   {
    * Get descriptions
    * @return descriptions
    **/
-  @JsonProperty(value = "descriptions")
+  @JsonProperty(value = "descriptions", access = JsonProperty.Access.READ_ONLY)
   @ApiModelProperty(required = true, value = "")
-  @NotNull @Valid 
+  @Valid 
   public List<@Valid CharacteristicDescription> getDescriptions() {
     return descriptions;
   }
@@ -216,10 +216,7 @@ public class CharacteristicDetail   {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 }
 

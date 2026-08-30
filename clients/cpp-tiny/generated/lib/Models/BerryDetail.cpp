@@ -315,7 +315,7 @@ BerryDetail::getId()
 }
 
 void
-BerryDetail::setId(int  id)
+BerryDetail::setId(int id)
 {
 	this->id = id;
 }
@@ -327,7 +327,7 @@ BerryDetail::getName()
 }
 
 void
-BerryDetail::setName(std::string  name)
+BerryDetail::setName(std::string name)
 {
 	this->name = name;
 }
@@ -339,7 +339,7 @@ BerryDetail::getGrowthTime()
 }
 
 void
-BerryDetail::setGrowthTime(int  growth_time)
+BerryDetail::setGrowthTime(int growth_time)
 {
 	this->growth_time = growth_time;
 }
@@ -351,7 +351,7 @@ BerryDetail::getMaxHarvest()
 }
 
 void
-BerryDetail::setMaxHarvest(int  max_harvest)
+BerryDetail::setMaxHarvest(int max_harvest)
 {
 	this->max_harvest = max_harvest;
 }
@@ -363,7 +363,7 @@ BerryDetail::getNaturalGiftPower()
 }
 
 void
-BerryDetail::setNaturalGiftPower(int  natural_gift_power)
+BerryDetail::setNaturalGiftPower(int natural_gift_power)
 {
 	this->natural_gift_power = natural_gift_power;
 }
@@ -375,7 +375,7 @@ BerryDetail::getSize()
 }
 
 void
-BerryDetail::setSize(int  size)
+BerryDetail::setSize(int size)
 {
 	this->size = size;
 }
@@ -387,7 +387,7 @@ BerryDetail::getSmoothness()
 }
 
 void
-BerryDetail::setSmoothness(int  smoothness)
+BerryDetail::setSmoothness(int smoothness)
 {
 	this->smoothness = smoothness;
 }
@@ -399,7 +399,7 @@ BerryDetail::getSoilDryness()
 }
 
 void
-BerryDetail::setSoilDryness(int  soil_dryness)
+BerryDetail::setSoilDryness(int soil_dryness)
 {
 	this->soil_dryness = soil_dryness;
 }
@@ -411,7 +411,7 @@ BerryDetail::getFirmness()
 }
 
 void
-BerryDetail::setFirmness(BerryFirmnessSummary  firmness)
+BerryDetail::setFirmness(BerryFirmnessSummary firmness)
 {
 	this->firmness = firmness;
 }
@@ -423,7 +423,7 @@ BerryDetail::getFlavors()
 }
 
 void
-BerryDetail::setFlavors(std::list <BerryDetail_flavors_inner> flavors)
+BerryDetail::setFlavors(std::list<BerryDetail_flavors_inner> flavors)
 {
 	this->flavors = flavors;
 }
@@ -435,7 +435,7 @@ BerryDetail::getItem()
 }
 
 void
-BerryDetail::setItem(ItemSummary  item)
+BerryDetail::setItem(ItemSummary item)
 {
 	this->item = item;
 }
@@ -447,7 +447,7 @@ BerryDetail::getNaturalGiftType()
 }
 
 void
-BerryDetail::setNaturalGiftType(TypeSummary  natural_gift_type)
+BerryDetail::setNaturalGiftType(TypeSummary natural_gift_type)
 {
 	this->natural_gift_type = natural_gift_type;
 }

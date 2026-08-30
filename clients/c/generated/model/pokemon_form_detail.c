@@ -6,13 +6,13 @@
 
 
 static pokemon_form_detail_t *pokemon_form_detail_create_internal(
-    int id,
+    int *id,
     char *name,
-    int order,
-    int form_order,
-    int is_default,
-    int is_battle_only,
-    int is_mega,
+    int *order,
+    int *form_order,
+    int *is_default,
+    int *is_battle_only,
+    int *is_mega,
     char *form_name,
     pokemon_summary_t *pokemon,
     pokemon_form_detail_sprites_t *sprites,
@@ -25,6 +25,8 @@ static pokemon_form_detail_t *pokemon_form_detail_create_internal(
     if (!pokemon_form_detail_local_var) {
         return NULL;
     }
+    memset(pokemon_form_detail_local_var, 0, sizeof(pokemon_form_detail_t));
+    pokemon_form_detail_local_var->_library_owned = 1;
     pokemon_form_detail_local_var->id = id;
     pokemon_form_detail_local_var->name = name;
     pokemon_form_detail_local_var->order = order;
@@ -39,19 +41,17 @@ static pokemon_form_detail_t *pokemon_form_detail_create_internal(
     pokemon_form_detail_local_var->form_names = form_names;
     pokemon_form_detail_local_var->names = names;
     pokemon_form_detail_local_var->types = types;
-
-    pokemon_form_detail_local_var->_library_owned = 1;
     return pokemon_form_detail_local_var;
 }
 
 __attribute__((deprecated)) pokemon_form_detail_t *pokemon_form_detail_create(
-    int id,
+    int *id,
     char *name,
-    int order,
-    int form_order,
-    int is_default,
-    int is_battle_only,
-    int is_mega,
+    int *order,
+    int *form_order,
+    int *is_default,
+    int *is_battle_only,
+    int *is_mega,
     char *form_name,
     pokemon_summary_t *pokemon,
     pokemon_form_detail_sprites_t *sprites,
@@ -60,14 +60,44 @@ __attribute__((deprecated)) pokemon_form_detail_t *pokemon_form_detail_create(
     list_t *names,
     list_t *types
     ) {
-    return pokemon_form_detail_create_internal (
-        id,
+    int *id_copy = NULL;
+    if (id) {
+        id_copy = malloc(sizeof(int));
+        if (id_copy) *id_copy = *id;
+    }
+    int *order_copy = NULL;
+    if (order) {
+        order_copy = malloc(sizeof(int));
+        if (order_copy) *order_copy = *order;
+    }
+    int *form_order_copy = NULL;
+    if (form_order) {
+        form_order_copy = malloc(sizeof(int));
+        if (form_order_copy) *form_order_copy = *form_order;
+    }
+    int *is_default_copy = NULL;
+    if (is_default) {
+        is_default_copy = malloc(sizeof(int));
+        if (is_default_copy) *is_default_copy = *is_default;
+    }
+    int *is_battle_only_copy = NULL;
+    if (is_battle_only) {
+        is_battle_only_copy = malloc(sizeof(int));
+        if (is_battle_only_copy) *is_battle_only_copy = *is_battle_only;
+    }
+    int *is_mega_copy = NULL;
+    if (is_mega) {
+        is_mega_copy = malloc(sizeof(int));
+        if (is_mega_copy) *is_mega_copy = *is_mega;
+    }
+    pokemon_form_detail_t *result = pokemon_form_detail_create_internal (
+        id_copy,
         name,
-        order,
-        form_order,
-        is_default,
-        is_battle_only,
-        is_mega,
+        order_copy,
+        form_order_copy,
+        is_default_copy,
+        is_battle_only_copy,
+        is_mega_copy,
         form_name,
         pokemon,
         sprites,
@@ -76,6 +106,15 @@ __attribute__((deprecated)) pokemon_form_detail_t *pokemon_form_detail_create(
         names,
         types
         );
+    if (!result) {
+        free(id_copy);
+        free(order_copy);
+        free(form_order_copy);
+        free(is_default_copy);
+        free(is_battle_only_copy);
+        free(is_mega_copy);
+    }
+    return result;
 }
 
 void pokemon_form_detail_free(pokemon_form_detail_t *pokemon_form_detail) {
@@ -87,9 +126,33 @@ void pokemon_form_detail_free(pokemon_form_detail_t *pokemon_form_detail) {
         return ;
     }
     listEntry_t *listEntry;
+    if (pokemon_form_detail->id) {
+        free(pokemon_form_detail->id);
+        pokemon_form_detail->id = NULL;
+    }
     if (pokemon_form_detail->name) {
         free(pokemon_form_detail->name);
         pokemon_form_detail->name = NULL;
+    }
+    if (pokemon_form_detail->order) {
+        free(pokemon_form_detail->order);
+        pokemon_form_detail->order = NULL;
+    }
+    if (pokemon_form_detail->form_order) {
+        free(pokemon_form_detail->form_order);
+        pokemon_form_detail->form_order = NULL;
+    }
+    if (pokemon_form_detail->is_default) {
+        free(pokemon_form_detail->is_default);
+        pokemon_form_detail->is_default = NULL;
+    }
+    if (pokemon_form_detail->is_battle_only) {
+        free(pokemon_form_detail->is_battle_only);
+        pokemon_form_detail->is_battle_only = NULL;
+    }
+    if (pokemon_form_detail->is_mega) {
+        free(pokemon_form_detail->is_mega);
+        pokemon_form_detail->is_mega = NULL;
     }
     if (pokemon_form_detail->form_name) {
         free(pokemon_form_detail->form_name);
@@ -138,7 +201,7 @@ cJSON *pokemon_form_detail_convertToJSON(pokemon_form_detail_t *pokemon_form_det
     if (!pokemon_form_detail->id) {
         goto fail;
     }
-    if(cJSON_AddNumberToObject(item, "id", pokemon_form_detail->id) == NULL) {
+    if(cJSON_AddNumberToObject(item, "id", *pokemon_form_detail->id) == NULL) {
     goto fail; //Numeric
     }
 
@@ -154,7 +217,7 @@ cJSON *pokemon_form_detail_convertToJSON(pokemon_form_detail_t *pokemon_form_det
 
     // pokemon_form_detail->order
     if(pokemon_form_detail->order) {
-    if(cJSON_AddNumberToObject(item, "order", pokemon_form_detail->order) == NULL) {
+    if(cJSON_AddNumberToObject(item, "order", *pokemon_form_detail->order) == NULL) {
     goto fail; //Numeric
     }
     }
@@ -162,7 +225,7 @@ cJSON *pokemon_form_detail_convertToJSON(pokemon_form_detail_t *pokemon_form_det
 
     // pokemon_form_detail->form_order
     if(pokemon_form_detail->form_order) {
-    if(cJSON_AddNumberToObject(item, "form_order", pokemon_form_detail->form_order) == NULL) {
+    if(cJSON_AddNumberToObject(item, "form_order", *pokemon_form_detail->form_order) == NULL) {
     goto fail; //Numeric
     }
     }
@@ -170,7 +233,7 @@ cJSON *pokemon_form_detail_convertToJSON(pokemon_form_detail_t *pokemon_form_det
 
     // pokemon_form_detail->is_default
     if(pokemon_form_detail->is_default) {
-    if(cJSON_AddBoolToObject(item, "is_default", pokemon_form_detail->is_default) == NULL) {
+    if(cJSON_AddBoolToObject(item, "is_default", *pokemon_form_detail->is_default) == NULL) {
     goto fail; //Bool
     }
     }
@@ -178,7 +241,7 @@ cJSON *pokemon_form_detail_convertToJSON(pokemon_form_detail_t *pokemon_form_det
 
     // pokemon_form_detail->is_battle_only
     if(pokemon_form_detail->is_battle_only) {
-    if(cJSON_AddBoolToObject(item, "is_battle_only", pokemon_form_detail->is_battle_only) == NULL) {
+    if(cJSON_AddBoolToObject(item, "is_battle_only", *pokemon_form_detail->is_battle_only) == NULL) {
     goto fail; //Bool
     }
     }
@@ -186,7 +249,7 @@ cJSON *pokemon_form_detail_convertToJSON(pokemon_form_detail_t *pokemon_form_det
 
     // pokemon_form_detail->is_mega
     if(pokemon_form_detail->is_mega) {
-    if(cJSON_AddBoolToObject(item, "is_mega", pokemon_form_detail->is_mega) == NULL) {
+    if(cJSON_AddBoolToObject(item, "is_mega", *pokemon_form_detail->is_mega) == NULL) {
     goto fail; //Bool
     }
     }
@@ -317,6 +380,28 @@ pokemon_form_detail_t *pokemon_form_detail_parseFromJSON(cJSON *pokemon_form_det
 
     pokemon_form_detail_t *pokemon_form_detail_local_var = NULL;
 
+    // define the local variable for pokemon_form_detail->id
+    int *id_local_var = NULL;
+
+    char *name_local_str = NULL;
+
+    // define the local variable for pokemon_form_detail->order
+    int *order_local_var = NULL;
+
+    // define the local variable for pokemon_form_detail->form_order
+    int *form_order_local_var = NULL;
+
+    // define the local variable for pokemon_form_detail->is_default
+    int *is_default_local_var = NULL;
+
+    // define the local variable for pokemon_form_detail->is_battle_only
+    int *is_battle_only_local_var = NULL;
+
+    // define the local variable for pokemon_form_detail->is_mega
+    int *is_mega_local_var = NULL;
+
+    char *form_name_local_str = NULL;
+
     // define the local variable for pokemon_form_detail->pokemon
     pokemon_summary_t *pokemon_local_nonprim = NULL;
 
@@ -349,6 +434,12 @@ pokemon_form_detail_t *pokemon_form_detail_parseFromJSON(cJSON *pokemon_form_det
     {
     goto end; //Numeric
     }
+    id_local_var = malloc(sizeof(int));
+    if(!id_local_var)
+    {
+        goto end;
+    }
+    *id_local_var = id->valuedouble;
 
     // pokemon_form_detail->name
     cJSON *name = cJSON_GetObjectItemCaseSensitive(pokemon_form_detailJSON, "name");
@@ -375,6 +466,12 @@ pokemon_form_detail_t *pokemon_form_detail_parseFromJSON(cJSON *pokemon_form_det
     {
     goto end; //Numeric
     }
+    order_local_var = malloc(sizeof(int));
+    if(!order_local_var)
+    {
+        goto end;
+    }
+    *order_local_var = order->valuedouble;
     }
 
     // pokemon_form_detail->form_order
@@ -387,6 +484,12 @@ pokemon_form_detail_t *pokemon_form_detail_parseFromJSON(cJSON *pokemon_form_det
     {
     goto end; //Numeric
     }
+    form_order_local_var = malloc(sizeof(int));
+    if(!form_order_local_var)
+    {
+        goto end;
+    }
+    *form_order_local_var = form_order->valuedouble;
     }
 
     // pokemon_form_detail->is_default
@@ -399,6 +502,12 @@ pokemon_form_detail_t *pokemon_form_detail_parseFromJSON(cJSON *pokemon_form_det
     {
     goto end; //Bool
     }
+    is_default_local_var = malloc(sizeof(int));
+    if(!is_default_local_var)
+    {
+        goto end;
+    }
+    *is_default_local_var = is_default->valueint;
     }
 
     // pokemon_form_detail->is_battle_only
@@ -411,6 +520,12 @@ pokemon_form_detail_t *pokemon_form_detail_parseFromJSON(cJSON *pokemon_form_det
     {
     goto end; //Bool
     }
+    is_battle_only_local_var = malloc(sizeof(int));
+    if(!is_battle_only_local_var)
+    {
+        goto end;
+    }
+    *is_battle_only_local_var = is_battle_only->valueint;
     }
 
     // pokemon_form_detail->is_mega
@@ -423,6 +538,12 @@ pokemon_form_detail_t *pokemon_form_detail_parseFromJSON(cJSON *pokemon_form_det
     {
     goto end; //Bool
     }
+    is_mega_local_var = malloc(sizeof(int));
+    if(!is_mega_local_var)
+    {
+        goto end;
+    }
+    *is_mega_local_var = is_mega->valueint;
     }
 
     // pokemon_form_detail->form_name
@@ -558,15 +679,18 @@ pokemon_form_detail_t *pokemon_form_detail_parseFromJSON(cJSON *pokemon_form_det
     }
 
 
+    if (name && !cJSON_IsNull(name)) name_local_str = strdup(name->valuestring);
+    if (form_name && !cJSON_IsNull(form_name)) form_name_local_str = strdup(form_name->valuestring);
+
     pokemon_form_detail_local_var = pokemon_form_detail_create_internal (
-        id->valuedouble,
-        strdup(name->valuestring),
-        order ? order->valuedouble : 0,
-        form_order ? form_order->valuedouble : 0,
-        is_default ? is_default->valueint : 0,
-        is_battle_only ? is_battle_only->valueint : 0,
-        is_mega ? is_mega->valueint : 0,
-        strdup(form_name->valuestring),
+        id_local_var,
+        name_local_str,
+        order_local_var,
+        form_order_local_var,
+        is_default_local_var,
+        is_battle_only_local_var,
+        is_mega_local_var,
+        form_name_local_str,
         pokemon_local_nonprim,
         sprites_local_nonprim,
         version_group_local_nonprim,
@@ -575,8 +699,44 @@ pokemon_form_detail_t *pokemon_form_detail_parseFromJSON(cJSON *pokemon_form_det
         typesList
         );
 
+    if (!pokemon_form_detail_local_var) {
+        goto end;
+    }
+
     return pokemon_form_detail_local_var;
 end:
+    if (id_local_var) {
+        free(id_local_var);
+        id_local_var = NULL;
+    }
+    if (name_local_str) {
+        free(name_local_str);
+        name_local_str = NULL;
+    }
+    if (order_local_var) {
+        free(order_local_var);
+        order_local_var = NULL;
+    }
+    if (form_order_local_var) {
+        free(form_order_local_var);
+        form_order_local_var = NULL;
+    }
+    if (is_default_local_var) {
+        free(is_default_local_var);
+        is_default_local_var = NULL;
+    }
+    if (is_battle_only_local_var) {
+        free(is_battle_only_local_var);
+        is_battle_only_local_var = NULL;
+    }
+    if (is_mega_local_var) {
+        free(is_mega_local_var);
+        is_mega_local_var = NULL;
+    }
+    if (form_name_local_str) {
+        free(form_name_local_str);
+        form_name_local_str = NULL;
+    }
     if (pokemon_local_nonprim) {
         pokemon_summary_free(pokemon_local_nonprim);
         pokemon_local_nonprim = NULL;

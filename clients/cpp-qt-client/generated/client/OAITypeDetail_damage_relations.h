@@ -33,13 +33,13 @@ class OAIAbilityDetail_pokemon_inner_pokemon;
 class OAITypeDetail_damage_relations : public OAIObject {
 public:
     OAITypeDetail_damage_relations();
-    OAITypeDetail_damage_relations(QString json);
+    OAITypeDetail_damage_relations(const QString &json);
     ~OAITypeDetail_damage_relations() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     QList<OAIAbilityDetail_pokemon_inner_pokemon> getNoDamageTo() const;
     void setNoDamageTo(const QList<OAIAbilityDetail_pokemon_inner_pokemon> &no_damage_to);

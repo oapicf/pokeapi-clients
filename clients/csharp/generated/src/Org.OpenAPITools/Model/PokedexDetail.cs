@@ -74,19 +74,19 @@ namespace Org.OpenAPITools.Model
         /// Gets or Sets Descriptions
         /// </summary>
         [JsonPropertyName("descriptions")]
-        public List<PokedexDescription> Descriptions { get; set; }
+        public List<PokedexDescription> Descriptions { get; }
 
         /// <summary>
         /// Gets or Sets Names
         /// </summary>
         [JsonPropertyName("names")]
-        public List<PokedexName> Names { get; set; }
+        public List<PokedexName> Names { get; }
 
         /// <summary>
         /// Gets or Sets PokemonEntries
         /// </summary>
         [JsonPropertyName("pokemon_entries")]
-        public List<PokedexDetailPokemonEntriesInner> PokemonEntries { get; set; }
+        public List<PokedexDetailPokemonEntriesInner> PokemonEntries { get; }
 
         /// <summary>
         /// Gets or Sets Region
@@ -98,7 +98,7 @@ namespace Org.OpenAPITools.Model
         /// Gets or Sets VersionGroups
         /// </summary>
         [JsonPropertyName("version_groups")]
-        public List<AbilityDetailPokemonInnerPokemon> VersionGroups { get; set; }
+        public List<AbilityDetailPokemonInnerPokemon> VersionGroups { get; }
 
         /// <summary>
         /// Used to track the state of IsMainSeries
@@ -111,7 +111,7 @@ namespace Org.OpenAPITools.Model
         /// Gets or Sets IsMainSeries
         /// </summary>
         [JsonPropertyName("is_main_series")]
-        public bool? IsMainSeries { get { return this.IsMainSeriesOption; } set { this.IsMainSeriesOption = new(value); } }
+        public bool? IsMainSeries { get { return this.IsMainSeriesOption.Value; } set { this.IsMainSeriesOption = new(value); } }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -153,8 +153,18 @@ namespace Org.OpenAPITools.Model
     /// <summary>
     /// A Json converter for type <see cref="PokedexDetail" />
     /// </summary>
-    public class PokedexDetailJsonConverter : JsonConverter<PokedexDetail>
+    public partial class PokedexDetailJsonConverter : JsonConverter<PokedexDetail>
     {
+        partial void OnCreated();
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="PokedexDetailJsonConverter" /> class.
+        /// </summary>
+        public PokedexDetailJsonConverter()
+        {
+            OnCreated();
+        }
+
         /// <summary>
         /// Deserializes json to <see cref="PokedexDetail" />
         /// </summary>

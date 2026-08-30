@@ -85,7 +85,7 @@ MoveDamageClassSummary::getName()
 }
 
 void
-MoveDamageClassSummary::setName(std::string  name)
+MoveDamageClassSummary::setName(std::string name)
 {
 	this->name = name;
 }
@@ -97,7 +97,7 @@ MoveDamageClassSummary::getUrl()
 }
 
 void
-MoveDamageClassSummary::setUrl(std::string  url)
+MoveDamageClassSummary::setUrl(std::string url)
 {
 	this->url = url;
 }

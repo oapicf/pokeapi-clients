@@ -13,10 +13,10 @@ static egg_group_name_t *egg_group_name_create_internal(
     if (!egg_group_name_local_var) {
         return NULL;
     }
+    memset(egg_group_name_local_var, 0, sizeof(egg_group_name_t));
+    egg_group_name_local_var->_library_owned = 1;
     egg_group_name_local_var->name = name;
     egg_group_name_local_var->language = language;
-
-    egg_group_name_local_var->_library_owned = 1;
     return egg_group_name_local_var;
 }
 
@@ -24,10 +24,13 @@ __attribute__((deprecated)) egg_group_name_t *egg_group_name_create(
     char *name,
     language_summary_t *language
     ) {
-    return egg_group_name_create_internal (
+    egg_group_name_t *result = egg_group_name_create_internal (
         name,
         language
         );
+    if (!result) {
+    }
+    return result;
 }
 
 void egg_group_name_free(egg_group_name_t *egg_group_name) {
@@ -87,6 +90,8 @@ egg_group_name_t *egg_group_name_parseFromJSON(cJSON *egg_group_nameJSON){
 
     egg_group_name_t *egg_group_name_local_var = NULL;
 
+    char *name_local_str = NULL;
+
     // define the local variable for egg_group_name->language
     language_summary_t *language_local_nonprim = NULL;
 
@@ -118,13 +123,23 @@ egg_group_name_t *egg_group_name_parseFromJSON(cJSON *egg_group_nameJSON){
     language_local_nonprim = language_summary_parseFromJSON(language); //nonprimitive
 
 
+    if (name && !cJSON_IsNull(name)) name_local_str = strdup(name->valuestring);
+
     egg_group_name_local_var = egg_group_name_create_internal (
-        strdup(name->valuestring),
+        name_local_str,
         language_local_nonprim
         );
 
+    if (!egg_group_name_local_var) {
+        goto end;
+    }
+
     return egg_group_name_local_var;
 end:
+    if (name_local_str) {
+        free(name_local_str);
+        name_local_str = NULL;
+    }
     if (language_local_nonprim) {
         language_summary_free(language_local_nonprim);
         language_local_nonprim = NULL;

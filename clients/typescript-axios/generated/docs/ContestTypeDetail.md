@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **id** | **number** |  | [readonly] [default to undefined]
 **name** | **string** |  | [default to undefined]
 **berry_flavor** | [**BerryFlavorSummary**](BerryFlavorSummary.md) |  | [readonly] [default to undefined]
-**names** | [**Array&lt;ContestTypeName&gt;**](ContestTypeName.md) |  | [default to undefined]
+**names** | [**Array&lt;ContestTypeName&gt;**](ContestTypeName.md) |  | [readonly] [default to undefined]
 
 ## Example
 

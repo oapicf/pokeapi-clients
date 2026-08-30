@@ -144,7 +144,7 @@ PaginatedMoveSummaryList::getCount()
 }
 
 void
-PaginatedMoveSummaryList::setCount(int  count)
+PaginatedMoveSummaryList::setCount(int count)
 {
 	this->count = count;
 }
@@ -156,7 +156,7 @@ PaginatedMoveSummaryList::getNext()
 }
 
 void
-PaginatedMoveSummaryList::setNext(std::string  next)
+PaginatedMoveSummaryList::setNext(std::string next)
 {
 	this->next = next;
 }
@@ -168,7 +168,7 @@ PaginatedMoveSummaryList::getPrevious()
 }
 
 void
-PaginatedMoveSummaryList::setPrevious(std::string  previous)
+PaginatedMoveSummaryList::setPrevious(std::string previous)
 {
 	this->previous = previous;
 }
@@ -180,7 +180,7 @@ PaginatedMoveSummaryList::getResults()
 }
 
 void
-PaginatedMoveSummaryList::setResults(std::list <MoveSummary> results)
+PaginatedMoveSummaryList::setResults(std::list<MoveSummary> results)
 {
 	this->results = results;
 }

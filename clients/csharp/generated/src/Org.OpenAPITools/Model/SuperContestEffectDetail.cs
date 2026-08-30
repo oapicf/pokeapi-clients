@@ -66,13 +66,13 @@ namespace Org.OpenAPITools.Model
         /// Gets or Sets FlavorTextEntries
         /// </summary>
         [JsonPropertyName("flavor_text_entries")]
-        public List<SuperContestEffectFlavorText> FlavorTextEntries { get; set; }
+        public List<SuperContestEffectFlavorText> FlavorTextEntries { get; }
 
         /// <summary>
         /// Gets or Sets Moves
         /// </summary>
         [JsonPropertyName("moves")]
-        public List<MoveSummary> Moves { get; set; }
+        public List<MoveSummary> Moves { get; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -104,8 +104,18 @@ namespace Org.OpenAPITools.Model
     /// <summary>
     /// A Json converter for type <see cref="SuperContestEffectDetail" />
     /// </summary>
-    public class SuperContestEffectDetailJsonConverter : JsonConverter<SuperContestEffectDetail>
+    public partial class SuperContestEffectDetailJsonConverter : JsonConverter<SuperContestEffectDetail>
     {
+        partial void OnCreated();
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="SuperContestEffectDetailJsonConverter" /> class.
+        /// </summary>
+        public SuperContestEffectDetailJsonConverter()
+        {
+            OnCreated();
+        }
+
         /// <summary>
         /// Deserializes json to <see cref="SuperContestEffectDetail" />
         /// </summary>

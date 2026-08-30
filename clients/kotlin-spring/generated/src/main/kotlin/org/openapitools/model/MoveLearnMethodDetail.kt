@@ -26,23 +26,28 @@ import io.swagger.v3.oas.annotations.media.Schema
  */
 data class MoveLearnMethodDetail(
 
-    @Schema(example = "null", required = true, readOnly = true, description = "")
+    @Schema(required = true, readOnly = true, description = "")
+    @param:JsonProperty("id")
     @get:JsonProperty("id", required = true) val id: kotlin.Int,
 
     @get:Size(max=100)
-    @Schema(example = "null", required = true, description = "")
+    @Schema(required = true, description = "")
+    @param:JsonProperty("name")
     @get:JsonProperty("name", required = true) val name: kotlin.String,
 
     @field:Valid
-    @Schema(example = "null", required = true, description = "")
+    @Schema(required = true, readOnly = true, description = "")
+    @param:JsonProperty("names")
     @get:JsonProperty("names", required = true) val names: kotlin.collections.List<MoveLearnMethodName>,
 
     @field:Valid
-    @Schema(example = "null", required = true, description = "")
+    @Schema(required = true, readOnly = true, description = "")
+    @param:JsonProperty("descriptions")
     @get:JsonProperty("descriptions", required = true) val descriptions: kotlin.collections.List<MoveLearnMethodDescription>,
 
     @field:Valid
-    @Schema(example = "null", required = true, description = "")
+    @Schema(required = true, readOnly = true, description = "")
+    @param:JsonProperty("version_groups")
     @get:JsonProperty("version_groups", required = true) val versionGroups: kotlin.collections.List<AbilityDetailPokemonInnerPokemon>
 ) {
 

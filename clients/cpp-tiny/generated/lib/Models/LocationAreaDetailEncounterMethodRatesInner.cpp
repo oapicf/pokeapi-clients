@@ -103,7 +103,7 @@ LocationAreaDetail_encounter_method_rates_inner::getEncounterMethod()
 }
 
 void
-LocationAreaDetail_encounter_method_rates_inner::setEncounterMethod(AbilityDetail_pokemon_inner_pokemon  encounter_method)
+LocationAreaDetail_encounter_method_rates_inner::setEncounterMethod(AbilityDetail_pokemon_inner_pokemon encounter_method)
 {
 	this->encounter_method = encounter_method;
 }
@@ -115,7 +115,7 @@ LocationAreaDetail_encounter_method_rates_inner::getVersionDetails()
 }
 
 void
-LocationAreaDetail_encounter_method_rates_inner::setVersionDetails(std::list <LocationAreaDetail_encounter_method_rates_inner_version_details_inner> version_details)
+LocationAreaDetail_encounter_method_rates_inner::setVersionDetails(std::list<LocationAreaDetail_encounter_method_rates_inner_version_details_inner> version_details)
 {
 	this->version_details = version_details;
 }

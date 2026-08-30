@@ -17,7 +17,7 @@ import PokemonShapeSummary from './PokemonShapeSummary';
 /**
  * The PaginatedPokemonShapeSummaryList model module.
  * @module model/PaginatedPokemonShapeSummaryList
- * @version 1.2.1-pre.0
+ * @version 2.0.1-pre.0
  */
 class PaginatedPokemonShapeSummaryList {
     /**

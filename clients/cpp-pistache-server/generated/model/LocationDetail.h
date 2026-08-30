@@ -37,7 +37,7 @@ class  LocationDetail
 {
 public:
     LocationDetail();
-    virtual ~LocationDetail() = default;
+    virtual ~LocationDetail();
 
 
     /// <summary>

@@ -33,7 +33,7 @@ class  PokedexDescription
 {
 public:
     PokedexDescription();
-    virtual ~PokedexDescription() = default;
+    virtual ~PokedexDescription();
 
 
     /// <summary>

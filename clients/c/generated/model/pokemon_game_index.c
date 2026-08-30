@@ -6,28 +6,37 @@
 
 
 static pokemon_game_index_t *pokemon_game_index_create_internal(
-    int game_index,
+    int *game_index,
     version_summary_t *version
     ) {
     pokemon_game_index_t *pokemon_game_index_local_var = malloc(sizeof(pokemon_game_index_t));
     if (!pokemon_game_index_local_var) {
         return NULL;
     }
+    memset(pokemon_game_index_local_var, 0, sizeof(pokemon_game_index_t));
+    pokemon_game_index_local_var->_library_owned = 1;
     pokemon_game_index_local_var->game_index = game_index;
     pokemon_game_index_local_var->version = version;
-
-    pokemon_game_index_local_var->_library_owned = 1;
     return pokemon_game_index_local_var;
 }
 
 __attribute__((deprecated)) pokemon_game_index_t *pokemon_game_index_create(
-    int game_index,
+    int *game_index,
     version_summary_t *version
     ) {
-    return pokemon_game_index_create_internal (
-        game_index,
+    int *game_index_copy = NULL;
+    if (game_index) {
+        game_index_copy = malloc(sizeof(int));
+        if (game_index_copy) *game_index_copy = *game_index;
+    }
+    pokemon_game_index_t *result = pokemon_game_index_create_internal (
+        game_index_copy,
         version
         );
+    if (!result) {
+        free(game_index_copy);
+    }
+    return result;
 }
 
 void pokemon_game_index_free(pokemon_game_index_t *pokemon_game_index) {
@@ -39,6 +48,10 @@ void pokemon_game_index_free(pokemon_game_index_t *pokemon_game_index) {
         return ;
     }
     listEntry_t *listEntry;
+    if (pokemon_game_index->game_index) {
+        free(pokemon_game_index->game_index);
+        pokemon_game_index->game_index = NULL;
+    }
     if (pokemon_game_index->version) {
         version_summary_free(pokemon_game_index->version);
         pokemon_game_index->version = NULL;
@@ -53,7 +66,7 @@ cJSON *pokemon_game_index_convertToJSON(pokemon_game_index_t *pokemon_game_index
     if (!pokemon_game_index->game_index) {
         goto fail;
     }
-    if(cJSON_AddNumberToObject(item, "game_index", pokemon_game_index->game_index) == NULL) {
+    if(cJSON_AddNumberToObject(item, "game_index", *pokemon_game_index->game_index) == NULL) {
     goto fail; //Numeric
     }
 
@@ -83,6 +96,9 @@ pokemon_game_index_t *pokemon_game_index_parseFromJSON(cJSON *pokemon_game_index
 
     pokemon_game_index_t *pokemon_game_index_local_var = NULL;
 
+    // define the local variable for pokemon_game_index->game_index
+    int *game_index_local_var = NULL;
+
     // define the local variable for pokemon_game_index->version
     version_summary_t *version_local_nonprim = NULL;
 
@@ -100,6 +116,12 @@ pokemon_game_index_t *pokemon_game_index_parseFromJSON(cJSON *pokemon_game_index
     {
     goto end; //Numeric
     }
+    game_index_local_var = malloc(sizeof(int));
+    if(!game_index_local_var)
+    {
+        goto end;
+    }
+    *game_index_local_var = game_index->valuedouble;
 
     // pokemon_game_index->version
     cJSON *version = cJSON_GetObjectItemCaseSensitive(pokemon_game_indexJSON, "version");
@@ -114,13 +136,22 @@ pokemon_game_index_t *pokemon_game_index_parseFromJSON(cJSON *pokemon_game_index
     version_local_nonprim = version_summary_parseFromJSON(version); //nonprimitive
 
 
+
     pokemon_game_index_local_var = pokemon_game_index_create_internal (
-        game_index->valuedouble,
+        game_index_local_var,
         version_local_nonprim
         );
 
+    if (!pokemon_game_index_local_var) {
+        goto end;
+    }
+
     return pokemon_game_index_local_var;
 end:
+    if (game_index_local_var) {
+        free(game_index_local_var);
+        game_index_local_var = NULL;
+    }
     if (version_local_nonprim) {
         version_summary_free(version_local_nonprim);
         version_local_nonprim = NULL;

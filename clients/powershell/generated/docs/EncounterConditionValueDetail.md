@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 **Id** | **Int32** |  | [readonly] 
 **Name** | **String** |  | 
 **Condition** | [**EncounterConditionSummary**](EncounterConditionSummary.md) |  | 
-**Names** | [**EncounterConditionValueName[]**](EncounterConditionValueName.md) |  | 
+**Names** | [**EncounterConditionValueName[]**](EncounterConditionValueName.md) |  | [readonly] 
 
 ## Examples
 

@@ -6,8 +6,8 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **int32** |  | [readonly] 
 **Name** | **string** |  | 
-**Categories** | [**[]ItemCategorySummary**](ItemCategorySummary.md) |  | 
-**Names** | [**[]ItemPocketName**](ItemPocketName.md) |  | 
+**Categories** | [**[]ItemCategorySummary**](ItemCategorySummary.md) |  | [readonly] 
+**Names** | [**[]ItemPocketName**](ItemPocketName.md) |  | [readonly] 
 
 ## Methods
 

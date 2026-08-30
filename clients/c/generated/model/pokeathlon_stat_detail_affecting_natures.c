@@ -13,10 +13,10 @@ static pokeathlon_stat_detail_affecting_natures_t *pokeathlon_stat_detail_affect
     if (!pokeathlon_stat_detail_affecting_natures_local_var) {
         return NULL;
     }
+    memset(pokeathlon_stat_detail_affecting_natures_local_var, 0, sizeof(pokeathlon_stat_detail_affecting_natures_t));
+    pokeathlon_stat_detail_affecting_natures_local_var->_library_owned = 1;
     pokeathlon_stat_detail_affecting_natures_local_var->decrease = decrease;
     pokeathlon_stat_detail_affecting_natures_local_var->increase = increase;
-
-    pokeathlon_stat_detail_affecting_natures_local_var->_library_owned = 1;
     return pokeathlon_stat_detail_affecting_natures_local_var;
 }
 
@@ -24,10 +24,13 @@ __attribute__((deprecated)) pokeathlon_stat_detail_affecting_natures_t *pokeathl
     list_t *decrease,
     list_t *increase
     ) {
-    return pokeathlon_stat_detail_affecting_natures_create_internal (
+    pokeathlon_stat_detail_affecting_natures_t *result = pokeathlon_stat_detail_affecting_natures_create_internal (
         decrease,
         increase
         );
+    if (!result) {
+    }
+    return result;
 }
 
 void pokeathlon_stat_detail_affecting_natures_free(pokeathlon_stat_detail_affecting_natures_t *pokeathlon_stat_detail_affecting_natures) {
@@ -173,10 +176,15 @@ pokeathlon_stat_detail_affecting_natures_t *pokeathlon_stat_detail_affecting_nat
     }
 
 
+
     pokeathlon_stat_detail_affecting_natures_local_var = pokeathlon_stat_detail_affecting_natures_create_internal (
         decreaseList,
         increaseList
         );
+
+    if (!pokeathlon_stat_detail_affecting_natures_local_var) {
+        goto end;
+    }
 
     return pokeathlon_stat_detail_affecting_natures_local_var;
 end:

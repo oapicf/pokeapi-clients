@@ -76,19 +76,19 @@ namespace Org.OpenAPITools.Model
         /// Gets or Sets Names
         /// </summary>
         [JsonPropertyName("names")]
-        public List<LocationName> Names { get; set; }
+        public List<LocationName> Names { get; }
 
         /// <summary>
         /// Gets or Sets GameIndices
         /// </summary>
         [JsonPropertyName("game_indices")]
-        public List<LocationGameIndex> GameIndices { get; set; }
+        public List<LocationGameIndex> GameIndices { get; }
 
         /// <summary>
         /// Gets or Sets Areas
         /// </summary>
         [JsonPropertyName("areas")]
-        public List<LocationAreaSummary> Areas { get; set; }
+        public List<LocationAreaSummary> Areas { get; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -128,8 +128,18 @@ namespace Org.OpenAPITools.Model
     /// <summary>
     /// A Json converter for type <see cref="LocationDetail" />
     /// </summary>
-    public class LocationDetailJsonConverter : JsonConverter<LocationDetail>
+    public partial class LocationDetailJsonConverter : JsonConverter<LocationDetail>
     {
+        partial void OnCreated();
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="LocationDetailJsonConverter" /> class.
+        /// </summary>
+        public LocationDetailJsonConverter()
+        {
+            OnCreated();
+        }
+
         /// <summary>
         /// Deserializes json to <see cref="LocationDetail" />
         /// </summary>

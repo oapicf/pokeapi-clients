@@ -34,7 +34,7 @@ class  PaginatedMoveMetaAilmentSummaryList
 {
 public:
     PaginatedMoveMetaAilmentSummaryList();
-    virtual ~PaginatedMoveMetaAilmentSummaryList() = default;
+    virtual ~PaginatedMoveMetaAilmentSummaryList();
 
 
     /// <summary>

@@ -15,9 +15,9 @@ class EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner {
     
     EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender item
     
-    Object knownMove
+    EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender knownMove
     
-    Object knownMoveType
+    EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender knownMoveType
     
     EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender location
     

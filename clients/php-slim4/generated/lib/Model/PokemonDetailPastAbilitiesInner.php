@@ -52,7 +52,8 @@ class PokemonDetailPastAbilitiesInner extends BaseModel
       "type" : "array",
       "items" : {
         "$ref" : "#/components/schemas/PokemonDetail_abilities_inner"
-      }
+      },
+      "default" : null
     },
     "generation" : {
       "$ref" : "#/components/schemas/AbilityDetail_pokemon_inner_pokemon"

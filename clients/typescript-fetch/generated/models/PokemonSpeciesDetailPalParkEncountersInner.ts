@@ -52,7 +52,7 @@ export interface PokemonSpeciesDetailPalParkEncountersInner {
  */
 export function instanceOfPokemonSpeciesDetailPalParkEncountersInner(value: object): value is PokemonSpeciesDetailPalParkEncountersInner {
     if (!('area' in value) || value['area'] === undefined) return false;
-    if (!('baseScore' in value) || value['baseScore'] === undefined) return false;
+    if ((!('baseScore' in (value as Record<string, any>)) && !('base_score' in (value as Record<string, any>))) || ((value as Record<string, any>)['baseScore'] === undefined && (value as Record<string, any>)['base_score'] === undefined)) return false;
     if (!('rate' in value) || value['rate'] === undefined) return false;
     return true;
 }

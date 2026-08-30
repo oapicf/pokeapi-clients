@@ -86,7 +86,7 @@ PokemonShapeDetail_awesome_names_inner::getAwesomeName()
 }
 
 void
-PokemonShapeDetail_awesome_names_inner::setAwesomeName(std::string  awesome_name)
+PokemonShapeDetail_awesome_names_inner::setAwesomeName(std::string awesome_name)
 {
 	this->awesome_name = awesome_name;
 }
@@ -98,7 +98,7 @@ PokemonShapeDetail_awesome_names_inner::getLanguage()
 }
 
 void
-PokemonShapeDetail_awesome_names_inner::setLanguage(AbilityDetail_pokemon_inner_pokemon  language)
+PokemonShapeDetail_awesome_names_inner::setLanguage(AbilityDetail_pokemon_inner_pokemon language)
 {
 	this->language = language;
 }

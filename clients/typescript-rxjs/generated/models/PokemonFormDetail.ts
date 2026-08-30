@@ -83,15 +83,15 @@ export interface PokemonFormDetail {
      * @type {Array<PokemonFormDetailFormNamesInner>}
      * @memberof PokemonFormDetail
      */
-    form_names: Array<PokemonFormDetailFormNamesInner>;
+    readonly form_names: Array<PokemonFormDetailFormNamesInner>;
     /**
      * @type {Array<PokemonFormDetailFormNamesInner>}
      * @memberof PokemonFormDetail
      */
-    names: Array<PokemonFormDetailFormNamesInner>;
+    readonly names: Array<PokemonFormDetailFormNamesInner>;
     /**
      * @type {Array<PokemonDetailTypesInner>}
      * @memberof PokemonFormDetail
      */
-    types: Array<PokemonDetailTypesInner>;
+    readonly types: Array<PokemonDetailTypesInner>;
 }

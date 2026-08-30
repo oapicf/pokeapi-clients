@@ -8,8 +8,8 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **Integer** |  |  [readonly]
 **name** | **String** |  | 
-**names** | [**List&lt;PalParkAreaName&gt;**](PalParkAreaName.md) |  | 
-**pokemonEncounters** | [**List&lt;PalParkAreaDetailPokemonEncountersInner&gt;**](PalParkAreaDetailPokemonEncountersInner.md) |  | 
+**names** | [**List&lt;PalParkAreaName&gt;**](PalParkAreaName.md) |  |  [readonly]
+**pokemonEncounters** | [**List&lt;PalParkAreaDetailPokemonEncountersInner&gt;**](PalParkAreaDetailPokemonEncountersInner.md) |  |  [readonly]
 
 
 

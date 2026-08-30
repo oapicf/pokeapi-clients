@@ -25,7 +25,8 @@ type PaginatedEvolutionTriggerSummaryList struct {
 	Results []EvolutionTriggerSummary `json:"results,omitempty"`
 }
 
-// AssertPaginatedEvolutionTriggerSummaryListRequired checks if the required fields are not zero-ed
+// AssertPaginatedEvolutionTriggerSummaryListRequired checks complex required fields (models, arrays, maps) and embedded parents.
+// Primitive required fields are validated for JSON request bodies in UnmarshalJSON so zero values remain valid.
 func AssertPaginatedEvolutionTriggerSummaryListRequired(obj PaginatedEvolutionTriggerSummaryList) error {
 	for _, el := range obj.Results {
 		if err := AssertEvolutionTriggerSummaryRequired(el); err != nil {

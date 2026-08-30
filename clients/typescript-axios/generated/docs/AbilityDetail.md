@@ -9,11 +9,11 @@ Name | Type | Description | Notes
 **name** | **string** |  | [default to undefined]
 **is_main_series** | **boolean** |  | [optional] [default to undefined]
 **generation** | [**GenerationSummary**](GenerationSummary.md) |  | [default to undefined]
-**names** | [**Array&lt;AbilityName&gt;**](AbilityName.md) |  | [default to undefined]
-**effect_entries** | [**Array&lt;AbilityEffectText&gt;**](AbilityEffectText.md) |  | [default to undefined]
-**effect_changes** | [**Array&lt;AbilityChange&gt;**](AbilityChange.md) |  | [default to undefined]
-**flavor_text_entries** | [**Array&lt;AbilityFlavorText&gt;**](AbilityFlavorText.md) |  | [default to undefined]
-**pokemon** | [**Array&lt;AbilityDetailPokemonInner&gt;**](AbilityDetailPokemonInner.md) |  | [default to undefined]
+**names** | [**Array&lt;AbilityName&gt;**](AbilityName.md) |  | [readonly] [default to undefined]
+**effect_entries** | [**Array&lt;AbilityEffectText&gt;**](AbilityEffectText.md) |  | [readonly] [default to undefined]
+**effect_changes** | [**Array&lt;AbilityChange&gt;**](AbilityChange.md) |  | [readonly] [default to undefined]
+**flavor_text_entries** | [**Array&lt;AbilityFlavorText&gt;**](AbilityFlavorText.md) |  | [readonly] [default to undefined]
+**pokemon** | [**Array&lt;AbilityDetailPokemonInner&gt;**](AbilityDetailPokemonInner.md) |  | [readonly] [default to undefined]
 
 ## Example
 

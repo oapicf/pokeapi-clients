@@ -49,8 +49,8 @@ function Initialize-GenderDetailPokemonSpeciesDetailsInner {
 
 
         $PSO = [PSCustomObject]@{
-            "rate" = ${Rate}
-            "pokemon_species" = ${PokemonSpecies}
+            'rate' = ${Rate}
+            'pokemon_species' = ${PokemonSpecies}
         }
 
 
@@ -88,7 +88,7 @@ function ConvertFrom-JsonToGenderDetailPokemonSpeciesDetailsInner {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in GenderDetailPokemonSpeciesDetailsInner
-        $AllProperties = ("rate", "pokemon_species")
+        $AllProperties = ('rate', 'pokemon_species')
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -99,21 +99,21 @@ function ConvertFrom-JsonToGenderDetailPokemonSpeciesDetailsInner {
             throw "Error! Empty JSON cannot be serialized due to the required property 'rate' missing."
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "rate"))) {
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'rate'))) {
             throw "Error! JSON cannot be serialized due to the required property 'rate' missing."
         } else {
-            $Rate = $JsonParameters.PSobject.Properties["rate"].value
+            $Rate = $JsonParameters.PSobject.Properties['rate'].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "pokemon_species"))) {
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'pokemon_species'))) {
             throw "Error! JSON cannot be serialized due to the required property 'pokemon_species' missing."
         } else {
-            $PokemonSpecies = $JsonParameters.PSobject.Properties["pokemon_species"].value
+            $PokemonSpecies = $JsonParameters.PSobject.Properties['pokemon_species'].value
         }
 
         $PSO = [PSCustomObject]@{
-            "rate" = ${Rate}
-            "pokemon_species" = ${PokemonSpecies}
+            'rate' = ${Rate}
+            'pokemon_species' = ${PokemonSpecies}
         }
 
         return $PSO

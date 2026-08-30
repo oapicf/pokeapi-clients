@@ -27,6 +27,8 @@ LocationAreaDetail::LocationAreaDetail()
     
 }
 
+LocationAreaDetail::~LocationAreaDetail() = default;
+
 void LocationAreaDetail::validate() const
 {
     std::stringstream msg;

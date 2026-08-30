@@ -53,21 +53,21 @@ public:
 
 	/*! \brief Set 
 	 */
-	void setId(int  id);
+	void setId(int id);
 	/*! \brief Get 
 	 */
 	std::string getName();
 
 	/*! \brief Set 
 	 */
-	void setName(std::string  name);
+	void setName(std::string name);
 	/*! \brief Get 
 	 */
 	std::list<MoveBattleStyleName> getNames();
 
 	/*! \brief Set 
 	 */
-	void setNames(std::list <MoveBattleStyleName> names);
+	void setNames(std::list<MoveBattleStyleName> names);
 
 
     private:

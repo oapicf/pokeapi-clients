@@ -93,12 +93,12 @@ function Initialize-LanguageDetail {
 
 
         $PSO = [PSCustomObject]@{
-            "id" = ${Id}
-            "name" = ${Name}
-            "official" = ${Official}
-            "iso639" = ${Iso639}
-            "iso3166" = ${Iso3166}
-            "names" = ${Names}
+            'id' = ${Id}
+            'name' = ${Name}
+            'official' = ${Official}
+            'iso639' = ${Iso639}
+            'iso3166' = ${Iso3166}
+            'names' = ${Names}
         }
 
 
@@ -136,7 +136,7 @@ function ConvertFrom-JsonToLanguageDetail {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in LanguageDetail
-        $AllProperties = ("id", "name", "official", "iso639", "iso3166", "names")
+        $AllProperties = ('id', 'name', 'official', 'iso639', 'iso3166', 'names')
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -147,49 +147,49 @@ function ConvertFrom-JsonToLanguageDetail {
             throw "Error! Empty JSON cannot be serialized due to the required property 'id' missing."
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "id"))) {
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'id'))) {
             throw "Error! JSON cannot be serialized due to the required property 'id' missing."
         } else {
-            $Id = $JsonParameters.PSobject.Properties["id"].value
+            $Id = $JsonParameters.PSobject.Properties['id'].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "name"))) {
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'name'))) {
             throw "Error! JSON cannot be serialized due to the required property 'name' missing."
         } else {
-            $Name = $JsonParameters.PSobject.Properties["name"].value
+            $Name = $JsonParameters.PSobject.Properties['name'].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "iso639"))) {
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'iso639'))) {
             throw "Error! JSON cannot be serialized due to the required property 'iso639' missing."
         } else {
-            $Iso639 = $JsonParameters.PSobject.Properties["iso639"].value
+            $Iso639 = $JsonParameters.PSobject.Properties['iso639'].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "iso3166"))) {
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'iso3166'))) {
             throw "Error! JSON cannot be serialized due to the required property 'iso3166' missing."
         } else {
-            $Iso3166 = $JsonParameters.PSobject.Properties["iso3166"].value
+            $Iso3166 = $JsonParameters.PSobject.Properties['iso3166'].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "names"))) {
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'names'))) {
             throw "Error! JSON cannot be serialized due to the required property 'names' missing."
         } else {
-            $Names = $JsonParameters.PSobject.Properties["names"].value
+            $Names = $JsonParameters.PSobject.Properties['names'].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "official"))) { #optional property not found
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'official'))) { #optional property not found
             $Official = $null
         } else {
-            $Official = $JsonParameters.PSobject.Properties["official"].value
+            $Official = $JsonParameters.PSobject.Properties['official'].value
         }
 
         $PSO = [PSCustomObject]@{
-            "id" = ${Id}
-            "name" = ${Name}
-            "official" = ${Official}
-            "iso639" = ${Iso639}
-            "iso3166" = ${Iso3166}
-            "names" = ${Names}
+            'id' = ${Id}
+            'name' = ${Name}
+            'official' = ${Official}
+            'iso639' = ${Iso639}
+            'iso3166' = ${Iso3166}
+            'names' = ${Names}
         }
 
         return $PSO

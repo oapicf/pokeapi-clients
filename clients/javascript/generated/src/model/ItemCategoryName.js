@@ -17,7 +17,7 @@ import LanguageSummary from './LanguageSummary';
 /**
  * The ItemCategoryName model module.
  * @module model/ItemCategoryName
- * @version 1.2.1-pre.0
+ * @version 2.0.1-pre.0
  */
 class ItemCategoryName {
     /**

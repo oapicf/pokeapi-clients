@@ -127,6 +127,7 @@ public class LocationDetail  {
 
   /**
    * Sets the <code>names</code> property.
+   * <br><em>N.B. <code>names</code> is <b>read only</b>; client code should not call this method</em>.
    */
  public void setNames(List<@Valid LocationName> names) {
     this.names = names;
@@ -134,6 +135,7 @@ public class LocationDetail  {
 
   /**
    * Sets the <code>names</code> property.
+   * <br><em>N.B. <code>names</code> is <b>read only</b>; client code should not call this method</em>.
    */
   public LocationDetail names(List<@Valid LocationName> names) {
     this.names = names;
@@ -142,6 +144,7 @@ public class LocationDetail  {
 
   /**
    * Adds a new item to the <code>names</code> list.
+   * <br><em>N.B. <code>names</code> is <b>read only</b>; client code should not call this method</em>.
    */
   public LocationDetail addNamesItem(LocationName namesItem) {
     this.names.add(namesItem);
@@ -160,6 +163,7 @@ public class LocationDetail  {
 
   /**
    * Sets the <code>gameIndices</code> property.
+   * <br><em>N.B. <code>gameIndices</code> is <b>read only</b>; client code should not call this method</em>.
    */
  public void setGameIndices(List<@Valid LocationGameIndex> gameIndices) {
     this.gameIndices = gameIndices;
@@ -167,6 +171,7 @@ public class LocationDetail  {
 
   /**
    * Sets the <code>gameIndices</code> property.
+   * <br><em>N.B. <code>gameIndices</code> is <b>read only</b>; client code should not call this method</em>.
    */
   public LocationDetail gameIndices(List<@Valid LocationGameIndex> gameIndices) {
     this.gameIndices = gameIndices;
@@ -175,6 +180,7 @@ public class LocationDetail  {
 
   /**
    * Adds a new item to the <code>gameIndices</code> list.
+   * <br><em>N.B. <code>gameIndices</code> is <b>read only</b>; client code should not call this method</em>.
    */
   public LocationDetail addGameIndicesItem(LocationGameIndex gameIndicesItem) {
     this.gameIndices.add(gameIndicesItem);
@@ -193,6 +199,7 @@ public class LocationDetail  {
 
   /**
    * Sets the <code>areas</code> property.
+   * <br><em>N.B. <code>areas</code> is <b>read only</b>; client code should not call this method</em>.
    */
  public void setAreas(List<@Valid LocationAreaSummary> areas) {
     this.areas = areas;
@@ -200,6 +207,7 @@ public class LocationDetail  {
 
   /**
    * Sets the <code>areas</code> property.
+   * <br><em>N.B. <code>areas</code> is <b>read only</b>; client code should not call this method</em>.
    */
   public LocationDetail areas(List<@Valid LocationAreaSummary> areas) {
     this.areas = areas;
@@ -208,6 +216,7 @@ public class LocationDetail  {
 
   /**
    * Adds a new item to the <code>areas</code> list.
+   * <br><em>N.B. <code>areas</code> is <b>read only</b>; client code should not call this method</em>.
    */
   public LocationDetail addAreasItem(LocationAreaSummary areasItem) {
     this.areas.add(areasItem);
@@ -257,10 +266,7 @@ public class LocationDetail  {
    * (except the first line).
    */
   private static String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 }
 

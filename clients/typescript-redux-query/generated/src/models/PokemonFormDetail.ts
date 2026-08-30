@@ -107,19 +107,19 @@ export interface PokemonFormDetail  {
      * @type {Array<PokemonFormDetailFormNamesInner>}
      * @memberof PokemonFormDetail
      */
-    formNames: Array<PokemonFormDetailFormNamesInner>;
+    readonly formNames: Array<PokemonFormDetailFormNamesInner>;
     /**
      * 
      * @type {Array<PokemonFormDetailFormNamesInner>}
      * @memberof PokemonFormDetail
      */
-    names: Array<PokemonFormDetailFormNamesInner>;
+    readonly names: Array<PokemonFormDetailFormNamesInner>;
     /**
      * 
      * @type {Array<PokemonDetailTypesInner>}
      * @memberof PokemonFormDetail
      */
-    types: Array<PokemonDetailTypesInner>;
+    readonly types: Array<PokemonDetailTypesInner>;
 }
 
 export function PokemonFormDetailFromJSON(json: any): PokemonFormDetail {
@@ -156,9 +156,6 @@ export function PokemonFormDetailToJSON(value?: PokemonFormDetail): any {
         'pokemon': PokemonSummaryToJSON(value.pokemon),
         'sprites': PokemonFormDetailSpritesToJSON(value.sprites),
         'version_group': VersionGroupSummaryToJSON(value.versionGroup),
-        'form_names': (value.formNames as Array<any>).map(PokemonFormDetailFormNamesInnerToJSON),
-        'names': (value.names as Array<any>).map(PokemonFormDetailFormNamesInnerToJSON),
-        'types': (value.types as Array<any>).map(PokemonDetailTypesInnerToJSON),
     };
 }
 

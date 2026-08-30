@@ -15,7 +15,7 @@ import org.openapitools.model.ItemSummary;
 /**
  * ItemCategoryDetail
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaMSF4JServerCodegen", date = "2026-02-07T15:23:10.683633502Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaMSF4JServerCodegen", date = "2026-08-30T01:55:58.248058654Z[Etc/UTC]", comments = "Generator version: 7.24.0")
 public class ItemCategoryDetail   {
   @JsonProperty("id")
   private Integer id;
@@ -59,16 +59,6 @@ public class ItemCategoryDetail   {
     this.name = name;
   }
 
-  public ItemCategoryDetail items(List<@Valid ItemSummary> items) {
-    this.items = items;
-    return this;
-  }
-
-  public ItemCategoryDetail addItemsItem(ItemSummary itemsItem) {
-    this.items.add(itemsItem);
-    return this;
-  }
-
    /**
    * Get items
    * @return items
@@ -78,20 +68,6 @@ public class ItemCategoryDetail   {
     return items;
   }
 
-  public void setItems(List<@Valid ItemSummary> items) {
-    this.items = items;
-  }
-
-  public ItemCategoryDetail names(List<@Valid ItemCategoryName> names) {
-    this.names = names;
-    return this;
-  }
-
-  public ItemCategoryDetail addNamesItem(ItemCategoryName namesItem) {
-    this.names.add(namesItem);
-    return this;
-  }
-
    /**
    * Get names
    * @return names
@@ -99,10 +75,6 @@ public class ItemCategoryDetail   {
   @ApiModelProperty(required = true, value = "")
   public List<@Valid ItemCategoryName> getNames() {
     return names;
-  }
-
-  public void setNames(List<@Valid ItemCategoryName> names) {
-    this.names = names;
   }
 
   public ItemCategoryDetail pocket(ItemPocketSummary pocket) {
@@ -164,10 +136,7 @@ public class ItemCategoryDetail   {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 }
 

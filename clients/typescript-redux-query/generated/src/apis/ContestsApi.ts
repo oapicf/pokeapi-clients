@@ -146,7 +146,7 @@ function contestEffectRetrieveRaw<T>(requestParameters: ContestEffectRetrieveReq
 
     meta.authType = ['basic'];
     const config: QueryConfig<T> = {
-        url: `${runtime.Configuration.basePath}/api/v2/contest-effect/{id}/`.replace(`{${"id"}}`, encodeURIComponent(String(requestParameters.id))),
+        url: `${runtime.Configuration.basePath}/api/v2/contest-effect/{id}/`.replace('{id}', encodeURIComponent(String(requestParameters.id))),
         meta,
         update: requestConfig.update,
         queryKey: requestConfig.queryKey,
@@ -256,7 +256,7 @@ function contestTypeRetrieveRaw<T>(requestParameters: ContestTypeRetrieveRequest
 
     meta.authType = ['basic'];
     const config: QueryConfig<T> = {
-        url: `${runtime.Configuration.basePath}/api/v2/contest-type/{id}/`.replace(`{${"id"}}`, encodeURIComponent(String(requestParameters.id))),
+        url: `${runtime.Configuration.basePath}/api/v2/contest-type/{id}/`.replace('{id}', encodeURIComponent(String(requestParameters.id))),
         meta,
         update: requestConfig.update,
         queryKey: requestConfig.queryKey,
@@ -366,7 +366,7 @@ function superContestEffectRetrieveRaw<T>(requestParameters: SuperContestEffectR
 
     meta.authType = ['basic'];
     const config: QueryConfig<T> = {
-        url: `${runtime.Configuration.basePath}/api/v2/super-contest-effect/{id}/`.replace(`{${"id"}}`, encodeURIComponent(String(requestParameters.id))),
+        url: `${runtime.Configuration.basePath}/api/v2/super-contest-effect/{id}/`.replace('{id}', encodeURIComponent(String(requestParameters.id))),
         meta,
         update: requestConfig.update,
         queryKey: requestConfig.queryKey,

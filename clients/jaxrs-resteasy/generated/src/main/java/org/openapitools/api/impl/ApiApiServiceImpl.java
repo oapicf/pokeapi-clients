@@ -113,7 +113,7 @@ import javax.ws.rs.core.Response;
 import javax.ws.rs.core.SecurityContext;
 
 @RequestScoped
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaResteasyServerCodegen", date = "2026-02-07T15:23:57.425124504Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaResteasyServerCodegen", date = "2026-08-30T01:56:35.721624822Z[Etc/UTC]", comments = "Generator version: 7.24.0")
 public class ApiApiServiceImpl implements ApiApiService {
       public Response abilityList(Integer limit,Integer offset,String q,SecurityContext securityContext)
       throws NotFoundException {

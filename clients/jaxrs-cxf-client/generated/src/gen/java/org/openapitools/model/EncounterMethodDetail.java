@@ -83,19 +83,6 @@ public class EncounterMethodDetail  {
     return names;
   }
 
-  public void setNames(List<EncounterMethodName> names) {
-    this.names = names;
-  }
-
-  public EncounterMethodDetail names(List<EncounterMethodName> names) {
-    this.names = names;
-    return this;
-  }
-
-  public EncounterMethodDetail addNamesItem(EncounterMethodName namesItem) {
-    this.names.add(namesItem);
-    return this;
-  }
 
   @Override
   public boolean equals(Object o) {
@@ -135,10 +122,7 @@ public class EncounterMethodDetail  {
    * (except the first line).
    */
   private static String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 }
 

@@ -33,13 +33,13 @@ class OAILanguageSummary;
 class OAIBerryFirmnessName : public OAIObject {
 public:
     OAIBerryFirmnessName();
-    OAIBerryFirmnessName(QString json);
+    OAIBerryFirmnessName(const QString &json);
     ~OAIBerryFirmnessName() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     QString getName() const;
     void setName(const QString &name);

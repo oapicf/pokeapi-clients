@@ -57,13 +57,13 @@ export interface ContestEffectDetail {
      * @type {Array<ContestEffectEffectText>}
      * @memberof ContestEffectDetail
      */
-    effectEntries: Array<ContestEffectEffectText>;
+    readonly effectEntries: Array<ContestEffectEffectText>;
     /**
      * 
      * @type {Array<ContestEffectFlavorText>}
      * @memberof ContestEffectDetail
      */
-    flavorTextEntries: Array<ContestEffectFlavorText>;
+    readonly flavorTextEntries: Array<ContestEffectFlavorText>;
 }
 
 /**
@@ -73,8 +73,8 @@ export function instanceOfContestEffectDetail(value: object): value is ContestEf
     if (!('id' in value) || value['id'] === undefined) return false;
     if (!('appeal' in value) || value['appeal'] === undefined) return false;
     if (!('jam' in value) || value['jam'] === undefined) return false;
-    if (!('effectEntries' in value) || value['effectEntries'] === undefined) return false;
-    if (!('flavorTextEntries' in value) || value['flavorTextEntries'] === undefined) return false;
+    if ((!('effectEntries' in (value as Record<string, any>)) && !('effect_entries' in (value as Record<string, any>))) || ((value as Record<string, any>)['effectEntries'] === undefined && (value as Record<string, any>)['effect_entries'] === undefined)) return false;
+    if ((!('flavorTextEntries' in (value as Record<string, any>)) && !('flavor_text_entries' in (value as Record<string, any>))) || ((value as Record<string, any>)['flavorTextEntries'] === undefined && (value as Record<string, any>)['flavor_text_entries'] === undefined)) return false;
     return true;
 }
 
@@ -100,7 +100,7 @@ export function ContestEffectDetailToJSON(json: any): ContestEffectDetail {
     return ContestEffectDetailToJSONTyped(json, false);
 }
 
-export function ContestEffectDetailToJSONTyped(value?: Omit<ContestEffectDetail, 'id'> | null, ignoreDiscriminator: boolean = false): any {
+export function ContestEffectDetailToJSONTyped(value?: Omit<ContestEffectDetail, 'id'|'effectEntries'|'flavorTextEntries'> | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
@@ -109,8 +109,6 @@ export function ContestEffectDetailToJSONTyped(value?: Omit<ContestEffectDetail,
         
         'appeal': value['appeal'],
         'jam': value['jam'],
-        'effect_entries': ((value['effectEntries'] as Array<any>).map(ContestEffectEffectTextToJSON)),
-        'flavor_text_entries': ((value['flavorTextEntries'] as Array<any>).map(ContestEffectFlavorTextToJSON)),
     };
 }
 

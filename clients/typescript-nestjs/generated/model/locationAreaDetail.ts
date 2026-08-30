@@ -19,9 +19,9 @@ export interface LocationAreaDetail {
     readonly id: number;
     name: string;
     game_index: number;
-    encounter_method_rates: Array<LocationAreaDetailEncounterMethodRatesInner>;
+    readonly encounter_method_rates: Array<LocationAreaDetailEncounterMethodRatesInner>;
     location: LocationSummary;
-    names: Array<LocationAreaName>;
-    pokemon_encounters: Array<LocationAreaDetailPokemonEncountersInner>;
+    readonly names: Array<LocationAreaName>;
+    readonly pokemon_encounters: Array<LocationAreaDetailPokemonEncountersInner>;
 }
 

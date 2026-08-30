@@ -20,7 +20,7 @@ typedef struct paginated_pal_park_area_summary_list_t paginated_pal_park_area_su
 
 
 typedef struct paginated_pal_park_area_summary_list_t {
-    int count; //numeric
+    int *count; //numeric
     char *next; // string
     char *previous; // string
     list_t *results; //nonprimitive container
@@ -29,7 +29,7 @@ typedef struct paginated_pal_park_area_summary_list_t {
 } paginated_pal_park_area_summary_list_t;
 
 __attribute__((deprecated)) paginated_pal_park_area_summary_list_t *paginated_pal_park_area_summary_list_create(
-    int count,
+    int *count,
     char *next,
     char *previous,
     list_t *results

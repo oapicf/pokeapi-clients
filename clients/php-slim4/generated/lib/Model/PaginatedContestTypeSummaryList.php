@@ -67,7 +67,8 @@ class PaginatedContestTypeSummaryList extends BaseModel
       "type" : "array",
       "items" : {
         "$ref" : "#/components/schemas/ContestTypeSummary"
-      }
+      },
+      "default" : null
     }
   }
 }

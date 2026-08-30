@@ -49,8 +49,8 @@ function Initialize-GrowthRateDescription {
 
 
         $PSO = [PSCustomObject]@{
-            "description" = ${Description}
-            "language" = ${Language}
+            'description' = ${Description}
+            'language' = ${Language}
         }
 
 
@@ -88,7 +88,7 @@ function ConvertFrom-JsonToGrowthRateDescription {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in GrowthRateDescription
-        $AllProperties = ("description", "language")
+        $AllProperties = ('description', 'language')
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -99,21 +99,21 @@ function ConvertFrom-JsonToGrowthRateDescription {
             throw "Error! Empty JSON cannot be serialized due to the required property 'language' missing."
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "language"))) {
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'language'))) {
             throw "Error! JSON cannot be serialized due to the required property 'language' missing."
         } else {
-            $Language = $JsonParameters.PSobject.Properties["language"].value
+            $Language = $JsonParameters.PSobject.Properties['language'].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "description"))) { #optional property not found
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'description'))) { #optional property not found
             $Description = $null
         } else {
-            $Description = $JsonParameters.PSobject.Properties["description"].value
+            $Description = $JsonParameters.PSobject.Properties['description'].value
         }
 
         $PSO = [PSCustomObject]@{
-            "description" = ${Description}
-            "language" = ${Language}
+            'description' = ${Description}
+            'language' = ${Language}
         }
 
         return $PSO

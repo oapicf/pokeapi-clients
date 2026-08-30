@@ -67,7 +67,8 @@ class PaginatedLanguageSummaryList extends BaseModel
       "type" : "array",
       "items" : {
         "$ref" : "#/components/schemas/LanguageSummary"
-      }
+      },
+      "default" : null
     }
   }
 }

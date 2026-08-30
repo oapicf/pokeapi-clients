@@ -32,7 +32,7 @@ class  MoveLearnMethodSummary
 {
 public:
     MoveLearnMethodSummary();
-    virtual ~MoveLearnMethodSummary() = default;
+    virtual ~MoveLearnMethodSummary();
 
 
     /// <summary>

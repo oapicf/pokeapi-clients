@@ -80,25 +80,25 @@ namespace Org.OpenAPITools.Model
         /// Gets or Sets MoveLearnMethods
         /// </summary>
         [JsonPropertyName("move_learn_methods")]
-        public List<AbilityDetailPokemonInnerPokemon> MoveLearnMethods { get; set; }
+        public List<AbilityDetailPokemonInnerPokemon> MoveLearnMethods { get; }
 
         /// <summary>
         /// Gets or Sets Pokedexes
         /// </summary>
         [JsonPropertyName("pokedexes")]
-        public List<AbilityDetailPokemonInnerPokemon> Pokedexes { get; set; }
+        public List<AbilityDetailPokemonInnerPokemon> Pokedexes { get; }
 
         /// <summary>
         /// Gets or Sets Regions
         /// </summary>
         [JsonPropertyName("regions")]
-        public List<AbilityDetailPokemonInnerPokemon> Regions { get; set; }
+        public List<AbilityDetailPokemonInnerPokemon> Regions { get; }
 
         /// <summary>
         /// Gets or Sets Versions
         /// </summary>
         [JsonPropertyName("versions")]
-        public List<VersionSummary> Versions { get; set; }
+        public List<VersionSummary> Versions { get; }
 
         /// <summary>
         /// Used to track the state of Order
@@ -111,7 +111,7 @@ namespace Org.OpenAPITools.Model
         /// Gets or Sets Order
         /// </summary>
         [JsonPropertyName("order")]
-        public int? Order { get { return this.OrderOption; } set { this.OrderOption = new(value); } }
+        public int? Order { get { return this.OrderOption.Value; } set { this.OrderOption = new(value); } }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -153,8 +153,18 @@ namespace Org.OpenAPITools.Model
     /// <summary>
     /// A Json converter for type <see cref="VersionGroupDetail" />
     /// </summary>
-    public class VersionGroupDetailJsonConverter : JsonConverter<VersionGroupDetail>
+    public partial class VersionGroupDetailJsonConverter : JsonConverter<VersionGroupDetail>
     {
+        partial void OnCreated();
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="VersionGroupDetailJsonConverter" /> class.
+        /// </summary>
+        public VersionGroupDetailJsonConverter()
+        {
+            OnCreated();
+        }
+
         /// <summary>
         /// Deserializes json to <see cref="VersionGroupDetail" />
         /// </summary>

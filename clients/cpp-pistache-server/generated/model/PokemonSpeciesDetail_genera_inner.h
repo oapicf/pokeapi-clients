@@ -33,7 +33,7 @@ class  PokemonSpeciesDetail_genera_inner
 {
 public:
     PokemonSpeciesDetail_genera_inner();
-    virtual ~PokemonSpeciesDetail_genera_inner() = default;
+    virtual ~PokemonSpeciesDetail_genera_inner();
 
 
     /// <summary>

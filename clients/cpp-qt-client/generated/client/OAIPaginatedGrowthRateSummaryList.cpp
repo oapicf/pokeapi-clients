@@ -21,7 +21,7 @@
 
 namespace OpenAPI {
 
-OAIPaginatedGrowthRateSummaryList::OAIPaginatedGrowthRateSummaryList(QString json) {
+OAIPaginatedGrowthRateSummaryList::OAIPaginatedGrowthRateSummaryList(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -47,7 +47,7 @@ void OAIPaginatedGrowthRateSummaryList::initializeModel() {
     m_results_isValid = false;
 }
 
-void OAIPaginatedGrowthRateSummaryList::fromJson(QString jsonString) {
+void OAIPaginatedGrowthRateSummaryList::fromJson(const QString &jsonString) {
     QByteArray array(jsonString.toStdString().c_str());
     QJsonDocument doc = QJsonDocument::fromJson(array);
     QJsonObject jsonObject = doc.object();

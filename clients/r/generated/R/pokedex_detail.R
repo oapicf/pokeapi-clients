@@ -132,25 +132,48 @@ PokedexDetail <- R6::R6Class(
       }
       if (!is.null(self$`descriptions`)) {
         PokedexDetailObject[["descriptions"]] <-
-          lapply(self$`descriptions`, function(x) x$toSimpleType())
+          self$extractSimpleType(self$`descriptions`)
       }
       if (!is.null(self$`names`)) {
         PokedexDetailObject[["names"]] <-
-          lapply(self$`names`, function(x) x$toSimpleType())
+          self$extractSimpleType(self$`names`)
       }
       if (!is.null(self$`pokemon_entries`)) {
         PokedexDetailObject[["pokemon_entries"]] <-
-          lapply(self$`pokemon_entries`, function(x) x$toSimpleType())
+          self$extractSimpleType(self$`pokemon_entries`)
       }
       if (!is.null(self$`region`)) {
         PokedexDetailObject[["region"]] <-
-          self$`region`$toSimpleType()
+          self$extractSimpleType(self$`region`)
       }
       if (!is.null(self$`version_groups`)) {
         PokedexDetailObject[["version_groups"]] <-
-          lapply(self$`version_groups`, function(x) x$toSimpleType())
+          self$extractSimpleType(self$`version_groups`)
       }
       return(PokedexDetailObject)
+    },
+
+    extractSimpleType = function(x) {
+      if (R6::is.R6(x)) {
+        return(x$toSimpleType())
+      } else if (!self$hasNestedR6(x)) {
+        return(x)
+      }
+      lapply(x, self$extractSimpleType)
+    },
+
+    hasNestedR6 = function(x) {
+      if (R6::is.R6(x)) {
+        return(TRUE)
+      }
+      if (is.list(x)) {
+        for (item in x) {
+          if (self$hasNestedR6(item)) {
+            return(TRUE)
+          }
+        }
+      }
+      FALSE
     },
 
     #' @description

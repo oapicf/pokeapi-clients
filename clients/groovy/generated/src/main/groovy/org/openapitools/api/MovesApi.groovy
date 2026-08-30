@@ -26,6 +26,7 @@ class MovesApi {
         def queryParams = [:]
         def headerParams = [:]
         def bodyParams
+        def accept
         def contentType
 
 
@@ -42,7 +43,9 @@ class MovesApi {
 
 
 
-        apiUtils.invokeApi(onSuccess, onFailure, basePath, versionPath, resourcePath, queryParams, headerParams, bodyParams, contentType,
+        accept = apiUtils.selectHeaderAccept(["application/json"])
+
+        apiUtils.invokeApi(onSuccess, onFailure, basePath, versionPath, resourcePath, queryParams, headerParams, bodyParams, accept, contentType,
                     "GET", "",
                     PaginatedMoveMetaAilmentSummaryList.class )
 
@@ -55,6 +58,7 @@ class MovesApi {
         def queryParams = [:]
         def headerParams = [:]
         def bodyParams
+        def accept
         def contentType
 
         // verify required params are set
@@ -66,7 +70,9 @@ class MovesApi {
 
 
 
-        apiUtils.invokeApi(onSuccess, onFailure, basePath, versionPath, resourcePath, queryParams, headerParams, bodyParams, contentType,
+        accept = apiUtils.selectHeaderAccept(["application/json"])
+
+        apiUtils.invokeApi(onSuccess, onFailure, basePath, versionPath, resourcePath, queryParams, headerParams, bodyParams, accept, contentType,
                     "GET", "",
                     MoveMetaAilmentDetail.class )
 
@@ -79,6 +85,7 @@ class MovesApi {
         def queryParams = [:]
         def headerParams = [:]
         def bodyParams
+        def accept
         def contentType
 
 
@@ -95,7 +102,9 @@ class MovesApi {
 
 
 
-        apiUtils.invokeApi(onSuccess, onFailure, basePath, versionPath, resourcePath, queryParams, headerParams, bodyParams, contentType,
+        accept = apiUtils.selectHeaderAccept(["application/json"])
+
+        apiUtils.invokeApi(onSuccess, onFailure, basePath, versionPath, resourcePath, queryParams, headerParams, bodyParams, accept, contentType,
                     "GET", "",
                     PaginatedMoveBattleStyleSummaryList.class )
 
@@ -108,6 +117,7 @@ class MovesApi {
         def queryParams = [:]
         def headerParams = [:]
         def bodyParams
+        def accept
         def contentType
 
         // verify required params are set
@@ -119,7 +129,9 @@ class MovesApi {
 
 
 
-        apiUtils.invokeApi(onSuccess, onFailure, basePath, versionPath, resourcePath, queryParams, headerParams, bodyParams, contentType,
+        accept = apiUtils.selectHeaderAccept(["application/json"])
+
+        apiUtils.invokeApi(onSuccess, onFailure, basePath, versionPath, resourcePath, queryParams, headerParams, bodyParams, accept, contentType,
                     "GET", "",
                     MoveBattleStyleDetail.class )
 
@@ -132,6 +144,7 @@ class MovesApi {
         def queryParams = [:]
         def headerParams = [:]
         def bodyParams
+        def accept
         def contentType
 
 
@@ -148,7 +161,9 @@ class MovesApi {
 
 
 
-        apiUtils.invokeApi(onSuccess, onFailure, basePath, versionPath, resourcePath, queryParams, headerParams, bodyParams, contentType,
+        accept = apiUtils.selectHeaderAccept(["application/json"])
+
+        apiUtils.invokeApi(onSuccess, onFailure, basePath, versionPath, resourcePath, queryParams, headerParams, bodyParams, accept, contentType,
                     "GET", "",
                     PaginatedMoveMetaCategorySummaryList.class )
 
@@ -161,6 +176,7 @@ class MovesApi {
         def queryParams = [:]
         def headerParams = [:]
         def bodyParams
+        def accept
         def contentType
 
         // verify required params are set
@@ -172,7 +188,9 @@ class MovesApi {
 
 
 
-        apiUtils.invokeApi(onSuccess, onFailure, basePath, versionPath, resourcePath, queryParams, headerParams, bodyParams, contentType,
+        accept = apiUtils.selectHeaderAccept(["application/json"])
+
+        apiUtils.invokeApi(onSuccess, onFailure, basePath, versionPath, resourcePath, queryParams, headerParams, bodyParams, accept, contentType,
                     "GET", "",
                     MoveMetaCategoryDetail.class )
 
@@ -185,6 +203,7 @@ class MovesApi {
         def queryParams = [:]
         def headerParams = [:]
         def bodyParams
+        def accept
         def contentType
 
 
@@ -201,7 +220,9 @@ class MovesApi {
 
 
 
-        apiUtils.invokeApi(onSuccess, onFailure, basePath, versionPath, resourcePath, queryParams, headerParams, bodyParams, contentType,
+        accept = apiUtils.selectHeaderAccept(["application/json"])
+
+        apiUtils.invokeApi(onSuccess, onFailure, basePath, versionPath, resourcePath, queryParams, headerParams, bodyParams, accept, contentType,
                     "GET", "",
                     PaginatedMoveLearnMethodSummaryList.class )
 
@@ -214,6 +235,7 @@ class MovesApi {
         def queryParams = [:]
         def headerParams = [:]
         def bodyParams
+        def accept
         def contentType
 
         // verify required params are set
@@ -225,7 +247,9 @@ class MovesApi {
 
 
 
-        apiUtils.invokeApi(onSuccess, onFailure, basePath, versionPath, resourcePath, queryParams, headerParams, bodyParams, contentType,
+        accept = apiUtils.selectHeaderAccept(["application/json"])
+
+        apiUtils.invokeApi(onSuccess, onFailure, basePath, versionPath, resourcePath, queryParams, headerParams, bodyParams, accept, contentType,
                     "GET", "",
                     MoveLearnMethodDetail.class )
 
@@ -238,6 +262,7 @@ class MovesApi {
         def queryParams = [:]
         def headerParams = [:]
         def bodyParams
+        def accept
         def contentType
 
 
@@ -254,7 +279,9 @@ class MovesApi {
 
 
 
-        apiUtils.invokeApi(onSuccess, onFailure, basePath, versionPath, resourcePath, queryParams, headerParams, bodyParams, contentType,
+        accept = apiUtils.selectHeaderAccept(["application/json"])
+
+        apiUtils.invokeApi(onSuccess, onFailure, basePath, versionPath, resourcePath, queryParams, headerParams, bodyParams, accept, contentType,
                     "GET", "",
                     PaginatedMoveSummaryList.class )
 
@@ -267,6 +294,7 @@ class MovesApi {
         def queryParams = [:]
         def headerParams = [:]
         def bodyParams
+        def accept
         def contentType
 
         // verify required params are set
@@ -278,7 +306,9 @@ class MovesApi {
 
 
 
-        apiUtils.invokeApi(onSuccess, onFailure, basePath, versionPath, resourcePath, queryParams, headerParams, bodyParams, contentType,
+        accept = apiUtils.selectHeaderAccept(["application/json"])
+
+        apiUtils.invokeApi(onSuccess, onFailure, basePath, versionPath, resourcePath, queryParams, headerParams, bodyParams, accept, contentType,
                     "GET", "",
                     MoveDetail.class )
 
@@ -291,6 +321,7 @@ class MovesApi {
         def queryParams = [:]
         def headerParams = [:]
         def bodyParams
+        def accept
         def contentType
 
 
@@ -307,7 +338,9 @@ class MovesApi {
 
 
 
-        apiUtils.invokeApi(onSuccess, onFailure, basePath, versionPath, resourcePath, queryParams, headerParams, bodyParams, contentType,
+        accept = apiUtils.selectHeaderAccept(["application/json"])
+
+        apiUtils.invokeApi(onSuccess, onFailure, basePath, versionPath, resourcePath, queryParams, headerParams, bodyParams, accept, contentType,
                     "GET", "",
                     PaginatedMoveTargetSummaryList.class )
 
@@ -320,6 +353,7 @@ class MovesApi {
         def queryParams = [:]
         def headerParams = [:]
         def bodyParams
+        def accept
         def contentType
 
         // verify required params are set
@@ -331,7 +365,9 @@ class MovesApi {
 
 
 
-        apiUtils.invokeApi(onSuccess, onFailure, basePath, versionPath, resourcePath, queryParams, headerParams, bodyParams, contentType,
+        accept = apiUtils.selectHeaderAccept(["application/json"])
+
+        apiUtils.invokeApi(onSuccess, onFailure, basePath, versionPath, resourcePath, queryParams, headerParams, bodyParams, accept, contentType,
                     "GET", "",
                     MoveTargetDetail.class )
 

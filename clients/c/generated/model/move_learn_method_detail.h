@@ -22,7 +22,7 @@ typedef struct move_learn_method_detail_t move_learn_method_detail_t;
 
 
 typedef struct move_learn_method_detail_t {
-    int id; //numeric
+    int *id; //numeric
     char *name; // string
     list_t *names; //nonprimitive container
     list_t *descriptions; //nonprimitive container
@@ -32,7 +32,7 @@ typedef struct move_learn_method_detail_t {
 } move_learn_method_detail_t;
 
 __attribute__((deprecated)) move_learn_method_detail_t *move_learn_method_detail_create(
-    int id,
+    int *id,
     char *name,
     list_t *names,
     list_t *descriptions,

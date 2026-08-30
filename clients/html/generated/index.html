@@ -375,9 +375,9 @@ Case-insensitive query applied on the <code>name</code> property.</p>
     <h3 class="field-label">Example data</h3>
     <div class="example-data-content-type">Content-Type: application/json</div>
     <pre class="example"><code>{
+  "count" : 123,
   "next" : "http://api.example.org/accounts/?offset=400&limit=100",
   "previous" : "http://api.example.org/accounts/?offset=200&limit=100",
-  "count" : 123,
   "results" : [ {
     "name" : "name",
     "url" : "https://openapi-generator.tech"
@@ -430,6 +430,15 @@ Case-insensitive query applied on the <code>name</code> property.</p>
     <h3 class="field-label">Example data</h3>
     <div class="example-data-content-type">Content-Type: application/json</div>
     <pre class="example"><code>{
+  "id" : 0,
+  "name" : "name",
+  "berries" : [ {
+    "name" : "name",
+    "url" : "https://openapi-generator.tech"
+  }, {
+    "name" : "name",
+    "url" : "https://openapi-generator.tech"
+  } ],
   "names" : [ {
     "name" : "name",
     "language" : {
@@ -442,15 +451,6 @@ Case-insensitive query applied on the <code>name</code> property.</p>
       "name" : "name",
       "url" : "https://openapi-generator.tech"
     }
-  } ],
-  "name" : "name",
-  "id" : 0,
-  "berries" : [ {
-    "name" : "name",
-    "url" : "https://openapi-generator.tech"
-  }, {
-    "name" : "name",
-    "url" : "https://openapi-generator.tech"
   } ]
 }</code></pre>
 
@@ -505,9 +505,9 @@ Case-insensitive query applied on the <code>name</code> property.</p>
     <h3 class="field-label">Example data</h3>
     <div class="example-data-content-type">Content-Type: application/json</div>
     <pre class="example"><code>{
+  "count" : 123,
   "next" : "http://api.example.org/accounts/?offset=400&limit=100",
   "previous" : "http://api.example.org/accounts/?offset=200&limit=100",
-  "count" : 123,
   "results" : [ {
     "name" : "name",
     "url" : "https://openapi-generator.tech"
@@ -560,6 +560,21 @@ Case-insensitive query applied on the <code>name</code> property.</p>
     <h3 class="field-label">Example data</h3>
     <div class="example-data-content-type">Content-Type: application/json</div>
     <pre class="example"><code>{
+  "id" : 0,
+  "name" : "name",
+  "berries" : [ {
+    "potency" : 6,
+    "berry" : {
+      "name" : "name",
+      "url" : "https://openapi-generator.tech"
+    }
+  }, {
+    "potency" : 6,
+    "berry" : {
+      "name" : "name",
+      "url" : "https://openapi-generator.tech"
+    }
+  } ],
   "contest_type" : {
     "name" : "name",
     "url" : "https://openapi-generator.tech"
@@ -573,21 +588,6 @@ Case-insensitive query applied on the <code>name</code> property.</p>
   }, {
     "name" : "name",
     "language" : {
-      "name" : "name",
-      "url" : "https://openapi-generator.tech"
-    }
-  } ],
-  "name" : "name",
-  "id" : 0,
-  "berries" : [ {
-    "potency" : 6,
-    "berry" : {
-      "name" : "name",
-      "url" : "https://openapi-generator.tech"
-    }
-  }, {
-    "potency" : 6,
-    "berry" : {
       "name" : "name",
       "url" : "https://openapi-generator.tech"
     }
@@ -645,9 +645,9 @@ Case-insensitive query applied on the <code>name</code> property.</p>
     <h3 class="field-label">Example data</h3>
     <div class="example-data-content-type">Content-Type: application/json</div>
     <pre class="example"><code>{
+  "count" : 123,
   "next" : "http://api.example.org/accounts/?offset=400&limit=100",
   "previous" : "http://api.example.org/accounts/?offset=200&limit=100",
-  "count" : 123,
   "results" : [ {
     "name" : "name",
     "url" : "https://openapi-generator.tech"
@@ -700,39 +700,39 @@ Case-insensitive query applied on the <code>name</code> property.</p>
     <h3 class="field-label">Example data</h3>
     <div class="example-data-content-type">Content-Type: application/json</div>
     <pre class="example"><code>{
-  "flavors" : [ {
-    "flavor" : {
-      "name" : "name",
-      "url" : "https://openapi-generator.tech"
-    },
-    "potency" : 9
-  }, {
-    "flavor" : {
-      "name" : "name",
-      "url" : "https://openapi-generator.tech"
-    },
-    "potency" : 9
-  } ],
-  "natural_gift_type" : {
-    "name" : "name",
-    "url" : "https://openapi-generator.tech"
-  },
-  "item" : {
-    "name" : "name",
-    "url" : "https://openapi-generator.tech"
-  },
-  "smoothness" : 2,
-  "size" : 5,
+  "id" : 0,
+  "name" : "name",
+  "growth_time" : 6,
+  "max_harvest" : 1,
   "natural_gift_power" : 5,
+  "size" : 5,
+  "smoothness" : 2,
+  "soil_dryness" : 7,
   "firmness" : {
     "name" : "name",
     "url" : "https://openapi-generator.tech"
   },
-  "name" : "name",
-  "growth_time" : 6,
-  "soil_dryness" : 7,
-  "id" : 0,
-  "max_harvest" : 1
+  "flavors" : [ {
+    "potency" : 9,
+    "flavor" : {
+      "name" : "name",
+      "url" : "https://openapi-generator.tech"
+    }
+  }, {
+    "potency" : 9,
+    "flavor" : {
+      "name" : "name",
+      "url" : "https://openapi-generator.tech"
+    }
+  } ],
+  "item" : {
+    "name" : "name",
+    "url" : "https://openapi-generator.tech"
+  },
+  "natural_gift_type" : {
+    "name" : "name",
+    "url" : "https://openapi-generator.tech"
+  }
 }</code></pre>
 
     <h3 class="field-label">Produces</h3>
@@ -787,9 +787,9 @@ Case-insensitive query applied on the <code>name</code> property.</p>
     <h3 class="field-label">Example data</h3>
     <div class="example-data-content-type">Content-Type: application/json</div>
     <pre class="example"><code>{
+  "count" : 123,
   "next" : "http://api.example.org/accounts/?offset=400&limit=100",
   "previous" : "http://api.example.org/accounts/?offset=200&limit=100",
-  "count" : 123,
   "results" : [ {
     "url" : "https://openapi-generator.tech"
   }, {
@@ -840,6 +840,9 @@ Case-insensitive query applied on the <code>name</code> property.</p>
     <h3 class="field-label">Example data</h3>
     <div class="example-data-content-type">Content-Type: application/json</div>
     <pre class="example"><code>{
+  "id" : 0,
+  "appeal" : 6,
+  "jam" : 1,
   "effect_entries" : [ {
     "effect" : "effect",
     "language" : {
@@ -853,22 +856,19 @@ Case-insensitive query applied on the <code>name</code> property.</p>
       "url" : "https://openapi-generator.tech"
     }
   } ],
-  "jam" : 1,
   "flavor_text_entries" : [ {
+    "flavor_text" : "flavor_text",
     "language" : {
       "name" : "name",
       "url" : "https://openapi-generator.tech"
-    },
-    "flavor_text" : "flavor_text"
+    }
   }, {
+    "flavor_text" : "flavor_text",
     "language" : {
       "name" : "name",
       "url" : "https://openapi-generator.tech"
-    },
-    "flavor_text" : "flavor_text"
-  } ],
-  "id" : 0,
-  "appeal" : 6
+    }
+  } ]
 }</code></pre>
 
     <h3 class="field-label">Produces</h3>
@@ -922,9 +922,9 @@ Case-insensitive query applied on the <code>name</code> property.</p>
     <h3 class="field-label">Example data</h3>
     <div class="example-data-content-type">Content-Type: application/json</div>
     <pre class="example"><code>{
+  "count" : 123,
   "next" : "http://api.example.org/accounts/?offset=400&limit=100",
   "previous" : "http://api.example.org/accounts/?offset=200&limit=100",
-  "count" : 123,
   "results" : [ {
     "name" : "name",
     "url" : "https://openapi-generator.tech"
@@ -977,24 +977,24 @@ Case-insensitive query applied on the <code>name</code> property.</p>
     <h3 class="field-label">Example data</h3>
     <div class="example-data-content-type">Content-Type: application/json</div>
     <pre class="example"><code>{
+  "id" : 0,
+  "name" : "name",
   "berry_flavor" : "",
   "names" : [ {
-    "color" : "color",
     "name" : "name",
+    "color" : "color",
     "language" : {
       "name" : "name",
       "url" : "https://openapi-generator.tech"
     }
   }, {
-    "color" : "color",
     "name" : "name",
+    "color" : "color",
     "language" : {
       "name" : "name",
       "url" : "https://openapi-generator.tech"
     }
-  } ],
-  "name" : "name",
-  "id" : 0
+  } ]
 }</code></pre>
 
     <h3 class="field-label">Produces</h3>
@@ -1048,9 +1048,9 @@ Case-insensitive query applied on the <code>name</code> property.</p>
     <h3 class="field-label">Example data</h3>
     <div class="example-data-content-type">Content-Type: application/json</div>
     <pre class="example"><code>{
+  "count" : 123,
   "next" : "http://api.example.org/accounts/?offset=400&limit=100",
   "previous" : "http://api.example.org/accounts/?offset=200&limit=100",
-  "count" : 123,
   "results" : [ {
     "url" : "https://openapi-generator.tech"
   }, {
@@ -1101,28 +1101,28 @@ Case-insensitive query applied on the <code>name</code> property.</p>
     <h3 class="field-label">Example data</h3>
     <div class="example-data-content-type">Content-Type: application/json</div>
     <pre class="example"><code>{
+  "id" : 0,
+  "appeal" : 6,
+  "flavor_text_entries" : [ {
+    "flavor_text" : "flavor_text",
+    "language" : {
+      "name" : "name",
+      "url" : "https://openapi-generator.tech"
+    }
+  }, {
+    "flavor_text" : "flavor_text",
+    "language" : {
+      "name" : "name",
+      "url" : "https://openapi-generator.tech"
+    }
+  } ],
   "moves" : [ {
     "name" : "name",
     "url" : "https://openapi-generator.tech"
   }, {
     "name" : "name",
     "url" : "https://openapi-generator.tech"
-  } ],
-  "flavor_text_entries" : [ {
-    "language" : {
-      "name" : "name",
-      "url" : "https://openapi-generator.tech"
-    },
-    "flavor_text" : "flavor_text"
-  }, {
-    "language" : {
-      "name" : "name",
-      "url" : "https://openapi-generator.tech"
-    },
-    "flavor_text" : "flavor_text"
-  } ],
-  "id" : 0,
-  "appeal" : 6
+  } ]
 }</code></pre>
 
     <h3 class="field-label">Produces</h3>
@@ -1177,9 +1177,9 @@ Case-insensitive query applied on the <code>name</code> property.</p>
     <h3 class="field-label">Example data</h3>
     <div class="example-data-content-type">Content-Type: application/json</div>
     <pre class="example"><code>{
+  "count" : 123,
   "next" : "http://api.example.org/accounts/?offset=400&limit=100",
   "previous" : "http://api.example.org/accounts/?offset=200&limit=100",
-  "count" : 123,
   "results" : [ {
     "name" : "name",
     "url" : "https://openapi-generator.tech"
@@ -1232,6 +1232,15 @@ Case-insensitive query applied on the <code>name</code> property.</p>
     <h3 class="field-label">Example data</h3>
     <div class="example-data-content-type">Content-Type: application/json</div>
     <pre class="example"><code>{
+  "id" : 0,
+  "name" : "name",
+  "values" : [ {
+    "name" : "name",
+    "url" : "https://openapi-generator.tech"
+  }, {
+    "name" : "name",
+    "url" : "https://openapi-generator.tech"
+  } ],
   "names" : [ {
     "name" : "name",
     "language" : {
@@ -1244,16 +1253,7 @@ Case-insensitive query applied on the <code>name</code> property.</p>
       "name" : "name",
       "url" : "https://openapi-generator.tech"
     }
-  } ],
-  "values" : [ {
-    "name" : "name",
-    "url" : "https://openapi-generator.tech"
-  }, {
-    "name" : "name",
-    "url" : "https://openapi-generator.tech"
-  } ],
-  "name" : "name",
-  "id" : 0
+  } ]
 }</code></pre>
 
     <h3 class="field-label">Produces</h3>
@@ -1307,9 +1307,9 @@ Case-insensitive query applied on the <code>name</code> property.</p>
     <h3 class="field-label">Example data</h3>
     <div class="example-data-content-type">Content-Type: application/json</div>
     <pre class="example"><code>{
+  "count" : 123,
   "next" : "http://api.example.org/accounts/?offset=400&limit=100",
   "previous" : "http://api.example.org/accounts/?offset=200&limit=100",
-  "count" : 123,
   "results" : [ {
     "name" : "name",
     "url" : "https://openapi-generator.tech"
@@ -1362,6 +1362,8 @@ Case-insensitive query applied on the <code>name</code> property.</p>
     <h3 class="field-label">Example data</h3>
     <div class="example-data-content-type">Content-Type: application/json</div>
     <pre class="example"><code>{
+  "id" : 0,
+  "name" : "name",
   "condition" : {
     "name" : "name",
     "url" : "https://openapi-generator.tech"
@@ -1378,9 +1380,7 @@ Case-insensitive query applied on the <code>name</code> property.</p>
       "name" : "name",
       "url" : "https://openapi-generator.tech"
     }
-  } ],
-  "name" : "name",
-  "id" : 0
+  } ]
 }</code></pre>
 
     <h3 class="field-label">Produces</h3>
@@ -1434,9 +1434,9 @@ Case-insensitive query applied on the <code>name</code> property.</p>
     <h3 class="field-label">Example data</h3>
     <div class="example-data-content-type">Content-Type: application/json</div>
     <pre class="example"><code>{
+  "count" : 123,
   "next" : "http://api.example.org/accounts/?offset=400&limit=100",
   "previous" : "http://api.example.org/accounts/?offset=200&limit=100",
-  "count" : 123,
   "results" : [ {
     "name" : "name",
     "url" : "https://openapi-generator.tech"
@@ -1489,6 +1489,9 @@ Case-insensitive query applied on the <code>name</code> property.</p>
     <h3 class="field-label">Example data</h3>
     <div class="example-data-content-type">Content-Type: application/json</div>
     <pre class="example"><code>{
+  "id" : 0,
+  "name" : "name",
+  "order" : 6,
   "names" : [ {
     "name" : "name",
     "language" : {
@@ -1501,10 +1504,7 @@ Case-insensitive query applied on the <code>name</code> property.</p>
       "name" : "name",
       "url" : "https://openapi-generator.tech"
     }
-  } ],
-  "name" : "name",
-  "id" : 0,
-  "order" : 6
+  } ]
 }</code></pre>
 
     <h3 class="field-label">Produces</h3>
@@ -1559,9 +1559,9 @@ Case-insensitive query applied on the <code>name</code> property.</p>
     <h3 class="field-label">Example data</h3>
     <div class="example-data-content-type">Content-Type: application/json</div>
     <pre class="example"><code>{
+  "count" : 123,
   "next" : "http://api.example.org/accounts/?offset=400&limit=100",
   "previous" : "http://api.example.org/accounts/?offset=200&limit=100",
-  "count" : 123,
   "results" : [ {
     "url" : "https://openapi-generator.tech"
   }, {
@@ -1612,170 +1612,194 @@ Case-insensitive query applied on the <code>name</code> property.</p>
     <h3 class="field-label">Example data</h3>
     <div class="example-data-content-type">Content-Type: application/json</div>
     <pre class="example"><code>{
-  "chain" : {
-    "evolution_details" : [ "", "" ],
-    "species" : {
-      "name" : "name",
-      "url" : "https://openapi-generator.tech"
-    },
-    "evolves_to" : [ {
-      "evolution_details" : [ {
-        "item" : {
-          "name" : "name",
-          "url" : "https://openapi-generator.tech"
-        },
-        "relative_physical_stats" : "relative_physical_stats",
-        "turn_upside_down" : true,
-        "gender" : {
-          "name" : "name",
-          "url" : "https://openapi-generator.tech"
-        },
-        "min_happiness" : 5,
-        "party_type" : "party_type",
-        "held_item" : {
-          "name" : "name",
-          "url" : "https://openapi-generator.tech"
-        },
-        "known_move" : "{}",
-        "min_beauty" : 1,
-        "trade_species" : "trade_species",
-        "trigger" : {
-          "name" : "name",
-          "url" : "https://openapi-generator.tech"
-        },
-        "needs_overworld_rain" : true,
-        "party_species" : "party_species",
-        "min_affection" : 6,
-        "known_move_type" : "{}",
-        "time_of_day" : "time_of_day",
-        "location" : {
-          "name" : "name",
-          "url" : "https://openapi-generator.tech"
-        },
-        "min_level" : 5
-      }, {
-        "item" : {
-          "name" : "name",
-          "url" : "https://openapi-generator.tech"
-        },
-        "relative_physical_stats" : "relative_physical_stats",
-        "turn_upside_down" : true,
-        "gender" : {
-          "name" : "name",
-          "url" : "https://openapi-generator.tech"
-        },
-        "min_happiness" : 5,
-        "party_type" : "party_type",
-        "held_item" : {
-          "name" : "name",
-          "url" : "https://openapi-generator.tech"
-        },
-        "known_move" : "{}",
-        "min_beauty" : 1,
-        "trade_species" : "trade_species",
-        "trigger" : {
-          "name" : "name",
-          "url" : "https://openapi-generator.tech"
-        },
-        "needs_overworld_rain" : true,
-        "party_species" : "party_species",
-        "min_affection" : 6,
-        "known_move_type" : "{}",
-        "time_of_day" : "time_of_day",
-        "location" : {
-          "name" : "name",
-          "url" : "https://openapi-generator.tech"
-        },
-        "min_level" : 5
-      } ],
-      "species" : {
-        "name" : "name",
-        "url" : "https://openapi-generator.tech"
-      },
-      "is_baby" : true
-    }, {
-      "evolution_details" : [ {
-        "item" : {
-          "name" : "name",
-          "url" : "https://openapi-generator.tech"
-        },
-        "relative_physical_stats" : "relative_physical_stats",
-        "turn_upside_down" : true,
-        "gender" : {
-          "name" : "name",
-          "url" : "https://openapi-generator.tech"
-        },
-        "min_happiness" : 5,
-        "party_type" : "party_type",
-        "held_item" : {
-          "name" : "name",
-          "url" : "https://openapi-generator.tech"
-        },
-        "known_move" : "{}",
-        "min_beauty" : 1,
-        "trade_species" : "trade_species",
-        "trigger" : {
-          "name" : "name",
-          "url" : "https://openapi-generator.tech"
-        },
-        "needs_overworld_rain" : true,
-        "party_species" : "party_species",
-        "min_affection" : 6,
-        "known_move_type" : "{}",
-        "time_of_day" : "time_of_day",
-        "location" : {
-          "name" : "name",
-          "url" : "https://openapi-generator.tech"
-        },
-        "min_level" : 5
-      }, {
-        "item" : {
-          "name" : "name",
-          "url" : "https://openapi-generator.tech"
-        },
-        "relative_physical_stats" : "relative_physical_stats",
-        "turn_upside_down" : true,
-        "gender" : {
-          "name" : "name",
-          "url" : "https://openapi-generator.tech"
-        },
-        "min_happiness" : 5,
-        "party_type" : "party_type",
-        "held_item" : {
-          "name" : "name",
-          "url" : "https://openapi-generator.tech"
-        },
-        "known_move" : "{}",
-        "min_beauty" : 1,
-        "trade_species" : "trade_species",
-        "trigger" : {
-          "name" : "name",
-          "url" : "https://openapi-generator.tech"
-        },
-        "needs_overworld_rain" : true,
-        "party_species" : "party_species",
-        "min_affection" : 6,
-        "known_move_type" : "{}",
-        "time_of_day" : "time_of_day",
-        "location" : {
-          "name" : "name",
-          "url" : "https://openapi-generator.tech"
-        },
-        "min_level" : 5
-      } ],
-      "species" : {
-        "name" : "name",
-        "url" : "https://openapi-generator.tech"
-      },
-      "is_baby" : true
-    } ],
-    "is_baby" : true
-  },
+  "id" : 0,
   "baby_trigger_item" : {
     "name" : "name",
     "url" : "https://openapi-generator.tech"
   },
-  "id" : 0
+  "chain" : {
+    "evolution_details" : [ "", "" ],
+    "evolves_to" : [ {
+      "evolution_details" : [ {
+        "gender" : {
+          "name" : "name",
+          "url" : "https://openapi-generator.tech"
+        },
+        "held_item" : {
+          "name" : "name",
+          "url" : "https://openapi-generator.tech"
+        },
+        "item" : {
+          "name" : "name",
+          "url" : "https://openapi-generator.tech"
+        },
+        "known_move" : {
+          "name" : "name",
+          "url" : "https://openapi-generator.tech"
+        },
+        "known_move_type" : {
+          "name" : "name",
+          "url" : "https://openapi-generator.tech"
+        },
+        "location" : {
+          "name" : "name",
+          "url" : "https://openapi-generator.tech"
+        },
+        "min_affection" : 6,
+        "min_beauty" : 1,
+        "min_happiness" : 5,
+        "min_level" : 5,
+        "needs_overworld_rain" : true,
+        "party_species" : "party_species",
+        "party_type" : "party_type",
+        "relative_physical_stats" : "relative_physical_stats",
+        "time_of_day" : "time_of_day",
+        "trade_species" : "trade_species",
+        "trigger" : {
+          "name" : "name",
+          "url" : "https://openapi-generator.tech"
+        },
+        "turn_upside_down" : true
+      }, {
+        "gender" : {
+          "name" : "name",
+          "url" : "https://openapi-generator.tech"
+        },
+        "held_item" : {
+          "name" : "name",
+          "url" : "https://openapi-generator.tech"
+        },
+        "item" : {
+          "name" : "name",
+          "url" : "https://openapi-generator.tech"
+        },
+        "known_move" : {
+          "name" : "name",
+          "url" : "https://openapi-generator.tech"
+        },
+        "known_move_type" : {
+          "name" : "name",
+          "url" : "https://openapi-generator.tech"
+        },
+        "location" : {
+          "name" : "name",
+          "url" : "https://openapi-generator.tech"
+        },
+        "min_affection" : 6,
+        "min_beauty" : 1,
+        "min_happiness" : 5,
+        "min_level" : 5,
+        "needs_overworld_rain" : true,
+        "party_species" : "party_species",
+        "party_type" : "party_type",
+        "relative_physical_stats" : "relative_physical_stats",
+        "time_of_day" : "time_of_day",
+        "trade_species" : "trade_species",
+        "trigger" : {
+          "name" : "name",
+          "url" : "https://openapi-generator.tech"
+        },
+        "turn_upside_down" : true
+      } ],
+      "is_baby" : true,
+      "species" : {
+        "name" : "name",
+        "url" : "https://openapi-generator.tech"
+      }
+    }, {
+      "evolution_details" : [ {
+        "gender" : {
+          "name" : "name",
+          "url" : "https://openapi-generator.tech"
+        },
+        "held_item" : {
+          "name" : "name",
+          "url" : "https://openapi-generator.tech"
+        },
+        "item" : {
+          "name" : "name",
+          "url" : "https://openapi-generator.tech"
+        },
+        "known_move" : {
+          "name" : "name",
+          "url" : "https://openapi-generator.tech"
+        },
+        "known_move_type" : {
+          "name" : "name",
+          "url" : "https://openapi-generator.tech"
+        },
+        "location" : {
+          "name" : "name",
+          "url" : "https://openapi-generator.tech"
+        },
+        "min_affection" : 6,
+        "min_beauty" : 1,
+        "min_happiness" : 5,
+        "min_level" : 5,
+        "needs_overworld_rain" : true,
+        "party_species" : "party_species",
+        "party_type" : "party_type",
+        "relative_physical_stats" : "relative_physical_stats",
+        "time_of_day" : "time_of_day",
+        "trade_species" : "trade_species",
+        "trigger" : {
+          "name" : "name",
+          "url" : "https://openapi-generator.tech"
+        },
+        "turn_upside_down" : true
+      }, {
+        "gender" : {
+          "name" : "name",
+          "url" : "https://openapi-generator.tech"
+        },
+        "held_item" : {
+          "name" : "name",
+          "url" : "https://openapi-generator.tech"
+        },
+        "item" : {
+          "name" : "name",
+          "url" : "https://openapi-generator.tech"
+        },
+        "known_move" : {
+          "name" : "name",
+          "url" : "https://openapi-generator.tech"
+        },
+        "known_move_type" : {
+          "name" : "name",
+          "url" : "https://openapi-generator.tech"
+        },
+        "location" : {
+          "name" : "name",
+          "url" : "https://openapi-generator.tech"
+        },
+        "min_affection" : 6,
+        "min_beauty" : 1,
+        "min_happiness" : 5,
+        "min_level" : 5,
+        "needs_overworld_rain" : true,
+        "party_species" : "party_species",
+        "party_type" : "party_type",
+        "relative_physical_stats" : "relative_physical_stats",
+        "time_of_day" : "time_of_day",
+        "trade_species" : "trade_species",
+        "trigger" : {
+          "name" : "name",
+          "url" : "https://openapi-generator.tech"
+        },
+        "turn_upside_down" : true
+      } ],
+      "is_baby" : true,
+      "species" : {
+        "name" : "name",
+        "url" : "https://openapi-generator.tech"
+      }
+    } ],
+    "is_baby" : true,
+    "species" : {
+      "name" : "name",
+      "url" : "https://openapi-generator.tech"
+    }
+  }
 }</code></pre>
 
     <h3 class="field-label">Produces</h3>
@@ -1829,9 +1853,9 @@ Case-insensitive query applied on the <code>name</code> property.</p>
     <h3 class="field-label">Example data</h3>
     <div class="example-data-content-type">Content-Type: application/json</div>
     <pre class="example"><code>{
+  "count" : 123,
   "next" : "http://api.example.org/accounts/?offset=400&limit=100",
   "previous" : "http://api.example.org/accounts/?offset=200&limit=100",
-  "count" : 123,
   "results" : [ {
     "name" : "name",
     "url" : "https://openapi-generator.tech"
@@ -1884,6 +1908,8 @@ Case-insensitive query applied on the <code>name</code> property.</p>
     <h3 class="field-label">Example data</h3>
     <div class="example-data-content-type">Content-Type: application/json</div>
     <pre class="example"><code>{
+  "id" : 0,
+  "name" : "name",
   "names" : [ {
     "name" : "name",
     "language" : {
@@ -1897,8 +1923,6 @@ Case-insensitive query applied on the <code>name</code> property.</p>
       "url" : "https://openapi-generator.tech"
     }
   } ],
-  "name" : "name",
-  "id" : 0,
   "pokemon_species" : [ {
     "name" : "name",
     "url" : "https://openapi-generator.tech"
@@ -1960,9 +1984,9 @@ Case-insensitive query applied on the <code>name</code> property.</p>
     <h3 class="field-label">Example data</h3>
     <div class="example-data-content-type">Content-Type: application/json</div>
     <pre class="example"><code>{
+  "count" : 123,
   "next" : "http://api.example.org/accounts/?offset=400&limit=100",
   "previous" : "http://api.example.org/accounts/?offset=200&limit=100",
-  "count" : 123,
   "results" : [ {
     "name" : "name",
     "url" : "https://openapi-generator.tech"
@@ -2015,6 +2039,8 @@ Case-insensitive query applied on the <code>name</code> property.</p>
     <h3 class="field-label">Example data</h3>
     <div class="example-data-content-type">Content-Type: application/json</div>
     <pre class="example"><code>{
+  "id" : 0,
+  "name" : "name",
   "abilities" : [ {
     "name" : "name",
     "url" : "https://openapi-generator.tech"
@@ -2022,7 +2048,11 @@ Case-insensitive query applied on the <code>name</code> property.</p>
     "name" : "name",
     "url" : "https://openapi-generator.tech"
   } ],
-  "types" : [ {
+  "main_region" : {
+    "name" : "name",
+    "url" : "https://openapi-generator.tech"
+  },
+  "moves" : [ {
     "name" : "name",
     "url" : "https://openapi-generator.tech"
   }, {
@@ -2042,27 +2072,21 @@ Case-insensitive query applied on the <code>name</code> property.</p>
       "url" : "https://openapi-generator.tech"
     }
   } ],
-  "main_region" : {
-    "name" : "name",
-    "url" : "https://openapi-generator.tech"
-  },
-  "version_groups" : [ {
-    "name" : "name",
-    "url" : "https://openapi-generator.tech"
-  }, {
-    "name" : "name",
-    "url" : "https://openapi-generator.tech"
-  } ],
-  "moves" : [ {
-    "name" : "name",
-    "url" : "https://openapi-generator.tech"
-  }, {
-    "name" : "name",
-    "url" : "https://openapi-generator.tech"
-  } ],
-  "name" : "name",
-  "id" : 0,
   "pokemon_species" : [ {
+    "name" : "name",
+    "url" : "https://openapi-generator.tech"
+  }, {
+    "name" : "name",
+    "url" : "https://openapi-generator.tech"
+  } ],
+  "types" : [ {
+    "name" : "name",
+    "url" : "https://openapi-generator.tech"
+  }, {
+    "name" : "name",
+    "url" : "https://openapi-generator.tech"
+  } ],
+  "version_groups" : [ {
     "name" : "name",
     "url" : "https://openapi-generator.tech"
   }, {
@@ -2122,9 +2146,9 @@ Case-insensitive query applied on the <code>name</code> property.</p>
     <h3 class="field-label">Example data</h3>
     <div class="example-data-content-type">Content-Type: application/json</div>
     <pre class="example"><code>{
+  "count" : 123,
   "next" : "http://api.example.org/accounts/?offset=400&limit=100",
   "previous" : "http://api.example.org/accounts/?offset=200&limit=100",
-  "count" : 123,
   "results" : [ {
     "name" : "name",
     "url" : "https://openapi-generator.tech"
@@ -2177,16 +2201,18 @@ Case-insensitive query applied on the <code>name</code> property.</p>
     <h3 class="field-label">Example data</h3>
     <div class="example-data-content-type">Content-Type: application/json</div>
     <pre class="example"><code>{
+  "id" : 0,
+  "name" : "name",
   "is_main_series" : true,
-  "pokemon_entries" : [ {
-    "entry_number" : 6,
-    "pokemon_species" : {
+  "descriptions" : [ {
+    "description" : "description",
+    "language" : {
       "name" : "name",
       "url" : "https://openapi-generator.tech"
     }
   }, {
-    "entry_number" : 6,
-    "pokemon_species" : {
+    "description" : "description",
+    "language" : {
       "name" : "name",
       "url" : "https://openapi-generator.tech"
     }
@@ -2204,31 +2230,29 @@ Case-insensitive query applied on the <code>name</code> property.</p>
       "url" : "https://openapi-generator.tech"
     }
   } ],
+  "pokemon_entries" : [ {
+    "entry_number" : 6,
+    "pokemon_species" : {
+      "name" : "name",
+      "url" : "https://openapi-generator.tech"
+    }
+  }, {
+    "entry_number" : 6,
+    "pokemon_species" : {
+      "name" : "name",
+      "url" : "https://openapi-generator.tech"
+    }
+  } ],
+  "region" : {
+    "name" : "name",
+    "url" : "https://openapi-generator.tech"
+  },
   "version_groups" : [ {
     "name" : "name",
     "url" : "https://openapi-generator.tech"
   }, {
     "name" : "name",
     "url" : "https://openapi-generator.tech"
-  } ],
-  "name" : "name",
-  "id" : 0,
-  "region" : {
-    "name" : "name",
-    "url" : "https://openapi-generator.tech"
-  },
-  "descriptions" : [ {
-    "description" : "description",
-    "language" : {
-      "name" : "name",
-      "url" : "https://openapi-generator.tech"
-    }
-  }, {
-    "description" : "description",
-    "language" : {
-      "name" : "name",
-      "url" : "https://openapi-generator.tech"
-    }
   } ]
 }</code></pre>
 
@@ -2283,9 +2307,9 @@ Case-insensitive query applied on the <code>name</code> property.</p>
     <h3 class="field-label">Example data</h3>
     <div class="example-data-content-type">Content-Type: application/json</div>
     <pre class="example"><code>{
+  "count" : 123,
   "next" : "http://api.example.org/accounts/?offset=400&limit=100",
   "previous" : "http://api.example.org/accounts/?offset=200&limit=100",
-  "count" : 123,
   "results" : [ {
     "name" : "name",
     "url" : "https://openapi-generator.tech"
@@ -2338,11 +2362,14 @@ Case-insensitive query applied on the <code>name</code> property.</p>
     <h3 class="field-label">Example data</h3>
     <div class="example-data-content-type">Content-Type: application/json</div>
     <pre class="example"><code>{
+  "id" : 0,
+  "name" : "name",
+  "order" : 6,
   "generation" : {
     "name" : "name",
     "url" : "https://openapi-generator.tech"
   },
-  "regions" : [ {
+  "move_learn_methods" : [ {
     "name" : "name",
     "url" : "https://openapi-generator.tech"
   }, {
@@ -2356,23 +2383,20 @@ Case-insensitive query applied on the <code>name</code> property.</p>
     "name" : "name",
     "url" : "https://openapi-generator.tech"
   } ],
+  "regions" : [ {
+    "name" : "name",
+    "url" : "https://openapi-generator.tech"
+  }, {
+    "name" : "name",
+    "url" : "https://openapi-generator.tech"
+  } ],
   "versions" : [ {
     "name" : "name",
     "url" : "https://openapi-generator.tech"
   }, {
     "name" : "name",
     "url" : "https://openapi-generator.tech"
-  } ],
-  "name" : "name",
-  "id" : 0,
-  "move_learn_methods" : [ {
-    "name" : "name",
-    "url" : "https://openapi-generator.tech"
-  }, {
-    "name" : "name",
-    "url" : "https://openapi-generator.tech"
-  } ],
-  "order" : 6
+  } ]
 }</code></pre>
 
     <h3 class="field-label">Produces</h3>
@@ -2426,9 +2450,9 @@ Case-insensitive query applied on the <code>name</code> property.</p>
     <h3 class="field-label">Example data</h3>
     <div class="example-data-content-type">Content-Type: application/json</div>
     <pre class="example"><code>{
+  "count" : 123,
   "next" : "http://api.example.org/accounts/?offset=400&limit=100",
   "previous" : "http://api.example.org/accounts/?offset=200&limit=100",
-  "count" : 123,
   "results" : [ {
     "name" : "name",
     "url" : "https://openapi-generator.tech"
@@ -2481,6 +2505,8 @@ Case-insensitive query applied on the <code>name</code> property.</p>
     <h3 class="field-label">Example data</h3>
     <div class="example-data-content-type">Content-Type: application/json</div>
     <pre class="example"><code>{
+  "id" : 0,
+  "name" : "name",
   "names" : [ {
     "name" : "name",
     "language" : {
@@ -2497,9 +2523,7 @@ Case-insensitive query applied on the <code>name</code> property.</p>
   "version_group" : {
     "name" : "name",
     "url" : "https://openapi-generator.tech"
-  },
-  "name" : "name",
-  "id" : 0
+  }
 }</code></pre>
 
     <h3 class="field-label">Produces</h3>
@@ -2554,9 +2578,9 @@ Case-insensitive query applied on the <code>name</code> property.</p>
     <h3 class="field-label">Example data</h3>
     <div class="example-data-content-type">Content-Type: application/json</div>
     <pre class="example"><code>{
+  "count" : 123,
   "next" : "http://api.example.org/accounts/?offset=400&limit=100",
   "previous" : "http://api.example.org/accounts/?offset=200&limit=100",
-  "count" : 123,
   "results" : [ {
     "name" : "name",
     "url" : "https://openapi-generator.tech"
@@ -2609,21 +2633,8 @@ Case-insensitive query applied on the <code>name</code> property.</p>
     <h3 class="field-label">Example data</h3>
     <div class="example-data-content-type">Content-Type: application/json</div>
     <pre class="example"><code>{
-  "names" : [ {
-    "name" : "name",
-    "language" : {
-      "name" : "name",
-      "url" : "https://openapi-generator.tech"
-    }
-  }, {
-    "name" : "name",
-    "language" : {
-      "name" : "name",
-      "url" : "https://openapi-generator.tech"
-    }
-  } ],
-  "name" : "name",
   "id" : 0,
+  "name" : "name",
   "descriptions" : [ {
     "description" : "description",
     "language" : {
@@ -2643,6 +2654,19 @@ Case-insensitive query applied on the <code>name</code> property.</p>
   }, {
     "name" : "name",
     "url" : "https://openapi-generator.tech"
+  } ],
+  "names" : [ {
+    "name" : "name",
+    "language" : {
+      "name" : "name",
+      "url" : "https://openapi-generator.tech"
+    }
+  }, {
+    "name" : "name",
+    "language" : {
+      "name" : "name",
+      "url" : "https://openapi-generator.tech"
+    }
   } ]
 }</code></pre>
 
@@ -2697,9 +2721,9 @@ Case-insensitive query applied on the <code>name</code> property.</p>
     <h3 class="field-label">Example data</h3>
     <div class="example-data-content-type">Content-Type: application/json</div>
     <pre class="example"><code>{
+  "count" : 123,
   "next" : "http://api.example.org/accounts/?offset=400&limit=100",
   "previous" : "http://api.example.org/accounts/?offset=200&limit=100",
-  "count" : 123,
   "results" : [ {
     "name" : "name",
     "url" : "https://openapi-generator.tech"
@@ -2752,6 +2776,15 @@ Case-insensitive query applied on the <code>name</code> property.</p>
     <h3 class="field-label">Example data</h3>
     <div class="example-data-content-type">Content-Type: application/json</div>
     <pre class="example"><code>{
+  "id" : 0,
+  "name" : "name",
+  "items" : [ {
+    "name" : "name",
+    "url" : "https://openapi-generator.tech"
+  }, {
+    "name" : "name",
+    "url" : "https://openapi-generator.tech"
+  } ],
   "names" : [ {
     "name" : "name",
     "language" : {
@@ -2764,15 +2797,6 @@ Case-insensitive query applied on the <code>name</code> property.</p>
       "name" : "name",
       "url" : "https://openapi-generator.tech"
     }
-  } ],
-  "name" : "name",
-  "id" : 0,
-  "items" : [ {
-    "name" : "name",
-    "url" : "https://openapi-generator.tech"
-  }, {
-    "name" : "name",
-    "url" : "https://openapi-generator.tech"
   } ],
   "pocket" : {
     "name" : "name",
@@ -2831,9 +2855,9 @@ Case-insensitive query applied on the <code>name</code> property.</p>
     <h3 class="field-label">Example data</h3>
     <div class="example-data-content-type">Content-Type: application/json</div>
     <pre class="example"><code>{
+  "count" : 123,
   "next" : "http://api.example.org/accounts/?offset=400&limit=100",
   "previous" : "http://api.example.org/accounts/?offset=200&limit=100",
-  "count" : 123,
   "results" : [ {
     "name" : "name",
     "url" : "https://openapi-generator.tech"
@@ -2886,6 +2910,8 @@ Case-insensitive query applied on the <code>name</code> property.</p>
     <h3 class="field-label">Example data</h3>
     <div class="example-data-content-type">Content-Type: application/json</div>
     <pre class="example"><code>{
+  "id" : 0,
+  "name" : "name",
   "effect_entries" : [ {
     "effect" : "effect",
     "language" : {
@@ -2899,8 +2925,6 @@ Case-insensitive query applied on the <code>name</code> property.</p>
       "url" : "https://openapi-generator.tech"
     }
   } ],
-  "name" : "name",
-  "id" : 0,
   "items" : [ {
     "name" : "name",
     "url" : "https://openapi-generator.tech"
@@ -2961,9 +2985,9 @@ Case-insensitive query applied on the <code>name</code> property.</p>
     <h3 class="field-label">Example data</h3>
     <div class="example-data-content-type">Content-Type: application/json</div>
     <pre class="example"><code>{
+  "count" : 123,
   "next" : "http://api.example.org/accounts/?offset=400&limit=100",
   "previous" : "http://api.example.org/accounts/?offset=200&limit=100",
-  "count" : 123,
   "results" : [ {
     "name" : "name",
     "url" : "https://openapi-generator.tech"
@@ -3024,9 +3048,9 @@ Case-insensitive query applied on the <code>name</code> property.</p>
     <h3 class="field-label">Example data</h3>
     <div class="example-data-content-type">Content-Type: application/json</div>
     <pre class="example"><code>{
+  "count" : 123,
   "next" : "http://api.example.org/accounts/?offset=400&limit=100",
   "previous" : "http://api.example.org/accounts/?offset=200&limit=100",
-  "count" : 123,
   "results" : [ {
     "name" : "name",
     "url" : "https://openapi-generator.tech"
@@ -3079,6 +3103,15 @@ Case-insensitive query applied on the <code>name</code> property.</p>
     <h3 class="field-label">Example data</h3>
     <div class="example-data-content-type">Content-Type: application/json</div>
     <pre class="example"><code>{
+  "id" : 0,
+  "name" : "name",
+  "categories" : [ {
+    "name" : "name",
+    "url" : "https://openapi-generator.tech"
+  }, {
+    "name" : "name",
+    "url" : "https://openapi-generator.tech"
+  } ],
   "names" : [ {
     "name" : "name",
     "language" : {
@@ -3091,15 +3124,6 @@ Case-insensitive query applied on the <code>name</code> property.</p>
       "name" : "name",
       "url" : "https://openapi-generator.tech"
     }
-  } ],
-  "name" : "name",
-  "id" : 0,
-  "categories" : [ {
-    "name" : "name",
-    "url" : "https://openapi-generator.tech"
-  }, {
-    "name" : "name",
-    "url" : "https://openapi-generator.tech"
   } ]
 }</code></pre>
 
@@ -3146,42 +3170,73 @@ Case-insensitive query applied on the <code>name</code> property.</p>
     <h3 class="field-label">Example data</h3>
     <div class="example-data-content-type">Content-Type: application/json</div>
     <pre class="example"><code>{
+  "id" : 0,
+  "name" : "name",
   "cost" : 6,
   "fling_power" : 1,
-  "sprites" : {
-    "default" : "https://openapi-generator.tech"
-  },
   "fling_effect" : {
     "name" : "name",
     "url" : "https://openapi-generator.tech"
   },
+  "attributes" : [ {
+    "name" : "name",
+    "url" : "https://openapi-generator.tech"
+  }, {
+    "name" : "name",
+    "url" : "https://openapi-generator.tech"
+  } ],
+  "category" : {
+    "name" : "name",
+    "url" : "https://openapi-generator.tech"
+  },
   "effect_entries" : [ {
-    "short_effect" : "short_effect",
     "effect" : "effect",
+    "short_effect" : "short_effect",
     "language" : {
       "name" : "name",
       "url" : "https://openapi-generator.tech"
     }
   }, {
-    "short_effect" : "short_effect",
     "effect" : "effect",
+    "short_effect" : "short_effect",
+    "language" : {
+      "name" : "name",
+      "url" : "https://openapi-generator.tech"
+    }
+  } ],
+  "flavor_text_entries" : [ {
+    "text" : "text",
+    "version_group" : {
+      "name" : "name",
+      "url" : "https://openapi-generator.tech"
+    },
+    "language" : {
+      "name" : "name",
+      "url" : "https://openapi-generator.tech"
+    }
+  }, {
+    "text" : "text",
+    "version_group" : {
+      "name" : "name",
+      "url" : "https://openapi-generator.tech"
+    },
     "language" : {
       "name" : "name",
       "url" : "https://openapi-generator.tech"
     }
   } ],
   "game_indices" : [ {
+    "game_index" : 5,
     "generation" : {
       "name" : "name",
       "url" : "https://openapi-generator.tech"
-    },
-    "game_index" : 5
+    }
   }, {
+    "game_index" : 5,
     "generation" : {
       "name" : "name",
       "url" : "https://openapi-generator.tech"
-    },
-    "game_index" : 5
+    }
   } ],
   "names" : [ {
     "name" : "name",
@@ -3196,39 +3251,49 @@ Case-insensitive query applied on the <code>name</code> property.</p>
       "url" : "https://openapi-generator.tech"
     }
   } ],
+  "held_by_pokemon" : [ {
+    "pokemon" : {
+      "name" : "name",
+      "url" : "https://openapi-generator.tech"
+    },
+    "version-details" : [ {
+      "rarity" : 5,
+      "version" : {
+        "name" : "name",
+        "url" : "https://openapi-generator.tech"
+      }
+    }, {
+      "rarity" : 5,
+      "version" : {
+        "name" : "name",
+        "url" : "https://openapi-generator.tech"
+      }
+    } ]
+  }, {
+    "pokemon" : {
+      "name" : "name",
+      "url" : "https://openapi-generator.tech"
+    },
+    "version-details" : [ {
+      "rarity" : 5,
+      "version" : {
+        "name" : "name",
+        "url" : "https://openapi-generator.tech"
+      }
+    }, {
+      "rarity" : 5,
+      "version" : {
+        "name" : "name",
+        "url" : "https://openapi-generator.tech"
+      }
+    } ]
+  } ],
+  "sprites" : {
+    "default" : "https://openapi-generator.tech"
+  },
   "baby_trigger_for" : {
     "url" : "https://openapi-generator.tech"
   },
-  "flavor_text_entries" : [ {
-    "version_group" : {
-      "name" : "name",
-      "url" : "https://openapi-generator.tech"
-    },
-    "language" : {
-      "name" : "name",
-      "url" : "https://openapi-generator.tech"
-    },
-    "text" : "text"
-  }, {
-    "version_group" : {
-      "name" : "name",
-      "url" : "https://openapi-generator.tech"
-    },
-    "language" : {
-      "name" : "name",
-      "url" : "https://openapi-generator.tech"
-    },
-    "text" : "text"
-  } ],
-  "name" : "name",
-  "attributes" : [ {
-    "name" : "name",
-    "url" : "https://openapi-generator.tech"
-  }, {
-    "name" : "name",
-    "url" : "https://openapi-generator.tech"
-  } ],
-  "id" : 0,
   "machines" : [ {
     "machine" : "https://openapi-generator.tech",
     "version_group" : {
@@ -3241,47 +3306,6 @@ Case-insensitive query applied on the <code>name</code> property.</p>
       "name" : "name",
       "url" : "https://openapi-generator.tech"
     }
-  } ],
-  "category" : {
-    "name" : "name",
-    "url" : "https://openapi-generator.tech"
-  },
-  "held_by_pokemon" : [ {
-    "pokemon" : {
-      "name" : "name",
-      "url" : "https://openapi-generator.tech"
-    },
-    "version-details" : [ {
-      "version" : {
-        "name" : "name",
-        "url" : "https://openapi-generator.tech"
-      },
-      "rarity" : 5
-    }, {
-      "version" : {
-        "name" : "name",
-        "url" : "https://openapi-generator.tech"
-      },
-      "rarity" : 5
-    } ]
-  }, {
-    "pokemon" : {
-      "name" : "name",
-      "url" : "https://openapi-generator.tech"
-    },
-    "version-details" : [ {
-      "version" : {
-        "name" : "name",
-        "url" : "https://openapi-generator.tech"
-      },
-      "rarity" : 5
-    }, {
-      "version" : {
-        "name" : "name",
-        "url" : "https://openapi-generator.tech"
-      },
-      "rarity" : 5
-    } ]
   } ]
 }</code></pre>
 
@@ -3331,9 +3355,9 @@ Case-insensitive query applied on the <code>name</code> property.</p>
     <h3 class="field-label">Example data</h3>
     <div class="example-data-content-type">Content-Type: application/json</div>
     <pre class="example"><code>{
+  "count" : 123,
   "next" : "http://api.example.org/accounts/?offset=400&limit=100",
   "previous" : "http://api.example.org/accounts/?offset=200&limit=100",
-  "count" : 123,
   "results" : [ {
     "name" : "name",
     "url" : "https://openapi-generator.tech"
@@ -3386,7 +3410,50 @@ Case-insensitive query applied on the <code>name</code> property.</p>
     <h3 class="field-label">Example data</h3>
     <div class="example-data-content-type">Content-Type: application/json</div>
     <pre class="example"><code>{
+  "id" : 0,
+  "name" : "name",
   "game_index" : 6,
+  "encounter_method_rates" : [ {
+    "encounter_method" : {
+      "name" : "name",
+      "url" : "https://openapi-generator.tech"
+    },
+    "version_details" : [ {
+      "rate" : 1,
+      "version" : {
+        "name" : "name",
+        "url" : "https://openapi-generator.tech"
+      }
+    }, {
+      "rate" : 1,
+      "version" : {
+        "name" : "name",
+        "url" : "https://openapi-generator.tech"
+      }
+    } ]
+  }, {
+    "encounter_method" : {
+      "name" : "name",
+      "url" : "https://openapi-generator.tech"
+    },
+    "version_details" : [ {
+      "rate" : 1,
+      "version" : {
+        "name" : "name",
+        "url" : "https://openapi-generator.tech"
+      }
+    }, {
+      "rate" : 1,
+      "version" : {
+        "name" : "name",
+        "url" : "https://openapi-generator.tech"
+      }
+    } ]
+  } ],
+  "location" : {
+    "name" : "name",
+    "url" : "https://openapi-generator.tech"
+  },
   "names" : [ {
     "name" : "name",
     "language" : {
@@ -3406,8 +3473,14 @@ Case-insensitive query applied on the <code>name</code> property.</p>
       "url" : "https://openapi-generator.tech"
     },
     "version_details" : [ {
+      "version" : {
+        "name" : "name",
+        "url" : "https://openapi-generator.tech"
+      },
       "max_chance" : 5,
       "encounter_details" : {
+        "min_level" : 5,
+        "max_level" : 2,
         "condition_values" : {
           "name" : "name",
           "url" : "https://openapi-generator.tech"
@@ -3416,17 +3489,17 @@ Case-insensitive query applied on the <code>name</code> property.</p>
         "method" : {
           "name" : "name",
           "url" : "https://openapi-generator.tech"
-        },
-        "max_level" : 2,
-        "min_level" : 5
-      },
-      "version" : {
-        "name" : "name",
-        "url" : "https://openapi-generator.tech"
+        }
       }
     }, {
+      "version" : {
+        "name" : "name",
+        "url" : "https://openapi-generator.tech"
+      },
       "max_chance" : 5,
       "encounter_details" : {
+        "min_level" : 5,
+        "max_level" : 2,
         "condition_values" : {
           "name" : "name",
           "url" : "https://openapi-generator.tech"
@@ -3435,13 +3508,7 @@ Case-insensitive query applied on the <code>name</code> property.</p>
         "method" : {
           "name" : "name",
           "url" : "https://openapi-generator.tech"
-        },
-        "max_level" : 2,
-        "min_level" : 5
-      },
-      "version" : {
-        "name" : "name",
-        "url" : "https://openapi-generator.tech"
+        }
       }
     } ]
   }, {
@@ -3450,8 +3517,14 @@ Case-insensitive query applied on the <code>name</code> property.</p>
       "url" : "https://openapi-generator.tech"
     },
     "version_details" : [ {
+      "version" : {
+        "name" : "name",
+        "url" : "https://openapi-generator.tech"
+      },
       "max_chance" : 5,
       "encounter_details" : {
+        "min_level" : 5,
+        "max_level" : 2,
         "condition_values" : {
           "name" : "name",
           "url" : "https://openapi-generator.tech"
@@ -3460,17 +3533,17 @@ Case-insensitive query applied on the <code>name</code> property.</p>
         "method" : {
           "name" : "name",
           "url" : "https://openapi-generator.tech"
-        },
-        "max_level" : 2,
-        "min_level" : 5
-      },
-      "version" : {
-        "name" : "name",
-        "url" : "https://openapi-generator.tech"
+        }
       }
     }, {
+      "version" : {
+        "name" : "name",
+        "url" : "https://openapi-generator.tech"
+      },
       "max_chance" : 5,
       "encounter_details" : {
+        "min_level" : 5,
+        "max_level" : 2,
         "condition_values" : {
           "name" : "name",
           "url" : "https://openapi-generator.tech"
@@ -3479,58 +3552,9 @@ Case-insensitive query applied on the <code>name</code> property.</p>
         "method" : {
           "name" : "name",
           "url" : "https://openapi-generator.tech"
-        },
-        "max_level" : 2,
-        "min_level" : 5
-      },
-      "version" : {
-        "name" : "name",
-        "url" : "https://openapi-generator.tech"
+        }
       }
     } ]
-  } ],
-  "name" : "name",
-  "location" : {
-    "name" : "name",
-    "url" : "https://openapi-generator.tech"
-  },
-  "id" : 0,
-  "encounter_method_rates" : [ {
-    "version_details" : [ {
-      "rate" : 1,
-      "version" : {
-        "name" : "name",
-        "url" : "https://openapi-generator.tech"
-      }
-    }, {
-      "rate" : 1,
-      "version" : {
-        "name" : "name",
-        "url" : "https://openapi-generator.tech"
-      }
-    } ],
-    "encounter_method" : {
-      "name" : "name",
-      "url" : "https://openapi-generator.tech"
-    }
-  }, {
-    "version_details" : [ {
-      "rate" : 1,
-      "version" : {
-        "name" : "name",
-        "url" : "https://openapi-generator.tech"
-      }
-    }, {
-      "rate" : 1,
-      "version" : {
-        "name" : "name",
-        "url" : "https://openapi-generator.tech"
-      }
-    } ],
-    "encounter_method" : {
-      "name" : "name",
-      "url" : "https://openapi-generator.tech"
-    }
   } ]
 }</code></pre>
 
@@ -3585,9 +3609,9 @@ Case-insensitive query applied on the <code>name</code> property.</p>
     <h3 class="field-label">Example data</h3>
     <div class="example-data-content-type">Content-Type: application/json</div>
     <pre class="example"><code>{
+  "count" : 123,
   "next" : "http://api.example.org/accounts/?offset=400&limit=100",
   "previous" : "http://api.example.org/accounts/?offset=200&limit=100",
-  "count" : 123,
   "results" : [ {
     "name" : "name",
     "url" : "https://openapi-generator.tech"
@@ -3640,19 +3664,12 @@ Case-insensitive query applied on the <code>name</code> property.</p>
     <h3 class="field-label">Example data</h3>
     <div class="example-data-content-type">Content-Type: application/json</div>
     <pre class="example"><code>{
-  "game_indices" : [ {
-    "generation" : {
-      "name" : "name",
-      "url" : "https://openapi-generator.tech"
-    },
-    "game_index" : 5
-  }, {
-    "generation" : {
-      "name" : "name",
-      "url" : "https://openapi-generator.tech"
-    },
-    "game_index" : 5
-  } ],
+  "id" : 0,
+  "name" : "name",
+  "region" : {
+    "name" : "name",
+    "url" : "https://openapi-generator.tech"
+  },
   "names" : [ {
     "name" : "name",
     "language" : {
@@ -3666,19 +3683,26 @@ Case-insensitive query applied on the <code>name</code> property.</p>
       "url" : "https://openapi-generator.tech"
     }
   } ],
-  "name" : "name",
+  "game_indices" : [ {
+    "game_index" : 5,
+    "generation" : {
+      "name" : "name",
+      "url" : "https://openapi-generator.tech"
+    }
+  }, {
+    "game_index" : 5,
+    "generation" : {
+      "name" : "name",
+      "url" : "https://openapi-generator.tech"
+    }
+  } ],
   "areas" : [ {
     "name" : "name",
     "url" : "https://openapi-generator.tech"
   }, {
     "name" : "name",
     "url" : "https://openapi-generator.tech"
-  } ],
-  "id" : 0,
-  "region" : {
-    "name" : "name",
-    "url" : "https://openapi-generator.tech"
-  }
+  } ]
 }</code></pre>
 
     <h3 class="field-label">Produces</h3>
@@ -3732,9 +3756,9 @@ Case-insensitive query applied on the <code>name</code> property.</p>
     <h3 class="field-label">Example data</h3>
     <div class="example-data-content-type">Content-Type: application/json</div>
     <pre class="example"><code>{
+  "count" : 123,
   "next" : "http://api.example.org/accounts/?offset=400&limit=100",
   "previous" : "http://api.example.org/accounts/?offset=200&limit=100",
-  "count" : 123,
   "results" : [ {
     "name" : "name",
     "url" : "https://openapi-generator.tech"
@@ -3787,6 +3811,8 @@ Case-insensitive query applied on the <code>name</code> property.</p>
     <h3 class="field-label">Example data</h3>
     <div class="example-data-content-type">Content-Type: application/json</div>
     <pre class="example"><code>{
+  "id" : 0,
+  "name" : "name",
   "names" : [ {
     "name" : "name",
     "language" : {
@@ -3801,22 +3827,20 @@ Case-insensitive query applied on the <code>name</code> property.</p>
     }
   } ],
   "pokemon_encounters" : [ {
+    "base_score" : 6,
     "pokemon-species" : {
       "name" : "name",
       "url" : "https://openapi-generator.tech"
     },
-    "base_score" : 6,
     "rate" : 1
   }, {
+    "base_score" : 6,
     "pokemon-species" : {
       "name" : "name",
       "url" : "https://openapi-generator.tech"
     },
-    "base_score" : 6,
     "rate" : 1
-  } ],
-  "name" : "name",
-  "id" : 0
+  } ]
 }</code></pre>
 
     <h3 class="field-label">Produces</h3>
@@ -3870,9 +3894,9 @@ Case-insensitive query applied on the <code>name</code> property.</p>
     <h3 class="field-label">Example data</h3>
     <div class="example-data-content-type">Content-Type: application/json</div>
     <pre class="example"><code>{
+  "count" : 123,
   "next" : "http://api.example.org/accounts/?offset=400&limit=100",
   "previous" : "http://api.example.org/accounts/?offset=200&limit=100",
-  "count" : 123,
   "results" : [ {
     "name" : "name",
     "url" : "https://openapi-generator.tech"
@@ -3925,6 +3949,15 @@ Case-insensitive query applied on the <code>name</code> property.</p>
     <h3 class="field-label">Example data</h3>
     <div class="example-data-content-type">Content-Type: application/json</div>
     <pre class="example"><code>{
+  "id" : 0,
+  "name" : "name",
+  "locations" : [ {
+    "name" : "name",
+    "url" : "https://openapi-generator.tech"
+  }, {
+    "name" : "name",
+    "url" : "https://openapi-generator.tech"
+  } ],
   "main_generation" : "",
   "names" : [ {
     "name" : "name",
@@ -3952,16 +3985,7 @@ Case-insensitive query applied on the <code>name</code> property.</p>
   }, {
     "name" : "name",
     "url" : "https://openapi-generator.tech"
-  } ],
-  "name" : "name",
-  "locations" : [ {
-    "name" : "name",
-    "url" : "https://openapi-generator.tech"
-  }, {
-    "name" : "name",
-    "url" : "https://openapi-generator.tech"
-  } ],
-  "id" : 0
+  } ]
 }</code></pre>
 
     <h3 class="field-label">Produces</h3>
@@ -4016,9 +4040,9 @@ Case-insensitive query applied on the <code>name</code> property.</p>
     <h3 class="field-label">Example data</h3>
     <div class="example-data-content-type">Content-Type: application/json</div>
     <pre class="example"><code>{
+  "count" : 123,
   "next" : "http://api.example.org/accounts/?offset=400&limit=100",
   "previous" : "http://api.example.org/accounts/?offset=200&limit=100",
-  "count" : 123,
   "results" : [ {
     "url" : "https://openapi-generator.tech"
   }, {
@@ -4069,11 +4093,8 @@ Case-insensitive query applied on the <code>name</code> property.</p>
     <h3 class="field-label">Example data</h3>
     <div class="example-data-content-type">Content-Type: application/json</div>
     <pre class="example"><code>{
+  "id" : 0,
   "item" : {
-    "name" : "name",
-    "url" : "https://openapi-generator.tech"
-  },
-  "move" : {
     "name" : "name",
     "url" : "https://openapi-generator.tech"
   },
@@ -4081,7 +4102,10 @@ Case-insensitive query applied on the <code>name</code> property.</p>
     "name" : "name",
     "url" : "https://openapi-generator.tech"
   },
-  "id" : 0
+  "move" : {
+    "name" : "name",
+    "url" : "https://openapi-generator.tech"
+  }
 }</code></pre>
 
     <h3 class="field-label">Produces</h3>
@@ -4136,9 +4160,9 @@ Case-insensitive query applied on the <code>name</code> property.</p>
     <h3 class="field-label">Example data</h3>
     <div class="example-data-content-type">Content-Type: application/json</div>
     <pre class="example"><code>{
+  "count" : 123,
   "next" : "http://api.example.org/accounts/?offset=400&limit=100",
   "previous" : "http://api.example.org/accounts/?offset=200&limit=100",
-  "count" : 123,
   "results" : [ {
     "name" : "name",
     "url" : "https://openapi-generator.tech"
@@ -4191,6 +4215,15 @@ Case-insensitive query applied on the <code>name</code> property.</p>
     <h3 class="field-label">Example data</h3>
     <div class="example-data-content-type">Content-Type: application/json</div>
     <pre class="example"><code>{
+  "id" : 0,
+  "name" : "name",
+  "moves" : [ {
+    "name" : "name",
+    "url" : "https://openapi-generator.tech"
+  }, {
+    "name" : "name",
+    "url" : "https://openapi-generator.tech"
+  } ],
   "names" : [ {
     "name" : "name",
     "language" : {
@@ -4203,16 +4236,7 @@ Case-insensitive query applied on the <code>name</code> property.</p>
       "name" : "name",
       "url" : "https://openapi-generator.tech"
     }
-  } ],
-  "moves" : [ {
-    "name" : "name",
-    "url" : "https://openapi-generator.tech"
-  }, {
-    "name" : "name",
-    "url" : "https://openapi-generator.tech"
-  } ],
-  "name" : "name",
-  "id" : 0
+  } ]
 }</code></pre>
 
     <h3 class="field-label">Produces</h3>
@@ -4266,9 +4290,9 @@ Case-insensitive query applied on the <code>name</code> property.</p>
     <h3 class="field-label">Example data</h3>
     <div class="example-data-content-type">Content-Type: application/json</div>
     <pre class="example"><code>{
+  "count" : 123,
   "next" : "http://api.example.org/accounts/?offset=400&limit=100",
   "previous" : "http://api.example.org/accounts/?offset=200&limit=100",
-  "count" : 123,
   "results" : [ {
     "name" : "name",
     "url" : "https://openapi-generator.tech"
@@ -4321,6 +4345,8 @@ Case-insensitive query applied on the <code>name</code> property.</p>
     <h3 class="field-label">Example data</h3>
     <div class="example-data-content-type">Content-Type: application/json</div>
     <pre class="example"><code>{
+  "id" : 0,
+  "name" : "name",
   "names" : [ {
     "name" : "name",
     "language" : {
@@ -4333,9 +4359,7 @@ Case-insensitive query applied on the <code>name</code> property.</p>
       "name" : "name",
       "url" : "https://openapi-generator.tech"
     }
-  } ],
-  "name" : "name",
-  "id" : 0
+  } ]
 }</code></pre>
 
     <h3 class="field-label">Produces</h3>
@@ -4389,9 +4413,9 @@ Case-insensitive query applied on the <code>name</code> property.</p>
     <h3 class="field-label">Example data</h3>
     <div class="example-data-content-type">Content-Type: application/json</div>
     <pre class="example"><code>{
+  "count" : 123,
   "next" : "http://api.example.org/accounts/?offset=400&limit=100",
   "previous" : "http://api.example.org/accounts/?offset=200&limit=100",
-  "count" : 123,
   "results" : [ {
     "name" : "name",
     "url" : "https://openapi-generator.tech"
@@ -4444,15 +4468,8 @@ Case-insensitive query applied on the <code>name</code> property.</p>
     <h3 class="field-label">Example data</h3>
     <div class="example-data-content-type">Content-Type: application/json</div>
     <pre class="example"><code>{
-  "moves" : [ {
-    "name" : "name",
-    "url" : "https://openapi-generator.tech"
-  }, {
-    "name" : "name",
-    "url" : "https://openapi-generator.tech"
-  } ],
-  "name" : "name",
   "id" : 0,
+  "name" : "name",
   "descriptions" : [ {
     "description" : "description",
     "language" : {
@@ -4465,6 +4482,13 @@ Case-insensitive query applied on the <code>name</code> property.</p>
       "name" : "name",
       "url" : "https://openapi-generator.tech"
     }
+  } ],
+  "moves" : [ {
+    "name" : "name",
+    "url" : "https://openapi-generator.tech"
+  }, {
+    "name" : "name",
+    "url" : "https://openapi-generator.tech"
   } ]
 }</code></pre>
 
@@ -4519,9 +4543,9 @@ Case-insensitive query applied on the <code>name</code> property.</p>
     <h3 class="field-label">Example data</h3>
     <div class="example-data-content-type">Content-Type: application/json</div>
     <pre class="example"><code>{
+  "count" : 123,
   "next" : "http://api.example.org/accounts/?offset=400&limit=100",
   "previous" : "http://api.example.org/accounts/?offset=200&limit=100",
-  "count" : 123,
   "results" : [ {
     "name" : "name",
     "url" : "https://openapi-generator.tech"
@@ -4574,6 +4598,8 @@ Case-insensitive query applied on the <code>name</code> property.</p>
     <h3 class="field-label">Example data</h3>
     <div class="example-data-content-type">Content-Type: application/json</div>
     <pre class="example"><code>{
+  "id" : 0,
+  "name" : "name",
   "names" : [ {
     "name" : "name",
     "language" : {
@@ -4587,15 +4613,6 @@ Case-insensitive query applied on the <code>name</code> property.</p>
       "url" : "https://openapi-generator.tech"
     }
   } ],
-  "version_groups" : [ {
-    "name" : "name",
-    "url" : "https://openapi-generator.tech"
-  }, {
-    "name" : "name",
-    "url" : "https://openapi-generator.tech"
-  } ],
-  "name" : "name",
-  "id" : 0,
   "descriptions" : [ {
     "description" : "description",
     "language" : {
@@ -4608,6 +4625,13 @@ Case-insensitive query applied on the <code>name</code> property.</p>
       "name" : "name",
       "url" : "https://openapi-generator.tech"
     }
+  } ],
+  "version_groups" : [ {
+    "name" : "name",
+    "url" : "https://openapi-generator.tech"
+  }, {
+    "name" : "name",
+    "url" : "https://openapi-generator.tech"
   } ]
 }</code></pre>
 
@@ -4662,9 +4686,9 @@ Case-insensitive query applied on the <code>name</code> property.</p>
     <h3 class="field-label">Example data</h3>
     <div class="example-data-content-type">Content-Type: application/json</div>
     <pre class="example"><code>{
+  "count" : 123,
   "next" : "http://api.example.org/accounts/?offset=400&limit=100",
   "previous" : "http://api.example.org/accounts/?offset=200&limit=100",
-  "count" : 123,
   "results" : [ {
     "name" : "name",
     "url" : "https://openapi-generator.tech"
@@ -4717,35 +4741,23 @@ Case-insensitive query applied on the <code>name</code> property.</p>
     <h3 class="field-label">Example data</h3>
     <div class="example-data-content-type">Content-Type: application/json</div>
     <pre class="example"><code>{
-  "pp" : 5,
-  "generation" : {
-    "name" : "name",
-    "url" : "https://openapi-generator.tech"
-  },
-  "stat_changes" : [ {
-    "stat" : {
-      "name" : "name",
-      "url" : "https://openapi-generator.tech"
-    },
-    "change" : 4
-  }, {
-    "stat" : {
-      "name" : "name",
-      "url" : "https://openapi-generator.tech"
-    },
-    "change" : 4
-  } ],
+  "id" : 0,
+  "name" : "name",
   "accuracy" : 6,
+  "effect_chance" : 1,
+  "pp" : 5,
+  "priority" : 5,
+  "power" : 2,
   "contest_combos" : {
-    "super" : {
-      "use_after" : [ {
+    "normal" : {
+      "use_before" : [ {
         "name" : "name",
         "url" : "https://openapi-generator.tech"
       }, {
         "name" : "name",
         "url" : "https://openapi-generator.tech"
       } ],
-      "use_before" : [ {
+      "use_after" : [ {
         "name" : "name",
         "url" : "https://openapi-generator.tech"
       }, {
@@ -4753,15 +4765,15 @@ Case-insensitive query applied on the <code>name</code> property.</p>
         "url" : "https://openapi-generator.tech"
       } ]
     },
-    "normal" : {
-      "use_after" : [ {
+    "super" : {
+      "use_before" : [ {
         "name" : "name",
         "url" : "https://openapi-generator.tech"
       }, {
         "name" : "name",
         "url" : "https://openapi-generator.tech"
       } ],
-      "use_before" : [ {
+      "use_after" : [ {
         "name" : "name",
         "url" : "https://openapi-generator.tech"
       }, {
@@ -4770,14 +4782,32 @@ Case-insensitive query applied on the <code>name</code> property.</p>
       } ]
     }
   },
-  "priority" : 5,
-  "super_contest_effect" : {
-    "url" : "https://openapi-generator.tech"
-  },
-  "type" : {
+  "contest_type" : {
     "name" : "name",
     "url" : "https://openapi-generator.tech"
   },
+  "contest_effect" : {
+    "url" : "https://openapi-generator.tech"
+  },
+  "damage_class" : {
+    "name" : "name",
+    "url" : "https://openapi-generator.tech"
+  },
+  "effect_entries" : [ {
+    "effect" : "effect",
+    "short_effect" : "short_effect",
+    "language" : {
+      "name" : "name",
+      "url" : "https://openapi-generator.tech"
+    }
+  }, {
+    "effect" : "effect",
+    "short_effect" : "short_effect",
+    "language" : {
+      "name" : "name",
+      "url" : "https://openapi-generator.tech"
+    }
+  } ],
   "effect_changes" : [ {
     "effect_entries" : [ {
       "effect" : "effect",
@@ -4815,93 +4845,11 @@ Case-insensitive query applied on the <code>name</code> property.</p>
       "url" : "https://openapi-generator.tech"
     }
   } ],
-  "target" : {
+  "generation" : {
     "name" : "name",
     "url" : "https://openapi-generator.tech"
   },
-  "learned_by_pokemon" : [ {
-    "name" : "name",
-    "url" : "https://openapi-generator.tech"
-  }, {
-    "name" : "name",
-    "url" : "https://openapi-generator.tech"
-  } ],
-  "effect_entries" : [ {
-    "short_effect" : "short_effect",
-    "effect" : "effect",
-    "language" : {
-      "name" : "name",
-      "url" : "https://openapi-generator.tech"
-    }
-  }, {
-    "short_effect" : "short_effect",
-    "effect" : "effect",
-    "language" : {
-      "name" : "name",
-      "url" : "https://openapi-generator.tech"
-    }
-  } ],
-  "contest_type" : {
-    "name" : "name",
-    "url" : "https://openapi-generator.tech"
-  },
-  "past_values" : [ {
-    "pp" : 3,
-    "effect_entries" : [ {
-      "short_effect" : "short_effect",
-      "effect" : "effect",
-      "language" : {
-        "name" : "name",
-        "url" : "https://openapi-generator.tech"
-      }
-    }, {
-      "short_effect" : "short_effect",
-      "effect" : "effect",
-      "language" : {
-        "name" : "name",
-        "url" : "https://openapi-generator.tech"
-      }
-    } ],
-    "version_group" : {
-      "name" : "name",
-      "url" : "https://openapi-generator.tech"
-    },
-    "accuracy" : 7,
-    "effect_chance" : 2,
-    "power" : 9,
-    "type" : {
-      "name" : "name",
-      "url" : "https://openapi-generator.tech"
-    }
-  }, {
-    "pp" : 3,
-    "effect_entries" : [ {
-      "short_effect" : "short_effect",
-      "effect" : "effect",
-      "language" : {
-        "name" : "name",
-        "url" : "https://openapi-generator.tech"
-      }
-    }, {
-      "short_effect" : "short_effect",
-      "effect" : "effect",
-      "language" : {
-        "name" : "name",
-        "url" : "https://openapi-generator.tech"
-      }
-    } ],
-    "version_group" : {
-      "name" : "name",
-      "url" : "https://openapi-generator.tech"
-    },
-    "accuracy" : 7,
-    "effect_chance" : 2,
-    "power" : 9,
-    "type" : {
-      "name" : "name",
-      "url" : "https://openapi-generator.tech"
-    }
-  } ],
+  "meta" : "",
   "names" : [ {
     "name" : "name",
     "language" : {
@@ -4915,36 +4863,87 @@ Case-insensitive query applied on the <code>name</code> property.</p>
       "url" : "https://openapi-generator.tech"
     }
   } ],
-  "meta" : "",
-  "flavor_text_entries" : [ {
+  "past_values" : [ {
+    "accuracy" : 7,
+    "power" : 9,
+    "pp" : 3,
+    "effect_chance" : 2,
+    "effect_entries" : [ {
+      "effect" : "effect",
+      "short_effect" : "short_effect",
+      "language" : {
+        "name" : "name",
+        "url" : "https://openapi-generator.tech"
+      }
+    }, {
+      "effect" : "effect",
+      "short_effect" : "short_effect",
+      "language" : {
+        "name" : "name",
+        "url" : "https://openapi-generator.tech"
+      }
+    } ],
+    "type" : {
+      "name" : "name",
+      "url" : "https://openapi-generator.tech"
+    },
     "version_group" : {
       "name" : "name",
       "url" : "https://openapi-generator.tech"
-    },
-    "language" : {
-      "name" : "name",
-      "url" : "https://openapi-generator.tech"
-    },
-    "flavor_text" : "flavor_text"
+    }
   }, {
+    "accuracy" : 7,
+    "power" : 9,
+    "pp" : 3,
+    "effect_chance" : 2,
+    "effect_entries" : [ {
+      "effect" : "effect",
+      "short_effect" : "short_effect",
+      "language" : {
+        "name" : "name",
+        "url" : "https://openapi-generator.tech"
+      }
+    }, {
+      "effect" : "effect",
+      "short_effect" : "short_effect",
+      "language" : {
+        "name" : "name",
+        "url" : "https://openapi-generator.tech"
+      }
+    } ],
+    "type" : {
+      "name" : "name",
+      "url" : "https://openapi-generator.tech"
+    },
     "version_group" : {
       "name" : "name",
       "url" : "https://openapi-generator.tech"
-    },
-    "language" : {
+    }
+  } ],
+  "stat_changes" : [ {
+    "change" : 4,
+    "stat" : {
       "name" : "name",
       "url" : "https://openapi-generator.tech"
-    },
-    "flavor_text" : "flavor_text"
+    }
+  }, {
+    "change" : 4,
+    "stat" : {
+      "name" : "name",
+      "url" : "https://openapi-generator.tech"
+    }
   } ],
-  "name" : "name",
-  "damage_class" : {
+  "super_contest_effect" : {
+    "url" : "https://openapi-generator.tech"
+  },
+  "target" : {
     "name" : "name",
     "url" : "https://openapi-generator.tech"
   },
-  "effect_chance" : 1,
-  "id" : 0,
-  "power" : 2,
+  "type" : {
+    "name" : "name",
+    "url" : "https://openapi-generator.tech"
+  },
   "machines" : [ {
     "machine" : {
       "url" : "https://openapi-generator.tech"
@@ -4962,9 +4961,34 @@ Case-insensitive query applied on the <code>name</code> property.</p>
       "url" : "https://openapi-generator.tech"
     }
   } ],
-  "contest_effect" : {
+  "flavor_text_entries" : [ {
+    "flavor_text" : "flavor_text",
+    "language" : {
+      "name" : "name",
+      "url" : "https://openapi-generator.tech"
+    },
+    "version_group" : {
+      "name" : "name",
+      "url" : "https://openapi-generator.tech"
+    }
+  }, {
+    "flavor_text" : "flavor_text",
+    "language" : {
+      "name" : "name",
+      "url" : "https://openapi-generator.tech"
+    },
+    "version_group" : {
+      "name" : "name",
+      "url" : "https://openapi-generator.tech"
+    }
+  } ],
+  "learned_by_pokemon" : [ {
+    "name" : "name",
     "url" : "https://openapi-generator.tech"
-  }
+  }, {
+    "name" : "name",
+    "url" : "https://openapi-generator.tech"
+  } ]
 }</code></pre>
 
     <h3 class="field-label">Produces</h3>
@@ -5018,9 +5042,9 @@ Case-insensitive query applied on the <code>name</code> property.</p>
     <h3 class="field-label">Example data</h3>
     <div class="example-data-content-type">Content-Type: application/json</div>
     <pre class="example"><code>{
+  "count" : 123,
   "next" : "http://api.example.org/accounts/?offset=400&limit=100",
   "previous" : "http://api.example.org/accounts/?offset=200&limit=100",
-  "count" : 123,
   "results" : [ {
     "name" : "name",
     "url" : "https://openapi-generator.tech"
@@ -5073,14 +5097,16 @@ Case-insensitive query applied on the <code>name</code> property.</p>
     <h3 class="field-label">Example data</h3>
     <div class="example-data-content-type">Content-Type: application/json</div>
     <pre class="example"><code>{
-  "names" : [ {
-    "name" : "name",
+  "id" : 0,
+  "name" : "name",
+  "descriptions" : [ {
+    "description" : "description",
     "language" : {
       "name" : "name",
       "url" : "https://openapi-generator.tech"
     }
   }, {
-    "name" : "name",
+    "description" : "description",
     "language" : {
       "name" : "name",
       "url" : "https://openapi-generator.tech"
@@ -5093,16 +5119,14 @@ Case-insensitive query applied on the <code>name</code> property.</p>
     "name" : "name",
     "url" : "https://openapi-generator.tech"
   } ],
-  "name" : "name",
-  "id" : 0,
-  "descriptions" : [ {
-    "description" : "description",
+  "names" : [ {
+    "name" : "name",
     "language" : {
       "name" : "name",
       "url" : "https://openapi-generator.tech"
     }
   }, {
-    "description" : "description",
+    "name" : "name",
     "language" : {
       "name" : "name",
       "url" : "https://openapi-generator.tech"
@@ -5162,9 +5186,9 @@ Case-insensitive query applied on the <code>name</code> property.</p>
     <h3 class="field-label">Example data</h3>
     <div class="example-data-content-type">Content-Type: application/json</div>
     <pre class="example"><code>{
+  "count" : 123,
   "next" : "http://api.example.org/accounts/?offset=400&limit=100",
   "previous" : "http://api.example.org/accounts/?offset=200&limit=100",
-  "count" : 123,
   "results" : [ {
     "name" : "name",
     "url" : "https://openapi-generator.tech"
@@ -5217,26 +5241,13 @@ Case-insensitive query applied on the <code>name</code> property.</p>
     <h3 class="field-label">Example data</h3>
     <div class="example-data-content-type">Content-Type: application/json</div>
     <pre class="example"><code>{
+  "id" : 0,
+  "name" : "name",
   "is_main_series" : true,
   "generation" : {
     "name" : "name",
     "url" : "https://openapi-generator.tech"
   },
-  "effect_entries" : [ {
-    "short_effect" : "short_effect",
-    "effect" : "effect",
-    "language" : {
-      "name" : "name",
-      "url" : "https://openapi-generator.tech"
-    }
-  }, {
-    "short_effect" : "short_effect",
-    "effect" : "effect",
-    "language" : {
-      "name" : "name",
-      "url" : "https://openapi-generator.tech"
-    }
-  } ],
   "names" : [ {
     "name" : "name",
     "language" : {
@@ -5250,45 +5261,26 @@ Case-insensitive query applied on the <code>name</code> property.</p>
       "url" : "https://openapi-generator.tech"
     }
   } ],
-  "pokemon" : [ {
-    "pokemon" : {
-      "name" : "name",
-      "url" : "https://openapi-generator.tech"
-    },
-    "is_hidden" : true,
-    "slot" : 6
-  }, {
-    "pokemon" : {
-      "name" : "name",
-      "url" : "https://openapi-generator.tech"
-    },
-    "is_hidden" : true,
-    "slot" : 6
-  } ],
-  "flavor_text_entries" : [ {
-    "version_group" : {
-      "name" : "name",
-      "url" : "https://openapi-generator.tech"
-    },
+  "effect_entries" : [ {
+    "effect" : "effect",
+    "short_effect" : "short_effect",
     "language" : {
       "name" : "name",
       "url" : "https://openapi-generator.tech"
-    },
-    "flavor_text" : "flavor_text"
+    }
   }, {
-    "version_group" : {
-      "name" : "name",
-      "url" : "https://openapi-generator.tech"
-    },
+    "effect" : "effect",
+    "short_effect" : "short_effect",
     "language" : {
       "name" : "name",
       "url" : "https://openapi-generator.tech"
-    },
-    "flavor_text" : "flavor_text"
+    }
   } ],
-  "name" : "name",
-  "id" : 0,
   "effect_changes" : [ {
+    "version_group" : {
+      "name" : "name",
+      "url" : "https://openapi-generator.tech"
+    },
     "effect_entries" : [ {
       "effect" : "effect",
       "language" : {
@@ -5301,26 +5293,58 @@ Case-insensitive query applied on the <code>name</code> property.</p>
         "name" : "name",
         "url" : "https://openapi-generator.tech"
       }
-    } ],
+    } ]
+  }, {
+    "version_group" : {
+      "name" : "name",
+      "url" : "https://openapi-generator.tech"
+    },
+    "effect_entries" : [ {
+      "effect" : "effect",
+      "language" : {
+        "name" : "name",
+        "url" : "https://openapi-generator.tech"
+      }
+    }, {
+      "effect" : "effect",
+      "language" : {
+        "name" : "name",
+        "url" : "https://openapi-generator.tech"
+      }
+    } ]
+  } ],
+  "flavor_text_entries" : [ {
+    "flavor_text" : "flavor_text",
+    "language" : {
+      "name" : "name",
+      "url" : "https://openapi-generator.tech"
+    },
     "version_group" : {
       "name" : "name",
       "url" : "https://openapi-generator.tech"
     }
   }, {
-    "effect_entries" : [ {
-      "effect" : "effect",
-      "language" : {
-        "name" : "name",
-        "url" : "https://openapi-generator.tech"
-      }
-    }, {
-      "effect" : "effect",
-      "language" : {
-        "name" : "name",
-        "url" : "https://openapi-generator.tech"
-      }
-    } ],
+    "flavor_text" : "flavor_text",
+    "language" : {
+      "name" : "name",
+      "url" : "https://openapi-generator.tech"
+    },
     "version_group" : {
+      "name" : "name",
+      "url" : "https://openapi-generator.tech"
+    }
+  } ],
+  "pokemon" : [ {
+    "is_hidden" : true,
+    "slot" : 6,
+    "pokemon" : {
+      "name" : "name",
+      "url" : "https://openapi-generator.tech"
+    }
+  }, {
+    "is_hidden" : true,
+    "slot" : 6,
+    "pokemon" : {
       "name" : "name",
       "url" : "https://openapi-generator.tech"
     }
@@ -5378,9 +5402,9 @@ Case-insensitive query applied on the <code>name</code> property.</p>
     <h3 class="field-label">Example data</h3>
     <div class="example-data-content-type">Content-Type: application/json</div>
     <pre class="example"><code>{
+  "count" : 123,
   "next" : "http://api.example.org/accounts/?offset=400&limit=100",
   "previous" : "http://api.example.org/accounts/?offset=200&limit=100",
-  "count" : 123,
   "results" : [ {
     "url" : "https://openapi-generator.tech"
   }, {
@@ -5431,13 +5455,13 @@ Case-insensitive query applied on the <code>name</code> property.</p>
     <h3 class="field-label">Example data</h3>
     <div class="example-data-content-type">Content-Type: application/json</div>
     <pre class="example"><code>{
+  "id" : 0,
   "gene_modulo" : 6,
   "possible_values" : [ 1, 1 ],
   "highest_stat" : {
     "name" : "name",
     "url" : "https://openapi-generator.tech"
   },
-  "id" : 0,
   "descriptions" : [ {
     "description" : "description",
     "language" : {
@@ -5504,9 +5528,9 @@ Case-insensitive query applied on the <code>name</code> property.</p>
     <h3 class="field-label">Example data</h3>
     <div class="example-data-content-type">Content-Type: application/json</div>
     <pre class="example"><code>{
+  "count" : 123,
   "next" : "http://api.example.org/accounts/?offset=400&limit=100",
   "previous" : "http://api.example.org/accounts/?offset=200&limit=100",
-  "count" : 123,
   "results" : [ {
     "name" : "name",
     "url" : "https://openapi-generator.tech"
@@ -5559,6 +5583,8 @@ Case-insensitive query applied on the <code>name</code> property.</p>
     <h3 class="field-label">Example data</h3>
     <div class="example-data-content-type">Content-Type: application/json</div>
     <pre class="example"><code>{
+  "id" : 0,
+  "name" : "name",
   "names" : [ {
     "name" : "name",
     "language" : {
@@ -5572,8 +5598,6 @@ Case-insensitive query applied on the <code>name</code> property.</p>
       "url" : "https://openapi-generator.tech"
     }
   } ],
-  "name" : "name",
-  "id" : 0,
   "pokemon_species" : [ {
     "name" : "name",
     "url" : "https://openapi-generator.tech"
@@ -5634,9 +5658,9 @@ Case-insensitive query applied on the <code>name</code> property.</p>
     <h3 class="field-label">Example data</h3>
     <div class="example-data-content-type">Content-Type: application/json</div>
     <pre class="example"><code>{
+  "count" : 123,
   "next" : "http://api.example.org/accounts/?offset=400&limit=100",
   "previous" : "http://api.example.org/accounts/?offset=200&limit=100",
-  "count" : 123,
   "results" : [ {
     "name" : "name",
     "url" : "https://openapi-generator.tech"
@@ -5689,15 +5713,8 @@ Case-insensitive query applied on the <code>name</code> property.</p>
     <h3 class="field-label">Example data</h3>
     <div class="example-data-content-type">Content-Type: application/json</div>
     <pre class="example"><code>{
-  "required_for_evolution" : [ {
-    "name" : "name",
-    "url" : "https://openapi-generator.tech"
-  }, {
-    "name" : "name",
-    "url" : "https://openapi-generator.tech"
-  } ],
-  "name" : "name",
   "id" : 0,
+  "name" : "name",
   "pokemon_species_details" : [ {
     "rate" : 6,
     "pokemon_species" : {
@@ -5710,6 +5727,13 @@ Case-insensitive query applied on the <code>name</code> property.</p>
       "name" : "name",
       "url" : "https://openapi-generator.tech"
     }
+  } ],
+  "required_for_evolution" : [ {
+    "name" : "name",
+    "url" : "https://openapi-generator.tech"
+  }, {
+    "name" : "name",
+    "url" : "https://openapi-generator.tech"
   } ]
 }</code></pre>
 
@@ -5764,9 +5788,9 @@ Case-insensitive query applied on the <code>name</code> property.</p>
     <h3 class="field-label">Example data</h3>
     <div class="example-data-content-type">Content-Type: application/json</div>
     <pre class="example"><code>{
+  "count" : 123,
   "next" : "http://api.example.org/accounts/?offset=400&limit=100",
   "previous" : "http://api.example.org/accounts/?offset=200&limit=100",
-  "count" : 123,
   "results" : [ {
     "name" : "name",
     "url" : "https://openapi-generator.tech"
@@ -5819,16 +5843,9 @@ Case-insensitive query applied on the <code>name</code> property.</p>
     <h3 class="field-label">Example data</h3>
     <div class="example-data-content-type">Content-Type: application/json</div>
     <pre class="example"><code>{
+  "id" : 0,
   "name" : "name",
   "formula" : "formula",
-  "id" : 0,
-  "pokemon_species" : [ {
-    "name" : "name",
-    "url" : "https://openapi-generator.tech"
-  }, {
-    "name" : "name",
-    "url" : "https://openapi-generator.tech"
-  } ],
   "descriptions" : [ {
     "description" : "description",
     "language" : {
@@ -5848,6 +5865,13 @@ Case-insensitive query applied on the <code>name</code> property.</p>
   }, {
     "level" : 6,
     "experience" : 1
+  } ],
+  "pokemon_species" : [ {
+    "name" : "name",
+    "url" : "https://openapi-generator.tech"
+  }, {
+    "name" : "name",
+    "url" : "https://openapi-generator.tech"
   } ]
 }</code></pre>
 
@@ -5902,9 +5926,9 @@ Case-insensitive query applied on the <code>name</code> property.</p>
     <h3 class="field-label">Example data</h3>
     <div class="example-data-content-type">Content-Type: application/json</div>
     <pre class="example"><code>{
+  "count" : 123,
   "next" : "http://api.example.org/accounts/?offset=400&limit=100",
   "previous" : "http://api.example.org/accounts/?offset=200&limit=100",
-  "count" : 123,
   "results" : [ {
     "name" : "name",
     "url" : "https://openapi-generator.tech"
@@ -5957,14 +5981,16 @@ Case-insensitive query applied on the <code>name</code> property.</p>
     <h3 class="field-label">Example data</h3>
     <div class="example-data-content-type">Content-Type: application/json</div>
     <pre class="example"><code>{
-  "names" : [ {
-    "name" : "name",
+  "id" : 0,
+  "name" : "name",
+  "descriptions" : [ {
+    "description" : "description",
     "language" : {
       "name" : "name",
       "url" : "https://openapi-generator.tech"
     }
   }, {
-    "name" : "name",
+    "description" : "description",
     "language" : {
       "name" : "name",
       "url" : "https://openapi-generator.tech"
@@ -5977,16 +6003,14 @@ Case-insensitive query applied on the <code>name</code> property.</p>
     "name" : "name",
     "url" : "https://openapi-generator.tech"
   } ],
-  "name" : "name",
-  "id" : 0,
-  "descriptions" : [ {
-    "description" : "description",
+  "names" : [ {
+    "name" : "name",
     "language" : {
       "name" : "name",
       "url" : "https://openapi-generator.tech"
     }
   }, {
-    "description" : "description",
+    "name" : "name",
     "language" : {
       "name" : "name",
       "url" : "https://openapi-generator.tech"
@@ -6045,9 +6069,9 @@ Case-insensitive query applied on the <code>name</code> property.</p>
     <h3 class="field-label">Example data</h3>
     <div class="example-data-content-type">Content-Type: application/json</div>
     <pre class="example"><code>{
+  "count" : 123,
   "next" : "http://api.example.org/accounts/?offset=400&limit=100",
   "previous" : "http://api.example.org/accounts/?offset=200&limit=100",
-  "count" : 123,
   "results" : [ {
     "name" : "name",
     "url" : "https://openapi-generator.tech"
@@ -6100,18 +6124,43 @@ Case-insensitive query applied on the <code>name</code> property.</p>
     <h3 class="field-label">Example data</h3>
     <div class="example-data-content-type">Content-Type: application/json</div>
     <pre class="example"><code>{
-  "pokeathlon_stat_changes" : [ {
-    "pokeathlon_stat" : {
-      "name" : "name",
-      "url" : "https://openapi-generator.tech"
-    },
-    "max_change" : 6
+  "id" : 0,
+  "name" : "name",
+  "decreased_stat" : {
+    "name" : "name",
+    "url" : "https://openapi-generator.tech"
+  },
+  "increased_stat" : {
+    "name" : "name",
+    "url" : "https://openapi-generator.tech"
+  },
+  "likes_flavor" : {
+    "name" : "name",
+    "url" : "https://openapi-generator.tech"
+  },
+  "hates_flavor" : {
+    "name" : "name",
+    "url" : "https://openapi-generator.tech"
+  },
+  "berries" : [ {
+    "name" : "name",
+    "url" : "https://openapi-generator.tech"
   }, {
+    "name" : "name",
+    "url" : "https://openapi-generator.tech"
+  } ],
+  "pokeathlon_stat_changes" : [ {
+    "max_change" : 6,
     "pokeathlon_stat" : {
       "name" : "name",
       "url" : "https://openapi-generator.tech"
-    },
-    "max_change" : 6
+    }
+  }, {
+    "max_change" : 6,
+    "pokeathlon_stat" : {
+      "name" : "name",
+      "url" : "https://openapi-generator.tech"
+    }
   } ],
   "move_battle_style_preferences" : [ {
     "low_hp_preference" : 1,
@@ -6140,31 +6189,6 @@ Case-insensitive query applied on the <code>name</code> property.</p>
       "name" : "name",
       "url" : "https://openapi-generator.tech"
     }
-  } ],
-  "decreased_stat" : {
-    "name" : "name",
-    "url" : "https://openapi-generator.tech"
-  },
-  "likes_flavor" : {
-    "name" : "name",
-    "url" : "https://openapi-generator.tech"
-  },
-  "name" : "name",
-  "increased_stat" : {
-    "name" : "name",
-    "url" : "https://openapi-generator.tech"
-  },
-  "id" : 0,
-  "hates_flavor" : {
-    "name" : "name",
-    "url" : "https://openapi-generator.tech"
-  },
-  "berries" : [ {
-    "name" : "name",
-    "url" : "https://openapi-generator.tech"
-  }, {
-    "name" : "name",
-    "url" : "https://openapi-generator.tech"
   } ]
 }</code></pre>
 
@@ -6219,9 +6243,9 @@ Case-insensitive query applied on the <code>name</code> property.</p>
     <h3 class="field-label">Example data</h3>
     <div class="example-data-content-type">Content-Type: application/json</div>
     <pre class="example"><code>{
+  "count" : 123,
   "next" : "http://api.example.org/accounts/?offset=400&limit=100",
   "previous" : "http://api.example.org/accounts/?offset=200&limit=100",
-  "count" : 123,
   "results" : [ {
     "name" : "name",
     "url" : "https://openapi-generator.tech"
@@ -6274,6 +6298,36 @@ Case-insensitive query applied on the <code>name</code> property.</p>
     <h3 class="field-label">Example data</h3>
     <div class="example-data-content-type">Content-Type: application/json</div>
     <pre class="example"><code>{
+  "id" : 0,
+  "name" : "name",
+  "affecting_natures" : {
+    "decrease" : [ {
+      "max_change" : 0,
+      "nature" : {
+        "name" : "name",
+        "url" : "https://openapi-generator.tech"
+      }
+    }, {
+      "max_change" : 0,
+      "nature" : {
+        "name" : "name",
+        "url" : "https://openapi-generator.tech"
+      }
+    } ],
+    "increase" : [ {
+      "max_change" : 1,
+      "nature" : {
+        "name" : "name",
+        "url" : "https://openapi-generator.tech"
+      }
+    }, {
+      "max_change" : 1,
+      "nature" : {
+        "name" : "name",
+        "url" : "https://openapi-generator.tech"
+      }
+    } ]
+  },
   "names" : [ {
     "name" : "name",
     "language" : {
@@ -6286,37 +6340,7 @@ Case-insensitive query applied on the <code>name</code> property.</p>
       "name" : "name",
       "url" : "https://openapi-generator.tech"
     }
-  } ],
-  "name" : "name",
-  "id" : 0,
-  "affecting_natures" : {
-    "increase" : [ {
-      "nature" : {
-        "name" : "name",
-        "url" : "https://openapi-generator.tech"
-      },
-      "max_change" : 1
-    }, {
-      "nature" : {
-        "name" : "name",
-        "url" : "https://openapi-generator.tech"
-      },
-      "max_change" : 1
-    } ],
-    "decrease" : [ {
-      "nature" : {
-        "name" : "name",
-        "url" : "https://openapi-generator.tech"
-      },
-      "max_change" : 0
-    }, {
-      "nature" : {
-        "name" : "name",
-        "url" : "https://openapi-generator.tech"
-      },
-      "max_change" : 0
-    } ]
-  }
+  } ]
 }</code></pre>
 
     <h3 class="field-label">Produces</h3>
@@ -6370,9 +6394,9 @@ Case-insensitive query applied on the <code>name</code> property.</p>
     <h3 class="field-label">Example data</h3>
     <div class="example-data-content-type">Content-Type: application/json</div>
     <pre class="example"><code>{
+  "count" : 123,
   "next" : "http://api.example.org/accounts/?offset=400&limit=100",
   "previous" : "http://api.example.org/accounts/?offset=200&limit=100",
-  "count" : 123,
   "results" : [ {
     "name" : "name",
     "url" : "https://openapi-generator.tech"
@@ -6425,6 +6449,8 @@ Case-insensitive query applied on the <code>name</code> property.</p>
     <h3 class="field-label">Example data</h3>
     <div class="example-data-content-type">Content-Type: application/json</div>
     <pre class="example"><code>{
+  "id" : 0,
+  "name" : "name",
   "names" : [ {
     "name" : "name",
     "language" : {
@@ -6438,8 +6464,6 @@ Case-insensitive query applied on the <code>name</code> property.</p>
       "url" : "https://openapi-generator.tech"
     }
   } ],
-  "name" : "name",
-  "id" : 0,
   "pokemon_species" : [ {
     "name" : "name",
     "url" : "https://openapi-generator.tech"
@@ -6500,9 +6524,9 @@ Case-insensitive query applied on the <code>name</code> property.</p>
     <h3 class="field-label">Example data</h3>
     <div class="example-data-content-type">Content-Type: application/json</div>
     <pre class="example"><code>{
+  "count" : 123,
   "next" : "http://api.example.org/accounts/?offset=400&limit=100",
   "previous" : "http://api.example.org/accounts/?offset=200&limit=100",
-  "count" : 123,
   "results" : [ {
     "name" : "name",
     "url" : "https://openapi-generator.tech"
@@ -6555,6 +6579,51 @@ Case-insensitive query applied on the <code>name</code> property.</p>
     <h3 class="field-label">Example data</h3>
     <div class="example-data-content-type">Content-Type: application/json</div>
     <pre class="example"><code>{
+  "id" : 0,
+  "name" : "name",
+  "order" : 6,
+  "form_order" : 1,
+  "is_default" : true,
+  "is_battle_only" : true,
+  "is_mega" : true,
+  "form_name" : "form_name",
+  "pokemon" : {
+    "name" : "name",
+    "url" : "https://openapi-generator.tech"
+  },
+  "sprites" : {
+    "default" : "https://openapi-generator.tech"
+  },
+  "version_group" : {
+    "name" : "name",
+    "url" : "https://openapi-generator.tech"
+  },
+  "form_names" : [ {
+    "language" : {
+      "name" : "name",
+      "url" : "https://openapi-generator.tech"
+    },
+    "name" : "name"
+  }, {
+    "language" : {
+      "name" : "name",
+      "url" : "https://openapi-generator.tech"
+    },
+    "name" : "name"
+  } ],
+  "names" : [ {
+    "language" : {
+      "name" : "name",
+      "url" : "https://openapi-generator.tech"
+    },
+    "name" : "name"
+  }, {
+    "language" : {
+      "name" : "name",
+      "url" : "https://openapi-generator.tech"
+    },
+    "name" : "name"
+  } ],
   "types" : [ {
     "slot" : 4,
     "type" : {
@@ -6567,52 +6636,7 @@ Case-insensitive query applied on the <code>name</code> property.</p>
       "name" : "name",
       "url" : "https://openapi-generator.tech"
     }
-  } ],
-  "pokemon" : {
-    "name" : "name",
-    "url" : "https://openapi-generator.tech"
-  },
-  "is_battle_only" : true,
-  "is_default" : true,
-  "sprites" : {
-    "default" : "https://openapi-generator.tech"
-  },
-  "names" : [ {
-    "name" : "name",
-    "language" : {
-      "name" : "name",
-      "url" : "https://openapi-generator.tech"
-    }
-  }, {
-    "name" : "name",
-    "language" : {
-      "name" : "name",
-      "url" : "https://openapi-generator.tech"
-    }
-  } ],
-  "version_group" : {
-    "name" : "name",
-    "url" : "https://openapi-generator.tech"
-  },
-  "name" : "name",
-  "form_order" : 1,
-  "form_names" : [ {
-    "name" : "name",
-    "language" : {
-      "name" : "name",
-      "url" : "https://openapi-generator.tech"
-    }
-  }, {
-    "name" : "name",
-    "language" : {
-      "name" : "name",
-      "url" : "https://openapi-generator.tech"
-    }
-  } ],
-  "id" : 0,
-  "form_name" : "form_name",
-  "is_mega" : true,
-  "order" : 6
+  } ]
 }</code></pre>
 
     <h3 class="field-label">Produces</h3>
@@ -6666,9 +6690,9 @@ Case-insensitive query applied on the <code>name</code> property.</p>
     <h3 class="field-label">Example data</h3>
     <div class="example-data-content-type">Content-Type: application/json</div>
     <pre class="example"><code>{
+  "count" : 123,
   "next" : "http://api.example.org/accounts/?offset=400&limit=100",
   "previous" : "http://api.example.org/accounts/?offset=200&limit=100",
-  "count" : 123,
   "results" : [ {
     "name" : "name",
     "url" : "https://openapi-generator.tech"
@@ -6721,6 +6745,8 @@ Case-insensitive query applied on the <code>name</code> property.</p>
     <h3 class="field-label">Example data</h3>
     <div class="example-data-content-type">Content-Type: application/json</div>
     <pre class="example"><code>{
+  "id" : 0,
+  "name" : "name",
   "names" : [ {
     "name" : "name",
     "language" : {
@@ -6734,8 +6760,6 @@ Case-insensitive query applied on the <code>name</code> property.</p>
       "url" : "https://openapi-generator.tech"
     }
   } ],
-  "name" : "name",
-  "id" : 0,
   "pokemon_species" : [ {
     "name" : "name",
     "url" : "https://openapi-generator.tech"
@@ -6796,9 +6820,9 @@ Case-insensitive query applied on the <code>name</code> property.</p>
     <h3 class="field-label">Example data</h3>
     <div class="example-data-content-type">Content-Type: application/json</div>
     <pre class="example"><code>{
+  "count" : 123,
   "next" : "http://api.example.org/accounts/?offset=400&limit=100",
   "previous" : "http://api.example.org/accounts/?offset=200&limit=100",
-  "count" : 123,
   "results" : [ {
     "name" : "name",
     "url" : "https://openapi-generator.tech"
@@ -6851,11 +6875,188 @@ Case-insensitive query applied on the <code>name</code> property.</p>
     <h3 class="field-label">Example data</h3>
     <div class="example-data-content-type">Content-Type: application/json</div>
     <pre class="example"><code>{
-  "location_area_encounters" : "location_area_encounters",
-  "cries" : {
-    "legacy" : "https://openapi-generator.tech",
-    "latest" : "https://openapi-generator.tech"
+  "id" : 0,
+  "name" : "name",
+  "base_experience" : 6,
+  "height" : 1,
+  "is_default" : true,
+  "order" : 5,
+  "weight" : 5,
+  "abilities" : [ {
+    "ability" : {
+      "name" : "name",
+      "url" : "https://openapi-generator.tech"
+    },
+    "is_hidden" : true,
+    "slot" : 2
+  }, {
+    "ability" : {
+      "name" : "name",
+      "url" : "https://openapi-generator.tech"
+    },
+    "is_hidden" : true,
+    "slot" : 2
+  } ],
+  "past_abilities" : [ {
+    "abilities" : [ {
+      "ability" : {
+        "name" : "name",
+        "url" : "https://openapi-generator.tech"
+      },
+      "is_hidden" : true,
+      "slot" : 2
+    }, {
+      "ability" : {
+        "name" : "name",
+        "url" : "https://openapi-generator.tech"
+      },
+      "is_hidden" : true,
+      "slot" : 2
+    } ],
+    "generation" : {
+      "name" : "name",
+      "url" : "https://openapi-generator.tech"
+    }
+  }, {
+    "abilities" : [ {
+      "ability" : {
+        "name" : "name",
+        "url" : "https://openapi-generator.tech"
+      },
+      "is_hidden" : true,
+      "slot" : 2
+    }, {
+      "ability" : {
+        "name" : "name",
+        "url" : "https://openapi-generator.tech"
+      },
+      "is_hidden" : true,
+      "slot" : 2
+    } ],
+    "generation" : {
+      "name" : "name",
+      "url" : "https://openapi-generator.tech"
+    }
+  } ],
+  "forms" : [ {
+    "name" : "name",
+    "url" : "https://openapi-generator.tech"
+  }, {
+    "name" : "name",
+    "url" : "https://openapi-generator.tech"
+  } ],
+  "game_indices" : [ {
+    "game_index" : 7,
+    "version" : {
+      "name" : "name",
+      "url" : "https://openapi-generator.tech"
+    }
+  }, {
+    "game_index" : 7,
+    "version" : {
+      "name" : "name",
+      "url" : "https://openapi-generator.tech"
+    }
+  } ],
+  "held_items" : {
+    "item" : {
+      "name" : "name",
+      "url" : "https://openapi-generator.tech"
+    },
+    "version_details" : [ {
+      "rarity" : 5,
+      "version" : {
+        "name" : "name",
+        "url" : "https://openapi-generator.tech"
+      }
+    }, {
+      "rarity" : 5,
+      "version" : {
+        "name" : "name",
+        "url" : "https://openapi-generator.tech"
+      }
+    } ]
   },
+  "location_area_encounters" : "location_area_encounters",
+  "moves" : [ {
+    "move" : {
+      "name" : "name",
+      "url" : "https://openapi-generator.tech"
+    },
+    "version_group_details" : [ {
+      "level_learned_at" : 9,
+      "move_learn_method" : {
+        "name" : "name",
+        "url" : "https://openapi-generator.tech"
+      },
+      "version_group" : {
+        "name" : "name",
+        "url" : "https://openapi-generator.tech"
+      }
+    }, {
+      "level_learned_at" : 9,
+      "move_learn_method" : {
+        "name" : "name",
+        "url" : "https://openapi-generator.tech"
+      },
+      "version_group" : {
+        "name" : "name",
+        "url" : "https://openapi-generator.tech"
+      }
+    } ]
+  }, {
+    "move" : {
+      "name" : "name",
+      "url" : "https://openapi-generator.tech"
+    },
+    "version_group_details" : [ {
+      "level_learned_at" : 9,
+      "move_learn_method" : {
+        "name" : "name",
+        "url" : "https://openapi-generator.tech"
+      },
+      "version_group" : {
+        "name" : "name",
+        "url" : "https://openapi-generator.tech"
+      }
+    }, {
+      "level_learned_at" : 9,
+      "move_learn_method" : {
+        "name" : "name",
+        "url" : "https://openapi-generator.tech"
+      },
+      "version_group" : {
+        "name" : "name",
+        "url" : "https://openapi-generator.tech"
+      }
+    } ]
+  } ],
+  "species" : {
+    "name" : "name",
+    "url" : "https://openapi-generator.tech"
+  },
+  "sprites" : {
+    "front_default" : "https://openapi-generator.tech"
+  },
+  "cries" : {
+    "latest" : "https://openapi-generator.tech",
+    "legacy" : "https://openapi-generator.tech"
+  },
+  "stats" : [ {
+    "base_stat" : 3,
+    "effort" : 2,
+    "stat" : {
+      "name" : "name",
+      "url" : "https://openapi-generator.tech"
+    }
+  }, {
+    "base_stat" : 3,
+    "effort" : 2,
+    "stat" : {
+      "name" : "name",
+      "url" : "https://openapi-generator.tech"
+    }
+  } ],
   "types" : [ {
     "slot" : 4,
     "type" : {
@@ -6869,31 +7070,6 @@ Case-insensitive query applied on the <code>name</code> property.</p>
       "url" : "https://openapi-generator.tech"
     }
   } ],
-  "base_experience" : 6,
-  "held_items" : {
-    "item" : {
-      "name" : "name",
-      "url" : "https://openapi-generator.tech"
-    },
-    "version_details" : [ {
-      "version" : {
-        "name" : "name",
-        "url" : "https://openapi-generator.tech"
-      },
-      "rarity" : 5
-    }, {
-      "version" : {
-        "name" : "name",
-        "url" : "https://openapi-generator.tech"
-      },
-      "rarity" : 5
-    } ]
-  },
-  "weight" : 5,
-  "is_default" : true,
-  "sprites" : {
-    "front_default" : "https://openapi-generator.tech"
-  },
   "past_types" : [ {
     "generation" : {
       "name" : "name",
@@ -6930,159 +7106,7 @@ Case-insensitive query applied on the <code>name</code> property.</p>
         "url" : "https://openapi-generator.tech"
       }
     } ]
-  } ],
-  "past_abilities" : [ {
-    "abilities" : [ {
-      "is_hidden" : true,
-      "ability" : {
-        "name" : "name",
-        "url" : "https://openapi-generator.tech"
-      },
-      "slot" : 2
-    }, {
-      "is_hidden" : true,
-      "ability" : {
-        "name" : "name",
-        "url" : "https://openapi-generator.tech"
-      },
-      "slot" : 2
-    } ],
-    "generation" : {
-      "name" : "name",
-      "url" : "https://openapi-generator.tech"
-    }
-  }, {
-    "abilities" : [ {
-      "is_hidden" : true,
-      "ability" : {
-        "name" : "name",
-        "url" : "https://openapi-generator.tech"
-      },
-      "slot" : 2
-    }, {
-      "is_hidden" : true,
-      "ability" : {
-        "name" : "name",
-        "url" : "https://openapi-generator.tech"
-      },
-      "slot" : 2
-    } ],
-    "generation" : {
-      "name" : "name",
-      "url" : "https://openapi-generator.tech"
-    }
-  } ],
-  "abilities" : [ {
-    "is_hidden" : true,
-    "ability" : {
-      "name" : "name",
-      "url" : "https://openapi-generator.tech"
-    },
-    "slot" : 2
-  }, {
-    "is_hidden" : true,
-    "ability" : {
-      "name" : "name",
-      "url" : "https://openapi-generator.tech"
-    },
-    "slot" : 2
-  } ],
-  "game_indices" : [ {
-    "game_index" : 7,
-    "version" : {
-      "name" : "name",
-      "url" : "https://openapi-generator.tech"
-    }
-  }, {
-    "game_index" : 7,
-    "version" : {
-      "name" : "name",
-      "url" : "https://openapi-generator.tech"
-    }
-  } ],
-  "species" : {
-    "name" : "name",
-    "url" : "https://openapi-generator.tech"
-  },
-  "stats" : [ {
-    "stat" : {
-      "name" : "name",
-      "url" : "https://openapi-generator.tech"
-    },
-    "base_stat" : 3,
-    "effort" : 2
-  }, {
-    "stat" : {
-      "name" : "name",
-      "url" : "https://openapi-generator.tech"
-    },
-    "base_stat" : 3,
-    "effort" : 2
-  } ],
-  "moves" : [ {
-    "version_group_details" : [ {
-      "level_learned_at" : 9,
-      "version_group" : {
-        "name" : "name",
-        "url" : "https://openapi-generator.tech"
-      },
-      "move_learn_method" : {
-        "name" : "name",
-        "url" : "https://openapi-generator.tech"
-      }
-    }, {
-      "level_learned_at" : 9,
-      "version_group" : {
-        "name" : "name",
-        "url" : "https://openapi-generator.tech"
-      },
-      "move_learn_method" : {
-        "name" : "name",
-        "url" : "https://openapi-generator.tech"
-      }
-    } ],
-    "move" : {
-      "name" : "name",
-      "url" : "https://openapi-generator.tech"
-    }
-  }, {
-    "version_group_details" : [ {
-      "level_learned_at" : 9,
-      "version_group" : {
-        "name" : "name",
-        "url" : "https://openapi-generator.tech"
-      },
-      "move_learn_method" : {
-        "name" : "name",
-        "url" : "https://openapi-generator.tech"
-      }
-    }, {
-      "level_learned_at" : 9,
-      "version_group" : {
-        "name" : "name",
-        "url" : "https://openapi-generator.tech"
-      },
-      "move_learn_method" : {
-        "name" : "name",
-        "url" : "https://openapi-generator.tech"
-      }
-    } ],
-    "move" : {
-      "name" : "name",
-      "url" : "https://openapi-generator.tech"
-    }
-  } ],
-  "name" : "name",
-  "id" : 0,
-  "forms" : [ {
-    "name" : "name",
-    "url" : "https://openapi-generator.tech"
-  }, {
-    "name" : "name",
-    "url" : "https://openapi-generator.tech"
-  } ],
-  "height" : 1,
-  "order" : 5
+  } ]
 }</code></pre>
 
     <h3 class="field-label">Produces</h3>
@@ -7136,9 +7160,9 @@ Case-insensitive query applied on the <code>name</code> property.</p>
     <h3 class="field-label">Example data</h3>
     <div class="example-data-content-type">Content-Type: application/json</div>
     <pre class="example"><code>{
+  "count" : 123,
   "next" : "http://api.example.org/accounts/?offset=400&limit=100",
   "previous" : "http://api.example.org/accounts/?offset=200&limit=100",
-  "count" : 123,
   "results" : [ {
     "name" : "name",
     "url" : "https://openapi-generator.tech"
@@ -7191,13 +7215,8 @@ Case-insensitive query applied on the <code>name</code> property.</p>
     <h3 class="field-label">Example data</h3>
     <div class="example-data-content-type">Content-Type: application/json</div>
     <pre class="example"><code>{
-  "names" : [ {
-    "name" : "name",
-    "url" : "https://openapi-generator.tech"
-  }, {
-    "name" : "name",
-    "url" : "https://openapi-generator.tech"
-  } ],
+  "id" : 0,
+  "name" : "name",
   "awesome_names" : [ {
     "awesome_name" : "awesome_name",
     "language" : {
@@ -7211,8 +7230,13 @@ Case-insensitive query applied on the <code>name</code> property.</p>
       "url" : "https://openapi-generator.tech"
     }
   } ],
-  "name" : "name",
-  "id" : 0,
+  "names" : [ {
+    "url" : "https://openapi-generator.tech",
+    "name" : "name"
+  }, {
+    "url" : "https://openapi-generator.tech",
+    "name" : "name"
+  } ],
   "pokemon_species" : [ {
     "name" : "name",
     "url" : "https://openapi-generator.tech"
@@ -7273,9 +7297,9 @@ Case-insensitive query applied on the <code>name</code> property.</p>
     <h3 class="field-label">Example data</h3>
     <div class="example-data-content-type">Content-Type: application/json</div>
     <pre class="example"><code>{
+  "count" : 123,
   "next" : "http://api.example.org/accounts/?offset=400&limit=100",
   "previous" : "http://api.example.org/accounts/?offset=200&limit=100",
-  "count" : 123,
   "results" : [ {
     "name" : "name",
     "url" : "https://openapi-generator.tech"
@@ -7328,38 +7352,22 @@ Case-insensitive query applied on the <code>name</code> property.</p>
     <h3 class="field-label">Example data</h3>
     <div class="example-data-content-type">Content-Type: application/json</div>
     <pre class="example"><code>{
-  "evolution_chain" : {
-    "url" : "https://openapi-generator.tech"
-  },
-  "genera" : [ {
-    "genus" : "genus",
-    "language" : {
-      "name" : "name",
-      "url" : "https://openapi-generator.tech"
-    }
-  }, {
-    "genus" : "genus",
-    "language" : {
-      "name" : "name",
-      "url" : "https://openapi-generator.tech"
-    }
-  } ],
-  "habitat" : {
-    "name" : "name",
-    "url" : "https://openapi-generator.tech"
-  },
-  "color" : {
-    "name" : "name",
-    "url" : "https://openapi-generator.tech"
-  },
-  "egg_groups" : [ {
-    "name" : "name",
-    "url" : "https://openapi-generator.tech"
-  }, {
-    "name" : "name",
-    "url" : "https://openapi-generator.tech"
-  } ],
+  "id" : 0,
+  "name" : "name",
+  "order" : 6,
+  "gender_rate" : 1,
   "capture_rate" : 5,
+  "base_happiness" : 5,
+  "is_baby" : true,
+  "is_legendary" : true,
+  "is_mythical" : true,
+  "hatch_counter" : 2,
+  "has_gender_differences" : true,
+  "forms_switchable" : true,
+  "growth_rate" : {
+    "name" : "name",
+    "url" : "https://openapi-generator.tech"
+  },
   "pokedex_numbers" : [ {
     "entry_number" : 7,
     "pokedex" : {
@@ -7373,40 +7381,49 @@ Case-insensitive query applied on the <code>name</code> property.</p>
       "url" : "https://openapi-generator.tech"
     }
   } ],
-  "forms_switchable" : true,
-  "growth_rate" : {
+  "egg_groups" : [ {
+    "name" : "name",
+    "url" : "https://openapi-generator.tech"
+  }, {
+    "name" : "name",
+    "url" : "https://openapi-generator.tech"
+  } ],
+  "color" : {
     "name" : "name",
     "url" : "https://openapi-generator.tech"
   },
-  "flavor_text_entries" : [ {
+  "shape" : {
+    "name" : "name",
+    "url" : "https://openapi-generator.tech"
+  },
+  "evolves_from_species" : {
+    "name" : "name",
+    "url" : "https://openapi-generator.tech"
+  },
+  "evolution_chain" : {
+    "url" : "https://openapi-generator.tech"
+  },
+  "habitat" : {
+    "name" : "name",
+    "url" : "https://openapi-generator.tech"
+  },
+  "generation" : {
+    "name" : "name",
+    "url" : "https://openapi-generator.tech"
+  },
+  "names" : [ {
     "language" : {
       "name" : "name",
       "url" : "https://openapi-generator.tech"
     },
-    "version" : {
-      "name" : "name",
-      "url" : "https://openapi-generator.tech"
-    },
-    "flavor_text" : "flavor_text"
+    "name" : "name"
   }, {
     "language" : {
       "name" : "name",
       "url" : "https://openapi-generator.tech"
     },
-    "version" : {
-      "name" : "name",
-      "url" : "https://openapi-generator.tech"
-    },
-    "flavor_text" : "flavor_text"
+    "name" : "name"
   } ],
-  "id" : 0,
-  "order" : 6,
-  "is_baby" : true,
-  "generation" : {
-    "name" : "name",
-    "url" : "https://openapi-generator.tech"
-  },
-  "is_legendary" : true,
   "pal_park_encounters" : [ {
     "area" : {
       "name" : "name",
@@ -7422,42 +7439,6 @@ Case-insensitive query applied on the <code>name</code> property.</p>
     "base_score" : 9,
     "rate" : 3
   } ],
-  "shape" : {
-    "name" : "name",
-    "url" : "https://openapi-generator.tech"
-  },
-  "is_mythical" : true,
-  "base_happiness" : 5,
-  "names" : [ {
-    "name" : "name",
-    "language" : {
-      "name" : "name",
-      "url" : "https://openapi-generator.tech"
-    }
-  }, {
-    "name" : "name",
-    "language" : {
-      "name" : "name",
-      "url" : "https://openapi-generator.tech"
-    }
-  } ],
-  "varieties" : [ {
-    "pokemon" : {
-      "name" : "name",
-      "url" : "https://openapi-generator.tech"
-    },
-    "is_default" : true
-  }, {
-    "pokemon" : {
-      "name" : "name",
-      "url" : "https://openapi-generator.tech"
-    },
-    "is_default" : true
-  } ],
-  "gender_rate" : 1,
-  "name" : "name",
-  "has_gender_differences" : true,
-  "hatch_counter" : 2,
   "form_descriptions" : [ {
     "description" : "description",
     "language" : {
@@ -7471,10 +7452,53 @@ Case-insensitive query applied on the <code>name</code> property.</p>
       "url" : "https://openapi-generator.tech"
     }
   } ],
-  "evolves_from_species" : {
-    "name" : "name",
-    "url" : "https://openapi-generator.tech"
-  }
+  "flavor_text_entries" : [ {
+    "flavor_text" : "flavor_text",
+    "language" : {
+      "name" : "name",
+      "url" : "https://openapi-generator.tech"
+    },
+    "version" : {
+      "name" : "name",
+      "url" : "https://openapi-generator.tech"
+    }
+  }, {
+    "flavor_text" : "flavor_text",
+    "language" : {
+      "name" : "name",
+      "url" : "https://openapi-generator.tech"
+    },
+    "version" : {
+      "name" : "name",
+      "url" : "https://openapi-generator.tech"
+    }
+  } ],
+  "genera" : [ {
+    "genus" : "genus",
+    "language" : {
+      "name" : "name",
+      "url" : "https://openapi-generator.tech"
+    }
+  }, {
+    "genus" : "genus",
+    "language" : {
+      "name" : "name",
+      "url" : "https://openapi-generator.tech"
+    }
+  } ],
+  "varieties" : [ {
+    "is_default" : true,
+    "pokemon" : {
+      "name" : "name",
+      "url" : "https://openapi-generator.tech"
+    }
+  }, {
+    "is_default" : true,
+    "pokemon" : {
+      "name" : "name",
+      "url" : "https://openapi-generator.tech"
+    }
+  } ]
 }</code></pre>
 
     <h3 class="field-label">Produces</h3>
@@ -7528,9 +7552,9 @@ Case-insensitive query applied on the <code>name</code> property.</p>
     <h3 class="field-label">Example data</h3>
     <div class="example-data-content-type">Content-Type: application/json</div>
     <pre class="example"><code>{
+  "count" : 123,
   "next" : "http://api.example.org/accounts/?offset=400&limit=100",
   "previous" : "http://api.example.org/accounts/?offset=200&limit=100",
-  "count" : 123,
   "results" : [ {
     "name" : "name",
     "url" : "https://openapi-generator.tech"
@@ -7583,7 +7607,54 @@ Case-insensitive query applied on the <code>name</code> property.</p>
     <h3 class="field-label">Example data</h3>
     <div class="example-data-content-type">Content-Type: application/json</div>
     <pre class="example"><code>{
+  "id" : 0,
+  "name" : "name",
   "game_index" : 6,
+  "is_battle_only" : true,
+  "affecting_moves" : {
+    "increase" : [ {
+      "change" : 1,
+      "move" : {
+        "name" : "name",
+        "url" : "https://openapi-generator.tech"
+      }
+    }, {
+      "change" : 1,
+      "move" : {
+        "name" : "name",
+        "url" : "https://openapi-generator.tech"
+      }
+    } ],
+    "decrease" : [ {
+      "change" : 1,
+      "move" : {
+        "name" : "name",
+        "url" : "https://openapi-generator.tech"
+      }
+    }, {
+      "change" : 1,
+      "move" : {
+        "name" : "name",
+        "url" : "https://openapi-generator.tech"
+      }
+    } ]
+  },
+  "affecting_natures" : {
+    "increase" : [ {
+      "name" : "name",
+      "url" : "https://openapi-generator.tech"
+    }, {
+      "name" : "name",
+      "url" : "https://openapi-generator.tech"
+    } ],
+    "decrease" : [ {
+      "name" : "name",
+      "url" : "https://openapi-generator.tech"
+    }, {
+      "name" : "name",
+      "url" : "https://openapi-generator.tech"
+    } ]
+  },
   "characteristics" : [ {
     "url" : "https://openapi-generator.tech"
   }, {
@@ -7605,54 +7676,7 @@ Case-insensitive query applied on the <code>name</code> property.</p>
       "name" : "name",
       "url" : "https://openapi-generator.tech"
     }
-  } ],
-  "name" : "name",
-  "is_battle_only" : true,
-  "affecting_moves" : {
-    "increase" : [ {
-      "move" : {
-        "name" : "name",
-        "url" : "https://openapi-generator.tech"
-      },
-      "change" : 1
-    }, {
-      "move" : {
-        "name" : "name",
-        "url" : "https://openapi-generator.tech"
-      },
-      "change" : 1
-    } ],
-    "decrease" : [ {
-      "move" : {
-        "name" : "name",
-        "url" : "https://openapi-generator.tech"
-      },
-      "change" : 1
-    }, {
-      "move" : {
-        "name" : "name",
-        "url" : "https://openapi-generator.tech"
-      },
-      "change" : 1
-    } ]
-  },
-  "id" : 0,
-  "affecting_natures" : {
-    "increase" : [ {
-      "name" : "name",
-      "url" : "https://openapi-generator.tech"
-    }, {
-      "name" : "name",
-      "url" : "https://openapi-generator.tech"
-    } ],
-    "decrease" : [ {
-      "name" : "name",
-      "url" : "https://openapi-generator.tech"
-    }, {
-      "name" : "name",
-      "url" : "https://openapi-generator.tech"
-    } ]
-  }
+  } ]
 }</code></pre>
 
     <h3 class="field-label">Produces</h3>
@@ -7706,9 +7730,9 @@ Case-insensitive query applied on the <code>name</code> property.</p>
     <h3 class="field-label">Example data</h3>
     <div class="example-data-content-type">Content-Type: application/json</div>
     <pre class="example"><code>{
+  "count" : 123,
   "next" : "http://api.example.org/accounts/?offset=400&limit=100",
   "previous" : "http://api.example.org/accounts/?offset=200&limit=100",
-  "count" : 123,
   "results" : [ {
     "name" : "name",
     "url" : "https://openapi-generator.tech"
@@ -7761,68 +7785,9 @@ Case-insensitive query applied on the <code>name</code> property.</p>
     <h3 class="field-label">Example data</h3>
     <div class="example-data-content-type">Content-Type: application/json</div>
     <pre class="example"><code>{
-  "generation" : {
-    "name" : "name",
-    "url" : "https://openapi-generator.tech"
-  },
-  "game_indices" : [ {
-    "generation" : {
-      "name" : "name",
-      "url" : "https://openapi-generator.tech"
-    },
-    "game_index" : 5
-  }, {
-    "generation" : {
-      "name" : "name",
-      "url" : "https://openapi-generator.tech"
-    },
-    "game_index" : 5
-  } ],
-  "move_damage_class" : {
-    "name" : "name",
-    "url" : "https://openapi-generator.tech"
-  },
-  "names" : [ {
-    "name" : "name",
-    "language" : {
-      "name" : "name",
-      "url" : "https://openapi-generator.tech"
-    }
-  }, {
-    "name" : "name",
-    "language" : {
-      "name" : "name",
-      "url" : "https://openapi-generator.tech"
-    }
-  } ],
-  "pokemon" : [ {
-    "pokemon" : {
-      "name" : "name",
-      "url" : "https://openapi-generator.tech"
-    },
-    "slot" : 6
-  }, {
-    "pokemon" : {
-      "name" : "name",
-      "url" : "https://openapi-generator.tech"
-    },
-    "slot" : 6
-  } ],
+  "id" : 0,
+  "name" : "name",
   "damage_relations" : {
-    "no_damage_from" : [ {
-      "name" : "name",
-      "url" : "https://openapi-generator.tech"
-    }, {
-      "name" : "name",
-      "url" : "https://openapi-generator.tech"
-    } ],
-    "half_damage_from" : [ {
-      "name" : "name",
-      "url" : "https://openapi-generator.tech"
-    }, {
-      "name" : "name",
-      "url" : "https://openapi-generator.tech"
-    } ],
     "no_damage_to" : [ {
       "name" : "name",
       "url" : "https://openapi-generator.tech"
@@ -7844,6 +7809,20 @@ Case-insensitive query applied on the <code>name</code> property.</p>
       "name" : "name",
       "url" : "https://openapi-generator.tech"
     } ],
+    "no_damage_from" : [ {
+      "name" : "name",
+      "url" : "https://openapi-generator.tech"
+    }, {
+      "name" : "name",
+      "url" : "https://openapi-generator.tech"
+    } ],
+    "half_damage_from" : [ {
+      "name" : "name",
+      "url" : "https://openapi-generator.tech"
+    }, {
+      "name" : "name",
+      "url" : "https://openapi-generator.tech"
+    } ],
     "double_damage_from" : [ {
       "name" : "name",
       "url" : "https://openapi-generator.tech"
@@ -7852,6 +7831,152 @@ Case-insensitive query applied on the <code>name</code> property.</p>
       "url" : "https://openapi-generator.tech"
     } ]
   },
+  "past_damage_relations" : [ {
+    "generation" : {
+      "name" : "name",
+      "url" : "https://openapi-generator.tech"
+    },
+    "damage_relations" : {
+      "no_damage_to" : [ {
+        "name" : "name",
+        "url" : "https://openapi-generator.tech"
+      }, {
+        "name" : "name",
+        "url" : "https://openapi-generator.tech"
+      } ],
+      "half_damage_to" : [ {
+        "name" : "name",
+        "url" : "https://openapi-generator.tech"
+      }, {
+        "name" : "name",
+        "url" : "https://openapi-generator.tech"
+      } ],
+      "double_damage_to" : [ {
+        "name" : "name",
+        "url" : "https://openapi-generator.tech"
+      }, {
+        "name" : "name",
+        "url" : "https://openapi-generator.tech"
+      } ],
+      "no_damage_from" : [ {
+        "name" : "name",
+        "url" : "https://openapi-generator.tech"
+      }, {
+        "name" : "name",
+        "url" : "https://openapi-generator.tech"
+      } ],
+      "half_damage_from" : [ {
+        "name" : "name",
+        "url" : "https://openapi-generator.tech"
+      }, {
+        "name" : "name",
+        "url" : "https://openapi-generator.tech"
+      } ],
+      "double_damage_from" : [ {
+        "name" : "name",
+        "url" : "https://openapi-generator.tech"
+      }, {
+        "name" : "name",
+        "url" : "https://openapi-generator.tech"
+      } ]
+    }
+  }, {
+    "generation" : {
+      "name" : "name",
+      "url" : "https://openapi-generator.tech"
+    },
+    "damage_relations" : {
+      "no_damage_to" : [ {
+        "name" : "name",
+        "url" : "https://openapi-generator.tech"
+      }, {
+        "name" : "name",
+        "url" : "https://openapi-generator.tech"
+      } ],
+      "half_damage_to" : [ {
+        "name" : "name",
+        "url" : "https://openapi-generator.tech"
+      }, {
+        "name" : "name",
+        "url" : "https://openapi-generator.tech"
+      } ],
+      "double_damage_to" : [ {
+        "name" : "name",
+        "url" : "https://openapi-generator.tech"
+      }, {
+        "name" : "name",
+        "url" : "https://openapi-generator.tech"
+      } ],
+      "no_damage_from" : [ {
+        "name" : "name",
+        "url" : "https://openapi-generator.tech"
+      }, {
+        "name" : "name",
+        "url" : "https://openapi-generator.tech"
+      } ],
+      "half_damage_from" : [ {
+        "name" : "name",
+        "url" : "https://openapi-generator.tech"
+      }, {
+        "name" : "name",
+        "url" : "https://openapi-generator.tech"
+      } ],
+      "double_damage_from" : [ {
+        "name" : "name",
+        "url" : "https://openapi-generator.tech"
+      }, {
+        "name" : "name",
+        "url" : "https://openapi-generator.tech"
+      } ]
+    }
+  } ],
+  "game_indices" : [ {
+    "game_index" : 5,
+    "generation" : {
+      "name" : "name",
+      "url" : "https://openapi-generator.tech"
+    }
+  }, {
+    "game_index" : 5,
+    "generation" : {
+      "name" : "name",
+      "url" : "https://openapi-generator.tech"
+    }
+  } ],
+  "generation" : {
+    "name" : "name",
+    "url" : "https://openapi-generator.tech"
+  },
+  "move_damage_class" : {
+    "name" : "name",
+    "url" : "https://openapi-generator.tech"
+  },
+  "names" : [ {
+    "name" : "name",
+    "language" : {
+      "name" : "name",
+      "url" : "https://openapi-generator.tech"
+    }
+  }, {
+    "name" : "name",
+    "language" : {
+      "name" : "name",
+      "url" : "https://openapi-generator.tech"
+    }
+  } ],
+  "pokemon" : [ {
+    "slot" : 6,
+    "pokemon" : {
+      "name" : "name",
+      "url" : "https://openapi-generator.tech"
+    }
+  }, {
+    "slot" : 6,
+    "pokemon" : {
+      "name" : "name",
+      "url" : "https://openapi-generator.tech"
+    }
+  } ],
   "moves" : [ {
     "name" : "name",
     "url" : "https://openapi-generator.tech"
@@ -7859,107 +7984,6 @@ Case-insensitive query applied on the <code>name</code> property.</p>
     "name" : "name",
     "url" : "https://openapi-generator.tech"
   } ],
-  "name" : "name",
-  "past_damage_relations" : [ {
-    "generation" : {
-      "name" : "name",
-      "url" : "https://openapi-generator.tech"
-    },
-    "damage_relations" : {
-      "no_damage_from" : [ {
-        "name" : "name",
-        "url" : "https://openapi-generator.tech"
-      }, {
-        "name" : "name",
-        "url" : "https://openapi-generator.tech"
-      } ],
-      "half_damage_from" : [ {
-        "name" : "name",
-        "url" : "https://openapi-generator.tech"
-      }, {
-        "name" : "name",
-        "url" : "https://openapi-generator.tech"
-      } ],
-      "no_damage_to" : [ {
-        "name" : "name",
-        "url" : "https://openapi-generator.tech"
-      }, {
-        "name" : "name",
-        "url" : "https://openapi-generator.tech"
-      } ],
-      "half_damage_to" : [ {
-        "name" : "name",
-        "url" : "https://openapi-generator.tech"
-      }, {
-        "name" : "name",
-        "url" : "https://openapi-generator.tech"
-      } ],
-      "double_damage_to" : [ {
-        "name" : "name",
-        "url" : "https://openapi-generator.tech"
-      }, {
-        "name" : "name",
-        "url" : "https://openapi-generator.tech"
-      } ],
-      "double_damage_from" : [ {
-        "name" : "name",
-        "url" : "https://openapi-generator.tech"
-      }, {
-        "name" : "name",
-        "url" : "https://openapi-generator.tech"
-      } ]
-    }
-  }, {
-    "generation" : {
-      "name" : "name",
-      "url" : "https://openapi-generator.tech"
-    },
-    "damage_relations" : {
-      "no_damage_from" : [ {
-        "name" : "name",
-        "url" : "https://openapi-generator.tech"
-      }, {
-        "name" : "name",
-        "url" : "https://openapi-generator.tech"
-      } ],
-      "half_damage_from" : [ {
-        "name" : "name",
-        "url" : "https://openapi-generator.tech"
-      }, {
-        "name" : "name",
-        "url" : "https://openapi-generator.tech"
-      } ],
-      "no_damage_to" : [ {
-        "name" : "name",
-        "url" : "https://openapi-generator.tech"
-      }, {
-        "name" : "name",
-        "url" : "https://openapi-generator.tech"
-      } ],
-      "half_damage_to" : [ {
-        "name" : "name",
-        "url" : "https://openapi-generator.tech"
-      }, {
-        "name" : "name",
-        "url" : "https://openapi-generator.tech"
-      } ],
-      "double_damage_to" : [ {
-        "name" : "name",
-        "url" : "https://openapi-generator.tech"
-      }, {
-        "name" : "name",
-        "url" : "https://openapi-generator.tech"
-      } ],
-      "double_damage_from" : [ {
-        "name" : "name",
-        "url" : "https://openapi-generator.tech"
-      }, {
-        "name" : "name",
-        "url" : "https://openapi-generator.tech"
-      } ]
-    }
-  } ],
-  "id" : 0,
   "sprites" : {
     "key" : {
       "key" : {
@@ -8021,9 +8045,9 @@ Case-insensitive query applied on the <code>name</code> property.</p>
     <h3 class="field-label">Example data</h3>
     <div class="example-data-content-type">Content-Type: application/json</div>
     <pre class="example"><code>{
+  "count" : 123,
   "next" : "http://api.example.org/accounts/?offset=400&limit=100",
   "previous" : "http://api.example.org/accounts/?offset=200&limit=100",
-  "count" : 123,
   "results" : [ {
     "name" : "name",
     "url" : "https://openapi-generator.tech"
@@ -8076,7 +8100,11 @@ Case-insensitive query applied on the <code>name</code> property.</p>
     <h3 class="field-label">Example data</h3>
     <div class="example-data-content-type">Content-Type: application/json</div>
     <pre class="example"><code>{
+  "id" : 0,
+  "name" : "name",
+  "official" : true,
   "iso639" : "iso639",
+  "iso3166" : "iso3166",
   "names" : [ {
     "name" : "name",
     "language" : {
@@ -8089,11 +8117,7 @@ Case-insensitive query applied on the <code>name</code> property.</p>
       "name" : "name",
       "url" : "https://openapi-generator.tech"
     }
-  } ],
-  "name" : "name",
-  "official" : true,
-  "id" : 0,
-  "iso3166" : "iso3166"
+  } ]
 }</code></pre>
 
     <h3 class="field-label">Produces</h3>
@@ -8812,8 +8836,8 @@ Case-insensitive query applied on the <code>name</code> property.</p>
       <div class="param">gender </div><div class="param-desc"><span class="param-type"><a href="#EvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner_gender">EvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner_gender</a></span>  </div>
 <div class="param">held_item </div><div class="param-desc"><span class="param-type"><a href="#EvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner_gender">EvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner_gender</a></span>  </div>
 <div class="param">item </div><div class="param-desc"><span class="param-type"><a href="#EvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner_gender">EvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner_gender</a></span>  </div>
-<div class="param">known_move </div><div class="param-desc"><span class="param-type"><a href="#">Object</a></span>  </div>
-<div class="param">known_move_type </div><div class="param-desc"><span class="param-type"><a href="#">Object</a></span>  </div>
+<div class="param">known_move </div><div class="param-desc"><span class="param-type"><a href="#EvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner_gender">EvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner_gender</a></span>  </div>
+<div class="param">known_move_type </div><div class="param-desc"><span class="param-type"><a href="#EvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner_gender">EvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner_gender</a></span>  </div>
 <div class="param">location </div><div class="param-desc"><span class="param-type"><a href="#EvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner_gender">EvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner_gender</a></span>  </div>
 <div class="param">min_affection </div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  format: int32</div>
 <div class="param">min_beauty </div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  format: int32</div>

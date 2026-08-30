@@ -15,19 +15,19 @@
 | **contest_type** | [**ContestTypeSummary**](ContestTypeSummary.md) |  |  |
 | **contest_effect** | [**ContestEffectSummary**](ContestEffectSummary.md) |  |  |
 | **damage_class** | [**MoveDamageClassSummary**](MoveDamageClassSummary.md) |  |  |
-| **effect_entries** | [**Array&lt;MoveChangeEffectEntriesInner&gt;**](MoveChangeEffectEntriesInner.md) |  |  |
-| **effect_changes** | [**Array&lt;MoveDetailEffectChangesInner&gt;**](MoveDetailEffectChangesInner.md) |  |  |
+| **effect_entries** | [**Array&lt;MoveChangeEffectEntriesInner&gt;**](MoveChangeEffectEntriesInner.md) |  | [readonly] |
+| **effect_changes** | [**Array&lt;MoveDetailEffectChangesInner&gt;**](MoveDetailEffectChangesInner.md) |  | [readonly] |
 | **generation** | [**GenerationSummary**](GenerationSummary.md) |  |  |
 | **meta** | [**MoveMeta**](MoveMeta.md) |  | [readonly] |
-| **names** | [**Array&lt;MoveName&gt;**](MoveName.md) |  |  |
-| **past_values** | [**Array&lt;MoveChange&gt;**](MoveChange.md) |  |  |
-| **stat_changes** | [**Array&lt;MoveDetailStatChangesInner&gt;**](MoveDetailStatChangesInner.md) |  |  |
+| **names** | [**Array&lt;MoveName&gt;**](MoveName.md) |  | [readonly] |
+| **past_values** | [**Array&lt;MoveChange&gt;**](MoveChange.md) |  | [readonly] |
+| **stat_changes** | [**Array&lt;MoveDetailStatChangesInner&gt;**](MoveDetailStatChangesInner.md) |  | [readonly] |
 | **super_contest_effect** | [**SuperContestEffectSummary**](SuperContestEffectSummary.md) |  |  |
 | **target** | [**MoveTargetSummary**](MoveTargetSummary.md) |  |  |
 | **type** | [**TypeSummary**](TypeSummary.md) |  |  |
-| **machines** | [**Array&lt;MoveDetailMachinesInner&gt;**](MoveDetailMachinesInner.md) |  |  |
-| **flavor_text_entries** | [**Array&lt;MoveFlavorText&gt;**](MoveFlavorText.md) |  |  |
-| **learned_by_pokemon** | [**Array&lt;AbilityDetailPokemonInnerPokemon&gt;**](AbilityDetailPokemonInnerPokemon.md) |  |  |
+| **machines** | [**Array&lt;MoveDetailMachinesInner&gt;**](MoveDetailMachinesInner.md) |  | [readonly] |
+| **flavor_text_entries** | [**Array&lt;MoveFlavorText&gt;**](MoveFlavorText.md) |  | [readonly] |
+| **learned_by_pokemon** | [**Array&lt;AbilityDetailPokemonInnerPokemon&gt;**](AbilityDetailPokemonInnerPokemon.md) |  | [readonly] |
 
 ## Example
 

@@ -7,8 +7,8 @@ Name | Type | Description | Notes
 **gender** | [**EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender**](EvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner_gender.md) |  | 
 **held_item** | [**EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender**](EvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner_gender.md) |  | 
 **item** | [**EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender**](EvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner_gender.md) |  | 
-**known_move** | **object** |  | 
-**known_move_type** | **object** |  | 
+**known_move** | [**EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender**](EvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner_gender.md) |  | 
+**known_move_type** | [**EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender**](EvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner_gender.md) |  | 
 **location** | [**EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender**](EvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner_gender.md) |  | 
 **min_affection** | **integer** |  | 
 **min_beauty** | **integer** |  | 

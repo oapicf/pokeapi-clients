@@ -32,7 +32,7 @@ class  BerryDetail_flavors_inner_flavor
 {
 public:
     BerryDetail_flavors_inner_flavor();
-    virtual ~BerryDetail_flavors_inner_flavor() = default;
+    virtual ~BerryDetail_flavors_inner_flavor();
 
 
     /// <summary>

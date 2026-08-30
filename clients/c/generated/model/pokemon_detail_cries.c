@@ -13,10 +13,10 @@ static pokemon_detail_cries_t *pokemon_detail_cries_create_internal(
     if (!pokemon_detail_cries_local_var) {
         return NULL;
     }
+    memset(pokemon_detail_cries_local_var, 0, sizeof(pokemon_detail_cries_t));
+    pokemon_detail_cries_local_var->_library_owned = 1;
     pokemon_detail_cries_local_var->latest = latest;
     pokemon_detail_cries_local_var->legacy = legacy;
-
-    pokemon_detail_cries_local_var->_library_owned = 1;
     return pokemon_detail_cries_local_var;
 }
 
@@ -24,10 +24,13 @@ __attribute__((deprecated)) pokemon_detail_cries_t *pokemon_detail_cries_create(
     char *latest,
     char *legacy
     ) {
-    return pokemon_detail_cries_create_internal (
+    pokemon_detail_cries_t *result = pokemon_detail_cries_create_internal (
         latest,
         legacy
         );
+    if (!result) {
+    }
+    return result;
 }
 
 void pokemon_detail_cries_free(pokemon_detail_cries_t *pokemon_detail_cries) {
@@ -82,6 +85,10 @@ pokemon_detail_cries_t *pokemon_detail_cries_parseFromJSON(cJSON *pokemon_detail
 
     pokemon_detail_cries_t *pokemon_detail_cries_local_var = NULL;
 
+    char *latest_local_str = NULL;
+
+    char *legacy_local_str = NULL;
+
     // pokemon_detail_cries->latest
     cJSON *latest = cJSON_GetObjectItemCaseSensitive(pokemon_detail_criesJSON, "latest");
     if (cJSON_IsNull(latest)) {
@@ -113,13 +120,28 @@ pokemon_detail_cries_t *pokemon_detail_cries_parseFromJSON(cJSON *pokemon_detail
     }
 
 
+    if (latest && !cJSON_IsNull(latest)) latest_local_str = strdup(latest->valuestring);
+    if (legacy && !cJSON_IsNull(legacy)) legacy_local_str = strdup(legacy->valuestring);
+
     pokemon_detail_cries_local_var = pokemon_detail_cries_create_internal (
-        strdup(latest->valuestring),
-        strdup(legacy->valuestring)
+        latest_local_str,
+        legacy_local_str
         );
+
+    if (!pokemon_detail_cries_local_var) {
+        goto end;
+    }
 
     return pokemon_detail_cries_local_var;
 end:
+    if (latest_local_str) {
+        free(latest_local_str);
+        latest_local_str = NULL;
+    }
+    if (legacy_local_str) {
+        free(legacy_local_str);
+        legacy_local_str = NULL;
+    }
     return NULL;
 
 }

@@ -15,8 +15,8 @@ import { PokemonShapeDetailNamesInner } from './pokemonShapeDetailNamesInner';
 export interface PokemonShapeDetail { 
     readonly id: number;
     name: string;
-    awesome_names: Array<PokemonShapeDetailAwesomeNamesInner>;
-    names: Array<PokemonShapeDetailNamesInner>;
-    pokemon_species: Array<PokemonSpeciesSummary>;
+    readonly awesome_names: Array<PokemonShapeDetailAwesomeNamesInner>;
+    readonly names: Array<PokemonShapeDetailNamesInner>;
+    readonly pokemon_species: Array<PokemonSpeciesSummary>;
 }
 

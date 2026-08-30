@@ -31,11 +31,9 @@ import org.openapitools.server.models.PaginatedEvolutionChainSummaryList
 import org.openapitools.server.models.PaginatedEvolutionTriggerSummaryList
 
 fun Route.EvolutionApi() {
-    val empty = mutableMapOf<String, Any?>()
-
     authenticate("basicAuth") {
     authenticate("cookieAuth") {
-    get<Paths.evolutionChainList> {
+    get<Paths.evolutionChainList> { evolutionChainList ->
         val principal = call.authentication.principal<UserIdPrincipal>()
         
         
@@ -44,9 +42,9 @@ fun Route.EvolutionApi() {
         
         val exampleContentType = "application/json"
             val exampleContentString = """{
+              "count" : 123,
               "next" : "http://api.example.org/accounts/?offset=400&limit=100",
               "previous" : "http://api.example.org/accounts/?offset=200&limit=100",
-              "count" : 123,
               "results" : [ {
                 "url" : "https://openapi-generator.tech"
               }, {
@@ -62,10 +60,9 @@ fun Route.EvolutionApi() {
         
     }
     }
-
     authenticate("basicAuth") {
     authenticate("cookieAuth") {
-    get<Paths.evolutionChainRetrieve> {
+    get<Paths.evolutionChainRetrieve> { evolutionChainRetrieve ->
         val principal = call.authentication.principal<UserIdPrincipal>()
         
         
@@ -74,170 +71,194 @@ fun Route.EvolutionApi() {
         
         val exampleContentType = "application/json"
             val exampleContentString = """{
-              "chain" : {
-                "evolution_details" : [ "", "" ],
-                "species" : {
-                  "name" : "name",
-                  "url" : "https://openapi-generator.tech"
-                },
-                "evolves_to" : [ {
-                  "evolution_details" : [ {
-                    "item" : {
-                      "name" : "name",
-                      "url" : "https://openapi-generator.tech"
-                    },
-                    "relative_physical_stats" : "relative_physical_stats",
-                    "turn_upside_down" : true,
-                    "gender" : {
-                      "name" : "name",
-                      "url" : "https://openapi-generator.tech"
-                    },
-                    "min_happiness" : 5,
-                    "party_type" : "party_type",
-                    "held_item" : {
-                      "name" : "name",
-                      "url" : "https://openapi-generator.tech"
-                    },
-                    "known_move" : "{}",
-                    "min_beauty" : 1,
-                    "trade_species" : "trade_species",
-                    "trigger" : {
-                      "name" : "name",
-                      "url" : "https://openapi-generator.tech"
-                    },
-                    "needs_overworld_rain" : true,
-                    "party_species" : "party_species",
-                    "min_affection" : 6,
-                    "known_move_type" : "{}",
-                    "time_of_day" : "time_of_day",
-                    "location" : {
-                      "name" : "name",
-                      "url" : "https://openapi-generator.tech"
-                    },
-                    "min_level" : 5
-                  }, {
-                    "item" : {
-                      "name" : "name",
-                      "url" : "https://openapi-generator.tech"
-                    },
-                    "relative_physical_stats" : "relative_physical_stats",
-                    "turn_upside_down" : true,
-                    "gender" : {
-                      "name" : "name",
-                      "url" : "https://openapi-generator.tech"
-                    },
-                    "min_happiness" : 5,
-                    "party_type" : "party_type",
-                    "held_item" : {
-                      "name" : "name",
-                      "url" : "https://openapi-generator.tech"
-                    },
-                    "known_move" : "{}",
-                    "min_beauty" : 1,
-                    "trade_species" : "trade_species",
-                    "trigger" : {
-                      "name" : "name",
-                      "url" : "https://openapi-generator.tech"
-                    },
-                    "needs_overworld_rain" : true,
-                    "party_species" : "party_species",
-                    "min_affection" : 6,
-                    "known_move_type" : "{}",
-                    "time_of_day" : "time_of_day",
-                    "location" : {
-                      "name" : "name",
-                      "url" : "https://openapi-generator.tech"
-                    },
-                    "min_level" : 5
-                  } ],
-                  "species" : {
-                    "name" : "name",
-                    "url" : "https://openapi-generator.tech"
-                  },
-                  "is_baby" : true
-                }, {
-                  "evolution_details" : [ {
-                    "item" : {
-                      "name" : "name",
-                      "url" : "https://openapi-generator.tech"
-                    },
-                    "relative_physical_stats" : "relative_physical_stats",
-                    "turn_upside_down" : true,
-                    "gender" : {
-                      "name" : "name",
-                      "url" : "https://openapi-generator.tech"
-                    },
-                    "min_happiness" : 5,
-                    "party_type" : "party_type",
-                    "held_item" : {
-                      "name" : "name",
-                      "url" : "https://openapi-generator.tech"
-                    },
-                    "known_move" : "{}",
-                    "min_beauty" : 1,
-                    "trade_species" : "trade_species",
-                    "trigger" : {
-                      "name" : "name",
-                      "url" : "https://openapi-generator.tech"
-                    },
-                    "needs_overworld_rain" : true,
-                    "party_species" : "party_species",
-                    "min_affection" : 6,
-                    "known_move_type" : "{}",
-                    "time_of_day" : "time_of_day",
-                    "location" : {
-                      "name" : "name",
-                      "url" : "https://openapi-generator.tech"
-                    },
-                    "min_level" : 5
-                  }, {
-                    "item" : {
-                      "name" : "name",
-                      "url" : "https://openapi-generator.tech"
-                    },
-                    "relative_physical_stats" : "relative_physical_stats",
-                    "turn_upside_down" : true,
-                    "gender" : {
-                      "name" : "name",
-                      "url" : "https://openapi-generator.tech"
-                    },
-                    "min_happiness" : 5,
-                    "party_type" : "party_type",
-                    "held_item" : {
-                      "name" : "name",
-                      "url" : "https://openapi-generator.tech"
-                    },
-                    "known_move" : "{}",
-                    "min_beauty" : 1,
-                    "trade_species" : "trade_species",
-                    "trigger" : {
-                      "name" : "name",
-                      "url" : "https://openapi-generator.tech"
-                    },
-                    "needs_overworld_rain" : true,
-                    "party_species" : "party_species",
-                    "min_affection" : 6,
-                    "known_move_type" : "{}",
-                    "time_of_day" : "time_of_day",
-                    "location" : {
-                      "name" : "name",
-                      "url" : "https://openapi-generator.tech"
-                    },
-                    "min_level" : 5
-                  } ],
-                  "species" : {
-                    "name" : "name",
-                    "url" : "https://openapi-generator.tech"
-                  },
-                  "is_baby" : true
-                } ],
-                "is_baby" : true
-              },
+              "id" : 0,
               "baby_trigger_item" : {
                 "name" : "name",
                 "url" : "https://openapi-generator.tech"
               },
-              "id" : 0
+              "chain" : {
+                "evolution_details" : [ "", "" ],
+                "evolves_to" : [ {
+                  "evolution_details" : [ {
+                    "gender" : {
+                      "name" : "name",
+                      "url" : "https://openapi-generator.tech"
+                    },
+                    "held_item" : {
+                      "name" : "name",
+                      "url" : "https://openapi-generator.tech"
+                    },
+                    "item" : {
+                      "name" : "name",
+                      "url" : "https://openapi-generator.tech"
+                    },
+                    "known_move" : {
+                      "name" : "name",
+                      "url" : "https://openapi-generator.tech"
+                    },
+                    "known_move_type" : {
+                      "name" : "name",
+                      "url" : "https://openapi-generator.tech"
+                    },
+                    "location" : {
+                      "name" : "name",
+                      "url" : "https://openapi-generator.tech"
+                    },
+                    "min_affection" : 6,
+                    "min_beauty" : 1,
+                    "min_happiness" : 5,
+                    "min_level" : 5,
+                    "needs_overworld_rain" : true,
+                    "party_species" : "party_species",
+                    "party_type" : "party_type",
+                    "relative_physical_stats" : "relative_physical_stats",
+                    "time_of_day" : "time_of_day",
+                    "trade_species" : "trade_species",
+                    "trigger" : {
+                      "name" : "name",
+                      "url" : "https://openapi-generator.tech"
+                    },
+                    "turn_upside_down" : true
+                  }, {
+                    "gender" : {
+                      "name" : "name",
+                      "url" : "https://openapi-generator.tech"
+                    },
+                    "held_item" : {
+                      "name" : "name",
+                      "url" : "https://openapi-generator.tech"
+                    },
+                    "item" : {
+                      "name" : "name",
+                      "url" : "https://openapi-generator.tech"
+                    },
+                    "known_move" : {
+                      "name" : "name",
+                      "url" : "https://openapi-generator.tech"
+                    },
+                    "known_move_type" : {
+                      "name" : "name",
+                      "url" : "https://openapi-generator.tech"
+                    },
+                    "location" : {
+                      "name" : "name",
+                      "url" : "https://openapi-generator.tech"
+                    },
+                    "min_affection" : 6,
+                    "min_beauty" : 1,
+                    "min_happiness" : 5,
+                    "min_level" : 5,
+                    "needs_overworld_rain" : true,
+                    "party_species" : "party_species",
+                    "party_type" : "party_type",
+                    "relative_physical_stats" : "relative_physical_stats",
+                    "time_of_day" : "time_of_day",
+                    "trade_species" : "trade_species",
+                    "trigger" : {
+                      "name" : "name",
+                      "url" : "https://openapi-generator.tech"
+                    },
+                    "turn_upside_down" : true
+                  } ],
+                  "is_baby" : true,
+                  "species" : {
+                    "name" : "name",
+                    "url" : "https://openapi-generator.tech"
+                  }
+                }, {
+                  "evolution_details" : [ {
+                    "gender" : {
+                      "name" : "name",
+                      "url" : "https://openapi-generator.tech"
+                    },
+                    "held_item" : {
+                      "name" : "name",
+                      "url" : "https://openapi-generator.tech"
+                    },
+                    "item" : {
+                      "name" : "name",
+                      "url" : "https://openapi-generator.tech"
+                    },
+                    "known_move" : {
+                      "name" : "name",
+                      "url" : "https://openapi-generator.tech"
+                    },
+                    "known_move_type" : {
+                      "name" : "name",
+                      "url" : "https://openapi-generator.tech"
+                    },
+                    "location" : {
+                      "name" : "name",
+                      "url" : "https://openapi-generator.tech"
+                    },
+                    "min_affection" : 6,
+                    "min_beauty" : 1,
+                    "min_happiness" : 5,
+                    "min_level" : 5,
+                    "needs_overworld_rain" : true,
+                    "party_species" : "party_species",
+                    "party_type" : "party_type",
+                    "relative_physical_stats" : "relative_physical_stats",
+                    "time_of_day" : "time_of_day",
+                    "trade_species" : "trade_species",
+                    "trigger" : {
+                      "name" : "name",
+                      "url" : "https://openapi-generator.tech"
+                    },
+                    "turn_upside_down" : true
+                  }, {
+                    "gender" : {
+                      "name" : "name",
+                      "url" : "https://openapi-generator.tech"
+                    },
+                    "held_item" : {
+                      "name" : "name",
+                      "url" : "https://openapi-generator.tech"
+                    },
+                    "item" : {
+                      "name" : "name",
+                      "url" : "https://openapi-generator.tech"
+                    },
+                    "known_move" : {
+                      "name" : "name",
+                      "url" : "https://openapi-generator.tech"
+                    },
+                    "known_move_type" : {
+                      "name" : "name",
+                      "url" : "https://openapi-generator.tech"
+                    },
+                    "location" : {
+                      "name" : "name",
+                      "url" : "https://openapi-generator.tech"
+                    },
+                    "min_affection" : 6,
+                    "min_beauty" : 1,
+                    "min_happiness" : 5,
+                    "min_level" : 5,
+                    "needs_overworld_rain" : true,
+                    "party_species" : "party_species",
+                    "party_type" : "party_type",
+                    "relative_physical_stats" : "relative_physical_stats",
+                    "time_of_day" : "time_of_day",
+                    "trade_species" : "trade_species",
+                    "trigger" : {
+                      "name" : "name",
+                      "url" : "https://openapi-generator.tech"
+                    },
+                    "turn_upside_down" : true
+                  } ],
+                  "is_baby" : true,
+                  "species" : {
+                    "name" : "name",
+                    "url" : "https://openapi-generator.tech"
+                  }
+                } ],
+                "is_baby" : true,
+                "species" : {
+                  "name" : "name",
+                  "url" : "https://openapi-generator.tech"
+                }
+              }
             }"""
             
             when (exampleContentType) {
@@ -248,10 +269,9 @@ fun Route.EvolutionApi() {
         
     }
     }
-
     authenticate("basicAuth") {
     authenticate("cookieAuth") {
-    get<Paths.evolutionTriggerList> {
+    get<Paths.evolutionTriggerList> { evolutionTriggerList ->
         val principal = call.authentication.principal<UserIdPrincipal>()
         
         
@@ -260,9 +280,9 @@ fun Route.EvolutionApi() {
         
         val exampleContentType = "application/json"
             val exampleContentString = """{
+              "count" : 123,
               "next" : "http://api.example.org/accounts/?offset=400&limit=100",
               "previous" : "http://api.example.org/accounts/?offset=200&limit=100",
-              "count" : 123,
               "results" : [ {
                 "name" : "name",
                 "url" : "https://openapi-generator.tech"
@@ -280,10 +300,9 @@ fun Route.EvolutionApi() {
         
     }
     }
-
     authenticate("basicAuth") {
     authenticate("cookieAuth") {
-    get<Paths.evolutionTriggerRetrieve> {
+    get<Paths.evolutionTriggerRetrieve> { evolutionTriggerRetrieve ->
         val principal = call.authentication.principal<UserIdPrincipal>()
         
         
@@ -292,6 +311,8 @@ fun Route.EvolutionApi() {
         
         val exampleContentType = "application/json"
             val exampleContentString = """{
+              "id" : 0,
+              "name" : "name",
               "names" : [ {
                 "name" : "name",
                 "language" : {
@@ -305,8 +326,6 @@ fun Route.EvolutionApi() {
                   "url" : "https://openapi-generator.tech"
                 }
               } ],
-              "name" : "name",
-              "id" : 0,
               "pokemon_species" : [ {
                 "name" : "name",
                 "url" : "https://openapi-generator.tech"
@@ -324,5 +343,4 @@ fun Route.EvolutionApi() {
         
     }
     }
-
 }

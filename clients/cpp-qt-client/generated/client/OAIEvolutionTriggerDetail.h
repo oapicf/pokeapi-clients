@@ -36,13 +36,13 @@ class OAIAbilityDetail_pokemon_inner_pokemon;
 class OAIEvolutionTriggerDetail : public OAIObject {
 public:
     OAIEvolutionTriggerDetail();
-    OAIEvolutionTriggerDetail(QString json);
+    OAIEvolutionTriggerDetail(const QString &json);
     ~OAIEvolutionTriggerDetail() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     qint32 getId() const;
     void setId(const qint32 &id);

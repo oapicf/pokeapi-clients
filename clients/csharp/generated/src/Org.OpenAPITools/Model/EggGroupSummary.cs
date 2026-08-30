@@ -92,8 +92,18 @@ namespace Org.OpenAPITools.Model
     /// <summary>
     /// A Json converter for type <see cref="EggGroupSummary" />
     /// </summary>
-    public class EggGroupSummaryJsonConverter : JsonConverter<EggGroupSummary>
+    public partial class EggGroupSummaryJsonConverter : JsonConverter<EggGroupSummary>
     {
+        partial void OnCreated();
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="EggGroupSummaryJsonConverter" /> class.
+        /// </summary>
+        public EggGroupSummaryJsonConverter()
+        {
+            OnCreated();
+        }
+
         /// <summary>
         /// Deserializes json to <see cref="EggGroupSummary" />
         /// </summary>

@@ -16,6 +16,6 @@ import { BerrySummary } from './berrySummary';
 export interface BerryFirmnessDetail { 
     readonly id: number;
     name: string;
-    berries: Array<BerrySummary>;
-    names: Array<BerryFirmnessName>;
+    readonly berries: Array<BerrySummary>;
+    readonly names: Array<BerryFirmnessName>;
 }

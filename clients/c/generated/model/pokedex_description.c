@@ -13,10 +13,10 @@ static pokedex_description_t *pokedex_description_create_internal(
     if (!pokedex_description_local_var) {
         return NULL;
     }
+    memset(pokedex_description_local_var, 0, sizeof(pokedex_description_t));
+    pokedex_description_local_var->_library_owned = 1;
     pokedex_description_local_var->description = description;
     pokedex_description_local_var->language = language;
-
-    pokedex_description_local_var->_library_owned = 1;
     return pokedex_description_local_var;
 }
 
@@ -24,10 +24,13 @@ __attribute__((deprecated)) pokedex_description_t *pokedex_description_create(
     char *description,
     language_summary_t *language
     ) {
-    return pokedex_description_create_internal (
+    pokedex_description_t *result = pokedex_description_create_internal (
         description,
         language
         );
+    if (!result) {
+    }
+    return result;
 }
 
 void pokedex_description_free(pokedex_description_t *pokedex_description) {
@@ -86,6 +89,8 @@ pokedex_description_t *pokedex_description_parseFromJSON(cJSON *pokedex_descript
 
     pokedex_description_t *pokedex_description_local_var = NULL;
 
+    char *description_local_str = NULL;
+
     // define the local variable for pokedex_description->language
     language_summary_t *language_local_nonprim = NULL;
 
@@ -114,13 +119,23 @@ pokedex_description_t *pokedex_description_parseFromJSON(cJSON *pokedex_descript
     language_local_nonprim = language_summary_parseFromJSON(language); //nonprimitive
 
 
+    if (description && !cJSON_IsNull(description)) description_local_str = strdup(description->valuestring);
+
     pokedex_description_local_var = pokedex_description_create_internal (
-        description && !cJSON_IsNull(description) ? strdup(description->valuestring) : NULL,
+        description_local_str,
         language_local_nonprim
         );
 
+    if (!pokedex_description_local_var) {
+        goto end;
+    }
+
     return pokedex_description_local_var;
 end:
+    if (description_local_str) {
+        free(description_local_str);
+        description_local_str = NULL;
+    }
     if (language_local_nonprim) {
         language_summary_free(language_local_nonprim);
         language_local_nonprim = NULL;

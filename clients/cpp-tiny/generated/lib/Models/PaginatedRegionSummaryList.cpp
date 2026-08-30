@@ -144,7 +144,7 @@ PaginatedRegionSummaryList::getCount()
 }
 
 void
-PaginatedRegionSummaryList::setCount(int  count)
+PaginatedRegionSummaryList::setCount(int count)
 {
 	this->count = count;
 }
@@ -156,7 +156,7 @@ PaginatedRegionSummaryList::getNext()
 }
 
 void
-PaginatedRegionSummaryList::setNext(std::string  next)
+PaginatedRegionSummaryList::setNext(std::string next)
 {
 	this->next = next;
 }
@@ -168,7 +168,7 @@ PaginatedRegionSummaryList::getPrevious()
 }
 
 void
-PaginatedRegionSummaryList::setPrevious(std::string  previous)
+PaginatedRegionSummaryList::setPrevious(std::string previous)
 {
 	this->previous = previous;
 }
@@ -180,7 +180,7 @@ PaginatedRegionSummaryList::getResults()
 }
 
 void
-PaginatedRegionSummaryList::setResults(std::list <RegionSummary> results)
+PaginatedRegionSummaryList::setResults(std::list<RegionSummary> results)
 {
 	this->results = results;
 }

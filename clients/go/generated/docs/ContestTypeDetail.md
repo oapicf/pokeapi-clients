@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 **Id** | **int32** |  | [readonly] 
 **Name** | **string** |  | 
 **BerryFlavor** | [**BerryFlavorSummary**](BerryFlavorSummary.md) |  | [readonly] 
-**Names** | [**[]ContestTypeName**](ContestTypeName.md) |  | 
+**Names** | [**[]ContestTypeName**](ContestTypeName.md) |  | [readonly] 
 
 ## Methods
 

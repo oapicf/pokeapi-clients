@@ -10,9 +10,9 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | `Integer` |  |  [readonly property]
 **name** | `String` |  | 
-**descriptions** | [`List&lt;MoveTargetDescription&gt;`](MoveTargetDescription.md) |  | 
-**moves** | [`List&lt;MoveSummary&gt;`](MoveSummary.md) |  | 
-**names** | [`List&lt;MoveTargetName&gt;`](MoveTargetName.md) |  | 
+**descriptions** | [`List&lt;MoveTargetDescription&gt;`](MoveTargetDescription.md) |  |  [readonly property]
+**moves** | [`List&lt;MoveSummary&gt;`](MoveSummary.md) |  |  [readonly property]
+**names** | [`List&lt;MoveTargetName&gt;`](MoveTargetName.md) |  |  [readonly property]
 
 
 

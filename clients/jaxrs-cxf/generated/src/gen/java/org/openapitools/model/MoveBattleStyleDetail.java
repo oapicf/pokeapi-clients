@@ -67,19 +67,6 @@ public class MoveBattleStyleDetail  {
     return names;
   }
 
-  public void setNames(List<@Valid MoveBattleStyleName> names) {
-    this.names = names;
-  }
-
-  public MoveBattleStyleDetail names(List<@Valid MoveBattleStyleName> names) {
-    this.names = names;
-    return this;
-  }
-
-  public MoveBattleStyleDetail addNamesItem(MoveBattleStyleName namesItem) {
-    this.names.add(namesItem);
-    return this;
-  }
 
   @Override
   public boolean equals(Object o) {
@@ -117,10 +104,7 @@ public class MoveBattleStyleDetail  {
    * (except the first line).
    */
   private static String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 }
 

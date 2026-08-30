@@ -57,15 +57,19 @@ class SuperContestEffectDetail extends BaseModel
     },
     "flavor_text_entries" : {
       "type" : "array",
+      "readOnly" : true,
       "items" : {
         "$ref" : "#/components/schemas/SuperContestEffectFlavorText"
-      }
+      },
+      "default" : null
     },
     "moves" : {
       "type" : "array",
+      "readOnly" : true,
       "items" : {
         "$ref" : "#/components/schemas/MoveSummary"
-      }
+      },
+      "default" : null
     }
   }
 }

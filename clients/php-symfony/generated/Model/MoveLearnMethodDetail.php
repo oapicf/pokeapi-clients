@@ -47,7 +47,7 @@ class MoveLearnMethodDetail
      * @var int|null
      * @SerializedName("id")
      * @Type("int")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Type("int")]
     protected ?int $id = null;
@@ -56,7 +56,7 @@ class MoveLearnMethodDetail
      * @var string|null
      * @SerializedName("name")
      * @Type("string")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Type("string")]
     #[Assert\Length(max: 100)]
@@ -66,7 +66,7 @@ class MoveLearnMethodDetail
      * @var MoveLearnMethodName[]|null
      * @SerializedName("names")
      * @Type("array<OpenAPI\Server\Model\MoveLearnMethodName>")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Valid]
     #[Assert\All([
@@ -78,7 +78,7 @@ class MoveLearnMethodDetail
      * @var MoveLearnMethodDescription[]|null
      * @SerializedName("descriptions")
      * @Type("array<OpenAPI\Server\Model\MoveLearnMethodDescription>")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Valid]
     #[Assert\All([
@@ -90,7 +90,7 @@ class MoveLearnMethodDetail
      * @var AbilityDetailPokemonInnerPokemon[]|null
      * @SerializedName("version_groups")
      * @Type("array<OpenAPI\Server\Model\AbilityDetailPokemonInnerPokemon>")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Valid]
     #[Assert\All([
@@ -124,12 +124,12 @@ class MoveLearnMethodDetail
     }
 
     /**
-    * Sets id.
-    *
-    * @param int|null $id
-    *
-    * @return $this
-    */
+     * Sets id.
+     *
+     * @param int|null $id
+     *
+     * @return $this
+     */
     public function setId(?int $id): self
     {
         $this->id = $id;
@@ -151,12 +151,12 @@ class MoveLearnMethodDetail
     }
 
     /**
-    * Sets name.
-    *
-    * @param string|null $name
-    *
-    * @return $this
-    */
+     * Sets name.
+     *
+     * @param string|null $name
+     *
+     * @return $this
+     */
     public function setName(?string $name): self
     {
         $this->name = $name;
@@ -178,12 +178,12 @@ class MoveLearnMethodDetail
     }
 
     /**
-    * Sets names.
-    *
-    * @param MoveLearnMethodName[]|null $names
-    *
-    * @return $this
-    */
+     * Sets names.
+     *
+     * @param MoveLearnMethodName[]|null $names
+     *
+     * @return $this
+     */
     public function setNames(?array $names): self
     {
         $this->names = $names;
@@ -205,12 +205,12 @@ class MoveLearnMethodDetail
     }
 
     /**
-    * Sets descriptions.
-    *
-    * @param MoveLearnMethodDescription[]|null $descriptions
-    *
-    * @return $this
-    */
+     * Sets descriptions.
+     *
+     * @param MoveLearnMethodDescription[]|null $descriptions
+     *
+     * @return $this
+     */
     public function setDescriptions(?array $descriptions): self
     {
         $this->descriptions = $descriptions;
@@ -232,12 +232,12 @@ class MoveLearnMethodDetail
     }
 
     /**
-    * Sets versionGroups.
-    *
-    * @param AbilityDetailPokemonInnerPokemon[]|null $versionGroups
-    *
-    * @return $this
-    */
+     * Sets versionGroups.
+     *
+     * @param AbilityDetailPokemonInnerPokemon[]|null $versionGroups
+     *
+     * @return $this
+     */
     public function setVersionGroups(?array $versionGroups): self
     {
         $this->versionGroups = $versionGroups;

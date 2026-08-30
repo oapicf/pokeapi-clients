@@ -18,7 +18,7 @@ import MoveMetaAilmentName from './MoveMetaAilmentName';
 /**
  * The MoveMetaAilmentDetail model module.
  * @module model/MoveMetaAilmentDetail
- * @version 1.2.1-pre.0
+ * @version 2.0.1-pre.0
  */
 class MoveMetaAilmentDetail {
     /**

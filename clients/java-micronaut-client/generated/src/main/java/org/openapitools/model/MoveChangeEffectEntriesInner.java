@@ -32,7 +32,7 @@ import javax.annotation.Generated;
   MoveChangeEffectEntriesInner.JSON_PROPERTY_LANGUAGE
 })
 @JsonTypeName("MoveChange_effect_entries_inner")
-@Generated(value="org.openapitools.codegen.languages.JavaMicronautClientCodegen", date="2026-02-07T15:22:54.857535619Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@Generated(value="org.openapitools.codegen.languages.JavaMicronautClientCodegen", date="2026-08-30T01:55:51.056116330Z[Etc/UTC]", comments = "Generator version: 7.24.0")
 @Introspected
 public class MoveChangeEffectEntriesInner {
     public static final String JSON_PROPERTY_EFFECT = "effect";
@@ -152,10 +152,7 @@ public class MoveChangeEffectEntriesInner {
      * (except the first line).
      */
     private String toIndentedString(Object o) {
-        if (o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
+        return o == null ? "null" : o.toString().replace("\n", "\n    ");
     }
 
 }

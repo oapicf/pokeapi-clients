@@ -20,20 +20,20 @@ import org.openapitools.model.TypeDetailSpritesValueValue;
 import org.openapitools.model.TypeGameIndex;
 import org.openapitools.jackson.nullable.JsonNullable;
 import java.time.OffsetDateTime;
-import javax.validation.Valid;
-import javax.validation.constraints.*;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.*;
 import io.swagger.v3.oas.annotations.media.Schema;
 
 
 import java.util.*;
-import javax.annotation.Generated;
+import jakarta.annotation.Generated;
 
 /**
  * Serializer for the Type resource
  */
 
 @Schema(name = "TypeDetail", description = "Serializer for the Type resource")
-@Generated(value = "org.openapitools.codegen.languages.JavaCamelServerCodegen", date = "2026-02-07T15:23:32.871052804Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@Generated(value = "org.openapitools.codegen.languages.JavaCamelServerCodegen", date = "2026-08-30T01:56:15.309401083Z[Etc/UTC]", comments = "Generator version: 7.24.0")
 public class TypeDetail {
 
   private Integer id;
@@ -162,8 +162,8 @@ public class TypeDetail {
    * Get pastDamageRelations
    * @return pastDamageRelations
    */
-  @NotNull @Valid 
-  @Schema(name = "past_damage_relations", requiredMode = Schema.RequiredMode.REQUIRED)
+  @Valid 
+  @Schema(name = "past_damage_relations", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("past_damage_relations")
   public List<@Valid TypeDetailPastDamageRelationsInner> getPastDamageRelations() {
     return pastDamageRelations;
@@ -190,8 +190,8 @@ public class TypeDetail {
    * Get gameIndices
    * @return gameIndices
    */
-  @NotNull @Valid 
-  @Schema(name = "game_indices", requiredMode = Schema.RequiredMode.REQUIRED)
+  @Valid 
+  @Schema(name = "game_indices", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("game_indices")
   public List<@Valid TypeGameIndex> getGameIndices() {
     return gameIndices;
@@ -258,8 +258,8 @@ public class TypeDetail {
    * Get names
    * @return names
    */
-  @NotNull @Valid 
-  @Schema(name = "names", requiredMode = Schema.RequiredMode.REQUIRED)
+  @Valid 
+  @Schema(name = "names", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("names")
   public List<@Valid AbilityName> getNames() {
     return names;
@@ -286,8 +286,8 @@ public class TypeDetail {
    * Get pokemon
    * @return pokemon
    */
-  @NotNull @Valid 
-  @Schema(name = "pokemon", requiredMode = Schema.RequiredMode.REQUIRED)
+  @Valid 
+  @Schema(name = "pokemon", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("pokemon")
   public List<@Valid TypeDetailPokemonInner> getPokemon() {
     return pokemon;
@@ -314,8 +314,8 @@ public class TypeDetail {
    * Get moves
    * @return moves
    */
-  @NotNull @Valid 
-  @Schema(name = "moves", requiredMode = Schema.RequiredMode.REQUIRED)
+  @Valid 
+  @Schema(name = "moves", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("moves")
   public List<@Valid MoveSummary> getMoves() {
     return moves;
@@ -404,10 +404,7 @@ public class TypeDetail {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 }
 

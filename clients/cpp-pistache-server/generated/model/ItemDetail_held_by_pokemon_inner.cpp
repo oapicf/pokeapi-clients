@@ -24,6 +24,8 @@ ItemDetail_held_by_pokemon_inner::ItemDetail_held_by_pokemon_inner()
     
 }
 
+ItemDetail_held_by_pokemon_inner::~ItemDetail_held_by_pokemon_inner() = default;
+
 void ItemDetail_held_by_pokemon_inner::validate() const
 {
     std::stringstream msg;

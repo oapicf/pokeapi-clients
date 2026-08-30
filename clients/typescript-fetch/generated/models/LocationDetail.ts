@@ -71,19 +71,19 @@ export interface LocationDetail {
      * @type {Array<LocationName>}
      * @memberof LocationDetail
      */
-    names: Array<LocationName>;
+    readonly names: Array<LocationName>;
     /**
      * 
      * @type {Array<LocationGameIndex>}
      * @memberof LocationDetail
      */
-    gameIndices: Array<LocationGameIndex>;
+    readonly gameIndices: Array<LocationGameIndex>;
     /**
      * 
      * @type {Array<LocationAreaSummary>}
      * @memberof LocationDetail
      */
-    areas: Array<LocationAreaSummary>;
+    readonly areas: Array<LocationAreaSummary>;
 }
 
 /**
@@ -94,7 +94,7 @@ export function instanceOfLocationDetail(value: object): value is LocationDetail
     if (!('name' in value) || value['name'] === undefined) return false;
     if (!('region' in value) || value['region'] === undefined) return false;
     if (!('names' in value) || value['names'] === undefined) return false;
-    if (!('gameIndices' in value) || value['gameIndices'] === undefined) return false;
+    if ((!('gameIndices' in (value as Record<string, any>)) && !('game_indices' in (value as Record<string, any>))) || ((value as Record<string, any>)['gameIndices'] === undefined && (value as Record<string, any>)['game_indices'] === undefined)) return false;
     if (!('areas' in value) || value['areas'] === undefined) return false;
     return true;
 }
@@ -122,7 +122,7 @@ export function LocationDetailToJSON(json: any): LocationDetail {
     return LocationDetailToJSONTyped(json, false);
 }
 
-export function LocationDetailToJSONTyped(value?: Omit<LocationDetail, 'id'> | null, ignoreDiscriminator: boolean = false): any {
+export function LocationDetailToJSONTyped(value?: Omit<LocationDetail, 'id'|'names'|'gameIndices'|'areas'> | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
@@ -131,9 +131,6 @@ export function LocationDetailToJSONTyped(value?: Omit<LocationDetail, 'id'> | n
         
         'name': value['name'],
         'region': RegionSummaryToJSON(value['region']),
-        'names': ((value['names'] as Array<any>).map(LocationNameToJSON)),
-        'game_indices': ((value['gameIndices'] as Array<any>).map(LocationGameIndexToJSON)),
-        'areas': ((value['areas'] as Array<any>).map(LocationAreaSummaryToJSON)),
     };
 }
 

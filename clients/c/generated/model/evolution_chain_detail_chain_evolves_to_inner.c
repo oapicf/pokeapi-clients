@@ -7,31 +7,40 @@
 
 static evolution_chain_detail_chain_evolves_to_inner_t *evolution_chain_detail_chain_evolves_to_inner_create_internal(
     list_t *evolution_details,
-    int is_baby,
+    int *is_baby,
     ability_detail_pokemon_inner_pokemon_t *species
     ) {
     evolution_chain_detail_chain_evolves_to_inner_t *evolution_chain_detail_chain_evolves_to_inner_local_var = malloc(sizeof(evolution_chain_detail_chain_evolves_to_inner_t));
     if (!evolution_chain_detail_chain_evolves_to_inner_local_var) {
         return NULL;
     }
+    memset(evolution_chain_detail_chain_evolves_to_inner_local_var, 0, sizeof(evolution_chain_detail_chain_evolves_to_inner_t));
+    evolution_chain_detail_chain_evolves_to_inner_local_var->_library_owned = 1;
     evolution_chain_detail_chain_evolves_to_inner_local_var->evolution_details = evolution_details;
     evolution_chain_detail_chain_evolves_to_inner_local_var->is_baby = is_baby;
     evolution_chain_detail_chain_evolves_to_inner_local_var->species = species;
-
-    evolution_chain_detail_chain_evolves_to_inner_local_var->_library_owned = 1;
     return evolution_chain_detail_chain_evolves_to_inner_local_var;
 }
 
 __attribute__((deprecated)) evolution_chain_detail_chain_evolves_to_inner_t *evolution_chain_detail_chain_evolves_to_inner_create(
     list_t *evolution_details,
-    int is_baby,
+    int *is_baby,
     ability_detail_pokemon_inner_pokemon_t *species
     ) {
-    return evolution_chain_detail_chain_evolves_to_inner_create_internal (
+    int *is_baby_copy = NULL;
+    if (is_baby) {
+        is_baby_copy = malloc(sizeof(int));
+        if (is_baby_copy) *is_baby_copy = *is_baby;
+    }
+    evolution_chain_detail_chain_evolves_to_inner_t *result = evolution_chain_detail_chain_evolves_to_inner_create_internal (
         evolution_details,
-        is_baby,
+        is_baby_copy,
         species
         );
+    if (!result) {
+        free(is_baby_copy);
+    }
+    return result;
 }
 
 void evolution_chain_detail_chain_evolves_to_inner_free(evolution_chain_detail_chain_evolves_to_inner_t *evolution_chain_detail_chain_evolves_to_inner) {
@@ -49,6 +58,10 @@ void evolution_chain_detail_chain_evolves_to_inner_free(evolution_chain_detail_c
         }
         list_freeList(evolution_chain_detail_chain_evolves_to_inner->evolution_details);
         evolution_chain_detail_chain_evolves_to_inner->evolution_details = NULL;
+    }
+    if (evolution_chain_detail_chain_evolves_to_inner->is_baby) {
+        free(evolution_chain_detail_chain_evolves_to_inner->is_baby);
+        evolution_chain_detail_chain_evolves_to_inner->is_baby = NULL;
     }
     if (evolution_chain_detail_chain_evolves_to_inner->species) {
         ability_detail_pokemon_inner_pokemon_free(evolution_chain_detail_chain_evolves_to_inner->species);
@@ -85,7 +98,7 @@ cJSON *evolution_chain_detail_chain_evolves_to_inner_convertToJSON(evolution_cha
     if (!evolution_chain_detail_chain_evolves_to_inner->is_baby) {
         goto fail;
     }
-    if(cJSON_AddBoolToObject(item, "is_baby", evolution_chain_detail_chain_evolves_to_inner->is_baby) == NULL) {
+    if(cJSON_AddBoolToObject(item, "is_baby", *evolution_chain_detail_chain_evolves_to_inner->is_baby) == NULL) {
     goto fail; //Bool
     }
 
@@ -117,6 +130,9 @@ evolution_chain_detail_chain_evolves_to_inner_t *evolution_chain_detail_chain_ev
 
     // define the local list for evolution_chain_detail_chain_evolves_to_inner->evolution_details
     list_t *evolution_detailsList = NULL;
+
+    // define the local variable for evolution_chain_detail_chain_evolves_to_inner->is_baby
+    int *is_baby_local_var = NULL;
 
     // define the local variable for evolution_chain_detail_chain_evolves_to_inner->species
     ability_detail_pokemon_inner_pokemon_t *species_local_nonprim = NULL;
@@ -162,6 +178,12 @@ evolution_chain_detail_chain_evolves_to_inner_t *evolution_chain_detail_chain_ev
     {
     goto end; //Bool
     }
+    is_baby_local_var = malloc(sizeof(int));
+    if(!is_baby_local_var)
+    {
+        goto end;
+    }
+    *is_baby_local_var = is_baby->valueint;
 
     // evolution_chain_detail_chain_evolves_to_inner->species
     cJSON *species = cJSON_GetObjectItemCaseSensitive(evolution_chain_detail_chain_evolves_to_innerJSON, "species");
@@ -176,11 +198,16 @@ evolution_chain_detail_chain_evolves_to_inner_t *evolution_chain_detail_chain_ev
     species_local_nonprim = ability_detail_pokemon_inner_pokemon_parseFromJSON(species); //nonprimitive
 
 
+
     evolution_chain_detail_chain_evolves_to_inner_local_var = evolution_chain_detail_chain_evolves_to_inner_create_internal (
         evolution_detailsList,
-        is_baby->valueint,
+        is_baby_local_var,
         species_local_nonprim
         );
+
+    if (!evolution_chain_detail_chain_evolves_to_inner_local_var) {
+        goto end;
+    }
 
     return evolution_chain_detail_chain_evolves_to_inner_local_var;
 end:
@@ -192,6 +219,10 @@ end:
         }
         list_freeList(evolution_detailsList);
         evolution_detailsList = NULL;
+    }
+    if (is_baby_local_var) {
+        free(is_baby_local_var);
+        is_baby_local_var = NULL;
     }
     if (species_local_nonprim) {
         ability_detail_pokemon_inner_pokemon_free(species_local_nonprim);

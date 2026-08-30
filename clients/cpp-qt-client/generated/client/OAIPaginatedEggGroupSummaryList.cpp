@@ -21,7 +21,7 @@
 
 namespace OpenAPI {
 
-OAIPaginatedEggGroupSummaryList::OAIPaginatedEggGroupSummaryList(QString json) {
+OAIPaginatedEggGroupSummaryList::OAIPaginatedEggGroupSummaryList(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -47,7 +47,7 @@ void OAIPaginatedEggGroupSummaryList::initializeModel() {
     m_results_isValid = false;
 }
 
-void OAIPaginatedEggGroupSummaryList::fromJson(QString jsonString) {
+void OAIPaginatedEggGroupSummaryList::fromJson(const QString &jsonString) {
     QByteArray array(jsonString.toStdString().c_str());
     QJsonDocument doc = QJsonDocument::fromJson(array);
     QJsonObject jsonObject = doc.object();

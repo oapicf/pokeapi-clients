@@ -21,7 +21,7 @@ typedef struct encounter_condition_detail_t encounter_condition_detail_t;
 
 
 typedef struct encounter_condition_detail_t {
-    int id; //numeric
+    int *id; //numeric
     char *name; // string
     list_t *values; //nonprimitive container
     list_t *names; //nonprimitive container
@@ -30,7 +30,7 @@ typedef struct encounter_condition_detail_t {
 } encounter_condition_detail_t;
 
 __attribute__((deprecated)) encounter_condition_detail_t *encounter_condition_detail_create(
-    int id,
+    int *id,
     char *name,
     list_t *values,
     list_t *names

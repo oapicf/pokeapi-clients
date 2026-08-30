@@ -32,7 +32,7 @@ class  PokedexDetail_pokemon_entries_inner
 {
 public:
     PokedexDetail_pokemon_entries_inner();
-    virtual ~PokedexDetail_pokemon_entries_inner() = default;
+    virtual ~PokedexDetail_pokemon_entries_inner();
 
 
     /// <summary>

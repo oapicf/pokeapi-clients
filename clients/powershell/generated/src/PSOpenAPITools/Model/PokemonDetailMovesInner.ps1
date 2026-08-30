@@ -49,8 +49,8 @@ function Initialize-PokemonDetailMovesInner {
 
 
         $PSO = [PSCustomObject]@{
-            "move" = ${Move}
-            "version_group_details" = ${VersionGroupDetails}
+            'move' = ${Move}
+            'version_group_details' = ${VersionGroupDetails}
         }
 
 
@@ -88,7 +88,7 @@ function ConvertFrom-JsonToPokemonDetailMovesInner {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in PokemonDetailMovesInner
-        $AllProperties = ("move", "version_group_details")
+        $AllProperties = ('move', 'version_group_details')
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -99,21 +99,21 @@ function ConvertFrom-JsonToPokemonDetailMovesInner {
             throw "Error! Empty JSON cannot be serialized due to the required property 'move' missing."
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "move"))) {
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'move'))) {
             throw "Error! JSON cannot be serialized due to the required property 'move' missing."
         } else {
-            $Move = $JsonParameters.PSobject.Properties["move"].value
+            $Move = $JsonParameters.PSobject.Properties['move'].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "version_group_details"))) {
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'version_group_details'))) {
             throw "Error! JSON cannot be serialized due to the required property 'version_group_details' missing."
         } else {
-            $VersionGroupDetails = $JsonParameters.PSobject.Properties["version_group_details"].value
+            $VersionGroupDetails = $JsonParameters.PSobject.Properties['version_group_details'].value
         }
 
         $PSO = [PSCustomObject]@{
-            "move" = ${Move}
-            "version_group_details" = ${VersionGroupDetails}
+            'move' = ${Move}
+            'version_group_details' = ${VersionGroupDetails}
         }
 
         return $PSO

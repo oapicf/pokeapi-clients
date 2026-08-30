@@ -52,7 +52,7 @@ import com.github.oapicf.pokeapiclient.JSON;
 /**
  * ContestEffectDetail
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-07T15:22:35.747827932Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-08-30T01:55:28.842792947Z[Etc/UTC]", comments = "Generator version: 7.24.0")
 public class ContestEffectDetail {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -83,10 +83,14 @@ public class ContestEffectDetail {
   }
 
   public ContestEffectDetail(
-     Integer id
+     Integer id, 
+     List<ContestEffectEffectText> effectEntries, 
+     List<ContestEffectFlavorText> flavorTextEntries
   ) {
     this();
     this.id = id;
+    this.effectEntries = effectEntries;
+    this.flavorTextEntries = flavorTextEntries;
   }
 
   /**
@@ -138,19 +142,6 @@ public class ContestEffectDetail {
   }
 
 
-  public ContestEffectDetail effectEntries(@javax.annotation.Nonnull List<ContestEffectEffectText> effectEntries) {
-    this.effectEntries = effectEntries;
-    return this;
-  }
-
-  public ContestEffectDetail addEffectEntriesItem(ContestEffectEffectText effectEntriesItem) {
-    if (this.effectEntries == null) {
-      this.effectEntries = new ArrayList<>();
-    }
-    this.effectEntries.add(effectEntriesItem);
-    return this;
-  }
-
   /**
    * Get effectEntries
    * @return effectEntries
@@ -160,23 +151,7 @@ public class ContestEffectDetail {
     return effectEntries;
   }
 
-  public void setEffectEntries(@javax.annotation.Nonnull List<ContestEffectEffectText> effectEntries) {
-    this.effectEntries = effectEntries;
-  }
 
-
-  public ContestEffectDetail flavorTextEntries(@javax.annotation.Nonnull List<ContestEffectFlavorText> flavorTextEntries) {
-    this.flavorTextEntries = flavorTextEntries;
-    return this;
-  }
-
-  public ContestEffectDetail addFlavorTextEntriesItem(ContestEffectFlavorText flavorTextEntriesItem) {
-    if (this.flavorTextEntries == null) {
-      this.flavorTextEntries = new ArrayList<>();
-    }
-    this.flavorTextEntries.add(flavorTextEntriesItem);
-    return this;
-  }
 
   /**
    * Get flavorTextEntries
@@ -187,9 +162,6 @@ public class ContestEffectDetail {
     return flavorTextEntries;
   }
 
-  public void setFlavorTextEntries(@javax.annotation.Nonnull List<ContestEffectFlavorText> flavorTextEntries) {
-    this.flavorTextEntries = flavorTextEntries;
-  }
 
 
 
@@ -232,10 +204,7 @@ public class ContestEffectDetail {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 
@@ -278,26 +247,26 @@ public class ContestEffectDetail {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      // ensure the json data is an array
-      if (!jsonObj.get("effect_entries").isJsonArray()) {
-        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `effect_entries` to be an array in the JSON string but got `%s`", jsonObj.get("effect_entries").toString()));
+      if (jsonObj.get("effect_entries") != null) {
+        if (!jsonObj.get("effect_entries").isJsonArray()) {
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `effect_entries` to be an array in the JSON string but got `%s`", jsonObj.get("effect_entries").toString()));
+        }
+        JsonArray jsonArrayeffectEntries = jsonObj.getAsJsonArray("effect_entries");
+        // validate the required field `effect_entries` (array)
+        for (int i = 0; i < jsonArrayeffectEntries.size(); i++) {
+          ContestEffectEffectText.validateJsonElement(jsonArrayeffectEntries.get(i));
+        }
       }
-
-      JsonArray jsonArrayeffectEntries = jsonObj.getAsJsonArray("effect_entries");
-      // validate the required field `effect_entries` (array)
-      for (int i = 0; i < jsonArrayeffectEntries.size(); i++) {
-        ContestEffectEffectText.validateJsonElement(jsonArrayeffectEntries.get(i));
-      };
-      // ensure the json data is an array
-      if (!jsonObj.get("flavor_text_entries").isJsonArray()) {
-        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `flavor_text_entries` to be an array in the JSON string but got `%s`", jsonObj.get("flavor_text_entries").toString()));
+      if (jsonObj.get("flavor_text_entries") != null) {
+        if (!jsonObj.get("flavor_text_entries").isJsonArray()) {
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `flavor_text_entries` to be an array in the JSON string but got `%s`", jsonObj.get("flavor_text_entries").toString()));
+        }
+        JsonArray jsonArrayflavorTextEntries = jsonObj.getAsJsonArray("flavor_text_entries");
+        // validate the required field `flavor_text_entries` (array)
+        for (int i = 0; i < jsonArrayflavorTextEntries.size(); i++) {
+          ContestEffectFlavorText.validateJsonElement(jsonArrayflavorTextEntries.get(i));
+        }
       }
-
-      JsonArray jsonArrayflavorTextEntries = jsonObj.getAsJsonArray("flavor_text_entries");
-      // validate the required field `flavor_text_entries` (array)
-      for (int i = 0; i < jsonArrayflavorTextEntries.size(); i++) {
-        ContestEffectFlavorText.validateJsonElement(jsonArrayflavorTextEntries.get(i));
-      };
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {

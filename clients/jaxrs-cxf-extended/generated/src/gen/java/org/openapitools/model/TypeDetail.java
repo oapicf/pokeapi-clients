@@ -159,6 +159,7 @@ public class TypeDetail  {
 
   /**
    * Sets the <code>pastDamageRelations</code> property.
+   * <br><em>N.B. <code>pastDamageRelations</code> is <b>read only</b>; client code should not call this method</em>.
    */
  public void setPastDamageRelations(List<@Valid TypeDetailPastDamageRelationsInner> pastDamageRelations) {
     this.pastDamageRelations = pastDamageRelations;
@@ -166,6 +167,7 @@ public class TypeDetail  {
 
   /**
    * Sets the <code>pastDamageRelations</code> property.
+   * <br><em>N.B. <code>pastDamageRelations</code> is <b>read only</b>; client code should not call this method</em>.
    */
   public TypeDetail pastDamageRelations(List<@Valid TypeDetailPastDamageRelationsInner> pastDamageRelations) {
     this.pastDamageRelations = pastDamageRelations;
@@ -174,6 +176,7 @@ public class TypeDetail  {
 
   /**
    * Adds a new item to the <code>pastDamageRelations</code> list.
+   * <br><em>N.B. <code>pastDamageRelations</code> is <b>read only</b>; client code should not call this method</em>.
    */
   public TypeDetail addPastDamageRelationsItem(TypeDetailPastDamageRelationsInner pastDamageRelationsItem) {
     this.pastDamageRelations.add(pastDamageRelationsItem);
@@ -192,6 +195,7 @@ public class TypeDetail  {
 
   /**
    * Sets the <code>gameIndices</code> property.
+   * <br><em>N.B. <code>gameIndices</code> is <b>read only</b>; client code should not call this method</em>.
    */
  public void setGameIndices(List<@Valid TypeGameIndex> gameIndices) {
     this.gameIndices = gameIndices;
@@ -199,6 +203,7 @@ public class TypeDetail  {
 
   /**
    * Sets the <code>gameIndices</code> property.
+   * <br><em>N.B. <code>gameIndices</code> is <b>read only</b>; client code should not call this method</em>.
    */
   public TypeDetail gameIndices(List<@Valid TypeGameIndex> gameIndices) {
     this.gameIndices = gameIndices;
@@ -207,6 +212,7 @@ public class TypeDetail  {
 
   /**
    * Adds a new item to the <code>gameIndices</code> list.
+   * <br><em>N.B. <code>gameIndices</code> is <b>read only</b>; client code should not call this method</em>.
    */
   public TypeDetail addGameIndicesItem(TypeGameIndex gameIndicesItem) {
     this.gameIndices.add(gameIndicesItem);
@@ -275,6 +281,7 @@ public class TypeDetail  {
 
   /**
    * Sets the <code>names</code> property.
+   * <br><em>N.B. <code>names</code> is <b>read only</b>; client code should not call this method</em>.
    */
  public void setNames(List<@Valid AbilityName> names) {
     this.names = names;
@@ -282,6 +289,7 @@ public class TypeDetail  {
 
   /**
    * Sets the <code>names</code> property.
+   * <br><em>N.B. <code>names</code> is <b>read only</b>; client code should not call this method</em>.
    */
   public TypeDetail names(List<@Valid AbilityName> names) {
     this.names = names;
@@ -290,6 +298,7 @@ public class TypeDetail  {
 
   /**
    * Adds a new item to the <code>names</code> list.
+   * <br><em>N.B. <code>names</code> is <b>read only</b>; client code should not call this method</em>.
    */
   public TypeDetail addNamesItem(AbilityName namesItem) {
     this.names.add(namesItem);
@@ -308,6 +317,7 @@ public class TypeDetail  {
 
   /**
    * Sets the <code>pokemon</code> property.
+   * <br><em>N.B. <code>pokemon</code> is <b>read only</b>; client code should not call this method</em>.
    */
  public void setPokemon(List<@Valid TypeDetailPokemonInner> pokemon) {
     this.pokemon = pokemon;
@@ -315,6 +325,7 @@ public class TypeDetail  {
 
   /**
    * Sets the <code>pokemon</code> property.
+   * <br><em>N.B. <code>pokemon</code> is <b>read only</b>; client code should not call this method</em>.
    */
   public TypeDetail pokemon(List<@Valid TypeDetailPokemonInner> pokemon) {
     this.pokemon = pokemon;
@@ -323,6 +334,7 @@ public class TypeDetail  {
 
   /**
    * Adds a new item to the <code>pokemon</code> list.
+   * <br><em>N.B. <code>pokemon</code> is <b>read only</b>; client code should not call this method</em>.
    */
   public TypeDetail addPokemonItem(TypeDetailPokemonInner pokemonItem) {
     this.pokemon.add(pokemonItem);
@@ -341,6 +353,7 @@ public class TypeDetail  {
 
   /**
    * Sets the <code>moves</code> property.
+   * <br><em>N.B. <code>moves</code> is <b>read only</b>; client code should not call this method</em>.
    */
  public void setMoves(List<@Valid MoveSummary> moves) {
     this.moves = moves;
@@ -348,6 +361,7 @@ public class TypeDetail  {
 
   /**
    * Sets the <code>moves</code> property.
+   * <br><em>N.B. <code>moves</code> is <b>read only</b>; client code should not call this method</em>.
    */
   public TypeDetail moves(List<@Valid MoveSummary> moves) {
     this.moves = moves;
@@ -356,6 +370,7 @@ public class TypeDetail  {
 
   /**
    * Adds a new item to the <code>moves</code> list.
+   * <br><em>N.B. <code>moves</code> is <b>read only</b>; client code should not call this method</em>.
    */
   public TypeDetail addMovesItem(MoveSummary movesItem) {
     this.moves.add(movesItem);
@@ -451,10 +466,7 @@ public class TypeDetail  {
    * (except the first line).
    */
   private static String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 }
 

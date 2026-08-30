@@ -14,15 +14,14 @@ import options
 
 import model_ability_detail_pokemon_inner_pokemon
 import model_evolution_chain_detail_chain_evolves_to_inner_evolution_details_inner_gender
-import model_object
 
 type EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner* = object
   ## 
   gender*: EvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner_gender
   heldItem*: EvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner_gender
   item*: EvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner_gender
-  knownMove*: JsonNode
-  knownMoveType*: JsonNode
+  knownMove*: EvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner_gender
+  knownMoveType*: EvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner_gender
   location*: EvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner_gender
   minAffection*: int
   minBeauty*: int
@@ -49,9 +48,9 @@ proc to*(node: JsonNode, T: typedesc[EvolutionChainDetailChainEvolvesToInnerEvol
     if node.hasKey("item"):
       result.item = to(node["item"], EvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner_gender)
     if node.hasKey("known_move"):
-      result.knownMove = to(node["known_move"], JsonNode)
+      result.knownMove = to(node["known_move"], EvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner_gender)
     if node.hasKey("known_move_type"):
-      result.knownMoveType = to(node["known_move_type"], JsonNode)
+      result.knownMoveType = to(node["known_move_type"], EvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner_gender)
     if node.hasKey("location"):
       result.location = to(node["location"], EvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner_gender)
     if node.hasKey("min_affection"):

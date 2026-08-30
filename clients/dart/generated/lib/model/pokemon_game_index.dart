@@ -53,10 +53,10 @@ class PokemonGameIndex {
       // Note 1: the values aren't checked for validity beyond being non-null.
       // Note 2: this code is stripped in release mode!
       assert(() {
-        requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "PokemonGameIndex[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "PokemonGameIndex[$key]" has a null value in JSON.');
-        });
+        assert(json.containsKey(r'game_index'), 'Required key "PokemonGameIndex[game_index]" is missing from JSON.');
+        assert(json[r'game_index'] != null, 'Required key "PokemonGameIndex[game_index]" has a null value in JSON.');
+        assert(json.containsKey(r'version'), 'Required key "PokemonGameIndex[version]" is missing from JSON.');
+        assert(json[r'version'] != null, 'Required key "PokemonGameIndex[version]" has a null value in JSON.');
         return true;
       }());
 

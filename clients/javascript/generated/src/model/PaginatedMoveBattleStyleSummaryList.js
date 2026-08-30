@@ -17,7 +17,7 @@ import MoveBattleStyleSummary from './MoveBattleStyleSummary';
 /**
  * The PaginatedMoveBattleStyleSummaryList model module.
  * @module model/PaginatedMoveBattleStyleSummaryList
- * @version 1.2.1-pre.0
+ * @version 2.0.1-pre.0
  */
 class PaginatedMoveBattleStyleSummaryList {
     /**

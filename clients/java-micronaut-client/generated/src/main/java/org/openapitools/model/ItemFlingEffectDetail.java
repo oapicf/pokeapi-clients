@@ -36,7 +36,7 @@ import javax.annotation.Generated;
   ItemFlingEffectDetail.JSON_PROPERTY_ITEMS
 })
 @JsonTypeName("ItemFlingEffectDetail")
-@Generated(value="org.openapitools.codegen.languages.JavaMicronautClientCodegen", date="2026-02-07T15:22:54.857535619Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@Generated(value="org.openapitools.codegen.languages.JavaMicronautClientCodegen", date="2026-08-30T01:55:51.056116330Z[Etc/UTC]", comments = "Generator version: 7.24.0")
 @Introspected
 public class ItemFlingEffectDetail {
     public static final String JSON_PROPERTY_ID = "id";
@@ -92,16 +92,6 @@ public class ItemFlingEffectDetail {
         this.name = name;
     }
 
-    public ItemFlingEffectDetail effectEntries(List<@Valid ItemFlingEffectEffectText> effectEntries) {
-        this.effectEntries = effectEntries;
-        return this;
-    }
-
-    public ItemFlingEffectDetail addEffectEntriesItem(ItemFlingEffectEffectText effectEntriesItem) {
-        this.effectEntries.add(effectEntriesItem);
-        return this;
-    }
-
     /**
      * Get effectEntries
      * @return effectEntries
@@ -113,22 +103,6 @@ public class ItemFlingEffectDetail {
         return effectEntries;
     }
 
-    @JsonProperty(JSON_PROPERTY_EFFECT_ENTRIES)
-    @JsonInclude(value = JsonInclude.Include.ALWAYS)
-    public void setEffectEntries(List<@Valid ItemFlingEffectEffectText> effectEntries) {
-        this.effectEntries = effectEntries;
-    }
-
-    public ItemFlingEffectDetail items(List<@Valid ItemSummary> items) {
-        this.items = items;
-        return this;
-    }
-
-    public ItemFlingEffectDetail addItemsItem(ItemSummary itemsItem) {
-        this.items.add(itemsItem);
-        return this;
-    }
-
     /**
      * Get items
      * @return items
@@ -138,12 +112,6 @@ public class ItemFlingEffectDetail {
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public List<@Valid ItemSummary> getItems() {
         return items;
-    }
-
-    @JsonProperty(JSON_PROPERTY_ITEMS)
-    @JsonInclude(value = JsonInclude.Include.ALWAYS)
-    public void setItems(List<@Valid ItemSummary> items) {
-        this.items = items;
     }
 
     @Override
@@ -183,10 +151,7 @@ public class ItemFlingEffectDetail {
      * (except the first line).
      */
     private String toIndentedString(Object o) {
-        if (o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
+        return o == null ? "null" : o.toString().replace("\n", "\n    ");
     }
 
 }

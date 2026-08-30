@@ -47,7 +47,7 @@ class TypeDetailPastDamageRelationsInner
      * @var AbilityDetailPokemonInnerPokemon|null
      * @SerializedName("generation")
      * @Type("OpenAPI\Server\Model\AbilityDetailPokemonInnerPokemon")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Valid]
     #[Assert\Type("OpenAPI\Server\Model\AbilityDetailPokemonInnerPokemon")]
@@ -57,7 +57,7 @@ class TypeDetailPastDamageRelationsInner
      * @var TypeDetailPastDamageRelationsInnerDamageRelations|null
      * @SerializedName("damage_relations")
      * @Type("OpenAPI\Server\Model\TypeDetailPastDamageRelationsInnerDamageRelations")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Valid]
     #[Assert\Type("OpenAPI\Server\Model\TypeDetailPastDamageRelationsInnerDamageRelations")]
@@ -86,12 +86,12 @@ class TypeDetailPastDamageRelationsInner
     }
 
     /**
-    * Sets generation.
-    *
-    * @param AbilityDetailPokemonInnerPokemon|null $generation
-    *
-    * @return $this
-    */
+     * Sets generation.
+     *
+     * @param AbilityDetailPokemonInnerPokemon|null $generation
+     *
+     * @return $this
+     */
     public function setGeneration(?AbilityDetailPokemonInnerPokemon $generation): self
     {
         $this->generation = $generation;
@@ -113,12 +113,12 @@ class TypeDetailPastDamageRelationsInner
     }
 
     /**
-    * Sets damageRelations.
-    *
-    * @param TypeDetailPastDamageRelationsInnerDamageRelations|null $damageRelations
-    *
-    * @return $this
-    */
+     * Sets damageRelations.
+     *
+     * @param TypeDetailPastDamageRelationsInnerDamageRelations|null $damageRelations
+     *
+     * @return $this
+     */
     public function setDamageRelations(?TypeDetailPastDamageRelationsInnerDamageRelations $damageRelations): self
     {
         $this->damageRelations = $damageRelations;

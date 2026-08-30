@@ -7,9 +7,9 @@ Name | Mapping | SQL Type | Default | Type | Description | Notes
 ---- | ------- | -------- | ------- | ---- | ----------- | -----
 **id** | id | int NOT NULL PRIMARY KEY AUTOINCREMENT |  | **kotlin.Int** |  |  [readonly]
 **name** | name | text NOT NULL |  | **kotlin.String** |  | 
-**descriptions** | `One-To-Many` | `----` | `----`  | [**kotlin.Array&lt;ItemAttributeDescription&gt;**](ItemAttributeDescription.md) |  | 
-**items** | `One-To-Many` | `----` | `----`  | [**kotlin.Array&lt;AbilityDetailPokemonInnerPokemon&gt;**](AbilityDetailPokemonInnerPokemon.md) |  | 
-**names** | `One-To-Many` | `----` | `----`  | [**kotlin.Array&lt;ItemAttributeName&gt;**](ItemAttributeName.md) |  | 
+**descriptions** | `One-To-Many` | `----` | `----`  | [**kotlin.Array&lt;ItemAttributeDescription&gt;**](ItemAttributeDescription.md) |  |  [readonly]
+**items** | `One-To-Many` | `----` | `----`  | [**kotlin.Array&lt;AbilityDetailPokemonInnerPokemon&gt;**](AbilityDetailPokemonInnerPokemon.md) |  |  [readonly]
+**names** | `One-To-Many` | `----` | `----`  | [**kotlin.Array&lt;ItemAttributeName&gt;**](ItemAttributeName.md) |  |  [readonly]
 
 
 

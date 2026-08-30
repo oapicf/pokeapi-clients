@@ -72,7 +72,7 @@ namespace Org.OpenAPITools.Model
         /// Gets or Sets Names
         /// </summary>
         [JsonPropertyName("names")]
-        public List<ContestTypeName> Names { get; set; }
+        public List<ContestTypeName> Names { get; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -110,8 +110,18 @@ namespace Org.OpenAPITools.Model
     /// <summary>
     /// A Json converter for type <see cref="ContestTypeDetail" />
     /// </summary>
-    public class ContestTypeDetailJsonConverter : JsonConverter<ContestTypeDetail>
+    public partial class ContestTypeDetailJsonConverter : JsonConverter<ContestTypeDetail>
     {
+        partial void OnCreated();
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ContestTypeDetailJsonConverter" /> class.
+        /// </summary>
+        public ContestTypeDetailJsonConverter()
+        {
+            OnCreated();
+        }
+
         /// <summary>
         /// Deserializes json to <see cref="ContestTypeDetail" />
         /// </summary>

@@ -14,19 +14,19 @@ import org.openapitools.model.LocationSummary;
 import org.springframework.lang.Nullable;
 import org.openapitools.jackson.nullable.JsonNullable;
 import java.time.OffsetDateTime;
-import javax.validation.Valid;
-import javax.validation.constraints.*;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.*;
 import io.swagger.v3.oas.annotations.media.Schema;
 
 
 import java.util.*;
-import javax.annotation.Generated;
+import jakarta.annotation.Generated;
 
 /**
  * LocationAreaDetail
  */
 
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2026-02-07T15:29:13.146999890Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2026-08-30T02:00:43.960184425Z[Etc/UTC]", comments = "Generator version: 7.24.0")
 public class LocationAreaDetail {
 
   private Integer id;
@@ -35,15 +35,12 @@ public class LocationAreaDetail {
 
   private Integer gameIndex;
 
-  @Valid
   private List<@Valid LocationAreaDetailEncounterMethodRatesInner> encounterMethodRates = new ArrayList<>();
 
   private LocationSummary location;
 
-  @Valid
   private List<@Valid LocationAreaName> names = new ArrayList<>();
 
-  @Valid
   private List<@Valid LocationAreaDetailPokemonEncountersInner> pokemonEncounters = new ArrayList<>();
 
   public LocationAreaDetail() {
@@ -79,6 +76,7 @@ public class LocationAreaDetail {
     return id;
   }
 
+  @JsonProperty("id")
   public void setId(Integer id) {
     this.id = id;
   }
@@ -99,6 +97,7 @@ public class LocationAreaDetail {
     return name;
   }
 
+  @JsonProperty("name")
   public void setName(String name) {
     this.name = name;
   }
@@ -119,6 +118,7 @@ public class LocationAreaDetail {
     return gameIndex;
   }
 
+  @JsonProperty("game_index")
   public void setGameIndex(Integer gameIndex) {
     this.gameIndex = gameIndex;
   }
@@ -140,13 +140,14 @@ public class LocationAreaDetail {
    * Get encounterMethodRates
    * @return encounterMethodRates
    */
-  @NotNull @Valid 
-  @Schema(name = "encounter_method_rates", requiredMode = Schema.RequiredMode.REQUIRED)
+  @Valid 
+  @Schema(name = "encounter_method_rates", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("encounter_method_rates")
   public List<@Valid LocationAreaDetailEncounterMethodRatesInner> getEncounterMethodRates() {
     return encounterMethodRates;
   }
 
+  @JsonProperty("encounter_method_rates")
   public void setEncounterMethodRates(List<@Valid LocationAreaDetailEncounterMethodRatesInner> encounterMethodRates) {
     this.encounterMethodRates = encounterMethodRates;
   }
@@ -167,6 +168,7 @@ public class LocationAreaDetail {
     return location;
   }
 
+  @JsonProperty("location")
   public void setLocation(LocationSummary location) {
     this.location = location;
   }
@@ -188,13 +190,14 @@ public class LocationAreaDetail {
    * Get names
    * @return names
    */
-  @NotNull @Valid 
-  @Schema(name = "names", requiredMode = Schema.RequiredMode.REQUIRED)
+  @Valid 
+  @Schema(name = "names", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("names")
   public List<@Valid LocationAreaName> getNames() {
     return names;
   }
 
+  @JsonProperty("names")
   public void setNames(List<@Valid LocationAreaName> names) {
     this.names = names;
   }
@@ -216,13 +219,14 @@ public class LocationAreaDetail {
    * Get pokemonEncounters
    * @return pokemonEncounters
    */
-  @NotNull @Valid 
-  @Schema(name = "pokemon_encounters", requiredMode = Schema.RequiredMode.REQUIRED)
+  @Valid 
+  @Schema(name = "pokemon_encounters", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("pokemon_encounters")
   public List<@Valid LocationAreaDetailPokemonEncountersInner> getPokemonEncounters() {
     return pokemonEncounters;
   }
 
+  @JsonProperty("pokemon_encounters")
   public void setPokemonEncounters(List<@Valid LocationAreaDetailPokemonEncountersInner> pokemonEncounters) {
     this.pokemonEncounters = pokemonEncounters;
   }
@@ -269,11 +273,8 @@ public class LocationAreaDetail {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+  private String toIndentedString(@Nullable Object o) {
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 }
 

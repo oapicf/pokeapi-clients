@@ -6,8 +6,8 @@
 | ---- | ---- | ----------- | ----- |
 | **id** | **Integer** |  | [readonly] |
 | **name** | **String** |  |  |
-| **values** | [**Array&lt;EncounterConditionValueSummary&gt;**](EncounterConditionValueSummary.md) |  |  |
-| **names** | [**Array&lt;EncounterConditionName&gt;**](EncounterConditionName.md) |  |  |
+| **values** | [**Array&lt;EncounterConditionValueSummary&gt;**](EncounterConditionValueSummary.md) |  | [readonly] |
+| **names** | [**Array&lt;EncounterConditionName&gt;**](EncounterConditionName.md) |  | [readonly] |
 
 ## Example
 

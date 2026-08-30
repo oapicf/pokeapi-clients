@@ -58,21 +58,27 @@ class PokemonShapeDetail extends BaseModel
     },
     "awesome_names" : {
       "type" : "array",
+      "readOnly" : true,
       "items" : {
         "$ref" : "#/components/schemas/PokemonShapeDetail_awesome_names_inner"
-      }
+      },
+      "default" : null
     },
     "names" : {
       "type" : "array",
+      "readOnly" : true,
       "items" : {
         "$ref" : "#/components/schemas/PokemonShapeDetail_names_inner"
-      }
+      },
+      "default" : null
     },
     "pokemon_species" : {
       "type" : "array",
+      "readOnly" : true,
       "items" : {
         "$ref" : "#/components/schemas/PokemonSpeciesSummary"
-      }
+      },
+      "default" : null
     }
   }
 }

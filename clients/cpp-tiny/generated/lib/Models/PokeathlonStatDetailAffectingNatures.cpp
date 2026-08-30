@@ -119,7 +119,7 @@ PokeathlonStatDetail_affecting_natures::getDecrease()
 }
 
 void
-PokeathlonStatDetail_affecting_natures::setDecrease(std::list <PokeathlonStatDetail_affecting_natures_decrease_inner> decrease)
+PokeathlonStatDetail_affecting_natures::setDecrease(std::list<PokeathlonStatDetail_affecting_natures_decrease_inner> decrease)
 {
 	this->decrease = decrease;
 }
@@ -131,7 +131,7 @@ PokeathlonStatDetail_affecting_natures::getIncrease()
 }
 
 void
-PokeathlonStatDetail_affecting_natures::setIncrease(std::list <PokeathlonStatDetail_affecting_natures_increase_inner> increase)
+PokeathlonStatDetail_affecting_natures::setIncrease(std::list<PokeathlonStatDetail_affecting_natures_increase_inner> increase)
 {
 	this->increase = increase;
 }

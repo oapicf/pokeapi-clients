@@ -35,7 +35,7 @@ class  PokeathlonStatDetail
 {
 public:
     PokeathlonStatDetail();
-    virtual ~PokeathlonStatDetail() = default;
+    virtual ~PokeathlonStatDetail();
 
 
     /// <summary>

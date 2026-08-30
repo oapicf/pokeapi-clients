@@ -7,13 +7,13 @@ Name | Mapping | SQL Type | Default | Type | Description | Notes
 ---- | ------- | -------- | ------- | ---- | ----------- | -----
 **id** | id | int NOT NULL PRIMARY KEY AUTOINCREMENT |  | **kotlin.Int** |  |  [readonly]
 **name** | name | text NOT NULL |  | **kotlin.String** |  | 
-**abilities** | `One-To-Many` | `----` | `----`  | [**kotlin.Array&lt;AbilitySummary&gt;**](AbilitySummary.md) |  | 
+**abilities** | `One-To-Many` | `----` | `----`  | [**kotlin.Array&lt;AbilitySummary&gt;**](AbilitySummary.md) |  |  [readonly]
 **mainRegion** | main_region | long NOT NULL |  | [**RegionSummary**](RegionSummary.md) |  |  [foreignkey]
-**moves** | `One-To-Many` | `----` | `----`  | [**kotlin.Array&lt;MoveSummary&gt;**](MoveSummary.md) |  | 
-**names** | `One-To-Many` | `----` | `----`  | [**kotlin.Array&lt;GenerationName&gt;**](GenerationName.md) |  | 
-**pokemonSpecies** | `One-To-Many` | `----` | `----`  | [**kotlin.Array&lt;PokemonSpeciesSummary&gt;**](PokemonSpeciesSummary.md) |  | 
-**types** | `One-To-Many` | `----` | `----`  | [**kotlin.Array&lt;TypeSummary&gt;**](TypeSummary.md) |  | 
-**versionGroups** | `One-To-Many` | `----` | `----`  | [**kotlin.Array&lt;VersionGroupSummary&gt;**](VersionGroupSummary.md) |  | 
+**moves** | `One-To-Many` | `----` | `----`  | [**kotlin.Array&lt;MoveSummary&gt;**](MoveSummary.md) |  |  [readonly]
+**names** | `One-To-Many` | `----` | `----`  | [**kotlin.Array&lt;GenerationName&gt;**](GenerationName.md) |  |  [readonly]
+**pokemonSpecies** | `One-To-Many` | `----` | `----`  | [**kotlin.Array&lt;PokemonSpeciesSummary&gt;**](PokemonSpeciesSummary.md) |  |  [readonly]
+**types** | `One-To-Many` | `----` | `----`  | [**kotlin.Array&lt;TypeSummary&gt;**](TypeSummary.md) |  |  [readonly]
+**versionGroups** | `One-To-Many` | `----` | `----`  | [**kotlin.Array&lt;VersionGroupSummary&gt;**](VersionGroupSummary.md) |  |  [readonly]
 
 
 

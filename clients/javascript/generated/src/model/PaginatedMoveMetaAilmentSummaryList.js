@@ -17,7 +17,7 @@ import MoveMetaAilmentSummary from './MoveMetaAilmentSummary';
 /**
  * The PaginatedMoveMetaAilmentSummaryList model module.
  * @module model/PaginatedMoveMetaAilmentSummaryList
- * @version 1.2.1-pre.0
+ * @version 2.0.1-pre.0
  */
 class PaginatedMoveMetaAilmentSummaryList {
     /**

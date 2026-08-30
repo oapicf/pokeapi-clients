@@ -30,10 +30,10 @@ typedef struct item_detail_t item_detail_t;
 
 
 typedef struct item_detail_t {
-    int id; //numeric
+    int *id; //numeric
     char *name; // string
-    int cost; //numeric
-    int fling_power; //numeric
+    int *cost; //numeric
+    int *fling_power; //numeric
     struct item_fling_effect_summary_t *fling_effect; //model
     list_t *attributes; //nonprimitive container
     struct item_category_summary_t *category; //model
@@ -50,10 +50,10 @@ typedef struct item_detail_t {
 } item_detail_t;
 
 __attribute__((deprecated)) item_detail_t *item_detail_create(
-    int id,
+    int *id,
     char *name,
-    int cost,
-    int fling_power,
+    int *cost,
+    int *fling_power,
     item_fling_effect_summary_t *fling_effect,
     list_t *attributes,
     item_category_summary_t *category,

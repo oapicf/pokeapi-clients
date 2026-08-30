@@ -26,6 +26,8 @@ ItemPocketSummary::ItemPocketSummary()
     
 }
 
+ItemPocketSummary::~ItemPocketSummary() = default;
+
 void ItemPocketSummary::validate() const
 {
     std::stringstream msg;

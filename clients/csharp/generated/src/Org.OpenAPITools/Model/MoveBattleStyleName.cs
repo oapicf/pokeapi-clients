@@ -92,8 +92,18 @@ namespace Org.OpenAPITools.Model
     /// <summary>
     /// A Json converter for type <see cref="MoveBattleStyleName" />
     /// </summary>
-    public class MoveBattleStyleNameJsonConverter : JsonConverter<MoveBattleStyleName>
+    public partial class MoveBattleStyleNameJsonConverter : JsonConverter<MoveBattleStyleName>
     {
+        partial void OnCreated();
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="MoveBattleStyleNameJsonConverter" /> class.
+        /// </summary>
+        public MoveBattleStyleNameJsonConverter()
+        {
+            OnCreated();
+        }
+
         /// <summary>
         /// Deserializes json to <see cref="MoveBattleStyleName" />
         /// </summary>

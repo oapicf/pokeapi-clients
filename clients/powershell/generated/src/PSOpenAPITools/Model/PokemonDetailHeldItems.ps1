@@ -49,8 +49,8 @@ function Initialize-PokemonDetailHeldItems {
 
 
         $PSO = [PSCustomObject]@{
-            "item" = ${Item}
-            "version_details" = ${VersionDetails}
+            'item' = ${Item}
+            'version_details' = ${VersionDetails}
         }
 
 
@@ -88,7 +88,7 @@ function ConvertFrom-JsonToPokemonDetailHeldItems {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in PokemonDetailHeldItems
-        $AllProperties = ("item", "version_details")
+        $AllProperties = ('item', 'version_details')
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -99,21 +99,21 @@ function ConvertFrom-JsonToPokemonDetailHeldItems {
             throw "Error! Empty JSON cannot be serialized due to the required property 'item' missing."
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "item"))) {
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'item'))) {
             throw "Error! JSON cannot be serialized due to the required property 'item' missing."
         } else {
-            $Item = $JsonParameters.PSobject.Properties["item"].value
+            $Item = $JsonParameters.PSobject.Properties['item'].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "version_details"))) {
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'version_details'))) {
             throw "Error! JSON cannot be serialized due to the required property 'version_details' missing."
         } else {
-            $VersionDetails = $JsonParameters.PSobject.Properties["version_details"].value
+            $VersionDetails = $JsonParameters.PSobject.Properties['version_details'].value
         }
 
         $PSO = [PSCustomObject]@{
-            "item" = ${Item}
-            "version_details" = ${VersionDetails}
+            'item' = ${Item}
+            'version_details' = ${VersionDetails}
         }
 
         return $PSO

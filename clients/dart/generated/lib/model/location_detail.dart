@@ -77,10 +77,18 @@ class LocationDetail {
       // Note 1: the values aren't checked for validity beyond being non-null.
       // Note 2: this code is stripped in release mode!
       assert(() {
-        requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "LocationDetail[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "LocationDetail[$key]" has a null value in JSON.');
-        });
+        assert(json.containsKey(r'id'), 'Required key "LocationDetail[id]" is missing from JSON.');
+        assert(json[r'id'] != null, 'Required key "LocationDetail[id]" has a null value in JSON.');
+        assert(json.containsKey(r'name'), 'Required key "LocationDetail[name]" is missing from JSON.');
+        assert(json[r'name'] != null, 'Required key "LocationDetail[name]" has a null value in JSON.');
+        assert(json.containsKey(r'region'), 'Required key "LocationDetail[region]" is missing from JSON.');
+        assert(json[r'region'] != null, 'Required key "LocationDetail[region]" has a null value in JSON.');
+        assert(json.containsKey(r'names'), 'Required key "LocationDetail[names]" is missing from JSON.');
+        assert(json[r'names'] != null, 'Required key "LocationDetail[names]" has a null value in JSON.');
+        assert(json.containsKey(r'game_indices'), 'Required key "LocationDetail[game_indices]" is missing from JSON.');
+        assert(json[r'game_indices'] != null, 'Required key "LocationDetail[game_indices]" has a null value in JSON.');
+        assert(json.containsKey(r'areas'), 'Required key "LocationDetail[areas]" is missing from JSON.');
+        assert(json[r'areas'] != null, 'Required key "LocationDetail[areas]" has a null value in JSON.');
         return true;
       }());
 

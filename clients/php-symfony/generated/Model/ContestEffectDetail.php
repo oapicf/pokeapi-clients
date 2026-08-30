@@ -47,7 +47,7 @@ class ContestEffectDetail
      * @var int|null
      * @SerializedName("id")
      * @Type("int")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Type("int")]
     protected ?int $id = null;
@@ -56,7 +56,7 @@ class ContestEffectDetail
      * @var int|null
      * @SerializedName("appeal")
      * @Type("int")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Type("int")]
     protected ?int $appeal = null;
@@ -65,7 +65,7 @@ class ContestEffectDetail
      * @var int|null
      * @SerializedName("jam")
      * @Type("int")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Type("int")]
     protected ?int $jam = null;
@@ -74,7 +74,7 @@ class ContestEffectDetail
      * @var ContestEffectEffectText[]|null
      * @SerializedName("effect_entries")
      * @Type("array<OpenAPI\Server\Model\ContestEffectEffectText>")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Valid]
     #[Assert\All([
@@ -86,7 +86,7 @@ class ContestEffectDetail
      * @var ContestEffectFlavorText[]|null
      * @SerializedName("flavor_text_entries")
      * @Type("array<OpenAPI\Server\Model\ContestEffectFlavorText>")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Valid]
     #[Assert\All([
@@ -120,12 +120,12 @@ class ContestEffectDetail
     }
 
     /**
-    * Sets id.
-    *
-    * @param int|null $id
-    *
-    * @return $this
-    */
+     * Sets id.
+     *
+     * @param int|null $id
+     *
+     * @return $this
+     */
     public function setId(?int $id): self
     {
         $this->id = $id;
@@ -147,12 +147,12 @@ class ContestEffectDetail
     }
 
     /**
-    * Sets appeal.
-    *
-    * @param int|null $appeal
-    *
-    * @return $this
-    */
+     * Sets appeal.
+     *
+     * @param int|null $appeal
+     *
+     * @return $this
+     */
     public function setAppeal(?int $appeal): self
     {
         $this->appeal = $appeal;
@@ -174,12 +174,12 @@ class ContestEffectDetail
     }
 
     /**
-    * Sets jam.
-    *
-    * @param int|null $jam
-    *
-    * @return $this
-    */
+     * Sets jam.
+     *
+     * @param int|null $jam
+     *
+     * @return $this
+     */
     public function setJam(?int $jam): self
     {
         $this->jam = $jam;
@@ -201,12 +201,12 @@ class ContestEffectDetail
     }
 
     /**
-    * Sets effectEntries.
-    *
-    * @param ContestEffectEffectText[]|null $effectEntries
-    *
-    * @return $this
-    */
+     * Sets effectEntries.
+     *
+     * @param ContestEffectEffectText[]|null $effectEntries
+     *
+     * @return $this
+     */
     public function setEffectEntries(?array $effectEntries): self
     {
         $this->effectEntries = $effectEntries;
@@ -228,12 +228,12 @@ class ContestEffectDetail
     }
 
     /**
-    * Sets flavorTextEntries.
-    *
-    * @param ContestEffectFlavorText[]|null $flavorTextEntries
-    *
-    * @return $this
-    */
+     * Sets flavorTextEntries.
+     *
+     * @param ContestEffectFlavorText[]|null $flavorTextEntries
+     *
+     * @return $this
+     */
     public function setFlavorTextEntries(?array $flavorTextEntries): self
     {
         $this->flavorTextEntries = $flavorTextEntries;

@@ -33,13 +33,13 @@ class OAILanguageSummary;
 class OAIContestTypeName : public OAIObject {
 public:
     OAIContestTypeName();
-    OAIContestTypeName(QString json);
+    OAIContestTypeName(const QString &json);
     ~OAIContestTypeName() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     QString getName() const;
     void setName(const QString &name);

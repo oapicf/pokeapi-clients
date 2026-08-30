@@ -47,16 +47,16 @@ export interface EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner  {
     item: EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender;
     /**
      * 
-     * @type {object}
+     * @type {EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender}
      * @memberof EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner
      */
-    knownMove: object;
+    knownMove: EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender;
     /**
      * 
-     * @type {object}
+     * @type {EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender}
      * @memberof EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner
      */
-    knownMoveType: object;
+    knownMoveType: EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender;
     /**
      * 
      * @type {EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender}
@@ -142,8 +142,8 @@ export function EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerFrom
         'gender': EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGenderFromJSON(json['gender']),
         'heldItem': EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGenderFromJSON(json['held_item']),
         'item': EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGenderFromJSON(json['item']),
-        'knownMove': json['known_move'],
-        'knownMoveType': json['known_move_type'],
+        'knownMove': EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGenderFromJSON(json['known_move']),
+        'knownMoveType': EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGenderFromJSON(json['known_move_type']),
         'location': EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGenderFromJSON(json['location']),
         'minAffection': json['min_affection'],
         'minBeauty': json['min_beauty'],
@@ -168,8 +168,8 @@ export function EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerToJS
         'gender': EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGenderToJSON(value.gender),
         'held_item': EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGenderToJSON(value.heldItem),
         'item': EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGenderToJSON(value.item),
-        'known_move': value.knownMove,
-        'known_move_type': value.knownMoveType,
+        'known_move': EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGenderToJSON(value.knownMove),
+        'known_move_type': EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGenderToJSON(value.knownMoveType),
         'location': EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGenderToJSON(value.location),
         'min_affection': value.minAffection,
         'min_beauty': value.minBeauty,

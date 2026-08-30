@@ -86,7 +86,7 @@ ItemCategoryName::getName()
 }
 
 void
-ItemCategoryName::setName(std::string  name)
+ItemCategoryName::setName(std::string name)
 {
 	this->name = name;
 }
@@ -98,7 +98,7 @@ ItemCategoryName::getLanguage()
 }
 
 void
-ItemCategoryName::setLanguage(LanguageSummary  language)
+ItemCategoryName::setLanguage(LanguageSummary language)
 {
 	this->language = language;
 }

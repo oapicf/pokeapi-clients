@@ -17,14 +17,14 @@ static type_detail_past_damage_relations_inner_damage_relations_t *type_detail_p
     if (!type_detail_past_damage_relations_inner_damage_relations_local_var) {
         return NULL;
     }
+    memset(type_detail_past_damage_relations_inner_damage_relations_local_var, 0, sizeof(type_detail_past_damage_relations_inner_damage_relations_t));
+    type_detail_past_damage_relations_inner_damage_relations_local_var->_library_owned = 1;
     type_detail_past_damage_relations_inner_damage_relations_local_var->no_damage_to = no_damage_to;
     type_detail_past_damage_relations_inner_damage_relations_local_var->half_damage_to = half_damage_to;
     type_detail_past_damage_relations_inner_damage_relations_local_var->double_damage_to = double_damage_to;
     type_detail_past_damage_relations_inner_damage_relations_local_var->no_damage_from = no_damage_from;
     type_detail_past_damage_relations_inner_damage_relations_local_var->half_damage_from = half_damage_from;
     type_detail_past_damage_relations_inner_damage_relations_local_var->double_damage_from = double_damage_from;
-
-    type_detail_past_damage_relations_inner_damage_relations_local_var->_library_owned = 1;
     return type_detail_past_damage_relations_inner_damage_relations_local_var;
 }
 
@@ -36,7 +36,7 @@ __attribute__((deprecated)) type_detail_past_damage_relations_inner_damage_relat
     list_t *half_damage_from,
     list_t *double_damage_from
     ) {
-    return type_detail_past_damage_relations_inner_damage_relations_create_internal (
+    type_detail_past_damage_relations_inner_damage_relations_t *result = type_detail_past_damage_relations_inner_damage_relations_create_internal (
         no_damage_to,
         half_damage_to,
         double_damage_to,
@@ -44,6 +44,9 @@ __attribute__((deprecated)) type_detail_past_damage_relations_inner_damage_relat
         half_damage_from,
         double_damage_from
         );
+    if (!result) {
+    }
+    return result;
 }
 
 void type_detail_past_damage_relations_inner_damage_relations_free(type_detail_past_damage_relations_inner_damage_relations_t *type_detail_past_damage_relations_inner_damage_relations) {
@@ -421,6 +424,7 @@ type_detail_past_damage_relations_inner_damage_relations_t *type_detail_past_dam
     }
 
 
+
     type_detail_past_damage_relations_inner_damage_relations_local_var = type_detail_past_damage_relations_inner_damage_relations_create_internal (
         no_damage_toList,
         half_damage_toList,
@@ -429,6 +433,10 @@ type_detail_past_damage_relations_inner_damage_relations_t *type_detail_past_dam
         half_damage_fromList,
         double_damage_fromList
         );
+
+    if (!type_detail_past_damage_relations_inner_damage_relations_local_var) {
+        goto end;
+    }
 
     return type_detail_past_damage_relations_inner_damage_relations_local_var;
 end:

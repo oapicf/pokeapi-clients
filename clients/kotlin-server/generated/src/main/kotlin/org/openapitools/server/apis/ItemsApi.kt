@@ -37,11 +37,9 @@ import org.openapitools.server.models.PaginatedItemPocketSummaryList
 import org.openapitools.server.models.PaginatedItemSummaryList
 
 fun Route.ItemsApi() {
-    val empty = mutableMapOf<String, Any?>()
-
     authenticate("basicAuth") {
     authenticate("cookieAuth") {
-    get<Paths.itemAttributeList> {
+    get<Paths.itemAttributeList> { itemAttributeList ->
         val principal = call.authentication.principal<UserIdPrincipal>()
         
         
@@ -50,9 +48,9 @@ fun Route.ItemsApi() {
         
         val exampleContentType = "application/json"
             val exampleContentString = """{
+              "count" : 123,
               "next" : "http://api.example.org/accounts/?offset=400&limit=100",
               "previous" : "http://api.example.org/accounts/?offset=200&limit=100",
-              "count" : 123,
               "results" : [ {
                 "name" : "name",
                 "url" : "https://openapi-generator.tech"
@@ -70,10 +68,9 @@ fun Route.ItemsApi() {
         
     }
     }
-
     authenticate("basicAuth") {
     authenticate("cookieAuth") {
-    get<Paths.itemAttributeRetrieve> {
+    get<Paths.itemAttributeRetrieve> { itemAttributeRetrieve ->
         val principal = call.authentication.principal<UserIdPrincipal>()
         
         
@@ -82,21 +79,8 @@ fun Route.ItemsApi() {
         
         val exampleContentType = "application/json"
             val exampleContentString = """{
-              "names" : [ {
-                "name" : "name",
-                "language" : {
-                  "name" : "name",
-                  "url" : "https://openapi-generator.tech"
-                }
-              }, {
-                "name" : "name",
-                "language" : {
-                  "name" : "name",
-                  "url" : "https://openapi-generator.tech"
-                }
-              } ],
-              "name" : "name",
               "id" : 0,
+              "name" : "name",
               "descriptions" : [ {
                 "description" : "description",
                 "language" : {
@@ -116,6 +100,19 @@ fun Route.ItemsApi() {
               }, {
                 "name" : "name",
                 "url" : "https://openapi-generator.tech"
+              } ],
+              "names" : [ {
+                "name" : "name",
+                "language" : {
+                  "name" : "name",
+                  "url" : "https://openapi-generator.tech"
+                }
+              }, {
+                "name" : "name",
+                "language" : {
+                  "name" : "name",
+                  "url" : "https://openapi-generator.tech"
+                }
               } ]
             }"""
             
@@ -127,10 +124,9 @@ fun Route.ItemsApi() {
         
     }
     }
-
     authenticate("basicAuth") {
     authenticate("cookieAuth") {
-    get<Paths.itemCategoryList> {
+    get<Paths.itemCategoryList> { itemCategoryList ->
         val principal = call.authentication.principal<UserIdPrincipal>()
         
         
@@ -139,9 +135,9 @@ fun Route.ItemsApi() {
         
         val exampleContentType = "application/json"
             val exampleContentString = """{
+              "count" : 123,
               "next" : "http://api.example.org/accounts/?offset=400&limit=100",
               "previous" : "http://api.example.org/accounts/?offset=200&limit=100",
-              "count" : 123,
               "results" : [ {
                 "name" : "name",
                 "url" : "https://openapi-generator.tech"
@@ -159,10 +155,9 @@ fun Route.ItemsApi() {
         
     }
     }
-
     authenticate("basicAuth") {
     authenticate("cookieAuth") {
-    get<Paths.itemCategoryRetrieve> {
+    get<Paths.itemCategoryRetrieve> { itemCategoryRetrieve ->
         val principal = call.authentication.principal<UserIdPrincipal>()
         
         
@@ -171,6 +166,15 @@ fun Route.ItemsApi() {
         
         val exampleContentType = "application/json"
             val exampleContentString = """{
+              "id" : 0,
+              "name" : "name",
+              "items" : [ {
+                "name" : "name",
+                "url" : "https://openapi-generator.tech"
+              }, {
+                "name" : "name",
+                "url" : "https://openapi-generator.tech"
+              } ],
               "names" : [ {
                 "name" : "name",
                 "language" : {
@@ -183,15 +187,6 @@ fun Route.ItemsApi() {
                   "name" : "name",
                   "url" : "https://openapi-generator.tech"
                 }
-              } ],
-              "name" : "name",
-              "id" : 0,
-              "items" : [ {
-                "name" : "name",
-                "url" : "https://openapi-generator.tech"
-              }, {
-                "name" : "name",
-                "url" : "https://openapi-generator.tech"
               } ],
               "pocket" : {
                 "name" : "name",
@@ -207,10 +202,9 @@ fun Route.ItemsApi() {
         
     }
     }
-
     authenticate("basicAuth") {
     authenticate("cookieAuth") {
-    get<Paths.itemFlingEffectList> {
+    get<Paths.itemFlingEffectList> { itemFlingEffectList ->
         val principal = call.authentication.principal<UserIdPrincipal>()
         
         
@@ -219,9 +213,9 @@ fun Route.ItemsApi() {
         
         val exampleContentType = "application/json"
             val exampleContentString = """{
+              "count" : 123,
               "next" : "http://api.example.org/accounts/?offset=400&limit=100",
               "previous" : "http://api.example.org/accounts/?offset=200&limit=100",
-              "count" : 123,
               "results" : [ {
                 "name" : "name",
                 "url" : "https://openapi-generator.tech"
@@ -239,10 +233,9 @@ fun Route.ItemsApi() {
         
     }
     }
-
     authenticate("basicAuth") {
     authenticate("cookieAuth") {
-    get<Paths.itemFlingEffectRetrieve> {
+    get<Paths.itemFlingEffectRetrieve> { itemFlingEffectRetrieve ->
         val principal = call.authentication.principal<UserIdPrincipal>()
         
         
@@ -251,6 +244,8 @@ fun Route.ItemsApi() {
         
         val exampleContentType = "application/json"
             val exampleContentString = """{
+              "id" : 0,
+              "name" : "name",
               "effect_entries" : [ {
                 "effect" : "effect",
                 "language" : {
@@ -264,8 +259,6 @@ fun Route.ItemsApi() {
                   "url" : "https://openapi-generator.tech"
                 }
               } ],
-              "name" : "name",
-              "id" : 0,
               "items" : [ {
                 "name" : "name",
                 "url" : "https://openapi-generator.tech"
@@ -283,10 +276,9 @@ fun Route.ItemsApi() {
         
     }
     }
-
     authenticate("basicAuth") {
     authenticate("cookieAuth") {
-    get<Paths.itemList> {
+    get<Paths.itemList> { itemList ->
         val principal = call.authentication.principal<UserIdPrincipal>()
         
         
@@ -295,9 +287,9 @@ fun Route.ItemsApi() {
         
         val exampleContentType = "application/json"
             val exampleContentString = """{
+              "count" : 123,
               "next" : "http://api.example.org/accounts/?offset=400&limit=100",
               "previous" : "http://api.example.org/accounts/?offset=200&limit=100",
-              "count" : 123,
               "results" : [ {
                 "name" : "name",
                 "url" : "https://openapi-generator.tech"
@@ -315,10 +307,9 @@ fun Route.ItemsApi() {
         
     }
     }
-
     authenticate("basicAuth") {
     authenticate("cookieAuth") {
-    get<Paths.itemPocketList> {
+    get<Paths.itemPocketList> { itemPocketList ->
         val principal = call.authentication.principal<UserIdPrincipal>()
         
         
@@ -327,9 +318,9 @@ fun Route.ItemsApi() {
         
         val exampleContentType = "application/json"
             val exampleContentString = """{
+              "count" : 123,
               "next" : "http://api.example.org/accounts/?offset=400&limit=100",
               "previous" : "http://api.example.org/accounts/?offset=200&limit=100",
-              "count" : 123,
               "results" : [ {
                 "name" : "name",
                 "url" : "https://openapi-generator.tech"
@@ -347,10 +338,9 @@ fun Route.ItemsApi() {
         
     }
     }
-
     authenticate("basicAuth") {
     authenticate("cookieAuth") {
-    get<Paths.itemPocketRetrieve> {
+    get<Paths.itemPocketRetrieve> { itemPocketRetrieve ->
         val principal = call.authentication.principal<UserIdPrincipal>()
         
         
@@ -359,86 +349,14 @@ fun Route.ItemsApi() {
         
         val exampleContentType = "application/json"
             val exampleContentString = """{
-              "names" : [ {
-                "name" : "name",
-                "language" : {
-                  "name" : "name",
-                  "url" : "https://openapi-generator.tech"
-                }
-              }, {
-                "name" : "name",
-                "language" : {
-                  "name" : "name",
-                  "url" : "https://openapi-generator.tech"
-                }
-              } ],
-              "name" : "name",
               "id" : 0,
+              "name" : "name",
               "categories" : [ {
                 "name" : "name",
                 "url" : "https://openapi-generator.tech"
               }, {
                 "name" : "name",
                 "url" : "https://openapi-generator.tech"
-              } ]
-            }"""
-            
-            when (exampleContentType) {
-                "application/json" -> call.respondText(exampleContentType, ContentType.Application.Json)
-                "application/xml" -> call.respondText(exampleContentString, ContentType.Text.Xml)
-                else -> call.respondText(exampleContentString)
-            }
-        
-    }
-    }
-
-    authenticate("basicAuth") {
-    authenticate("cookieAuth") {
-    get<Paths.itemRetrieve> {
-        val principal = call.authentication.principal<UserIdPrincipal>()
-        
-        
-        val principal = call.authentication.principal<ApiPrincipal>()
-        
-        
-        val exampleContentType = "application/json"
-            val exampleContentString = """{
-              "cost" : 6,
-              "fling_power" : 1,
-              "sprites" : {
-                "default" : "https://openapi-generator.tech"
-              },
-              "fling_effect" : {
-                "name" : "name",
-                "url" : "https://openapi-generator.tech"
-              },
-              "effect_entries" : [ {
-                "short_effect" : "short_effect",
-                "effect" : "effect",
-                "language" : {
-                  "name" : "name",
-                  "url" : "https://openapi-generator.tech"
-                }
-              }, {
-                "short_effect" : "short_effect",
-                "effect" : "effect",
-                "language" : {
-                  "name" : "name",
-                  "url" : "https://openapi-generator.tech"
-                }
-              } ],
-              "game_indices" : [ {
-                "generation" : {
-                  "name" : "name",
-                  "url" : "https://openapi-generator.tech"
-                },
-                "game_index" : 5
-              }, {
-                "generation" : {
-                  "name" : "name",
-                  "url" : "https://openapi-generator.tech"
-                },
-                "game_index" : 5
               } ],
               "names" : [ {
                 "name" : "name",
@@ -452,32 +370,36 @@ fun Route.ItemsApi() {
                   "name" : "name",
                   "url" : "https://openapi-generator.tech"
                 }
-              } ],
-              "baby_trigger_for" : {
+              } ]
+            }"""
+            
+            when (exampleContentType) {
+                "application/json" -> call.respondText(exampleContentType, ContentType.Application.Json)
+                "application/xml" -> call.respondText(exampleContentString, ContentType.Text.Xml)
+                else -> call.respondText(exampleContentString)
+            }
+        
+    }
+    }
+    authenticate("basicAuth") {
+    authenticate("cookieAuth") {
+    get<Paths.itemRetrieve> { itemRetrieve ->
+        val principal = call.authentication.principal<UserIdPrincipal>()
+        
+        
+        val principal = call.authentication.principal<ApiPrincipal>()
+        
+        
+        val exampleContentType = "application/json"
+            val exampleContentString = """{
+              "id" : 0,
+              "name" : "name",
+              "cost" : 6,
+              "fling_power" : 1,
+              "fling_effect" : {
+                "name" : "name",
                 "url" : "https://openapi-generator.tech"
               },
-              "flavor_text_entries" : [ {
-                "version_group" : {
-                  "name" : "name",
-                  "url" : "https://openapi-generator.tech"
-                },
-                "language" : {
-                  "name" : "name",
-                  "url" : "https://openapi-generator.tech"
-                },
-                "text" : "text"
-              }, {
-                "version_group" : {
-                  "name" : "name",
-                  "url" : "https://openapi-generator.tech"
-                },
-                "language" : {
-                  "name" : "name",
-                  "url" : "https://openapi-generator.tech"
-                },
-                "text" : "text"
-              } ],
-              "name" : "name",
               "attributes" : [ {
                 "name" : "name",
                 "url" : "https://openapi-generator.tech"
@@ -485,7 +407,115 @@ fun Route.ItemsApi() {
                 "name" : "name",
                 "url" : "https://openapi-generator.tech"
               } ],
-              "id" : 0,
+              "category" : {
+                "name" : "name",
+                "url" : "https://openapi-generator.tech"
+              },
+              "effect_entries" : [ {
+                "effect" : "effect",
+                "short_effect" : "short_effect",
+                "language" : {
+                  "name" : "name",
+                  "url" : "https://openapi-generator.tech"
+                }
+              }, {
+                "effect" : "effect",
+                "short_effect" : "short_effect",
+                "language" : {
+                  "name" : "name",
+                  "url" : "https://openapi-generator.tech"
+                }
+              } ],
+              "flavor_text_entries" : [ {
+                "text" : "text",
+                "version_group" : {
+                  "name" : "name",
+                  "url" : "https://openapi-generator.tech"
+                },
+                "language" : {
+                  "name" : "name",
+                  "url" : "https://openapi-generator.tech"
+                }
+              }, {
+                "text" : "text",
+                "version_group" : {
+                  "name" : "name",
+                  "url" : "https://openapi-generator.tech"
+                },
+                "language" : {
+                  "name" : "name",
+                  "url" : "https://openapi-generator.tech"
+                }
+              } ],
+              "game_indices" : [ {
+                "game_index" : 5,
+                "generation" : {
+                  "name" : "name",
+                  "url" : "https://openapi-generator.tech"
+                }
+              }, {
+                "game_index" : 5,
+                "generation" : {
+                  "name" : "name",
+                  "url" : "https://openapi-generator.tech"
+                }
+              } ],
+              "names" : [ {
+                "name" : "name",
+                "language" : {
+                  "name" : "name",
+                  "url" : "https://openapi-generator.tech"
+                }
+              }, {
+                "name" : "name",
+                "language" : {
+                  "name" : "name",
+                  "url" : "https://openapi-generator.tech"
+                }
+              } ],
+              "held_by_pokemon" : [ {
+                "pokemon" : {
+                  "name" : "name",
+                  "url" : "https://openapi-generator.tech"
+                },
+                "version-details" : [ {
+                  "rarity" : 5,
+                  "version" : {
+                    "name" : "name",
+                    "url" : "https://openapi-generator.tech"
+                  }
+                }, {
+                  "rarity" : 5,
+                  "version" : {
+                    "name" : "name",
+                    "url" : "https://openapi-generator.tech"
+                  }
+                } ]
+              }, {
+                "pokemon" : {
+                  "name" : "name",
+                  "url" : "https://openapi-generator.tech"
+                },
+                "version-details" : [ {
+                  "rarity" : 5,
+                  "version" : {
+                    "name" : "name",
+                    "url" : "https://openapi-generator.tech"
+                  }
+                }, {
+                  "rarity" : 5,
+                  "version" : {
+                    "name" : "name",
+                    "url" : "https://openapi-generator.tech"
+                  }
+                } ]
+              } ],
+              "sprites" : {
+                "default" : "https://openapi-generator.tech"
+              },
+              "baby_trigger_for" : {
+                "url" : "https://openapi-generator.tech"
+              },
               "machines" : [ {
                 "machine" : "https://openapi-generator.tech",
                 "version_group" : {
@@ -498,47 +528,6 @@ fun Route.ItemsApi() {
                   "name" : "name",
                   "url" : "https://openapi-generator.tech"
                 }
-              } ],
-              "category" : {
-                "name" : "name",
-                "url" : "https://openapi-generator.tech"
-              },
-              "held_by_pokemon" : [ {
-                "pokemon" : {
-                  "name" : "name",
-                  "url" : "https://openapi-generator.tech"
-                },
-                "version-details" : [ {
-                  "version" : {
-                    "name" : "name",
-                    "url" : "https://openapi-generator.tech"
-                  },
-                  "rarity" : 5
-                }, {
-                  "version" : {
-                    "name" : "name",
-                    "url" : "https://openapi-generator.tech"
-                  },
-                  "rarity" : 5
-                } ]
-              }, {
-                "pokemon" : {
-                  "name" : "name",
-                  "url" : "https://openapi-generator.tech"
-                },
-                "version-details" : [ {
-                  "version" : {
-                    "name" : "name",
-                    "url" : "https://openapi-generator.tech"
-                  },
-                  "rarity" : 5
-                }, {
-                  "version" : {
-                    "name" : "name",
-                    "url" : "https://openapi-generator.tech"
-                  },
-                  "rarity" : 5
-                } ]
               } ]
             }"""
             
@@ -550,5 +539,4 @@ fun Route.ItemsApi() {
         
     }
     }
-
 }

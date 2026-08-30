@@ -53,14 +53,14 @@ public:
 
 	/*! \brief Set 
 	 */
-	void setUseBefore(std::list <AbilityDetail_pokemon_inner_pokemon> use_before);
+	void setUseBefore(std::list<AbilityDetail_pokemon_inner_pokemon> use_before);
 	/*! \brief Get 
 	 */
 	std::list<AbilityDetail_pokemon_inner_pokemon> getUseAfter();
 
 	/*! \brief Set 
 	 */
-	void setUseAfter(std::list <AbilityDetail_pokemon_inner_pokemon> use_after);
+	void setUseAfter(std::list<AbilityDetail_pokemon_inner_pokemon> use_after);
 
 
     private:

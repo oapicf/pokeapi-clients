@@ -49,8 +49,8 @@ function Initialize-Experience {
 
 
         $PSO = [PSCustomObject]@{
-            "level" = ${Level}
-            "experience" = ${Experience}
+            'level' = ${Level}
+            'experience' = ${Experience}
         }
 
 
@@ -88,7 +88,7 @@ function ConvertFrom-JsonToExperience {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in Experience
-        $AllProperties = ("level", "experience")
+        $AllProperties = ('level', 'experience')
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -99,21 +99,21 @@ function ConvertFrom-JsonToExperience {
             throw "Error! Empty JSON cannot be serialized due to the required property 'level' missing."
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "level"))) {
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'level'))) {
             throw "Error! JSON cannot be serialized due to the required property 'level' missing."
         } else {
-            $Level = $JsonParameters.PSobject.Properties["level"].value
+            $Level = $JsonParameters.PSobject.Properties['level'].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "experience"))) {
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'experience'))) {
             throw "Error! JSON cannot be serialized due to the required property 'experience' missing."
         } else {
-            $Experience = $JsonParameters.PSobject.Properties["experience"].value
+            $Experience = $JsonParameters.PSobject.Properties['experience'].value
         }
 
         $PSO = [PSCustomObject]@{
-            "level" = ${Level}
-            "experience" = ${Experience}
+            'level' = ${Level}
+            'experience' = ${Experience}
         }
 
         return $PSO

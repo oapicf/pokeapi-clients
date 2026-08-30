@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **official** | Option<**bool**> |  | [optional]
 **iso639** | **String** |  | 
 **iso3166** | **String** |  | 
-**names** | [**Vec<models::LanguageName>**](LanguageName.md) |  | 
+**names** | [**Vec<models::LanguageName>**](LanguageName.md) |  | [readonly]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

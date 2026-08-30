@@ -21,8 +21,8 @@ typedef struct super_contest_effect_detail_t super_contest_effect_detail_t;
 
 
 typedef struct super_contest_effect_detail_t {
-    int id; //numeric
-    int appeal; //numeric
+    int *id; //numeric
+    int *appeal; //numeric
     list_t *flavor_text_entries; //nonprimitive container
     list_t *moves; //nonprimitive container
 
@@ -30,8 +30,8 @@ typedef struct super_contest_effect_detail_t {
 } super_contest_effect_detail_t;
 
 __attribute__((deprecated)) super_contest_effect_detail_t *super_contest_effect_detail_create(
-    int id,
-    int appeal,
+    int *id,
+    int *appeal,
     list_t *flavor_text_entries,
     list_t *moves
 );

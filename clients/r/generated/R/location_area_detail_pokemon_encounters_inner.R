@@ -69,13 +69,36 @@ LocationAreaDetailPokemonEncountersInner <- R6::R6Class(
       LocationAreaDetailPokemonEncountersInnerObject <- list()
       if (!is.null(self$`pokemon`)) {
         LocationAreaDetailPokemonEncountersInnerObject[["pokemon"]] <-
-          self$`pokemon`$toSimpleType()
+          self$extractSimpleType(self$`pokemon`)
       }
       if (!is.null(self$`version_details`)) {
         LocationAreaDetailPokemonEncountersInnerObject[["version_details"]] <-
-          lapply(self$`version_details`, function(x) x$toSimpleType())
+          self$extractSimpleType(self$`version_details`)
       }
       return(LocationAreaDetailPokemonEncountersInnerObject)
+    },
+
+    extractSimpleType = function(x) {
+      if (R6::is.R6(x)) {
+        return(x$toSimpleType())
+      } else if (!self$hasNestedR6(x)) {
+        return(x)
+      }
+      lapply(x, self$extractSimpleType)
+    },
+
+    hasNestedR6 = function(x) {
+      if (R6::is.R6(x)) {
+        return(TRUE)
+      }
+      if (is.list(x)) {
+        for (item in x) {
+          if (self$hasNestedR6(item)) {
+            return(TRUE)
+          }
+        }
+      }
+      FALSE
     },
 
     #' @description

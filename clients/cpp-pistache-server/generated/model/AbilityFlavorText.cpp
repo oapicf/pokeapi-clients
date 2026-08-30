@@ -25,6 +25,8 @@ AbilityFlavorText::AbilityFlavorText()
     
 }
 
+AbilityFlavorText::~AbilityFlavorText() = default;
+
 void AbilityFlavorText::validate() const
 {
     std::stringstream msg;

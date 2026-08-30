@@ -37,7 +37,7 @@ import io.swagger.v3.oas.annotations.media.Schema;
   PalParkAreaDetail.JSON_PROPERTY_POKEMON_ENCOUNTERS
 })
 @JsonTypeName("PalParkAreaDetail")
-@Generated(value="org.openapitools.codegen.languages.JavaMicronautServerCodegen", date="2026-02-07T15:23:03.167972722Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@Generated(value="org.openapitools.codegen.languages.JavaMicronautServerCodegen", date="2026-08-30T01:55:54.631003115Z[Etc/UTC]", comments = "Generator version: 7.24.0")
 @Introspected
 public class PalParkAreaDetail {
     public static final String JSON_PROPERTY_ID = "id";
@@ -95,42 +95,16 @@ public class PalParkAreaDetail {
         this.name = name;
     }
 
-    public PalParkAreaDetail names(List<@Valid PalParkAreaName> names) {
-        this.names = names;
-        return this;
-    }
-
-    public PalParkAreaDetail addNamesItem(PalParkAreaName namesItem) {
-        this.names.add(namesItem);
-        return this;
-    }
-
     /**
      * Get names
      * @return names
      */
     @NotNull
-    @Schema(name = "names", requiredMode = Schema.RequiredMode.REQUIRED)
+    @Schema(name = "names", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
     @JsonProperty(JSON_PROPERTY_NAMES)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public List<@Valid PalParkAreaName> getNames() {
         return names;
-    }
-
-    @JsonProperty(JSON_PROPERTY_NAMES)
-    @JsonInclude(value = JsonInclude.Include.ALWAYS)
-    public void setNames(List<@Valid PalParkAreaName> names) {
-        this.names = names;
-    }
-
-    public PalParkAreaDetail pokemonEncounters(List<@Valid PalParkAreaDetailPokemonEncountersInner> pokemonEncounters) {
-        this.pokemonEncounters = pokemonEncounters;
-        return this;
-    }
-
-    public PalParkAreaDetail addPokemonEncountersItem(PalParkAreaDetailPokemonEncountersInner pokemonEncountersItem) {
-        this.pokemonEncounters.add(pokemonEncountersItem);
-        return this;
     }
 
     /**
@@ -138,17 +112,11 @@ public class PalParkAreaDetail {
      * @return pokemonEncounters
      */
     @NotNull
-    @Schema(name = "pokemon_encounters", requiredMode = Schema.RequiredMode.REQUIRED)
+    @Schema(name = "pokemon_encounters", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
     @JsonProperty(JSON_PROPERTY_POKEMON_ENCOUNTERS)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public List<@Valid PalParkAreaDetailPokemonEncountersInner> getPokemonEncounters() {
         return pokemonEncounters;
-    }
-
-    @JsonProperty(JSON_PROPERTY_POKEMON_ENCOUNTERS)
-    @JsonInclude(value = JsonInclude.Include.ALWAYS)
-    public void setPokemonEncounters(List<@Valid PalParkAreaDetailPokemonEncountersInner> pokemonEncounters) {
-        this.pokemonEncounters = pokemonEncounters;
     }
 
     @Override
@@ -188,10 +156,7 @@ public class PalParkAreaDetail {
      * (except the first line).
      */
     private String toIndentedString(Object o) {
-        if (o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
+        return o == null ? "null" : o.toString().replace("\n", "\n    ");
     }
 
 }

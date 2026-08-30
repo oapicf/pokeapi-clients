@@ -92,8 +92,18 @@ namespace Org.OpenAPITools.Model
     /// <summary>
     /// A Json converter for type <see cref="ItemPocketName" />
     /// </summary>
-    public class ItemPocketNameJsonConverter : JsonConverter<ItemPocketName>
+    public partial class ItemPocketNameJsonConverter : JsonConverter<ItemPocketName>
     {
+        partial void OnCreated();
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ItemPocketNameJsonConverter" /> class.
+        /// </summary>
+        public ItemPocketNameJsonConverter()
+        {
+            OnCreated();
+        }
+
         /// <summary>
         /// Deserializes json to <see cref="ItemPocketName" />
         /// </summary>

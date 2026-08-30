@@ -52,21 +52,21 @@ public:
 
 	/*! \brief Set 
 	 */
-	void setLevelLearnedAt(int  level_learned_at);
+	void setLevelLearnedAt(int level_learned_at);
 	/*! \brief Get 
 	 */
 	AbilityDetail_pokemon_inner_pokemon getMoveLearnMethod();
 
 	/*! \brief Set 
 	 */
-	void setMoveLearnMethod(AbilityDetail_pokemon_inner_pokemon  move_learn_method);
+	void setMoveLearnMethod(AbilityDetail_pokemon_inner_pokemon move_learn_method);
 	/*! \brief Get 
 	 */
 	AbilityDetail_pokemon_inner_pokemon getVersionGroup();
 
 	/*! \brief Set 
 	 */
-	void setVersionGroup(AbilityDetail_pokemon_inner_pokemon  version_group);
+	void setVersionGroup(AbilityDetail_pokemon_inner_pokemon version_group);
 
 
     private:

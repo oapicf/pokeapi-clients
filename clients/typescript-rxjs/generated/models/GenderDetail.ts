@@ -35,10 +35,10 @@ export interface GenderDetail {
      * @type {Array<GenderDetailPokemonSpeciesDetailsInner>}
      * @memberof GenderDetail
      */
-    pokemon_species_details: Array<GenderDetailPokemonSpeciesDetailsInner>;
+    readonly pokemon_species_details: Array<GenderDetailPokemonSpeciesDetailsInner>;
     /**
      * @type {Array<AbilityDetailPokemonInnerPokemon>}
      * @memberof GenderDetail
      */
-    required_for_evolution: Array<AbilityDetailPokemonInnerPokemon>;
+    readonly required_for_evolution: Array<AbilityDetailPokemonInnerPokemon>;
 }

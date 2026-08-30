@@ -86,7 +86,7 @@ RegionName::getName()
 }
 
 void
-RegionName::setName(std::string  name)
+RegionName::setName(std::string name)
 {
 	this->name = name;
 }
@@ -98,7 +98,7 @@ RegionName::getLanguage()
 }
 
 void
-RegionName::setLanguage(LanguageSummary  language)
+RegionName::setLanguage(LanguageSummary language)
 {
 	this->language = language;
 }

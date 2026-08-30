@@ -88,7 +88,7 @@ export class UtilityApiRequestFactory extends BaseAPIRequestFactory {
 
         // Path Params
         const localVarPath = '/api/v2/language/{id}/'
-            .replace('{' + 'id' + '}', encodeURIComponent(String(id)));
+            .replace('{id}', encodeURIComponent(String(id)));
 
         // Make Request Context
         const requestContext = _config.baseServer.makeRequestContext(localVarPath, HttpMethod.GET);

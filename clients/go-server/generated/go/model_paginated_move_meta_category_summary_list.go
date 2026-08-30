@@ -25,7 +25,8 @@ type PaginatedMoveMetaCategorySummaryList struct {
 	Results []MoveMetaCategorySummary `json:"results,omitempty"`
 }
 
-// AssertPaginatedMoveMetaCategorySummaryListRequired checks if the required fields are not zero-ed
+// AssertPaginatedMoveMetaCategorySummaryListRequired checks complex required fields (models, arrays, maps) and embedded parents.
+// Primitive required fields are validated for JSON request bodies in UnmarshalJSON so zero values remain valid.
 func AssertPaginatedMoveMetaCategorySummaryListRequired(obj PaginatedMoveMetaCategorySummaryList) error {
 	for _, el := range obj.Results {
 		if err := AssertMoveMetaCategorySummaryRequired(el); err != nil {

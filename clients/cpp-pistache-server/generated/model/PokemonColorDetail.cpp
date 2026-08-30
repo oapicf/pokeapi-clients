@@ -26,6 +26,8 @@ PokemonColorDetail::PokemonColorDetail()
     
 }
 
+PokemonColorDetail::~PokemonColorDetail() = default;
+
 void PokemonColorDetail::validate() const
 {
     std::stringstream msg;

@@ -21,7 +21,7 @@ typedef struct pal_park_area_detail_t pal_park_area_detail_t;
 
 
 typedef struct pal_park_area_detail_t {
-    int id; //numeric
+    int *id; //numeric
     char *name; // string
     list_t *names; //nonprimitive container
     list_t *pokemon_encounters; //nonprimitive container
@@ -30,7 +30,7 @@ typedef struct pal_park_area_detail_t {
 } pal_park_area_detail_t;
 
 __attribute__((deprecated)) pal_park_area_detail_t *pal_park_area_detail_create(
-    int id,
+    int *id,
     char *name,
     list_t *names,
     list_t *pokemon_encounters

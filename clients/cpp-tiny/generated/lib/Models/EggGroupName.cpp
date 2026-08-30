@@ -86,7 +86,7 @@ EggGroupName::getName()
 }
 
 void
-EggGroupName::setName(std::string  name)
+EggGroupName::setName(std::string name)
 {
 	this->name = name;
 }
@@ -98,7 +98,7 @@ EggGroupName::getLanguage()
 }
 
 void
-EggGroupName::setLanguage(LanguageSummary  language)
+EggGroupName::setLanguage(LanguageSummary language)
 {
 	this->language = language;
 }

@@ -103,7 +103,7 @@ AbilityChange::getVersionGroup()
 }
 
 void
-AbilityChange::setVersionGroup(VersionGroupSummary  version_group)
+AbilityChange::setVersionGroup(VersionGroupSummary version_group)
 {
 	this->version_group = version_group;
 }
@@ -115,7 +115,7 @@ AbilityChange::getEffectEntries()
 }
 
 void
-AbilityChange::setEffectEntries(std::list <AbilityChangeEffectText> effect_entries)
+AbilityChange::setEffectEntries(std::list<AbilityChangeEffectText> effect_entries)
 {
 	this->effect_entries = effect_entries;
 }

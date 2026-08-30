@@ -35,7 +35,7 @@ class  ItemFlingEffectDetail
 {
 public:
     ItemFlingEffectDetail();
-    virtual ~ItemFlingEffectDetail() = default;
+    virtual ~ItemFlingEffectDetail();
 
 
     /// <summary>

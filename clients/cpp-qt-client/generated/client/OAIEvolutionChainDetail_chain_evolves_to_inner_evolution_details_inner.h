@@ -23,7 +23,6 @@
 
 #include "OAIAbilityDetail_pokemon_inner_pokemon.h"
 #include "OAIEvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner_gender.h"
-#include "OAIObject.h"
 #include <QString>
 
 #include "OAIEnum.h"
@@ -36,13 +35,13 @@ class OAIAbilityDetail_pokemon_inner_pokemon;
 class OAIEvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner : public OAIObject {
 public:
     OAIEvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner();
-    OAIEvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner(QString json);
+    OAIEvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner(const QString &json);
     ~OAIEvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     OAIEvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner_gender getGender() const;
     void setGender(const OAIEvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner_gender &gender);
@@ -59,13 +58,13 @@ public:
     bool is_item_Set() const;
     bool is_item_Valid() const;
 
-    OAIObject getKnownMove() const;
-    void setKnownMove(const OAIObject &known_move);
+    OAIEvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner_gender getKnownMove() const;
+    void setKnownMove(const OAIEvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner_gender &known_move);
     bool is_known_move_Set() const;
     bool is_known_move_Valid() const;
 
-    OAIObject getKnownMoveType() const;
-    void setKnownMoveType(const OAIObject &known_move_type);
+    OAIEvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner_gender getKnownMoveType() const;
+    void setKnownMoveType(const OAIEvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner_gender &known_move_type);
     bool is_known_move_type_Set() const;
     bool is_known_move_type_Valid() const;
 
@@ -152,11 +151,11 @@ private:
     bool m_item_isSet;
     bool m_item_isValid;
 
-    OAIObject m_known_move;
+    OAIEvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner_gender m_known_move;
     bool m_known_move_isSet;
     bool m_known_move_isValid;
 
-    OAIObject m_known_move_type;
+    OAIEvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner_gender m_known_move_type;
     bool m_known_move_type_isSet;
     bool m_known_move_type_isValid;
 

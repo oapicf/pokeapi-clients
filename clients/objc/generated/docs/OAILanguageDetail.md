@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **official** | **NSNumber*** |  | [optional] 
 **iso639** | **NSString*** |  | 
 **iso3166** | **NSString*** |  | 
-**names** | [**NSArray&lt;OAILanguageName&gt;***](OAILanguageName.md) |  | 
+**names** | [**NSArray&lt;OAILanguageName&gt;***](OAILanguageName.md) |  | [readonly] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

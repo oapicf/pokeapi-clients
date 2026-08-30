@@ -12,38 +12,32 @@ import org.openapitools.model.AbilityDetailPokemonInnerPokemon;
 import org.springframework.lang.Nullable;
 import org.openapitools.jackson.nullable.JsonNullable;
 import java.time.OffsetDateTime;
-import javax.validation.Valid;
-import javax.validation.constraints.*;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.*;
 import io.swagger.v3.oas.annotations.media.Schema;
 
 
 import java.util.*;
-import javax.annotation.Generated;
+import jakarta.annotation.Generated;
 
 /**
  * TypeDetailPastDamageRelationsInnerDamageRelations
  */
 
 @JsonTypeName("TypeDetail_past_damage_relations_inner_damage_relations")
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2026-02-07T15:29:13.146999890Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2026-08-30T02:00:43.960184425Z[Etc/UTC]", comments = "Generator version: 7.24.0")
 public class TypeDetailPastDamageRelationsInnerDamageRelations {
 
-  @Valid
   private List<@Valid AbilityDetailPokemonInnerPokemon> noDamageTo = new ArrayList<>();
 
-  @Valid
   private List<@Valid AbilityDetailPokemonInnerPokemon> halfDamageTo = new ArrayList<>();
 
-  @Valid
   private List<@Valid AbilityDetailPokemonInnerPokemon> doubleDamageTo = new ArrayList<>();
 
-  @Valid
   private List<@Valid AbilityDetailPokemonInnerPokemon> noDamageFrom = new ArrayList<>();
 
-  @Valid
   private List<@Valid AbilityDetailPokemonInnerPokemon> halfDamageFrom = new ArrayList<>();
 
-  @Valid
   private List<@Valid AbilityDetailPokemonInnerPokemon> doubleDamageFrom = new ArrayList<>();
 
   public TypeDetailPastDamageRelationsInnerDamageRelations() {
@@ -86,6 +80,7 @@ public class TypeDetailPastDamageRelationsInnerDamageRelations {
     return noDamageTo;
   }
 
+  @JsonProperty("no_damage_to")
   public void setNoDamageTo(List<@Valid AbilityDetailPokemonInnerPokemon> noDamageTo) {
     this.noDamageTo = noDamageTo;
   }
@@ -114,6 +109,7 @@ public class TypeDetailPastDamageRelationsInnerDamageRelations {
     return halfDamageTo;
   }
 
+  @JsonProperty("half_damage_to")
   public void setHalfDamageTo(List<@Valid AbilityDetailPokemonInnerPokemon> halfDamageTo) {
     this.halfDamageTo = halfDamageTo;
   }
@@ -142,6 +138,7 @@ public class TypeDetailPastDamageRelationsInnerDamageRelations {
     return doubleDamageTo;
   }
 
+  @JsonProperty("double_damage_to")
   public void setDoubleDamageTo(List<@Valid AbilityDetailPokemonInnerPokemon> doubleDamageTo) {
     this.doubleDamageTo = doubleDamageTo;
   }
@@ -170,6 +167,7 @@ public class TypeDetailPastDamageRelationsInnerDamageRelations {
     return noDamageFrom;
   }
 
+  @JsonProperty("no_damage_from")
   public void setNoDamageFrom(List<@Valid AbilityDetailPokemonInnerPokemon> noDamageFrom) {
     this.noDamageFrom = noDamageFrom;
   }
@@ -198,6 +196,7 @@ public class TypeDetailPastDamageRelationsInnerDamageRelations {
     return halfDamageFrom;
   }
 
+  @JsonProperty("half_damage_from")
   public void setHalfDamageFrom(List<@Valid AbilityDetailPokemonInnerPokemon> halfDamageFrom) {
     this.halfDamageFrom = halfDamageFrom;
   }
@@ -226,6 +225,7 @@ public class TypeDetailPastDamageRelationsInnerDamageRelations {
     return doubleDamageFrom;
   }
 
+  @JsonProperty("double_damage_from")
   public void setDoubleDamageFrom(List<@Valid AbilityDetailPokemonInnerPokemon> doubleDamageFrom) {
     this.doubleDamageFrom = doubleDamageFrom;
   }
@@ -270,11 +270,8 @@ public class TypeDetailPastDamageRelationsInnerDamageRelations {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+  private String toIndentedString(@Nullable Object o) {
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 }
 

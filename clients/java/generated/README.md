@@ -2,8 +2,8 @@
 
 PokéAPI
 - API version: 2.7.0
-  - Build date: 2026-02-07T15:22:35.747827932Z[Etc/UTC]
-  - Generator version: 7.18.0
+  - Build date: 2026-08-30T01:55:28.842792947Z[Etc/UTC]
+  - Generator version: 7.24.0
 
 All the Pokémon data you'll ever need in one place, easily accessible through a modern free open-source RESTful API.
 

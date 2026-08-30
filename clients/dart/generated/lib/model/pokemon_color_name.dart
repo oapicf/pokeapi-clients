@@ -53,10 +53,10 @@ class PokemonColorName {
       // Note 1: the values aren't checked for validity beyond being non-null.
       // Note 2: this code is stripped in release mode!
       assert(() {
-        requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "PokemonColorName[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "PokemonColorName[$key]" has a null value in JSON.');
-        });
+        assert(json.containsKey(r'name'), 'Required key "PokemonColorName[name]" is missing from JSON.');
+        assert(json[r'name'] != null, 'Required key "PokemonColorName[name]" has a null value in JSON.');
+        assert(json.containsKey(r'language'), 'Required key "PokemonColorName[language]" is missing from JSON.');
+        assert(json[r'language'] != null, 'Required key "PokemonColorName[language]" has a null value in JSON.');
         return true;
       }());
 

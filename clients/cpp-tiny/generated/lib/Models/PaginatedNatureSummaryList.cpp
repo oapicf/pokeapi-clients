@@ -144,7 +144,7 @@ PaginatedNatureSummaryList::getCount()
 }
 
 void
-PaginatedNatureSummaryList::setCount(int  count)
+PaginatedNatureSummaryList::setCount(int count)
 {
 	this->count = count;
 }
@@ -156,7 +156,7 @@ PaginatedNatureSummaryList::getNext()
 }
 
 void
-PaginatedNatureSummaryList::setNext(std::string  next)
+PaginatedNatureSummaryList::setNext(std::string next)
 {
 	this->next = next;
 }
@@ -168,7 +168,7 @@ PaginatedNatureSummaryList::getPrevious()
 }
 
 void
-PaginatedNatureSummaryList::setPrevious(std::string  previous)
+PaginatedNatureSummaryList::setPrevious(std::string previous)
 {
 	this->previous = previous;
 }
@@ -180,7 +180,7 @@ PaginatedNatureSummaryList::getResults()
 }
 
 void
-PaginatedNatureSummaryList::setResults(std::list <NatureSummary> results)
+PaginatedNatureSummaryList::setResults(std::list<NatureSummary> results)
 {
 	this->results = results;
 }

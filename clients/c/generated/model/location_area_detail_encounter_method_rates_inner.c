@@ -13,10 +13,10 @@ static location_area_detail_encounter_method_rates_inner_t *location_area_detail
     if (!location_area_detail_encounter_method_rates_inner_local_var) {
         return NULL;
     }
+    memset(location_area_detail_encounter_method_rates_inner_local_var, 0, sizeof(location_area_detail_encounter_method_rates_inner_t));
+    location_area_detail_encounter_method_rates_inner_local_var->_library_owned = 1;
     location_area_detail_encounter_method_rates_inner_local_var->encounter_method = encounter_method;
     location_area_detail_encounter_method_rates_inner_local_var->version_details = version_details;
-
-    location_area_detail_encounter_method_rates_inner_local_var->_library_owned = 1;
     return location_area_detail_encounter_method_rates_inner_local_var;
 }
 
@@ -24,10 +24,13 @@ __attribute__((deprecated)) location_area_detail_encounter_method_rates_inner_t 
     ability_detail_pokemon_inner_pokemon_t *encounter_method,
     list_t *version_details
     ) {
-    return location_area_detail_encounter_method_rates_inner_create_internal (
+    location_area_detail_encounter_method_rates_inner_t *result = location_area_detail_encounter_method_rates_inner_create_internal (
         encounter_method,
         version_details
         );
+    if (!result) {
+    }
+    return result;
 }
 
 void location_area_detail_encounter_method_rates_inner_free(location_area_detail_encounter_method_rates_inner_t *location_area_detail_encounter_method_rates_inner) {
@@ -148,10 +151,15 @@ location_area_detail_encounter_method_rates_inner_t *location_area_detail_encoun
     }
 
 
+
     location_area_detail_encounter_method_rates_inner_local_var = location_area_detail_encounter_method_rates_inner_create_internal (
         encounter_method_local_nonprim,
         version_detailsList
         );
+
+    if (!location_area_detail_encounter_method_rates_inner_local_var) {
+        goto end;
+    }
 
     return location_area_detail_encounter_method_rates_inner_local_var;
 end:

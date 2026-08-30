@@ -42,31 +42,31 @@ public class OASAbilityDetail implements OAS.MappedProperties {
      * Get names
      * @return names
      */
-    public List<OASAbilityName> names { get; set; }
+    public List<OASAbilityName> names { get; private set; }
 
     /**
      * Get effectEntries
      * @return effectEntries
      */
-    public List<OASAbilityEffectText> effectEntries { get; set; }
+    public List<OASAbilityEffectText> effectEntries { get; private set; }
 
     /**
      * Get effectChanges
      * @return effectChanges
      */
-    public List<OASAbilityChange> effectChanges { get; set; }
+    public List<OASAbilityChange> effectChanges { get; private set; }
 
     /**
      * Get flavorTextEntries
      * @return flavorTextEntries
      */
-    public List<OASAbilityFlavorText> flavorTextEntries { get; set; }
+    public List<OASAbilityFlavorText> flavorTextEntries { get; private set; }
 
     /**
      * Get pokemon
      * @return pokemon
      */
-    public List<OASAbilityDetailPokemonInner> pokemon { get; set; }
+    public List<OASAbilityDetailPokemonInner> pokemon { get; private set; }
 
     private static final Map<String, String> propertyMappings = new Map<String, String>{
         'is_main_series' => 'isMainSeries',

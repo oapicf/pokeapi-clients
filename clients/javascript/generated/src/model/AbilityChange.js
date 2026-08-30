@@ -18,7 +18,7 @@ import VersionGroupSummary from './VersionGroupSummary';
 /**
  * The AbilityChange model module.
  * @module model/AbilityChange
- * @version 1.2.1-pre.0
+ * @version 2.0.1-pre.0
  */
 class AbilityChange {
     /**

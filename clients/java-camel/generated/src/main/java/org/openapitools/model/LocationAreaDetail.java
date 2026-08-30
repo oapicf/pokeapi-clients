@@ -13,19 +13,19 @@ import org.openapitools.model.LocationAreaName;
 import org.openapitools.model.LocationSummary;
 import org.openapitools.jackson.nullable.JsonNullable;
 import java.time.OffsetDateTime;
-import javax.validation.Valid;
-import javax.validation.constraints.*;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.*;
 import io.swagger.v3.oas.annotations.media.Schema;
 
 
 import java.util.*;
-import javax.annotation.Generated;
+import jakarta.annotation.Generated;
 
 /**
  * LocationAreaDetail
  */
 
-@Generated(value = "org.openapitools.codegen.languages.JavaCamelServerCodegen", date = "2026-02-07T15:23:32.871052804Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@Generated(value = "org.openapitools.codegen.languages.JavaCamelServerCodegen", date = "2026-08-30T01:56:15.309401083Z[Etc/UTC]", comments = "Generator version: 7.24.0")
 public class LocationAreaDetail {
 
   private Integer id;
@@ -139,8 +139,8 @@ public class LocationAreaDetail {
    * Get encounterMethodRates
    * @return encounterMethodRates
    */
-  @NotNull @Valid 
-  @Schema(name = "encounter_method_rates", requiredMode = Schema.RequiredMode.REQUIRED)
+  @Valid 
+  @Schema(name = "encounter_method_rates", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("encounter_method_rates")
   public List<@Valid LocationAreaDetailEncounterMethodRatesInner> getEncounterMethodRates() {
     return encounterMethodRates;
@@ -187,8 +187,8 @@ public class LocationAreaDetail {
    * Get names
    * @return names
    */
-  @NotNull @Valid 
-  @Schema(name = "names", requiredMode = Schema.RequiredMode.REQUIRED)
+  @Valid 
+  @Schema(name = "names", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("names")
   public List<@Valid LocationAreaName> getNames() {
     return names;
@@ -215,8 +215,8 @@ public class LocationAreaDetail {
    * Get pokemonEncounters
    * @return pokemonEncounters
    */
-  @NotNull @Valid 
-  @Schema(name = "pokemon_encounters", requiredMode = Schema.RequiredMode.REQUIRED)
+  @Valid 
+  @Schema(name = "pokemon_encounters", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("pokemon_encounters")
   public List<@Valid LocationAreaDetailPokemonEncountersInner> getPokemonEncounters() {
     return pokemonEncounters;
@@ -269,10 +269,7 @@ public class LocationAreaDetail {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 }
 

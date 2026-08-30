@@ -32,7 +32,7 @@ class  MoveBattleStyleSummary
 {
 public:
     MoveBattleStyleSummary();
-    virtual ~MoveBattleStyleSummary() = default;
+    virtual ~MoveBattleStyleSummary();
 
 
     /// <summary>

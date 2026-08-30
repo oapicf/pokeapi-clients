@@ -21,7 +21,7 @@
 
 namespace OpenAPI {
 
-OAIEggGroupDetail::OAIEggGroupDetail(QString json) {
+OAIEggGroupDetail::OAIEggGroupDetail(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -47,7 +47,7 @@ void OAIEggGroupDetail::initializeModel() {
     m_pokemon_species_isValid = false;
 }
 
-void OAIEggGroupDetail::fromJson(QString jsonString) {
+void OAIEggGroupDetail::fromJson(const QString &jsonString) {
     QByteArray array(jsonString.toStdString().c_str());
     QJsonDocument doc = QJsonDocument::fromJson(array);
     QJsonObject jsonObject = doc.object();

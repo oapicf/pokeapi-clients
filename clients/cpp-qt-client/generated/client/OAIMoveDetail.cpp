@@ -21,7 +21,7 @@
 
 namespace OpenAPI {
 
-OAIMoveDetail::OAIMoveDetail(QString json) {
+OAIMoveDetail::OAIMoveDetail(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -107,7 +107,7 @@ void OAIMoveDetail::initializeModel() {
     m_learned_by_pokemon_isValid = false;
 }
 
-void OAIMoveDetail::fromJson(QString jsonString) {
+void OAIMoveDetail::fromJson(const QString &jsonString) {
     QByteArray array(jsonString.toStdString().c_str());
     QJsonDocument doc = QJsonDocument::fromJson(array);
     QJsonObject jsonObject = doc.object();

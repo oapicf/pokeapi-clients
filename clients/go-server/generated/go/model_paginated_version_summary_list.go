@@ -25,7 +25,8 @@ type PaginatedVersionSummaryList struct {
 	Results []VersionSummary `json:"results,omitempty"`
 }
 
-// AssertPaginatedVersionSummaryListRequired checks if the required fields are not zero-ed
+// AssertPaginatedVersionSummaryListRequired checks complex required fields (models, arrays, maps) and embedded parents.
+// Primitive required fields are validated for JSON request bodies in UnmarshalJSON so zero values remain valid.
 func AssertPaginatedVersionSummaryListRequired(obj PaginatedVersionSummaryList) error {
 	for _, el := range obj.Results {
 		if err := AssertVersionSummaryRequired(el); err != nil {

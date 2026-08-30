@@ -24,7 +24,7 @@ import java.util.List;
  * GenerationDetail
  */
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPKMSTServerCodegen", date = "2026-02-07T15:23:15.032724200Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPKMSTServerCodegen", date = "2026-08-30T01:56:01.724492951Z[Etc/UTC]", comments = "Generator version: 7.24.0")
 public class GenerationDetail   {
   @JsonProperty("id")
   private Integer id;
@@ -112,7 +112,7 @@ public class GenerationDetail   {
    * Get abilities
    * @return abilities
    */
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, readOnly = true, value = "")
   public List<AbilitySummary> getAbilities() {
     return abilities;
   }
@@ -156,7 +156,7 @@ public class GenerationDetail   {
    * Get moves
    * @return moves
    */
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, readOnly = true, value = "")
   public List<MoveSummary> getMoves() {
     return moves;
   }
@@ -182,7 +182,7 @@ public class GenerationDetail   {
    * Get names
    * @return names
    */
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, readOnly = true, value = "")
   public List<GenerationName> getNames() {
     return names;
   }
@@ -208,7 +208,7 @@ public class GenerationDetail   {
    * Get pokemonSpecies
    * @return pokemonSpecies
    */
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, readOnly = true, value = "")
   public List<PokemonSpeciesSummary> getPokemonSpecies() {
     return pokemonSpecies;
   }
@@ -234,7 +234,7 @@ public class GenerationDetail   {
    * Get types
    * @return types
    */
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, readOnly = true, value = "")
   public List<TypeSummary> getTypes() {
     return types;
   }
@@ -260,7 +260,7 @@ public class GenerationDetail   {
    * Get versionGroups
    * @return versionGroups
    */
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, readOnly = true, value = "")
   public List<VersionGroupSummary> getVersionGroups() {
     return versionGroups;
   }
@@ -318,10 +318,7 @@ public class GenerationDetail   {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 }
 

@@ -13,13 +13,16 @@
 
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Net;
+using System.IO;
 using System.Threading.Tasks;
 using Microsoft.Extensions.Logging;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Text.Json;
 using Org.OpenAPITools.Client;
+using Org.OpenAPITools.Logging;
 using Org.OpenAPITools.Model;
 using System.Diagnostics.CodeAnalysis;
 
@@ -279,11 +282,6 @@ namespace Org.OpenAPITools.Api
         private JsonSerializerOptions _jsonSerializerOptions;
 
         /// <summary>
-        /// The logger factory
-        /// </summary>
-        public ILoggerFactory LoggerFactory { get; }
-
-        /// <summary>
         /// The logger
         /// </summary>
         public ILogger<EvolutionApi> Logger { get; }
@@ -312,13 +310,12 @@ namespace Org.OpenAPITools.Api
         /// Initializes a new instance of the <see cref="EvolutionApi"/> class.
         /// </summary>
         /// <returns></returns>
-        public EvolutionApi(ILogger<EvolutionApi> logger, ILoggerFactory loggerFactory, HttpClient httpClient, JsonSerializerOptionsProvider jsonSerializerOptionsProvider, EvolutionApiEvents evolutionApiEvents,
+        public EvolutionApi(ILogger<EvolutionApi> logger, HttpClient httpClient, JsonSerializerOptionsProvider jsonSerializerOptionsProvider, EvolutionApiEvents evolutionApiEvents,
             TokenProvider<ApiKeyToken> apiKeyProvider,
             TokenProvider<BasicToken> basicTokenProvider)
         {
             _jsonSerializerOptions = jsonSerializerOptionsProvider.Options;
-            LoggerFactory = loggerFactory;
-            Logger = LoggerFactory.CreateLogger<EvolutionApi>();
+            Logger = logger;
             HttpClient = httpClient;
             Events = evolutionApiEvents;
             ApiKeyProvider = apiKeyProvider;
@@ -350,7 +347,7 @@ namespace Org.OpenAPITools.Api
             bool suppressDefaultLog = false;
             AfterEvolutionChainList(ref suppressDefaultLog, apiResponseLocalVar, limit, offset, q);
             if (!suppressDefaultLog)
-                Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
+                Logger.LogInformation(RestLogEvents.ApiRequestCompleted, "{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
 
         /// <summary>
@@ -377,7 +374,7 @@ namespace Org.OpenAPITools.Api
             bool suppressDefaultLogLocalVar = false;
             OnErrorEvolutionChainList(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, limit, offset, q);
             if (!suppressDefaultLogLocalVar)
-                Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
+                Logger.LogError(RestLogEvents.ApiRequestFailed, exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
 
         /// <summary>
@@ -438,7 +435,7 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
                         ? "/api/v2/evolution-chain/"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/v2/evolution-chain/");
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath.TrimEnd('/'), "/api/v2/evolution-chain/");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -466,10 +463,10 @@ namespace Org.OpenAPITools.Api
                         "application/json"
                     };
 
-                    string? acceptLocalVar = ClientUtils.SelectHeaderAccept(acceptLocalVars);
+                    IEnumerable<MediaTypeWithQualityHeaderValue> acceptHeaderValuesLocalVar = ClientUtils.SelectHeaderAcceptArray(acceptLocalVars);
 
-                    if (acceptLocalVar != null)
-                        httpRequestMessageLocalVar.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue(acceptLocalVar));
+                    foreach (var acceptLocalVar in acceptHeaderValuesLocalVar)
+                        httpRequestMessageLocalVar.Headers.Accept.Add(acceptLocalVar);
 
                     httpRequestMessageLocalVar.Method = HttpMethod.Get;
 
@@ -477,13 +474,12 @@ namespace Org.OpenAPITools.Api
 
                     using (HttpResponseMessage httpResponseMessageLocalVar = await HttpClient.SendAsync(httpRequestMessageLocalVar, cancellationToken).ConfigureAwait(false))
                     {
-                        ILogger<EvolutionChainListApiResponse> apiResponseLoggerLocalVar = LoggerFactory.CreateLogger<EvolutionChainListApiResponse>();
                         EvolutionChainListApiResponse apiResponseLocalVar;
 
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/v2/evolution-chain/", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(Logger, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/v2/evolution-chain/", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
@@ -517,7 +513,7 @@ namespace Org.OpenAPITools.Api
             /// <summary>
             /// The logger
             /// </summary>
-            public ILogger<EvolutionChainListApiResponse> Logger { get; }
+            public ILogger<EvolutionApi> Logger { get; }
 
             /// <summary>
             /// The <see cref="EvolutionChainListApiResponse"/>
@@ -529,7 +525,7 @@ namespace Org.OpenAPITools.Api
             /// <param name="path"></param>
             /// <param name="requestedAt"></param>
             /// <param name="jsonSerializerOptions"></param>
-            public EvolutionChainListApiResponse(ILogger<EvolutionChainListApiResponse> logger, System.Net.Http.HttpRequestMessage httpRequestMessage, System.Net.Http.HttpResponseMessage httpResponseMessage, string rawContent, string path, DateTime requestedAt, System.Text.Json.JsonSerializerOptions jsonSerializerOptions) : base(httpRequestMessage, httpResponseMessage, rawContent, path, requestedAt, jsonSerializerOptions)
+            public EvolutionChainListApiResponse(ILogger<EvolutionApi> logger, System.Net.Http.HttpRequestMessage httpRequestMessage, System.Net.Http.HttpResponseMessage httpResponseMessage, string rawContent, string path, DateTime requestedAt, System.Text.Json.JsonSerializerOptions jsonSerializerOptions) : base(httpRequestMessage, httpResponseMessage, rawContent, path, requestedAt, jsonSerializerOptions)
             {
                 Logger = logger;
                 OnCreated(httpRequestMessage, httpResponseMessage);
@@ -545,7 +541,7 @@ namespace Org.OpenAPITools.Api
             /// <param name="path"></param>
             /// <param name="requestedAt"></param>
             /// <param name="jsonSerializerOptions"></param>
-            public EvolutionChainListApiResponse(ILogger<EvolutionChainListApiResponse> logger, System.Net.Http.HttpRequestMessage httpRequestMessage, System.Net.Http.HttpResponseMessage httpResponseMessage, System.IO.Stream contentStream, string path, DateTime requestedAt, System.Text.Json.JsonSerializerOptions jsonSerializerOptions) : base(httpRequestMessage, httpResponseMessage, contentStream, path, requestedAt, jsonSerializerOptions)
+            public EvolutionChainListApiResponse(ILogger<EvolutionApi> logger, System.Net.Http.HttpRequestMessage httpRequestMessage, System.Net.Http.HttpResponseMessage httpResponseMessage, System.IO.Stream contentStream, string path, DateTime requestedAt, System.Text.Json.JsonSerializerOptions jsonSerializerOptions) : base(httpRequestMessage, httpResponseMessage, contentStream, path, requestedAt, jsonSerializerOptions)
             {
                 Logger = logger;
                 OnCreated(httpRequestMessage, httpResponseMessage);
@@ -596,7 +592,7 @@ namespace Org.OpenAPITools.Api
                 bool suppressDefaultLog = false;
                 OnDeserializationError(ref suppressDefaultLog, exception, httpStatusCode);
                 if (!suppressDefaultLog)
-                    Logger.LogError(exception, "An error occurred while deserializing the {code} response.", httpStatusCode);
+                    Logger.LogError(RestLogEvents.ApiDeserializationFailed, exception, "An error occurred while deserializing the {code} response.", httpStatusCode);
             }
 
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
@@ -625,7 +621,7 @@ namespace Org.OpenAPITools.Api
             bool suppressDefaultLog = false;
             AfterEvolutionChainRetrieve(ref suppressDefaultLog, apiResponseLocalVar, id);
             if (!suppressDefaultLog)
-                Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
+                Logger.LogInformation(RestLogEvents.ApiRequestCompleted, "{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
 
         /// <summary>
@@ -648,7 +644,7 @@ namespace Org.OpenAPITools.Api
             bool suppressDefaultLogLocalVar = false;
             OnErrorEvolutionChainRetrieve(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, id);
             if (!suppressDefaultLogLocalVar)
-                Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
+                Logger.LogError(RestLogEvents.ApiRequestFailed, exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
 
         /// <summary>
@@ -703,7 +699,7 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
                         ? "/api/v2/evolution-chain/{id}/"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/v2/evolution-chain/{id}/");
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath.TrimEnd('/'), "/api/v2/evolution-chain/{id}/");
                     uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bid%7D", Uri.EscapeDataString(id.ToString()));
 
                     List<TokenBase> tokenBaseLocalVars = new List<TokenBase>();
@@ -719,10 +715,10 @@ namespace Org.OpenAPITools.Api
                         "application/json"
                     };
 
-                    string? acceptLocalVar = ClientUtils.SelectHeaderAccept(acceptLocalVars);
+                    IEnumerable<MediaTypeWithQualityHeaderValue> acceptHeaderValuesLocalVar = ClientUtils.SelectHeaderAcceptArray(acceptLocalVars);
 
-                    if (acceptLocalVar != null)
-                        httpRequestMessageLocalVar.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue(acceptLocalVar));
+                    foreach (var acceptLocalVar in acceptHeaderValuesLocalVar)
+                        httpRequestMessageLocalVar.Headers.Accept.Add(acceptLocalVar);
 
                     httpRequestMessageLocalVar.Method = HttpMethod.Get;
 
@@ -730,13 +726,12 @@ namespace Org.OpenAPITools.Api
 
                     using (HttpResponseMessage httpResponseMessageLocalVar = await HttpClient.SendAsync(httpRequestMessageLocalVar, cancellationToken).ConfigureAwait(false))
                     {
-                        ILogger<EvolutionChainRetrieveApiResponse> apiResponseLoggerLocalVar = LoggerFactory.CreateLogger<EvolutionChainRetrieveApiResponse>();
                         EvolutionChainRetrieveApiResponse apiResponseLocalVar;
 
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/v2/evolution-chain/{id}/", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(Logger, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/v2/evolution-chain/{id}/", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
@@ -770,7 +765,7 @@ namespace Org.OpenAPITools.Api
             /// <summary>
             /// The logger
             /// </summary>
-            public ILogger<EvolutionChainRetrieveApiResponse> Logger { get; }
+            public ILogger<EvolutionApi> Logger { get; }
 
             /// <summary>
             /// The <see cref="EvolutionChainRetrieveApiResponse"/>
@@ -782,7 +777,7 @@ namespace Org.OpenAPITools.Api
             /// <param name="path"></param>
             /// <param name="requestedAt"></param>
             /// <param name="jsonSerializerOptions"></param>
-            public EvolutionChainRetrieveApiResponse(ILogger<EvolutionChainRetrieveApiResponse> logger, System.Net.Http.HttpRequestMessage httpRequestMessage, System.Net.Http.HttpResponseMessage httpResponseMessage, string rawContent, string path, DateTime requestedAt, System.Text.Json.JsonSerializerOptions jsonSerializerOptions) : base(httpRequestMessage, httpResponseMessage, rawContent, path, requestedAt, jsonSerializerOptions)
+            public EvolutionChainRetrieveApiResponse(ILogger<EvolutionApi> logger, System.Net.Http.HttpRequestMessage httpRequestMessage, System.Net.Http.HttpResponseMessage httpResponseMessage, string rawContent, string path, DateTime requestedAt, System.Text.Json.JsonSerializerOptions jsonSerializerOptions) : base(httpRequestMessage, httpResponseMessage, rawContent, path, requestedAt, jsonSerializerOptions)
             {
                 Logger = logger;
                 OnCreated(httpRequestMessage, httpResponseMessage);
@@ -798,7 +793,7 @@ namespace Org.OpenAPITools.Api
             /// <param name="path"></param>
             /// <param name="requestedAt"></param>
             /// <param name="jsonSerializerOptions"></param>
-            public EvolutionChainRetrieveApiResponse(ILogger<EvolutionChainRetrieveApiResponse> logger, System.Net.Http.HttpRequestMessage httpRequestMessage, System.Net.Http.HttpResponseMessage httpResponseMessage, System.IO.Stream contentStream, string path, DateTime requestedAt, System.Text.Json.JsonSerializerOptions jsonSerializerOptions) : base(httpRequestMessage, httpResponseMessage, contentStream, path, requestedAt, jsonSerializerOptions)
+            public EvolutionChainRetrieveApiResponse(ILogger<EvolutionApi> logger, System.Net.Http.HttpRequestMessage httpRequestMessage, System.Net.Http.HttpResponseMessage httpResponseMessage, System.IO.Stream contentStream, string path, DateTime requestedAt, System.Text.Json.JsonSerializerOptions jsonSerializerOptions) : base(httpRequestMessage, httpResponseMessage, contentStream, path, requestedAt, jsonSerializerOptions)
             {
                 Logger = logger;
                 OnCreated(httpRequestMessage, httpResponseMessage);
@@ -849,7 +844,7 @@ namespace Org.OpenAPITools.Api
                 bool suppressDefaultLog = false;
                 OnDeserializationError(ref suppressDefaultLog, exception, httpStatusCode);
                 if (!suppressDefaultLog)
-                    Logger.LogError(exception, "An error occurred while deserializing the {code} response.", httpStatusCode);
+                    Logger.LogError(RestLogEvents.ApiDeserializationFailed, exception, "An error occurred while deserializing the {code} response.", httpStatusCode);
             }
 
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
@@ -880,7 +875,7 @@ namespace Org.OpenAPITools.Api
             bool suppressDefaultLog = false;
             AfterEvolutionTriggerList(ref suppressDefaultLog, apiResponseLocalVar, limit, offset, q);
             if (!suppressDefaultLog)
-                Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
+                Logger.LogInformation(RestLogEvents.ApiRequestCompleted, "{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
 
         /// <summary>
@@ -907,7 +902,7 @@ namespace Org.OpenAPITools.Api
             bool suppressDefaultLogLocalVar = false;
             OnErrorEvolutionTriggerList(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, limit, offset, q);
             if (!suppressDefaultLogLocalVar)
-                Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
+                Logger.LogError(RestLogEvents.ApiRequestFailed, exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
 
         /// <summary>
@@ -968,7 +963,7 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
                         ? "/api/v2/evolution-trigger/"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/v2/evolution-trigger/");
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath.TrimEnd('/'), "/api/v2/evolution-trigger/");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -996,10 +991,10 @@ namespace Org.OpenAPITools.Api
                         "application/json"
                     };
 
-                    string? acceptLocalVar = ClientUtils.SelectHeaderAccept(acceptLocalVars);
+                    IEnumerable<MediaTypeWithQualityHeaderValue> acceptHeaderValuesLocalVar = ClientUtils.SelectHeaderAcceptArray(acceptLocalVars);
 
-                    if (acceptLocalVar != null)
-                        httpRequestMessageLocalVar.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue(acceptLocalVar));
+                    foreach (var acceptLocalVar in acceptHeaderValuesLocalVar)
+                        httpRequestMessageLocalVar.Headers.Accept.Add(acceptLocalVar);
 
                     httpRequestMessageLocalVar.Method = HttpMethod.Get;
 
@@ -1007,13 +1002,12 @@ namespace Org.OpenAPITools.Api
 
                     using (HttpResponseMessage httpResponseMessageLocalVar = await HttpClient.SendAsync(httpRequestMessageLocalVar, cancellationToken).ConfigureAwait(false))
                     {
-                        ILogger<EvolutionTriggerListApiResponse> apiResponseLoggerLocalVar = LoggerFactory.CreateLogger<EvolutionTriggerListApiResponse>();
                         EvolutionTriggerListApiResponse apiResponseLocalVar;
 
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/v2/evolution-trigger/", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(Logger, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/v2/evolution-trigger/", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
@@ -1047,7 +1041,7 @@ namespace Org.OpenAPITools.Api
             /// <summary>
             /// The logger
             /// </summary>
-            public ILogger<EvolutionTriggerListApiResponse> Logger { get; }
+            public ILogger<EvolutionApi> Logger { get; }
 
             /// <summary>
             /// The <see cref="EvolutionTriggerListApiResponse"/>
@@ -1059,7 +1053,7 @@ namespace Org.OpenAPITools.Api
             /// <param name="path"></param>
             /// <param name="requestedAt"></param>
             /// <param name="jsonSerializerOptions"></param>
-            public EvolutionTriggerListApiResponse(ILogger<EvolutionTriggerListApiResponse> logger, System.Net.Http.HttpRequestMessage httpRequestMessage, System.Net.Http.HttpResponseMessage httpResponseMessage, string rawContent, string path, DateTime requestedAt, System.Text.Json.JsonSerializerOptions jsonSerializerOptions) : base(httpRequestMessage, httpResponseMessage, rawContent, path, requestedAt, jsonSerializerOptions)
+            public EvolutionTriggerListApiResponse(ILogger<EvolutionApi> logger, System.Net.Http.HttpRequestMessage httpRequestMessage, System.Net.Http.HttpResponseMessage httpResponseMessage, string rawContent, string path, DateTime requestedAt, System.Text.Json.JsonSerializerOptions jsonSerializerOptions) : base(httpRequestMessage, httpResponseMessage, rawContent, path, requestedAt, jsonSerializerOptions)
             {
                 Logger = logger;
                 OnCreated(httpRequestMessage, httpResponseMessage);
@@ -1075,7 +1069,7 @@ namespace Org.OpenAPITools.Api
             /// <param name="path"></param>
             /// <param name="requestedAt"></param>
             /// <param name="jsonSerializerOptions"></param>
-            public EvolutionTriggerListApiResponse(ILogger<EvolutionTriggerListApiResponse> logger, System.Net.Http.HttpRequestMessage httpRequestMessage, System.Net.Http.HttpResponseMessage httpResponseMessage, System.IO.Stream contentStream, string path, DateTime requestedAt, System.Text.Json.JsonSerializerOptions jsonSerializerOptions) : base(httpRequestMessage, httpResponseMessage, contentStream, path, requestedAt, jsonSerializerOptions)
+            public EvolutionTriggerListApiResponse(ILogger<EvolutionApi> logger, System.Net.Http.HttpRequestMessage httpRequestMessage, System.Net.Http.HttpResponseMessage httpResponseMessage, System.IO.Stream contentStream, string path, DateTime requestedAt, System.Text.Json.JsonSerializerOptions jsonSerializerOptions) : base(httpRequestMessage, httpResponseMessage, contentStream, path, requestedAt, jsonSerializerOptions)
             {
                 Logger = logger;
                 OnCreated(httpRequestMessage, httpResponseMessage);
@@ -1126,7 +1120,7 @@ namespace Org.OpenAPITools.Api
                 bool suppressDefaultLog = false;
                 OnDeserializationError(ref suppressDefaultLog, exception, httpStatusCode);
                 if (!suppressDefaultLog)
-                    Logger.LogError(exception, "An error occurred while deserializing the {code} response.", httpStatusCode);
+                    Logger.LogError(RestLogEvents.ApiDeserializationFailed, exception, "An error occurred while deserializing the {code} response.", httpStatusCode);
             }
 
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
@@ -1155,7 +1149,7 @@ namespace Org.OpenAPITools.Api
             bool suppressDefaultLog = false;
             AfterEvolutionTriggerRetrieve(ref suppressDefaultLog, apiResponseLocalVar, id);
             if (!suppressDefaultLog)
-                Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
+                Logger.LogInformation(RestLogEvents.ApiRequestCompleted, "{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
 
         /// <summary>
@@ -1178,7 +1172,7 @@ namespace Org.OpenAPITools.Api
             bool suppressDefaultLogLocalVar = false;
             OnErrorEvolutionTriggerRetrieve(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, id);
             if (!suppressDefaultLogLocalVar)
-                Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
+                Logger.LogError(RestLogEvents.ApiRequestFailed, exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
 
         /// <summary>
@@ -1233,7 +1227,7 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
                         ? "/api/v2/evolution-trigger/{id}/"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/v2/evolution-trigger/{id}/");
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath.TrimEnd('/'), "/api/v2/evolution-trigger/{id}/");
                     uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bid%7D", Uri.EscapeDataString(id.ToString()));
 
                     List<TokenBase> tokenBaseLocalVars = new List<TokenBase>();
@@ -1249,10 +1243,10 @@ namespace Org.OpenAPITools.Api
                         "application/json"
                     };
 
-                    string? acceptLocalVar = ClientUtils.SelectHeaderAccept(acceptLocalVars);
+                    IEnumerable<MediaTypeWithQualityHeaderValue> acceptHeaderValuesLocalVar = ClientUtils.SelectHeaderAcceptArray(acceptLocalVars);
 
-                    if (acceptLocalVar != null)
-                        httpRequestMessageLocalVar.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue(acceptLocalVar));
+                    foreach (var acceptLocalVar in acceptHeaderValuesLocalVar)
+                        httpRequestMessageLocalVar.Headers.Accept.Add(acceptLocalVar);
 
                     httpRequestMessageLocalVar.Method = HttpMethod.Get;
 
@@ -1260,13 +1254,12 @@ namespace Org.OpenAPITools.Api
 
                     using (HttpResponseMessage httpResponseMessageLocalVar = await HttpClient.SendAsync(httpRequestMessageLocalVar, cancellationToken).ConfigureAwait(false))
                     {
-                        ILogger<EvolutionTriggerRetrieveApiResponse> apiResponseLoggerLocalVar = LoggerFactory.CreateLogger<EvolutionTriggerRetrieveApiResponse>();
                         EvolutionTriggerRetrieveApiResponse apiResponseLocalVar;
 
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/v2/evolution-trigger/{id}/", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(Logger, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/v2/evolution-trigger/{id}/", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
@@ -1300,7 +1293,7 @@ namespace Org.OpenAPITools.Api
             /// <summary>
             /// The logger
             /// </summary>
-            public ILogger<EvolutionTriggerRetrieveApiResponse> Logger { get; }
+            public ILogger<EvolutionApi> Logger { get; }
 
             /// <summary>
             /// The <see cref="EvolutionTriggerRetrieveApiResponse"/>
@@ -1312,7 +1305,7 @@ namespace Org.OpenAPITools.Api
             /// <param name="path"></param>
             /// <param name="requestedAt"></param>
             /// <param name="jsonSerializerOptions"></param>
-            public EvolutionTriggerRetrieveApiResponse(ILogger<EvolutionTriggerRetrieveApiResponse> logger, System.Net.Http.HttpRequestMessage httpRequestMessage, System.Net.Http.HttpResponseMessage httpResponseMessage, string rawContent, string path, DateTime requestedAt, System.Text.Json.JsonSerializerOptions jsonSerializerOptions) : base(httpRequestMessage, httpResponseMessage, rawContent, path, requestedAt, jsonSerializerOptions)
+            public EvolutionTriggerRetrieveApiResponse(ILogger<EvolutionApi> logger, System.Net.Http.HttpRequestMessage httpRequestMessage, System.Net.Http.HttpResponseMessage httpResponseMessage, string rawContent, string path, DateTime requestedAt, System.Text.Json.JsonSerializerOptions jsonSerializerOptions) : base(httpRequestMessage, httpResponseMessage, rawContent, path, requestedAt, jsonSerializerOptions)
             {
                 Logger = logger;
                 OnCreated(httpRequestMessage, httpResponseMessage);
@@ -1328,7 +1321,7 @@ namespace Org.OpenAPITools.Api
             /// <param name="path"></param>
             /// <param name="requestedAt"></param>
             /// <param name="jsonSerializerOptions"></param>
-            public EvolutionTriggerRetrieveApiResponse(ILogger<EvolutionTriggerRetrieveApiResponse> logger, System.Net.Http.HttpRequestMessage httpRequestMessage, System.Net.Http.HttpResponseMessage httpResponseMessage, System.IO.Stream contentStream, string path, DateTime requestedAt, System.Text.Json.JsonSerializerOptions jsonSerializerOptions) : base(httpRequestMessage, httpResponseMessage, contentStream, path, requestedAt, jsonSerializerOptions)
+            public EvolutionTriggerRetrieveApiResponse(ILogger<EvolutionApi> logger, System.Net.Http.HttpRequestMessage httpRequestMessage, System.Net.Http.HttpResponseMessage httpResponseMessage, System.IO.Stream contentStream, string path, DateTime requestedAt, System.Text.Json.JsonSerializerOptions jsonSerializerOptions) : base(httpRequestMessage, httpResponseMessage, contentStream, path, requestedAt, jsonSerializerOptions)
             {
                 Logger = logger;
                 OnCreated(httpRequestMessage, httpResponseMessage);
@@ -1379,7 +1372,7 @@ namespace Org.OpenAPITools.Api
                 bool suppressDefaultLog = false;
                 OnDeserializationError(ref suppressDefaultLog, exception, httpStatusCode);
                 if (!suppressDefaultLog)
-                    Logger.LogError(exception, "An error occurred while deserializing the {code} response.", httpStatusCode);
+                    Logger.LogError(RestLogEvents.ApiDeserializationFailed, exception, "An error occurred while deserializing the {code} response.", httpStatusCode);
             }
 
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);

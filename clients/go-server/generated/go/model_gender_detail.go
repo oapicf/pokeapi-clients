@@ -12,6 +12,11 @@
 package openapi
 
 
+import (
+	"encoding/json"
+	"fmt"
+)
+
 
 
 type GenderDetail struct {
@@ -24,45 +29,84 @@ type GenderDetail struct {
 
 	RequiredForEvolution []AbilityDetailPokemonInnerPokemon `json:"required_for_evolution"`
 }
+// UnmarshalJSON validates required property keys then unmarshals into GenderDetail
+func (o *GenderDetail) UnmarshalJSON(data []byte) (err error) {
+	// Presence is checked against required fields that exist on this struct,
+	// including fields promoted from embedded allOf parents.
+	requiredProperties := []string{
+		"name",
+	}
 
-// AssertGenderDetailRequired checks if the required fields are not zero-ed
+	requiredNullableProperties := map[string]bool{
+		"name": false,
+	}
+
+	allowedJsonKeys := map[string]struct{}{
+		"id": {},
+		"name": {},
+		"pokemon_species_details": {},
+		"required_for_evolution": {},
+	}
+
+	allProperties := make(map[string]json.RawMessage)
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err
+	}
+
+	for _, requiredProperty := range requiredProperties {
+		value, exists := allProperties[requiredProperty]
+		if !exists {
+			return &RequiredError{Field: requiredProperty}
+		}
+		if string(value) == "null" && !requiredNullableProperties[requiredProperty] {
+			return &RequiredError{Field: requiredProperty}
+		}
+	}
+
+	for key := range allProperties {
+		if _, exists := allowedJsonKeys[key]; !exists {
+			return fmt.Errorf("json: unknown field %q", key)
+		}
+	}
+
+	var decoded GenderDetail
+
+	if value, exists := allProperties["id"]; exists {
+		if err = json.Unmarshal(value, &decoded.Id); err != nil {
+			return err
+		}
+	}
+	if value, exists := allProperties["name"]; exists {
+		if err = json.Unmarshal(value, &decoded.Name); err != nil {
+			return err
+		}
+	}
+	if value, exists := allProperties["pokemon_species_details"]; exists {
+		if err = json.Unmarshal(value, &decoded.PokemonSpeciesDetails); err != nil {
+			return err
+		}
+	}
+	if value, exists := allProperties["required_for_evolution"]; exists {
+		if err = json.Unmarshal(value, &decoded.RequiredForEvolution); err != nil {
+			return err
+		}
+	}
+
+	*o = decoded
+
+	return nil
+}
+
+// AssertGenderDetailRequired checks complex required fields (models, arrays, maps) and embedded parents.
+// Primitive required fields are validated for JSON request bodies in UnmarshalJSON so zero values remain valid.
 func AssertGenderDetailRequired(obj GenderDetail) error {
-	elements := map[string]interface{}{
-		"id": obj.Id,
-		"name": obj.Name,
-		"pokemon_species_details": obj.PokemonSpeciesDetails,
-		"required_for_evolution": obj.RequiredForEvolution,
-	}
-	for name, el := range elements {
-		if isZero := IsZeroValue(el); isZero {
-			return &RequiredError{Field: name}
-		}
-	}
-
-	for _, el := range obj.PokemonSpeciesDetails {
-		if err := AssertGenderDetailPokemonSpeciesDetailsInnerRequired(el); err != nil {
-			return err
-		}
-	}
-	for _, el := range obj.RequiredForEvolution {
-		if err := AssertAbilityDetailPokemonInnerPokemonRequired(el); err != nil {
-			return err
-		}
-	}
 	return nil
 }
 
 // AssertGenderDetailConstraints checks if the values respects the defined constraints
 func AssertGenderDetailConstraints(obj GenderDetail) error {
-	for _, el := range obj.PokemonSpeciesDetails {
-		if err := AssertGenderDetailPokemonSpeciesDetailsInnerConstraints(el); err != nil {
-			return err
-		}
-	}
-	for _, el := range obj.RequiredForEvolution {
-		if err := AssertAbilityDetailPokemonInnerPokemonConstraints(el); err != nil {
-			return err
-		}
-	}
 	return nil
 }

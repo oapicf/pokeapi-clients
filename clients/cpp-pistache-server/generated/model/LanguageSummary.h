@@ -32,7 +32,7 @@ class  LanguageSummary
 {
 public:
     LanguageSummary();
-    virtual ~LanguageSummary() = default;
+    virtual ~LanguageSummary();
 
 
     /// <summary>

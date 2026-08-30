@@ -85,7 +85,7 @@ EggGroupSummary::getName()
 }
 
 void
-EggGroupSummary::setName(std::string  name)
+EggGroupSummary::setName(std::string name)
 {
 	this->name = name;
 }
@@ -97,7 +97,7 @@ EggGroupSummary::getUrl()
 }
 
 void
-EggGroupSummary::setUrl(std::string  url)
+EggGroupSummary::setUrl(std::string url)
 {
 	this->url = url;
 }

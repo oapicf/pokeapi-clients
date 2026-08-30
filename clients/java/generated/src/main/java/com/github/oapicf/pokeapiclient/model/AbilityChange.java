@@ -52,7 +52,7 @@ import com.github.oapicf.pokeapiclient.JSON;
 /**
  * AbilityChange
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-07T15:22:35.747827932Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-08-30T01:55:28.842792947Z[Etc/UTC]", comments = "Generator version: 7.24.0")
 public class AbilityChange {
   public static final String SERIALIZED_NAME_VERSION_GROUP = "version_group";
   @SerializedName(SERIALIZED_NAME_VERSION_GROUP)
@@ -65,6 +65,13 @@ public class AbilityChange {
   private List<AbilityChangeEffectText> effectEntries = new ArrayList<>();
 
   public AbilityChange() {
+  }
+
+  public AbilityChange(
+     List<AbilityChangeEffectText> effectEntries
+  ) {
+    this();
+    this.effectEntries = effectEntries;
   }
 
   public AbilityChange versionGroup(@javax.annotation.Nonnull VersionGroupSummary versionGroup) {
@@ -86,19 +93,6 @@ public class AbilityChange {
   }
 
 
-  public AbilityChange effectEntries(@javax.annotation.Nonnull List<AbilityChangeEffectText> effectEntries) {
-    this.effectEntries = effectEntries;
-    return this;
-  }
-
-  public AbilityChange addEffectEntriesItem(AbilityChangeEffectText effectEntriesItem) {
-    if (this.effectEntries == null) {
-      this.effectEntries = new ArrayList<>();
-    }
-    this.effectEntries.add(effectEntriesItem);
-    return this;
-  }
-
   /**
    * Get effectEntries
    * @return effectEntries
@@ -108,9 +102,6 @@ public class AbilityChange {
     return effectEntries;
   }
 
-  public void setEffectEntries(@javax.annotation.Nonnull List<AbilityChangeEffectText> effectEntries) {
-    this.effectEntries = effectEntries;
-  }
 
 
 
@@ -147,10 +138,7 @@ public class AbilityChange {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 
@@ -195,16 +183,16 @@ public class AbilityChange {
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       // validate the required field `version_group`
       VersionGroupSummary.validateJsonElement(jsonObj.get("version_group"));
-      // ensure the json data is an array
-      if (!jsonObj.get("effect_entries").isJsonArray()) {
-        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `effect_entries` to be an array in the JSON string but got `%s`", jsonObj.get("effect_entries").toString()));
+      if (jsonObj.get("effect_entries") != null) {
+        if (!jsonObj.get("effect_entries").isJsonArray()) {
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `effect_entries` to be an array in the JSON string but got `%s`", jsonObj.get("effect_entries").toString()));
+        }
+        JsonArray jsonArrayeffectEntries = jsonObj.getAsJsonArray("effect_entries");
+        // validate the required field `effect_entries` (array)
+        for (int i = 0; i < jsonArrayeffectEntries.size(); i++) {
+          AbilityChangeEffectText.validateJsonElement(jsonArrayeffectEntries.get(i));
+        }
       }
-
-      JsonArray jsonArrayeffectEntries = jsonObj.getAsJsonArray("effect_entries");
-      // validate the required field `effect_entries` (array)
-      for (int i = 0; i < jsonArrayeffectEntries.size(); i++) {
-        AbilityChangeEffectText.validateJsonElement(jsonArrayeffectEntries.get(i));
-      };
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {

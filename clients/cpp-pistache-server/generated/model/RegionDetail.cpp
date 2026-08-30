@@ -26,6 +26,8 @@ RegionDetail::RegionDetail()
     
 }
 
+RegionDetail::~RegionDetail() = default;
+
 void RegionDetail::validate() const
 {
     std::stringstream msg;

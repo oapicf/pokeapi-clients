@@ -13,13 +13,16 @@
 
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Net;
+using System.IO;
 using System.Threading.Tasks;
 using Microsoft.Extensions.Logging;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Text.Json;
 using Org.OpenAPITools.Client;
+using Org.OpenAPITools.Logging;
 using Org.OpenAPITools.Model;
 using System.Diagnostics.CodeAnalysis;
 
@@ -393,11 +396,6 @@ namespace Org.OpenAPITools.Api
         private JsonSerializerOptions _jsonSerializerOptions;
 
         /// <summary>
-        /// The logger factory
-        /// </summary>
-        public ILoggerFactory LoggerFactory { get; }
-
-        /// <summary>
         /// The logger
         /// </summary>
         public ILogger<BerriesApi> Logger { get; }
@@ -426,13 +424,12 @@ namespace Org.OpenAPITools.Api
         /// Initializes a new instance of the <see cref="BerriesApi"/> class.
         /// </summary>
         /// <returns></returns>
-        public BerriesApi(ILogger<BerriesApi> logger, ILoggerFactory loggerFactory, HttpClient httpClient, JsonSerializerOptionsProvider jsonSerializerOptionsProvider, BerriesApiEvents berriesApiEvents,
+        public BerriesApi(ILogger<BerriesApi> logger, HttpClient httpClient, JsonSerializerOptionsProvider jsonSerializerOptionsProvider, BerriesApiEvents berriesApiEvents,
             TokenProvider<ApiKeyToken> apiKeyProvider,
             TokenProvider<BasicToken> basicTokenProvider)
         {
             _jsonSerializerOptions = jsonSerializerOptionsProvider.Options;
-            LoggerFactory = loggerFactory;
-            Logger = LoggerFactory.CreateLogger<BerriesApi>();
+            Logger = logger;
             HttpClient = httpClient;
             Events = berriesApiEvents;
             ApiKeyProvider = apiKeyProvider;
@@ -464,7 +461,7 @@ namespace Org.OpenAPITools.Api
             bool suppressDefaultLog = false;
             AfterBerryFirmnessList(ref suppressDefaultLog, apiResponseLocalVar, limit, offset, q);
             if (!suppressDefaultLog)
-                Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
+                Logger.LogInformation(RestLogEvents.ApiRequestCompleted, "{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
 
         /// <summary>
@@ -491,7 +488,7 @@ namespace Org.OpenAPITools.Api
             bool suppressDefaultLogLocalVar = false;
             OnErrorBerryFirmnessList(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, limit, offset, q);
             if (!suppressDefaultLogLocalVar)
-                Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
+                Logger.LogError(RestLogEvents.ApiRequestFailed, exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
 
         /// <summary>
@@ -552,7 +549,7 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
                         ? "/api/v2/berry-firmness/"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/v2/berry-firmness/");
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath.TrimEnd('/'), "/api/v2/berry-firmness/");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -580,10 +577,10 @@ namespace Org.OpenAPITools.Api
                         "application/json"
                     };
 
-                    string? acceptLocalVar = ClientUtils.SelectHeaderAccept(acceptLocalVars);
+                    IEnumerable<MediaTypeWithQualityHeaderValue> acceptHeaderValuesLocalVar = ClientUtils.SelectHeaderAcceptArray(acceptLocalVars);
 
-                    if (acceptLocalVar != null)
-                        httpRequestMessageLocalVar.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue(acceptLocalVar));
+                    foreach (var acceptLocalVar in acceptHeaderValuesLocalVar)
+                        httpRequestMessageLocalVar.Headers.Accept.Add(acceptLocalVar);
 
                     httpRequestMessageLocalVar.Method = HttpMethod.Get;
 
@@ -591,13 +588,12 @@ namespace Org.OpenAPITools.Api
 
                     using (HttpResponseMessage httpResponseMessageLocalVar = await HttpClient.SendAsync(httpRequestMessageLocalVar, cancellationToken).ConfigureAwait(false))
                     {
-                        ILogger<BerryFirmnessListApiResponse> apiResponseLoggerLocalVar = LoggerFactory.CreateLogger<BerryFirmnessListApiResponse>();
                         BerryFirmnessListApiResponse apiResponseLocalVar;
 
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/v2/berry-firmness/", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(Logger, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/v2/berry-firmness/", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
@@ -631,7 +627,7 @@ namespace Org.OpenAPITools.Api
             /// <summary>
             /// The logger
             /// </summary>
-            public ILogger<BerryFirmnessListApiResponse> Logger { get; }
+            public ILogger<BerriesApi> Logger { get; }
 
             /// <summary>
             /// The <see cref="BerryFirmnessListApiResponse"/>
@@ -643,7 +639,7 @@ namespace Org.OpenAPITools.Api
             /// <param name="path"></param>
             /// <param name="requestedAt"></param>
             /// <param name="jsonSerializerOptions"></param>
-            public BerryFirmnessListApiResponse(ILogger<BerryFirmnessListApiResponse> logger, System.Net.Http.HttpRequestMessage httpRequestMessage, System.Net.Http.HttpResponseMessage httpResponseMessage, string rawContent, string path, DateTime requestedAt, System.Text.Json.JsonSerializerOptions jsonSerializerOptions) : base(httpRequestMessage, httpResponseMessage, rawContent, path, requestedAt, jsonSerializerOptions)
+            public BerryFirmnessListApiResponse(ILogger<BerriesApi> logger, System.Net.Http.HttpRequestMessage httpRequestMessage, System.Net.Http.HttpResponseMessage httpResponseMessage, string rawContent, string path, DateTime requestedAt, System.Text.Json.JsonSerializerOptions jsonSerializerOptions) : base(httpRequestMessage, httpResponseMessage, rawContent, path, requestedAt, jsonSerializerOptions)
             {
                 Logger = logger;
                 OnCreated(httpRequestMessage, httpResponseMessage);
@@ -659,7 +655,7 @@ namespace Org.OpenAPITools.Api
             /// <param name="path"></param>
             /// <param name="requestedAt"></param>
             /// <param name="jsonSerializerOptions"></param>
-            public BerryFirmnessListApiResponse(ILogger<BerryFirmnessListApiResponse> logger, System.Net.Http.HttpRequestMessage httpRequestMessage, System.Net.Http.HttpResponseMessage httpResponseMessage, System.IO.Stream contentStream, string path, DateTime requestedAt, System.Text.Json.JsonSerializerOptions jsonSerializerOptions) : base(httpRequestMessage, httpResponseMessage, contentStream, path, requestedAt, jsonSerializerOptions)
+            public BerryFirmnessListApiResponse(ILogger<BerriesApi> logger, System.Net.Http.HttpRequestMessage httpRequestMessage, System.Net.Http.HttpResponseMessage httpResponseMessage, System.IO.Stream contentStream, string path, DateTime requestedAt, System.Text.Json.JsonSerializerOptions jsonSerializerOptions) : base(httpRequestMessage, httpResponseMessage, contentStream, path, requestedAt, jsonSerializerOptions)
             {
                 Logger = logger;
                 OnCreated(httpRequestMessage, httpResponseMessage);
@@ -710,7 +706,7 @@ namespace Org.OpenAPITools.Api
                 bool suppressDefaultLog = false;
                 OnDeserializationError(ref suppressDefaultLog, exception, httpStatusCode);
                 if (!suppressDefaultLog)
-                    Logger.LogError(exception, "An error occurred while deserializing the {code} response.", httpStatusCode);
+                    Logger.LogError(RestLogEvents.ApiDeserializationFailed, exception, "An error occurred while deserializing the {code} response.", httpStatusCode);
             }
 
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
@@ -739,7 +735,7 @@ namespace Org.OpenAPITools.Api
             bool suppressDefaultLog = false;
             AfterBerryFirmnessRetrieve(ref suppressDefaultLog, apiResponseLocalVar, id);
             if (!suppressDefaultLog)
-                Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
+                Logger.LogInformation(RestLogEvents.ApiRequestCompleted, "{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
 
         /// <summary>
@@ -762,7 +758,7 @@ namespace Org.OpenAPITools.Api
             bool suppressDefaultLogLocalVar = false;
             OnErrorBerryFirmnessRetrieve(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, id);
             if (!suppressDefaultLogLocalVar)
-                Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
+                Logger.LogError(RestLogEvents.ApiRequestFailed, exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
 
         /// <summary>
@@ -817,7 +813,7 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
                         ? "/api/v2/berry-firmness/{id}/"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/v2/berry-firmness/{id}/");
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath.TrimEnd('/'), "/api/v2/berry-firmness/{id}/");
                     uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bid%7D", Uri.EscapeDataString(id.ToString()));
 
                     List<TokenBase> tokenBaseLocalVars = new List<TokenBase>();
@@ -833,10 +829,10 @@ namespace Org.OpenAPITools.Api
                         "application/json"
                     };
 
-                    string? acceptLocalVar = ClientUtils.SelectHeaderAccept(acceptLocalVars);
+                    IEnumerable<MediaTypeWithQualityHeaderValue> acceptHeaderValuesLocalVar = ClientUtils.SelectHeaderAcceptArray(acceptLocalVars);
 
-                    if (acceptLocalVar != null)
-                        httpRequestMessageLocalVar.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue(acceptLocalVar));
+                    foreach (var acceptLocalVar in acceptHeaderValuesLocalVar)
+                        httpRequestMessageLocalVar.Headers.Accept.Add(acceptLocalVar);
 
                     httpRequestMessageLocalVar.Method = HttpMethod.Get;
 
@@ -844,13 +840,12 @@ namespace Org.OpenAPITools.Api
 
                     using (HttpResponseMessage httpResponseMessageLocalVar = await HttpClient.SendAsync(httpRequestMessageLocalVar, cancellationToken).ConfigureAwait(false))
                     {
-                        ILogger<BerryFirmnessRetrieveApiResponse> apiResponseLoggerLocalVar = LoggerFactory.CreateLogger<BerryFirmnessRetrieveApiResponse>();
                         BerryFirmnessRetrieveApiResponse apiResponseLocalVar;
 
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/v2/berry-firmness/{id}/", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(Logger, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/v2/berry-firmness/{id}/", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
@@ -884,7 +879,7 @@ namespace Org.OpenAPITools.Api
             /// <summary>
             /// The logger
             /// </summary>
-            public ILogger<BerryFirmnessRetrieveApiResponse> Logger { get; }
+            public ILogger<BerriesApi> Logger { get; }
 
             /// <summary>
             /// The <see cref="BerryFirmnessRetrieveApiResponse"/>
@@ -896,7 +891,7 @@ namespace Org.OpenAPITools.Api
             /// <param name="path"></param>
             /// <param name="requestedAt"></param>
             /// <param name="jsonSerializerOptions"></param>
-            public BerryFirmnessRetrieveApiResponse(ILogger<BerryFirmnessRetrieveApiResponse> logger, System.Net.Http.HttpRequestMessage httpRequestMessage, System.Net.Http.HttpResponseMessage httpResponseMessage, string rawContent, string path, DateTime requestedAt, System.Text.Json.JsonSerializerOptions jsonSerializerOptions) : base(httpRequestMessage, httpResponseMessage, rawContent, path, requestedAt, jsonSerializerOptions)
+            public BerryFirmnessRetrieveApiResponse(ILogger<BerriesApi> logger, System.Net.Http.HttpRequestMessage httpRequestMessage, System.Net.Http.HttpResponseMessage httpResponseMessage, string rawContent, string path, DateTime requestedAt, System.Text.Json.JsonSerializerOptions jsonSerializerOptions) : base(httpRequestMessage, httpResponseMessage, rawContent, path, requestedAt, jsonSerializerOptions)
             {
                 Logger = logger;
                 OnCreated(httpRequestMessage, httpResponseMessage);
@@ -912,7 +907,7 @@ namespace Org.OpenAPITools.Api
             /// <param name="path"></param>
             /// <param name="requestedAt"></param>
             /// <param name="jsonSerializerOptions"></param>
-            public BerryFirmnessRetrieveApiResponse(ILogger<BerryFirmnessRetrieveApiResponse> logger, System.Net.Http.HttpRequestMessage httpRequestMessage, System.Net.Http.HttpResponseMessage httpResponseMessage, System.IO.Stream contentStream, string path, DateTime requestedAt, System.Text.Json.JsonSerializerOptions jsonSerializerOptions) : base(httpRequestMessage, httpResponseMessage, contentStream, path, requestedAt, jsonSerializerOptions)
+            public BerryFirmnessRetrieveApiResponse(ILogger<BerriesApi> logger, System.Net.Http.HttpRequestMessage httpRequestMessage, System.Net.Http.HttpResponseMessage httpResponseMessage, System.IO.Stream contentStream, string path, DateTime requestedAt, System.Text.Json.JsonSerializerOptions jsonSerializerOptions) : base(httpRequestMessage, httpResponseMessage, contentStream, path, requestedAt, jsonSerializerOptions)
             {
                 Logger = logger;
                 OnCreated(httpRequestMessage, httpResponseMessage);
@@ -963,7 +958,7 @@ namespace Org.OpenAPITools.Api
                 bool suppressDefaultLog = false;
                 OnDeserializationError(ref suppressDefaultLog, exception, httpStatusCode);
                 if (!suppressDefaultLog)
-                    Logger.LogError(exception, "An error occurred while deserializing the {code} response.", httpStatusCode);
+                    Logger.LogError(RestLogEvents.ApiDeserializationFailed, exception, "An error occurred while deserializing the {code} response.", httpStatusCode);
             }
 
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
@@ -994,7 +989,7 @@ namespace Org.OpenAPITools.Api
             bool suppressDefaultLog = false;
             AfterBerryFlavorList(ref suppressDefaultLog, apiResponseLocalVar, limit, offset, q);
             if (!suppressDefaultLog)
-                Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
+                Logger.LogInformation(RestLogEvents.ApiRequestCompleted, "{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
 
         /// <summary>
@@ -1021,7 +1016,7 @@ namespace Org.OpenAPITools.Api
             bool suppressDefaultLogLocalVar = false;
             OnErrorBerryFlavorList(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, limit, offset, q);
             if (!suppressDefaultLogLocalVar)
-                Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
+                Logger.LogError(RestLogEvents.ApiRequestFailed, exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
 
         /// <summary>
@@ -1082,7 +1077,7 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
                         ? "/api/v2/berry-flavor/"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/v2/berry-flavor/");
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath.TrimEnd('/'), "/api/v2/berry-flavor/");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -1110,10 +1105,10 @@ namespace Org.OpenAPITools.Api
                         "application/json"
                     };
 
-                    string? acceptLocalVar = ClientUtils.SelectHeaderAccept(acceptLocalVars);
+                    IEnumerable<MediaTypeWithQualityHeaderValue> acceptHeaderValuesLocalVar = ClientUtils.SelectHeaderAcceptArray(acceptLocalVars);
 
-                    if (acceptLocalVar != null)
-                        httpRequestMessageLocalVar.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue(acceptLocalVar));
+                    foreach (var acceptLocalVar in acceptHeaderValuesLocalVar)
+                        httpRequestMessageLocalVar.Headers.Accept.Add(acceptLocalVar);
 
                     httpRequestMessageLocalVar.Method = HttpMethod.Get;
 
@@ -1121,13 +1116,12 @@ namespace Org.OpenAPITools.Api
 
                     using (HttpResponseMessage httpResponseMessageLocalVar = await HttpClient.SendAsync(httpRequestMessageLocalVar, cancellationToken).ConfigureAwait(false))
                     {
-                        ILogger<BerryFlavorListApiResponse> apiResponseLoggerLocalVar = LoggerFactory.CreateLogger<BerryFlavorListApiResponse>();
                         BerryFlavorListApiResponse apiResponseLocalVar;
 
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/v2/berry-flavor/", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(Logger, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/v2/berry-flavor/", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
@@ -1161,7 +1155,7 @@ namespace Org.OpenAPITools.Api
             /// <summary>
             /// The logger
             /// </summary>
-            public ILogger<BerryFlavorListApiResponse> Logger { get; }
+            public ILogger<BerriesApi> Logger { get; }
 
             /// <summary>
             /// The <see cref="BerryFlavorListApiResponse"/>
@@ -1173,7 +1167,7 @@ namespace Org.OpenAPITools.Api
             /// <param name="path"></param>
             /// <param name="requestedAt"></param>
             /// <param name="jsonSerializerOptions"></param>
-            public BerryFlavorListApiResponse(ILogger<BerryFlavorListApiResponse> logger, System.Net.Http.HttpRequestMessage httpRequestMessage, System.Net.Http.HttpResponseMessage httpResponseMessage, string rawContent, string path, DateTime requestedAt, System.Text.Json.JsonSerializerOptions jsonSerializerOptions) : base(httpRequestMessage, httpResponseMessage, rawContent, path, requestedAt, jsonSerializerOptions)
+            public BerryFlavorListApiResponse(ILogger<BerriesApi> logger, System.Net.Http.HttpRequestMessage httpRequestMessage, System.Net.Http.HttpResponseMessage httpResponseMessage, string rawContent, string path, DateTime requestedAt, System.Text.Json.JsonSerializerOptions jsonSerializerOptions) : base(httpRequestMessage, httpResponseMessage, rawContent, path, requestedAt, jsonSerializerOptions)
             {
                 Logger = logger;
                 OnCreated(httpRequestMessage, httpResponseMessage);
@@ -1189,7 +1183,7 @@ namespace Org.OpenAPITools.Api
             /// <param name="path"></param>
             /// <param name="requestedAt"></param>
             /// <param name="jsonSerializerOptions"></param>
-            public BerryFlavorListApiResponse(ILogger<BerryFlavorListApiResponse> logger, System.Net.Http.HttpRequestMessage httpRequestMessage, System.Net.Http.HttpResponseMessage httpResponseMessage, System.IO.Stream contentStream, string path, DateTime requestedAt, System.Text.Json.JsonSerializerOptions jsonSerializerOptions) : base(httpRequestMessage, httpResponseMessage, contentStream, path, requestedAt, jsonSerializerOptions)
+            public BerryFlavorListApiResponse(ILogger<BerriesApi> logger, System.Net.Http.HttpRequestMessage httpRequestMessage, System.Net.Http.HttpResponseMessage httpResponseMessage, System.IO.Stream contentStream, string path, DateTime requestedAt, System.Text.Json.JsonSerializerOptions jsonSerializerOptions) : base(httpRequestMessage, httpResponseMessage, contentStream, path, requestedAt, jsonSerializerOptions)
             {
                 Logger = logger;
                 OnCreated(httpRequestMessage, httpResponseMessage);
@@ -1240,7 +1234,7 @@ namespace Org.OpenAPITools.Api
                 bool suppressDefaultLog = false;
                 OnDeserializationError(ref suppressDefaultLog, exception, httpStatusCode);
                 if (!suppressDefaultLog)
-                    Logger.LogError(exception, "An error occurred while deserializing the {code} response.", httpStatusCode);
+                    Logger.LogError(RestLogEvents.ApiDeserializationFailed, exception, "An error occurred while deserializing the {code} response.", httpStatusCode);
             }
 
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
@@ -1269,7 +1263,7 @@ namespace Org.OpenAPITools.Api
             bool suppressDefaultLog = false;
             AfterBerryFlavorRetrieve(ref suppressDefaultLog, apiResponseLocalVar, id);
             if (!suppressDefaultLog)
-                Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
+                Logger.LogInformation(RestLogEvents.ApiRequestCompleted, "{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
 
         /// <summary>
@@ -1292,7 +1286,7 @@ namespace Org.OpenAPITools.Api
             bool suppressDefaultLogLocalVar = false;
             OnErrorBerryFlavorRetrieve(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, id);
             if (!suppressDefaultLogLocalVar)
-                Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
+                Logger.LogError(RestLogEvents.ApiRequestFailed, exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
 
         /// <summary>
@@ -1347,7 +1341,7 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
                         ? "/api/v2/berry-flavor/{id}/"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/v2/berry-flavor/{id}/");
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath.TrimEnd('/'), "/api/v2/berry-flavor/{id}/");
                     uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bid%7D", Uri.EscapeDataString(id.ToString()));
 
                     List<TokenBase> tokenBaseLocalVars = new List<TokenBase>();
@@ -1363,10 +1357,10 @@ namespace Org.OpenAPITools.Api
                         "application/json"
                     };
 
-                    string? acceptLocalVar = ClientUtils.SelectHeaderAccept(acceptLocalVars);
+                    IEnumerable<MediaTypeWithQualityHeaderValue> acceptHeaderValuesLocalVar = ClientUtils.SelectHeaderAcceptArray(acceptLocalVars);
 
-                    if (acceptLocalVar != null)
-                        httpRequestMessageLocalVar.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue(acceptLocalVar));
+                    foreach (var acceptLocalVar in acceptHeaderValuesLocalVar)
+                        httpRequestMessageLocalVar.Headers.Accept.Add(acceptLocalVar);
 
                     httpRequestMessageLocalVar.Method = HttpMethod.Get;
 
@@ -1374,13 +1368,12 @@ namespace Org.OpenAPITools.Api
 
                     using (HttpResponseMessage httpResponseMessageLocalVar = await HttpClient.SendAsync(httpRequestMessageLocalVar, cancellationToken).ConfigureAwait(false))
                     {
-                        ILogger<BerryFlavorRetrieveApiResponse> apiResponseLoggerLocalVar = LoggerFactory.CreateLogger<BerryFlavorRetrieveApiResponse>();
                         BerryFlavorRetrieveApiResponse apiResponseLocalVar;
 
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/v2/berry-flavor/{id}/", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(Logger, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/v2/berry-flavor/{id}/", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
@@ -1414,7 +1407,7 @@ namespace Org.OpenAPITools.Api
             /// <summary>
             /// The logger
             /// </summary>
-            public ILogger<BerryFlavorRetrieveApiResponse> Logger { get; }
+            public ILogger<BerriesApi> Logger { get; }
 
             /// <summary>
             /// The <see cref="BerryFlavorRetrieveApiResponse"/>
@@ -1426,7 +1419,7 @@ namespace Org.OpenAPITools.Api
             /// <param name="path"></param>
             /// <param name="requestedAt"></param>
             /// <param name="jsonSerializerOptions"></param>
-            public BerryFlavorRetrieveApiResponse(ILogger<BerryFlavorRetrieveApiResponse> logger, System.Net.Http.HttpRequestMessage httpRequestMessage, System.Net.Http.HttpResponseMessage httpResponseMessage, string rawContent, string path, DateTime requestedAt, System.Text.Json.JsonSerializerOptions jsonSerializerOptions) : base(httpRequestMessage, httpResponseMessage, rawContent, path, requestedAt, jsonSerializerOptions)
+            public BerryFlavorRetrieveApiResponse(ILogger<BerriesApi> logger, System.Net.Http.HttpRequestMessage httpRequestMessage, System.Net.Http.HttpResponseMessage httpResponseMessage, string rawContent, string path, DateTime requestedAt, System.Text.Json.JsonSerializerOptions jsonSerializerOptions) : base(httpRequestMessage, httpResponseMessage, rawContent, path, requestedAt, jsonSerializerOptions)
             {
                 Logger = logger;
                 OnCreated(httpRequestMessage, httpResponseMessage);
@@ -1442,7 +1435,7 @@ namespace Org.OpenAPITools.Api
             /// <param name="path"></param>
             /// <param name="requestedAt"></param>
             /// <param name="jsonSerializerOptions"></param>
-            public BerryFlavorRetrieveApiResponse(ILogger<BerryFlavorRetrieveApiResponse> logger, System.Net.Http.HttpRequestMessage httpRequestMessage, System.Net.Http.HttpResponseMessage httpResponseMessage, System.IO.Stream contentStream, string path, DateTime requestedAt, System.Text.Json.JsonSerializerOptions jsonSerializerOptions) : base(httpRequestMessage, httpResponseMessage, contentStream, path, requestedAt, jsonSerializerOptions)
+            public BerryFlavorRetrieveApiResponse(ILogger<BerriesApi> logger, System.Net.Http.HttpRequestMessage httpRequestMessage, System.Net.Http.HttpResponseMessage httpResponseMessage, System.IO.Stream contentStream, string path, DateTime requestedAt, System.Text.Json.JsonSerializerOptions jsonSerializerOptions) : base(httpRequestMessage, httpResponseMessage, contentStream, path, requestedAt, jsonSerializerOptions)
             {
                 Logger = logger;
                 OnCreated(httpRequestMessage, httpResponseMessage);
@@ -1493,7 +1486,7 @@ namespace Org.OpenAPITools.Api
                 bool suppressDefaultLog = false;
                 OnDeserializationError(ref suppressDefaultLog, exception, httpStatusCode);
                 if (!suppressDefaultLog)
-                    Logger.LogError(exception, "An error occurred while deserializing the {code} response.", httpStatusCode);
+                    Logger.LogError(RestLogEvents.ApiDeserializationFailed, exception, "An error occurred while deserializing the {code} response.", httpStatusCode);
             }
 
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
@@ -1524,7 +1517,7 @@ namespace Org.OpenAPITools.Api
             bool suppressDefaultLog = false;
             AfterBerryList(ref suppressDefaultLog, apiResponseLocalVar, limit, offset, q);
             if (!suppressDefaultLog)
-                Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
+                Logger.LogInformation(RestLogEvents.ApiRequestCompleted, "{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
 
         /// <summary>
@@ -1551,7 +1544,7 @@ namespace Org.OpenAPITools.Api
             bool suppressDefaultLogLocalVar = false;
             OnErrorBerryList(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, limit, offset, q);
             if (!suppressDefaultLogLocalVar)
-                Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
+                Logger.LogError(RestLogEvents.ApiRequestFailed, exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
 
         /// <summary>
@@ -1612,7 +1605,7 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
                         ? "/api/v2/berry/"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/v2/berry/");
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath.TrimEnd('/'), "/api/v2/berry/");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -1640,10 +1633,10 @@ namespace Org.OpenAPITools.Api
                         "application/json"
                     };
 
-                    string? acceptLocalVar = ClientUtils.SelectHeaderAccept(acceptLocalVars);
+                    IEnumerable<MediaTypeWithQualityHeaderValue> acceptHeaderValuesLocalVar = ClientUtils.SelectHeaderAcceptArray(acceptLocalVars);
 
-                    if (acceptLocalVar != null)
-                        httpRequestMessageLocalVar.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue(acceptLocalVar));
+                    foreach (var acceptLocalVar in acceptHeaderValuesLocalVar)
+                        httpRequestMessageLocalVar.Headers.Accept.Add(acceptLocalVar);
 
                     httpRequestMessageLocalVar.Method = HttpMethod.Get;
 
@@ -1651,13 +1644,12 @@ namespace Org.OpenAPITools.Api
 
                     using (HttpResponseMessage httpResponseMessageLocalVar = await HttpClient.SendAsync(httpRequestMessageLocalVar, cancellationToken).ConfigureAwait(false))
                     {
-                        ILogger<BerryListApiResponse> apiResponseLoggerLocalVar = LoggerFactory.CreateLogger<BerryListApiResponse>();
                         BerryListApiResponse apiResponseLocalVar;
 
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/v2/berry/", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(Logger, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/v2/berry/", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
@@ -1691,7 +1683,7 @@ namespace Org.OpenAPITools.Api
             /// <summary>
             /// The logger
             /// </summary>
-            public ILogger<BerryListApiResponse> Logger { get; }
+            public ILogger<BerriesApi> Logger { get; }
 
             /// <summary>
             /// The <see cref="BerryListApiResponse"/>
@@ -1703,7 +1695,7 @@ namespace Org.OpenAPITools.Api
             /// <param name="path"></param>
             /// <param name="requestedAt"></param>
             /// <param name="jsonSerializerOptions"></param>
-            public BerryListApiResponse(ILogger<BerryListApiResponse> logger, System.Net.Http.HttpRequestMessage httpRequestMessage, System.Net.Http.HttpResponseMessage httpResponseMessage, string rawContent, string path, DateTime requestedAt, System.Text.Json.JsonSerializerOptions jsonSerializerOptions) : base(httpRequestMessage, httpResponseMessage, rawContent, path, requestedAt, jsonSerializerOptions)
+            public BerryListApiResponse(ILogger<BerriesApi> logger, System.Net.Http.HttpRequestMessage httpRequestMessage, System.Net.Http.HttpResponseMessage httpResponseMessage, string rawContent, string path, DateTime requestedAt, System.Text.Json.JsonSerializerOptions jsonSerializerOptions) : base(httpRequestMessage, httpResponseMessage, rawContent, path, requestedAt, jsonSerializerOptions)
             {
                 Logger = logger;
                 OnCreated(httpRequestMessage, httpResponseMessage);
@@ -1719,7 +1711,7 @@ namespace Org.OpenAPITools.Api
             /// <param name="path"></param>
             /// <param name="requestedAt"></param>
             /// <param name="jsonSerializerOptions"></param>
-            public BerryListApiResponse(ILogger<BerryListApiResponse> logger, System.Net.Http.HttpRequestMessage httpRequestMessage, System.Net.Http.HttpResponseMessage httpResponseMessage, System.IO.Stream contentStream, string path, DateTime requestedAt, System.Text.Json.JsonSerializerOptions jsonSerializerOptions) : base(httpRequestMessage, httpResponseMessage, contentStream, path, requestedAt, jsonSerializerOptions)
+            public BerryListApiResponse(ILogger<BerriesApi> logger, System.Net.Http.HttpRequestMessage httpRequestMessage, System.Net.Http.HttpResponseMessage httpResponseMessage, System.IO.Stream contentStream, string path, DateTime requestedAt, System.Text.Json.JsonSerializerOptions jsonSerializerOptions) : base(httpRequestMessage, httpResponseMessage, contentStream, path, requestedAt, jsonSerializerOptions)
             {
                 Logger = logger;
                 OnCreated(httpRequestMessage, httpResponseMessage);
@@ -1770,7 +1762,7 @@ namespace Org.OpenAPITools.Api
                 bool suppressDefaultLog = false;
                 OnDeserializationError(ref suppressDefaultLog, exception, httpStatusCode);
                 if (!suppressDefaultLog)
-                    Logger.LogError(exception, "An error occurred while deserializing the {code} response.", httpStatusCode);
+                    Logger.LogError(RestLogEvents.ApiDeserializationFailed, exception, "An error occurred while deserializing the {code} response.", httpStatusCode);
             }
 
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
@@ -1799,7 +1791,7 @@ namespace Org.OpenAPITools.Api
             bool suppressDefaultLog = false;
             AfterBerryRetrieve(ref suppressDefaultLog, apiResponseLocalVar, id);
             if (!suppressDefaultLog)
-                Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
+                Logger.LogInformation(RestLogEvents.ApiRequestCompleted, "{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
 
         /// <summary>
@@ -1822,7 +1814,7 @@ namespace Org.OpenAPITools.Api
             bool suppressDefaultLogLocalVar = false;
             OnErrorBerryRetrieve(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, id);
             if (!suppressDefaultLogLocalVar)
-                Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
+                Logger.LogError(RestLogEvents.ApiRequestFailed, exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
 
         /// <summary>
@@ -1877,7 +1869,7 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
                         ? "/api/v2/berry/{id}/"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/v2/berry/{id}/");
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath.TrimEnd('/'), "/api/v2/berry/{id}/");
                     uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bid%7D", Uri.EscapeDataString(id.ToString()));
 
                     List<TokenBase> tokenBaseLocalVars = new List<TokenBase>();
@@ -1893,10 +1885,10 @@ namespace Org.OpenAPITools.Api
                         "application/json"
                     };
 
-                    string? acceptLocalVar = ClientUtils.SelectHeaderAccept(acceptLocalVars);
+                    IEnumerable<MediaTypeWithQualityHeaderValue> acceptHeaderValuesLocalVar = ClientUtils.SelectHeaderAcceptArray(acceptLocalVars);
 
-                    if (acceptLocalVar != null)
-                        httpRequestMessageLocalVar.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue(acceptLocalVar));
+                    foreach (var acceptLocalVar in acceptHeaderValuesLocalVar)
+                        httpRequestMessageLocalVar.Headers.Accept.Add(acceptLocalVar);
 
                     httpRequestMessageLocalVar.Method = HttpMethod.Get;
 
@@ -1904,13 +1896,12 @@ namespace Org.OpenAPITools.Api
 
                     using (HttpResponseMessage httpResponseMessageLocalVar = await HttpClient.SendAsync(httpRequestMessageLocalVar, cancellationToken).ConfigureAwait(false))
                     {
-                        ILogger<BerryRetrieveApiResponse> apiResponseLoggerLocalVar = LoggerFactory.CreateLogger<BerryRetrieveApiResponse>();
                         BerryRetrieveApiResponse apiResponseLocalVar;
 
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/v2/berry/{id}/", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(Logger, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/v2/berry/{id}/", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
@@ -1944,7 +1935,7 @@ namespace Org.OpenAPITools.Api
             /// <summary>
             /// The logger
             /// </summary>
-            public ILogger<BerryRetrieveApiResponse> Logger { get; }
+            public ILogger<BerriesApi> Logger { get; }
 
             /// <summary>
             /// The <see cref="BerryRetrieveApiResponse"/>
@@ -1956,7 +1947,7 @@ namespace Org.OpenAPITools.Api
             /// <param name="path"></param>
             /// <param name="requestedAt"></param>
             /// <param name="jsonSerializerOptions"></param>
-            public BerryRetrieveApiResponse(ILogger<BerryRetrieveApiResponse> logger, System.Net.Http.HttpRequestMessage httpRequestMessage, System.Net.Http.HttpResponseMessage httpResponseMessage, string rawContent, string path, DateTime requestedAt, System.Text.Json.JsonSerializerOptions jsonSerializerOptions) : base(httpRequestMessage, httpResponseMessage, rawContent, path, requestedAt, jsonSerializerOptions)
+            public BerryRetrieveApiResponse(ILogger<BerriesApi> logger, System.Net.Http.HttpRequestMessage httpRequestMessage, System.Net.Http.HttpResponseMessage httpResponseMessage, string rawContent, string path, DateTime requestedAt, System.Text.Json.JsonSerializerOptions jsonSerializerOptions) : base(httpRequestMessage, httpResponseMessage, rawContent, path, requestedAt, jsonSerializerOptions)
             {
                 Logger = logger;
                 OnCreated(httpRequestMessage, httpResponseMessage);
@@ -1972,7 +1963,7 @@ namespace Org.OpenAPITools.Api
             /// <param name="path"></param>
             /// <param name="requestedAt"></param>
             /// <param name="jsonSerializerOptions"></param>
-            public BerryRetrieveApiResponse(ILogger<BerryRetrieveApiResponse> logger, System.Net.Http.HttpRequestMessage httpRequestMessage, System.Net.Http.HttpResponseMessage httpResponseMessage, System.IO.Stream contentStream, string path, DateTime requestedAt, System.Text.Json.JsonSerializerOptions jsonSerializerOptions) : base(httpRequestMessage, httpResponseMessage, contentStream, path, requestedAt, jsonSerializerOptions)
+            public BerryRetrieveApiResponse(ILogger<BerriesApi> logger, System.Net.Http.HttpRequestMessage httpRequestMessage, System.Net.Http.HttpResponseMessage httpResponseMessage, System.IO.Stream contentStream, string path, DateTime requestedAt, System.Text.Json.JsonSerializerOptions jsonSerializerOptions) : base(httpRequestMessage, httpResponseMessage, contentStream, path, requestedAt, jsonSerializerOptions)
             {
                 Logger = logger;
                 OnCreated(httpRequestMessage, httpResponseMessage);
@@ -2023,7 +2014,7 @@ namespace Org.OpenAPITools.Api
                 bool suppressDefaultLog = false;
                 OnDeserializationError(ref suppressDefaultLog, exception, httpStatusCode);
                 if (!suppressDefaultLog)
-                    Logger.LogError(exception, "An error occurred while deserializing the {code} response.", httpStatusCode);
+                    Logger.LogError(RestLogEvents.ApiDeserializationFailed, exception, "An error occurred while deserializing the {code} response.", httpStatusCode);
             }
 
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);

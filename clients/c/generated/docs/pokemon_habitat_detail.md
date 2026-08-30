@@ -5,8 +5,8 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **int** |  | [readonly] 
 **name** | **char \*** |  | 
-**names** | [**list_t**](pokemon_habitat_name.md) \* |  | 
-**pokemon_species** | [**list_t**](pokemon_species_summary.md) \* |  | 
+**names** | [**list_t**](pokemon_habitat_name.md) \* |  | [readonly] 
+**pokemon_species** | [**list_t**](pokemon_species_summary.md) \* |  | [readonly] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

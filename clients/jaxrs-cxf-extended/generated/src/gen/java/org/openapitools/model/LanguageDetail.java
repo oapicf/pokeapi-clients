@@ -170,6 +170,7 @@ public class LanguageDetail  {
 
   /**
    * Sets the <code>names</code> property.
+   * <br><em>N.B. <code>names</code> is <b>read only</b>; client code should not call this method</em>.
    */
  public void setNames(List<@Valid LanguageName> names) {
     this.names = names;
@@ -177,6 +178,7 @@ public class LanguageDetail  {
 
   /**
    * Sets the <code>names</code> property.
+   * <br><em>N.B. <code>names</code> is <b>read only</b>; client code should not call this method</em>.
    */
   public LanguageDetail names(List<@Valid LanguageName> names) {
     this.names = names;
@@ -185,6 +187,7 @@ public class LanguageDetail  {
 
   /**
    * Adds a new item to the <code>names</code> list.
+   * <br><em>N.B. <code>names</code> is <b>read only</b>; client code should not call this method</em>.
    */
   public LanguageDetail addNamesItem(LanguageName namesItem) {
     this.names.add(namesItem);
@@ -234,10 +237,7 @@ public class LanguageDetail  {
    * (except the first line).
    */
   private static String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 }
 

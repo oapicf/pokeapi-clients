@@ -84,19 +84,19 @@ public class OASPokemonFormDetail implements OAS.MappedProperties {
      * Get formNames
      * @return formNames
      */
-    public List<OASPokemonFormDetailFormNamesInner> formNames { get; set; }
+    public List<OASPokemonFormDetailFormNamesInner> formNames { get; private set; }
 
     /**
      * Get names
      * @return names
      */
-    public List<OASPokemonFormDetailFormNamesInner> names { get; set; }
+    public List<OASPokemonFormDetailFormNamesInner> names { get; private set; }
 
     /**
      * Get types
      * @return types
      */
-    public List<OASPokemonDetailTypesInner> types { get; set; }
+    public List<OASPokemonDetailTypesInner> types { get; private set; }
 
     private static final Map<String, String> propertyMappings = new Map<String, String>{
         'form_order' => 'formOrder',

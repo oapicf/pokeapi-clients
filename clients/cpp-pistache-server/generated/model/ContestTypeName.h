@@ -33,7 +33,7 @@ class  ContestTypeName
 {
 public:
     ContestTypeName();
-    virtual ~ContestTypeName() = default;
+    virtual ~ContestTypeName();
 
 
     /// <summary>

@@ -26,6 +26,8 @@ PalParkAreaDetail::PalParkAreaDetail()
     
 }
 
+PalParkAreaDetail::~PalParkAreaDetail() = default;
+
 void PalParkAreaDetail::validate() const
 {
     std::stringstream msg;

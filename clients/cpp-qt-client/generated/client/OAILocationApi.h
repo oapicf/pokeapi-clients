@@ -46,6 +46,7 @@ public:
     void initializeServerConfigs();
     int setDefaultServerValue(int serverIndex,const QString &operation, const QString &variable,const QString &val);
     void setServerIndex(const QString &operation, int serverIndex);
+    void setServerIndex(int serverIndex);
     void setApiKey(const QString &apiKeyName, const QString &apiKey);
     void setBearerToken(const QString &token);
     void setUsername(const QString &username);
@@ -113,6 +114,13 @@ public:
 
 
 private:
+    enum class OauthMethod : int {
+        INVALID_VALUE_OPENAPI_GENERATED = 0,
+        ImplicitFlow = 1,
+        AuthorizationFlow = 2,
+        ClientCredentialsFlow = 3,
+        ResourceOwnerPasswordFlow = 4
+    };
     QMap<QString,int> _serverIndices;
     QMap<QString,QList<OAIServerConfiguration>> _serverConfigs;
     QMap<QString, QString> _apiKeys;
@@ -132,7 +140,7 @@ private:
     OauthImplicit _implicitFlow;
     OauthCredentials _credentialFlow;
     OauthPassword _passwordFlow;
-    int _OauthMethod = 0;
+    OauthMethod _OauthMethod = OauthMethod::INVALID_VALUE_OPENAPI_GENERATED;
 
     void locationAreaListCallback(OAIHttpRequestWorker *worker);
     void locationAreaRetrieveCallback(OAIHttpRequestWorker *worker);
@@ -164,54 +172,22 @@ Q_SIGNALS:
     void regionListSignalFull(OAIHttpRequestWorker *worker, OAIPaginatedRegionSummaryList summary);
     void regionRetrieveSignalFull(OAIHttpRequestWorker *worker, OAIRegionDetail summary);
 
-    Q_DECL_DEPRECATED_X("Use locationAreaListSignalError() instead")
-    void locationAreaListSignalE(OAIPaginatedLocationAreaSummaryList summary, QNetworkReply::NetworkError error_type, QString error_str);
     void locationAreaListSignalError(OAIPaginatedLocationAreaSummaryList summary, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use locationAreaRetrieveSignalError() instead")
-    void locationAreaRetrieveSignalE(OAILocationAreaDetail summary, QNetworkReply::NetworkError error_type, QString error_str);
     void locationAreaRetrieveSignalError(OAILocationAreaDetail summary, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use locationListSignalError() instead")
-    void locationListSignalE(OAIPaginatedLocationSummaryList summary, QNetworkReply::NetworkError error_type, QString error_str);
     void locationListSignalError(OAIPaginatedLocationSummaryList summary, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use locationRetrieveSignalError() instead")
-    void locationRetrieveSignalE(OAILocationDetail summary, QNetworkReply::NetworkError error_type, QString error_str);
     void locationRetrieveSignalError(OAILocationDetail summary, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use palParkAreaListSignalError() instead")
-    void palParkAreaListSignalE(OAIPaginatedPalParkAreaSummaryList summary, QNetworkReply::NetworkError error_type, QString error_str);
     void palParkAreaListSignalError(OAIPaginatedPalParkAreaSummaryList summary, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use palParkAreaRetrieveSignalError() instead")
-    void palParkAreaRetrieveSignalE(OAIPalParkAreaDetail summary, QNetworkReply::NetworkError error_type, QString error_str);
     void palParkAreaRetrieveSignalError(OAIPalParkAreaDetail summary, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use regionListSignalError() instead")
-    void regionListSignalE(OAIPaginatedRegionSummaryList summary, QNetworkReply::NetworkError error_type, QString error_str);
     void regionListSignalError(OAIPaginatedRegionSummaryList summary, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use regionRetrieveSignalError() instead")
-    void regionRetrieveSignalE(OAIRegionDetail summary, QNetworkReply::NetworkError error_type, QString error_str);
     void regionRetrieveSignalError(OAIRegionDetail summary, QNetworkReply::NetworkError error_type, const QString &error_str);
 
-    Q_DECL_DEPRECATED_X("Use locationAreaListSignalErrorFull() instead")
-    void locationAreaListSignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void locationAreaListSignalErrorFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use locationAreaRetrieveSignalErrorFull() instead")
-    void locationAreaRetrieveSignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void locationAreaRetrieveSignalErrorFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use locationListSignalErrorFull() instead")
-    void locationListSignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void locationListSignalErrorFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use locationRetrieveSignalErrorFull() instead")
-    void locationRetrieveSignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void locationRetrieveSignalErrorFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use palParkAreaListSignalErrorFull() instead")
-    void palParkAreaListSignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void palParkAreaListSignalErrorFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use palParkAreaRetrieveSignalErrorFull() instead")
-    void palParkAreaRetrieveSignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void palParkAreaRetrieveSignalErrorFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use regionListSignalErrorFull() instead")
-    void regionListSignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void regionListSignalErrorFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use regionRetrieveSignalErrorFull() instead")
-    void regionRetrieveSignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void regionRetrieveSignalErrorFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
 
     void abortRequestsSignal();

@@ -15,18 +15,18 @@ Name | Type | Description | Notes
 **contest_type** | [**ContestTypeSummary**](ContestTypeSummary.md) |  | 
 **contest_effect** | [**ContestEffectSummary**](ContestEffectSummary.md) |  | 
 **damage_class** | [**MoveDamageClassSummary**](MoveDamageClassSummary.md) |  | 
-**effect_entries** | [**array[MoveChangeEffectEntriesInner]**](MoveChange_effect_entries_inner.md) |  | 
-**effect_changes** | [**array[MoveDetailEffectChangesInner]**](MoveDetail_effect_changes_inner.md) |  | 
+**effect_entries** | [**array[MoveChangeEffectEntriesInner]**](MoveChange_effect_entries_inner.md) |  | [readonly] 
+**effect_changes** | [**array[MoveDetailEffectChangesInner]**](MoveDetail_effect_changes_inner.md) |  | [readonly] 
 **generation** | [**GenerationSummary**](GenerationSummary.md) |  | 
 **meta** | [**MoveMeta**](MoveMeta.md) |  | [readonly] 
-**names** | [**array[MoveName]**](MoveName.md) |  | 
-**past_values** | [**array[MoveChange]**](MoveChange.md) |  | 
-**stat_changes** | [**array[MoveDetailStatChangesInner]**](MoveDetail_stat_changes_inner.md) |  | 
+**names** | [**array[MoveName]**](MoveName.md) |  | [readonly] 
+**past_values** | [**array[MoveChange]**](MoveChange.md) |  | [readonly] 
+**stat_changes** | [**array[MoveDetailStatChangesInner]**](MoveDetail_stat_changes_inner.md) |  | [readonly] 
 **super_contest_effect** | [**SuperContestEffectSummary**](SuperContestEffectSummary.md) |  | 
 **target** | [**MoveTargetSummary**](MoveTargetSummary.md) |  | 
 **type** | [**TypeSummary**](TypeSummary.md) |  | 
-**machines** | [**array[MoveDetailMachinesInner]**](MoveDetail_machines_inner.md) |  | 
-**flavor_text_entries** | [**array[MoveFlavorText]**](MoveFlavorText.md) |  | 
-**learned_by_pokemon** | [**array[AbilityDetailPokemonInnerPokemon]**](AbilityDetail_pokemon_inner_pokemon.md) |  | 
+**machines** | [**array[MoveDetailMachinesInner]**](MoveDetail_machines_inner.md) |  | [readonly] 
+**flavor_text_entries** | [**array[MoveFlavorText]**](MoveFlavorText.md) |  | [readonly] 
+**learned_by_pokemon** | [**array[AbilityDetailPokemonInnerPokemon]**](AbilityDetail_pokemon_inner_pokemon.md) |  | [readonly] 
 
 

@@ -43,17 +43,17 @@ export interface PokedexDetail {
      * @type {Array<PokedexDescription>}
      * @memberof PokedexDetail
      */
-    descriptions: Array<PokedexDescription>;
+    readonly descriptions: Array<PokedexDescription>;
     /**
      * @type {Array<PokedexName>}
      * @memberof PokedexDetail
      */
-    names: Array<PokedexName>;
+    readonly names: Array<PokedexName>;
     /**
      * @type {Array<PokedexDetailPokemonEntriesInner>}
      * @memberof PokedexDetail
      */
-    pokemon_entries: Array<PokedexDetailPokemonEntriesInner>;
+    readonly pokemon_entries: Array<PokedexDetailPokemonEntriesInner>;
     /**
      * @type {RegionSummary}
      * @memberof PokedexDetail
@@ -63,5 +63,5 @@ export interface PokedexDetail {
      * @type {Array<AbilityDetailPokemonInnerPokemon>}
      * @memberof PokedexDetail
      */
-    version_groups: Array<AbilityDetailPokemonInnerPokemon>;
+    readonly version_groups: Array<AbilityDetailPokemonInnerPokemon>;
 }

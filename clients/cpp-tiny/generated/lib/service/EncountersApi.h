@@ -26,7 +26,7 @@ class EncountersApi : public Service {
 public:
     EncountersApi() = default;
 
-    virtual ~EncountersApi() = default;
+    virtual ~EncountersApi();
 
     /**
     * List encounter conditions.

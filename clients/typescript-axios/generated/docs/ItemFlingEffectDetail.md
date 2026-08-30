@@ -7,8 +7,8 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **number** |  | [readonly] [default to undefined]
 **name** | **string** |  | [default to undefined]
-**effect_entries** | [**Array&lt;ItemFlingEffectEffectText&gt;**](ItemFlingEffectEffectText.md) |  | [default to undefined]
-**items** | [**Array&lt;ItemSummary&gt;**](ItemSummary.md) |  | [default to undefined]
+**effect_entries** | [**Array&lt;ItemFlingEffectEffectText&gt;**](ItemFlingEffectEffectText.md) |  | [readonly] [default to undefined]
+**items** | [**Array&lt;ItemSummary&gt;**](ItemSummary.md) |  | [readonly] [default to undefined]
 
 ## Example
 

@@ -32,7 +32,7 @@ class  ContestTypeSummary
 {
 public:
     ContestTypeSummary();
-    virtual ~ContestTypeSummary() = default;
+    virtual ~ContestTypeSummary();
 
 
     /// <summary>

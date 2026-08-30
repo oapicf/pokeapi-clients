@@ -173,19 +173,6 @@ public class ItemDetail  {
     return attributes;
   }
 
-  public void setAttributes(List<AbilityDetailPokemonInnerPokemon> attributes) {
-    this.attributes = attributes;
-  }
-
-  public ItemDetail attributes(List<AbilityDetailPokemonInnerPokemon> attributes) {
-    this.attributes = attributes;
-    return this;
-  }
-
-  public ItemDetail addAttributesItem(AbilityDetailPokemonInnerPokemon attributesItem) {
-    this.attributes.add(attributesItem);
-    return this;
-  }
 
  /**
    * Get category
@@ -214,19 +201,6 @@ public class ItemDetail  {
     return effectEntries;
   }
 
-  public void setEffectEntries(List<ItemEffectText> effectEntries) {
-    this.effectEntries = effectEntries;
-  }
-
-  public ItemDetail effectEntries(List<ItemEffectText> effectEntries) {
-    this.effectEntries = effectEntries;
-    return this;
-  }
-
-  public ItemDetail addEffectEntriesItem(ItemEffectText effectEntriesItem) {
-    this.effectEntries.add(effectEntriesItem);
-    return this;
-  }
 
  /**
    * Get flavorTextEntries
@@ -237,19 +211,6 @@ public class ItemDetail  {
     return flavorTextEntries;
   }
 
-  public void setFlavorTextEntries(List<ItemFlavorText> flavorTextEntries) {
-    this.flavorTextEntries = flavorTextEntries;
-  }
-
-  public ItemDetail flavorTextEntries(List<ItemFlavorText> flavorTextEntries) {
-    this.flavorTextEntries = flavorTextEntries;
-    return this;
-  }
-
-  public ItemDetail addFlavorTextEntriesItem(ItemFlavorText flavorTextEntriesItem) {
-    this.flavorTextEntries.add(flavorTextEntriesItem);
-    return this;
-  }
 
  /**
    * Get gameIndices
@@ -260,19 +221,6 @@ public class ItemDetail  {
     return gameIndices;
   }
 
-  public void setGameIndices(List<ItemGameIndex> gameIndices) {
-    this.gameIndices = gameIndices;
-  }
-
-  public ItemDetail gameIndices(List<ItemGameIndex> gameIndices) {
-    this.gameIndices = gameIndices;
-    return this;
-  }
-
-  public ItemDetail addGameIndicesItem(ItemGameIndex gameIndicesItem) {
-    this.gameIndices.add(gameIndicesItem);
-    return this;
-  }
 
  /**
    * Get names
@@ -283,19 +231,6 @@ public class ItemDetail  {
     return names;
   }
 
-  public void setNames(List<ItemName> names) {
-    this.names = names;
-  }
-
-  public ItemDetail names(List<ItemName> names) {
-    this.names = names;
-    return this;
-  }
-
-  public ItemDetail addNamesItem(ItemName namesItem) {
-    this.names.add(namesItem);
-    return this;
-  }
 
  /**
    * Get heldByPokemon
@@ -306,19 +241,6 @@ public class ItemDetail  {
     return heldByPokemon;
   }
 
-  public void setHeldByPokemon(List<ItemDetailHeldByPokemonInner> heldByPokemon) {
-    this.heldByPokemon = heldByPokemon;
-  }
-
-  public ItemDetail heldByPokemon(List<ItemDetailHeldByPokemonInner> heldByPokemon) {
-    this.heldByPokemon = heldByPokemon;
-    return this;
-  }
-
-  public ItemDetail addHeldByPokemonItem(ItemDetailHeldByPokemonInner heldByPokemonItem) {
-    this.heldByPokemon.add(heldByPokemonItem);
-    return this;
-  }
 
  /**
    * Get sprites
@@ -365,19 +287,6 @@ public class ItemDetail  {
     return machines;
   }
 
-  public void setMachines(List<ItemDetailMachinesInner> machines) {
-    this.machines = machines;
-  }
-
-  public ItemDetail machines(List<ItemDetailMachinesInner> machines) {
-    this.machines = machines;
-    return this;
-  }
-
-  public ItemDetail addMachinesItem(ItemDetailMachinesInner machinesItem) {
-    this.machines.add(machinesItem);
-    return this;
-  }
 
   @Override
   public boolean equals(Object o) {
@@ -439,10 +348,7 @@ public class ItemDetail  {
    * (except the first line).
    */
   private static String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 }
 

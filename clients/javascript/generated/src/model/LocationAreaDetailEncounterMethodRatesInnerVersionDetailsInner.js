@@ -17,7 +17,7 @@ import AbilityDetailPokemonInnerPokemon from './AbilityDetailPokemonInnerPokemon
 /**
  * The LocationAreaDetailEncounterMethodRatesInnerVersionDetailsInner model module.
  * @module model/LocationAreaDetailEncounterMethodRatesInnerVersionDetailsInner
- * @version 1.2.1-pre.0
+ * @version 2.0.1-pre.0
  */
 class LocationAreaDetailEncounterMethodRatesInnerVersionDetailsInner {
     /**

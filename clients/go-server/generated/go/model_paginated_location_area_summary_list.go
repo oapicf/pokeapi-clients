@@ -25,7 +25,8 @@ type PaginatedLocationAreaSummaryList struct {
 	Results []LocationAreaSummary `json:"results,omitempty"`
 }
 
-// AssertPaginatedLocationAreaSummaryListRequired checks if the required fields are not zero-ed
+// AssertPaginatedLocationAreaSummaryListRequired checks complex required fields (models, arrays, maps) and embedded parents.
+// Primitive required fields are validated for JSON request bodies in UnmarshalJSON so zero values remain valid.
 func AssertPaginatedLocationAreaSummaryListRequired(obj PaginatedLocationAreaSummaryList) error {
 	for _, el := range obj.Results {
 		if err := AssertLocationAreaSummaryRequired(el); err != nil {

@@ -30,13 +30,13 @@ public class OASEggGroupDetail implements OAS.MappedProperties {
      * Get names
      * @return names
      */
-    public List<OASEggGroupName> names { get; set; }
+    public List<OASEggGroupName> names { get; private set; }
 
     /**
      * Get pokemonSpecies
      * @return pokemonSpecies
      */
-    public List<OASEggGroupDetailPokemonSpeciesInner> pokemonSpecies { get; set; }
+    public List<OASEggGroupDetailPokemonSpeciesInner> pokemonSpecies { get; private set; }
 
     private static final Map<String, String> propertyMappings = new Map<String, String>{
         'pokemon_species' => 'pokemonSpecies'

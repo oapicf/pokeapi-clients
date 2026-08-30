@@ -7,8 +7,8 @@ Name | Type | Description | Notes
 **Id** | **int32** |  | [readonly] 
 **Appeal** | **int32** |  | 
 **Jam** | **int32** |  | 
-**EffectEntries** | [**[]ContestEffectEffectText**](ContestEffectEffectText.md) |  | 
-**FlavorTextEntries** | [**[]ContestEffectFlavorText**](ContestEffectFlavorText.md) |  | 
+**EffectEntries** | [**[]ContestEffectEffectText**](ContestEffectEffectText.md) |  | [readonly] 
+**FlavorTextEntries** | [**[]ContestEffectFlavorText**](ContestEffectFlavorText.md) |  | [readonly] 
 
 ## Methods
 

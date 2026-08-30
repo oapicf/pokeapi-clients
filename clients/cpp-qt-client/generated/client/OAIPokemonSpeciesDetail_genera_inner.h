@@ -33,13 +33,13 @@ class OAIAbilityDetail_pokemon_inner_pokemon;
 class OAIPokemonSpeciesDetail_genera_inner : public OAIObject {
 public:
     OAIPokemonSpeciesDetail_genera_inner();
-    OAIPokemonSpeciesDetail_genera_inner(QString json);
+    OAIPokemonSpeciesDetail_genera_inner(const QString &json);
     ~OAIPokemonSpeciesDetail_genera_inner() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     QString getGenus() const;
     void setGenus(const QString &genus);

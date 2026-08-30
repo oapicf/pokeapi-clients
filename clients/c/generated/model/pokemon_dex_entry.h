@@ -20,14 +20,14 @@ typedef struct pokemon_dex_entry_t pokemon_dex_entry_t;
 
 
 typedef struct pokemon_dex_entry_t {
-    int entry_number; //numeric
+    int *entry_number; //numeric
     struct pokedex_summary_t *pokedex; //model
 
     int _library_owned; // Is the library responsible for freeing this object?
 } pokemon_dex_entry_t;
 
 __attribute__((deprecated)) pokemon_dex_entry_t *pokemon_dex_entry_create(
-    int entry_number,
+    int *entry_number,
     pokedex_summary_t *pokedex
 );
 

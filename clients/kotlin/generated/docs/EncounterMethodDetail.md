@@ -6,7 +6,7 @@
 | ------------ | ------------- | ------------- | ------------- |
 | **id** | **kotlin.Int** |  |  [readonly] |
 | **name** | **kotlin.String** |  |  |
-| **names** | [**kotlin.collections.List&lt;EncounterMethodName&gt;**](EncounterMethodName.md) |  |  |
+| **names** | [**kotlin.collections.List&lt;EncounterMethodName&gt;**](EncounterMethodName.md) |  |  [readonly] |
 | **order** | **kotlin.Int** |  |  [optional] |
 
 

@@ -6,7 +6,7 @@
 
 
 static version_detail_t *version_detail_create_internal(
-    int id,
+    int *id,
     char *name,
     list_t *names,
     version_group_summary_t *version_group
@@ -15,27 +15,36 @@ static version_detail_t *version_detail_create_internal(
     if (!version_detail_local_var) {
         return NULL;
     }
+    memset(version_detail_local_var, 0, sizeof(version_detail_t));
+    version_detail_local_var->_library_owned = 1;
     version_detail_local_var->id = id;
     version_detail_local_var->name = name;
     version_detail_local_var->names = names;
     version_detail_local_var->version_group = version_group;
-
-    version_detail_local_var->_library_owned = 1;
     return version_detail_local_var;
 }
 
 __attribute__((deprecated)) version_detail_t *version_detail_create(
-    int id,
+    int *id,
     char *name,
     list_t *names,
     version_group_summary_t *version_group
     ) {
-    return version_detail_create_internal (
-        id,
+    int *id_copy = NULL;
+    if (id) {
+        id_copy = malloc(sizeof(int));
+        if (id_copy) *id_copy = *id;
+    }
+    version_detail_t *result = version_detail_create_internal (
+        id_copy,
         name,
         names,
         version_group
         );
+    if (!result) {
+        free(id_copy);
+    }
+    return result;
 }
 
 void version_detail_free(version_detail_t *version_detail) {
@@ -47,6 +56,10 @@ void version_detail_free(version_detail_t *version_detail) {
         return ;
     }
     listEntry_t *listEntry;
+    if (version_detail->id) {
+        free(version_detail->id);
+        version_detail->id = NULL;
+    }
     if (version_detail->name) {
         free(version_detail->name);
         version_detail->name = NULL;
@@ -72,7 +85,7 @@ cJSON *version_detail_convertToJSON(version_detail_t *version_detail) {
     if (!version_detail->id) {
         goto fail;
     }
-    if(cJSON_AddNumberToObject(item, "id", version_detail->id) == NULL) {
+    if(cJSON_AddNumberToObject(item, "id", *version_detail->id) == NULL) {
     goto fail; //Numeric
     }
 
@@ -132,6 +145,11 @@ version_detail_t *version_detail_parseFromJSON(cJSON *version_detailJSON){
 
     version_detail_t *version_detail_local_var = NULL;
 
+    // define the local variable for version_detail->id
+    int *id_local_var = NULL;
+
+    char *name_local_str = NULL;
+
     // define the local list for version_detail->names
     list_t *namesList = NULL;
 
@@ -152,6 +170,12 @@ version_detail_t *version_detail_parseFromJSON(cJSON *version_detailJSON){
     {
     goto end; //Numeric
     }
+    id_local_var = malloc(sizeof(int));
+    if(!id_local_var)
+    {
+        goto end;
+    }
+    *id_local_var = id->valuedouble;
 
     // version_detail->name
     cJSON *name = cJSON_GetObjectItemCaseSensitive(version_detailJSON, "name");
@@ -208,15 +232,29 @@ version_detail_t *version_detail_parseFromJSON(cJSON *version_detailJSON){
     version_group_local_nonprim = version_group_summary_parseFromJSON(version_group); //nonprimitive
 
 
+    if (name && !cJSON_IsNull(name)) name_local_str = strdup(name->valuestring);
+
     version_detail_local_var = version_detail_create_internal (
-        id->valuedouble,
-        strdup(name->valuestring),
+        id_local_var,
+        name_local_str,
         namesList,
         version_group_local_nonprim
         );
 
+    if (!version_detail_local_var) {
+        goto end;
+    }
+
     return version_detail_local_var;
 end:
+    if (id_local_var) {
+        free(id_local_var);
+        id_local_var = NULL;
+    }
+    if (name_local_str) {
+        free(name_local_str);
+        name_local_str = NULL;
+    }
     if (namesList) {
         listEntry_t *listEntry = NULL;
         list_ForEach(listEntry, namesList) {

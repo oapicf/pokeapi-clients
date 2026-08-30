@@ -70,22 +70,22 @@ export interface PokemonDetail {
      * @type {Array<PokemonDetailAbilitiesInner>}
      * @memberof PokemonDetail
      */
-    abilities: Array<PokemonDetailAbilitiesInner>;
+    readonly abilities: Array<PokemonDetailAbilitiesInner>;
     /**
      * @type {Array<PokemonDetailPastAbilitiesInner>}
      * @memberof PokemonDetail
      */
-    past_abilities: Array<PokemonDetailPastAbilitiesInner>;
+    readonly past_abilities: Array<PokemonDetailPastAbilitiesInner>;
     /**
      * @type {Array<PokemonFormSummary>}
      * @memberof PokemonDetail
      */
-    forms: Array<PokemonFormSummary>;
+    readonly forms: Array<PokemonFormSummary>;
     /**
      * @type {Array<PokemonGameIndex>}
      * @memberof PokemonDetail
      */
-    game_indices: Array<PokemonGameIndex>;
+    readonly game_indices: Array<PokemonGameIndex>;
     /**
      * @type {PokemonDetailHeldItems}
      * @memberof PokemonDetail
@@ -100,7 +100,7 @@ export interface PokemonDetail {
      * @type {Array<PokemonDetailMovesInner>}
      * @memberof PokemonDetail
      */
-    moves: Array<PokemonDetailMovesInner>;
+    readonly moves: Array<PokemonDetailMovesInner>;
     /**
      * @type {PokemonSpeciesSummary}
      * @memberof PokemonDetail
@@ -120,15 +120,15 @@ export interface PokemonDetail {
      * @type {Array<PokemonStat>}
      * @memberof PokemonDetail
      */
-    stats: Array<PokemonStat>;
+    readonly stats: Array<PokemonStat>;
     /**
      * @type {Array<PokemonDetailTypesInner>}
      * @memberof PokemonDetail
      */
-    types: Array<PokemonDetailTypesInner>;
+    readonly types: Array<PokemonDetailTypesInner>;
     /**
      * @type {Array<PokemonDetailPastTypesInner>}
      * @memberof PokemonDetail
      */
-    past_types: Array<PokemonDetailPastTypesInner>;
+    readonly past_types: Array<PokemonDetailPastTypesInner>;
 }

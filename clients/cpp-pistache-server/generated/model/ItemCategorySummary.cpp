@@ -26,6 +26,8 @@ ItemCategorySummary::ItemCategorySummary()
     
 }
 
+ItemCategorySummary::~ItemCategorySummary() = default;
+
 void ItemCategorySummary::validate() const
 {
     std::stringstream msg;

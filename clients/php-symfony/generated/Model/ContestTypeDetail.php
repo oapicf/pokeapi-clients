@@ -47,7 +47,7 @@ class ContestTypeDetail
      * @var int|null
      * @SerializedName("id")
      * @Type("int")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Type("int")]
     protected ?int $id = null;
@@ -56,7 +56,7 @@ class ContestTypeDetail
      * @var string|null
      * @SerializedName("name")
      * @Type("string")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Type("string")]
     #[Assert\Length(max: 100)]
@@ -66,7 +66,7 @@ class ContestTypeDetail
      * @var BerryFlavorSummary|null
      * @SerializedName("berry_flavor")
      * @Type("OpenAPI\Server\Model\BerryFlavorSummary")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Valid]
     #[Assert\Type("OpenAPI\Server\Model\BerryFlavorSummary")]
@@ -76,7 +76,7 @@ class ContestTypeDetail
      * @var ContestTypeName[]|null
      * @SerializedName("names")
      * @Type("array<OpenAPI\Server\Model\ContestTypeName>")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Valid]
     #[Assert\All([
@@ -109,12 +109,12 @@ class ContestTypeDetail
     }
 
     /**
-    * Sets id.
-    *
-    * @param int|null $id
-    *
-    * @return $this
-    */
+     * Sets id.
+     *
+     * @param int|null $id
+     *
+     * @return $this
+     */
     public function setId(?int $id): self
     {
         $this->id = $id;
@@ -136,12 +136,12 @@ class ContestTypeDetail
     }
 
     /**
-    * Sets name.
-    *
-    * @param string|null $name
-    *
-    * @return $this
-    */
+     * Sets name.
+     *
+     * @param string|null $name
+     *
+     * @return $this
+     */
     public function setName(?string $name): self
     {
         $this->name = $name;
@@ -163,12 +163,12 @@ class ContestTypeDetail
     }
 
     /**
-    * Sets berryFlavor.
-    *
-    * @param BerryFlavorSummary|null $berryFlavor
-    *
-    * @return $this
-    */
+     * Sets berryFlavor.
+     *
+     * @param BerryFlavorSummary|null $berryFlavor
+     *
+     * @return $this
+     */
     public function setBerryFlavor(?BerryFlavorSummary $berryFlavor): self
     {
         $this->berryFlavor = $berryFlavor;
@@ -190,12 +190,12 @@ class ContestTypeDetail
     }
 
     /**
-    * Sets names.
-    *
-    * @param ContestTypeName[]|null $names
-    *
-    * @return $this
-    */
+     * Sets names.
+     *
+     * @param ContestTypeName[]|null $names
+     *
+     * @return $this
+     */
     public function setNames(?array $names): self
     {
         $this->names = $names;

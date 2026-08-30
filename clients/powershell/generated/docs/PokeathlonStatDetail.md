@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 **Id** | **Int32** |  | [readonly] 
 **Name** | **String** |  | 
 **AffectingNatures** | [**PokeathlonStatDetailAffectingNatures**](PokeathlonStatDetailAffectingNatures.md) |  | 
-**Names** | [**PokeathlonStatName[]**](PokeathlonStatName.md) |  | 
+**Names** | [**PokeathlonStatName[]**](PokeathlonStatName.md) |  | [readonly] 
 
 ## Examples
 

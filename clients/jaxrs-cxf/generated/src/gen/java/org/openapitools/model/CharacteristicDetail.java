@@ -78,19 +78,6 @@ public class CharacteristicDetail  {
     return possibleValues;
   }
 
-  public void setPossibleValues(List<Integer> possibleValues) {
-    this.possibleValues = possibleValues;
-  }
-
-  public CharacteristicDetail possibleValues(List<Integer> possibleValues) {
-    this.possibleValues = possibleValues;
-    return this;
-  }
-
-  public CharacteristicDetail addPossibleValuesItem(Integer possibleValuesItem) {
-    this.possibleValues.add(possibleValuesItem);
-    return this;
-  }
 
  /**
    * Get highestStat
@@ -121,19 +108,6 @@ public class CharacteristicDetail  {
     return descriptions;
   }
 
-  public void setDescriptions(List<@Valid CharacteristicDescription> descriptions) {
-    this.descriptions = descriptions;
-  }
-
-  public CharacteristicDetail descriptions(List<@Valid CharacteristicDescription> descriptions) {
-    this.descriptions = descriptions;
-    return this;
-  }
-
-  public CharacteristicDetail addDescriptionsItem(CharacteristicDescription descriptionsItem) {
-    this.descriptions.add(descriptionsItem);
-    return this;
-  }
 
   @Override
   public boolean equals(Object o) {
@@ -175,10 +149,7 @@ public class CharacteristicDetail  {
    * (except the first line).
    */
   private static String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 }
 

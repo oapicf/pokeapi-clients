@@ -33,13 +33,13 @@ class OAIAbilityDetail_pokemon_inner_pokemon;
 class OAIPokemonFormDetail_form_names_inner : public OAIObject {
 public:
     OAIPokemonFormDetail_form_names_inner();
-    OAIPokemonFormDetail_form_names_inner(QString json);
+    OAIPokemonFormDetail_form_names_inner(const QString &json);
     ~OAIPokemonFormDetail_form_names_inner() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     OAIAbilityDetail_pokemon_inner_pokemon getLanguage() const;
     void setLanguage(const OAIAbilityDetail_pokemon_inner_pokemon &language);

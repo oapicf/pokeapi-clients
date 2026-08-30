@@ -23,7 +23,7 @@ import java.util.Map;
 
 
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaUndertowServerCodegen", date = "2026-02-07T15:23:23.550757203Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaUndertowServerCodegen", date = "2026-08-30T01:56:08.415441174Z[Etc/UTC]", comments = "Generator version: 7.24.0")
 public class PokemonDetailSprites extends HashMap<String, URI>  {
   
   private URI frontDefault;
@@ -78,10 +78,7 @@ public class PokemonDetailSprites extends HashMap<String, URI>  {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 }
 

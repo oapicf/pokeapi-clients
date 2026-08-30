@@ -51,7 +51,7 @@ import com.github.oapicf.pokeapiclient.JSON;
 /**
  * StatDetailAffectingNatures
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-07T15:22:35.747827932Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-08-30T01:55:28.842792947Z[Etc/UTC]", comments = "Generator version: 7.24.0")
 public class StatDetailAffectingNatures {
   public static final String SERIALIZED_NAME_INCREASE = "increase";
   @SerializedName(SERIALIZED_NAME_INCREASE)
@@ -154,10 +154,7 @@ public class StatDetailAffectingNatures {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 
@@ -200,26 +197,26 @@ public class StatDetailAffectingNatures {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      // ensure the json data is an array
-      if (!jsonObj.get("increase").isJsonArray()) {
-        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `increase` to be an array in the JSON string but got `%s`", jsonObj.get("increase").toString()));
+      if (jsonObj.get("increase") != null) {
+        if (!jsonObj.get("increase").isJsonArray()) {
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `increase` to be an array in the JSON string but got `%s`", jsonObj.get("increase").toString()));
+        }
+        JsonArray jsonArrayincrease = jsonObj.getAsJsonArray("increase");
+        // validate the required field `increase` (array)
+        for (int i = 0; i < jsonArrayincrease.size(); i++) {
+          AbilityDetailPokemonInnerPokemon.validateJsonElement(jsonArrayincrease.get(i));
+        }
       }
-
-      JsonArray jsonArrayincrease = jsonObj.getAsJsonArray("increase");
-      // validate the required field `increase` (array)
-      for (int i = 0; i < jsonArrayincrease.size(); i++) {
-        AbilityDetailPokemonInnerPokemon.validateJsonElement(jsonArrayincrease.get(i));
-      };
-      // ensure the json data is an array
-      if (!jsonObj.get("decrease").isJsonArray()) {
-        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `decrease` to be an array in the JSON string but got `%s`", jsonObj.get("decrease").toString()));
+      if (jsonObj.get("decrease") != null) {
+        if (!jsonObj.get("decrease").isJsonArray()) {
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `decrease` to be an array in the JSON string but got `%s`", jsonObj.get("decrease").toString()));
+        }
+        JsonArray jsonArraydecrease = jsonObj.getAsJsonArray("decrease");
+        // validate the required field `decrease` (array)
+        for (int i = 0; i < jsonArraydecrease.size(); i++) {
+          AbilityDetailPokemonInnerPokemon.validateJsonElement(jsonArraydecrease.get(i));
+        }
       }
-
-      JsonArray jsonArraydecrease = jsonObj.getAsJsonArray("decrease");
-      // validate the required field `decrease` (array)
-      for (int i = 0; i < jsonArraydecrease.size(); i++) {
-        AbilityDetailPokemonInnerPokemon.validateJsonElement(jsonArraydecrease.get(i));
-      };
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {

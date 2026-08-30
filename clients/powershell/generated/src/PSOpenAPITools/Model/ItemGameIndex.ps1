@@ -49,8 +49,8 @@ function Initialize-ItemGameIndex {
 
 
         $PSO = [PSCustomObject]@{
-            "game_index" = ${GameIndex}
-            "generation" = ${Generation}
+            'game_index' = ${GameIndex}
+            'generation' = ${Generation}
         }
 
 
@@ -88,7 +88,7 @@ function ConvertFrom-JsonToItemGameIndex {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in ItemGameIndex
-        $AllProperties = ("game_index", "generation")
+        $AllProperties = ('game_index', 'generation')
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -99,21 +99,21 @@ function ConvertFrom-JsonToItemGameIndex {
             throw "Error! Empty JSON cannot be serialized due to the required property 'game_index' missing."
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "game_index"))) {
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'game_index'))) {
             throw "Error! JSON cannot be serialized due to the required property 'game_index' missing."
         } else {
-            $GameIndex = $JsonParameters.PSobject.Properties["game_index"].value
+            $GameIndex = $JsonParameters.PSobject.Properties['game_index'].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "generation"))) {
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'generation'))) {
             throw "Error! JSON cannot be serialized due to the required property 'generation' missing."
         } else {
-            $Generation = $JsonParameters.PSobject.Properties["generation"].value
+            $Generation = $JsonParameters.PSobject.Properties['generation'].value
         }
 
         $PSO = [PSCustomObject]@{
-            "game_index" = ${GameIndex}
-            "generation" = ${Generation}
+            'game_index' = ${GameIndex}
+            'generation' = ${Generation}
         }
 
         return $PSO

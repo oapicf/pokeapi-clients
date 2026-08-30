@@ -57,19 +57,23 @@ class CharacteristicDetail extends BaseModel
     },
     "possible_values" : {
       "type" : "array",
+      "readOnly" : true,
       "items" : {
         "type" : "integer",
         "format" : "int32"
-      }
+      },
+      "default" : null
     },
     "highest_stat" : {
       "$ref" : "#/components/schemas/StatSummary"
     },
     "descriptions" : {
       "type" : "array",
+      "readOnly" : true,
       "items" : {
         "$ref" : "#/components/schemas/CharacteristicDescription"
-      }
+      },
+      "default" : null
     }
   }
 }

@@ -32,7 +32,7 @@ class  CharacteristicSummary
 {
 public:
     CharacteristicSummary();
-    virtual ~CharacteristicSummary() = default;
+    virtual ~CharacteristicSummary();
 
 
     /// <summary>

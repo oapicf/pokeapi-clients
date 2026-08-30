@@ -93,10 +93,20 @@ class VersionGroupDetail {
       // Note 1: the values aren't checked for validity beyond being non-null.
       // Note 2: this code is stripped in release mode!
       assert(() {
-        requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "VersionGroupDetail[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "VersionGroupDetail[$key]" has a null value in JSON.');
-        });
+        assert(json.containsKey(r'id'), 'Required key "VersionGroupDetail[id]" is missing from JSON.');
+        assert(json[r'id'] != null, 'Required key "VersionGroupDetail[id]" has a null value in JSON.');
+        assert(json.containsKey(r'name'), 'Required key "VersionGroupDetail[name]" is missing from JSON.');
+        assert(json[r'name'] != null, 'Required key "VersionGroupDetail[name]" has a null value in JSON.');
+        assert(json.containsKey(r'generation'), 'Required key "VersionGroupDetail[generation]" is missing from JSON.');
+        assert(json[r'generation'] != null, 'Required key "VersionGroupDetail[generation]" has a null value in JSON.');
+        assert(json.containsKey(r'move_learn_methods'), 'Required key "VersionGroupDetail[move_learn_methods]" is missing from JSON.');
+        assert(json[r'move_learn_methods'] != null, 'Required key "VersionGroupDetail[move_learn_methods]" has a null value in JSON.');
+        assert(json.containsKey(r'pokedexes'), 'Required key "VersionGroupDetail[pokedexes]" is missing from JSON.');
+        assert(json[r'pokedexes'] != null, 'Required key "VersionGroupDetail[pokedexes]" has a null value in JSON.');
+        assert(json.containsKey(r'regions'), 'Required key "VersionGroupDetail[regions]" is missing from JSON.');
+        assert(json[r'regions'] != null, 'Required key "VersionGroupDetail[regions]" has a null value in JSON.');
+        assert(json.containsKey(r'versions'), 'Required key "VersionGroupDetail[versions]" is missing from JSON.');
+        assert(json[r'versions'] != null, 'Required key "VersionGroupDetail[versions]" has a null value in JSON.');
         return true;
       }());
 

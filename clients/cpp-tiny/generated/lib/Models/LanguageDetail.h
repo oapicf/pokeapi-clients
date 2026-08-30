@@ -53,42 +53,42 @@ public:
 
 	/*! \brief Set 
 	 */
-	void setId(int  id);
+	void setId(int id);
 	/*! \brief Get 
 	 */
 	std::string getName();
 
 	/*! \brief Set 
 	 */
-	void setName(std::string  name);
+	void setName(std::string name);
 	/*! \brief Get 
 	 */
 	bool isOfficial();
 
 	/*! \brief Set 
 	 */
-	void setOfficial(bool  official);
+	void setOfficial(bool official);
 	/*! \brief Get 
 	 */
 	std::string getIso639();
 
 	/*! \brief Set 
 	 */
-	void setIso639(std::string  iso639);
+	void setIso639(std::string iso639);
 	/*! \brief Get 
 	 */
 	std::string getIso3166();
 
 	/*! \brief Set 
 	 */
-	void setIso3166(std::string  iso3166);
+	void setIso3166(std::string iso3166);
 	/*! \brief Get 
 	 */
 	std::list<LanguageName> getNames();
 
 	/*! \brief Set 
 	 */
-	void setNames(std::list <LanguageName> names);
+	void setNames(std::list<LanguageName> names);
 
 
     private:

@@ -53,7 +53,7 @@ import com.github.oapicf.pokeapiclient.JSON;
 /**
  * ItemCategoryDetail
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-07T15:22:35.747827932Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-08-30T01:55:28.842792947Z[Etc/UTC]", comments = "Generator version: 7.24.0")
 public class ItemCategoryDetail {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -84,10 +84,14 @@ public class ItemCategoryDetail {
   }
 
   public ItemCategoryDetail(
-     Integer id
+     Integer id, 
+     List<ItemSummary> items, 
+     List<ItemCategoryName> names
   ) {
     this();
     this.id = id;
+    this.items = items;
+    this.names = names;
   }
 
   /**
@@ -120,19 +124,6 @@ public class ItemCategoryDetail {
   }
 
 
-  public ItemCategoryDetail items(@javax.annotation.Nonnull List<ItemSummary> items) {
-    this.items = items;
-    return this;
-  }
-
-  public ItemCategoryDetail addItemsItem(ItemSummary itemsItem) {
-    if (this.items == null) {
-      this.items = new ArrayList<>();
-    }
-    this.items.add(itemsItem);
-    return this;
-  }
-
   /**
    * Get items
    * @return items
@@ -142,23 +133,7 @@ public class ItemCategoryDetail {
     return items;
   }
 
-  public void setItems(@javax.annotation.Nonnull List<ItemSummary> items) {
-    this.items = items;
-  }
 
-
-  public ItemCategoryDetail names(@javax.annotation.Nonnull List<ItemCategoryName> names) {
-    this.names = names;
-    return this;
-  }
-
-  public ItemCategoryDetail addNamesItem(ItemCategoryName namesItem) {
-    if (this.names == null) {
-      this.names = new ArrayList<>();
-    }
-    this.names.add(namesItem);
-    return this;
-  }
 
   /**
    * Get names
@@ -169,9 +144,6 @@ public class ItemCategoryDetail {
     return names;
   }
 
-  public void setNames(@javax.annotation.Nonnull List<ItemCategoryName> names) {
-    this.names = names;
-  }
 
 
   public ItemCategoryDetail pocket(@javax.annotation.Nonnull ItemPocketSummary pocket) {
@@ -233,10 +205,7 @@ public class ItemCategoryDetail {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 
@@ -282,26 +251,26 @@ public class ItemCategoryDetail {
       if (!jsonObj.get("name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
       }
-      // ensure the json data is an array
-      if (!jsonObj.get("items").isJsonArray()) {
-        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `items` to be an array in the JSON string but got `%s`", jsonObj.get("items").toString()));
+      if (jsonObj.get("items") != null) {
+        if (!jsonObj.get("items").isJsonArray()) {
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `items` to be an array in the JSON string but got `%s`", jsonObj.get("items").toString()));
+        }
+        JsonArray jsonArrayitems = jsonObj.getAsJsonArray("items");
+        // validate the required field `items` (array)
+        for (int i = 0; i < jsonArrayitems.size(); i++) {
+          ItemSummary.validateJsonElement(jsonArrayitems.get(i));
+        }
       }
-
-      JsonArray jsonArrayitems = jsonObj.getAsJsonArray("items");
-      // validate the required field `items` (array)
-      for (int i = 0; i < jsonArrayitems.size(); i++) {
-        ItemSummary.validateJsonElement(jsonArrayitems.get(i));
-      };
-      // ensure the json data is an array
-      if (!jsonObj.get("names").isJsonArray()) {
-        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `names` to be an array in the JSON string but got `%s`", jsonObj.get("names").toString()));
+      if (jsonObj.get("names") != null) {
+        if (!jsonObj.get("names").isJsonArray()) {
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `names` to be an array in the JSON string but got `%s`", jsonObj.get("names").toString()));
+        }
+        JsonArray jsonArraynames = jsonObj.getAsJsonArray("names");
+        // validate the required field `names` (array)
+        for (int i = 0; i < jsonArraynames.size(); i++) {
+          ItemCategoryName.validateJsonElement(jsonArraynames.get(i));
+        }
       }
-
-      JsonArray jsonArraynames = jsonObj.getAsJsonArray("names");
-      // validate the required field `names` (array)
-      for (int i = 0; i < jsonArraynames.size(); i++) {
-        ItemCategoryName.validateJsonElement(jsonArraynames.get(i));
-      };
       // validate the required field `pocket`
       ItemPocketSummary.validateJsonElement(jsonObj.get("pocket"));
   }

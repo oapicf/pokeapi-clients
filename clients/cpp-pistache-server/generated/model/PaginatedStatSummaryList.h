@@ -34,7 +34,7 @@ class  PaginatedStatSummaryList
 {
 public:
     PaginatedStatSummaryList();
-    virtual ~PaginatedStatSummaryList() = default;
+    virtual ~PaginatedStatSummaryList();
 
 
     /// <summary>

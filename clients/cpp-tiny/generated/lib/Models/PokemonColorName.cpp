@@ -86,7 +86,7 @@ PokemonColorName::getName()
 }
 
 void
-PokemonColorName::setName(std::string  name)
+PokemonColorName::setName(std::string name)
 {
 	this->name = name;
 }
@@ -98,7 +98,7 @@ PokemonColorName::getLanguage()
 }
 
 void
-PokemonColorName::setLanguage(LanguageSummary  language)
+PokemonColorName::setLanguage(LanguageSummary language)
 {
 	this->language = language;
 }

@@ -65,9 +65,11 @@ class MoveChange extends BaseModel
     },
     "effect_entries" : {
       "type" : "array",
+      "readOnly" : true,
       "items" : {
         "$ref" : "#/components/schemas/MoveChange_effect_entries_inner"
-      }
+      },
+      "default" : null
     },
     "type" : {
       "$ref" : "#/components/schemas/TypeSummary"

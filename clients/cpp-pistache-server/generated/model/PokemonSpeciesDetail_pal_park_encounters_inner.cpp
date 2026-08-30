@@ -26,6 +26,8 @@ PokemonSpeciesDetail_pal_park_encounters_inner::PokemonSpeciesDetail_pal_park_en
     
 }
 
+PokemonSpeciesDetail_pal_park_encounters_inner::~PokemonSpeciesDetail_pal_park_encounters_inner() = default;
+
 void PokemonSpeciesDetail_pal_park_encounters_inner::validate() const
 {
     std::stringstream msg;

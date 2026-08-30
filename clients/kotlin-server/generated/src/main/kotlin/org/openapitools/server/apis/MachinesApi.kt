@@ -29,11 +29,9 @@ import org.openapitools.server.models.MachineDetail
 import org.openapitools.server.models.PaginatedMachineSummaryList
 
 fun Route.MachinesApi() {
-    val empty = mutableMapOf<String, Any?>()
-
     authenticate("basicAuth") {
     authenticate("cookieAuth") {
-    get<Paths.machineList> {
+    get<Paths.machineList> { machineList ->
         val principal = call.authentication.principal<UserIdPrincipal>()
         
         
@@ -42,9 +40,9 @@ fun Route.MachinesApi() {
         
         val exampleContentType = "application/json"
             val exampleContentString = """{
+              "count" : 123,
               "next" : "http://api.example.org/accounts/?offset=400&limit=100",
               "previous" : "http://api.example.org/accounts/?offset=200&limit=100",
-              "count" : 123,
               "results" : [ {
                 "url" : "https://openapi-generator.tech"
               }, {
@@ -60,10 +58,9 @@ fun Route.MachinesApi() {
         
     }
     }
-
     authenticate("basicAuth") {
     authenticate("cookieAuth") {
-    get<Paths.machineRetrieve> {
+    get<Paths.machineRetrieve> { machineRetrieve ->
         val principal = call.authentication.principal<UserIdPrincipal>()
         
         
@@ -72,11 +69,8 @@ fun Route.MachinesApi() {
         
         val exampleContentType = "application/json"
             val exampleContentString = """{
+              "id" : 0,
               "item" : {
-                "name" : "name",
-                "url" : "https://openapi-generator.tech"
-              },
-              "move" : {
                 "name" : "name",
                 "url" : "https://openapi-generator.tech"
               },
@@ -84,7 +78,10 @@ fun Route.MachinesApi() {
                 "name" : "name",
                 "url" : "https://openapi-generator.tech"
               },
-              "id" : 0
+              "move" : {
+                "name" : "name",
+                "url" : "https://openapi-generator.tech"
+              }
             }"""
             
             when (exampleContentType) {
@@ -95,5 +92,4 @@ fun Route.MachinesApi() {
         
     }
     }
-
 }

@@ -130,7 +130,7 @@ export class MovesApi {
     { response: JQueryXHR; body: models.MoveMetaAilmentDetail;  },
     { response: JQueryXHR; errorThrown: string }
     > {
-        let localVarPath = this.basePath + '/api/v2/move-ailment/{id}/'.replace('{' + 'id' + '}', encodeURIComponent(String(id)));
+        let localVarPath = this.basePath + '/api/v2/move-ailment/{id}/'.replace('{id}', encodeURIComponent(String(id)));
 
         let queryParameters: any = {};
         let headerParams: any = {};
@@ -274,7 +274,7 @@ export class MovesApi {
     { response: JQueryXHR; body: models.MoveBattleStyleDetail;  },
     { response: JQueryXHR; errorThrown: string }
     > {
-        let localVarPath = this.basePath + '/api/v2/move-battle-style/{id}/'.replace('{' + 'id' + '}', encodeURIComponent(String(id)));
+        let localVarPath = this.basePath + '/api/v2/move-battle-style/{id}/'.replace('{id}', encodeURIComponent(String(id)));
 
         let queryParameters: any = {};
         let headerParams: any = {};
@@ -418,7 +418,7 @@ export class MovesApi {
     { response: JQueryXHR; body: models.MoveMetaCategoryDetail;  },
     { response: JQueryXHR; errorThrown: string }
     > {
-        let localVarPath = this.basePath + '/api/v2/move-category/{id}/'.replace('{' + 'id' + '}', encodeURIComponent(String(id)));
+        let localVarPath = this.basePath + '/api/v2/move-category/{id}/'.replace('{id}', encodeURIComponent(String(id)));
 
         let queryParameters: any = {};
         let headerParams: any = {};
@@ -562,7 +562,7 @@ export class MovesApi {
     { response: JQueryXHR; body: models.MoveLearnMethodDetail;  },
     { response: JQueryXHR; errorThrown: string }
     > {
-        let localVarPath = this.basePath + '/api/v2/move-learn-method/{id}/'.replace('{' + 'id' + '}', encodeURIComponent(String(id)));
+        let localVarPath = this.basePath + '/api/v2/move-learn-method/{id}/'.replace('{id}', encodeURIComponent(String(id)));
 
         let queryParameters: any = {};
         let headerParams: any = {};
@@ -706,7 +706,7 @@ export class MovesApi {
     { response: JQueryXHR; body: models.MoveDetail;  },
     { response: JQueryXHR; errorThrown: string }
     > {
-        let localVarPath = this.basePath + '/api/v2/move/{id}/'.replace('{' + 'id' + '}', encodeURIComponent(String(id)));
+        let localVarPath = this.basePath + '/api/v2/move/{id}/'.replace('{id}', encodeURIComponent(String(id)));
 
         let queryParameters: any = {};
         let headerParams: any = {};
@@ -850,7 +850,7 @@ export class MovesApi {
     { response: JQueryXHR; body: models.MoveTargetDetail;  },
     { response: JQueryXHR; errorThrown: string }
     > {
-        let localVarPath = this.basePath + '/api/v2/move-target/{id}/'.replace('{' + 'id' + '}', encodeURIComponent(String(id)));
+        let localVarPath = this.basePath + '/api/v2/move-target/{id}/'.replace('{id}', encodeURIComponent(String(id)));
 
         let queryParameters: any = {};
         let headerParams: any = {};

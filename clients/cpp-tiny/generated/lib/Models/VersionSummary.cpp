@@ -85,7 +85,7 @@ VersionSummary::getName()
 }
 
 void
-VersionSummary::setName(std::string  name)
+VersionSummary::setName(std::string name)
 {
 	this->name = name;
 }
@@ -97,7 +97,7 @@ VersionSummary::getUrl()
 }
 
 void
-VersionSummary::setUrl(std::string  url)
+VersionSummary::setUrl(std::string url)
 {
 	this->url = url;
 }

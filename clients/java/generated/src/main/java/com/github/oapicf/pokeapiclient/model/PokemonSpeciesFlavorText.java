@@ -50,7 +50,7 @@ import com.github.oapicf.pokeapiclient.JSON;
 /**
  * PokemonSpeciesFlavorText
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-07T15:22:35.747827932Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-08-30T01:55:28.842792947Z[Etc/UTC]", comments = "Generator version: 7.24.0")
 public class PokemonSpeciesFlavorText {
   public static final String SERIALIZED_NAME_FLAVOR_TEXT = "flavor_text";
   @SerializedName(SERIALIZED_NAME_FLAVOR_TEXT)
@@ -163,10 +163,7 @@ public class PokemonSpeciesFlavorText {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 

@@ -67,7 +67,8 @@ class PaginatedGrowthRateSummaryList extends BaseModel
       "type" : "array",
       "items" : {
         "$ref" : "#/components/schemas/GrowthRateSummary"
-      }
+      },
+      "default" : null
     }
   }
 }

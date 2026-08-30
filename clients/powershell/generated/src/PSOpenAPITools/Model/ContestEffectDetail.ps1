@@ -76,11 +76,11 @@ function Initialize-ContestEffectDetail {
 
 
         $PSO = [PSCustomObject]@{
-            "id" = ${Id}
-            "appeal" = ${Appeal}
-            "jam" = ${Jam}
-            "effect_entries" = ${EffectEntries}
-            "flavor_text_entries" = ${FlavorTextEntries}
+            'id' = ${Id}
+            'appeal' = ${Appeal}
+            'jam' = ${Jam}
+            'effect_entries' = ${EffectEntries}
+            'flavor_text_entries' = ${FlavorTextEntries}
         }
 
 
@@ -118,7 +118,7 @@ function ConvertFrom-JsonToContestEffectDetail {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in ContestEffectDetail
-        $AllProperties = ("id", "appeal", "jam", "effect_entries", "flavor_text_entries")
+        $AllProperties = ('id', 'appeal', 'jam', 'effect_entries', 'flavor_text_entries')
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -129,42 +129,42 @@ function ConvertFrom-JsonToContestEffectDetail {
             throw "Error! Empty JSON cannot be serialized due to the required property 'id' missing."
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "id"))) {
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'id'))) {
             throw "Error! JSON cannot be serialized due to the required property 'id' missing."
         } else {
-            $Id = $JsonParameters.PSobject.Properties["id"].value
+            $Id = $JsonParameters.PSobject.Properties['id'].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "appeal"))) {
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'appeal'))) {
             throw "Error! JSON cannot be serialized due to the required property 'appeal' missing."
         } else {
-            $Appeal = $JsonParameters.PSobject.Properties["appeal"].value
+            $Appeal = $JsonParameters.PSobject.Properties['appeal'].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "jam"))) {
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'jam'))) {
             throw "Error! JSON cannot be serialized due to the required property 'jam' missing."
         } else {
-            $Jam = $JsonParameters.PSobject.Properties["jam"].value
+            $Jam = $JsonParameters.PSobject.Properties['jam'].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "effect_entries"))) {
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'effect_entries'))) {
             throw "Error! JSON cannot be serialized due to the required property 'effect_entries' missing."
         } else {
-            $EffectEntries = $JsonParameters.PSobject.Properties["effect_entries"].value
+            $EffectEntries = $JsonParameters.PSobject.Properties['effect_entries'].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "flavor_text_entries"))) {
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'flavor_text_entries'))) {
             throw "Error! JSON cannot be serialized due to the required property 'flavor_text_entries' missing."
         } else {
-            $FlavorTextEntries = $JsonParameters.PSobject.Properties["flavor_text_entries"].value
+            $FlavorTextEntries = $JsonParameters.PSobject.Properties['flavor_text_entries'].value
         }
 
         $PSO = [PSCustomObject]@{
-            "id" = ${Id}
-            "appeal" = ${Appeal}
-            "jam" = ${Jam}
-            "effect_entries" = ${EffectEntries}
-            "flavor_text_entries" = ${FlavorTextEntries}
+            'id' = ${Id}
+            'appeal' = ${Appeal}
+            'jam' = ${Jam}
+            'effect_entries' = ${EffectEntries}
+            'flavor_text_entries' = ${FlavorTextEntries}
         }
 
         return $PSO

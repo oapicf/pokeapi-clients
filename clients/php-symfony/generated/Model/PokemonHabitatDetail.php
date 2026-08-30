@@ -47,7 +47,7 @@ class PokemonHabitatDetail
      * @var int|null
      * @SerializedName("id")
      * @Type("int")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Type("int")]
     protected ?int $id = null;
@@ -56,7 +56,7 @@ class PokemonHabitatDetail
      * @var string|null
      * @SerializedName("name")
      * @Type("string")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Type("string")]
     #[Assert\Length(max: 100)]
@@ -66,7 +66,7 @@ class PokemonHabitatDetail
      * @var PokemonHabitatName[]|null
      * @SerializedName("names")
      * @Type("array<OpenAPI\Server\Model\PokemonHabitatName>")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Valid]
     #[Assert\All([
@@ -78,7 +78,7 @@ class PokemonHabitatDetail
      * @var PokemonSpeciesSummary[]|null
      * @SerializedName("pokemon_species")
      * @Type("array<OpenAPI\Server\Model\PokemonSpeciesSummary>")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Valid]
     #[Assert\All([
@@ -111,12 +111,12 @@ class PokemonHabitatDetail
     }
 
     /**
-    * Sets id.
-    *
-    * @param int|null $id
-    *
-    * @return $this
-    */
+     * Sets id.
+     *
+     * @param int|null $id
+     *
+     * @return $this
+     */
     public function setId(?int $id): self
     {
         $this->id = $id;
@@ -138,12 +138,12 @@ class PokemonHabitatDetail
     }
 
     /**
-    * Sets name.
-    *
-    * @param string|null $name
-    *
-    * @return $this
-    */
+     * Sets name.
+     *
+     * @param string|null $name
+     *
+     * @return $this
+     */
     public function setName(?string $name): self
     {
         $this->name = $name;
@@ -165,12 +165,12 @@ class PokemonHabitatDetail
     }
 
     /**
-    * Sets names.
-    *
-    * @param PokemonHabitatName[]|null $names
-    *
-    * @return $this
-    */
+     * Sets names.
+     *
+     * @param PokemonHabitatName[]|null $names
+     *
+     * @return $this
+     */
     public function setNames(?array $names): self
     {
         $this->names = $names;
@@ -192,12 +192,12 @@ class PokemonHabitatDetail
     }
 
     /**
-    * Sets pokemonSpecies.
-    *
-    * @param PokemonSpeciesSummary[]|null $pokemonSpecies
-    *
-    * @return $this
-    */
+     * Sets pokemonSpecies.
+     *
+     * @param PokemonSpeciesSummary[]|null $pokemonSpecies
+     *
+     * @return $this
+     */
     public function setPokemonSpecies(?array $pokemonSpecies): self
     {
         $this->pokemonSpecies = $pokemonSpecies;

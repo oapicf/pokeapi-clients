@@ -6,28 +6,37 @@
 
 
 static gender_detail_pokemon_species_details_inner_t *gender_detail_pokemon_species_details_inner_create_internal(
-    int rate,
+    int *rate,
     ability_detail_pokemon_inner_pokemon_t *pokemon_species
     ) {
     gender_detail_pokemon_species_details_inner_t *gender_detail_pokemon_species_details_inner_local_var = malloc(sizeof(gender_detail_pokemon_species_details_inner_t));
     if (!gender_detail_pokemon_species_details_inner_local_var) {
         return NULL;
     }
+    memset(gender_detail_pokemon_species_details_inner_local_var, 0, sizeof(gender_detail_pokemon_species_details_inner_t));
+    gender_detail_pokemon_species_details_inner_local_var->_library_owned = 1;
     gender_detail_pokemon_species_details_inner_local_var->rate = rate;
     gender_detail_pokemon_species_details_inner_local_var->pokemon_species = pokemon_species;
-
-    gender_detail_pokemon_species_details_inner_local_var->_library_owned = 1;
     return gender_detail_pokemon_species_details_inner_local_var;
 }
 
 __attribute__((deprecated)) gender_detail_pokemon_species_details_inner_t *gender_detail_pokemon_species_details_inner_create(
-    int rate,
+    int *rate,
     ability_detail_pokemon_inner_pokemon_t *pokemon_species
     ) {
-    return gender_detail_pokemon_species_details_inner_create_internal (
-        rate,
+    int *rate_copy = NULL;
+    if (rate) {
+        rate_copy = malloc(sizeof(int));
+        if (rate_copy) *rate_copy = *rate;
+    }
+    gender_detail_pokemon_species_details_inner_t *result = gender_detail_pokemon_species_details_inner_create_internal (
+        rate_copy,
         pokemon_species
         );
+    if (!result) {
+        free(rate_copy);
+    }
+    return result;
 }
 
 void gender_detail_pokemon_species_details_inner_free(gender_detail_pokemon_species_details_inner_t *gender_detail_pokemon_species_details_inner) {
@@ -39,6 +48,10 @@ void gender_detail_pokemon_species_details_inner_free(gender_detail_pokemon_spec
         return ;
     }
     listEntry_t *listEntry;
+    if (gender_detail_pokemon_species_details_inner->rate) {
+        free(gender_detail_pokemon_species_details_inner->rate);
+        gender_detail_pokemon_species_details_inner->rate = NULL;
+    }
     if (gender_detail_pokemon_species_details_inner->pokemon_species) {
         ability_detail_pokemon_inner_pokemon_free(gender_detail_pokemon_species_details_inner->pokemon_species);
         gender_detail_pokemon_species_details_inner->pokemon_species = NULL;
@@ -53,7 +66,7 @@ cJSON *gender_detail_pokemon_species_details_inner_convertToJSON(gender_detail_p
     if (!gender_detail_pokemon_species_details_inner->rate) {
         goto fail;
     }
-    if(cJSON_AddNumberToObject(item, "rate", gender_detail_pokemon_species_details_inner->rate) == NULL) {
+    if(cJSON_AddNumberToObject(item, "rate", *gender_detail_pokemon_species_details_inner->rate) == NULL) {
     goto fail; //Numeric
     }
 
@@ -83,6 +96,9 @@ gender_detail_pokemon_species_details_inner_t *gender_detail_pokemon_species_det
 
     gender_detail_pokemon_species_details_inner_t *gender_detail_pokemon_species_details_inner_local_var = NULL;
 
+    // define the local variable for gender_detail_pokemon_species_details_inner->rate
+    int *rate_local_var = NULL;
+
     // define the local variable for gender_detail_pokemon_species_details_inner->pokemon_species
     ability_detail_pokemon_inner_pokemon_t *pokemon_species_local_nonprim = NULL;
 
@@ -100,6 +116,12 @@ gender_detail_pokemon_species_details_inner_t *gender_detail_pokemon_species_det
     {
     goto end; //Numeric
     }
+    rate_local_var = malloc(sizeof(int));
+    if(!rate_local_var)
+    {
+        goto end;
+    }
+    *rate_local_var = rate->valuedouble;
 
     // gender_detail_pokemon_species_details_inner->pokemon_species
     cJSON *pokemon_species = cJSON_GetObjectItemCaseSensitive(gender_detail_pokemon_species_details_innerJSON, "pokemon_species");
@@ -114,13 +136,22 @@ gender_detail_pokemon_species_details_inner_t *gender_detail_pokemon_species_det
     pokemon_species_local_nonprim = ability_detail_pokemon_inner_pokemon_parseFromJSON(pokemon_species); //nonprimitive
 
 
+
     gender_detail_pokemon_species_details_inner_local_var = gender_detail_pokemon_species_details_inner_create_internal (
-        rate->valuedouble,
+        rate_local_var,
         pokemon_species_local_nonprim
         );
 
+    if (!gender_detail_pokemon_species_details_inner_local_var) {
+        goto end;
+    }
+
     return gender_detail_pokemon_species_details_inner_local_var;
 end:
+    if (rate_local_var) {
+        free(rate_local_var);
+        rate_local_var = NULL;
+    }
     if (pokemon_species_local_nonprim) {
         ability_detail_pokemon_inner_pokemon_free(pokemon_species_local_nonprim);
         pokemon_species_local_nonprim = NULL;

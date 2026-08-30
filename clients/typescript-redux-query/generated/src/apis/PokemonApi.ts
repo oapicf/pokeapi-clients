@@ -351,7 +351,7 @@ function abilityRetrieveRaw<T>(requestParameters: AbilityRetrieveRequest, reques
 
     meta.authType = ['basic'];
     const config: QueryConfig<T> = {
-        url: `${runtime.Configuration.basePath}/api/v2/ability/{id}/`.replace(`{${"id"}}`, encodeURIComponent(String(requestParameters.id))),
+        url: `${runtime.Configuration.basePath}/api/v2/ability/{id}/`.replace('{id}', encodeURIComponent(String(requestParameters.id))),
         meta,
         update: requestConfig.update,
         queryKey: requestConfig.queryKey,
@@ -460,7 +460,7 @@ function characteristicRetrieveRaw<T>(requestParameters: CharacteristicRetrieveR
 
     meta.authType = ['basic'];
     const config: QueryConfig<T> = {
-        url: `${runtime.Configuration.basePath}/api/v2/characteristic/{id}/`.replace(`{${"id"}}`, encodeURIComponent(String(requestParameters.id))),
+        url: `${runtime.Configuration.basePath}/api/v2/characteristic/{id}/`.replace('{id}', encodeURIComponent(String(requestParameters.id))),
         meta,
         update: requestConfig.update,
         queryKey: requestConfig.queryKey,
@@ -570,7 +570,7 @@ function eggGroupRetrieveRaw<T>(requestParameters: EggGroupRetrieveRequest, requ
 
     meta.authType = ['basic'];
     const config: QueryConfig<T> = {
-        url: `${runtime.Configuration.basePath}/api/v2/egg-group/{id}/`.replace(`{${"id"}}`, encodeURIComponent(String(requestParameters.id))),
+        url: `${runtime.Configuration.basePath}/api/v2/egg-group/{id}/`.replace('{id}', encodeURIComponent(String(requestParameters.id))),
         meta,
         update: requestConfig.update,
         queryKey: requestConfig.queryKey,
@@ -680,7 +680,7 @@ function genderRetrieveRaw<T>(requestParameters: GenderRetrieveRequest, requestC
 
     meta.authType = ['basic'];
     const config: QueryConfig<T> = {
-        url: `${runtime.Configuration.basePath}/api/v2/gender/{id}/`.replace(`{${"id"}}`, encodeURIComponent(String(requestParameters.id))),
+        url: `${runtime.Configuration.basePath}/api/v2/gender/{id}/`.replace('{id}', encodeURIComponent(String(requestParameters.id))),
         meta,
         update: requestConfig.update,
         queryKey: requestConfig.queryKey,
@@ -790,7 +790,7 @@ function growthRateRetrieveRaw<T>(requestParameters: GrowthRateRetrieveRequest, 
 
     meta.authType = ['basic'];
     const config: QueryConfig<T> = {
-        url: `${runtime.Configuration.basePath}/api/v2/growth-rate/{id}/`.replace(`{${"id"}}`, encodeURIComponent(String(requestParameters.id))),
+        url: `${runtime.Configuration.basePath}/api/v2/growth-rate/{id}/`.replace('{id}', encodeURIComponent(String(requestParameters.id))),
         meta,
         update: requestConfig.update,
         queryKey: requestConfig.queryKey,
@@ -900,7 +900,7 @@ function moveDamageClassRetrieveRaw<T>(requestParameters: MoveDamageClassRetriev
 
     meta.authType = ['basic'];
     const config: QueryConfig<T> = {
-        url: `${runtime.Configuration.basePath}/api/v2/move-damage-class/{id}/`.replace(`{${"id"}}`, encodeURIComponent(String(requestParameters.id))),
+        url: `${runtime.Configuration.basePath}/api/v2/move-damage-class/{id}/`.replace('{id}', encodeURIComponent(String(requestParameters.id))),
         meta,
         update: requestConfig.update,
         queryKey: requestConfig.queryKey,
@@ -1010,7 +1010,7 @@ function natureRetrieveRaw<T>(requestParameters: NatureRetrieveRequest, requestC
 
     meta.authType = ['basic'];
     const config: QueryConfig<T> = {
-        url: `${runtime.Configuration.basePath}/api/v2/nature/{id}/`.replace(`{${"id"}}`, encodeURIComponent(String(requestParameters.id))),
+        url: `${runtime.Configuration.basePath}/api/v2/nature/{id}/`.replace('{id}', encodeURIComponent(String(requestParameters.id))),
         meta,
         update: requestConfig.update,
         queryKey: requestConfig.queryKey,
@@ -1120,7 +1120,7 @@ function pokeathlonStatRetrieveRaw<T>(requestParameters: PokeathlonStatRetrieveR
 
     meta.authType = ['basic'];
     const config: QueryConfig<T> = {
-        url: `${runtime.Configuration.basePath}/api/v2/pokeathlon-stat/{id}/`.replace(`{${"id"}}`, encodeURIComponent(String(requestParameters.id))),
+        url: `${runtime.Configuration.basePath}/api/v2/pokeathlon-stat/{id}/`.replace('{id}', encodeURIComponent(String(requestParameters.id))),
         meta,
         update: requestConfig.update,
         queryKey: requestConfig.queryKey,
@@ -1230,7 +1230,7 @@ function pokemonColorRetrieveRaw<T>(requestParameters: PokemonColorRetrieveReque
 
     meta.authType = ['basic'];
     const config: QueryConfig<T> = {
-        url: `${runtime.Configuration.basePath}/api/v2/pokemon-color/{id}/`.replace(`{${"id"}}`, encodeURIComponent(String(requestParameters.id))),
+        url: `${runtime.Configuration.basePath}/api/v2/pokemon-color/{id}/`.replace('{id}', encodeURIComponent(String(requestParameters.id))),
         meta,
         update: requestConfig.update,
         queryKey: requestConfig.queryKey,
@@ -1340,7 +1340,7 @@ function pokemonFormRetrieveRaw<T>(requestParameters: PokemonFormRetrieveRequest
 
     meta.authType = ['basic'];
     const config: QueryConfig<T> = {
-        url: `${runtime.Configuration.basePath}/api/v2/pokemon-form/{id}/`.replace(`{${"id"}}`, encodeURIComponent(String(requestParameters.id))),
+        url: `${runtime.Configuration.basePath}/api/v2/pokemon-form/{id}/`.replace('{id}', encodeURIComponent(String(requestParameters.id))),
         meta,
         update: requestConfig.update,
         queryKey: requestConfig.queryKey,
@@ -1450,7 +1450,7 @@ function pokemonHabitatRetrieveRaw<T>(requestParameters: PokemonHabitatRetrieveR
 
     meta.authType = ['basic'];
     const config: QueryConfig<T> = {
-        url: `${runtime.Configuration.basePath}/api/v2/pokemon-habitat/{id}/`.replace(`{${"id"}}`, encodeURIComponent(String(requestParameters.id))),
+        url: `${runtime.Configuration.basePath}/api/v2/pokemon-habitat/{id}/`.replace('{id}', encodeURIComponent(String(requestParameters.id))),
         meta,
         update: requestConfig.update,
         queryKey: requestConfig.queryKey,
@@ -1560,7 +1560,7 @@ function pokemonRetrieveRaw<T>(requestParameters: PokemonRetrieveRequest, reques
 
     meta.authType = ['basic'];
     const config: QueryConfig<T> = {
-        url: `${runtime.Configuration.basePath}/api/v2/pokemon/{id}/`.replace(`{${"id"}}`, encodeURIComponent(String(requestParameters.id))),
+        url: `${runtime.Configuration.basePath}/api/v2/pokemon/{id}/`.replace('{id}', encodeURIComponent(String(requestParameters.id))),
         meta,
         update: requestConfig.update,
         queryKey: requestConfig.queryKey,
@@ -1670,7 +1670,7 @@ function pokemonShapeRetrieveRaw<T>(requestParameters: PokemonShapeRetrieveReque
 
     meta.authType = ['basic'];
     const config: QueryConfig<T> = {
-        url: `${runtime.Configuration.basePath}/api/v2/pokemon-shape/{id}/`.replace(`{${"id"}}`, encodeURIComponent(String(requestParameters.id))),
+        url: `${runtime.Configuration.basePath}/api/v2/pokemon-shape/{id}/`.replace('{id}', encodeURIComponent(String(requestParameters.id))),
         meta,
         update: requestConfig.update,
         queryKey: requestConfig.queryKey,
@@ -1780,7 +1780,7 @@ function pokemonSpeciesRetrieveRaw<T>(requestParameters: PokemonSpeciesRetrieveR
 
     meta.authType = ['basic'];
     const config: QueryConfig<T> = {
-        url: `${runtime.Configuration.basePath}/api/v2/pokemon-species/{id}/`.replace(`{${"id"}}`, encodeURIComponent(String(requestParameters.id))),
+        url: `${runtime.Configuration.basePath}/api/v2/pokemon-species/{id}/`.replace('{id}', encodeURIComponent(String(requestParameters.id))),
         meta,
         update: requestConfig.update,
         queryKey: requestConfig.queryKey,
@@ -1890,7 +1890,7 @@ function statRetrieveRaw<T>(requestParameters: StatRetrieveRequest, requestConfi
 
     meta.authType = ['basic'];
     const config: QueryConfig<T> = {
-        url: `${runtime.Configuration.basePath}/api/v2/stat/{id}/`.replace(`{${"id"}}`, encodeURIComponent(String(requestParameters.id))),
+        url: `${runtime.Configuration.basePath}/api/v2/stat/{id}/`.replace('{id}', encodeURIComponent(String(requestParameters.id))),
         meta,
         update: requestConfig.update,
         queryKey: requestConfig.queryKey,
@@ -2000,7 +2000,7 @@ function typeRetrieveRaw<T>(requestParameters: TypeRetrieveRequest, requestConfi
 
     meta.authType = ['basic'];
     const config: QueryConfig<T> = {
-        url: `${runtime.Configuration.basePath}/api/v2/type/{id}/`.replace(`{${"id"}}`, encodeURIComponent(String(requestParameters.id))),
+        url: `${runtime.Configuration.basePath}/api/v2/type/{id}/`.replace('{id}', encodeURIComponent(String(requestParameters.id))),
         meta,
         update: requestConfig.update,
         queryKey: requestConfig.queryKey,

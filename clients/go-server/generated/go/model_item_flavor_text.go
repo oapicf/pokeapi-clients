@@ -12,6 +12,11 @@
 package openapi
 
 
+import (
+	"encoding/json"
+	"fmt"
+)
+
 
 
 type ItemFlavorText struct {
@@ -22,11 +27,79 @@ type ItemFlavorText struct {
 
 	Language LanguageSummary `json:"language"`
 }
+// UnmarshalJSON validates required property keys then unmarshals into ItemFlavorText
+func (o *ItemFlavorText) UnmarshalJSON(data []byte) (err error) {
+	// Presence is checked against required fields that exist on this struct,
+	// including fields promoted from embedded allOf parents.
+	requiredProperties := []string{
+		"text",
+		"version_group",
+		"language",
+	}
 
-// AssertItemFlavorTextRequired checks if the required fields are not zero-ed
+	requiredNullableProperties := map[string]bool{
+		"text": false,
+		"version_group": false,
+		"language": false,
+	}
+
+	allowedJsonKeys := map[string]struct{}{
+		"text": {},
+		"version_group": {},
+		"language": {},
+	}
+
+	allProperties := make(map[string]json.RawMessage)
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err
+	}
+
+	for _, requiredProperty := range requiredProperties {
+		value, exists := allProperties[requiredProperty]
+		if !exists {
+			return &RequiredError{Field: requiredProperty}
+		}
+		if string(value) == "null" && !requiredNullableProperties[requiredProperty] {
+			return &RequiredError{Field: requiredProperty}
+		}
+	}
+
+	for key := range allProperties {
+		if _, exists := allowedJsonKeys[key]; !exists {
+			return fmt.Errorf("json: unknown field %q", key)
+		}
+	}
+
+	var decoded ItemFlavorText
+
+	if value, exists := allProperties["text"]; exists {
+		if err = json.Unmarshal(value, &decoded.Text); err != nil {
+			return err
+		}
+	}
+	if value, exists := allProperties["version_group"]; exists {
+		if err = json.Unmarshal(value, &decoded.VersionGroup); err != nil {
+			return err
+		}
+	}
+	if value, exists := allProperties["language"]; exists {
+		if err = json.Unmarshal(value, &decoded.Language); err != nil {
+			return err
+		}
+	}
+
+	*o = decoded
+
+	return nil
+}
+
+// AssertItemFlavorTextRequired checks complex required fields (models, arrays, maps) and embedded parents.
+// Primitive required fields are validated for JSON request bodies in UnmarshalJSON so zero values remain valid.
 func AssertItemFlavorTextRequired(obj ItemFlavorText) error {
 	elements := map[string]interface{}{
-		"text": obj.Text,
 		"version_group": obj.VersionGroup,
 		"language": obj.Language,
 	}

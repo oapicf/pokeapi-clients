@@ -12,6 +12,11 @@
 package openapi
 
 
+import (
+	"encoding/json"
+	"fmt"
+)
+
 
 
 type PokemonShapeDetailNamesInner struct {
@@ -20,19 +25,70 @@ type PokemonShapeDetailNamesInner struct {
 
 	Name string `json:"name"`
 }
-
-// AssertPokemonShapeDetailNamesInnerRequired checks if the required fields are not zero-ed
-func AssertPokemonShapeDetailNamesInnerRequired(obj PokemonShapeDetailNamesInner) error {
-	elements := map[string]interface{}{
-		"url": obj.Url,
-		"name": obj.Name,
+// UnmarshalJSON validates required property keys then unmarshals into PokemonShapeDetailNamesInner
+func (o *PokemonShapeDetailNamesInner) UnmarshalJSON(data []byte) (err error) {
+	// Presence is checked against required fields that exist on this struct,
+	// including fields promoted from embedded allOf parents.
+	requiredProperties := []string{
+		"url",
+		"name",
 	}
-	for name, el := range elements {
-		if isZero := IsZeroValue(el); isZero {
-			return &RequiredError{Field: name}
+
+	requiredNullableProperties := map[string]bool{
+		"url": false,
+		"name": false,
+	}
+
+	allowedJsonKeys := map[string]struct{}{
+		"url": {},
+		"name": {},
+	}
+
+	allProperties := make(map[string]json.RawMessage)
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err
+	}
+
+	for _, requiredProperty := range requiredProperties {
+		value, exists := allProperties[requiredProperty]
+		if !exists {
+			return &RequiredError{Field: requiredProperty}
+		}
+		if string(value) == "null" && !requiredNullableProperties[requiredProperty] {
+			return &RequiredError{Field: requiredProperty}
 		}
 	}
 
+	for key := range allProperties {
+		if _, exists := allowedJsonKeys[key]; !exists {
+			return fmt.Errorf("json: unknown field %q", key)
+		}
+	}
+
+	var decoded PokemonShapeDetailNamesInner
+
+	if value, exists := allProperties["url"]; exists {
+		if err = json.Unmarshal(value, &decoded.Url); err != nil {
+			return err
+		}
+	}
+	if value, exists := allProperties["name"]; exists {
+		if err = json.Unmarshal(value, &decoded.Name); err != nil {
+			return err
+		}
+	}
+
+	*o = decoded
+
+	return nil
+}
+
+// AssertPokemonShapeDetailNamesInnerRequired checks complex required fields (models, arrays, maps) and embedded parents.
+// Primitive required fields are validated for JSON request bodies in UnmarshalJSON so zero values remain valid.
+func AssertPokemonShapeDetailNamesInnerRequired(obj PokemonShapeDetailNamesInner) error {
 	return nil
 }
 

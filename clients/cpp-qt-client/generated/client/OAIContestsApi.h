@@ -44,6 +44,7 @@ public:
     void initializeServerConfigs();
     int setDefaultServerValue(int serverIndex,const QString &operation, const QString &variable,const QString &val);
     void setServerIndex(const QString &operation, int serverIndex);
+    void setServerIndex(int serverIndex);
     void setApiKey(const QString &apiKeyName, const QString &apiKey);
     void setBearerToken(const QString &token);
     void setUsername(const QString &username);
@@ -100,6 +101,13 @@ public:
 
 
 private:
+    enum class OauthMethod : int {
+        INVALID_VALUE_OPENAPI_GENERATED = 0,
+        ImplicitFlow = 1,
+        AuthorizationFlow = 2,
+        ClientCredentialsFlow = 3,
+        ResourceOwnerPasswordFlow = 4
+    };
     QMap<QString,int> _serverIndices;
     QMap<QString,QList<OAIServerConfiguration>> _serverConfigs;
     QMap<QString, QString> _apiKeys;
@@ -119,7 +127,7 @@ private:
     OauthImplicit _implicitFlow;
     OauthCredentials _credentialFlow;
     OauthPassword _passwordFlow;
-    int _OauthMethod = 0;
+    OauthMethod _OauthMethod = OauthMethod::INVALID_VALUE_OPENAPI_GENERATED;
 
     void contestEffectListCallback(OAIHttpRequestWorker *worker);
     void contestEffectRetrieveCallback(OAIHttpRequestWorker *worker);
@@ -145,42 +153,18 @@ Q_SIGNALS:
     void superContestEffectListSignalFull(OAIHttpRequestWorker *worker, OAIPaginatedSuperContestEffectSummaryList summary);
     void superContestEffectRetrieveSignalFull(OAIHttpRequestWorker *worker, OAISuperContestEffectDetail summary);
 
-    Q_DECL_DEPRECATED_X("Use contestEffectListSignalError() instead")
-    void contestEffectListSignalE(OAIPaginatedContestEffectSummaryList summary, QNetworkReply::NetworkError error_type, QString error_str);
     void contestEffectListSignalError(OAIPaginatedContestEffectSummaryList summary, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use contestEffectRetrieveSignalError() instead")
-    void contestEffectRetrieveSignalE(OAIContestEffectDetail summary, QNetworkReply::NetworkError error_type, QString error_str);
     void contestEffectRetrieveSignalError(OAIContestEffectDetail summary, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use contestTypeListSignalError() instead")
-    void contestTypeListSignalE(OAIPaginatedContestTypeSummaryList summary, QNetworkReply::NetworkError error_type, QString error_str);
     void contestTypeListSignalError(OAIPaginatedContestTypeSummaryList summary, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use contestTypeRetrieveSignalError() instead")
-    void contestTypeRetrieveSignalE(OAIContestTypeDetail summary, QNetworkReply::NetworkError error_type, QString error_str);
     void contestTypeRetrieveSignalError(OAIContestTypeDetail summary, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use superContestEffectListSignalError() instead")
-    void superContestEffectListSignalE(OAIPaginatedSuperContestEffectSummaryList summary, QNetworkReply::NetworkError error_type, QString error_str);
     void superContestEffectListSignalError(OAIPaginatedSuperContestEffectSummaryList summary, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use superContestEffectRetrieveSignalError() instead")
-    void superContestEffectRetrieveSignalE(OAISuperContestEffectDetail summary, QNetworkReply::NetworkError error_type, QString error_str);
     void superContestEffectRetrieveSignalError(OAISuperContestEffectDetail summary, QNetworkReply::NetworkError error_type, const QString &error_str);
 
-    Q_DECL_DEPRECATED_X("Use contestEffectListSignalErrorFull() instead")
-    void contestEffectListSignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void contestEffectListSignalErrorFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use contestEffectRetrieveSignalErrorFull() instead")
-    void contestEffectRetrieveSignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void contestEffectRetrieveSignalErrorFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use contestTypeListSignalErrorFull() instead")
-    void contestTypeListSignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void contestTypeListSignalErrorFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use contestTypeRetrieveSignalErrorFull() instead")
-    void contestTypeRetrieveSignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void contestTypeRetrieveSignalErrorFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use superContestEffectListSignalErrorFull() instead")
-    void superContestEffectListSignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void superContestEffectListSignalErrorFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use superContestEffectRetrieveSignalErrorFull() instead")
-    void superContestEffectRetrieveSignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void superContestEffectRetrieveSignalErrorFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
 
     void abortRequestsSignal();

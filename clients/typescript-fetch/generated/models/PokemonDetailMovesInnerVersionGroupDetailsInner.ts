@@ -51,9 +51,9 @@ export interface PokemonDetailMovesInnerVersionGroupDetailsInner {
  * Check if a given object implements the PokemonDetailMovesInnerVersionGroupDetailsInner interface.
  */
 export function instanceOfPokemonDetailMovesInnerVersionGroupDetailsInner(value: object): value is PokemonDetailMovesInnerVersionGroupDetailsInner {
-    if (!('levelLearnedAt' in value) || value['levelLearnedAt'] === undefined) return false;
-    if (!('moveLearnMethod' in value) || value['moveLearnMethod'] === undefined) return false;
-    if (!('versionGroup' in value) || value['versionGroup'] === undefined) return false;
+    if ((!('levelLearnedAt' in (value as Record<string, any>)) && !('level_learned_at' in (value as Record<string, any>))) || ((value as Record<string, any>)['levelLearnedAt'] === undefined && (value as Record<string, any>)['level_learned_at'] === undefined)) return false;
+    if ((!('moveLearnMethod' in (value as Record<string, any>)) && !('move_learn_method' in (value as Record<string, any>))) || ((value as Record<string, any>)['moveLearnMethod'] === undefined && (value as Record<string, any>)['move_learn_method'] === undefined)) return false;
+    if ((!('versionGroup' in (value as Record<string, any>)) && !('version_group' in (value as Record<string, any>))) || ((value as Record<string, any>)['versionGroup'] === undefined && (value as Record<string, any>)['version_group'] === undefined)) return false;
     return true;
 }
 

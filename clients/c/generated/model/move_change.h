@@ -22,10 +22,10 @@ typedef struct move_change_t move_change_t;
 
 
 typedef struct move_change_t {
-    int accuracy; //numeric
-    int power; //numeric
-    int pp; //numeric
-    int effect_chance; //numeric
+    int *accuracy; //numeric
+    int *power; //numeric
+    int *pp; //numeric
+    int *effect_chance; //numeric
     list_t *effect_entries; //nonprimitive container
     struct type_summary_t *type; //model
     struct version_group_summary_t *version_group; //model
@@ -34,10 +34,10 @@ typedef struct move_change_t {
 } move_change_t;
 
 __attribute__((deprecated)) move_change_t *move_change_create(
-    int accuracy,
-    int power,
-    int pp,
-    int effect_chance,
+    int *accuracy,
+    int *power,
+    int *pp,
+    int *effect_chance,
     list_t *effect_entries,
     type_summary_t *type,
     version_group_summary_t *version_group

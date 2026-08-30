@@ -11,10 +11,10 @@ Name | Type | Description | Notes
 **id** | `Integer` |  |  [readonly property]
 **name** | `String` |  | 
 **gameIndex** | `Integer` |  | 
-**encounterMethodRates** | [`List&lt;LocationAreaDetailEncounterMethodRatesInner&gt;`](LocationAreaDetailEncounterMethodRatesInner.md) |  | 
+**encounterMethodRates** | [`List&lt;LocationAreaDetailEncounterMethodRatesInner&gt;`](LocationAreaDetailEncounterMethodRatesInner.md) |  |  [readonly property]
 **location** | [`LocationSummary`](LocationSummary.md) |  | 
-**names** | [`List&lt;LocationAreaName&gt;`](LocationAreaName.md) |  | 
-**pokemonEncounters** | [`List&lt;LocationAreaDetailPokemonEncountersInner&gt;`](LocationAreaDetailPokemonEncountersInner.md) |  | 
+**names** | [`List&lt;LocationAreaName&gt;`](LocationAreaName.md) |  |  [readonly property]
+**pokemonEncounters** | [`List&lt;LocationAreaDetailPokemonEncountersInner&gt;`](LocationAreaDetailPokemonEncountersInner.md) |  |  [readonly property]
 
 
 

@@ -59,7 +59,7 @@ export interface ItemFlavorText {
  */
 export function instanceOfItemFlavorText(value: object): value is ItemFlavorText {
     if (!('text' in value) || value['text'] === undefined) return false;
-    if (!('versionGroup' in value) || value['versionGroup'] === undefined) return false;
+    if ((!('versionGroup' in (value as Record<string, any>)) && !('version_group' in (value as Record<string, any>))) || ((value as Record<string, any>)['versionGroup'] === undefined && (value as Record<string, any>)['version_group'] === undefined)) return false;
     if (!('language' in value) || value['language'] === undefined) return false;
     return true;
 }

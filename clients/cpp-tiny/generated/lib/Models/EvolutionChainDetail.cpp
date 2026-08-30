@@ -108,7 +108,7 @@ EvolutionChainDetail::getId()
 }
 
 void
-EvolutionChainDetail::setId(int  id)
+EvolutionChainDetail::setId(int id)
 {
 	this->id = id;
 }
@@ -120,7 +120,7 @@ EvolutionChainDetail::getBabyTriggerItem()
 }
 
 void
-EvolutionChainDetail::setBabyTriggerItem(ItemSummary  baby_trigger_item)
+EvolutionChainDetail::setBabyTriggerItem(ItemSummary baby_trigger_item)
 {
 	this->baby_trigger_item = baby_trigger_item;
 }
@@ -132,7 +132,7 @@ EvolutionChainDetail::getChain()
 }
 
 void
-EvolutionChainDetail::setChain(EvolutionChainDetail_chain  chain)
+EvolutionChainDetail::setChain(EvolutionChainDetail_chain chain)
 {
 	this->chain = chain;
 }

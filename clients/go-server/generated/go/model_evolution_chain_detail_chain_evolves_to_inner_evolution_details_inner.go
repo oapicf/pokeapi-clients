@@ -12,6 +12,11 @@
 package openapi
 
 
+import (
+	"encoding/json"
+	"fmt"
+)
+
 
 
 type EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner struct {
@@ -22,9 +27,9 @@ type EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner struct {
 
 	Item EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender `json:"item"`
 
-	KnownMove map[string]interface{} `json:"known_move"`
+	KnownMove EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender `json:"known_move"`
 
-	KnownMoveType map[string]interface{} `json:"known_move_type"`
+	KnownMoveType EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender `json:"known_move_type"`
 
 	Location EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender `json:"location"`
 
@@ -52,8 +57,197 @@ type EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner struct {
 
 	TurnUpsideDown bool `json:"turn_upside_down"`
 }
+// UnmarshalJSON validates required property keys then unmarshals into EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner
+func (o *EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner) UnmarshalJSON(data []byte) (err error) {
+	// Presence is checked against required fields that exist on this struct,
+	// including fields promoted from embedded allOf parents.
+	requiredProperties := []string{
+		"gender",
+		"held_item",
+		"item",
+		"known_move",
+		"known_move_type",
+		"location",
+		"min_affection",
+		"min_beauty",
+		"min_happiness",
+		"min_level",
+		"needs_overworld_rain",
+		"party_species",
+		"party_type",
+		"relative_physical_stats",
+		"time_of_day",
+		"trade_species",
+		"trigger",
+		"turn_upside_down",
+	}
 
-// AssertEvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerRequired checks if the required fields are not zero-ed
+	requiredNullableProperties := map[string]bool{
+		"gender": false,
+		"held_item": false,
+		"item": false,
+		"known_move": false,
+		"known_move_type": false,
+		"location": false,
+		"min_affection": false,
+		"min_beauty": false,
+		"min_happiness": false,
+		"min_level": false,
+		"needs_overworld_rain": false,
+		"party_species": false,
+		"party_type": false,
+		"relative_physical_stats": false,
+		"time_of_day": false,
+		"trade_species": false,
+		"trigger": false,
+		"turn_upside_down": false,
+	}
+
+	allowedJsonKeys := map[string]struct{}{
+		"gender": {},
+		"held_item": {},
+		"item": {},
+		"known_move": {},
+		"known_move_type": {},
+		"location": {},
+		"min_affection": {},
+		"min_beauty": {},
+		"min_happiness": {},
+		"min_level": {},
+		"needs_overworld_rain": {},
+		"party_species": {},
+		"party_type": {},
+		"relative_physical_stats": {},
+		"time_of_day": {},
+		"trade_species": {},
+		"trigger": {},
+		"turn_upside_down": {},
+	}
+
+	allProperties := make(map[string]json.RawMessage)
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err
+	}
+
+	for _, requiredProperty := range requiredProperties {
+		value, exists := allProperties[requiredProperty]
+		if !exists {
+			return &RequiredError{Field: requiredProperty}
+		}
+		if string(value) == "null" && !requiredNullableProperties[requiredProperty] {
+			return &RequiredError{Field: requiredProperty}
+		}
+	}
+
+	for key := range allProperties {
+		if _, exists := allowedJsonKeys[key]; !exists {
+			return fmt.Errorf("json: unknown field %q", key)
+		}
+	}
+
+	var decoded EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner
+
+	if value, exists := allProperties["gender"]; exists {
+		if err = json.Unmarshal(value, &decoded.Gender); err != nil {
+			return err
+		}
+	}
+	if value, exists := allProperties["held_item"]; exists {
+		if err = json.Unmarshal(value, &decoded.HeldItem); err != nil {
+			return err
+		}
+	}
+	if value, exists := allProperties["item"]; exists {
+		if err = json.Unmarshal(value, &decoded.Item); err != nil {
+			return err
+		}
+	}
+	if value, exists := allProperties["known_move"]; exists {
+		if err = json.Unmarshal(value, &decoded.KnownMove); err != nil {
+			return err
+		}
+	}
+	if value, exists := allProperties["known_move_type"]; exists {
+		if err = json.Unmarshal(value, &decoded.KnownMoveType); err != nil {
+			return err
+		}
+	}
+	if value, exists := allProperties["location"]; exists {
+		if err = json.Unmarshal(value, &decoded.Location); err != nil {
+			return err
+		}
+	}
+	if value, exists := allProperties["min_affection"]; exists {
+		if err = json.Unmarshal(value, &decoded.MinAffection); err != nil {
+			return err
+		}
+	}
+	if value, exists := allProperties["min_beauty"]; exists {
+		if err = json.Unmarshal(value, &decoded.MinBeauty); err != nil {
+			return err
+		}
+	}
+	if value, exists := allProperties["min_happiness"]; exists {
+		if err = json.Unmarshal(value, &decoded.MinHappiness); err != nil {
+			return err
+		}
+	}
+	if value, exists := allProperties["min_level"]; exists {
+		if err = json.Unmarshal(value, &decoded.MinLevel); err != nil {
+			return err
+		}
+	}
+	if value, exists := allProperties["needs_overworld_rain"]; exists {
+		if err = json.Unmarshal(value, &decoded.NeedsOverworldRain); err != nil {
+			return err
+		}
+	}
+	if value, exists := allProperties["party_species"]; exists {
+		if err = json.Unmarshal(value, &decoded.PartySpecies); err != nil {
+			return err
+		}
+	}
+	if value, exists := allProperties["party_type"]; exists {
+		if err = json.Unmarshal(value, &decoded.PartyType); err != nil {
+			return err
+		}
+	}
+	if value, exists := allProperties["relative_physical_stats"]; exists {
+		if err = json.Unmarshal(value, &decoded.RelativePhysicalStats); err != nil {
+			return err
+		}
+	}
+	if value, exists := allProperties["time_of_day"]; exists {
+		if err = json.Unmarshal(value, &decoded.TimeOfDay); err != nil {
+			return err
+		}
+	}
+	if value, exists := allProperties["trade_species"]; exists {
+		if err = json.Unmarshal(value, &decoded.TradeSpecies); err != nil {
+			return err
+		}
+	}
+	if value, exists := allProperties["trigger"]; exists {
+		if err = json.Unmarshal(value, &decoded.Trigger); err != nil {
+			return err
+		}
+	}
+	if value, exists := allProperties["turn_upside_down"]; exists {
+		if err = json.Unmarshal(value, &decoded.TurnUpsideDown); err != nil {
+			return err
+		}
+	}
+
+	*o = decoded
+
+	return nil
+}
+
+// AssertEvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerRequired checks complex required fields (models, arrays, maps) and embedded parents.
+// Primitive required fields are validated for JSON request bodies in UnmarshalJSON so zero values remain valid.
 func AssertEvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerRequired(obj EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner) error {
 	elements := map[string]interface{}{
 		"gender": obj.Gender,
@@ -62,18 +256,7 @@ func AssertEvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerRequired(
 		"known_move": obj.KnownMove,
 		"known_move_type": obj.KnownMoveType,
 		"location": obj.Location,
-		"min_affection": obj.MinAffection,
-		"min_beauty": obj.MinBeauty,
-		"min_happiness": obj.MinHappiness,
-		"min_level": obj.MinLevel,
-		"needs_overworld_rain": obj.NeedsOverworldRain,
-		"party_species": obj.PartySpecies,
-		"party_type": obj.PartyType,
-		"relative_physical_stats": obj.RelativePhysicalStats,
-		"time_of_day": obj.TimeOfDay,
-		"trade_species": obj.TradeSpecies,
 		"trigger": obj.Trigger,
-		"turn_upside_down": obj.TurnUpsideDown,
 	}
 	for name, el := range elements {
 		if isZero := IsZeroValue(el); isZero {
@@ -88,6 +271,12 @@ func AssertEvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerRequired(
 		return err
 	}
 	if err := AssertEvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGenderRequired(obj.Item); err != nil {
+		return err
+	}
+	if err := AssertEvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGenderRequired(obj.KnownMove); err != nil {
+		return err
+	}
+	if err := AssertEvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGenderRequired(obj.KnownMoveType); err != nil {
 		return err
 	}
 	if err := AssertEvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGenderRequired(obj.Location); err != nil {
@@ -108,6 +297,12 @@ func AssertEvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerConstrain
 		return err
 	}
 	if err := AssertEvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGenderConstraints(obj.Item); err != nil {
+		return err
+	}
+	if err := AssertEvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGenderConstraints(obj.KnownMove); err != nil {
+		return err
+	}
+	if err := AssertEvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGenderConstraints(obj.KnownMoveType); err != nil {
 		return err
 	}
 	if err := AssertEvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGenderConstraints(obj.Location); err != nil {

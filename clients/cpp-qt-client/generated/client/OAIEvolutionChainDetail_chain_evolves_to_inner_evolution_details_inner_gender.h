@@ -31,13 +31,13 @@ namespace OpenAPI {
 class OAIEvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner_gender : public OAIObject {
 public:
     OAIEvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner_gender();
-    OAIEvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner_gender(QString json);
+    OAIEvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner_gender(const QString &json);
     ~OAIEvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner_gender() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     QString getName() const;
     void setName(const QString &name);

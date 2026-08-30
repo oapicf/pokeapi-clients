@@ -54,14 +54,14 @@ public:
 
 	/*! \brief Set 
 	 */
-	void setDecrease(std::list <PokeathlonStatDetail_affecting_natures_decrease_inner> decrease);
+	void setDecrease(std::list<PokeathlonStatDetail_affecting_natures_decrease_inner> decrease);
 	/*! \brief Get 
 	 */
 	std::list<PokeathlonStatDetail_affecting_natures_increase_inner> getIncrease();
 
 	/*! \brief Set 
 	 */
-	void setIncrease(std::list <PokeathlonStatDetail_affecting_natures_increase_inner> increase);
+	void setIncrease(std::list<PokeathlonStatDetail_affecting_natures_increase_inner> increase);
 
 
     private:

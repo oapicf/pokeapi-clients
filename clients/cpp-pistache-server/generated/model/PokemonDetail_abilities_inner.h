@@ -32,7 +32,7 @@ class  PokemonDetail_abilities_inner
 {
 public:
     PokemonDetail_abilities_inner();
-    virtual ~PokemonDetail_abilities_inner() = default;
+    virtual ~PokemonDetail_abilities_inner();
 
 
     /// <summary>

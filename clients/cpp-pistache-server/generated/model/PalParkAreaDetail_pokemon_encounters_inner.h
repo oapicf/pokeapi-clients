@@ -32,7 +32,7 @@ class  PalParkAreaDetail_pokemon_encounters_inner
 {
 public:
     PalParkAreaDetail_pokemon_encounters_inner();
-    virtual ~PalParkAreaDetail_pokemon_encounters_inner() = default;
+    virtual ~PalParkAreaDetail_pokemon_encounters_inner();
 
 
     /// <summary>

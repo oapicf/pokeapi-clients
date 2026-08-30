@@ -199,7 +199,7 @@ PokemonShapeDetail::getId()
 }
 
 void
-PokemonShapeDetail::setId(int  id)
+PokemonShapeDetail::setId(int id)
 {
 	this->id = id;
 }
@@ -211,7 +211,7 @@ PokemonShapeDetail::getName()
 }
 
 void
-PokemonShapeDetail::setName(std::string  name)
+PokemonShapeDetail::setName(std::string name)
 {
 	this->name = name;
 }
@@ -223,7 +223,7 @@ PokemonShapeDetail::getAwesomeNames()
 }
 
 void
-PokemonShapeDetail::setAwesomeNames(std::list <PokemonShapeDetail_awesome_names_inner> awesome_names)
+PokemonShapeDetail::setAwesomeNames(std::list<PokemonShapeDetail_awesome_names_inner> awesome_names)
 {
 	this->awesome_names = awesome_names;
 }
@@ -235,7 +235,7 @@ PokemonShapeDetail::getNames()
 }
 
 void
-PokemonShapeDetail::setNames(std::list <PokemonShapeDetail_names_inner> names)
+PokemonShapeDetail::setNames(std::list<PokemonShapeDetail_names_inner> names)
 {
 	this->names = names;
 }
@@ -247,7 +247,7 @@ PokemonShapeDetail::getPokemonSpecies()
 }
 
 void
-PokemonShapeDetail::setPokemonSpecies(std::list <PokemonSpeciesSummary> pokemon_species)
+PokemonShapeDetail::setPokemonSpecies(std::list<PokemonSpeciesSummary> pokemon_species)
 {
 	this->pokemon_species = pokemon_species;
 }

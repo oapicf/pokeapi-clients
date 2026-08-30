@@ -14,19 +14,19 @@ Name | Type | Description | Notes
 **contestType** | [**OpenAPI\Server\Model\ContestTypeSummary**](ContestTypeSummary.md) |  | 
 **contestEffect** | [**OpenAPI\Server\Model\ContestEffectSummary**](ContestEffectSummary.md) |  | 
 **damageClass** | [**OpenAPI\Server\Model\MoveDamageClassSummary**](MoveDamageClassSummary.md) |  | 
-**effectEntries** | [**OpenAPI\Server\Model\MoveChangeEffectEntriesInner**](MoveChangeEffectEntriesInner.md) |  | 
-**effectChanges** | [**OpenAPI\Server\Model\MoveDetailEffectChangesInner**](MoveDetailEffectChangesInner.md) |  | 
+**effectEntries** | [**OpenAPI\Server\Model\MoveChangeEffectEntriesInner**](MoveChangeEffectEntriesInner.md) |  | [readonly] 
+**effectChanges** | [**OpenAPI\Server\Model\MoveDetailEffectChangesInner**](MoveDetailEffectChangesInner.md) |  | [readonly] 
 **generation** | [**OpenAPI\Server\Model\GenerationSummary**](GenerationSummary.md) |  | 
 **meta** | [**OpenAPI\Server\Model\MoveMeta**](MoveMeta.md) |  | [readonly] 
-**names** | [**OpenAPI\Server\Model\MoveName**](MoveName.md) |  | 
-**pastValues** | [**OpenAPI\Server\Model\MoveChange**](MoveChange.md) |  | 
-**statChanges** | [**OpenAPI\Server\Model\MoveDetailStatChangesInner**](MoveDetailStatChangesInner.md) |  | 
+**names** | [**OpenAPI\Server\Model\MoveName**](MoveName.md) |  | [readonly] 
+**pastValues** | [**OpenAPI\Server\Model\MoveChange**](MoveChange.md) |  | [readonly] 
+**statChanges** | [**OpenAPI\Server\Model\MoveDetailStatChangesInner**](MoveDetailStatChangesInner.md) |  | [readonly] 
 **superContestEffect** | [**OpenAPI\Server\Model\SuperContestEffectSummary**](SuperContestEffectSummary.md) |  | 
 **target** | [**OpenAPI\Server\Model\MoveTargetSummary**](MoveTargetSummary.md) |  | 
 **type** | [**OpenAPI\Server\Model\TypeSummary**](TypeSummary.md) |  | 
-**machines** | [**OpenAPI\Server\Model\MoveDetailMachinesInner**](MoveDetailMachinesInner.md) |  | 
-**flavorTextEntries** | [**OpenAPI\Server\Model\MoveFlavorText**](MoveFlavorText.md) |  | 
-**learnedByPokemon** | [**OpenAPI\Server\Model\AbilityDetailPokemonInnerPokemon**](AbilityDetailPokemonInnerPokemon.md) |  | 
+**machines** | [**OpenAPI\Server\Model\MoveDetailMachinesInner**](MoveDetailMachinesInner.md) |  | [readonly] 
+**flavorTextEntries** | [**OpenAPI\Server\Model\MoveFlavorText**](MoveFlavorText.md) |  | [readonly] 
+**learnedByPokemon** | [**OpenAPI\Server\Model\AbilityDetailPokemonInnerPokemon**](AbilityDetailPokemonInnerPokemon.md) |  | [readonly] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

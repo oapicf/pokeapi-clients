@@ -36,7 +36,7 @@ class  VersionGroupDetail
 {
 public:
     VersionGroupDetail();
-    virtual ~VersionGroupDetail() = default;
+    virtual ~VersionGroupDetail();
 
 
     /// <summary>

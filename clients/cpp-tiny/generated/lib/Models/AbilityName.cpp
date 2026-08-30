@@ -86,7 +86,7 @@ AbilityName::getName()
 }
 
 void
-AbilityName::setName(std::string  name)
+AbilityName::setName(std::string name)
 {
 	this->name = name;
 }
@@ -98,7 +98,7 @@ AbilityName::getLanguage()
 }
 
 void
-AbilityName::setLanguage(LanguageSummary  language)
+AbilityName::setLanguage(LanguageSummary language)
 {
 	this->language = language;
 }

@@ -12,31 +12,29 @@ import org.openapitools.model.StatSummary;
 import org.springframework.lang.Nullable;
 import org.openapitools.jackson.nullable.JsonNullable;
 import java.time.OffsetDateTime;
-import javax.validation.Valid;
-import javax.validation.constraints.*;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.*;
 import io.swagger.v3.oas.annotations.media.Schema;
 
 
 import java.util.*;
-import javax.annotation.Generated;
+import jakarta.annotation.Generated;
 
 /**
  * CharacteristicDetail
  */
 
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2026-02-07T15:29:13.146999890Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2026-08-30T02:00:43.960184425Z[Etc/UTC]", comments = "Generator version: 7.24.0")
 public class CharacteristicDetail {
 
   private Integer id;
 
   private Integer geneModulo;
 
-  @Valid
   private List<Integer> possibleValues = new ArrayList<>();
 
   private StatSummary highestStat;
 
-  @Valid
   private List<@Valid CharacteristicDescription> descriptions = new ArrayList<>();
 
   public CharacteristicDetail() {
@@ -70,6 +68,7 @@ public class CharacteristicDetail {
     return id;
   }
 
+  @JsonProperty("id")
   public void setId(Integer id) {
     this.id = id;
   }
@@ -90,6 +89,7 @@ public class CharacteristicDetail {
     return geneModulo;
   }
 
+  @JsonProperty("gene_modulo")
   public void setGeneModulo(Integer geneModulo) {
     this.geneModulo = geneModulo;
   }
@@ -111,13 +111,14 @@ public class CharacteristicDetail {
    * Get possibleValues
    * @return possibleValues
    */
-  @NotNull 
-  @Schema(name = "possible_values", requiredMode = Schema.RequiredMode.REQUIRED)
+  
+  @Schema(name = "possible_values", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("possible_values")
   public List<Integer> getPossibleValues() {
     return possibleValues;
   }
 
+  @JsonProperty("possible_values")
   public void setPossibleValues(List<Integer> possibleValues) {
     this.possibleValues = possibleValues;
   }
@@ -138,6 +139,7 @@ public class CharacteristicDetail {
     return highestStat;
   }
 
+  @JsonProperty("highest_stat")
   public void setHighestStat(StatSummary highestStat) {
     this.highestStat = highestStat;
   }
@@ -159,13 +161,14 @@ public class CharacteristicDetail {
    * Get descriptions
    * @return descriptions
    */
-  @NotNull @Valid 
-  @Schema(name = "descriptions", requiredMode = Schema.RequiredMode.REQUIRED)
+  @Valid 
+  @Schema(name = "descriptions", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("descriptions")
   public List<@Valid CharacteristicDescription> getDescriptions() {
     return descriptions;
   }
 
+  @JsonProperty("descriptions")
   public void setDescriptions(List<@Valid CharacteristicDescription> descriptions) {
     this.descriptions = descriptions;
   }
@@ -208,11 +211,8 @@ public class CharacteristicDetail {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+  private String toIndentedString(@Nullable Object o) {
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 }
 

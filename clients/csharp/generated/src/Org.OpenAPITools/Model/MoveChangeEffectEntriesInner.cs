@@ -95,8 +95,18 @@ namespace Org.OpenAPITools.Model
     /// <summary>
     /// A Json converter for type <see cref="MoveChangeEffectEntriesInner" />
     /// </summary>
-    public class MoveChangeEffectEntriesInnerJsonConverter : JsonConverter<MoveChangeEffectEntriesInner>
+    public partial class MoveChangeEffectEntriesInnerJsonConverter : JsonConverter<MoveChangeEffectEntriesInner>
     {
+        partial void OnCreated();
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="MoveChangeEffectEntriesInnerJsonConverter" /> class.
+        /// </summary>
+        public MoveChangeEffectEntriesInnerJsonConverter()
+        {
+            OnCreated();
+        }
+
         /// <summary>
         /// Deserializes json to <see cref="MoveChangeEffectEntriesInner" />
         /// </summary>

@@ -53,7 +53,7 @@ export interface PokemonDetailMovesInner {
  */
 export function instanceOfPokemonDetailMovesInner(value: object): value is PokemonDetailMovesInner {
     if (!('move' in value) || value['move'] === undefined) return false;
-    if (!('versionGroupDetails' in value) || value['versionGroupDetails'] === undefined) return false;
+    if ((!('versionGroupDetails' in (value as Record<string, any>)) && !('version_group_details' in (value as Record<string, any>))) || ((value as Record<string, any>)['versionGroupDetails'] === undefined && (value as Record<string, any>)['version_group_details'] === undefined)) return false;
     return true;
 }
 

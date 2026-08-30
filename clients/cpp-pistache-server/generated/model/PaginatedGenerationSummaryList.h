@@ -34,7 +34,7 @@ class  PaginatedGenerationSummaryList
 {
 public:
     PaginatedGenerationSummaryList();
-    virtual ~PaginatedGenerationSummaryList() = default;
+    virtual ~PaginatedGenerationSummaryList();
 
 
     /// <summary>

@@ -1,6 +1,5 @@
 .dir-locals.el
 .gitignore
-.openapi-generator-ignore
 README.md
 app/DevelMain.hs
 app/devel.hs
@@ -31,16 +30,5 @@ src/Settings.hs
 src/Settings/StaticFiles.hs
 stack.yaml
 static/.gitkeep
-test/Handler/BerriesSpec.hs
-test/Handler/ContestsSpec.hs
-test/Handler/EncountersSpec.hs
-test/Handler/EvolutionSpec.hs
-test/Handler/GamesSpec.hs
-test/Handler/ItemsSpec.hs
-test/Handler/LocationSpec.hs
-test/Handler/MachinesSpec.hs
-test/Handler/MovesSpec.hs
-test/Handler/PokemonSpec.hs
-test/Handler/UtilitySpec.hs
 test/Spec.hs
 test/TestImport.hs

@@ -47,7 +47,7 @@ class PokemonDetailSprites
      * @var string|null
      * @SerializedName("front_default")
      * @Type("string")
-    */
+     */
     #[Assert\Type("string")]
     protected ?string $frontDefault = null;
 
@@ -73,12 +73,12 @@ class PokemonDetailSprites
     }
 
     /**
-    * Sets frontDefault.
-    *
-    * @param string|null $frontDefault
-    *
-    * @return $this
-    */
+     * Sets frontDefault.
+     *
+     * @param string|null $frontDefault
+     *
+     * @return $this
+     */
     public function setFrontDefault(?string $frontDefault = null): self
     {
         $this->frontDefault = $frontDefault;

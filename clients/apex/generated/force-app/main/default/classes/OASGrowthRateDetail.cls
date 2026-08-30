@@ -36,19 +36,19 @@ public class OASGrowthRateDetail implements OAS.MappedProperties {
      * Get descriptions
      * @return descriptions
      */
-    public List<OASGrowthRateDescription> descriptions { get; set; }
+    public List<OASGrowthRateDescription> descriptions { get; private set; }
 
     /**
      * Get levels
      * @return levels
      */
-    public List<OASExperience> levels { get; set; }
+    public List<OASExperience> levels { get; private set; }
 
     /**
      * Get pokemonSpecies
      * @return pokemonSpecies
      */
-    public List<OASPokemonSpeciesSummary> pokemonSpecies { get; set; }
+    public List<OASPokemonSpeciesSummary> pokemonSpecies { get; private set; }
 
     private static final Map<String, String> propertyMappings = new Map<String, String>{
         'pokemon_species' => 'pokemonSpecies'

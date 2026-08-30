@@ -35,7 +35,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
  * MoveDetail
  */
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPKMSTServerCodegen", date = "2026-02-07T15:23:15.032724200Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPKMSTServerCodegen", date = "2026-08-30T01:56:01.724492951Z[Etc/UTC]", comments = "Generator version: 7.24.0")
 public class MoveDetail   {
   @JsonProperty("id")
   private Integer id;
@@ -332,7 +332,7 @@ public class MoveDetail   {
    * Get effectEntries
    * @return effectEntries
    */
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, readOnly = true, value = "")
   public List<MoveChangeEffectEntriesInner> getEffectEntries() {
     return effectEntries;
   }
@@ -358,7 +358,7 @@ public class MoveDetail   {
    * Get effectChanges
    * @return effectChanges
    */
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, readOnly = true, value = "")
   public List<MoveDetailEffectChangesInner> getEffectChanges() {
     return effectChanges;
   }
@@ -420,7 +420,7 @@ public class MoveDetail   {
    * Get names
    * @return names
    */
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, readOnly = true, value = "")
   public List<MoveName> getNames() {
     return names;
   }
@@ -446,7 +446,7 @@ public class MoveDetail   {
    * Get pastValues
    * @return pastValues
    */
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, readOnly = true, value = "")
   public List<MoveChange> getPastValues() {
     return pastValues;
   }
@@ -472,7 +472,7 @@ public class MoveDetail   {
    * Get statChanges
    * @return statChanges
    */
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, readOnly = true, value = "")
   public List<MoveDetailStatChangesInner> getStatChanges() {
     return statChanges;
   }
@@ -552,7 +552,7 @@ public class MoveDetail   {
    * Get machines
    * @return machines
    */
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, readOnly = true, value = "")
   public List<MoveDetailMachinesInner> getMachines() {
     return machines;
   }
@@ -578,7 +578,7 @@ public class MoveDetail   {
    * Get flavorTextEntries
    * @return flavorTextEntries
    */
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, readOnly = true, value = "")
   public List<MoveFlavorText> getFlavorTextEntries() {
     return flavorTextEntries;
   }
@@ -604,7 +604,7 @@ public class MoveDetail   {
    * Get learnedByPokemon
    * @return learnedByPokemon
    */
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, readOnly = true, value = "")
   public List<AbilityDetailPokemonInnerPokemon> getLearnedByPokemon() {
     return learnedByPokemon;
   }
@@ -692,10 +692,7 @@ public class MoveDetail   {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 }
 

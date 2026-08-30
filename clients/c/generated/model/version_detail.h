@@ -21,7 +21,7 @@ typedef struct version_detail_t version_detail_t;
 
 
 typedef struct version_detail_t {
-    int id; //numeric
+    int *id; //numeric
     char *name; // string
     list_t *names; //nonprimitive container
     struct version_group_summary_t *version_group; //model
@@ -30,7 +30,7 @@ typedef struct version_detail_t {
 } version_detail_t;
 
 __attribute__((deprecated)) version_detail_t *version_detail_create(
-    int id,
+    int *id,
     char *name,
     list_t *names,
     version_group_summary_t *version_group

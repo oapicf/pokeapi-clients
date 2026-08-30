@@ -144,7 +144,7 @@ PaginatedPokemonHabitatSummaryList::getCount()
 }
 
 void
-PaginatedPokemonHabitatSummaryList::setCount(int  count)
+PaginatedPokemonHabitatSummaryList::setCount(int count)
 {
 	this->count = count;
 }
@@ -156,7 +156,7 @@ PaginatedPokemonHabitatSummaryList::getNext()
 }
 
 void
-PaginatedPokemonHabitatSummaryList::setNext(std::string  next)
+PaginatedPokemonHabitatSummaryList::setNext(std::string next)
 {
 	this->next = next;
 }
@@ -168,7 +168,7 @@ PaginatedPokemonHabitatSummaryList::getPrevious()
 }
 
 void
-PaginatedPokemonHabitatSummaryList::setPrevious(std::string  previous)
+PaginatedPokemonHabitatSummaryList::setPrevious(std::string previous)
 {
 	this->previous = previous;
 }
@@ -180,7 +180,7 @@ PaginatedPokemonHabitatSummaryList::getResults()
 }
 
 void
-PaginatedPokemonHabitatSummaryList::setResults(std::list <PokemonHabitatSummary> results)
+PaginatedPokemonHabitatSummaryList::setResults(std::list<PokemonHabitatSummary> results)
 {
 	this->results = results;
 }

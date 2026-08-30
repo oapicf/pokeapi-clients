@@ -55,7 +55,8 @@ class PokemonDetailMovesInner extends BaseModel
       "type" : "array",
       "items" : {
         "$ref" : "#/components/schemas/PokemonDetail_moves_inner_version_group_details_inner"
-      }
+      },
+      "default" : null
     }
   }
 }

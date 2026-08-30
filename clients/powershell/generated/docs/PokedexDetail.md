@@ -6,11 +6,11 @@ Name | Type | Description | Notes
 **Id** | **Int32** |  | [readonly] 
 **Name** | **String** |  | 
 **IsMainSeries** | **Boolean** |  | [optional] 
-**Descriptions** | [**PokedexDescription[]**](PokedexDescription.md) |  | 
-**Names** | [**PokedexName[]**](PokedexName.md) |  | 
-**PokemonEntries** | [**PokedexDetailPokemonEntriesInner[]**](PokedexDetailPokemonEntriesInner.md) |  | 
+**Descriptions** | [**PokedexDescription[]**](PokedexDescription.md) |  | [readonly] 
+**Names** | [**PokedexName[]**](PokedexName.md) |  | [readonly] 
+**PokemonEntries** | [**PokedexDetailPokemonEntriesInner[]**](PokedexDetailPokemonEntriesInner.md) |  | [readonly] 
 **Region** | [**RegionSummary**](RegionSummary.md) |  | 
-**VersionGroups** | [**AbilityDetailPokemonInnerPokemon[]**](AbilityDetailPokemonInnerPokemon.md) |  | 
+**VersionGroups** | [**AbilityDetailPokemonInnerPokemon[]**](AbilityDetailPokemonInnerPokemon.md) |  | [readonly] 
 
 ## Examples
 

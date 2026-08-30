@@ -172,8 +172,9 @@ class _$StatDetailSerializer implements PrimitiveSerializer<StatDetail> {
         case r'is_battle_only':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(bool),
-          ) as bool;
+            specifiedType: const FullType.nullable(bool),
+          ) as bool?;
+          if (valueDes == null) continue;
           result.isBattleOnly = valueDes;
           break;
         case r'affecting_moves':

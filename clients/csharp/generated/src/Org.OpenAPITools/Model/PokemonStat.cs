@@ -95,8 +95,18 @@ namespace Org.OpenAPITools.Model
     /// <summary>
     /// A Json converter for type <see cref="PokemonStat" />
     /// </summary>
-    public class PokemonStatJsonConverter : JsonConverter<PokemonStat>
+    public partial class PokemonStatJsonConverter : JsonConverter<PokemonStat>
     {
+        partial void OnCreated();
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="PokemonStatJsonConverter" /> class.
+        /// </summary>
+        public PokemonStatJsonConverter()
+        {
+            OnCreated();
+        }
+
         /// <summary>
         /// Deserializes json to <see cref="PokemonStat" />
         /// </summary>

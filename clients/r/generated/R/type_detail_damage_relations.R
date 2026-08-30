@@ -102,29 +102,52 @@ TypeDetailDamageRelations <- R6::R6Class(
       TypeDetailDamageRelationsObject <- list()
       if (!is.null(self$`no_damage_to`)) {
         TypeDetailDamageRelationsObject[["no_damage_to"]] <-
-          lapply(self$`no_damage_to`, function(x) x$toSimpleType())
+          self$extractSimpleType(self$`no_damage_to`)
       }
       if (!is.null(self$`half_damage_to`)) {
         TypeDetailDamageRelationsObject[["half_damage_to"]] <-
-          lapply(self$`half_damage_to`, function(x) x$toSimpleType())
+          self$extractSimpleType(self$`half_damage_to`)
       }
       if (!is.null(self$`double_damage_to`)) {
         TypeDetailDamageRelationsObject[["double_damage_to"]] <-
-          lapply(self$`double_damage_to`, function(x) x$toSimpleType())
+          self$extractSimpleType(self$`double_damage_to`)
       }
       if (!is.null(self$`no_damage_from`)) {
         TypeDetailDamageRelationsObject[["no_damage_from"]] <-
-          lapply(self$`no_damage_from`, function(x) x$toSimpleType())
+          self$extractSimpleType(self$`no_damage_from`)
       }
       if (!is.null(self$`half_damage_from`)) {
         TypeDetailDamageRelationsObject[["half_damage_from"]] <-
-          lapply(self$`half_damage_from`, function(x) x$toSimpleType())
+          self$extractSimpleType(self$`half_damage_from`)
       }
       if (!is.null(self$`double_damage_from`)) {
         TypeDetailDamageRelationsObject[["double_damage_from"]] <-
-          lapply(self$`double_damage_from`, function(x) x$toSimpleType())
+          self$extractSimpleType(self$`double_damage_from`)
       }
       return(TypeDetailDamageRelationsObject)
+    },
+
+    extractSimpleType = function(x) {
+      if (R6::is.R6(x)) {
+        return(x$toSimpleType())
+      } else if (!self$hasNestedR6(x)) {
+        return(x)
+      }
+      lapply(x, self$extractSimpleType)
+    },
+
+    hasNestedR6 = function(x) {
+      if (R6::is.R6(x)) {
+        return(TRUE)
+      }
+      if (is.list(x)) {
+        for (item in x) {
+          if (self$hasNestedR6(item)) {
+            return(TRUE)
+          }
+        }
+      }
+      FALSE
     },
 
     #' @description

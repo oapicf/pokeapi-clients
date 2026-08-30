@@ -1,7 +1,8 @@
-.openapi-generator-ignore
+.scalafmt.conf
 README.md
 build.sbt
 project/build.properties
+project/plugins.sbt
 src/main/scala/org/openapitools/client/api/BerriesApi.scala
 src/main/scala/org/openapitools/client/api/ContestsApi.scala
 src/main/scala/org/openapitools/client/api/EncountersApi.scala

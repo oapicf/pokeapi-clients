@@ -30,7 +30,7 @@ import javax.validation.Valid;
  * <p>All the Pokémon data you'll ever need in one place, easily accessible through a modern free open-source RESTful API.  ## What is this?  This is a full RESTful API linked to an extensive database detailing everything about the Pokémon main game series.  We've covered everything from Pokémon to Berry Flavors.  ## Where do I start?  We have awesome [documentation](https://pokeapi.co/docs/v2) on how to use this API. It takes minutes to get started.  This API will always be publicly available and will never require any extensive setup process to consume.  Created by [**Paul Hallett**(]https://github.com/phalt) and other [**PokéAPI contributors***](https://github.com/PokeAPI/pokeapi#contributing) around the world. Pokémon and Pokémon character names are trademarks of Nintendo.     
  *
  */
-@Path("/api/v2")
+@Path("")
 @Api(value = "/", description = "")
 public interface ItemsApi  {
 
@@ -41,7 +41,7 @@ public interface ItemsApi  {
      *
      */
     @GET
-    @Path("/item-attribute/")
+    @Path("/api/v2/item-attribute/")
     @Produces({ "application/json" })
     @ApiOperation(value = "List item attributes", tags={ "items" })
     @ApiResponses(value = { 
@@ -55,7 +55,7 @@ public interface ItemsApi  {
      *
      */
     @GET
-    @Path("/item-attribute/{id}/")
+    @Path("/api/v2/item-attribute/{id}/")
     @Produces({ "application/json" })
     @ApiOperation(value = "Get item attribute", tags={ "items" })
     @ApiResponses(value = { 
@@ -69,7 +69,7 @@ public interface ItemsApi  {
      *
      */
     @GET
-    @Path("/item-category/")
+    @Path("/api/v2/item-category/")
     @Produces({ "application/json" })
     @ApiOperation(value = "List item categories", tags={ "items" })
     @ApiResponses(value = { 
@@ -83,7 +83,7 @@ public interface ItemsApi  {
      *
      */
     @GET
-    @Path("/item-category/{id}/")
+    @Path("/api/v2/item-category/{id}/")
     @Produces({ "application/json" })
     @ApiOperation(value = "Get item category", tags={ "items" })
     @ApiResponses(value = { 
@@ -97,7 +97,7 @@ public interface ItemsApi  {
      *
      */
     @GET
-    @Path("/item-fling-effect/")
+    @Path("/api/v2/item-fling-effect/")
     @Produces({ "application/json" })
     @ApiOperation(value = "List item fling effects", tags={ "items" })
     @ApiResponses(value = { 
@@ -111,7 +111,7 @@ public interface ItemsApi  {
      *
      */
     @GET
-    @Path("/item-fling-effect/{id}/")
+    @Path("/api/v2/item-fling-effect/{id}/")
     @Produces({ "application/json" })
     @ApiOperation(value = "Get item fling effect", tags={ "items" })
     @ApiResponses(value = { 
@@ -125,7 +125,7 @@ public interface ItemsApi  {
      *
      */
     @GET
-    @Path("/item/")
+    @Path("/api/v2/item/")
     @Produces({ "application/json" })
     @ApiOperation(value = "List items", tags={ "items" })
     @ApiResponses(value = { 
@@ -139,7 +139,7 @@ public interface ItemsApi  {
      *
      */
     @GET
-    @Path("/item-pocket/")
+    @Path("/api/v2/item-pocket/")
     @Produces({ "application/json" })
     @ApiOperation(value = "List item pockets", tags={ "items" })
     @ApiResponses(value = { 
@@ -153,7 +153,7 @@ public interface ItemsApi  {
      *
      */
     @GET
-    @Path("/item-pocket/{id}/")
+    @Path("/api/v2/item-pocket/{id}/")
     @Produces({ "application/json" })
     @ApiOperation(value = "Get item pocket", tags={ "items" })
     @ApiResponses(value = { 
@@ -167,7 +167,7 @@ public interface ItemsApi  {
      *
      */
     @GET
-    @Path("/item/{id}/")
+    @Path("/api/v2/item/{id}/")
     @Produces({ "application/json" })
     @ApiOperation(value = "Get item", tags={ "items" })
     @ApiResponses(value = { 

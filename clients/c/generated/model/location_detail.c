@@ -6,7 +6,7 @@
 
 
 static location_detail_t *location_detail_create_internal(
-    int id,
+    int *id,
     char *name,
     region_summary_t *region,
     list_t *names,
@@ -17,33 +17,42 @@ static location_detail_t *location_detail_create_internal(
     if (!location_detail_local_var) {
         return NULL;
     }
+    memset(location_detail_local_var, 0, sizeof(location_detail_t));
+    location_detail_local_var->_library_owned = 1;
     location_detail_local_var->id = id;
     location_detail_local_var->name = name;
     location_detail_local_var->region = region;
     location_detail_local_var->names = names;
     location_detail_local_var->game_indices = game_indices;
     location_detail_local_var->areas = areas;
-
-    location_detail_local_var->_library_owned = 1;
     return location_detail_local_var;
 }
 
 __attribute__((deprecated)) location_detail_t *location_detail_create(
-    int id,
+    int *id,
     char *name,
     region_summary_t *region,
     list_t *names,
     list_t *game_indices,
     list_t *areas
     ) {
-    return location_detail_create_internal (
-        id,
+    int *id_copy = NULL;
+    if (id) {
+        id_copy = malloc(sizeof(int));
+        if (id_copy) *id_copy = *id;
+    }
+    location_detail_t *result = location_detail_create_internal (
+        id_copy,
         name,
         region,
         names,
         game_indices,
         areas
         );
+    if (!result) {
+        free(id_copy);
+    }
+    return result;
 }
 
 void location_detail_free(location_detail_t *location_detail) {
@@ -55,6 +64,10 @@ void location_detail_free(location_detail_t *location_detail) {
         return ;
     }
     listEntry_t *listEntry;
+    if (location_detail->id) {
+        free(location_detail->id);
+        location_detail->id = NULL;
+    }
     if (location_detail->name) {
         free(location_detail->name);
         location_detail->name = NULL;
@@ -94,7 +107,7 @@ cJSON *location_detail_convertToJSON(location_detail_t *location_detail) {
     if (!location_detail->id) {
         goto fail;
     }
-    if(cJSON_AddNumberToObject(item, "id", location_detail->id) == NULL) {
+    if(cJSON_AddNumberToObject(item, "id", *location_detail->id) == NULL) {
     goto fail; //Numeric
     }
 
@@ -196,6 +209,11 @@ location_detail_t *location_detail_parseFromJSON(cJSON *location_detailJSON){
 
     location_detail_t *location_detail_local_var = NULL;
 
+    // define the local variable for location_detail->id
+    int *id_local_var = NULL;
+
+    char *name_local_str = NULL;
+
     // define the local variable for location_detail->region
     region_summary_t *region_local_nonprim = NULL;
 
@@ -222,6 +240,12 @@ location_detail_t *location_detail_parseFromJSON(cJSON *location_detailJSON){
     {
     goto end; //Numeric
     }
+    id_local_var = malloc(sizeof(int));
+    if(!id_local_var)
+    {
+        goto end;
+    }
+    *id_local_var = id->valuedouble;
 
     // location_detail->name
     cJSON *name = cJSON_GetObjectItemCaseSensitive(location_detailJSON, "name");
@@ -332,17 +356,31 @@ location_detail_t *location_detail_parseFromJSON(cJSON *location_detailJSON){
     }
 
 
+    if (name && !cJSON_IsNull(name)) name_local_str = strdup(name->valuestring);
+
     location_detail_local_var = location_detail_create_internal (
-        id->valuedouble,
-        strdup(name->valuestring),
+        id_local_var,
+        name_local_str,
         region_local_nonprim,
         namesList,
         game_indicesList,
         areasList
         );
 
+    if (!location_detail_local_var) {
+        goto end;
+    }
+
     return location_detail_local_var;
 end:
+    if (id_local_var) {
+        free(id_local_var);
+        id_local_var = NULL;
+    }
+    if (name_local_str) {
+        free(name_local_str);
+        name_local_str = NULL;
+    }
     if (region_local_nonprim) {
         region_summary_free(region_local_nonprim);
         region_local_nonprim = NULL;

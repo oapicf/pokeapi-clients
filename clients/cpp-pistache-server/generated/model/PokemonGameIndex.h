@@ -32,7 +32,7 @@ class  PokemonGameIndex
 {
 public:
     PokemonGameIndex();
-    virtual ~PokemonGameIndex() = default;
+    virtual ~PokemonGameIndex();
 
 
     /// <summary>

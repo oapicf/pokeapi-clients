@@ -34,7 +34,7 @@ class  PaginatedItemAttributeSummaryList
 {
 public:
     PaginatedItemAttributeSummaryList();
-    virtual ~PaginatedItemAttributeSummaryList() = default;
+    virtual ~PaginatedItemAttributeSummaryList();
 
 
     /// <summary>

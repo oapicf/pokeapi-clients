@@ -21,7 +21,7 @@
 
 namespace OpenAPI {
 
-OAILocationGameIndex::OAILocationGameIndex(QString json) {
+OAILocationGameIndex::OAILocationGameIndex(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -41,7 +41,7 @@ void OAILocationGameIndex::initializeModel() {
     m_generation_isValid = false;
 }
 
-void OAILocationGameIndex::fromJson(QString jsonString) {
+void OAILocationGameIndex::fromJson(const QString &jsonString) {
     QByteArray array(jsonString.toStdString().c_str());
     QJsonDocument doc = QJsonDocument::fromJson(array);
     QJsonObject jsonObject = doc.object();

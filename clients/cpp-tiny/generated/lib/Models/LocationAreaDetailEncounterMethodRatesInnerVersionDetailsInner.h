@@ -52,14 +52,14 @@ public:
 
 	/*! \brief Set 
 	 */
-	void setRate(int  rate);
+	void setRate(int rate);
 	/*! \brief Get 
 	 */
 	AbilityDetail_pokemon_inner_pokemon getVersion();
 
 	/*! \brief Set 
 	 */
-	void setVersion(AbilityDetail_pokemon_inner_pokemon  version);
+	void setVersion(AbilityDetail_pokemon_inner_pokemon version);
 
 
     private:

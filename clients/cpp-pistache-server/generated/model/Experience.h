@@ -31,7 +31,7 @@ class  Experience
 {
 public:
     Experience();
-    virtual ~Experience() = default;
+    virtual ~Experience();
 
 
     /// <summary>

@@ -58,9 +58,9 @@ function Initialize-NatureBattleStylePreference {
 
 
         $PSO = [PSCustomObject]@{
-            "low_hp_preference" = ${LowHpPreference}
-            "high_hp_preference" = ${HighHpPreference}
-            "move_battle_style" = ${MoveBattleStyle}
+            'low_hp_preference' = ${LowHpPreference}
+            'high_hp_preference' = ${HighHpPreference}
+            'move_battle_style' = ${MoveBattleStyle}
         }
 
 
@@ -98,7 +98,7 @@ function ConvertFrom-JsonToNatureBattleStylePreference {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in NatureBattleStylePreference
-        $AllProperties = ("low_hp_preference", "high_hp_preference", "move_battle_style")
+        $AllProperties = ('low_hp_preference', 'high_hp_preference', 'move_battle_style')
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -109,28 +109,28 @@ function ConvertFrom-JsonToNatureBattleStylePreference {
             throw "Error! Empty JSON cannot be serialized due to the required property 'low_hp_preference' missing."
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "low_hp_preference"))) {
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'low_hp_preference'))) {
             throw "Error! JSON cannot be serialized due to the required property 'low_hp_preference' missing."
         } else {
-            $LowHpPreference = $JsonParameters.PSobject.Properties["low_hp_preference"].value
+            $LowHpPreference = $JsonParameters.PSobject.Properties['low_hp_preference'].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "high_hp_preference"))) {
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'high_hp_preference'))) {
             throw "Error! JSON cannot be serialized due to the required property 'high_hp_preference' missing."
         } else {
-            $HighHpPreference = $JsonParameters.PSobject.Properties["high_hp_preference"].value
+            $HighHpPreference = $JsonParameters.PSobject.Properties['high_hp_preference'].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "move_battle_style"))) {
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'move_battle_style'))) {
             throw "Error! JSON cannot be serialized due to the required property 'move_battle_style' missing."
         } else {
-            $MoveBattleStyle = $JsonParameters.PSobject.Properties["move_battle_style"].value
+            $MoveBattleStyle = $JsonParameters.PSobject.Properties['move_battle_style'].value
         }
 
         $PSO = [PSCustomObject]@{
-            "low_hp_preference" = ${LowHpPreference}
-            "high_hp_preference" = ${HighHpPreference}
-            "move_battle_style" = ${MoveBattleStyle}
+            'low_hp_preference' = ${LowHpPreference}
+            'high_hp_preference' = ${HighHpPreference}
+            'move_battle_style' = ${MoveBattleStyle}
         }
 
         return $PSO

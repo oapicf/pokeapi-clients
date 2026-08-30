@@ -71,10 +71,10 @@ function Initialize-EncounterConditionDetail {
 
 
         $PSO = [PSCustomObject]@{
-            "id" = ${Id}
-            "name" = ${Name}
-            "values" = ${Values}
-            "names" = ${Names}
+            'id' = ${Id}
+            'name' = ${Name}
+            'values' = ${Values}
+            'names' = ${Names}
         }
 
 
@@ -112,7 +112,7 @@ function ConvertFrom-JsonToEncounterConditionDetail {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in EncounterConditionDetail
-        $AllProperties = ("id", "name", "values", "names")
+        $AllProperties = ('id', 'name', 'values', 'names')
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -123,35 +123,35 @@ function ConvertFrom-JsonToEncounterConditionDetail {
             throw "Error! Empty JSON cannot be serialized due to the required property 'id' missing."
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "id"))) {
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'id'))) {
             throw "Error! JSON cannot be serialized due to the required property 'id' missing."
         } else {
-            $Id = $JsonParameters.PSobject.Properties["id"].value
+            $Id = $JsonParameters.PSobject.Properties['id'].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "name"))) {
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'name'))) {
             throw "Error! JSON cannot be serialized due to the required property 'name' missing."
         } else {
-            $Name = $JsonParameters.PSobject.Properties["name"].value
+            $Name = $JsonParameters.PSobject.Properties['name'].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "values"))) {
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'values'))) {
             throw "Error! JSON cannot be serialized due to the required property 'values' missing."
         } else {
-            $Values = $JsonParameters.PSobject.Properties["values"].value
+            $Values = $JsonParameters.PSobject.Properties['values'].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "names"))) {
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'names'))) {
             throw "Error! JSON cannot be serialized due to the required property 'names' missing."
         } else {
-            $Names = $JsonParameters.PSobject.Properties["names"].value
+            $Names = $JsonParameters.PSobject.Properties['names'].value
         }
 
         $PSO = [PSCustomObject]@{
-            "id" = ${Id}
-            "name" = ${Name}
-            "values" = ${Values}
-            "names" = ${Names}
+            'id' = ${Id}
+            'name' = ${Name}
+            'values' = ${Values}
+            'names' = ${Names}
         }
 
         return $PSO

@@ -7,8 +7,8 @@ Name | Mapping | SQL Type | Default | Type | Description | Notes
 ---- | ------- | -------- | ------- | ---- | ----------- | -----
 **id** | id | int NOT NULL PRIMARY KEY AUTOINCREMENT |  | **kotlin.Int** |  |  [readonly]
 **name** | name | text NOT NULL |  | **kotlin.String** |  | 
-**effectEntries** | `One-To-Many` | `----` | `----`  | [**kotlin.Array&lt;ItemFlingEffectEffectText&gt;**](ItemFlingEffectEffectText.md) |  | 
-**items** | `One-To-Many` | `----` | `----`  | [**kotlin.Array&lt;ItemSummary&gt;**](ItemSummary.md) |  | 
+**effectEntries** | `One-To-Many` | `----` | `----`  | [**kotlin.Array&lt;ItemFlingEffectEffectText&gt;**](ItemFlingEffectEffectText.md) |  |  [readonly]
+**items** | `One-To-Many` | `----` | `----`  | [**kotlin.Array&lt;ItemSummary&gt;**](ItemSummary.md) |  |  [readonly]
 
 
 

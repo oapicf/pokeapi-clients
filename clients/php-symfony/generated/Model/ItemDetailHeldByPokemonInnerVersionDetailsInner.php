@@ -47,7 +47,7 @@ class ItemDetailHeldByPokemonInnerVersionDetailsInner
      * @var int|null
      * @SerializedName("rarity")
      * @Type("int")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Type("int")]
     protected ?int $rarity = null;
@@ -56,7 +56,7 @@ class ItemDetailHeldByPokemonInnerVersionDetailsInner
      * @var AbilityDetailPokemonInnerPokemon|null
      * @SerializedName("version")
      * @Type("OpenAPI\Server\Model\AbilityDetailPokemonInnerPokemon")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Valid]
     #[Assert\Type("OpenAPI\Server\Model\AbilityDetailPokemonInnerPokemon")]
@@ -85,12 +85,12 @@ class ItemDetailHeldByPokemonInnerVersionDetailsInner
     }
 
     /**
-    * Sets rarity.
-    *
-    * @param int|null $rarity
-    *
-    * @return $this
-    */
+     * Sets rarity.
+     *
+     * @param int|null $rarity
+     *
+     * @return $this
+     */
     public function setRarity(?int $rarity): self
     {
         $this->rarity = $rarity;
@@ -112,12 +112,12 @@ class ItemDetailHeldByPokemonInnerVersionDetailsInner
     }
 
     /**
-    * Sets version.
-    *
-    * @param AbilityDetailPokemonInnerPokemon|null $version
-    *
-    * @return $this
-    */
+     * Sets version.
+     *
+     * @param AbilityDetailPokemonInnerPokemon|null $version
+     *
+     * @return $this
+     */
     public function setVersion(?AbilityDetailPokemonInnerPokemon $version): self
     {
         $this->version = $version;

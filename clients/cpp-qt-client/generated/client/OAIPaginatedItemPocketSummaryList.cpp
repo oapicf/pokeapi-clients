@@ -21,7 +21,7 @@
 
 namespace OpenAPI {
 
-OAIPaginatedItemPocketSummaryList::OAIPaginatedItemPocketSummaryList(QString json) {
+OAIPaginatedItemPocketSummaryList::OAIPaginatedItemPocketSummaryList(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -47,7 +47,7 @@ void OAIPaginatedItemPocketSummaryList::initializeModel() {
     m_results_isValid = false;
 }
 
-void OAIPaginatedItemPocketSummaryList::fromJson(QString jsonString) {
+void OAIPaginatedItemPocketSummaryList::fromJson(const QString &jsonString) {
     QByteArray array(jsonString.toStdString().c_str());
     QJsonDocument doc = QJsonDocument::fromJson(array);
     QJsonObject jsonObject = doc.object();

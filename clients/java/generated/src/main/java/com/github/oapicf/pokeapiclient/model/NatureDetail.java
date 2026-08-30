@@ -56,7 +56,7 @@ import com.github.oapicf.pokeapiclient.JSON;
 /**
  * NatureDetail
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-07T15:22:35.747827932Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-08-30T01:55:28.842792947Z[Etc/UTC]", comments = "Generator version: 7.24.0")
 public class NatureDetail {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -112,10 +112,18 @@ public class NatureDetail {
   }
 
   public NatureDetail(
-     Integer id
+     Integer id, 
+     List<BerrySummary> berries, 
+     List<NatureDetailPokeathlonStatChangesInner> pokeathlonStatChanges, 
+     List<NatureBattleStylePreference> moveBattleStylePreferences, 
+     List<NatureName> names
   ) {
     this();
     this.id = id;
+    this.berries = berries;
+    this.pokeathlonStatChanges = pokeathlonStatChanges;
+    this.moveBattleStylePreferences = moveBattleStylePreferences;
+    this.names = names;
   }
 
   /**
@@ -224,19 +232,6 @@ public class NatureDetail {
   }
 
 
-  public NatureDetail berries(@javax.annotation.Nonnull List<BerrySummary> berries) {
-    this.berries = berries;
-    return this;
-  }
-
-  public NatureDetail addBerriesItem(BerrySummary berriesItem) {
-    if (this.berries == null) {
-      this.berries = new ArrayList<>();
-    }
-    this.berries.add(berriesItem);
-    return this;
-  }
-
   /**
    * Get berries
    * @return berries
@@ -246,23 +241,7 @@ public class NatureDetail {
     return berries;
   }
 
-  public void setBerries(@javax.annotation.Nonnull List<BerrySummary> berries) {
-    this.berries = berries;
-  }
 
-
-  public NatureDetail pokeathlonStatChanges(@javax.annotation.Nonnull List<NatureDetailPokeathlonStatChangesInner> pokeathlonStatChanges) {
-    this.pokeathlonStatChanges = pokeathlonStatChanges;
-    return this;
-  }
-
-  public NatureDetail addPokeathlonStatChangesItem(NatureDetailPokeathlonStatChangesInner pokeathlonStatChangesItem) {
-    if (this.pokeathlonStatChanges == null) {
-      this.pokeathlonStatChanges = new ArrayList<>();
-    }
-    this.pokeathlonStatChanges.add(pokeathlonStatChangesItem);
-    return this;
-  }
 
   /**
    * Get pokeathlonStatChanges
@@ -273,23 +252,7 @@ public class NatureDetail {
     return pokeathlonStatChanges;
   }
 
-  public void setPokeathlonStatChanges(@javax.annotation.Nonnull List<NatureDetailPokeathlonStatChangesInner> pokeathlonStatChanges) {
-    this.pokeathlonStatChanges = pokeathlonStatChanges;
-  }
 
-
-  public NatureDetail moveBattleStylePreferences(@javax.annotation.Nonnull List<NatureBattleStylePreference> moveBattleStylePreferences) {
-    this.moveBattleStylePreferences = moveBattleStylePreferences;
-    return this;
-  }
-
-  public NatureDetail addMoveBattleStylePreferencesItem(NatureBattleStylePreference moveBattleStylePreferencesItem) {
-    if (this.moveBattleStylePreferences == null) {
-      this.moveBattleStylePreferences = new ArrayList<>();
-    }
-    this.moveBattleStylePreferences.add(moveBattleStylePreferencesItem);
-    return this;
-  }
 
   /**
    * Get moveBattleStylePreferences
@@ -300,23 +263,7 @@ public class NatureDetail {
     return moveBattleStylePreferences;
   }
 
-  public void setMoveBattleStylePreferences(@javax.annotation.Nonnull List<NatureBattleStylePreference> moveBattleStylePreferences) {
-    this.moveBattleStylePreferences = moveBattleStylePreferences;
-  }
 
-
-  public NatureDetail names(@javax.annotation.Nonnull List<NatureName> names) {
-    this.names = names;
-    return this;
-  }
-
-  public NatureDetail addNamesItem(NatureName namesItem) {
-    if (this.names == null) {
-      this.names = new ArrayList<>();
-    }
-    this.names.add(namesItem);
-    return this;
-  }
 
   /**
    * Get names
@@ -327,9 +274,6 @@ public class NatureDetail {
     return names;
   }
 
-  public void setNames(@javax.annotation.Nonnull List<NatureName> names) {
-    this.names = names;
-  }
 
 
 
@@ -382,10 +326,7 @@ public class NatureDetail {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 
@@ -439,46 +380,46 @@ public class NatureDetail {
       BerryFlavorSummary.validateJsonElement(jsonObj.get("likes_flavor"));
       // validate the required field `hates_flavor`
       BerryFlavorSummary.validateJsonElement(jsonObj.get("hates_flavor"));
-      // ensure the json data is an array
-      if (!jsonObj.get("berries").isJsonArray()) {
-        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `berries` to be an array in the JSON string but got `%s`", jsonObj.get("berries").toString()));
+      if (jsonObj.get("berries") != null) {
+        if (!jsonObj.get("berries").isJsonArray()) {
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `berries` to be an array in the JSON string but got `%s`", jsonObj.get("berries").toString()));
+        }
+        JsonArray jsonArrayberries = jsonObj.getAsJsonArray("berries");
+        // validate the required field `berries` (array)
+        for (int i = 0; i < jsonArrayberries.size(); i++) {
+          BerrySummary.validateJsonElement(jsonArrayberries.get(i));
+        }
       }
-
-      JsonArray jsonArrayberries = jsonObj.getAsJsonArray("berries");
-      // validate the required field `berries` (array)
-      for (int i = 0; i < jsonArrayberries.size(); i++) {
-        BerrySummary.validateJsonElement(jsonArrayberries.get(i));
-      };
-      // ensure the json data is an array
-      if (!jsonObj.get("pokeathlon_stat_changes").isJsonArray()) {
-        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `pokeathlon_stat_changes` to be an array in the JSON string but got `%s`", jsonObj.get("pokeathlon_stat_changes").toString()));
+      if (jsonObj.get("pokeathlon_stat_changes") != null) {
+        if (!jsonObj.get("pokeathlon_stat_changes").isJsonArray()) {
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `pokeathlon_stat_changes` to be an array in the JSON string but got `%s`", jsonObj.get("pokeathlon_stat_changes").toString()));
+        }
+        JsonArray jsonArraypokeathlonStatChanges = jsonObj.getAsJsonArray("pokeathlon_stat_changes");
+        // validate the required field `pokeathlon_stat_changes` (array)
+        for (int i = 0; i < jsonArraypokeathlonStatChanges.size(); i++) {
+          NatureDetailPokeathlonStatChangesInner.validateJsonElement(jsonArraypokeathlonStatChanges.get(i));
+        }
       }
-
-      JsonArray jsonArraypokeathlonStatChanges = jsonObj.getAsJsonArray("pokeathlon_stat_changes");
-      // validate the required field `pokeathlon_stat_changes` (array)
-      for (int i = 0; i < jsonArraypokeathlonStatChanges.size(); i++) {
-        NatureDetailPokeathlonStatChangesInner.validateJsonElement(jsonArraypokeathlonStatChanges.get(i));
-      };
-      // ensure the json data is an array
-      if (!jsonObj.get("move_battle_style_preferences").isJsonArray()) {
-        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `move_battle_style_preferences` to be an array in the JSON string but got `%s`", jsonObj.get("move_battle_style_preferences").toString()));
+      if (jsonObj.get("move_battle_style_preferences") != null) {
+        if (!jsonObj.get("move_battle_style_preferences").isJsonArray()) {
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `move_battle_style_preferences` to be an array in the JSON string but got `%s`", jsonObj.get("move_battle_style_preferences").toString()));
+        }
+        JsonArray jsonArraymoveBattleStylePreferences = jsonObj.getAsJsonArray("move_battle_style_preferences");
+        // validate the required field `move_battle_style_preferences` (array)
+        for (int i = 0; i < jsonArraymoveBattleStylePreferences.size(); i++) {
+          NatureBattleStylePreference.validateJsonElement(jsonArraymoveBattleStylePreferences.get(i));
+        }
       }
-
-      JsonArray jsonArraymoveBattleStylePreferences = jsonObj.getAsJsonArray("move_battle_style_preferences");
-      // validate the required field `move_battle_style_preferences` (array)
-      for (int i = 0; i < jsonArraymoveBattleStylePreferences.size(); i++) {
-        NatureBattleStylePreference.validateJsonElement(jsonArraymoveBattleStylePreferences.get(i));
-      };
-      // ensure the json data is an array
-      if (!jsonObj.get("names").isJsonArray()) {
-        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `names` to be an array in the JSON string but got `%s`", jsonObj.get("names").toString()));
+      if (jsonObj.get("names") != null) {
+        if (!jsonObj.get("names").isJsonArray()) {
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `names` to be an array in the JSON string but got `%s`", jsonObj.get("names").toString()));
+        }
+        JsonArray jsonArraynames = jsonObj.getAsJsonArray("names");
+        // validate the required field `names` (array)
+        for (int i = 0; i < jsonArraynames.size(); i++) {
+          NatureName.validateJsonElement(jsonArraynames.get(i));
+        }
       }
-
-      JsonArray jsonArraynames = jsonObj.getAsJsonArray("names");
-      // validate the required field `names` (array)
-      for (int i = 0; i < jsonArraynames.size(); i++) {
-        NatureName.validateJsonElement(jsonArraynames.get(i));
-      };
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {

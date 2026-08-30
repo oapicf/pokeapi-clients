@@ -34,7 +34,7 @@ class  PaginatedPokemonShapeSummaryList
 {
 public:
     PaginatedPokemonShapeSummaryList();
-    virtual ~PaginatedPokemonShapeSummaryList() = default;
+    virtual ~PaginatedPokemonShapeSummaryList();
 
 
     /// <summary>

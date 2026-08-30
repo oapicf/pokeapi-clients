@@ -1,5 +1,4 @@
 .gitignore
-.openapi-generator-ignore
 Api/BerriesApiInterface.php
 Api/ContestsApiInterface.php
 Api/EncountersApiInterface.php

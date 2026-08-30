@@ -9,8 +9,8 @@ Name | Type
 `gender` | [EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender](EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender.md)
 `heldItem` | [EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender](EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender.md)
 `item` | [EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender](EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender.md)
-`knownMove` | object
-`knownMoveType` | object
+`knownMove` | [EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender](EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender.md)
+`knownMoveType` | [EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender](EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender.md)
 `location` | [EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender](EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender.md)
 `minAffection` | number
 `minBeauty` | number

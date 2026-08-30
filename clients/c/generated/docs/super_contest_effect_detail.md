@@ -5,8 +5,8 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **int** |  | [readonly] 
 **appeal** | **int** |  | 
-**flavor_text_entries** | [**list_t**](super_contest_effect_flavor_text.md) \* |  | 
-**moves** | [**list_t**](move_summary.md) \* |  | 
+**flavor_text_entries** | [**list_t**](super_contest_effect_flavor_text.md) \* |  | [readonly] 
+**moves** | [**list_t**](move_summary.md) \* |  | [readonly] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

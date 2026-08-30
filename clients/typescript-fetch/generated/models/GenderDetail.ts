@@ -51,13 +51,13 @@ export interface GenderDetail {
      * @type {Array<GenderDetailPokemonSpeciesDetailsInner>}
      * @memberof GenderDetail
      */
-    pokemonSpeciesDetails: Array<GenderDetailPokemonSpeciesDetailsInner>;
+    readonly pokemonSpeciesDetails: Array<GenderDetailPokemonSpeciesDetailsInner>;
     /**
      * 
      * @type {Array<AbilityDetailPokemonInnerPokemon>}
      * @memberof GenderDetail
      */
-    requiredForEvolution: Array<AbilityDetailPokemonInnerPokemon>;
+    readonly requiredForEvolution: Array<AbilityDetailPokemonInnerPokemon>;
 }
 
 /**
@@ -66,8 +66,8 @@ export interface GenderDetail {
 export function instanceOfGenderDetail(value: object): value is GenderDetail {
     if (!('id' in value) || value['id'] === undefined) return false;
     if (!('name' in value) || value['name'] === undefined) return false;
-    if (!('pokemonSpeciesDetails' in value) || value['pokemonSpeciesDetails'] === undefined) return false;
-    if (!('requiredForEvolution' in value) || value['requiredForEvolution'] === undefined) return false;
+    if ((!('pokemonSpeciesDetails' in (value as Record<string, any>)) && !('pokemon_species_details' in (value as Record<string, any>))) || ((value as Record<string, any>)['pokemonSpeciesDetails'] === undefined && (value as Record<string, any>)['pokemon_species_details'] === undefined)) return false;
+    if ((!('requiredForEvolution' in (value as Record<string, any>)) && !('required_for_evolution' in (value as Record<string, any>))) || ((value as Record<string, any>)['requiredForEvolution'] === undefined && (value as Record<string, any>)['required_for_evolution'] === undefined)) return false;
     return true;
 }
 
@@ -92,7 +92,7 @@ export function GenderDetailToJSON(json: any): GenderDetail {
     return GenderDetailToJSONTyped(json, false);
 }
 
-export function GenderDetailToJSONTyped(value?: Omit<GenderDetail, 'id'> | null, ignoreDiscriminator: boolean = false): any {
+export function GenderDetailToJSONTyped(value?: Omit<GenderDetail, 'id'|'pokemonSpeciesDetails'|'requiredForEvolution'> | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
@@ -100,8 +100,6 @@ export function GenderDetailToJSONTyped(value?: Omit<GenderDetail, 'id'> | null,
     return {
         
         'name': value['name'],
-        'pokemon_species_details': ((value['pokemonSpeciesDetails'] as Array<any>).map(GenderDetailPokemonSpeciesDetailsInnerToJSON)),
-        'required_for_evolution': ((value['requiredForEvolution'] as Array<any>).map(AbilityDetailPokemonInnerPokemonToJSON)),
     };
 }
 

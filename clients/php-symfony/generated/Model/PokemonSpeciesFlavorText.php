@@ -47,7 +47,7 @@ class PokemonSpeciesFlavorText
      * @var string|null
      * @SerializedName("flavor_text")
      * @Type("string")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Type("string")]
     protected ?string $flavorText = null;
@@ -56,7 +56,7 @@ class PokemonSpeciesFlavorText
      * @var LanguageSummary|null
      * @SerializedName("language")
      * @Type("OpenAPI\Server\Model\LanguageSummary")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Valid]
     #[Assert\Type("OpenAPI\Server\Model\LanguageSummary")]
@@ -66,7 +66,7 @@ class PokemonSpeciesFlavorText
      * @var VersionSummary|null
      * @SerializedName("version")
      * @Type("OpenAPI\Server\Model\VersionSummary")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Valid]
     #[Assert\Type("OpenAPI\Server\Model\VersionSummary")]
@@ -96,12 +96,12 @@ class PokemonSpeciesFlavorText
     }
 
     /**
-    * Sets flavorText.
-    *
-    * @param string|null $flavorText
-    *
-    * @return $this
-    */
+     * Sets flavorText.
+     *
+     * @param string|null $flavorText
+     *
+     * @return $this
+     */
     public function setFlavorText(?string $flavorText): self
     {
         $this->flavorText = $flavorText;
@@ -123,12 +123,12 @@ class PokemonSpeciesFlavorText
     }
 
     /**
-    * Sets language.
-    *
-    * @param LanguageSummary|null $language
-    *
-    * @return $this
-    */
+     * Sets language.
+     *
+     * @param LanguageSummary|null $language
+     *
+     * @return $this
+     */
     public function setLanguage(?LanguageSummary $language): self
     {
         $this->language = $language;
@@ -150,12 +150,12 @@ class PokemonSpeciesFlavorText
     }
 
     /**
-    * Sets version.
-    *
-    * @param VersionSummary|null $version
-    *
-    * @return $this
-    */
+     * Sets version.
+     *
+     * @param VersionSummary|null $version
+     *
+     * @return $this
+     */
     public function setVersion(?VersionSummary $version): self
     {
         $this->version = $version;

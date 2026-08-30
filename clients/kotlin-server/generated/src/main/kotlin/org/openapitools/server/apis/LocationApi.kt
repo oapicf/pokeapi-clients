@@ -35,11 +35,9 @@ import org.openapitools.server.models.PalParkAreaDetail
 import org.openapitools.server.models.RegionDetail
 
 fun Route.LocationApi() {
-    val empty = mutableMapOf<String, Any?>()
-
     authenticate("basicAuth") {
     authenticate("cookieAuth") {
-    get<Paths.locationAreaList> {
+    get<Paths.locationAreaList> { locationAreaList ->
         val principal = call.authentication.principal<UserIdPrincipal>()
         
         
@@ -48,9 +46,9 @@ fun Route.LocationApi() {
         
         val exampleContentType = "application/json"
             val exampleContentString = """{
+              "count" : 123,
               "next" : "http://api.example.org/accounts/?offset=400&limit=100",
               "previous" : "http://api.example.org/accounts/?offset=200&limit=100",
-              "count" : 123,
               "results" : [ {
                 "name" : "name",
                 "url" : "https://openapi-generator.tech"
@@ -68,10 +66,9 @@ fun Route.LocationApi() {
         
     }
     }
-
     authenticate("basicAuth") {
     authenticate("cookieAuth") {
-    get<Paths.locationAreaRetrieve> {
+    get<Paths.locationAreaRetrieve> { locationAreaRetrieve ->
         val principal = call.authentication.principal<UserIdPrincipal>()
         
         
@@ -80,7 +77,50 @@ fun Route.LocationApi() {
         
         val exampleContentType = "application/json"
             val exampleContentString = """{
+              "id" : 0,
+              "name" : "name",
               "game_index" : 6,
+              "encounter_method_rates" : [ {
+                "encounter_method" : {
+                  "name" : "name",
+                  "url" : "https://openapi-generator.tech"
+                },
+                "version_details" : [ {
+                  "rate" : 1,
+                  "version" : {
+                    "name" : "name",
+                    "url" : "https://openapi-generator.tech"
+                  }
+                }, {
+                  "rate" : 1,
+                  "version" : {
+                    "name" : "name",
+                    "url" : "https://openapi-generator.tech"
+                  }
+                } ]
+              }, {
+                "encounter_method" : {
+                  "name" : "name",
+                  "url" : "https://openapi-generator.tech"
+                },
+                "version_details" : [ {
+                  "rate" : 1,
+                  "version" : {
+                    "name" : "name",
+                    "url" : "https://openapi-generator.tech"
+                  }
+                }, {
+                  "rate" : 1,
+                  "version" : {
+                    "name" : "name",
+                    "url" : "https://openapi-generator.tech"
+                  }
+                } ]
+              } ],
+              "location" : {
+                "name" : "name",
+                "url" : "https://openapi-generator.tech"
+              },
               "names" : [ {
                 "name" : "name",
                 "language" : {
@@ -100,8 +140,14 @@ fun Route.LocationApi() {
                   "url" : "https://openapi-generator.tech"
                 },
                 "version_details" : [ {
+                  "version" : {
+                    "name" : "name",
+                    "url" : "https://openapi-generator.tech"
+                  },
                   "max_chance" : 5,
                   "encounter_details" : {
+                    "min_level" : 5,
+                    "max_level" : 2,
                     "condition_values" : {
                       "name" : "name",
                       "url" : "https://openapi-generator.tech"
@@ -110,17 +156,17 @@ fun Route.LocationApi() {
                     "method" : {
                       "name" : "name",
                       "url" : "https://openapi-generator.tech"
-                    },
-                    "max_level" : 2,
-                    "min_level" : 5
-                  },
-                  "version" : {
-                    "name" : "name",
-                    "url" : "https://openapi-generator.tech"
+                    }
                   }
                 }, {
+                  "version" : {
+                    "name" : "name",
+                    "url" : "https://openapi-generator.tech"
+                  },
                   "max_chance" : 5,
                   "encounter_details" : {
+                    "min_level" : 5,
+                    "max_level" : 2,
                     "condition_values" : {
                       "name" : "name",
                       "url" : "https://openapi-generator.tech"
@@ -129,13 +175,7 @@ fun Route.LocationApi() {
                     "method" : {
                       "name" : "name",
                       "url" : "https://openapi-generator.tech"
-                    },
-                    "max_level" : 2,
-                    "min_level" : 5
-                  },
-                  "version" : {
-                    "name" : "name",
-                    "url" : "https://openapi-generator.tech"
+                    }
                   }
                 } ]
               }, {
@@ -144,8 +184,14 @@ fun Route.LocationApi() {
                   "url" : "https://openapi-generator.tech"
                 },
                 "version_details" : [ {
+                  "version" : {
+                    "name" : "name",
+                    "url" : "https://openapi-generator.tech"
+                  },
                   "max_chance" : 5,
                   "encounter_details" : {
+                    "min_level" : 5,
+                    "max_level" : 2,
                     "condition_values" : {
                       "name" : "name",
                       "url" : "https://openapi-generator.tech"
@@ -154,17 +200,17 @@ fun Route.LocationApi() {
                     "method" : {
                       "name" : "name",
                       "url" : "https://openapi-generator.tech"
-                    },
-                    "max_level" : 2,
-                    "min_level" : 5
-                  },
-                  "version" : {
-                    "name" : "name",
-                    "url" : "https://openapi-generator.tech"
+                    }
                   }
                 }, {
+                  "version" : {
+                    "name" : "name",
+                    "url" : "https://openapi-generator.tech"
+                  },
                   "max_chance" : 5,
                   "encounter_details" : {
+                    "min_level" : 5,
+                    "max_level" : 2,
                     "condition_values" : {
                       "name" : "name",
                       "url" : "https://openapi-generator.tech"
@@ -173,58 +219,9 @@ fun Route.LocationApi() {
                     "method" : {
                       "name" : "name",
                       "url" : "https://openapi-generator.tech"
-                    },
-                    "max_level" : 2,
-                    "min_level" : 5
-                  },
-                  "version" : {
-                    "name" : "name",
-                    "url" : "https://openapi-generator.tech"
+                    }
                   }
                 } ]
-              } ],
-              "name" : "name",
-              "location" : {
-                "name" : "name",
-                "url" : "https://openapi-generator.tech"
-              },
-              "id" : 0,
-              "encounter_method_rates" : [ {
-                "version_details" : [ {
-                  "rate" : 1,
-                  "version" : {
-                    "name" : "name",
-                    "url" : "https://openapi-generator.tech"
-                  }
-                }, {
-                  "rate" : 1,
-                  "version" : {
-                    "name" : "name",
-                    "url" : "https://openapi-generator.tech"
-                  }
-                } ],
-                "encounter_method" : {
-                  "name" : "name",
-                  "url" : "https://openapi-generator.tech"
-                }
-              }, {
-                "version_details" : [ {
-                  "rate" : 1,
-                  "version" : {
-                    "name" : "name",
-                    "url" : "https://openapi-generator.tech"
-                  }
-                }, {
-                  "rate" : 1,
-                  "version" : {
-                    "name" : "name",
-                    "url" : "https://openapi-generator.tech"
-                  }
-                } ],
-                "encounter_method" : {
-                  "name" : "name",
-                  "url" : "https://openapi-generator.tech"
-                }
               } ]
             }"""
             
@@ -236,10 +233,9 @@ fun Route.LocationApi() {
         
     }
     }
-
     authenticate("basicAuth") {
     authenticate("cookieAuth") {
-    get<Paths.locationList> {
+    get<Paths.locationList> { locationList ->
         val principal = call.authentication.principal<UserIdPrincipal>()
         
         
@@ -248,9 +244,9 @@ fun Route.LocationApi() {
         
         val exampleContentType = "application/json"
             val exampleContentString = """{
+              "count" : 123,
               "next" : "http://api.example.org/accounts/?offset=400&limit=100",
               "previous" : "http://api.example.org/accounts/?offset=200&limit=100",
-              "count" : 123,
               "results" : [ {
                 "name" : "name",
                 "url" : "https://openapi-generator.tech"
@@ -268,10 +264,9 @@ fun Route.LocationApi() {
         
     }
     }
-
     authenticate("basicAuth") {
     authenticate("cookieAuth") {
-    get<Paths.locationRetrieve> {
+    get<Paths.locationRetrieve> { locationRetrieve ->
         val principal = call.authentication.principal<UserIdPrincipal>()
         
         
@@ -280,19 +275,12 @@ fun Route.LocationApi() {
         
         val exampleContentType = "application/json"
             val exampleContentString = """{
-              "game_indices" : [ {
-                "generation" : {
-                  "name" : "name",
-                  "url" : "https://openapi-generator.tech"
-                },
-                "game_index" : 5
-              }, {
-                "generation" : {
-                  "name" : "name",
-                  "url" : "https://openapi-generator.tech"
-                },
-                "game_index" : 5
-              } ],
+              "id" : 0,
+              "name" : "name",
+              "region" : {
+                "name" : "name",
+                "url" : "https://openapi-generator.tech"
+              },
               "names" : [ {
                 "name" : "name",
                 "language" : {
@@ -306,19 +294,26 @@ fun Route.LocationApi() {
                   "url" : "https://openapi-generator.tech"
                 }
               } ],
-              "name" : "name",
+              "game_indices" : [ {
+                "game_index" : 5,
+                "generation" : {
+                  "name" : "name",
+                  "url" : "https://openapi-generator.tech"
+                }
+              }, {
+                "game_index" : 5,
+                "generation" : {
+                  "name" : "name",
+                  "url" : "https://openapi-generator.tech"
+                }
+              } ],
               "areas" : [ {
                 "name" : "name",
                 "url" : "https://openapi-generator.tech"
               }, {
                 "name" : "name",
                 "url" : "https://openapi-generator.tech"
-              } ],
-              "id" : 0,
-              "region" : {
-                "name" : "name",
-                "url" : "https://openapi-generator.tech"
-              }
+              } ]
             }"""
             
             when (exampleContentType) {
@@ -329,10 +324,9 @@ fun Route.LocationApi() {
         
     }
     }
-
     authenticate("basicAuth") {
     authenticate("cookieAuth") {
-    get<Paths.palParkAreaList> {
+    get<Paths.palParkAreaList> { palParkAreaList ->
         val principal = call.authentication.principal<UserIdPrincipal>()
         
         
@@ -341,9 +335,9 @@ fun Route.LocationApi() {
         
         val exampleContentType = "application/json"
             val exampleContentString = """{
+              "count" : 123,
               "next" : "http://api.example.org/accounts/?offset=400&limit=100",
               "previous" : "http://api.example.org/accounts/?offset=200&limit=100",
-              "count" : 123,
               "results" : [ {
                 "name" : "name",
                 "url" : "https://openapi-generator.tech"
@@ -361,10 +355,9 @@ fun Route.LocationApi() {
         
     }
     }
-
     authenticate("basicAuth") {
     authenticate("cookieAuth") {
-    get<Paths.palParkAreaRetrieve> {
+    get<Paths.palParkAreaRetrieve> { palParkAreaRetrieve ->
         val principal = call.authentication.principal<UserIdPrincipal>()
         
         
@@ -373,6 +366,8 @@ fun Route.LocationApi() {
         
         val exampleContentType = "application/json"
             val exampleContentString = """{
+              "id" : 0,
+              "name" : "name",
               "names" : [ {
                 "name" : "name",
                 "language" : {
@@ -387,22 +382,20 @@ fun Route.LocationApi() {
                 }
               } ],
               "pokemon_encounters" : [ {
+                "base_score" : 6,
                 "pokemon-species" : {
                   "name" : "name",
                   "url" : "https://openapi-generator.tech"
                 },
-                "base_score" : 6,
                 "rate" : 1
               }, {
+                "base_score" : 6,
                 "pokemon-species" : {
                   "name" : "name",
                   "url" : "https://openapi-generator.tech"
                 },
-                "base_score" : 6,
                 "rate" : 1
-              } ],
-              "name" : "name",
-              "id" : 0
+              } ]
             }"""
             
             when (exampleContentType) {
@@ -413,10 +406,9 @@ fun Route.LocationApi() {
         
     }
     }
-
     authenticate("basicAuth") {
     authenticate("cookieAuth") {
-    get<Paths.regionList> {
+    get<Paths.regionList> { regionList ->
         val principal = call.authentication.principal<UserIdPrincipal>()
         
         
@@ -425,9 +417,9 @@ fun Route.LocationApi() {
         
         val exampleContentType = "application/json"
             val exampleContentString = """{
+              "count" : 123,
               "next" : "http://api.example.org/accounts/?offset=400&limit=100",
               "previous" : "http://api.example.org/accounts/?offset=200&limit=100",
-              "count" : 123,
               "results" : [ {
                 "name" : "name",
                 "url" : "https://openapi-generator.tech"
@@ -445,10 +437,9 @@ fun Route.LocationApi() {
         
     }
     }
-
     authenticate("basicAuth") {
     authenticate("cookieAuth") {
-    get<Paths.regionRetrieve> {
+    get<Paths.regionRetrieve> { regionRetrieve ->
         val principal = call.authentication.principal<UserIdPrincipal>()
         
         
@@ -457,6 +448,15 @@ fun Route.LocationApi() {
         
         val exampleContentType = "application/json"
             val exampleContentString = """{
+              "id" : 0,
+              "name" : "name",
+              "locations" : [ {
+                "name" : "name",
+                "url" : "https://openapi-generator.tech"
+              }, {
+                "name" : "name",
+                "url" : "https://openapi-generator.tech"
+              } ],
               "main_generation" : "",
               "names" : [ {
                 "name" : "name",
@@ -484,16 +484,7 @@ fun Route.LocationApi() {
               }, {
                 "name" : "name",
                 "url" : "https://openapi-generator.tech"
-              } ],
-              "name" : "name",
-              "locations" : [ {
-                "name" : "name",
-                "url" : "https://openapi-generator.tech"
-              }, {
-                "name" : "name",
-                "url" : "https://openapi-generator.tech"
-              } ],
-              "id" : 0
+              } ]
             }"""
             
             when (exampleContentType) {
@@ -504,5 +495,4 @@ fun Route.LocationApi() {
         
     }
     }
-
 }

@@ -85,15 +85,17 @@ class _$TypeDetailPokemonInnerSerializer implements PrimitiveSerializer<TypeDeta
         case r'slot':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(int),
-          ) as int;
+            specifiedType: const FullType.nullable(int),
+          ) as int?;
+          if (valueDes == null) continue;
           result.slot = valueDes;
           break;
         case r'pokemon':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(TypeDetailPokemonInnerPokemon),
-          ) as TypeDetailPokemonInnerPokemon;
+            specifiedType: const FullType.nullable(TypeDetailPokemonInnerPokemon),
+          ) as TypeDetailPokemonInnerPokemon?;
+          if (valueDes == null) continue;
           result.pokemon.replace(valueDes);
           break;
         default:

@@ -23,7 +23,7 @@ import SuperContestEffectDetail from '../model/SuperContestEffectDetail';
 /**
 * Contests service.
 * @module api/ContestsApi
-* @version 1.2.1-pre.0
+* @version 2.0.1-pre.0
 */
 export default class ContestsApi {
 

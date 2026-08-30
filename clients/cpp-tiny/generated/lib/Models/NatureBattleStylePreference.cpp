@@ -107,7 +107,7 @@ NatureBattleStylePreference::getLowHpPreference()
 }
 
 void
-NatureBattleStylePreference::setLowHpPreference(int  low_hp_preference)
+NatureBattleStylePreference::setLowHpPreference(int low_hp_preference)
 {
 	this->low_hp_preference = low_hp_preference;
 }
@@ -119,7 +119,7 @@ NatureBattleStylePreference::getHighHpPreference()
 }
 
 void
-NatureBattleStylePreference::setHighHpPreference(int  high_hp_preference)
+NatureBattleStylePreference::setHighHpPreference(int high_hp_preference)
 {
 	this->high_hp_preference = high_hp_preference;
 }
@@ -131,7 +131,7 @@ NatureBattleStylePreference::getMoveBattleStyle()
 }
 
 void
-NatureBattleStylePreference::setMoveBattleStyle(MoveBattleStyleSummary  move_battle_style)
+NatureBattleStylePreference::setMoveBattleStyle(MoveBattleStyleSummary move_battle_style)
 {
 	this->move_battle_style = move_battle_style;
 }

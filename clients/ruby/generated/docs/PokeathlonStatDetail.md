@@ -7,7 +7,7 @@
 | **id** | **Integer** |  | [readonly] |
 | **name** | **String** |  |  |
 | **affecting_natures** | [**PokeathlonStatDetailAffectingNatures**](PokeathlonStatDetailAffectingNatures.md) |  |  |
-| **names** | [**Array&lt;PokeathlonStatName&gt;**](PokeathlonStatName.md) |  |  |
+| **names** | [**Array&lt;PokeathlonStatName&gt;**](PokeathlonStatName.md) |  | [readonly] |
 
 ## Example
 

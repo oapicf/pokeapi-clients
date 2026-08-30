@@ -39,7 +39,7 @@ class  NatureDetail
 {
 public:
     NatureDetail();
-    virtual ~NatureDetail() = default;
+    virtual ~NatureDetail();
 
 
     /// <summary>

@@ -12,8 +12,8 @@ type EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner {
   gender: EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender
   held_item: EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender
   item: EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender
-  known_move: TodoObjectMapping
-  known_move_type: TodoObjectMapping
+  known_move: EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender
+  known_move_type: EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender
   location: EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender
   min_affection: Int!
   min_beauty: Int!
@@ -33,8 +33,8 @@ input EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerInput {
     gender: EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGenderInput
     held_item: EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGenderInput
     item: EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGenderInput
-    known_move: TodoObjectMapping
-    known_move_type: TodoObjectMapping
+    known_move: EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGenderInput
+    known_move_type: EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGenderInput
     location: EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGenderInput
     min_affection: Int!
     min_beauty: Int!

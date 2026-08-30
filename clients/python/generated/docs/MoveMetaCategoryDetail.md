@@ -7,8 +7,8 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **int** |  | [readonly] 
 **name** | **str** |  | 
-**descriptions** | [**List[MoveMetaCategoryDescription]**](MoveMetaCategoryDescription.md) |  | 
-**moves** | [**List[AbilityDetailPokemonInnerPokemon]**](AbilityDetailPokemonInnerPokemon.md) |  | 
+**descriptions** | [**List[MoveMetaCategoryDescription]**](MoveMetaCategoryDescription.md) |  | [readonly] 
+**moves** | [**List[AbilityDetailPokemonInnerPokemon]**](AbilityDetailPokemonInnerPokemon.md) |  | [readonly] 
 
 ## Example
 

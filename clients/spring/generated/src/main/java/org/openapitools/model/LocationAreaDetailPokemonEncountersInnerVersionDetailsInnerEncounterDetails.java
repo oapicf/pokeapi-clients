@@ -2,6 +2,7 @@ package org.openapitools.model;
 
 import java.net.URI;
 import java.util.Objects;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
@@ -9,26 +10,27 @@ import org.openapitools.model.AbilityDetailPokemonInnerPokemon;
 import org.springframework.lang.Nullable;
 import org.openapitools.jackson.nullable.JsonNullable;
 import java.time.OffsetDateTime;
-import javax.validation.Valid;
-import javax.validation.constraints.*;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.*;
 import io.swagger.v3.oas.annotations.media.Schema;
 
 
 import java.util.*;
-import javax.annotation.Generated;
+import jakarta.annotation.Generated;
 
 /**
  * LocationAreaDetailPokemonEncountersInnerVersionDetailsInnerEncounterDetails
  */
 
 @JsonTypeName("LocationAreaDetail_pokemon_encounters_inner_version_details_inner_encounter_details")
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2026-02-07T15:29:13.146999890Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2026-08-30T02:00:43.960184425Z[Etc/UTC]", comments = "Generator version: 7.24.0")
 public class LocationAreaDetailPokemonEncountersInnerVersionDetailsInnerEncounterDetails {
 
   private Integer minLevel;
 
   private Integer maxLevel;
 
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private @Nullable AbilityDetailPokemonInnerPokemon conditionValues;
 
   private Integer chance;
@@ -65,6 +67,7 @@ public class LocationAreaDetailPokemonEncountersInnerVersionDetailsInnerEncounte
     return minLevel;
   }
 
+  @JsonProperty("min_level")
   public void setMinLevel(Integer minLevel) {
     this.minLevel = minLevel;
   }
@@ -85,6 +88,7 @@ public class LocationAreaDetailPokemonEncountersInnerVersionDetailsInnerEncounte
     return maxLevel;
   }
 
+  @JsonProperty("max_level")
   public void setMaxLevel(Integer maxLevel) {
     this.maxLevel = maxLevel;
   }
@@ -105,6 +109,7 @@ public class LocationAreaDetailPokemonEncountersInnerVersionDetailsInnerEncounte
     return conditionValues;
   }
 
+  @JsonProperty("condition_values")
   public void setConditionValues(@Nullable AbilityDetailPokemonInnerPokemon conditionValues) {
     this.conditionValues = conditionValues;
   }
@@ -125,6 +130,7 @@ public class LocationAreaDetailPokemonEncountersInnerVersionDetailsInnerEncounte
     return chance;
   }
 
+  @JsonProperty("chance")
   public void setChance(Integer chance) {
     this.chance = chance;
   }
@@ -145,6 +151,7 @@ public class LocationAreaDetailPokemonEncountersInnerVersionDetailsInnerEncounte
     return method;
   }
 
+  @JsonProperty("method")
   public void setMethod(AbilityDetailPokemonInnerPokemon method) {
     this.method = method;
   }
@@ -187,11 +194,8 @@ public class LocationAreaDetailPokemonEncountersInnerVersionDetailsInnerEncounte
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+  private String toIndentedString(@Nullable Object o) {
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 }
 

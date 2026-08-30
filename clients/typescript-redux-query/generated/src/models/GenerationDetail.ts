@@ -59,7 +59,7 @@ export interface GenerationDetail  {
      * @type {Array<AbilitySummary>}
      * @memberof GenerationDetail
      */
-    abilities: Array<AbilitySummary>;
+    readonly abilities: Array<AbilitySummary>;
     /**
      * 
      * @type {RegionSummary}
@@ -71,31 +71,31 @@ export interface GenerationDetail  {
      * @type {Array<MoveSummary>}
      * @memberof GenerationDetail
      */
-    moves: Array<MoveSummary>;
+    readonly moves: Array<MoveSummary>;
     /**
      * 
      * @type {Array<GenerationName>}
      * @memberof GenerationDetail
      */
-    names: Array<GenerationName>;
+    readonly names: Array<GenerationName>;
     /**
      * 
      * @type {Array<PokemonSpeciesSummary>}
      * @memberof GenerationDetail
      */
-    pokemonSpecies: Array<PokemonSpeciesSummary>;
+    readonly pokemonSpecies: Array<PokemonSpeciesSummary>;
     /**
      * 
      * @type {Array<TypeSummary>}
      * @memberof GenerationDetail
      */
-    types: Array<TypeSummary>;
+    readonly types: Array<TypeSummary>;
     /**
      * 
      * @type {Array<VersionGroupSummary>}
      * @memberof GenerationDetail
      */
-    versionGroups: Array<VersionGroupSummary>;
+    readonly versionGroups: Array<VersionGroupSummary>;
 }
 
 export function GenerationDetailFromJSON(json: any): GenerationDetail {
@@ -118,13 +118,7 @@ export function GenerationDetailToJSON(value?: GenerationDetail): any {
     }
     return {
         'name': value.name,
-        'abilities': (value.abilities as Array<any>).map(AbilitySummaryToJSON),
         'main_region': RegionSummaryToJSON(value.mainRegion),
-        'moves': (value.moves as Array<any>).map(MoveSummaryToJSON),
-        'names': (value.names as Array<any>).map(GenerationNameToJSON),
-        'pokemon_species': (value.pokemonSpecies as Array<any>).map(PokemonSpeciesSummaryToJSON),
-        'types': (value.types as Array<any>).map(TypeSummaryToJSON),
-        'version_groups': (value.versionGroups as Array<any>).map(VersionGroupSummaryToJSON),
     };
 }
 

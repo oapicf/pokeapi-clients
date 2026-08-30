@@ -93,12 +93,12 @@ function Initialize-GrowthRateDetail {
 
 
         $PSO = [PSCustomObject]@{
-            "id" = ${Id}
-            "name" = ${Name}
-            "formula" = ${Formula}
-            "descriptions" = ${Descriptions}
-            "levels" = ${Levels}
-            "pokemon_species" = ${PokemonSpecies}
+            'id' = ${Id}
+            'name' = ${Name}
+            'formula' = ${Formula}
+            'descriptions' = ${Descriptions}
+            'levels' = ${Levels}
+            'pokemon_species' = ${PokemonSpecies}
         }
 
 
@@ -136,7 +136,7 @@ function ConvertFrom-JsonToGrowthRateDetail {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in GrowthRateDetail
-        $AllProperties = ("id", "name", "formula", "descriptions", "levels", "pokemon_species")
+        $AllProperties = ('id', 'name', 'formula', 'descriptions', 'levels', 'pokemon_species')
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -147,49 +147,49 @@ function ConvertFrom-JsonToGrowthRateDetail {
             throw "Error! Empty JSON cannot be serialized due to the required property 'id' missing."
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "id"))) {
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'id'))) {
             throw "Error! JSON cannot be serialized due to the required property 'id' missing."
         } else {
-            $Id = $JsonParameters.PSobject.Properties["id"].value
+            $Id = $JsonParameters.PSobject.Properties['id'].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "name"))) {
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'name'))) {
             throw "Error! JSON cannot be serialized due to the required property 'name' missing."
         } else {
-            $Name = $JsonParameters.PSobject.Properties["name"].value
+            $Name = $JsonParameters.PSobject.Properties['name'].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "formula"))) {
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'formula'))) {
             throw "Error! JSON cannot be serialized due to the required property 'formula' missing."
         } else {
-            $Formula = $JsonParameters.PSobject.Properties["formula"].value
+            $Formula = $JsonParameters.PSobject.Properties['formula'].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "descriptions"))) {
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'descriptions'))) {
             throw "Error! JSON cannot be serialized due to the required property 'descriptions' missing."
         } else {
-            $Descriptions = $JsonParameters.PSobject.Properties["descriptions"].value
+            $Descriptions = $JsonParameters.PSobject.Properties['descriptions'].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "levels"))) {
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'levels'))) {
             throw "Error! JSON cannot be serialized due to the required property 'levels' missing."
         } else {
-            $Levels = $JsonParameters.PSobject.Properties["levels"].value
+            $Levels = $JsonParameters.PSobject.Properties['levels'].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "pokemon_species"))) {
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'pokemon_species'))) {
             throw "Error! JSON cannot be serialized due to the required property 'pokemon_species' missing."
         } else {
-            $PokemonSpecies = $JsonParameters.PSobject.Properties["pokemon_species"].value
+            $PokemonSpecies = $JsonParameters.PSobject.Properties['pokemon_species'].value
         }
 
         $PSO = [PSCustomObject]@{
-            "id" = ${Id}
-            "name" = ${Name}
-            "formula" = ${Formula}
-            "descriptions" = ${Descriptions}
-            "levels" = ${Levels}
-            "pokemon_species" = ${PokemonSpecies}
+            'id' = ${Id}
+            'name' = ${Name}
+            'formula' = ${Formula}
+            'descriptions' = ${Descriptions}
+            'levels' = ${Levels}
+            'pokemon_species' = ${PokemonSpecies}
         }
 
         return $PSO

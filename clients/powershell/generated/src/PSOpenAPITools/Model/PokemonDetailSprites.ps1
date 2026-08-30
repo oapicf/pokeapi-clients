@@ -36,7 +36,7 @@ function Initialize-PokemonDetailSprites {
 
 
         $PSO = [PSCustomObject]@{
-            "front_default" = ${FrontDefault}
+            'front_default' = ${FrontDefault}
         }
 
 
@@ -75,7 +75,7 @@ function ConvertFrom-JsonToPokemonDetailSprites {
         $PokemonDetailSpritesAdditionalProperties = @{}
 
         # check if Json contains properties not defined in PokemonDetailSprites
-        $AllProperties = ("front_default")
+        $AllProperties = ('front_default')
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             # store undefined properties in additionalProperties
             if (!($AllProperties.Contains($name))) {
@@ -83,15 +83,15 @@ function ConvertFrom-JsonToPokemonDetailSprites {
             }
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "front_default"))) { #optional property not found
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'front_default'))) { #optional property not found
             $FrontDefault = $null
         } else {
-            $FrontDefault = $JsonParameters.PSobject.Properties["front_default"].value
+            $FrontDefault = $JsonParameters.PSobject.Properties['front_default'].value
         }
 
         $PSO = [PSCustomObject]@{
-            "front_default" = ${FrontDefault}
-            "AdditionalProperties" = $PokemonDetailSpritesAdditionalProperties
+            'front_default' = ${FrontDefault}
+            'AdditionalProperties' = $PokemonDetailSpritesAdditionalProperties
         }
 
         return $PSO

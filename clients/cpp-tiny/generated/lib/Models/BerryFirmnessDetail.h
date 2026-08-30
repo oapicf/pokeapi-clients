@@ -54,28 +54,28 @@ public:
 
 	/*! \brief Set 
 	 */
-	void setId(int  id);
+	void setId(int id);
 	/*! \brief Get 
 	 */
 	std::string getName();
 
 	/*! \brief Set 
 	 */
-	void setName(std::string  name);
+	void setName(std::string name);
 	/*! \brief Get 
 	 */
 	std::list<BerrySummary> getBerries();
 
 	/*! \brief Set 
 	 */
-	void setBerries(std::list <BerrySummary> berries);
+	void setBerries(std::list<BerrySummary> berries);
 	/*! \brief Get 
 	 */
 	std::list<BerryFirmnessName> getNames();
 
 	/*! \brief Set 
 	 */
-	void setNames(std::list <BerryFirmnessName> names);
+	void setNames(std::list<BerryFirmnessName> names);
 
 
     private:

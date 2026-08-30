@@ -29,11 +29,9 @@ import org.openapitools.server.models.LanguageDetail
 import org.openapitools.server.models.PaginatedLanguageSummaryList
 
 fun Route.UtilityApi() {
-    val empty = mutableMapOf<String, Any?>()
-
     authenticate("basicAuth") {
     authenticate("cookieAuth") {
-    get<Paths.languageList> {
+    get<Paths.languageList> { languageList ->
         val principal = call.authentication.principal<UserIdPrincipal>()
         
         
@@ -42,9 +40,9 @@ fun Route.UtilityApi() {
         
         val exampleContentType = "application/json"
             val exampleContentString = """{
+              "count" : 123,
               "next" : "http://api.example.org/accounts/?offset=400&limit=100",
               "previous" : "http://api.example.org/accounts/?offset=200&limit=100",
-              "count" : 123,
               "results" : [ {
                 "name" : "name",
                 "url" : "https://openapi-generator.tech"
@@ -62,10 +60,9 @@ fun Route.UtilityApi() {
         
     }
     }
-
     authenticate("basicAuth") {
     authenticate("cookieAuth") {
-    get<Paths.languageRetrieve> {
+    get<Paths.languageRetrieve> { languageRetrieve ->
         val principal = call.authentication.principal<UserIdPrincipal>()
         
         
@@ -74,7 +71,11 @@ fun Route.UtilityApi() {
         
         val exampleContentType = "application/json"
             val exampleContentString = """{
+              "id" : 0,
+              "name" : "name",
+              "official" : true,
               "iso639" : "iso639",
+              "iso3166" : "iso3166",
               "names" : [ {
                 "name" : "name",
                 "language" : {
@@ -87,11 +88,7 @@ fun Route.UtilityApi() {
                   "name" : "name",
                   "url" : "https://openapi-generator.tech"
                 }
-              } ],
-              "name" : "name",
-              "official" : true,
-              "id" : 0,
-              "iso3166" : "iso3166"
+              } ]
             }"""
             
             when (exampleContentType) {
@@ -102,5 +99,4 @@ fun Route.UtilityApi() {
         
     }
     }
-
 }

@@ -12,7 +12,7 @@ import org.openapitools.model.EvolutionChainDetailChainEvolvesToInnerEvolutionDe
 /**
  * EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaMSF4JServerCodegen", date = "2026-02-07T15:23:10.683633502Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaMSF4JServerCodegen", date = "2026-08-30T01:55:58.248058654Z[Etc/UTC]", comments = "Generator version: 7.24.0")
 public class EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner   {
   @JsonProperty("gender")
   private EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender gender;
@@ -24,10 +24,10 @@ public class EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner   {
   private EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender item;
 
   @JsonProperty("known_move")
-  private Object knownMove;
+  private EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender knownMove;
 
   @JsonProperty("known_move_type")
-  private Object knownMoveType;
+  private EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender knownMoveType;
 
   @JsonProperty("location")
   private EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender location;
@@ -122,7 +122,7 @@ public class EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner   {
     this.item = item;
   }
 
-  public EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner knownMove(Object knownMove) {
+  public EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner knownMove(EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender knownMove) {
     this.knownMove = knownMove;
     return this;
   }
@@ -132,15 +132,15 @@ public class EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner   {
    * @return knownMove
   **/
   @ApiModelProperty(required = true, value = "")
-  public Object getKnownMove() {
+  public EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender getKnownMove() {
     return knownMove;
   }
 
-  public void setKnownMove(Object knownMove) {
+  public void setKnownMove(EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender knownMove) {
     this.knownMove = knownMove;
   }
 
-  public EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner knownMoveType(Object knownMoveType) {
+  public EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner knownMoveType(EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender knownMoveType) {
     this.knownMoveType = knownMoveType;
     return this;
   }
@@ -150,11 +150,11 @@ public class EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner   {
    * @return knownMoveType
   **/
   @ApiModelProperty(required = true, value = "")
-  public Object getKnownMoveType() {
+  public EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender getKnownMoveType() {
     return knownMoveType;
   }
 
-  public void setKnownMoveType(Object knownMoveType) {
+  public void setKnownMoveType(EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender knownMoveType) {
     this.knownMoveType = knownMoveType;
   }
 
@@ -459,10 +459,7 @@ public class EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner   {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 }
 

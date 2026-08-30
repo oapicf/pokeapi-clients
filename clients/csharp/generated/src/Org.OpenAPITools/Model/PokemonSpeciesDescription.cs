@@ -63,7 +63,7 @@ namespace Org.OpenAPITools.Model
         /// Gets or Sets Description
         /// </summary>
         [JsonPropertyName("description")]
-        public string? Description { get { return this.DescriptionOption; } set { this.DescriptionOption = new(value); } }
+        public string? Description { get { return this.DescriptionOption.Value; } set { this.DescriptionOption = new(value); } }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -99,8 +99,18 @@ namespace Org.OpenAPITools.Model
     /// <summary>
     /// A Json converter for type <see cref="PokemonSpeciesDescription" />
     /// </summary>
-    public class PokemonSpeciesDescriptionJsonConverter : JsonConverter<PokemonSpeciesDescription>
+    public partial class PokemonSpeciesDescriptionJsonConverter : JsonConverter<PokemonSpeciesDescription>
     {
+        partial void OnCreated();
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="PokemonSpeciesDescriptionJsonConverter" /> class.
+        /// </summary>
+        public PokemonSpeciesDescriptionJsonConverter()
+        {
+            OnCreated();
+        }
+
         /// <summary>
         /// Deserializes json to <see cref="PokemonSpeciesDescription" />
         /// </summary>

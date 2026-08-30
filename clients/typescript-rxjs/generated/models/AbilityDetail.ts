@@ -49,25 +49,25 @@ export interface AbilityDetail {
      * @type {Array<AbilityName>}
      * @memberof AbilityDetail
      */
-    names: Array<AbilityName>;
+    readonly names: Array<AbilityName>;
     /**
      * @type {Array<AbilityEffectText>}
      * @memberof AbilityDetail
      */
-    effect_entries: Array<AbilityEffectText>;
+    readonly effect_entries: Array<AbilityEffectText>;
     /**
      * @type {Array<AbilityChange>}
      * @memberof AbilityDetail
      */
-    effect_changes: Array<AbilityChange>;
+    readonly effect_changes: Array<AbilityChange>;
     /**
      * @type {Array<AbilityFlavorText>}
      * @memberof AbilityDetail
      */
-    flavor_text_entries: Array<AbilityFlavorText>;
+    readonly flavor_text_entries: Array<AbilityFlavorText>;
     /**
      * @type {Array<AbilityDetailPokemonInner>}
      * @memberof AbilityDetail
      */
-    pokemon: Array<AbilityDetailPokemonInner>;
+    readonly pokemon: Array<AbilityDetailPokemonInner>;
 }

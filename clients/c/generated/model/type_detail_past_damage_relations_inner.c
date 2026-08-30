@@ -13,10 +13,10 @@ static type_detail_past_damage_relations_inner_t *type_detail_past_damage_relati
     if (!type_detail_past_damage_relations_inner_local_var) {
         return NULL;
     }
+    memset(type_detail_past_damage_relations_inner_local_var, 0, sizeof(type_detail_past_damage_relations_inner_t));
+    type_detail_past_damage_relations_inner_local_var->_library_owned = 1;
     type_detail_past_damage_relations_inner_local_var->generation = generation;
     type_detail_past_damage_relations_inner_local_var->damage_relations = damage_relations;
-
-    type_detail_past_damage_relations_inner_local_var->_library_owned = 1;
     return type_detail_past_damage_relations_inner_local_var;
 }
 
@@ -24,10 +24,13 @@ __attribute__((deprecated)) type_detail_past_damage_relations_inner_t *type_deta
     ability_detail_pokemon_inner_pokemon_t *generation,
     type_detail_past_damage_relations_inner_damage_relations_t *damage_relations
     ) {
-    return type_detail_past_damage_relations_inner_create_internal (
+    type_detail_past_damage_relations_inner_t *result = type_detail_past_damage_relations_inner_create_internal (
         generation,
         damage_relations
         );
+    if (!result) {
+    }
+    return result;
 }
 
 void type_detail_past_damage_relations_inner_free(type_detail_past_damage_relations_inner_t *type_detail_past_damage_relations_inner) {
@@ -123,10 +126,15 @@ type_detail_past_damage_relations_inner_t *type_detail_past_damage_relations_inn
     damage_relations_local_nonprim = type_detail_past_damage_relations_inner_damage_relations_parseFromJSON(damage_relations); //nonprimitive
 
 
+
     type_detail_past_damage_relations_inner_local_var = type_detail_past_damage_relations_inner_create_internal (
         generation_local_nonprim,
         damage_relations_local_nonprim
         );
+
+    if (!type_detail_past_damage_relations_inner_local_var) {
+        goto end;
+    }
 
     return type_detail_past_damage_relations_inner_local_var;
 end:

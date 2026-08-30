@@ -26,6 +26,8 @@ MoveChange_effect_entries_inner::MoveChange_effect_entries_inner()
     
 }
 
+MoveChange_effect_entries_inner::~MoveChange_effect_entries_inner() = default;
+
 void MoveChange_effect_entries_inner::validate() const
 {
     std::stringstream msg;

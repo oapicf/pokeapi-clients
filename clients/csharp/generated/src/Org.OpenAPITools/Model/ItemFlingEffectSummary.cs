@@ -92,8 +92,18 @@ namespace Org.OpenAPITools.Model
     /// <summary>
     /// A Json converter for type <see cref="ItemFlingEffectSummary" />
     /// </summary>
-    public class ItemFlingEffectSummaryJsonConverter : JsonConverter<ItemFlingEffectSummary>
+    public partial class ItemFlingEffectSummaryJsonConverter : JsonConverter<ItemFlingEffectSummary>
     {
+        partial void OnCreated();
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ItemFlingEffectSummaryJsonConverter" /> class.
+        /// </summary>
+        public ItemFlingEffectSummaryJsonConverter()
+        {
+            OnCreated();
+        }
+
         /// <summary>
         /// Deserializes json to <see cref="ItemFlingEffectSummary" />
         /// </summary>

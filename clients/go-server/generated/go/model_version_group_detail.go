@@ -12,6 +12,11 @@
 package openapi
 
 
+import (
+	"encoding/json"
+	"fmt"
+)
+
 
 
 type VersionGroupDetail struct {
@@ -32,17 +37,108 @@ type VersionGroupDetail struct {
 
 	Versions []VersionSummary `json:"versions"`
 }
+// UnmarshalJSON validates required property keys then unmarshals into VersionGroupDetail
+func (o *VersionGroupDetail) UnmarshalJSON(data []byte) (err error) {
+	// Presence is checked against required fields that exist on this struct,
+	// including fields promoted from embedded allOf parents.
+	requiredProperties := []string{
+		"name",
+		"generation",
+	}
 
-// AssertVersionGroupDetailRequired checks if the required fields are not zero-ed
+	requiredNullableProperties := map[string]bool{
+		"name": false,
+		"generation": false,
+	}
+
+	allowedJsonKeys := map[string]struct{}{
+		"id": {},
+		"name": {},
+		"order": {},
+		"generation": {},
+		"move_learn_methods": {},
+		"pokedexes": {},
+		"regions": {},
+		"versions": {},
+	}
+
+	allProperties := make(map[string]json.RawMessage)
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err
+	}
+
+	for _, requiredProperty := range requiredProperties {
+		value, exists := allProperties[requiredProperty]
+		if !exists {
+			return &RequiredError{Field: requiredProperty}
+		}
+		if string(value) == "null" && !requiredNullableProperties[requiredProperty] {
+			return &RequiredError{Field: requiredProperty}
+		}
+	}
+
+	for key := range allProperties {
+		if _, exists := allowedJsonKeys[key]; !exists {
+			return fmt.Errorf("json: unknown field %q", key)
+		}
+	}
+
+	var decoded VersionGroupDetail
+
+	if value, exists := allProperties["id"]; exists {
+		if err = json.Unmarshal(value, &decoded.Id); err != nil {
+			return err
+		}
+	}
+	if value, exists := allProperties["name"]; exists {
+		if err = json.Unmarshal(value, &decoded.Name); err != nil {
+			return err
+		}
+	}
+	if value, exists := allProperties["order"]; exists {
+		if err = json.Unmarshal(value, &decoded.Order); err != nil {
+			return err
+		}
+	}
+	if value, exists := allProperties["generation"]; exists {
+		if err = json.Unmarshal(value, &decoded.Generation); err != nil {
+			return err
+		}
+	}
+	if value, exists := allProperties["move_learn_methods"]; exists {
+		if err = json.Unmarshal(value, &decoded.MoveLearnMethods); err != nil {
+			return err
+		}
+	}
+	if value, exists := allProperties["pokedexes"]; exists {
+		if err = json.Unmarshal(value, &decoded.Pokedexes); err != nil {
+			return err
+		}
+	}
+	if value, exists := allProperties["regions"]; exists {
+		if err = json.Unmarshal(value, &decoded.Regions); err != nil {
+			return err
+		}
+	}
+	if value, exists := allProperties["versions"]; exists {
+		if err = json.Unmarshal(value, &decoded.Versions); err != nil {
+			return err
+		}
+	}
+
+	*o = decoded
+
+	return nil
+}
+
+// AssertVersionGroupDetailRequired checks complex required fields (models, arrays, maps) and embedded parents.
+// Primitive required fields are validated for JSON request bodies in UnmarshalJSON so zero values remain valid.
 func AssertVersionGroupDetailRequired(obj VersionGroupDetail) error {
 	elements := map[string]interface{}{
-		"id": obj.Id,
-		"name": obj.Name,
 		"generation": obj.Generation,
-		"move_learn_methods": obj.MoveLearnMethods,
-		"pokedexes": obj.Pokedexes,
-		"regions": obj.Regions,
-		"versions": obj.Versions,
 	}
 	for name, el := range elements {
 		if isZero := IsZeroValue(el); isZero {
@@ -53,26 +149,6 @@ func AssertVersionGroupDetailRequired(obj VersionGroupDetail) error {
 	if err := AssertGenerationSummaryRequired(obj.Generation); err != nil {
 		return err
 	}
-	for _, el := range obj.MoveLearnMethods {
-		if err := AssertAbilityDetailPokemonInnerPokemonRequired(el); err != nil {
-			return err
-		}
-	}
-	for _, el := range obj.Pokedexes {
-		if err := AssertAbilityDetailPokemonInnerPokemonRequired(el); err != nil {
-			return err
-		}
-	}
-	for _, el := range obj.Regions {
-		if err := AssertAbilityDetailPokemonInnerPokemonRequired(el); err != nil {
-			return err
-		}
-	}
-	for _, el := range obj.Versions {
-		if err := AssertVersionSummaryRequired(el); err != nil {
-			return err
-		}
-	}
 	return nil
 }
 
@@ -80,26 +156,6 @@ func AssertVersionGroupDetailRequired(obj VersionGroupDetail) error {
 func AssertVersionGroupDetailConstraints(obj VersionGroupDetail) error {
 	if err := AssertGenerationSummaryConstraints(obj.Generation); err != nil {
 		return err
-	}
-	for _, el := range obj.MoveLearnMethods {
-		if err := AssertAbilityDetailPokemonInnerPokemonConstraints(el); err != nil {
-			return err
-		}
-	}
-	for _, el := range obj.Pokedexes {
-		if err := AssertAbilityDetailPokemonInnerPokemonConstraints(el); err != nil {
-			return err
-		}
-	}
-	for _, el := range obj.Regions {
-		if err := AssertAbilityDetailPokemonInnerPokemonConstraints(el); err != nil {
-			return err
-		}
-	}
-	for _, el := range obj.Versions {
-		if err := AssertVersionSummaryConstraints(el); err != nil {
-			return err
-		}
 	}
 	return nil
 }

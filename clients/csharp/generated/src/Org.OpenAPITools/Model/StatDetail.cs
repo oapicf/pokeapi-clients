@@ -94,7 +94,7 @@ namespace Org.OpenAPITools.Model
         /// Gets or Sets Characteristics
         /// </summary>
         [JsonPropertyName("characteristics")]
-        public List<CharacteristicSummary> Characteristics { get; set; }
+        public List<CharacteristicSummary> Characteristics { get; }
 
         /// <summary>
         /// Gets or Sets MoveDamageClass
@@ -106,7 +106,7 @@ namespace Org.OpenAPITools.Model
         /// Gets or Sets Names
         /// </summary>
         [JsonPropertyName("names")]
-        public List<StatName> Names { get; set; }
+        public List<StatName> Names { get; }
 
         /// <summary>
         /// Used to track the state of IsBattleOnly
@@ -119,7 +119,7 @@ namespace Org.OpenAPITools.Model
         /// Gets or Sets IsBattleOnly
         /// </summary>
         [JsonPropertyName("is_battle_only")]
-        public bool? IsBattleOnly { get { return this.IsBattleOnlyOption; } set { this.IsBattleOnlyOption = new(value); } }
+        public bool? IsBattleOnly { get { return this.IsBattleOnlyOption.Value; } set { this.IsBattleOnlyOption = new(value); } }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -162,8 +162,18 @@ namespace Org.OpenAPITools.Model
     /// <summary>
     /// A Json converter for type <see cref="StatDetail" />
     /// </summary>
-    public class StatDetailJsonConverter : JsonConverter<StatDetail>
+    public partial class StatDetailJsonConverter : JsonConverter<StatDetail>
     {
+        partial void OnCreated();
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="StatDetailJsonConverter" /> class.
+        /// </summary>
+        public StatDetailJsonConverter()
+        {
+            OnCreated();
+        }
+
         /// <summary>
         /// Deserializes json to <see cref="StatDetail" />
         /// </summary>

@@ -26,6 +26,8 @@ SuperContestEffectDetail::SuperContestEffectDetail()
     
 }
 
+SuperContestEffectDetail::~SuperContestEffectDetail() = default;
+
 void SuperContestEffectDetail::validate() const
 {
     std::stringstream msg;

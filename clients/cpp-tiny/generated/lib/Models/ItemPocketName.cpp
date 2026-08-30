@@ -86,7 +86,7 @@ ItemPocketName::getName()
 }
 
 void
-ItemPocketName::setName(std::string  name)
+ItemPocketName::setName(std::string name)
 {
 	this->name = name;
 }
@@ -98,7 +98,7 @@ ItemPocketName::getLanguage()
 }
 
 void
-ItemPocketName::setLanguage(LanguageSummary  language)
+ItemPocketName::setLanguage(LanguageSummary language)
 {
 	this->language = language;
 }

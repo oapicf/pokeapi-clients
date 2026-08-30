@@ -35,6 +35,8 @@ MoveDetail::MoveDetail()
     
 }
 
+MoveDetail::~MoveDetail() = default;
+
 void MoveDetail::validate() const
 {
     std::stringstream msg;

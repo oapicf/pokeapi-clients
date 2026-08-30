@@ -21,7 +21,7 @@
 
 namespace OpenAPI {
 
-OAINatureBattleStylePreference::OAINatureBattleStylePreference(QString json) {
+OAINatureBattleStylePreference::OAINatureBattleStylePreference(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -44,7 +44,7 @@ void OAINatureBattleStylePreference::initializeModel() {
     m_move_battle_style_isValid = false;
 }
 
-void OAINatureBattleStylePreference::fromJson(QString jsonString) {
+void OAINatureBattleStylePreference::fromJson(const QString &jsonString) {
     QByteArray array(jsonString.toStdString().c_str());
     QJsonDocument doc = QJsonDocument::fromJson(array);
     QJsonObject jsonObject = doc.object();

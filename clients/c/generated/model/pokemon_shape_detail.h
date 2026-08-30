@@ -22,7 +22,7 @@ typedef struct pokemon_shape_detail_t pokemon_shape_detail_t;
 
 
 typedef struct pokemon_shape_detail_t {
-    int id; //numeric
+    int *id; //numeric
     char *name; // string
     list_t *awesome_names; //nonprimitive container
     list_t *names; //nonprimitive container
@@ -32,7 +32,7 @@ typedef struct pokemon_shape_detail_t {
 } pokemon_shape_detail_t;
 
 __attribute__((deprecated)) pokemon_shape_detail_t *pokemon_shape_detail_create(
-    int id,
+    int *id,
     char *name,
     list_t *awesome_names,
     list_t *names,

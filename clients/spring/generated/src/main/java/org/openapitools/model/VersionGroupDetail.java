@@ -2,6 +2,7 @@ package org.openapitools.model;
 
 import java.net.URI;
 import java.util.Objects;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import java.util.ArrayList;
@@ -15,39 +16,36 @@ import org.springframework.lang.Nullable;
 import java.util.NoSuchElementException;
 import org.openapitools.jackson.nullable.JsonNullable;
 import java.time.OffsetDateTime;
-import javax.validation.Valid;
-import javax.validation.constraints.*;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.*;
 import io.swagger.v3.oas.annotations.media.Schema;
 
 
 import java.util.*;
-import javax.annotation.Generated;
+import jakarta.annotation.Generated;
 
 /**
  * VersionGroupDetail
  */
 
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2026-02-07T15:29:13.146999890Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2026-08-30T02:00:43.960184425Z[Etc/UTC]", comments = "Generator version: 7.24.0")
 public class VersionGroupDetail {
 
   private Integer id;
 
   private String name;
 
+  @JsonInclude(JsonInclude.Include.NON_ABSENT)
   private JsonNullable<Integer> order = JsonNullable.<Integer>undefined();
 
   private GenerationSummary generation;
 
-  @Valid
   private List<@Valid AbilityDetailPokemonInnerPokemon> moveLearnMethods = new ArrayList<>();
 
-  @Valid
   private List<@Valid AbilityDetailPokemonInnerPokemon> pokedexes = new ArrayList<>();
 
-  @Valid
   private List<@Valid AbilityDetailPokemonInnerPokemon> regions = new ArrayList<>();
 
-  @Valid
   private List<@Valid VersionSummary> versions = new ArrayList<>();
 
   public VersionGroupDetail() {
@@ -83,6 +81,7 @@ public class VersionGroupDetail {
     return id;
   }
 
+  @JsonProperty("id")
   public void setId(Integer id) {
     this.id = id;
   }
@@ -103,6 +102,7 @@ public class VersionGroupDetail {
     return name;
   }
 
+  @JsonProperty("name")
   public void setName(String name) {
     this.name = name;
   }
@@ -143,6 +143,7 @@ public class VersionGroupDetail {
     return generation;
   }
 
+  @JsonProperty("generation")
   public void setGeneration(GenerationSummary generation) {
     this.generation = generation;
   }
@@ -164,13 +165,14 @@ public class VersionGroupDetail {
    * Get moveLearnMethods
    * @return moveLearnMethods
    */
-  @NotNull @Valid 
-  @Schema(name = "move_learn_methods", requiredMode = Schema.RequiredMode.REQUIRED)
+  @Valid 
+  @Schema(name = "move_learn_methods", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("move_learn_methods")
   public List<@Valid AbilityDetailPokemonInnerPokemon> getMoveLearnMethods() {
     return moveLearnMethods;
   }
 
+  @JsonProperty("move_learn_methods")
   public void setMoveLearnMethods(List<@Valid AbilityDetailPokemonInnerPokemon> moveLearnMethods) {
     this.moveLearnMethods = moveLearnMethods;
   }
@@ -192,13 +194,14 @@ public class VersionGroupDetail {
    * Get pokedexes
    * @return pokedexes
    */
-  @NotNull @Valid 
-  @Schema(name = "pokedexes", requiredMode = Schema.RequiredMode.REQUIRED)
+  @Valid 
+  @Schema(name = "pokedexes", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("pokedexes")
   public List<@Valid AbilityDetailPokemonInnerPokemon> getPokedexes() {
     return pokedexes;
   }
 
+  @JsonProperty("pokedexes")
   public void setPokedexes(List<@Valid AbilityDetailPokemonInnerPokemon> pokedexes) {
     this.pokedexes = pokedexes;
   }
@@ -220,13 +223,14 @@ public class VersionGroupDetail {
    * Get regions
    * @return regions
    */
-  @NotNull @Valid 
-  @Schema(name = "regions", requiredMode = Schema.RequiredMode.REQUIRED)
+  @Valid 
+  @Schema(name = "regions", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("regions")
   public List<@Valid AbilityDetailPokemonInnerPokemon> getRegions() {
     return regions;
   }
 
+  @JsonProperty("regions")
   public void setRegions(List<@Valid AbilityDetailPokemonInnerPokemon> regions) {
     this.regions = regions;
   }
@@ -248,13 +252,14 @@ public class VersionGroupDetail {
    * Get versions
    * @return versions
    */
-  @NotNull @Valid 
-  @Schema(name = "versions", requiredMode = Schema.RequiredMode.REQUIRED)
+  @Valid 
+  @Schema(name = "versions", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("versions")
   public List<@Valid VersionSummary> getVersions() {
     return versions;
   }
 
+  @JsonProperty("versions")
   public void setVersions(List<@Valid VersionSummary> versions) {
     this.versions = versions;
   }
@@ -314,11 +319,8 @@ public class VersionGroupDetail {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+  private String toIndentedString(@Nullable Object o) {
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 }
 

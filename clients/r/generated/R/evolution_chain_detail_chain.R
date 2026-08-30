@@ -86,11 +86,11 @@ EvolutionChainDetailChain <- R6::R6Class(
       EvolutionChainDetailChainObject <- list()
       if (!is.null(self$`evolution_details`)) {
         EvolutionChainDetailChainObject[["evolution_details"]] <-
-          lapply(self$`evolution_details`, function(x) x$toSimpleType())
+          self$extractSimpleType(self$`evolution_details`)
       }
       if (!is.null(self$`evolves_to`)) {
         EvolutionChainDetailChainObject[["evolves_to"]] <-
-          lapply(self$`evolves_to`, function(x) x$toSimpleType())
+          self$extractSimpleType(self$`evolves_to`)
       }
       if (!is.null(self$`is_baby`)) {
         EvolutionChainDetailChainObject[["is_baby"]] <-
@@ -98,9 +98,32 @@ EvolutionChainDetailChain <- R6::R6Class(
       }
       if (!is.null(self$`species`)) {
         EvolutionChainDetailChainObject[["species"]] <-
-          self$`species`$toSimpleType()
+          self$extractSimpleType(self$`species`)
       }
       return(EvolutionChainDetailChainObject)
+    },
+
+    extractSimpleType = function(x) {
+      if (R6::is.R6(x)) {
+        return(x$toSimpleType())
+      } else if (!self$hasNestedR6(x)) {
+        return(x)
+      }
+      lapply(x, self$extractSimpleType)
+    },
+
+    hasNestedR6 = function(x) {
+      if (R6::is.R6(x)) {
+        return(TRUE)
+      }
+      if (is.list(x)) {
+        for (item in x) {
+          if (self$hasNestedR6(item)) {
+            return(TRUE)
+          }
+        }
+      }
+      FALSE
     },
 
     #' @description

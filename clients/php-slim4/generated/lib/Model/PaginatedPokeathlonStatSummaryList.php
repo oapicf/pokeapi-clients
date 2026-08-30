@@ -67,7 +67,8 @@ class PaginatedPokeathlonStatSummaryList extends BaseModel
       "type" : "array",
       "items" : {
         "$ref" : "#/components/schemas/PokeathlonStatSummary"
-      }
+      },
+      "default" : null
     }
   }
 }

@@ -5,7 +5,7 @@
 | Name | Type | Description | Notes |
 | ------------ | ------------- | ------------- | ------------- |
 | **effectChance** | **kotlin.Int** |  |  |
-| **effectEntries** | [**kotlin.collections.List&lt;MoveChangeEffectEntriesInner&gt;**](MoveChangeEffectEntriesInner.md) |  |  |
+| **effectEntries** | [**kotlin.collections.List&lt;MoveChangeEffectEntriesInner&gt;**](MoveChangeEffectEntriesInner.md) |  |  [readonly] |
 | **type** | [**TypeSummary**](TypeSummary.md) |  |  |
 | **versionGroup** | [**VersionGroupSummary**](VersionGroupSummary.md) |  |  |
 | **accuracy** | **kotlin.Int** |  |  [optional] |

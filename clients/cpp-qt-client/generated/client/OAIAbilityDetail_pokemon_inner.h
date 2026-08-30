@@ -32,13 +32,13 @@ class OAIAbilityDetail_pokemon_inner_pokemon;
 class OAIAbilityDetail_pokemon_inner : public OAIObject {
 public:
     OAIAbilityDetail_pokemon_inner();
-    OAIAbilityDetail_pokemon_inner(QString json);
+    OAIAbilityDetail_pokemon_inner(const QString &json);
     ~OAIAbilityDetail_pokemon_inner() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     bool isIsHidden() const;
     void setIsHidden(const bool &is_hidden);

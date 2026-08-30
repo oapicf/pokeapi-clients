@@ -144,7 +144,7 @@ PaginatedLocationAreaSummaryList::getCount()
 }
 
 void
-PaginatedLocationAreaSummaryList::setCount(int  count)
+PaginatedLocationAreaSummaryList::setCount(int count)
 {
 	this->count = count;
 }
@@ -156,7 +156,7 @@ PaginatedLocationAreaSummaryList::getNext()
 }
 
 void
-PaginatedLocationAreaSummaryList::setNext(std::string  next)
+PaginatedLocationAreaSummaryList::setNext(std::string next)
 {
 	this->next = next;
 }
@@ -168,7 +168,7 @@ PaginatedLocationAreaSummaryList::getPrevious()
 }
 
 void
-PaginatedLocationAreaSummaryList::setPrevious(std::string  previous)
+PaginatedLocationAreaSummaryList::setPrevious(std::string previous)
 {
 	this->previous = previous;
 }
@@ -180,7 +180,7 @@ PaginatedLocationAreaSummaryList::getResults()
 }
 
 void
-PaginatedLocationAreaSummaryList::setResults(std::list <LocationAreaSummary> results)
+PaginatedLocationAreaSummaryList::setResults(std::list<LocationAreaSummary> results)
 {
 	this->results = results;
 }

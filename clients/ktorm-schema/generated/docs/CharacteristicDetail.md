@@ -7,9 +7,9 @@ Name | Mapping | SQL Type | Default | Type | Description | Notes
 ---- | ------- | -------- | ------- | ---- | ----------- | -----
 **id** | id | int NOT NULL PRIMARY KEY AUTOINCREMENT |  | **kotlin.Int** |  |  [readonly]
 **geneModulo** | gene_modulo | int NOT NULL |  | **kotlin.Int** |  | 
-**possibleValues** | `One-To-Many` | `----` | `----`  | **kotlin.Array&lt;kotlin.Int&gt;** |  | 
+**possibleValues** | `One-To-Many` | `----` | `----`  | **kotlin.Array&lt;kotlin.Int&gt;** |  |  [readonly]
 **highestStat** | highest_stat | long NOT NULL |  | [**StatSummary**](StatSummary.md) |  |  [foreignkey]
-**descriptions** | `One-To-Many` | `----` | `----`  | [**kotlin.Array&lt;CharacteristicDescription&gt;**](CharacteristicDescription.md) |  | 
+**descriptions** | `One-To-Many` | `----` | `----`  | [**kotlin.Array&lt;CharacteristicDescription&gt;**](CharacteristicDescription.md) |  |  [readonly]
 
 
 

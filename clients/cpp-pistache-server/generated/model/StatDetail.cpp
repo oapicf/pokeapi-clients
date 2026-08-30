@@ -29,6 +29,8 @@ StatDetail::StatDetail()
     
 }
 
+StatDetail::~StatDetail() = default;
+
 void StatDetail::validate() const
 {
     std::stringstream msg;

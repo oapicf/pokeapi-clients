@@ -47,7 +47,7 @@ class LocationAreaDetailPokemonEncountersInner
      * @var AbilityDetailPokemonInnerPokemon|null
      * @SerializedName("pokemon")
      * @Type("OpenAPI\Server\Model\AbilityDetailPokemonInnerPokemon")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Valid]
     #[Assert\Type("OpenAPI\Server\Model\AbilityDetailPokemonInnerPokemon")]
@@ -57,7 +57,7 @@ class LocationAreaDetailPokemonEncountersInner
      * @var LocationAreaDetailPokemonEncountersInnerVersionDetailsInner[]|null
      * @SerializedName("version_details")
      * @Type("array<OpenAPI\Server\Model\LocationAreaDetailPokemonEncountersInnerVersionDetailsInner>")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Valid]
     #[Assert\All([
@@ -88,12 +88,12 @@ class LocationAreaDetailPokemonEncountersInner
     }
 
     /**
-    * Sets pokemon.
-    *
-    * @param AbilityDetailPokemonInnerPokemon|null $pokemon
-    *
-    * @return $this
-    */
+     * Sets pokemon.
+     *
+     * @param AbilityDetailPokemonInnerPokemon|null $pokemon
+     *
+     * @return $this
+     */
     public function setPokemon(?AbilityDetailPokemonInnerPokemon $pokemon): self
     {
         $this->pokemon = $pokemon;
@@ -115,12 +115,12 @@ class LocationAreaDetailPokemonEncountersInner
     }
 
     /**
-    * Sets versionDetails.
-    *
-    * @param LocationAreaDetailPokemonEncountersInnerVersionDetailsInner[]|null $versionDetails
-    *
-    * @return $this
-    */
+     * Sets versionDetails.
+     *
+     * @param LocationAreaDetailPokemonEncountersInnerVersionDetailsInner[]|null $versionDetails
+     *
+     * @return $this
+     */
     public function setVersionDetails(?array $versionDetails): self
     {
         $this->versionDetails = $versionDetails;

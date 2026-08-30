@@ -35,10 +35,10 @@ export interface PokemonHabitatDetail {
      * @type {Array<PokemonHabitatName>}
      * @memberof PokemonHabitatDetail
      */
-    names: Array<PokemonHabitatName>;
+    readonly names: Array<PokemonHabitatName>;
     /**
      * @type {Array<PokemonSpeciesSummary>}
      * @memberof PokemonHabitatDetail
      */
-    pokemon_species: Array<PokemonSpeciesSummary>;
+    readonly pokemon_species: Array<PokemonSpeciesSummary>;
 }

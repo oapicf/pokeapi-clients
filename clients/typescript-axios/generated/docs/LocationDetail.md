@@ -8,9 +8,9 @@ Name | Type | Description | Notes
 **id** | **number** |  | [readonly] [default to undefined]
 **name** | **string** |  | [default to undefined]
 **region** | [**RegionSummary**](RegionSummary.md) |  | [default to undefined]
-**names** | [**Array&lt;LocationName&gt;**](LocationName.md) |  | [default to undefined]
-**game_indices** | [**Array&lt;LocationGameIndex&gt;**](LocationGameIndex.md) |  | [default to undefined]
-**areas** | [**Array&lt;LocationAreaSummary&gt;**](LocationAreaSummary.md) |  | [default to undefined]
+**names** | [**Array&lt;LocationName&gt;**](LocationName.md) |  | [readonly] [default to undefined]
+**game_indices** | [**Array&lt;LocationGameIndex&gt;**](LocationGameIndex.md) |  | [readonly] [default to undefined]
+**areas** | [**Array&lt;LocationAreaSummary&gt;**](LocationAreaSummary.md) |  | [readonly] [default to undefined]
 
 ## Example
 

@@ -21,7 +21,7 @@
 
 namespace OpenAPI {
 
-OAISuperContestEffectDetail::OAISuperContestEffectDetail(QString json) {
+OAISuperContestEffectDetail::OAISuperContestEffectDetail(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -47,7 +47,7 @@ void OAISuperContestEffectDetail::initializeModel() {
     m_moves_isValid = false;
 }
 
-void OAISuperContestEffectDetail::fromJson(QString jsonString) {
+void OAISuperContestEffectDetail::fromJson(const QString &jsonString) {
     QByteArray array(jsonString.toStdString().c_str());
     QJsonDocument doc = QJsonDocument::fromJson(array);
     QJsonObject jsonObject = doc.object();

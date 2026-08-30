@@ -32,7 +32,7 @@ class  ItemDetail_baby_trigger_for
 {
 public:
     ItemDetail_baby_trigger_for();
-    virtual ~ItemDetail_baby_trigger_for() = default;
+    virtual ~ItemDetail_baby_trigger_for();
 
 
     /// <summary>

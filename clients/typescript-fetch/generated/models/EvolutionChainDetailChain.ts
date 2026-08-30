@@ -64,9 +64,9 @@ export interface EvolutionChainDetailChain {
  * Check if a given object implements the EvolutionChainDetailChain interface.
  */
 export function instanceOfEvolutionChainDetailChain(value: object): value is EvolutionChainDetailChain {
-    if (!('evolutionDetails' in value) || value['evolutionDetails'] === undefined) return false;
-    if (!('evolvesTo' in value) || value['evolvesTo'] === undefined) return false;
-    if (!('isBaby' in value) || value['isBaby'] === undefined) return false;
+    if ((!('evolutionDetails' in (value as Record<string, any>)) && !('evolution_details' in (value as Record<string, any>))) || ((value as Record<string, any>)['evolutionDetails'] === undefined && (value as Record<string, any>)['evolution_details'] === undefined)) return false;
+    if ((!('evolvesTo' in (value as Record<string, any>)) && !('evolves_to' in (value as Record<string, any>))) || ((value as Record<string, any>)['evolvesTo'] === undefined && (value as Record<string, any>)['evolves_to'] === undefined)) return false;
+    if ((!('isBaby' in (value as Record<string, any>)) && !('is_baby' in (value as Record<string, any>))) || ((value as Record<string, any>)['isBaby'] === undefined && (value as Record<string, any>)['is_baby'] === undefined)) return false;
     if (!('species' in value) || value['species'] === undefined) return false;
     return true;
 }

@@ -182,7 +182,7 @@ ContestEffectDetail::getId()
 }
 
 void
-ContestEffectDetail::setId(int  id)
+ContestEffectDetail::setId(int id)
 {
 	this->id = id;
 }
@@ -194,7 +194,7 @@ ContestEffectDetail::getAppeal()
 }
 
 void
-ContestEffectDetail::setAppeal(int  appeal)
+ContestEffectDetail::setAppeal(int appeal)
 {
 	this->appeal = appeal;
 }
@@ -206,7 +206,7 @@ ContestEffectDetail::getJam()
 }
 
 void
-ContestEffectDetail::setJam(int  jam)
+ContestEffectDetail::setJam(int jam)
 {
 	this->jam = jam;
 }
@@ -218,7 +218,7 @@ ContestEffectDetail::getEffectEntries()
 }
 
 void
-ContestEffectDetail::setEffectEntries(std::list <ContestEffectEffectText> effect_entries)
+ContestEffectDetail::setEffectEntries(std::list<ContestEffectEffectText> effect_entries)
 {
 	this->effect_entries = effect_entries;
 }
@@ -230,7 +230,7 @@ ContestEffectDetail::getFlavorTextEntries()
 }
 
 void
-ContestEffectDetail::setFlavorTextEntries(std::list <ContestEffectFlavorText> flavor_text_entries)
+ContestEffectDetail::setFlavorTextEntries(std::list<ContestEffectFlavorText> flavor_text_entries)
 {
 	this->flavor_text_entries = flavor_text_entries;
 }

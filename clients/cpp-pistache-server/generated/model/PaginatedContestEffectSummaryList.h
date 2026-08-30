@@ -34,7 +34,7 @@ class  PaginatedContestEffectSummaryList
 {
 public:
     PaginatedContestEffectSummaryList();
-    virtual ~PaginatedContestEffectSummaryList() = default;
+    virtual ~PaginatedContestEffectSummaryList();
 
 
     /// <summary>

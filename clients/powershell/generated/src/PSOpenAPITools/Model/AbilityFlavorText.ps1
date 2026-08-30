@@ -58,9 +58,9 @@ function Initialize-AbilityFlavorText {
 
 
         $PSO = [PSCustomObject]@{
-            "flavor_text" = ${FlavorText}
-            "language" = ${Language}
-            "version_group" = ${VersionGroup}
+            'flavor_text' = ${FlavorText}
+            'language' = ${Language}
+            'version_group' = ${VersionGroup}
         }
 
 
@@ -98,7 +98,7 @@ function ConvertFrom-JsonToAbilityFlavorText {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in AbilityFlavorText
-        $AllProperties = ("flavor_text", "language", "version_group")
+        $AllProperties = ('flavor_text', 'language', 'version_group')
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -109,28 +109,28 @@ function ConvertFrom-JsonToAbilityFlavorText {
             throw "Error! Empty JSON cannot be serialized due to the required property 'flavor_text' missing."
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "flavor_text"))) {
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'flavor_text'))) {
             throw "Error! JSON cannot be serialized due to the required property 'flavor_text' missing."
         } else {
-            $FlavorText = $JsonParameters.PSobject.Properties["flavor_text"].value
+            $FlavorText = $JsonParameters.PSobject.Properties['flavor_text'].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "language"))) {
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'language'))) {
             throw "Error! JSON cannot be serialized due to the required property 'language' missing."
         } else {
-            $Language = $JsonParameters.PSobject.Properties["language"].value
+            $Language = $JsonParameters.PSobject.Properties['language'].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "version_group"))) {
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'version_group'))) {
             throw "Error! JSON cannot be serialized due to the required property 'version_group' missing."
         } else {
-            $VersionGroup = $JsonParameters.PSobject.Properties["version_group"].value
+            $VersionGroup = $JsonParameters.PSobject.Properties['version_group'].value
         }
 
         $PSO = [PSCustomObject]@{
-            "flavor_text" = ${FlavorText}
-            "language" = ${Language}
-            "version_group" = ${VersionGroup}
+            'flavor_text' = ${FlavorText}
+            'language' = ${Language}
+            'version_group' = ${VersionGroup}
         }
 
         return $PSO

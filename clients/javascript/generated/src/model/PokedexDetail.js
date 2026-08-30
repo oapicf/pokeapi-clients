@@ -21,7 +21,7 @@ import RegionSummary from './RegionSummary';
 /**
  * The PokedexDetail model module.
  * @module model/PokedexDetail
- * @version 1.2.1-pre.0
+ * @version 2.0.1-pre.0
  */
 class PokedexDetail {
     /**

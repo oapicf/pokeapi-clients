@@ -44,7 +44,7 @@ class  ItemDetail
 {
 public:
     ItemDetail();
-    virtual ~ItemDetail() = default;
+    virtual ~ItemDetail();
 
 
     /// <summary>

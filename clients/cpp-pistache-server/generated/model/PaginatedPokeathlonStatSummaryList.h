@@ -34,7 +34,7 @@ class  PaginatedPokeathlonStatSummaryList
 {
 public:
     PaginatedPokeathlonStatSummaryList();
-    virtual ~PaginatedPokeathlonStatSummaryList() = default;
+    virtual ~PaginatedPokeathlonStatSummaryList();
 
 
     /// <summary>

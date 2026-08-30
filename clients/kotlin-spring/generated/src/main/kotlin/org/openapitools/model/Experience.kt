@@ -20,10 +20,12 @@ import io.swagger.v3.oas.annotations.media.Schema
  */
 data class Experience(
 
-    @Schema(example = "null", required = true, description = "")
+    @Schema(required = true, description = "")
+    @param:JsonProperty("level")
     @get:JsonProperty("level", required = true) val level: kotlin.Int,
 
-    @Schema(example = "null", required = true, description = "")
+    @Schema(required = true, description = "")
+    @param:JsonProperty("experience")
     @get:JsonProperty("experience", required = true) val experience: kotlin.Int
 ) {
 

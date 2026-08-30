@@ -35,13 +35,13 @@ class OAIPokemonDetail_types_inner;
 class OAIPokemonDetail_past_types_inner : public OAIObject {
 public:
     OAIPokemonDetail_past_types_inner();
-    OAIPokemonDetail_past_types_inner(QString json);
+    OAIPokemonDetail_past_types_inner(const QString &json);
     ~OAIPokemonDetail_past_types_inner() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     OAIAbilityDetail_pokemon_inner_pokemon getGeneration() const;
     void setGeneration(const OAIAbilityDetail_pokemon_inner_pokemon &generation);

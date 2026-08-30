@@ -49,8 +49,8 @@ function Initialize-PokemonGameIndex {
 
 
         $PSO = [PSCustomObject]@{
-            "game_index" = ${GameIndex}
-            "version" = ${Version}
+            'game_index' = ${GameIndex}
+            'version' = ${Version}
         }
 
 
@@ -88,7 +88,7 @@ function ConvertFrom-JsonToPokemonGameIndex {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in PokemonGameIndex
-        $AllProperties = ("game_index", "version")
+        $AllProperties = ('game_index', 'version')
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -99,21 +99,21 @@ function ConvertFrom-JsonToPokemonGameIndex {
             throw "Error! Empty JSON cannot be serialized due to the required property 'game_index' missing."
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "game_index"))) {
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'game_index'))) {
             throw "Error! JSON cannot be serialized due to the required property 'game_index' missing."
         } else {
-            $GameIndex = $JsonParameters.PSobject.Properties["game_index"].value
+            $GameIndex = $JsonParameters.PSobject.Properties['game_index'].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "version"))) {
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'version'))) {
             throw "Error! JSON cannot be serialized due to the required property 'version' missing."
         } else {
-            $Version = $JsonParameters.PSobject.Properties["version"].value
+            $Version = $JsonParameters.PSobject.Properties['version'].value
         }
 
         $PSO = [PSCustomObject]@{
-            "game_index" = ${GameIndex}
-            "version" = ${Version}
+            'game_index' = ${GameIndex}
+            'version' = ${Version}
         }
 
         return $PSO

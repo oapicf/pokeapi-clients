@@ -44,7 +44,7 @@ export interface VersionDetail  {
      * @type {Array<VersionName>}
      * @memberof VersionDetail
      */
-    names: Array<VersionName>;
+    readonly names: Array<VersionName>;
     /**
      * 
      * @type {VersionGroupSummary}
@@ -68,7 +68,6 @@ export function VersionDetailToJSON(value?: VersionDetail): any {
     }
     return {
         'name': value.name,
-        'names': (value.names as Array<any>).map(VersionNameToJSON),
         'version_group': VersionGroupSummaryToJSON(value.versionGroup),
     };
 }

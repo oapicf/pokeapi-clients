@@ -26,6 +26,8 @@ PokemonSpeciesDescription::PokemonSpeciesDescription()
     
 }
 
+PokemonSpeciesDescription::~PokemonSpeciesDescription() = default;
+
 void PokemonSpeciesDescription::validate() const
 {
     std::stringstream msg;

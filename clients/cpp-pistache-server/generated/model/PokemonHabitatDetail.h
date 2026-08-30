@@ -35,7 +35,7 @@ class  PokemonHabitatDetail
 {
 public:
     PokemonHabitatDetail();
-    virtual ~PokemonHabitatDetail() = default;
+    virtual ~PokemonHabitatDetail();
 
 
     /// <summary>

@@ -53,10 +53,10 @@ class ItemGameIndex {
       // Note 1: the values aren't checked for validity beyond being non-null.
       // Note 2: this code is stripped in release mode!
       assert(() {
-        requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "ItemGameIndex[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "ItemGameIndex[$key]" has a null value in JSON.');
-        });
+        assert(json.containsKey(r'game_index'), 'Required key "ItemGameIndex[game_index]" is missing from JSON.');
+        assert(json[r'game_index'] != null, 'Required key "ItemGameIndex[game_index]" has a null value in JSON.');
+        assert(json.containsKey(r'generation'), 'Required key "ItemGameIndex[generation]" is missing from JSON.');
+        assert(json[r'generation'] != null, 'Required key "ItemGameIndex[generation]" has a null value in JSON.');
         return true;
       }());
 

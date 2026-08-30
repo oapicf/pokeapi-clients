@@ -14,19 +14,19 @@ import org.openapitools.model.RegionSummary;
 import org.springframework.lang.Nullable;
 import org.openapitools.jackson.nullable.JsonNullable;
 import java.time.OffsetDateTime;
-import javax.validation.Valid;
-import javax.validation.constraints.*;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.*;
 import io.swagger.v3.oas.annotations.media.Schema;
 
 
 import java.util.*;
-import javax.annotation.Generated;
+import jakarta.annotation.Generated;
 
 /**
  * LocationDetail
  */
 
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2026-02-07T15:29:13.146999890Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2026-08-30T02:00:43.960184425Z[Etc/UTC]", comments = "Generator version: 7.24.0")
 public class LocationDetail {
 
   private Integer id;
@@ -35,13 +35,10 @@ public class LocationDetail {
 
   private RegionSummary region;
 
-  @Valid
   private List<@Valid LocationName> names = new ArrayList<>();
 
-  @Valid
   private List<@Valid LocationGameIndex> gameIndices = new ArrayList<>();
 
-  @Valid
   private List<@Valid LocationAreaSummary> areas = new ArrayList<>();
 
   public LocationDetail() {
@@ -76,6 +73,7 @@ public class LocationDetail {
     return id;
   }
 
+  @JsonProperty("id")
   public void setId(Integer id) {
     this.id = id;
   }
@@ -96,6 +94,7 @@ public class LocationDetail {
     return name;
   }
 
+  @JsonProperty("name")
   public void setName(String name) {
     this.name = name;
   }
@@ -116,6 +115,7 @@ public class LocationDetail {
     return region;
   }
 
+  @JsonProperty("region")
   public void setRegion(RegionSummary region) {
     this.region = region;
   }
@@ -137,13 +137,14 @@ public class LocationDetail {
    * Get names
    * @return names
    */
-  @NotNull @Valid 
-  @Schema(name = "names", requiredMode = Schema.RequiredMode.REQUIRED)
+  @Valid 
+  @Schema(name = "names", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("names")
   public List<@Valid LocationName> getNames() {
     return names;
   }
 
+  @JsonProperty("names")
   public void setNames(List<@Valid LocationName> names) {
     this.names = names;
   }
@@ -165,13 +166,14 @@ public class LocationDetail {
    * Get gameIndices
    * @return gameIndices
    */
-  @NotNull @Valid 
-  @Schema(name = "game_indices", requiredMode = Schema.RequiredMode.REQUIRED)
+  @Valid 
+  @Schema(name = "game_indices", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("game_indices")
   public List<@Valid LocationGameIndex> getGameIndices() {
     return gameIndices;
   }
 
+  @JsonProperty("game_indices")
   public void setGameIndices(List<@Valid LocationGameIndex> gameIndices) {
     this.gameIndices = gameIndices;
   }
@@ -193,13 +195,14 @@ public class LocationDetail {
    * Get areas
    * @return areas
    */
-  @NotNull @Valid 
-  @Schema(name = "areas", requiredMode = Schema.RequiredMode.REQUIRED)
+  @Valid 
+  @Schema(name = "areas", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("areas")
   public List<@Valid LocationAreaSummary> getAreas() {
     return areas;
   }
 
+  @JsonProperty("areas")
   public void setAreas(List<@Valid LocationAreaSummary> areas) {
     this.areas = areas;
   }
@@ -244,11 +247,8 @@ public class LocationDetail {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+  private String toIndentedString(@Nullable Object o) {
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 }
 

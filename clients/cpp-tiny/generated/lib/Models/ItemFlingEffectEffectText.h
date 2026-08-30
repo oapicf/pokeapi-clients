@@ -52,14 +52,14 @@ public:
 
 	/*! \brief Set 
 	 */
-	void setEffect(std::string  effect);
+	void setEffect(std::string effect);
 	/*! \brief Get 
 	 */
 	LanguageSummary getLanguage();
 
 	/*! \brief Set 
 	 */
-	void setLanguage(LanguageSummary  language);
+	void setLanguage(LanguageSummary language);
 
 
     private:

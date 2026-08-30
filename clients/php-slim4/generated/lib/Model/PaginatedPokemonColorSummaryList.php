@@ -67,7 +67,8 @@ class PaginatedPokemonColorSummaryList extends BaseModel
       "type" : "array",
       "items" : {
         "$ref" : "#/components/schemas/PokemonColorSummary"
-      }
+      },
+      "default" : null
     }
   }
 }

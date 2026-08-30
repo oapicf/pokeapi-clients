@@ -66,13 +66,13 @@ namespace Org.OpenAPITools.Model
         /// Gets or Sets Names
         /// </summary>
         [JsonPropertyName("names")]
-        public List<EggGroupName> Names { get; set; }
+        public List<EggGroupName> Names { get; }
 
         /// <summary>
         /// Gets or Sets PokemonSpecies
         /// </summary>
         [JsonPropertyName("pokemon_species")]
-        public List<EggGroupDetailPokemonSpeciesInner> PokemonSpecies { get; set; }
+        public List<EggGroupDetailPokemonSpeciesInner> PokemonSpecies { get; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -110,8 +110,18 @@ namespace Org.OpenAPITools.Model
     /// <summary>
     /// A Json converter for type <see cref="EggGroupDetail" />
     /// </summary>
-    public class EggGroupDetailJsonConverter : JsonConverter<EggGroupDetail>
+    public partial class EggGroupDetailJsonConverter : JsonConverter<EggGroupDetail>
     {
+        partial void OnCreated();
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="EggGroupDetailJsonConverter" /> class.
+        /// </summary>
+        public EggGroupDetailJsonConverter()
+        {
+            OnCreated();
+        }
+
         /// <summary>
         /// Deserializes json to <see cref="EggGroupDetail" />
         /// </summary>

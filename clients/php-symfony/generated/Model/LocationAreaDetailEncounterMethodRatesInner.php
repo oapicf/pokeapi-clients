@@ -47,7 +47,7 @@ class LocationAreaDetailEncounterMethodRatesInner
      * @var AbilityDetailPokemonInnerPokemon|null
      * @SerializedName("encounter_method")
      * @Type("OpenAPI\Server\Model\AbilityDetailPokemonInnerPokemon")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Valid]
     #[Assert\Type("OpenAPI\Server\Model\AbilityDetailPokemonInnerPokemon")]
@@ -57,7 +57,7 @@ class LocationAreaDetailEncounterMethodRatesInner
      * @var LocationAreaDetailEncounterMethodRatesInnerVersionDetailsInner[]|null
      * @SerializedName("version_details")
      * @Type("array<OpenAPI\Server\Model\LocationAreaDetailEncounterMethodRatesInnerVersionDetailsInner>")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Valid]
     #[Assert\All([
@@ -88,12 +88,12 @@ class LocationAreaDetailEncounterMethodRatesInner
     }
 
     /**
-    * Sets encounterMethod.
-    *
-    * @param AbilityDetailPokemonInnerPokemon|null $encounterMethod
-    *
-    * @return $this
-    */
+     * Sets encounterMethod.
+     *
+     * @param AbilityDetailPokemonInnerPokemon|null $encounterMethod
+     *
+     * @return $this
+     */
     public function setEncounterMethod(?AbilityDetailPokemonInnerPokemon $encounterMethod): self
     {
         $this->encounterMethod = $encounterMethod;
@@ -115,12 +115,12 @@ class LocationAreaDetailEncounterMethodRatesInner
     }
 
     /**
-    * Sets versionDetails.
-    *
-    * @param LocationAreaDetailEncounterMethodRatesInnerVersionDetailsInner[]|null $versionDetails
-    *
-    * @return $this
-    */
+     * Sets versionDetails.
+     *
+     * @param LocationAreaDetailEncounterMethodRatesInnerVersionDetailsInner[]|null $versionDetails
+     *
+     * @return $this
+     */
     public function setVersionDetails(?array $versionDetails): self
     {
         $this->versionDetails = $versionDetails;

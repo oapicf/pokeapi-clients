@@ -67,7 +67,8 @@ class PaginatedBerryFirmnessSummaryList extends BaseModel
       "type" : "array",
       "items" : {
         "$ref" : "#/components/schemas/BerryFirmnessSummary"
-      }
+      },
+      "default" : null
     }
   }
 }

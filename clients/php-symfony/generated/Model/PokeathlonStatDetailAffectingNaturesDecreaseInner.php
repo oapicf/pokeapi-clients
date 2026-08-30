@@ -47,7 +47,7 @@ class PokeathlonStatDetailAffectingNaturesDecreaseInner
      * @var int|null
      * @SerializedName("max_change")
      * @Type("int")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Type("int")]
     #[Assert\LessThanOrEqual(-1)]
@@ -57,7 +57,7 @@ class PokeathlonStatDetailAffectingNaturesDecreaseInner
      * @var AbilityDetailPokemonInnerPokemon|null
      * @SerializedName("nature")
      * @Type("OpenAPI\Server\Model\AbilityDetailPokemonInnerPokemon")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Valid]
     #[Assert\Type("OpenAPI\Server\Model\AbilityDetailPokemonInnerPokemon")]
@@ -86,12 +86,12 @@ class PokeathlonStatDetailAffectingNaturesDecreaseInner
     }
 
     /**
-    * Sets maxChange.
-    *
-    * @param int|null $maxChange
-    *
-    * @return $this
-    */
+     * Sets maxChange.
+     *
+     * @param int|null $maxChange
+     *
+     * @return $this
+     */
     public function setMaxChange(?int $maxChange): self
     {
         $this->maxChange = $maxChange;
@@ -113,12 +113,12 @@ class PokeathlonStatDetailAffectingNaturesDecreaseInner
     }
 
     /**
-    * Sets nature.
-    *
-    * @param AbilityDetailPokemonInnerPokemon|null $nature
-    *
-    * @return $this
-    */
+     * Sets nature.
+     *
+     * @param AbilityDetailPokemonInnerPokemon|null $nature
+     *
+     * @return $this
+     */
     public function setNature(?AbilityDetailPokemonInnerPokemon $nature): self
     {
         $this->nature = $nature;

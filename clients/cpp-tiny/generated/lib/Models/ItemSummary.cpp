@@ -85,7 +85,7 @@ ItemSummary::getName()
 }
 
 void
-ItemSummary::setName(std::string  name)
+ItemSummary::setName(std::string name)
 {
 	this->name = name;
 }
@@ -97,7 +97,7 @@ ItemSummary::getUrl()
 }
 
 void
-ItemSummary::setUrl(std::string  url)
+ItemSummary::setUrl(std::string url)
 {
 	this->url = url;
 }

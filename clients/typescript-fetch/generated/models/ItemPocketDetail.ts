@@ -51,13 +51,13 @@ export interface ItemPocketDetail {
      * @type {Array<ItemCategorySummary>}
      * @memberof ItemPocketDetail
      */
-    categories: Array<ItemCategorySummary>;
+    readonly categories: Array<ItemCategorySummary>;
     /**
      * 
      * @type {Array<ItemPocketName>}
      * @memberof ItemPocketDetail
      */
-    names: Array<ItemPocketName>;
+    readonly names: Array<ItemPocketName>;
 }
 
 /**
@@ -92,7 +92,7 @@ export function ItemPocketDetailToJSON(json: any): ItemPocketDetail {
     return ItemPocketDetailToJSONTyped(json, false);
 }
 
-export function ItemPocketDetailToJSONTyped(value?: Omit<ItemPocketDetail, 'id'> | null, ignoreDiscriminator: boolean = false): any {
+export function ItemPocketDetailToJSONTyped(value?: Omit<ItemPocketDetail, 'id'|'categories'|'names'> | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
@@ -100,8 +100,6 @@ export function ItemPocketDetailToJSONTyped(value?: Omit<ItemPocketDetail, 'id'>
     return {
         
         'name': value['name'],
-        'categories': ((value['categories'] as Array<any>).map(ItemCategorySummaryToJSON)),
-        'names': ((value['names'] as Array<any>).map(ItemPocketNameToJSON)),
     };
 }
 

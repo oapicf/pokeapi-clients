@@ -6,8 +6,8 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **int32** |  | [readonly] 
 **Name** | **string** |  | 
-**Values** | [**[]EncounterConditionValueSummary**](EncounterConditionValueSummary.md) |  | 
-**Names** | [**[]EncounterConditionName**](EncounterConditionName.md) |  | 
+**Values** | [**[]EncounterConditionValueSummary**](EncounterConditionValueSummary.md) |  | [readonly] 
+**Names** | [**[]EncounterConditionName**](EncounterConditionName.md) |  | [readonly] 
 
 ## Methods
 

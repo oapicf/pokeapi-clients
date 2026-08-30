@@ -34,13 +34,13 @@ class OAIPokemonColorSummary;
 class OAIPaginatedPokemonColorSummaryList : public OAIObject {
 public:
     OAIPaginatedPokemonColorSummaryList();
-    OAIPaginatedPokemonColorSummaryList(QString json);
+    OAIPaginatedPokemonColorSummaryList(const QString &json);
     ~OAIPaginatedPokemonColorSummaryList() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     qint32 getCount() const;
     void setCount(const qint32 &count);

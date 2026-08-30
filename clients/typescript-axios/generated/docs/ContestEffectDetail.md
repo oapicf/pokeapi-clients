@@ -8,8 +8,8 @@ Name | Type | Description | Notes
 **id** | **number** |  | [readonly] [default to undefined]
 **appeal** | **number** |  | [default to undefined]
 **jam** | **number** |  | [default to undefined]
-**effect_entries** | [**Array&lt;ContestEffectEffectText&gt;**](ContestEffectEffectText.md) |  | [default to undefined]
-**flavor_text_entries** | [**Array&lt;ContestEffectFlavorText&gt;**](ContestEffectFlavorText.md) |  | [default to undefined]
+**effect_entries** | [**Array&lt;ContestEffectEffectText&gt;**](ContestEffectEffectText.md) |  | [readonly] [default to undefined]
+**flavor_text_entries** | [**Array&lt;ContestEffectFlavorText&gt;**](ContestEffectFlavorText.md) |  | [readonly] [default to undefined]
 
 ## Example
 

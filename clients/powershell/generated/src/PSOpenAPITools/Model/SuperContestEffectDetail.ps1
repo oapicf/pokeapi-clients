@@ -67,10 +67,10 @@ function Initialize-SuperContestEffectDetail {
 
 
         $PSO = [PSCustomObject]@{
-            "id" = ${Id}
-            "appeal" = ${Appeal}
-            "flavor_text_entries" = ${FlavorTextEntries}
-            "moves" = ${Moves}
+            'id' = ${Id}
+            'appeal' = ${Appeal}
+            'flavor_text_entries' = ${FlavorTextEntries}
+            'moves' = ${Moves}
         }
 
 
@@ -108,7 +108,7 @@ function ConvertFrom-JsonToSuperContestEffectDetail {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in SuperContestEffectDetail
-        $AllProperties = ("id", "appeal", "flavor_text_entries", "moves")
+        $AllProperties = ('id', 'appeal', 'flavor_text_entries', 'moves')
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -119,35 +119,35 @@ function ConvertFrom-JsonToSuperContestEffectDetail {
             throw "Error! Empty JSON cannot be serialized due to the required property 'id' missing."
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "id"))) {
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'id'))) {
             throw "Error! JSON cannot be serialized due to the required property 'id' missing."
         } else {
-            $Id = $JsonParameters.PSobject.Properties["id"].value
+            $Id = $JsonParameters.PSobject.Properties['id'].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "appeal"))) {
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'appeal'))) {
             throw "Error! JSON cannot be serialized due to the required property 'appeal' missing."
         } else {
-            $Appeal = $JsonParameters.PSobject.Properties["appeal"].value
+            $Appeal = $JsonParameters.PSobject.Properties['appeal'].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "flavor_text_entries"))) {
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'flavor_text_entries'))) {
             throw "Error! JSON cannot be serialized due to the required property 'flavor_text_entries' missing."
         } else {
-            $FlavorTextEntries = $JsonParameters.PSobject.Properties["flavor_text_entries"].value
+            $FlavorTextEntries = $JsonParameters.PSobject.Properties['flavor_text_entries'].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "moves"))) {
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'moves'))) {
             throw "Error! JSON cannot be serialized due to the required property 'moves' missing."
         } else {
-            $Moves = $JsonParameters.PSobject.Properties["moves"].value
+            $Moves = $JsonParameters.PSobject.Properties['moves'].value
         }
 
         $PSO = [PSCustomObject]@{
-            "id" = ${Id}
-            "appeal" = ${Appeal}
-            "flavor_text_entries" = ${FlavorTextEntries}
-            "moves" = ${Moves}
+            'id' = ${Id}
+            'appeal' = ${Appeal}
+            'flavor_text_entries' = ${FlavorTextEntries}
+            'moves' = ${Moves}
         }
 
         return $PSO

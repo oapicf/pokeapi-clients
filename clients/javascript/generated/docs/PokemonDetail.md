@@ -11,18 +11,18 @@ Name | Type | Description | Notes
 **isDefault** | **Boolean** |  | [optional] 
 **order** | **Number** |  | [optional] 
 **weight** | **Number** |  | [optional] 
-**abilities** | [**[PokemonDetailAbilitiesInner]**](PokemonDetailAbilitiesInner.md) |  | 
-**pastAbilities** | [**[PokemonDetailPastAbilitiesInner]**](PokemonDetailPastAbilitiesInner.md) |  | 
-**forms** | [**[PokemonFormSummary]**](PokemonFormSummary.md) |  | 
-**gameIndices** | [**[PokemonGameIndex]**](PokemonGameIndex.md) |  | 
+**abilities** | [**[PokemonDetailAbilitiesInner]**](PokemonDetailAbilitiesInner.md) |  | [readonly] 
+**pastAbilities** | [**[PokemonDetailPastAbilitiesInner]**](PokemonDetailPastAbilitiesInner.md) |  | [readonly] 
+**forms** | [**[PokemonFormSummary]**](PokemonFormSummary.md) |  | [readonly] 
+**gameIndices** | [**[PokemonGameIndex]**](PokemonGameIndex.md) |  | [readonly] 
 **heldItems** | [**PokemonDetailHeldItems**](PokemonDetailHeldItems.md) |  | 
 **locationAreaEncounters** | **String** |  | [readonly] 
-**moves** | [**[PokemonDetailMovesInner]**](PokemonDetailMovesInner.md) |  | 
+**moves** | [**[PokemonDetailMovesInner]**](PokemonDetailMovesInner.md) |  | [readonly] 
 **species** | [**PokemonSpeciesSummary**](PokemonSpeciesSummary.md) |  | 
 **sprites** | [**PokemonDetailSprites**](PokemonDetailSprites.md) |  | 
 **cries** | [**PokemonDetailCries**](PokemonDetailCries.md) |  | 
-**stats** | [**[PokemonStat]**](PokemonStat.md) |  | 
-**types** | [**[PokemonDetailTypesInner]**](PokemonDetailTypesInner.md) |  | 
-**pastTypes** | [**[PokemonDetailPastTypesInner]**](PokemonDetailPastTypesInner.md) |  | 
+**stats** | [**[PokemonStat]**](PokemonStat.md) |  | [readonly] 
+**types** | [**[PokemonDetailTypesInner]**](PokemonDetailTypesInner.md) |  | [readonly] 
+**pastTypes** | [**[PokemonDetailPastTypesInner]**](PokemonDetailPastTypesInner.md) |  | [readonly] 
 
 

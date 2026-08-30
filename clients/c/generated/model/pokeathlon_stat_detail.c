@@ -6,7 +6,7 @@
 
 
 static pokeathlon_stat_detail_t *pokeathlon_stat_detail_create_internal(
-    int id,
+    int *id,
     char *name,
     pokeathlon_stat_detail_affecting_natures_t *affecting_natures,
     list_t *names
@@ -15,27 +15,36 @@ static pokeathlon_stat_detail_t *pokeathlon_stat_detail_create_internal(
     if (!pokeathlon_stat_detail_local_var) {
         return NULL;
     }
+    memset(pokeathlon_stat_detail_local_var, 0, sizeof(pokeathlon_stat_detail_t));
+    pokeathlon_stat_detail_local_var->_library_owned = 1;
     pokeathlon_stat_detail_local_var->id = id;
     pokeathlon_stat_detail_local_var->name = name;
     pokeathlon_stat_detail_local_var->affecting_natures = affecting_natures;
     pokeathlon_stat_detail_local_var->names = names;
-
-    pokeathlon_stat_detail_local_var->_library_owned = 1;
     return pokeathlon_stat_detail_local_var;
 }
 
 __attribute__((deprecated)) pokeathlon_stat_detail_t *pokeathlon_stat_detail_create(
-    int id,
+    int *id,
     char *name,
     pokeathlon_stat_detail_affecting_natures_t *affecting_natures,
     list_t *names
     ) {
-    return pokeathlon_stat_detail_create_internal (
-        id,
+    int *id_copy = NULL;
+    if (id) {
+        id_copy = malloc(sizeof(int));
+        if (id_copy) *id_copy = *id;
+    }
+    pokeathlon_stat_detail_t *result = pokeathlon_stat_detail_create_internal (
+        id_copy,
         name,
         affecting_natures,
         names
         );
+    if (!result) {
+        free(id_copy);
+    }
+    return result;
 }
 
 void pokeathlon_stat_detail_free(pokeathlon_stat_detail_t *pokeathlon_stat_detail) {
@@ -47,6 +56,10 @@ void pokeathlon_stat_detail_free(pokeathlon_stat_detail_t *pokeathlon_stat_detai
         return ;
     }
     listEntry_t *listEntry;
+    if (pokeathlon_stat_detail->id) {
+        free(pokeathlon_stat_detail->id);
+        pokeathlon_stat_detail->id = NULL;
+    }
     if (pokeathlon_stat_detail->name) {
         free(pokeathlon_stat_detail->name);
         pokeathlon_stat_detail->name = NULL;
@@ -72,7 +85,7 @@ cJSON *pokeathlon_stat_detail_convertToJSON(pokeathlon_stat_detail_t *pokeathlon
     if (!pokeathlon_stat_detail->id) {
         goto fail;
     }
-    if(cJSON_AddNumberToObject(item, "id", pokeathlon_stat_detail->id) == NULL) {
+    if(cJSON_AddNumberToObject(item, "id", *pokeathlon_stat_detail->id) == NULL) {
     goto fail; //Numeric
     }
 
@@ -132,6 +145,11 @@ pokeathlon_stat_detail_t *pokeathlon_stat_detail_parseFromJSON(cJSON *pokeathlon
 
     pokeathlon_stat_detail_t *pokeathlon_stat_detail_local_var = NULL;
 
+    // define the local variable for pokeathlon_stat_detail->id
+    int *id_local_var = NULL;
+
+    char *name_local_str = NULL;
+
     // define the local variable for pokeathlon_stat_detail->affecting_natures
     pokeathlon_stat_detail_affecting_natures_t *affecting_natures_local_nonprim = NULL;
 
@@ -152,6 +170,12 @@ pokeathlon_stat_detail_t *pokeathlon_stat_detail_parseFromJSON(cJSON *pokeathlon
     {
     goto end; //Numeric
     }
+    id_local_var = malloc(sizeof(int));
+    if(!id_local_var)
+    {
+        goto end;
+    }
+    *id_local_var = id->valuedouble;
 
     // pokeathlon_stat_detail->name
     cJSON *name = cJSON_GetObjectItemCaseSensitive(pokeathlon_stat_detailJSON, "name");
@@ -208,15 +232,29 @@ pokeathlon_stat_detail_t *pokeathlon_stat_detail_parseFromJSON(cJSON *pokeathlon
     }
 
 
+    if (name && !cJSON_IsNull(name)) name_local_str = strdup(name->valuestring);
+
     pokeathlon_stat_detail_local_var = pokeathlon_stat_detail_create_internal (
-        id->valuedouble,
-        strdup(name->valuestring),
+        id_local_var,
+        name_local_str,
         affecting_natures_local_nonprim,
         namesList
         );
 
+    if (!pokeathlon_stat_detail_local_var) {
+        goto end;
+    }
+
     return pokeathlon_stat_detail_local_var;
 end:
+    if (id_local_var) {
+        free(id_local_var);
+        id_local_var = NULL;
+    }
+    if (name_local_str) {
+        free(name_local_str);
+        name_local_str = NULL;
+    }
     if (affecting_natures_local_nonprim) {
         pokeathlon_stat_detail_affecting_natures_free(affecting_natures_local_nonprim);
         affecting_natures_local_nonprim = NULL;

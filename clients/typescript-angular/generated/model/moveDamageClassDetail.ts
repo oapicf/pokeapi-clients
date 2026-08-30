@@ -15,8 +15,8 @@ import { MoveDamageClassName } from './moveDamageClassName';
 export interface MoveDamageClassDetail { 
     readonly id: number;
     name: string;
-    descriptions: Array<MoveDamageClassDescription>;
-    moves: Array<MoveSummary>;
-    names: Array<MoveDamageClassName>;
+    readonly descriptions: Array<MoveDamageClassDescription>;
+    readonly moves: Array<MoveSummary>;
+    readonly names: Array<MoveDamageClassName>;
 }
 

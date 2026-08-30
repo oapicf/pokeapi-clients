@@ -47,7 +47,7 @@ class ItemDetailMachinesInner
      * @var string|null
      * @SerializedName("machine")
      * @Type("string")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Type("string")]
     protected ?string $machine = null;
@@ -56,7 +56,7 @@ class ItemDetailMachinesInner
      * @var AbilityDetailPokemonInnerPokemon|null
      * @SerializedName("version_group")
      * @Type("OpenAPI\Server\Model\AbilityDetailPokemonInnerPokemon")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Valid]
     #[Assert\Type("OpenAPI\Server\Model\AbilityDetailPokemonInnerPokemon")]
@@ -85,12 +85,12 @@ class ItemDetailMachinesInner
     }
 
     /**
-    * Sets machine.
-    *
-    * @param string|null $machine
-    *
-    * @return $this
-    */
+     * Sets machine.
+     *
+     * @param string|null $machine
+     *
+     * @return $this
+     */
     public function setMachine(?string $machine): self
     {
         $this->machine = $machine;
@@ -112,12 +112,12 @@ class ItemDetailMachinesInner
     }
 
     /**
-    * Sets versionGroup.
-    *
-    * @param AbilityDetailPokemonInnerPokemon|null $versionGroup
-    *
-    * @return $this
-    */
+     * Sets versionGroup.
+     *
+     * @param AbilityDetailPokemonInnerPokemon|null $versionGroup
+     *
+     * @return $this
+     */
     public function setVersionGroup(?AbilityDetailPokemonInnerPokemon $versionGroup): self
     {
         $this->versionGroup = $versionGroup;

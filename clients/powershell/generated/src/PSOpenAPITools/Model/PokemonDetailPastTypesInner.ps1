@@ -49,8 +49,8 @@ function Initialize-PokemonDetailPastTypesInner {
 
 
         $PSO = [PSCustomObject]@{
-            "generation" = ${Generation}
-            "types" = ${Types}
+            'generation' = ${Generation}
+            'types' = ${Types}
         }
 
 
@@ -88,7 +88,7 @@ function ConvertFrom-JsonToPokemonDetailPastTypesInner {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in PokemonDetailPastTypesInner
-        $AllProperties = ("generation", "types")
+        $AllProperties = ('generation', 'types')
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -99,21 +99,21 @@ function ConvertFrom-JsonToPokemonDetailPastTypesInner {
             throw "Error! Empty JSON cannot be serialized due to the required property 'generation' missing."
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "generation"))) {
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'generation'))) {
             throw "Error! JSON cannot be serialized due to the required property 'generation' missing."
         } else {
-            $Generation = $JsonParameters.PSobject.Properties["generation"].value
+            $Generation = $JsonParameters.PSobject.Properties['generation'].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "types"))) {
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'types'))) {
             throw "Error! JSON cannot be serialized due to the required property 'types' missing."
         } else {
-            $Types = $JsonParameters.PSobject.Properties["types"].value
+            $Types = $JsonParameters.PSobject.Properties['types'].value
         }
 
         $PSO = [PSCustomObject]@{
-            "generation" = ${Generation}
-            "types" = ${Types}
+            'generation' = ${Generation}
+            'types' = ${Types}
         }
 
         return $PSO

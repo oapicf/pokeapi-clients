@@ -92,6 +92,7 @@ public class MoveMetaCategoryDetail  {
 
   /**
    * Sets the <code>descriptions</code> property.
+   * <br><em>N.B. <code>descriptions</code> is <b>read only</b>; client code should not call this method</em>.
    */
  public void setDescriptions(List<@Valid MoveMetaCategoryDescription> descriptions) {
     this.descriptions = descriptions;
@@ -99,6 +100,7 @@ public class MoveMetaCategoryDetail  {
 
   /**
    * Sets the <code>descriptions</code> property.
+   * <br><em>N.B. <code>descriptions</code> is <b>read only</b>; client code should not call this method</em>.
    */
   public MoveMetaCategoryDetail descriptions(List<@Valid MoveMetaCategoryDescription> descriptions) {
     this.descriptions = descriptions;
@@ -107,6 +109,7 @@ public class MoveMetaCategoryDetail  {
 
   /**
    * Adds a new item to the <code>descriptions</code> list.
+   * <br><em>N.B. <code>descriptions</code> is <b>read only</b>; client code should not call this method</em>.
    */
   public MoveMetaCategoryDetail addDescriptionsItem(MoveMetaCategoryDescription descriptionsItem) {
     this.descriptions.add(descriptionsItem);
@@ -125,6 +128,7 @@ public class MoveMetaCategoryDetail  {
 
   /**
    * Sets the <code>moves</code> property.
+   * <br><em>N.B. <code>moves</code> is <b>read only</b>; client code should not call this method</em>.
    */
  public void setMoves(List<@Valid AbilityDetailPokemonInnerPokemon> moves) {
     this.moves = moves;
@@ -132,6 +136,7 @@ public class MoveMetaCategoryDetail  {
 
   /**
    * Sets the <code>moves</code> property.
+   * <br><em>N.B. <code>moves</code> is <b>read only</b>; client code should not call this method</em>.
    */
   public MoveMetaCategoryDetail moves(List<@Valid AbilityDetailPokemonInnerPokemon> moves) {
     this.moves = moves;
@@ -140,6 +145,7 @@ public class MoveMetaCategoryDetail  {
 
   /**
    * Adds a new item to the <code>moves</code> list.
+   * <br><em>N.B. <code>moves</code> is <b>read only</b>; client code should not call this method</em>.
    */
   public MoveMetaCategoryDetail addMovesItem(AbilityDetailPokemonInnerPokemon movesItem) {
     this.moves.add(movesItem);
@@ -185,10 +191,7 @@ public class MoveMetaCategoryDetail  {
    * (except the first line).
    */
   private static String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 }
 

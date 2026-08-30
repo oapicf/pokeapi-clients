@@ -12,10 +12,10 @@ Name | Type | Description | Notes
 **name** | `String` |  | 
 **order** | `Integer` |  |  [optional property]
 **generation** | [`GenerationSummary`](GenerationSummary.md) |  | 
-**moveLearnMethods** | [`List&lt;AbilityDetailPokemonInnerPokemon&gt;`](AbilityDetailPokemonInnerPokemon.md) |  | 
-**pokedexes** | [`List&lt;AbilityDetailPokemonInnerPokemon&gt;`](AbilityDetailPokemonInnerPokemon.md) |  | 
-**regions** | [`List&lt;AbilityDetailPokemonInnerPokemon&gt;`](AbilityDetailPokemonInnerPokemon.md) |  | 
-**versions** | [`List&lt;VersionSummary&gt;`](VersionSummary.md) |  | 
+**moveLearnMethods** | [`List&lt;AbilityDetailPokemonInnerPokemon&gt;`](AbilityDetailPokemonInnerPokemon.md) |  |  [readonly property]
+**pokedexes** | [`List&lt;AbilityDetailPokemonInnerPokemon&gt;`](AbilityDetailPokemonInnerPokemon.md) |  |  [readonly property]
+**regions** | [`List&lt;AbilityDetailPokemonInnerPokemon&gt;`](AbilityDetailPokemonInnerPokemon.md) |  |  [readonly property]
+**versions** | [`List&lt;VersionSummary&gt;`](VersionSummary.md) |  |  [readonly property]
 
 
 

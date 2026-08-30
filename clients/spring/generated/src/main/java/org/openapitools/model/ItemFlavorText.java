@@ -9,19 +9,19 @@ import org.openapitools.model.VersionGroupSummary;
 import org.springframework.lang.Nullable;
 import org.openapitools.jackson.nullable.JsonNullable;
 import java.time.OffsetDateTime;
-import javax.validation.Valid;
-import javax.validation.constraints.*;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.*;
 import io.swagger.v3.oas.annotations.media.Schema;
 
 
 import java.util.*;
-import javax.annotation.Generated;
+import jakarta.annotation.Generated;
 
 /**
  * ItemFlavorText
  */
 
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2026-02-07T15:29:13.146999890Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2026-08-30T02:00:43.960184425Z[Etc/UTC]", comments = "Generator version: 7.24.0")
 public class ItemFlavorText {
 
   private String text;
@@ -59,6 +59,7 @@ public class ItemFlavorText {
     return text;
   }
 
+  @JsonProperty("text")
   public void setText(String text) {
     this.text = text;
   }
@@ -79,6 +80,7 @@ public class ItemFlavorText {
     return versionGroup;
   }
 
+  @JsonProperty("version_group")
   public void setVersionGroup(VersionGroupSummary versionGroup) {
     this.versionGroup = versionGroup;
   }
@@ -99,6 +101,7 @@ public class ItemFlavorText {
     return language;
   }
 
+  @JsonProperty("language")
   public void setLanguage(LanguageSummary language) {
     this.language = language;
   }
@@ -137,11 +140,8 @@ public class ItemFlavorText {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+  private String toIndentedString(@Nullable Object o) {
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 }
 

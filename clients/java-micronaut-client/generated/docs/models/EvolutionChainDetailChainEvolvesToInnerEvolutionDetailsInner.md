@@ -11,8 +11,8 @@ Name | Type | Description | Notes
 **gender** | [`EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender`](EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender.md) |  | 
 **heldItem** | [`EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender`](EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender.md) |  | 
 **item** | [`EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender`](EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender.md) |  | 
-**knownMove** | `Object` |  | 
-**knownMoveType** | `Object` |  | 
+**knownMove** | [`EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender`](EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender.md) |  | 
+**knownMoveType** | [`EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender`](EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender.md) |  | 
 **location** | [`EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender`](EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender.md) |  | 
 **minAffection** | `Integer` |  | 
 **minBeauty** | `Integer` |  | 

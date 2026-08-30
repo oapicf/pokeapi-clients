@@ -77,10 +77,18 @@ class TypeDetailPastDamageRelationsInnerDamageRelations {
       // Note 1: the values aren't checked for validity beyond being non-null.
       // Note 2: this code is stripped in release mode!
       assert(() {
-        requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "TypeDetailPastDamageRelationsInnerDamageRelations[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "TypeDetailPastDamageRelationsInnerDamageRelations[$key]" has a null value in JSON.');
-        });
+        assert(json.containsKey(r'no_damage_to'), 'Required key "TypeDetailPastDamageRelationsInnerDamageRelations[no_damage_to]" is missing from JSON.');
+        assert(json[r'no_damage_to'] != null, 'Required key "TypeDetailPastDamageRelationsInnerDamageRelations[no_damage_to]" has a null value in JSON.');
+        assert(json.containsKey(r'half_damage_to'), 'Required key "TypeDetailPastDamageRelationsInnerDamageRelations[half_damage_to]" is missing from JSON.');
+        assert(json[r'half_damage_to'] != null, 'Required key "TypeDetailPastDamageRelationsInnerDamageRelations[half_damage_to]" has a null value in JSON.');
+        assert(json.containsKey(r'double_damage_to'), 'Required key "TypeDetailPastDamageRelationsInnerDamageRelations[double_damage_to]" is missing from JSON.');
+        assert(json[r'double_damage_to'] != null, 'Required key "TypeDetailPastDamageRelationsInnerDamageRelations[double_damage_to]" has a null value in JSON.');
+        assert(json.containsKey(r'no_damage_from'), 'Required key "TypeDetailPastDamageRelationsInnerDamageRelations[no_damage_from]" is missing from JSON.');
+        assert(json[r'no_damage_from'] != null, 'Required key "TypeDetailPastDamageRelationsInnerDamageRelations[no_damage_from]" has a null value in JSON.');
+        assert(json.containsKey(r'half_damage_from'), 'Required key "TypeDetailPastDamageRelationsInnerDamageRelations[half_damage_from]" is missing from JSON.');
+        assert(json[r'half_damage_from'] != null, 'Required key "TypeDetailPastDamageRelationsInnerDamageRelations[half_damage_from]" has a null value in JSON.');
+        assert(json.containsKey(r'double_damage_from'), 'Required key "TypeDetailPastDamageRelationsInnerDamageRelations[double_damage_from]" is missing from JSON.');
+        assert(json[r'double_damage_from'] != null, 'Required key "TypeDetailPastDamageRelationsInnerDamageRelations[double_damage_from]" has a null value in JSON.');
         return true;
       }());
 

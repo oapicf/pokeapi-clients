@@ -17,7 +17,7 @@ import PokemonSummary from './PokemonSummary';
 /**
  * The PaginatedPokemonSummaryList model module.
  * @module model/PaginatedPokemonSummaryList
- * @version 1.2.1-pre.0
+ * @version 2.0.1-pre.0
  */
 class PaginatedPokemonSummaryList {
     /**

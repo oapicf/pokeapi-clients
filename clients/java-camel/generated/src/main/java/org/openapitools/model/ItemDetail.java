@@ -2,6 +2,7 @@ package org.openapitools.model;
 
 import java.net.URI;
 import java.util.Objects;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import java.util.ArrayList;
@@ -22,19 +23,19 @@ import org.openapitools.model.ItemName;
 import java.util.NoSuchElementException;
 import org.openapitools.jackson.nullable.JsonNullable;
 import java.time.OffsetDateTime;
-import javax.validation.Valid;
-import javax.validation.constraints.*;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.*;
 import io.swagger.v3.oas.annotations.media.Schema;
 
 
 import java.util.*;
-import javax.annotation.Generated;
+import jakarta.annotation.Generated;
 
 /**
  * ItemDetail
  */
 
-@Generated(value = "org.openapitools.codegen.languages.JavaCamelServerCodegen", date = "2026-02-07T15:23:32.871052804Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@Generated(value = "org.openapitools.codegen.languages.JavaCamelServerCodegen", date = "2026-08-30T01:56:15.309401083Z[Etc/UTC]", comments = "Generator version: 7.24.0")
 public class ItemDetail {
 
   private Integer id;
@@ -214,8 +215,8 @@ public class ItemDetail {
    * Get attributes
    * @return attributes
    */
-  @NotNull @Valid 
-  @Schema(name = "attributes", requiredMode = Schema.RequiredMode.REQUIRED)
+  @Valid 
+  @Schema(name = "attributes", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("attributes")
   public List<@Valid AbilityDetailPokemonInnerPokemon> getAttributes() {
     return attributes;
@@ -262,8 +263,8 @@ public class ItemDetail {
    * Get effectEntries
    * @return effectEntries
    */
-  @NotNull @Valid 
-  @Schema(name = "effect_entries", requiredMode = Schema.RequiredMode.REQUIRED)
+  @Valid 
+  @Schema(name = "effect_entries", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("effect_entries")
   public List<@Valid ItemEffectText> getEffectEntries() {
     return effectEntries;
@@ -290,8 +291,8 @@ public class ItemDetail {
    * Get flavorTextEntries
    * @return flavorTextEntries
    */
-  @NotNull @Valid 
-  @Schema(name = "flavor_text_entries", requiredMode = Schema.RequiredMode.REQUIRED)
+  @Valid 
+  @Schema(name = "flavor_text_entries", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("flavor_text_entries")
   public List<@Valid ItemFlavorText> getFlavorTextEntries() {
     return flavorTextEntries;
@@ -318,8 +319,8 @@ public class ItemDetail {
    * Get gameIndices
    * @return gameIndices
    */
-  @NotNull @Valid 
-  @Schema(name = "game_indices", requiredMode = Schema.RequiredMode.REQUIRED)
+  @Valid 
+  @Schema(name = "game_indices", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("game_indices")
   public List<@Valid ItemGameIndex> getGameIndices() {
     return gameIndices;
@@ -346,8 +347,8 @@ public class ItemDetail {
    * Get names
    * @return names
    */
-  @NotNull @Valid 
-  @Schema(name = "names", requiredMode = Schema.RequiredMode.REQUIRED)
+  @Valid 
+  @Schema(name = "names", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("names")
   public List<@Valid ItemName> getNames() {
     return names;
@@ -374,8 +375,8 @@ public class ItemDetail {
    * Get heldByPokemon
    * @return heldByPokemon
    */
-  @NotNull @Valid 
-  @Schema(name = "held_by_pokemon", requiredMode = Schema.RequiredMode.REQUIRED)
+  @Valid 
+  @Schema(name = "held_by_pokemon", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("held_by_pokemon")
   public List<@Valid ItemDetailHeldByPokemonInner> getHeldByPokemon() {
     return heldByPokemon;
@@ -442,8 +443,8 @@ public class ItemDetail {
    * Get machines
    * @return machines
    */
-  @NotNull @Valid 
-  @Schema(name = "machines", requiredMode = Schema.RequiredMode.REQUIRED)
+  @Valid 
+  @Schema(name = "machines", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("machines")
   public List<@Valid ItemDetailMachinesInner> getMachines() {
     return machines;
@@ -523,10 +524,7 @@ public class ItemDetail {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 }
 

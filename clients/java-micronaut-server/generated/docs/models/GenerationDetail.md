@@ -10,13 +10,13 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | `Integer` |  |  [readonly property]
 **name** | `String` |  | 
-**abilities** | [`List&lt;AbilitySummary&gt;`](AbilitySummary.md) |  | 
+**abilities** | [`List&lt;AbilitySummary&gt;`](AbilitySummary.md) |  |  [readonly property]
 **mainRegion** | [`RegionSummary`](RegionSummary.md) |  | 
-**moves** | [`List&lt;MoveSummary&gt;`](MoveSummary.md) |  | 
-**names** | [`List&lt;GenerationName&gt;`](GenerationName.md) |  | 
-**pokemonSpecies** | [`List&lt;PokemonSpeciesSummary&gt;`](PokemonSpeciesSummary.md) |  | 
-**types** | [`List&lt;TypeSummary&gt;`](TypeSummary.md) |  | 
-**versionGroups** | [`List&lt;VersionGroupSummary&gt;`](VersionGroupSummary.md) |  | 
+**moves** | [`List&lt;MoveSummary&gt;`](MoveSummary.md) |  |  [readonly property]
+**names** | [`List&lt;GenerationName&gt;`](GenerationName.md) |  |  [readonly property]
+**pokemonSpecies** | [`List&lt;PokemonSpeciesSummary&gt;`](PokemonSpeciesSummary.md) |  |  [readonly property]
+**types** | [`List&lt;TypeSummary&gt;`](TypeSummary.md) |  |  [readonly property]
+**versionGroups** | [`List&lt;VersionGroupSummary&gt;`](VersionGroupSummary.md) |  |  [readonly property]
 
 
 

@@ -25,6 +25,8 @@ PokeathlonStatName::PokeathlonStatName()
     
 }
 
+PokeathlonStatName::~PokeathlonStatName() = default;
+
 void PokeathlonStatName::validate() const
 {
     std::stringstream msg;

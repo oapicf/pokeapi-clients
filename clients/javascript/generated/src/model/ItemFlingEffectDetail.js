@@ -18,7 +18,7 @@ import ItemSummary from './ItemSummary';
 /**
  * The ItemFlingEffectDetail model module.
  * @module model/ItemFlingEffectDetail
- * @version 1.2.1-pre.0
+ * @version 2.0.1-pre.0
  */
 class ItemFlingEffectDetail {
     /**

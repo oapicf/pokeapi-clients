@@ -66,13 +66,13 @@ namespace Org.OpenAPITools.Model
         /// Gets or Sets PokemonSpeciesDetails
         /// </summary>
         [JsonPropertyName("pokemon_species_details")]
-        public List<GenderDetailPokemonSpeciesDetailsInner> PokemonSpeciesDetails { get; set; }
+        public List<GenderDetailPokemonSpeciesDetailsInner> PokemonSpeciesDetails { get; }
 
         /// <summary>
         /// Gets or Sets RequiredForEvolution
         /// </summary>
         [JsonPropertyName("required_for_evolution")]
-        public List<AbilityDetailPokemonInnerPokemon> RequiredForEvolution { get; set; }
+        public List<AbilityDetailPokemonInnerPokemon> RequiredForEvolution { get; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -110,8 +110,18 @@ namespace Org.OpenAPITools.Model
     /// <summary>
     /// A Json converter for type <see cref="GenderDetail" />
     /// </summary>
-    public class GenderDetailJsonConverter : JsonConverter<GenderDetail>
+    public partial class GenderDetailJsonConverter : JsonConverter<GenderDetail>
     {
+        partial void OnCreated();
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="GenderDetailJsonConverter" /> class.
+        /// </summary>
+        public GenderDetailJsonConverter()
+        {
+            OnCreated();
+        }
+
         /// <summary>
         /// Deserializes json to <see cref="GenderDetail" />
         /// </summary>

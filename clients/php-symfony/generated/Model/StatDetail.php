@@ -47,7 +47,7 @@ class StatDetail
      * @var int|null
      * @SerializedName("id")
      * @Type("int")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Type("int")]
     protected ?int $id = null;
@@ -56,7 +56,7 @@ class StatDetail
      * @var string|null
      * @SerializedName("name")
      * @Type("string")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Type("string")]
     #[Assert\Length(max: 100)]
@@ -66,7 +66,7 @@ class StatDetail
      * @var int|null
      * @SerializedName("game_index")
      * @Type("int")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Type("int")]
     protected ?int $gameIndex = null;
@@ -75,7 +75,7 @@ class StatDetail
      * @var bool|null
      * @SerializedName("is_battle_only")
      * @Type("bool")
-    */
+     */
     #[Assert\Type("bool")]
     protected ?bool $isBattleOnly = null;
 
@@ -83,7 +83,7 @@ class StatDetail
      * @var StatDetailAffectingMoves|null
      * @SerializedName("affecting_moves")
      * @Type("OpenAPI\Server\Model\StatDetailAffectingMoves")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Valid]
     #[Assert\Type("OpenAPI\Server\Model\StatDetailAffectingMoves")]
@@ -93,7 +93,7 @@ class StatDetail
      * @var StatDetailAffectingNatures|null
      * @SerializedName("affecting_natures")
      * @Type("OpenAPI\Server\Model\StatDetailAffectingNatures")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Valid]
     #[Assert\Type("OpenAPI\Server\Model\StatDetailAffectingNatures")]
@@ -103,7 +103,7 @@ class StatDetail
      * @var CharacteristicSummary[]|null
      * @SerializedName("characteristics")
      * @Type("array<OpenAPI\Server\Model\CharacteristicSummary>")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Valid]
     #[Assert\All([
@@ -115,7 +115,7 @@ class StatDetail
      * @var MoveDamageClassSummary|null
      * @SerializedName("move_damage_class")
      * @Type("OpenAPI\Server\Model\MoveDamageClassSummary")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Valid]
     #[Assert\Type("OpenAPI\Server\Model\MoveDamageClassSummary")]
@@ -125,7 +125,7 @@ class StatDetail
      * @var StatName[]|null
      * @SerializedName("names")
      * @Type("array<OpenAPI\Server\Model\StatName>")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Valid]
     #[Assert\All([
@@ -163,12 +163,12 @@ class StatDetail
     }
 
     /**
-    * Sets id.
-    *
-    * @param int|null $id
-    *
-    * @return $this
-    */
+     * Sets id.
+     *
+     * @param int|null $id
+     *
+     * @return $this
+     */
     public function setId(?int $id): self
     {
         $this->id = $id;
@@ -190,12 +190,12 @@ class StatDetail
     }
 
     /**
-    * Sets name.
-    *
-    * @param string|null $name
-    *
-    * @return $this
-    */
+     * Sets name.
+     *
+     * @param string|null $name
+     *
+     * @return $this
+     */
     public function setName(?string $name): self
     {
         $this->name = $name;
@@ -217,12 +217,12 @@ class StatDetail
     }
 
     /**
-    * Sets gameIndex.
-    *
-    * @param int|null $gameIndex
-    *
-    * @return $this
-    */
+     * Sets gameIndex.
+     *
+     * @param int|null $gameIndex
+     *
+     * @return $this
+     */
     public function setGameIndex(?int $gameIndex): self
     {
         $this->gameIndex = $gameIndex;
@@ -244,12 +244,12 @@ class StatDetail
     }
 
     /**
-    * Sets isBattleOnly.
-    *
-    * @param bool|null $isBattleOnly
-    *
-    * @return $this
-    */
+     * Sets isBattleOnly.
+     *
+     * @param bool|null $isBattleOnly
+     *
+     * @return $this
+     */
     public function setIsBattleOnly(?bool $isBattleOnly = null): self
     {
         $this->isBattleOnly = $isBattleOnly;
@@ -271,12 +271,12 @@ class StatDetail
     }
 
     /**
-    * Sets affectingMoves.
-    *
-    * @param StatDetailAffectingMoves|null $affectingMoves
-    *
-    * @return $this
-    */
+     * Sets affectingMoves.
+     *
+     * @param StatDetailAffectingMoves|null $affectingMoves
+     *
+     * @return $this
+     */
     public function setAffectingMoves(?StatDetailAffectingMoves $affectingMoves): self
     {
         $this->affectingMoves = $affectingMoves;
@@ -298,12 +298,12 @@ class StatDetail
     }
 
     /**
-    * Sets affectingNatures.
-    *
-    * @param StatDetailAffectingNatures|null $affectingNatures
-    *
-    * @return $this
-    */
+     * Sets affectingNatures.
+     *
+     * @param StatDetailAffectingNatures|null $affectingNatures
+     *
+     * @return $this
+     */
     public function setAffectingNatures(?StatDetailAffectingNatures $affectingNatures): self
     {
         $this->affectingNatures = $affectingNatures;
@@ -325,12 +325,12 @@ class StatDetail
     }
 
     /**
-    * Sets characteristics.
-    *
-    * @param CharacteristicSummary[]|null $characteristics
-    *
-    * @return $this
-    */
+     * Sets characteristics.
+     *
+     * @param CharacteristicSummary[]|null $characteristics
+     *
+     * @return $this
+     */
     public function setCharacteristics(?array $characteristics): self
     {
         $this->characteristics = $characteristics;
@@ -352,12 +352,12 @@ class StatDetail
     }
 
     /**
-    * Sets moveDamageClass.
-    *
-    * @param MoveDamageClassSummary|null $moveDamageClass
-    *
-    * @return $this
-    */
+     * Sets moveDamageClass.
+     *
+     * @param MoveDamageClassSummary|null $moveDamageClass
+     *
+     * @return $this
+     */
     public function setMoveDamageClass(?MoveDamageClassSummary $moveDamageClass): self
     {
         $this->moveDamageClass = $moveDamageClass;
@@ -379,12 +379,12 @@ class StatDetail
     }
 
     /**
-    * Sets names.
-    *
-    * @param StatName[]|null $names
-    *
-    * @return $this
-    */
+     * Sets names.
+     *
+     * @param StatName[]|null $names
+     *
+     * @return $this
+     */
     public function setNames(?array $names): self
     {
         $this->names = $names;

@@ -108,12 +108,28 @@ class MoveDetail(BaseModel):
           are ignored.
         * OpenAPI `readOnly` fields are excluded.
         * OpenAPI `readOnly` fields are excluded.
+        * OpenAPI `readOnly` fields are excluded.
+        * OpenAPI `readOnly` fields are excluded.
+        * OpenAPI `readOnly` fields are excluded.
+        * OpenAPI `readOnly` fields are excluded.
+        * OpenAPI `readOnly` fields are excluded.
+        * OpenAPI `readOnly` fields are excluded.
+        * OpenAPI `readOnly` fields are excluded.
+        * OpenAPI `readOnly` fields are excluded.
         """
         _dict = self.model_dump(
             by_alias=True,
             exclude={
                 "id",
+                "effect_entries",
+                "effect_changes",
                 "meta",
+                "names",
+                "past_values",
+                "stat_changes",
+                "machines",
+                "flavor_text_entries",
+                "learned_by_pokemon",
             },
             exclude_none=True,
         )

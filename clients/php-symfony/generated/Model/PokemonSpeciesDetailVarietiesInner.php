@@ -47,7 +47,7 @@ class PokemonSpeciesDetailVarietiesInner
      * @var bool|null
      * @SerializedName("is_default")
      * @Type("bool")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Type("bool")]
     protected ?bool $isDefault = null;
@@ -56,7 +56,7 @@ class PokemonSpeciesDetailVarietiesInner
      * @var AbilityDetailPokemonInnerPokemon|null
      * @SerializedName("pokemon")
      * @Type("OpenAPI\Server\Model\AbilityDetailPokemonInnerPokemon")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Valid]
     #[Assert\Type("OpenAPI\Server\Model\AbilityDetailPokemonInnerPokemon")]
@@ -85,12 +85,12 @@ class PokemonSpeciesDetailVarietiesInner
     }
 
     /**
-    * Sets isDefault.
-    *
-    * @param bool|null $isDefault
-    *
-    * @return $this
-    */
+     * Sets isDefault.
+     *
+     * @param bool|null $isDefault
+     *
+     * @return $this
+     */
     public function setIsDefault(?bool $isDefault): self
     {
         $this->isDefault = $isDefault;
@@ -112,12 +112,12 @@ class PokemonSpeciesDetailVarietiesInner
     }
 
     /**
-    * Sets pokemon.
-    *
-    * @param AbilityDetailPokemonInnerPokemon|null $pokemon
-    *
-    * @return $this
-    */
+     * Sets pokemon.
+     *
+     * @param AbilityDetailPokemonInnerPokemon|null $pokemon
+     *
+     * @return $this
+     */
     public function setPokemon(?AbilityDetailPokemonInnerPokemon $pokemon): self
     {
         $this->pokemon = $pokemon;

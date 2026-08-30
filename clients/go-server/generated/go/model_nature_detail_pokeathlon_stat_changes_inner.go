@@ -12,6 +12,11 @@
 package openapi
 
 
+import (
+	"encoding/json"
+	"fmt"
+)
+
 
 
 type NatureDetailPokeathlonStatChangesInner struct {
@@ -20,11 +25,71 @@ type NatureDetailPokeathlonStatChangesInner struct {
 
 	PokeathlonStat AbilityDetailPokemonInnerPokemon `json:"pokeathlon_stat"`
 }
+// UnmarshalJSON validates required property keys then unmarshals into NatureDetailPokeathlonStatChangesInner
+func (o *NatureDetailPokeathlonStatChangesInner) UnmarshalJSON(data []byte) (err error) {
+	// Presence is checked against required fields that exist on this struct,
+	// including fields promoted from embedded allOf parents.
+	requiredProperties := []string{
+		"max_change",
+		"pokeathlon_stat",
+	}
 
-// AssertNatureDetailPokeathlonStatChangesInnerRequired checks if the required fields are not zero-ed
+	requiredNullableProperties := map[string]bool{
+		"max_change": false,
+		"pokeathlon_stat": false,
+	}
+
+	allowedJsonKeys := map[string]struct{}{
+		"max_change": {},
+		"pokeathlon_stat": {},
+	}
+
+	allProperties := make(map[string]json.RawMessage)
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err
+	}
+
+	for _, requiredProperty := range requiredProperties {
+		value, exists := allProperties[requiredProperty]
+		if !exists {
+			return &RequiredError{Field: requiredProperty}
+		}
+		if string(value) == "null" && !requiredNullableProperties[requiredProperty] {
+			return &RequiredError{Field: requiredProperty}
+		}
+	}
+
+	for key := range allProperties {
+		if _, exists := allowedJsonKeys[key]; !exists {
+			return fmt.Errorf("json: unknown field %q", key)
+		}
+	}
+
+	var decoded NatureDetailPokeathlonStatChangesInner
+
+	if value, exists := allProperties["max_change"]; exists {
+		if err = json.Unmarshal(value, &decoded.MaxChange); err != nil {
+			return err
+		}
+	}
+	if value, exists := allProperties["pokeathlon_stat"]; exists {
+		if err = json.Unmarshal(value, &decoded.PokeathlonStat); err != nil {
+			return err
+		}
+	}
+
+	*o = decoded
+
+	return nil
+}
+
+// AssertNatureDetailPokeathlonStatChangesInnerRequired checks complex required fields (models, arrays, maps) and embedded parents.
+// Primitive required fields are validated for JSON request bodies in UnmarshalJSON so zero values remain valid.
 func AssertNatureDetailPokeathlonStatChangesInnerRequired(obj NatureDetailPokeathlonStatChangesInner) error {
 	elements := map[string]interface{}{
-		"max_change": obj.MaxChange,
 		"pokeathlon_stat": obj.PokeathlonStat,
 	}
 	for name, el := range elements {

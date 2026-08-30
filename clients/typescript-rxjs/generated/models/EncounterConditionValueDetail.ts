@@ -40,5 +40,5 @@ export interface EncounterConditionValueDetail {
      * @type {Array<EncounterConditionValueName>}
      * @memberof EncounterConditionValueDetail
      */
-    names: Array<EncounterConditionValueName>;
+    readonly names: Array<EncounterConditionValueName>;
 }

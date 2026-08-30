@@ -22,7 +22,7 @@ import java.util.List;
  * PokedexDetail
  */
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPKMSTServerCodegen", date = "2026-02-07T15:23:15.032724200Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPKMSTServerCodegen", date = "2026-08-30T01:56:01.724492951Z[Etc/UTC]", comments = "Generator version: 7.24.0")
 public class PokedexDetail   {
   @JsonProperty("id")
   private Integer id;
@@ -123,7 +123,7 @@ public class PokedexDetail   {
    * Get descriptions
    * @return descriptions
    */
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, readOnly = true, value = "")
   public List<PokedexDescription> getDescriptions() {
     return descriptions;
   }
@@ -149,7 +149,7 @@ public class PokedexDetail   {
    * Get names
    * @return names
    */
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, readOnly = true, value = "")
   public List<PokedexName> getNames() {
     return names;
   }
@@ -175,7 +175,7 @@ public class PokedexDetail   {
    * Get pokemonEntries
    * @return pokemonEntries
    */
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, readOnly = true, value = "")
   public List<PokedexDetailPokemonEntriesInner> getPokemonEntries() {
     return pokemonEntries;
   }
@@ -219,7 +219,7 @@ public class PokedexDetail   {
    * Get versionGroups
    * @return versionGroups
    */
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, readOnly = true, value = "")
   public List<AbilityDetailPokemonInnerPokemon> getVersionGroups() {
     return versionGroups;
   }
@@ -275,10 +275,7 @@ public class PokedexDetail   {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 }
 

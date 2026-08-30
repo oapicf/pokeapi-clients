@@ -85,7 +85,7 @@ MoveBattleStyleSummary::getName()
 }
 
 void
-MoveBattleStyleSummary::setName(std::string  name)
+MoveBattleStyleSummary::setName(std::string name)
 {
 	this->name = name;
 }
@@ -97,7 +97,7 @@ MoveBattleStyleSummary::getUrl()
 }
 
 void
-MoveBattleStyleSummary::setUrl(std::string  url)
+MoveBattleStyleSummary::setUrl(std::string url)
 {
 	this->url = url;
 }

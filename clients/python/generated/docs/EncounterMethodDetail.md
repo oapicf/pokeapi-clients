@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **id** | **int** |  | [readonly] 
 **name** | **str** |  | 
 **order** | **int** |  | [optional] 
-**names** | [**List[EncounterMethodName]**](EncounterMethodName.md) |  | 
+**names** | [**List[EncounterMethodName]**](EncounterMethodName.md) |  | [readonly] 
 
 ## Example
 

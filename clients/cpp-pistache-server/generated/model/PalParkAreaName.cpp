@@ -25,6 +25,8 @@ PalParkAreaName::PalParkAreaName()
     
 }
 
+PalParkAreaName::~PalParkAreaName() = default;
+
 void PalParkAreaName::validate() const
 {
     std::stringstream msg;

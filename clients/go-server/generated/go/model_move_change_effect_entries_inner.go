@@ -12,6 +12,11 @@
 package openapi
 
 
+import (
+	"encoding/json"
+	"fmt"
+)
+
 
 
 type MoveChangeEffectEntriesInner struct {
@@ -22,12 +27,79 @@ type MoveChangeEffectEntriesInner struct {
 
 	Language AbilityDetailPokemonInnerPokemon `json:"language"`
 }
+// UnmarshalJSON validates required property keys then unmarshals into MoveChangeEffectEntriesInner
+func (o *MoveChangeEffectEntriesInner) UnmarshalJSON(data []byte) (err error) {
+	// Presence is checked against required fields that exist on this struct,
+	// including fields promoted from embedded allOf parents.
+	requiredProperties := []string{
+		"effect",
+		"short_effect",
+		"language",
+	}
 
-// AssertMoveChangeEffectEntriesInnerRequired checks if the required fields are not zero-ed
+	requiredNullableProperties := map[string]bool{
+		"effect": false,
+		"short_effect": false,
+		"language": false,
+	}
+
+	allowedJsonKeys := map[string]struct{}{
+		"effect": {},
+		"short_effect": {},
+		"language": {},
+	}
+
+	allProperties := make(map[string]json.RawMessage)
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err
+	}
+
+	for _, requiredProperty := range requiredProperties {
+		value, exists := allProperties[requiredProperty]
+		if !exists {
+			return &RequiredError{Field: requiredProperty}
+		}
+		if string(value) == "null" && !requiredNullableProperties[requiredProperty] {
+			return &RequiredError{Field: requiredProperty}
+		}
+	}
+
+	for key := range allProperties {
+		if _, exists := allowedJsonKeys[key]; !exists {
+			return fmt.Errorf("json: unknown field %q", key)
+		}
+	}
+
+	var decoded MoveChangeEffectEntriesInner
+
+	if value, exists := allProperties["effect"]; exists {
+		if err = json.Unmarshal(value, &decoded.Effect); err != nil {
+			return err
+		}
+	}
+	if value, exists := allProperties["short_effect"]; exists {
+		if err = json.Unmarshal(value, &decoded.ShortEffect); err != nil {
+			return err
+		}
+	}
+	if value, exists := allProperties["language"]; exists {
+		if err = json.Unmarshal(value, &decoded.Language); err != nil {
+			return err
+		}
+	}
+
+	*o = decoded
+
+	return nil
+}
+
+// AssertMoveChangeEffectEntriesInnerRequired checks complex required fields (models, arrays, maps) and embedded parents.
+// Primitive required fields are validated for JSON request bodies in UnmarshalJSON so zero values remain valid.
 func AssertMoveChangeEffectEntriesInnerRequired(obj MoveChangeEffectEntriesInner) error {
 	elements := map[string]interface{}{
-		"effect": obj.Effect,
-		"short_effect": obj.ShortEffect,
 		"language": obj.Language,
 	}
 	for name, el := range elements {

@@ -33,7 +33,7 @@ class  AbilityChangeEffectText
 {
 public:
     AbilityChangeEffectText();
-    virtual ~AbilityChangeEffectText() = default;
+    virtual ~AbilityChangeEffectText();
 
 
     /// <summary>

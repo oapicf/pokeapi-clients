@@ -35,10 +35,10 @@ export interface EncounterConditionDetail {
      * @type {Array<EncounterConditionValueSummary>}
      * @memberof EncounterConditionDetail
      */
-    values: Array<EncounterConditionValueSummary>;
+    readonly values: Array<EncounterConditionValueSummary>;
     /**
      * @type {Array<EncounterConditionName>}
      * @memberof EncounterConditionDetail
      */
-    names: Array<EncounterConditionName>;
+    readonly names: Array<EncounterConditionName>;
 }

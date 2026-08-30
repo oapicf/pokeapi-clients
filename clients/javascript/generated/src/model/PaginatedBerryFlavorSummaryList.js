@@ -17,7 +17,7 @@ import BerryFlavorSummary from './BerryFlavorSummary';
 /**
  * The PaginatedBerryFlavorSummaryList model module.
  * @module model/PaginatedBerryFlavorSummaryList
- * @version 1.2.1-pre.0
+ * @version 2.0.1-pre.0
  */
 class PaginatedBerryFlavorSummaryList {
     /**

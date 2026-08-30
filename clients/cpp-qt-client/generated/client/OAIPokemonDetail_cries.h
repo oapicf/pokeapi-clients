@@ -31,13 +31,13 @@ namespace OpenAPI {
 class OAIPokemonDetail_cries : public OAIObject {
 public:
     OAIPokemonDetail_cries();
-    OAIPokemonDetail_cries(QString json);
+    OAIPokemonDetail_cries(const QString &json);
     ~OAIPokemonDetail_cries() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     QString getLatest() const;
     void setLatest(const QString &latest);

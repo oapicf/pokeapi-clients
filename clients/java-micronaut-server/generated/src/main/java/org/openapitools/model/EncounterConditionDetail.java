@@ -37,7 +37,7 @@ import io.swagger.v3.oas.annotations.media.Schema;
   EncounterConditionDetail.JSON_PROPERTY_NAMES
 })
 @JsonTypeName("EncounterConditionDetail")
-@Generated(value="org.openapitools.codegen.languages.JavaMicronautServerCodegen", date="2026-02-07T15:23:03.167972722Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@Generated(value="org.openapitools.codegen.languages.JavaMicronautServerCodegen", date="2026-08-30T01:55:54.631003115Z[Etc/UTC]", comments = "Generator version: 7.24.0")
 @Introspected
 public class EncounterConditionDetail {
     public static final String JSON_PROPERTY_ID = "id";
@@ -95,42 +95,16 @@ public class EncounterConditionDetail {
         this.name = name;
     }
 
-    public EncounterConditionDetail values(List<@Valid EncounterConditionValueSummary> values) {
-        this.values = values;
-        return this;
-    }
-
-    public EncounterConditionDetail addValuesItem(EncounterConditionValueSummary valuesItem) {
-        this.values.add(valuesItem);
-        return this;
-    }
-
     /**
      * Get values
      * @return values
      */
     @NotNull
-    @Schema(name = "values", requiredMode = Schema.RequiredMode.REQUIRED)
+    @Schema(name = "values", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
     @JsonProperty(JSON_PROPERTY_VALUES)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public List<@Valid EncounterConditionValueSummary> getValues() {
         return values;
-    }
-
-    @JsonProperty(JSON_PROPERTY_VALUES)
-    @JsonInclude(value = JsonInclude.Include.ALWAYS)
-    public void setValues(List<@Valid EncounterConditionValueSummary> values) {
-        this.values = values;
-    }
-
-    public EncounterConditionDetail names(List<@Valid EncounterConditionName> names) {
-        this.names = names;
-        return this;
-    }
-
-    public EncounterConditionDetail addNamesItem(EncounterConditionName namesItem) {
-        this.names.add(namesItem);
-        return this;
     }
 
     /**
@@ -138,17 +112,11 @@ public class EncounterConditionDetail {
      * @return names
      */
     @NotNull
-    @Schema(name = "names", requiredMode = Schema.RequiredMode.REQUIRED)
+    @Schema(name = "names", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
     @JsonProperty(JSON_PROPERTY_NAMES)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public List<@Valid EncounterConditionName> getNames() {
         return names;
-    }
-
-    @JsonProperty(JSON_PROPERTY_NAMES)
-    @JsonInclude(value = JsonInclude.Include.ALWAYS)
-    public void setNames(List<@Valid EncounterConditionName> names) {
-        this.names = names;
     }
 
     @Override
@@ -188,10 +156,7 @@ public class EncounterConditionDetail {
      * (except the first line).
      */
     private String toIndentedString(Object o) {
-        if (o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
+        return o == null ? "null" : o.toString().replace("\n", "\n    ");
     }
 
 }

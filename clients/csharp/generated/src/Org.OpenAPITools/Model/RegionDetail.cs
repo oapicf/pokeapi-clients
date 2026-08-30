@@ -72,7 +72,7 @@ namespace Org.OpenAPITools.Model
         /// Gets or Sets Locations
         /// </summary>
         [JsonPropertyName("locations")]
-        public List<LocationSummary> Locations { get; set; }
+        public List<LocationSummary> Locations { get; }
 
         /// <summary>
         /// Gets or Sets MainGeneration
@@ -84,19 +84,19 @@ namespace Org.OpenAPITools.Model
         /// Gets or Sets Names
         /// </summary>
         [JsonPropertyName("names")]
-        public List<RegionName> Names { get; set; }
+        public List<RegionName> Names { get; }
 
         /// <summary>
         /// Gets or Sets Pokedexes
         /// </summary>
         [JsonPropertyName("pokedexes")]
-        public List<PokedexSummary> Pokedexes { get; set; }
+        public List<PokedexSummary> Pokedexes { get; }
 
         /// <summary>
         /// Gets or Sets VersionGroups
         /// </summary>
         [JsonPropertyName("version_groups")]
-        public List<AbilityDetailPokemonInnerPokemon> VersionGroups { get; set; }
+        public List<AbilityDetailPokemonInnerPokemon> VersionGroups { get; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -137,8 +137,18 @@ namespace Org.OpenAPITools.Model
     /// <summary>
     /// A Json converter for type <see cref="RegionDetail" />
     /// </summary>
-    public class RegionDetailJsonConverter : JsonConverter<RegionDetail>
+    public partial class RegionDetailJsonConverter : JsonConverter<RegionDetail>
     {
+        partial void OnCreated();
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="RegionDetailJsonConverter" /> class.
+        /// </summary>
+        public RegionDetailJsonConverter()
+        {
+            OnCreated();
+        }
+
         /// <summary>
         /// Deserializes json to <see cref="RegionDetail" />
         /// </summary>

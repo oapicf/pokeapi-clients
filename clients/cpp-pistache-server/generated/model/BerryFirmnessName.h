@@ -33,7 +33,7 @@ class  BerryFirmnessName
 {
 public:
     BerryFirmnessName();
-    virtual ~BerryFirmnessName() = default;
+    virtual ~BerryFirmnessName();
 
 
     /// <summary>

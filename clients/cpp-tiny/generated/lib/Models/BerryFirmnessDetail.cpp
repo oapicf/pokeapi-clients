@@ -161,7 +161,7 @@ BerryFirmnessDetail::getId()
 }
 
 void
-BerryFirmnessDetail::setId(int  id)
+BerryFirmnessDetail::setId(int id)
 {
 	this->id = id;
 }
@@ -173,7 +173,7 @@ BerryFirmnessDetail::getName()
 }
 
 void
-BerryFirmnessDetail::setName(std::string  name)
+BerryFirmnessDetail::setName(std::string name)
 {
 	this->name = name;
 }
@@ -185,7 +185,7 @@ BerryFirmnessDetail::getBerries()
 }
 
 void
-BerryFirmnessDetail::setBerries(std::list <BerrySummary> berries)
+BerryFirmnessDetail::setBerries(std::list<BerrySummary> berries)
 {
 	this->berries = berries;
 }
@@ -197,7 +197,7 @@ BerryFirmnessDetail::getNames()
 }
 
 void
-BerryFirmnessDetail::setNames(std::list <BerryFirmnessName> names)
+BerryFirmnessDetail::setNames(std::list<BerryFirmnessName> names)
 {
 	this->names = names;
 }

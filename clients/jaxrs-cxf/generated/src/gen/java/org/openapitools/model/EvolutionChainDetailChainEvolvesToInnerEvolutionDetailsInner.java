@@ -33,11 +33,15 @@ public class EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner  {
 
   @ApiModelProperty(required = true, value = "")
 
-  private Object knownMove;
+  @Valid
+
+  private EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender knownMove;
 
   @ApiModelProperty(required = true, value = "")
 
-  private Object knownMoveType;
+  @Valid
+
+  private EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender knownMoveType;
 
   @ApiModelProperty(required = true, value = "")
 
@@ -157,15 +161,15 @@ public class EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner  {
   **/
   @JsonProperty("known_move")
   @NotNull
-  public Object getKnownMove() {
+  public EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender getKnownMove() {
     return knownMove;
   }
 
-  public void setKnownMove(Object knownMove) {
+  public void setKnownMove(EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender knownMove) {
     this.knownMove = knownMove;
   }
 
-  public EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner knownMove(Object knownMove) {
+  public EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner knownMove(EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender knownMove) {
     this.knownMove = knownMove;
     return this;
   }
@@ -176,15 +180,15 @@ public class EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner  {
   **/
   @JsonProperty("known_move_type")
   @NotNull
-  public Object getKnownMoveType() {
+  public EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender getKnownMoveType() {
     return knownMoveType;
   }
 
-  public void setKnownMoveType(Object knownMoveType) {
+  public void setKnownMoveType(EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender knownMoveType) {
     this.knownMoveType = knownMoveType;
   }
 
-  public EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner knownMoveType(Object knownMoveType) {
+  public EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner knownMoveType(EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender knownMoveType) {
     this.knownMoveType = knownMoveType;
     return this;
   }
@@ -502,10 +506,7 @@ public class EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner  {
    * (except the first line).
    */
   private static String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 }
 

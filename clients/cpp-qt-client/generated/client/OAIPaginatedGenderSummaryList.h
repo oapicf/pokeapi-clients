@@ -34,13 +34,13 @@ class OAIGenderSummary;
 class OAIPaginatedGenderSummaryList : public OAIObject {
 public:
     OAIPaginatedGenderSummaryList();
-    OAIPaginatedGenderSummaryList(QString json);
+    OAIPaginatedGenderSummaryList(const QString &json);
     ~OAIPaginatedGenderSummaryList() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     qint32 getCount() const;
     void setCount(const qint32 &count);

@@ -53,21 +53,21 @@ public:
 
 	/*! \brief Set 
 	 */
-	void setText(std::string  text);
+	void setText(std::string text);
 	/*! \brief Get 
 	 */
 	VersionGroupSummary getVersionGroup();
 
 	/*! \brief Set 
 	 */
-	void setVersionGroup(VersionGroupSummary  version_group);
+	void setVersionGroup(VersionGroupSummary version_group);
 	/*! \brief Get 
 	 */
 	LanguageSummary getLanguage();
 
 	/*! \brief Set 
 	 */
-	void setLanguage(LanguageSummary  language);
+	void setLanguage(LanguageSummary language);
 
 
     private:

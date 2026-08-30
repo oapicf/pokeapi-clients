@@ -72,7 +72,7 @@ export interface BerryDetail {
      * @type {Array<BerryDetailFlavorsInner>}
      * @memberof BerryDetail
      */
-    flavors: Array<BerryDetailFlavorsInner>;
+    readonly flavors: Array<BerryDetailFlavorsInner>;
     /**
      * @type {ItemSummary}
      * @memberof BerryDetail

@@ -52,7 +52,7 @@ export interface AbilityEffectText {
  */
 export function instanceOfAbilityEffectText(value: object): value is AbilityEffectText {
     if (!('effect' in value) || value['effect'] === undefined) return false;
-    if (!('shortEffect' in value) || value['shortEffect'] === undefined) return false;
+    if ((!('shortEffect' in (value as Record<string, any>)) && !('short_effect' in (value as Record<string, any>))) || ((value as Record<string, any>)['shortEffect'] === undefined && (value as Record<string, any>)['short_effect'] === undefined)) return false;
     if (!('language' in value) || value['language'] === undefined) return false;
     return true;
 }

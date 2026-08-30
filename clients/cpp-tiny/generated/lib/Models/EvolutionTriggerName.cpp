@@ -86,7 +86,7 @@ EvolutionTriggerName::getName()
 }
 
 void
-EvolutionTriggerName::setName(std::string  name)
+EvolutionTriggerName::setName(std::string name)
 {
 	this->name = name;
 }
@@ -98,7 +98,7 @@ EvolutionTriggerName::getLanguage()
 }
 
 void
-EvolutionTriggerName::setLanguage(LanguageSummary  language)
+EvolutionTriggerName::setLanguage(LanguageSummary language)
 {
 	this->language = language;
 }

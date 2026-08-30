@@ -15,19 +15,19 @@ Name | Type | Description | Notes
 **is_default** | **boolean** |  | [optional] 
 **order** | **int** |  | [optional] 
 **weight** | **int** |  | [optional] 
-**abilities** | [**ARRAY[PokemonDetailAbilitiesInner]**](PokemonDetailAbilitiesInner.md) |  | 
-**past_abilities** | [**ARRAY[PokemonDetailPastAbilitiesInner]**](PokemonDetailPastAbilitiesInner.md) |  | 
-**forms** | [**ARRAY[PokemonFormSummary]**](PokemonFormSummary.md) |  | 
-**game_indices** | [**ARRAY[PokemonGameIndex]**](PokemonGameIndex.md) |  | 
+**abilities** | [**ARRAY[PokemonDetailAbilitiesInner]**](PokemonDetailAbilitiesInner.md) |  | [readonly] 
+**past_abilities** | [**ARRAY[PokemonDetailPastAbilitiesInner]**](PokemonDetailPastAbilitiesInner.md) |  | [readonly] 
+**forms** | [**ARRAY[PokemonFormSummary]**](PokemonFormSummary.md) |  | [readonly] 
+**game_indices** | [**ARRAY[PokemonGameIndex]**](PokemonGameIndex.md) |  | [readonly] 
 **held_items** | [**PokemonDetailHeldItems**](PokemonDetailHeldItems.md) |  | 
 **location_area_encounters** | **string** |  | [readonly] 
-**moves** | [**ARRAY[PokemonDetailMovesInner]**](PokemonDetailMovesInner.md) |  | 
+**moves** | [**ARRAY[PokemonDetailMovesInner]**](PokemonDetailMovesInner.md) |  | [readonly] 
 **species** | [**PokemonSpeciesSummary**](PokemonSpeciesSummary.md) |  | 
 **sprites** | [**PokemonDetailSprites**](PokemonDetailSprites.md) |  | 
 **cries** | [**PokemonDetailCries**](PokemonDetailCries.md) |  | 
-**stats** | [**ARRAY[PokemonStat]**](PokemonStat.md) |  | 
-**types** | [**ARRAY[PokemonDetailTypesInner]**](PokemonDetailTypesInner.md) |  | 
-**past_types** | [**ARRAY[PokemonDetailPastTypesInner]**](PokemonDetailPastTypesInner.md) |  | 
+**stats** | [**ARRAY[PokemonStat]**](PokemonStat.md) |  | [readonly] 
+**types** | [**ARRAY[PokemonDetailTypesInner]**](PokemonDetailTypesInner.md) |  | [readonly] 
+**past_types** | [**ARRAY[PokemonDetailPastTypesInner]**](PokemonDetailPastTypesInner.md) |  | [readonly] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

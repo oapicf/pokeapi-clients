@@ -35,10 +35,10 @@ export interface EggGroupDetail {
      * @type {Array<EggGroupName>}
      * @memberof EggGroupDetail
      */
-    names: Array<EggGroupName>;
+    readonly names: Array<EggGroupName>;
     /**
      * @type {Array<EggGroupDetailPokemonSpeciesInner>}
      * @memberof EggGroupDetail
      */
-    pokemon_species: Array<EggGroupDetailPokemonSpeciesInner>;
+    readonly pokemon_species: Array<EggGroupDetailPokemonSpeciesInner>;
 }

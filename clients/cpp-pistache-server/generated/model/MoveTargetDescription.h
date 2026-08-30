@@ -33,7 +33,7 @@ class  MoveTargetDescription
 {
 public:
     MoveTargetDescription();
-    virtual ~MoveTargetDescription() = default;
+    virtual ~MoveTargetDescription();
 
 
     /// <summary>

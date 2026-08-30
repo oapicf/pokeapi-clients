@@ -30,13 +30,13 @@ public class OASMoveMetaCategoryDetail {
      * Get descriptions
      * @return descriptions
      */
-    public List<OASMoveMetaCategoryDescription> descriptions { get; set; }
+    public List<OASMoveMetaCategoryDescription> descriptions { get; private set; }
 
     /**
      * Get moves
      * @return moves
      */
-    public List<OASAbilityDetailPokemonInnerPokemon> moves { get; set; }
+    public List<OASAbilityDetailPokemonInnerPokemon> moves { get; private set; }
 
     public OASMoveMetaCategoryDetail() {
         descriptions = new List<OASMoveMetaCategoryDescription>();

@@ -52,13 +52,15 @@ class StatDetailAffectingNatures extends BaseModel
       "type" : "array",
       "items" : {
         "$ref" : "#/components/schemas/AbilityDetail_pokemon_inner_pokemon"
-      }
+      },
+      "default" : null
     },
     "decrease" : {
       "type" : "array",
       "items" : {
         "$ref" : "#/components/schemas/AbilityDetail_pokemon_inner_pokemon"
-      }
+      },
+      "default" : null
     }
   },
   "readOnly" : true

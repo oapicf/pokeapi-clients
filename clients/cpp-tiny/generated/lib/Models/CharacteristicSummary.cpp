@@ -64,7 +64,7 @@ CharacteristicSummary::getUrl()
 }
 
 void
-CharacteristicSummary::setUrl(std::string  url)
+CharacteristicSummary::setUrl(std::string url)
 {
 	this->url = url;
 }

@@ -16,7 +16,7 @@ import javax.validation.Valid;
 /**
  * LocationAreaDetail
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPlayFrameworkCodegen", date = "2026-02-07T15:23:19.397731995Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPlayFrameworkCodegen", date = "2026-08-30T01:56:05.058856094Z[Etc/UTC]", comments = "Generator version: 7.24.0")
 @SuppressWarnings({"UnusedReturnValue", "WeakerAccess"})
 public class LocationAreaDetail   {
   @JsonProperty("id")
@@ -248,10 +248,7 @@ public class LocationAreaDetail   {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 }
 

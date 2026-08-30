@@ -13,10 +13,10 @@ static encounter_method_name_t *encounter_method_name_create_internal(
     if (!encounter_method_name_local_var) {
         return NULL;
     }
+    memset(encounter_method_name_local_var, 0, sizeof(encounter_method_name_t));
+    encounter_method_name_local_var->_library_owned = 1;
     encounter_method_name_local_var->name = name;
     encounter_method_name_local_var->language = language;
-
-    encounter_method_name_local_var->_library_owned = 1;
     return encounter_method_name_local_var;
 }
 
@@ -24,10 +24,13 @@ __attribute__((deprecated)) encounter_method_name_t *encounter_method_name_creat
     char *name,
     language_summary_t *language
     ) {
-    return encounter_method_name_create_internal (
+    encounter_method_name_t *result = encounter_method_name_create_internal (
         name,
         language
         );
+    if (!result) {
+    }
+    return result;
 }
 
 void encounter_method_name_free(encounter_method_name_t *encounter_method_name) {
@@ -87,6 +90,8 @@ encounter_method_name_t *encounter_method_name_parseFromJSON(cJSON *encounter_me
 
     encounter_method_name_t *encounter_method_name_local_var = NULL;
 
+    char *name_local_str = NULL;
+
     // define the local variable for encounter_method_name->language
     language_summary_t *language_local_nonprim = NULL;
 
@@ -118,13 +123,23 @@ encounter_method_name_t *encounter_method_name_parseFromJSON(cJSON *encounter_me
     language_local_nonprim = language_summary_parseFromJSON(language); //nonprimitive
 
 
+    if (name && !cJSON_IsNull(name)) name_local_str = strdup(name->valuestring);
+
     encounter_method_name_local_var = encounter_method_name_create_internal (
-        strdup(name->valuestring),
+        name_local_str,
         language_local_nonprim
         );
 
+    if (!encounter_method_name_local_var) {
+        goto end;
+    }
+
     return encounter_method_name_local_var;
 end:
+    if (name_local_str) {
+        free(name_local_str);
+        name_local_str = NULL;
+    }
     if (language_local_nonprim) {
         language_summary_free(language_local_nonprim);
         language_local_nonprim = NULL;

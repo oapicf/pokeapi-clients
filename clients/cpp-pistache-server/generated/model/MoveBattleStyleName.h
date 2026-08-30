@@ -33,7 +33,7 @@ class  MoveBattleStyleName
 {
 public:
     MoveBattleStyleName();
-    virtual ~MoveBattleStyleName() = default;
+    virtual ~MoveBattleStyleName();
 
 
     /// <summary>

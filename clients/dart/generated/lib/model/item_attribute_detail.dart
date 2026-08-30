@@ -71,10 +71,16 @@ class ItemAttributeDetail {
       // Note 1: the values aren't checked for validity beyond being non-null.
       // Note 2: this code is stripped in release mode!
       assert(() {
-        requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "ItemAttributeDetail[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "ItemAttributeDetail[$key]" has a null value in JSON.');
-        });
+        assert(json.containsKey(r'id'), 'Required key "ItemAttributeDetail[id]" is missing from JSON.');
+        assert(json[r'id'] != null, 'Required key "ItemAttributeDetail[id]" has a null value in JSON.');
+        assert(json.containsKey(r'name'), 'Required key "ItemAttributeDetail[name]" is missing from JSON.');
+        assert(json[r'name'] != null, 'Required key "ItemAttributeDetail[name]" has a null value in JSON.');
+        assert(json.containsKey(r'descriptions'), 'Required key "ItemAttributeDetail[descriptions]" is missing from JSON.');
+        assert(json[r'descriptions'] != null, 'Required key "ItemAttributeDetail[descriptions]" has a null value in JSON.');
+        assert(json.containsKey(r'items'), 'Required key "ItemAttributeDetail[items]" is missing from JSON.');
+        assert(json[r'items'] != null, 'Required key "ItemAttributeDetail[items]" has a null value in JSON.');
+        assert(json.containsKey(r'names'), 'Required key "ItemAttributeDetail[names]" is missing from JSON.');
+        assert(json[r'names'] != null, 'Required key "ItemAttributeDetail[names]" has a null value in JSON.');
         return true;
       }());
 

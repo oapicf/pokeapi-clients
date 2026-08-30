@@ -67,7 +67,8 @@ class PaginatedMoveMetaAilmentSummaryList extends BaseModel
       "type" : "array",
       "items" : {
         "$ref" : "#/components/schemas/MoveMetaAilmentSummary"
-      }
+      },
+      "default" : null
     }
   }
 }

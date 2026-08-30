@@ -48,7 +48,7 @@ public class OASLanguageDetail {
      * Get names
      * @return names
      */
-    public List<OASLanguageName> names { get; set; }
+    public List<OASLanguageName> names { get; private set; }
 
     public OASLanguageDetail() {
         names = new List<OASLanguageName>();

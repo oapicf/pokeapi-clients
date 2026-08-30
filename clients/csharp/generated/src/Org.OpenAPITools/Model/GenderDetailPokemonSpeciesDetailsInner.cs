@@ -86,8 +86,18 @@ namespace Org.OpenAPITools.Model
     /// <summary>
     /// A Json converter for type <see cref="GenderDetailPokemonSpeciesDetailsInner" />
     /// </summary>
-    public class GenderDetailPokemonSpeciesDetailsInnerJsonConverter : JsonConverter<GenderDetailPokemonSpeciesDetailsInner>
+    public partial class GenderDetailPokemonSpeciesDetailsInnerJsonConverter : JsonConverter<GenderDetailPokemonSpeciesDetailsInner>
     {
+        partial void OnCreated();
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="GenderDetailPokemonSpeciesDetailsInnerJsonConverter" /> class.
+        /// </summary>
+        public GenderDetailPokemonSpeciesDetailsInnerJsonConverter()
+        {
+            OnCreated();
+        }
+
         /// <summary>
         /// Deserializes json to <see cref="GenderDetailPokemonSpeciesDetailsInner" />
         /// </summary>

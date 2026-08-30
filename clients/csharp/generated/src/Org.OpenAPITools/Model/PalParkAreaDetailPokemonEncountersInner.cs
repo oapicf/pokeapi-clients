@@ -95,8 +95,18 @@ namespace Org.OpenAPITools.Model
     /// <summary>
     /// A Json converter for type <see cref="PalParkAreaDetailPokemonEncountersInner" />
     /// </summary>
-    public class PalParkAreaDetailPokemonEncountersInnerJsonConverter : JsonConverter<PalParkAreaDetailPokemonEncountersInner>
+    public partial class PalParkAreaDetailPokemonEncountersInnerJsonConverter : JsonConverter<PalParkAreaDetailPokemonEncountersInner>
     {
+        partial void OnCreated();
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="PalParkAreaDetailPokemonEncountersInnerJsonConverter" /> class.
+        /// </summary>
+        public PalParkAreaDetailPokemonEncountersInnerJsonConverter()
+        {
+            OnCreated();
+        }
+
         /// <summary>
         /// Deserializes json to <see cref="PalParkAreaDetailPokemonEncountersInner" />
         /// </summary>

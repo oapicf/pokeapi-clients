@@ -6,6 +6,6 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **Number** |  | [readonly] 
 **name** | **String** |  | 
-**names** | [**[MoveBattleStyleName]**](MoveBattleStyleName.md) |  | 
+**names** | [**[MoveBattleStyleName]**](MoveBattleStyleName.md) |  | [readonly] 
 
 

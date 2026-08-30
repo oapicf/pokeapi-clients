@@ -8,9 +8,9 @@ Name | Type | Description | Notes
 **id** | **int** |  | [readonly] 
 **name** | **str** |  | 
 **region** | [**RegionSummary**](RegionSummary.md) |  | 
-**names** | [**List[LocationName]**](LocationName.md) |  | 
-**game_indices** | [**List[LocationGameIndex]**](LocationGameIndex.md) |  | 
-**areas** | [**List[LocationAreaSummary]**](LocationAreaSummary.md) |  | 
+**names** | [**List[LocationName]**](LocationName.md) |  | [readonly] 
+**game_indices** | [**List[LocationGameIndex]**](LocationGameIndex.md) |  | [readonly] 
+**areas** | [**List[LocationAreaSummary]**](LocationAreaSummary.md) |  | [readonly] 
 
 ## Example
 

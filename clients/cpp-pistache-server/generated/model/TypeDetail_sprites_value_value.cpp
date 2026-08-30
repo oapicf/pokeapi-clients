@@ -26,6 +26,8 @@ TypeDetail_sprites_value_value::TypeDetail_sprites_value_value()
     
 }
 
+TypeDetail_sprites_value_value::~TypeDetail_sprites_value_value() = default;
+
 void TypeDetail_sprites_value_value::validate() const
 {
     std::stringstream msg;

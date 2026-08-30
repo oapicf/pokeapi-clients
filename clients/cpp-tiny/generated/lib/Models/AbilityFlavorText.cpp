@@ -108,7 +108,7 @@ AbilityFlavorText::getFlavorText()
 }
 
 void
-AbilityFlavorText::setFlavorText(std::string  flavor_text)
+AbilityFlavorText::setFlavorText(std::string flavor_text)
 {
 	this->flavor_text = flavor_text;
 }
@@ -120,7 +120,7 @@ AbilityFlavorText::getLanguage()
 }
 
 void
-AbilityFlavorText::setLanguage(LanguageSummary  language)
+AbilityFlavorText::setLanguage(LanguageSummary language)
 {
 	this->language = language;
 }
@@ -132,7 +132,7 @@ AbilityFlavorText::getVersionGroup()
 }
 
 void
-AbilityFlavorText::setVersionGroup(VersionGroupSummary  version_group)
+AbilityFlavorText::setVersionGroup(VersionGroupSummary version_group)
 {
 	this->version_group = version_group;
 }

@@ -31,6 +31,8 @@ PaginatedCharacteristicSummaryList::PaginatedCharacteristicSummaryList()
     
 }
 
+PaginatedCharacteristicSummaryList::~PaginatedCharacteristicSummaryList() = default;
+
 void PaginatedCharacteristicSummaryList::validate() const
 {
     std::stringstream msg;

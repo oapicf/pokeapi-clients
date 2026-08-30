@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **Number** |  | [readonly] 
 **name** | **String** |  | 
-**pokemonSpeciesDetails** | [**[GenderDetailPokemonSpeciesDetailsInner]**](GenderDetailPokemonSpeciesDetailsInner.md) |  | 
-**requiredForEvolution** | [**[AbilityDetailPokemonInnerPokemon]**](AbilityDetailPokemonInnerPokemon.md) |  | 
+**pokemonSpeciesDetails** | [**[GenderDetailPokemonSpeciesDetailsInner]**](GenderDetailPokemonSpeciesDetailsInner.md) |  | [readonly] 
+**requiredForEvolution** | [**[AbilityDetailPokemonInnerPokemon]**](AbilityDetailPokemonInnerPokemon.md) |  | [readonly] 
 
 

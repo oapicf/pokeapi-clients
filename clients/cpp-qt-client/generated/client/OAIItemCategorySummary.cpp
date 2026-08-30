@@ -21,7 +21,7 @@
 
 namespace OpenAPI {
 
-OAIItemCategorySummary::OAIItemCategorySummary(QString json) {
+OAIItemCategorySummary::OAIItemCategorySummary(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -41,7 +41,7 @@ void OAIItemCategorySummary::initializeModel() {
     m_url_isValid = false;
 }
 
-void OAIItemCategorySummary::fromJson(QString jsonString) {
+void OAIItemCategorySummary::fromJson(const QString &jsonString) {
     QByteArray array(jsonString.toStdString().c_str());
     QJsonDocument doc = QJsonDocument::fromJson(array);
     QJsonObject jsonObject = doc.object();

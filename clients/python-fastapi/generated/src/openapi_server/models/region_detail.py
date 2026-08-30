@@ -79,12 +79,20 @@ class RegionDetail(BaseModel):
           are ignored.
         * OpenAPI `readOnly` fields are excluded.
         * OpenAPI `readOnly` fields are excluded.
+        * OpenAPI `readOnly` fields are excluded.
+        * OpenAPI `readOnly` fields are excluded.
+        * OpenAPI `readOnly` fields are excluded.
+        * OpenAPI `readOnly` fields are excluded.
         """
         _dict = self.model_dump(
             by_alias=True,
             exclude={
                 "id",
+                "locations",
                 "main_generation",
+                "names",
+                "pokedexes",
+                "version_groups",
             },
             exclude_none=True,
         )

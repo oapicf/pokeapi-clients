@@ -34,7 +34,7 @@ class  PaginatedMoveTargetSummaryList
 {
 public:
     PaginatedMoveTargetSummaryList();
-    virtual ~PaginatedMoveTargetSummaryList() = default;
+    virtual ~PaginatedMoveTargetSummaryList();
 
 
     /// <summary>

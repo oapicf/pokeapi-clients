@@ -6,10 +6,10 @@
 
 
 static move_change_t *move_change_create_internal(
-    int accuracy,
-    int power,
-    int pp,
-    int effect_chance,
+    int *accuracy,
+    int *power,
+    int *pp,
+    int *effect_chance,
     list_t *effect_entries,
     type_summary_t *type,
     version_group_summary_t *version_group
@@ -18,6 +18,8 @@ static move_change_t *move_change_create_internal(
     if (!move_change_local_var) {
         return NULL;
     }
+    memset(move_change_local_var, 0, sizeof(move_change_t));
+    move_change_local_var->_library_owned = 1;
     move_change_local_var->accuracy = accuracy;
     move_change_local_var->power = power;
     move_change_local_var->pp = pp;
@@ -25,29 +27,54 @@ static move_change_t *move_change_create_internal(
     move_change_local_var->effect_entries = effect_entries;
     move_change_local_var->type = type;
     move_change_local_var->version_group = version_group;
-
-    move_change_local_var->_library_owned = 1;
     return move_change_local_var;
 }
 
 __attribute__((deprecated)) move_change_t *move_change_create(
-    int accuracy,
-    int power,
-    int pp,
-    int effect_chance,
+    int *accuracy,
+    int *power,
+    int *pp,
+    int *effect_chance,
     list_t *effect_entries,
     type_summary_t *type,
     version_group_summary_t *version_group
     ) {
-    return move_change_create_internal (
-        accuracy,
-        power,
-        pp,
-        effect_chance,
+    int *accuracy_copy = NULL;
+    if (accuracy) {
+        accuracy_copy = malloc(sizeof(int));
+        if (accuracy_copy) *accuracy_copy = *accuracy;
+    }
+    int *power_copy = NULL;
+    if (power) {
+        power_copy = malloc(sizeof(int));
+        if (power_copy) *power_copy = *power;
+    }
+    int *pp_copy = NULL;
+    if (pp) {
+        pp_copy = malloc(sizeof(int));
+        if (pp_copy) *pp_copy = *pp;
+    }
+    int *effect_chance_copy = NULL;
+    if (effect_chance) {
+        effect_chance_copy = malloc(sizeof(int));
+        if (effect_chance_copy) *effect_chance_copy = *effect_chance;
+    }
+    move_change_t *result = move_change_create_internal (
+        accuracy_copy,
+        power_copy,
+        pp_copy,
+        effect_chance_copy,
         effect_entries,
         type,
         version_group
         );
+    if (!result) {
+        free(accuracy_copy);
+        free(power_copy);
+        free(pp_copy);
+        free(effect_chance_copy);
+    }
+    return result;
 }
 
 void move_change_free(move_change_t *move_change) {
@@ -59,6 +86,22 @@ void move_change_free(move_change_t *move_change) {
         return ;
     }
     listEntry_t *listEntry;
+    if (move_change->accuracy) {
+        free(move_change->accuracy);
+        move_change->accuracy = NULL;
+    }
+    if (move_change->power) {
+        free(move_change->power);
+        move_change->power = NULL;
+    }
+    if (move_change->pp) {
+        free(move_change->pp);
+        move_change->pp = NULL;
+    }
+    if (move_change->effect_chance) {
+        free(move_change->effect_chance);
+        move_change->effect_chance = NULL;
+    }
     if (move_change->effect_entries) {
         list_ForEach(listEntry, move_change->effect_entries) {
             move_change_effect_entries_inner_free(listEntry->data);
@@ -82,7 +125,7 @@ cJSON *move_change_convertToJSON(move_change_t *move_change) {
 
     // move_change->accuracy
     if(move_change->accuracy) {
-    if(cJSON_AddNumberToObject(item, "accuracy", move_change->accuracy) == NULL) {
+    if(cJSON_AddNumberToObject(item, "accuracy", *move_change->accuracy) == NULL) {
     goto fail; //Numeric
     }
     }
@@ -90,7 +133,7 @@ cJSON *move_change_convertToJSON(move_change_t *move_change) {
 
     // move_change->power
     if(move_change->power) {
-    if(cJSON_AddNumberToObject(item, "power", move_change->power) == NULL) {
+    if(cJSON_AddNumberToObject(item, "power", *move_change->power) == NULL) {
     goto fail; //Numeric
     }
     }
@@ -98,7 +141,7 @@ cJSON *move_change_convertToJSON(move_change_t *move_change) {
 
     // move_change->pp
     if(move_change->pp) {
-    if(cJSON_AddNumberToObject(item, "pp", move_change->pp) == NULL) {
+    if(cJSON_AddNumberToObject(item, "pp", *move_change->pp) == NULL) {
     goto fail; //Numeric
     }
     }
@@ -108,7 +151,7 @@ cJSON *move_change_convertToJSON(move_change_t *move_change) {
     if (!move_change->effect_chance) {
         goto fail;
     }
-    if(cJSON_AddNumberToObject(item, "effect_chance", move_change->effect_chance) == NULL) {
+    if(cJSON_AddNumberToObject(item, "effect_chance", *move_change->effect_chance) == NULL) {
     goto fail; //Numeric
     }
 
@@ -173,6 +216,18 @@ move_change_t *move_change_parseFromJSON(cJSON *move_changeJSON){
 
     move_change_t *move_change_local_var = NULL;
 
+    // define the local variable for move_change->accuracy
+    int *accuracy_local_var = NULL;
+
+    // define the local variable for move_change->power
+    int *power_local_var = NULL;
+
+    // define the local variable for move_change->pp
+    int *pp_local_var = NULL;
+
+    // define the local variable for move_change->effect_chance
+    int *effect_chance_local_var = NULL;
+
     // define the local list for move_change->effect_entries
     list_t *effect_entriesList = NULL;
 
@@ -192,6 +247,12 @@ move_change_t *move_change_parseFromJSON(cJSON *move_changeJSON){
     {
     goto end; //Numeric
     }
+    accuracy_local_var = malloc(sizeof(int));
+    if(!accuracy_local_var)
+    {
+        goto end;
+    }
+    *accuracy_local_var = accuracy->valuedouble;
     }
 
     // move_change->power
@@ -204,6 +265,12 @@ move_change_t *move_change_parseFromJSON(cJSON *move_changeJSON){
     {
     goto end; //Numeric
     }
+    power_local_var = malloc(sizeof(int));
+    if(!power_local_var)
+    {
+        goto end;
+    }
+    *power_local_var = power->valuedouble;
     }
 
     // move_change->pp
@@ -216,6 +283,12 @@ move_change_t *move_change_parseFromJSON(cJSON *move_changeJSON){
     {
     goto end; //Numeric
     }
+    pp_local_var = malloc(sizeof(int));
+    if(!pp_local_var)
+    {
+        goto end;
+    }
+    *pp_local_var = pp->valuedouble;
     }
 
     // move_change->effect_chance
@@ -232,6 +305,12 @@ move_change_t *move_change_parseFromJSON(cJSON *move_changeJSON){
     {
     goto end; //Numeric
     }
+    effect_chance_local_var = malloc(sizeof(int));
+    if(!effect_chance_local_var)
+    {
+        goto end;
+    }
+    *effect_chance_local_var = effect_chance->valuedouble;
 
     // move_change->effect_entries
     cJSON *effect_entries = cJSON_GetObjectItemCaseSensitive(move_changeJSON, "effect_entries");
@@ -285,18 +364,39 @@ move_change_t *move_change_parseFromJSON(cJSON *move_changeJSON){
     version_group_local_nonprim = version_group_summary_parseFromJSON(version_group); //nonprimitive
 
 
+
     move_change_local_var = move_change_create_internal (
-        accuracy ? accuracy->valuedouble : 0,
-        power ? power->valuedouble : 0,
-        pp ? pp->valuedouble : 0,
-        effect_chance->valuedouble,
+        accuracy_local_var,
+        power_local_var,
+        pp_local_var,
+        effect_chance_local_var,
         effect_entriesList,
         type_local_nonprim,
         version_group_local_nonprim
         );
 
+    if (!move_change_local_var) {
+        goto end;
+    }
+
     return move_change_local_var;
 end:
+    if (accuracy_local_var) {
+        free(accuracy_local_var);
+        accuracy_local_var = NULL;
+    }
+    if (power_local_var) {
+        free(power_local_var);
+        power_local_var = NULL;
+    }
+    if (pp_local_var) {
+        free(pp_local_var);
+        pp_local_var = NULL;
+    }
+    if (effect_chance_local_var) {
+        free(effect_chance_local_var);
+        effect_chance_local_var = NULL;
+    }
     if (effect_entriesList) {
         listEntry_t *listEntry = NULL;
         list_ForEach(listEntry, effect_entriesList) {

@@ -199,7 +199,7 @@ MoveLearnMethodDetail::getId()
 }
 
 void
-MoveLearnMethodDetail::setId(int  id)
+MoveLearnMethodDetail::setId(int id)
 {
 	this->id = id;
 }
@@ -211,7 +211,7 @@ MoveLearnMethodDetail::getName()
 }
 
 void
-MoveLearnMethodDetail::setName(std::string  name)
+MoveLearnMethodDetail::setName(std::string name)
 {
 	this->name = name;
 }
@@ -223,7 +223,7 @@ MoveLearnMethodDetail::getNames()
 }
 
 void
-MoveLearnMethodDetail::setNames(std::list <MoveLearnMethodName> names)
+MoveLearnMethodDetail::setNames(std::list<MoveLearnMethodName> names)
 {
 	this->names = names;
 }
@@ -235,7 +235,7 @@ MoveLearnMethodDetail::getDescriptions()
 }
 
 void
-MoveLearnMethodDetail::setDescriptions(std::list <MoveLearnMethodDescription> descriptions)
+MoveLearnMethodDetail::setDescriptions(std::list<MoveLearnMethodDescription> descriptions)
 {
 	this->descriptions = descriptions;
 }
@@ -247,7 +247,7 @@ MoveLearnMethodDetail::getVersionGroups()
 }
 
 void
-MoveLearnMethodDetail::setVersionGroups(std::list <AbilityDetail_pokemon_inner_pokemon> version_groups)
+MoveLearnMethodDetail::setVersionGroups(std::list<AbilityDetail_pokemon_inner_pokemon> version_groups)
 {
 	this->version_groups = version_groups;
 }

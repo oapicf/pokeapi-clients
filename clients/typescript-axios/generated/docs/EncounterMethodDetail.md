@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **id** | **number** |  | [readonly] [default to undefined]
 **name** | **string** |  | [default to undefined]
 **order** | **number** |  | [optional] [default to undefined]
-**names** | [**Array&lt;EncounterMethodName&gt;**](EncounterMethodName.md) |  | [default to undefined]
+**names** | [**Array&lt;EncounterMethodName&gt;**](EncounterMethodName.md) |  | [readonly] [default to undefined]
 
 ## Example
 

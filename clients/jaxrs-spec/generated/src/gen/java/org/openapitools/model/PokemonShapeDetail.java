@@ -22,7 +22,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
 
 
 @JsonTypeName("PokemonShapeDetail")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2026-02-07T15:24:06.001755207Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2026-08-30T01:56:42.280002256Z[Etc/UTC]", comments = "Generator version: 7.24.0")
 public class PokemonShapeDetail   {
   private Integer id;
   private String name;
@@ -96,7 +96,7 @@ public class PokemonShapeDetail   {
   
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(required = true, value = "awesome_names")
-  @NotNull @Valid public List<@Valid PokemonShapeDetailAwesomeNamesInner> getAwesomeNames() {
+  @Valid public List<@Valid PokemonShapeDetailAwesomeNamesInner> getAwesomeNames() {
     return awesomeNames;
   }
 
@@ -131,7 +131,7 @@ public class PokemonShapeDetail   {
   
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(required = true, value = "names")
-  @NotNull @Valid public List<@Valid PokemonShapeDetailNamesInner> getNames() {
+  @Valid public List<@Valid PokemonShapeDetailNamesInner> getNames() {
     return names;
   }
 
@@ -166,7 +166,7 @@ public class PokemonShapeDetail   {
   
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(required = true, value = "pokemon_species")
-  @NotNull @Valid public List<@Valid PokemonSpeciesSummary> getPokemonSpecies() {
+  @Valid public List<@Valid PokemonSpeciesSummary> getPokemonSpecies() {
     return pokemonSpecies;
   }
 
@@ -232,12 +232,8 @@ public class PokemonShapeDetail   {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 
 }
-

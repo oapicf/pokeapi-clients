@@ -32,7 +32,7 @@ class  ItemDetail_sprites
 {
 public:
     ItemDetail_sprites();
-    virtual ~ItemDetail_sprites() = default;
+    virtual ~ItemDetail_sprites();
 
 
     /// <summary>

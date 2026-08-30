@@ -58,7 +58,7 @@ import io.swagger.v3.oas.annotations.media.Schema;
   ItemDetail.JSON_PROPERTY_MACHINES
 })
 @JsonTypeName("ItemDetail")
-@Generated(value="org.openapitools.codegen.languages.JavaMicronautServerCodegen", date="2026-02-07T15:23:03.167972722Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@Generated(value="org.openapitools.codegen.languages.JavaMicronautServerCodegen", date="2026-08-30T01:55:54.631003115Z[Etc/UTC]", comments = "Generator version: 7.24.0")
 @Introspected
 public class ItemDetail {
     public static final String JSON_PROPERTY_ID = "id";
@@ -228,32 +228,16 @@ public class ItemDetail {
         this.flingEffect = flingEffect;
     }
 
-    public ItemDetail attributes(List<@Valid AbilityDetailPokemonInnerPokemon> attributes) {
-        this.attributes = attributes;
-        return this;
-    }
-
-    public ItemDetail addAttributesItem(AbilityDetailPokemonInnerPokemon attributesItem) {
-        this.attributes.add(attributesItem);
-        return this;
-    }
-
     /**
      * Get attributes
      * @return attributes
      */
     @NotNull
-    @Schema(name = "attributes", requiredMode = Schema.RequiredMode.REQUIRED)
+    @Schema(name = "attributes", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
     @JsonProperty(JSON_PROPERTY_ATTRIBUTES)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public List<@Valid AbilityDetailPokemonInnerPokemon> getAttributes() {
         return attributes;
-    }
-
-    @JsonProperty(JSON_PROPERTY_ATTRIBUTES)
-    @JsonInclude(value = JsonInclude.Include.ALWAYS)
-    public void setAttributes(List<@Valid AbilityDetailPokemonInnerPokemon> attributes) {
-        this.attributes = attributes;
     }
 
     public ItemDetail category(ItemCategorySummary category) {
@@ -280,42 +264,16 @@ public class ItemDetail {
         this.category = category;
     }
 
-    public ItemDetail effectEntries(List<@Valid ItemEffectText> effectEntries) {
-        this.effectEntries = effectEntries;
-        return this;
-    }
-
-    public ItemDetail addEffectEntriesItem(ItemEffectText effectEntriesItem) {
-        this.effectEntries.add(effectEntriesItem);
-        return this;
-    }
-
     /**
      * Get effectEntries
      * @return effectEntries
      */
     @NotNull
-    @Schema(name = "effect_entries", requiredMode = Schema.RequiredMode.REQUIRED)
+    @Schema(name = "effect_entries", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
     @JsonProperty(JSON_PROPERTY_EFFECT_ENTRIES)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public List<@Valid ItemEffectText> getEffectEntries() {
         return effectEntries;
-    }
-
-    @JsonProperty(JSON_PROPERTY_EFFECT_ENTRIES)
-    @JsonInclude(value = JsonInclude.Include.ALWAYS)
-    public void setEffectEntries(List<@Valid ItemEffectText> effectEntries) {
-        this.effectEntries = effectEntries;
-    }
-
-    public ItemDetail flavorTextEntries(List<@Valid ItemFlavorText> flavorTextEntries) {
-        this.flavorTextEntries = flavorTextEntries;
-        return this;
-    }
-
-    public ItemDetail addFlavorTextEntriesItem(ItemFlavorText flavorTextEntriesItem) {
-        this.flavorTextEntries.add(flavorTextEntriesItem);
-        return this;
     }
 
     /**
@@ -323,27 +281,11 @@ public class ItemDetail {
      * @return flavorTextEntries
      */
     @NotNull
-    @Schema(name = "flavor_text_entries", requiredMode = Schema.RequiredMode.REQUIRED)
+    @Schema(name = "flavor_text_entries", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
     @JsonProperty(JSON_PROPERTY_FLAVOR_TEXT_ENTRIES)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public List<@Valid ItemFlavorText> getFlavorTextEntries() {
         return flavorTextEntries;
-    }
-
-    @JsonProperty(JSON_PROPERTY_FLAVOR_TEXT_ENTRIES)
-    @JsonInclude(value = JsonInclude.Include.ALWAYS)
-    public void setFlavorTextEntries(List<@Valid ItemFlavorText> flavorTextEntries) {
-        this.flavorTextEntries = flavorTextEntries;
-    }
-
-    public ItemDetail gameIndices(List<@Valid ItemGameIndex> gameIndices) {
-        this.gameIndices = gameIndices;
-        return this;
-    }
-
-    public ItemDetail addGameIndicesItem(ItemGameIndex gameIndicesItem) {
-        this.gameIndices.add(gameIndicesItem);
-        return this;
     }
 
     /**
@@ -351,27 +293,11 @@ public class ItemDetail {
      * @return gameIndices
      */
     @NotNull
-    @Schema(name = "game_indices", requiredMode = Schema.RequiredMode.REQUIRED)
+    @Schema(name = "game_indices", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
     @JsonProperty(JSON_PROPERTY_GAME_INDICES)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public List<@Valid ItemGameIndex> getGameIndices() {
         return gameIndices;
-    }
-
-    @JsonProperty(JSON_PROPERTY_GAME_INDICES)
-    @JsonInclude(value = JsonInclude.Include.ALWAYS)
-    public void setGameIndices(List<@Valid ItemGameIndex> gameIndices) {
-        this.gameIndices = gameIndices;
-    }
-
-    public ItemDetail names(List<@Valid ItemName> names) {
-        this.names = names;
-        return this;
-    }
-
-    public ItemDetail addNamesItem(ItemName namesItem) {
-        this.names.add(namesItem);
-        return this;
     }
 
     /**
@@ -379,27 +305,11 @@ public class ItemDetail {
      * @return names
      */
     @NotNull
-    @Schema(name = "names", requiredMode = Schema.RequiredMode.REQUIRED)
+    @Schema(name = "names", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
     @JsonProperty(JSON_PROPERTY_NAMES)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public List<@Valid ItemName> getNames() {
         return names;
-    }
-
-    @JsonProperty(JSON_PROPERTY_NAMES)
-    @JsonInclude(value = JsonInclude.Include.ALWAYS)
-    public void setNames(List<@Valid ItemName> names) {
-        this.names = names;
-    }
-
-    public ItemDetail heldByPokemon(List<@Valid ItemDetailHeldByPokemonInner> heldByPokemon) {
-        this.heldByPokemon = heldByPokemon;
-        return this;
-    }
-
-    public ItemDetail addHeldByPokemonItem(ItemDetailHeldByPokemonInner heldByPokemonItem) {
-        this.heldByPokemon.add(heldByPokemonItem);
-        return this;
     }
 
     /**
@@ -407,17 +317,11 @@ public class ItemDetail {
      * @return heldByPokemon
      */
     @NotNull
-    @Schema(name = "held_by_pokemon", requiredMode = Schema.RequiredMode.REQUIRED)
+    @Schema(name = "held_by_pokemon", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
     @JsonProperty(JSON_PROPERTY_HELD_BY_POKEMON)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public List<@Valid ItemDetailHeldByPokemonInner> getHeldByPokemon() {
         return heldByPokemon;
-    }
-
-    @JsonProperty(JSON_PROPERTY_HELD_BY_POKEMON)
-    @JsonInclude(value = JsonInclude.Include.ALWAYS)
-    public void setHeldByPokemon(List<@Valid ItemDetailHeldByPokemonInner> heldByPokemon) {
-        this.heldByPokemon = heldByPokemon;
     }
 
     public ItemDetail sprites(ItemDetailSprites sprites) {
@@ -468,32 +372,16 @@ public class ItemDetail {
         this.babyTriggerFor = babyTriggerFor;
     }
 
-    public ItemDetail machines(List<@Valid ItemDetailMachinesInner> machines) {
-        this.machines = machines;
-        return this;
-    }
-
-    public ItemDetail addMachinesItem(ItemDetailMachinesInner machinesItem) {
-        this.machines.add(machinesItem);
-        return this;
-    }
-
     /**
      * Get machines
      * @return machines
      */
     @NotNull
-    @Schema(name = "machines", requiredMode = Schema.RequiredMode.REQUIRED)
+    @Schema(name = "machines", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
     @JsonProperty(JSON_PROPERTY_MACHINES)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public List<@Valid ItemDetailMachinesInner> getMachines() {
         return machines;
-    }
-
-    @JsonProperty(JSON_PROPERTY_MACHINES)
-    @JsonInclude(value = JsonInclude.Include.ALWAYS)
-    public void setMachines(List<@Valid ItemDetailMachinesInner> machines) {
-        this.machines = machines;
     }
 
     @Override
@@ -555,10 +443,7 @@ public class ItemDetail {
      * (except the first line).
      */
     private String toIndentedString(Object o) {
-        if (o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
+        return o == null ? "null" : o.toString().replace("\n", "\n    ");
     }
 
 }

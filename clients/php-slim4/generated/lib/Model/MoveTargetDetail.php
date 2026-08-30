@@ -58,21 +58,27 @@ class MoveTargetDetail extends BaseModel
     },
     "descriptions" : {
       "type" : "array",
+      "readOnly" : true,
       "items" : {
         "$ref" : "#/components/schemas/MoveTargetDescription"
-      }
+      },
+      "default" : null
     },
     "moves" : {
       "type" : "array",
+      "readOnly" : true,
       "items" : {
         "$ref" : "#/components/schemas/MoveSummary"
-      }
+      },
+      "default" : null
     },
     "names" : {
       "type" : "array",
+      "readOnly" : true,
       "items" : {
         "$ref" : "#/components/schemas/MoveTargetName"
-      }
+      },
+      "default" : null
     }
   }
 }

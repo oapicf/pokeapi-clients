@@ -18,7 +18,7 @@ import type { AxiosPromise, AxiosInstance, RawAxiosRequestConfig } from 'axios';
 import globalAxios from 'axios';
 // Some imports not used depending on template conditions
 // @ts-ignore
-import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction } from './common';
+import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction, replaceWithSerializableTypeIfNeeded } from './common';
 import type { RequestArgs } from './base';
 // @ts-ignore
 import { BASE_PATH, COLLECTION_FORMATS, BaseAPI, RequiredError, operationServerMap } from './base';
@@ -277,8 +277,8 @@ export interface EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner {
     'gender': EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender;
     'held_item': EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender;
     'item': EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender;
-    'known_move': object;
-    'known_move_type': object;
+    'known_move': EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender;
+    'known_move_type': EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender;
     'location': EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender;
     'min_affection': number;
     'min_beauty': number;
@@ -1582,7 +1582,7 @@ export const BerriesApiAxiosParamCreator = function (configuration?: Configurati
             // verify required parameter 'id' is not null or undefined
             assertParamExists('berryFirmnessRetrieve', 'id', id)
             const localVarPath = `/api/v2/berry-firmness/{id}/`
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+                .replace('{id}', encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -1673,7 +1673,7 @@ export const BerriesApiAxiosParamCreator = function (configuration?: Configurati
             // verify required parameter 'id' is not null or undefined
             assertParamExists('berryFlavorRetrieve', 'id', id)
             const localVarPath = `/api/v2/berry-flavor/{id}/`
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+                .replace('{id}', encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -1764,7 +1764,7 @@ export const BerriesApiAxiosParamCreator = function (configuration?: Configurati
             // verify required parameter 'id' is not null or undefined
             assertParamExists('berryRetrieve', 'id', id)
             const localVarPath = `/api/v2/berry/{id}/`
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+                .replace('{id}', encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -2110,7 +2110,7 @@ export const ContestsApiAxiosParamCreator = function (configuration?: Configurat
             // verify required parameter 'id' is not null or undefined
             assertParamExists('contestEffectRetrieve', 'id', id)
             const localVarPath = `/api/v2/contest-effect/{id}/`
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+                .replace('{id}', encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -2201,7 +2201,7 @@ export const ContestsApiAxiosParamCreator = function (configuration?: Configurat
             // verify required parameter 'id' is not null or undefined
             assertParamExists('contestTypeRetrieve', 'id', id)
             const localVarPath = `/api/v2/contest-type/{id}/`
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+                .replace('{id}', encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -2292,7 +2292,7 @@ export const ContestsApiAxiosParamCreator = function (configuration?: Configurat
             // verify required parameter 'id' is not null or undefined
             assertParamExists('superContestEffectRetrieve', 'id', id)
             const localVarPath = `/api/v2/super-contest-effect/{id}/`
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+                .replace('{id}', encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -2638,7 +2638,7 @@ export const EncountersApiAxiosParamCreator = function (configuration?: Configur
             // verify required parameter 'id' is not null or undefined
             assertParamExists('encounterConditionRetrieve', 'id', id)
             const localVarPath = `/api/v2/encounter-condition/{id}/`
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+                .replace('{id}', encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -2729,7 +2729,7 @@ export const EncountersApiAxiosParamCreator = function (configuration?: Configur
             // verify required parameter 'id' is not null or undefined
             assertParamExists('encounterConditionValueRetrieve', 'id', id)
             const localVarPath = `/api/v2/encounter-condition-value/{id}/`
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+                .replace('{id}', encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -2820,7 +2820,7 @@ export const EncountersApiAxiosParamCreator = function (configuration?: Configur
             // verify required parameter 'id' is not null or undefined
             assertParamExists('encounterMethodRetrieve', 'id', id)
             const localVarPath = `/api/v2/encounter-method/{id}/`
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+                .replace('{id}', encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -3166,7 +3166,7 @@ export const EvolutionApiAxiosParamCreator = function (configuration?: Configura
             // verify required parameter 'id' is not null or undefined
             assertParamExists('evolutionChainRetrieve', 'id', id)
             const localVarPath = `/api/v2/evolution-chain/{id}/`
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+                .replace('{id}', encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -3257,7 +3257,7 @@ export const EvolutionApiAxiosParamCreator = function (configuration?: Configura
             // verify required parameter 'id' is not null or undefined
             assertParamExists('evolutionTriggerRetrieve', 'id', id)
             const localVarPath = `/api/v2/evolution-trigger/{id}/`
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+                .replace('{id}', encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -3529,7 +3529,7 @@ export const GamesApiAxiosParamCreator = function (configuration?: Configuration
             // verify required parameter 'id' is not null or undefined
             assertParamExists('generationRetrieve', 'id', id)
             const localVarPath = `/api/v2/generation/{id}/`
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+                .replace('{id}', encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -3620,7 +3620,7 @@ export const GamesApiAxiosParamCreator = function (configuration?: Configuration
             // verify required parameter 'id' is not null or undefined
             assertParamExists('pokedexRetrieve', 'id', id)
             const localVarPath = `/api/v2/pokedex/{id}/`
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+                .replace('{id}', encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -3711,7 +3711,7 @@ export const GamesApiAxiosParamCreator = function (configuration?: Configuration
             // verify required parameter 'id' is not null or undefined
             assertParamExists('versionGroupRetrieve', 'id', id)
             const localVarPath = `/api/v2/version-group/{id}/`
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+                .replace('{id}', encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -3802,7 +3802,7 @@ export const GamesApiAxiosParamCreator = function (configuration?: Configuration
             // verify required parameter 'id' is not null or undefined
             assertParamExists('versionRetrieve', 'id', id)
             const localVarPath = `/api/v2/version/{id}/`
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+                .replace('{id}', encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -4222,7 +4222,7 @@ export const ItemsApiAxiosParamCreator = function (configuration?: Configuration
             // verify required parameter 'id' is not null or undefined
             assertParamExists('itemAttributeRetrieve', 'id', id)
             const localVarPath = `/api/v2/item-attribute/{id}/`
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+                .replace('{id}', encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -4313,7 +4313,7 @@ export const ItemsApiAxiosParamCreator = function (configuration?: Configuration
             // verify required parameter 'id' is not null or undefined
             assertParamExists('itemCategoryRetrieve', 'id', id)
             const localVarPath = `/api/v2/item-category/{id}/`
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+                .replace('{id}', encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -4404,7 +4404,7 @@ export const ItemsApiAxiosParamCreator = function (configuration?: Configuration
             // verify required parameter 'id' is not null or undefined
             assertParamExists('itemFlingEffectRetrieve', 'id', id)
             const localVarPath = `/api/v2/item-fling-effect/{id}/`
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+                .replace('{id}', encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -4546,7 +4546,7 @@ export const ItemsApiAxiosParamCreator = function (configuration?: Configuration
             // verify required parameter 'id' is not null or undefined
             assertParamExists('itemPocketRetrieve', 'id', id)
             const localVarPath = `/api/v2/item-pocket/{id}/`
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+                .replace('{id}', encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -4586,7 +4586,7 @@ export const ItemsApiAxiosParamCreator = function (configuration?: Configuration
             // verify required parameter 'id' is not null or undefined
             assertParamExists('itemRetrieve', 'id', id)
             const localVarPath = `/api/v2/item/{id}/`
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+                .replace('{id}', encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -5075,7 +5075,7 @@ export const LocationApiAxiosParamCreator = function (configuration?: Configurat
             // verify required parameter 'id' is not null or undefined
             assertParamExists('locationAreaRetrieve', 'id', id)
             const localVarPath = `/api/v2/location-area/{id}/`
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+                .replace('{id}', encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -5166,7 +5166,7 @@ export const LocationApiAxiosParamCreator = function (configuration?: Configurat
             // verify required parameter 'id' is not null or undefined
             assertParamExists('locationRetrieve', 'id', id)
             const localVarPath = `/api/v2/location/{id}/`
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+                .replace('{id}', encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -5257,7 +5257,7 @@ export const LocationApiAxiosParamCreator = function (configuration?: Configurat
             // verify required parameter 'id' is not null or undefined
             assertParamExists('palParkAreaRetrieve', 'id', id)
             const localVarPath = `/api/v2/pal-park-area/{id}/`
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+                .replace('{id}', encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -5348,7 +5348,7 @@ export const LocationApiAxiosParamCreator = function (configuration?: Configurat
             // verify required parameter 'id' is not null or undefined
             assertParamExists('regionRetrieve', 'id', id)
             const localVarPath = `/api/v2/region/{id}/`
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+                .replace('{id}', encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -5765,7 +5765,7 @@ export const MachinesApiAxiosParamCreator = function (configuration?: Configurat
             // verify required parameter 'id' is not null or undefined
             assertParamExists('machineRetrieve', 'id', id)
             const localVarPath = `/api/v2/machine/{id}/`
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+                .replace('{id}', encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -5963,7 +5963,7 @@ export const MovesApiAxiosParamCreator = function (configuration?: Configuration
             // verify required parameter 'id' is not null or undefined
             assertParamExists('moveAilmentRetrieve', 'id', id)
             const localVarPath = `/api/v2/move-ailment/{id}/`
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+                .replace('{id}', encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -6054,7 +6054,7 @@ export const MovesApiAxiosParamCreator = function (configuration?: Configuration
             // verify required parameter 'id' is not null or undefined
             assertParamExists('moveBattleStyleRetrieve', 'id', id)
             const localVarPath = `/api/v2/move-battle-style/{id}/`
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+                .replace('{id}', encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -6145,7 +6145,7 @@ export const MovesApiAxiosParamCreator = function (configuration?: Configuration
             // verify required parameter 'id' is not null or undefined
             assertParamExists('moveCategoryRetrieve', 'id', id)
             const localVarPath = `/api/v2/move-category/{id}/`
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+                .replace('{id}', encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -6236,7 +6236,7 @@ export const MovesApiAxiosParamCreator = function (configuration?: Configuration
             // verify required parameter 'id' is not null or undefined
             assertParamExists('moveLearnMethodRetrieve', 'id', id)
             const localVarPath = `/api/v2/move-learn-method/{id}/`
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+                .replace('{id}', encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -6327,7 +6327,7 @@ export const MovesApiAxiosParamCreator = function (configuration?: Configuration
             // verify required parameter 'id' is not null or undefined
             assertParamExists('moveRetrieve', 'id', id)
             const localVarPath = `/api/v2/move/{id}/`
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+                .replace('{id}', encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -6418,7 +6418,7 @@ export const MovesApiAxiosParamCreator = function (configuration?: Configuration
             // verify required parameter 'id' is not null or undefined
             assertParamExists('moveTargetRetrieve', 'id', id)
             const localVarPath = `/api/v2/move-target/{id}/`
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+                .replace('{id}', encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -6984,7 +6984,7 @@ export const PokemonApiAxiosParamCreator = function (configuration?: Configurati
             // verify required parameter 'id' is not null or undefined
             assertParamExists('abilityRetrieve', 'id', id)
             const localVarPath = `/api/v2/ability/{id}/`
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+                .replace('{id}', encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -7075,7 +7075,7 @@ export const PokemonApiAxiosParamCreator = function (configuration?: Configurati
             // verify required parameter 'id' is not null or undefined
             assertParamExists('characteristicRetrieve', 'id', id)
             const localVarPath = `/api/v2/characteristic/{id}/`
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+                .replace('{id}', encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -7166,7 +7166,7 @@ export const PokemonApiAxiosParamCreator = function (configuration?: Configurati
             // verify required parameter 'id' is not null or undefined
             assertParamExists('eggGroupRetrieve', 'id', id)
             const localVarPath = `/api/v2/egg-group/{id}/`
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+                .replace('{id}', encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -7257,7 +7257,7 @@ export const PokemonApiAxiosParamCreator = function (configuration?: Configurati
             // verify required parameter 'id' is not null or undefined
             assertParamExists('genderRetrieve', 'id', id)
             const localVarPath = `/api/v2/gender/{id}/`
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+                .replace('{id}', encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -7348,7 +7348,7 @@ export const PokemonApiAxiosParamCreator = function (configuration?: Configurati
             // verify required parameter 'id' is not null or undefined
             assertParamExists('growthRateRetrieve', 'id', id)
             const localVarPath = `/api/v2/growth-rate/{id}/`
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+                .replace('{id}', encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -7439,7 +7439,7 @@ export const PokemonApiAxiosParamCreator = function (configuration?: Configurati
             // verify required parameter 'id' is not null or undefined
             assertParamExists('moveDamageClassRetrieve', 'id', id)
             const localVarPath = `/api/v2/move-damage-class/{id}/`
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+                .replace('{id}', encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -7530,7 +7530,7 @@ export const PokemonApiAxiosParamCreator = function (configuration?: Configurati
             // verify required parameter 'id' is not null or undefined
             assertParamExists('natureRetrieve', 'id', id)
             const localVarPath = `/api/v2/nature/{id}/`
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+                .replace('{id}', encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -7621,7 +7621,7 @@ export const PokemonApiAxiosParamCreator = function (configuration?: Configurati
             // verify required parameter 'id' is not null or undefined
             assertParamExists('pokeathlonStatRetrieve', 'id', id)
             const localVarPath = `/api/v2/pokeathlon-stat/{id}/`
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+                .replace('{id}', encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -7712,7 +7712,7 @@ export const PokemonApiAxiosParamCreator = function (configuration?: Configurati
             // verify required parameter 'id' is not null or undefined
             assertParamExists('pokemonColorRetrieve', 'id', id)
             const localVarPath = `/api/v2/pokemon-color/{id}/`
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+                .replace('{id}', encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -7803,7 +7803,7 @@ export const PokemonApiAxiosParamCreator = function (configuration?: Configurati
             // verify required parameter 'id' is not null or undefined
             assertParamExists('pokemonFormRetrieve', 'id', id)
             const localVarPath = `/api/v2/pokemon-form/{id}/`
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+                .replace('{id}', encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -7894,7 +7894,7 @@ export const PokemonApiAxiosParamCreator = function (configuration?: Configurati
             // verify required parameter 'id' is not null or undefined
             assertParamExists('pokemonHabitatRetrieve', 'id', id)
             const localVarPath = `/api/v2/pokemon-habitat/{id}/`
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+                .replace('{id}', encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -7985,7 +7985,7 @@ export const PokemonApiAxiosParamCreator = function (configuration?: Configurati
             // verify required parameter 'id' is not null or undefined
             assertParamExists('pokemonRetrieve', 'id', id)
             const localVarPath = `/api/v2/pokemon/{id}/`
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+                .replace('{id}', encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -8076,7 +8076,7 @@ export const PokemonApiAxiosParamCreator = function (configuration?: Configurati
             // verify required parameter 'id' is not null or undefined
             assertParamExists('pokemonShapeRetrieve', 'id', id)
             const localVarPath = `/api/v2/pokemon-shape/{id}/`
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+                .replace('{id}', encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -8167,7 +8167,7 @@ export const PokemonApiAxiosParamCreator = function (configuration?: Configurati
             // verify required parameter 'id' is not null or undefined
             assertParamExists('pokemonSpeciesRetrieve', 'id', id)
             const localVarPath = `/api/v2/pokemon-species/{id}/`
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+                .replace('{id}', encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -8258,7 +8258,7 @@ export const PokemonApiAxiosParamCreator = function (configuration?: Configurati
             // verify required parameter 'id' is not null or undefined
             assertParamExists('statRetrieve', 'id', id)
             const localVarPath = `/api/v2/stat/{id}/`
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+                .replace('{id}', encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -8349,7 +8349,7 @@ export const PokemonApiAxiosParamCreator = function (configuration?: Configurati
             // verify required parameter 'id' is not null or undefined
             assertParamExists('typeRetrieve', 'id', id)
             const localVarPath = `/api/v2/type/{id}/`
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+                .replace('{id}', encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -9651,7 +9651,7 @@ export const UtilityApiAxiosParamCreator = function (configuration?: Configurati
             // verify required parameter 'id' is not null or undefined
             assertParamExists('languageRetrieve', 'id', id)
             const localVarPath = `/api/v2/language/{id}/`
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+                .replace('{id}', encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;

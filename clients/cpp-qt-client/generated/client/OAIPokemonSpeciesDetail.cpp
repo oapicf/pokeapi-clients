@@ -21,7 +21,7 @@
 
 namespace OpenAPI {
 
-OAIPokemonSpeciesDetail::OAIPokemonSpeciesDetail(QString json) {
+OAIPokemonSpeciesDetail::OAIPokemonSpeciesDetail(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -116,7 +116,7 @@ void OAIPokemonSpeciesDetail::initializeModel() {
     m_varieties_isValid = false;
 }
 
-void OAIPokemonSpeciesDetail::fromJson(QString jsonString) {
+void OAIPokemonSpeciesDetail::fromJson(const QString &jsonString) {
     QByteArray array(jsonString.toStdString().c_str());
     QJsonDocument doc = QJsonDocument::fromJson(array);
     QJsonObject jsonObject = doc.object();

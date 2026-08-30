@@ -119,7 +119,7 @@ StatDetail_affecting_natures::getIncrease()
 }
 
 void
-StatDetail_affecting_natures::setIncrease(std::list <AbilityDetail_pokemon_inner_pokemon> increase)
+StatDetail_affecting_natures::setIncrease(std::list<AbilityDetail_pokemon_inner_pokemon> increase)
 {
 	this->increase = increase;
 }
@@ -131,7 +131,7 @@ StatDetail_affecting_natures::getDecrease()
 }
 
 void
-StatDetail_affecting_natures::setDecrease(std::list <AbilityDetail_pokemon_inner_pokemon> decrease)
+StatDetail_affecting_natures::setDecrease(std::list<AbilityDetail_pokemon_inner_pokemon> decrease)
 {
 	this->decrease = decrease;
 }

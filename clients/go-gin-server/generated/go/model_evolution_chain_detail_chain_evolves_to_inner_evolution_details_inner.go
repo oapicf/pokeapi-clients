@@ -18,9 +18,9 @@ type EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner struct {
 
 	Item EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender `json:"item"`
 
-	KnownMove map[string]interface{} `json:"known_move"`
+	KnownMove EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender `json:"known_move"`
 
-	KnownMoveType map[string]interface{} `json:"known_move_type"`
+	KnownMoveType EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender `json:"known_move_type"`
 
 	Location EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender `json:"location"`
 

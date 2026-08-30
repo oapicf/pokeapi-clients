@@ -55,13 +55,13 @@ class OAIPokemonDetail_past_types_inner;
 class OAIPokemonDetail : public OAIObject {
 public:
     OAIPokemonDetail();
-    OAIPokemonDetail(QString json);
+    OAIPokemonDetail(const QString &json);
     ~OAIPokemonDetail() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     qint32 getId() const;
     void setId(const qint32 &id);
@@ -138,8 +138,8 @@ public:
     bool is_species_Set() const;
     bool is_species_Valid() const;
 
-    OAIPokemonDetail_sprites getSprites() const;
-    void setSprites(const OAIPokemonDetail_sprites &sprites);
+    OAIPokemonDetail_sprites<QString, QString> getSprites() const;
+    void setSprites(const OAIPokemonDetail_sprites<QString, QString> &sprites);
     bool is_sprites_Set() const;
     bool is_sprites_Valid() const;
 
@@ -229,7 +229,7 @@ private:
     bool m_species_isSet;
     bool m_species_isValid;
 
-    OAIPokemonDetail_sprites m_sprites;
+    OAIPokemonDetail_sprites<QString, QString> m_sprites;
     bool m_sprites_isSet;
     bool m_sprites_isValid;
 

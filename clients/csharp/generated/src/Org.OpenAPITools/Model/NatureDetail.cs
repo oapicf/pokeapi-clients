@@ -102,25 +102,25 @@ namespace Org.OpenAPITools.Model
         /// Gets or Sets Berries
         /// </summary>
         [JsonPropertyName("berries")]
-        public List<BerrySummary> Berries { get; set; }
+        public List<BerrySummary> Berries { get; }
 
         /// <summary>
         /// Gets or Sets PokeathlonStatChanges
         /// </summary>
         [JsonPropertyName("pokeathlon_stat_changes")]
-        public List<NatureDetailPokeathlonStatChangesInner> PokeathlonStatChanges { get; set; }
+        public List<NatureDetailPokeathlonStatChangesInner> PokeathlonStatChanges { get; }
 
         /// <summary>
         /// Gets or Sets MoveBattleStylePreferences
         /// </summary>
         [JsonPropertyName("move_battle_style_preferences")]
-        public List<NatureBattleStylePreference> MoveBattleStylePreferences { get; set; }
+        public List<NatureBattleStylePreference> MoveBattleStylePreferences { get; }
 
         /// <summary>
         /// Gets or Sets Names
         /// </summary>
         [JsonPropertyName("names")]
-        public List<NatureName> Names { get; set; }
+        public List<NatureName> Names { get; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -164,8 +164,18 @@ namespace Org.OpenAPITools.Model
     /// <summary>
     /// A Json converter for type <see cref="NatureDetail" />
     /// </summary>
-    public class NatureDetailJsonConverter : JsonConverter<NatureDetail>
+    public partial class NatureDetailJsonConverter : JsonConverter<NatureDetail>
     {
+        partial void OnCreated();
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="NatureDetailJsonConverter" /> class.
+        /// </summary>
+        public NatureDetailJsonConverter()
+        {
+            OnCreated();
+        }
+
         /// <summary>
         /// Deserializes json to <see cref="NatureDetail" />
         /// </summary>

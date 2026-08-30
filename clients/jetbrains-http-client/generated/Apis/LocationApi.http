@@ -1,0 +1,57 @@
+## LocationApi
+
+### List location areas
+## List location areas
+GET https://pokeapi.co/api/v2/location-area/?limit={{limit}}&offset={{offset}}
+Accept: application/json
+Authorization: Basic: {{username-password}}
+Cookie: sessionid={{cookieKey}}
+
+### Get location area
+## Get location area
+GET https://pokeapi.co/api/v2/location-area/{{id}}/
+Accept: application/json
+Authorization: Basic: {{username-password}}
+Cookie: sessionid={{cookieKey}}
+
+### List locations
+## List locations
+GET https://pokeapi.co/api/v2/location/?limit={{limit}}&offset={{offset}}&q={{q}}
+Accept: application/json
+Authorization: Basic: {{username-password}}
+Cookie: sessionid={{cookieKey}}
+
+### Get location
+## Get location
+GET https://pokeapi.co/api/v2/location/{{id}}/
+Accept: application/json
+Authorization: Basic: {{username-password}}
+Cookie: sessionid={{cookieKey}}
+
+### List pal park areas
+## List pal park areas
+GET https://pokeapi.co/api/v2/pal-park-area/?limit={{limit}}&offset={{offset}}&q={{q}}
+Accept: application/json
+Authorization: Basic: {{username-password}}
+Cookie: sessionid={{cookieKey}}
+
+### Get pal park area
+## Get pal park area
+GET https://pokeapi.co/api/v2/pal-park-area/{{id}}/
+Accept: application/json
+Authorization: Basic: {{username-password}}
+Cookie: sessionid={{cookieKey}}
+
+### List regions
+## List regions
+GET https://pokeapi.co/api/v2/region/?limit={{limit}}&offset={{offset}}&q={{q}}
+Accept: application/json
+Authorization: Basic: {{username-password}}
+Cookie: sessionid={{cookieKey}}
+
+### Get region
+## Get region
+GET https://pokeapi.co/api/v2/region/{{id}}/
+Accept: application/json
+Authorization: Basic: {{username-password}}
+Cookie: sessionid={{cookieKey}}

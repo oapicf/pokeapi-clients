@@ -47,7 +47,7 @@ class EvolutionChainDetailChain
      * @var []|null
      * @SerializedName("evolution_details")
      * @Type("array<AnyType>")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Valid]
     #[Assert\All([
@@ -59,7 +59,7 @@ class EvolutionChainDetailChain
      * @var EvolutionChainDetailChainEvolvesToInner[]|null
      * @SerializedName("evolves_to")
      * @Type("array<OpenAPI\Server\Model\EvolutionChainDetailChainEvolvesToInner>")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Valid]
     #[Assert\All([
@@ -71,7 +71,7 @@ class EvolutionChainDetailChain
      * @var bool|null
      * @SerializedName("is_baby")
      * @Type("bool")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Type("bool")]
     protected ?bool $isBaby = null;
@@ -80,7 +80,7 @@ class EvolutionChainDetailChain
      * @var AbilityDetailPokemonInnerPokemon|null
      * @SerializedName("species")
      * @Type("OpenAPI\Server\Model\AbilityDetailPokemonInnerPokemon")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Valid]
     #[Assert\Type("OpenAPI\Server\Model\AbilityDetailPokemonInnerPokemon")]
@@ -111,12 +111,12 @@ class EvolutionChainDetailChain
     }
 
     /**
-    * Sets evolutionDetails.
-    *
-    * @param []|null $evolutionDetails
-    *
-    * @return $this
-    */
+     * Sets evolutionDetails.
+     *
+     * @param []|null $evolutionDetails
+     *
+     * @return $this
+     */
     public function setEvolutionDetails(?array $evolutionDetails): self
     {
         $this->evolutionDetails = $evolutionDetails;
@@ -138,12 +138,12 @@ class EvolutionChainDetailChain
     }
 
     /**
-    * Sets evolvesTo.
-    *
-    * @param EvolutionChainDetailChainEvolvesToInner[]|null $evolvesTo
-    *
-    * @return $this
-    */
+     * Sets evolvesTo.
+     *
+     * @param EvolutionChainDetailChainEvolvesToInner[]|null $evolvesTo
+     *
+     * @return $this
+     */
     public function setEvolvesTo(?array $evolvesTo): self
     {
         $this->evolvesTo = $evolvesTo;
@@ -165,12 +165,12 @@ class EvolutionChainDetailChain
     }
 
     /**
-    * Sets isBaby.
-    *
-    * @param bool|null $isBaby
-    *
-    * @return $this
-    */
+     * Sets isBaby.
+     *
+     * @param bool|null $isBaby
+     *
+     * @return $this
+     */
     public function setIsBaby(?bool $isBaby): self
     {
         $this->isBaby = $isBaby;
@@ -192,12 +192,12 @@ class EvolutionChainDetailChain
     }
 
     /**
-    * Sets species.
-    *
-    * @param AbilityDetailPokemonInnerPokemon|null $species
-    *
-    * @return $this
-    */
+     * Sets species.
+     *
+     * @param AbilityDetailPokemonInnerPokemon|null $species
+     *
+     * @return $this
+     */
     public function setSpecies(?AbilityDetailPokemonInnerPokemon $species): self
     {
         $this->species = $species;

@@ -58,9 +58,9 @@ function Initialize-LocationAreaDetailPokemonEncountersInnerVersionDetailsInner 
 
 
         $PSO = [PSCustomObject]@{
-            "version" = ${Version}
-            "max_chance" = ${MaxChance}
-            "encounter_details" = ${EncounterDetails}
+            'version' = ${Version}
+            'max_chance' = ${MaxChance}
+            'encounter_details' = ${EncounterDetails}
         }
 
 
@@ -98,7 +98,7 @@ function ConvertFrom-JsonToLocationAreaDetailPokemonEncountersInnerVersionDetail
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in LocationAreaDetailPokemonEncountersInnerVersionDetailsInner
-        $AllProperties = ("version", "max_chance", "encounter_details")
+        $AllProperties = ('version', 'max_chance', 'encounter_details')
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -109,28 +109,28 @@ function ConvertFrom-JsonToLocationAreaDetailPokemonEncountersInnerVersionDetail
             throw "Error! Empty JSON cannot be serialized due to the required property 'version' missing."
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "version"))) {
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'version'))) {
             throw "Error! JSON cannot be serialized due to the required property 'version' missing."
         } else {
-            $Version = $JsonParameters.PSobject.Properties["version"].value
+            $Version = $JsonParameters.PSobject.Properties['version'].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "max_chance"))) {
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'max_chance'))) {
             throw "Error! JSON cannot be serialized due to the required property 'max_chance' missing."
         } else {
-            $MaxChance = $JsonParameters.PSobject.Properties["max_chance"].value
+            $MaxChance = $JsonParameters.PSobject.Properties['max_chance'].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "encounter_details"))) {
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'encounter_details'))) {
             throw "Error! JSON cannot be serialized due to the required property 'encounter_details' missing."
         } else {
-            $EncounterDetails = $JsonParameters.PSobject.Properties["encounter_details"].value
+            $EncounterDetails = $JsonParameters.PSobject.Properties['encounter_details'].value
         }
 
         $PSO = [PSCustomObject]@{
-            "version" = ${Version}
-            "max_chance" = ${MaxChance}
-            "encounter_details" = ${EncounterDetails}
+            'version' = ${Version}
+            'max_chance' = ${MaxChance}
+            'encounter_details' = ${EncounterDetails}
         }
 
         return $PSO

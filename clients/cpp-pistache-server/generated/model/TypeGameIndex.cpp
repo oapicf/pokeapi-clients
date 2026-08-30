@@ -25,6 +25,8 @@ TypeGameIndex::TypeGameIndex()
     
 }
 
+TypeGameIndex::~TypeGameIndex() = default;
+
 void TypeGameIndex::validate() const
 {
     std::stringstream msg;

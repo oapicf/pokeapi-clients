@@ -8,13 +8,13 @@ Name | Mapping | SQL Type | Default | Type | Description | Notes
 **id** | id | int NOT NULL PRIMARY KEY AUTOINCREMENT |  | **kotlin.Int** |  |  [readonly]
 **name** | name | text NOT NULL |  | **kotlin.String** |  | 
 **damageRelations** | damage_relations | long NOT NULL |  | [**TypeDetailDamageRelations**](TypeDetailDamageRelations.md) |  |  [foreignkey]
-**pastDamageRelations** | `One-To-Many` | `----` | `----`  | [**kotlin.Array&lt;TypeDetailPastDamageRelationsInner&gt;**](TypeDetailPastDamageRelationsInner.md) |  | 
-**gameIndices** | `One-To-Many` | `----` | `----`  | [**kotlin.Array&lt;TypeGameIndex&gt;**](TypeGameIndex.md) |  | 
+**pastDamageRelations** | `One-To-Many` | `----` | `----`  | [**kotlin.Array&lt;TypeDetailPastDamageRelationsInner&gt;**](TypeDetailPastDamageRelationsInner.md) |  |  [readonly]
+**gameIndices** | `One-To-Many` | `----` | `----`  | [**kotlin.Array&lt;TypeGameIndex&gt;**](TypeGameIndex.md) |  |  [readonly]
 **generation** | generation | long NOT NULL |  | [**GenerationSummary**](GenerationSummary.md) |  |  [foreignkey]
 **moveDamageClass** | move_damage_class | long NOT NULL |  | [**MoveDamageClassSummary**](MoveDamageClassSummary.md) |  |  [foreignkey]
-**names** | `One-To-Many` | `----` | `----`  | [**kotlin.Array&lt;AbilityName&gt;**](AbilityName.md) |  | 
-**pokemon** | `One-To-Many` | `----` | `----`  | [**kotlin.Array&lt;TypeDetailPokemonInner&gt;**](TypeDetailPokemonInner.md) |  | 
-**moves** | `One-To-Many` | `----` | `----`  | [**kotlin.Array&lt;MoveSummary&gt;**](MoveSummary.md) |  | 
+**names** | `One-To-Many` | `----` | `----`  | [**kotlin.Array&lt;AbilityName&gt;**](AbilityName.md) |  |  [readonly]
+**pokemon** | `One-To-Many` | `----` | `----`  | [**kotlin.Array&lt;TypeDetailPokemonInner&gt;**](TypeDetailPokemonInner.md) |  |  [readonly]
+**moves** | `One-To-Many` | `----` | `----`  | [**kotlin.Array&lt;MoveSummary&gt;**](MoveSummary.md) |  |  [readonly]
 **sprites** | sprites | blob NOT NULL |  | **kotlin.collections.Map&lt;kotlin.String, kotlin.collections.Map&lt;kotlin.String, TypeDetailSpritesValueValue&gt;&gt;** |  |  [readonly]
 
 

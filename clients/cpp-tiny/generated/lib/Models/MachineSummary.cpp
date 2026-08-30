@@ -64,7 +64,7 @@ MachineSummary::getUrl()
 }
 
 void
-MachineSummary::setUrl(std::string  url)
+MachineSummary::setUrl(std::string url)
 {
 	this->url = url;
 }

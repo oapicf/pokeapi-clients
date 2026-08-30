@@ -51,7 +51,7 @@ import com.github.oapicf.pokeapiclient.JSON;
 /**
  * MoveDetailContestCombosNormal
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-07T15:22:35.747827932Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-08-30T01:55:28.842792947Z[Etc/UTC]", comments = "Generator version: 7.24.0")
 public class MoveDetailContestCombosNormal {
   public static final String SERIALIZED_NAME_USE_BEFORE = "use_before";
   @SerializedName(SERIALIZED_NAME_USE_BEFORE)
@@ -154,10 +154,7 @@ public class MoveDetailContestCombosNormal {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 
@@ -200,26 +197,26 @@ public class MoveDetailContestCombosNormal {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      // ensure the json data is an array
-      if (!jsonObj.get("use_before").isJsonArray()) {
-        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `use_before` to be an array in the JSON string but got `%s`", jsonObj.get("use_before").toString()));
+      if (jsonObj.get("use_before") != null) {
+        if (!jsonObj.get("use_before").isJsonArray()) {
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `use_before` to be an array in the JSON string but got `%s`", jsonObj.get("use_before").toString()));
+        }
+        JsonArray jsonArrayuseBefore = jsonObj.getAsJsonArray("use_before");
+        // validate the required field `use_before` (array)
+        for (int i = 0; i < jsonArrayuseBefore.size(); i++) {
+          AbilityDetailPokemonInnerPokemon.validateJsonElement(jsonArrayuseBefore.get(i));
+        }
       }
-
-      JsonArray jsonArrayuseBefore = jsonObj.getAsJsonArray("use_before");
-      // validate the required field `use_before` (array)
-      for (int i = 0; i < jsonArrayuseBefore.size(); i++) {
-        AbilityDetailPokemonInnerPokemon.validateJsonElement(jsonArrayuseBefore.get(i));
-      };
-      // ensure the json data is an array
-      if (!jsonObj.get("use_after").isJsonArray()) {
-        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `use_after` to be an array in the JSON string but got `%s`", jsonObj.get("use_after").toString()));
+      if (jsonObj.get("use_after") != null) {
+        if (!jsonObj.get("use_after").isJsonArray()) {
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `use_after` to be an array in the JSON string but got `%s`", jsonObj.get("use_after").toString()));
+        }
+        JsonArray jsonArrayuseAfter = jsonObj.getAsJsonArray("use_after");
+        // validate the required field `use_after` (array)
+        for (int i = 0; i < jsonArrayuseAfter.size(); i++) {
+          AbilityDetailPokemonInnerPokemon.validateJsonElement(jsonArrayuseAfter.get(i));
+        }
       }
-
-      JsonArray jsonArrayuseAfter = jsonObj.getAsJsonArray("use_after");
-      // validate the required field `use_after` (array)
-      for (int i = 0; i < jsonArrayuseAfter.size(); i++) {
-        AbilityDetailPokemonInnerPokemon.validateJsonElement(jsonArrayuseAfter.get(i));
-      };
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {

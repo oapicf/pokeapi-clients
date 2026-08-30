@@ -12,42 +12,57 @@
  * Do not edit the class manually.
  */
 
-
 import * as runtime from '../runtime';
-import type {
-  ItemAttributeDetail,
-  ItemCategoryDetail,
-  ItemDetail,
-  ItemFlingEffectDetail,
-  ItemPocketDetail,
-  PaginatedItemAttributeSummaryList,
-  PaginatedItemCategorySummaryList,
-  PaginatedItemFlingEffectSummaryList,
-  PaginatedItemPocketSummaryList,
-  PaginatedItemSummaryList,
-} from '../models/index';
 import {
+    type ItemAttributeDetail,
     ItemAttributeDetailFromJSON,
     ItemAttributeDetailToJSON,
+} from '../models/ItemAttributeDetail';
+import {
+    type ItemCategoryDetail,
     ItemCategoryDetailFromJSON,
     ItemCategoryDetailToJSON,
+} from '../models/ItemCategoryDetail';
+import {
+    type ItemDetail,
     ItemDetailFromJSON,
     ItemDetailToJSON,
+} from '../models/ItemDetail';
+import {
+    type ItemFlingEffectDetail,
     ItemFlingEffectDetailFromJSON,
     ItemFlingEffectDetailToJSON,
+} from '../models/ItemFlingEffectDetail';
+import {
+    type ItemPocketDetail,
     ItemPocketDetailFromJSON,
     ItemPocketDetailToJSON,
+} from '../models/ItemPocketDetail';
+import {
+    type PaginatedItemAttributeSummaryList,
     PaginatedItemAttributeSummaryListFromJSON,
     PaginatedItemAttributeSummaryListToJSON,
+} from '../models/PaginatedItemAttributeSummaryList';
+import {
+    type PaginatedItemCategorySummaryList,
     PaginatedItemCategorySummaryListFromJSON,
     PaginatedItemCategorySummaryListToJSON,
+} from '../models/PaginatedItemCategorySummaryList';
+import {
+    type PaginatedItemFlingEffectSummaryList,
     PaginatedItemFlingEffectSummaryListFromJSON,
     PaginatedItemFlingEffectSummaryListToJSON,
+} from '../models/PaginatedItemFlingEffectSummaryList';
+import {
+    type PaginatedItemPocketSummaryList,
     PaginatedItemPocketSummaryListFromJSON,
     PaginatedItemPocketSummaryListToJSON,
+} from '../models/PaginatedItemPocketSummaryList';
+import {
+    type PaginatedItemSummaryList,
     PaginatedItemSummaryListFromJSON,
     PaginatedItemSummaryListToJSON,
-} from '../models/index';
+} from '../models/PaginatedItemSummaryList';
 
 export interface ItemAttributeListRequest {
     limit?: number;
@@ -105,10 +120,9 @@ export interface ItemRetrieveRequest {
 export class ItemsApi extends runtime.BaseAPI {
 
     /**
-     * Item attributes define particular aspects of items, e.g.\"usable in battle\" or \"consumable\".
-     * List item attributes
+     * Creates request options for itemAttributeList without sending the request
      */
-    async itemAttributeListRaw(requestParameters: ItemAttributeListRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PaginatedItemAttributeSummaryList>> {
+    async itemAttributeListRequestOpts(requestParameters: ItemAttributeListRequest): Promise<runtime.RequestOpts> {
         const queryParameters: any = {};
 
         if (requestParameters['limit'] != null) {
@@ -131,12 +145,21 @@ export class ItemsApi extends runtime.BaseAPI {
 
         let urlPath = `/api/v2/item-attribute/`;
 
-        const response = await this.request({
+        return {
             path: urlPath,
             method: 'GET',
             headers: headerParameters,
             query: queryParameters,
-        }, initOverrides);
+        };
+    }
+
+    /**
+     * Item attributes define particular aspects of items, e.g.\"usable in battle\" or \"consumable\".
+     * List item attributes
+     */
+    async itemAttributeListRaw(requestParameters: ItemAttributeListRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PaginatedItemAttributeSummaryList>> {
+        const requestOptions = await this.itemAttributeListRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => PaginatedItemAttributeSummaryListFromJSON(jsonValue));
     }
@@ -151,10 +174,9 @@ export class ItemsApi extends runtime.BaseAPI {
     }
 
     /**
-     * Item attributes define particular aspects of items, e.g.\"usable in battle\" or \"consumable\".
-     * Get item attribute
+     * Creates request options for itemAttributeRetrieve without sending the request
      */
-    async itemAttributeRetrieveRaw(requestParameters: ItemAttributeRetrieveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ItemAttributeDetail>> {
+    async itemAttributeRetrieveRequestOpts(requestParameters: ItemAttributeRetrieveRequest): Promise<runtime.RequestOpts> {
         if (requestParameters['id'] == null) {
             throw new runtime.RequiredError(
                 'id',
@@ -171,14 +193,23 @@ export class ItemsApi extends runtime.BaseAPI {
         }
 
         let urlPath = `/api/v2/item-attribute/{id}/`;
-        urlPath = urlPath.replace(`{${"id"}}`, encodeURIComponent(String(requestParameters['id'])));
+        urlPath = urlPath.replace('{id}', encodeURIComponent(String(requestParameters['id'])));
 
-        const response = await this.request({
+        return {
             path: urlPath,
             method: 'GET',
             headers: headerParameters,
             query: queryParameters,
-        }, initOverrides);
+        };
+    }
+
+    /**
+     * Item attributes define particular aspects of items, e.g.\"usable in battle\" or \"consumable\".
+     * Get item attribute
+     */
+    async itemAttributeRetrieveRaw(requestParameters: ItemAttributeRetrieveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ItemAttributeDetail>> {
+        const requestOptions = await this.itemAttributeRetrieveRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => ItemAttributeDetailFromJSON(jsonValue));
     }
@@ -193,10 +224,9 @@ export class ItemsApi extends runtime.BaseAPI {
     }
 
     /**
-     * Item categories determine where items will be placed in the players bag.
-     * List item categories
+     * Creates request options for itemCategoryList without sending the request
      */
-    async itemCategoryListRaw(requestParameters: ItemCategoryListRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PaginatedItemCategorySummaryList>> {
+    async itemCategoryListRequestOpts(requestParameters: ItemCategoryListRequest): Promise<runtime.RequestOpts> {
         const queryParameters: any = {};
 
         if (requestParameters['limit'] != null) {
@@ -219,12 +249,21 @@ export class ItemsApi extends runtime.BaseAPI {
 
         let urlPath = `/api/v2/item-category/`;
 
-        const response = await this.request({
+        return {
             path: urlPath,
             method: 'GET',
             headers: headerParameters,
             query: queryParameters,
-        }, initOverrides);
+        };
+    }
+
+    /**
+     * Item categories determine where items will be placed in the players bag.
+     * List item categories
+     */
+    async itemCategoryListRaw(requestParameters: ItemCategoryListRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PaginatedItemCategorySummaryList>> {
+        const requestOptions = await this.itemCategoryListRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => PaginatedItemCategorySummaryListFromJSON(jsonValue));
     }
@@ -239,10 +278,9 @@ export class ItemsApi extends runtime.BaseAPI {
     }
 
     /**
-     * Item categories determine where items will be placed in the players bag.
-     * Get item category
+     * Creates request options for itemCategoryRetrieve without sending the request
      */
-    async itemCategoryRetrieveRaw(requestParameters: ItemCategoryRetrieveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ItemCategoryDetail>> {
+    async itemCategoryRetrieveRequestOpts(requestParameters: ItemCategoryRetrieveRequest): Promise<runtime.RequestOpts> {
         if (requestParameters['id'] == null) {
             throw new runtime.RequiredError(
                 'id',
@@ -259,14 +297,23 @@ export class ItemsApi extends runtime.BaseAPI {
         }
 
         let urlPath = `/api/v2/item-category/{id}/`;
-        urlPath = urlPath.replace(`{${"id"}}`, encodeURIComponent(String(requestParameters['id'])));
+        urlPath = urlPath.replace('{id}', encodeURIComponent(String(requestParameters['id'])));
 
-        const response = await this.request({
+        return {
             path: urlPath,
             method: 'GET',
             headers: headerParameters,
             query: queryParameters,
-        }, initOverrides);
+        };
+    }
+
+    /**
+     * Item categories determine where items will be placed in the players bag.
+     * Get item category
+     */
+    async itemCategoryRetrieveRaw(requestParameters: ItemCategoryRetrieveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ItemCategoryDetail>> {
+        const requestOptions = await this.itemCategoryRetrieveRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => ItemCategoryDetailFromJSON(jsonValue));
     }
@@ -281,10 +328,9 @@ export class ItemsApi extends runtime.BaseAPI {
     }
 
     /**
-     * The various effects of the move\"Fling\" when used with different items.
-     * List item fling effects
+     * Creates request options for itemFlingEffectList without sending the request
      */
-    async itemFlingEffectListRaw(requestParameters: ItemFlingEffectListRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PaginatedItemFlingEffectSummaryList>> {
+    async itemFlingEffectListRequestOpts(requestParameters: ItemFlingEffectListRequest): Promise<runtime.RequestOpts> {
         const queryParameters: any = {};
 
         if (requestParameters['limit'] != null) {
@@ -307,12 +353,21 @@ export class ItemsApi extends runtime.BaseAPI {
 
         let urlPath = `/api/v2/item-fling-effect/`;
 
-        const response = await this.request({
+        return {
             path: urlPath,
             method: 'GET',
             headers: headerParameters,
             query: queryParameters,
-        }, initOverrides);
+        };
+    }
+
+    /**
+     * The various effects of the move\"Fling\" when used with different items.
+     * List item fling effects
+     */
+    async itemFlingEffectListRaw(requestParameters: ItemFlingEffectListRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PaginatedItemFlingEffectSummaryList>> {
+        const requestOptions = await this.itemFlingEffectListRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => PaginatedItemFlingEffectSummaryListFromJSON(jsonValue));
     }
@@ -327,10 +382,9 @@ export class ItemsApi extends runtime.BaseAPI {
     }
 
     /**
-     * The various effects of the move\"Fling\" when used with different items.
-     * Get item fling effect
+     * Creates request options for itemFlingEffectRetrieve without sending the request
      */
-    async itemFlingEffectRetrieveRaw(requestParameters: ItemFlingEffectRetrieveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ItemFlingEffectDetail>> {
+    async itemFlingEffectRetrieveRequestOpts(requestParameters: ItemFlingEffectRetrieveRequest): Promise<runtime.RequestOpts> {
         if (requestParameters['id'] == null) {
             throw new runtime.RequiredError(
                 'id',
@@ -347,14 +401,23 @@ export class ItemsApi extends runtime.BaseAPI {
         }
 
         let urlPath = `/api/v2/item-fling-effect/{id}/`;
-        urlPath = urlPath.replace(`{${"id"}}`, encodeURIComponent(String(requestParameters['id'])));
+        urlPath = urlPath.replace('{id}', encodeURIComponent(String(requestParameters['id'])));
 
-        const response = await this.request({
+        return {
             path: urlPath,
             method: 'GET',
             headers: headerParameters,
             query: queryParameters,
-        }, initOverrides);
+        };
+    }
+
+    /**
+     * The various effects of the move\"Fling\" when used with different items.
+     * Get item fling effect
+     */
+    async itemFlingEffectRetrieveRaw(requestParameters: ItemFlingEffectRetrieveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ItemFlingEffectDetail>> {
+        const requestOptions = await this.itemFlingEffectRetrieveRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => ItemFlingEffectDetailFromJSON(jsonValue));
     }
@@ -369,10 +432,9 @@ export class ItemsApi extends runtime.BaseAPI {
     }
 
     /**
-     * An item is an object in the games which the player can pick up, keep in their bag, and use in some manner. They have various uses, including healing, powering up, helping catch Pokémon, or to access a new area.
-     * List items
+     * Creates request options for itemList without sending the request
      */
-    async itemListRaw(requestParameters: ItemListRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PaginatedItemSummaryList>> {
+    async itemListRequestOpts(requestParameters: ItemListRequest): Promise<runtime.RequestOpts> {
         const queryParameters: any = {};
 
         if (requestParameters['limit'] != null) {
@@ -395,12 +457,21 @@ export class ItemsApi extends runtime.BaseAPI {
 
         let urlPath = `/api/v2/item/`;
 
-        const response = await this.request({
+        return {
             path: urlPath,
             method: 'GET',
             headers: headerParameters,
             query: queryParameters,
-        }, initOverrides);
+        };
+    }
+
+    /**
+     * An item is an object in the games which the player can pick up, keep in their bag, and use in some manner. They have various uses, including healing, powering up, helping catch Pokémon, or to access a new area.
+     * List items
+     */
+    async itemListRaw(requestParameters: ItemListRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PaginatedItemSummaryList>> {
+        const requestOptions = await this.itemListRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => PaginatedItemSummaryListFromJSON(jsonValue));
     }
@@ -415,10 +486,9 @@ export class ItemsApi extends runtime.BaseAPI {
     }
 
     /**
-     * Pockets within the players bag used for storing items by category.
-     * List item pockets
+     * Creates request options for itemPocketList without sending the request
      */
-    async itemPocketListRaw(requestParameters: ItemPocketListRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PaginatedItemPocketSummaryList>> {
+    async itemPocketListRequestOpts(requestParameters: ItemPocketListRequest): Promise<runtime.RequestOpts> {
         const queryParameters: any = {};
 
         if (requestParameters['limit'] != null) {
@@ -441,12 +511,21 @@ export class ItemsApi extends runtime.BaseAPI {
 
         let urlPath = `/api/v2/item-pocket/`;
 
-        const response = await this.request({
+        return {
             path: urlPath,
             method: 'GET',
             headers: headerParameters,
             query: queryParameters,
-        }, initOverrides);
+        };
+    }
+
+    /**
+     * Pockets within the players bag used for storing items by category.
+     * List item pockets
+     */
+    async itemPocketListRaw(requestParameters: ItemPocketListRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PaginatedItemPocketSummaryList>> {
+        const requestOptions = await this.itemPocketListRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => PaginatedItemPocketSummaryListFromJSON(jsonValue));
     }
@@ -461,10 +540,9 @@ export class ItemsApi extends runtime.BaseAPI {
     }
 
     /**
-     * Pockets within the players bag used for storing items by category.
-     * Get item pocket
+     * Creates request options for itemPocketRetrieve without sending the request
      */
-    async itemPocketRetrieveRaw(requestParameters: ItemPocketRetrieveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ItemPocketDetail>> {
+    async itemPocketRetrieveRequestOpts(requestParameters: ItemPocketRetrieveRequest): Promise<runtime.RequestOpts> {
         if (requestParameters['id'] == null) {
             throw new runtime.RequiredError(
                 'id',
@@ -481,14 +559,23 @@ export class ItemsApi extends runtime.BaseAPI {
         }
 
         let urlPath = `/api/v2/item-pocket/{id}/`;
-        urlPath = urlPath.replace(`{${"id"}}`, encodeURIComponent(String(requestParameters['id'])));
+        urlPath = urlPath.replace('{id}', encodeURIComponent(String(requestParameters['id'])));
 
-        const response = await this.request({
+        return {
             path: urlPath,
             method: 'GET',
             headers: headerParameters,
             query: queryParameters,
-        }, initOverrides);
+        };
+    }
+
+    /**
+     * Pockets within the players bag used for storing items by category.
+     * Get item pocket
+     */
+    async itemPocketRetrieveRaw(requestParameters: ItemPocketRetrieveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ItemPocketDetail>> {
+        const requestOptions = await this.itemPocketRetrieveRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => ItemPocketDetailFromJSON(jsonValue));
     }
@@ -503,10 +590,9 @@ export class ItemsApi extends runtime.BaseAPI {
     }
 
     /**
-     * An item is an object in the games which the player can pick up, keep in their bag, and use in some manner. They have various uses, including healing, powering up, helping catch Pokémon, or to access a new area.
-     * Get item
+     * Creates request options for itemRetrieve without sending the request
      */
-    async itemRetrieveRaw(requestParameters: ItemRetrieveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ItemDetail>> {
+    async itemRetrieveRequestOpts(requestParameters: ItemRetrieveRequest): Promise<runtime.RequestOpts> {
         if (requestParameters['id'] == null) {
             throw new runtime.RequiredError(
                 'id',
@@ -523,14 +609,23 @@ export class ItemsApi extends runtime.BaseAPI {
         }
 
         let urlPath = `/api/v2/item/{id}/`;
-        urlPath = urlPath.replace(`{${"id"}}`, encodeURIComponent(String(requestParameters['id'])));
+        urlPath = urlPath.replace('{id}', encodeURIComponent(String(requestParameters['id'])));
 
-        const response = await this.request({
+        return {
             path: urlPath,
             method: 'GET',
             headers: headerParameters,
             query: queryParameters,
-        }, initOverrides);
+        };
+    }
+
+    /**
+     * An item is an object in the games which the player can pick up, keep in their bag, and use in some manner. They have various uses, including healing, powering up, helping catch Pokémon, or to access a new area.
+     * Get item
+     */
+    async itemRetrieveRaw(requestParameters: ItemRetrieveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ItemDetail>> {
+        const requestOptions = await this.itemRetrieveRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => ItemDetailFromJSON(jsonValue));
     }

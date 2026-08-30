@@ -46,7 +46,7 @@ export interface MoveDetailContestCombos {
  */
 export function instanceOfMoveDetailContestCombos(value: object): value is MoveDetailContestCombos {
     if (!('normal' in value) || value['normal'] === undefined) return false;
-    if (!('_super' in value) || value['_super'] === undefined) return false;
+    if ((!('_super' in (value as Record<string, any>)) && !('super' in (value as Record<string, any>))) || ((value as Record<string, any>)['_super'] === undefined && (value as Record<string, any>)['super'] === undefined)) return false;
     return true;
 }
 

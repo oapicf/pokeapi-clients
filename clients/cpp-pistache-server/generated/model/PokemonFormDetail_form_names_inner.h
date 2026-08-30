@@ -33,7 +33,7 @@ class  PokemonFormDetail_form_names_inner
 {
 public:
     PokemonFormDetail_form_names_inner();
-    virtual ~PokemonFormDetail_form_names_inner() = default;
+    virtual ~PokemonFormDetail_form_names_inner();
 
 
     /// <summary>

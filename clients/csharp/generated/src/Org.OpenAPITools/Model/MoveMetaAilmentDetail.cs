@@ -66,13 +66,13 @@ namespace Org.OpenAPITools.Model
         /// Gets or Sets Moves
         /// </summary>
         [JsonPropertyName("moves")]
-        public List<AbilityDetailPokemonInnerPokemon> Moves { get; set; }
+        public List<AbilityDetailPokemonInnerPokemon> Moves { get; }
 
         /// <summary>
         /// Gets or Sets Names
         /// </summary>
         [JsonPropertyName("names")]
-        public List<MoveMetaAilmentName> Names { get; set; }
+        public List<MoveMetaAilmentName> Names { get; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -110,8 +110,18 @@ namespace Org.OpenAPITools.Model
     /// <summary>
     /// A Json converter for type <see cref="MoveMetaAilmentDetail" />
     /// </summary>
-    public class MoveMetaAilmentDetailJsonConverter : JsonConverter<MoveMetaAilmentDetail>
+    public partial class MoveMetaAilmentDetailJsonConverter : JsonConverter<MoveMetaAilmentDetail>
     {
+        partial void OnCreated();
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="MoveMetaAilmentDetailJsonConverter" /> class.
+        /// </summary>
+        public MoveMetaAilmentDetailJsonConverter()
+        {
+            OnCreated();
+        }
+
         /// <summary>
         /// Deserializes json to <see cref="MoveMetaAilmentDetail" />
         /// </summary>

@@ -34,13 +34,13 @@ class OAIEncounterMethodName;
 class OAIEncounterMethodDetail : public OAIObject {
 public:
     OAIEncounterMethodDetail();
-    OAIEncounterMethodDetail(QString json);
+    OAIEncounterMethodDetail(const QString &json);
     ~OAIEncounterMethodDetail() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     qint32 getId() const;
     void setId(const qint32 &id);

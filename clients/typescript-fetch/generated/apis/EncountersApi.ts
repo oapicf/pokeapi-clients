@@ -12,30 +12,37 @@
  * Do not edit the class manually.
  */
 
-
 import * as runtime from '../runtime';
-import type {
-  EncounterConditionDetail,
-  EncounterConditionValueDetail,
-  EncounterMethodDetail,
-  PaginatedEncounterConditionSummaryList,
-  PaginatedEncounterConditionValueSummaryList,
-  PaginatedEncounterMethodSummaryList,
-} from '../models/index';
 import {
+    type EncounterConditionDetail,
     EncounterConditionDetailFromJSON,
     EncounterConditionDetailToJSON,
+} from '../models/EncounterConditionDetail';
+import {
+    type EncounterConditionValueDetail,
     EncounterConditionValueDetailFromJSON,
     EncounterConditionValueDetailToJSON,
+} from '../models/EncounterConditionValueDetail';
+import {
+    type EncounterMethodDetail,
     EncounterMethodDetailFromJSON,
     EncounterMethodDetailToJSON,
+} from '../models/EncounterMethodDetail';
+import {
+    type PaginatedEncounterConditionSummaryList,
     PaginatedEncounterConditionSummaryListFromJSON,
     PaginatedEncounterConditionSummaryListToJSON,
+} from '../models/PaginatedEncounterConditionSummaryList';
+import {
+    type PaginatedEncounterConditionValueSummaryList,
     PaginatedEncounterConditionValueSummaryListFromJSON,
     PaginatedEncounterConditionValueSummaryListToJSON,
+} from '../models/PaginatedEncounterConditionValueSummaryList';
+import {
+    type PaginatedEncounterMethodSummaryList,
     PaginatedEncounterMethodSummaryListFromJSON,
     PaginatedEncounterMethodSummaryListToJSON,
-} from '../models/index';
+} from '../models/PaginatedEncounterMethodSummaryList';
 
 export interface EncounterConditionListRequest {
     limit?: number;
@@ -73,10 +80,9 @@ export interface EncounterMethodRetrieveRequest {
 export class EncountersApi extends runtime.BaseAPI {
 
     /**
-     * Conditions which affect what pokemon might appear in the wild, e.g., day or night.
-     * List encounter conditions
+     * Creates request options for encounterConditionList without sending the request
      */
-    async encounterConditionListRaw(requestParameters: EncounterConditionListRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PaginatedEncounterConditionSummaryList>> {
+    async encounterConditionListRequestOpts(requestParameters: EncounterConditionListRequest): Promise<runtime.RequestOpts> {
         const queryParameters: any = {};
 
         if (requestParameters['limit'] != null) {
@@ -99,12 +105,21 @@ export class EncountersApi extends runtime.BaseAPI {
 
         let urlPath = `/api/v2/encounter-condition/`;
 
-        const response = await this.request({
+        return {
             path: urlPath,
             method: 'GET',
             headers: headerParameters,
             query: queryParameters,
-        }, initOverrides);
+        };
+    }
+
+    /**
+     * Conditions which affect what pokemon might appear in the wild, e.g., day or night.
+     * List encounter conditions
+     */
+    async encounterConditionListRaw(requestParameters: EncounterConditionListRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PaginatedEncounterConditionSummaryList>> {
+        const requestOptions = await this.encounterConditionListRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => PaginatedEncounterConditionSummaryListFromJSON(jsonValue));
     }
@@ -119,10 +134,9 @@ export class EncountersApi extends runtime.BaseAPI {
     }
 
     /**
-     * Conditions which affect what pokemon might appear in the wild, e.g., day or night.
-     * Get encounter condition
+     * Creates request options for encounterConditionRetrieve without sending the request
      */
-    async encounterConditionRetrieveRaw(requestParameters: EncounterConditionRetrieveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EncounterConditionDetail>> {
+    async encounterConditionRetrieveRequestOpts(requestParameters: EncounterConditionRetrieveRequest): Promise<runtime.RequestOpts> {
         if (requestParameters['id'] == null) {
             throw new runtime.RequiredError(
                 'id',
@@ -139,14 +153,23 @@ export class EncountersApi extends runtime.BaseAPI {
         }
 
         let urlPath = `/api/v2/encounter-condition/{id}/`;
-        urlPath = urlPath.replace(`{${"id"}}`, encodeURIComponent(String(requestParameters['id'])));
+        urlPath = urlPath.replace('{id}', encodeURIComponent(String(requestParameters['id'])));
 
-        const response = await this.request({
+        return {
             path: urlPath,
             method: 'GET',
             headers: headerParameters,
             query: queryParameters,
-        }, initOverrides);
+        };
+    }
+
+    /**
+     * Conditions which affect what pokemon might appear in the wild, e.g., day or night.
+     * Get encounter condition
+     */
+    async encounterConditionRetrieveRaw(requestParameters: EncounterConditionRetrieveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EncounterConditionDetail>> {
+        const requestOptions = await this.encounterConditionRetrieveRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => EncounterConditionDetailFromJSON(jsonValue));
     }
@@ -161,10 +184,9 @@ export class EncountersApi extends runtime.BaseAPI {
     }
 
     /**
-     * Encounter condition values are the various states that an encounter condition can have, i.e., time of day can be either day or night.
-     * List encounter condition values
+     * Creates request options for encounterConditionValueList without sending the request
      */
-    async encounterConditionValueListRaw(requestParameters: EncounterConditionValueListRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PaginatedEncounterConditionValueSummaryList>> {
+    async encounterConditionValueListRequestOpts(requestParameters: EncounterConditionValueListRequest): Promise<runtime.RequestOpts> {
         const queryParameters: any = {};
 
         if (requestParameters['limit'] != null) {
@@ -187,12 +209,21 @@ export class EncountersApi extends runtime.BaseAPI {
 
         let urlPath = `/api/v2/encounter-condition-value/`;
 
-        const response = await this.request({
+        return {
             path: urlPath,
             method: 'GET',
             headers: headerParameters,
             query: queryParameters,
-        }, initOverrides);
+        };
+    }
+
+    /**
+     * Encounter condition values are the various states that an encounter condition can have, i.e., time of day can be either day or night.
+     * List encounter condition values
+     */
+    async encounterConditionValueListRaw(requestParameters: EncounterConditionValueListRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PaginatedEncounterConditionValueSummaryList>> {
+        const requestOptions = await this.encounterConditionValueListRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => PaginatedEncounterConditionValueSummaryListFromJSON(jsonValue));
     }
@@ -207,10 +238,9 @@ export class EncountersApi extends runtime.BaseAPI {
     }
 
     /**
-     * Encounter condition values are the various states that an encounter condition can have, i.e., time of day can be either day or night.
-     * Get encounter condition value
+     * Creates request options for encounterConditionValueRetrieve without sending the request
      */
-    async encounterConditionValueRetrieveRaw(requestParameters: EncounterConditionValueRetrieveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EncounterConditionValueDetail>> {
+    async encounterConditionValueRetrieveRequestOpts(requestParameters: EncounterConditionValueRetrieveRequest): Promise<runtime.RequestOpts> {
         if (requestParameters['id'] == null) {
             throw new runtime.RequiredError(
                 'id',
@@ -227,14 +257,23 @@ export class EncountersApi extends runtime.BaseAPI {
         }
 
         let urlPath = `/api/v2/encounter-condition-value/{id}/`;
-        urlPath = urlPath.replace(`{${"id"}}`, encodeURIComponent(String(requestParameters['id'])));
+        urlPath = urlPath.replace('{id}', encodeURIComponent(String(requestParameters['id'])));
 
-        const response = await this.request({
+        return {
             path: urlPath,
             method: 'GET',
             headers: headerParameters,
             query: queryParameters,
-        }, initOverrides);
+        };
+    }
+
+    /**
+     * Encounter condition values are the various states that an encounter condition can have, i.e., time of day can be either day or night.
+     * Get encounter condition value
+     */
+    async encounterConditionValueRetrieveRaw(requestParameters: EncounterConditionValueRetrieveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EncounterConditionValueDetail>> {
+        const requestOptions = await this.encounterConditionValueRetrieveRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => EncounterConditionValueDetailFromJSON(jsonValue));
     }
@@ -249,10 +288,9 @@ export class EncountersApi extends runtime.BaseAPI {
     }
 
     /**
-     * Methods by which the player might can encounter Pokémon in the wild, e.g., walking in tall grass. Check out Bulbapedia for greater detail.
-     * List encounter methods
+     * Creates request options for encounterMethodList without sending the request
      */
-    async encounterMethodListRaw(requestParameters: EncounterMethodListRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PaginatedEncounterMethodSummaryList>> {
+    async encounterMethodListRequestOpts(requestParameters: EncounterMethodListRequest): Promise<runtime.RequestOpts> {
         const queryParameters: any = {};
 
         if (requestParameters['limit'] != null) {
@@ -275,12 +313,21 @@ export class EncountersApi extends runtime.BaseAPI {
 
         let urlPath = `/api/v2/encounter-method/`;
 
-        const response = await this.request({
+        return {
             path: urlPath,
             method: 'GET',
             headers: headerParameters,
             query: queryParameters,
-        }, initOverrides);
+        };
+    }
+
+    /**
+     * Methods by which the player might can encounter Pokémon in the wild, e.g., walking in tall grass. Check out Bulbapedia for greater detail.
+     * List encounter methods
+     */
+    async encounterMethodListRaw(requestParameters: EncounterMethodListRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PaginatedEncounterMethodSummaryList>> {
+        const requestOptions = await this.encounterMethodListRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => PaginatedEncounterMethodSummaryListFromJSON(jsonValue));
     }
@@ -295,10 +342,9 @@ export class EncountersApi extends runtime.BaseAPI {
     }
 
     /**
-     * Methods by which the player might can encounter Pokémon in the wild, e.g., walking in tall grass. Check out Bulbapedia for greater detail.
-     * Get encounter method
+     * Creates request options for encounterMethodRetrieve without sending the request
      */
-    async encounterMethodRetrieveRaw(requestParameters: EncounterMethodRetrieveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EncounterMethodDetail>> {
+    async encounterMethodRetrieveRequestOpts(requestParameters: EncounterMethodRetrieveRequest): Promise<runtime.RequestOpts> {
         if (requestParameters['id'] == null) {
             throw new runtime.RequiredError(
                 'id',
@@ -315,14 +361,23 @@ export class EncountersApi extends runtime.BaseAPI {
         }
 
         let urlPath = `/api/v2/encounter-method/{id}/`;
-        urlPath = urlPath.replace(`{${"id"}}`, encodeURIComponent(String(requestParameters['id'])));
+        urlPath = urlPath.replace('{id}', encodeURIComponent(String(requestParameters['id'])));
 
-        const response = await this.request({
+        return {
             path: urlPath,
             method: 'GET',
             headers: headerParameters,
             query: queryParameters,
-        }, initOverrides);
+        };
+    }
+
+    /**
+     * Methods by which the player might can encounter Pokémon in the wild, e.g., walking in tall grass. Check out Bulbapedia for greater detail.
+     * Get encounter method
+     */
+    async encounterMethodRetrieveRaw(requestParameters: EncounterMethodRetrieveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EncounterMethodDetail>> {
+        const requestOptions = await this.encounterMethodRetrieveRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => EncounterMethodDetailFromJSON(jsonValue));
     }

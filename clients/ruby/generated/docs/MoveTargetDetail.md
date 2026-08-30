@@ -6,9 +6,9 @@
 | ---- | ---- | ----------- | ----- |
 | **id** | **Integer** |  | [readonly] |
 | **name** | **String** |  |  |
-| **descriptions** | [**Array&lt;MoveTargetDescription&gt;**](MoveTargetDescription.md) |  |  |
-| **moves** | [**Array&lt;MoveSummary&gt;**](MoveSummary.md) |  |  |
-| **names** | [**Array&lt;MoveTargetName&gt;**](MoveTargetName.md) |  |  |
+| **descriptions** | [**Array&lt;MoveTargetDescription&gt;**](MoveTargetDescription.md) |  | [readonly] |
+| **moves** | [**Array&lt;MoveSummary&gt;**](MoveSummary.md) |  | [readonly] |
+| **names** | [**Array&lt;MoveTargetName&gt;**](MoveTargetName.md) |  | [readonly] |
 
 ## Example
 

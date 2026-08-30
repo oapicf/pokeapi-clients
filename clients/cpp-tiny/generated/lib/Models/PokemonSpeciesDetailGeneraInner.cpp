@@ -86,7 +86,7 @@ PokemonSpeciesDetail_genera_inner::getGenus()
 }
 
 void
-PokemonSpeciesDetail_genera_inner::setGenus(std::string  genus)
+PokemonSpeciesDetail_genera_inner::setGenus(std::string genus)
 {
 	this->genus = genus;
 }
@@ -98,7 +98,7 @@ PokemonSpeciesDetail_genera_inner::getLanguage()
 }
 
 void
-PokemonSpeciesDetail_genera_inner::setLanguage(AbilityDetail_pokemon_inner_pokemon  language)
+PokemonSpeciesDetail_genera_inner::setLanguage(AbilityDetail_pokemon_inner_pokemon language)
 {
 	this->language = language;
 }

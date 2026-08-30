@@ -47,7 +47,7 @@ class MoveDetailEffectChangesInner
      * @var MoveDetailEffectChangesInnerEffectEntriesInner[]|null
      * @SerializedName("effect_entries")
      * @Type("array<OpenAPI\Server\Model\MoveDetailEffectChangesInnerEffectEntriesInner>")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Valid]
     #[Assert\All([
@@ -59,7 +59,7 @@ class MoveDetailEffectChangesInner
      * @var AbilityDetailPokemonInnerPokemon|null
      * @SerializedName("version_group")
      * @Type("OpenAPI\Server\Model\AbilityDetailPokemonInnerPokemon")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Valid]
     #[Assert\Type("OpenAPI\Server\Model\AbilityDetailPokemonInnerPokemon")]
@@ -88,12 +88,12 @@ class MoveDetailEffectChangesInner
     }
 
     /**
-    * Sets effectEntries.
-    *
-    * @param MoveDetailEffectChangesInnerEffectEntriesInner[]|null $effectEntries
-    *
-    * @return $this
-    */
+     * Sets effectEntries.
+     *
+     * @param MoveDetailEffectChangesInnerEffectEntriesInner[]|null $effectEntries
+     *
+     * @return $this
+     */
     public function setEffectEntries(?array $effectEntries): self
     {
         $this->effectEntries = $effectEntries;
@@ -115,12 +115,12 @@ class MoveDetailEffectChangesInner
     }
 
     /**
-    * Sets versionGroup.
-    *
-    * @param AbilityDetailPokemonInnerPokemon|null $versionGroup
-    *
-    * @return $this
-    */
+     * Sets versionGroup.
+     *
+     * @param AbilityDetailPokemonInnerPokemon|null $versionGroup
+     *
+     * @return $this
+     */
     public function setVersionGroup(?AbilityDetailPokemonInnerPokemon $versionGroup): self
     {
         $this->versionGroup = $versionGroup;

@@ -70,7 +70,7 @@ export interface MoveChange {
      * @type {Array<MoveChangeEffectEntriesInner>}
      * @memberof MoveChange
      */
-    effectEntries: Array<MoveChangeEffectEntriesInner>;
+    readonly effectEntries: Array<MoveChangeEffectEntriesInner>;
     /**
      * 
      * @type {TypeSummary}
@@ -89,10 +89,10 @@ export interface MoveChange {
  * Check if a given object implements the MoveChange interface.
  */
 export function instanceOfMoveChange(value: object): value is MoveChange {
-    if (!('effectChance' in value) || value['effectChance'] === undefined) return false;
-    if (!('effectEntries' in value) || value['effectEntries'] === undefined) return false;
+    if ((!('effectChance' in (value as Record<string, any>)) && !('effect_chance' in (value as Record<string, any>))) || ((value as Record<string, any>)['effectChance'] === undefined && (value as Record<string, any>)['effect_chance'] === undefined)) return false;
+    if ((!('effectEntries' in (value as Record<string, any>)) && !('effect_entries' in (value as Record<string, any>))) || ((value as Record<string, any>)['effectEntries'] === undefined && (value as Record<string, any>)['effect_entries'] === undefined)) return false;
     if (!('type' in value) || value['type'] === undefined) return false;
-    if (!('versionGroup' in value) || value['versionGroup'] === undefined) return false;
+    if ((!('versionGroup' in (value as Record<string, any>)) && !('version_group' in (value as Record<string, any>))) || ((value as Record<string, any>)['versionGroup'] === undefined && (value as Record<string, any>)['version_group'] === undefined)) return false;
     return true;
 }
 
@@ -106,9 +106,9 @@ export function MoveChangeFromJSONTyped(json: any, ignoreDiscriminator: boolean)
     }
     return {
         
-        'accuracy': json['accuracy'] == null ? undefined : json['accuracy'],
-        'power': json['power'] == null ? undefined : json['power'],
-        'pp': json['pp'] == null ? undefined : json['pp'],
+        'accuracy': json['accuracy'] === undefined ? undefined : json['accuracy'] === null ? null : json['accuracy'],
+        'power': json['power'] === undefined ? undefined : json['power'] === null ? null : json['power'],
+        'pp': json['pp'] === undefined ? undefined : json['pp'] === null ? null : json['pp'],
         'effectChance': json['effect_chance'],
         'effectEntries': ((json['effect_entries'] as Array<any>).map(MoveChangeEffectEntriesInnerFromJSON)),
         'type': TypeSummaryFromJSON(json['type']),
@@ -120,7 +120,7 @@ export function MoveChangeToJSON(json: any): MoveChange {
     return MoveChangeToJSONTyped(json, false);
 }
 
-export function MoveChangeToJSONTyped(value?: MoveChange | null, ignoreDiscriminator: boolean = false): any {
+export function MoveChangeToJSONTyped(value?: Omit<MoveChange, 'effectEntries'> | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
@@ -131,7 +131,6 @@ export function MoveChangeToJSONTyped(value?: MoveChange | null, ignoreDiscrimin
         'power': value['power'],
         'pp': value['pp'],
         'effect_chance': value['effectChance'],
-        'effect_entries': ((value['effectEntries'] as Array<any>).map(MoveChangeEffectEntriesInnerToJSON)),
         'type': TypeSummaryToJSON(value['type']),
         'version_group': VersionGroupSummaryToJSON(value['versionGroup']),
     };

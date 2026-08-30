@@ -17,9 +17,9 @@ export interface VersionGroupDetail {
     name: string;
     order?: number | null;
     generation: GenerationSummary;
-    move_learn_methods: Array<AbilityDetailPokemonInnerPokemon>;
-    pokedexes: Array<AbilityDetailPokemonInnerPokemon>;
-    regions: Array<AbilityDetailPokemonInnerPokemon>;
-    versions: Array<VersionSummary>;
+    readonly move_learn_methods: Array<AbilityDetailPokemonInnerPokemon>;
+    readonly pokedexes: Array<AbilityDetailPokemonInnerPokemon>;
+    readonly regions: Array<AbilityDetailPokemonInnerPokemon>;
+    readonly versions: Array<VersionSummary>;
 }
 

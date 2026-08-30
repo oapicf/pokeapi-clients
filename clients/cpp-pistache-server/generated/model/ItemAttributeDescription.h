@@ -33,7 +33,7 @@ class  ItemAttributeDescription
 {
 public:
     ItemAttributeDescription();
-    virtual ~ItemAttributeDescription() = default;
+    virtual ~ItemAttributeDescription();
 
 
     /// <summary>

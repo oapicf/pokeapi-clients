@@ -35,10 +35,10 @@ export interface PokemonColorDetail {
      * @type {Array<PokemonColorName>}
      * @memberof PokemonColorDetail
      */
-    names: Array<PokemonColorName>;
+    readonly names: Array<PokemonColorName>;
     /**
      * @type {Array<PokemonSpeciesSummary>}
      * @memberof PokemonColorDetail
      */
-    pokemon_species: Array<PokemonSpeciesSummary>;
+    readonly pokemon_species: Array<PokemonSpeciesSummary>;
 }

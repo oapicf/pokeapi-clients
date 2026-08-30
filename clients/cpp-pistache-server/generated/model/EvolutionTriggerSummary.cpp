@@ -26,6 +26,8 @@ EvolutionTriggerSummary::EvolutionTriggerSummary()
     
 }
 
+EvolutionTriggerSummary::~EvolutionTriggerSummary() = default;
+
 void EvolutionTriggerSummary::validate() const
 {
     std::stringstream msg;

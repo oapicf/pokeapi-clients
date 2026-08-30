@@ -89,7 +89,7 @@ namespace Org.OpenAPITools.Model
         /// Gets or Sets MinHits
         /// </summary>
         [JsonPropertyName("min_hits")]
-        public int? MinHits { get { return this.MinHitsOption; } set { this.MinHitsOption = new(value); } }
+        public int? MinHits { get { return this.MinHitsOption.Value; } set { this.MinHitsOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of MaxHits
@@ -102,7 +102,7 @@ namespace Org.OpenAPITools.Model
         /// Gets or Sets MaxHits
         /// </summary>
         [JsonPropertyName("max_hits")]
-        public int? MaxHits { get { return this.MaxHitsOption; } set { this.MaxHitsOption = new(value); } }
+        public int? MaxHits { get { return this.MaxHitsOption.Value; } set { this.MaxHitsOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of MinTurns
@@ -115,7 +115,7 @@ namespace Org.OpenAPITools.Model
         /// Gets or Sets MinTurns
         /// </summary>
         [JsonPropertyName("min_turns")]
-        public int? MinTurns { get { return this.MinTurnsOption; } set { this.MinTurnsOption = new(value); } }
+        public int? MinTurns { get { return this.MinTurnsOption.Value; } set { this.MinTurnsOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of MaxTurns
@@ -128,7 +128,7 @@ namespace Org.OpenAPITools.Model
         /// Gets or Sets MaxTurns
         /// </summary>
         [JsonPropertyName("max_turns")]
-        public int? MaxTurns { get { return this.MaxTurnsOption; } set { this.MaxTurnsOption = new(value); } }
+        public int? MaxTurns { get { return this.MaxTurnsOption.Value; } set { this.MaxTurnsOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of Drain
@@ -141,7 +141,7 @@ namespace Org.OpenAPITools.Model
         /// Gets or Sets Drain
         /// </summary>
         [JsonPropertyName("drain")]
-        public int? Drain { get { return this.DrainOption; } set { this.DrainOption = new(value); } }
+        public int? Drain { get { return this.DrainOption.Value; } set { this.DrainOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of Healing
@@ -154,7 +154,7 @@ namespace Org.OpenAPITools.Model
         /// Gets or Sets Healing
         /// </summary>
         [JsonPropertyName("healing")]
-        public int? Healing { get { return this.HealingOption; } set { this.HealingOption = new(value); } }
+        public int? Healing { get { return this.HealingOption.Value; } set { this.HealingOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of CritRate
@@ -167,7 +167,7 @@ namespace Org.OpenAPITools.Model
         /// Gets or Sets CritRate
         /// </summary>
         [JsonPropertyName("crit_rate")]
-        public int? CritRate { get { return this.CritRateOption; } set { this.CritRateOption = new(value); } }
+        public int? CritRate { get { return this.CritRateOption.Value; } set { this.CritRateOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of AilmentChance
@@ -180,7 +180,7 @@ namespace Org.OpenAPITools.Model
         /// Gets or Sets AilmentChance
         /// </summary>
         [JsonPropertyName("ailment_chance")]
-        public int? AilmentChance { get { return this.AilmentChanceOption; } set { this.AilmentChanceOption = new(value); } }
+        public int? AilmentChance { get { return this.AilmentChanceOption.Value; } set { this.AilmentChanceOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of FlinchChance
@@ -193,7 +193,7 @@ namespace Org.OpenAPITools.Model
         /// Gets or Sets FlinchChance
         /// </summary>
         [JsonPropertyName("flinch_chance")]
-        public int? FlinchChance { get { return this.FlinchChanceOption; } set { this.FlinchChanceOption = new(value); } }
+        public int? FlinchChance { get { return this.FlinchChanceOption.Value; } set { this.FlinchChanceOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of StatChance
@@ -206,7 +206,7 @@ namespace Org.OpenAPITools.Model
         /// Gets or Sets StatChance
         /// </summary>
         [JsonPropertyName("stat_chance")]
-        public int? StatChance { get { return this.StatChanceOption; } set { this.StatChanceOption = new(value); } }
+        public int? StatChance { get { return this.StatChanceOption.Value; } set { this.StatChanceOption = new(value); } }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -246,8 +246,18 @@ namespace Org.OpenAPITools.Model
     /// <summary>
     /// A Json converter for type <see cref="MoveMeta" />
     /// </summary>
-    public class MoveMetaJsonConverter : JsonConverter<MoveMeta>
+    public partial class MoveMetaJsonConverter : JsonConverter<MoveMeta>
     {
+        partial void OnCreated();
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="MoveMetaJsonConverter" /> class.
+        /// </summary>
+        public MoveMetaJsonConverter()
+        {
+            OnCreated();
+        }
+
         /// <summary>
         /// Deserializes json to <see cref="MoveMeta" />
         /// </summary>

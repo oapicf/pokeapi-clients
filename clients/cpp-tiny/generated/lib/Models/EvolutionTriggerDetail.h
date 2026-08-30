@@ -54,28 +54,28 @@ public:
 
 	/*! \brief Set 
 	 */
-	void setId(int  id);
+	void setId(int id);
 	/*! \brief Get 
 	 */
 	std::string getName();
 
 	/*! \brief Set 
 	 */
-	void setName(std::string  name);
+	void setName(std::string name);
 	/*! \brief Get 
 	 */
 	std::list<EvolutionTriggerName> getNames();
 
 	/*! \brief Set 
 	 */
-	void setNames(std::list <EvolutionTriggerName> names);
+	void setNames(std::list<EvolutionTriggerName> names);
 	/*! \brief Get 
 	 */
 	std::list<AbilityDetail_pokemon_inner_pokemon> getPokemonSpecies();
 
 	/*! \brief Set 
 	 */
-	void setPokemonSpecies(std::list <AbilityDetail_pokemon_inner_pokemon> pokemon_species);
+	void setPokemonSpecies(std::list<AbilityDetail_pokemon_inner_pokemon> pokemon_species);
 
 
     private:

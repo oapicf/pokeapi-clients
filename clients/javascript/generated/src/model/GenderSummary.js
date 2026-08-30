@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The GenderSummary model module.
  * @module model/GenderSummary
- * @version 1.2.1-pre.0
+ * @version 2.0.1-pre.0
  */
 class GenderSummary {
     /**

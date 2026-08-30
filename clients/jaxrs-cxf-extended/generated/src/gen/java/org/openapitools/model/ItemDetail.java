@@ -217,6 +217,7 @@ public class ItemDetail  {
 
   /**
    * Sets the <code>attributes</code> property.
+   * <br><em>N.B. <code>attributes</code> is <b>read only</b>; client code should not call this method</em>.
    */
  public void setAttributes(List<@Valid AbilityDetailPokemonInnerPokemon> attributes) {
     this.attributes = attributes;
@@ -224,6 +225,7 @@ public class ItemDetail  {
 
   /**
    * Sets the <code>attributes</code> property.
+   * <br><em>N.B. <code>attributes</code> is <b>read only</b>; client code should not call this method</em>.
    */
   public ItemDetail attributes(List<@Valid AbilityDetailPokemonInnerPokemon> attributes) {
     this.attributes = attributes;
@@ -232,6 +234,7 @@ public class ItemDetail  {
 
   /**
    * Adds a new item to the <code>attributes</code> list.
+   * <br><em>N.B. <code>attributes</code> is <b>read only</b>; client code should not call this method</em>.
    */
   public ItemDetail addAttributesItem(AbilityDetailPokemonInnerPokemon attributesItem) {
     this.attributes.add(attributesItem);
@@ -275,6 +278,7 @@ public class ItemDetail  {
 
   /**
    * Sets the <code>effectEntries</code> property.
+   * <br><em>N.B. <code>effectEntries</code> is <b>read only</b>; client code should not call this method</em>.
    */
  public void setEffectEntries(List<@Valid ItemEffectText> effectEntries) {
     this.effectEntries = effectEntries;
@@ -282,6 +286,7 @@ public class ItemDetail  {
 
   /**
    * Sets the <code>effectEntries</code> property.
+   * <br><em>N.B. <code>effectEntries</code> is <b>read only</b>; client code should not call this method</em>.
    */
   public ItemDetail effectEntries(List<@Valid ItemEffectText> effectEntries) {
     this.effectEntries = effectEntries;
@@ -290,6 +295,7 @@ public class ItemDetail  {
 
   /**
    * Adds a new item to the <code>effectEntries</code> list.
+   * <br><em>N.B. <code>effectEntries</code> is <b>read only</b>; client code should not call this method</em>.
    */
   public ItemDetail addEffectEntriesItem(ItemEffectText effectEntriesItem) {
     this.effectEntries.add(effectEntriesItem);
@@ -308,6 +314,7 @@ public class ItemDetail  {
 
   /**
    * Sets the <code>flavorTextEntries</code> property.
+   * <br><em>N.B. <code>flavorTextEntries</code> is <b>read only</b>; client code should not call this method</em>.
    */
  public void setFlavorTextEntries(List<@Valid ItemFlavorText> flavorTextEntries) {
     this.flavorTextEntries = flavorTextEntries;
@@ -315,6 +322,7 @@ public class ItemDetail  {
 
   /**
    * Sets the <code>flavorTextEntries</code> property.
+   * <br><em>N.B. <code>flavorTextEntries</code> is <b>read only</b>; client code should not call this method</em>.
    */
   public ItemDetail flavorTextEntries(List<@Valid ItemFlavorText> flavorTextEntries) {
     this.flavorTextEntries = flavorTextEntries;
@@ -323,6 +331,7 @@ public class ItemDetail  {
 
   /**
    * Adds a new item to the <code>flavorTextEntries</code> list.
+   * <br><em>N.B. <code>flavorTextEntries</code> is <b>read only</b>; client code should not call this method</em>.
    */
   public ItemDetail addFlavorTextEntriesItem(ItemFlavorText flavorTextEntriesItem) {
     this.flavorTextEntries.add(flavorTextEntriesItem);
@@ -341,6 +350,7 @@ public class ItemDetail  {
 
   /**
    * Sets the <code>gameIndices</code> property.
+   * <br><em>N.B. <code>gameIndices</code> is <b>read only</b>; client code should not call this method</em>.
    */
  public void setGameIndices(List<@Valid ItemGameIndex> gameIndices) {
     this.gameIndices = gameIndices;
@@ -348,6 +358,7 @@ public class ItemDetail  {
 
   /**
    * Sets the <code>gameIndices</code> property.
+   * <br><em>N.B. <code>gameIndices</code> is <b>read only</b>; client code should not call this method</em>.
    */
   public ItemDetail gameIndices(List<@Valid ItemGameIndex> gameIndices) {
     this.gameIndices = gameIndices;
@@ -356,6 +367,7 @@ public class ItemDetail  {
 
   /**
    * Adds a new item to the <code>gameIndices</code> list.
+   * <br><em>N.B. <code>gameIndices</code> is <b>read only</b>; client code should not call this method</em>.
    */
   public ItemDetail addGameIndicesItem(ItemGameIndex gameIndicesItem) {
     this.gameIndices.add(gameIndicesItem);
@@ -374,6 +386,7 @@ public class ItemDetail  {
 
   /**
    * Sets the <code>names</code> property.
+   * <br><em>N.B. <code>names</code> is <b>read only</b>; client code should not call this method</em>.
    */
  public void setNames(List<@Valid ItemName> names) {
     this.names = names;
@@ -381,6 +394,7 @@ public class ItemDetail  {
 
   /**
    * Sets the <code>names</code> property.
+   * <br><em>N.B. <code>names</code> is <b>read only</b>; client code should not call this method</em>.
    */
   public ItemDetail names(List<@Valid ItemName> names) {
     this.names = names;
@@ -389,6 +403,7 @@ public class ItemDetail  {
 
   /**
    * Adds a new item to the <code>names</code> list.
+   * <br><em>N.B. <code>names</code> is <b>read only</b>; client code should not call this method</em>.
    */
   public ItemDetail addNamesItem(ItemName namesItem) {
     this.names.add(namesItem);
@@ -407,6 +422,7 @@ public class ItemDetail  {
 
   /**
    * Sets the <code>heldByPokemon</code> property.
+   * <br><em>N.B. <code>heldByPokemon</code> is <b>read only</b>; client code should not call this method</em>.
    */
  public void setHeldByPokemon(List<@Valid ItemDetailHeldByPokemonInner> heldByPokemon) {
     this.heldByPokemon = heldByPokemon;
@@ -414,6 +430,7 @@ public class ItemDetail  {
 
   /**
    * Sets the <code>heldByPokemon</code> property.
+   * <br><em>N.B. <code>heldByPokemon</code> is <b>read only</b>; client code should not call this method</em>.
    */
   public ItemDetail heldByPokemon(List<@Valid ItemDetailHeldByPokemonInner> heldByPokemon) {
     this.heldByPokemon = heldByPokemon;
@@ -422,6 +439,7 @@ public class ItemDetail  {
 
   /**
    * Adds a new item to the <code>heldByPokemon</code> list.
+   * <br><em>N.B. <code>heldByPokemon</code> is <b>read only</b>; client code should not call this method</em>.
    */
   public ItemDetail addHeldByPokemonItem(ItemDetailHeldByPokemonInner heldByPokemonItem) {
     this.heldByPokemon.add(heldByPokemonItem);
@@ -490,6 +508,7 @@ public class ItemDetail  {
 
   /**
    * Sets the <code>machines</code> property.
+   * <br><em>N.B. <code>machines</code> is <b>read only</b>; client code should not call this method</em>.
    */
  public void setMachines(List<@Valid ItemDetailMachinesInner> machines) {
     this.machines = machines;
@@ -497,6 +516,7 @@ public class ItemDetail  {
 
   /**
    * Sets the <code>machines</code> property.
+   * <br><em>N.B. <code>machines</code> is <b>read only</b>; client code should not call this method</em>.
    */
   public ItemDetail machines(List<@Valid ItemDetailMachinesInner> machines) {
     this.machines = machines;
@@ -505,6 +525,7 @@ public class ItemDetail  {
 
   /**
    * Adds a new item to the <code>machines</code> list.
+   * <br><em>N.B. <code>machines</code> is <b>read only</b>; client code should not call this method</em>.
    */
   public ItemDetail addMachinesItem(ItemDetailMachinesInner machinesItem) {
     this.machines.add(machinesItem);
@@ -572,10 +593,7 @@ public class ItemDetail  {
    * (except the first line).
    */
   private static String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 }
 

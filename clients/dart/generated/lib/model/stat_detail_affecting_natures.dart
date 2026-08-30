@@ -53,10 +53,10 @@ class StatDetailAffectingNatures {
       // Note 1: the values aren't checked for validity beyond being non-null.
       // Note 2: this code is stripped in release mode!
       assert(() {
-        requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "StatDetailAffectingNatures[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "StatDetailAffectingNatures[$key]" has a null value in JSON.');
-        });
+        assert(json.containsKey(r'increase'), 'Required key "StatDetailAffectingNatures[increase]" is missing from JSON.');
+        assert(json[r'increase'] != null, 'Required key "StatDetailAffectingNatures[increase]" has a null value in JSON.');
+        assert(json.containsKey(r'decrease'), 'Required key "StatDetailAffectingNatures[decrease]" is missing from JSON.');
+        assert(json[r'decrease'] != null, 'Required key "StatDetailAffectingNatures[decrease]" has a null value in JSON.');
         return true;
       }());
 

@@ -24,14 +24,17 @@ import io.swagger.v3.oas.annotations.media.Schema
 data class EvolutionChainDetailChainEvolvesToInner(
 
     @field:Valid
-    @Schema(example = "null", required = true, description = "")
+    @Schema(required = true, description = "")
+    @param:JsonProperty("evolution_details")
     @get:JsonProperty("evolution_details", required = true) val evolutionDetails: kotlin.collections.List<EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner>,
 
-    @Schema(example = "null", required = true, description = "")
+    @Schema(required = true, description = "")
+    @param:JsonProperty("is_baby")
     @get:JsonProperty("is_baby", required = true) val isBaby: kotlin.Boolean,
 
     @field:Valid
-    @Schema(example = "null", required = true, description = "")
+    @Schema(required = true, description = "")
+    @param:JsonProperty("species")
     @get:JsonProperty("species", required = true) val species: AbilityDetailPokemonInnerPokemon
 ) {
 

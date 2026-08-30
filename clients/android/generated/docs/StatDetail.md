@@ -12,9 +12,9 @@ Name | Type | Description | Notes
 **isBattleOnly** | **Boolean** |  |  [optional]
 **affectingMoves** | [**StatDetailAffectingMoves**](StatDetailAffectingMoves.md) |  | 
 **affectingNatures** | [**StatDetailAffectingNatures**](StatDetailAffectingNatures.md) |  | 
-**characteristics** | [**List&lt;CharacteristicSummary&gt;**](CharacteristicSummary.md) |  | 
+**characteristics** | [**List&lt;CharacteristicSummary&gt;**](CharacteristicSummary.md) |  |  [readonly]
 **moveDamageClass** | [**MoveDamageClassSummary**](MoveDamageClassSummary.md) |  | 
-**names** | [**List&lt;StatName&gt;**](StatName.md) |  | 
+**names** | [**List&lt;StatName&gt;**](StatName.md) |  |  [readonly]
 
 
 

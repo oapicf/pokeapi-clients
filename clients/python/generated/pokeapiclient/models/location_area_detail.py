@@ -27,6 +27,7 @@ from pokeapiclient.models.location_area_name import LocationAreaName
 from pokeapiclient.models.location_summary import LocationSummary
 from typing import Optional, Set
 from typing_extensions import Self
+from pydantic_core import to_jsonable_python
 
 class LocationAreaDetail(BaseModel):
     """
@@ -42,7 +43,8 @@ class LocationAreaDetail(BaseModel):
     __properties: ClassVar[List[str]] = ["id", "name", "game_index", "encounter_method_rates", "location", "names", "pokemon_encounters"]
 
     model_config = ConfigDict(
-        populate_by_name=True,
+        validate_by_name=True,
+        validate_by_alias=True,
         validate_assignment=True,
         protected_namespaces=(),
     )
@@ -54,8 +56,7 @@ class LocationAreaDetail(BaseModel):
 
     def to_json(self) -> str:
         """Returns the JSON representation of the model using alias"""
-        # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
-        return json.dumps(self.to_dict())
+        return json.dumps(to_jsonable_python(self.to_dict()))
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
@@ -72,9 +73,15 @@ class LocationAreaDetail(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         * OpenAPI `readOnly` fields are excluded.
+        * OpenAPI `readOnly` fields are excluded.
+        * OpenAPI `readOnly` fields are excluded.
+        * OpenAPI `readOnly` fields are excluded.
         """
         excluded_fields: Set[str] = set([
             "id",
+            "encounter_method_rates",
+            "names",
+            "pokemon_encounters",
         ])
 
         _dict = self.model_dump(

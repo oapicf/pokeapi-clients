@@ -21,7 +21,7 @@
 
 namespace OpenAPI {
 
-OAILocationAreaDetail_pokemon_encounters_inner_version_details_inner_encounter_details::OAILocationAreaDetail_pokemon_encounters_inner_version_details_inner_encounter_details(QString json) {
+OAILocationAreaDetail_pokemon_encounters_inner_version_details_inner_encounter_details::OAILocationAreaDetail_pokemon_encounters_inner_version_details_inner_encounter_details(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -50,7 +50,7 @@ void OAILocationAreaDetail_pokemon_encounters_inner_version_details_inner_encoun
     m_method_isValid = false;
 }
 
-void OAILocationAreaDetail_pokemon_encounters_inner_version_details_inner_encounter_details::fromJson(QString jsonString) {
+void OAILocationAreaDetail_pokemon_encounters_inner_version_details_inner_encounter_details::fromJson(const QString &jsonString) {
     QByteArray array(jsonString.toStdString().c_str());
     QJsonDocument doc = QJsonDocument::fromJson(array);
     QJsonObject jsonObject = doc.object();

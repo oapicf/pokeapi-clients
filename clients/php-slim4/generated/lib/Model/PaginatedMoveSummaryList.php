@@ -67,7 +67,8 @@ class PaginatedMoveSummaryList extends BaseModel
       "type" : "array",
       "items" : {
         "$ref" : "#/components/schemas/MoveSummary"
-      }
+      },
+      "default" : null
     }
   }
 }

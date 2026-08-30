@@ -6,8 +6,8 @@
 | ------------ | ------------- | ------------- | ------------- |
 | **id** | **kotlin.Int** |  |  [readonly] |
 | **name** | **kotlin.String** |  |  |
-| **names** | [**kotlin.collections.List&lt;PokemonColorName&gt;**](PokemonColorName.md) |  |  |
-| **pokemonSpecies** | [**kotlin.collections.List&lt;PokemonSpeciesSummary&gt;**](PokemonSpeciesSummary.md) |  |  |
+| **names** | [**kotlin.collections.List&lt;PokemonColorName&gt;**](PokemonColorName.md) |  |  [readonly] |
+| **pokemonSpecies** | [**kotlin.collections.List&lt;PokemonSpeciesSummary&gt;**](PokemonSpeciesSummary.md) |  |  [readonly] |
 
 
 

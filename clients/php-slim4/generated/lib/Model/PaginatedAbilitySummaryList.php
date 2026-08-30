@@ -67,7 +67,8 @@ class PaginatedAbilitySummaryList extends BaseModel
       "type" : "array",
       "items" : {
         "$ref" : "#/components/schemas/AbilitySummary"
-      }
+      },
+      "default" : null
     }
   }
 }

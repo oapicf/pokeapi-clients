@@ -21,11 +21,13 @@ import io.swagger.v3.oas.annotations.media.Schema
  */
 data class PokemonDetailTypesInner(
 
-    @Schema(example = "null", required = true, description = "")
+    @Schema(required = true, description = "")
+    @param:JsonProperty("slot")
     @get:JsonProperty("slot", required = true) val slot: kotlin.Int,
 
     @field:Valid
-    @Schema(example = "null", required = true, description = "")
+    @Schema(required = true, description = "")
+    @param:JsonProperty("type")
     @get:JsonProperty("type", required = true) val type: AbilityDetailPokemonInnerPokemon
 ) {
 

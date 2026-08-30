@@ -74,19 +74,6 @@ public class MoveMetaAilmentDetail  {
     return moves;
   }
 
-  public void setMoves(List<@Valid AbilityDetailPokemonInnerPokemon> moves) {
-    this.moves = moves;
-  }
-
-  public MoveMetaAilmentDetail moves(List<@Valid AbilityDetailPokemonInnerPokemon> moves) {
-    this.moves = moves;
-    return this;
-  }
-
-  public MoveMetaAilmentDetail addMovesItem(AbilityDetailPokemonInnerPokemon movesItem) {
-    this.moves.add(movesItem);
-    return this;
-  }
 
  /**
    * Get names
@@ -98,19 +85,6 @@ public class MoveMetaAilmentDetail  {
     return names;
   }
 
-  public void setNames(List<@Valid MoveMetaAilmentName> names) {
-    this.names = names;
-  }
-
-  public MoveMetaAilmentDetail names(List<@Valid MoveMetaAilmentName> names) {
-    this.names = names;
-    return this;
-  }
-
-  public MoveMetaAilmentDetail addNamesItem(MoveMetaAilmentName namesItem) {
-    this.names.add(namesItem);
-    return this;
-  }
 
   @Override
   public boolean equals(Object o) {
@@ -150,10 +124,7 @@ public class MoveMetaAilmentDetail  {
    * (except the first line).
    */
   private static String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 }
 

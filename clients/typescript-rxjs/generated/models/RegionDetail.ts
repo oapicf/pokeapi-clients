@@ -38,7 +38,7 @@ export interface RegionDetail {
      * @type {Array<LocationSummary>}
      * @memberof RegionDetail
      */
-    locations: Array<LocationSummary>;
+    readonly locations: Array<LocationSummary>;
     /**
      * @type {GenerationSummary}
      * @memberof RegionDetail
@@ -48,15 +48,15 @@ export interface RegionDetail {
      * @type {Array<RegionName>}
      * @memberof RegionDetail
      */
-    names: Array<RegionName>;
+    readonly names: Array<RegionName>;
     /**
      * @type {Array<PokedexSummary>}
      * @memberof RegionDetail
      */
-    pokedexes: Array<PokedexSummary>;
+    readonly pokedexes: Array<PokedexSummary>;
     /**
      * @type {Array<AbilityDetailPokemonInnerPokemon>}
      * @memberof RegionDetail
      */
-    version_groups: Array<AbilityDetailPokemonInnerPokemon>;
+    readonly version_groups: Array<AbilityDetailPokemonInnerPokemon>;
 }

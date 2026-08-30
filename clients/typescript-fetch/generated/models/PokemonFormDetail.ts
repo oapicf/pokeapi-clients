@@ -126,19 +126,19 @@ export interface PokemonFormDetail {
      * @type {Array<PokemonFormDetailFormNamesInner>}
      * @memberof PokemonFormDetail
      */
-    formNames: Array<PokemonFormDetailFormNamesInner>;
+    readonly formNames: Array<PokemonFormDetailFormNamesInner>;
     /**
      * 
      * @type {Array<PokemonFormDetailFormNamesInner>}
      * @memberof PokemonFormDetail
      */
-    names: Array<PokemonFormDetailFormNamesInner>;
+    readonly names: Array<PokemonFormDetailFormNamesInner>;
     /**
      * 
      * @type {Array<PokemonDetailTypesInner>}
      * @memberof PokemonFormDetail
      */
-    types: Array<PokemonDetailTypesInner>;
+    readonly types: Array<PokemonDetailTypesInner>;
 }
 
 /**
@@ -147,11 +147,11 @@ export interface PokemonFormDetail {
 export function instanceOfPokemonFormDetail(value: object): value is PokemonFormDetail {
     if (!('id' in value) || value['id'] === undefined) return false;
     if (!('name' in value) || value['name'] === undefined) return false;
-    if (!('formName' in value) || value['formName'] === undefined) return false;
+    if ((!('formName' in (value as Record<string, any>)) && !('form_name' in (value as Record<string, any>))) || ((value as Record<string, any>)['formName'] === undefined && (value as Record<string, any>)['form_name'] === undefined)) return false;
     if (!('pokemon' in value) || value['pokemon'] === undefined) return false;
     if (!('sprites' in value) || value['sprites'] === undefined) return false;
-    if (!('versionGroup' in value) || value['versionGroup'] === undefined) return false;
-    if (!('formNames' in value) || value['formNames'] === undefined) return false;
+    if ((!('versionGroup' in (value as Record<string, any>)) && !('version_group' in (value as Record<string, any>))) || ((value as Record<string, any>)['versionGroup'] === undefined && (value as Record<string, any>)['version_group'] === undefined)) return false;
+    if ((!('formNames' in (value as Record<string, any>)) && !('form_names' in (value as Record<string, any>))) || ((value as Record<string, any>)['formNames'] === undefined && (value as Record<string, any>)['form_names'] === undefined)) return false;
     if (!('names' in value) || value['names'] === undefined) return false;
     if (!('types' in value) || value['types'] === undefined) return false;
     return true;
@@ -169,8 +169,8 @@ export function PokemonFormDetailFromJSONTyped(json: any, ignoreDiscriminator: b
         
         'id': json['id'],
         'name': json['name'],
-        'order': json['order'] == null ? undefined : json['order'],
-        'formOrder': json['form_order'] == null ? undefined : json['form_order'],
+        'order': json['order'] === undefined ? undefined : json['order'] === null ? null : json['order'],
+        'formOrder': json['form_order'] === undefined ? undefined : json['form_order'] === null ? null : json['form_order'],
         'isDefault': json['is_default'] == null ? undefined : json['is_default'],
         'isBattleOnly': json['is_battle_only'] == null ? undefined : json['is_battle_only'],
         'isMega': json['is_mega'] == null ? undefined : json['is_mega'],
@@ -188,7 +188,7 @@ export function PokemonFormDetailToJSON(json: any): PokemonFormDetail {
     return PokemonFormDetailToJSONTyped(json, false);
 }
 
-export function PokemonFormDetailToJSONTyped(value?: Omit<PokemonFormDetail, 'id'> | null, ignoreDiscriminator: boolean = false): any {
+export function PokemonFormDetailToJSONTyped(value?: Omit<PokemonFormDetail, 'id'|'formNames'|'names'|'types'> | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
@@ -205,9 +205,6 @@ export function PokemonFormDetailToJSONTyped(value?: Omit<PokemonFormDetail, 'id
         'pokemon': PokemonSummaryToJSON(value['pokemon']),
         'sprites': PokemonFormDetailSpritesToJSON(value['sprites']),
         'version_group': VersionGroupSummaryToJSON(value['versionGroup']),
-        'form_names': ((value['formNames'] as Array<any>).map(PokemonFormDetailFormNamesInnerToJSON)),
-        'names': ((value['names'] as Array<any>).map(PokemonFormDetailFormNamesInnerToJSON)),
-        'types': ((value['types'] as Array<any>).map(PokemonDetailTypesInnerToJSON)),
     };
 }
 

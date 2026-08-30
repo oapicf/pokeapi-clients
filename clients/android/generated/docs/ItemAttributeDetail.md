@@ -8,9 +8,9 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **Integer** |  |  [readonly]
 **name** | **String** |  | 
-**descriptions** | [**List&lt;ItemAttributeDescription&gt;**](ItemAttributeDescription.md) |  | 
-**items** | [**List&lt;AbilityDetailPokemonInnerPokemon&gt;**](AbilityDetailPokemonInnerPokemon.md) |  | 
-**names** | [**List&lt;ItemAttributeName&gt;**](ItemAttributeName.md) |  | 
+**descriptions** | [**List&lt;ItemAttributeDescription&gt;**](ItemAttributeDescription.md) |  |  [readonly]
+**items** | [**List&lt;AbilityDetailPokemonInnerPokemon&gt;**](AbilityDetailPokemonInnerPokemon.md) |  |  [readonly]
+**names** | [**List&lt;ItemAttributeName&gt;**](ItemAttributeName.md) |  |  [readonly]
 
 
 

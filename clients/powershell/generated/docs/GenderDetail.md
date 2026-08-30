@@ -5,8 +5,8 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **Int32** |  | [readonly] 
 **Name** | **String** |  | 
-**PokemonSpeciesDetails** | [**GenderDetailPokemonSpeciesDetailsInner[]**](GenderDetailPokemonSpeciesDetailsInner.md) |  | 
-**RequiredForEvolution** | [**AbilityDetailPokemonInnerPokemon[]**](AbilityDetailPokemonInnerPokemon.md) |  | 
+**PokemonSpeciesDetails** | [**GenderDetailPokemonSpeciesDetailsInner[]**](GenderDetailPokemonSpeciesDetailsInner.md) |  | [readonly] 
+**RequiredForEvolution** | [**AbilityDetailPokemonInnerPokemon[]**](AbilityDetailPokemonInnerPokemon.md) |  | [readonly] 
 
 ## Examples
 

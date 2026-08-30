@@ -13,10 +13,10 @@ static pokemon_species_summary_t *pokemon_species_summary_create_internal(
     if (!pokemon_species_summary_local_var) {
         return NULL;
     }
+    memset(pokemon_species_summary_local_var, 0, sizeof(pokemon_species_summary_t));
+    pokemon_species_summary_local_var->_library_owned = 1;
     pokemon_species_summary_local_var->name = name;
     pokemon_species_summary_local_var->url = url;
-
-    pokemon_species_summary_local_var->_library_owned = 1;
     return pokemon_species_summary_local_var;
 }
 
@@ -24,10 +24,13 @@ __attribute__((deprecated)) pokemon_species_summary_t *pokemon_species_summary_c
     char *name,
     char *url
     ) {
-    return pokemon_species_summary_create_internal (
+    pokemon_species_summary_t *result = pokemon_species_summary_create_internal (
         name,
         url
         );
+    if (!result) {
+    }
+    return result;
 }
 
 void pokemon_species_summary_free(pokemon_species_summary_t *pokemon_species_summary) {
@@ -82,6 +85,10 @@ pokemon_species_summary_t *pokemon_species_summary_parseFromJSON(cJSON *pokemon_
 
     pokemon_species_summary_t *pokemon_species_summary_local_var = NULL;
 
+    char *name_local_str = NULL;
+
+    char *url_local_str = NULL;
+
     // pokemon_species_summary->name
     cJSON *name = cJSON_GetObjectItemCaseSensitive(pokemon_species_summaryJSON, "name");
     if (cJSON_IsNull(name)) {
@@ -113,13 +120,28 @@ pokemon_species_summary_t *pokemon_species_summary_parseFromJSON(cJSON *pokemon_
     }
 
 
+    if (name && !cJSON_IsNull(name)) name_local_str = strdup(name->valuestring);
+    if (url && !cJSON_IsNull(url)) url_local_str = strdup(url->valuestring);
+
     pokemon_species_summary_local_var = pokemon_species_summary_create_internal (
-        strdup(name->valuestring),
-        strdup(url->valuestring)
+        name_local_str,
+        url_local_str
         );
+
+    if (!pokemon_species_summary_local_var) {
+        goto end;
+    }
 
     return pokemon_species_summary_local_var;
 end:
+    if (name_local_str) {
+        free(name_local_str);
+        name_local_str = NULL;
+    }
+    if (url_local_str) {
+        free(url_local_str);
+        url_local_str = NULL;
+    }
     return NULL;
 
 }

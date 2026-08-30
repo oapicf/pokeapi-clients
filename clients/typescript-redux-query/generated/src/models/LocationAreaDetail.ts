@@ -56,7 +56,7 @@ export interface LocationAreaDetail  {
      * @type {Array<LocationAreaDetailEncounterMethodRatesInner>}
      * @memberof LocationAreaDetail
      */
-    encounterMethodRates: Array<LocationAreaDetailEncounterMethodRatesInner>;
+    readonly encounterMethodRates: Array<LocationAreaDetailEncounterMethodRatesInner>;
     /**
      * 
      * @type {LocationSummary}
@@ -68,13 +68,13 @@ export interface LocationAreaDetail  {
      * @type {Array<LocationAreaName>}
      * @memberof LocationAreaDetail
      */
-    names: Array<LocationAreaName>;
+    readonly names: Array<LocationAreaName>;
     /**
      * 
      * @type {Array<LocationAreaDetailPokemonEncountersInner>}
      * @memberof LocationAreaDetail
      */
-    pokemonEncounters: Array<LocationAreaDetailPokemonEncountersInner>;
+    readonly pokemonEncounters: Array<LocationAreaDetailPokemonEncountersInner>;
 }
 
 export function LocationAreaDetailFromJSON(json: any): LocationAreaDetail {
@@ -96,10 +96,7 @@ export function LocationAreaDetailToJSON(value?: LocationAreaDetail): any {
     return {
         'name': value.name,
         'game_index': value.gameIndex,
-        'encounter_method_rates': (value.encounterMethodRates as Array<any>).map(LocationAreaDetailEncounterMethodRatesInnerToJSON),
         'location': LocationSummaryToJSON(value.location),
-        'names': (value.names as Array<any>).map(LocationAreaNameToJSON),
-        'pokemon_encounters': (value.pokemonEncounters as Array<any>).map(LocationAreaDetailPokemonEncountersInnerToJSON),
     };
 }
 

@@ -61,15 +61,19 @@ class TypeDetail extends BaseModel
     },
     "past_damage_relations" : {
       "type" : "array",
+      "readOnly" : true,
       "items" : {
         "$ref" : "#/components/schemas/TypeDetail_past_damage_relations_inner"
-      }
+      },
+      "default" : null
     },
     "game_indices" : {
       "type" : "array",
+      "readOnly" : true,
       "items" : {
         "$ref" : "#/components/schemas/TypeGameIndex"
-      }
+      },
+      "default" : null
     },
     "generation" : {
       "$ref" : "#/components/schemas/GenerationSummary"
@@ -79,21 +83,27 @@ class TypeDetail extends BaseModel
     },
     "names" : {
       "type" : "array",
+      "readOnly" : true,
       "items" : {
         "$ref" : "#/components/schemas/AbilityName"
-      }
+      },
+      "default" : null
     },
     "pokemon" : {
       "type" : "array",
+      "readOnly" : true,
       "items" : {
         "$ref" : "#/components/schemas/TypeDetail_pokemon_inner"
-      }
+      },
+      "default" : null
     },
     "moves" : {
       "type" : "array",
+      "readOnly" : true,
       "items" : {
         "$ref" : "#/components/schemas/MoveSummary"
-      }
+      },
+      "default" : null
     },
     "sprites" : {
       "additionalProperties" : {

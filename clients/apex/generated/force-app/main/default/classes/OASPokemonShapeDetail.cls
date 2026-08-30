@@ -30,19 +30,19 @@ public class OASPokemonShapeDetail implements OAS.MappedProperties {
      * Get awesomeNames
      * @return awesomeNames
      */
-    public List<OASPokemonShapeDetailAwesomeNamesInn> awesomeNames { get; set; }
+    public List<OASPokemonShapeDetailAwesomeNamesInn> awesomeNames { get; private set; }
 
     /**
      * Get names
      * @return names
      */
-    public List<OASPokemonShapeDetailNamesInner> names { get; set; }
+    public List<OASPokemonShapeDetailNamesInner> names { get; private set; }
 
     /**
      * Get pokemonSpecies
      * @return pokemonSpecies
      */
-    public List<OASPokemonSpeciesSummary> pokemonSpecies { get; set; }
+    public List<OASPokemonSpeciesSummary> pokemonSpecies { get; private set; }
 
     private static final Map<String, String> propertyMappings = new Map<String, String>{
         'awesome_names' => 'awesomeNames',

@@ -132,7 +132,7 @@ export interface ItemDetail {
      * @type {Array<AbilityDetailPokemonInnerPokemon>}
      * @memberof ItemDetail
      */
-    attributes: Array<AbilityDetailPokemonInnerPokemon>;
+    readonly attributes: Array<AbilityDetailPokemonInnerPokemon>;
     /**
      * 
      * @type {ItemCategorySummary}
@@ -144,31 +144,31 @@ export interface ItemDetail {
      * @type {Array<ItemEffectText>}
      * @memberof ItemDetail
      */
-    effectEntries: Array<ItemEffectText>;
+    readonly effectEntries: Array<ItemEffectText>;
     /**
      * 
      * @type {Array<ItemFlavorText>}
      * @memberof ItemDetail
      */
-    flavorTextEntries: Array<ItemFlavorText>;
+    readonly flavorTextEntries: Array<ItemFlavorText>;
     /**
      * 
      * @type {Array<ItemGameIndex>}
      * @memberof ItemDetail
      */
-    gameIndices: Array<ItemGameIndex>;
+    readonly gameIndices: Array<ItemGameIndex>;
     /**
      * 
      * @type {Array<ItemName>}
      * @memberof ItemDetail
      */
-    names: Array<ItemName>;
+    readonly names: Array<ItemName>;
     /**
      * 
      * @type {Array<ItemDetailHeldByPokemonInner>}
      * @memberof ItemDetail
      */
-    heldByPokemon: Array<ItemDetailHeldByPokemonInner>;
+    readonly heldByPokemon: Array<ItemDetailHeldByPokemonInner>;
     /**
      * 
      * @type {ItemDetailSprites}
@@ -186,7 +186,7 @@ export interface ItemDetail {
      * @type {Array<ItemDetailMachinesInner>}
      * @memberof ItemDetail
      */
-    machines: Array<ItemDetailMachinesInner>;
+    readonly machines: Array<ItemDetailMachinesInner>;
 }
 
 /**
@@ -195,16 +195,16 @@ export interface ItemDetail {
 export function instanceOfItemDetail(value: object): value is ItemDetail {
     if (!('id' in value) || value['id'] === undefined) return false;
     if (!('name' in value) || value['name'] === undefined) return false;
-    if (!('flingEffect' in value) || value['flingEffect'] === undefined) return false;
+    if ((!('flingEffect' in (value as Record<string, any>)) && !('fling_effect' in (value as Record<string, any>))) || ((value as Record<string, any>)['flingEffect'] === undefined && (value as Record<string, any>)['fling_effect'] === undefined)) return false;
     if (!('attributes' in value) || value['attributes'] === undefined) return false;
     if (!('category' in value) || value['category'] === undefined) return false;
-    if (!('effectEntries' in value) || value['effectEntries'] === undefined) return false;
-    if (!('flavorTextEntries' in value) || value['flavorTextEntries'] === undefined) return false;
-    if (!('gameIndices' in value) || value['gameIndices'] === undefined) return false;
+    if ((!('effectEntries' in (value as Record<string, any>)) && !('effect_entries' in (value as Record<string, any>))) || ((value as Record<string, any>)['effectEntries'] === undefined && (value as Record<string, any>)['effect_entries'] === undefined)) return false;
+    if ((!('flavorTextEntries' in (value as Record<string, any>)) && !('flavor_text_entries' in (value as Record<string, any>))) || ((value as Record<string, any>)['flavorTextEntries'] === undefined && (value as Record<string, any>)['flavor_text_entries'] === undefined)) return false;
+    if ((!('gameIndices' in (value as Record<string, any>)) && !('game_indices' in (value as Record<string, any>))) || ((value as Record<string, any>)['gameIndices'] === undefined && (value as Record<string, any>)['game_indices'] === undefined)) return false;
     if (!('names' in value) || value['names'] === undefined) return false;
-    if (!('heldByPokemon' in value) || value['heldByPokemon'] === undefined) return false;
+    if ((!('heldByPokemon' in (value as Record<string, any>)) && !('held_by_pokemon' in (value as Record<string, any>))) || ((value as Record<string, any>)['heldByPokemon'] === undefined && (value as Record<string, any>)['held_by_pokemon'] === undefined)) return false;
     if (!('sprites' in value) || value['sprites'] === undefined) return false;
-    if (!('babyTriggerFor' in value) || value['babyTriggerFor'] === undefined) return false;
+    if ((!('babyTriggerFor' in (value as Record<string, any>)) && !('baby_trigger_for' in (value as Record<string, any>))) || ((value as Record<string, any>)['babyTriggerFor'] === undefined && (value as Record<string, any>)['baby_trigger_for'] === undefined)) return false;
     if (!('machines' in value) || value['machines'] === undefined) return false;
     return true;
 }
@@ -221,8 +221,8 @@ export function ItemDetailFromJSONTyped(json: any, ignoreDiscriminator: boolean)
         
         'id': json['id'],
         'name': json['name'],
-        'cost': json['cost'] == null ? undefined : json['cost'],
-        'flingPower': json['fling_power'] == null ? undefined : json['fling_power'],
+        'cost': json['cost'] === undefined ? undefined : json['cost'] === null ? null : json['cost'],
+        'flingPower': json['fling_power'] === undefined ? undefined : json['fling_power'] === null ? null : json['fling_power'],
         'flingEffect': ItemFlingEffectSummaryFromJSON(json['fling_effect']),
         'attributes': ((json['attributes'] as Array<any>).map(AbilityDetailPokemonInnerPokemonFromJSON)),
         'category': ItemCategorySummaryFromJSON(json['category']),
@@ -241,7 +241,7 @@ export function ItemDetailToJSON(json: any): ItemDetail {
     return ItemDetailToJSONTyped(json, false);
 }
 
-export function ItemDetailToJSONTyped(value?: Omit<ItemDetail, 'id'> | null, ignoreDiscriminator: boolean = false): any {
+export function ItemDetailToJSONTyped(value?: Omit<ItemDetail, 'id'|'attributes'|'effectEntries'|'flavorTextEntries'|'gameIndices'|'names'|'heldByPokemon'|'machines'> | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
@@ -252,16 +252,9 @@ export function ItemDetailToJSONTyped(value?: Omit<ItemDetail, 'id'> | null, ign
         'cost': value['cost'],
         'fling_power': value['flingPower'],
         'fling_effect': ItemFlingEffectSummaryToJSON(value['flingEffect']),
-        'attributes': ((value['attributes'] as Array<any>).map(AbilityDetailPokemonInnerPokemonToJSON)),
         'category': ItemCategorySummaryToJSON(value['category']),
-        'effect_entries': ((value['effectEntries'] as Array<any>).map(ItemEffectTextToJSON)),
-        'flavor_text_entries': ((value['flavorTextEntries'] as Array<any>).map(ItemFlavorTextToJSON)),
-        'game_indices': ((value['gameIndices'] as Array<any>).map(ItemGameIndexToJSON)),
-        'names': ((value['names'] as Array<any>).map(ItemNameToJSON)),
-        'held_by_pokemon': ((value['heldByPokemon'] as Array<any>).map(ItemDetailHeldByPokemonInnerToJSON)),
         'sprites': ItemDetailSpritesToJSON(value['sprites']),
         'baby_trigger_for': ItemDetailBabyTriggerForToJSON(value['babyTriggerFor']),
-        'machines': ((value['machines'] as Array<any>).map(ItemDetailMachinesInnerToJSON)),
     };
 }
 

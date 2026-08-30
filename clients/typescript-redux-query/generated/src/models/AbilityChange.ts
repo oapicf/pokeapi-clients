@@ -38,7 +38,7 @@ export interface AbilityChange  {
      * @type {Array<AbilityChangeEffectText>}
      * @memberof AbilityChange
      */
-    effectEntries: Array<AbilityChangeEffectText>;
+    readonly effectEntries: Array<AbilityChangeEffectText>;
 }
 
 export function AbilityChangeFromJSON(json: any): AbilityChange {
@@ -54,7 +54,6 @@ export function AbilityChangeToJSON(value?: AbilityChange): any {
     }
     return {
         'version_group': VersionGroupSummaryToJSON(value.versionGroup),
-        'effect_entries': (value.effectEntries as Array<any>).map(AbilityChangeEffectTextToJSON),
     };
 }
 

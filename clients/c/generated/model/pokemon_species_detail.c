@@ -6,18 +6,18 @@
 
 
 static pokemon_species_detail_t *pokemon_species_detail_create_internal(
-    int id,
+    int *id,
     char *name,
-    int order,
-    int gender_rate,
-    int capture_rate,
-    int base_happiness,
-    int is_baby,
-    int is_legendary,
-    int is_mythical,
-    int hatch_counter,
-    int has_gender_differences,
-    int forms_switchable,
+    int *order,
+    int *gender_rate,
+    int *capture_rate,
+    int *base_happiness,
+    int *is_baby,
+    int *is_legendary,
+    int *is_mythical,
+    int *hatch_counter,
+    int *has_gender_differences,
+    int *forms_switchable,
     growth_rate_summary_t *growth_rate,
     list_t *pokedex_numbers,
     list_t *egg_groups,
@@ -38,6 +38,8 @@ static pokemon_species_detail_t *pokemon_species_detail_create_internal(
     if (!pokemon_species_detail_local_var) {
         return NULL;
     }
+    memset(pokemon_species_detail_local_var, 0, sizeof(pokemon_species_detail_t));
+    pokemon_species_detail_local_var->_library_owned = 1;
     pokemon_species_detail_local_var->id = id;
     pokemon_species_detail_local_var->name = name;
     pokemon_species_detail_local_var->order = order;
@@ -65,24 +67,22 @@ static pokemon_species_detail_t *pokemon_species_detail_create_internal(
     pokemon_species_detail_local_var->flavor_text_entries = flavor_text_entries;
     pokemon_species_detail_local_var->genera = genera;
     pokemon_species_detail_local_var->varieties = varieties;
-
-    pokemon_species_detail_local_var->_library_owned = 1;
     return pokemon_species_detail_local_var;
 }
 
 __attribute__((deprecated)) pokemon_species_detail_t *pokemon_species_detail_create(
-    int id,
+    int *id,
     char *name,
-    int order,
-    int gender_rate,
-    int capture_rate,
-    int base_happiness,
-    int is_baby,
-    int is_legendary,
-    int is_mythical,
-    int hatch_counter,
-    int has_gender_differences,
-    int forms_switchable,
+    int *order,
+    int *gender_rate,
+    int *capture_rate,
+    int *base_happiness,
+    int *is_baby,
+    int *is_legendary,
+    int *is_mythical,
+    int *hatch_counter,
+    int *has_gender_differences,
+    int *forms_switchable,
     growth_rate_summary_t *growth_rate,
     list_t *pokedex_numbers,
     list_t *egg_groups,
@@ -99,19 +99,74 @@ __attribute__((deprecated)) pokemon_species_detail_t *pokemon_species_detail_cre
     list_t *genera,
     list_t *varieties
     ) {
-    return pokemon_species_detail_create_internal (
-        id,
+    int *id_copy = NULL;
+    if (id) {
+        id_copy = malloc(sizeof(int));
+        if (id_copy) *id_copy = *id;
+    }
+    int *order_copy = NULL;
+    if (order) {
+        order_copy = malloc(sizeof(int));
+        if (order_copy) *order_copy = *order;
+    }
+    int *gender_rate_copy = NULL;
+    if (gender_rate) {
+        gender_rate_copy = malloc(sizeof(int));
+        if (gender_rate_copy) *gender_rate_copy = *gender_rate;
+    }
+    int *capture_rate_copy = NULL;
+    if (capture_rate) {
+        capture_rate_copy = malloc(sizeof(int));
+        if (capture_rate_copy) *capture_rate_copy = *capture_rate;
+    }
+    int *base_happiness_copy = NULL;
+    if (base_happiness) {
+        base_happiness_copy = malloc(sizeof(int));
+        if (base_happiness_copy) *base_happiness_copy = *base_happiness;
+    }
+    int *is_baby_copy = NULL;
+    if (is_baby) {
+        is_baby_copy = malloc(sizeof(int));
+        if (is_baby_copy) *is_baby_copy = *is_baby;
+    }
+    int *is_legendary_copy = NULL;
+    if (is_legendary) {
+        is_legendary_copy = malloc(sizeof(int));
+        if (is_legendary_copy) *is_legendary_copy = *is_legendary;
+    }
+    int *is_mythical_copy = NULL;
+    if (is_mythical) {
+        is_mythical_copy = malloc(sizeof(int));
+        if (is_mythical_copy) *is_mythical_copy = *is_mythical;
+    }
+    int *hatch_counter_copy = NULL;
+    if (hatch_counter) {
+        hatch_counter_copy = malloc(sizeof(int));
+        if (hatch_counter_copy) *hatch_counter_copy = *hatch_counter;
+    }
+    int *has_gender_differences_copy = NULL;
+    if (has_gender_differences) {
+        has_gender_differences_copy = malloc(sizeof(int));
+        if (has_gender_differences_copy) *has_gender_differences_copy = *has_gender_differences;
+    }
+    int *forms_switchable_copy = NULL;
+    if (forms_switchable) {
+        forms_switchable_copy = malloc(sizeof(int));
+        if (forms_switchable_copy) *forms_switchable_copy = *forms_switchable;
+    }
+    pokemon_species_detail_t *result = pokemon_species_detail_create_internal (
+        id_copy,
         name,
-        order,
-        gender_rate,
-        capture_rate,
-        base_happiness,
-        is_baby,
-        is_legendary,
-        is_mythical,
-        hatch_counter,
-        has_gender_differences,
-        forms_switchable,
+        order_copy,
+        gender_rate_copy,
+        capture_rate_copy,
+        base_happiness_copy,
+        is_baby_copy,
+        is_legendary_copy,
+        is_mythical_copy,
+        hatch_counter_copy,
+        has_gender_differences_copy,
+        forms_switchable_copy,
         growth_rate,
         pokedex_numbers,
         egg_groups,
@@ -128,6 +183,20 @@ __attribute__((deprecated)) pokemon_species_detail_t *pokemon_species_detail_cre
         genera,
         varieties
         );
+    if (!result) {
+        free(id_copy);
+        free(order_copy);
+        free(gender_rate_copy);
+        free(capture_rate_copy);
+        free(base_happiness_copy);
+        free(is_baby_copy);
+        free(is_legendary_copy);
+        free(is_mythical_copy);
+        free(hatch_counter_copy);
+        free(has_gender_differences_copy);
+        free(forms_switchable_copy);
+    }
+    return result;
 }
 
 void pokemon_species_detail_free(pokemon_species_detail_t *pokemon_species_detail) {
@@ -139,9 +208,53 @@ void pokemon_species_detail_free(pokemon_species_detail_t *pokemon_species_detai
         return ;
     }
     listEntry_t *listEntry;
+    if (pokemon_species_detail->id) {
+        free(pokemon_species_detail->id);
+        pokemon_species_detail->id = NULL;
+    }
     if (pokemon_species_detail->name) {
         free(pokemon_species_detail->name);
         pokemon_species_detail->name = NULL;
+    }
+    if (pokemon_species_detail->order) {
+        free(pokemon_species_detail->order);
+        pokemon_species_detail->order = NULL;
+    }
+    if (pokemon_species_detail->gender_rate) {
+        free(pokemon_species_detail->gender_rate);
+        pokemon_species_detail->gender_rate = NULL;
+    }
+    if (pokemon_species_detail->capture_rate) {
+        free(pokemon_species_detail->capture_rate);
+        pokemon_species_detail->capture_rate = NULL;
+    }
+    if (pokemon_species_detail->base_happiness) {
+        free(pokemon_species_detail->base_happiness);
+        pokemon_species_detail->base_happiness = NULL;
+    }
+    if (pokemon_species_detail->is_baby) {
+        free(pokemon_species_detail->is_baby);
+        pokemon_species_detail->is_baby = NULL;
+    }
+    if (pokemon_species_detail->is_legendary) {
+        free(pokemon_species_detail->is_legendary);
+        pokemon_species_detail->is_legendary = NULL;
+    }
+    if (pokemon_species_detail->is_mythical) {
+        free(pokemon_species_detail->is_mythical);
+        pokemon_species_detail->is_mythical = NULL;
+    }
+    if (pokemon_species_detail->hatch_counter) {
+        free(pokemon_species_detail->hatch_counter);
+        pokemon_species_detail->hatch_counter = NULL;
+    }
+    if (pokemon_species_detail->has_gender_differences) {
+        free(pokemon_species_detail->has_gender_differences);
+        pokemon_species_detail->has_gender_differences = NULL;
+    }
+    if (pokemon_species_detail->forms_switchable) {
+        free(pokemon_species_detail->forms_switchable);
+        pokemon_species_detail->forms_switchable = NULL;
     }
     if (pokemon_species_detail->growth_rate) {
         growth_rate_summary_free(pokemon_species_detail->growth_rate);
@@ -237,7 +350,7 @@ cJSON *pokemon_species_detail_convertToJSON(pokemon_species_detail_t *pokemon_sp
     if (!pokemon_species_detail->id) {
         goto fail;
     }
-    if(cJSON_AddNumberToObject(item, "id", pokemon_species_detail->id) == NULL) {
+    if(cJSON_AddNumberToObject(item, "id", *pokemon_species_detail->id) == NULL) {
     goto fail; //Numeric
     }
 
@@ -253,7 +366,7 @@ cJSON *pokemon_species_detail_convertToJSON(pokemon_species_detail_t *pokemon_sp
 
     // pokemon_species_detail->order
     if(pokemon_species_detail->order) {
-    if(cJSON_AddNumberToObject(item, "order", pokemon_species_detail->order) == NULL) {
+    if(cJSON_AddNumberToObject(item, "order", *pokemon_species_detail->order) == NULL) {
     goto fail; //Numeric
     }
     }
@@ -261,7 +374,7 @@ cJSON *pokemon_species_detail_convertToJSON(pokemon_species_detail_t *pokemon_sp
 
     // pokemon_species_detail->gender_rate
     if(pokemon_species_detail->gender_rate) {
-    if(cJSON_AddNumberToObject(item, "gender_rate", pokemon_species_detail->gender_rate) == NULL) {
+    if(cJSON_AddNumberToObject(item, "gender_rate", *pokemon_species_detail->gender_rate) == NULL) {
     goto fail; //Numeric
     }
     }
@@ -269,7 +382,7 @@ cJSON *pokemon_species_detail_convertToJSON(pokemon_species_detail_t *pokemon_sp
 
     // pokemon_species_detail->capture_rate
     if(pokemon_species_detail->capture_rate) {
-    if(cJSON_AddNumberToObject(item, "capture_rate", pokemon_species_detail->capture_rate) == NULL) {
+    if(cJSON_AddNumberToObject(item, "capture_rate", *pokemon_species_detail->capture_rate) == NULL) {
     goto fail; //Numeric
     }
     }
@@ -277,7 +390,7 @@ cJSON *pokemon_species_detail_convertToJSON(pokemon_species_detail_t *pokemon_sp
 
     // pokemon_species_detail->base_happiness
     if(pokemon_species_detail->base_happiness) {
-    if(cJSON_AddNumberToObject(item, "base_happiness", pokemon_species_detail->base_happiness) == NULL) {
+    if(cJSON_AddNumberToObject(item, "base_happiness", *pokemon_species_detail->base_happiness) == NULL) {
     goto fail; //Numeric
     }
     }
@@ -285,7 +398,7 @@ cJSON *pokemon_species_detail_convertToJSON(pokemon_species_detail_t *pokemon_sp
 
     // pokemon_species_detail->is_baby
     if(pokemon_species_detail->is_baby) {
-    if(cJSON_AddBoolToObject(item, "is_baby", pokemon_species_detail->is_baby) == NULL) {
+    if(cJSON_AddBoolToObject(item, "is_baby", *pokemon_species_detail->is_baby) == NULL) {
     goto fail; //Bool
     }
     }
@@ -293,7 +406,7 @@ cJSON *pokemon_species_detail_convertToJSON(pokemon_species_detail_t *pokemon_sp
 
     // pokemon_species_detail->is_legendary
     if(pokemon_species_detail->is_legendary) {
-    if(cJSON_AddBoolToObject(item, "is_legendary", pokemon_species_detail->is_legendary) == NULL) {
+    if(cJSON_AddBoolToObject(item, "is_legendary", *pokemon_species_detail->is_legendary) == NULL) {
     goto fail; //Bool
     }
     }
@@ -301,7 +414,7 @@ cJSON *pokemon_species_detail_convertToJSON(pokemon_species_detail_t *pokemon_sp
 
     // pokemon_species_detail->is_mythical
     if(pokemon_species_detail->is_mythical) {
-    if(cJSON_AddBoolToObject(item, "is_mythical", pokemon_species_detail->is_mythical) == NULL) {
+    if(cJSON_AddBoolToObject(item, "is_mythical", *pokemon_species_detail->is_mythical) == NULL) {
     goto fail; //Bool
     }
     }
@@ -309,7 +422,7 @@ cJSON *pokemon_species_detail_convertToJSON(pokemon_species_detail_t *pokemon_sp
 
     // pokemon_species_detail->hatch_counter
     if(pokemon_species_detail->hatch_counter) {
-    if(cJSON_AddNumberToObject(item, "hatch_counter", pokemon_species_detail->hatch_counter) == NULL) {
+    if(cJSON_AddNumberToObject(item, "hatch_counter", *pokemon_species_detail->hatch_counter) == NULL) {
     goto fail; //Numeric
     }
     }
@@ -317,7 +430,7 @@ cJSON *pokemon_species_detail_convertToJSON(pokemon_species_detail_t *pokemon_sp
 
     // pokemon_species_detail->has_gender_differences
     if(pokemon_species_detail->has_gender_differences) {
-    if(cJSON_AddBoolToObject(item, "has_gender_differences", pokemon_species_detail->has_gender_differences) == NULL) {
+    if(cJSON_AddBoolToObject(item, "has_gender_differences", *pokemon_species_detail->has_gender_differences) == NULL) {
     goto fail; //Bool
     }
     }
@@ -325,7 +438,7 @@ cJSON *pokemon_species_detail_convertToJSON(pokemon_species_detail_t *pokemon_sp
 
     // pokemon_species_detail->forms_switchable
     if(pokemon_species_detail->forms_switchable) {
-    if(cJSON_AddBoolToObject(item, "forms_switchable", pokemon_species_detail->forms_switchable) == NULL) {
+    if(cJSON_AddBoolToObject(item, "forms_switchable", *pokemon_species_detail->forms_switchable) == NULL) {
     goto fail; //Bool
     }
     }
@@ -608,6 +721,41 @@ pokemon_species_detail_t *pokemon_species_detail_parseFromJSON(cJSON *pokemon_sp
 
     pokemon_species_detail_t *pokemon_species_detail_local_var = NULL;
 
+    // define the local variable for pokemon_species_detail->id
+    int *id_local_var = NULL;
+
+    char *name_local_str = NULL;
+
+    // define the local variable for pokemon_species_detail->order
+    int *order_local_var = NULL;
+
+    // define the local variable for pokemon_species_detail->gender_rate
+    int *gender_rate_local_var = NULL;
+
+    // define the local variable for pokemon_species_detail->capture_rate
+    int *capture_rate_local_var = NULL;
+
+    // define the local variable for pokemon_species_detail->base_happiness
+    int *base_happiness_local_var = NULL;
+
+    // define the local variable for pokemon_species_detail->is_baby
+    int *is_baby_local_var = NULL;
+
+    // define the local variable for pokemon_species_detail->is_legendary
+    int *is_legendary_local_var = NULL;
+
+    // define the local variable for pokemon_species_detail->is_mythical
+    int *is_mythical_local_var = NULL;
+
+    // define the local variable for pokemon_species_detail->hatch_counter
+    int *hatch_counter_local_var = NULL;
+
+    // define the local variable for pokemon_species_detail->has_gender_differences
+    int *has_gender_differences_local_var = NULL;
+
+    // define the local variable for pokemon_species_detail->forms_switchable
+    int *forms_switchable_local_var = NULL;
+
     // define the local variable for pokemon_species_detail->growth_rate
     growth_rate_summary_t *growth_rate_local_nonprim = NULL;
 
@@ -667,6 +815,12 @@ pokemon_species_detail_t *pokemon_species_detail_parseFromJSON(cJSON *pokemon_sp
     {
     goto end; //Numeric
     }
+    id_local_var = malloc(sizeof(int));
+    if(!id_local_var)
+    {
+        goto end;
+    }
+    *id_local_var = id->valuedouble;
 
     // pokemon_species_detail->name
     cJSON *name = cJSON_GetObjectItemCaseSensitive(pokemon_species_detailJSON, "name");
@@ -693,6 +847,12 @@ pokemon_species_detail_t *pokemon_species_detail_parseFromJSON(cJSON *pokemon_sp
     {
     goto end; //Numeric
     }
+    order_local_var = malloc(sizeof(int));
+    if(!order_local_var)
+    {
+        goto end;
+    }
+    *order_local_var = order->valuedouble;
     }
 
     // pokemon_species_detail->gender_rate
@@ -705,6 +865,12 @@ pokemon_species_detail_t *pokemon_species_detail_parseFromJSON(cJSON *pokemon_sp
     {
     goto end; //Numeric
     }
+    gender_rate_local_var = malloc(sizeof(int));
+    if(!gender_rate_local_var)
+    {
+        goto end;
+    }
+    *gender_rate_local_var = gender_rate->valuedouble;
     }
 
     // pokemon_species_detail->capture_rate
@@ -717,6 +883,12 @@ pokemon_species_detail_t *pokemon_species_detail_parseFromJSON(cJSON *pokemon_sp
     {
     goto end; //Numeric
     }
+    capture_rate_local_var = malloc(sizeof(int));
+    if(!capture_rate_local_var)
+    {
+        goto end;
+    }
+    *capture_rate_local_var = capture_rate->valuedouble;
     }
 
     // pokemon_species_detail->base_happiness
@@ -729,6 +901,12 @@ pokemon_species_detail_t *pokemon_species_detail_parseFromJSON(cJSON *pokemon_sp
     {
     goto end; //Numeric
     }
+    base_happiness_local_var = malloc(sizeof(int));
+    if(!base_happiness_local_var)
+    {
+        goto end;
+    }
+    *base_happiness_local_var = base_happiness->valuedouble;
     }
 
     // pokemon_species_detail->is_baby
@@ -741,6 +919,12 @@ pokemon_species_detail_t *pokemon_species_detail_parseFromJSON(cJSON *pokemon_sp
     {
     goto end; //Bool
     }
+    is_baby_local_var = malloc(sizeof(int));
+    if(!is_baby_local_var)
+    {
+        goto end;
+    }
+    *is_baby_local_var = is_baby->valueint;
     }
 
     // pokemon_species_detail->is_legendary
@@ -753,6 +937,12 @@ pokemon_species_detail_t *pokemon_species_detail_parseFromJSON(cJSON *pokemon_sp
     {
     goto end; //Bool
     }
+    is_legendary_local_var = malloc(sizeof(int));
+    if(!is_legendary_local_var)
+    {
+        goto end;
+    }
+    *is_legendary_local_var = is_legendary->valueint;
     }
 
     // pokemon_species_detail->is_mythical
@@ -765,6 +955,12 @@ pokemon_species_detail_t *pokemon_species_detail_parseFromJSON(cJSON *pokemon_sp
     {
     goto end; //Bool
     }
+    is_mythical_local_var = malloc(sizeof(int));
+    if(!is_mythical_local_var)
+    {
+        goto end;
+    }
+    *is_mythical_local_var = is_mythical->valueint;
     }
 
     // pokemon_species_detail->hatch_counter
@@ -777,6 +973,12 @@ pokemon_species_detail_t *pokemon_species_detail_parseFromJSON(cJSON *pokemon_sp
     {
     goto end; //Numeric
     }
+    hatch_counter_local_var = malloc(sizeof(int));
+    if(!hatch_counter_local_var)
+    {
+        goto end;
+    }
+    *hatch_counter_local_var = hatch_counter->valuedouble;
     }
 
     // pokemon_species_detail->has_gender_differences
@@ -789,6 +991,12 @@ pokemon_species_detail_t *pokemon_species_detail_parseFromJSON(cJSON *pokemon_sp
     {
     goto end; //Bool
     }
+    has_gender_differences_local_var = malloc(sizeof(int));
+    if(!has_gender_differences_local_var)
+    {
+        goto end;
+    }
+    *has_gender_differences_local_var = has_gender_differences->valueint;
     }
 
     // pokemon_species_detail->forms_switchable
@@ -801,6 +1009,12 @@ pokemon_species_detail_t *pokemon_species_detail_parseFromJSON(cJSON *pokemon_sp
     {
     goto end; //Bool
     }
+    forms_switchable_local_var = malloc(sizeof(int));
+    if(!forms_switchable_local_var)
+    {
+        goto end;
+    }
+    *forms_switchable_local_var = forms_switchable->valueint;
     }
 
     // pokemon_species_detail->growth_rate
@@ -1104,19 +1318,21 @@ pokemon_species_detail_t *pokemon_species_detail_parseFromJSON(cJSON *pokemon_sp
     }
 
 
+    if (name && !cJSON_IsNull(name)) name_local_str = strdup(name->valuestring);
+
     pokemon_species_detail_local_var = pokemon_species_detail_create_internal (
-        id->valuedouble,
-        strdup(name->valuestring),
-        order ? order->valuedouble : 0,
-        gender_rate ? gender_rate->valuedouble : 0,
-        capture_rate ? capture_rate->valuedouble : 0,
-        base_happiness ? base_happiness->valuedouble : 0,
-        is_baby ? is_baby->valueint : 0,
-        is_legendary ? is_legendary->valueint : 0,
-        is_mythical ? is_mythical->valueint : 0,
-        hatch_counter ? hatch_counter->valuedouble : 0,
-        has_gender_differences ? has_gender_differences->valueint : 0,
-        forms_switchable ? forms_switchable->valueint : 0,
+        id_local_var,
+        name_local_str,
+        order_local_var,
+        gender_rate_local_var,
+        capture_rate_local_var,
+        base_happiness_local_var,
+        is_baby_local_var,
+        is_legendary_local_var,
+        is_mythical_local_var,
+        hatch_counter_local_var,
+        has_gender_differences_local_var,
+        forms_switchable_local_var,
         growth_rate_local_nonprim,
         pokedex_numbersList,
         egg_groupsList,
@@ -1134,8 +1350,60 @@ pokemon_species_detail_t *pokemon_species_detail_parseFromJSON(cJSON *pokemon_sp
         varietiesList
         );
 
+    if (!pokemon_species_detail_local_var) {
+        goto end;
+    }
+
     return pokemon_species_detail_local_var;
 end:
+    if (id_local_var) {
+        free(id_local_var);
+        id_local_var = NULL;
+    }
+    if (name_local_str) {
+        free(name_local_str);
+        name_local_str = NULL;
+    }
+    if (order_local_var) {
+        free(order_local_var);
+        order_local_var = NULL;
+    }
+    if (gender_rate_local_var) {
+        free(gender_rate_local_var);
+        gender_rate_local_var = NULL;
+    }
+    if (capture_rate_local_var) {
+        free(capture_rate_local_var);
+        capture_rate_local_var = NULL;
+    }
+    if (base_happiness_local_var) {
+        free(base_happiness_local_var);
+        base_happiness_local_var = NULL;
+    }
+    if (is_baby_local_var) {
+        free(is_baby_local_var);
+        is_baby_local_var = NULL;
+    }
+    if (is_legendary_local_var) {
+        free(is_legendary_local_var);
+        is_legendary_local_var = NULL;
+    }
+    if (is_mythical_local_var) {
+        free(is_mythical_local_var);
+        is_mythical_local_var = NULL;
+    }
+    if (hatch_counter_local_var) {
+        free(hatch_counter_local_var);
+        hatch_counter_local_var = NULL;
+    }
+    if (has_gender_differences_local_var) {
+        free(has_gender_differences_local_var);
+        has_gender_differences_local_var = NULL;
+    }
+    if (forms_switchable_local_var) {
+        free(forms_switchable_local_var);
+        forms_switchable_local_var = NULL;
+    }
     if (growth_rate_local_nonprim) {
         growth_rate_summary_free(growth_rate_local_nonprim);
         growth_rate_local_nonprim = NULL;

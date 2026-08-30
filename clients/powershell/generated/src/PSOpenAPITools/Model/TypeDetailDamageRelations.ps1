@@ -85,12 +85,12 @@ function Initialize-TypeDetailDamageRelations {
 
 
         $PSO = [PSCustomObject]@{
-            "no_damage_to" = ${NoDamageTo}
-            "half_damage_to" = ${HalfDamageTo}
-            "double_damage_to" = ${DoubleDamageTo}
-            "no_damage_from" = ${NoDamageFrom}
-            "half_damage_from" = ${HalfDamageFrom}
-            "double_damage_from" = ${DoubleDamageFrom}
+            'no_damage_to' = ${NoDamageTo}
+            'half_damage_to' = ${HalfDamageTo}
+            'double_damage_to' = ${DoubleDamageTo}
+            'no_damage_from' = ${NoDamageFrom}
+            'half_damage_from' = ${HalfDamageFrom}
+            'double_damage_from' = ${DoubleDamageFrom}
         }
 
 
@@ -128,7 +128,7 @@ function ConvertFrom-JsonToTypeDetailDamageRelations {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in TypeDetailDamageRelations
-        $AllProperties = ("no_damage_to", "half_damage_to", "double_damage_to", "no_damage_from", "half_damage_from", "double_damage_from")
+        $AllProperties = ('no_damage_to', 'half_damage_to', 'double_damage_to', 'no_damage_from', 'half_damage_from', 'double_damage_from')
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -139,49 +139,49 @@ function ConvertFrom-JsonToTypeDetailDamageRelations {
             throw "Error! Empty JSON cannot be serialized due to the required property 'no_damage_to' missing."
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "no_damage_to"))) {
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'no_damage_to'))) {
             throw "Error! JSON cannot be serialized due to the required property 'no_damage_to' missing."
         } else {
-            $NoDamageTo = $JsonParameters.PSobject.Properties["no_damage_to"].value
+            $NoDamageTo = $JsonParameters.PSobject.Properties['no_damage_to'].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "half_damage_to"))) {
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'half_damage_to'))) {
             throw "Error! JSON cannot be serialized due to the required property 'half_damage_to' missing."
         } else {
-            $HalfDamageTo = $JsonParameters.PSobject.Properties["half_damage_to"].value
+            $HalfDamageTo = $JsonParameters.PSobject.Properties['half_damage_to'].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "double_damage_to"))) {
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'double_damage_to'))) {
             throw "Error! JSON cannot be serialized due to the required property 'double_damage_to' missing."
         } else {
-            $DoubleDamageTo = $JsonParameters.PSobject.Properties["double_damage_to"].value
+            $DoubleDamageTo = $JsonParameters.PSobject.Properties['double_damage_to'].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "no_damage_from"))) {
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'no_damage_from'))) {
             throw "Error! JSON cannot be serialized due to the required property 'no_damage_from' missing."
         } else {
-            $NoDamageFrom = $JsonParameters.PSobject.Properties["no_damage_from"].value
+            $NoDamageFrom = $JsonParameters.PSobject.Properties['no_damage_from'].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "half_damage_from"))) {
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'half_damage_from'))) {
             throw "Error! JSON cannot be serialized due to the required property 'half_damage_from' missing."
         } else {
-            $HalfDamageFrom = $JsonParameters.PSobject.Properties["half_damage_from"].value
+            $HalfDamageFrom = $JsonParameters.PSobject.Properties['half_damage_from'].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "double_damage_from"))) {
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'double_damage_from'))) {
             throw "Error! JSON cannot be serialized due to the required property 'double_damage_from' missing."
         } else {
-            $DoubleDamageFrom = $JsonParameters.PSobject.Properties["double_damage_from"].value
+            $DoubleDamageFrom = $JsonParameters.PSobject.Properties['double_damage_from'].value
         }
 
         $PSO = [PSCustomObject]@{
-            "no_damage_to" = ${NoDamageTo}
-            "half_damage_to" = ${HalfDamageTo}
-            "double_damage_to" = ${DoubleDamageTo}
-            "no_damage_from" = ${NoDamageFrom}
-            "half_damage_from" = ${HalfDamageFrom}
-            "double_damage_from" = ${DoubleDamageFrom}
+            'no_damage_to' = ${NoDamageTo}
+            'half_damage_to' = ${HalfDamageTo}
+            'double_damage_to' = ${DoubleDamageTo}
+            'no_damage_from' = ${NoDamageFrom}
+            'half_damage_from' = ${HalfDamageFrom}
+            'double_damage_from' = ${DoubleDamageFrom}
         }
 
         return $PSO

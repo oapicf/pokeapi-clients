@@ -22,11 +22,13 @@ import io.swagger.v3.oas.annotations.media.Schema
 data class StatDetailAffectingNatures(
 
     @field:Valid
-    @Schema(example = "null", required = true, description = "")
+    @Schema(required = true, description = "")
+    @param:JsonProperty("increase")
     @get:JsonProperty("increase", required = true) val increase: kotlin.collections.List<AbilityDetailPokemonInnerPokemon>,
 
     @field:Valid
-    @Schema(example = "null", required = true, description = "")
+    @Schema(required = true, description = "")
+    @param:JsonProperty("decrease")
     @get:JsonProperty("decrease", required = true) val decrease: kotlin.collections.List<AbilityDetailPokemonInnerPokemon>
 ) {
 

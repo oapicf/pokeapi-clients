@@ -26,6 +26,8 @@ AbilityDetail_pokemon_inner::AbilityDetail_pokemon_inner()
     
 }
 
+AbilityDetail_pokemon_inner::~AbilityDetail_pokemon_inner() = default;
+
 void AbilityDetail_pokemon_inner::validate() const
 {
     std::stringstream msg;

@@ -13,32 +13,29 @@ import org.openapitools.model.PokemonSpeciesSummary;
 import org.springframework.lang.Nullable;
 import org.openapitools.jackson.nullable.JsonNullable;
 import java.time.OffsetDateTime;
-import javax.validation.Valid;
-import javax.validation.constraints.*;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.*;
 import io.swagger.v3.oas.annotations.media.Schema;
 
 
 import java.util.*;
-import javax.annotation.Generated;
+import jakarta.annotation.Generated;
 
 /**
  * PokemonShapeDetail
  */
 
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2026-02-07T15:29:13.146999890Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2026-08-30T02:00:43.960184425Z[Etc/UTC]", comments = "Generator version: 7.24.0")
 public class PokemonShapeDetail {
 
   private Integer id;
 
   private String name;
 
-  @Valid
   private List<@Valid PokemonShapeDetailAwesomeNamesInner> awesomeNames = new ArrayList<>();
 
-  @Valid
   private List<@Valid PokemonShapeDetailNamesInner> names = new ArrayList<>();
 
-  @Valid
   private List<@Valid PokemonSpeciesSummary> pokemonSpecies = new ArrayList<>();
 
   public PokemonShapeDetail() {
@@ -72,6 +69,7 @@ public class PokemonShapeDetail {
     return id;
   }
 
+  @JsonProperty("id")
   public void setId(Integer id) {
     this.id = id;
   }
@@ -92,6 +90,7 @@ public class PokemonShapeDetail {
     return name;
   }
 
+  @JsonProperty("name")
   public void setName(String name) {
     this.name = name;
   }
@@ -113,13 +112,14 @@ public class PokemonShapeDetail {
    * Get awesomeNames
    * @return awesomeNames
    */
-  @NotNull @Valid 
-  @Schema(name = "awesome_names", requiredMode = Schema.RequiredMode.REQUIRED)
+  @Valid 
+  @Schema(name = "awesome_names", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("awesome_names")
   public List<@Valid PokemonShapeDetailAwesomeNamesInner> getAwesomeNames() {
     return awesomeNames;
   }
 
+  @JsonProperty("awesome_names")
   public void setAwesomeNames(List<@Valid PokemonShapeDetailAwesomeNamesInner> awesomeNames) {
     this.awesomeNames = awesomeNames;
   }
@@ -141,13 +141,14 @@ public class PokemonShapeDetail {
    * Get names
    * @return names
    */
-  @NotNull @Valid 
-  @Schema(name = "names", requiredMode = Schema.RequiredMode.REQUIRED)
+  @Valid 
+  @Schema(name = "names", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("names")
   public List<@Valid PokemonShapeDetailNamesInner> getNames() {
     return names;
   }
 
+  @JsonProperty("names")
   public void setNames(List<@Valid PokemonShapeDetailNamesInner> names) {
     this.names = names;
   }
@@ -169,13 +170,14 @@ public class PokemonShapeDetail {
    * Get pokemonSpecies
    * @return pokemonSpecies
    */
-  @NotNull @Valid 
-  @Schema(name = "pokemon_species", requiredMode = Schema.RequiredMode.REQUIRED)
+  @Valid 
+  @Schema(name = "pokemon_species", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("pokemon_species")
   public List<@Valid PokemonSpeciesSummary> getPokemonSpecies() {
     return pokemonSpecies;
   }
 
+  @JsonProperty("pokemon_species")
   public void setPokemonSpecies(List<@Valid PokemonSpeciesSummary> pokemonSpecies) {
     this.pokemonSpecies = pokemonSpecies;
   }
@@ -218,11 +220,8 @@ public class PokemonShapeDetail {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+  private String toIndentedString(@Nullable Object o) {
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 }
 

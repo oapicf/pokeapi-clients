@@ -85,7 +85,7 @@ StatSummary::getName()
 }
 
 void
-StatSummary::setName(std::string  name)
+StatSummary::setName(std::string name)
 {
 	this->name = name;
 }
@@ -97,7 +97,7 @@ StatSummary::getUrl()
 }
 
 void
-StatSummary::setUrl(std::string  url)
+StatSummary::setUrl(std::string url)
 {
 	this->url = url;
 }

@@ -10,9 +10,9 @@
 | **is_battle_only** | **Boolean** |  | [optional] |
 | **affecting_moves** | [**StatDetailAffectingMoves**](StatDetailAffectingMoves.md) |  |  |
 | **affecting_natures** | [**StatDetailAffectingNatures**](StatDetailAffectingNatures.md) |  |  |
-| **characteristics** | [**Array&lt;CharacteristicSummary&gt;**](CharacteristicSummary.md) |  |  |
+| **characteristics** | [**Array&lt;CharacteristicSummary&gt;**](CharacteristicSummary.md) |  | [readonly] |
 | **move_damage_class** | [**MoveDamageClassSummary**](MoveDamageClassSummary.md) |  |  |
-| **names** | [**Array&lt;StatName&gt;**](StatName.md) |  |  |
+| **names** | [**Array&lt;StatName&gt;**](StatName.md) |  | [readonly] |
 
 ## Example
 

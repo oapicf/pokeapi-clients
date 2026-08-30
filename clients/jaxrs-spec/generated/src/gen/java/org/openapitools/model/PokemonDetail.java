@@ -32,7 +32,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
 
 
 @JsonTypeName("PokemonDetail")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2026-02-07T15:24:06.001755207Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2026-08-30T01:56:42.280002256Z[Etc/UTC]", comments = "Generator version: 7.24.0")
 public class PokemonDetail   {
   private Integer id;
   private String name;
@@ -236,7 +236,7 @@ public class PokemonDetail   {
   
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(required = true, value = "abilities")
-  @NotNull @Valid public List<@Valid PokemonDetailAbilitiesInner> getAbilities() {
+  @Valid public List<@Valid PokemonDetailAbilitiesInner> getAbilities() {
     return abilities;
   }
 
@@ -271,7 +271,7 @@ public class PokemonDetail   {
   
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(required = true, value = "past_abilities")
-  @NotNull @Valid public List<@Valid PokemonDetailPastAbilitiesInner> getPastAbilities() {
+  @Valid public List<@Valid PokemonDetailPastAbilitiesInner> getPastAbilities() {
     return pastAbilities;
   }
 
@@ -306,7 +306,7 @@ public class PokemonDetail   {
   
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(required = true, value = "forms")
-  @NotNull @Valid public List<@Valid PokemonFormSummary> getForms() {
+  @Valid public List<@Valid PokemonFormSummary> getForms() {
     return forms;
   }
 
@@ -341,7 +341,7 @@ public class PokemonDetail   {
   
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(required = true, value = "game_indices")
-  @NotNull @Valid public List<@Valid PokemonGameIndex> getGameIndices() {
+  @Valid public List<@Valid PokemonGameIndex> getGameIndices() {
     return gameIndices;
   }
 
@@ -414,7 +414,7 @@ public class PokemonDetail   {
   
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(required = true, value = "moves")
-  @NotNull @Valid public List<@Valid PokemonDetailMovesInner> getMoves() {
+  @Valid public List<@Valid PokemonDetailMovesInner> getMoves() {
     return moves;
   }
 
@@ -506,7 +506,7 @@ public class PokemonDetail   {
   
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(required = true, value = "stats")
-  @NotNull @Valid public List<@Valid PokemonStat> getStats() {
+  @Valid public List<@Valid PokemonStat> getStats() {
     return stats;
   }
 
@@ -541,7 +541,7 @@ public class PokemonDetail   {
   
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(required = true, value = "types")
-  @NotNull @Valid public List<@Valid PokemonDetailTypesInner> getTypes() {
+  @Valid public List<@Valid PokemonDetailTypesInner> getTypes() {
     return types;
   }
 
@@ -576,7 +576,7 @@ public class PokemonDetail   {
   
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(required = true, value = "past_types")
-  @NotNull @Valid public List<@Valid PokemonDetailPastTypesInner> getPastTypes() {
+  @Valid public List<@Valid PokemonDetailPastTypesInner> getPastTypes() {
     return pastTypes;
   }
 
@@ -672,12 +672,8 @@ public class PokemonDetail   {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 
 }
-

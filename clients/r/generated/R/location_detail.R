@@ -111,21 +111,44 @@ LocationDetail <- R6::R6Class(
       }
       if (!is.null(self$`region`)) {
         LocationDetailObject[["region"]] <-
-          self$`region`$toSimpleType()
+          self$extractSimpleType(self$`region`)
       }
       if (!is.null(self$`names`)) {
         LocationDetailObject[["names"]] <-
-          lapply(self$`names`, function(x) x$toSimpleType())
+          self$extractSimpleType(self$`names`)
       }
       if (!is.null(self$`game_indices`)) {
         LocationDetailObject[["game_indices"]] <-
-          lapply(self$`game_indices`, function(x) x$toSimpleType())
+          self$extractSimpleType(self$`game_indices`)
       }
       if (!is.null(self$`areas`)) {
         LocationDetailObject[["areas"]] <-
-          lapply(self$`areas`, function(x) x$toSimpleType())
+          self$extractSimpleType(self$`areas`)
       }
       return(LocationDetailObject)
+    },
+
+    extractSimpleType = function(x) {
+      if (R6::is.R6(x)) {
+        return(x$toSimpleType())
+      } else if (!self$hasNestedR6(x)) {
+        return(x)
+      }
+      lapply(x, self$extractSimpleType)
+    },
+
+    hasNestedR6 = function(x) {
+      if (R6::is.R6(x)) {
+        return(TRUE)
+      }
+      if (is.list(x)) {
+        for (item in x) {
+          if (self$hasNestedR6(item)) {
+            return(TRUE)
+          }
+        }
+      }
+      FALSE
     },
 
     #' @description

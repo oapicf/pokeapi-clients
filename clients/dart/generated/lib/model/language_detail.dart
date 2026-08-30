@@ -87,10 +87,16 @@ class LanguageDetail {
       // Note 1: the values aren't checked for validity beyond being non-null.
       // Note 2: this code is stripped in release mode!
       assert(() {
-        requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "LanguageDetail[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "LanguageDetail[$key]" has a null value in JSON.');
-        });
+        assert(json.containsKey(r'id'), 'Required key "LanguageDetail[id]" is missing from JSON.');
+        assert(json[r'id'] != null, 'Required key "LanguageDetail[id]" has a null value in JSON.');
+        assert(json.containsKey(r'name'), 'Required key "LanguageDetail[name]" is missing from JSON.');
+        assert(json[r'name'] != null, 'Required key "LanguageDetail[name]" has a null value in JSON.');
+        assert(json.containsKey(r'iso639'), 'Required key "LanguageDetail[iso639]" is missing from JSON.');
+        assert(json[r'iso639'] != null, 'Required key "LanguageDetail[iso639]" has a null value in JSON.');
+        assert(json.containsKey(r'iso3166'), 'Required key "LanguageDetail[iso3166]" is missing from JSON.');
+        assert(json[r'iso3166'] != null, 'Required key "LanguageDetail[iso3166]" has a null value in JSON.');
+        assert(json.containsKey(r'names'), 'Required key "LanguageDetail[names]" is missing from JSON.');
+        assert(json[r'names'] != null, 'Required key "LanguageDetail[names]" has a null value in JSON.');
         return true;
       }());
 

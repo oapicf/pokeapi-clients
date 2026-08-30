@@ -21,7 +21,7 @@
 
 namespace OpenAPI {
 
-OAIEncounterConditionValueSummary::OAIEncounterConditionValueSummary(QString json) {
+OAIEncounterConditionValueSummary::OAIEncounterConditionValueSummary(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -41,7 +41,7 @@ void OAIEncounterConditionValueSummary::initializeModel() {
     m_url_isValid = false;
 }
 
-void OAIEncounterConditionValueSummary::fromJson(QString jsonString) {
+void OAIEncounterConditionValueSummary::fromJson(const QString &jsonString) {
     QByteArray array(jsonString.toStdString().c_str());
     QJsonDocument doc = QJsonDocument::fromJson(array);
     QJsonObject jsonObject = doc.object();

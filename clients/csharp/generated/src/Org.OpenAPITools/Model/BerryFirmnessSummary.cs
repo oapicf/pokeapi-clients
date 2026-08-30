@@ -92,8 +92,18 @@ namespace Org.OpenAPITools.Model
     /// <summary>
     /// A Json converter for type <see cref="BerryFirmnessSummary" />
     /// </summary>
-    public class BerryFirmnessSummaryJsonConverter : JsonConverter<BerryFirmnessSummary>
+    public partial class BerryFirmnessSummaryJsonConverter : JsonConverter<BerryFirmnessSummary>
     {
+        partial void OnCreated();
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="BerryFirmnessSummaryJsonConverter" /> class.
+        /// </summary>
+        public BerryFirmnessSummaryJsonConverter()
+        {
+            OnCreated();
+        }
+
         /// <summary>
         /// Deserializes json to <see cref="BerryFirmnessSummary" />
         /// </summary>

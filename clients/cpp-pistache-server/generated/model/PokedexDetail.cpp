@@ -28,6 +28,8 @@ PokedexDetail::PokedexDetail()
     
 }
 
+PokedexDetail::~PokedexDetail() = default;
+
 void PokedexDetail::validate() const
 {
     std::stringstream msg;

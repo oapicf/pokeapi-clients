@@ -38,46 +38,57 @@ import io.swagger.v3.oas.annotations.media.Schema
  */
 data class TypeDetail(
 
-    @Schema(example = "null", required = true, readOnly = true, description = "")
+    @Schema(required = true, readOnly = true, description = "")
+    @param:JsonProperty("id")
     @get:JsonProperty("id", required = true) val id: kotlin.Int,
 
     @get:Size(max=100)
-    @Schema(example = "null", required = true, description = "")
+    @Schema(required = true, description = "")
+    @param:JsonProperty("name")
     @get:JsonProperty("name", required = true) val name: kotlin.String,
 
     @field:Valid
-    @Schema(example = "null", required = true, description = "")
+    @Schema(required = true, description = "")
+    @param:JsonProperty("damage_relations")
     @get:JsonProperty("damage_relations", required = true) val damageRelations: TypeDetailDamageRelations,
 
     @field:Valid
-    @Schema(example = "null", required = true, description = "")
+    @Schema(required = true, readOnly = true, description = "")
+    @param:JsonProperty("past_damage_relations")
     @get:JsonProperty("past_damage_relations", required = true) val pastDamageRelations: kotlin.collections.List<TypeDetailPastDamageRelationsInner>,
 
     @field:Valid
-    @Schema(example = "null", required = true, description = "")
+    @Schema(required = true, readOnly = true, description = "")
+    @param:JsonProperty("game_indices")
     @get:JsonProperty("game_indices", required = true) val gameIndices: kotlin.collections.List<TypeGameIndex>,
 
     @field:Valid
-    @Schema(example = "null", required = true, description = "")
+    @Schema(required = true, description = "")
+    @param:JsonProperty("generation")
     @get:JsonProperty("generation", required = true) val generation: GenerationSummary,
 
     @field:Valid
-    @Schema(example = "null", required = true, description = "")
+    @Schema(required = true, description = "")
+    @param:JsonProperty("move_damage_class")
     @get:JsonProperty("move_damage_class", required = true) val moveDamageClass: MoveDamageClassSummary,
 
     @field:Valid
-    @Schema(example = "null", required = true, description = "")
+    @Schema(required = true, readOnly = true, description = "")
+    @param:JsonProperty("names")
     @get:JsonProperty("names", required = true) val names: kotlin.collections.List<AbilityName>,
 
     @field:Valid
-    @Schema(example = "null", required = true, description = "")
+    @Schema(required = true, readOnly = true, description = "")
+    @param:JsonProperty("pokemon")
     @get:JsonProperty("pokemon", required = true) val pokemon: kotlin.collections.List<TypeDetailPokemonInner>,
 
     @field:Valid
-    @Schema(example = "null", required = true, description = "")
+    @Schema(required = true, readOnly = true, description = "")
+    @param:JsonProperty("moves")
     @get:JsonProperty("moves", required = true) val moves: kotlin.collections.List<MoveSummary>,
 
-    @Schema(example = "null", required = true, readOnly = true, description = "")
+    @Schema(required = true, readOnly = true, description = "")
+    @param:JsonProperty("sprites")
     @get:JsonProperty("sprites", required = true) val sprites: kotlin.collections.Map<kotlin.String, kotlin.collections.Map<kotlin.String, TypeDetailSpritesValueValue>>
 ) {
 

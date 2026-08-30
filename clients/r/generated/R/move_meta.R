@@ -158,11 +158,11 @@ MoveMeta <- R6::R6Class(
       MoveMetaObject <- list()
       if (!is.null(self$`ailment`)) {
         MoveMetaObject[["ailment"]] <-
-          self$`ailment`$toSimpleType()
+          self$extractSimpleType(self$`ailment`)
       }
       if (!is.null(self$`category`)) {
         MoveMetaObject[["category"]] <-
-          self$`category`$toSimpleType()
+          self$extractSimpleType(self$`category`)
       }
       if (!is.null(self$`min_hits`)) {
         MoveMetaObject[["min_hits"]] <-
@@ -205,6 +205,29 @@ MoveMeta <- R6::R6Class(
           self$`stat_chance`
       }
       return(MoveMetaObject)
+    },
+
+    extractSimpleType = function(x) {
+      if (R6::is.R6(x)) {
+        return(x$toSimpleType())
+      } else if (!self$hasNestedR6(x)) {
+        return(x)
+      }
+      lapply(x, self$extractSimpleType)
+    },
+
+    hasNestedR6 = function(x) {
+      if (R6::is.R6(x)) {
+        return(TRUE)
+      }
+      if (is.list(x)) {
+        for (item in x) {
+          if (self$hasNestedR6(item)) {
+            return(TRUE)
+          }
+        }
+      }
+      FALSE
     },
 
     #' @description

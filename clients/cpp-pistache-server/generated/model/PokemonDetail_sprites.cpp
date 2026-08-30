@@ -26,6 +26,8 @@ PokemonDetail_sprites::PokemonDetail_sprites()
     
 }
 
+PokemonDetail_sprites::~PokemonDetail_sprites() = default;
+
 void PokemonDetail_sprites::validate() const
 {
     std::stringstream msg;

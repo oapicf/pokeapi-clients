@@ -1,0 +1,14 @@
+.openapi-generator-ignore
+Apis/BerriesApi.http
+Apis/ContestsApi.http
+Apis/EncountersApi.http
+Apis/EvolutionApi.http
+Apis/GamesApi.http
+Apis/ItemsApi.http
+Apis/LocationApi.http
+Apis/MachinesApi.http
+Apis/MovesApi.http
+Apis/PokemonApi.http
+Apis/UtilityApi.http
+Apis/http-client.template.env.json
+README.md

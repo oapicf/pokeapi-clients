@@ -92,8 +92,18 @@ namespace Org.OpenAPITools.Model
     /// <summary>
     /// A Json converter for type <see cref="NatureSummary" />
     /// </summary>
-    public class NatureSummaryJsonConverter : JsonConverter<NatureSummary>
+    public partial class NatureSummaryJsonConverter : JsonConverter<NatureSummary>
     {
+        partial void OnCreated();
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="NatureSummaryJsonConverter" /> class.
+        /// </summary>
+        public NatureSummaryJsonConverter()
+        {
+            OnCreated();
+        }
+
         /// <summary>
         /// Deserializes json to <see cref="NatureSummary" />
         /// </summary>

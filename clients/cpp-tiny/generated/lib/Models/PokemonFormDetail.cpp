@@ -391,7 +391,7 @@ PokemonFormDetail::getId()
 }
 
 void
-PokemonFormDetail::setId(int  id)
+PokemonFormDetail::setId(int id)
 {
 	this->id = id;
 }
@@ -403,7 +403,7 @@ PokemonFormDetail::getName()
 }
 
 void
-PokemonFormDetail::setName(std::string  name)
+PokemonFormDetail::setName(std::string name)
 {
 	this->name = name;
 }
@@ -415,7 +415,7 @@ PokemonFormDetail::getOrder()
 }
 
 void
-PokemonFormDetail::setOrder(int  order)
+PokemonFormDetail::setOrder(int order)
 {
 	this->order = order;
 }
@@ -427,7 +427,7 @@ PokemonFormDetail::getFormOrder()
 }
 
 void
-PokemonFormDetail::setFormOrder(int  form_order)
+PokemonFormDetail::setFormOrder(int form_order)
 {
 	this->form_order = form_order;
 }
@@ -439,7 +439,7 @@ PokemonFormDetail::isIsDefault()
 }
 
 void
-PokemonFormDetail::setIsDefault(bool  is_default)
+PokemonFormDetail::setIsDefault(bool is_default)
 {
 	this->is_default = is_default;
 }
@@ -451,7 +451,7 @@ PokemonFormDetail::isIsBattleOnly()
 }
 
 void
-PokemonFormDetail::setIsBattleOnly(bool  is_battle_only)
+PokemonFormDetail::setIsBattleOnly(bool is_battle_only)
 {
 	this->is_battle_only = is_battle_only;
 }
@@ -463,7 +463,7 @@ PokemonFormDetail::isIsMega()
 }
 
 void
-PokemonFormDetail::setIsMega(bool  is_mega)
+PokemonFormDetail::setIsMega(bool is_mega)
 {
 	this->is_mega = is_mega;
 }
@@ -475,7 +475,7 @@ PokemonFormDetail::getFormName()
 }
 
 void
-PokemonFormDetail::setFormName(std::string  form_name)
+PokemonFormDetail::setFormName(std::string form_name)
 {
 	this->form_name = form_name;
 }
@@ -487,19 +487,19 @@ PokemonFormDetail::getPokemon()
 }
 
 void
-PokemonFormDetail::setPokemon(PokemonSummary  pokemon)
+PokemonFormDetail::setPokemon(PokemonSummary pokemon)
 {
 	this->pokemon = pokemon;
 }
 
-PokemonFormDetail_sprites
+PokemonFormDetail_sprites&lt;std::string, std::string&gt;
 PokemonFormDetail::getSprites()
 {
 	return sprites;
 }
 
 void
-PokemonFormDetail::setSprites(PokemonFormDetail_sprites  sprites)
+PokemonFormDetail::setSprites(PokemonFormDetail_sprites&lt;std::string, std::string&gt; sprites)
 {
 	this->sprites = sprites;
 }
@@ -511,7 +511,7 @@ PokemonFormDetail::getVersionGroup()
 }
 
 void
-PokemonFormDetail::setVersionGroup(VersionGroupSummary  version_group)
+PokemonFormDetail::setVersionGroup(VersionGroupSummary version_group)
 {
 	this->version_group = version_group;
 }
@@ -523,7 +523,7 @@ PokemonFormDetail::getFormNames()
 }
 
 void
-PokemonFormDetail::setFormNames(std::list <PokemonFormDetail_form_names_inner> form_names)
+PokemonFormDetail::setFormNames(std::list<PokemonFormDetail_form_names_inner> form_names)
 {
 	this->form_names = form_names;
 }
@@ -535,7 +535,7 @@ PokemonFormDetail::getNames()
 }
 
 void
-PokemonFormDetail::setNames(std::list <PokemonFormDetail_form_names_inner> names)
+PokemonFormDetail::setNames(std::list<PokemonFormDetail_form_names_inner> names)
 {
 	this->names = names;
 }
@@ -547,7 +547,7 @@ PokemonFormDetail::getTypes()
 }
 
 void
-PokemonFormDetail::setTypes(std::list <PokemonDetail_types_inner> types)
+PokemonFormDetail::setTypes(std::list<PokemonDetail_types_inner> types)
 {
 	this->types = types;
 }

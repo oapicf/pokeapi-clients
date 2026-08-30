@@ -22,14 +22,17 @@ import io.swagger.v3.oas.annotations.media.Schema
  */
 data class MoveChangeEffectEntriesInner(
 
-    @Schema(example = "null", required = true, description = "")
+    @Schema(required = true, description = "")
+    @param:JsonProperty("effect")
     @get:JsonProperty("effect", required = true) val effect: kotlin.String,
 
-    @Schema(example = "null", required = true, description = "")
+    @Schema(required = true, description = "")
+    @param:JsonProperty("short_effect")
     @get:JsonProperty("short_effect", required = true) val shortEffect: kotlin.String,
 
     @field:Valid
-    @Schema(example = "null", required = true, description = "")
+    @Schema(required = true, description = "")
+    @param:JsonProperty("language")
     @get:JsonProperty("language", required = true) val language: AbilityDetailPokemonInnerPokemon
 ) {
 

@@ -13,10 +13,10 @@ static pokemon_species_detail_genera_inner_t *pokemon_species_detail_genera_inne
     if (!pokemon_species_detail_genera_inner_local_var) {
         return NULL;
     }
+    memset(pokemon_species_detail_genera_inner_local_var, 0, sizeof(pokemon_species_detail_genera_inner_t));
+    pokemon_species_detail_genera_inner_local_var->_library_owned = 1;
     pokemon_species_detail_genera_inner_local_var->genus = genus;
     pokemon_species_detail_genera_inner_local_var->language = language;
-
-    pokemon_species_detail_genera_inner_local_var->_library_owned = 1;
     return pokemon_species_detail_genera_inner_local_var;
 }
 
@@ -24,10 +24,13 @@ __attribute__((deprecated)) pokemon_species_detail_genera_inner_t *pokemon_speci
     char *genus,
     ability_detail_pokemon_inner_pokemon_t *language
     ) {
-    return pokemon_species_detail_genera_inner_create_internal (
+    pokemon_species_detail_genera_inner_t *result = pokemon_species_detail_genera_inner_create_internal (
         genus,
         language
         );
+    if (!result) {
+    }
+    return result;
 }
 
 void pokemon_species_detail_genera_inner_free(pokemon_species_detail_genera_inner_t *pokemon_species_detail_genera_inner) {
@@ -87,6 +90,8 @@ pokemon_species_detail_genera_inner_t *pokemon_species_detail_genera_inner_parse
 
     pokemon_species_detail_genera_inner_t *pokemon_species_detail_genera_inner_local_var = NULL;
 
+    char *genus_local_str = NULL;
+
     // define the local variable for pokemon_species_detail_genera_inner->language
     ability_detail_pokemon_inner_pokemon_t *language_local_nonprim = NULL;
 
@@ -118,13 +123,23 @@ pokemon_species_detail_genera_inner_t *pokemon_species_detail_genera_inner_parse
     language_local_nonprim = ability_detail_pokemon_inner_pokemon_parseFromJSON(language); //nonprimitive
 
 
+    if (genus && !cJSON_IsNull(genus)) genus_local_str = strdup(genus->valuestring);
+
     pokemon_species_detail_genera_inner_local_var = pokemon_species_detail_genera_inner_create_internal (
-        strdup(genus->valuestring),
+        genus_local_str,
         language_local_nonprim
         );
 
+    if (!pokemon_species_detail_genera_inner_local_var) {
+        goto end;
+    }
+
     return pokemon_species_detail_genera_inner_local_var;
 end:
+    if (genus_local_str) {
+        free(genus_local_str);
+        genus_local_str = NULL;
+    }
     if (language_local_nonprim) {
         ability_detail_pokemon_inner_pokemon_free(language_local_nonprim);
         language_local_nonprim = NULL;

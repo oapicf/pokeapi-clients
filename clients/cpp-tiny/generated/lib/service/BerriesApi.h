@@ -26,7 +26,7 @@ class BerriesApi : public Service {
 public:
     BerriesApi() = default;
 
-    virtual ~BerriesApi() = default;
+    virtual ~BerriesApi();
 
     /**
     * List berry firmness.

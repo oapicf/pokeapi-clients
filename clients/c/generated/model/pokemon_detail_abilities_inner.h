@@ -21,16 +21,16 @@ typedef struct pokemon_detail_abilities_inner_t pokemon_detail_abilities_inner_t
 
 typedef struct pokemon_detail_abilities_inner_t {
     struct ability_detail_pokemon_inner_pokemon_t *ability; //model
-    int is_hidden; //boolean
-    int slot; //numeric
+    int *is_hidden; //boolean
+    int *slot; //numeric
 
     int _library_owned; // Is the library responsible for freeing this object?
 } pokemon_detail_abilities_inner_t;
 
 __attribute__((deprecated)) pokemon_detail_abilities_inner_t *pokemon_detail_abilities_inner_create(
     ability_detail_pokemon_inner_pokemon_t *ability,
-    int is_hidden,
-    int slot
+    int *is_hidden,
+    int *slot
 );
 
 void pokemon_detail_abilities_inner_free(pokemon_detail_abilities_inner_t *pokemon_detail_abilities_inner);

@@ -26,9 +26,9 @@ class EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner(Model):
         :param item: The item of this EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner.  # noqa: E501
         :type item: EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender
         :param known_move: The known_move of this EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner.  # noqa: E501
-        :type known_move: object
+        :type known_move: EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender
         :param known_move_type: The known_move_type of this EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner.  # noqa: E501
-        :type known_move_type: object
+        :type known_move_type: EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender
         :param location: The location of this EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner.  # noqa: E501
         :type location: EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender
         :param min_affection: The min_affection of this EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner.  # noqa: E501
@@ -60,8 +60,8 @@ class EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner(Model):
             'gender': EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender,
             'held_item': EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender,
             'item': EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender,
-            'known_move': object,
-            'known_move_type': object,
+            'known_move': EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender,
+            'known_move_type': EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender,
             'location': EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender,
             'min_affection': int,
             'min_beauty': int,
@@ -198,22 +198,22 @@ class EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner(Model):
         self._item = item
 
     @property
-    def known_move(self) -> object:
+    def known_move(self) -> EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender:
         """Gets the known_move of this EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner.
 
 
         :return: The known_move of this EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner.
-        :rtype: object
+        :rtype: EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender
         """
         return self._known_move
 
     @known_move.setter
-    def known_move(self, known_move: object):
+    def known_move(self, known_move: EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender):
         """Sets the known_move of this EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner.
 
 
         :param known_move: The known_move of this EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner.
-        :type known_move: object
+        :type known_move: EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender
         """
         if known_move is None:
             raise ValueError("Invalid value for `known_move`, must not be `None`")  # noqa: E501
@@ -221,22 +221,22 @@ class EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner(Model):
         self._known_move = known_move
 
     @property
-    def known_move_type(self) -> object:
+    def known_move_type(self) -> EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender:
         """Gets the known_move_type of this EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner.
 
 
         :return: The known_move_type of this EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner.
-        :rtype: object
+        :rtype: EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender
         """
         return self._known_move_type
 
     @known_move_type.setter
-    def known_move_type(self, known_move_type: object):
+    def known_move_type(self, known_move_type: EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender):
         """Sets the known_move_type of this EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner.
 
 
         :param known_move_type: The known_move_type of this EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner.
-        :type known_move_type: object
+        :type known_move_type: EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender
         """
         if known_move_type is None:
             raise ValueError("Invalid value for `known_move_type`, must not be `None`")  # noqa: E501

@@ -6,7 +6,7 @@
 
 
 static paginated_location_summary_list_t *paginated_location_summary_list_create_internal(
-    int count,
+    int *count,
     char *next,
     char *previous,
     list_t *results
@@ -15,27 +15,36 @@ static paginated_location_summary_list_t *paginated_location_summary_list_create
     if (!paginated_location_summary_list_local_var) {
         return NULL;
     }
+    memset(paginated_location_summary_list_local_var, 0, sizeof(paginated_location_summary_list_t));
+    paginated_location_summary_list_local_var->_library_owned = 1;
     paginated_location_summary_list_local_var->count = count;
     paginated_location_summary_list_local_var->next = next;
     paginated_location_summary_list_local_var->previous = previous;
     paginated_location_summary_list_local_var->results = results;
-
-    paginated_location_summary_list_local_var->_library_owned = 1;
     return paginated_location_summary_list_local_var;
 }
 
 __attribute__((deprecated)) paginated_location_summary_list_t *paginated_location_summary_list_create(
-    int count,
+    int *count,
     char *next,
     char *previous,
     list_t *results
     ) {
-    return paginated_location_summary_list_create_internal (
-        count,
+    int *count_copy = NULL;
+    if (count) {
+        count_copy = malloc(sizeof(int));
+        if (count_copy) *count_copy = *count;
+    }
+    paginated_location_summary_list_t *result = paginated_location_summary_list_create_internal (
+        count_copy,
         next,
         previous,
         results
         );
+    if (!result) {
+        free(count_copy);
+    }
+    return result;
 }
 
 void paginated_location_summary_list_free(paginated_location_summary_list_t *paginated_location_summary_list) {
@@ -47,6 +56,10 @@ void paginated_location_summary_list_free(paginated_location_summary_list_t *pag
         return ;
     }
     listEntry_t *listEntry;
+    if (paginated_location_summary_list->count) {
+        free(paginated_location_summary_list->count);
+        paginated_location_summary_list->count = NULL;
+    }
     if (paginated_location_summary_list->next) {
         free(paginated_location_summary_list->next);
         paginated_location_summary_list->next = NULL;
@@ -70,7 +83,7 @@ cJSON *paginated_location_summary_list_convertToJSON(paginated_location_summary_
 
     // paginated_location_summary_list->count
     if(paginated_location_summary_list->count) {
-    if(cJSON_AddNumberToObject(item, "count", paginated_location_summary_list->count) == NULL) {
+    if(cJSON_AddNumberToObject(item, "count", *paginated_location_summary_list->count) == NULL) {
     goto fail; //Numeric
     }
     }
@@ -123,6 +136,13 @@ paginated_location_summary_list_t *paginated_location_summary_list_parseFromJSON
 
     paginated_location_summary_list_t *paginated_location_summary_list_local_var = NULL;
 
+    // define the local variable for paginated_location_summary_list->count
+    int *count_local_var = NULL;
+
+    char *next_local_str = NULL;
+
+    char *previous_local_str = NULL;
+
     // define the local list for paginated_location_summary_list->results
     list_t *resultsList = NULL;
 
@@ -136,6 +156,12 @@ paginated_location_summary_list_t *paginated_location_summary_list_parseFromJSON
     {
     goto end; //Numeric
     }
+    count_local_var = malloc(sizeof(int));
+    if(!count_local_var)
+    {
+        goto end;
+    }
+    *count_local_var = count->valuedouble;
     }
 
     // paginated_location_summary_list->next
@@ -187,15 +213,34 @@ paginated_location_summary_list_t *paginated_location_summary_list_parseFromJSON
     }
 
 
+    if (next && !cJSON_IsNull(next)) next_local_str = strdup(next->valuestring);
+    if (previous && !cJSON_IsNull(previous)) previous_local_str = strdup(previous->valuestring);
+
     paginated_location_summary_list_local_var = paginated_location_summary_list_create_internal (
-        count ? count->valuedouble : 0,
-        next && !cJSON_IsNull(next) ? strdup(next->valuestring) : NULL,
-        previous && !cJSON_IsNull(previous) ? strdup(previous->valuestring) : NULL,
+        count_local_var,
+        next_local_str,
+        previous_local_str,
         results ? resultsList : NULL
         );
 
+    if (!paginated_location_summary_list_local_var) {
+        goto end;
+    }
+
     return paginated_location_summary_list_local_var;
 end:
+    if (count_local_var) {
+        free(count_local_var);
+        count_local_var = NULL;
+    }
+    if (next_local_str) {
+        free(next_local_str);
+        next_local_str = NULL;
+    }
+    if (previous_local_str) {
+        free(previous_local_str);
+        previous_local_str = NULL;
+    }
     if (resultsList) {
         listEntry_t *listEntry = NULL;
         list_ForEach(listEntry, resultsList) {

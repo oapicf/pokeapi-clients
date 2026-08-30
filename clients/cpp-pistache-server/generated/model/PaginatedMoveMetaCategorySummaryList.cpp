@@ -31,6 +31,8 @@ PaginatedMoveMetaCategorySummaryList::PaginatedMoveMetaCategorySummaryList()
     
 }
 
+PaginatedMoveMetaCategorySummaryList::~PaginatedMoveMetaCategorySummaryList() = default;
+
 void PaginatedMoveMetaCategorySummaryList::validate() const
 {
     std::stringstream msg;

@@ -6,32 +6,47 @@
 
 
 static nature_battle_style_preference_t *nature_battle_style_preference_create_internal(
-    int low_hp_preference,
-    int high_hp_preference,
+    int *low_hp_preference,
+    int *high_hp_preference,
     move_battle_style_summary_t *move_battle_style
     ) {
     nature_battle_style_preference_t *nature_battle_style_preference_local_var = malloc(sizeof(nature_battle_style_preference_t));
     if (!nature_battle_style_preference_local_var) {
         return NULL;
     }
+    memset(nature_battle_style_preference_local_var, 0, sizeof(nature_battle_style_preference_t));
+    nature_battle_style_preference_local_var->_library_owned = 1;
     nature_battle_style_preference_local_var->low_hp_preference = low_hp_preference;
     nature_battle_style_preference_local_var->high_hp_preference = high_hp_preference;
     nature_battle_style_preference_local_var->move_battle_style = move_battle_style;
-
-    nature_battle_style_preference_local_var->_library_owned = 1;
     return nature_battle_style_preference_local_var;
 }
 
 __attribute__((deprecated)) nature_battle_style_preference_t *nature_battle_style_preference_create(
-    int low_hp_preference,
-    int high_hp_preference,
+    int *low_hp_preference,
+    int *high_hp_preference,
     move_battle_style_summary_t *move_battle_style
     ) {
-    return nature_battle_style_preference_create_internal (
-        low_hp_preference,
-        high_hp_preference,
+    int *low_hp_preference_copy = NULL;
+    if (low_hp_preference) {
+        low_hp_preference_copy = malloc(sizeof(int));
+        if (low_hp_preference_copy) *low_hp_preference_copy = *low_hp_preference;
+    }
+    int *high_hp_preference_copy = NULL;
+    if (high_hp_preference) {
+        high_hp_preference_copy = malloc(sizeof(int));
+        if (high_hp_preference_copy) *high_hp_preference_copy = *high_hp_preference;
+    }
+    nature_battle_style_preference_t *result = nature_battle_style_preference_create_internal (
+        low_hp_preference_copy,
+        high_hp_preference_copy,
         move_battle_style
         );
+    if (!result) {
+        free(low_hp_preference_copy);
+        free(high_hp_preference_copy);
+    }
+    return result;
 }
 
 void nature_battle_style_preference_free(nature_battle_style_preference_t *nature_battle_style_preference) {
@@ -43,6 +58,14 @@ void nature_battle_style_preference_free(nature_battle_style_preference_t *natur
         return ;
     }
     listEntry_t *listEntry;
+    if (nature_battle_style_preference->low_hp_preference) {
+        free(nature_battle_style_preference->low_hp_preference);
+        nature_battle_style_preference->low_hp_preference = NULL;
+    }
+    if (nature_battle_style_preference->high_hp_preference) {
+        free(nature_battle_style_preference->high_hp_preference);
+        nature_battle_style_preference->high_hp_preference = NULL;
+    }
     if (nature_battle_style_preference->move_battle_style) {
         move_battle_style_summary_free(nature_battle_style_preference->move_battle_style);
         nature_battle_style_preference->move_battle_style = NULL;
@@ -57,7 +80,7 @@ cJSON *nature_battle_style_preference_convertToJSON(nature_battle_style_preferen
     if (!nature_battle_style_preference->low_hp_preference) {
         goto fail;
     }
-    if(cJSON_AddNumberToObject(item, "low_hp_preference", nature_battle_style_preference->low_hp_preference) == NULL) {
+    if(cJSON_AddNumberToObject(item, "low_hp_preference", *nature_battle_style_preference->low_hp_preference) == NULL) {
     goto fail; //Numeric
     }
 
@@ -66,7 +89,7 @@ cJSON *nature_battle_style_preference_convertToJSON(nature_battle_style_preferen
     if (!nature_battle_style_preference->high_hp_preference) {
         goto fail;
     }
-    if(cJSON_AddNumberToObject(item, "high_hp_preference", nature_battle_style_preference->high_hp_preference) == NULL) {
+    if(cJSON_AddNumberToObject(item, "high_hp_preference", *nature_battle_style_preference->high_hp_preference) == NULL) {
     goto fail; //Numeric
     }
 
@@ -96,6 +119,12 @@ nature_battle_style_preference_t *nature_battle_style_preference_parseFromJSON(c
 
     nature_battle_style_preference_t *nature_battle_style_preference_local_var = NULL;
 
+    // define the local variable for nature_battle_style_preference->low_hp_preference
+    int *low_hp_preference_local_var = NULL;
+
+    // define the local variable for nature_battle_style_preference->high_hp_preference
+    int *high_hp_preference_local_var = NULL;
+
     // define the local variable for nature_battle_style_preference->move_battle_style
     move_battle_style_summary_t *move_battle_style_local_nonprim = NULL;
 
@@ -113,6 +142,12 @@ nature_battle_style_preference_t *nature_battle_style_preference_parseFromJSON(c
     {
     goto end; //Numeric
     }
+    low_hp_preference_local_var = malloc(sizeof(int));
+    if(!low_hp_preference_local_var)
+    {
+        goto end;
+    }
+    *low_hp_preference_local_var = low_hp_preference->valuedouble;
 
     // nature_battle_style_preference->high_hp_preference
     cJSON *high_hp_preference = cJSON_GetObjectItemCaseSensitive(nature_battle_style_preferenceJSON, "high_hp_preference");
@@ -128,6 +163,12 @@ nature_battle_style_preference_t *nature_battle_style_preference_parseFromJSON(c
     {
     goto end; //Numeric
     }
+    high_hp_preference_local_var = malloc(sizeof(int));
+    if(!high_hp_preference_local_var)
+    {
+        goto end;
+    }
+    *high_hp_preference_local_var = high_hp_preference->valuedouble;
 
     // nature_battle_style_preference->move_battle_style
     cJSON *move_battle_style = cJSON_GetObjectItemCaseSensitive(nature_battle_style_preferenceJSON, "move_battle_style");
@@ -142,14 +183,27 @@ nature_battle_style_preference_t *nature_battle_style_preference_parseFromJSON(c
     move_battle_style_local_nonprim = move_battle_style_summary_parseFromJSON(move_battle_style); //nonprimitive
 
 
+
     nature_battle_style_preference_local_var = nature_battle_style_preference_create_internal (
-        low_hp_preference->valuedouble,
-        high_hp_preference->valuedouble,
+        low_hp_preference_local_var,
+        high_hp_preference_local_var,
         move_battle_style_local_nonprim
         );
 
+    if (!nature_battle_style_preference_local_var) {
+        goto end;
+    }
+
     return nature_battle_style_preference_local_var;
 end:
+    if (low_hp_preference_local_var) {
+        free(low_hp_preference_local_var);
+        low_hp_preference_local_var = NULL;
+    }
+    if (high_hp_preference_local_var) {
+        free(high_hp_preference_local_var);
+        high_hp_preference_local_var = NULL;
+    }
     if (move_battle_style_local_nonprim) {
         move_battle_style_summary_free(move_battle_style_local_nonprim);
         move_battle_style_local_nonprim = NULL;

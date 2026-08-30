@@ -6,8 +6,8 @@
 | ---- | ---- | ----------- | ----- |
 | **id** | **Integer** |  | [readonly] |
 | **name** | **String** |  |  |
-| **berries** | [**Array&lt;BerrySummary&gt;**](BerrySummary.md) |  |  |
-| **names** | [**Array&lt;BerryFirmnessName&gt;**](BerryFirmnessName.md) |  |  |
+| **berries** | [**Array&lt;BerrySummary&gt;**](BerrySummary.md) |  | [readonly] |
+| **names** | [**Array&lt;BerryFirmnessName&gt;**](BerryFirmnessName.md) |  | [readonly] |
 
 ## Example
 

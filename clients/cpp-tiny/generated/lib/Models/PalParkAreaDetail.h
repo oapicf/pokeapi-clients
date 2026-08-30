@@ -54,28 +54,28 @@ public:
 
 	/*! \brief Set 
 	 */
-	void setId(int  id);
+	void setId(int id);
 	/*! \brief Get 
 	 */
 	std::string getName();
 
 	/*! \brief Set 
 	 */
-	void setName(std::string  name);
+	void setName(std::string name);
 	/*! \brief Get 
 	 */
 	std::list<PalParkAreaName> getNames();
 
 	/*! \brief Set 
 	 */
-	void setNames(std::list <PalParkAreaName> names);
+	void setNames(std::list<PalParkAreaName> names);
 	/*! \brief Get 
 	 */
 	std::list<PalParkAreaDetail_pokemon_encounters_inner> getPokemonEncounters();
 
 	/*! \brief Set 
 	 */
-	void setPokemonEncounters(std::list <PalParkAreaDetail_pokemon_encounters_inner> pokemon_encounters);
+	void setPokemonEncounters(std::list<PalParkAreaDetail_pokemon_encounters_inner> pokemon_encounters);
 
 
     private:

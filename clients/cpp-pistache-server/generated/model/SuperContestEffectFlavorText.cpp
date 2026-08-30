@@ -25,6 +25,8 @@ SuperContestEffectFlavorText::SuperContestEffectFlavorText()
     
 }
 
+SuperContestEffectFlavorText::~SuperContestEffectFlavorText() = default;
+
 void SuperContestEffectFlavorText::validate() const
 {
     std::stringstream msg;

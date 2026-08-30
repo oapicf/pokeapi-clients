@@ -9,6 +9,6 @@ Name | Type | Description | Notes
 **official** | **Boolean** |  | [optional] 
 **iso639** | **String** |  | 
 **iso3166** | **String** |  | 
-**names** | [**[LanguageName]**](LanguageName.md) |  | 
+**names** | [**[LanguageName]**](LanguageName.md) |  | [readonly] 
 
 

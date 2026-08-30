@@ -67,7 +67,8 @@ class PaginatedPokemonShapeSummaryList extends BaseModel
       "type" : "array",
       "items" : {
         "$ref" : "#/components/schemas/PokemonShapeSummary"
-      }
+      },
+      "default" : null
     }
   }
 }

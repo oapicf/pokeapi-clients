@@ -92,8 +92,18 @@ namespace Org.OpenAPITools.Model
     /// <summary>
     /// A Json converter for type <see cref="LanguageSummary" />
     /// </summary>
-    public class LanguageSummaryJsonConverter : JsonConverter<LanguageSummary>
+    public partial class LanguageSummaryJsonConverter : JsonConverter<LanguageSummary>
     {
+        partial void OnCreated();
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="LanguageSummaryJsonConverter" /> class.
+        /// </summary>
+        public LanguageSummaryJsonConverter()
+        {
+            OnCreated();
+        }
+
         /// <summary>
         /// Deserializes json to <see cref="LanguageSummary" />
         /// </summary>

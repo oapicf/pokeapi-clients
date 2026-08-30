@@ -47,7 +47,7 @@ class NatureBattleStylePreference
      * @var int|null
      * @SerializedName("low_hp_preference")
      * @Type("int")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Type("int")]
     protected ?int $lowHpPreference = null;
@@ -56,7 +56,7 @@ class NatureBattleStylePreference
      * @var int|null
      * @SerializedName("high_hp_preference")
      * @Type("int")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Type("int")]
     protected ?int $highHpPreference = null;
@@ -65,7 +65,7 @@ class NatureBattleStylePreference
      * @var MoveBattleStyleSummary|null
      * @SerializedName("move_battle_style")
      * @Type("OpenAPI\Server\Model\MoveBattleStyleSummary")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Valid]
     #[Assert\Type("OpenAPI\Server\Model\MoveBattleStyleSummary")]
@@ -95,12 +95,12 @@ class NatureBattleStylePreference
     }
 
     /**
-    * Sets lowHpPreference.
-    *
-    * @param int|null $lowHpPreference
-    *
-    * @return $this
-    */
+     * Sets lowHpPreference.
+     *
+     * @param int|null $lowHpPreference
+     *
+     * @return $this
+     */
     public function setLowHpPreference(?int $lowHpPreference): self
     {
         $this->lowHpPreference = $lowHpPreference;
@@ -122,12 +122,12 @@ class NatureBattleStylePreference
     }
 
     /**
-    * Sets highHpPreference.
-    *
-    * @param int|null $highHpPreference
-    *
-    * @return $this
-    */
+     * Sets highHpPreference.
+     *
+     * @param int|null $highHpPreference
+     *
+     * @return $this
+     */
     public function setHighHpPreference(?int $highHpPreference): self
     {
         $this->highHpPreference = $highHpPreference;
@@ -149,12 +149,12 @@ class NatureBattleStylePreference
     }
 
     /**
-    * Sets moveBattleStyle.
-    *
-    * @param MoveBattleStyleSummary|null $moveBattleStyle
-    *
-    * @return $this
-    */
+     * Sets moveBattleStyle.
+     *
+     * @param MoveBattleStyleSummary|null $moveBattleStyle
+     *
+     * @return $this
+     */
     public function setMoveBattleStyle(?MoveBattleStyleSummary $moveBattleStyle): self
     {
         $this->moveBattleStyle = $moveBattleStyle;

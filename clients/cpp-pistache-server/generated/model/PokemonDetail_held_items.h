@@ -34,7 +34,7 @@ class  PokemonDetail_held_items
 {
 public:
     PokemonDetail_held_items();
-    virtual ~PokemonDetail_held_items() = default;
+    virtual ~PokemonDetail_held_items();
 
 
     /// <summary>

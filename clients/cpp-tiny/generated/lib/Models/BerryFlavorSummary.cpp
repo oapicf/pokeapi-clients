@@ -85,7 +85,7 @@ BerryFlavorSummary::getName()
 }
 
 void
-BerryFlavorSummary::setName(std::string  name)
+BerryFlavorSummary::setName(std::string name)
 {
 	this->name = name;
 }
@@ -97,7 +97,7 @@ BerryFlavorSummary::getUrl()
 }
 
 void
-BerryFlavorSummary::setUrl(std::string  url)
+BerryFlavorSummary::setUrl(std::string url)
 {
 	this->url = url;
 }

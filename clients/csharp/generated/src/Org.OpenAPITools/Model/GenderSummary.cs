@@ -92,8 +92,18 @@ namespace Org.OpenAPITools.Model
     /// <summary>
     /// A Json converter for type <see cref="GenderSummary" />
     /// </summary>
-    public class GenderSummaryJsonConverter : JsonConverter<GenderSummary>
+    public partial class GenderSummaryJsonConverter : JsonConverter<GenderSummary>
     {
+        partial void OnCreated();
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="GenderSummaryJsonConverter" /> class.
+        /// </summary>
+        public GenderSummaryJsonConverter()
+        {
+            OnCreated();
+        }
+
         /// <summary>
         /// Deserializes json to <see cref="GenderSummary" />
         /// </summary>

@@ -87,7 +87,7 @@ MoveDetail_contest_combos::getNormal()
 }
 
 void
-MoveDetail_contest_combos::setNormal(MoveDetail_contest_combos_normal  normal)
+MoveDetail_contest_combos::setNormal(MoveDetail_contest_combos_normal normal)
 {
 	this->normal = normal;
 }
@@ -99,7 +99,7 @@ MoveDetail_contest_combos::getSuper()
 }
 
 void
-MoveDetail_contest_combos::setSuper(MoveDetail_contest_combos_normal  super)
+MoveDetail_contest_combos::setSuper(MoveDetail_contest_combos_normal super)
 {
 	this->super = super;
 }

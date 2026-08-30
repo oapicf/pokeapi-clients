@@ -68,19 +68,19 @@ namespace Org.OpenAPITools.Model
         /// Gets or Sets Descriptions
         /// </summary>
         [JsonPropertyName("descriptions")]
-        public List<MoveDamageClassDescription> Descriptions { get; set; }
+        public List<MoveDamageClassDescription> Descriptions { get; }
 
         /// <summary>
         /// Gets or Sets Moves
         /// </summary>
         [JsonPropertyName("moves")]
-        public List<MoveSummary> Moves { get; set; }
+        public List<MoveSummary> Moves { get; }
 
         /// <summary>
         /// Gets or Sets Names
         /// </summary>
         [JsonPropertyName("names")]
-        public List<MoveDamageClassName> Names { get; set; }
+        public List<MoveDamageClassName> Names { get; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -119,8 +119,18 @@ namespace Org.OpenAPITools.Model
     /// <summary>
     /// A Json converter for type <see cref="MoveDamageClassDetail" />
     /// </summary>
-    public class MoveDamageClassDetailJsonConverter : JsonConverter<MoveDamageClassDetail>
+    public partial class MoveDamageClassDetailJsonConverter : JsonConverter<MoveDamageClassDetail>
     {
+        partial void OnCreated();
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="MoveDamageClassDetailJsonConverter" /> class.
+        /// </summary>
+        public MoveDamageClassDetailJsonConverter()
+        {
+            OnCreated();
+        }
+
         /// <summary>
         /// Deserializes json to <see cref="MoveDamageClassDetail" />
         /// </summary>

@@ -30,13 +30,13 @@ public class OASPokemonHabitatDetail implements OAS.MappedProperties {
      * Get names
      * @return names
      */
-    public List<OASPokemonHabitatName> names { get; set; }
+    public List<OASPokemonHabitatName> names { get; private set; }
 
     /**
      * Get pokemonSpecies
      * @return pokemonSpecies
      */
-    public List<OASPokemonSpeciesSummary> pokemonSpecies { get; set; }
+    public List<OASPokemonSpeciesSummary> pokemonSpecies { get; private set; }
 
     private static final Map<String, String> propertyMappings = new Map<String, String>{
         'pokemon_species' => 'pokemonSpecies'

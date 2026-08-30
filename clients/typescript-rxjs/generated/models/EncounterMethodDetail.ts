@@ -39,5 +39,5 @@ export interface EncounterMethodDetail {
      * @type {Array<EncounterMethodName>}
      * @memberof EncounterMethodDetail
      */
-    names: Array<EncounterMethodName>;
+    readonly names: Array<EncounterMethodName>;
 }

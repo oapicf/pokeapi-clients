@@ -65,10 +65,14 @@ class EncounterConditionValueDetail {
       // Note 1: the values aren't checked for validity beyond being non-null.
       // Note 2: this code is stripped in release mode!
       assert(() {
-        requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "EncounterConditionValueDetail[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "EncounterConditionValueDetail[$key]" has a null value in JSON.');
-        });
+        assert(json.containsKey(r'id'), 'Required key "EncounterConditionValueDetail[id]" is missing from JSON.');
+        assert(json[r'id'] != null, 'Required key "EncounterConditionValueDetail[id]" has a null value in JSON.');
+        assert(json.containsKey(r'name'), 'Required key "EncounterConditionValueDetail[name]" is missing from JSON.');
+        assert(json[r'name'] != null, 'Required key "EncounterConditionValueDetail[name]" has a null value in JSON.');
+        assert(json.containsKey(r'condition'), 'Required key "EncounterConditionValueDetail[condition]" is missing from JSON.');
+        assert(json[r'condition'] != null, 'Required key "EncounterConditionValueDetail[condition]" has a null value in JSON.');
+        assert(json.containsKey(r'names'), 'Required key "EncounterConditionValueDetail[names]" is missing from JSON.');
+        assert(json[r'names'] != null, 'Required key "EncounterConditionValueDetail[names]" has a null value in JSON.');
         return true;
       }());
 

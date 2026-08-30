@@ -13,10 +13,10 @@ static item_attribute_description_t *item_attribute_description_create_internal(
     if (!item_attribute_description_local_var) {
         return NULL;
     }
+    memset(item_attribute_description_local_var, 0, sizeof(item_attribute_description_t));
+    item_attribute_description_local_var->_library_owned = 1;
     item_attribute_description_local_var->description = description;
     item_attribute_description_local_var->language = language;
-
-    item_attribute_description_local_var->_library_owned = 1;
     return item_attribute_description_local_var;
 }
 
@@ -24,10 +24,13 @@ __attribute__((deprecated)) item_attribute_description_t *item_attribute_descrip
     char *description,
     language_summary_t *language
     ) {
-    return item_attribute_description_create_internal (
+    item_attribute_description_t *result = item_attribute_description_create_internal (
         description,
         language
         );
+    if (!result) {
+    }
+    return result;
 }
 
 void item_attribute_description_free(item_attribute_description_t *item_attribute_description) {
@@ -86,6 +89,8 @@ item_attribute_description_t *item_attribute_description_parseFromJSON(cJSON *it
 
     item_attribute_description_t *item_attribute_description_local_var = NULL;
 
+    char *description_local_str = NULL;
+
     // define the local variable for item_attribute_description->language
     language_summary_t *language_local_nonprim = NULL;
 
@@ -114,13 +119,23 @@ item_attribute_description_t *item_attribute_description_parseFromJSON(cJSON *it
     language_local_nonprim = language_summary_parseFromJSON(language); //nonprimitive
 
 
+    if (description && !cJSON_IsNull(description)) description_local_str = strdup(description->valuestring);
+
     item_attribute_description_local_var = item_attribute_description_create_internal (
-        description && !cJSON_IsNull(description) ? strdup(description->valuestring) : NULL,
+        description_local_str,
         language_local_nonprim
         );
 
+    if (!item_attribute_description_local_var) {
+        goto end;
+    }
+
     return item_attribute_description_local_var;
 end:
+    if (description_local_str) {
+        free(description_local_str);
+        description_local_str = NULL;
+    }
     if (language_local_nonprim) {
         language_summary_free(language_local_nonprim);
         language_local_nonprim = NULL;

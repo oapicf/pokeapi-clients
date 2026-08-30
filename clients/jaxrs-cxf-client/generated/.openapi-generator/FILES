@@ -1,4 +1,3 @@
-.openapi-generator-ignore
 pom.xml
 src/gen/java/org/openapitools/api/BerriesApi.java
 src/gen/java/org/openapitools/api/ContestsApi.java
@@ -279,14 +278,3 @@ src/gen/java/org/openapitools/model/VersionGroupDetail.java
 src/gen/java/org/openapitools/model/VersionGroupSummary.java
 src/gen/java/org/openapitools/model/VersionName.java
 src/gen/java/org/openapitools/model/VersionSummary.java
-src/test/java/org/openapitools/api/BerriesApiTest.java
-src/test/java/org/openapitools/api/ContestsApiTest.java
-src/test/java/org/openapitools/api/EncountersApiTest.java
-src/test/java/org/openapitools/api/EvolutionApiTest.java
-src/test/java/org/openapitools/api/GamesApiTest.java
-src/test/java/org/openapitools/api/ItemsApiTest.java
-src/test/java/org/openapitools/api/LocationApiTest.java
-src/test/java/org/openapitools/api/MachinesApiTest.java
-src/test/java/org/openapitools/api/MovesApiTest.java
-src/test/java/org/openapitools/api/PokemonApiTest.java
-src/test/java/org/openapitools/api/UtilityApiTest.java

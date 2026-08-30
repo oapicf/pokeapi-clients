@@ -19,12 +19,12 @@ import { PokemonSpeciesSummary } from './pokemonSpeciesSummary';
 export interface GenerationDetail { 
     readonly id: number;
     name: string;
-    abilities: Array<AbilitySummary>;
+    readonly abilities: Array<AbilitySummary>;
     main_region: RegionSummary;
-    moves: Array<MoveSummary>;
-    names: Array<GenerationName>;
-    pokemon_species: Array<PokemonSpeciesSummary>;
-    types: Array<TypeSummary>;
-    version_groups: Array<VersionGroupSummary>;
+    readonly moves: Array<MoveSummary>;
+    readonly names: Array<GenerationName>;
+    readonly pokemon_species: Array<PokemonSpeciesSummary>;
+    readonly types: Array<TypeSummary>;
+    readonly version_groups: Array<VersionGroupSummary>;
 }
 

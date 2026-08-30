@@ -27,9 +27,9 @@ public class EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner {
   @SerializedName("item")
   private EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender item = null;
   @SerializedName("known_move")
-  private Object knownMove = null;
+  private EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender knownMove = null;
   @SerializedName("known_move_type")
-  private Object knownMoveType = null;
+  private EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender knownMoveType = null;
   @SerializedName("location")
   private EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender location = null;
   @SerializedName("min_affection")
@@ -90,20 +90,20 @@ public class EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner {
   /**
    **/
   @ApiModelProperty(required = true, value = "")
-  public Object getKnownMove() {
+  public EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender getKnownMove() {
     return knownMove;
   }
-  public void setKnownMove(Object knownMove) {
+  public void setKnownMove(EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender knownMove) {
     this.knownMove = knownMove;
   }
 
   /**
    **/
   @ApiModelProperty(required = true, value = "")
-  public Object getKnownMoveType() {
+  public EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender getKnownMoveType() {
     return knownMoveType;
   }
-  public void setKnownMoveType(Object knownMoveType) {
+  public void setKnownMoveType(EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender knownMoveType) {
     this.knownMoveType = knownMoveType;
   }
 

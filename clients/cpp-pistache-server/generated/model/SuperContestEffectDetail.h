@@ -34,7 +34,7 @@ class  SuperContestEffectDetail
 {
 public:
     SuperContestEffectDetail();
-    virtual ~SuperContestEffectDetail() = default;
+    virtual ~SuperContestEffectDetail();
 
 
     /// <summary>

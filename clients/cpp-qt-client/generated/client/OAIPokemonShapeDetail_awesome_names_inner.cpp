@@ -21,7 +21,7 @@
 
 namespace OpenAPI {
 
-OAIPokemonShapeDetail_awesome_names_inner::OAIPokemonShapeDetail_awesome_names_inner(QString json) {
+OAIPokemonShapeDetail_awesome_names_inner::OAIPokemonShapeDetail_awesome_names_inner(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -41,7 +41,7 @@ void OAIPokemonShapeDetail_awesome_names_inner::initializeModel() {
     m_language_isValid = false;
 }
 
-void OAIPokemonShapeDetail_awesome_names_inner::fromJson(QString jsonString) {
+void OAIPokemonShapeDetail_awesome_names_inner::fromJson(const QString &jsonString) {
     QByteArray array(jsonString.toStdString().c_str());
     QJsonDocument doc = QJsonDocument::fromJson(array);
     QJsonObject jsonObject = doc.object();

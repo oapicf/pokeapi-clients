@@ -33,13 +33,13 @@ class OAIStatDetail_affecting_moves_increase_inner;
 class OAIStatDetail_affecting_moves : public OAIObject {
 public:
     OAIStatDetail_affecting_moves();
-    OAIStatDetail_affecting_moves(QString json);
+    OAIStatDetail_affecting_moves(const QString &json);
     ~OAIStatDetail_affecting_moves() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     QList<OAIStatDetail_affecting_moves_increase_inner> getIncrease() const;
     void setIncrease(const QList<OAIStatDetail_affecting_moves_increase_inner> &increase);

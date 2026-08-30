@@ -32,13 +32,13 @@ class OAIMoveBattleStyleSummary;
 class OAINatureBattleStylePreference : public OAIObject {
 public:
     OAINatureBattleStylePreference();
-    OAINatureBattleStylePreference(QString json);
+    OAINatureBattleStylePreference(const QString &json);
     ~OAINatureBattleStylePreference() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     qint32 getLowHpPreference() const;
     void setLowHpPreference(const qint32 &low_hp_preference);

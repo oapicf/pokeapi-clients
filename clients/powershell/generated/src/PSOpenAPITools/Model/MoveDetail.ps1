@@ -235,30 +235,30 @@ function Initialize-MoveDetail {
 
 
         $PSO = [PSCustomObject]@{
-            "id" = ${Id}
-            "name" = ${Name}
-            "accuracy" = ${Accuracy}
-            "effect_chance" = ${EffectChance}
-            "pp" = ${Pp}
-            "priority" = ${Priority}
-            "power" = ${Power}
-            "contest_combos" = ${ContestCombos}
-            "contest_type" = ${ContestType}
-            "contest_effect" = ${ContestEffect}
-            "damage_class" = ${DamageClass}
-            "effect_entries" = ${EffectEntries}
-            "effect_changes" = ${EffectChanges}
-            "generation" = ${Generation}
-            "meta" = ${Meta}
-            "names" = ${Names}
-            "past_values" = ${PastValues}
-            "stat_changes" = ${StatChanges}
-            "super_contest_effect" = ${SuperContestEffect}
-            "target" = ${Target}
-            "type" = ${Type}
-            "machines" = ${Machines}
-            "flavor_text_entries" = ${FlavorTextEntries}
-            "learned_by_pokemon" = ${LearnedByPokemon}
+            'id' = ${Id}
+            'name' = ${Name}
+            'accuracy' = ${Accuracy}
+            'effect_chance' = ${EffectChance}
+            'pp' = ${Pp}
+            'priority' = ${Priority}
+            'power' = ${Power}
+            'contest_combos' = ${ContestCombos}
+            'contest_type' = ${ContestType}
+            'contest_effect' = ${ContestEffect}
+            'damage_class' = ${DamageClass}
+            'effect_entries' = ${EffectEntries}
+            'effect_changes' = ${EffectChanges}
+            'generation' = ${Generation}
+            'meta' = ${Meta}
+            'names' = ${Names}
+            'past_values' = ${PastValues}
+            'stat_changes' = ${StatChanges}
+            'super_contest_effect' = ${SuperContestEffect}
+            'target' = ${Target}
+            'type' = ${Type}
+            'machines' = ${Machines}
+            'flavor_text_entries' = ${FlavorTextEntries}
+            'learned_by_pokemon' = ${LearnedByPokemon}
         }
 
 
@@ -296,7 +296,7 @@ function ConvertFrom-JsonToMoveDetail {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in MoveDetail
-        $AllProperties = ("id", "name", "accuracy", "effect_chance", "pp", "priority", "power", "contest_combos", "contest_type", "contest_effect", "damage_class", "effect_entries", "effect_changes", "generation", "meta", "names", "past_values", "stat_changes", "super_contest_effect", "target", "type", "machines", "flavor_text_entries", "learned_by_pokemon")
+        $AllProperties = ('id', 'name', 'accuracy', 'effect_chance', 'pp', 'priority', 'power', 'contest_combos', 'contest_type', 'contest_effect', 'damage_class', 'effect_entries', 'effect_changes', 'generation', 'meta', 'names', 'past_values', 'stat_changes', 'super_contest_effect', 'target', 'type', 'machines', 'flavor_text_entries', 'learned_by_pokemon')
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -307,175 +307,175 @@ function ConvertFrom-JsonToMoveDetail {
             throw "Error! Empty JSON cannot be serialized due to the required property 'id' missing."
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "id"))) {
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'id'))) {
             throw "Error! JSON cannot be serialized due to the required property 'id' missing."
         } else {
-            $Id = $JsonParameters.PSobject.Properties["id"].value
+            $Id = $JsonParameters.PSobject.Properties['id'].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "name"))) {
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'name'))) {
             throw "Error! JSON cannot be serialized due to the required property 'name' missing."
         } else {
-            $Name = $JsonParameters.PSobject.Properties["name"].value
+            $Name = $JsonParameters.PSobject.Properties['name'].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "effect_chance"))) {
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'effect_chance'))) {
             throw "Error! JSON cannot be serialized due to the required property 'effect_chance' missing."
         } else {
-            $EffectChance = $JsonParameters.PSobject.Properties["effect_chance"].value
+            $EffectChance = $JsonParameters.PSobject.Properties['effect_chance'].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "contest_combos"))) {
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'contest_combos'))) {
             throw "Error! JSON cannot be serialized due to the required property 'contest_combos' missing."
         } else {
-            $ContestCombos = $JsonParameters.PSobject.Properties["contest_combos"].value
+            $ContestCombos = $JsonParameters.PSobject.Properties['contest_combos'].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "contest_type"))) {
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'contest_type'))) {
             throw "Error! JSON cannot be serialized due to the required property 'contest_type' missing."
         } else {
-            $ContestType = $JsonParameters.PSobject.Properties["contest_type"].value
+            $ContestType = $JsonParameters.PSobject.Properties['contest_type'].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "contest_effect"))) {
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'contest_effect'))) {
             throw "Error! JSON cannot be serialized due to the required property 'contest_effect' missing."
         } else {
-            $ContestEffect = $JsonParameters.PSobject.Properties["contest_effect"].value
+            $ContestEffect = $JsonParameters.PSobject.Properties['contest_effect'].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "damage_class"))) {
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'damage_class'))) {
             throw "Error! JSON cannot be serialized due to the required property 'damage_class' missing."
         } else {
-            $DamageClass = $JsonParameters.PSobject.Properties["damage_class"].value
+            $DamageClass = $JsonParameters.PSobject.Properties['damage_class'].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "effect_entries"))) {
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'effect_entries'))) {
             throw "Error! JSON cannot be serialized due to the required property 'effect_entries' missing."
         } else {
-            $EffectEntries = $JsonParameters.PSobject.Properties["effect_entries"].value
+            $EffectEntries = $JsonParameters.PSobject.Properties['effect_entries'].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "effect_changes"))) {
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'effect_changes'))) {
             throw "Error! JSON cannot be serialized due to the required property 'effect_changes' missing."
         } else {
-            $EffectChanges = $JsonParameters.PSobject.Properties["effect_changes"].value
+            $EffectChanges = $JsonParameters.PSobject.Properties['effect_changes'].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "generation"))) {
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'generation'))) {
             throw "Error! JSON cannot be serialized due to the required property 'generation' missing."
         } else {
-            $Generation = $JsonParameters.PSobject.Properties["generation"].value
+            $Generation = $JsonParameters.PSobject.Properties['generation'].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "meta"))) {
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'meta'))) {
             throw "Error! JSON cannot be serialized due to the required property 'meta' missing."
         } else {
-            $Meta = $JsonParameters.PSobject.Properties["meta"].value
+            $Meta = $JsonParameters.PSobject.Properties['meta'].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "names"))) {
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'names'))) {
             throw "Error! JSON cannot be serialized due to the required property 'names' missing."
         } else {
-            $Names = $JsonParameters.PSobject.Properties["names"].value
+            $Names = $JsonParameters.PSobject.Properties['names'].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "past_values"))) {
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'past_values'))) {
             throw "Error! JSON cannot be serialized due to the required property 'past_values' missing."
         } else {
-            $PastValues = $JsonParameters.PSobject.Properties["past_values"].value
+            $PastValues = $JsonParameters.PSobject.Properties['past_values'].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "stat_changes"))) {
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'stat_changes'))) {
             throw "Error! JSON cannot be serialized due to the required property 'stat_changes' missing."
         } else {
-            $StatChanges = $JsonParameters.PSobject.Properties["stat_changes"].value
+            $StatChanges = $JsonParameters.PSobject.Properties['stat_changes'].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "super_contest_effect"))) {
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'super_contest_effect'))) {
             throw "Error! JSON cannot be serialized due to the required property 'super_contest_effect' missing."
         } else {
-            $SuperContestEffect = $JsonParameters.PSobject.Properties["super_contest_effect"].value
+            $SuperContestEffect = $JsonParameters.PSobject.Properties['super_contest_effect'].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "target"))) {
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'target'))) {
             throw "Error! JSON cannot be serialized due to the required property 'target' missing."
         } else {
-            $Target = $JsonParameters.PSobject.Properties["target"].value
+            $Target = $JsonParameters.PSobject.Properties['target'].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "type"))) {
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'type'))) {
             throw "Error! JSON cannot be serialized due to the required property 'type' missing."
         } else {
-            $Type = $JsonParameters.PSobject.Properties["type"].value
+            $Type = $JsonParameters.PSobject.Properties['type'].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "machines"))) {
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'machines'))) {
             throw "Error! JSON cannot be serialized due to the required property 'machines' missing."
         } else {
-            $Machines = $JsonParameters.PSobject.Properties["machines"].value
+            $Machines = $JsonParameters.PSobject.Properties['machines'].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "flavor_text_entries"))) {
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'flavor_text_entries'))) {
             throw "Error! JSON cannot be serialized due to the required property 'flavor_text_entries' missing."
         } else {
-            $FlavorTextEntries = $JsonParameters.PSobject.Properties["flavor_text_entries"].value
+            $FlavorTextEntries = $JsonParameters.PSobject.Properties['flavor_text_entries'].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "learned_by_pokemon"))) {
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'learned_by_pokemon'))) {
             throw "Error! JSON cannot be serialized due to the required property 'learned_by_pokemon' missing."
         } else {
-            $LearnedByPokemon = $JsonParameters.PSobject.Properties["learned_by_pokemon"].value
+            $LearnedByPokemon = $JsonParameters.PSobject.Properties['learned_by_pokemon'].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "accuracy"))) { #optional property not found
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'accuracy'))) { #optional property not found
             $Accuracy = $null
         } else {
-            $Accuracy = $JsonParameters.PSobject.Properties["accuracy"].value
+            $Accuracy = $JsonParameters.PSobject.Properties['accuracy'].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "pp"))) { #optional property not found
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'pp'))) { #optional property not found
             $Pp = $null
         } else {
-            $Pp = $JsonParameters.PSobject.Properties["pp"].value
+            $Pp = $JsonParameters.PSobject.Properties['pp'].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "priority"))) { #optional property not found
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'priority'))) { #optional property not found
             $Priority = $null
         } else {
-            $Priority = $JsonParameters.PSobject.Properties["priority"].value
+            $Priority = $JsonParameters.PSobject.Properties['priority'].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "power"))) { #optional property not found
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'power'))) { #optional property not found
             $Power = $null
         } else {
-            $Power = $JsonParameters.PSobject.Properties["power"].value
+            $Power = $JsonParameters.PSobject.Properties['power'].value
         }
 
         $PSO = [PSCustomObject]@{
-            "id" = ${Id}
-            "name" = ${Name}
-            "accuracy" = ${Accuracy}
-            "effect_chance" = ${EffectChance}
-            "pp" = ${Pp}
-            "priority" = ${Priority}
-            "power" = ${Power}
-            "contest_combos" = ${ContestCombos}
-            "contest_type" = ${ContestType}
-            "contest_effect" = ${ContestEffect}
-            "damage_class" = ${DamageClass}
-            "effect_entries" = ${EffectEntries}
-            "effect_changes" = ${EffectChanges}
-            "generation" = ${Generation}
-            "meta" = ${Meta}
-            "names" = ${Names}
-            "past_values" = ${PastValues}
-            "stat_changes" = ${StatChanges}
-            "super_contest_effect" = ${SuperContestEffect}
-            "target" = ${Target}
-            "type" = ${Type}
-            "machines" = ${Machines}
-            "flavor_text_entries" = ${FlavorTextEntries}
-            "learned_by_pokemon" = ${LearnedByPokemon}
+            'id' = ${Id}
+            'name' = ${Name}
+            'accuracy' = ${Accuracy}
+            'effect_chance' = ${EffectChance}
+            'pp' = ${Pp}
+            'priority' = ${Priority}
+            'power' = ${Power}
+            'contest_combos' = ${ContestCombos}
+            'contest_type' = ${ContestType}
+            'contest_effect' = ${ContestEffect}
+            'damage_class' = ${DamageClass}
+            'effect_entries' = ${EffectEntries}
+            'effect_changes' = ${EffectChanges}
+            'generation' = ${Generation}
+            'meta' = ${Meta}
+            'names' = ${Names}
+            'past_values' = ${PastValues}
+            'stat_changes' = ${StatChanges}
+            'super_contest_effect' = ${SuperContestEffect}
+            'target' = ${Target}
+            'type' = ${Type}
+            'machines' = ${Machines}
+            'flavor_text_entries' = ${FlavorTextEntries}
+            'learned_by_pokemon' = ${LearnedByPokemon}
         }
 
         return $PSO

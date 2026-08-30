@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The EncounterConditionValueSummary model module.
  * @module model/EncounterConditionValueSummary
- * @version 1.2.1-pre.0
+ * @version 2.0.1-pre.0
  */
 class EncounterConditionValueSummary {
     /**

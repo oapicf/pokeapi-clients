@@ -92,8 +92,18 @@ namespace Org.OpenAPITools.Model
     /// <summary>
     /// A Json converter for type <see cref="PalParkAreaSummary" />
     /// </summary>
-    public class PalParkAreaSummaryJsonConverter : JsonConverter<PalParkAreaSummary>
+    public partial class PalParkAreaSummaryJsonConverter : JsonConverter<PalParkAreaSummary>
     {
+        partial void OnCreated();
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="PalParkAreaSummaryJsonConverter" /> class.
+        /// </summary>
+        public PalParkAreaSummaryJsonConverter()
+        {
+            OnCreated();
+        }
+
         /// <summary>
         /// Deserializes json to <see cref="PalParkAreaSummary" />
         /// </summary>

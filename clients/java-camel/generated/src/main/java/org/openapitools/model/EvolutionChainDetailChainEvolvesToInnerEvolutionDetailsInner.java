@@ -9,20 +9,20 @@ import org.openapitools.model.AbilityDetailPokemonInnerPokemon;
 import org.openapitools.model.EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender;
 import org.openapitools.jackson.nullable.JsonNullable;
 import java.time.OffsetDateTime;
-import javax.validation.Valid;
-import javax.validation.constraints.*;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.*;
 import io.swagger.v3.oas.annotations.media.Schema;
 
 
 import java.util.*;
-import javax.annotation.Generated;
+import jakarta.annotation.Generated;
 
 /**
  * EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner
  */
 
 @JsonTypeName("EvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner")
-@Generated(value = "org.openapitools.codegen.languages.JavaCamelServerCodegen", date = "2026-02-07T15:23:32.871052804Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@Generated(value = "org.openapitools.codegen.languages.JavaCamelServerCodegen", date = "2026-08-30T01:56:15.309401083Z[Etc/UTC]", comments = "Generator version: 7.24.0")
 public class EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner {
 
   private EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender gender;
@@ -31,9 +31,9 @@ public class EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner {
 
   private EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender item;
 
-  private Object knownMove;
+  private EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender knownMove;
 
-  private Object knownMoveType;
+  private EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender knownMoveType;
 
   private EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender location;
 
@@ -68,7 +68,7 @@ public class EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner {
   /**
    * Constructor with only required parameters
    */
-  public EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner(EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender gender, EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender heldItem, EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender item, Object knownMove, Object knownMoveType, EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender location, Integer minAffection, Integer minBeauty, Integer minHappiness, Integer minLevel, Boolean needsOverworldRain, String partySpecies, String partyType, String relativePhysicalStats, String timeOfDay, String tradeSpecies, AbilityDetailPokemonInnerPokemon trigger, Boolean turnUpsideDown) {
+  public EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner(EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender gender, EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender heldItem, EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender item, EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender knownMove, EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender knownMoveType, EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender location, Integer minAffection, Integer minBeauty, Integer minHappiness, Integer minLevel, Boolean needsOverworldRain, String partySpecies, String partyType, String relativePhysicalStats, String timeOfDay, String tradeSpecies, AbilityDetailPokemonInnerPokemon trigger, Boolean turnUpsideDown) {
     this.gender = gender;
     this.heldItem = heldItem;
     this.item = item;
@@ -149,7 +149,7 @@ public class EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner {
     this.item = item;
   }
 
-  public EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner knownMove(Object knownMove) {
+  public EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner knownMove(EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender knownMove) {
     this.knownMove = knownMove;
     return this;
   }
@@ -158,18 +158,18 @@ public class EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner {
    * Get knownMove
    * @return knownMove
    */
-  @NotNull 
+  @NotNull @Valid 
   @Schema(name = "known_move", requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("known_move")
-  public Object getKnownMove() {
+  public EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender getKnownMove() {
     return knownMove;
   }
 
-  public void setKnownMove(Object knownMove) {
+  public void setKnownMove(EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender knownMove) {
     this.knownMove = knownMove;
   }
 
-  public EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner knownMoveType(Object knownMoveType) {
+  public EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner knownMoveType(EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender knownMoveType) {
     this.knownMoveType = knownMoveType;
     return this;
   }
@@ -178,14 +178,14 @@ public class EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner {
    * Get knownMoveType
    * @return knownMoveType
    */
-  @NotNull 
+  @NotNull @Valid 
   @Schema(name = "known_move_type", requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("known_move_type")
-  public Object getKnownMoveType() {
+  public EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender getKnownMoveType() {
     return knownMoveType;
   }
 
-  public void setKnownMoveType(Object knownMoveType) {
+  public void setKnownMoveType(EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender knownMoveType) {
     this.knownMoveType = knownMoveType;
   }
 
@@ -514,10 +514,7 @@ public class EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 }
 

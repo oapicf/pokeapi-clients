@@ -19,7 +19,8 @@ type PokemonFormDetailSprites struct {
 	Default string `json:"default,omitempty"`
 }
 
-// AssertPokemonFormDetailSpritesRequired checks if the required fields are not zero-ed
+// AssertPokemonFormDetailSpritesRequired checks complex required fields (models, arrays, maps) and embedded parents.
+// Primitive required fields are validated for JSON request bodies in UnmarshalJSON so zero values remain valid.
 func AssertPokemonFormDetailSpritesRequired(obj PokemonFormDetailSprites) error {
 	return nil
 }

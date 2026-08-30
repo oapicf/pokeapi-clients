@@ -187,21 +187,44 @@ BerryDetail <- R6::R6Class(
       }
       if (!is.null(self$`firmness`)) {
         BerryDetailObject[["firmness"]] <-
-          self$`firmness`$toSimpleType()
+          self$extractSimpleType(self$`firmness`)
       }
       if (!is.null(self$`flavors`)) {
         BerryDetailObject[["flavors"]] <-
-          lapply(self$`flavors`, function(x) x$toSimpleType())
+          self$extractSimpleType(self$`flavors`)
       }
       if (!is.null(self$`item`)) {
         BerryDetailObject[["item"]] <-
-          self$`item`$toSimpleType()
+          self$extractSimpleType(self$`item`)
       }
       if (!is.null(self$`natural_gift_type`)) {
         BerryDetailObject[["natural_gift_type"]] <-
-          self$`natural_gift_type`$toSimpleType()
+          self$extractSimpleType(self$`natural_gift_type`)
       }
       return(BerryDetailObject)
+    },
+
+    extractSimpleType = function(x) {
+      if (R6::is.R6(x)) {
+        return(x$toSimpleType())
+      } else if (!self$hasNestedR6(x)) {
+        return(x)
+      }
+      lapply(x, self$extractSimpleType)
+    },
+
+    hasNestedR6 = function(x) {
+      if (R6::is.R6(x)) {
+        return(TRUE)
+      }
+      if (is.list(x)) {
+        for (item in x) {
+          if (self$hasNestedR6(item)) {
+            return(TRUE)
+          }
+        }
+      }
+      FALSE
     },
 
     #' @description

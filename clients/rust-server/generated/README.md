@@ -29,8 +29,8 @@ To see how to make this your own, look here:
 [README]((https://openapi-generator.tech))
 
 - API version: 2.7.0
-- Build date: 2026-02-07T15:28:09.987889273Z[Etc/UTC]
-- Generator version: 7.18.0
+- Build date: 2026-08-30T01:59:50.922707579Z[Etc/UTC]
+- Generator version: 7.24.0
 
 For more information, please visit [https://github.com/oapicf/pokeapi-clients](https://github.com/oapicf/pokeapi-clients)
 
@@ -82,129 +82,82 @@ You'll find the binary at `target/release/cli`.
 Run examples with:
 
 ```
-cargo run --example <example-name>
+cargo run --example openapi_client-<client|server>
 ```
 
 To pass in arguments to the examples, put them after `--`, for example:
 
 ```
-cargo run --example client -- --help
+cargo run --example openapi_client-client -- --help
 ```
 
 ### Running the example server
 To run the server, follow these simple steps:
 
 ```
-cargo run --example server
+cargo run --example openapi_client-server
 ```
 
 ### Running the example client
 To run a client, follow one of the following simple steps:
 
 ```
-cargo run --example client BerryFirmnessList
-cargo run --example client BerryFlavorList
-cargo run --example client BerryList
-cargo run --example client BerryFirmnessRetrieve
-cargo run --example client BerryFlavorRetrieve
-cargo run --example client BerryRetrieve
-cargo run --example client ContestEffectList
-cargo run --example client ContestTypeList
-cargo run --example client SuperContestEffectList
-cargo run --example client ContestEffectRetrieve
-cargo run --example client ContestTypeRetrieve
-cargo run --example client SuperContestEffectRetrieve
-cargo run --example client EncounterConditionList
-cargo run --example client EncounterConditionValueList
-cargo run --example client EncounterMethodList
-cargo run --example client EncounterConditionRetrieve
-cargo run --example client EncounterConditionValueRetrieve
-cargo run --example client EncounterMethodRetrieve
-cargo run --example client EvolutionChainList
-cargo run --example client EvolutionTriggerList
-cargo run --example client EvolutionChainRetrieve
-cargo run --example client EvolutionTriggerRetrieve
-cargo run --example client GenerationList
-cargo run --example client PokedexList
-cargo run --example client VersionGroupList
-cargo run --example client VersionList
-cargo run --example client GenerationRetrieve
-cargo run --example client PokedexRetrieve
-cargo run --example client VersionGroupRetrieve
-cargo run --example client VersionRetrieve
-cargo run --example client ItemAttributeList
-cargo run --example client ItemCategoryList
-cargo run --example client ItemFlingEffectList
-cargo run --example client ItemList
-cargo run --example client ItemPocketList
-cargo run --example client ItemAttributeRetrieve
-cargo run --example client ItemCategoryRetrieve
-cargo run --example client ItemFlingEffectRetrieve
-cargo run --example client ItemPocketRetrieve
-cargo run --example client ItemRetrieve
-cargo run --example client LocationAreaList
-cargo run --example client LocationList
-cargo run --example client PalParkAreaList
-cargo run --example client RegionList
-cargo run --example client LocationAreaRetrieve
-cargo run --example client LocationRetrieve
-cargo run --example client PalParkAreaRetrieve
-cargo run --example client RegionRetrieve
-cargo run --example client MachineList
-cargo run --example client MachineRetrieve
-cargo run --example client MoveAilmentList
-cargo run --example client MoveBattleStyleList
-cargo run --example client MoveCategoryList
-cargo run --example client MoveLearnMethodList
-cargo run --example client MoveList
-cargo run --example client MoveTargetList
-cargo run --example client MoveAilmentRetrieve
-cargo run --example client MoveBattleStyleRetrieve
-cargo run --example client MoveCategoryRetrieve
-cargo run --example client MoveLearnMethodRetrieve
-cargo run --example client MoveRetrieve
-cargo run --example client MoveTargetRetrieve
-cargo run --example client AbilityList
-cargo run --example client CharacteristicList
-cargo run --example client EggGroupList
-cargo run --example client GenderList
-cargo run --example client GrowthRateList
-cargo run --example client MoveDamageClassList
-cargo run --example client NatureList
-cargo run --example client PokeathlonStatList
-cargo run --example client PokemonColorList
-cargo run --example client PokemonFormList
-cargo run --example client PokemonHabitatList
-cargo run --example client PokemonList
-cargo run --example client PokemonShapeList
-cargo run --example client PokemonSpeciesList
-cargo run --example client StatList
-cargo run --example client TypeList
-cargo run --example client AbilityRetrieve
-cargo run --example client CharacteristicRetrieve
-cargo run --example client EggGroupRetrieve
-cargo run --example client GenderRetrieve
-cargo run --example client GrowthRateRetrieve
-cargo run --example client MoveDamageClassRetrieve
-cargo run --example client NatureRetrieve
-cargo run --example client PokeathlonStatRetrieve
-cargo run --example client PokemonColorRetrieve
-cargo run --example client PokemonFormRetrieve
-cargo run --example client PokemonHabitatRetrieve
-cargo run --example client PokemonRetrieve
-cargo run --example client PokemonShapeRetrieve
-cargo run --example client PokemonSpeciesRetrieve
-cargo run --example client StatRetrieve
-cargo run --example client TypeRetrieve
-cargo run --example client LanguageList
-cargo run --example client LanguageRetrieve
+cargo run --example openapi_client-client BerryFirmnessList
+cargo run --example openapi_client-client BerryFlavorList
+cargo run --example openapi_client-client BerryList
+cargo run --example openapi_client-client ContestEffectList
+cargo run --example openapi_client-client ContestTypeList
+cargo run --example openapi_client-client SuperContestEffectList
+cargo run --example openapi_client-client EncounterConditionList
+cargo run --example openapi_client-client EncounterConditionValueList
+cargo run --example openapi_client-client EncounterMethodList
+cargo run --example openapi_client-client EvolutionChainList
+cargo run --example openapi_client-client EvolutionTriggerList
+cargo run --example openapi_client-client GenerationList
+cargo run --example openapi_client-client PokedexList
+cargo run --example openapi_client-client VersionGroupList
+cargo run --example openapi_client-client VersionList
+cargo run --example openapi_client-client ItemAttributeList
+cargo run --example openapi_client-client ItemCategoryList
+cargo run --example openapi_client-client ItemFlingEffectList
+cargo run --example openapi_client-client ItemList
+cargo run --example openapi_client-client ItemPocketList
+cargo run --example openapi_client-client LocationAreaList
+cargo run --example openapi_client-client LocationList
+cargo run --example openapi_client-client PalParkAreaList
+cargo run --example openapi_client-client RegionList
+cargo run --example openapi_client-client LocationAreaRetrieve
+cargo run --example openapi_client-client MachineList
+cargo run --example openapi_client-client MoveAilmentList
+cargo run --example openapi_client-client MoveBattleStyleList
+cargo run --example openapi_client-client MoveCategoryList
+cargo run --example openapi_client-client MoveLearnMethodList
+cargo run --example openapi_client-client MoveList
+cargo run --example openapi_client-client MoveTargetList
+cargo run --example openapi_client-client AbilityList
+cargo run --example openapi_client-client CharacteristicList
+cargo run --example openapi_client-client EggGroupList
+cargo run --example openapi_client-client GenderList
+cargo run --example openapi_client-client GrowthRateList
+cargo run --example openapi_client-client MoveDamageClassList
+cargo run --example openapi_client-client NatureList
+cargo run --example openapi_client-client PokeathlonStatList
+cargo run --example openapi_client-client PokemonColorList
+cargo run --example openapi_client-client PokemonFormList
+cargo run --example openapi_client-client PokemonHabitatList
+cargo run --example openapi_client-client PokemonList
+cargo run --example openapi_client-client PokemonShapeList
+cargo run --example openapi_client-client PokemonSpeciesList
+cargo run --example openapi_client-client StatList
+cargo run --example openapi_client-client TypeList
+cargo run --example openapi_client-client LanguageList
 ```
 
 ### HTTPS
 The examples can be run in HTTPS mode by passing in the flag `--https`, for example:
 
 ```
-cargo run --example server -- --https
+cargo run --example openapi_client-server -- --https
 ```
 
 This will use the keys/certificates from the examples directory. Note that the
@@ -220,6 +173,10 @@ The generated library has a few optional features that can be activated through 
 * `client`
     * This defaults to enabled and creates the basic skeleton of a client implementation based on hyper
     * The constructed client implements the API trait by making remote API call.
+* `client-tls`
+    * This default to enabled and provides HTTPS support with automatic TLS backend selection:
+        - macOS/Windows/iOS: native-tls + hyper-tls
+        - Linux/Unix/others: OpenSSL + hyper-openssl
 * `conversions`
     * This defaults to disabled and creates extra derives on models to allow "transmogrification" between objects of structurally similar types.
 * `cli`
@@ -227,6 +184,25 @@ The generated library has a few optional features that can be activated through 
 * `validate`
     * This defaults to disabled and allows JSON Schema validation of received data using `MakeService::set_validation` or `Service::set_validation`.
     * Note, enabling validation will have a performance penalty, especially if the API heavily uses regex based checks.
+
+### HTTPS/TLS Support
+
+HTTPS support is included by default. To disable it (for example, to reduce dependencies), you can:
+
+```toml
+[dependencies]
+openapi_client = { version = "2.7.0", default-features = false, features = ["client", "server"] }
+```
+
+**For server with callbacks that need HTTPS:**
+```toml
+[dependencies]
+openapi_client = { version = "2.7.0", features = ["server", "client-tls"] }
+```
+
+The TLS backend is automatically selected based on your target platform:
+- **macOS, Windows, iOS**: Uses `native-tls` (system TLS libraries)
+- **Linux, Unix, other platforms**: Uses `openssl`
 
 See https://doc.rust-lang.org/cargo/reference/manifest.html#the-features-section for how to use features in your `Cargo.toml`.
 

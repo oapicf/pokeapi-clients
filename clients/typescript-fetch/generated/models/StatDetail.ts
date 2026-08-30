@@ -96,7 +96,7 @@ export interface StatDetail {
      * @type {Array<CharacteristicSummary>}
      * @memberof StatDetail
      */
-    characteristics: Array<CharacteristicSummary>;
+    readonly characteristics: Array<CharacteristicSummary>;
     /**
      * 
      * @type {MoveDamageClassSummary}
@@ -108,7 +108,7 @@ export interface StatDetail {
      * @type {Array<StatName>}
      * @memberof StatDetail
      */
-    names: Array<StatName>;
+    readonly names: Array<StatName>;
 }
 
 /**
@@ -117,11 +117,11 @@ export interface StatDetail {
 export function instanceOfStatDetail(value: object): value is StatDetail {
     if (!('id' in value) || value['id'] === undefined) return false;
     if (!('name' in value) || value['name'] === undefined) return false;
-    if (!('gameIndex' in value) || value['gameIndex'] === undefined) return false;
-    if (!('affectingMoves' in value) || value['affectingMoves'] === undefined) return false;
-    if (!('affectingNatures' in value) || value['affectingNatures'] === undefined) return false;
+    if ((!('gameIndex' in (value as Record<string, any>)) && !('game_index' in (value as Record<string, any>))) || ((value as Record<string, any>)['gameIndex'] === undefined && (value as Record<string, any>)['game_index'] === undefined)) return false;
+    if ((!('affectingMoves' in (value as Record<string, any>)) && !('affecting_moves' in (value as Record<string, any>))) || ((value as Record<string, any>)['affectingMoves'] === undefined && (value as Record<string, any>)['affecting_moves'] === undefined)) return false;
+    if ((!('affectingNatures' in (value as Record<string, any>)) && !('affecting_natures' in (value as Record<string, any>))) || ((value as Record<string, any>)['affectingNatures'] === undefined && (value as Record<string, any>)['affecting_natures'] === undefined)) return false;
     if (!('characteristics' in value) || value['characteristics'] === undefined) return false;
-    if (!('moveDamageClass' in value) || value['moveDamageClass'] === undefined) return false;
+    if ((!('moveDamageClass' in (value as Record<string, any>)) && !('move_damage_class' in (value as Record<string, any>))) || ((value as Record<string, any>)['moveDamageClass'] === undefined && (value as Record<string, any>)['move_damage_class'] === undefined)) return false;
     if (!('names' in value) || value['names'] === undefined) return false;
     return true;
 }
@@ -152,7 +152,7 @@ export function StatDetailToJSON(json: any): StatDetail {
     return StatDetailToJSONTyped(json, false);
 }
 
-export function StatDetailToJSONTyped(value?: Omit<StatDetail, 'id'> | null, ignoreDiscriminator: boolean = false): any {
+export function StatDetailToJSONTyped(value?: Omit<StatDetail, 'id'|'characteristics'|'names'> | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
@@ -164,9 +164,7 @@ export function StatDetailToJSONTyped(value?: Omit<StatDetail, 'id'> | null, ign
         'is_battle_only': value['isBattleOnly'],
         'affecting_moves': StatDetailAffectingMovesToJSON(value['affectingMoves']),
         'affecting_natures': StatDetailAffectingNaturesToJSON(value['affectingNatures']),
-        'characteristics': ((value['characteristics'] as Array<any>).map(CharacteristicSummaryToJSON)),
         'move_damage_class': MoveDamageClassSummaryToJSON(value['moveDamageClass']),
-        'names': ((value['names'] as Array<any>).map(StatNameToJSON)),
     };
 }
 

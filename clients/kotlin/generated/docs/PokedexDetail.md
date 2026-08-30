@@ -6,11 +6,11 @@
 | ------------ | ------------- | ------------- | ------------- |
 | **id** | **kotlin.Int** |  |  [readonly] |
 | **name** | **kotlin.String** |  |  |
-| **descriptions** | [**kotlin.collections.List&lt;PokedexDescription&gt;**](PokedexDescription.md) |  |  |
-| **names** | [**kotlin.collections.List&lt;PokedexName&gt;**](PokedexName.md) |  |  |
-| **pokemonEntries** | [**kotlin.collections.List&lt;PokedexDetailPokemonEntriesInner&gt;**](PokedexDetailPokemonEntriesInner.md) |  |  |
+| **descriptions** | [**kotlin.collections.List&lt;PokedexDescription&gt;**](PokedexDescription.md) |  |  [readonly] |
+| **names** | [**kotlin.collections.List&lt;PokedexName&gt;**](PokedexName.md) |  |  [readonly] |
+| **pokemonEntries** | [**kotlin.collections.List&lt;PokedexDetailPokemonEntriesInner&gt;**](PokedexDetailPokemonEntriesInner.md) |  |  [readonly] |
 | **region** | [**RegionSummary**](RegionSummary.md) |  |  |
-| **versionGroups** | [**kotlin.collections.List&lt;AbilityDetailPokemonInnerPokemon&gt;**](AbilityDetailPokemonInnerPokemon.md) |  |  |
+| **versionGroups** | [**kotlin.collections.List&lt;AbilityDetailPokemonInnerPokemon&gt;**](AbilityDetailPokemonInnerPokemon.md) |  |  [readonly] |
 | **isMainSeries** | **kotlin.Boolean** |  |  [optional] |
 
 

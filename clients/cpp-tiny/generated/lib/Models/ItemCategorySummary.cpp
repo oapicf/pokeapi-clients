@@ -85,7 +85,7 @@ ItemCategorySummary::getName()
 }
 
 void
-ItemCategorySummary::setName(std::string  name)
+ItemCategorySummary::setName(std::string name)
 {
 	this->name = name;
 }
@@ -97,7 +97,7 @@ ItemCategorySummary::getUrl()
 }
 
 void
-ItemCategorySummary::setUrl(std::string  url)
+ItemCategorySummary::setUrl(std::string url)
 {
 	this->url = url;
 }

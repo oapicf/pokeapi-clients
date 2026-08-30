@@ -53,7 +53,7 @@ import com.github.oapicf.pokeapiclient.JSON;
 /**
  * BerryFlavorDetail
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-07T15:22:35.747827932Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-08-30T01:55:28.842792947Z[Etc/UTC]", comments = "Generator version: 7.24.0")
 public class BerryFlavorDetail {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -84,10 +84,14 @@ public class BerryFlavorDetail {
   }
 
   public BerryFlavorDetail(
-     Integer id
+     Integer id, 
+     List<BerryFlavorDetailBerriesInner> berries, 
+     List<BerryFlavorName> names
   ) {
     this();
     this.id = id;
+    this.berries = berries;
+    this.names = names;
   }
 
   /**
@@ -120,19 +124,6 @@ public class BerryFlavorDetail {
   }
 
 
-  public BerryFlavorDetail berries(@javax.annotation.Nonnull List<BerryFlavorDetailBerriesInner> berries) {
-    this.berries = berries;
-    return this;
-  }
-
-  public BerryFlavorDetail addBerriesItem(BerryFlavorDetailBerriesInner berriesItem) {
-    if (this.berries == null) {
-      this.berries = new ArrayList<>();
-    }
-    this.berries.add(berriesItem);
-    return this;
-  }
-
   /**
    * Get berries
    * @return berries
@@ -142,9 +133,6 @@ public class BerryFlavorDetail {
     return berries;
   }
 
-  public void setBerries(@javax.annotation.Nonnull List<BerryFlavorDetailBerriesInner> berries) {
-    this.berries = berries;
-  }
 
 
   public BerryFlavorDetail contestType(@javax.annotation.Nonnull ContestTypeSummary contestType) {
@@ -166,19 +154,6 @@ public class BerryFlavorDetail {
   }
 
 
-  public BerryFlavorDetail names(@javax.annotation.Nonnull List<BerryFlavorName> names) {
-    this.names = names;
-    return this;
-  }
-
-  public BerryFlavorDetail addNamesItem(BerryFlavorName namesItem) {
-    if (this.names == null) {
-      this.names = new ArrayList<>();
-    }
-    this.names.add(namesItem);
-    return this;
-  }
-
   /**
    * Get names
    * @return names
@@ -188,9 +163,6 @@ public class BerryFlavorDetail {
     return names;
   }
 
-  public void setNames(@javax.annotation.Nonnull List<BerryFlavorName> names) {
-    this.names = names;
-  }
 
 
 
@@ -233,10 +205,7 @@ public class BerryFlavorDetail {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 
@@ -282,28 +251,28 @@ public class BerryFlavorDetail {
       if (!jsonObj.get("name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
       }
-      // ensure the json data is an array
-      if (!jsonObj.get("berries").isJsonArray()) {
-        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `berries` to be an array in the JSON string but got `%s`", jsonObj.get("berries").toString()));
+      if (jsonObj.get("berries") != null) {
+        if (!jsonObj.get("berries").isJsonArray()) {
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `berries` to be an array in the JSON string but got `%s`", jsonObj.get("berries").toString()));
+        }
+        JsonArray jsonArrayberries = jsonObj.getAsJsonArray("berries");
+        // validate the required field `berries` (array)
+        for (int i = 0; i < jsonArrayberries.size(); i++) {
+          BerryFlavorDetailBerriesInner.validateJsonElement(jsonArrayberries.get(i));
+        }
       }
-
-      JsonArray jsonArrayberries = jsonObj.getAsJsonArray("berries");
-      // validate the required field `berries` (array)
-      for (int i = 0; i < jsonArrayberries.size(); i++) {
-        BerryFlavorDetailBerriesInner.validateJsonElement(jsonArrayberries.get(i));
-      };
       // validate the required field `contest_type`
       ContestTypeSummary.validateJsonElement(jsonObj.get("contest_type"));
-      // ensure the json data is an array
-      if (!jsonObj.get("names").isJsonArray()) {
-        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `names` to be an array in the JSON string but got `%s`", jsonObj.get("names").toString()));
+      if (jsonObj.get("names") != null) {
+        if (!jsonObj.get("names").isJsonArray()) {
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `names` to be an array in the JSON string but got `%s`", jsonObj.get("names").toString()));
+        }
+        JsonArray jsonArraynames = jsonObj.getAsJsonArray("names");
+        // validate the required field `names` (array)
+        for (int i = 0; i < jsonArraynames.size(); i++) {
+          BerryFlavorName.validateJsonElement(jsonArraynames.get(i));
+        }
       }
-
-      JsonArray jsonArraynames = jsonObj.getAsJsonArray("names");
-      // validate the required field `names` (array)
-      for (int i = 0; i < jsonArraynames.size(); i++) {
-        BerryFlavorName.validateJsonElement(jsonArraynames.get(i));
-      };
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {

@@ -47,7 +47,7 @@ class MoveDetail
      * @var int|null
      * @SerializedName("id")
      * @Type("int")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Type("int")]
     protected ?int $id = null;
@@ -56,7 +56,7 @@ class MoveDetail
      * @var string|null
      * @SerializedName("name")
      * @Type("string")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Type("string")]
     #[Assert\Length(max: 100)]
@@ -66,7 +66,7 @@ class MoveDetail
      * @var int|null
      * @SerializedName("accuracy")
      * @Type("int")
-    */
+     */
     #[Assert\Type("int")]
     protected ?int $accuracy = null;
 
@@ -74,7 +74,7 @@ class MoveDetail
      * @var int|null
      * @SerializedName("effect_chance")
      * @Type("int")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Type("int")]
     protected ?int $effectChance = null;
@@ -83,7 +83,7 @@ class MoveDetail
      * @var int|null
      * @SerializedName("pp")
      * @Type("int")
-    */
+     */
     #[Assert\Type("int")]
     protected ?int $pp = null;
 
@@ -91,7 +91,7 @@ class MoveDetail
      * @var int|null
      * @SerializedName("priority")
      * @Type("int")
-    */
+     */
     #[Assert\Type("int")]
     protected ?int $priority = null;
 
@@ -99,7 +99,7 @@ class MoveDetail
      * @var int|null
      * @SerializedName("power")
      * @Type("int")
-    */
+     */
     #[Assert\Type("int")]
     protected ?int $power = null;
 
@@ -107,7 +107,7 @@ class MoveDetail
      * @var MoveDetailContestCombos|null
      * @SerializedName("contest_combos")
      * @Type("OpenAPI\Server\Model\MoveDetailContestCombos")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Valid]
     #[Assert\Type("OpenAPI\Server\Model\MoveDetailContestCombos")]
@@ -117,7 +117,7 @@ class MoveDetail
      * @var ContestTypeSummary|null
      * @SerializedName("contest_type")
      * @Type("OpenAPI\Server\Model\ContestTypeSummary")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Valid]
     #[Assert\Type("OpenAPI\Server\Model\ContestTypeSummary")]
@@ -127,7 +127,7 @@ class MoveDetail
      * @var ContestEffectSummary|null
      * @SerializedName("contest_effect")
      * @Type("OpenAPI\Server\Model\ContestEffectSummary")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Valid]
     #[Assert\Type("OpenAPI\Server\Model\ContestEffectSummary")]
@@ -137,7 +137,7 @@ class MoveDetail
      * @var MoveDamageClassSummary|null
      * @SerializedName("damage_class")
      * @Type("OpenAPI\Server\Model\MoveDamageClassSummary")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Valid]
     #[Assert\Type("OpenAPI\Server\Model\MoveDamageClassSummary")]
@@ -147,7 +147,7 @@ class MoveDetail
      * @var MoveChangeEffectEntriesInner[]|null
      * @SerializedName("effect_entries")
      * @Type("array<OpenAPI\Server\Model\MoveChangeEffectEntriesInner>")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Valid]
     #[Assert\All([
@@ -159,7 +159,7 @@ class MoveDetail
      * @var MoveDetailEffectChangesInner[]|null
      * @SerializedName("effect_changes")
      * @Type("array<OpenAPI\Server\Model\MoveDetailEffectChangesInner>")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Valid]
     #[Assert\All([
@@ -171,7 +171,7 @@ class MoveDetail
      * @var GenerationSummary|null
      * @SerializedName("generation")
      * @Type("OpenAPI\Server\Model\GenerationSummary")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Valid]
     #[Assert\Type("OpenAPI\Server\Model\GenerationSummary")]
@@ -181,7 +181,7 @@ class MoveDetail
      * @var MoveMeta|null
      * @SerializedName("meta")
      * @Type("OpenAPI\Server\Model\MoveMeta")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Valid]
     #[Assert\Type("OpenAPI\Server\Model\MoveMeta")]
@@ -191,7 +191,7 @@ class MoveDetail
      * @var MoveName[]|null
      * @SerializedName("names")
      * @Type("array<OpenAPI\Server\Model\MoveName>")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Valid]
     #[Assert\All([
@@ -203,7 +203,7 @@ class MoveDetail
      * @var MoveChange[]|null
      * @SerializedName("past_values")
      * @Type("array<OpenAPI\Server\Model\MoveChange>")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Valid]
     #[Assert\All([
@@ -215,7 +215,7 @@ class MoveDetail
      * @var MoveDetailStatChangesInner[]|null
      * @SerializedName("stat_changes")
      * @Type("array<OpenAPI\Server\Model\MoveDetailStatChangesInner>")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Valid]
     #[Assert\All([
@@ -227,7 +227,7 @@ class MoveDetail
      * @var SuperContestEffectSummary|null
      * @SerializedName("super_contest_effect")
      * @Type("OpenAPI\Server\Model\SuperContestEffectSummary")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Valid]
     #[Assert\Type("OpenAPI\Server\Model\SuperContestEffectSummary")]
@@ -237,7 +237,7 @@ class MoveDetail
      * @var MoveTargetSummary|null
      * @SerializedName("target")
      * @Type("OpenAPI\Server\Model\MoveTargetSummary")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Valid]
     #[Assert\Type("OpenAPI\Server\Model\MoveTargetSummary")]
@@ -247,7 +247,7 @@ class MoveDetail
      * @var TypeSummary|null
      * @SerializedName("type")
      * @Type("OpenAPI\Server\Model\TypeSummary")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Valid]
     #[Assert\Type("OpenAPI\Server\Model\TypeSummary")]
@@ -257,7 +257,7 @@ class MoveDetail
      * @var MoveDetailMachinesInner[]|null
      * @SerializedName("machines")
      * @Type("array<OpenAPI\Server\Model\MoveDetailMachinesInner>")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Valid]
     #[Assert\All([
@@ -269,7 +269,7 @@ class MoveDetail
      * @var MoveFlavorText[]|null
      * @SerializedName("flavor_text_entries")
      * @Type("array<OpenAPI\Server\Model\MoveFlavorText>")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Valid]
     #[Assert\All([
@@ -281,7 +281,7 @@ class MoveDetail
      * @var AbilityDetailPokemonInnerPokemon[]|null
      * @SerializedName("learned_by_pokemon")
      * @Type("array<OpenAPI\Server\Model\AbilityDetailPokemonInnerPokemon>")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Valid]
     #[Assert\All([
@@ -334,12 +334,12 @@ class MoveDetail
     }
 
     /**
-    * Sets id.
-    *
-    * @param int|null $id
-    *
-    * @return $this
-    */
+     * Sets id.
+     *
+     * @param int|null $id
+     *
+     * @return $this
+     */
     public function setId(?int $id): self
     {
         $this->id = $id;
@@ -361,12 +361,12 @@ class MoveDetail
     }
 
     /**
-    * Sets name.
-    *
-    * @param string|null $name
-    *
-    * @return $this
-    */
+     * Sets name.
+     *
+     * @param string|null $name
+     *
+     * @return $this
+     */
     public function setName(?string $name): self
     {
         $this->name = $name;
@@ -388,12 +388,12 @@ class MoveDetail
     }
 
     /**
-    * Sets accuracy.
-    *
-    * @param int|null $accuracy
-    *
-    * @return $this
-    */
+     * Sets accuracy.
+     *
+     * @param int|null $accuracy
+     *
+     * @return $this
+     */
     public function setAccuracy(?int $accuracy = null): self
     {
         $this->accuracy = $accuracy;
@@ -415,12 +415,12 @@ class MoveDetail
     }
 
     /**
-    * Sets effectChance.
-    *
-    * @param int|null $effectChance
-    *
-    * @return $this
-    */
+     * Sets effectChance.
+     *
+     * @param int|null $effectChance
+     *
+     * @return $this
+     */
     public function setEffectChance(?int $effectChance): self
     {
         $this->effectChance = $effectChance;
@@ -442,12 +442,12 @@ class MoveDetail
     }
 
     /**
-    * Sets pp.
-    *
-    * @param int|null $pp
-    *
-    * @return $this
-    */
+     * Sets pp.
+     *
+     * @param int|null $pp
+     *
+     * @return $this
+     */
     public function setPp(?int $pp = null): self
     {
         $this->pp = $pp;
@@ -469,12 +469,12 @@ class MoveDetail
     }
 
     /**
-    * Sets priority.
-    *
-    * @param int|null $priority
-    *
-    * @return $this
-    */
+     * Sets priority.
+     *
+     * @param int|null $priority
+     *
+     * @return $this
+     */
     public function setPriority(?int $priority = null): self
     {
         $this->priority = $priority;
@@ -496,12 +496,12 @@ class MoveDetail
     }
 
     /**
-    * Sets power.
-    *
-    * @param int|null $power
-    *
-    * @return $this
-    */
+     * Sets power.
+     *
+     * @param int|null $power
+     *
+     * @return $this
+     */
     public function setPower(?int $power = null): self
     {
         $this->power = $power;
@@ -523,12 +523,12 @@ class MoveDetail
     }
 
     /**
-    * Sets contestCombos.
-    *
-    * @param MoveDetailContestCombos|null $contestCombos
-    *
-    * @return $this
-    */
+     * Sets contestCombos.
+     *
+     * @param MoveDetailContestCombos|null $contestCombos
+     *
+     * @return $this
+     */
     public function setContestCombos(?MoveDetailContestCombos $contestCombos): self
     {
         $this->contestCombos = $contestCombos;
@@ -550,12 +550,12 @@ class MoveDetail
     }
 
     /**
-    * Sets contestType.
-    *
-    * @param ContestTypeSummary|null $contestType
-    *
-    * @return $this
-    */
+     * Sets contestType.
+     *
+     * @param ContestTypeSummary|null $contestType
+     *
+     * @return $this
+     */
     public function setContestType(?ContestTypeSummary $contestType): self
     {
         $this->contestType = $contestType;
@@ -577,12 +577,12 @@ class MoveDetail
     }
 
     /**
-    * Sets contestEffect.
-    *
-    * @param ContestEffectSummary|null $contestEffect
-    *
-    * @return $this
-    */
+     * Sets contestEffect.
+     *
+     * @param ContestEffectSummary|null $contestEffect
+     *
+     * @return $this
+     */
     public function setContestEffect(?ContestEffectSummary $contestEffect): self
     {
         $this->contestEffect = $contestEffect;
@@ -604,12 +604,12 @@ class MoveDetail
     }
 
     /**
-    * Sets damageClass.
-    *
-    * @param MoveDamageClassSummary|null $damageClass
-    *
-    * @return $this
-    */
+     * Sets damageClass.
+     *
+     * @param MoveDamageClassSummary|null $damageClass
+     *
+     * @return $this
+     */
     public function setDamageClass(?MoveDamageClassSummary $damageClass): self
     {
         $this->damageClass = $damageClass;
@@ -631,12 +631,12 @@ class MoveDetail
     }
 
     /**
-    * Sets effectEntries.
-    *
-    * @param MoveChangeEffectEntriesInner[]|null $effectEntries
-    *
-    * @return $this
-    */
+     * Sets effectEntries.
+     *
+     * @param MoveChangeEffectEntriesInner[]|null $effectEntries
+     *
+     * @return $this
+     */
     public function setEffectEntries(?array $effectEntries): self
     {
         $this->effectEntries = $effectEntries;
@@ -658,12 +658,12 @@ class MoveDetail
     }
 
     /**
-    * Sets effectChanges.
-    *
-    * @param MoveDetailEffectChangesInner[]|null $effectChanges
-    *
-    * @return $this
-    */
+     * Sets effectChanges.
+     *
+     * @param MoveDetailEffectChangesInner[]|null $effectChanges
+     *
+     * @return $this
+     */
     public function setEffectChanges(?array $effectChanges): self
     {
         $this->effectChanges = $effectChanges;
@@ -685,12 +685,12 @@ class MoveDetail
     }
 
     /**
-    * Sets generation.
-    *
-    * @param GenerationSummary|null $generation
-    *
-    * @return $this
-    */
+     * Sets generation.
+     *
+     * @param GenerationSummary|null $generation
+     *
+     * @return $this
+     */
     public function setGeneration(?GenerationSummary $generation): self
     {
         $this->generation = $generation;
@@ -712,12 +712,12 @@ class MoveDetail
     }
 
     /**
-    * Sets meta.
-    *
-    * @param MoveMeta|null $meta
-    *
-    * @return $this
-    */
+     * Sets meta.
+     *
+     * @param MoveMeta|null $meta
+     *
+     * @return $this
+     */
     public function setMeta(?MoveMeta $meta): self
     {
         $this->meta = $meta;
@@ -739,12 +739,12 @@ class MoveDetail
     }
 
     /**
-    * Sets names.
-    *
-    * @param MoveName[]|null $names
-    *
-    * @return $this
-    */
+     * Sets names.
+     *
+     * @param MoveName[]|null $names
+     *
+     * @return $this
+     */
     public function setNames(?array $names): self
     {
         $this->names = $names;
@@ -766,12 +766,12 @@ class MoveDetail
     }
 
     /**
-    * Sets pastValues.
-    *
-    * @param MoveChange[]|null $pastValues
-    *
-    * @return $this
-    */
+     * Sets pastValues.
+     *
+     * @param MoveChange[]|null $pastValues
+     *
+     * @return $this
+     */
     public function setPastValues(?array $pastValues): self
     {
         $this->pastValues = $pastValues;
@@ -793,12 +793,12 @@ class MoveDetail
     }
 
     /**
-    * Sets statChanges.
-    *
-    * @param MoveDetailStatChangesInner[]|null $statChanges
-    *
-    * @return $this
-    */
+     * Sets statChanges.
+     *
+     * @param MoveDetailStatChangesInner[]|null $statChanges
+     *
+     * @return $this
+     */
     public function setStatChanges(?array $statChanges): self
     {
         $this->statChanges = $statChanges;
@@ -820,12 +820,12 @@ class MoveDetail
     }
 
     /**
-    * Sets superContestEffect.
-    *
-    * @param SuperContestEffectSummary|null $superContestEffect
-    *
-    * @return $this
-    */
+     * Sets superContestEffect.
+     *
+     * @param SuperContestEffectSummary|null $superContestEffect
+     *
+     * @return $this
+     */
     public function setSuperContestEffect(?SuperContestEffectSummary $superContestEffect): self
     {
         $this->superContestEffect = $superContestEffect;
@@ -847,12 +847,12 @@ class MoveDetail
     }
 
     /**
-    * Sets target.
-    *
-    * @param MoveTargetSummary|null $target
-    *
-    * @return $this
-    */
+     * Sets target.
+     *
+     * @param MoveTargetSummary|null $target
+     *
+     * @return $this
+     */
     public function setTarget(?MoveTargetSummary $target): self
     {
         $this->target = $target;
@@ -874,12 +874,12 @@ class MoveDetail
     }
 
     /**
-    * Sets type.
-    *
-    * @param TypeSummary|null $type
-    *
-    * @return $this
-    */
+     * Sets type.
+     *
+     * @param TypeSummary|null $type
+     *
+     * @return $this
+     */
     public function setType(?TypeSummary $type): self
     {
         $this->type = $type;
@@ -901,12 +901,12 @@ class MoveDetail
     }
 
     /**
-    * Sets machines.
-    *
-    * @param MoveDetailMachinesInner[]|null $machines
-    *
-    * @return $this
-    */
+     * Sets machines.
+     *
+     * @param MoveDetailMachinesInner[]|null $machines
+     *
+     * @return $this
+     */
     public function setMachines(?array $machines): self
     {
         $this->machines = $machines;
@@ -928,12 +928,12 @@ class MoveDetail
     }
 
     /**
-    * Sets flavorTextEntries.
-    *
-    * @param MoveFlavorText[]|null $flavorTextEntries
-    *
-    * @return $this
-    */
+     * Sets flavorTextEntries.
+     *
+     * @param MoveFlavorText[]|null $flavorTextEntries
+     *
+     * @return $this
+     */
     public function setFlavorTextEntries(?array $flavorTextEntries): self
     {
         $this->flavorTextEntries = $flavorTextEntries;
@@ -955,12 +955,12 @@ class MoveDetail
     }
 
     /**
-    * Sets learnedByPokemon.
-    *
-    * @param AbilityDetailPokemonInnerPokemon[]|null $learnedByPokemon
-    *
-    * @return $this
-    */
+     * Sets learnedByPokemon.
+     *
+     * @param AbilityDetailPokemonInnerPokemon[]|null $learnedByPokemon
+     *
+     * @return $this
+     */
     public function setLearnedByPokemon(?array $learnedByPokemon): self
     {
         $this->learnedByPokemon = $learnedByPokemon;

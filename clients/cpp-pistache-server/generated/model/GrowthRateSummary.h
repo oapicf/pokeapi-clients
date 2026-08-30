@@ -32,7 +32,7 @@ class  GrowthRateSummary
 {
 public:
     GrowthRateSummary();
-    virtual ~GrowthRateSummary() = default;
+    virtual ~GrowthRateSummary();
 
 
     /// <summary>

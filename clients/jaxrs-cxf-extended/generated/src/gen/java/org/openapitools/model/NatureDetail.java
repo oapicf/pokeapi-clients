@@ -220,6 +220,7 @@ public class NatureDetail  {
 
   /**
    * Sets the <code>berries</code> property.
+   * <br><em>N.B. <code>berries</code> is <b>read only</b>; client code should not call this method</em>.
    */
  public void setBerries(List<@Valid BerrySummary> berries) {
     this.berries = berries;
@@ -227,6 +228,7 @@ public class NatureDetail  {
 
   /**
    * Sets the <code>berries</code> property.
+   * <br><em>N.B. <code>berries</code> is <b>read only</b>; client code should not call this method</em>.
    */
   public NatureDetail berries(List<@Valid BerrySummary> berries) {
     this.berries = berries;
@@ -235,6 +237,7 @@ public class NatureDetail  {
 
   /**
    * Adds a new item to the <code>berries</code> list.
+   * <br><em>N.B. <code>berries</code> is <b>read only</b>; client code should not call this method</em>.
    */
   public NatureDetail addBerriesItem(BerrySummary berriesItem) {
     this.berries.add(berriesItem);
@@ -253,6 +256,7 @@ public class NatureDetail  {
 
   /**
    * Sets the <code>pokeathlonStatChanges</code> property.
+   * <br><em>N.B. <code>pokeathlonStatChanges</code> is <b>read only</b>; client code should not call this method</em>.
    */
  public void setPokeathlonStatChanges(List<@Valid NatureDetailPokeathlonStatChangesInner> pokeathlonStatChanges) {
     this.pokeathlonStatChanges = pokeathlonStatChanges;
@@ -260,6 +264,7 @@ public class NatureDetail  {
 
   /**
    * Sets the <code>pokeathlonStatChanges</code> property.
+   * <br><em>N.B. <code>pokeathlonStatChanges</code> is <b>read only</b>; client code should not call this method</em>.
    */
   public NatureDetail pokeathlonStatChanges(List<@Valid NatureDetailPokeathlonStatChangesInner> pokeathlonStatChanges) {
     this.pokeathlonStatChanges = pokeathlonStatChanges;
@@ -268,6 +273,7 @@ public class NatureDetail  {
 
   /**
    * Adds a new item to the <code>pokeathlonStatChanges</code> list.
+   * <br><em>N.B. <code>pokeathlonStatChanges</code> is <b>read only</b>; client code should not call this method</em>.
    */
   public NatureDetail addPokeathlonStatChangesItem(NatureDetailPokeathlonStatChangesInner pokeathlonStatChangesItem) {
     this.pokeathlonStatChanges.add(pokeathlonStatChangesItem);
@@ -286,6 +292,7 @@ public class NatureDetail  {
 
   /**
    * Sets the <code>moveBattleStylePreferences</code> property.
+   * <br><em>N.B. <code>moveBattleStylePreferences</code> is <b>read only</b>; client code should not call this method</em>.
    */
  public void setMoveBattleStylePreferences(List<@Valid NatureBattleStylePreference> moveBattleStylePreferences) {
     this.moveBattleStylePreferences = moveBattleStylePreferences;
@@ -293,6 +300,7 @@ public class NatureDetail  {
 
   /**
    * Sets the <code>moveBattleStylePreferences</code> property.
+   * <br><em>N.B. <code>moveBattleStylePreferences</code> is <b>read only</b>; client code should not call this method</em>.
    */
   public NatureDetail moveBattleStylePreferences(List<@Valid NatureBattleStylePreference> moveBattleStylePreferences) {
     this.moveBattleStylePreferences = moveBattleStylePreferences;
@@ -301,6 +309,7 @@ public class NatureDetail  {
 
   /**
    * Adds a new item to the <code>moveBattleStylePreferences</code> list.
+   * <br><em>N.B. <code>moveBattleStylePreferences</code> is <b>read only</b>; client code should not call this method</em>.
    */
   public NatureDetail addMoveBattleStylePreferencesItem(NatureBattleStylePreference moveBattleStylePreferencesItem) {
     this.moveBattleStylePreferences.add(moveBattleStylePreferencesItem);
@@ -319,6 +328,7 @@ public class NatureDetail  {
 
   /**
    * Sets the <code>names</code> property.
+   * <br><em>N.B. <code>names</code> is <b>read only</b>; client code should not call this method</em>.
    */
  public void setNames(List<@Valid NatureName> names) {
     this.names = names;
@@ -326,6 +336,7 @@ public class NatureDetail  {
 
   /**
    * Sets the <code>names</code> property.
+   * <br><em>N.B. <code>names</code> is <b>read only</b>; client code should not call this method</em>.
    */
   public NatureDetail names(List<@Valid NatureName> names) {
     this.names = names;
@@ -334,6 +345,7 @@ public class NatureDetail  {
 
   /**
    * Adds a new item to the <code>names</code> list.
+   * <br><em>N.B. <code>names</code> is <b>read only</b>; client code should not call this method</em>.
    */
   public NatureDetail addNamesItem(NatureName namesItem) {
     this.names.add(namesItem);
@@ -391,10 +403,7 @@ public class NatureDetail  {
    * (except the first line).
    */
   private static String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 }
 

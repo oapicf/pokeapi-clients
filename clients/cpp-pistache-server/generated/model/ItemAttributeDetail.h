@@ -36,7 +36,7 @@ class  ItemAttributeDetail
 {
 public:
     ItemAttributeDetail();
-    virtual ~ItemAttributeDetail() = default;
+    virtual ~ItemAttributeDetail();
 
 
     /// <summary>

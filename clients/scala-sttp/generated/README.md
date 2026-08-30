@@ -2,7 +2,7 @@
 
 PokéAPI
 - API version: 2.7.0
-  - Generator version: 7.18.0
+  - Generator version: 7.24.0
 
 All the Pokémon data you'll ever need in one place, easily accessible through a modern free open-source RESTful API.
 

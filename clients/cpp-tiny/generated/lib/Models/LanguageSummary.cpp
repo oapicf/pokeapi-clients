@@ -85,7 +85,7 @@ LanguageSummary::getName()
 }
 
 void
-LanguageSummary::setName(std::string  name)
+LanguageSummary::setName(std::string name)
 {
 	this->name = name;
 }
@@ -97,7 +97,7 @@ LanguageSummary::getUrl()
 }
 
 void
-LanguageSummary::setUrl(std::string  url)
+LanguageSummary::setUrl(std::string url)
 {
 	this->url = url;
 }

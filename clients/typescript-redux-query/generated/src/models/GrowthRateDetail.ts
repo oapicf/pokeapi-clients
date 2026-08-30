@@ -53,19 +53,19 @@ export interface GrowthRateDetail  {
      * @type {Array<GrowthRateDescription>}
      * @memberof GrowthRateDetail
      */
-    descriptions: Array<GrowthRateDescription>;
+    readonly descriptions: Array<GrowthRateDescription>;
     /**
      * 
      * @type {Array<Experience>}
      * @memberof GrowthRateDetail
      */
-    levels: Array<Experience>;
+    readonly levels: Array<Experience>;
     /**
      * 
      * @type {Array<PokemonSpeciesSummary>}
      * @memberof GrowthRateDetail
      */
-    pokemonSpecies: Array<PokemonSpeciesSummary>;
+    readonly pokemonSpecies: Array<PokemonSpeciesSummary>;
 }
 
 export function GrowthRateDetailFromJSON(json: any): GrowthRateDetail {
@@ -86,9 +86,6 @@ export function GrowthRateDetailToJSON(value?: GrowthRateDetail): any {
     return {
         'name': value.name,
         'formula': value.formula,
-        'descriptions': (value.descriptions as Array<any>).map(GrowthRateDescriptionToJSON),
-        'levels': (value.levels as Array<any>).map(ExperienceToJSON),
-        'pokemon_species': (value.pokemonSpecies as Array<any>).map(PokemonSpeciesSummaryToJSON),
     };
 }
 

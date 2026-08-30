@@ -97,6 +97,7 @@ public class VersionDetail  {
 
   /**
    * Sets the <code>names</code> property.
+   * <br><em>N.B. <code>names</code> is <b>read only</b>; client code should not call this method</em>.
    */
  public void setNames(List<@Valid VersionName> names) {
     this.names = names;
@@ -104,6 +105,7 @@ public class VersionDetail  {
 
   /**
    * Sets the <code>names</code> property.
+   * <br><em>N.B. <code>names</code> is <b>read only</b>; client code should not call this method</em>.
    */
   public VersionDetail names(List<@Valid VersionName> names) {
     this.names = names;
@@ -112,6 +114,7 @@ public class VersionDetail  {
 
   /**
    * Adds a new item to the <code>names</code> list.
+   * <br><em>N.B. <code>names</code> is <b>read only</b>; client code should not call this method</em>.
    */
   public VersionDetail addNamesItem(VersionName namesItem) {
     this.names.add(namesItem);
@@ -182,10 +185,7 @@ public class VersionDetail  {
    * (except the first line).
    */
   private static String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 }
 

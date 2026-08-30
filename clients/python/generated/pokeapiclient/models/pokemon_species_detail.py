@@ -38,6 +38,7 @@ from pokeapiclient.models.pokemon_species_flavor_text import PokemonSpeciesFlavo
 from pokeapiclient.models.pokemon_species_summary import PokemonSpeciesSummary
 from typing import Optional, Set
 from typing_extensions import Self
+from pydantic_core import to_jsonable_python
 
 class PokemonSpeciesDetail(BaseModel):
     """
@@ -73,7 +74,8 @@ class PokemonSpeciesDetail(BaseModel):
     __properties: ClassVar[List[str]] = ["id", "name", "order", "gender_rate", "capture_rate", "base_happiness", "is_baby", "is_legendary", "is_mythical", "hatch_counter", "has_gender_differences", "forms_switchable", "growth_rate", "pokedex_numbers", "egg_groups", "color", "shape", "evolves_from_species", "evolution_chain", "habitat", "generation", "names", "pal_park_encounters", "form_descriptions", "flavor_text_entries", "genera", "varieties"]
 
     model_config = ConfigDict(
-        populate_by_name=True,
+        validate_by_name=True,
+        validate_by_alias=True,
         validate_assignment=True,
         protected_namespaces=(),
     )
@@ -85,8 +87,7 @@ class PokemonSpeciesDetail(BaseModel):
 
     def to_json(self) -> str:
         """Returns the JSON representation of the model using alias"""
-        # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
-        return json.dumps(self.to_dict())
+        return json.dumps(to_jsonable_python(self.to_dict()))
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
@@ -103,9 +104,25 @@ class PokemonSpeciesDetail(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         * OpenAPI `readOnly` fields are excluded.
+        * OpenAPI `readOnly` fields are excluded.
+        * OpenAPI `readOnly` fields are excluded.
+        * OpenAPI `readOnly` fields are excluded.
+        * OpenAPI `readOnly` fields are excluded.
+        * OpenAPI `readOnly` fields are excluded.
+        * OpenAPI `readOnly` fields are excluded.
+        * OpenAPI `readOnly` fields are excluded.
+        * OpenAPI `readOnly` fields are excluded.
         """
         excluded_fields: Set[str] = set([
             "id",
+            "pokedex_numbers",
+            "egg_groups",
+            "names",
+            "pal_park_encounters",
+            "form_descriptions",
+            "flavor_text_entries",
+            "genera",
+            "varieties",
         ])
 
         _dict = self.model_dump(

@@ -15,19 +15,19 @@ import org.openapitools.model.NatureName;
 import org.openapitools.model.StatSummary;
 import org.openapitools.jackson.nullable.JsonNullable;
 import java.time.OffsetDateTime;
-import javax.validation.Valid;
-import javax.validation.constraints.*;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.*;
 import io.swagger.v3.oas.annotations.media.Schema;
 
 
 import java.util.*;
-import javax.annotation.Generated;
+import jakarta.annotation.Generated;
 
 /**
  * NatureDetail
  */
 
-@Generated(value = "org.openapitools.codegen.languages.JavaCamelServerCodegen", date = "2026-02-07T15:23:32.871052804Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@Generated(value = "org.openapitools.codegen.languages.JavaCamelServerCodegen", date = "2026-08-30T01:56:15.309401083Z[Etc/UTC]", comments = "Generator version: 7.24.0")
 public class NatureDetail {
 
   private Integer id;
@@ -211,8 +211,8 @@ public class NatureDetail {
    * Get berries
    * @return berries
    */
-  @NotNull @Valid 
-  @Schema(name = "berries", requiredMode = Schema.RequiredMode.REQUIRED)
+  @Valid 
+  @Schema(name = "berries", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("berries")
   public List<@Valid BerrySummary> getBerries() {
     return berries;
@@ -239,8 +239,8 @@ public class NatureDetail {
    * Get pokeathlonStatChanges
    * @return pokeathlonStatChanges
    */
-  @NotNull @Valid 
-  @Schema(name = "pokeathlon_stat_changes", requiredMode = Schema.RequiredMode.REQUIRED)
+  @Valid 
+  @Schema(name = "pokeathlon_stat_changes", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("pokeathlon_stat_changes")
   public List<@Valid NatureDetailPokeathlonStatChangesInner> getPokeathlonStatChanges() {
     return pokeathlonStatChanges;
@@ -267,8 +267,8 @@ public class NatureDetail {
    * Get moveBattleStylePreferences
    * @return moveBattleStylePreferences
    */
-  @NotNull @Valid 
-  @Schema(name = "move_battle_style_preferences", requiredMode = Schema.RequiredMode.REQUIRED)
+  @Valid 
+  @Schema(name = "move_battle_style_preferences", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("move_battle_style_preferences")
   public List<@Valid NatureBattleStylePreference> getMoveBattleStylePreferences() {
     return moveBattleStylePreferences;
@@ -295,8 +295,8 @@ public class NatureDetail {
    * Get names
    * @return names
    */
-  @NotNull @Valid 
-  @Schema(name = "names", requiredMode = Schema.RequiredMode.REQUIRED)
+  @Valid 
+  @Schema(name = "names", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("names")
   public List<@Valid NatureName> getNames() {
     return names;
@@ -355,10 +355,7 @@ public class NatureDetail {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 }
 

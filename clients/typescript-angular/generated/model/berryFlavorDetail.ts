@@ -15,8 +15,8 @@ import { ContestTypeSummary } from './contestTypeSummary';
 export interface BerryFlavorDetail { 
     readonly id: number;
     name: string;
-    berries: Array<BerryFlavorDetailBerriesInner>;
+    readonly berries: Array<BerryFlavorDetailBerriesInner>;
     contest_type: ContestTypeSummary;
-    names: Array<BerryFlavorName>;
+    readonly names: Array<BerryFlavorName>;
 }
 

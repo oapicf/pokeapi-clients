@@ -33,7 +33,7 @@ class  MoveName
 {
 public:
     MoveName();
-    virtual ~MoveName() = default;
+    virtual ~MoveName();
 
 
     /// <summary>

@@ -11,8 +11,8 @@ Name | Type | Description | Notes
 **id** | `Integer` |  |  [readonly property]
 **appeal** | `Integer` |  | 
 **jam** | `Integer` |  | 
-**effectEntries** | [`List&lt;ContestEffectEffectText&gt;`](ContestEffectEffectText.md) |  | 
-**flavorTextEntries** | [`List&lt;ContestEffectFlavorText&gt;`](ContestEffectFlavorText.md) |  | 
+**effectEntries** | [`List&lt;ContestEffectEffectText&gt;`](ContestEffectEffectText.md) |  |  [readonly property]
+**flavorTextEntries** | [`List&lt;ContestEffectFlavorText&gt;`](ContestEffectFlavorText.md) |  |  [readonly property]
 
 
 

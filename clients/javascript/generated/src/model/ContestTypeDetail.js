@@ -18,7 +18,7 @@ import ContestTypeName from './ContestTypeName';
 /**
  * The ContestTypeDetail model module.
  * @module model/ContestTypeDetail
- * @version 1.2.1-pre.0
+ * @version 2.0.1-pre.0
  */
 class ContestTypeDetail {
     /**

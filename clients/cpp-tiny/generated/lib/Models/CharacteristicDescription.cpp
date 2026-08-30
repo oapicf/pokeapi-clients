@@ -86,7 +86,7 @@ CharacteristicDescription::getDescription()
 }
 
 void
-CharacteristicDescription::setDescription(std::string  description)
+CharacteristicDescription::setDescription(std::string description)
 {
 	this->description = description;
 }
@@ -98,7 +98,7 @@ CharacteristicDescription::getLanguage()
 }
 
 void
-CharacteristicDescription::setLanguage(LanguageSummary  language)
+CharacteristicDescription::setLanguage(LanguageSummary language)
 {
 	this->language = language;
 }

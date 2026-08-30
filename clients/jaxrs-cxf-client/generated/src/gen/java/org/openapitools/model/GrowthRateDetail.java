@@ -92,19 +92,6 @@ public class GrowthRateDetail  {
     return descriptions;
   }
 
-  public void setDescriptions(List<GrowthRateDescription> descriptions) {
-    this.descriptions = descriptions;
-  }
-
-  public GrowthRateDetail descriptions(List<GrowthRateDescription> descriptions) {
-    this.descriptions = descriptions;
-    return this;
-  }
-
-  public GrowthRateDetail addDescriptionsItem(GrowthRateDescription descriptionsItem) {
-    this.descriptions.add(descriptionsItem);
-    return this;
-  }
 
  /**
    * Get levels
@@ -115,19 +102,6 @@ public class GrowthRateDetail  {
     return levels;
   }
 
-  public void setLevels(List<Experience> levels) {
-    this.levels = levels;
-  }
-
-  public GrowthRateDetail levels(List<Experience> levels) {
-    this.levels = levels;
-    return this;
-  }
-
-  public GrowthRateDetail addLevelsItem(Experience levelsItem) {
-    this.levels.add(levelsItem);
-    return this;
-  }
 
  /**
    * Get pokemonSpecies
@@ -138,19 +112,6 @@ public class GrowthRateDetail  {
     return pokemonSpecies;
   }
 
-  public void setPokemonSpecies(List<PokemonSpeciesSummary> pokemonSpecies) {
-    this.pokemonSpecies = pokemonSpecies;
-  }
-
-  public GrowthRateDetail pokemonSpecies(List<PokemonSpeciesSummary> pokemonSpecies) {
-    this.pokemonSpecies = pokemonSpecies;
-    return this;
-  }
-
-  public GrowthRateDetail addPokemonSpeciesItem(PokemonSpeciesSummary pokemonSpeciesItem) {
-    this.pokemonSpecies.add(pokemonSpeciesItem);
-    return this;
-  }
 
   @Override
   public boolean equals(Object o) {
@@ -194,10 +155,7 @@ public class GrowthRateDetail  {
    * (except the first line).
    */
   private static String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 }
 

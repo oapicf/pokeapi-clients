@@ -44,7 +44,7 @@ export interface CharacteristicDetail  {
      * @type {Array<number>}
      * @memberof CharacteristicDetail
      */
-    possibleValues: Array<number>;
+    readonly possibleValues: Array<number>;
     /**
      * 
      * @type {StatSummary}
@@ -56,7 +56,7 @@ export interface CharacteristicDetail  {
      * @type {Array<CharacteristicDescription>}
      * @memberof CharacteristicDetail
      */
-    descriptions: Array<CharacteristicDescription>;
+    readonly descriptions: Array<CharacteristicDescription>;
 }
 
 export function CharacteristicDetailFromJSON(json: any): CharacteristicDetail {
@@ -75,9 +75,7 @@ export function CharacteristicDetailToJSON(value?: CharacteristicDetail): any {
     }
     return {
         'gene_modulo': value.geneModulo,
-        'possible_values': value.possibleValues,
         'highest_stat': StatSummaryToJSON(value.highestStat),
-        'descriptions': (value.descriptions as Array<any>).map(CharacteristicDescriptionToJSON),
     };
 }
 

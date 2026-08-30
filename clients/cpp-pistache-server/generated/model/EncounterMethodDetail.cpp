@@ -28,6 +28,8 @@ EncounterMethodDetail::EncounterMethodDetail()
     
 }
 
+EncounterMethodDetail::~EncounterMethodDetail() = default;
+
 void EncounterMethodDetail::validate() const
 {
     std::stringstream msg;

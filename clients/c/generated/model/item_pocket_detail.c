@@ -6,7 +6,7 @@
 
 
 static item_pocket_detail_t *item_pocket_detail_create_internal(
-    int id,
+    int *id,
     char *name,
     list_t *categories,
     list_t *names
@@ -15,27 +15,36 @@ static item_pocket_detail_t *item_pocket_detail_create_internal(
     if (!item_pocket_detail_local_var) {
         return NULL;
     }
+    memset(item_pocket_detail_local_var, 0, sizeof(item_pocket_detail_t));
+    item_pocket_detail_local_var->_library_owned = 1;
     item_pocket_detail_local_var->id = id;
     item_pocket_detail_local_var->name = name;
     item_pocket_detail_local_var->categories = categories;
     item_pocket_detail_local_var->names = names;
-
-    item_pocket_detail_local_var->_library_owned = 1;
     return item_pocket_detail_local_var;
 }
 
 __attribute__((deprecated)) item_pocket_detail_t *item_pocket_detail_create(
-    int id,
+    int *id,
     char *name,
     list_t *categories,
     list_t *names
     ) {
-    return item_pocket_detail_create_internal (
-        id,
+    int *id_copy = NULL;
+    if (id) {
+        id_copy = malloc(sizeof(int));
+        if (id_copy) *id_copy = *id;
+    }
+    item_pocket_detail_t *result = item_pocket_detail_create_internal (
+        id_copy,
         name,
         categories,
         names
         );
+    if (!result) {
+        free(id_copy);
+    }
+    return result;
 }
 
 void item_pocket_detail_free(item_pocket_detail_t *item_pocket_detail) {
@@ -47,6 +56,10 @@ void item_pocket_detail_free(item_pocket_detail_t *item_pocket_detail) {
         return ;
     }
     listEntry_t *listEntry;
+    if (item_pocket_detail->id) {
+        free(item_pocket_detail->id);
+        item_pocket_detail->id = NULL;
+    }
     if (item_pocket_detail->name) {
         free(item_pocket_detail->name);
         item_pocket_detail->name = NULL;
@@ -75,7 +88,7 @@ cJSON *item_pocket_detail_convertToJSON(item_pocket_detail_t *item_pocket_detail
     if (!item_pocket_detail->id) {
         goto fail;
     }
-    if(cJSON_AddNumberToObject(item, "id", item_pocket_detail->id) == NULL) {
+    if(cJSON_AddNumberToObject(item, "id", *item_pocket_detail->id) == NULL) {
     goto fail; //Numeric
     }
 
@@ -142,6 +155,11 @@ item_pocket_detail_t *item_pocket_detail_parseFromJSON(cJSON *item_pocket_detail
 
     item_pocket_detail_t *item_pocket_detail_local_var = NULL;
 
+    // define the local variable for item_pocket_detail->id
+    int *id_local_var = NULL;
+
+    char *name_local_str = NULL;
+
     // define the local list for item_pocket_detail->categories
     list_t *categoriesList = NULL;
 
@@ -162,6 +180,12 @@ item_pocket_detail_t *item_pocket_detail_parseFromJSON(cJSON *item_pocket_detail
     {
     goto end; //Numeric
     }
+    id_local_var = malloc(sizeof(int));
+    if(!id_local_var)
+    {
+        goto end;
+    }
+    *id_local_var = id->valuedouble;
 
     // item_pocket_detail->name
     cJSON *name = cJSON_GetObjectItemCaseSensitive(item_pocket_detailJSON, "name");
@@ -233,15 +257,29 @@ item_pocket_detail_t *item_pocket_detail_parseFromJSON(cJSON *item_pocket_detail
     }
 
 
+    if (name && !cJSON_IsNull(name)) name_local_str = strdup(name->valuestring);
+
     item_pocket_detail_local_var = item_pocket_detail_create_internal (
-        id->valuedouble,
-        strdup(name->valuestring),
+        id_local_var,
+        name_local_str,
         categoriesList,
         namesList
         );
 
+    if (!item_pocket_detail_local_var) {
+        goto end;
+    }
+
     return item_pocket_detail_local_var;
 end:
+    if (id_local_var) {
+        free(id_local_var);
+        id_local_var = NULL;
+    }
+    if (name_local_str) {
+        free(name_local_str);
+        name_local_str = NULL;
+    }
     if (categoriesList) {
         listEntry_t *listEntry = NULL;
         list_ForEach(listEntry, categoriesList) {

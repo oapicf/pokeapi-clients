@@ -49,8 +49,8 @@ function Initialize-BerryDetailFlavorsInner {
 
 
         $PSO = [PSCustomObject]@{
-            "potency" = ${Potency}
-            "flavor" = ${Flavor}
+            'potency' = ${Potency}
+            'flavor' = ${Flavor}
         }
 
 
@@ -88,7 +88,7 @@ function ConvertFrom-JsonToBerryDetailFlavorsInner {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in BerryDetailFlavorsInner
-        $AllProperties = ("potency", "flavor")
+        $AllProperties = ('potency', 'flavor')
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -99,21 +99,21 @@ function ConvertFrom-JsonToBerryDetailFlavorsInner {
             throw "Error! Empty JSON cannot be serialized due to the required property 'potency' missing."
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "potency"))) {
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'potency'))) {
             throw "Error! JSON cannot be serialized due to the required property 'potency' missing."
         } else {
-            $Potency = $JsonParameters.PSobject.Properties["potency"].value
+            $Potency = $JsonParameters.PSobject.Properties['potency'].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "flavor"))) {
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'flavor'))) {
             throw "Error! JSON cannot be serialized due to the required property 'flavor' missing."
         } else {
-            $Flavor = $JsonParameters.PSobject.Properties["flavor"].value
+            $Flavor = $JsonParameters.PSobject.Properties['flavor'].value
         }
 
         $PSO = [PSCustomObject]@{
-            "potency" = ${Potency}
-            "flavor" = ${Flavor}
+            'potency' = ${Potency}
+            'flavor' = ${Flavor}
         }
 
         return $PSO

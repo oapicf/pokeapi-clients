@@ -92,8 +92,18 @@ namespace Org.OpenAPITools.Model
     /// <summary>
     /// A Json converter for type <see cref="LanguageName" />
     /// </summary>
-    public class LanguageNameJsonConverter : JsonConverter<LanguageName>
+    public partial class LanguageNameJsonConverter : JsonConverter<LanguageName>
     {
+        partial void OnCreated();
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="LanguageNameJsonConverter" /> class.
+        /// </summary>
+        public LanguageNameJsonConverter()
+        {
+            OnCreated();
+        }
+
         /// <summary>
         /// Deserializes json to <see cref="LanguageName" />
         /// </summary>

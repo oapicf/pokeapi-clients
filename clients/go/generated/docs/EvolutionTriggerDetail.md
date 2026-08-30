@@ -6,8 +6,8 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **int32** |  | [readonly] 
 **Name** | **string** |  | 
-**Names** | [**[]EvolutionTriggerName**](EvolutionTriggerName.md) |  | 
-**PokemonSpecies** | [**[]AbilityDetailPokemonInnerPokemon**](AbilityDetailPokemonInnerPokemon.md) |  | 
+**Names** | [**[]EvolutionTriggerName**](EvolutionTriggerName.md) |  | [readonly] 
+**PokemonSpecies** | [**[]AbilityDetailPokemonInnerPokemon**](AbilityDetailPokemonInnerPokemon.md) |  | [readonly] 
 
 ## Methods
 

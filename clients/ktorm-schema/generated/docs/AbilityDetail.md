@@ -8,11 +8,11 @@ Name | Mapping | SQL Type | Default | Type | Description | Notes
 **id** | id | int NOT NULL PRIMARY KEY AUTOINCREMENT |  | **kotlin.Int** |  |  [readonly]
 **name** | name | text NOT NULL |  | **kotlin.String** |  | 
 **generation** | generation | long NOT NULL |  | [**GenerationSummary**](GenerationSummary.md) |  |  [foreignkey]
-**names** | `One-To-Many` | `----` | `----`  | [**kotlin.Array&lt;AbilityName&gt;**](AbilityName.md) |  | 
-**effectEntries** | `One-To-Many` | `----` | `----`  | [**kotlin.Array&lt;AbilityEffectText&gt;**](AbilityEffectText.md) |  | 
-**effectChanges** | `One-To-Many` | `----` | `----`  | [**kotlin.Array&lt;AbilityChange&gt;**](AbilityChange.md) |  | 
-**flavorTextEntries** | `One-To-Many` | `----` | `----`  | [**kotlin.Array&lt;AbilityFlavorText&gt;**](AbilityFlavorText.md) |  | 
-**pokemon** | `One-To-Many` | `----` | `----`  | [**kotlin.Array&lt;AbilityDetailPokemonInner&gt;**](AbilityDetailPokemonInner.md) |  | 
+**names** | `One-To-Many` | `----` | `----`  | [**kotlin.Array&lt;AbilityName&gt;**](AbilityName.md) |  |  [readonly]
+**effectEntries** | `One-To-Many` | `----` | `----`  | [**kotlin.Array&lt;AbilityEffectText&gt;**](AbilityEffectText.md) |  |  [readonly]
+**effectChanges** | `One-To-Many` | `----` | `----`  | [**kotlin.Array&lt;AbilityChange&gt;**](AbilityChange.md) |  |  [readonly]
+**flavorTextEntries** | `One-To-Many` | `----` | `----`  | [**kotlin.Array&lt;AbilityFlavorText&gt;**](AbilityFlavorText.md) |  |  [readonly]
+**pokemon** | `One-To-Many` | `----` | `----`  | [**kotlin.Array&lt;AbilityDetailPokemonInner&gt;**](AbilityDetailPokemonInner.md) |  |  [readonly]
 **isMainSeries** | is_main_series | boolean |  | **kotlin.Boolean** |  |  [optional]
 
 

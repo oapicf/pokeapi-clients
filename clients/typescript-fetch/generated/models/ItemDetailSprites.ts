@@ -31,7 +31,7 @@ export interface ItemDetailSprites {
  * Check if a given object implements the ItemDetailSprites interface.
  */
 export function instanceOfItemDetailSprites(value: object): value is ItemDetailSprites {
-    if (!('_default' in value) || value['_default'] === undefined) return false;
+    if ((!('_default' in (value as Record<string, any>)) && !('default' in (value as Record<string, any>))) || ((value as Record<string, any>)['_default'] === undefined && (value as Record<string, any>)['default'] === undefined)) return false;
     return true;
 }
 

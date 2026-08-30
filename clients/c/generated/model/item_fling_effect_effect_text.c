@@ -13,10 +13,10 @@ static item_fling_effect_effect_text_t *item_fling_effect_effect_text_create_int
     if (!item_fling_effect_effect_text_local_var) {
         return NULL;
     }
+    memset(item_fling_effect_effect_text_local_var, 0, sizeof(item_fling_effect_effect_text_t));
+    item_fling_effect_effect_text_local_var->_library_owned = 1;
     item_fling_effect_effect_text_local_var->effect = effect;
     item_fling_effect_effect_text_local_var->language = language;
-
-    item_fling_effect_effect_text_local_var->_library_owned = 1;
     return item_fling_effect_effect_text_local_var;
 }
 
@@ -24,10 +24,13 @@ __attribute__((deprecated)) item_fling_effect_effect_text_t *item_fling_effect_e
     char *effect,
     language_summary_t *language
     ) {
-    return item_fling_effect_effect_text_create_internal (
+    item_fling_effect_effect_text_t *result = item_fling_effect_effect_text_create_internal (
         effect,
         language
         );
+    if (!result) {
+    }
+    return result;
 }
 
 void item_fling_effect_effect_text_free(item_fling_effect_effect_text_t *item_fling_effect_effect_text) {
@@ -87,6 +90,8 @@ item_fling_effect_effect_text_t *item_fling_effect_effect_text_parseFromJSON(cJS
 
     item_fling_effect_effect_text_t *item_fling_effect_effect_text_local_var = NULL;
 
+    char *effect_local_str = NULL;
+
     // define the local variable for item_fling_effect_effect_text->language
     language_summary_t *language_local_nonprim = NULL;
 
@@ -118,13 +123,23 @@ item_fling_effect_effect_text_t *item_fling_effect_effect_text_parseFromJSON(cJS
     language_local_nonprim = language_summary_parseFromJSON(language); //nonprimitive
 
 
+    if (effect && !cJSON_IsNull(effect)) effect_local_str = strdup(effect->valuestring);
+
     item_fling_effect_effect_text_local_var = item_fling_effect_effect_text_create_internal (
-        strdup(effect->valuestring),
+        effect_local_str,
         language_local_nonprim
         );
 
+    if (!item_fling_effect_effect_text_local_var) {
+        goto end;
+    }
+
     return item_fling_effect_effect_text_local_var;
 end:
+    if (effect_local_str) {
+        free(effect_local_str);
+        effect_local_str = NULL;
+    }
     if (language_local_nonprim) {
         language_summary_free(language_local_nonprim);
         language_local_nonprim = NULL;

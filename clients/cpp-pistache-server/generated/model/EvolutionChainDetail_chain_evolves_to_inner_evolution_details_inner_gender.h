@@ -32,7 +32,7 @@ class  EvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner_gende
 {
 public:
     EvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner_gender();
-    virtual ~EvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner_gender() = default;
+    virtual ~EvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner_gender();
 
 
     /// <summary>

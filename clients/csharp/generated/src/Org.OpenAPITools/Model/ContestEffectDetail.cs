@@ -74,13 +74,13 @@ namespace Org.OpenAPITools.Model
         /// Gets or Sets EffectEntries
         /// </summary>
         [JsonPropertyName("effect_entries")]
-        public List<ContestEffectEffectText> EffectEntries { get; set; }
+        public List<ContestEffectEffectText> EffectEntries { get; }
 
         /// <summary>
         /// Gets or Sets FlavorTextEntries
         /// </summary>
         [JsonPropertyName("flavor_text_entries")]
-        public List<ContestEffectFlavorText> FlavorTextEntries { get; set; }
+        public List<ContestEffectFlavorText> FlavorTextEntries { get; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -113,8 +113,18 @@ namespace Org.OpenAPITools.Model
     /// <summary>
     /// A Json converter for type <see cref="ContestEffectDetail" />
     /// </summary>
-    public class ContestEffectDetailJsonConverter : JsonConverter<ContestEffectDetail>
+    public partial class ContestEffectDetailJsonConverter : JsonConverter<ContestEffectDetail>
     {
+        partial void OnCreated();
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ContestEffectDetailJsonConverter" /> class.
+        /// </summary>
+        public ContestEffectDetailJsonConverter()
+        {
+            OnCreated();
+        }
+
         /// <summary>
         /// Deserializes json to <see cref="ContestEffectDetail" />
         /// </summary>

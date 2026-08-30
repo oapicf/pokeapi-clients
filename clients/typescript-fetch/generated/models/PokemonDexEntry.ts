@@ -45,7 +45,7 @@ export interface PokemonDexEntry {
  * Check if a given object implements the PokemonDexEntry interface.
  */
 export function instanceOfPokemonDexEntry(value: object): value is PokemonDexEntry {
-    if (!('entryNumber' in value) || value['entryNumber'] === undefined) return false;
+    if ((!('entryNumber' in (value as Record<string, any>)) && !('entry_number' in (value as Record<string, any>))) || ((value as Record<string, any>)['entryNumber'] === undefined && (value as Record<string, any>)['entry_number'] === undefined)) return false;
     if (!('pokedex' in value) || value['pokedex'] === undefined) return false;
     return true;
 }

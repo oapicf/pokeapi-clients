@@ -70,19 +70,6 @@ public class MoveDamageClassDetail  {
     return descriptions;
   }
 
-  public void setDescriptions(List<MoveDamageClassDescription> descriptions) {
-    this.descriptions = descriptions;
-  }
-
-  public MoveDamageClassDetail descriptions(List<MoveDamageClassDescription> descriptions) {
-    this.descriptions = descriptions;
-    return this;
-  }
-
-  public MoveDamageClassDetail addDescriptionsItem(MoveDamageClassDescription descriptionsItem) {
-    this.descriptions.add(descriptionsItem);
-    return this;
-  }
 
  /**
    * Get moves
@@ -93,19 +80,6 @@ public class MoveDamageClassDetail  {
     return moves;
   }
 
-  public void setMoves(List<MoveSummary> moves) {
-    this.moves = moves;
-  }
-
-  public MoveDamageClassDetail moves(List<MoveSummary> moves) {
-    this.moves = moves;
-    return this;
-  }
-
-  public MoveDamageClassDetail addMovesItem(MoveSummary movesItem) {
-    this.moves.add(movesItem);
-    return this;
-  }
 
  /**
    * Get names
@@ -116,19 +90,6 @@ public class MoveDamageClassDetail  {
     return names;
   }
 
-  public void setNames(List<MoveDamageClassName> names) {
-    this.names = names;
-  }
-
-  public MoveDamageClassDetail names(List<MoveDamageClassName> names) {
-    this.names = names;
-    return this;
-  }
-
-  public MoveDamageClassDetail addNamesItem(MoveDamageClassName namesItem) {
-    this.names.add(namesItem);
-    return this;
-  }
 
   @Override
   public boolean equals(Object o) {
@@ -170,10 +131,7 @@ public class MoveDamageClassDetail  {
    * (except the first line).
    */
   private static String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 }
 

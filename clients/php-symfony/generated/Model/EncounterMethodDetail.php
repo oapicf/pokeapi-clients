@@ -47,7 +47,7 @@ class EncounterMethodDetail
      * @var int|null
      * @SerializedName("id")
      * @Type("int")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Type("int")]
     protected ?int $id = null;
@@ -56,7 +56,7 @@ class EncounterMethodDetail
      * @var string|null
      * @SerializedName("name")
      * @Type("string")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Type("string")]
     #[Assert\Length(max: 100)]
@@ -66,7 +66,7 @@ class EncounterMethodDetail
      * @var int|null
      * @SerializedName("order")
      * @Type("int")
-    */
+     */
     #[Assert\Type("int")]
     protected ?int $order = null;
 
@@ -74,7 +74,7 @@ class EncounterMethodDetail
      * @var EncounterMethodName[]|null
      * @SerializedName("names")
      * @Type("array<OpenAPI\Server\Model\EncounterMethodName>")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Valid]
     #[Assert\All([
@@ -107,12 +107,12 @@ class EncounterMethodDetail
     }
 
     /**
-    * Sets id.
-    *
-    * @param int|null $id
-    *
-    * @return $this
-    */
+     * Sets id.
+     *
+     * @param int|null $id
+     *
+     * @return $this
+     */
     public function setId(?int $id): self
     {
         $this->id = $id;
@@ -134,12 +134,12 @@ class EncounterMethodDetail
     }
 
     /**
-    * Sets name.
-    *
-    * @param string|null $name
-    *
-    * @return $this
-    */
+     * Sets name.
+     *
+     * @param string|null $name
+     *
+     * @return $this
+     */
     public function setName(?string $name): self
     {
         $this->name = $name;
@@ -161,12 +161,12 @@ class EncounterMethodDetail
     }
 
     /**
-    * Sets order.
-    *
-    * @param int|null $order
-    *
-    * @return $this
-    */
+     * Sets order.
+     *
+     * @param int|null $order
+     *
+     * @return $this
+     */
     public function setOrder(?int $order = null): self
     {
         $this->order = $order;
@@ -188,12 +188,12 @@ class EncounterMethodDetail
     }
 
     /**
-    * Sets names.
-    *
-    * @param EncounterMethodName[]|null $names
-    *
-    * @return $this
-    */
+     * Sets names.
+     *
+     * @param EncounterMethodName[]|null $names
+     *
+     * @return $this
+     */
     public function setNames(?array $names): self
     {
         $this->names = $names;

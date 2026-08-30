@@ -31,6 +31,8 @@ PaginatedMoveMetaAilmentSummaryList::PaginatedMoveMetaAilmentSummaryList()
     
 }
 
+PaginatedMoveMetaAilmentSummaryList::~PaginatedMoveMetaAilmentSummaryList() = default;
+
 void PaginatedMoveMetaAilmentSummaryList::validate() const
 {
     std::stringstream msg;

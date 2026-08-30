@@ -46,7 +46,7 @@ import javax.annotation.Generated;
   GenerationDetail.JSON_PROPERTY_VERSION_GROUPS
 })
 @JsonTypeName("GenerationDetail")
-@Generated(value="org.openapitools.codegen.languages.JavaMicronautClientCodegen", date="2026-02-07T15:22:54.857535619Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@Generated(value="org.openapitools.codegen.languages.JavaMicronautClientCodegen", date="2026-08-30T01:55:51.056116330Z[Etc/UTC]", comments = "Generator version: 7.24.0")
 @Introspected
 public class GenerationDetail {
     public static final String JSON_PROPERTY_ID = "id";
@@ -122,16 +122,6 @@ public class GenerationDetail {
         this.name = name;
     }
 
-    public GenerationDetail abilities(List<@Valid AbilitySummary> abilities) {
-        this.abilities = abilities;
-        return this;
-    }
-
-    public GenerationDetail addAbilitiesItem(AbilitySummary abilitiesItem) {
-        this.abilities.add(abilitiesItem);
-        return this;
-    }
-
     /**
      * Get abilities
      * @return abilities
@@ -141,12 +131,6 @@ public class GenerationDetail {
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public List<@Valid AbilitySummary> getAbilities() {
         return abilities;
-    }
-
-    @JsonProperty(JSON_PROPERTY_ABILITIES)
-    @JsonInclude(value = JsonInclude.Include.ALWAYS)
-    public void setAbilities(List<@Valid AbilitySummary> abilities) {
-        this.abilities = abilities;
     }
 
     public GenerationDetail mainRegion(RegionSummary mainRegion) {
@@ -172,16 +156,6 @@ public class GenerationDetail {
         this.mainRegion = mainRegion;
     }
 
-    public GenerationDetail moves(List<@Valid MoveSummary> moves) {
-        this.moves = moves;
-        return this;
-    }
-
-    public GenerationDetail addMovesItem(MoveSummary movesItem) {
-        this.moves.add(movesItem);
-        return this;
-    }
-
     /**
      * Get moves
      * @return moves
@@ -191,22 +165,6 @@ public class GenerationDetail {
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public List<@Valid MoveSummary> getMoves() {
         return moves;
-    }
-
-    @JsonProperty(JSON_PROPERTY_MOVES)
-    @JsonInclude(value = JsonInclude.Include.ALWAYS)
-    public void setMoves(List<@Valid MoveSummary> moves) {
-        this.moves = moves;
-    }
-
-    public GenerationDetail names(List<@Valid GenerationName> names) {
-        this.names = names;
-        return this;
-    }
-
-    public GenerationDetail addNamesItem(GenerationName namesItem) {
-        this.names.add(namesItem);
-        return this;
     }
 
     /**
@@ -220,22 +178,6 @@ public class GenerationDetail {
         return names;
     }
 
-    @JsonProperty(JSON_PROPERTY_NAMES)
-    @JsonInclude(value = JsonInclude.Include.ALWAYS)
-    public void setNames(List<@Valid GenerationName> names) {
-        this.names = names;
-    }
-
-    public GenerationDetail pokemonSpecies(List<@Valid PokemonSpeciesSummary> pokemonSpecies) {
-        this.pokemonSpecies = pokemonSpecies;
-        return this;
-    }
-
-    public GenerationDetail addPokemonSpeciesItem(PokemonSpeciesSummary pokemonSpeciesItem) {
-        this.pokemonSpecies.add(pokemonSpeciesItem);
-        return this;
-    }
-
     /**
      * Get pokemonSpecies
      * @return pokemonSpecies
@@ -245,22 +187,6 @@ public class GenerationDetail {
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public List<@Valid PokemonSpeciesSummary> getPokemonSpecies() {
         return pokemonSpecies;
-    }
-
-    @JsonProperty(JSON_PROPERTY_POKEMON_SPECIES)
-    @JsonInclude(value = JsonInclude.Include.ALWAYS)
-    public void setPokemonSpecies(List<@Valid PokemonSpeciesSummary> pokemonSpecies) {
-        this.pokemonSpecies = pokemonSpecies;
-    }
-
-    public GenerationDetail types(List<@Valid TypeSummary> types) {
-        this.types = types;
-        return this;
-    }
-
-    public GenerationDetail addTypesItem(TypeSummary typesItem) {
-        this.types.add(typesItem);
-        return this;
     }
 
     /**
@@ -274,22 +200,6 @@ public class GenerationDetail {
         return types;
     }
 
-    @JsonProperty(JSON_PROPERTY_TYPES)
-    @JsonInclude(value = JsonInclude.Include.ALWAYS)
-    public void setTypes(List<@Valid TypeSummary> types) {
-        this.types = types;
-    }
-
-    public GenerationDetail versionGroups(List<@Valid VersionGroupSummary> versionGroups) {
-        this.versionGroups = versionGroups;
-        return this;
-    }
-
-    public GenerationDetail addVersionGroupsItem(VersionGroupSummary versionGroupsItem) {
-        this.versionGroups.add(versionGroupsItem);
-        return this;
-    }
-
     /**
      * Get versionGroups
      * @return versionGroups
@@ -299,12 +209,6 @@ public class GenerationDetail {
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public List<@Valid VersionGroupSummary> getVersionGroups() {
         return versionGroups;
-    }
-
-    @JsonProperty(JSON_PROPERTY_VERSION_GROUPS)
-    @JsonInclude(value = JsonInclude.Include.ALWAYS)
-    public void setVersionGroups(List<@Valid VersionGroupSummary> versionGroups) {
-        this.versionGroups = versionGroups;
     }
 
     @Override
@@ -354,10 +258,7 @@ public class GenerationDetail {
      * (except the first line).
      */
     private String toIndentedString(Object o) {
-        if (o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
+        return o == null ? "null" : o.toString().replace("\n", "\n    ");
     }
 
 }

@@ -32,7 +32,7 @@ class  MoveTargetSummary
 {
 public:
     MoveTargetSummary();
-    virtual ~MoveTargetSummary() = default;
+    virtual ~MoveTargetSummary();
 
 
     /// <summary>

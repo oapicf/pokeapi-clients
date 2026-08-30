@@ -25,6 +25,8 @@ LanguageName::LanguageName()
     
 }
 
+LanguageName::~LanguageName() = default;
+
 void LanguageName::validate() const
 {
     std::stringstream msg;

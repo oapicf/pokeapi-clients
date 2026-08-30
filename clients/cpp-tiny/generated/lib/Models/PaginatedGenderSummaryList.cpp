@@ -144,7 +144,7 @@ PaginatedGenderSummaryList::getCount()
 }
 
 void
-PaginatedGenderSummaryList::setCount(int  count)
+PaginatedGenderSummaryList::setCount(int count)
 {
 	this->count = count;
 }
@@ -156,7 +156,7 @@ PaginatedGenderSummaryList::getNext()
 }
 
 void
-PaginatedGenderSummaryList::setNext(std::string  next)
+PaginatedGenderSummaryList::setNext(std::string next)
 {
 	this->next = next;
 }
@@ -168,7 +168,7 @@ PaginatedGenderSummaryList::getPrevious()
 }
 
 void
-PaginatedGenderSummaryList::setPrevious(std::string  previous)
+PaginatedGenderSummaryList::setPrevious(std::string previous)
 {
 	this->previous = previous;
 }
@@ -180,7 +180,7 @@ PaginatedGenderSummaryList::getResults()
 }
 
 void
-PaginatedGenderSummaryList::setResults(std::list <GenderSummary> results)
+PaginatedGenderSummaryList::setResults(std::list<GenderSummary> results)
 {
 	this->results = results;
 }

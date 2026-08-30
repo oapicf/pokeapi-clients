@@ -25,6 +25,8 @@ PokemonSpeciesDetail_varieties_inner::PokemonSpeciesDetail_varieties_inner()
     
 }
 
+PokemonSpeciesDetail_varieties_inner::~PokemonSpeciesDetail_varieties_inner() = default;
+
 void PokemonSpeciesDetail_varieties_inner::validate() const
 {
     std::stringstream msg;

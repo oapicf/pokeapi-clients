@@ -26,6 +26,8 @@ EvolutionTriggerDetail::EvolutionTriggerDetail()
     
 }
 
+EvolutionTriggerDetail::~EvolutionTriggerDetail() = default;
+
 void EvolutionTriggerDetail::validate() const
 {
     std::stringstream msg;

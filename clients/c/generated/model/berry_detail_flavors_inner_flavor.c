@@ -13,10 +13,10 @@ static berry_detail_flavors_inner_flavor_t *berry_detail_flavors_inner_flavor_cr
     if (!berry_detail_flavors_inner_flavor_local_var) {
         return NULL;
     }
+    memset(berry_detail_flavors_inner_flavor_local_var, 0, sizeof(berry_detail_flavors_inner_flavor_t));
+    berry_detail_flavors_inner_flavor_local_var->_library_owned = 1;
     berry_detail_flavors_inner_flavor_local_var->name = name;
     berry_detail_flavors_inner_flavor_local_var->url = url;
-
-    berry_detail_flavors_inner_flavor_local_var->_library_owned = 1;
     return berry_detail_flavors_inner_flavor_local_var;
 }
 
@@ -24,10 +24,13 @@ __attribute__((deprecated)) berry_detail_flavors_inner_flavor_t *berry_detail_fl
     char *name,
     char *url
     ) {
-    return berry_detail_flavors_inner_flavor_create_internal (
+    berry_detail_flavors_inner_flavor_t *result = berry_detail_flavors_inner_flavor_create_internal (
         name,
         url
         );
+    if (!result) {
+    }
+    return result;
 }
 
 void berry_detail_flavors_inner_flavor_free(berry_detail_flavors_inner_flavor_t *berry_detail_flavors_inner_flavor) {
@@ -80,6 +83,10 @@ berry_detail_flavors_inner_flavor_t *berry_detail_flavors_inner_flavor_parseFrom
 
     berry_detail_flavors_inner_flavor_t *berry_detail_flavors_inner_flavor_local_var = NULL;
 
+    char *name_local_str = NULL;
+
+    char *url_local_str = NULL;
+
     // berry_detail_flavors_inner_flavor->name
     cJSON *name = cJSON_GetObjectItemCaseSensitive(berry_detail_flavors_inner_flavorJSON, "name");
     if (cJSON_IsNull(name)) {
@@ -105,13 +112,28 @@ berry_detail_flavors_inner_flavor_t *berry_detail_flavors_inner_flavor_parseFrom
     }
 
 
+    if (name && !cJSON_IsNull(name)) name_local_str = strdup(name->valuestring);
+    if (url && !cJSON_IsNull(url)) url_local_str = strdup(url->valuestring);
+
     berry_detail_flavors_inner_flavor_local_var = berry_detail_flavors_inner_flavor_create_internal (
-        name && !cJSON_IsNull(name) ? strdup(name->valuestring) : NULL,
-        url && !cJSON_IsNull(url) ? strdup(url->valuestring) : NULL
+        name_local_str,
+        url_local_str
         );
+
+    if (!berry_detail_flavors_inner_flavor_local_var) {
+        goto end;
+    }
 
     return berry_detail_flavors_inner_flavor_local_var;
 end:
+    if (name_local_str) {
+        free(name_local_str);
+        name_local_str = NULL;
+    }
+    if (url_local_str) {
+        free(url_local_str);
+        url_local_str = NULL;
+    }
     return NULL;
 
 }

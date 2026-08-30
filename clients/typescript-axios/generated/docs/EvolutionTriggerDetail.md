@@ -7,8 +7,8 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **number** |  | [readonly] [default to undefined]
 **name** | **string** |  | [default to undefined]
-**names** | [**Array&lt;EvolutionTriggerName&gt;**](EvolutionTriggerName.md) |  | [default to undefined]
-**pokemon_species** | [**Array&lt;AbilityDetailPokemonInnerPokemon&gt;**](AbilityDetailPokemonInnerPokemon.md) |  | [default to undefined]
+**names** | [**Array&lt;EvolutionTriggerName&gt;**](EvolutionTriggerName.md) |  | [readonly] [default to undefined]
+**pokemon_species** | [**Array&lt;AbilityDetailPokemonInnerPokemon&gt;**](AbilityDetailPokemonInnerPokemon.md) |  | [readonly] [default to undefined]
 
 ## Example
 

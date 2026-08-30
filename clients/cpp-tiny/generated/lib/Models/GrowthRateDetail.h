@@ -55,42 +55,42 @@ public:
 
 	/*! \brief Set 
 	 */
-	void setId(int  id);
+	void setId(int id);
 	/*! \brief Get 
 	 */
 	std::string getName();
 
 	/*! \brief Set 
 	 */
-	void setName(std::string  name);
+	void setName(std::string name);
 	/*! \brief Get 
 	 */
 	std::string getFormula();
 
 	/*! \brief Set 
 	 */
-	void setFormula(std::string  formula);
+	void setFormula(std::string formula);
 	/*! \brief Get 
 	 */
 	std::list<GrowthRateDescription> getDescriptions();
 
 	/*! \brief Set 
 	 */
-	void setDescriptions(std::list <GrowthRateDescription> descriptions);
+	void setDescriptions(std::list<GrowthRateDescription> descriptions);
 	/*! \brief Get 
 	 */
 	std::list<Experience> getLevels();
 
 	/*! \brief Set 
 	 */
-	void setLevels(std::list <Experience> levels);
+	void setLevels(std::list<Experience> levels);
 	/*! \brief Get 
 	 */
 	std::list<PokemonSpeciesSummary> getPokemonSpecies();
 
 	/*! \brief Set 
 	 */
-	void setPokemonSpecies(std::list <PokemonSpeciesSummary> pokemon_species);
+	void setPokemonSpecies(std::list<PokemonSpeciesSummary> pokemon_species);
 
 
     private:

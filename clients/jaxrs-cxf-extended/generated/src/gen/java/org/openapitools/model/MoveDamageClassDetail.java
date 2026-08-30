@@ -97,6 +97,7 @@ public class MoveDamageClassDetail  {
 
   /**
    * Sets the <code>descriptions</code> property.
+   * <br><em>N.B. <code>descriptions</code> is <b>read only</b>; client code should not call this method</em>.
    */
  public void setDescriptions(List<@Valid MoveDamageClassDescription> descriptions) {
     this.descriptions = descriptions;
@@ -104,6 +105,7 @@ public class MoveDamageClassDetail  {
 
   /**
    * Sets the <code>descriptions</code> property.
+   * <br><em>N.B. <code>descriptions</code> is <b>read only</b>; client code should not call this method</em>.
    */
   public MoveDamageClassDetail descriptions(List<@Valid MoveDamageClassDescription> descriptions) {
     this.descriptions = descriptions;
@@ -112,6 +114,7 @@ public class MoveDamageClassDetail  {
 
   /**
    * Adds a new item to the <code>descriptions</code> list.
+   * <br><em>N.B. <code>descriptions</code> is <b>read only</b>; client code should not call this method</em>.
    */
   public MoveDamageClassDetail addDescriptionsItem(MoveDamageClassDescription descriptionsItem) {
     this.descriptions.add(descriptionsItem);
@@ -130,6 +133,7 @@ public class MoveDamageClassDetail  {
 
   /**
    * Sets the <code>moves</code> property.
+   * <br><em>N.B. <code>moves</code> is <b>read only</b>; client code should not call this method</em>.
    */
  public void setMoves(List<@Valid MoveSummary> moves) {
     this.moves = moves;
@@ -137,6 +141,7 @@ public class MoveDamageClassDetail  {
 
   /**
    * Sets the <code>moves</code> property.
+   * <br><em>N.B. <code>moves</code> is <b>read only</b>; client code should not call this method</em>.
    */
   public MoveDamageClassDetail moves(List<@Valid MoveSummary> moves) {
     this.moves = moves;
@@ -145,6 +150,7 @@ public class MoveDamageClassDetail  {
 
   /**
    * Adds a new item to the <code>moves</code> list.
+   * <br><em>N.B. <code>moves</code> is <b>read only</b>; client code should not call this method</em>.
    */
   public MoveDamageClassDetail addMovesItem(MoveSummary movesItem) {
     this.moves.add(movesItem);
@@ -163,6 +169,7 @@ public class MoveDamageClassDetail  {
 
   /**
    * Sets the <code>names</code> property.
+   * <br><em>N.B. <code>names</code> is <b>read only</b>; client code should not call this method</em>.
    */
  public void setNames(List<@Valid MoveDamageClassName> names) {
     this.names = names;
@@ -170,6 +177,7 @@ public class MoveDamageClassDetail  {
 
   /**
    * Sets the <code>names</code> property.
+   * <br><em>N.B. <code>names</code> is <b>read only</b>; client code should not call this method</em>.
    */
   public MoveDamageClassDetail names(List<@Valid MoveDamageClassName> names) {
     this.names = names;
@@ -178,6 +186,7 @@ public class MoveDamageClassDetail  {
 
   /**
    * Adds a new item to the <code>names</code> list.
+   * <br><em>N.B. <code>names</code> is <b>read only</b>; client code should not call this method</em>.
    */
   public MoveDamageClassDetail addNamesItem(MoveDamageClassName namesItem) {
     this.names.add(namesItem);
@@ -225,10 +234,7 @@ public class MoveDamageClassDetail  {
    * (except the first line).
    */
   private static String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 }
 

@@ -9,26 +9,28 @@ static evolution_chain_detail_chain_evolves_to_inner_evolution_details_inner_t *
     evolution_chain_detail_chain_evolves_to_inner_evolution_details_inner_gender_t *gender,
     evolution_chain_detail_chain_evolves_to_inner_evolution_details_inner_gender_t *held_item,
     evolution_chain_detail_chain_evolves_to_inner_evolution_details_inner_gender_t *item,
-    object_t *known_move,
-    object_t *known_move_type,
+    evolution_chain_detail_chain_evolves_to_inner_evolution_details_inner_gender_t *known_move,
+    evolution_chain_detail_chain_evolves_to_inner_evolution_details_inner_gender_t *known_move_type,
     evolution_chain_detail_chain_evolves_to_inner_evolution_details_inner_gender_t *location,
-    int min_affection,
-    int min_beauty,
-    int min_happiness,
-    int min_level,
-    int needs_overworld_rain,
+    int *min_affection,
+    int *min_beauty,
+    int *min_happiness,
+    int *min_level,
+    int *needs_overworld_rain,
     char *party_species,
     char *party_type,
     char *relative_physical_stats,
     char *time_of_day,
     char *trade_species,
     ability_detail_pokemon_inner_pokemon_t *trigger,
-    int turn_upside_down
+    int *turn_upside_down
     ) {
     evolution_chain_detail_chain_evolves_to_inner_evolution_details_inner_t *evolution_chain_detail_chain_evolves_to_inner_evolution_details_inner_local_var = malloc(sizeof(evolution_chain_detail_chain_evolves_to_inner_evolution_details_inner_t));
     if (!evolution_chain_detail_chain_evolves_to_inner_evolution_details_inner_local_var) {
         return NULL;
     }
+    memset(evolution_chain_detail_chain_evolves_to_inner_evolution_details_inner_local_var, 0, sizeof(evolution_chain_detail_chain_evolves_to_inner_evolution_details_inner_t));
+    evolution_chain_detail_chain_evolves_to_inner_evolution_details_inner_local_var->_library_owned = 1;
     evolution_chain_detail_chain_evolves_to_inner_evolution_details_inner_local_var->gender = gender;
     evolution_chain_detail_chain_evolves_to_inner_evolution_details_inner_local_var->held_item = held_item;
     evolution_chain_detail_chain_evolves_to_inner_evolution_details_inner_local_var->item = item;
@@ -47,8 +49,6 @@ static evolution_chain_detail_chain_evolves_to_inner_evolution_details_inner_t *
     evolution_chain_detail_chain_evolves_to_inner_evolution_details_inner_local_var->trade_species = trade_species;
     evolution_chain_detail_chain_evolves_to_inner_evolution_details_inner_local_var->trigger = trigger;
     evolution_chain_detail_chain_evolves_to_inner_evolution_details_inner_local_var->turn_upside_down = turn_upside_down;
-
-    evolution_chain_detail_chain_evolves_to_inner_evolution_details_inner_local_var->_library_owned = 1;
     return evolution_chain_detail_chain_evolves_to_inner_evolution_details_inner_local_var;
 }
 
@@ -56,42 +56,81 @@ __attribute__((deprecated)) evolution_chain_detail_chain_evolves_to_inner_evolut
     evolution_chain_detail_chain_evolves_to_inner_evolution_details_inner_gender_t *gender,
     evolution_chain_detail_chain_evolves_to_inner_evolution_details_inner_gender_t *held_item,
     evolution_chain_detail_chain_evolves_to_inner_evolution_details_inner_gender_t *item,
-    object_t *known_move,
-    object_t *known_move_type,
+    evolution_chain_detail_chain_evolves_to_inner_evolution_details_inner_gender_t *known_move,
+    evolution_chain_detail_chain_evolves_to_inner_evolution_details_inner_gender_t *known_move_type,
     evolution_chain_detail_chain_evolves_to_inner_evolution_details_inner_gender_t *location,
-    int min_affection,
-    int min_beauty,
-    int min_happiness,
-    int min_level,
-    int needs_overworld_rain,
+    int *min_affection,
+    int *min_beauty,
+    int *min_happiness,
+    int *min_level,
+    int *needs_overworld_rain,
     char *party_species,
     char *party_type,
     char *relative_physical_stats,
     char *time_of_day,
     char *trade_species,
     ability_detail_pokemon_inner_pokemon_t *trigger,
-    int turn_upside_down
+    int *turn_upside_down
     ) {
-    return evolution_chain_detail_chain_evolves_to_inner_evolution_details_inner_create_internal (
+    int *min_affection_copy = NULL;
+    if (min_affection) {
+        min_affection_copy = malloc(sizeof(int));
+        if (min_affection_copy) *min_affection_copy = *min_affection;
+    }
+    int *min_beauty_copy = NULL;
+    if (min_beauty) {
+        min_beauty_copy = malloc(sizeof(int));
+        if (min_beauty_copy) *min_beauty_copy = *min_beauty;
+    }
+    int *min_happiness_copy = NULL;
+    if (min_happiness) {
+        min_happiness_copy = malloc(sizeof(int));
+        if (min_happiness_copy) *min_happiness_copy = *min_happiness;
+    }
+    int *min_level_copy = NULL;
+    if (min_level) {
+        min_level_copy = malloc(sizeof(int));
+        if (min_level_copy) *min_level_copy = *min_level;
+    }
+    int *needs_overworld_rain_copy = NULL;
+    if (needs_overworld_rain) {
+        needs_overworld_rain_copy = malloc(sizeof(int));
+        if (needs_overworld_rain_copy) *needs_overworld_rain_copy = *needs_overworld_rain;
+    }
+    int *turn_upside_down_copy = NULL;
+    if (turn_upside_down) {
+        turn_upside_down_copy = malloc(sizeof(int));
+        if (turn_upside_down_copy) *turn_upside_down_copy = *turn_upside_down;
+    }
+    evolution_chain_detail_chain_evolves_to_inner_evolution_details_inner_t *result = evolution_chain_detail_chain_evolves_to_inner_evolution_details_inner_create_internal (
         gender,
         held_item,
         item,
         known_move,
         known_move_type,
         location,
-        min_affection,
-        min_beauty,
-        min_happiness,
-        min_level,
-        needs_overworld_rain,
+        min_affection_copy,
+        min_beauty_copy,
+        min_happiness_copy,
+        min_level_copy,
+        needs_overworld_rain_copy,
         party_species,
         party_type,
         relative_physical_stats,
         time_of_day,
         trade_species,
         trigger,
-        turn_upside_down
+        turn_upside_down_copy
         );
+    if (!result) {
+        free(min_affection_copy);
+        free(min_beauty_copy);
+        free(min_happiness_copy);
+        free(min_level_copy);
+        free(needs_overworld_rain_copy);
+        free(turn_upside_down_copy);
+    }
+    return result;
 }
 
 void evolution_chain_detail_chain_evolves_to_inner_evolution_details_inner_free(evolution_chain_detail_chain_evolves_to_inner_evolution_details_inner_t *evolution_chain_detail_chain_evolves_to_inner_evolution_details_inner) {
@@ -116,16 +155,36 @@ void evolution_chain_detail_chain_evolves_to_inner_evolution_details_inner_free(
         evolution_chain_detail_chain_evolves_to_inner_evolution_details_inner->item = NULL;
     }
     if (evolution_chain_detail_chain_evolves_to_inner_evolution_details_inner->known_move) {
-        object_free(evolution_chain_detail_chain_evolves_to_inner_evolution_details_inner->known_move);
+        evolution_chain_detail_chain_evolves_to_inner_evolution_details_inner_gender_free(evolution_chain_detail_chain_evolves_to_inner_evolution_details_inner->known_move);
         evolution_chain_detail_chain_evolves_to_inner_evolution_details_inner->known_move = NULL;
     }
     if (evolution_chain_detail_chain_evolves_to_inner_evolution_details_inner->known_move_type) {
-        object_free(evolution_chain_detail_chain_evolves_to_inner_evolution_details_inner->known_move_type);
+        evolution_chain_detail_chain_evolves_to_inner_evolution_details_inner_gender_free(evolution_chain_detail_chain_evolves_to_inner_evolution_details_inner->known_move_type);
         evolution_chain_detail_chain_evolves_to_inner_evolution_details_inner->known_move_type = NULL;
     }
     if (evolution_chain_detail_chain_evolves_to_inner_evolution_details_inner->location) {
         evolution_chain_detail_chain_evolves_to_inner_evolution_details_inner_gender_free(evolution_chain_detail_chain_evolves_to_inner_evolution_details_inner->location);
         evolution_chain_detail_chain_evolves_to_inner_evolution_details_inner->location = NULL;
+    }
+    if (evolution_chain_detail_chain_evolves_to_inner_evolution_details_inner->min_affection) {
+        free(evolution_chain_detail_chain_evolves_to_inner_evolution_details_inner->min_affection);
+        evolution_chain_detail_chain_evolves_to_inner_evolution_details_inner->min_affection = NULL;
+    }
+    if (evolution_chain_detail_chain_evolves_to_inner_evolution_details_inner->min_beauty) {
+        free(evolution_chain_detail_chain_evolves_to_inner_evolution_details_inner->min_beauty);
+        evolution_chain_detail_chain_evolves_to_inner_evolution_details_inner->min_beauty = NULL;
+    }
+    if (evolution_chain_detail_chain_evolves_to_inner_evolution_details_inner->min_happiness) {
+        free(evolution_chain_detail_chain_evolves_to_inner_evolution_details_inner->min_happiness);
+        evolution_chain_detail_chain_evolves_to_inner_evolution_details_inner->min_happiness = NULL;
+    }
+    if (evolution_chain_detail_chain_evolves_to_inner_evolution_details_inner->min_level) {
+        free(evolution_chain_detail_chain_evolves_to_inner_evolution_details_inner->min_level);
+        evolution_chain_detail_chain_evolves_to_inner_evolution_details_inner->min_level = NULL;
+    }
+    if (evolution_chain_detail_chain_evolves_to_inner_evolution_details_inner->needs_overworld_rain) {
+        free(evolution_chain_detail_chain_evolves_to_inner_evolution_details_inner->needs_overworld_rain);
+        evolution_chain_detail_chain_evolves_to_inner_evolution_details_inner->needs_overworld_rain = NULL;
     }
     if (evolution_chain_detail_chain_evolves_to_inner_evolution_details_inner->party_species) {
         free(evolution_chain_detail_chain_evolves_to_inner_evolution_details_inner->party_species);
@@ -150,6 +209,10 @@ void evolution_chain_detail_chain_evolves_to_inner_evolution_details_inner_free(
     if (evolution_chain_detail_chain_evolves_to_inner_evolution_details_inner->trigger) {
         ability_detail_pokemon_inner_pokemon_free(evolution_chain_detail_chain_evolves_to_inner_evolution_details_inner->trigger);
         evolution_chain_detail_chain_evolves_to_inner_evolution_details_inner->trigger = NULL;
+    }
+    if (evolution_chain_detail_chain_evolves_to_inner_evolution_details_inner->turn_upside_down) {
+        free(evolution_chain_detail_chain_evolves_to_inner_evolution_details_inner->turn_upside_down);
+        evolution_chain_detail_chain_evolves_to_inner_evolution_details_inner->turn_upside_down = NULL;
     }
     free(evolution_chain_detail_chain_evolves_to_inner_evolution_details_inner);
 }
@@ -203,11 +266,11 @@ cJSON *evolution_chain_detail_chain_evolves_to_inner_evolution_details_inner_con
     if (!evolution_chain_detail_chain_evolves_to_inner_evolution_details_inner->known_move) {
         goto fail;
     }
-    cJSON *known_move_object = object_convertToJSON(evolution_chain_detail_chain_evolves_to_inner_evolution_details_inner->known_move);
-    if(known_move_object == NULL) {
+    cJSON *known_move_local_JSON = evolution_chain_detail_chain_evolves_to_inner_evolution_details_inner_gender_convertToJSON(evolution_chain_detail_chain_evolves_to_inner_evolution_details_inner->known_move);
+    if(known_move_local_JSON == NULL) {
     goto fail; //model
     }
-    cJSON_AddItemToObject(item, "known_move", known_move_object);
+    cJSON_AddItemToObject(item, "known_move", known_move_local_JSON);
     if(item->child == NULL) {
     goto fail;
     }
@@ -217,11 +280,11 @@ cJSON *evolution_chain_detail_chain_evolves_to_inner_evolution_details_inner_con
     if (!evolution_chain_detail_chain_evolves_to_inner_evolution_details_inner->known_move_type) {
         goto fail;
     }
-    cJSON *known_move_type_object = object_convertToJSON(evolution_chain_detail_chain_evolves_to_inner_evolution_details_inner->known_move_type);
-    if(known_move_type_object == NULL) {
+    cJSON *known_move_type_local_JSON = evolution_chain_detail_chain_evolves_to_inner_evolution_details_inner_gender_convertToJSON(evolution_chain_detail_chain_evolves_to_inner_evolution_details_inner->known_move_type);
+    if(known_move_type_local_JSON == NULL) {
     goto fail; //model
     }
-    cJSON_AddItemToObject(item, "known_move_type", known_move_type_object);
+    cJSON_AddItemToObject(item, "known_move_type", known_move_type_local_JSON);
     if(item->child == NULL) {
     goto fail;
     }
@@ -245,7 +308,7 @@ cJSON *evolution_chain_detail_chain_evolves_to_inner_evolution_details_inner_con
     if (!evolution_chain_detail_chain_evolves_to_inner_evolution_details_inner->min_affection) {
         goto fail;
     }
-    if(cJSON_AddNumberToObject(item, "min_affection", evolution_chain_detail_chain_evolves_to_inner_evolution_details_inner->min_affection) == NULL) {
+    if(cJSON_AddNumberToObject(item, "min_affection", *evolution_chain_detail_chain_evolves_to_inner_evolution_details_inner->min_affection) == NULL) {
     goto fail; //Numeric
     }
 
@@ -254,7 +317,7 @@ cJSON *evolution_chain_detail_chain_evolves_to_inner_evolution_details_inner_con
     if (!evolution_chain_detail_chain_evolves_to_inner_evolution_details_inner->min_beauty) {
         goto fail;
     }
-    if(cJSON_AddNumberToObject(item, "min_beauty", evolution_chain_detail_chain_evolves_to_inner_evolution_details_inner->min_beauty) == NULL) {
+    if(cJSON_AddNumberToObject(item, "min_beauty", *evolution_chain_detail_chain_evolves_to_inner_evolution_details_inner->min_beauty) == NULL) {
     goto fail; //Numeric
     }
 
@@ -263,7 +326,7 @@ cJSON *evolution_chain_detail_chain_evolves_to_inner_evolution_details_inner_con
     if (!evolution_chain_detail_chain_evolves_to_inner_evolution_details_inner->min_happiness) {
         goto fail;
     }
-    if(cJSON_AddNumberToObject(item, "min_happiness", evolution_chain_detail_chain_evolves_to_inner_evolution_details_inner->min_happiness) == NULL) {
+    if(cJSON_AddNumberToObject(item, "min_happiness", *evolution_chain_detail_chain_evolves_to_inner_evolution_details_inner->min_happiness) == NULL) {
     goto fail; //Numeric
     }
 
@@ -272,7 +335,7 @@ cJSON *evolution_chain_detail_chain_evolves_to_inner_evolution_details_inner_con
     if (!evolution_chain_detail_chain_evolves_to_inner_evolution_details_inner->min_level) {
         goto fail;
     }
-    if(cJSON_AddNumberToObject(item, "min_level", evolution_chain_detail_chain_evolves_to_inner_evolution_details_inner->min_level) == NULL) {
+    if(cJSON_AddNumberToObject(item, "min_level", *evolution_chain_detail_chain_evolves_to_inner_evolution_details_inner->min_level) == NULL) {
     goto fail; //Numeric
     }
 
@@ -281,7 +344,7 @@ cJSON *evolution_chain_detail_chain_evolves_to_inner_evolution_details_inner_con
     if (!evolution_chain_detail_chain_evolves_to_inner_evolution_details_inner->needs_overworld_rain) {
         goto fail;
     }
-    if(cJSON_AddBoolToObject(item, "needs_overworld_rain", evolution_chain_detail_chain_evolves_to_inner_evolution_details_inner->needs_overworld_rain) == NULL) {
+    if(cJSON_AddBoolToObject(item, "needs_overworld_rain", *evolution_chain_detail_chain_evolves_to_inner_evolution_details_inner->needs_overworld_rain) == NULL) {
     goto fail; //Bool
     }
 
@@ -349,7 +412,7 @@ cJSON *evolution_chain_detail_chain_evolves_to_inner_evolution_details_inner_con
     if (!evolution_chain_detail_chain_evolves_to_inner_evolution_details_inner->turn_upside_down) {
         goto fail;
     }
-    if(cJSON_AddBoolToObject(item, "turn_upside_down", evolution_chain_detail_chain_evolves_to_inner_evolution_details_inner->turn_upside_down) == NULL) {
+    if(cJSON_AddBoolToObject(item, "turn_upside_down", *evolution_chain_detail_chain_evolves_to_inner_evolution_details_inner->turn_upside_down) == NULL) {
     goto fail; //Bool
     }
 
@@ -374,11 +437,45 @@ evolution_chain_detail_chain_evolves_to_inner_evolution_details_inner_t *evoluti
     // define the local variable for evolution_chain_detail_chain_evolves_to_inner_evolution_details_inner->item
     evolution_chain_detail_chain_evolves_to_inner_evolution_details_inner_gender_t *item_local_nonprim = NULL;
 
+    // define the local variable for evolution_chain_detail_chain_evolves_to_inner_evolution_details_inner->known_move
+    evolution_chain_detail_chain_evolves_to_inner_evolution_details_inner_gender_t *known_move_local_nonprim = NULL;
+
+    // define the local variable for evolution_chain_detail_chain_evolves_to_inner_evolution_details_inner->known_move_type
+    evolution_chain_detail_chain_evolves_to_inner_evolution_details_inner_gender_t *known_move_type_local_nonprim = NULL;
+
     // define the local variable for evolution_chain_detail_chain_evolves_to_inner_evolution_details_inner->location
     evolution_chain_detail_chain_evolves_to_inner_evolution_details_inner_gender_t *location_local_nonprim = NULL;
 
+    // define the local variable for evolution_chain_detail_chain_evolves_to_inner_evolution_details_inner->min_affection
+    int *min_affection_local_var = NULL;
+
+    // define the local variable for evolution_chain_detail_chain_evolves_to_inner_evolution_details_inner->min_beauty
+    int *min_beauty_local_var = NULL;
+
+    // define the local variable for evolution_chain_detail_chain_evolves_to_inner_evolution_details_inner->min_happiness
+    int *min_happiness_local_var = NULL;
+
+    // define the local variable for evolution_chain_detail_chain_evolves_to_inner_evolution_details_inner->min_level
+    int *min_level_local_var = NULL;
+
+    // define the local variable for evolution_chain_detail_chain_evolves_to_inner_evolution_details_inner->needs_overworld_rain
+    int *needs_overworld_rain_local_var = NULL;
+
+    char *party_species_local_str = NULL;
+
+    char *party_type_local_str = NULL;
+
+    char *relative_physical_stats_local_str = NULL;
+
+    char *time_of_day_local_str = NULL;
+
+    char *trade_species_local_str = NULL;
+
     // define the local variable for evolution_chain_detail_chain_evolves_to_inner_evolution_details_inner->trigger
     ability_detail_pokemon_inner_pokemon_t *trigger_local_nonprim = NULL;
+
+    // define the local variable for evolution_chain_detail_chain_evolves_to_inner_evolution_details_inner->turn_upside_down
+    int *turn_upside_down_local_var = NULL;
 
     // evolution_chain_detail_chain_evolves_to_inner_evolution_details_inner->gender
     cJSON *gender = cJSON_GetObjectItemCaseSensitive(evolution_chain_detail_chain_evolves_to_inner_evolution_details_innerJSON, "gender");
@@ -425,9 +522,8 @@ evolution_chain_detail_chain_evolves_to_inner_evolution_details_inner_t *evoluti
         goto end;
     }
 
-    object_t *known_move_local_object = NULL;
     
-    known_move_local_object = object_parseFromJSON(known_move); //object
+    known_move_local_nonprim = evolution_chain_detail_chain_evolves_to_inner_evolution_details_inner_gender_parseFromJSON(known_move); //nonprimitive
 
     // evolution_chain_detail_chain_evolves_to_inner_evolution_details_inner->known_move_type
     cJSON *known_move_type = cJSON_GetObjectItemCaseSensitive(evolution_chain_detail_chain_evolves_to_inner_evolution_details_innerJSON, "known_move_type");
@@ -438,9 +534,8 @@ evolution_chain_detail_chain_evolves_to_inner_evolution_details_inner_t *evoluti
         goto end;
     }
 
-    object_t *known_move_type_local_object = NULL;
     
-    known_move_type_local_object = object_parseFromJSON(known_move_type); //object
+    known_move_type_local_nonprim = evolution_chain_detail_chain_evolves_to_inner_evolution_details_inner_gender_parseFromJSON(known_move_type); //nonprimitive
 
     // evolution_chain_detail_chain_evolves_to_inner_evolution_details_inner->location
     cJSON *location = cJSON_GetObjectItemCaseSensitive(evolution_chain_detail_chain_evolves_to_inner_evolution_details_innerJSON, "location");
@@ -468,6 +563,12 @@ evolution_chain_detail_chain_evolves_to_inner_evolution_details_inner_t *evoluti
     {
     goto end; //Numeric
     }
+    min_affection_local_var = malloc(sizeof(int));
+    if(!min_affection_local_var)
+    {
+        goto end;
+    }
+    *min_affection_local_var = min_affection->valuedouble;
 
     // evolution_chain_detail_chain_evolves_to_inner_evolution_details_inner->min_beauty
     cJSON *min_beauty = cJSON_GetObjectItemCaseSensitive(evolution_chain_detail_chain_evolves_to_inner_evolution_details_innerJSON, "min_beauty");
@@ -483,6 +584,12 @@ evolution_chain_detail_chain_evolves_to_inner_evolution_details_inner_t *evoluti
     {
     goto end; //Numeric
     }
+    min_beauty_local_var = malloc(sizeof(int));
+    if(!min_beauty_local_var)
+    {
+        goto end;
+    }
+    *min_beauty_local_var = min_beauty->valuedouble;
 
     // evolution_chain_detail_chain_evolves_to_inner_evolution_details_inner->min_happiness
     cJSON *min_happiness = cJSON_GetObjectItemCaseSensitive(evolution_chain_detail_chain_evolves_to_inner_evolution_details_innerJSON, "min_happiness");
@@ -498,6 +605,12 @@ evolution_chain_detail_chain_evolves_to_inner_evolution_details_inner_t *evoluti
     {
     goto end; //Numeric
     }
+    min_happiness_local_var = malloc(sizeof(int));
+    if(!min_happiness_local_var)
+    {
+        goto end;
+    }
+    *min_happiness_local_var = min_happiness->valuedouble;
 
     // evolution_chain_detail_chain_evolves_to_inner_evolution_details_inner->min_level
     cJSON *min_level = cJSON_GetObjectItemCaseSensitive(evolution_chain_detail_chain_evolves_to_inner_evolution_details_innerJSON, "min_level");
@@ -513,6 +626,12 @@ evolution_chain_detail_chain_evolves_to_inner_evolution_details_inner_t *evoluti
     {
     goto end; //Numeric
     }
+    min_level_local_var = malloc(sizeof(int));
+    if(!min_level_local_var)
+    {
+        goto end;
+    }
+    *min_level_local_var = min_level->valuedouble;
 
     // evolution_chain_detail_chain_evolves_to_inner_evolution_details_inner->needs_overworld_rain
     cJSON *needs_overworld_rain = cJSON_GetObjectItemCaseSensitive(evolution_chain_detail_chain_evolves_to_inner_evolution_details_innerJSON, "needs_overworld_rain");
@@ -528,6 +647,12 @@ evolution_chain_detail_chain_evolves_to_inner_evolution_details_inner_t *evoluti
     {
     goto end; //Bool
     }
+    needs_overworld_rain_local_var = malloc(sizeof(int));
+    if(!needs_overworld_rain_local_var)
+    {
+        goto end;
+    }
+    *needs_overworld_rain_local_var = needs_overworld_rain->valueint;
 
     // evolution_chain_detail_chain_evolves_to_inner_evolution_details_inner->party_species
     cJSON *party_species = cJSON_GetObjectItemCaseSensitive(evolution_chain_detail_chain_evolves_to_inner_evolution_details_innerJSON, "party_species");
@@ -630,28 +755,44 @@ evolution_chain_detail_chain_evolves_to_inner_evolution_details_inner_t *evoluti
     {
     goto end; //Bool
     }
+    turn_upside_down_local_var = malloc(sizeof(int));
+    if(!turn_upside_down_local_var)
+    {
+        goto end;
+    }
+    *turn_upside_down_local_var = turn_upside_down->valueint;
 
+
+    if (party_species && !cJSON_IsNull(party_species)) party_species_local_str = strdup(party_species->valuestring);
+    if (party_type && !cJSON_IsNull(party_type)) party_type_local_str = strdup(party_type->valuestring);
+    if (relative_physical_stats && !cJSON_IsNull(relative_physical_stats)) relative_physical_stats_local_str = strdup(relative_physical_stats->valuestring);
+    if (time_of_day && !cJSON_IsNull(time_of_day)) time_of_day_local_str = strdup(time_of_day->valuestring);
+    if (trade_species && !cJSON_IsNull(trade_species)) trade_species_local_str = strdup(trade_species->valuestring);
 
     evolution_chain_detail_chain_evolves_to_inner_evolution_details_inner_local_var = evolution_chain_detail_chain_evolves_to_inner_evolution_details_inner_create_internal (
         gender_local_nonprim,
         held_item_local_nonprim,
         item_local_nonprim,
-        known_move_local_object,
-        known_move_type_local_object,
+        known_move_local_nonprim,
+        known_move_type_local_nonprim,
         location_local_nonprim,
-        min_affection->valuedouble,
-        min_beauty->valuedouble,
-        min_happiness->valuedouble,
-        min_level->valuedouble,
-        needs_overworld_rain->valueint,
-        strdup(party_species->valuestring),
-        strdup(party_type->valuestring),
-        strdup(relative_physical_stats->valuestring),
-        strdup(time_of_day->valuestring),
-        strdup(trade_species->valuestring),
+        min_affection_local_var,
+        min_beauty_local_var,
+        min_happiness_local_var,
+        min_level_local_var,
+        needs_overworld_rain_local_var,
+        party_species_local_str,
+        party_type_local_str,
+        relative_physical_stats_local_str,
+        time_of_day_local_str,
+        trade_species_local_str,
         trigger_local_nonprim,
-        turn_upside_down->valueint
+        turn_upside_down_local_var
         );
+
+    if (!evolution_chain_detail_chain_evolves_to_inner_evolution_details_inner_local_var) {
+        goto end;
+    }
 
     return evolution_chain_detail_chain_evolves_to_inner_evolution_details_inner_local_var;
 end:
@@ -667,13 +808,65 @@ end:
         evolution_chain_detail_chain_evolves_to_inner_evolution_details_inner_gender_free(item_local_nonprim);
         item_local_nonprim = NULL;
     }
+    if (known_move_local_nonprim) {
+        evolution_chain_detail_chain_evolves_to_inner_evolution_details_inner_gender_free(known_move_local_nonprim);
+        known_move_local_nonprim = NULL;
+    }
+    if (known_move_type_local_nonprim) {
+        evolution_chain_detail_chain_evolves_to_inner_evolution_details_inner_gender_free(known_move_type_local_nonprim);
+        known_move_type_local_nonprim = NULL;
+    }
     if (location_local_nonprim) {
         evolution_chain_detail_chain_evolves_to_inner_evolution_details_inner_gender_free(location_local_nonprim);
         location_local_nonprim = NULL;
     }
+    if (min_affection_local_var) {
+        free(min_affection_local_var);
+        min_affection_local_var = NULL;
+    }
+    if (min_beauty_local_var) {
+        free(min_beauty_local_var);
+        min_beauty_local_var = NULL;
+    }
+    if (min_happiness_local_var) {
+        free(min_happiness_local_var);
+        min_happiness_local_var = NULL;
+    }
+    if (min_level_local_var) {
+        free(min_level_local_var);
+        min_level_local_var = NULL;
+    }
+    if (needs_overworld_rain_local_var) {
+        free(needs_overworld_rain_local_var);
+        needs_overworld_rain_local_var = NULL;
+    }
+    if (party_species_local_str) {
+        free(party_species_local_str);
+        party_species_local_str = NULL;
+    }
+    if (party_type_local_str) {
+        free(party_type_local_str);
+        party_type_local_str = NULL;
+    }
+    if (relative_physical_stats_local_str) {
+        free(relative_physical_stats_local_str);
+        relative_physical_stats_local_str = NULL;
+    }
+    if (time_of_day_local_str) {
+        free(time_of_day_local_str);
+        time_of_day_local_str = NULL;
+    }
+    if (trade_species_local_str) {
+        free(trade_species_local_str);
+        trade_species_local_str = NULL;
+    }
     if (trigger_local_nonprim) {
         ability_detail_pokemon_inner_pokemon_free(trigger_local_nonprim);
         trigger_local_nonprim = NULL;
+    }
+    if (turn_upside_down_local_var) {
+        free(turn_upside_down_local_var);
+        turn_upside_down_local_var = NULL;
     }
     return NULL;
 

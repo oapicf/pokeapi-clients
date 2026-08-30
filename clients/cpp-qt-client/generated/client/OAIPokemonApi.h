@@ -70,6 +70,7 @@ public:
     void initializeServerConfigs();
     int setDefaultServerValue(int serverIndex,const QString &operation, const QString &variable,const QString &val);
     void setServerIndex(const QString &operation, int serverIndex);
+    void setServerIndex(int serverIndex);
     void setApiKey(const QString &apiKeyName, const QString &apiKey);
     void setBearerToken(const QString &token);
     void setUsername(const QString &username);
@@ -282,6 +283,13 @@ public:
 
 
 private:
+    enum class OauthMethod : int {
+        INVALID_VALUE_OPENAPI_GENERATED = 0,
+        ImplicitFlow = 1,
+        AuthorizationFlow = 2,
+        ClientCredentialsFlow = 3,
+        ResourceOwnerPasswordFlow = 4
+    };
     QMap<QString,int> _serverIndices;
     QMap<QString,QList<OAIServerConfiguration>> _serverConfigs;
     QMap<QString, QString> _apiKeys;
@@ -301,7 +309,7 @@ private:
     OauthImplicit _implicitFlow;
     OauthCredentials _credentialFlow;
     OauthPassword _passwordFlow;
-    int _OauthMethod = 0;
+    OauthMethod _OauthMethod = OauthMethod::INVALID_VALUE_OPENAPI_GENERATED;
 
     void abilityListCallback(OAIHttpRequestWorker *worker);
     void abilityRetrieveCallback(OAIHttpRequestWorker *worker);
@@ -405,198 +413,70 @@ Q_SIGNALS:
     void typeListSignalFull(OAIHttpRequestWorker *worker, OAIPaginatedTypeSummaryList summary);
     void typeRetrieveSignalFull(OAIHttpRequestWorker *worker, OAITypeDetail summary);
 
-    Q_DECL_DEPRECATED_X("Use abilityListSignalError() instead")
-    void abilityListSignalE(OAIPaginatedAbilitySummaryList summary, QNetworkReply::NetworkError error_type, QString error_str);
     void abilityListSignalError(OAIPaginatedAbilitySummaryList summary, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use abilityRetrieveSignalError() instead")
-    void abilityRetrieveSignalE(OAIAbilityDetail summary, QNetworkReply::NetworkError error_type, QString error_str);
     void abilityRetrieveSignalError(OAIAbilityDetail summary, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use characteristicListSignalError() instead")
-    void characteristicListSignalE(OAIPaginatedCharacteristicSummaryList summary, QNetworkReply::NetworkError error_type, QString error_str);
     void characteristicListSignalError(OAIPaginatedCharacteristicSummaryList summary, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use characteristicRetrieveSignalError() instead")
-    void characteristicRetrieveSignalE(OAICharacteristicDetail summary, QNetworkReply::NetworkError error_type, QString error_str);
     void characteristicRetrieveSignalError(OAICharacteristicDetail summary, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use eggGroupListSignalError() instead")
-    void eggGroupListSignalE(OAIPaginatedEggGroupSummaryList summary, QNetworkReply::NetworkError error_type, QString error_str);
     void eggGroupListSignalError(OAIPaginatedEggGroupSummaryList summary, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use eggGroupRetrieveSignalError() instead")
-    void eggGroupRetrieveSignalE(OAIEggGroupDetail summary, QNetworkReply::NetworkError error_type, QString error_str);
     void eggGroupRetrieveSignalError(OAIEggGroupDetail summary, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use genderListSignalError() instead")
-    void genderListSignalE(OAIPaginatedGenderSummaryList summary, QNetworkReply::NetworkError error_type, QString error_str);
     void genderListSignalError(OAIPaginatedGenderSummaryList summary, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use genderRetrieveSignalError() instead")
-    void genderRetrieveSignalE(OAIGenderDetail summary, QNetworkReply::NetworkError error_type, QString error_str);
     void genderRetrieveSignalError(OAIGenderDetail summary, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use growthRateListSignalError() instead")
-    void growthRateListSignalE(OAIPaginatedGrowthRateSummaryList summary, QNetworkReply::NetworkError error_type, QString error_str);
     void growthRateListSignalError(OAIPaginatedGrowthRateSummaryList summary, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use growthRateRetrieveSignalError() instead")
-    void growthRateRetrieveSignalE(OAIGrowthRateDetail summary, QNetworkReply::NetworkError error_type, QString error_str);
     void growthRateRetrieveSignalError(OAIGrowthRateDetail summary, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use moveDamageClassListSignalError() instead")
-    void moveDamageClassListSignalE(OAIPaginatedMoveDamageClassSummaryList summary, QNetworkReply::NetworkError error_type, QString error_str);
     void moveDamageClassListSignalError(OAIPaginatedMoveDamageClassSummaryList summary, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use moveDamageClassRetrieveSignalError() instead")
-    void moveDamageClassRetrieveSignalE(OAIMoveDamageClassDetail summary, QNetworkReply::NetworkError error_type, QString error_str);
     void moveDamageClassRetrieveSignalError(OAIMoveDamageClassDetail summary, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use natureListSignalError() instead")
-    void natureListSignalE(OAIPaginatedNatureSummaryList summary, QNetworkReply::NetworkError error_type, QString error_str);
     void natureListSignalError(OAIPaginatedNatureSummaryList summary, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use natureRetrieveSignalError() instead")
-    void natureRetrieveSignalE(OAINatureDetail summary, QNetworkReply::NetworkError error_type, QString error_str);
     void natureRetrieveSignalError(OAINatureDetail summary, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use pokeathlonStatListSignalError() instead")
-    void pokeathlonStatListSignalE(OAIPaginatedPokeathlonStatSummaryList summary, QNetworkReply::NetworkError error_type, QString error_str);
     void pokeathlonStatListSignalError(OAIPaginatedPokeathlonStatSummaryList summary, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use pokeathlonStatRetrieveSignalError() instead")
-    void pokeathlonStatRetrieveSignalE(OAIPokeathlonStatDetail summary, QNetworkReply::NetworkError error_type, QString error_str);
     void pokeathlonStatRetrieveSignalError(OAIPokeathlonStatDetail summary, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use pokemonColorListSignalError() instead")
-    void pokemonColorListSignalE(OAIPaginatedPokemonColorSummaryList summary, QNetworkReply::NetworkError error_type, QString error_str);
     void pokemonColorListSignalError(OAIPaginatedPokemonColorSummaryList summary, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use pokemonColorRetrieveSignalError() instead")
-    void pokemonColorRetrieveSignalE(OAIPokemonColorDetail summary, QNetworkReply::NetworkError error_type, QString error_str);
     void pokemonColorRetrieveSignalError(OAIPokemonColorDetail summary, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use pokemonFormListSignalError() instead")
-    void pokemonFormListSignalE(OAIPaginatedPokemonFormSummaryList summary, QNetworkReply::NetworkError error_type, QString error_str);
     void pokemonFormListSignalError(OAIPaginatedPokemonFormSummaryList summary, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use pokemonFormRetrieveSignalError() instead")
-    void pokemonFormRetrieveSignalE(OAIPokemonFormDetail summary, QNetworkReply::NetworkError error_type, QString error_str);
     void pokemonFormRetrieveSignalError(OAIPokemonFormDetail summary, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use pokemonHabitatListSignalError() instead")
-    void pokemonHabitatListSignalE(OAIPaginatedPokemonHabitatSummaryList summary, QNetworkReply::NetworkError error_type, QString error_str);
     void pokemonHabitatListSignalError(OAIPaginatedPokemonHabitatSummaryList summary, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use pokemonHabitatRetrieveSignalError() instead")
-    void pokemonHabitatRetrieveSignalE(OAIPokemonHabitatDetail summary, QNetworkReply::NetworkError error_type, QString error_str);
     void pokemonHabitatRetrieveSignalError(OAIPokemonHabitatDetail summary, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use pokemonListSignalError() instead")
-    void pokemonListSignalE(OAIPaginatedPokemonSummaryList summary, QNetworkReply::NetworkError error_type, QString error_str);
     void pokemonListSignalError(OAIPaginatedPokemonSummaryList summary, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use pokemonRetrieveSignalError() instead")
-    void pokemonRetrieveSignalE(OAIPokemonDetail summary, QNetworkReply::NetworkError error_type, QString error_str);
     void pokemonRetrieveSignalError(OAIPokemonDetail summary, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use pokemonShapeListSignalError() instead")
-    void pokemonShapeListSignalE(OAIPaginatedPokemonShapeSummaryList summary, QNetworkReply::NetworkError error_type, QString error_str);
     void pokemonShapeListSignalError(OAIPaginatedPokemonShapeSummaryList summary, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use pokemonShapeRetrieveSignalError() instead")
-    void pokemonShapeRetrieveSignalE(OAIPokemonShapeDetail summary, QNetworkReply::NetworkError error_type, QString error_str);
     void pokemonShapeRetrieveSignalError(OAIPokemonShapeDetail summary, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use pokemonSpeciesListSignalError() instead")
-    void pokemonSpeciesListSignalE(OAIPaginatedPokemonSpeciesSummaryList summary, QNetworkReply::NetworkError error_type, QString error_str);
     void pokemonSpeciesListSignalError(OAIPaginatedPokemonSpeciesSummaryList summary, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use pokemonSpeciesRetrieveSignalError() instead")
-    void pokemonSpeciesRetrieveSignalE(OAIPokemonSpeciesDetail summary, QNetworkReply::NetworkError error_type, QString error_str);
     void pokemonSpeciesRetrieveSignalError(OAIPokemonSpeciesDetail summary, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use statListSignalError() instead")
-    void statListSignalE(OAIPaginatedStatSummaryList summary, QNetworkReply::NetworkError error_type, QString error_str);
     void statListSignalError(OAIPaginatedStatSummaryList summary, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use statRetrieveSignalError() instead")
-    void statRetrieveSignalE(OAIStatDetail summary, QNetworkReply::NetworkError error_type, QString error_str);
     void statRetrieveSignalError(OAIStatDetail summary, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use typeListSignalError() instead")
-    void typeListSignalE(OAIPaginatedTypeSummaryList summary, QNetworkReply::NetworkError error_type, QString error_str);
     void typeListSignalError(OAIPaginatedTypeSummaryList summary, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use typeRetrieveSignalError() instead")
-    void typeRetrieveSignalE(OAITypeDetail summary, QNetworkReply::NetworkError error_type, QString error_str);
     void typeRetrieveSignalError(OAITypeDetail summary, QNetworkReply::NetworkError error_type, const QString &error_str);
 
-    Q_DECL_DEPRECATED_X("Use abilityListSignalErrorFull() instead")
-    void abilityListSignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void abilityListSignalErrorFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use abilityRetrieveSignalErrorFull() instead")
-    void abilityRetrieveSignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void abilityRetrieveSignalErrorFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use characteristicListSignalErrorFull() instead")
-    void characteristicListSignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void characteristicListSignalErrorFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use characteristicRetrieveSignalErrorFull() instead")
-    void characteristicRetrieveSignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void characteristicRetrieveSignalErrorFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use eggGroupListSignalErrorFull() instead")
-    void eggGroupListSignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void eggGroupListSignalErrorFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use eggGroupRetrieveSignalErrorFull() instead")
-    void eggGroupRetrieveSignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void eggGroupRetrieveSignalErrorFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use genderListSignalErrorFull() instead")
-    void genderListSignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void genderListSignalErrorFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use genderRetrieveSignalErrorFull() instead")
-    void genderRetrieveSignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void genderRetrieveSignalErrorFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use growthRateListSignalErrorFull() instead")
-    void growthRateListSignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void growthRateListSignalErrorFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use growthRateRetrieveSignalErrorFull() instead")
-    void growthRateRetrieveSignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void growthRateRetrieveSignalErrorFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use moveDamageClassListSignalErrorFull() instead")
-    void moveDamageClassListSignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void moveDamageClassListSignalErrorFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use moveDamageClassRetrieveSignalErrorFull() instead")
-    void moveDamageClassRetrieveSignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void moveDamageClassRetrieveSignalErrorFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use natureListSignalErrorFull() instead")
-    void natureListSignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void natureListSignalErrorFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use natureRetrieveSignalErrorFull() instead")
-    void natureRetrieveSignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void natureRetrieveSignalErrorFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use pokeathlonStatListSignalErrorFull() instead")
-    void pokeathlonStatListSignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void pokeathlonStatListSignalErrorFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use pokeathlonStatRetrieveSignalErrorFull() instead")
-    void pokeathlonStatRetrieveSignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void pokeathlonStatRetrieveSignalErrorFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use pokemonColorListSignalErrorFull() instead")
-    void pokemonColorListSignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void pokemonColorListSignalErrorFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use pokemonColorRetrieveSignalErrorFull() instead")
-    void pokemonColorRetrieveSignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void pokemonColorRetrieveSignalErrorFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use pokemonFormListSignalErrorFull() instead")
-    void pokemonFormListSignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void pokemonFormListSignalErrorFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use pokemonFormRetrieveSignalErrorFull() instead")
-    void pokemonFormRetrieveSignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void pokemonFormRetrieveSignalErrorFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use pokemonHabitatListSignalErrorFull() instead")
-    void pokemonHabitatListSignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void pokemonHabitatListSignalErrorFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use pokemonHabitatRetrieveSignalErrorFull() instead")
-    void pokemonHabitatRetrieveSignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void pokemonHabitatRetrieveSignalErrorFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use pokemonListSignalErrorFull() instead")
-    void pokemonListSignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void pokemonListSignalErrorFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use pokemonRetrieveSignalErrorFull() instead")
-    void pokemonRetrieveSignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void pokemonRetrieveSignalErrorFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use pokemonShapeListSignalErrorFull() instead")
-    void pokemonShapeListSignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void pokemonShapeListSignalErrorFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use pokemonShapeRetrieveSignalErrorFull() instead")
-    void pokemonShapeRetrieveSignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void pokemonShapeRetrieveSignalErrorFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use pokemonSpeciesListSignalErrorFull() instead")
-    void pokemonSpeciesListSignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void pokemonSpeciesListSignalErrorFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use pokemonSpeciesRetrieveSignalErrorFull() instead")
-    void pokemonSpeciesRetrieveSignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void pokemonSpeciesRetrieveSignalErrorFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use statListSignalErrorFull() instead")
-    void statListSignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void statListSignalErrorFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use statRetrieveSignalErrorFull() instead")
-    void statRetrieveSignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void statRetrieveSignalErrorFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use typeListSignalErrorFull() instead")
-    void typeListSignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void typeListSignalErrorFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use typeRetrieveSignalErrorFull() instead")
-    void typeRetrieveSignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void typeRetrieveSignalErrorFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
 
     void abortRequestsSignal();

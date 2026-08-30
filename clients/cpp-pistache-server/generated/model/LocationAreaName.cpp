@@ -25,6 +25,8 @@ LocationAreaName::LocationAreaName()
     
 }
 
+LocationAreaName::~LocationAreaName() = default;
+
 void LocationAreaName::validate() const
 {
     std::stringstream msg;

@@ -125,19 +125,6 @@ public class AbilityDetail  {
     return names;
   }
 
-  public void setNames(List<AbilityName> names) {
-    this.names = names;
-  }
-
-  public AbilityDetail names(List<AbilityName> names) {
-    this.names = names;
-    return this;
-  }
-
-  public AbilityDetail addNamesItem(AbilityName namesItem) {
-    this.names.add(namesItem);
-    return this;
-  }
 
  /**
    * Get effectEntries
@@ -148,19 +135,6 @@ public class AbilityDetail  {
     return effectEntries;
   }
 
-  public void setEffectEntries(List<AbilityEffectText> effectEntries) {
-    this.effectEntries = effectEntries;
-  }
-
-  public AbilityDetail effectEntries(List<AbilityEffectText> effectEntries) {
-    this.effectEntries = effectEntries;
-    return this;
-  }
-
-  public AbilityDetail addEffectEntriesItem(AbilityEffectText effectEntriesItem) {
-    this.effectEntries.add(effectEntriesItem);
-    return this;
-  }
 
  /**
    * Get effectChanges
@@ -171,19 +145,6 @@ public class AbilityDetail  {
     return effectChanges;
   }
 
-  public void setEffectChanges(List<AbilityChange> effectChanges) {
-    this.effectChanges = effectChanges;
-  }
-
-  public AbilityDetail effectChanges(List<AbilityChange> effectChanges) {
-    this.effectChanges = effectChanges;
-    return this;
-  }
-
-  public AbilityDetail addEffectChangesItem(AbilityChange effectChangesItem) {
-    this.effectChanges.add(effectChangesItem);
-    return this;
-  }
 
  /**
    * Get flavorTextEntries
@@ -194,19 +155,6 @@ public class AbilityDetail  {
     return flavorTextEntries;
   }
 
-  public void setFlavorTextEntries(List<AbilityFlavorText> flavorTextEntries) {
-    this.flavorTextEntries = flavorTextEntries;
-  }
-
-  public AbilityDetail flavorTextEntries(List<AbilityFlavorText> flavorTextEntries) {
-    this.flavorTextEntries = flavorTextEntries;
-    return this;
-  }
-
-  public AbilityDetail addFlavorTextEntriesItem(AbilityFlavorText flavorTextEntriesItem) {
-    this.flavorTextEntries.add(flavorTextEntriesItem);
-    return this;
-  }
 
  /**
    * Get pokemon
@@ -217,19 +165,6 @@ public class AbilityDetail  {
     return pokemon;
   }
 
-  public void setPokemon(List<AbilityDetailPokemonInner> pokemon) {
-    this.pokemon = pokemon;
-  }
-
-  public AbilityDetail pokemon(List<AbilityDetailPokemonInner> pokemon) {
-    this.pokemon = pokemon;
-    return this;
-  }
-
-  public AbilityDetail addPokemonItem(AbilityDetailPokemonInner pokemonItem) {
-    this.pokemon.add(pokemonItem);
-    return this;
-  }
 
   @Override
   public boolean equals(Object o) {
@@ -279,10 +214,7 @@ public class AbilityDetail  {
    * (except the first line).
    */
   private static String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 }
 

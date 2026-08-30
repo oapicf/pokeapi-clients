@@ -20,9 +20,9 @@ export interface PokedexDetail {
     readonly id: number;
     name: string;
     is_main_series?: boolean;
-    descriptions: Array<PokedexDescription>;
-    names: Array<PokedexName>;
-    pokemon_entries: Array<PokedexDetailPokemonEntriesInner>;
+    readonly descriptions: Array<PokedexDescription>;
+    readonly names: Array<PokedexName>;
+    readonly pokemon_entries: Array<PokedexDetailPokemonEntriesInner>;
     region: RegionSummary;
-    version_groups: Array<AbilityDetailPokemonInnerPokemon>;
+    readonly version_groups: Array<AbilityDetailPokemonInnerPokemon>;
 }

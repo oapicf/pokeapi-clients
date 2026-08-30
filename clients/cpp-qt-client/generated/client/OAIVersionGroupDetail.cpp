@@ -21,7 +21,7 @@
 
 namespace OpenAPI {
 
-OAIVersionGroupDetail::OAIVersionGroupDetail(QString json) {
+OAIVersionGroupDetail::OAIVersionGroupDetail(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -59,7 +59,7 @@ void OAIVersionGroupDetail::initializeModel() {
     m_versions_isValid = false;
 }
 
-void OAIVersionGroupDetail::fromJson(QString jsonString) {
+void OAIVersionGroupDetail::fromJson(const QString &jsonString) {
     QByteArray array(jsonString.toStdString().c_str());
     QJsonDocument doc = QJsonDocument::fromJson(array);
     QJsonObject jsonObject = doc.object();

@@ -103,7 +103,7 @@ PokemonDetail_moves_inner::getMove()
 }
 
 void
-PokemonDetail_moves_inner::setMove(AbilityDetail_pokemon_inner_pokemon  move)
+PokemonDetail_moves_inner::setMove(AbilityDetail_pokemon_inner_pokemon move)
 {
 	this->move = move;
 }
@@ -115,7 +115,7 @@ PokemonDetail_moves_inner::getVersionGroupDetails()
 }
 
 void
-PokemonDetail_moves_inner::setVersionGroupDetails(std::list <PokemonDetail_moves_inner_version_group_details_inner> version_group_details)
+PokemonDetail_moves_inner::setVersionGroupDetails(std::list<PokemonDetail_moves_inner_version_group_details_inner> version_group_details)
 {
 	this->version_group_details = version_group_details;
 }

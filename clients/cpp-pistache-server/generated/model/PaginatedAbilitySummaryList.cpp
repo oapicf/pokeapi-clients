@@ -31,6 +31,8 @@ PaginatedAbilitySummaryList::PaginatedAbilitySummaryList()
     
 }
 
+PaginatedAbilitySummaryList::~PaginatedAbilitySummaryList() = default;
+
 void PaginatedAbilitySummaryList::validate() const
 {
     std::stringstream msg;

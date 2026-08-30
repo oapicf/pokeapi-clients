@@ -25,6 +25,8 @@ ItemDetail_machines_inner::ItemDetail_machines_inner()
     
 }
 
+ItemDetail_machines_inner::~ItemDetail_machines_inner() = default;
+
 void ItemDetail_machines_inner::validate() const
 {
     std::stringstream msg;

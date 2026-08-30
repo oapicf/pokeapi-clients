@@ -26,6 +26,8 @@ EggGroupSummary::EggGroupSummary()
     
 }
 
+EggGroupSummary::~EggGroupSummary() = default;
+
 void EggGroupSummary::validate() const
 {
     std::stringstream msg;

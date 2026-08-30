@@ -50,6 +50,7 @@ public:
     void initializeServerConfigs();
     int setDefaultServerValue(int serverIndex,const QString &operation, const QString &variable,const QString &val);
     void setServerIndex(const QString &operation, int serverIndex);
+    void setServerIndex(int serverIndex);
     void setApiKey(const QString &apiKeyName, const QString &apiKey);
     void setBearerToken(const QString &token);
     void setUsername(const QString &username);
@@ -142,6 +143,13 @@ public:
 
 
 private:
+    enum class OauthMethod : int {
+        INVALID_VALUE_OPENAPI_GENERATED = 0,
+        ImplicitFlow = 1,
+        AuthorizationFlow = 2,
+        ClientCredentialsFlow = 3,
+        ResourceOwnerPasswordFlow = 4
+    };
     QMap<QString,int> _serverIndices;
     QMap<QString,QList<OAIServerConfiguration>> _serverConfigs;
     QMap<QString, QString> _apiKeys;
@@ -161,7 +169,7 @@ private:
     OauthImplicit _implicitFlow;
     OauthCredentials _credentialFlow;
     OauthPassword _passwordFlow;
-    int _OauthMethod = 0;
+    OauthMethod _OauthMethod = OauthMethod::INVALID_VALUE_OPENAPI_GENERATED;
 
     void moveAilmentListCallback(OAIHttpRequestWorker *worker);
     void moveAilmentRetrieveCallback(OAIHttpRequestWorker *worker);
@@ -205,78 +213,30 @@ Q_SIGNALS:
     void moveTargetListSignalFull(OAIHttpRequestWorker *worker, OAIPaginatedMoveTargetSummaryList summary);
     void moveTargetRetrieveSignalFull(OAIHttpRequestWorker *worker, OAIMoveTargetDetail summary);
 
-    Q_DECL_DEPRECATED_X("Use moveAilmentListSignalError() instead")
-    void moveAilmentListSignalE(OAIPaginatedMoveMetaAilmentSummaryList summary, QNetworkReply::NetworkError error_type, QString error_str);
     void moveAilmentListSignalError(OAIPaginatedMoveMetaAilmentSummaryList summary, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use moveAilmentRetrieveSignalError() instead")
-    void moveAilmentRetrieveSignalE(OAIMoveMetaAilmentDetail summary, QNetworkReply::NetworkError error_type, QString error_str);
     void moveAilmentRetrieveSignalError(OAIMoveMetaAilmentDetail summary, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use moveBattleStyleListSignalError() instead")
-    void moveBattleStyleListSignalE(OAIPaginatedMoveBattleStyleSummaryList summary, QNetworkReply::NetworkError error_type, QString error_str);
     void moveBattleStyleListSignalError(OAIPaginatedMoveBattleStyleSummaryList summary, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use moveBattleStyleRetrieveSignalError() instead")
-    void moveBattleStyleRetrieveSignalE(OAIMoveBattleStyleDetail summary, QNetworkReply::NetworkError error_type, QString error_str);
     void moveBattleStyleRetrieveSignalError(OAIMoveBattleStyleDetail summary, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use moveCategoryListSignalError() instead")
-    void moveCategoryListSignalE(OAIPaginatedMoveMetaCategorySummaryList summary, QNetworkReply::NetworkError error_type, QString error_str);
     void moveCategoryListSignalError(OAIPaginatedMoveMetaCategorySummaryList summary, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use moveCategoryRetrieveSignalError() instead")
-    void moveCategoryRetrieveSignalE(OAIMoveMetaCategoryDetail summary, QNetworkReply::NetworkError error_type, QString error_str);
     void moveCategoryRetrieveSignalError(OAIMoveMetaCategoryDetail summary, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use moveLearnMethodListSignalError() instead")
-    void moveLearnMethodListSignalE(OAIPaginatedMoveLearnMethodSummaryList summary, QNetworkReply::NetworkError error_type, QString error_str);
     void moveLearnMethodListSignalError(OAIPaginatedMoveLearnMethodSummaryList summary, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use moveLearnMethodRetrieveSignalError() instead")
-    void moveLearnMethodRetrieveSignalE(OAIMoveLearnMethodDetail summary, QNetworkReply::NetworkError error_type, QString error_str);
     void moveLearnMethodRetrieveSignalError(OAIMoveLearnMethodDetail summary, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use moveListSignalError() instead")
-    void moveListSignalE(OAIPaginatedMoveSummaryList summary, QNetworkReply::NetworkError error_type, QString error_str);
     void moveListSignalError(OAIPaginatedMoveSummaryList summary, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use moveRetrieveSignalError() instead")
-    void moveRetrieveSignalE(OAIMoveDetail summary, QNetworkReply::NetworkError error_type, QString error_str);
     void moveRetrieveSignalError(OAIMoveDetail summary, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use moveTargetListSignalError() instead")
-    void moveTargetListSignalE(OAIPaginatedMoveTargetSummaryList summary, QNetworkReply::NetworkError error_type, QString error_str);
     void moveTargetListSignalError(OAIPaginatedMoveTargetSummaryList summary, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use moveTargetRetrieveSignalError() instead")
-    void moveTargetRetrieveSignalE(OAIMoveTargetDetail summary, QNetworkReply::NetworkError error_type, QString error_str);
     void moveTargetRetrieveSignalError(OAIMoveTargetDetail summary, QNetworkReply::NetworkError error_type, const QString &error_str);
 
-    Q_DECL_DEPRECATED_X("Use moveAilmentListSignalErrorFull() instead")
-    void moveAilmentListSignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void moveAilmentListSignalErrorFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use moveAilmentRetrieveSignalErrorFull() instead")
-    void moveAilmentRetrieveSignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void moveAilmentRetrieveSignalErrorFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use moveBattleStyleListSignalErrorFull() instead")
-    void moveBattleStyleListSignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void moveBattleStyleListSignalErrorFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use moveBattleStyleRetrieveSignalErrorFull() instead")
-    void moveBattleStyleRetrieveSignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void moveBattleStyleRetrieveSignalErrorFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use moveCategoryListSignalErrorFull() instead")
-    void moveCategoryListSignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void moveCategoryListSignalErrorFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use moveCategoryRetrieveSignalErrorFull() instead")
-    void moveCategoryRetrieveSignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void moveCategoryRetrieveSignalErrorFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use moveLearnMethodListSignalErrorFull() instead")
-    void moveLearnMethodListSignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void moveLearnMethodListSignalErrorFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use moveLearnMethodRetrieveSignalErrorFull() instead")
-    void moveLearnMethodRetrieveSignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void moveLearnMethodRetrieveSignalErrorFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use moveListSignalErrorFull() instead")
-    void moveListSignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void moveListSignalErrorFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use moveRetrieveSignalErrorFull() instead")
-    void moveRetrieveSignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void moveRetrieveSignalErrorFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use moveTargetListSignalErrorFull() instead")
-    void moveTargetListSignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void moveTargetListSignalErrorFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use moveTargetRetrieveSignalErrorFull() instead")
-    void moveTargetRetrieveSignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void moveTargetRetrieveSignalErrorFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
 
     void abortRequestsSignal();

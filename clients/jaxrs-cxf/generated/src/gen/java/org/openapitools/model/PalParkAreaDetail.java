@@ -74,19 +74,6 @@ public class PalParkAreaDetail  {
     return names;
   }
 
-  public void setNames(List<@Valid PalParkAreaName> names) {
-    this.names = names;
-  }
-
-  public PalParkAreaDetail names(List<@Valid PalParkAreaName> names) {
-    this.names = names;
-    return this;
-  }
-
-  public PalParkAreaDetail addNamesItem(PalParkAreaName namesItem) {
-    this.names.add(namesItem);
-    return this;
-  }
 
  /**
    * Get pokemonEncounters
@@ -98,19 +85,6 @@ public class PalParkAreaDetail  {
     return pokemonEncounters;
   }
 
-  public void setPokemonEncounters(List<@Valid PalParkAreaDetailPokemonEncountersInner> pokemonEncounters) {
-    this.pokemonEncounters = pokemonEncounters;
-  }
-
-  public PalParkAreaDetail pokemonEncounters(List<@Valid PalParkAreaDetailPokemonEncountersInner> pokemonEncounters) {
-    this.pokemonEncounters = pokemonEncounters;
-    return this;
-  }
-
-  public PalParkAreaDetail addPokemonEncountersItem(PalParkAreaDetailPokemonEncountersInner pokemonEncountersItem) {
-    this.pokemonEncounters.add(pokemonEncountersItem);
-    return this;
-  }
 
   @Override
   public boolean equals(Object o) {
@@ -150,10 +124,7 @@ public class PalParkAreaDetail  {
    * (except the first line).
    */
   private static String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 }
 

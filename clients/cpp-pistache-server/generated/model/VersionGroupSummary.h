@@ -32,7 +32,7 @@ class  VersionGroupSummary
 {
 public:
     VersionGroupSummary();
-    virtual ~VersionGroupSummary() = default;
+    virtual ~VersionGroupSummary();
 
 
     /// <summary>

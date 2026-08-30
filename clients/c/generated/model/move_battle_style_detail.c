@@ -6,7 +6,7 @@
 
 
 static move_battle_style_detail_t *move_battle_style_detail_create_internal(
-    int id,
+    int *id,
     char *name,
     list_t *names
     ) {
@@ -14,24 +14,33 @@ static move_battle_style_detail_t *move_battle_style_detail_create_internal(
     if (!move_battle_style_detail_local_var) {
         return NULL;
     }
+    memset(move_battle_style_detail_local_var, 0, sizeof(move_battle_style_detail_t));
+    move_battle_style_detail_local_var->_library_owned = 1;
     move_battle_style_detail_local_var->id = id;
     move_battle_style_detail_local_var->name = name;
     move_battle_style_detail_local_var->names = names;
-
-    move_battle_style_detail_local_var->_library_owned = 1;
     return move_battle_style_detail_local_var;
 }
 
 __attribute__((deprecated)) move_battle_style_detail_t *move_battle_style_detail_create(
-    int id,
+    int *id,
     char *name,
     list_t *names
     ) {
-    return move_battle_style_detail_create_internal (
-        id,
+    int *id_copy = NULL;
+    if (id) {
+        id_copy = malloc(sizeof(int));
+        if (id_copy) *id_copy = *id;
+    }
+    move_battle_style_detail_t *result = move_battle_style_detail_create_internal (
+        id_copy,
         name,
         names
         );
+    if (!result) {
+        free(id_copy);
+    }
+    return result;
 }
 
 void move_battle_style_detail_free(move_battle_style_detail_t *move_battle_style_detail) {
@@ -43,6 +52,10 @@ void move_battle_style_detail_free(move_battle_style_detail_t *move_battle_style
         return ;
     }
     listEntry_t *listEntry;
+    if (move_battle_style_detail->id) {
+        free(move_battle_style_detail->id);
+        move_battle_style_detail->id = NULL;
+    }
     if (move_battle_style_detail->name) {
         free(move_battle_style_detail->name);
         move_battle_style_detail->name = NULL;
@@ -64,7 +77,7 @@ cJSON *move_battle_style_detail_convertToJSON(move_battle_style_detail_t *move_b
     if (!move_battle_style_detail->id) {
         goto fail;
     }
-    if(cJSON_AddNumberToObject(item, "id", move_battle_style_detail->id) == NULL) {
+    if(cJSON_AddNumberToObject(item, "id", *move_battle_style_detail->id) == NULL) {
     goto fail; //Numeric
     }
 
@@ -110,6 +123,11 @@ move_battle_style_detail_t *move_battle_style_detail_parseFromJSON(cJSON *move_b
 
     move_battle_style_detail_t *move_battle_style_detail_local_var = NULL;
 
+    // define the local variable for move_battle_style_detail->id
+    int *id_local_var = NULL;
+
+    char *name_local_str = NULL;
+
     // define the local list for move_battle_style_detail->names
     list_t *namesList = NULL;
 
@@ -127,6 +145,12 @@ move_battle_style_detail_t *move_battle_style_detail_parseFromJSON(cJSON *move_b
     {
     goto end; //Numeric
     }
+    id_local_var = malloc(sizeof(int));
+    if(!id_local_var)
+    {
+        goto end;
+    }
+    *id_local_var = id->valuedouble;
 
     // move_battle_style_detail->name
     cJSON *name = cJSON_GetObjectItemCaseSensitive(move_battle_style_detailJSON, "name");
@@ -171,14 +195,28 @@ move_battle_style_detail_t *move_battle_style_detail_parseFromJSON(cJSON *move_b
     }
 
 
+    if (name && !cJSON_IsNull(name)) name_local_str = strdup(name->valuestring);
+
     move_battle_style_detail_local_var = move_battle_style_detail_create_internal (
-        id->valuedouble,
-        strdup(name->valuestring),
+        id_local_var,
+        name_local_str,
         namesList
         );
 
+    if (!move_battle_style_detail_local_var) {
+        goto end;
+    }
+
     return move_battle_style_detail_local_var;
 end:
+    if (id_local_var) {
+        free(id_local_var);
+        id_local_var = NULL;
+    }
+    if (name_local_str) {
+        free(name_local_str);
+        name_local_str = NULL;
+    }
     if (namesList) {
         listEntry_t *listEntry = NULL;
         list_ForEach(listEntry, namesList) {

@@ -49,7 +49,7 @@ import TypeDetail from '../model/TypeDetail';
 /**
 * Pokemon service.
 * @module api/PokemonApi
-* @version 1.2.1-pre.0
+* @version 2.0.1-pre.0
 */
 export default class PokemonApi {
 

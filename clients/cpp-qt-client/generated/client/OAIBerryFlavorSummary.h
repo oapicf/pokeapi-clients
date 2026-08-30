@@ -31,13 +31,13 @@ namespace OpenAPI {
 class OAIBerryFlavorSummary : public OAIObject {
 public:
     OAIBerryFlavorSummary();
-    OAIBerryFlavorSummary(QString json);
+    OAIBerryFlavorSummary(const QString &json);
     ~OAIBerryFlavorSummary() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     QString getName() const;
     void setName(const QString &name);

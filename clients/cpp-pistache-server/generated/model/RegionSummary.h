@@ -32,7 +32,7 @@ class  RegionSummary
 {
 public:
     RegionSummary();
-    virtual ~RegionSummary() = default;
+    virtual ~RegionSummary();
 
 
     /// <summary>

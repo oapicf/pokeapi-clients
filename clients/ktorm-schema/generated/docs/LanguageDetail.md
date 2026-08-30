@@ -9,7 +9,7 @@ Name | Mapping | SQL Type | Default | Type | Description | Notes
 **name** | name | text NOT NULL |  | **kotlin.String** |  | 
 **iso639** | iso639 | text NOT NULL |  | **kotlin.String** |  | 
 **iso3166** | iso3166 | text NOT NULL |  | **kotlin.String** |  | 
-**names** | `One-To-Many` | `----` | `----`  | [**kotlin.Array&lt;LanguageName&gt;**](LanguageName.md) |  | 
+**names** | `One-To-Many` | `----` | `----`  | [**kotlin.Array&lt;LanguageName&gt;**](LanguageName.md) |  |  [readonly]
 **official** | official | boolean |  | **kotlin.Boolean** |  |  [optional]
 
 

@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **power** | Option<**i32**> |  | [optional]
 **pp** | Option<**i32**> |  | [optional]
 **effect_chance** | **i32** |  | 
-**effect_entries** | [**Vec<models::MoveChangeEffectEntriesInner>**](MoveChange_effect_entries_inner.md) |  | 
+**effect_entries** | [**Vec<models::MoveChangeEffectEntriesInner>**](MoveChangeEffectEntriesInner.md) |  | [readonly]
 **r#type** | [**models::TypeSummary**](TypeSummary.md) |  | 
 **version_group** | [**models::VersionGroupSummary**](VersionGroupSummary.md) |  | 
 

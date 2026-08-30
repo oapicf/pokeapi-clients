@@ -2,6 +2,7 @@ package org.openapitools.model;
 
 import java.net.URI;
 import java.util.Objects;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import java.net.URI;
@@ -12,28 +13,31 @@ import org.openapitools.model.MoveSummary;
 import org.springframework.lang.Nullable;
 import org.openapitools.jackson.nullable.JsonNullable;
 import java.time.OffsetDateTime;
-import javax.validation.Valid;
-import javax.validation.constraints.*;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.*;
 import io.swagger.v3.oas.annotations.media.Schema;
 
 
 import java.util.*;
-import javax.annotation.Generated;
+import jakarta.annotation.Generated;
 
 /**
  * PaginatedMoveSummaryList
  */
 
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2026-02-07T15:29:13.146999890Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2026-08-30T02:00:43.960184425Z[Etc/UTC]", comments = "Generator version: 7.24.0")
 public class PaginatedMoveSummaryList {
 
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private @Nullable Integer count;
 
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private @Nullable URI next;
 
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private @Nullable URI previous;
 
-  @Valid
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private List<@Valid MoveSummary> results = new ArrayList<>();
 
   public PaginatedMoveSummaryList count(@Nullable Integer count) {
@@ -52,6 +56,7 @@ public class PaginatedMoveSummaryList {
     return count;
   }
 
+  @JsonProperty("count")
   public void setCount(@Nullable Integer count) {
     this.count = count;
   }
@@ -72,6 +77,7 @@ public class PaginatedMoveSummaryList {
     return next;
   }
 
+  @JsonProperty("next")
   public void setNext(@Nullable URI next) {
     this.next = next;
   }
@@ -92,6 +98,7 @@ public class PaginatedMoveSummaryList {
     return previous;
   }
 
+  @JsonProperty("previous")
   public void setPrevious(@Nullable URI previous) {
     this.previous = previous;
   }
@@ -120,6 +127,7 @@ public class PaginatedMoveSummaryList {
     return results;
   }
 
+  @JsonProperty("results")
   public void setResults(List<@Valid MoveSummary> results) {
     this.results = results;
   }
@@ -160,11 +168,8 @@ public class PaginatedMoveSummaryList {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+  private String toIndentedString(@Nullable Object o) {
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 }
 

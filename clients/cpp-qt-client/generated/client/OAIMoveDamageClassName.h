@@ -33,13 +33,13 @@ class OAILanguageSummary;
 class OAIMoveDamageClassName : public OAIObject {
 public:
     OAIMoveDamageClassName();
-    OAIMoveDamageClassName(QString json);
+    OAIMoveDamageClassName(const QString &json);
     ~OAIMoveDamageClassName() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     QString getName() const;
     void setName(const QString &name);

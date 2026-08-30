@@ -35,13 +35,13 @@ class OAILocationAreaDetail_encounter_method_rates_inner_version_details_inner;
 class OAILocationAreaDetail_encounter_method_rates_inner : public OAIObject {
 public:
     OAILocationAreaDetail_encounter_method_rates_inner();
-    OAILocationAreaDetail_encounter_method_rates_inner(QString json);
+    OAILocationAreaDetail_encounter_method_rates_inner(const QString &json);
     ~OAILocationAreaDetail_encounter_method_rates_inner() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     OAIAbilityDetail_pokemon_inner_pokemon getEncounterMethod() const;
     void setEncounterMethod(const OAIAbilityDetail_pokemon_inner_pokemon &encounter_method);

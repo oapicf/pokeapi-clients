@@ -31,6 +31,8 @@ PaginatedPokemonSpeciesSummaryList::PaginatedPokemonSpeciesSummaryList()
     
 }
 
+PaginatedPokemonSpeciesSummaryList::~PaginatedPokemonSpeciesSummaryList() = default;
+
 void PaginatedPokemonSpeciesSummaryList::validate() const
 {
     std::stringstream msg;

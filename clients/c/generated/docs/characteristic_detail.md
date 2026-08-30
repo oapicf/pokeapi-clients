@@ -5,9 +5,9 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **int** |  | [readonly] 
 **gene_modulo** | **int** |  | 
-**possible_values** | **list_t \*** |  | 
+**possible_values** | **list_t \*** |  | [readonly] 
 **highest_stat** | [**stat_summary_t**](stat_summary.md) \* |  | 
-**descriptions** | [**list_t**](characteristic_description.md) \* |  | 
+**descriptions** | [**list_t**](characteristic_description.md) \* |  | [readonly] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

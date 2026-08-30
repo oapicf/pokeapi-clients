@@ -19,10 +19,10 @@ import { PokedexSummary } from './pokedexSummary';
 export interface RegionDetail { 
     readonly id: number;
     name: string;
-    locations: Array<LocationSummary>;
+    readonly locations: Array<LocationSummary>;
     readonly main_generation: GenerationSummary;
-    names: Array<RegionName>;
-    pokedexes: Array<PokedexSummary>;
-    version_groups: Array<AbilityDetailPokemonInnerPokemon>;
+    readonly names: Array<RegionName>;
+    readonly pokedexes: Array<PokedexSummary>;
+    readonly version_groups: Array<AbilityDetailPokemonInnerPokemon>;
 }
 

@@ -86,7 +86,7 @@ MoveMetaCategoryDescription::getDescription()
 }
 
 void
-MoveMetaCategoryDescription::setDescription(std::string  description)
+MoveMetaCategoryDescription::setDescription(std::string description)
 {
 	this->description = description;
 }
@@ -98,7 +98,7 @@ MoveMetaCategoryDescription::getLanguage()
 }
 
 void
-MoveMetaCategoryDescription::setLanguage(LanguageSummary  language)
+MoveMetaCategoryDescription::setLanguage(LanguageSummary language)
 {
 	this->language = language;
 }

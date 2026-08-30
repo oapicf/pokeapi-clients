@@ -52,7 +52,7 @@ import com.github.oapicf.pokeapiclient.JSON;
 /**
  * SuperContestEffectDetail
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-07T15:22:35.747827932Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-08-30T01:55:28.842792947Z[Etc/UTC]", comments = "Generator version: 7.24.0")
 public class SuperContestEffectDetail {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -78,10 +78,14 @@ public class SuperContestEffectDetail {
   }
 
   public SuperContestEffectDetail(
-     Integer id
+     Integer id, 
+     List<SuperContestEffectFlavorText> flavorTextEntries, 
+     List<MoveSummary> moves
   ) {
     this();
     this.id = id;
+    this.flavorTextEntries = flavorTextEntries;
+    this.moves = moves;
   }
 
   /**
@@ -114,19 +118,6 @@ public class SuperContestEffectDetail {
   }
 
 
-  public SuperContestEffectDetail flavorTextEntries(@javax.annotation.Nonnull List<SuperContestEffectFlavorText> flavorTextEntries) {
-    this.flavorTextEntries = flavorTextEntries;
-    return this;
-  }
-
-  public SuperContestEffectDetail addFlavorTextEntriesItem(SuperContestEffectFlavorText flavorTextEntriesItem) {
-    if (this.flavorTextEntries == null) {
-      this.flavorTextEntries = new ArrayList<>();
-    }
-    this.flavorTextEntries.add(flavorTextEntriesItem);
-    return this;
-  }
-
   /**
    * Get flavorTextEntries
    * @return flavorTextEntries
@@ -136,23 +127,7 @@ public class SuperContestEffectDetail {
     return flavorTextEntries;
   }
 
-  public void setFlavorTextEntries(@javax.annotation.Nonnull List<SuperContestEffectFlavorText> flavorTextEntries) {
-    this.flavorTextEntries = flavorTextEntries;
-  }
 
-
-  public SuperContestEffectDetail moves(@javax.annotation.Nonnull List<MoveSummary> moves) {
-    this.moves = moves;
-    return this;
-  }
-
-  public SuperContestEffectDetail addMovesItem(MoveSummary movesItem) {
-    if (this.moves == null) {
-      this.moves = new ArrayList<>();
-    }
-    this.moves.add(movesItem);
-    return this;
-  }
 
   /**
    * Get moves
@@ -163,9 +138,6 @@ public class SuperContestEffectDetail {
     return moves;
   }
 
-  public void setMoves(@javax.annotation.Nonnull List<MoveSummary> moves) {
-    this.moves = moves;
-  }
 
 
 
@@ -206,10 +178,7 @@ public class SuperContestEffectDetail {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 
@@ -252,26 +221,26 @@ public class SuperContestEffectDetail {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      // ensure the json data is an array
-      if (!jsonObj.get("flavor_text_entries").isJsonArray()) {
-        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `flavor_text_entries` to be an array in the JSON string but got `%s`", jsonObj.get("flavor_text_entries").toString()));
+      if (jsonObj.get("flavor_text_entries") != null) {
+        if (!jsonObj.get("flavor_text_entries").isJsonArray()) {
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `flavor_text_entries` to be an array in the JSON string but got `%s`", jsonObj.get("flavor_text_entries").toString()));
+        }
+        JsonArray jsonArrayflavorTextEntries = jsonObj.getAsJsonArray("flavor_text_entries");
+        // validate the required field `flavor_text_entries` (array)
+        for (int i = 0; i < jsonArrayflavorTextEntries.size(); i++) {
+          SuperContestEffectFlavorText.validateJsonElement(jsonArrayflavorTextEntries.get(i));
+        }
       }
-
-      JsonArray jsonArrayflavorTextEntries = jsonObj.getAsJsonArray("flavor_text_entries");
-      // validate the required field `flavor_text_entries` (array)
-      for (int i = 0; i < jsonArrayflavorTextEntries.size(); i++) {
-        SuperContestEffectFlavorText.validateJsonElement(jsonArrayflavorTextEntries.get(i));
-      };
-      // ensure the json data is an array
-      if (!jsonObj.get("moves").isJsonArray()) {
-        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `moves` to be an array in the JSON string but got `%s`", jsonObj.get("moves").toString()));
+      if (jsonObj.get("moves") != null) {
+        if (!jsonObj.get("moves").isJsonArray()) {
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `moves` to be an array in the JSON string but got `%s`", jsonObj.get("moves").toString()));
+        }
+        JsonArray jsonArraymoves = jsonObj.getAsJsonArray("moves");
+        // validate the required field `moves` (array)
+        for (int i = 0; i < jsonArraymoves.size(); i++) {
+          MoveSummary.validateJsonElement(jsonArraymoves.get(i));
+        }
       }
-
-      JsonArray jsonArraymoves = jsonObj.getAsJsonArray("moves");
-      // validate the required field `moves` (array)
-      for (int i = 0; i < jsonArraymoves.size(); i++) {
-        MoveSummary.validateJsonElement(jsonArraymoves.get(i));
-      };
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {

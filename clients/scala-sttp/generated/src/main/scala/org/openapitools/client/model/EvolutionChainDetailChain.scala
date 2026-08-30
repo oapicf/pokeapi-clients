@@ -11,9 +11,10 @@
  */
 package org.openapitools.client.model
 
+import org.json4s.JValue
 
 case class EvolutionChainDetailChain(
-  evolutionDetails: Seq[org.json4s.JValue],
+  evolutionDetails: Seq[JValue],
   evolvesTo: Seq[EvolutionChainDetailChainEvolvesToInner],
   isBaby: Boolean,
   species: AbilityDetailPokemonInnerPokemon

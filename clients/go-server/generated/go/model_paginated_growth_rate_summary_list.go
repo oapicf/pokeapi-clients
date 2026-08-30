@@ -25,7 +25,8 @@ type PaginatedGrowthRateSummaryList struct {
 	Results []GrowthRateSummary `json:"results,omitempty"`
 }
 
-// AssertPaginatedGrowthRateSummaryListRequired checks if the required fields are not zero-ed
+// AssertPaginatedGrowthRateSummaryListRequired checks complex required fields (models, arrays, maps) and embedded parents.
+// Primitive required fields are validated for JSON request bodies in UnmarshalJSON so zero values remain valid.
 func AssertPaginatedGrowthRateSummaryListRequired(obj PaginatedGrowthRateSummaryList) error {
 	for _, el := range obj.Results {
 		if err := AssertGrowthRateSummaryRequired(el); err != nil {

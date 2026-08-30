@@ -53,7 +53,7 @@ export interface MoveDetailMachinesInner {
  */
 export function instanceOfMoveDetailMachinesInner(value: object): value is MoveDetailMachinesInner {
     if (!('machine' in value) || value['machine'] === undefined) return false;
-    if (!('versionGroup' in value) || value['versionGroup'] === undefined) return false;
+    if ((!('versionGroup' in (value as Record<string, any>)) && !('version_group' in (value as Record<string, any>))) || ((value as Record<string, any>)['versionGroup'] === undefined && (value as Record<string, any>)['version_group'] === undefined)) return false;
     return true;
 }
 

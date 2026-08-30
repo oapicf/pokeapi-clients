@@ -19,17 +19,9 @@ type MachineSummary struct {
 	Url string `json:"url"`
 }
 
-// AssertMachineSummaryRequired checks if the required fields are not zero-ed
+// AssertMachineSummaryRequired checks complex required fields (models, arrays, maps) and embedded parents.
+// Primitive required fields are validated for JSON request bodies in UnmarshalJSON so zero values remain valid.
 func AssertMachineSummaryRequired(obj MachineSummary) error {
-	elements := map[string]interface{}{
-		"url": obj.Url,
-	}
-	for name, el := range elements {
-		if isZero := IsZeroValue(el); isZero {
-			return &RequiredError{Field: name}
-		}
-	}
-
 	return nil
 }
 

@@ -49,8 +49,8 @@ function Initialize-PokemonSpeciesDetailVarietiesInner {
 
 
         $PSO = [PSCustomObject]@{
-            "is_default" = ${IsDefault}
-            "pokemon" = ${Pokemon}
+            'is_default' = ${IsDefault}
+            'pokemon' = ${Pokemon}
         }
 
 
@@ -88,7 +88,7 @@ function ConvertFrom-JsonToPokemonSpeciesDetailVarietiesInner {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in PokemonSpeciesDetailVarietiesInner
-        $AllProperties = ("is_default", "pokemon")
+        $AllProperties = ('is_default', 'pokemon')
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -99,21 +99,21 @@ function ConvertFrom-JsonToPokemonSpeciesDetailVarietiesInner {
             throw "Error! Empty JSON cannot be serialized due to the required property 'is_default' missing."
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "is_default"))) {
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'is_default'))) {
             throw "Error! JSON cannot be serialized due to the required property 'is_default' missing."
         } else {
-            $IsDefault = $JsonParameters.PSobject.Properties["is_default"].value
+            $IsDefault = $JsonParameters.PSobject.Properties['is_default'].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "pokemon"))) {
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'pokemon'))) {
             throw "Error! JSON cannot be serialized due to the required property 'pokemon' missing."
         } else {
-            $Pokemon = $JsonParameters.PSobject.Properties["pokemon"].value
+            $Pokemon = $JsonParameters.PSobject.Properties['pokemon'].value
         }
 
         $PSO = [PSCustomObject]@{
-            "is_default" = ${IsDefault}
-            "pokemon" = ${Pokemon}
+            'is_default' = ${IsDefault}
+            'pokemon' = ${Pokemon}
         }
 
         return $PSO

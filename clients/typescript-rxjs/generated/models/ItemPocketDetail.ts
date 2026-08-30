@@ -35,10 +35,10 @@ export interface ItemPocketDetail {
      * @type {Array<ItemCategorySummary>}
      * @memberof ItemPocketDetail
      */
-    categories: Array<ItemCategorySummary>;
+    readonly categories: Array<ItemCategorySummary>;
     /**
      * @type {Array<ItemPocketName>}
      * @memberof ItemPocketDetail
      */
-    names: Array<ItemPocketName>;
+    readonly names: Array<ItemPocketName>;
 }

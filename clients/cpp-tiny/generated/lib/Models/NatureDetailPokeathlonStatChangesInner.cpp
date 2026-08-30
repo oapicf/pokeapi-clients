@@ -86,7 +86,7 @@ NatureDetail_pokeathlon_stat_changes_inner::getMaxChange()
 }
 
 void
-NatureDetail_pokeathlon_stat_changes_inner::setMaxChange(int  max_change)
+NatureDetail_pokeathlon_stat_changes_inner::setMaxChange(int max_change)
 {
 	this->max_change = max_change;
 }
@@ -98,7 +98,7 @@ NatureDetail_pokeathlon_stat_changes_inner::getPokeathlonStat()
 }
 
 void
-NatureDetail_pokeathlon_stat_changes_inner::setPokeathlonStat(AbilityDetail_pokemon_inner_pokemon  pokeathlon_stat)
+NatureDetail_pokeathlon_stat_changes_inner::setPokeathlonStat(AbilityDetail_pokemon_inner_pokemon pokeathlon_stat)
 {
 	this->pokeathlon_stat = pokeathlon_stat;
 }

@@ -47,7 +47,7 @@ class AbilityChangeEffectText
      * @var string|null
      * @SerializedName("effect")
      * @Type("string")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Type("string")]
     #[Assert\Length(max: 6000)]
@@ -57,7 +57,7 @@ class AbilityChangeEffectText
      * @var LanguageSummary|null
      * @SerializedName("language")
      * @Type("OpenAPI\Server\Model\LanguageSummary")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Valid]
     #[Assert\Type("OpenAPI\Server\Model\LanguageSummary")]
@@ -86,12 +86,12 @@ class AbilityChangeEffectText
     }
 
     /**
-    * Sets effect.
-    *
-    * @param string|null $effect
-    *
-    * @return $this
-    */
+     * Sets effect.
+     *
+     * @param string|null $effect
+     *
+     * @return $this
+     */
     public function setEffect(?string $effect): self
     {
         $this->effect = $effect;
@@ -113,12 +113,12 @@ class AbilityChangeEffectText
     }
 
     /**
-    * Sets language.
-    *
-    * @param LanguageSummary|null $language
-    *
-    * @return $this
-    */
+     * Sets language.
+     *
+     * @param LanguageSummary|null $language
+     *
+     * @return $this
+     */
     public function setLanguage(?LanguageSummary $language): self
     {
         $this->language = $language;

@@ -70,27 +70,35 @@ class NatureDetail extends BaseModel
     },
     "berries" : {
       "type" : "array",
+      "readOnly" : true,
       "items" : {
         "$ref" : "#/components/schemas/BerrySummary"
-      }
+      },
+      "default" : null
     },
     "pokeathlon_stat_changes" : {
       "type" : "array",
+      "readOnly" : true,
       "items" : {
         "$ref" : "#/components/schemas/NatureDetail_pokeathlon_stat_changes_inner"
-      }
+      },
+      "default" : null
     },
     "move_battle_style_preferences" : {
       "type" : "array",
+      "readOnly" : true,
       "items" : {
         "$ref" : "#/components/schemas/NatureBattleStylePreference"
-      }
+      },
+      "default" : null
     },
     "names" : {
       "type" : "array",
+      "readOnly" : true,
       "items" : {
         "$ref" : "#/components/schemas/NatureName"
-      }
+      },
+      "default" : null
     }
   }
 }

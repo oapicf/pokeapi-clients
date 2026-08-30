@@ -29,34 +29,42 @@ import io.swagger.v3.oas.annotations.media.Schema
  */
 data class VersionGroupDetail(
 
-    @Schema(example = "null", required = true, readOnly = true, description = "")
+    @Schema(required = true, readOnly = true, description = "")
+    @param:JsonProperty("id")
     @get:JsonProperty("id", required = true) val id: kotlin.Int,
 
     @get:Size(max=100)
-    @Schema(example = "null", required = true, description = "")
+    @Schema(required = true, description = "")
+    @param:JsonProperty("name")
     @get:JsonProperty("name", required = true) val name: kotlin.String,
 
     @field:Valid
-    @Schema(example = "null", required = true, description = "")
+    @Schema(required = true, description = "")
+    @param:JsonProperty("generation")
     @get:JsonProperty("generation", required = true) val generation: GenerationSummary,
 
     @field:Valid
-    @Schema(example = "null", required = true, description = "")
+    @Schema(required = true, readOnly = true, description = "")
+    @param:JsonProperty("move_learn_methods")
     @get:JsonProperty("move_learn_methods", required = true) val moveLearnMethods: kotlin.collections.List<AbilityDetailPokemonInnerPokemon>,
 
     @field:Valid
-    @Schema(example = "null", required = true, description = "")
+    @Schema(required = true, readOnly = true, description = "")
+    @param:JsonProperty("pokedexes")
     @get:JsonProperty("pokedexes", required = true) val pokedexes: kotlin.collections.List<AbilityDetailPokemonInnerPokemon>,
 
     @field:Valid
-    @Schema(example = "null", required = true, description = "")
+    @Schema(required = true, readOnly = true, description = "")
+    @param:JsonProperty("regions")
     @get:JsonProperty("regions", required = true) val regions: kotlin.collections.List<AbilityDetailPokemonInnerPokemon>,
 
     @field:Valid
-    @Schema(example = "null", required = true, description = "")
+    @Schema(required = true, readOnly = true, description = "")
+    @param:JsonProperty("versions")
     @get:JsonProperty("versions", required = true) val versions: kotlin.collections.List<VersionSummary>,
 
-    @Schema(example = "null", description = "")
+    @Schema(description = "")
+    @param:JsonProperty("order")
     @get:JsonProperty("order") val order: kotlin.Int? = null
 ) {
 

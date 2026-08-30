@@ -12,6 +12,11 @@
 package openapi
 
 
+import (
+	"encoding/json"
+	"fmt"
+)
+
 
 
 type MoveMeta struct {
@@ -40,8 +45,129 @@ type MoveMeta struct {
 
 	StatChance *int32 `json:"stat_chance,omitempty"`
 }
+// UnmarshalJSON validates required property keys then unmarshals into MoveMeta
+func (o *MoveMeta) UnmarshalJSON(data []byte) (err error) {
+	// Presence is checked against required fields that exist on this struct,
+	// including fields promoted from embedded allOf parents.
+	requiredProperties := []string{
+		"ailment",
+		"category",
+	}
 
-// AssertMoveMetaRequired checks if the required fields are not zero-ed
+	requiredNullableProperties := map[string]bool{
+		"ailment": false,
+		"category": false,
+	}
+
+	allowedJsonKeys := map[string]struct{}{
+		"ailment": {},
+		"category": {},
+		"min_hits": {},
+		"max_hits": {},
+		"min_turns": {},
+		"max_turns": {},
+		"drain": {},
+		"healing": {},
+		"crit_rate": {},
+		"ailment_chance": {},
+		"flinch_chance": {},
+		"stat_chance": {},
+	}
+
+	allProperties := make(map[string]json.RawMessage)
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err
+	}
+
+	for _, requiredProperty := range requiredProperties {
+		value, exists := allProperties[requiredProperty]
+		if !exists {
+			return &RequiredError{Field: requiredProperty}
+		}
+		if string(value) == "null" && !requiredNullableProperties[requiredProperty] {
+			return &RequiredError{Field: requiredProperty}
+		}
+	}
+
+	for key := range allProperties {
+		if _, exists := allowedJsonKeys[key]; !exists {
+			return fmt.Errorf("json: unknown field %q", key)
+		}
+	}
+
+	var decoded MoveMeta
+
+	if value, exists := allProperties["ailment"]; exists {
+		if err = json.Unmarshal(value, &decoded.Ailment); err != nil {
+			return err
+		}
+	}
+	if value, exists := allProperties["category"]; exists {
+		if err = json.Unmarshal(value, &decoded.Category); err != nil {
+			return err
+		}
+	}
+	if value, exists := allProperties["min_hits"]; exists {
+		if err = json.Unmarshal(value, &decoded.MinHits); err != nil {
+			return err
+		}
+	}
+	if value, exists := allProperties["max_hits"]; exists {
+		if err = json.Unmarshal(value, &decoded.MaxHits); err != nil {
+			return err
+		}
+	}
+	if value, exists := allProperties["min_turns"]; exists {
+		if err = json.Unmarshal(value, &decoded.MinTurns); err != nil {
+			return err
+		}
+	}
+	if value, exists := allProperties["max_turns"]; exists {
+		if err = json.Unmarshal(value, &decoded.MaxTurns); err != nil {
+			return err
+		}
+	}
+	if value, exists := allProperties["drain"]; exists {
+		if err = json.Unmarshal(value, &decoded.Drain); err != nil {
+			return err
+		}
+	}
+	if value, exists := allProperties["healing"]; exists {
+		if err = json.Unmarshal(value, &decoded.Healing); err != nil {
+			return err
+		}
+	}
+	if value, exists := allProperties["crit_rate"]; exists {
+		if err = json.Unmarshal(value, &decoded.CritRate); err != nil {
+			return err
+		}
+	}
+	if value, exists := allProperties["ailment_chance"]; exists {
+		if err = json.Unmarshal(value, &decoded.AilmentChance); err != nil {
+			return err
+		}
+	}
+	if value, exists := allProperties["flinch_chance"]; exists {
+		if err = json.Unmarshal(value, &decoded.FlinchChance); err != nil {
+			return err
+		}
+	}
+	if value, exists := allProperties["stat_chance"]; exists {
+		if err = json.Unmarshal(value, &decoded.StatChance); err != nil {
+			return err
+		}
+	}
+
+	*o = decoded
+
+	return nil
+}
+
+// AssertMoveMetaRequired checks complex required fields (models, arrays, maps) and embedded parents.
+// Primitive required fields are validated for JSON request bodies in UnmarshalJSON so zero values remain valid.
 func AssertMoveMetaRequired(obj MoveMeta) error {
 	elements := map[string]interface{}{
 		"ailment": obj.Ailment,

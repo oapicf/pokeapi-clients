@@ -89,7 +89,7 @@ export interface ItemDetail  {
      * @type {Array<AbilityDetailPokemonInnerPokemon>}
      * @memberof ItemDetail
      */
-    attributes: Array<AbilityDetailPokemonInnerPokemon>;
+    readonly attributes: Array<AbilityDetailPokemonInnerPokemon>;
     /**
      * 
      * @type {ItemCategorySummary}
@@ -101,31 +101,31 @@ export interface ItemDetail  {
      * @type {Array<ItemEffectText>}
      * @memberof ItemDetail
      */
-    effectEntries: Array<ItemEffectText>;
+    readonly effectEntries: Array<ItemEffectText>;
     /**
      * 
      * @type {Array<ItemFlavorText>}
      * @memberof ItemDetail
      */
-    flavorTextEntries: Array<ItemFlavorText>;
+    readonly flavorTextEntries: Array<ItemFlavorText>;
     /**
      * 
      * @type {Array<ItemGameIndex>}
      * @memberof ItemDetail
      */
-    gameIndices: Array<ItemGameIndex>;
+    readonly gameIndices: Array<ItemGameIndex>;
     /**
      * 
      * @type {Array<ItemName>}
      * @memberof ItemDetail
      */
-    names: Array<ItemName>;
+    readonly names: Array<ItemName>;
     /**
      * 
      * @type {Array<ItemDetailHeldByPokemonInner>}
      * @memberof ItemDetail
      */
-    heldByPokemon: Array<ItemDetailHeldByPokemonInner>;
+    readonly heldByPokemon: Array<ItemDetailHeldByPokemonInner>;
     /**
      * 
      * @type {ItemDetailSprites}
@@ -143,7 +143,7 @@ export interface ItemDetail  {
      * @type {Array<ItemDetailMachinesInner>}
      * @memberof ItemDetail
      */
-    machines: Array<ItemDetailMachinesInner>;
+    readonly machines: Array<ItemDetailMachinesInner>;
 }
 
 export function ItemDetailFromJSON(json: any): ItemDetail {
@@ -175,16 +175,9 @@ export function ItemDetailToJSON(value?: ItemDetail): any {
         'cost': value.cost,
         'fling_power': value.flingPower,
         'fling_effect': ItemFlingEffectSummaryToJSON(value.flingEffect),
-        'attributes': (value.attributes as Array<any>).map(AbilityDetailPokemonInnerPokemonToJSON),
         'category': ItemCategorySummaryToJSON(value.category),
-        'effect_entries': (value.effectEntries as Array<any>).map(ItemEffectTextToJSON),
-        'flavor_text_entries': (value.flavorTextEntries as Array<any>).map(ItemFlavorTextToJSON),
-        'game_indices': (value.gameIndices as Array<any>).map(ItemGameIndexToJSON),
-        'names': (value.names as Array<any>).map(ItemNameToJSON),
-        'held_by_pokemon': (value.heldByPokemon as Array<any>).map(ItemDetailHeldByPokemonInnerToJSON),
         'sprites': ItemDetailSpritesToJSON(value.sprites),
         'baby_trigger_for': ItemDetailBabyTriggerForToJSON(value.babyTriggerFor),
-        'machines': (value.machines as Array<any>).map(ItemDetailMachinesInnerToJSON),
     };
 }
 

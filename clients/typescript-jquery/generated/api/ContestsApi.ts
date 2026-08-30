@@ -130,7 +130,7 @@ export class ContestsApi {
     { response: JQueryXHR; body: models.ContestEffectDetail;  },
     { response: JQueryXHR; errorThrown: string }
     > {
-        let localVarPath = this.basePath + '/api/v2/contest-effect/{id}/'.replace('{' + 'id' + '}', encodeURIComponent(String(id)));
+        let localVarPath = this.basePath + '/api/v2/contest-effect/{id}/'.replace('{id}', encodeURIComponent(String(id)));
 
         let queryParameters: any = {};
         let headerParams: any = {};
@@ -274,7 +274,7 @@ export class ContestsApi {
     { response: JQueryXHR; body: models.ContestTypeDetail;  },
     { response: JQueryXHR; errorThrown: string }
     > {
-        let localVarPath = this.basePath + '/api/v2/contest-type/{id}/'.replace('{' + 'id' + '}', encodeURIComponent(String(id)));
+        let localVarPath = this.basePath + '/api/v2/contest-type/{id}/'.replace('{id}', encodeURIComponent(String(id)));
 
         let queryParameters: any = {};
         let headerParams: any = {};
@@ -418,7 +418,7 @@ export class ContestsApi {
     { response: JQueryXHR; body: models.SuperContestEffectDetail;  },
     { response: JQueryXHR; errorThrown: string }
     > {
-        let localVarPath = this.basePath + '/api/v2/super-contest-effect/{id}/'.replace('{' + 'id' + '}', encodeURIComponent(String(id)));
+        let localVarPath = this.basePath + '/api/v2/super-contest-effect/{id}/'.replace('{id}', encodeURIComponent(String(id)));
 
         let queryParameters: any = {};
         let headerParams: any = {};

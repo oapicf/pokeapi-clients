@@ -21,7 +21,7 @@
 
 namespace OpenAPI {
 
-OAIItemDetail_machines_inner::OAIItemDetail_machines_inner(QString json) {
+OAIItemDetail_machines_inner::OAIItemDetail_machines_inner(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -41,7 +41,7 @@ void OAIItemDetail_machines_inner::initializeModel() {
     m_version_group_isValid = false;
 }
 
-void OAIItemDetail_machines_inner::fromJson(QString jsonString) {
+void OAIItemDetail_machines_inner::fromJson(const QString &jsonString) {
     QByteArray array(jsonString.toStdString().c_str());
     QJsonDocument doc = QJsonDocument::fromJson(array);
     QJsonObject jsonObject = doc.object();

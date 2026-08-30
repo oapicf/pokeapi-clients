@@ -32,7 +32,7 @@ class  MachineSummary
 {
 public:
     MachineSummary();
-    virtual ~MachineSummary() = default;
+    virtual ~MachineSummary();
 
 
     /// <summary>

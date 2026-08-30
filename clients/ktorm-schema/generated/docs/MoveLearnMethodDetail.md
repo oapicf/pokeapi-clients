@@ -7,9 +7,9 @@ Name | Mapping | SQL Type | Default | Type | Description | Notes
 ---- | ------- | -------- | ------- | ---- | ----------- | -----
 **id** | id | int NOT NULL PRIMARY KEY AUTOINCREMENT |  | **kotlin.Int** |  |  [readonly]
 **name** | name | text NOT NULL |  | **kotlin.String** |  | 
-**names** | `One-To-Many` | `----` | `----`  | [**kotlin.Array&lt;MoveLearnMethodName&gt;**](MoveLearnMethodName.md) |  | 
-**descriptions** | `One-To-Many` | `----` | `----`  | [**kotlin.Array&lt;MoveLearnMethodDescription&gt;**](MoveLearnMethodDescription.md) |  | 
-**versionGroups** | `One-To-Many` | `----` | `----`  | [**kotlin.Array&lt;AbilityDetailPokemonInnerPokemon&gt;**](AbilityDetailPokemonInnerPokemon.md) |  | 
+**names** | `One-To-Many` | `----` | `----`  | [**kotlin.Array&lt;MoveLearnMethodName&gt;**](MoveLearnMethodName.md) |  |  [readonly]
+**descriptions** | `One-To-Many` | `----` | `----`  | [**kotlin.Array&lt;MoveLearnMethodDescription&gt;**](MoveLearnMethodDescription.md) |  |  [readonly]
+**versionGroups** | `One-To-Many` | `----` | `----`  | [**kotlin.Array&lt;AbilityDetailPokemonInnerPokemon&gt;**](AbilityDetailPokemonInnerPokemon.md) |  |  [readonly]
 
 
 

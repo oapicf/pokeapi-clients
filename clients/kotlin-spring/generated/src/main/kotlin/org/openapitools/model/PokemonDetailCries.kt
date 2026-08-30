@@ -21,11 +21,13 @@ import io.swagger.v3.oas.annotations.media.Schema
 data class PokemonDetailCries(
 
     @field:Valid
-    @Schema(example = "null", required = true, description = "")
+    @Schema(required = true, description = "")
+    @param:JsonProperty("latest")
     @get:JsonProperty("latest", required = true) val latest: java.net.URI,
 
     @field:Valid
-    @Schema(example = "null", required = true, description = "")
+    @Schema(required = true, description = "")
+    @param:JsonProperty("legacy")
     @get:JsonProperty("legacy", required = true) val legacy: java.net.URI
 ) {
 

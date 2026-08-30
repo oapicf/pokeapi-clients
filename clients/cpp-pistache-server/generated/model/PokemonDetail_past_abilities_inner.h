@@ -34,7 +34,7 @@ class  PokemonDetail_past_abilities_inner
 {
 public:
     PokemonDetail_past_abilities_inner();
-    virtual ~PokemonDetail_past_abilities_inner() = default;
+    virtual ~PokemonDetail_past_abilities_inner();
 
 
     /// <summary>

@@ -108,7 +108,7 @@ ItemFlavorText::getText()
 }
 
 void
-ItemFlavorText::setText(std::string  text)
+ItemFlavorText::setText(std::string text)
 {
 	this->text = text;
 }
@@ -120,7 +120,7 @@ ItemFlavorText::getVersionGroup()
 }
 
 void
-ItemFlavorText::setVersionGroup(VersionGroupSummary  version_group)
+ItemFlavorText::setVersionGroup(VersionGroupSummary version_group)
 {
 	this->version_group = version_group;
 }
@@ -132,7 +132,7 @@ ItemFlavorText::getLanguage()
 }
 
 void
-ItemFlavorText::setLanguage(LanguageSummary  language)
+ItemFlavorText::setLanguage(LanguageSummary language)
 {
 	this->language = language;
 }

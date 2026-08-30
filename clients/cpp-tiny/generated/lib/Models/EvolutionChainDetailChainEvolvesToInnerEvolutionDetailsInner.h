@@ -14,7 +14,6 @@
 #include "Helpers.h"
 #include "AbilityDetail_pokemon_inner_pokemon.h"
 #include "EvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner_gender.h"
-#include "Object.h"
 
 namespace Tiny {
 
@@ -54,134 +53,134 @@ public:
 
 	/*! \brief Set 
 	 */
-	void setGender(EvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner_gender  gender);
+	void setGender(EvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner_gender gender);
 	/*! \brief Get 
 	 */
 	EvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner_gender getHeldItem();
 
 	/*! \brief Set 
 	 */
-	void setHeldItem(EvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner_gender  held_item);
+	void setHeldItem(EvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner_gender held_item);
 	/*! \brief Get 
 	 */
 	EvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner_gender getItem();
 
 	/*! \brief Set 
 	 */
-	void setItem(EvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner_gender  item);
+	void setItem(EvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner_gender item);
 	/*! \brief Get 
 	 */
-	Object getKnownMove();
+	EvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner_gender getKnownMove();
 
 	/*! \brief Set 
 	 */
-	void setKnownMove(Object  known_move);
+	void setKnownMove(EvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner_gender known_move);
 	/*! \brief Get 
 	 */
-	Object getKnownMoveType();
+	EvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner_gender getKnownMoveType();
 
 	/*! \brief Set 
 	 */
-	void setKnownMoveType(Object  known_move_type);
+	void setKnownMoveType(EvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner_gender known_move_type);
 	/*! \brief Get 
 	 */
 	EvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner_gender getLocation();
 
 	/*! \brief Set 
 	 */
-	void setLocation(EvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner_gender  location);
+	void setLocation(EvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner_gender location);
 	/*! \brief Get 
 	 */
 	int getMinAffection();
 
 	/*! \brief Set 
 	 */
-	void setMinAffection(int  min_affection);
+	void setMinAffection(int min_affection);
 	/*! \brief Get 
 	 */
 	int getMinBeauty();
 
 	/*! \brief Set 
 	 */
-	void setMinBeauty(int  min_beauty);
+	void setMinBeauty(int min_beauty);
 	/*! \brief Get 
 	 */
 	int getMinHappiness();
 
 	/*! \brief Set 
 	 */
-	void setMinHappiness(int  min_happiness);
+	void setMinHappiness(int min_happiness);
 	/*! \brief Get 
 	 */
 	int getMinLevel();
 
 	/*! \brief Set 
 	 */
-	void setMinLevel(int  min_level);
+	void setMinLevel(int min_level);
 	/*! \brief Get 
 	 */
 	bool isNeedsOverworldRain();
 
 	/*! \brief Set 
 	 */
-	void setNeedsOverworldRain(bool  needs_overworld_rain);
+	void setNeedsOverworldRain(bool needs_overworld_rain);
 	/*! \brief Get 
 	 */
 	std::string getPartySpecies();
 
 	/*! \brief Set 
 	 */
-	void setPartySpecies(std::string  party_species);
+	void setPartySpecies(std::string party_species);
 	/*! \brief Get 
 	 */
 	std::string getPartyType();
 
 	/*! \brief Set 
 	 */
-	void setPartyType(std::string  party_type);
+	void setPartyType(std::string party_type);
 	/*! \brief Get 
 	 */
 	std::string getRelativePhysicalStats();
 
 	/*! \brief Set 
 	 */
-	void setRelativePhysicalStats(std::string  relative_physical_stats);
+	void setRelativePhysicalStats(std::string relative_physical_stats);
 	/*! \brief Get 
 	 */
 	std::string getTimeOfDay();
 
 	/*! \brief Set 
 	 */
-	void setTimeOfDay(std::string  time_of_day);
+	void setTimeOfDay(std::string time_of_day);
 	/*! \brief Get 
 	 */
 	std::string getTradeSpecies();
 
 	/*! \brief Set 
 	 */
-	void setTradeSpecies(std::string  trade_species);
+	void setTradeSpecies(std::string trade_species);
 	/*! \brief Get 
 	 */
 	AbilityDetail_pokemon_inner_pokemon getTrigger();
 
 	/*! \brief Set 
 	 */
-	void setTrigger(AbilityDetail_pokemon_inner_pokemon  trigger);
+	void setTrigger(AbilityDetail_pokemon_inner_pokemon trigger);
 	/*! \brief Get 
 	 */
 	bool isTurnUpsideDown();
 
 	/*! \brief Set 
 	 */
-	void setTurnUpsideDown(bool  turn_upside_down);
+	void setTurnUpsideDown(bool turn_upside_down);
 
 
     private:
     EvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner_gender gender;
     EvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner_gender held_item;
     EvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner_gender item;
-    Object known_move;
-    Object known_move_type;
+    EvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner_gender known_move;
+    EvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner_gender known_move_type;
     EvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner_gender location;
     int min_affection{};
     int min_beauty{};

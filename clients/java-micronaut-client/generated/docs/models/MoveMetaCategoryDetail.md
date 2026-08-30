@@ -10,8 +10,8 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | `Integer` |  |  [readonly property]
 **name** | `String` |  | 
-**descriptions** | [`List&lt;MoveMetaCategoryDescription&gt;`](MoveMetaCategoryDescription.md) |  | 
-**moves** | [`List&lt;AbilityDetailPokemonInnerPokemon&gt;`](AbilityDetailPokemonInnerPokemon.md) |  | 
+**descriptions** | [`List&lt;MoveMetaCategoryDescription&gt;`](MoveMetaCategoryDescription.md) |  |  [readonly property]
+**moves** | [`List&lt;AbilityDetailPokemonInnerPokemon&gt;`](AbilityDetailPokemonInnerPokemon.md) |  |  [readonly property]
 
 
 

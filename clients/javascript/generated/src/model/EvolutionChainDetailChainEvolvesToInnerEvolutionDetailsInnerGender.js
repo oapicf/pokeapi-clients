@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender model module.
  * @module model/EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender
- * @version 1.2.1-pre.0
+ * @version 2.0.1-pre.0
  */
 class EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender {
     /**

@@ -24,13 +24,13 @@ API.Client.EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner.prototyp
 API.Client.EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner.prototype.item;
 
 /**
- * @type {!API.Client.Object}
+ * @type {!API.Client.EvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner_gender}
  * @export
  */
 API.Client.EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner.prototype.knownMove;
 
 /**
- * @type {!API.Client.Object}
+ * @type {!API.Client.EvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner_gender}
  * @export
  */
 API.Client.EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner.prototype.knownMoveType;

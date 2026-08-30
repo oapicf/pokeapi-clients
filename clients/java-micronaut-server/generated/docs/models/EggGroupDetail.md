@@ -10,8 +10,8 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | `Integer` |  |  [readonly property]
 **name** | `String` |  | 
-**names** | [`List&lt;EggGroupName&gt;`](EggGroupName.md) |  | 
-**pokemonSpecies** | [`List&lt;EggGroupDetailPokemonSpeciesInner&gt;`](EggGroupDetailPokemonSpeciesInner.md) |  | 
+**names** | [`List&lt;EggGroupName&gt;`](EggGroupName.md) |  |  [readonly property]
+**pokemonSpecies** | [`List&lt;EggGroupDetailPokemonSpeciesInner&gt;`](EggGroupDetailPokemonSpeciesInner.md) |  |  [readonly property]
 
 
 

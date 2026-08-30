@@ -51,7 +51,7 @@ import io.swagger.v3.oas.annotations.media.Schema;
   PokemonFormDetail.JSON_PROPERTY_TYPES
 })
 @JsonTypeName("PokemonFormDetail")
-@Generated(value="org.openapitools.codegen.languages.JavaMicronautServerCodegen", date="2026-02-07T15:23:03.167972722Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@Generated(value="org.openapitools.codegen.languages.JavaMicronautServerCodegen", date="2026-08-30T01:55:54.631003115Z[Etc/UTC]", comments = "Generator version: 7.24.0")
 @Introspected
 public class PokemonFormDetail {
     public static final String JSON_PROPERTY_ID = "id";
@@ -354,42 +354,16 @@ public class PokemonFormDetail {
         this.versionGroup = versionGroup;
     }
 
-    public PokemonFormDetail formNames(List<@Valid PokemonFormDetailFormNamesInner> formNames) {
-        this.formNames = formNames;
-        return this;
-    }
-
-    public PokemonFormDetail addFormNamesItem(PokemonFormDetailFormNamesInner formNamesItem) {
-        this.formNames.add(formNamesItem);
-        return this;
-    }
-
     /**
      * Get formNames
      * @return formNames
      */
     @NotNull
-    @Schema(name = "form_names", requiredMode = Schema.RequiredMode.REQUIRED)
+    @Schema(name = "form_names", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
     @JsonProperty(JSON_PROPERTY_FORM_NAMES)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public List<@Valid PokemonFormDetailFormNamesInner> getFormNames() {
         return formNames;
-    }
-
-    @JsonProperty(JSON_PROPERTY_FORM_NAMES)
-    @JsonInclude(value = JsonInclude.Include.ALWAYS)
-    public void setFormNames(List<@Valid PokemonFormDetailFormNamesInner> formNames) {
-        this.formNames = formNames;
-    }
-
-    public PokemonFormDetail names(List<@Valid PokemonFormDetailFormNamesInner> names) {
-        this.names = names;
-        return this;
-    }
-
-    public PokemonFormDetail addNamesItem(PokemonFormDetailFormNamesInner namesItem) {
-        this.names.add(namesItem);
-        return this;
     }
 
     /**
@@ -397,27 +371,11 @@ public class PokemonFormDetail {
      * @return names
      */
     @NotNull
-    @Schema(name = "names", requiredMode = Schema.RequiredMode.REQUIRED)
+    @Schema(name = "names", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
     @JsonProperty(JSON_PROPERTY_NAMES)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public List<@Valid PokemonFormDetailFormNamesInner> getNames() {
         return names;
-    }
-
-    @JsonProperty(JSON_PROPERTY_NAMES)
-    @JsonInclude(value = JsonInclude.Include.ALWAYS)
-    public void setNames(List<@Valid PokemonFormDetailFormNamesInner> names) {
-        this.names = names;
-    }
-
-    public PokemonFormDetail types(List<@Valid PokemonDetailTypesInner> types) {
-        this.types = types;
-        return this;
-    }
-
-    public PokemonFormDetail addTypesItem(PokemonDetailTypesInner typesItem) {
-        this.types.add(typesItem);
-        return this;
     }
 
     /**
@@ -425,17 +383,11 @@ public class PokemonFormDetail {
      * @return types
      */
     @NotNull
-    @Schema(name = "types", requiredMode = Schema.RequiredMode.REQUIRED)
+    @Schema(name = "types", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
     @JsonProperty(JSON_PROPERTY_TYPES)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public List<@Valid PokemonDetailTypesInner> getTypes() {
         return types;
-    }
-
-    @JsonProperty(JSON_PROPERTY_TYPES)
-    @JsonInclude(value = JsonInclude.Include.ALWAYS)
-    public void setTypes(List<@Valid PokemonDetailTypesInner> types) {
-        this.types = types;
     }
 
     @Override
@@ -495,10 +447,7 @@ public class PokemonFormDetail {
      * (except the first line).
      */
     private String toIndentedString(Object o) {
-        if (o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
+        return o == null ? "null" : o.toString().replace("\n", "\n    ");
     }
 
 }

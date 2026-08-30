@@ -12,6 +12,11 @@
 package openapi
 
 
+import (
+	"encoding/json"
+	"fmt"
+)
+
 
 
 // VersionDetail - Should have a link to Version Group info but the Circular dependency and compilation order fight eachother and I'm not sure how to add anything other than a hyperlink
@@ -25,13 +30,83 @@ type VersionDetail struct {
 
 	VersionGroup VersionGroupSummary `json:"version_group"`
 }
+// UnmarshalJSON validates required property keys then unmarshals into VersionDetail
+func (o *VersionDetail) UnmarshalJSON(data []byte) (err error) {
+	// Presence is checked against required fields that exist on this struct,
+	// including fields promoted from embedded allOf parents.
+	requiredProperties := []string{
+		"name",
+		"version_group",
+	}
 
-// AssertVersionDetailRequired checks if the required fields are not zero-ed
+	requiredNullableProperties := map[string]bool{
+		"name": false,
+		"version_group": false,
+	}
+
+	allowedJsonKeys := map[string]struct{}{
+		"id": {},
+		"name": {},
+		"names": {},
+		"version_group": {},
+	}
+
+	allProperties := make(map[string]json.RawMessage)
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err
+	}
+
+	for _, requiredProperty := range requiredProperties {
+		value, exists := allProperties[requiredProperty]
+		if !exists {
+			return &RequiredError{Field: requiredProperty}
+		}
+		if string(value) == "null" && !requiredNullableProperties[requiredProperty] {
+			return &RequiredError{Field: requiredProperty}
+		}
+	}
+
+	for key := range allProperties {
+		if _, exists := allowedJsonKeys[key]; !exists {
+			return fmt.Errorf("json: unknown field %q", key)
+		}
+	}
+
+	var decoded VersionDetail
+
+	if value, exists := allProperties["id"]; exists {
+		if err = json.Unmarshal(value, &decoded.Id); err != nil {
+			return err
+		}
+	}
+	if value, exists := allProperties["name"]; exists {
+		if err = json.Unmarshal(value, &decoded.Name); err != nil {
+			return err
+		}
+	}
+	if value, exists := allProperties["names"]; exists {
+		if err = json.Unmarshal(value, &decoded.Names); err != nil {
+			return err
+		}
+	}
+	if value, exists := allProperties["version_group"]; exists {
+		if err = json.Unmarshal(value, &decoded.VersionGroup); err != nil {
+			return err
+		}
+	}
+
+	*o = decoded
+
+	return nil
+}
+
+// AssertVersionDetailRequired checks complex required fields (models, arrays, maps) and embedded parents.
+// Primitive required fields are validated for JSON request bodies in UnmarshalJSON so zero values remain valid.
 func AssertVersionDetailRequired(obj VersionDetail) error {
 	elements := map[string]interface{}{
-		"id": obj.Id,
-		"name": obj.Name,
-		"names": obj.Names,
 		"version_group": obj.VersionGroup,
 	}
 	for name, el := range elements {
@@ -40,11 +115,6 @@ func AssertVersionDetailRequired(obj VersionDetail) error {
 		}
 	}
 
-	for _, el := range obj.Names {
-		if err := AssertVersionNameRequired(el); err != nil {
-			return err
-		}
-	}
 	if err := AssertVersionGroupSummaryRequired(obj.VersionGroup); err != nil {
 		return err
 	}
@@ -53,11 +123,6 @@ func AssertVersionDetailRequired(obj VersionDetail) error {
 
 // AssertVersionDetailConstraints checks if the values respects the defined constraints
 func AssertVersionDetailConstraints(obj VersionDetail) error {
-	for _, el := range obj.Names {
-		if err := AssertVersionNameConstraints(el); err != nil {
-			return err
-		}
-	}
 	if err := AssertVersionGroupSummaryConstraints(obj.VersionGroup); err != nil {
 		return err
 	}

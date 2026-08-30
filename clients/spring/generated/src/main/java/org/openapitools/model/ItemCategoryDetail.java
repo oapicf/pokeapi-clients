@@ -13,29 +13,27 @@ import org.openapitools.model.ItemSummary;
 import org.springframework.lang.Nullable;
 import org.openapitools.jackson.nullable.JsonNullable;
 import java.time.OffsetDateTime;
-import javax.validation.Valid;
-import javax.validation.constraints.*;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.*;
 import io.swagger.v3.oas.annotations.media.Schema;
 
 
 import java.util.*;
-import javax.annotation.Generated;
+import jakarta.annotation.Generated;
 
 /**
  * ItemCategoryDetail
  */
 
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2026-02-07T15:29:13.146999890Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2026-08-30T02:00:43.960184425Z[Etc/UTC]", comments = "Generator version: 7.24.0")
 public class ItemCategoryDetail {
 
   private Integer id;
 
   private String name;
 
-  @Valid
   private List<@Valid ItemSummary> items = new ArrayList<>();
 
-  @Valid
   private List<@Valid ItemCategoryName> names = new ArrayList<>();
 
   private ItemPocketSummary pocket;
@@ -71,6 +69,7 @@ public class ItemCategoryDetail {
     return id;
   }
 
+  @JsonProperty("id")
   public void setId(Integer id) {
     this.id = id;
   }
@@ -91,6 +90,7 @@ public class ItemCategoryDetail {
     return name;
   }
 
+  @JsonProperty("name")
   public void setName(String name) {
     this.name = name;
   }
@@ -112,13 +112,14 @@ public class ItemCategoryDetail {
    * Get items
    * @return items
    */
-  @NotNull @Valid 
-  @Schema(name = "items", requiredMode = Schema.RequiredMode.REQUIRED)
+  @Valid 
+  @Schema(name = "items", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("items")
   public List<@Valid ItemSummary> getItems() {
     return items;
   }
 
+  @JsonProperty("items")
   public void setItems(List<@Valid ItemSummary> items) {
     this.items = items;
   }
@@ -140,13 +141,14 @@ public class ItemCategoryDetail {
    * Get names
    * @return names
    */
-  @NotNull @Valid 
-  @Schema(name = "names", requiredMode = Schema.RequiredMode.REQUIRED)
+  @Valid 
+  @Schema(name = "names", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("names")
   public List<@Valid ItemCategoryName> getNames() {
     return names;
   }
 
+  @JsonProperty("names")
   public void setNames(List<@Valid ItemCategoryName> names) {
     this.names = names;
   }
@@ -167,6 +169,7 @@ public class ItemCategoryDetail {
     return pocket;
   }
 
+  @JsonProperty("pocket")
   public void setPocket(ItemPocketSummary pocket) {
     this.pocket = pocket;
   }
@@ -209,11 +212,8 @@ public class ItemCategoryDetail {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+  private String toIndentedString(@Nullable Object o) {
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 }
 

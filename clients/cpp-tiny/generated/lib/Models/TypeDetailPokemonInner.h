@@ -52,14 +52,14 @@ public:
 
 	/*! \brief Set 
 	 */
-	void setSlot(int  slot);
+	void setSlot(int slot);
 	/*! \brief Get 
 	 */
 	TypeDetail_pokemon_inner_pokemon getPokemon();
 
 	/*! \brief Set 
 	 */
-	void setPokemon(TypeDetail_pokemon_inner_pokemon  pokemon);
+	void setPokemon(TypeDetail_pokemon_inner_pokemon pokemon);
 
 
     private:

@@ -94,7 +94,7 @@ namespace Org.OpenAPITools.Model
         /// Gets or Sets Attributes
         /// </summary>
         [JsonPropertyName("attributes")]
-        public List<AbilityDetailPokemonInnerPokemon> Attributes { get; set; }
+        public List<AbilityDetailPokemonInnerPokemon> Attributes { get; }
 
         /// <summary>
         /// Gets or Sets Category
@@ -106,31 +106,31 @@ namespace Org.OpenAPITools.Model
         /// Gets or Sets EffectEntries
         /// </summary>
         [JsonPropertyName("effect_entries")]
-        public List<ItemEffectText> EffectEntries { get; set; }
+        public List<ItemEffectText> EffectEntries { get; }
 
         /// <summary>
         /// Gets or Sets FlavorTextEntries
         /// </summary>
         [JsonPropertyName("flavor_text_entries")]
-        public List<ItemFlavorText> FlavorTextEntries { get; set; }
+        public List<ItemFlavorText> FlavorTextEntries { get; }
 
         /// <summary>
         /// Gets or Sets GameIndices
         /// </summary>
         [JsonPropertyName("game_indices")]
-        public List<ItemGameIndex> GameIndices { get; set; }
+        public List<ItemGameIndex> GameIndices { get; }
 
         /// <summary>
         /// Gets or Sets Names
         /// </summary>
         [JsonPropertyName("names")]
-        public List<ItemName> Names { get; set; }
+        public List<ItemName> Names { get; }
 
         /// <summary>
         /// Gets or Sets HeldByPokemon
         /// </summary>
         [JsonPropertyName("held_by_pokemon")]
-        public List<ItemDetailHeldByPokemonInner> HeldByPokemon { get; set; }
+        public List<ItemDetailHeldByPokemonInner> HeldByPokemon { get; }
 
         /// <summary>
         /// Gets or Sets Sprites
@@ -148,7 +148,7 @@ namespace Org.OpenAPITools.Model
         /// Gets or Sets Machines
         /// </summary>
         [JsonPropertyName("machines")]
-        public List<ItemDetailMachinesInner> Machines { get; set; }
+        public List<ItemDetailMachinesInner> Machines { get; }
 
         /// <summary>
         /// Used to track the state of Cost
@@ -161,7 +161,7 @@ namespace Org.OpenAPITools.Model
         /// Gets or Sets Cost
         /// </summary>
         [JsonPropertyName("cost")]
-        public int? Cost { get { return this.CostOption; } set { this.CostOption = new(value); } }
+        public int? Cost { get { return this.CostOption.Value; } set { this.CostOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of FlingPower
@@ -174,7 +174,7 @@ namespace Org.OpenAPITools.Model
         /// Gets or Sets FlingPower
         /// </summary>
         [JsonPropertyName("fling_power")]
-        public int? FlingPower { get { return this.FlingPowerOption; } set { this.FlingPowerOption = new(value); } }
+        public int? FlingPower { get { return this.FlingPowerOption.Value; } set { this.FlingPowerOption = new(value); } }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -223,8 +223,18 @@ namespace Org.OpenAPITools.Model
     /// <summary>
     /// A Json converter for type <see cref="ItemDetail" />
     /// </summary>
-    public class ItemDetailJsonConverter : JsonConverter<ItemDetail>
+    public partial class ItemDetailJsonConverter : JsonConverter<ItemDetail>
     {
+        partial void OnCreated();
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ItemDetailJsonConverter" /> class.
+        /// </summary>
+        public ItemDetailJsonConverter()
+        {
+            OnCreated();
+        }
+
         /// <summary>
         /// Deserializes json to <see cref="ItemDetail" />
         /// </summary>

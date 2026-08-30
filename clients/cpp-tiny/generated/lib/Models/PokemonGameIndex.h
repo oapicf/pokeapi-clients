@@ -52,14 +52,14 @@ public:
 
 	/*! \brief Set 
 	 */
-	void setGameIndex(int  game_index);
+	void setGameIndex(int game_index);
 	/*! \brief Get 
 	 */
 	VersionSummary getVersion();
 
 	/*! \brief Set 
 	 */
-	void setVersion(VersionSummary  version);
+	void setVersion(VersionSummary version);
 
 
     private:

@@ -144,7 +144,7 @@ PaginatedItemFlingEffectSummaryList::getCount()
 }
 
 void
-PaginatedItemFlingEffectSummaryList::setCount(int  count)
+PaginatedItemFlingEffectSummaryList::setCount(int count)
 {
 	this->count = count;
 }
@@ -156,7 +156,7 @@ PaginatedItemFlingEffectSummaryList::getNext()
 }
 
 void
-PaginatedItemFlingEffectSummaryList::setNext(std::string  next)
+PaginatedItemFlingEffectSummaryList::setNext(std::string next)
 {
 	this->next = next;
 }
@@ -168,7 +168,7 @@ PaginatedItemFlingEffectSummaryList::getPrevious()
 }
 
 void
-PaginatedItemFlingEffectSummaryList::setPrevious(std::string  previous)
+PaginatedItemFlingEffectSummaryList::setPrevious(std::string previous)
 {
 	this->previous = previous;
 }
@@ -180,7 +180,7 @@ PaginatedItemFlingEffectSummaryList::getResults()
 }
 
 void
-PaginatedItemFlingEffectSummaryList::setResults(std::list <ItemFlingEffectSummary> results)
+PaginatedItemFlingEffectSummaryList::setResults(std::list<ItemFlingEffectSummary> results)
 {
 	this->results = results;
 }

@@ -13,10 +13,10 @@ static gender_summary_t *gender_summary_create_internal(
     if (!gender_summary_local_var) {
         return NULL;
     }
+    memset(gender_summary_local_var, 0, sizeof(gender_summary_t));
+    gender_summary_local_var->_library_owned = 1;
     gender_summary_local_var->name = name;
     gender_summary_local_var->url = url;
-
-    gender_summary_local_var->_library_owned = 1;
     return gender_summary_local_var;
 }
 
@@ -24,10 +24,13 @@ __attribute__((deprecated)) gender_summary_t *gender_summary_create(
     char *name,
     char *url
     ) {
-    return gender_summary_create_internal (
+    gender_summary_t *result = gender_summary_create_internal (
         name,
         url
         );
+    if (!result) {
+    }
+    return result;
 }
 
 void gender_summary_free(gender_summary_t *gender_summary) {
@@ -82,6 +85,10 @@ gender_summary_t *gender_summary_parseFromJSON(cJSON *gender_summaryJSON){
 
     gender_summary_t *gender_summary_local_var = NULL;
 
+    char *name_local_str = NULL;
+
+    char *url_local_str = NULL;
+
     // gender_summary->name
     cJSON *name = cJSON_GetObjectItemCaseSensitive(gender_summaryJSON, "name");
     if (cJSON_IsNull(name)) {
@@ -113,13 +120,28 @@ gender_summary_t *gender_summary_parseFromJSON(cJSON *gender_summaryJSON){
     }
 
 
+    if (name && !cJSON_IsNull(name)) name_local_str = strdup(name->valuestring);
+    if (url && !cJSON_IsNull(url)) url_local_str = strdup(url->valuestring);
+
     gender_summary_local_var = gender_summary_create_internal (
-        strdup(name->valuestring),
-        strdup(url->valuestring)
+        name_local_str,
+        url_local_str
         );
+
+    if (!gender_summary_local_var) {
+        goto end;
+    }
 
     return gender_summary_local_var;
 end:
+    if (name_local_str) {
+        free(name_local_str);
+        name_local_str = NULL;
+    }
+    if (url_local_str) {
+        free(url_local_str);
+        url_local_str = NULL;
+    }
     return NULL;
 
 }

@@ -47,7 +47,7 @@ class SuperContestEffectDetail
      * @var int|null
      * @SerializedName("id")
      * @Type("int")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Type("int")]
     protected ?int $id = null;
@@ -56,7 +56,7 @@ class SuperContestEffectDetail
      * @var int|null
      * @SerializedName("appeal")
      * @Type("int")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Type("int")]
     protected ?int $appeal = null;
@@ -65,7 +65,7 @@ class SuperContestEffectDetail
      * @var SuperContestEffectFlavorText[]|null
      * @SerializedName("flavor_text_entries")
      * @Type("array<OpenAPI\Server\Model\SuperContestEffectFlavorText>")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Valid]
     #[Assert\All([
@@ -77,7 +77,7 @@ class SuperContestEffectDetail
      * @var MoveSummary[]|null
      * @SerializedName("moves")
      * @Type("array<OpenAPI\Server\Model\MoveSummary>")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Valid]
     #[Assert\All([
@@ -110,12 +110,12 @@ class SuperContestEffectDetail
     }
 
     /**
-    * Sets id.
-    *
-    * @param int|null $id
-    *
-    * @return $this
-    */
+     * Sets id.
+     *
+     * @param int|null $id
+     *
+     * @return $this
+     */
     public function setId(?int $id): self
     {
         $this->id = $id;
@@ -137,12 +137,12 @@ class SuperContestEffectDetail
     }
 
     /**
-    * Sets appeal.
-    *
-    * @param int|null $appeal
-    *
-    * @return $this
-    */
+     * Sets appeal.
+     *
+     * @param int|null $appeal
+     *
+     * @return $this
+     */
     public function setAppeal(?int $appeal): self
     {
         $this->appeal = $appeal;
@@ -164,12 +164,12 @@ class SuperContestEffectDetail
     }
 
     /**
-    * Sets flavorTextEntries.
-    *
-    * @param SuperContestEffectFlavorText[]|null $flavorTextEntries
-    *
-    * @return $this
-    */
+     * Sets flavorTextEntries.
+     *
+     * @param SuperContestEffectFlavorText[]|null $flavorTextEntries
+     *
+     * @return $this
+     */
     public function setFlavorTextEntries(?array $flavorTextEntries): self
     {
         $this->flavorTextEntries = $flavorTextEntries;
@@ -191,12 +191,12 @@ class SuperContestEffectDetail
     }
 
     /**
-    * Sets moves.
-    *
-    * @param MoveSummary[]|null $moves
-    *
-    * @return $this
-    */
+     * Sets moves.
+     *
+     * @param MoveSummary[]|null $moves
+     *
+     * @return $this
+     */
     public function setMoves(?array $moves): self
     {
         $this->moves = $moves;

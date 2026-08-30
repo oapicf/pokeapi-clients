@@ -32,7 +32,7 @@ class  PokemonDetail_cries
 {
 public:
     PokemonDetail_cries();
-    virtual ~PokemonDetail_cries() = default;
+    virtual ~PokemonDetail_cries();
 
 
     /// <summary>

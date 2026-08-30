@@ -34,7 +34,7 @@ class  LanguageDetail
 {
 public:
     LanguageDetail();
-    virtual ~LanguageDetail() = default;
+    virtual ~LanguageDetail();
 
 
     /// <summary>

@@ -7,9 +7,9 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **number** |  | [readonly] [default to undefined]
 **name** | **string** |  | [default to undefined]
-**descriptions** | [**Array&lt;MoveTargetDescription&gt;**](MoveTargetDescription.md) |  | [default to undefined]
-**moves** | [**Array&lt;MoveSummary&gt;**](MoveSummary.md) |  | [default to undefined]
-**names** | [**Array&lt;MoveTargetName&gt;**](MoveTargetName.md) |  | [default to undefined]
+**descriptions** | [**Array&lt;MoveTargetDescription&gt;**](MoveTargetDescription.md) |  | [readonly] [default to undefined]
+**moves** | [**Array&lt;MoveSummary&gt;**](MoveSummary.md) |  | [readonly] [default to undefined]
+**names** | [**Array&lt;MoveTargetName&gt;**](MoveTargetName.md) |  | [readonly] [default to undefined]
 
 ## Example
 

@@ -70,19 +70,6 @@ public class MoveTargetDetail  {
     return descriptions;
   }
 
-  public void setDescriptions(List<MoveTargetDescription> descriptions) {
-    this.descriptions = descriptions;
-  }
-
-  public MoveTargetDetail descriptions(List<MoveTargetDescription> descriptions) {
-    this.descriptions = descriptions;
-    return this;
-  }
-
-  public MoveTargetDetail addDescriptionsItem(MoveTargetDescription descriptionsItem) {
-    this.descriptions.add(descriptionsItem);
-    return this;
-  }
 
  /**
    * Get moves
@@ -93,19 +80,6 @@ public class MoveTargetDetail  {
     return moves;
   }
 
-  public void setMoves(List<MoveSummary> moves) {
-    this.moves = moves;
-  }
-
-  public MoveTargetDetail moves(List<MoveSummary> moves) {
-    this.moves = moves;
-    return this;
-  }
-
-  public MoveTargetDetail addMovesItem(MoveSummary movesItem) {
-    this.moves.add(movesItem);
-    return this;
-  }
 
  /**
    * Get names
@@ -116,19 +90,6 @@ public class MoveTargetDetail  {
     return names;
   }
 
-  public void setNames(List<MoveTargetName> names) {
-    this.names = names;
-  }
-
-  public MoveTargetDetail names(List<MoveTargetName> names) {
-    this.names = names;
-    return this;
-  }
-
-  public MoveTargetDetail addNamesItem(MoveTargetName namesItem) {
-    this.names.add(namesItem);
-    return this;
-  }
 
   @Override
   public boolean equals(Object o) {
@@ -170,10 +131,7 @@ public class MoveTargetDetail  {
    * (except the first line).
    */
   private static String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 }
 

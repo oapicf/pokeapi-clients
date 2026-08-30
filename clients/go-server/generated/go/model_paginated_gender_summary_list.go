@@ -25,7 +25,8 @@ type PaginatedGenderSummaryList struct {
 	Results []GenderSummary `json:"results,omitempty"`
 }
 
-// AssertPaginatedGenderSummaryListRequired checks if the required fields are not zero-ed
+// AssertPaginatedGenderSummaryListRequired checks complex required fields (models, arrays, maps) and embedded parents.
+// Primitive required fields are validated for JSON request bodies in UnmarshalJSON so zero values remain valid.
 func AssertPaginatedGenderSummaryListRequired(obj PaginatedGenderSummaryList) error {
 	for _, el := range obj.Results {
 		if err := AssertGenderSummaryRequired(el); err != nil {

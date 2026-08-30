@@ -15,19 +15,19 @@ Name | Type | Description | Notes
 **ContestType** | [**ContestTypeSummary**](ContestTypeSummary.md) |  | 
 **ContestEffect** | [**ContestEffectSummary**](ContestEffectSummary.md) |  | 
 **DamageClass** | [**MoveDamageClassSummary**](MoveDamageClassSummary.md) |  | 
-**EffectEntries** | [**[]MoveChangeEffectEntriesInner**](MoveChangeEffectEntriesInner.md) |  | 
-**EffectChanges** | [**[]MoveDetailEffectChangesInner**](MoveDetailEffectChangesInner.md) |  | 
+**EffectEntries** | [**[]MoveChangeEffectEntriesInner**](MoveChangeEffectEntriesInner.md) |  | [readonly] 
+**EffectChanges** | [**[]MoveDetailEffectChangesInner**](MoveDetailEffectChangesInner.md) |  | [readonly] 
 **Generation** | [**GenerationSummary**](GenerationSummary.md) |  | 
 **Meta** | [**MoveMeta**](MoveMeta.md) |  | [readonly] 
-**Names** | [**[]MoveName**](MoveName.md) |  | 
-**PastValues** | [**[]MoveChange**](MoveChange.md) |  | 
-**StatChanges** | [**[]MoveDetailStatChangesInner**](MoveDetailStatChangesInner.md) |  | 
+**Names** | [**[]MoveName**](MoveName.md) |  | [readonly] 
+**PastValues** | [**[]MoveChange**](MoveChange.md) |  | [readonly] 
+**StatChanges** | [**[]MoveDetailStatChangesInner**](MoveDetailStatChangesInner.md) |  | [readonly] 
 **SuperContestEffect** | [**SuperContestEffectSummary**](SuperContestEffectSummary.md) |  | 
 **Target** | [**MoveTargetSummary**](MoveTargetSummary.md) |  | 
 **Type** | [**TypeSummary**](TypeSummary.md) |  | 
-**Machines** | [**[]MoveDetailMachinesInner**](MoveDetailMachinesInner.md) |  | 
-**FlavorTextEntries** | [**[]MoveFlavorText**](MoveFlavorText.md) |  | 
-**LearnedByPokemon** | [**[]AbilityDetailPokemonInnerPokemon**](AbilityDetailPokemonInnerPokemon.md) |  | 
+**Machines** | [**[]MoveDetailMachinesInner**](MoveDetailMachinesInner.md) |  | [readonly] 
+**FlavorTextEntries** | [**[]MoveFlavorText**](MoveFlavorText.md) |  | [readonly] 
+**LearnedByPokemon** | [**[]AbilityDetailPokemonInnerPokemon**](AbilityDetailPokemonInnerPokemon.md) |  | [readonly] 
 
 ## Methods
 

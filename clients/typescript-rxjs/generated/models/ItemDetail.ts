@@ -59,7 +59,7 @@ export interface ItemDetail {
      * @type {Array<AbilityDetailPokemonInnerPokemon>}
      * @memberof ItemDetail
      */
-    attributes: Array<AbilityDetailPokemonInnerPokemon>;
+    readonly attributes: Array<AbilityDetailPokemonInnerPokemon>;
     /**
      * @type {ItemCategorySummary}
      * @memberof ItemDetail
@@ -69,27 +69,27 @@ export interface ItemDetail {
      * @type {Array<ItemEffectText>}
      * @memberof ItemDetail
      */
-    effect_entries: Array<ItemEffectText>;
+    readonly effect_entries: Array<ItemEffectText>;
     /**
      * @type {Array<ItemFlavorText>}
      * @memberof ItemDetail
      */
-    flavor_text_entries: Array<ItemFlavorText>;
+    readonly flavor_text_entries: Array<ItemFlavorText>;
     /**
      * @type {Array<ItemGameIndex>}
      * @memberof ItemDetail
      */
-    game_indices: Array<ItemGameIndex>;
+    readonly game_indices: Array<ItemGameIndex>;
     /**
      * @type {Array<ItemName>}
      * @memberof ItemDetail
      */
-    names: Array<ItemName>;
+    readonly names: Array<ItemName>;
     /**
      * @type {Array<ItemDetailHeldByPokemonInner>}
      * @memberof ItemDetail
      */
-    held_by_pokemon: Array<ItemDetailHeldByPokemonInner>;
+    readonly held_by_pokemon: Array<ItemDetailHeldByPokemonInner>;
     /**
      * @type {ItemDetailSprites}
      * @memberof ItemDetail
@@ -104,5 +104,5 @@ export interface ItemDetail {
      * @type {Array<ItemDetailMachinesInner>}
      * @memberof ItemDetail
      */
-    machines: Array<ItemDetailMachinesInner>;
+    readonly machines: Array<ItemDetailMachinesInner>;
 }

@@ -92,8 +92,18 @@ namespace Org.OpenAPITools.Model
     /// <summary>
     /// A Json converter for type <see cref="ItemAttributeName" />
     /// </summary>
-    public class ItemAttributeNameJsonConverter : JsonConverter<ItemAttributeName>
+    public partial class ItemAttributeNameJsonConverter : JsonConverter<ItemAttributeName>
     {
+        partial void OnCreated();
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ItemAttributeNameJsonConverter" /> class.
+        /// </summary>
+        public ItemAttributeNameJsonConverter()
+        {
+            OnCreated();
+        }
+
         /// <summary>
         /// Deserializes json to <see cref="ItemAttributeName" />
         /// </summary>

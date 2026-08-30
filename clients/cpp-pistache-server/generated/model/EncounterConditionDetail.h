@@ -35,7 +35,7 @@ class  EncounterConditionDetail
 {
 public:
     EncounterConditionDetail();
-    virtual ~EncounterConditionDetail() = default;
+    virtual ~EncounterConditionDetail();
 
 
     /// <summary>

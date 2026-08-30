@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 **power** | `Integer` |  |  [optional property]
 **pp** | `Integer` |  |  [optional property]
 **effectChance** | `Integer` |  | 
-**effectEntries** | [`List&lt;MoveChangeEffectEntriesInner&gt;`](MoveChangeEffectEntriesInner.md) |  | 
+**effectEntries** | [`List&lt;MoveChangeEffectEntriesInner&gt;`](MoveChangeEffectEntriesInner.md) |  |  [readonly property]
 **type** | [`TypeSummary`](TypeSummary.md) |  | 
 **versionGroup** | [`VersionGroupSummary`](VersionGroupSummary.md) |  | 
 

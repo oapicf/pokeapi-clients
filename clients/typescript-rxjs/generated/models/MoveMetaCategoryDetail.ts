@@ -35,10 +35,10 @@ export interface MoveMetaCategoryDetail {
      * @type {Array<MoveMetaCategoryDescription>}
      * @memberof MoveMetaCategoryDetail
      */
-    descriptions: Array<MoveMetaCategoryDescription>;
+    readonly descriptions: Array<MoveMetaCategoryDescription>;
     /**
      * @type {Array<AbilityDetailPokemonInnerPokemon>}
      * @memberof MoveMetaCategoryDetail
      */
-    moves: Array<AbilityDetailPokemonInnerPokemon>;
+    readonly moves: Array<AbilityDetailPokemonInnerPokemon>;
 }

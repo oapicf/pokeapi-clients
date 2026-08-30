@@ -7,8 +7,8 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **number** |  | [readonly] [default to undefined]
 **name** | **string** |  | [default to undefined]
-**names** | [**Array&lt;PokemonHabitatName&gt;**](PokemonHabitatName.md) |  | [default to undefined]
-**pokemon_species** | [**Array&lt;PokemonSpeciesSummary&gt;**](PokemonSpeciesSummary.md) |  | [default to undefined]
+**names** | [**Array&lt;PokemonHabitatName&gt;**](PokemonHabitatName.md) |  | [readonly] [default to undefined]
+**pokemon_species** | [**Array&lt;PokemonSpeciesSummary&gt;**](PokemonSpeciesSummary.md) |  | [readonly] [default to undefined]
 
 ## Example
 

@@ -144,7 +144,7 @@ PaginatedGenerationSummaryList::getCount()
 }
 
 void
-PaginatedGenerationSummaryList::setCount(int  count)
+PaginatedGenerationSummaryList::setCount(int count)
 {
 	this->count = count;
 }
@@ -156,7 +156,7 @@ PaginatedGenerationSummaryList::getNext()
 }
 
 void
-PaginatedGenerationSummaryList::setNext(std::string  next)
+PaginatedGenerationSummaryList::setNext(std::string next)
 {
 	this->next = next;
 }
@@ -168,7 +168,7 @@ PaginatedGenerationSummaryList::getPrevious()
 }
 
 void
-PaginatedGenerationSummaryList::setPrevious(std::string  previous)
+PaginatedGenerationSummaryList::setPrevious(std::string previous)
 {
 	this->previous = previous;
 }
@@ -180,7 +180,7 @@ PaginatedGenerationSummaryList::getResults()
 }
 
 void
-PaginatedGenerationSummaryList::setResults(std::list <GenerationSummary> results)
+PaginatedGenerationSummaryList::setResults(std::list<GenerationSummary> results)
 {
 	this->results = results;
 }

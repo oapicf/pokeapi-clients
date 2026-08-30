@@ -81,10 +81,14 @@ class LocationAreaDetailPokemonEncountersInnerVersionDetailsInnerEncounterDetail
       // Note 1: the values aren't checked for validity beyond being non-null.
       // Note 2: this code is stripped in release mode!
       assert(() {
-        requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "LocationAreaDetailPokemonEncountersInnerVersionDetailsInnerEncounterDetails[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "LocationAreaDetailPokemonEncountersInnerVersionDetailsInnerEncounterDetails[$key]" has a null value in JSON.');
-        });
+        assert(json.containsKey(r'min_level'), 'Required key "LocationAreaDetailPokemonEncountersInnerVersionDetailsInnerEncounterDetails[min_level]" is missing from JSON.');
+        assert(json[r'min_level'] != null, 'Required key "LocationAreaDetailPokemonEncountersInnerVersionDetailsInnerEncounterDetails[min_level]" has a null value in JSON.');
+        assert(json.containsKey(r'max_level'), 'Required key "LocationAreaDetailPokemonEncountersInnerVersionDetailsInnerEncounterDetails[max_level]" is missing from JSON.');
+        assert(json[r'max_level'] != null, 'Required key "LocationAreaDetailPokemonEncountersInnerVersionDetailsInnerEncounterDetails[max_level]" has a null value in JSON.');
+        assert(json.containsKey(r'chance'), 'Required key "LocationAreaDetailPokemonEncountersInnerVersionDetailsInnerEncounterDetails[chance]" is missing from JSON.');
+        assert(json[r'chance'] != null, 'Required key "LocationAreaDetailPokemonEncountersInnerVersionDetailsInnerEncounterDetails[chance]" has a null value in JSON.');
+        assert(json.containsKey(r'method'), 'Required key "LocationAreaDetailPokemonEncountersInnerVersionDetailsInnerEncounterDetails[method]" is missing from JSON.');
+        assert(json[r'method'] != null, 'Required key "LocationAreaDetailPokemonEncountersInnerVersionDetailsInnerEncounterDetails[method]" has a null value in JSON.');
         return true;
       }());
 

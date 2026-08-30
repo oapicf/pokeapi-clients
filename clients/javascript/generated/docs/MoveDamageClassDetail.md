@@ -6,8 +6,8 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **Number** |  | [readonly] 
 **name** | **String** |  | 
-**descriptions** | [**[MoveDamageClassDescription]**](MoveDamageClassDescription.md) |  | 
-**moves** | [**[MoveSummary]**](MoveSummary.md) |  | 
-**names** | [**[MoveDamageClassName]**](MoveDamageClassName.md) |  | 
+**descriptions** | [**[MoveDamageClassDescription]**](MoveDamageClassDescription.md) |  | [readonly] 
+**moves** | [**[MoveSummary]**](MoveSummary.md) |  | [readonly] 
+**names** | [**[MoveDamageClassName]**](MoveDamageClassName.md) |  | [readonly] 
 
 

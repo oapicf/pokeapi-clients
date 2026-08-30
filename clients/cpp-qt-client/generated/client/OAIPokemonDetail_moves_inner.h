@@ -35,13 +35,13 @@ class OAIPokemonDetail_moves_inner_version_group_details_inner;
 class OAIPokemonDetail_moves_inner : public OAIObject {
 public:
     OAIPokemonDetail_moves_inner();
-    OAIPokemonDetail_moves_inner(QString json);
+    OAIPokemonDetail_moves_inner(const QString &json);
     ~OAIPokemonDetail_moves_inner() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     OAIAbilityDetail_pokemon_inner_pokemon getMove() const;
     void setMove(const OAIAbilityDetail_pokemon_inner_pokemon &move);

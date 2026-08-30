@@ -47,7 +47,7 @@ class PokeathlonStatDetail
      * @var int|null
      * @SerializedName("id")
      * @Type("int")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Type("int")]
     protected ?int $id = null;
@@ -56,7 +56,7 @@ class PokeathlonStatDetail
      * @var string|null
      * @SerializedName("name")
      * @Type("string")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Type("string")]
     #[Assert\Length(max: 100)]
@@ -66,7 +66,7 @@ class PokeathlonStatDetail
      * @var PokeathlonStatDetailAffectingNatures|null
      * @SerializedName("affecting_natures")
      * @Type("OpenAPI\Server\Model\PokeathlonStatDetailAffectingNatures")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Valid]
     #[Assert\Type("OpenAPI\Server\Model\PokeathlonStatDetailAffectingNatures")]
@@ -76,7 +76,7 @@ class PokeathlonStatDetail
      * @var PokeathlonStatName[]|null
      * @SerializedName("names")
      * @Type("array<OpenAPI\Server\Model\PokeathlonStatName>")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Valid]
     #[Assert\All([
@@ -109,12 +109,12 @@ class PokeathlonStatDetail
     }
 
     /**
-    * Sets id.
-    *
-    * @param int|null $id
-    *
-    * @return $this
-    */
+     * Sets id.
+     *
+     * @param int|null $id
+     *
+     * @return $this
+     */
     public function setId(?int $id): self
     {
         $this->id = $id;
@@ -136,12 +136,12 @@ class PokeathlonStatDetail
     }
 
     /**
-    * Sets name.
-    *
-    * @param string|null $name
-    *
-    * @return $this
-    */
+     * Sets name.
+     *
+     * @param string|null $name
+     *
+     * @return $this
+     */
     public function setName(?string $name): self
     {
         $this->name = $name;
@@ -163,12 +163,12 @@ class PokeathlonStatDetail
     }
 
     /**
-    * Sets affectingNatures.
-    *
-    * @param PokeathlonStatDetailAffectingNatures|null $affectingNatures
-    *
-    * @return $this
-    */
+     * Sets affectingNatures.
+     *
+     * @param PokeathlonStatDetailAffectingNatures|null $affectingNatures
+     *
+     * @return $this
+     */
     public function setAffectingNatures(?PokeathlonStatDetailAffectingNatures $affectingNatures): self
     {
         $this->affectingNatures = $affectingNatures;
@@ -190,12 +190,12 @@ class PokeathlonStatDetail
     }
 
     /**
-    * Sets names.
-    *
-    * @param PokeathlonStatName[]|null $names
-    *
-    * @return $this
-    */
+     * Sets names.
+     *
+     * @param PokeathlonStatName[]|null $names
+     *
+     * @return $this
+     */
     public function setNames(?array $names): self
     {
         $this->names = $names;

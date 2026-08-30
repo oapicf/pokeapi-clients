@@ -97,6 +97,7 @@ public class ItemAttributeDetail  {
 
   /**
    * Sets the <code>descriptions</code> property.
+   * <br><em>N.B. <code>descriptions</code> is <b>read only</b>; client code should not call this method</em>.
    */
  public void setDescriptions(List<@Valid ItemAttributeDescription> descriptions) {
     this.descriptions = descriptions;
@@ -104,6 +105,7 @@ public class ItemAttributeDetail  {
 
   /**
    * Sets the <code>descriptions</code> property.
+   * <br><em>N.B. <code>descriptions</code> is <b>read only</b>; client code should not call this method</em>.
    */
   public ItemAttributeDetail descriptions(List<@Valid ItemAttributeDescription> descriptions) {
     this.descriptions = descriptions;
@@ -112,6 +114,7 @@ public class ItemAttributeDetail  {
 
   /**
    * Adds a new item to the <code>descriptions</code> list.
+   * <br><em>N.B. <code>descriptions</code> is <b>read only</b>; client code should not call this method</em>.
    */
   public ItemAttributeDetail addDescriptionsItem(ItemAttributeDescription descriptionsItem) {
     this.descriptions.add(descriptionsItem);
@@ -130,6 +133,7 @@ public class ItemAttributeDetail  {
 
   /**
    * Sets the <code>items</code> property.
+   * <br><em>N.B. <code>items</code> is <b>read only</b>; client code should not call this method</em>.
    */
  public void setItems(List<@Valid AbilityDetailPokemonInnerPokemon> items) {
     this.items = items;
@@ -137,6 +141,7 @@ public class ItemAttributeDetail  {
 
   /**
    * Sets the <code>items</code> property.
+   * <br><em>N.B. <code>items</code> is <b>read only</b>; client code should not call this method</em>.
    */
   public ItemAttributeDetail items(List<@Valid AbilityDetailPokemonInnerPokemon> items) {
     this.items = items;
@@ -145,6 +150,7 @@ public class ItemAttributeDetail  {
 
   /**
    * Adds a new item to the <code>items</code> list.
+   * <br><em>N.B. <code>items</code> is <b>read only</b>; client code should not call this method</em>.
    */
   public ItemAttributeDetail addItemsItem(AbilityDetailPokemonInnerPokemon itemsItem) {
     this.items.add(itemsItem);
@@ -163,6 +169,7 @@ public class ItemAttributeDetail  {
 
   /**
    * Sets the <code>names</code> property.
+   * <br><em>N.B. <code>names</code> is <b>read only</b>; client code should not call this method</em>.
    */
  public void setNames(List<@Valid ItemAttributeName> names) {
     this.names = names;
@@ -170,6 +177,7 @@ public class ItemAttributeDetail  {
 
   /**
    * Sets the <code>names</code> property.
+   * <br><em>N.B. <code>names</code> is <b>read only</b>; client code should not call this method</em>.
    */
   public ItemAttributeDetail names(List<@Valid ItemAttributeName> names) {
     this.names = names;
@@ -178,6 +186,7 @@ public class ItemAttributeDetail  {
 
   /**
    * Adds a new item to the <code>names</code> list.
+   * <br><em>N.B. <code>names</code> is <b>read only</b>; client code should not call this method</em>.
    */
   public ItemAttributeDetail addNamesItem(ItemAttributeName namesItem) {
     this.names.add(namesItem);
@@ -225,10 +234,7 @@ public class ItemAttributeDetail  {
    * (except the first line).
    */
   private static String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 }
 

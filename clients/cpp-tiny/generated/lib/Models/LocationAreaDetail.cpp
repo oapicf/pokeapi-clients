@@ -242,7 +242,7 @@ LocationAreaDetail::getId()
 }
 
 void
-LocationAreaDetail::setId(int  id)
+LocationAreaDetail::setId(int id)
 {
 	this->id = id;
 }
@@ -254,7 +254,7 @@ LocationAreaDetail::getName()
 }
 
 void
-LocationAreaDetail::setName(std::string  name)
+LocationAreaDetail::setName(std::string name)
 {
 	this->name = name;
 }
@@ -266,7 +266,7 @@ LocationAreaDetail::getGameIndex()
 }
 
 void
-LocationAreaDetail::setGameIndex(int  game_index)
+LocationAreaDetail::setGameIndex(int game_index)
 {
 	this->game_index = game_index;
 }
@@ -278,7 +278,7 @@ LocationAreaDetail::getEncounterMethodRates()
 }
 
 void
-LocationAreaDetail::setEncounterMethodRates(std::list <LocationAreaDetail_encounter_method_rates_inner> encounter_method_rates)
+LocationAreaDetail::setEncounterMethodRates(std::list<LocationAreaDetail_encounter_method_rates_inner> encounter_method_rates)
 {
 	this->encounter_method_rates = encounter_method_rates;
 }
@@ -290,7 +290,7 @@ LocationAreaDetail::getLocation()
 }
 
 void
-LocationAreaDetail::setLocation(LocationSummary  location)
+LocationAreaDetail::setLocation(LocationSummary location)
 {
 	this->location = location;
 }
@@ -302,7 +302,7 @@ LocationAreaDetail::getNames()
 }
 
 void
-LocationAreaDetail::setNames(std::list <LocationAreaName> names)
+LocationAreaDetail::setNames(std::list<LocationAreaName> names)
 {
 	this->names = names;
 }
@@ -314,7 +314,7 @@ LocationAreaDetail::getPokemonEncounters()
 }
 
 void
-LocationAreaDetail::setPokemonEncounters(std::list <LocationAreaDetail_pokemon_encounters_inner> pokemon_encounters)
+LocationAreaDetail::setPokemonEncounters(std::list<LocationAreaDetail_pokemon_encounters_inner> pokemon_encounters)
 {
 	this->pokemon_encounters = pokemon_encounters;
 }

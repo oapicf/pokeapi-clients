@@ -10,9 +10,9 @@ Name | Type | Description | Notes
 **increased_stat** | [**StatSummary**](StatSummary.md) |  | 
 **likes_flavor** | [**BerryFlavorSummary**](BerryFlavorSummary.md) |  | 
 **hates_flavor** | [**BerryFlavorSummary**](BerryFlavorSummary.md) |  | 
-**berries** | [**array[BerrySummary]**](BerrySummary.md) |  | 
-**pokeathlon_stat_changes** | [**array[NatureDetailPokeathlonStatChangesInner]**](NatureDetail_pokeathlon_stat_changes_inner.md) |  | 
-**move_battle_style_preferences** | [**array[NatureBattleStylePreference]**](NatureBattleStylePreference.md) |  | 
-**names** | [**array[NatureName]**](NatureName.md) |  | 
+**berries** | [**array[BerrySummary]**](BerrySummary.md) |  | [readonly] 
+**pokeathlon_stat_changes** | [**array[NatureDetailPokeathlonStatChangesInner]**](NatureDetail_pokeathlon_stat_changes_inner.md) |  | [readonly] 
+**move_battle_style_preferences** | [**array[NatureBattleStylePreference]**](NatureBattleStylePreference.md) |  | [readonly] 
+**names** | [**array[NatureName]**](NatureName.md) |  | [readonly] 
 
 

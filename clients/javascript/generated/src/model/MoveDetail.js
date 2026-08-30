@@ -33,7 +33,7 @@ import TypeSummary from './TypeSummary';
 /**
  * The MoveDetail model module.
  * @module model/MoveDetail
- * @version 1.2.1-pre.0
+ * @version 2.0.1-pre.0
  */
 class MoveDetail {
     /**

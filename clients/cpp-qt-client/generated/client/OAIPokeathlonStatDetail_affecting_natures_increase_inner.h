@@ -32,13 +32,13 @@ class OAIAbilityDetail_pokemon_inner_pokemon;
 class OAIPokeathlonStatDetail_affecting_natures_increase_inner : public OAIObject {
 public:
     OAIPokeathlonStatDetail_affecting_natures_increase_inner();
-    OAIPokeathlonStatDetail_affecting_natures_increase_inner(QString json);
+    OAIPokeathlonStatDetail_affecting_natures_increase_inner(const QString &json);
     ~OAIPokeathlonStatDetail_affecting_natures_increase_inner() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     qint32 getMaxChange() const;
     void setMaxChange(const qint32 &max_change);

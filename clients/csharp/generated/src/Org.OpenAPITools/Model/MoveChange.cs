@@ -66,7 +66,7 @@ namespace Org.OpenAPITools.Model
         /// Gets or Sets EffectEntries
         /// </summary>
         [JsonPropertyName("effect_entries")]
-        public List<MoveChangeEffectEntriesInner> EffectEntries { get; set; }
+        public List<MoveChangeEffectEntriesInner> EffectEntries { get; }
 
         /// <summary>
         /// Gets or Sets Type
@@ -91,7 +91,7 @@ namespace Org.OpenAPITools.Model
         /// Gets or Sets Accuracy
         /// </summary>
         [JsonPropertyName("accuracy")]
-        public int? Accuracy { get { return this.AccuracyOption; } set { this.AccuracyOption = new(value); } }
+        public int? Accuracy { get { return this.AccuracyOption.Value; } set { this.AccuracyOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of Power
@@ -104,7 +104,7 @@ namespace Org.OpenAPITools.Model
         /// Gets or Sets Power
         /// </summary>
         [JsonPropertyName("power")]
-        public int? Power { get { return this.PowerOption; } set { this.PowerOption = new(value); } }
+        public int? Power { get { return this.PowerOption.Value; } set { this.PowerOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of Pp
@@ -117,7 +117,7 @@ namespace Org.OpenAPITools.Model
         /// Gets or Sets Pp
         /// </summary>
         [JsonPropertyName("pp")]
-        public int? Pp { get { return this.PpOption; } set { this.PpOption = new(value); } }
+        public int? Pp { get { return this.PpOption.Value; } set { this.PpOption = new(value); } }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -152,8 +152,18 @@ namespace Org.OpenAPITools.Model
     /// <summary>
     /// A Json converter for type <see cref="MoveChange" />
     /// </summary>
-    public class MoveChangeJsonConverter : JsonConverter<MoveChange>
+    public partial class MoveChangeJsonConverter : JsonConverter<MoveChange>
     {
+        partial void OnCreated();
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="MoveChangeJsonConverter" /> class.
+        /// </summary>
+        public MoveChangeJsonConverter()
+        {
+            OnCreated();
+        }
+
         /// <summary>
         /// Deserializes json to <see cref="MoveChange" />
         /// </summary>

@@ -35,7 +35,7 @@ class  GenderDetail
 {
 public:
     GenderDetail();
-    virtual ~GenderDetail() = default;
+    virtual ~GenderDetail();
 
 
     /// <summary>

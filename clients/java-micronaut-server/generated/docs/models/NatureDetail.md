@@ -14,10 +14,10 @@ Name | Type | Description | Notes
 **increasedStat** | [`StatSummary`](StatSummary.md) |  | 
 **likesFlavor** | [`BerryFlavorSummary`](BerryFlavorSummary.md) |  | 
 **hatesFlavor** | [`BerryFlavorSummary`](BerryFlavorSummary.md) |  | 
-**berries** | [`List&lt;BerrySummary&gt;`](BerrySummary.md) |  | 
-**pokeathlonStatChanges** | [`List&lt;NatureDetailPokeathlonStatChangesInner&gt;`](NatureDetailPokeathlonStatChangesInner.md) |  | 
-**moveBattleStylePreferences** | [`List&lt;NatureBattleStylePreference&gt;`](NatureBattleStylePreference.md) |  | 
-**names** | [`List&lt;NatureName&gt;`](NatureName.md) |  | 
+**berries** | [`List&lt;BerrySummary&gt;`](BerrySummary.md) |  |  [readonly property]
+**pokeathlonStatChanges** | [`List&lt;NatureDetailPokeathlonStatChangesInner&gt;`](NatureDetailPokeathlonStatChangesInner.md) |  |  [readonly property]
+**moveBattleStylePreferences** | [`List&lt;NatureBattleStylePreference&gt;`](NatureBattleStylePreference.md) |  |  [readonly property]
+**names** | [`List&lt;NatureName&gt;`](NatureName.md) |  |  [readonly property]
 
 
 

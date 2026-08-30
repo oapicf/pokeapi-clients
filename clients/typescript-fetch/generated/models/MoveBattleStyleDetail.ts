@@ -44,7 +44,7 @@ export interface MoveBattleStyleDetail {
      * @type {Array<MoveBattleStyleName>}
      * @memberof MoveBattleStyleDetail
      */
-    names: Array<MoveBattleStyleName>;
+    readonly names: Array<MoveBattleStyleName>;
 }
 
 /**
@@ -77,7 +77,7 @@ export function MoveBattleStyleDetailToJSON(json: any): MoveBattleStyleDetail {
     return MoveBattleStyleDetailToJSONTyped(json, false);
 }
 
-export function MoveBattleStyleDetailToJSONTyped(value?: Omit<MoveBattleStyleDetail, 'id'> | null, ignoreDiscriminator: boolean = false): any {
+export function MoveBattleStyleDetailToJSONTyped(value?: Omit<MoveBattleStyleDetail, 'id'|'names'> | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
@@ -85,7 +85,6 @@ export function MoveBattleStyleDetailToJSONTyped(value?: Omit<MoveBattleStyleDet
     return {
         
         'name': value['name'],
-        'names': ((value['names'] as Array<any>).map(MoveBattleStyleNameToJSON)),
     };
 }
 

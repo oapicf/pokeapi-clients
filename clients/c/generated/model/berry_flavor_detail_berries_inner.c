@@ -6,28 +6,37 @@
 
 
 static berry_flavor_detail_berries_inner_t *berry_flavor_detail_berries_inner_create_internal(
-    int potency,
+    int *potency,
     berry_flavor_detail_berries_inner_berry_t *berry
     ) {
     berry_flavor_detail_berries_inner_t *berry_flavor_detail_berries_inner_local_var = malloc(sizeof(berry_flavor_detail_berries_inner_t));
     if (!berry_flavor_detail_berries_inner_local_var) {
         return NULL;
     }
+    memset(berry_flavor_detail_berries_inner_local_var, 0, sizeof(berry_flavor_detail_berries_inner_t));
+    berry_flavor_detail_berries_inner_local_var->_library_owned = 1;
     berry_flavor_detail_berries_inner_local_var->potency = potency;
     berry_flavor_detail_berries_inner_local_var->berry = berry;
-
-    berry_flavor_detail_berries_inner_local_var->_library_owned = 1;
     return berry_flavor_detail_berries_inner_local_var;
 }
 
 __attribute__((deprecated)) berry_flavor_detail_berries_inner_t *berry_flavor_detail_berries_inner_create(
-    int potency,
+    int *potency,
     berry_flavor_detail_berries_inner_berry_t *berry
     ) {
-    return berry_flavor_detail_berries_inner_create_internal (
-        potency,
+    int *potency_copy = NULL;
+    if (potency) {
+        potency_copy = malloc(sizeof(int));
+        if (potency_copy) *potency_copy = *potency;
+    }
+    berry_flavor_detail_berries_inner_t *result = berry_flavor_detail_berries_inner_create_internal (
+        potency_copy,
         berry
         );
+    if (!result) {
+        free(potency_copy);
+    }
+    return result;
 }
 
 void berry_flavor_detail_berries_inner_free(berry_flavor_detail_berries_inner_t *berry_flavor_detail_berries_inner) {
@@ -39,6 +48,10 @@ void berry_flavor_detail_berries_inner_free(berry_flavor_detail_berries_inner_t 
         return ;
     }
     listEntry_t *listEntry;
+    if (berry_flavor_detail_berries_inner->potency) {
+        free(berry_flavor_detail_berries_inner->potency);
+        berry_flavor_detail_berries_inner->potency = NULL;
+    }
     if (berry_flavor_detail_berries_inner->berry) {
         berry_flavor_detail_berries_inner_berry_free(berry_flavor_detail_berries_inner->berry);
         berry_flavor_detail_berries_inner->berry = NULL;
@@ -53,7 +66,7 @@ cJSON *berry_flavor_detail_berries_inner_convertToJSON(berry_flavor_detail_berri
     if (!berry_flavor_detail_berries_inner->potency) {
         goto fail;
     }
-    if(cJSON_AddNumberToObject(item, "potency", berry_flavor_detail_berries_inner->potency) == NULL) {
+    if(cJSON_AddNumberToObject(item, "potency", *berry_flavor_detail_berries_inner->potency) == NULL) {
     goto fail; //Numeric
     }
 
@@ -83,6 +96,9 @@ berry_flavor_detail_berries_inner_t *berry_flavor_detail_berries_inner_parseFrom
 
     berry_flavor_detail_berries_inner_t *berry_flavor_detail_berries_inner_local_var = NULL;
 
+    // define the local variable for berry_flavor_detail_berries_inner->potency
+    int *potency_local_var = NULL;
+
     // define the local variable for berry_flavor_detail_berries_inner->berry
     berry_flavor_detail_berries_inner_berry_t *berry_local_nonprim = NULL;
 
@@ -100,6 +116,12 @@ berry_flavor_detail_berries_inner_t *berry_flavor_detail_berries_inner_parseFrom
     {
     goto end; //Numeric
     }
+    potency_local_var = malloc(sizeof(int));
+    if(!potency_local_var)
+    {
+        goto end;
+    }
+    *potency_local_var = potency->valuedouble;
 
     // berry_flavor_detail_berries_inner->berry
     cJSON *berry = cJSON_GetObjectItemCaseSensitive(berry_flavor_detail_berries_innerJSON, "berry");
@@ -114,13 +136,22 @@ berry_flavor_detail_berries_inner_t *berry_flavor_detail_berries_inner_parseFrom
     berry_local_nonprim = berry_flavor_detail_berries_inner_berry_parseFromJSON(berry); //nonprimitive
 
 
+
     berry_flavor_detail_berries_inner_local_var = berry_flavor_detail_berries_inner_create_internal (
-        potency->valuedouble,
+        potency_local_var,
         berry_local_nonprim
         );
 
+    if (!berry_flavor_detail_berries_inner_local_var) {
+        goto end;
+    }
+
     return berry_flavor_detail_berries_inner_local_var;
 end:
+    if (potency_local_var) {
+        free(potency_local_var);
+        potency_local_var = NULL;
+    }
     if (berry_local_nonprim) {
         berry_flavor_detail_berries_inner_berry_free(berry_local_nonprim);
         berry_local_nonprim = NULL;

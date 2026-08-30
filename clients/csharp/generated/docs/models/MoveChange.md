@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **EffectChance** | **int** |  | 
-**EffectEntries** | [**List&lt;MoveChangeEffectEntriesInner&gt;**](MoveChangeEffectEntriesInner.md) |  | 
+**EffectEntries** | [**List&lt;MoveChangeEffectEntriesInner&gt;**](MoveChangeEffectEntriesInner.md) |  | [readonly] 
 **Type** | [**TypeSummary**](TypeSummary.md) |  | 
 **VersionGroup** | [**VersionGroupSummary**](VersionGroupSummary.md) |  | 
 **Accuracy** | **int** |  | [optional] 

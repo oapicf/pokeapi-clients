@@ -6,8 +6,8 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **int32** |  | [readonly] 
 **Name** | **string** |  | 
-**Berries** | [**[]BerrySummary**](BerrySummary.md) |  | 
-**Names** | [**[]BerryFirmnessName**](BerryFirmnessName.md) |  | 
+**Berries** | [**[]BerrySummary**](BerrySummary.md) |  | [readonly] 
+**Names** | [**[]BerryFirmnessName**](BerryFirmnessName.md) |  | [readonly] 
 
 ## Methods
 

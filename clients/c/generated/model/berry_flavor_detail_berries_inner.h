@@ -20,14 +20,14 @@ typedef struct berry_flavor_detail_berries_inner_t berry_flavor_detail_berries_i
 
 
 typedef struct berry_flavor_detail_berries_inner_t {
-    int potency; //numeric
+    int *potency; //numeric
     struct berry_flavor_detail_berries_inner_berry_t *berry; //model
 
     int _library_owned; // Is the library responsible for freeing this object?
 } berry_flavor_detail_berries_inner_t;
 
 __attribute__((deprecated)) berry_flavor_detail_berries_inner_t *berry_flavor_detail_berries_inner_create(
-    int potency,
+    int *potency,
     berry_flavor_detail_berries_inner_berry_t *berry
 );
 

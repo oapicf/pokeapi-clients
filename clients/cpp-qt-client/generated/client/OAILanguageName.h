@@ -33,13 +33,13 @@ class OAILanguageSummary;
 class OAILanguageName : public OAIObject {
 public:
     OAILanguageName();
-    OAILanguageName(QString json);
+    OAILanguageName(const QString &json);
     ~OAILanguageName() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     QString getName() const;
     void setName(const QString &name);

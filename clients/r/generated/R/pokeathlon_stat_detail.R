@@ -95,13 +95,36 @@ PokeathlonStatDetail <- R6::R6Class(
       }
       if (!is.null(self$`affecting_natures`)) {
         PokeathlonStatDetailObject[["affecting_natures"]] <-
-          self$`affecting_natures`$toSimpleType()
+          self$extractSimpleType(self$`affecting_natures`)
       }
       if (!is.null(self$`names`)) {
         PokeathlonStatDetailObject[["names"]] <-
-          lapply(self$`names`, function(x) x$toSimpleType())
+          self$extractSimpleType(self$`names`)
       }
       return(PokeathlonStatDetailObject)
+    },
+
+    extractSimpleType = function(x) {
+      if (R6::is.R6(x)) {
+        return(x$toSimpleType())
+      } else if (!self$hasNestedR6(x)) {
+        return(x)
+      }
+      lapply(x, self$extractSimpleType)
+    },
+
+    hasNestedR6 = function(x) {
+      if (R6::is.R6(x)) {
+        return(TRUE)
+      }
+      if (is.list(x)) {
+        for (item in x) {
+          if (self$hasNestedR6(item)) {
+            return(TRUE)
+          }
+        }
+      }
+      FALSE
     },
 
     #' @description

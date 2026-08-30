@@ -6,11 +6,11 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **int32** |  | [readonly] 
 **Name** | **string** |  | 
-**Locations** | [**[]LocationSummary**](LocationSummary.md) |  | 
+**Locations** | [**[]LocationSummary**](LocationSummary.md) |  | [readonly] 
 **MainGeneration** | [**GenerationSummary**](GenerationSummary.md) |  | [readonly] 
-**Names** | [**[]RegionName**](RegionName.md) |  | 
-**Pokedexes** | [**[]PokedexSummary**](PokedexSummary.md) |  | 
-**VersionGroups** | [**[]AbilityDetailPokemonInnerPokemon**](AbilityDetailPokemonInnerPokemon.md) |  | 
+**Names** | [**[]RegionName**](RegionName.md) |  | [readonly] 
+**Pokedexes** | [**[]PokedexSummary**](PokedexSummary.md) |  | [readonly] 
+**VersionGroups** | [**[]AbilityDetailPokemonInnerPokemon**](AbilityDetailPokemonInnerPokemon.md) |  | [readonly] 
 
 ## Methods
 

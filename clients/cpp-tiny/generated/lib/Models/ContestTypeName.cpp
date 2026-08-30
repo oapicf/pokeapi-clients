@@ -107,7 +107,7 @@ ContestTypeName::getName()
 }
 
 void
-ContestTypeName::setName(std::string  name)
+ContestTypeName::setName(std::string name)
 {
 	this->name = name;
 }
@@ -119,7 +119,7 @@ ContestTypeName::getColor()
 }
 
 void
-ContestTypeName::setColor(std::string  color)
+ContestTypeName::setColor(std::string color)
 {
 	this->color = color;
 }
@@ -131,7 +131,7 @@ ContestTypeName::getLanguage()
 }
 
 void
-ContestTypeName::setLanguage(LanguageSummary  language)
+ContestTypeName::setLanguage(LanguageSummary language)
 {
 	this->language = language;
 }

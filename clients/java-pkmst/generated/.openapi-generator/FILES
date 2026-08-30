@@ -1,4 +1,3 @@
-.openapi-generator-ignore
 Dockerfile
 Readme.md
 logstash.conf
@@ -306,18 +305,7 @@ src/main/resources/application-dev-config.yml
 src/main/resources/application-dev.yml
 src/main/resources/application-local.yml
 src/main/resources/bootstrap.yml
-src/test/java/com/prokarma/pkmst/controller/BerriesApiTest.java
-src/test/java/com/prokarma/pkmst/controller/ContestsApiTest.java
-src/test/java/com/prokarma/pkmst/controller/EncountersApiTest.java
-src/test/java/com/prokarma/pkmst/controller/EvolutionApiTest.java
-src/test/java/com/prokarma/pkmst/controller/GamesApiTest.java
-src/test/java/com/prokarma/pkmst/controller/ItemsApiTest.java
-src/test/java/com/prokarma/pkmst/controller/LocationApiTest.java
-src/test/java/com/prokarma/pkmst/controller/MachinesApiTest.java
-src/test/java/com/prokarma/pkmst/controller/MovesApiTest.java
 src/test/java/com/prokarma/pkmst/controller/PkmstIT.java
-src/test/java/com/prokarma/pkmst/controller/PokemonApiTest.java
-src/test/java/com/prokarma/pkmst/controller/UtilityApiTest.java
 src/test/java/com/prokarma/pkmst/cucumber/PkmstSteps.java
 src/test/java/com/prokarma/pkmst/cucumber/PkmstTest.java
 src/test/java/com/prokarma/pkmst/cucumber/Pkmstpackage-info.java

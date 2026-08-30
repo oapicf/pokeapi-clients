@@ -32,7 +32,7 @@ class  PokemonStat
 {
 public:
     PokemonStat();
-    virtual ~PokemonStat() = default;
+    virtual ~PokemonStat();
 
 
     /// <summary>

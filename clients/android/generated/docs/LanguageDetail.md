@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 **official** | **Boolean** |  |  [optional]
 **iso639** | **String** |  | 
 **iso3166** | **String** |  | 
-**names** | [**List&lt;LanguageName&gt;**](LanguageName.md) |  | 
+**names** | [**List&lt;LanguageName&gt;**](LanguageName.md) |  |  [readonly]
 
 
 

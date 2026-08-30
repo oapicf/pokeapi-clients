@@ -44,6 +44,7 @@ public:
     void initializeServerConfigs();
     int setDefaultServerValue(int serverIndex,const QString &operation, const QString &variable,const QString &val);
     void setServerIndex(const QString &operation, int serverIndex);
+    void setServerIndex(int serverIndex);
     void setApiKey(const QString &apiKeyName, const QString &apiKey);
     void setBearerToken(const QString &token);
     void setUsername(const QString &username);
@@ -100,6 +101,13 @@ public:
 
 
 private:
+    enum class OauthMethod : int {
+        INVALID_VALUE_OPENAPI_GENERATED = 0,
+        ImplicitFlow = 1,
+        AuthorizationFlow = 2,
+        ClientCredentialsFlow = 3,
+        ResourceOwnerPasswordFlow = 4
+    };
     QMap<QString,int> _serverIndices;
     QMap<QString,QList<OAIServerConfiguration>> _serverConfigs;
     QMap<QString, QString> _apiKeys;
@@ -119,7 +127,7 @@ private:
     OauthImplicit _implicitFlow;
     OauthCredentials _credentialFlow;
     OauthPassword _passwordFlow;
-    int _OauthMethod = 0;
+    OauthMethod _OauthMethod = OauthMethod::INVALID_VALUE_OPENAPI_GENERATED;
 
     void encounterConditionListCallback(OAIHttpRequestWorker *worker);
     void encounterConditionRetrieveCallback(OAIHttpRequestWorker *worker);
@@ -145,42 +153,18 @@ Q_SIGNALS:
     void encounterMethodListSignalFull(OAIHttpRequestWorker *worker, OAIPaginatedEncounterMethodSummaryList summary);
     void encounterMethodRetrieveSignalFull(OAIHttpRequestWorker *worker, OAIEncounterMethodDetail summary);
 
-    Q_DECL_DEPRECATED_X("Use encounterConditionListSignalError() instead")
-    void encounterConditionListSignalE(OAIPaginatedEncounterConditionSummaryList summary, QNetworkReply::NetworkError error_type, QString error_str);
     void encounterConditionListSignalError(OAIPaginatedEncounterConditionSummaryList summary, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use encounterConditionRetrieveSignalError() instead")
-    void encounterConditionRetrieveSignalE(OAIEncounterConditionDetail summary, QNetworkReply::NetworkError error_type, QString error_str);
     void encounterConditionRetrieveSignalError(OAIEncounterConditionDetail summary, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use encounterConditionValueListSignalError() instead")
-    void encounterConditionValueListSignalE(OAIPaginatedEncounterConditionValueSummaryList summary, QNetworkReply::NetworkError error_type, QString error_str);
     void encounterConditionValueListSignalError(OAIPaginatedEncounterConditionValueSummaryList summary, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use encounterConditionValueRetrieveSignalError() instead")
-    void encounterConditionValueRetrieveSignalE(OAIEncounterConditionValueDetail summary, QNetworkReply::NetworkError error_type, QString error_str);
     void encounterConditionValueRetrieveSignalError(OAIEncounterConditionValueDetail summary, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use encounterMethodListSignalError() instead")
-    void encounterMethodListSignalE(OAIPaginatedEncounterMethodSummaryList summary, QNetworkReply::NetworkError error_type, QString error_str);
     void encounterMethodListSignalError(OAIPaginatedEncounterMethodSummaryList summary, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use encounterMethodRetrieveSignalError() instead")
-    void encounterMethodRetrieveSignalE(OAIEncounterMethodDetail summary, QNetworkReply::NetworkError error_type, QString error_str);
     void encounterMethodRetrieveSignalError(OAIEncounterMethodDetail summary, QNetworkReply::NetworkError error_type, const QString &error_str);
 
-    Q_DECL_DEPRECATED_X("Use encounterConditionListSignalErrorFull() instead")
-    void encounterConditionListSignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void encounterConditionListSignalErrorFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use encounterConditionRetrieveSignalErrorFull() instead")
-    void encounterConditionRetrieveSignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void encounterConditionRetrieveSignalErrorFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use encounterConditionValueListSignalErrorFull() instead")
-    void encounterConditionValueListSignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void encounterConditionValueListSignalErrorFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use encounterConditionValueRetrieveSignalErrorFull() instead")
-    void encounterConditionValueRetrieveSignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void encounterConditionValueRetrieveSignalErrorFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use encounterMethodListSignalErrorFull() instead")
-    void encounterMethodListSignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void encounterMethodListSignalErrorFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use encounterMethodRetrieveSignalErrorFull() instead")
-    void encounterMethodRetrieveSignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void encounterMethodRetrieveSignalErrorFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
 
     void abortRequestsSignal();

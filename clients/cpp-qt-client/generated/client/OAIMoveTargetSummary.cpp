@@ -21,7 +21,7 @@
 
 namespace OpenAPI {
 
-OAIMoveTargetSummary::OAIMoveTargetSummary(QString json) {
+OAIMoveTargetSummary::OAIMoveTargetSummary(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -41,7 +41,7 @@ void OAIMoveTargetSummary::initializeModel() {
     m_url_isValid = false;
 }
 
-void OAIMoveTargetSummary::fromJson(QString jsonString) {
+void OAIMoveTargetSummary::fromJson(const QString &jsonString) {
     QByteArray array(jsonString.toStdString().c_str());
     QJsonDocument doc = QJsonDocument::fromJson(array);
     QJsonObject jsonObject = doc.object();

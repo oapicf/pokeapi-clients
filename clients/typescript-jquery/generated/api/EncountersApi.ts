@@ -130,7 +130,7 @@ export class EncountersApi {
     { response: JQueryXHR; body: models.EncounterConditionDetail;  },
     { response: JQueryXHR; errorThrown: string }
     > {
-        let localVarPath = this.basePath + '/api/v2/encounter-condition/{id}/'.replace('{' + 'id' + '}', encodeURIComponent(String(id)));
+        let localVarPath = this.basePath + '/api/v2/encounter-condition/{id}/'.replace('{id}', encodeURIComponent(String(id)));
 
         let queryParameters: any = {};
         let headerParams: any = {};
@@ -274,7 +274,7 @@ export class EncountersApi {
     { response: JQueryXHR; body: models.EncounterConditionValueDetail;  },
     { response: JQueryXHR; errorThrown: string }
     > {
-        let localVarPath = this.basePath + '/api/v2/encounter-condition-value/{id}/'.replace('{' + 'id' + '}', encodeURIComponent(String(id)));
+        let localVarPath = this.basePath + '/api/v2/encounter-condition-value/{id}/'.replace('{id}', encodeURIComponent(String(id)));
 
         let queryParameters: any = {};
         let headerParams: any = {};
@@ -418,7 +418,7 @@ export class EncountersApi {
     { response: JQueryXHR; body: models.EncounterMethodDetail;  },
     { response: JQueryXHR; errorThrown: string }
     > {
-        let localVarPath = this.basePath + '/api/v2/encounter-method/{id}/'.replace('{' + 'id' + '}', encodeURIComponent(String(id)));
+        let localVarPath = this.basePath + '/api/v2/encounter-method/{id}/'.replace('{id}', encodeURIComponent(String(id)));
 
         let queryParameters: any = {};
         let headerParams: any = {};

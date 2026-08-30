@@ -48,7 +48,7 @@ namespace Org.OpenAPITools.Controllers
             //TODO: Uncomment the next line to return response 200 or use other options such as return this.NotFound(), return this.BadRequest(..), ...
             // return StatusCode(200, default);
             string exampleJson = null;
-            exampleJson = "{\n  \"next\" : \"http://api.example.org/accounts/?offset=400&limit=100\",\n  \"previous\" : \"http://api.example.org/accounts/?offset=200&limit=100\",\n  \"count\" : 123,\n  \"results\" : [ {\n    \"name\" : \"name\",\n    \"url\" : \"https://openapi-generator.tech\"\n  }, {\n    \"name\" : \"name\",\n    \"url\" : \"https://openapi-generator.tech\"\n  } ]\n}";
+            exampleJson = "{\n  \"count\" : 123,\n  \"next\" : \"http://api.example.org/accounts/?offset=400&limit=100\",\n  \"previous\" : \"http://api.example.org/accounts/?offset=200&limit=100\",\n  \"results\" : [ {\n    \"name\" : \"name\",\n    \"url\" : \"https://openapi-generator.tech\"\n  }, {\n    \"name\" : \"name\",\n    \"url\" : \"https://openapi-generator.tech\"\n  } ]\n}";
             
             var example = exampleJson != null
             ? JsonConvert.DeserializeObject<PaginatedEncounterConditionSummaryList>(exampleJson)
@@ -75,7 +75,7 @@ namespace Org.OpenAPITools.Controllers
             //TODO: Uncomment the next line to return response 200 or use other options such as return this.NotFound(), return this.BadRequest(..), ...
             // return StatusCode(200, default);
             string exampleJson = null;
-            exampleJson = "{\n  \"names\" : [ {\n    \"name\" : \"name\",\n    \"language\" : {\n      \"name\" : \"name\",\n      \"url\" : \"https://openapi-generator.tech\"\n    }\n  }, {\n    \"name\" : \"name\",\n    \"language\" : {\n      \"name\" : \"name\",\n      \"url\" : \"https://openapi-generator.tech\"\n    }\n  } ],\n  \"values\" : [ {\n    \"name\" : \"name\",\n    \"url\" : \"https://openapi-generator.tech\"\n  }, {\n    \"name\" : \"name\",\n    \"url\" : \"https://openapi-generator.tech\"\n  } ],\n  \"name\" : \"name\",\n  \"id\" : 0\n}";
+            exampleJson = "{\n  \"id\" : 0,\n  \"name\" : \"name\",\n  \"values\" : [ {\n    \"name\" : \"name\",\n    \"url\" : \"https://openapi-generator.tech\"\n  }, {\n    \"name\" : \"name\",\n    \"url\" : \"https://openapi-generator.tech\"\n  } ],\n  \"names\" : [ {\n    \"name\" : \"name\",\n    \"language\" : {\n      \"name\" : \"name\",\n      \"url\" : \"https://openapi-generator.tech\"\n    }\n  }, {\n    \"name\" : \"name\",\n    \"language\" : {\n      \"name\" : \"name\",\n      \"url\" : \"https://openapi-generator.tech\"\n    }\n  } ]\n}";
             
             var example = exampleJson != null
             ? JsonConvert.DeserializeObject<EncounterConditionDetail>(exampleJson)
@@ -104,7 +104,7 @@ namespace Org.OpenAPITools.Controllers
             //TODO: Uncomment the next line to return response 200 or use other options such as return this.NotFound(), return this.BadRequest(..), ...
             // return StatusCode(200, default);
             string exampleJson = null;
-            exampleJson = "{\n  \"next\" : \"http://api.example.org/accounts/?offset=400&limit=100\",\n  \"previous\" : \"http://api.example.org/accounts/?offset=200&limit=100\",\n  \"count\" : 123,\n  \"results\" : [ {\n    \"name\" : \"name\",\n    \"url\" : \"https://openapi-generator.tech\"\n  }, {\n    \"name\" : \"name\",\n    \"url\" : \"https://openapi-generator.tech\"\n  } ]\n}";
+            exampleJson = "{\n  \"count\" : 123,\n  \"next\" : \"http://api.example.org/accounts/?offset=400&limit=100\",\n  \"previous\" : \"http://api.example.org/accounts/?offset=200&limit=100\",\n  \"results\" : [ {\n    \"name\" : \"name\",\n    \"url\" : \"https://openapi-generator.tech\"\n  }, {\n    \"name\" : \"name\",\n    \"url\" : \"https://openapi-generator.tech\"\n  } ]\n}";
             
             var example = exampleJson != null
             ? JsonConvert.DeserializeObject<PaginatedEncounterConditionValueSummaryList>(exampleJson)
@@ -131,7 +131,7 @@ namespace Org.OpenAPITools.Controllers
             //TODO: Uncomment the next line to return response 200 or use other options such as return this.NotFound(), return this.BadRequest(..), ...
             // return StatusCode(200, default);
             string exampleJson = null;
-            exampleJson = "{\n  \"condition\" : {\n    \"name\" : \"name\",\n    \"url\" : \"https://openapi-generator.tech\"\n  },\n  \"names\" : [ {\n    \"name\" : \"name\",\n    \"language\" : {\n      \"name\" : \"name\",\n      \"url\" : \"https://openapi-generator.tech\"\n    }\n  }, {\n    \"name\" : \"name\",\n    \"language\" : {\n      \"name\" : \"name\",\n      \"url\" : \"https://openapi-generator.tech\"\n    }\n  } ],\n  \"name\" : \"name\",\n  \"id\" : 0\n}";
+            exampleJson = "{\n  \"id\" : 0,\n  \"name\" : \"name\",\n  \"condition\" : {\n    \"name\" : \"name\",\n    \"url\" : \"https://openapi-generator.tech\"\n  },\n  \"names\" : [ {\n    \"name\" : \"name\",\n    \"language\" : {\n      \"name\" : \"name\",\n      \"url\" : \"https://openapi-generator.tech\"\n    }\n  }, {\n    \"name\" : \"name\",\n    \"language\" : {\n      \"name\" : \"name\",\n      \"url\" : \"https://openapi-generator.tech\"\n    }\n  } ]\n}";
             
             var example = exampleJson != null
             ? JsonConvert.DeserializeObject<EncounterConditionValueDetail>(exampleJson)
@@ -160,7 +160,7 @@ namespace Org.OpenAPITools.Controllers
             //TODO: Uncomment the next line to return response 200 or use other options such as return this.NotFound(), return this.BadRequest(..), ...
             // return StatusCode(200, default);
             string exampleJson = null;
-            exampleJson = "{\n  \"next\" : \"http://api.example.org/accounts/?offset=400&limit=100\",\n  \"previous\" : \"http://api.example.org/accounts/?offset=200&limit=100\",\n  \"count\" : 123,\n  \"results\" : [ {\n    \"name\" : \"name\",\n    \"url\" : \"https://openapi-generator.tech\"\n  }, {\n    \"name\" : \"name\",\n    \"url\" : \"https://openapi-generator.tech\"\n  } ]\n}";
+            exampleJson = "{\n  \"count\" : 123,\n  \"next\" : \"http://api.example.org/accounts/?offset=400&limit=100\",\n  \"previous\" : \"http://api.example.org/accounts/?offset=200&limit=100\",\n  \"results\" : [ {\n    \"name\" : \"name\",\n    \"url\" : \"https://openapi-generator.tech\"\n  }, {\n    \"name\" : \"name\",\n    \"url\" : \"https://openapi-generator.tech\"\n  } ]\n}";
             
             var example = exampleJson != null
             ? JsonConvert.DeserializeObject<PaginatedEncounterMethodSummaryList>(exampleJson)
@@ -187,7 +187,7 @@ namespace Org.OpenAPITools.Controllers
             //TODO: Uncomment the next line to return response 200 or use other options such as return this.NotFound(), return this.BadRequest(..), ...
             // return StatusCode(200, default);
             string exampleJson = null;
-            exampleJson = "{\n  \"names\" : [ {\n    \"name\" : \"name\",\n    \"language\" : {\n      \"name\" : \"name\",\n      \"url\" : \"https://openapi-generator.tech\"\n    }\n  }, {\n    \"name\" : \"name\",\n    \"language\" : {\n      \"name\" : \"name\",\n      \"url\" : \"https://openapi-generator.tech\"\n    }\n  } ],\n  \"name\" : \"name\",\n  \"id\" : 0,\n  \"order\" : 6\n}";
+            exampleJson = "{\n  \"id\" : 0,\n  \"name\" : \"name\",\n  \"order\" : 6,\n  \"names\" : [ {\n    \"name\" : \"name\",\n    \"language\" : {\n      \"name\" : \"name\",\n      \"url\" : \"https://openapi-generator.tech\"\n    }\n  }, {\n    \"name\" : \"name\",\n    \"language\" : {\n      \"name\" : \"name\",\n      \"url\" : \"https://openapi-generator.tech\"\n    }\n  } ]\n}";
             
             var example = exampleJson != null
             ? JsonConvert.DeserializeObject<EncounterMethodDetail>(exampleJson)

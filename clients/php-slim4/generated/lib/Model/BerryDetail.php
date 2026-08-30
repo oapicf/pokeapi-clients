@@ -79,9 +79,11 @@ class BerryDetail extends BaseModel
     },
     "flavors" : {
       "type" : "array",
+      "readOnly" : true,
       "items" : {
         "$ref" : "#/components/schemas/BerryDetail_flavors_inner"
-      }
+      },
+      "default" : null
     },
     "item" : {
       "$ref" : "#/components/schemas/ItemSummary"

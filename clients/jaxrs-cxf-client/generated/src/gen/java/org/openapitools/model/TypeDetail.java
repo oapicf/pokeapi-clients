@@ -125,19 +125,6 @@ public class TypeDetail  {
     return pastDamageRelations;
   }
 
-  public void setPastDamageRelations(List<TypeDetailPastDamageRelationsInner> pastDamageRelations) {
-    this.pastDamageRelations = pastDamageRelations;
-  }
-
-  public TypeDetail pastDamageRelations(List<TypeDetailPastDamageRelationsInner> pastDamageRelations) {
-    this.pastDamageRelations = pastDamageRelations;
-    return this;
-  }
-
-  public TypeDetail addPastDamageRelationsItem(TypeDetailPastDamageRelationsInner pastDamageRelationsItem) {
-    this.pastDamageRelations.add(pastDamageRelationsItem);
-    return this;
-  }
 
  /**
    * Get gameIndices
@@ -148,19 +135,6 @@ public class TypeDetail  {
     return gameIndices;
   }
 
-  public void setGameIndices(List<TypeGameIndex> gameIndices) {
-    this.gameIndices = gameIndices;
-  }
-
-  public TypeDetail gameIndices(List<TypeGameIndex> gameIndices) {
-    this.gameIndices = gameIndices;
-    return this;
-  }
-
-  public TypeDetail addGameIndicesItem(TypeGameIndex gameIndicesItem) {
-    this.gameIndices.add(gameIndicesItem);
-    return this;
-  }
 
  /**
    * Get generation
@@ -207,19 +181,6 @@ public class TypeDetail  {
     return names;
   }
 
-  public void setNames(List<AbilityName> names) {
-    this.names = names;
-  }
-
-  public TypeDetail names(List<AbilityName> names) {
-    this.names = names;
-    return this;
-  }
-
-  public TypeDetail addNamesItem(AbilityName namesItem) {
-    this.names.add(namesItem);
-    return this;
-  }
 
  /**
    * Get pokemon
@@ -230,19 +191,6 @@ public class TypeDetail  {
     return pokemon;
   }
 
-  public void setPokemon(List<TypeDetailPokemonInner> pokemon) {
-    this.pokemon = pokemon;
-  }
-
-  public TypeDetail pokemon(List<TypeDetailPokemonInner> pokemon) {
-    this.pokemon = pokemon;
-    return this;
-  }
-
-  public TypeDetail addPokemonItem(TypeDetailPokemonInner pokemonItem) {
-    this.pokemon.add(pokemonItem);
-    return this;
-  }
 
  /**
    * Get moves
@@ -253,19 +201,6 @@ public class TypeDetail  {
     return moves;
   }
 
-  public void setMoves(List<MoveSummary> moves) {
-    this.moves = moves;
-  }
-
-  public TypeDetail moves(List<MoveSummary> moves) {
-    this.moves = moves;
-    return this;
-  }
-
-  public TypeDetail addMovesItem(MoveSummary movesItem) {
-    this.moves.add(movesItem);
-    return this;
-  }
 
  /**
    * Get sprites
@@ -329,10 +264,7 @@ public class TypeDetail  {
    * (except the first line).
    */
   private static String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 }
 

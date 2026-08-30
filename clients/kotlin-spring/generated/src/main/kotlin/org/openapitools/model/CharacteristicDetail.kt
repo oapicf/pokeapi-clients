@@ -25,21 +25,26 @@ import io.swagger.v3.oas.annotations.media.Schema
  */
 data class CharacteristicDetail(
 
-    @Schema(example = "null", required = true, readOnly = true, description = "")
+    @Schema(required = true, readOnly = true, description = "")
+    @param:JsonProperty("id")
     @get:JsonProperty("id", required = true) val id: kotlin.Int,
 
-    @Schema(example = "null", required = true, description = "")
+    @Schema(required = true, description = "")
+    @param:JsonProperty("gene_modulo")
     @get:JsonProperty("gene_modulo", required = true) val geneModulo: kotlin.Int,
 
-    @Schema(example = "null", required = true, description = "")
+    @Schema(required = true, readOnly = true, description = "")
+    @param:JsonProperty("possible_values")
     @get:JsonProperty("possible_values", required = true) val possibleValues: kotlin.collections.List<kotlin.Int>,
 
     @field:Valid
-    @Schema(example = "null", required = true, description = "")
+    @Schema(required = true, description = "")
+    @param:JsonProperty("highest_stat")
     @get:JsonProperty("highest_stat", required = true) val highestStat: StatSummary,
 
     @field:Valid
-    @Schema(example = "null", required = true, description = "")
+    @Schema(required = true, readOnly = true, description = "")
+    @param:JsonProperty("descriptions")
     @get:JsonProperty("descriptions", required = true) val descriptions: kotlin.collections.List<CharacteristicDescription>
 ) {
 

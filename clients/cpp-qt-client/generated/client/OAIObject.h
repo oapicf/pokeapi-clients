@@ -23,7 +23,7 @@ class OAIObject {
 public:
     OAIObject() {}
 
-    OAIObject(QString jsonString) {
+    OAIObject(const QString &jsonString) {
         fromJson(jsonString);
     }
 
@@ -38,7 +38,7 @@ public:
         return doc.toJson(QJsonDocument::Compact);
     }
 
-    virtual void fromJson(QString jsonString) {
+    virtual void fromJson(const QString &jsonString) {
         QJsonDocument doc = QJsonDocument::fromJson(jsonString.toUtf8());
         jObj = doc.object();
     }

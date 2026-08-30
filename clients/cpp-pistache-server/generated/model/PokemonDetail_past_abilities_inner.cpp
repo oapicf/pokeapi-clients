@@ -24,6 +24,8 @@ PokemonDetail_past_abilities_inner::PokemonDetail_past_abilities_inner()
     
 }
 
+PokemonDetail_past_abilities_inner::~PokemonDetail_past_abilities_inner() = default;
+
 void PokemonDetail_past_abilities_inner::validate() const
 {
     std::stringstream msg;

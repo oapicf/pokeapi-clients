@@ -47,7 +47,7 @@ class LocationAreaDetailPokemonEncountersInnerVersionDetailsInnerEncounterDetail
      * @var int|null
      * @SerializedName("min_level")
      * @Type("int")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Type("int")]
     protected ?int $minLevel = null;
@@ -56,7 +56,7 @@ class LocationAreaDetailPokemonEncountersInnerVersionDetailsInnerEncounterDetail
      * @var int|null
      * @SerializedName("max_level")
      * @Type("int")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Type("int")]
     protected ?int $maxLevel = null;
@@ -65,7 +65,7 @@ class LocationAreaDetailPokemonEncountersInnerVersionDetailsInnerEncounterDetail
      * @var AbilityDetailPokemonInnerPokemon|null
      * @SerializedName("condition_values")
      * @Type("OpenAPI\Server\Model\AbilityDetailPokemonInnerPokemon")
-    */
+     */
     #[Assert\Type("OpenAPI\Server\Model\AbilityDetailPokemonInnerPokemon")]
     protected ?AbilityDetailPokemonInnerPokemon $conditionValues = null;
 
@@ -73,7 +73,7 @@ class LocationAreaDetailPokemonEncountersInnerVersionDetailsInnerEncounterDetail
      * @var int|null
      * @SerializedName("chance")
      * @Type("int")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Type("int")]
     protected ?int $chance = null;
@@ -82,7 +82,7 @@ class LocationAreaDetailPokemonEncountersInnerVersionDetailsInnerEncounterDetail
      * @var AbilityDetailPokemonInnerPokemon|null
      * @SerializedName("method")
      * @Type("OpenAPI\Server\Model\AbilityDetailPokemonInnerPokemon")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Valid]
     #[Assert\Type("OpenAPI\Server\Model\AbilityDetailPokemonInnerPokemon")]
@@ -114,12 +114,12 @@ class LocationAreaDetailPokemonEncountersInnerVersionDetailsInnerEncounterDetail
     }
 
     /**
-    * Sets minLevel.
-    *
-    * @param int|null $minLevel
-    *
-    * @return $this
-    */
+     * Sets minLevel.
+     *
+     * @param int|null $minLevel
+     *
+     * @return $this
+     */
     public function setMinLevel(?int $minLevel): self
     {
         $this->minLevel = $minLevel;
@@ -141,12 +141,12 @@ class LocationAreaDetailPokemonEncountersInnerVersionDetailsInnerEncounterDetail
     }
 
     /**
-    * Sets maxLevel.
-    *
-    * @param int|null $maxLevel
-    *
-    * @return $this
-    */
+     * Sets maxLevel.
+     *
+     * @param int|null $maxLevel
+     *
+     * @return $this
+     */
     public function setMaxLevel(?int $maxLevel): self
     {
         $this->maxLevel = $maxLevel;
@@ -168,12 +168,12 @@ class LocationAreaDetailPokemonEncountersInnerVersionDetailsInnerEncounterDetail
     }
 
     /**
-    * Sets conditionValues.
-    *
-    * @param AbilityDetailPokemonInnerPokemon|null $conditionValues
-    *
-    * @return $this
-    */
+     * Sets conditionValues.
+     *
+     * @param AbilityDetailPokemonInnerPokemon|null $conditionValues
+     *
+     * @return $this
+     */
     public function setConditionValues(?AbilityDetailPokemonInnerPokemon $conditionValues = null): self
     {
         $this->conditionValues = $conditionValues;
@@ -195,12 +195,12 @@ class LocationAreaDetailPokemonEncountersInnerVersionDetailsInnerEncounterDetail
     }
 
     /**
-    * Sets chance.
-    *
-    * @param int|null $chance
-    *
-    * @return $this
-    */
+     * Sets chance.
+     *
+     * @param int|null $chance
+     *
+     * @return $this
+     */
     public function setChance(?int $chance): self
     {
         $this->chance = $chance;
@@ -222,12 +222,12 @@ class LocationAreaDetailPokemonEncountersInnerVersionDetailsInnerEncounterDetail
     }
 
     /**
-    * Sets method.
-    *
-    * @param AbilityDetailPokemonInnerPokemon|null $method
-    *
-    * @return $this
-    */
+     * Sets method.
+     *
+     * @param AbilityDetailPokemonInnerPokemon|null $method
+     *
+     * @return $this
+     */
     public function setMethod(?AbilityDetailPokemonInnerPokemon $method): self
     {
         $this->method = $method;

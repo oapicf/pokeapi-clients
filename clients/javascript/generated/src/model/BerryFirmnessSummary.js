@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The BerryFirmnessSummary model module.
  * @module model/BerryFirmnessSummary
- * @version 1.2.1-pre.0
+ * @version 2.0.1-pre.0
  */
 class BerryFirmnessSummary {
     /**

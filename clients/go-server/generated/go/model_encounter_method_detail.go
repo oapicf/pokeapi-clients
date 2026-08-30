@@ -12,6 +12,11 @@
 package openapi
 
 
+import (
+	"encoding/json"
+	"fmt"
+)
+
 
 
 type EncounterMethodDetail struct {
@@ -24,34 +29,84 @@ type EncounterMethodDetail struct {
 
 	Names []EncounterMethodName `json:"names"`
 }
-
-// AssertEncounterMethodDetailRequired checks if the required fields are not zero-ed
-func AssertEncounterMethodDetailRequired(obj EncounterMethodDetail) error {
-	elements := map[string]interface{}{
-		"id": obj.Id,
-		"name": obj.Name,
-		"names": obj.Names,
+// UnmarshalJSON validates required property keys then unmarshals into EncounterMethodDetail
+func (o *EncounterMethodDetail) UnmarshalJSON(data []byte) (err error) {
+	// Presence is checked against required fields that exist on this struct,
+	// including fields promoted from embedded allOf parents.
+	requiredProperties := []string{
+		"name",
 	}
-	for name, el := range elements {
-		if isZero := IsZeroValue(el); isZero {
-			return &RequiredError{Field: name}
+
+	requiredNullableProperties := map[string]bool{
+		"name": false,
+	}
+
+	allowedJsonKeys := map[string]struct{}{
+		"id": {},
+		"name": {},
+		"order": {},
+		"names": {},
+	}
+
+	allProperties := make(map[string]json.RawMessage)
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err
+	}
+
+	for _, requiredProperty := range requiredProperties {
+		value, exists := allProperties[requiredProperty]
+		if !exists {
+			return &RequiredError{Field: requiredProperty}
+		}
+		if string(value) == "null" && !requiredNullableProperties[requiredProperty] {
+			return &RequiredError{Field: requiredProperty}
 		}
 	}
 
-	for _, el := range obj.Names {
-		if err := AssertEncounterMethodNameRequired(el); err != nil {
+	for key := range allProperties {
+		if _, exists := allowedJsonKeys[key]; !exists {
+			return fmt.Errorf("json: unknown field %q", key)
+		}
+	}
+
+	var decoded EncounterMethodDetail
+
+	if value, exists := allProperties["id"]; exists {
+		if err = json.Unmarshal(value, &decoded.Id); err != nil {
 			return err
 		}
 	}
+	if value, exists := allProperties["name"]; exists {
+		if err = json.Unmarshal(value, &decoded.Name); err != nil {
+			return err
+		}
+	}
+	if value, exists := allProperties["order"]; exists {
+		if err = json.Unmarshal(value, &decoded.Order); err != nil {
+			return err
+		}
+	}
+	if value, exists := allProperties["names"]; exists {
+		if err = json.Unmarshal(value, &decoded.Names); err != nil {
+			return err
+		}
+	}
+
+	*o = decoded
+
+	return nil
+}
+
+// AssertEncounterMethodDetailRequired checks complex required fields (models, arrays, maps) and embedded parents.
+// Primitive required fields are validated for JSON request bodies in UnmarshalJSON so zero values remain valid.
+func AssertEncounterMethodDetailRequired(obj EncounterMethodDetail) error {
 	return nil
 }
 
 // AssertEncounterMethodDetailConstraints checks if the values respects the defined constraints
 func AssertEncounterMethodDetailConstraints(obj EncounterMethodDetail) error {
-	for _, el := range obj.Names {
-		if err := AssertEncounterMethodNameConstraints(el); err != nil {
-			return err
-		}
-	}
 	return nil
 }

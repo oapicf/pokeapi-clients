@@ -26,6 +26,8 @@ PokemonShapeSummary::PokemonShapeSummary()
     
 }
 
+PokemonShapeSummary::~PokemonShapeSummary() = default;
+
 void PokemonShapeSummary::validate() const
 {
     std::stringstream msg;

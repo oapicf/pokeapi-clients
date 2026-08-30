@@ -53,10 +53,10 @@ class MoveLearnMethodName {
       // Note 1: the values aren't checked for validity beyond being non-null.
       // Note 2: this code is stripped in release mode!
       assert(() {
-        requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "MoveLearnMethodName[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "MoveLearnMethodName[$key]" has a null value in JSON.');
-        });
+        assert(json.containsKey(r'name'), 'Required key "MoveLearnMethodName[name]" is missing from JSON.');
+        assert(json[r'name'] != null, 'Required key "MoveLearnMethodName[name]" has a null value in JSON.');
+        assert(json.containsKey(r'language'), 'Required key "MoveLearnMethodName[language]" is missing from JSON.');
+        assert(json[r'language'] != null, 'Required key "MoveLearnMethodName[language]" has a null value in JSON.');
         return true;
       }());
 

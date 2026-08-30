@@ -123,19 +123,19 @@ class PokemonController extends Controller
 
         // Validate the input values
         $asserts = [];
-        $asserts[] = new Assert\Type("int");
+        $asserts[] = new Assert\Type('int');
         $response = $this->validate($limit, $asserts);
         if ($response instanceof Response) {
             return $response;
         }
         $asserts = [];
-        $asserts[] = new Assert\Type("int");
+        $asserts[] = new Assert\Type('int');
         $response = $this->validate($offset, $asserts);
         if ($response instanceof Response) {
             return $response;
         }
         $asserts = [];
-        $asserts[] = new Assert\Type("string");
+        $asserts[] = new Assert\Type('string');
         $response = $this->validate($q, $asserts);
         if ($response instanceof Response) {
             return $response;
@@ -216,7 +216,7 @@ class PokemonController extends Controller
         // Validate the input values
         $asserts = [];
         $asserts[] = new Assert\NotNull();
-        $asserts[] = new Assert\Type("string");
+        $asserts[] = new Assert\Type('string');
         $response = $this->validate($id, $asserts);
         if ($response instanceof Response) {
             return $response;
@@ -303,19 +303,19 @@ class PokemonController extends Controller
 
         // Validate the input values
         $asserts = [];
-        $asserts[] = new Assert\Type("int");
+        $asserts[] = new Assert\Type('int');
         $response = $this->validate($limit, $asserts);
         if ($response instanceof Response) {
             return $response;
         }
         $asserts = [];
-        $asserts[] = new Assert\Type("int");
+        $asserts[] = new Assert\Type('int');
         $response = $this->validate($offset, $asserts);
         if ($response instanceof Response) {
             return $response;
         }
         $asserts = [];
-        $asserts[] = new Assert\Type("string");
+        $asserts[] = new Assert\Type('string');
         $response = $this->validate($q, $asserts);
         if ($response instanceof Response) {
             return $response;
@@ -398,7 +398,7 @@ class PokemonController extends Controller
         // Validate the input values
         $asserts = [];
         $asserts[] = new Assert\NotNull();
-        $asserts[] = new Assert\Type("string");
+        $asserts[] = new Assert\Type('string');
         $response = $this->validate($id, $asserts);
         if ($response instanceof Response) {
             return $response;
@@ -485,19 +485,19 @@ class PokemonController extends Controller
 
         // Validate the input values
         $asserts = [];
-        $asserts[] = new Assert\Type("int");
+        $asserts[] = new Assert\Type('int');
         $response = $this->validate($limit, $asserts);
         if ($response instanceof Response) {
             return $response;
         }
         $asserts = [];
-        $asserts[] = new Assert\Type("int");
+        $asserts[] = new Assert\Type('int');
         $response = $this->validate($offset, $asserts);
         if ($response instanceof Response) {
             return $response;
         }
         $asserts = [];
-        $asserts[] = new Assert\Type("string");
+        $asserts[] = new Assert\Type('string');
         $response = $this->validate($q, $asserts);
         if ($response instanceof Response) {
             return $response;
@@ -580,7 +580,7 @@ class PokemonController extends Controller
         // Validate the input values
         $asserts = [];
         $asserts[] = new Assert\NotNull();
-        $asserts[] = new Assert\Type("string");
+        $asserts[] = new Assert\Type('string');
         $response = $this->validate($id, $asserts);
         if ($response instanceof Response) {
             return $response;
@@ -667,19 +667,19 @@ class PokemonController extends Controller
 
         // Validate the input values
         $asserts = [];
-        $asserts[] = new Assert\Type("int");
+        $asserts[] = new Assert\Type('int');
         $response = $this->validate($limit, $asserts);
         if ($response instanceof Response) {
             return $response;
         }
         $asserts = [];
-        $asserts[] = new Assert\Type("int");
+        $asserts[] = new Assert\Type('int');
         $response = $this->validate($offset, $asserts);
         if ($response instanceof Response) {
             return $response;
         }
         $asserts = [];
-        $asserts[] = new Assert\Type("string");
+        $asserts[] = new Assert\Type('string');
         $response = $this->validate($q, $asserts);
         if ($response instanceof Response) {
             return $response;
@@ -762,7 +762,7 @@ class PokemonController extends Controller
         // Validate the input values
         $asserts = [];
         $asserts[] = new Assert\NotNull();
-        $asserts[] = new Assert\Type("string");
+        $asserts[] = new Assert\Type('string');
         $response = $this->validate($id, $asserts);
         if ($response instanceof Response) {
             return $response;
@@ -849,19 +849,19 @@ class PokemonController extends Controller
 
         // Validate the input values
         $asserts = [];
-        $asserts[] = new Assert\Type("int");
+        $asserts[] = new Assert\Type('int');
         $response = $this->validate($limit, $asserts);
         if ($response instanceof Response) {
             return $response;
         }
         $asserts = [];
-        $asserts[] = new Assert\Type("int");
+        $asserts[] = new Assert\Type('int');
         $response = $this->validate($offset, $asserts);
         if ($response instanceof Response) {
             return $response;
         }
         $asserts = [];
-        $asserts[] = new Assert\Type("string");
+        $asserts[] = new Assert\Type('string');
         $response = $this->validate($q, $asserts);
         if ($response instanceof Response) {
             return $response;
@@ -944,7 +944,7 @@ class PokemonController extends Controller
         // Validate the input values
         $asserts = [];
         $asserts[] = new Assert\NotNull();
-        $asserts[] = new Assert\Type("string");
+        $asserts[] = new Assert\Type('string');
         $response = $this->validate($id, $asserts);
         if ($response instanceof Response) {
             return $response;
@@ -1031,19 +1031,19 @@ class PokemonController extends Controller
 
         // Validate the input values
         $asserts = [];
-        $asserts[] = new Assert\Type("int");
+        $asserts[] = new Assert\Type('int');
         $response = $this->validate($limit, $asserts);
         if ($response instanceof Response) {
             return $response;
         }
         $asserts = [];
-        $asserts[] = new Assert\Type("int");
+        $asserts[] = new Assert\Type('int');
         $response = $this->validate($offset, $asserts);
         if ($response instanceof Response) {
             return $response;
         }
         $asserts = [];
-        $asserts[] = new Assert\Type("string");
+        $asserts[] = new Assert\Type('string');
         $response = $this->validate($q, $asserts);
         if ($response instanceof Response) {
             return $response;
@@ -1126,7 +1126,7 @@ class PokemonController extends Controller
         // Validate the input values
         $asserts = [];
         $asserts[] = new Assert\NotNull();
-        $asserts[] = new Assert\Type("string");
+        $asserts[] = new Assert\Type('string');
         $response = $this->validate($id, $asserts);
         if ($response instanceof Response) {
             return $response;
@@ -1213,19 +1213,19 @@ class PokemonController extends Controller
 
         // Validate the input values
         $asserts = [];
-        $asserts[] = new Assert\Type("int");
+        $asserts[] = new Assert\Type('int');
         $response = $this->validate($limit, $asserts);
         if ($response instanceof Response) {
             return $response;
         }
         $asserts = [];
-        $asserts[] = new Assert\Type("int");
+        $asserts[] = new Assert\Type('int');
         $response = $this->validate($offset, $asserts);
         if ($response instanceof Response) {
             return $response;
         }
         $asserts = [];
-        $asserts[] = new Assert\Type("string");
+        $asserts[] = new Assert\Type('string');
         $response = $this->validate($q, $asserts);
         if ($response instanceof Response) {
             return $response;
@@ -1308,7 +1308,7 @@ class PokemonController extends Controller
         // Validate the input values
         $asserts = [];
         $asserts[] = new Assert\NotNull();
-        $asserts[] = new Assert\Type("string");
+        $asserts[] = new Assert\Type('string');
         $response = $this->validate($id, $asserts);
         if ($response instanceof Response) {
             return $response;
@@ -1395,19 +1395,19 @@ class PokemonController extends Controller
 
         // Validate the input values
         $asserts = [];
-        $asserts[] = new Assert\Type("int");
+        $asserts[] = new Assert\Type('int');
         $response = $this->validate($limit, $asserts);
         if ($response instanceof Response) {
             return $response;
         }
         $asserts = [];
-        $asserts[] = new Assert\Type("int");
+        $asserts[] = new Assert\Type('int');
         $response = $this->validate($offset, $asserts);
         if ($response instanceof Response) {
             return $response;
         }
         $asserts = [];
-        $asserts[] = new Assert\Type("string");
+        $asserts[] = new Assert\Type('string');
         $response = $this->validate($q, $asserts);
         if ($response instanceof Response) {
             return $response;
@@ -1490,7 +1490,7 @@ class PokemonController extends Controller
         // Validate the input values
         $asserts = [];
         $asserts[] = new Assert\NotNull();
-        $asserts[] = new Assert\Type("string");
+        $asserts[] = new Assert\Type('string');
         $response = $this->validate($id, $asserts);
         if ($response instanceof Response) {
             return $response;
@@ -1577,19 +1577,19 @@ class PokemonController extends Controller
 
         // Validate the input values
         $asserts = [];
-        $asserts[] = new Assert\Type("int");
+        $asserts[] = new Assert\Type('int');
         $response = $this->validate($limit, $asserts);
         if ($response instanceof Response) {
             return $response;
         }
         $asserts = [];
-        $asserts[] = new Assert\Type("int");
+        $asserts[] = new Assert\Type('int');
         $response = $this->validate($offset, $asserts);
         if ($response instanceof Response) {
             return $response;
         }
         $asserts = [];
-        $asserts[] = new Assert\Type("string");
+        $asserts[] = new Assert\Type('string');
         $response = $this->validate($q, $asserts);
         if ($response instanceof Response) {
             return $response;
@@ -1672,7 +1672,7 @@ class PokemonController extends Controller
         // Validate the input values
         $asserts = [];
         $asserts[] = new Assert\NotNull();
-        $asserts[] = new Assert\Type("string");
+        $asserts[] = new Assert\Type('string');
         $response = $this->validate($id, $asserts);
         if ($response instanceof Response) {
             return $response;
@@ -1759,19 +1759,19 @@ class PokemonController extends Controller
 
         // Validate the input values
         $asserts = [];
-        $asserts[] = new Assert\Type("int");
+        $asserts[] = new Assert\Type('int');
         $response = $this->validate($limit, $asserts);
         if ($response instanceof Response) {
             return $response;
         }
         $asserts = [];
-        $asserts[] = new Assert\Type("int");
+        $asserts[] = new Assert\Type('int');
         $response = $this->validate($offset, $asserts);
         if ($response instanceof Response) {
             return $response;
         }
         $asserts = [];
-        $asserts[] = new Assert\Type("string");
+        $asserts[] = new Assert\Type('string');
         $response = $this->validate($q, $asserts);
         if ($response instanceof Response) {
             return $response;
@@ -1854,7 +1854,7 @@ class PokemonController extends Controller
         // Validate the input values
         $asserts = [];
         $asserts[] = new Assert\NotNull();
-        $asserts[] = new Assert\Type("string");
+        $asserts[] = new Assert\Type('string');
         $response = $this->validate($id, $asserts);
         if ($response instanceof Response) {
             return $response;
@@ -1941,19 +1941,19 @@ class PokemonController extends Controller
 
         // Validate the input values
         $asserts = [];
-        $asserts[] = new Assert\Type("int");
+        $asserts[] = new Assert\Type('int');
         $response = $this->validate($limit, $asserts);
         if ($response instanceof Response) {
             return $response;
         }
         $asserts = [];
-        $asserts[] = new Assert\Type("int");
+        $asserts[] = new Assert\Type('int');
         $response = $this->validate($offset, $asserts);
         if ($response instanceof Response) {
             return $response;
         }
         $asserts = [];
-        $asserts[] = new Assert\Type("string");
+        $asserts[] = new Assert\Type('string');
         $response = $this->validate($q, $asserts);
         if ($response instanceof Response) {
             return $response;
@@ -2036,7 +2036,7 @@ class PokemonController extends Controller
         // Validate the input values
         $asserts = [];
         $asserts[] = new Assert\NotNull();
-        $asserts[] = new Assert\Type("string");
+        $asserts[] = new Assert\Type('string');
         $response = $this->validate($id, $asserts);
         if ($response instanceof Response) {
             return $response;
@@ -2123,19 +2123,19 @@ class PokemonController extends Controller
 
         // Validate the input values
         $asserts = [];
-        $asserts[] = new Assert\Type("int");
+        $asserts[] = new Assert\Type('int');
         $response = $this->validate($limit, $asserts);
         if ($response instanceof Response) {
             return $response;
         }
         $asserts = [];
-        $asserts[] = new Assert\Type("int");
+        $asserts[] = new Assert\Type('int');
         $response = $this->validate($offset, $asserts);
         if ($response instanceof Response) {
             return $response;
         }
         $asserts = [];
-        $asserts[] = new Assert\Type("string");
+        $asserts[] = new Assert\Type('string');
         $response = $this->validate($q, $asserts);
         if ($response instanceof Response) {
             return $response;
@@ -2218,7 +2218,7 @@ class PokemonController extends Controller
         // Validate the input values
         $asserts = [];
         $asserts[] = new Assert\NotNull();
-        $asserts[] = new Assert\Type("string");
+        $asserts[] = new Assert\Type('string');
         $response = $this->validate($id, $asserts);
         if ($response instanceof Response) {
             return $response;
@@ -2305,19 +2305,19 @@ class PokemonController extends Controller
 
         // Validate the input values
         $asserts = [];
-        $asserts[] = new Assert\Type("int");
+        $asserts[] = new Assert\Type('int');
         $response = $this->validate($limit, $asserts);
         if ($response instanceof Response) {
             return $response;
         }
         $asserts = [];
-        $asserts[] = new Assert\Type("int");
+        $asserts[] = new Assert\Type('int');
         $response = $this->validate($offset, $asserts);
         if ($response instanceof Response) {
             return $response;
         }
         $asserts = [];
-        $asserts[] = new Assert\Type("string");
+        $asserts[] = new Assert\Type('string');
         $response = $this->validate($q, $asserts);
         if ($response instanceof Response) {
             return $response;
@@ -2400,7 +2400,7 @@ class PokemonController extends Controller
         // Validate the input values
         $asserts = [];
         $asserts[] = new Assert\NotNull();
-        $asserts[] = new Assert\Type("string");
+        $asserts[] = new Assert\Type('string');
         $response = $this->validate($id, $asserts);
         if ($response instanceof Response) {
             return $response;
@@ -2487,19 +2487,19 @@ class PokemonController extends Controller
 
         // Validate the input values
         $asserts = [];
-        $asserts[] = new Assert\Type("int");
+        $asserts[] = new Assert\Type('int');
         $response = $this->validate($limit, $asserts);
         if ($response instanceof Response) {
             return $response;
         }
         $asserts = [];
-        $asserts[] = new Assert\Type("int");
+        $asserts[] = new Assert\Type('int');
         $response = $this->validate($offset, $asserts);
         if ($response instanceof Response) {
             return $response;
         }
         $asserts = [];
-        $asserts[] = new Assert\Type("string");
+        $asserts[] = new Assert\Type('string');
         $response = $this->validate($q, $asserts);
         if ($response instanceof Response) {
             return $response;
@@ -2582,7 +2582,7 @@ class PokemonController extends Controller
         // Validate the input values
         $asserts = [];
         $asserts[] = new Assert\NotNull();
-        $asserts[] = new Assert\Type("string");
+        $asserts[] = new Assert\Type('string');
         $response = $this->validate($id, $asserts);
         if ($response instanceof Response) {
             return $response;
@@ -2669,19 +2669,19 @@ class PokemonController extends Controller
 
         // Validate the input values
         $asserts = [];
-        $asserts[] = new Assert\Type("int");
+        $asserts[] = new Assert\Type('int');
         $response = $this->validate($limit, $asserts);
         if ($response instanceof Response) {
             return $response;
         }
         $asserts = [];
-        $asserts[] = new Assert\Type("int");
+        $asserts[] = new Assert\Type('int');
         $response = $this->validate($offset, $asserts);
         if ($response instanceof Response) {
             return $response;
         }
         $asserts = [];
-        $asserts[] = new Assert\Type("string");
+        $asserts[] = new Assert\Type('string');
         $response = $this->validate($q, $asserts);
         if ($response instanceof Response) {
             return $response;
@@ -2764,7 +2764,7 @@ class PokemonController extends Controller
         // Validate the input values
         $asserts = [];
         $asserts[] = new Assert\NotNull();
-        $asserts[] = new Assert\Type("string");
+        $asserts[] = new Assert\Type('string');
         $response = $this->validate($id, $asserts);
         if ($response instanceof Response) {
             return $response;
@@ -2851,19 +2851,19 @@ class PokemonController extends Controller
 
         // Validate the input values
         $asserts = [];
-        $asserts[] = new Assert\Type("int");
+        $asserts[] = new Assert\Type('int');
         $response = $this->validate($limit, $asserts);
         if ($response instanceof Response) {
             return $response;
         }
         $asserts = [];
-        $asserts[] = new Assert\Type("int");
+        $asserts[] = new Assert\Type('int');
         $response = $this->validate($offset, $asserts);
         if ($response instanceof Response) {
             return $response;
         }
         $asserts = [];
-        $asserts[] = new Assert\Type("string");
+        $asserts[] = new Assert\Type('string');
         $response = $this->validate($q, $asserts);
         if ($response instanceof Response) {
             return $response;
@@ -2946,7 +2946,7 @@ class PokemonController extends Controller
         // Validate the input values
         $asserts = [];
         $asserts[] = new Assert\NotNull();
-        $asserts[] = new Assert\Type("string");
+        $asserts[] = new Assert\Type('string');
         $response = $this->validate($id, $asserts);
         if ($response instanceof Response) {
             return $response;

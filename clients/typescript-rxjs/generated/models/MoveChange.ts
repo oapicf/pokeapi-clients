@@ -46,7 +46,7 @@ export interface MoveChange {
      * @type {Array<MoveChangeEffectEntriesInner>}
      * @memberof MoveChange
      */
-    effect_entries: Array<MoveChangeEffectEntriesInner>;
+    readonly effect_entries: Array<MoveChangeEffectEntriesInner>;
     /**
      * @type {TypeSummary}
      * @memberof MoveChange

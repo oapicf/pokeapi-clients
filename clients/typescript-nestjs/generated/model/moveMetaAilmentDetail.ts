@@ -16,7 +16,7 @@ import { MoveMetaAilmentName } from './moveMetaAilmentName';
 export interface MoveMetaAilmentDetail { 
     readonly id: number;
     name: string;
-    moves: Array<AbilityDetailPokemonInnerPokemon>;
-    names: Array<MoveMetaAilmentName>;
+    readonly moves: Array<AbilityDetailPokemonInnerPokemon>;
+    readonly names: Array<MoveMetaAilmentName>;
 }
 

@@ -31,6 +31,8 @@ PaginatedMoveTargetSummaryList::PaginatedMoveTargetSummaryList()
     
 }
 
+PaginatedMoveTargetSummaryList::~PaginatedMoveTargetSummaryList() = default;
+
 void PaginatedMoveTargetSummaryList::validate() const
 {
     std::stringstream msg;

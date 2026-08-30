@@ -7,8 +7,8 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **int** |  | [readonly] 
 **name** | **str** |  | 
-**pokemon_species_details** | [**List[GenderDetailPokemonSpeciesDetailsInner]**](GenderDetailPokemonSpeciesDetailsInner.md) |  | 
-**required_for_evolution** | [**List[AbilityDetailPokemonInnerPokemon]**](AbilityDetailPokemonInnerPokemon.md) |  | 
+**pokemon_species_details** | [**List[GenderDetailPokemonSpeciesDetailsInner]**](GenderDetailPokemonSpeciesDetailsInner.md) |  | [readonly] 
+**required_for_evolution** | [**List[AbilityDetailPokemonInnerPokemon]**](AbilityDetailPokemonInnerPokemon.md) |  | [readonly] 
 
 ## Example
 

@@ -58,21 +58,27 @@ class MoveLearnMethodDetail extends BaseModel
     },
     "names" : {
       "type" : "array",
+      "readOnly" : true,
       "items" : {
         "$ref" : "#/components/schemas/MoveLearnMethodName"
-      }
+      },
+      "default" : null
     },
     "descriptions" : {
       "type" : "array",
+      "readOnly" : true,
       "items" : {
         "$ref" : "#/components/schemas/MoveLearnMethodDescription"
-      }
+      },
+      "default" : null
     },
     "version_groups" : {
       "type" : "array",
+      "readOnly" : true,
       "items" : {
         "$ref" : "#/components/schemas/AbilityDetail_pokemon_inner_pokemon"
-      }
+      },
+      "default" : null
     }
   }
 }

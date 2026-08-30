@@ -63,8 +63,8 @@ export interface LocationAreaDetailPokemonEncountersInnerVersionDetailsInnerEnco
  * Check if a given object implements the LocationAreaDetailPokemonEncountersInnerVersionDetailsInnerEncounterDetails interface.
  */
 export function instanceOfLocationAreaDetailPokemonEncountersInnerVersionDetailsInnerEncounterDetails(value: object): value is LocationAreaDetailPokemonEncountersInnerVersionDetailsInnerEncounterDetails {
-    if (!('minLevel' in value) || value['minLevel'] === undefined) return false;
-    if (!('maxLevel' in value) || value['maxLevel'] === undefined) return false;
+    if ((!('minLevel' in (value as Record<string, any>)) && !('min_level' in (value as Record<string, any>))) || ((value as Record<string, any>)['minLevel'] === undefined && (value as Record<string, any>)['min_level'] === undefined)) return false;
+    if ((!('maxLevel' in (value as Record<string, any>)) && !('max_level' in (value as Record<string, any>))) || ((value as Record<string, any>)['maxLevel'] === undefined && (value as Record<string, any>)['max_level'] === undefined)) return false;
     if (!('chance' in value) || value['chance'] === undefined) return false;
     if (!('method' in value) || value['method'] === undefined) return false;
     return true;

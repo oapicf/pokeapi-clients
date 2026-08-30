@@ -33,7 +33,7 @@ class  EvolutionChainDetail
 {
 public:
     EvolutionChainDetail();
-    virtual ~EvolutionChainDetail() = default;
+    virtual ~EvolutionChainDetail();
 
 
     /// <summary>

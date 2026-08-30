@@ -36,7 +36,7 @@ function Initialize-PokemonFormDetailSprites {
 
 
         $PSO = [PSCustomObject]@{
-            "default" = ${Default}
+            'default' = ${Default}
         }
 
 
@@ -75,7 +75,7 @@ function ConvertFrom-JsonToPokemonFormDetailSprites {
         $PokemonFormDetailSpritesAdditionalProperties = @{}
 
         # check if Json contains properties not defined in PokemonFormDetailSprites
-        $AllProperties = ("default")
+        $AllProperties = ('default')
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             # store undefined properties in additionalProperties
             if (!($AllProperties.Contains($name))) {
@@ -83,15 +83,15 @@ function ConvertFrom-JsonToPokemonFormDetailSprites {
             }
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "default"))) { #optional property not found
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'default'))) { #optional property not found
             $Default = $null
         } else {
-            $Default = $JsonParameters.PSobject.Properties["default"].value
+            $Default = $JsonParameters.PSobject.Properties['default'].value
         }
 
         $PSO = [PSCustomObject]@{
-            "default" = ${Default}
-            "AdditionalProperties" = $PokemonFormDetailSpritesAdditionalProperties
+            'default' = ${Default}
+            'AdditionalProperties' = $PokemonFormDetailSpritesAdditionalProperties
         }
 
         return $PSO

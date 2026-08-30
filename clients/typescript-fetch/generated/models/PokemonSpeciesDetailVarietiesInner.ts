@@ -45,7 +45,7 @@ export interface PokemonSpeciesDetailVarietiesInner {
  * Check if a given object implements the PokemonSpeciesDetailVarietiesInner interface.
  */
 export function instanceOfPokemonSpeciesDetailVarietiesInner(value: object): value is PokemonSpeciesDetailVarietiesInner {
-    if (!('isDefault' in value) || value['isDefault'] === undefined) return false;
+    if ((!('isDefault' in (value as Record<string, any>)) && !('is_default' in (value as Record<string, any>))) || ((value as Record<string, any>)['isDefault'] === undefined && (value as Record<string, any>)['is_default'] === undefined)) return false;
     if (!('pokemon' in value) || value['pokemon'] === undefined) return false;
     return true;
 }

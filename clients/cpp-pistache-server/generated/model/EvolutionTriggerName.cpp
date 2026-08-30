@@ -25,6 +25,8 @@ EvolutionTriggerName::EvolutionTriggerName()
     
 }
 
+EvolutionTriggerName::~EvolutionTriggerName() = default;
+
 void EvolutionTriggerName::validate() const
 {
     std::stringstream msg;

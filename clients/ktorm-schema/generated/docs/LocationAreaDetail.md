@@ -8,10 +8,10 @@ Name | Mapping | SQL Type | Default | Type | Description | Notes
 **id** | id | int NOT NULL PRIMARY KEY AUTOINCREMENT |  | **kotlin.Int** |  |  [readonly]
 **name** | name | text NOT NULL |  | **kotlin.String** |  | 
 **gameIndex** | game_index | int NOT NULL |  | **kotlin.Int** |  | 
-**encounterMethodRates** | `One-To-Many` | `----` | `----`  | [**kotlin.Array&lt;LocationAreaDetailEncounterMethodRatesInner&gt;**](LocationAreaDetailEncounterMethodRatesInner.md) |  | 
+**encounterMethodRates** | `One-To-Many` | `----` | `----`  | [**kotlin.Array&lt;LocationAreaDetailEncounterMethodRatesInner&gt;**](LocationAreaDetailEncounterMethodRatesInner.md) |  |  [readonly]
 **location** | location | long NOT NULL |  | [**LocationSummary**](LocationSummary.md) |  |  [foreignkey]
-**names** | `One-To-Many` | `----` | `----`  | [**kotlin.Array&lt;LocationAreaName&gt;**](LocationAreaName.md) |  | 
-**pokemonEncounters** | `One-To-Many` | `----` | `----`  | [**kotlin.Array&lt;LocationAreaDetailPokemonEncountersInner&gt;**](LocationAreaDetailPokemonEncountersInner.md) |  | 
+**names** | `One-To-Many` | `----` | `----`  | [**kotlin.Array&lt;LocationAreaName&gt;**](LocationAreaName.md) |  |  [readonly]
+**pokemonEncounters** | `One-To-Many` | `----` | `----`  | [**kotlin.Array&lt;LocationAreaDetailPokemonEncountersInner&gt;**](LocationAreaDetailPokemonEncountersInner.md) |  |  [readonly]
 
 
 

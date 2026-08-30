@@ -212,6 +212,7 @@ public class StatDetail  {
 
   /**
    * Sets the <code>characteristics</code> property.
+   * <br><em>N.B. <code>characteristics</code> is <b>read only</b>; client code should not call this method</em>.
    */
  public void setCharacteristics(List<@Valid CharacteristicSummary> characteristics) {
     this.characteristics = characteristics;
@@ -219,6 +220,7 @@ public class StatDetail  {
 
   /**
    * Sets the <code>characteristics</code> property.
+   * <br><em>N.B. <code>characteristics</code> is <b>read only</b>; client code should not call this method</em>.
    */
   public StatDetail characteristics(List<@Valid CharacteristicSummary> characteristics) {
     this.characteristics = characteristics;
@@ -227,6 +229,7 @@ public class StatDetail  {
 
   /**
    * Adds a new item to the <code>characteristics</code> list.
+   * <br><em>N.B. <code>characteristics</code> is <b>read only</b>; client code should not call this method</em>.
    */
   public StatDetail addCharacteristicsItem(CharacteristicSummary characteristicsItem) {
     this.characteristics.add(characteristicsItem);
@@ -270,6 +273,7 @@ public class StatDetail  {
 
   /**
    * Sets the <code>names</code> property.
+   * <br><em>N.B. <code>names</code> is <b>read only</b>; client code should not call this method</em>.
    */
  public void setNames(List<@Valid StatName> names) {
     this.names = names;
@@ -277,6 +281,7 @@ public class StatDetail  {
 
   /**
    * Sets the <code>names</code> property.
+   * <br><em>N.B. <code>names</code> is <b>read only</b>; client code should not call this method</em>.
    */
   public StatDetail names(List<@Valid StatName> names) {
     this.names = names;
@@ -285,6 +290,7 @@ public class StatDetail  {
 
   /**
    * Adds a new item to the <code>names</code> list.
+   * <br><em>N.B. <code>names</code> is <b>read only</b>; client code should not call this method</em>.
    */
   public StatDetail addNamesItem(StatName namesItem) {
     this.names.add(namesItem);
@@ -340,10 +346,7 @@ public class StatDetail  {
    * (except the first line).
    */
   private static String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 }
 

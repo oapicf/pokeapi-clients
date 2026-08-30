@@ -85,7 +85,7 @@ EncounterMethodSummary::getName()
 }
 
 void
-EncounterMethodSummary::setName(std::string  name)
+EncounterMethodSummary::setName(std::string name)
 {
 	this->name = name;
 }
@@ -97,7 +97,7 @@ EncounterMethodSummary::getUrl()
 }
 
 void
-EncounterMethodSummary::setUrl(std::string  url)
+EncounterMethodSummary::setUrl(std::string url)
 {
 	this->url = url;
 }

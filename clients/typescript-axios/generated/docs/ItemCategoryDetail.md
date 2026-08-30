@@ -7,8 +7,8 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **number** |  | [readonly] [default to undefined]
 **name** | **string** |  | [default to undefined]
-**items** | [**Array&lt;ItemSummary&gt;**](ItemSummary.md) |  | [default to undefined]
-**names** | [**Array&lt;ItemCategoryName&gt;**](ItemCategoryName.md) |  | [default to undefined]
+**items** | [**Array&lt;ItemSummary&gt;**](ItemSummary.md) |  | [readonly] [default to undefined]
+**names** | [**Array&lt;ItemCategoryName&gt;**](ItemCategoryName.md) |  | [readonly] [default to undefined]
 **pocket** | [**ItemPocketSummary**](ItemPocketSummary.md) |  | [default to undefined]
 
 ## Example

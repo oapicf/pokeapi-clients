@@ -51,13 +51,13 @@ export interface PalParkAreaDetail {
      * @type {Array<PalParkAreaName>}
      * @memberof PalParkAreaDetail
      */
-    names: Array<PalParkAreaName>;
+    readonly names: Array<PalParkAreaName>;
     /**
      * 
      * @type {Array<PalParkAreaDetailPokemonEncountersInner>}
      * @memberof PalParkAreaDetail
      */
-    pokemonEncounters: Array<PalParkAreaDetailPokemonEncountersInner>;
+    readonly pokemonEncounters: Array<PalParkAreaDetailPokemonEncountersInner>;
 }
 
 /**
@@ -67,7 +67,7 @@ export function instanceOfPalParkAreaDetail(value: object): value is PalParkArea
     if (!('id' in value) || value['id'] === undefined) return false;
     if (!('name' in value) || value['name'] === undefined) return false;
     if (!('names' in value) || value['names'] === undefined) return false;
-    if (!('pokemonEncounters' in value) || value['pokemonEncounters'] === undefined) return false;
+    if ((!('pokemonEncounters' in (value as Record<string, any>)) && !('pokemon_encounters' in (value as Record<string, any>))) || ((value as Record<string, any>)['pokemonEncounters'] === undefined && (value as Record<string, any>)['pokemon_encounters'] === undefined)) return false;
     return true;
 }
 
@@ -92,7 +92,7 @@ export function PalParkAreaDetailToJSON(json: any): PalParkAreaDetail {
     return PalParkAreaDetailToJSONTyped(json, false);
 }
 
-export function PalParkAreaDetailToJSONTyped(value?: Omit<PalParkAreaDetail, 'id'> | null, ignoreDiscriminator: boolean = false): any {
+export function PalParkAreaDetailToJSONTyped(value?: Omit<PalParkAreaDetail, 'id'|'names'|'pokemonEncounters'> | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
@@ -100,8 +100,6 @@ export function PalParkAreaDetailToJSONTyped(value?: Omit<PalParkAreaDetail, 'id
     return {
         
         'name': value['name'],
-        'names': ((value['names'] as Array<any>).map(PalParkAreaNameToJSON)),
-        'pokemon_encounters': ((value['pokemonEncounters'] as Array<any>).map(PalParkAreaDetailPokemonEncountersInnerToJSON)),
     };
 }
 

@@ -692,7 +692,7 @@ MoveDetail::getId()
 }
 
 void
-MoveDetail::setId(int  id)
+MoveDetail::setId(int id)
 {
 	this->id = id;
 }
@@ -704,7 +704,7 @@ MoveDetail::getName()
 }
 
 void
-MoveDetail::setName(std::string  name)
+MoveDetail::setName(std::string name)
 {
 	this->name = name;
 }
@@ -716,7 +716,7 @@ MoveDetail::getAccuracy()
 }
 
 void
-MoveDetail::setAccuracy(int  accuracy)
+MoveDetail::setAccuracy(int accuracy)
 {
 	this->accuracy = accuracy;
 }
@@ -728,7 +728,7 @@ MoveDetail::getEffectChance()
 }
 
 void
-MoveDetail::setEffectChance(int  effect_chance)
+MoveDetail::setEffectChance(int effect_chance)
 {
 	this->effect_chance = effect_chance;
 }
@@ -740,7 +740,7 @@ MoveDetail::getPp()
 }
 
 void
-MoveDetail::setPp(int  pp)
+MoveDetail::setPp(int pp)
 {
 	this->pp = pp;
 }
@@ -752,7 +752,7 @@ MoveDetail::getPriority()
 }
 
 void
-MoveDetail::setPriority(int  priority)
+MoveDetail::setPriority(int priority)
 {
 	this->priority = priority;
 }
@@ -764,7 +764,7 @@ MoveDetail::getPower()
 }
 
 void
-MoveDetail::setPower(int  power)
+MoveDetail::setPower(int power)
 {
 	this->power = power;
 }
@@ -776,7 +776,7 @@ MoveDetail::getContestCombos()
 }
 
 void
-MoveDetail::setContestCombos(MoveDetail_contest_combos  contest_combos)
+MoveDetail::setContestCombos(MoveDetail_contest_combos contest_combos)
 {
 	this->contest_combos = contest_combos;
 }
@@ -788,7 +788,7 @@ MoveDetail::getContestType()
 }
 
 void
-MoveDetail::setContestType(ContestTypeSummary  contest_type)
+MoveDetail::setContestType(ContestTypeSummary contest_type)
 {
 	this->contest_type = contest_type;
 }
@@ -800,7 +800,7 @@ MoveDetail::getContestEffect()
 }
 
 void
-MoveDetail::setContestEffect(ContestEffectSummary  contest_effect)
+MoveDetail::setContestEffect(ContestEffectSummary contest_effect)
 {
 	this->contest_effect = contest_effect;
 }
@@ -812,7 +812,7 @@ MoveDetail::getDamageClass()
 }
 
 void
-MoveDetail::setDamageClass(MoveDamageClassSummary  damage_class)
+MoveDetail::setDamageClass(MoveDamageClassSummary damage_class)
 {
 	this->damage_class = damage_class;
 }
@@ -824,7 +824,7 @@ MoveDetail::getEffectEntries()
 }
 
 void
-MoveDetail::setEffectEntries(std::list <MoveChange_effect_entries_inner> effect_entries)
+MoveDetail::setEffectEntries(std::list<MoveChange_effect_entries_inner> effect_entries)
 {
 	this->effect_entries = effect_entries;
 }
@@ -836,7 +836,7 @@ MoveDetail::getEffectChanges()
 }
 
 void
-MoveDetail::setEffectChanges(std::list <MoveDetail_effect_changes_inner> effect_changes)
+MoveDetail::setEffectChanges(std::list<MoveDetail_effect_changes_inner> effect_changes)
 {
 	this->effect_changes = effect_changes;
 }
@@ -848,7 +848,7 @@ MoveDetail::getGeneration()
 }
 
 void
-MoveDetail::setGeneration(GenerationSummary  generation)
+MoveDetail::setGeneration(GenerationSummary generation)
 {
 	this->generation = generation;
 }
@@ -860,7 +860,7 @@ MoveDetail::getMeta()
 }
 
 void
-MoveDetail::setMeta(MoveMeta  meta)
+MoveDetail::setMeta(MoveMeta meta)
 {
 	this->meta = meta;
 }
@@ -872,7 +872,7 @@ MoveDetail::getNames()
 }
 
 void
-MoveDetail::setNames(std::list <MoveName> names)
+MoveDetail::setNames(std::list<MoveName> names)
 {
 	this->names = names;
 }
@@ -884,7 +884,7 @@ MoveDetail::getPastValues()
 }
 
 void
-MoveDetail::setPastValues(std::list <MoveChange> past_values)
+MoveDetail::setPastValues(std::list<MoveChange> past_values)
 {
 	this->past_values = past_values;
 }
@@ -896,7 +896,7 @@ MoveDetail::getStatChanges()
 }
 
 void
-MoveDetail::setStatChanges(std::list <MoveDetail_stat_changes_inner> stat_changes)
+MoveDetail::setStatChanges(std::list<MoveDetail_stat_changes_inner> stat_changes)
 {
 	this->stat_changes = stat_changes;
 }
@@ -908,7 +908,7 @@ MoveDetail::getSuperContestEffect()
 }
 
 void
-MoveDetail::setSuperContestEffect(SuperContestEffectSummary  super_contest_effect)
+MoveDetail::setSuperContestEffect(SuperContestEffectSummary super_contest_effect)
 {
 	this->super_contest_effect = super_contest_effect;
 }
@@ -920,7 +920,7 @@ MoveDetail::getTarget()
 }
 
 void
-MoveDetail::setTarget(MoveTargetSummary  target)
+MoveDetail::setTarget(MoveTargetSummary target)
 {
 	this->target = target;
 }
@@ -932,7 +932,7 @@ MoveDetail::getType()
 }
 
 void
-MoveDetail::setType(TypeSummary  type)
+MoveDetail::setType(TypeSummary type)
 {
 	this->type = type;
 }
@@ -944,7 +944,7 @@ MoveDetail::getMachines()
 }
 
 void
-MoveDetail::setMachines(std::list <MoveDetail_machines_inner> machines)
+MoveDetail::setMachines(std::list<MoveDetail_machines_inner> machines)
 {
 	this->machines = machines;
 }
@@ -956,7 +956,7 @@ MoveDetail::getFlavorTextEntries()
 }
 
 void
-MoveDetail::setFlavorTextEntries(std::list <MoveFlavorText> flavor_text_entries)
+MoveDetail::setFlavorTextEntries(std::list<MoveFlavorText> flavor_text_entries)
 {
 	this->flavor_text_entries = flavor_text_entries;
 }
@@ -968,7 +968,7 @@ MoveDetail::getLearnedByPokemon()
 }
 
 void
-MoveDetail::setLearnedByPokemon(std::list <AbilityDetail_pokemon_inner_pokemon> learned_by_pokemon)
+MoveDetail::setLearnedByPokemon(std::list<AbilityDetail_pokemon_inner_pokemon> learned_by_pokemon)
 {
 	this->learned_by_pokemon = learned_by_pokemon;
 }

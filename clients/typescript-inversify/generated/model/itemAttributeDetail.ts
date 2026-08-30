@@ -17,7 +17,7 @@ import { ItemAttributeName } from './itemAttributeName';
 export interface ItemAttributeDetail { 
     readonly id: number;
     name: string;
-    descriptions: Array<ItemAttributeDescription>;
-    items: Array<AbilityDetailPokemonInnerPokemon>;
-    names: Array<ItemAttributeName>;
+    readonly descriptions: Array<ItemAttributeDescription>;
+    readonly items: Array<AbilityDetailPokemonInnerPokemon>;
+    readonly names: Array<ItemAttributeName>;
 }

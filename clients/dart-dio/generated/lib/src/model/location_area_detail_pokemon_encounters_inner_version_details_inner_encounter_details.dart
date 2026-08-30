@@ -124,8 +124,9 @@ class _$LocationAreaDetailPokemonEncountersInnerVersionDetailsInnerEncounterDeta
         case r'condition_values':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(AbilityDetailPokemonInnerPokemon),
-          ) as AbilityDetailPokemonInnerPokemon;
+            specifiedType: const FullType.nullable(AbilityDetailPokemonInnerPokemon),
+          ) as AbilityDetailPokemonInnerPokemon?;
+          if (valueDes == null) continue;
           result.conditionValues.replace(valueDes);
           break;
         case r'chance':

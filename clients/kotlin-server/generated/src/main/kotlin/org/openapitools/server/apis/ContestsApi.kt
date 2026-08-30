@@ -33,11 +33,9 @@ import org.openapitools.server.models.PaginatedSuperContestEffectSummaryList
 import org.openapitools.server.models.SuperContestEffectDetail
 
 fun Route.ContestsApi() {
-    val empty = mutableMapOf<String, Any?>()
-
     authenticate("basicAuth") {
     authenticate("cookieAuth") {
-    get<Paths.contestEffectList> {
+    get<Paths.contestEffectList> { contestEffectList ->
         val principal = call.authentication.principal<UserIdPrincipal>()
         
         
@@ -46,9 +44,9 @@ fun Route.ContestsApi() {
         
         val exampleContentType = "application/json"
             val exampleContentString = """{
+              "count" : 123,
               "next" : "http://api.example.org/accounts/?offset=400&limit=100",
               "previous" : "http://api.example.org/accounts/?offset=200&limit=100",
-              "count" : 123,
               "results" : [ {
                 "url" : "https://openapi-generator.tech"
               }, {
@@ -64,10 +62,9 @@ fun Route.ContestsApi() {
         
     }
     }
-
     authenticate("basicAuth") {
     authenticate("cookieAuth") {
-    get<Paths.contestEffectRetrieve> {
+    get<Paths.contestEffectRetrieve> { contestEffectRetrieve ->
         val principal = call.authentication.principal<UserIdPrincipal>()
         
         
@@ -76,6 +73,9 @@ fun Route.ContestsApi() {
         
         val exampleContentType = "application/json"
             val exampleContentString = """{
+              "id" : 0,
+              "appeal" : 6,
+              "jam" : 1,
               "effect_entries" : [ {
                 "effect" : "effect",
                 "language" : {
@@ -89,22 +89,19 @@ fun Route.ContestsApi() {
                   "url" : "https://openapi-generator.tech"
                 }
               } ],
-              "jam" : 1,
               "flavor_text_entries" : [ {
+                "flavor_text" : "flavor_text",
                 "language" : {
                   "name" : "name",
                   "url" : "https://openapi-generator.tech"
-                },
-                "flavor_text" : "flavor_text"
+                }
               }, {
+                "flavor_text" : "flavor_text",
                 "language" : {
                   "name" : "name",
                   "url" : "https://openapi-generator.tech"
-                },
-                "flavor_text" : "flavor_text"
-              } ],
-              "id" : 0,
-              "appeal" : 6
+                }
+              } ]
             }"""
             
             when (exampleContentType) {
@@ -115,10 +112,9 @@ fun Route.ContestsApi() {
         
     }
     }
-
     authenticate("basicAuth") {
     authenticate("cookieAuth") {
-    get<Paths.contestTypeList> {
+    get<Paths.contestTypeList> { contestTypeList ->
         val principal = call.authentication.principal<UserIdPrincipal>()
         
         
@@ -127,9 +123,9 @@ fun Route.ContestsApi() {
         
         val exampleContentType = "application/json"
             val exampleContentString = """{
+              "count" : 123,
               "next" : "http://api.example.org/accounts/?offset=400&limit=100",
               "previous" : "http://api.example.org/accounts/?offset=200&limit=100",
-              "count" : 123,
               "results" : [ {
                 "name" : "name",
                 "url" : "https://openapi-generator.tech"
@@ -147,10 +143,9 @@ fun Route.ContestsApi() {
         
     }
     }
-
     authenticate("basicAuth") {
     authenticate("cookieAuth") {
-    get<Paths.contestTypeRetrieve> {
+    get<Paths.contestTypeRetrieve> { contestTypeRetrieve ->
         val principal = call.authentication.principal<UserIdPrincipal>()
         
         
@@ -159,24 +154,24 @@ fun Route.ContestsApi() {
         
         val exampleContentType = "application/json"
             val exampleContentString = """{
+              "id" : 0,
+              "name" : "name",
               "berry_flavor" : "",
               "names" : [ {
-                "color" : "color",
                 "name" : "name",
+                "color" : "color",
                 "language" : {
                   "name" : "name",
                   "url" : "https://openapi-generator.tech"
                 }
               }, {
-                "color" : "color",
                 "name" : "name",
+                "color" : "color",
                 "language" : {
                   "name" : "name",
                   "url" : "https://openapi-generator.tech"
                 }
-              } ],
-              "name" : "name",
-              "id" : 0
+              } ]
             }"""
             
             when (exampleContentType) {
@@ -187,10 +182,9 @@ fun Route.ContestsApi() {
         
     }
     }
-
     authenticate("basicAuth") {
     authenticate("cookieAuth") {
-    get<Paths.superContestEffectList> {
+    get<Paths.superContestEffectList> { superContestEffectList ->
         val principal = call.authentication.principal<UserIdPrincipal>()
         
         
@@ -199,9 +193,9 @@ fun Route.ContestsApi() {
         
         val exampleContentType = "application/json"
             val exampleContentString = """{
+              "count" : 123,
               "next" : "http://api.example.org/accounts/?offset=400&limit=100",
               "previous" : "http://api.example.org/accounts/?offset=200&limit=100",
-              "count" : 123,
               "results" : [ {
                 "url" : "https://openapi-generator.tech"
               }, {
@@ -217,10 +211,9 @@ fun Route.ContestsApi() {
         
     }
     }
-
     authenticate("basicAuth") {
     authenticate("cookieAuth") {
-    get<Paths.superContestEffectRetrieve> {
+    get<Paths.superContestEffectRetrieve> { superContestEffectRetrieve ->
         val principal = call.authentication.principal<UserIdPrincipal>()
         
         
@@ -229,28 +222,28 @@ fun Route.ContestsApi() {
         
         val exampleContentType = "application/json"
             val exampleContentString = """{
+              "id" : 0,
+              "appeal" : 6,
+              "flavor_text_entries" : [ {
+                "flavor_text" : "flavor_text",
+                "language" : {
+                  "name" : "name",
+                  "url" : "https://openapi-generator.tech"
+                }
+              }, {
+                "flavor_text" : "flavor_text",
+                "language" : {
+                  "name" : "name",
+                  "url" : "https://openapi-generator.tech"
+                }
+              } ],
               "moves" : [ {
                 "name" : "name",
                 "url" : "https://openapi-generator.tech"
               }, {
                 "name" : "name",
                 "url" : "https://openapi-generator.tech"
-              } ],
-              "flavor_text_entries" : [ {
-                "language" : {
-                  "name" : "name",
-                  "url" : "https://openapi-generator.tech"
-                },
-                "flavor_text" : "flavor_text"
-              }, {
-                "language" : {
-                  "name" : "name",
-                  "url" : "https://openapi-generator.tech"
-                },
-                "flavor_text" : "flavor_text"
-              } ],
-              "id" : 0,
-              "appeal" : 6
+              } ]
             }"""
             
             when (exampleContentType) {
@@ -261,5 +254,4 @@ fun Route.ContestsApi() {
         
     }
     }
-
 }

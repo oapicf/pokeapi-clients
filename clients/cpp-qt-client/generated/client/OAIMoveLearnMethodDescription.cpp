@@ -21,7 +21,7 @@
 
 namespace OpenAPI {
 
-OAIMoveLearnMethodDescription::OAIMoveLearnMethodDescription(QString json) {
+OAIMoveLearnMethodDescription::OAIMoveLearnMethodDescription(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -41,7 +41,7 @@ void OAIMoveLearnMethodDescription::initializeModel() {
     m_language_isValid = false;
 }
 
-void OAIMoveLearnMethodDescription::fromJson(QString jsonString) {
+void OAIMoveLearnMethodDescription::fromJson(const QString &jsonString) {
     QByteArray array(jsonString.toStdString().c_str());
     QJsonDocument doc = QJsonDocument::fromJson(array);
     QJsonObject jsonObject = doc.object();

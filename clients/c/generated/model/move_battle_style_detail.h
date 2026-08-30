@@ -20,7 +20,7 @@ typedef struct move_battle_style_detail_t move_battle_style_detail_t;
 
 
 typedef struct move_battle_style_detail_t {
-    int id; //numeric
+    int *id; //numeric
     char *name; // string
     list_t *names; //nonprimitive container
 
@@ -28,7 +28,7 @@ typedef struct move_battle_style_detail_t {
 } move_battle_style_detail_t;
 
 __attribute__((deprecated)) move_battle_style_detail_t *move_battle_style_detail_create(
-    int id,
+    int *id,
     char *name,
     list_t *names
 );

@@ -53,14 +53,14 @@ public:
 
 	/*! \brief Set 
 	 */
-	void setIncrease(std::list <AbilityDetail_pokemon_inner_pokemon> increase);
+	void setIncrease(std::list<AbilityDetail_pokemon_inner_pokemon> increase);
 	/*! \brief Get 
 	 */
 	std::list<AbilityDetail_pokemon_inner_pokemon> getDecrease();
 
 	/*! \brief Set 
 	 */
-	void setDecrease(std::list <AbilityDetail_pokemon_inner_pokemon> decrease);
+	void setDecrease(std::list<AbilityDetail_pokemon_inner_pokemon> decrease);
 
 
     private:

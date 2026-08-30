@@ -98,13 +98,13 @@ function Initialize-LocationAreaDetail {
 
 
         $PSO = [PSCustomObject]@{
-            "id" = ${Id}
-            "name" = ${Name}
-            "game_index" = ${GameIndex}
-            "encounter_method_rates" = ${EncounterMethodRates}
-            "location" = ${Location}
-            "names" = ${Names}
-            "pokemon_encounters" = ${PokemonEncounters}
+            'id' = ${Id}
+            'name' = ${Name}
+            'game_index' = ${GameIndex}
+            'encounter_method_rates' = ${EncounterMethodRates}
+            'location' = ${Location}
+            'names' = ${Names}
+            'pokemon_encounters' = ${PokemonEncounters}
         }
 
 
@@ -142,7 +142,7 @@ function ConvertFrom-JsonToLocationAreaDetail {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in LocationAreaDetail
-        $AllProperties = ("id", "name", "game_index", "encounter_method_rates", "location", "names", "pokemon_encounters")
+        $AllProperties = ('id', 'name', 'game_index', 'encounter_method_rates', 'location', 'names', 'pokemon_encounters')
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -153,56 +153,56 @@ function ConvertFrom-JsonToLocationAreaDetail {
             throw "Error! Empty JSON cannot be serialized due to the required property 'id' missing."
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "id"))) {
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'id'))) {
             throw "Error! JSON cannot be serialized due to the required property 'id' missing."
         } else {
-            $Id = $JsonParameters.PSobject.Properties["id"].value
+            $Id = $JsonParameters.PSobject.Properties['id'].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "name"))) {
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'name'))) {
             throw "Error! JSON cannot be serialized due to the required property 'name' missing."
         } else {
-            $Name = $JsonParameters.PSobject.Properties["name"].value
+            $Name = $JsonParameters.PSobject.Properties['name'].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "game_index"))) {
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'game_index'))) {
             throw "Error! JSON cannot be serialized due to the required property 'game_index' missing."
         } else {
-            $GameIndex = $JsonParameters.PSobject.Properties["game_index"].value
+            $GameIndex = $JsonParameters.PSobject.Properties['game_index'].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "encounter_method_rates"))) {
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'encounter_method_rates'))) {
             throw "Error! JSON cannot be serialized due to the required property 'encounter_method_rates' missing."
         } else {
-            $EncounterMethodRates = $JsonParameters.PSobject.Properties["encounter_method_rates"].value
+            $EncounterMethodRates = $JsonParameters.PSobject.Properties['encounter_method_rates'].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "location"))) {
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'location'))) {
             throw "Error! JSON cannot be serialized due to the required property 'location' missing."
         } else {
-            $Location = $JsonParameters.PSobject.Properties["location"].value
+            $Location = $JsonParameters.PSobject.Properties['location'].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "names"))) {
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'names'))) {
             throw "Error! JSON cannot be serialized due to the required property 'names' missing."
         } else {
-            $Names = $JsonParameters.PSobject.Properties["names"].value
+            $Names = $JsonParameters.PSobject.Properties['names'].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "pokemon_encounters"))) {
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'pokemon_encounters'))) {
             throw "Error! JSON cannot be serialized due to the required property 'pokemon_encounters' missing."
         } else {
-            $PokemonEncounters = $JsonParameters.PSobject.Properties["pokemon_encounters"].value
+            $PokemonEncounters = $JsonParameters.PSobject.Properties['pokemon_encounters'].value
         }
 
         $PSO = [PSCustomObject]@{
-            "id" = ${Id}
-            "name" = ${Name}
-            "game_index" = ${GameIndex}
-            "encounter_method_rates" = ${EncounterMethodRates}
-            "location" = ${Location}
-            "names" = ${Names}
-            "pokemon_encounters" = ${PokemonEncounters}
+            'id' = ${Id}
+            'name' = ${Name}
+            'game_index' = ${GameIndex}
+            'encounter_method_rates' = ${EncounterMethodRates}
+            'location' = ${Location}
+            'names' = ${Names}
+            'pokemon_encounters' = ${PokemonEncounters}
         }
 
         return $PSO

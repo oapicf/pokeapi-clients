@@ -6,7 +6,7 @@
 
 
 static item_fling_effect_detail_t *item_fling_effect_detail_create_internal(
-    int id,
+    int *id,
     char *name,
     list_t *effect_entries,
     list_t *items
@@ -15,27 +15,36 @@ static item_fling_effect_detail_t *item_fling_effect_detail_create_internal(
     if (!item_fling_effect_detail_local_var) {
         return NULL;
     }
+    memset(item_fling_effect_detail_local_var, 0, sizeof(item_fling_effect_detail_t));
+    item_fling_effect_detail_local_var->_library_owned = 1;
     item_fling_effect_detail_local_var->id = id;
     item_fling_effect_detail_local_var->name = name;
     item_fling_effect_detail_local_var->effect_entries = effect_entries;
     item_fling_effect_detail_local_var->items = items;
-
-    item_fling_effect_detail_local_var->_library_owned = 1;
     return item_fling_effect_detail_local_var;
 }
 
 __attribute__((deprecated)) item_fling_effect_detail_t *item_fling_effect_detail_create(
-    int id,
+    int *id,
     char *name,
     list_t *effect_entries,
     list_t *items
     ) {
-    return item_fling_effect_detail_create_internal (
-        id,
+    int *id_copy = NULL;
+    if (id) {
+        id_copy = malloc(sizeof(int));
+        if (id_copy) *id_copy = *id;
+    }
+    item_fling_effect_detail_t *result = item_fling_effect_detail_create_internal (
+        id_copy,
         name,
         effect_entries,
         items
         );
+    if (!result) {
+        free(id_copy);
+    }
+    return result;
 }
 
 void item_fling_effect_detail_free(item_fling_effect_detail_t *item_fling_effect_detail) {
@@ -47,6 +56,10 @@ void item_fling_effect_detail_free(item_fling_effect_detail_t *item_fling_effect
         return ;
     }
     listEntry_t *listEntry;
+    if (item_fling_effect_detail->id) {
+        free(item_fling_effect_detail->id);
+        item_fling_effect_detail->id = NULL;
+    }
     if (item_fling_effect_detail->name) {
         free(item_fling_effect_detail->name);
         item_fling_effect_detail->name = NULL;
@@ -75,7 +88,7 @@ cJSON *item_fling_effect_detail_convertToJSON(item_fling_effect_detail_t *item_f
     if (!item_fling_effect_detail->id) {
         goto fail;
     }
-    if(cJSON_AddNumberToObject(item, "id", item_fling_effect_detail->id) == NULL) {
+    if(cJSON_AddNumberToObject(item, "id", *item_fling_effect_detail->id) == NULL) {
     goto fail; //Numeric
     }
 
@@ -142,6 +155,11 @@ item_fling_effect_detail_t *item_fling_effect_detail_parseFromJSON(cJSON *item_f
 
     item_fling_effect_detail_t *item_fling_effect_detail_local_var = NULL;
 
+    // define the local variable for item_fling_effect_detail->id
+    int *id_local_var = NULL;
+
+    char *name_local_str = NULL;
+
     // define the local list for item_fling_effect_detail->effect_entries
     list_t *effect_entriesList = NULL;
 
@@ -162,6 +180,12 @@ item_fling_effect_detail_t *item_fling_effect_detail_parseFromJSON(cJSON *item_f
     {
     goto end; //Numeric
     }
+    id_local_var = malloc(sizeof(int));
+    if(!id_local_var)
+    {
+        goto end;
+    }
+    *id_local_var = id->valuedouble;
 
     // item_fling_effect_detail->name
     cJSON *name = cJSON_GetObjectItemCaseSensitive(item_fling_effect_detailJSON, "name");
@@ -233,15 +257,29 @@ item_fling_effect_detail_t *item_fling_effect_detail_parseFromJSON(cJSON *item_f
     }
 
 
+    if (name && !cJSON_IsNull(name)) name_local_str = strdup(name->valuestring);
+
     item_fling_effect_detail_local_var = item_fling_effect_detail_create_internal (
-        id->valuedouble,
-        strdup(name->valuestring),
+        id_local_var,
+        name_local_str,
         effect_entriesList,
         itemsList
         );
 
+    if (!item_fling_effect_detail_local_var) {
+        goto end;
+    }
+
     return item_fling_effect_detail_local_var;
 end:
+    if (id_local_var) {
+        free(id_local_var);
+        id_local_var = NULL;
+    }
+    if (name_local_str) {
+        free(name_local_str);
+        name_local_str = NULL;
+    }
     if (effect_entriesList) {
         listEntry_t *listEntry = NULL;
         list_ForEach(listEntry, effect_entriesList) {

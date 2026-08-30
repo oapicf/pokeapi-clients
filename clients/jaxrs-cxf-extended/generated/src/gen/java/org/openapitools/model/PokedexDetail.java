@@ -134,6 +134,7 @@ public class PokedexDetail  {
 
   /**
    * Sets the <code>descriptions</code> property.
+   * <br><em>N.B. <code>descriptions</code> is <b>read only</b>; client code should not call this method</em>.
    */
  public void setDescriptions(List<@Valid PokedexDescription> descriptions) {
     this.descriptions = descriptions;
@@ -141,6 +142,7 @@ public class PokedexDetail  {
 
   /**
    * Sets the <code>descriptions</code> property.
+   * <br><em>N.B. <code>descriptions</code> is <b>read only</b>; client code should not call this method</em>.
    */
   public PokedexDetail descriptions(List<@Valid PokedexDescription> descriptions) {
     this.descriptions = descriptions;
@@ -149,6 +151,7 @@ public class PokedexDetail  {
 
   /**
    * Adds a new item to the <code>descriptions</code> list.
+   * <br><em>N.B. <code>descriptions</code> is <b>read only</b>; client code should not call this method</em>.
    */
   public PokedexDetail addDescriptionsItem(PokedexDescription descriptionsItem) {
     this.descriptions.add(descriptionsItem);
@@ -167,6 +170,7 @@ public class PokedexDetail  {
 
   /**
    * Sets the <code>names</code> property.
+   * <br><em>N.B. <code>names</code> is <b>read only</b>; client code should not call this method</em>.
    */
  public void setNames(List<@Valid PokedexName> names) {
     this.names = names;
@@ -174,6 +178,7 @@ public class PokedexDetail  {
 
   /**
    * Sets the <code>names</code> property.
+   * <br><em>N.B. <code>names</code> is <b>read only</b>; client code should not call this method</em>.
    */
   public PokedexDetail names(List<@Valid PokedexName> names) {
     this.names = names;
@@ -182,6 +187,7 @@ public class PokedexDetail  {
 
   /**
    * Adds a new item to the <code>names</code> list.
+   * <br><em>N.B. <code>names</code> is <b>read only</b>; client code should not call this method</em>.
    */
   public PokedexDetail addNamesItem(PokedexName namesItem) {
     this.names.add(namesItem);
@@ -200,6 +206,7 @@ public class PokedexDetail  {
 
   /**
    * Sets the <code>pokemonEntries</code> property.
+   * <br><em>N.B. <code>pokemonEntries</code> is <b>read only</b>; client code should not call this method</em>.
    */
  public void setPokemonEntries(List<@Valid PokedexDetailPokemonEntriesInner> pokemonEntries) {
     this.pokemonEntries = pokemonEntries;
@@ -207,6 +214,7 @@ public class PokedexDetail  {
 
   /**
    * Sets the <code>pokemonEntries</code> property.
+   * <br><em>N.B. <code>pokemonEntries</code> is <b>read only</b>; client code should not call this method</em>.
    */
   public PokedexDetail pokemonEntries(List<@Valid PokedexDetailPokemonEntriesInner> pokemonEntries) {
     this.pokemonEntries = pokemonEntries;
@@ -215,6 +223,7 @@ public class PokedexDetail  {
 
   /**
    * Adds a new item to the <code>pokemonEntries</code> list.
+   * <br><em>N.B. <code>pokemonEntries</code> is <b>read only</b>; client code should not call this method</em>.
    */
   public PokedexDetail addPokemonEntriesItem(PokedexDetailPokemonEntriesInner pokemonEntriesItem) {
     this.pokemonEntries.add(pokemonEntriesItem);
@@ -258,6 +267,7 @@ public class PokedexDetail  {
 
   /**
    * Sets the <code>versionGroups</code> property.
+   * <br><em>N.B. <code>versionGroups</code> is <b>read only</b>; client code should not call this method</em>.
    */
  public void setVersionGroups(List<@Valid AbilityDetailPokemonInnerPokemon> versionGroups) {
     this.versionGroups = versionGroups;
@@ -265,6 +275,7 @@ public class PokedexDetail  {
 
   /**
    * Sets the <code>versionGroups</code> property.
+   * <br><em>N.B. <code>versionGroups</code> is <b>read only</b>; client code should not call this method</em>.
    */
   public PokedexDetail versionGroups(List<@Valid AbilityDetailPokemonInnerPokemon> versionGroups) {
     this.versionGroups = versionGroups;
@@ -273,6 +284,7 @@ public class PokedexDetail  {
 
   /**
    * Adds a new item to the <code>versionGroups</code> list.
+   * <br><em>N.B. <code>versionGroups</code> is <b>read only</b>; client code should not call this method</em>.
    */
   public PokedexDetail addVersionGroupsItem(AbilityDetailPokemonInnerPokemon versionGroupsItem) {
     this.versionGroups.add(versionGroupsItem);
@@ -326,10 +338,7 @@ public class PokedexDetail  {
    * (except the first line).
    */
   private static String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 }
 

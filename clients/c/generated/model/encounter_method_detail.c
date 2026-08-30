@@ -6,36 +6,51 @@
 
 
 static encounter_method_detail_t *encounter_method_detail_create_internal(
-    int id,
+    int *id,
     char *name,
-    int order,
+    int *order,
     list_t *names
     ) {
     encounter_method_detail_t *encounter_method_detail_local_var = malloc(sizeof(encounter_method_detail_t));
     if (!encounter_method_detail_local_var) {
         return NULL;
     }
+    memset(encounter_method_detail_local_var, 0, sizeof(encounter_method_detail_t));
+    encounter_method_detail_local_var->_library_owned = 1;
     encounter_method_detail_local_var->id = id;
     encounter_method_detail_local_var->name = name;
     encounter_method_detail_local_var->order = order;
     encounter_method_detail_local_var->names = names;
-
-    encounter_method_detail_local_var->_library_owned = 1;
     return encounter_method_detail_local_var;
 }
 
 __attribute__((deprecated)) encounter_method_detail_t *encounter_method_detail_create(
-    int id,
+    int *id,
     char *name,
-    int order,
+    int *order,
     list_t *names
     ) {
-    return encounter_method_detail_create_internal (
-        id,
+    int *id_copy = NULL;
+    if (id) {
+        id_copy = malloc(sizeof(int));
+        if (id_copy) *id_copy = *id;
+    }
+    int *order_copy = NULL;
+    if (order) {
+        order_copy = malloc(sizeof(int));
+        if (order_copy) *order_copy = *order;
+    }
+    encounter_method_detail_t *result = encounter_method_detail_create_internal (
+        id_copy,
         name,
-        order,
+        order_copy,
         names
         );
+    if (!result) {
+        free(id_copy);
+        free(order_copy);
+    }
+    return result;
 }
 
 void encounter_method_detail_free(encounter_method_detail_t *encounter_method_detail) {
@@ -47,9 +62,17 @@ void encounter_method_detail_free(encounter_method_detail_t *encounter_method_de
         return ;
     }
     listEntry_t *listEntry;
+    if (encounter_method_detail->id) {
+        free(encounter_method_detail->id);
+        encounter_method_detail->id = NULL;
+    }
     if (encounter_method_detail->name) {
         free(encounter_method_detail->name);
         encounter_method_detail->name = NULL;
+    }
+    if (encounter_method_detail->order) {
+        free(encounter_method_detail->order);
+        encounter_method_detail->order = NULL;
     }
     if (encounter_method_detail->names) {
         list_ForEach(listEntry, encounter_method_detail->names) {
@@ -68,7 +91,7 @@ cJSON *encounter_method_detail_convertToJSON(encounter_method_detail_t *encounte
     if (!encounter_method_detail->id) {
         goto fail;
     }
-    if(cJSON_AddNumberToObject(item, "id", encounter_method_detail->id) == NULL) {
+    if(cJSON_AddNumberToObject(item, "id", *encounter_method_detail->id) == NULL) {
     goto fail; //Numeric
     }
 
@@ -84,7 +107,7 @@ cJSON *encounter_method_detail_convertToJSON(encounter_method_detail_t *encounte
 
     // encounter_method_detail->order
     if(encounter_method_detail->order) {
-    if(cJSON_AddNumberToObject(item, "order", encounter_method_detail->order) == NULL) {
+    if(cJSON_AddNumberToObject(item, "order", *encounter_method_detail->order) == NULL) {
     goto fail; //Numeric
     }
     }
@@ -122,6 +145,14 @@ encounter_method_detail_t *encounter_method_detail_parseFromJSON(cJSON *encounte
 
     encounter_method_detail_t *encounter_method_detail_local_var = NULL;
 
+    // define the local variable for encounter_method_detail->id
+    int *id_local_var = NULL;
+
+    char *name_local_str = NULL;
+
+    // define the local variable for encounter_method_detail->order
+    int *order_local_var = NULL;
+
     // define the local list for encounter_method_detail->names
     list_t *namesList = NULL;
 
@@ -139,6 +170,12 @@ encounter_method_detail_t *encounter_method_detail_parseFromJSON(cJSON *encounte
     {
     goto end; //Numeric
     }
+    id_local_var = malloc(sizeof(int));
+    if(!id_local_var)
+    {
+        goto end;
+    }
+    *id_local_var = id->valuedouble;
 
     // encounter_method_detail->name
     cJSON *name = cJSON_GetObjectItemCaseSensitive(encounter_method_detailJSON, "name");
@@ -165,6 +202,12 @@ encounter_method_detail_t *encounter_method_detail_parseFromJSON(cJSON *encounte
     {
     goto end; //Numeric
     }
+    order_local_var = malloc(sizeof(int));
+    if(!order_local_var)
+    {
+        goto end;
+    }
+    *order_local_var = order->valuedouble;
     }
 
     // encounter_method_detail->names
@@ -195,15 +238,33 @@ encounter_method_detail_t *encounter_method_detail_parseFromJSON(cJSON *encounte
     }
 
 
+    if (name && !cJSON_IsNull(name)) name_local_str = strdup(name->valuestring);
+
     encounter_method_detail_local_var = encounter_method_detail_create_internal (
-        id->valuedouble,
-        strdup(name->valuestring),
-        order ? order->valuedouble : 0,
+        id_local_var,
+        name_local_str,
+        order_local_var,
         namesList
         );
 
+    if (!encounter_method_detail_local_var) {
+        goto end;
+    }
+
     return encounter_method_detail_local_var;
 end:
+    if (id_local_var) {
+        free(id_local_var);
+        id_local_var = NULL;
+    }
+    if (name_local_str) {
+        free(name_local_str);
+        name_local_str = NULL;
+    }
+    if (order_local_var) {
+        free(order_local_var);
+        order_local_var = NULL;
+    }
     if (namesList) {
         listEntry_t *listEntry = NULL;
         list_ForEach(listEntry, namesList) {

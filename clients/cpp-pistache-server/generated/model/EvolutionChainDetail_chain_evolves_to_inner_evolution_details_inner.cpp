@@ -35,6 +35,8 @@ EvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner::EvolutionCh
     
 }
 
+EvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner::~EvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner() = default;
+
 void EvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner::validate() const
 {
     std::stringstream msg;
@@ -66,7 +68,15 @@ bool EvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner::valida
     if (!m_Item.validate(msg, _pathPrefix + ".item")) {
         msg << _pathPrefix << ": Item is invalid;";
         success = false;
-    }            
+    }    
+    if (!m_Known_move.validate(msg, _pathPrefix + ".knownMove")) {
+        msg << _pathPrefix << ": Known_move is invalid;";
+        success = false;
+    }    
+    if (!m_Known_move_type.validate(msg, _pathPrefix + ".knownMoveType")) {
+        msg << _pathPrefix << ": Known_move_type is invalid;";
+        success = false;
+    }    
     if (!m_Location.validate(msg, _pathPrefix + ".location")) {
         msg << _pathPrefix << ": Location is invalid;";
         success = false;
@@ -216,19 +226,19 @@ void EvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner::setIte
 {
     m_Item = value;
 }
-nlohmann::json EvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner::getKnownMove() const
+org::openapitools::server::model::EvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner_gender EvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner::getKnownMove() const
 {
     return m_Known_move;
 }
-void EvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner::setKnownMove(nlohmann::json const& value)
+void EvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner::setKnownMove(org::openapitools::server::model::EvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner_gender const& value)
 {
     m_Known_move = value;
 }
-nlohmann::json EvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner::getKnownMoveType() const
+org::openapitools::server::model::EvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner_gender EvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner::getKnownMoveType() const
 {
     return m_Known_move_type;
 }
-void EvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner::setKnownMoveType(nlohmann::json const& value)
+void EvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner::setKnownMoveType(org::openapitools::server::model::EvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner_gender const& value)
 {
     m_Known_move_type = value;
 }

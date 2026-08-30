@@ -5,7 +5,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **Int32** |  | [readonly] 
 **Name** | **String** |  | 
-**Names** | [**MoveBattleStyleName[]**](MoveBattleStyleName.md) |  | 
+**Names** | [**MoveBattleStyleName[]**](MoveBattleStyleName.md) |  | [readonly] 
 
 ## Examples
 

@@ -86,7 +86,7 @@ LocationAreaName::getName()
 }
 
 void
-LocationAreaName::setName(std::string  name)
+LocationAreaName::setName(std::string name)
 {
 	this->name = name;
 }
@@ -98,7 +98,7 @@ LocationAreaName::getLanguage()
 }
 
 void
-LocationAreaName::setLanguage(LanguageSummary  language)
+LocationAreaName::setLanguage(LanguageSummary language)
 {
 	this->language = language;
 }

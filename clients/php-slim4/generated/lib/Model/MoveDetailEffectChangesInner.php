@@ -52,7 +52,8 @@ class MoveDetailEffectChangesInner extends BaseModel
       "type" : "array",
       "items" : {
         "$ref" : "#/components/schemas/MoveDetail_effect_changes_inner_effect_entries_inner"
-      }
+      },
+      "default" : null
     },
     "version_group" : {
       "$ref" : "#/components/schemas/AbilityDetail_pokemon_inner_pokemon"

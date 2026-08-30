@@ -86,7 +86,7 @@ MoveDetail_stat_changes_inner::getChange()
 }
 
 void
-MoveDetail_stat_changes_inner::setChange(int  change)
+MoveDetail_stat_changes_inner::setChange(int change)
 {
 	this->change = change;
 }
@@ -98,7 +98,7 @@ MoveDetail_stat_changes_inner::getStat()
 }
 
 void
-MoveDetail_stat_changes_inner::setStat(AbilityDetail_pokemon_inner_pokemon  stat)
+MoveDetail_stat_changes_inner::setStat(AbilityDetail_pokemon_inner_pokemon stat)
 {
 	this->stat = stat;
 }

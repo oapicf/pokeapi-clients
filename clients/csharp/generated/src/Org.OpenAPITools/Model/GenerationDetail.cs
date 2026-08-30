@@ -76,7 +76,7 @@ namespace Org.OpenAPITools.Model
         /// Gets or Sets Abilities
         /// </summary>
         [JsonPropertyName("abilities")]
-        public List<AbilitySummary> Abilities { get; set; }
+        public List<AbilitySummary> Abilities { get; }
 
         /// <summary>
         /// Gets or Sets MainRegion
@@ -88,31 +88,31 @@ namespace Org.OpenAPITools.Model
         /// Gets or Sets Moves
         /// </summary>
         [JsonPropertyName("moves")]
-        public List<MoveSummary> Moves { get; set; }
+        public List<MoveSummary> Moves { get; }
 
         /// <summary>
         /// Gets or Sets Names
         /// </summary>
         [JsonPropertyName("names")]
-        public List<GenerationName> Names { get; set; }
+        public List<GenerationName> Names { get; }
 
         /// <summary>
         /// Gets or Sets PokemonSpecies
         /// </summary>
         [JsonPropertyName("pokemon_species")]
-        public List<PokemonSpeciesSummary> PokemonSpecies { get; set; }
+        public List<PokemonSpeciesSummary> PokemonSpecies { get; }
 
         /// <summary>
         /// Gets or Sets Types
         /// </summary>
         [JsonPropertyName("types")]
-        public List<TypeSummary> Types { get; set; }
+        public List<TypeSummary> Types { get; }
 
         /// <summary>
         /// Gets or Sets VersionGroups
         /// </summary>
         [JsonPropertyName("version_groups")]
-        public List<VersionGroupSummary> VersionGroups { get; set; }
+        public List<VersionGroupSummary> VersionGroups { get; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -155,8 +155,18 @@ namespace Org.OpenAPITools.Model
     /// <summary>
     /// A Json converter for type <see cref="GenerationDetail" />
     /// </summary>
-    public class GenerationDetailJsonConverter : JsonConverter<GenerationDetail>
+    public partial class GenerationDetailJsonConverter : JsonConverter<GenerationDetail>
     {
+        partial void OnCreated();
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="GenerationDetailJsonConverter" /> class.
+        /// </summary>
+        public GenerationDetailJsonConverter()
+        {
+            OnCreated();
+        }
+
         /// <summary>
         /// Deserializes json to <see cref="GenerationDetail" />
         /// </summary>

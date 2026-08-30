@@ -161,7 +161,7 @@ EggGroupDetail::getId()
 }
 
 void
-EggGroupDetail::setId(int  id)
+EggGroupDetail::setId(int id)
 {
 	this->id = id;
 }
@@ -173,7 +173,7 @@ EggGroupDetail::getName()
 }
 
 void
-EggGroupDetail::setName(std::string  name)
+EggGroupDetail::setName(std::string name)
 {
 	this->name = name;
 }
@@ -185,7 +185,7 @@ EggGroupDetail::getNames()
 }
 
 void
-EggGroupDetail::setNames(std::list <EggGroupName> names)
+EggGroupDetail::setNames(std::list<EggGroupName> names)
 {
 	this->names = names;
 }
@@ -197,7 +197,7 @@ EggGroupDetail::getPokemonSpecies()
 }
 
 void
-EggGroupDetail::setPokemonSpecies(std::list <EggGroupDetail_pokemon_species_inner> pokemon_species)
+EggGroupDetail::setPokemonSpecies(std::list<EggGroupDetail_pokemon_species_inner> pokemon_species)
 {
 	this->pokemon_species = pokemon_species;
 }

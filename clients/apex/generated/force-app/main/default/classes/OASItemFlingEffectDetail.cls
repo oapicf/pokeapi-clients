@@ -30,13 +30,13 @@ public class OASItemFlingEffectDetail implements OAS.MappedProperties {
      * Get effectEntries
      * @return effectEntries
      */
-    public List<OASItemFlingEffectEffectText> effectEntries { get; set; }
+    public List<OASItemFlingEffectEffectText> effectEntries { get; private set; }
 
     /**
      * Get items
      * @return items
      */
-    public List<OASItemSummary> items { get; set; }
+    public List<OASItemSummary> items { get; private set; }
 
     private static final Map<String, String> propertyMappings = new Map<String, String>{
         'effect_entries' => 'effectEntries'

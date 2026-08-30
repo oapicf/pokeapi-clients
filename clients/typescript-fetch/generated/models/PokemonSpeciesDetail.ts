@@ -208,13 +208,13 @@ export interface PokemonSpeciesDetail {
      * @type {Array<PokemonDexEntry>}
      * @memberof PokemonSpeciesDetail
      */
-    pokedexNumbers: Array<PokemonDexEntry>;
+    readonly pokedexNumbers: Array<PokemonDexEntry>;
     /**
      * 
      * @type {Array<AbilityDetailPokemonInnerPokemon>}
      * @memberof PokemonSpeciesDetail
      */
-    eggGroups: Array<AbilityDetailPokemonInnerPokemon>;
+    readonly eggGroups: Array<AbilityDetailPokemonInnerPokemon>;
     /**
      * 
      * @type {PokemonColorSummary}
@@ -256,37 +256,37 @@ export interface PokemonSpeciesDetail {
      * @type {Array<PokemonFormDetailFormNamesInner>}
      * @memberof PokemonSpeciesDetail
      */
-    names: Array<PokemonFormDetailFormNamesInner>;
+    readonly names: Array<PokemonFormDetailFormNamesInner>;
     /**
      * 
      * @type {Array<PokemonSpeciesDetailPalParkEncountersInner>}
      * @memberof PokemonSpeciesDetail
      */
-    palParkEncounters: Array<PokemonSpeciesDetailPalParkEncountersInner>;
+    readonly palParkEncounters: Array<PokemonSpeciesDetailPalParkEncountersInner>;
     /**
      * 
      * @type {Array<PokemonSpeciesDescription>}
      * @memberof PokemonSpeciesDetail
      */
-    formDescriptions: Array<PokemonSpeciesDescription>;
+    readonly formDescriptions: Array<PokemonSpeciesDescription>;
     /**
      * 
      * @type {Array<PokemonSpeciesFlavorText>}
      * @memberof PokemonSpeciesDetail
      */
-    flavorTextEntries: Array<PokemonSpeciesFlavorText>;
+    readonly flavorTextEntries: Array<PokemonSpeciesFlavorText>;
     /**
      * 
      * @type {Array<PokemonSpeciesDetailGeneraInner>}
      * @memberof PokemonSpeciesDetail
      */
-    genera: Array<PokemonSpeciesDetailGeneraInner>;
+    readonly genera: Array<PokemonSpeciesDetailGeneraInner>;
     /**
      * 
      * @type {Array<PokemonSpeciesDetailVarietiesInner>}
      * @memberof PokemonSpeciesDetail
      */
-    varieties: Array<PokemonSpeciesDetailVarietiesInner>;
+    readonly varieties: Array<PokemonSpeciesDetailVarietiesInner>;
 }
 
 /**
@@ -295,19 +295,19 @@ export interface PokemonSpeciesDetail {
 export function instanceOfPokemonSpeciesDetail(value: object): value is PokemonSpeciesDetail {
     if (!('id' in value) || value['id'] === undefined) return false;
     if (!('name' in value) || value['name'] === undefined) return false;
-    if (!('growthRate' in value) || value['growthRate'] === undefined) return false;
-    if (!('pokedexNumbers' in value) || value['pokedexNumbers'] === undefined) return false;
-    if (!('eggGroups' in value) || value['eggGroups'] === undefined) return false;
+    if ((!('growthRate' in (value as Record<string, any>)) && !('growth_rate' in (value as Record<string, any>))) || ((value as Record<string, any>)['growthRate'] === undefined && (value as Record<string, any>)['growth_rate'] === undefined)) return false;
+    if ((!('pokedexNumbers' in (value as Record<string, any>)) && !('pokedex_numbers' in (value as Record<string, any>))) || ((value as Record<string, any>)['pokedexNumbers'] === undefined && (value as Record<string, any>)['pokedex_numbers'] === undefined)) return false;
+    if ((!('eggGroups' in (value as Record<string, any>)) && !('egg_groups' in (value as Record<string, any>))) || ((value as Record<string, any>)['eggGroups'] === undefined && (value as Record<string, any>)['egg_groups'] === undefined)) return false;
     if (!('color' in value) || value['color'] === undefined) return false;
     if (!('shape' in value) || value['shape'] === undefined) return false;
-    if (!('evolvesFromSpecies' in value) || value['evolvesFromSpecies'] === undefined) return false;
-    if (!('evolutionChain' in value) || value['evolutionChain'] === undefined) return false;
+    if ((!('evolvesFromSpecies' in (value as Record<string, any>)) && !('evolves_from_species' in (value as Record<string, any>))) || ((value as Record<string, any>)['evolvesFromSpecies'] === undefined && (value as Record<string, any>)['evolves_from_species'] === undefined)) return false;
+    if ((!('evolutionChain' in (value as Record<string, any>)) && !('evolution_chain' in (value as Record<string, any>))) || ((value as Record<string, any>)['evolutionChain'] === undefined && (value as Record<string, any>)['evolution_chain'] === undefined)) return false;
     if (!('habitat' in value) || value['habitat'] === undefined) return false;
     if (!('generation' in value) || value['generation'] === undefined) return false;
     if (!('names' in value) || value['names'] === undefined) return false;
-    if (!('palParkEncounters' in value) || value['palParkEncounters'] === undefined) return false;
-    if (!('formDescriptions' in value) || value['formDescriptions'] === undefined) return false;
-    if (!('flavorTextEntries' in value) || value['flavorTextEntries'] === undefined) return false;
+    if ((!('palParkEncounters' in (value as Record<string, any>)) && !('pal_park_encounters' in (value as Record<string, any>))) || ((value as Record<string, any>)['palParkEncounters'] === undefined && (value as Record<string, any>)['pal_park_encounters'] === undefined)) return false;
+    if ((!('formDescriptions' in (value as Record<string, any>)) && !('form_descriptions' in (value as Record<string, any>))) || ((value as Record<string, any>)['formDescriptions'] === undefined && (value as Record<string, any>)['form_descriptions'] === undefined)) return false;
+    if ((!('flavorTextEntries' in (value as Record<string, any>)) && !('flavor_text_entries' in (value as Record<string, any>))) || ((value as Record<string, any>)['flavorTextEntries'] === undefined && (value as Record<string, any>)['flavor_text_entries'] === undefined)) return false;
     if (!('genera' in value) || value['genera'] === undefined) return false;
     if (!('varieties' in value) || value['varieties'] === undefined) return false;
     return true;
@@ -325,14 +325,14 @@ export function PokemonSpeciesDetailFromJSONTyped(json: any, ignoreDiscriminator
         
         'id': json['id'],
         'name': json['name'],
-        'order': json['order'] == null ? undefined : json['order'],
-        'genderRate': json['gender_rate'] == null ? undefined : json['gender_rate'],
-        'captureRate': json['capture_rate'] == null ? undefined : json['capture_rate'],
-        'baseHappiness': json['base_happiness'] == null ? undefined : json['base_happiness'],
+        'order': json['order'] === undefined ? undefined : json['order'] === null ? null : json['order'],
+        'genderRate': json['gender_rate'] === undefined ? undefined : json['gender_rate'] === null ? null : json['gender_rate'],
+        'captureRate': json['capture_rate'] === undefined ? undefined : json['capture_rate'] === null ? null : json['capture_rate'],
+        'baseHappiness': json['base_happiness'] === undefined ? undefined : json['base_happiness'] === null ? null : json['base_happiness'],
         'isBaby': json['is_baby'] == null ? undefined : json['is_baby'],
         'isLegendary': json['is_legendary'] == null ? undefined : json['is_legendary'],
         'isMythical': json['is_mythical'] == null ? undefined : json['is_mythical'],
-        'hatchCounter': json['hatch_counter'] == null ? undefined : json['hatch_counter'],
+        'hatchCounter': json['hatch_counter'] === undefined ? undefined : json['hatch_counter'] === null ? null : json['hatch_counter'],
         'hasGenderDifferences': json['has_gender_differences'] == null ? undefined : json['has_gender_differences'],
         'formsSwitchable': json['forms_switchable'] == null ? undefined : json['forms_switchable'],
         'growthRate': GrowthRateSummaryFromJSON(json['growth_rate']),
@@ -357,7 +357,7 @@ export function PokemonSpeciesDetailToJSON(json: any): PokemonSpeciesDetail {
     return PokemonSpeciesDetailToJSONTyped(json, false);
 }
 
-export function PokemonSpeciesDetailToJSONTyped(value?: Omit<PokemonSpeciesDetail, 'id'> | null, ignoreDiscriminator: boolean = false): any {
+export function PokemonSpeciesDetailToJSONTyped(value?: Omit<PokemonSpeciesDetail, 'id'|'pokedexNumbers'|'eggGroups'|'names'|'palParkEncounters'|'formDescriptions'|'flavorTextEntries'|'genera'|'varieties'> | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
@@ -376,20 +376,12 @@ export function PokemonSpeciesDetailToJSONTyped(value?: Omit<PokemonSpeciesDetai
         'has_gender_differences': value['hasGenderDifferences'],
         'forms_switchable': value['formsSwitchable'],
         'growth_rate': GrowthRateSummaryToJSON(value['growthRate']),
-        'pokedex_numbers': ((value['pokedexNumbers'] as Array<any>).map(PokemonDexEntryToJSON)),
-        'egg_groups': ((value['eggGroups'] as Array<any>).map(AbilityDetailPokemonInnerPokemonToJSON)),
         'color': PokemonColorSummaryToJSON(value['color']),
         'shape': PokemonShapeSummaryToJSON(value['shape']),
         'evolves_from_species': PokemonSpeciesSummaryToJSON(value['evolvesFromSpecies']),
         'evolution_chain': EvolutionChainSummaryToJSON(value['evolutionChain']),
         'habitat': PokemonHabitatSummaryToJSON(value['habitat']),
         'generation': GenerationSummaryToJSON(value['generation']),
-        'names': ((value['names'] as Array<any>).map(PokemonFormDetailFormNamesInnerToJSON)),
-        'pal_park_encounters': ((value['palParkEncounters'] as Array<any>).map(PokemonSpeciesDetailPalParkEncountersInnerToJSON)),
-        'form_descriptions': ((value['formDescriptions'] as Array<any>).map(PokemonSpeciesDescriptionToJSON)),
-        'flavor_text_entries': ((value['flavorTextEntries'] as Array<any>).map(PokemonSpeciesFlavorTextToJSON)),
-        'genera': ((value['genera'] as Array<any>).map(PokemonSpeciesDetailGeneraInnerToJSON)),
-        'varieties': ((value['varieties'] as Array<any>).map(PokemonSpeciesDetailVarietiesInnerToJSON)),
     };
 }
 

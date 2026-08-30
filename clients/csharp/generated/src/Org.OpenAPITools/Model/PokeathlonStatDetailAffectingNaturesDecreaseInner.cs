@@ -92,8 +92,18 @@ namespace Org.OpenAPITools.Model
     /// <summary>
     /// A Json converter for type <see cref="PokeathlonStatDetailAffectingNaturesDecreaseInner" />
     /// </summary>
-    public class PokeathlonStatDetailAffectingNaturesDecreaseInnerJsonConverter : JsonConverter<PokeathlonStatDetailAffectingNaturesDecreaseInner>
+    public partial class PokeathlonStatDetailAffectingNaturesDecreaseInnerJsonConverter : JsonConverter<PokeathlonStatDetailAffectingNaturesDecreaseInner>
     {
+        partial void OnCreated();
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="PokeathlonStatDetailAffectingNaturesDecreaseInnerJsonConverter" /> class.
+        /// </summary>
+        public PokeathlonStatDetailAffectingNaturesDecreaseInnerJsonConverter()
+        {
+            OnCreated();
+        }
+
         /// <summary>
         /// Deserializes json to <see cref="PokeathlonStatDetailAffectingNaturesDecreaseInner" />
         /// </summary>

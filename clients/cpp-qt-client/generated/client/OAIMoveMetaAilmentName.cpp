@@ -21,7 +21,7 @@
 
 namespace OpenAPI {
 
-OAIMoveMetaAilmentName::OAIMoveMetaAilmentName(QString json) {
+OAIMoveMetaAilmentName::OAIMoveMetaAilmentName(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -41,7 +41,7 @@ void OAIMoveMetaAilmentName::initializeModel() {
     m_language_isValid = false;
 }
 
-void OAIMoveMetaAilmentName::fromJson(QString jsonString) {
+void OAIMoveMetaAilmentName::fromJson(const QString &jsonString) {
     QByteArray array(jsonString.toStdString().c_str());
     QJsonDocument doc = QJsonDocument::fromJson(array);
     QJsonObject jsonObject = doc.object();

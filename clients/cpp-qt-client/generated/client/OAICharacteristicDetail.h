@@ -35,13 +35,13 @@ class OAICharacteristicDescription;
 class OAICharacteristicDetail : public OAIObject {
 public:
     OAICharacteristicDetail();
-    OAICharacteristicDetail(QString json);
+    OAICharacteristicDetail(const QString &json);
     ~OAICharacteristicDetail() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     qint32 getId() const;
     void setId(const qint32 &id);

@@ -22,9 +22,9 @@ typedef struct version_group_detail_t version_group_detail_t;
 
 
 typedef struct version_group_detail_t {
-    int id; //numeric
+    int *id; //numeric
     char *name; // string
-    int order; //numeric
+    int *order; //numeric
     struct generation_summary_t *generation; //model
     list_t *move_learn_methods; //nonprimitive container
     list_t *pokedexes; //nonprimitive container
@@ -35,9 +35,9 @@ typedef struct version_group_detail_t {
 } version_group_detail_t;
 
 __attribute__((deprecated)) version_group_detail_t *version_group_detail_create(
-    int id,
+    int *id,
     char *name,
-    int order,
+    int *order,
     generation_summary_t *generation,
     list_t *move_learn_methods,
     list_t *pokedexes,

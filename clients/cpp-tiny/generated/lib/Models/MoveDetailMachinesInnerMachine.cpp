@@ -64,7 +64,7 @@ MoveDetail_machines_inner_machine::getUrl()
 }
 
 void
-MoveDetail_machines_inner_machine::setUrl(std::string  url)
+MoveDetail_machines_inner_machine::setUrl(std::string url)
 {
 	this->url = url;
 }

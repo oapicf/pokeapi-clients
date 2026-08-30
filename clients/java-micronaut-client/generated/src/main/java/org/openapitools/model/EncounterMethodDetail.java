@@ -36,7 +36,7 @@ import javax.annotation.Generated;
   EncounterMethodDetail.JSON_PROPERTY_NAMES
 })
 @JsonTypeName("EncounterMethodDetail")
-@Generated(value="org.openapitools.codegen.languages.JavaMicronautClientCodegen", date="2026-02-07T15:22:54.857535619Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@Generated(value="org.openapitools.codegen.languages.JavaMicronautClientCodegen", date="2026-08-30T01:55:51.056116330Z[Etc/UTC]", comments = "Generator version: 7.24.0")
 @Introspected
 public class EncounterMethodDetail {
     public static final String JSON_PROPERTY_ID = "id";
@@ -113,16 +113,6 @@ public class EncounterMethodDetail {
         this.order = order;
     }
 
-    public EncounterMethodDetail names(List<@Valid EncounterMethodName> names) {
-        this.names = names;
-        return this;
-    }
-
-    public EncounterMethodDetail addNamesItem(EncounterMethodName namesItem) {
-        this.names.add(namesItem);
-        return this;
-    }
-
     /**
      * Get names
      * @return names
@@ -132,12 +122,6 @@ public class EncounterMethodDetail {
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public List<@Valid EncounterMethodName> getNames() {
         return names;
-    }
-
-    @JsonProperty(JSON_PROPERTY_NAMES)
-    @JsonInclude(value = JsonInclude.Include.ALWAYS)
-    public void setNames(List<@Valid EncounterMethodName> names) {
-        this.names = names;
     }
 
     @Override
@@ -177,10 +161,7 @@ public class EncounterMethodDetail {
      * (except the first line).
      */
     private String toIndentedString(Object o) {
-        if (o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
+        return o == null ? "null" : o.toString().replace("\n", "\n    ");
     }
 
 }

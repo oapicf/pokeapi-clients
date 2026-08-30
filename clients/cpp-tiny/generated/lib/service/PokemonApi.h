@@ -52,7 +52,7 @@ class PokemonApi : public Service {
 public:
     PokemonApi() = default;
 
-    virtual ~PokemonApi() = default;
+    virtual ~PokemonApi();
 
     /**
     * .

@@ -1,0 +1,65 @@
+package org.openapitools.model;
+
+import java.net.URI;
+import java.util.Objects;
+import java.io.Serializable;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import javax.annotation.Generated;
+import java.time.*;
+import java.math.*;
+@Generated(value = "org.openapitools.codegen.languages.JavaDubboServerCodegen", comments = "Generator version: 7.24.0")
+
+public class TypeDetailSpritesValueValue implements Serializable {
+  private static final long serialVersionUID = 1L;
+
+  @JsonProperty("name-icon")
+  private URI nameIcon;
+
+  /**
+   * 
+   * @return nameIcon
+   */
+  public URI getNameIcon() {
+    return nameIcon;
+  }
+
+  public void setNameIcon(URI nameIcon) {
+    this.nameIcon = nameIcon;
+  }
+
+
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) {
+      return true;
+    }
+    if (o == null || getClass() != o.getClass()) {
+      return false;
+    }
+    TypeDetailSpritesValueValue typeDetailSpritesValueValue = (TypeDetailSpritesValueValue) o;
+    return Objects.equals(this.nameIcon, typeDetailSpritesValueValue.nameIcon);
+  }
+
+  @Override
+  public int hashCode() {
+    return Objects.hash(nameIcon);
+  }
+
+  @Override
+  public String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("class TypeDetailSpritesValueValue {\n");
+    
+    sb.append("    nameIcon: ").append(toIndentedString(nameIcon)).append("\n");
+    sb.append("}");
+    return sb.toString();
+  }
+
+  /**
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
+   */
+  private String toIndentedString(Object o) {
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
+  }
+}

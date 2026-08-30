@@ -21,7 +21,7 @@
 
 namespace OpenAPI {
 
-OAIEvolutionTriggerName::OAIEvolutionTriggerName(QString json) {
+OAIEvolutionTriggerName::OAIEvolutionTriggerName(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -41,7 +41,7 @@ void OAIEvolutionTriggerName::initializeModel() {
     m_language_isValid = false;
 }
 
-void OAIEvolutionTriggerName::fromJson(QString jsonString) {
+void OAIEvolutionTriggerName::fromJson(const QString &jsonString) {
     QByteArray array(jsonString.toStdString().c_str());
     QJsonDocument doc = QJsonDocument::fromJson(array);
     QJsonObject jsonObject = doc.object();

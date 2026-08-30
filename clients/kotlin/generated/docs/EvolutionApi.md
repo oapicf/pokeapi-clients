@@ -54,9 +54,15 @@ try {
 ### Authorization
 
 
-Configure basicAuth:
-    ApiClient.username = ""
-    ApiClient.password = ""
+Configure basicAuth statically:
+```kotlin
+ApiClient.username = ""
+ApiClient.password = ""
+```
+Configure basicAuth dynamically:
+```kotlin
+apiInstance.userCredentialProvider = { "user" to "pass" }
+```
 Configure cookieAuth:
     ApiClient.apiKey["sessionid"] = ""
     ApiClient.apiKeyPrefix["sessionid"] = ""
@@ -106,9 +112,15 @@ try {
 ### Authorization
 
 
-Configure basicAuth:
-    ApiClient.username = ""
-    ApiClient.password = ""
+Configure basicAuth statically:
+```kotlin
+ApiClient.username = ""
+ApiClient.password = ""
+```
+Configure basicAuth dynamically:
+```kotlin
+apiInstance.userCredentialProvider = { "user" to "pass" }
+```
 Configure cookieAuth:
     ApiClient.apiKey["sessionid"] = ""
     ApiClient.apiKeyPrefix["sessionid"] = ""
@@ -162,9 +174,15 @@ try {
 ### Authorization
 
 
-Configure basicAuth:
-    ApiClient.username = ""
-    ApiClient.password = ""
+Configure basicAuth statically:
+```kotlin
+ApiClient.username = ""
+ApiClient.password = ""
+```
+Configure basicAuth dynamically:
+```kotlin
+apiInstance.userCredentialProvider = { "user" to "pass" }
+```
 Configure cookieAuth:
     ApiClient.apiKey["sessionid"] = ""
     ApiClient.apiKeyPrefix["sessionid"] = ""
@@ -214,9 +232,15 @@ try {
 ### Authorization
 
 
-Configure basicAuth:
-    ApiClient.username = ""
-    ApiClient.password = ""
+Configure basicAuth statically:
+```kotlin
+ApiClient.username = ""
+ApiClient.password = ""
+```
+Configure basicAuth dynamically:
+```kotlin
+apiInstance.userCredentialProvider = { "user" to "pass" }
+```
 Configure cookieAuth:
     ApiClient.apiKey["sessionid"] = ""
     ApiClient.apiKeyPrefix["sessionid"] = ""

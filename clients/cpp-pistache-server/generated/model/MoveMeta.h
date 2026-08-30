@@ -33,7 +33,7 @@ class  MoveMeta
 {
 public:
     MoveMeta();
-    virtual ~MoveMeta() = default;
+    virtual ~MoveMeta();
 
 
     /// <summary>

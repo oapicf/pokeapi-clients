@@ -34,8 +34,8 @@ public:
 	OpenAPIEvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender Gender;
 	OpenAPIEvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender HeldItem;
 	OpenAPIEvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender Item;
-	TSharedPtr<FJsonObject> KnownMove;
-	TSharedPtr<FJsonObject> KnownMoveType;
+	OpenAPIEvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender KnownMove;
+	OpenAPIEvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender KnownMoveType;
 	OpenAPIEvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender Location;
 	int32 MinAffection = 0;
 	int32 MinBeauty = 0;

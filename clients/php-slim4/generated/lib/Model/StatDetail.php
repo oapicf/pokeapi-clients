@@ -70,18 +70,22 @@ class StatDetail extends BaseModel
     },
     "characteristics" : {
       "type" : "array",
+      "readOnly" : true,
       "items" : {
         "$ref" : "#/components/schemas/CharacteristicSummary"
-      }
+      },
+      "default" : null
     },
     "move_damage_class" : {
       "$ref" : "#/components/schemas/MoveDamageClassSummary"
     },
     "names" : {
       "type" : "array",
+      "readOnly" : true,
       "items" : {
         "$ref" : "#/components/schemas/StatName"
-      }
+      },
+      "default" : null
     }
   }
 }

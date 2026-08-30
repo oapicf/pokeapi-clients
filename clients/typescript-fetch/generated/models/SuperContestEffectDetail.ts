@@ -51,13 +51,13 @@ export interface SuperContestEffectDetail {
      * @type {Array<SuperContestEffectFlavorText>}
      * @memberof SuperContestEffectDetail
      */
-    flavorTextEntries: Array<SuperContestEffectFlavorText>;
+    readonly flavorTextEntries: Array<SuperContestEffectFlavorText>;
     /**
      * 
      * @type {Array<MoveSummary>}
      * @memberof SuperContestEffectDetail
      */
-    moves: Array<MoveSummary>;
+    readonly moves: Array<MoveSummary>;
 }
 
 /**
@@ -66,7 +66,7 @@ export interface SuperContestEffectDetail {
 export function instanceOfSuperContestEffectDetail(value: object): value is SuperContestEffectDetail {
     if (!('id' in value) || value['id'] === undefined) return false;
     if (!('appeal' in value) || value['appeal'] === undefined) return false;
-    if (!('flavorTextEntries' in value) || value['flavorTextEntries'] === undefined) return false;
+    if ((!('flavorTextEntries' in (value as Record<string, any>)) && !('flavor_text_entries' in (value as Record<string, any>))) || ((value as Record<string, any>)['flavorTextEntries'] === undefined && (value as Record<string, any>)['flavor_text_entries'] === undefined)) return false;
     if (!('moves' in value) || value['moves'] === undefined) return false;
     return true;
 }
@@ -92,7 +92,7 @@ export function SuperContestEffectDetailToJSON(json: any): SuperContestEffectDet
     return SuperContestEffectDetailToJSONTyped(json, false);
 }
 
-export function SuperContestEffectDetailToJSONTyped(value?: Omit<SuperContestEffectDetail, 'id'> | null, ignoreDiscriminator: boolean = false): any {
+export function SuperContestEffectDetailToJSONTyped(value?: Omit<SuperContestEffectDetail, 'id'|'flavorTextEntries'|'moves'> | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
@@ -100,8 +100,6 @@ export function SuperContestEffectDetailToJSONTyped(value?: Omit<SuperContestEff
     return {
         
         'appeal': value['appeal'],
-        'flavor_text_entries': ((value['flavorTextEntries'] as Array<any>).map(SuperContestEffectFlavorTextToJSON)),
-        'moves': ((value['moves'] as Array<any>).map(MoveSummaryToJSON)),
     };
 }
 

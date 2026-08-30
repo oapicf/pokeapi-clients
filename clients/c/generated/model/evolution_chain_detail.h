@@ -21,7 +21,7 @@ typedef struct evolution_chain_detail_t evolution_chain_detail_t;
 
 
 typedef struct evolution_chain_detail_t {
-    int id; //numeric
+    int *id; //numeric
     struct item_summary_t *baby_trigger_item; //model
     struct evolution_chain_detail_chain_t *chain; //model
 
@@ -29,7 +29,7 @@ typedef struct evolution_chain_detail_t {
 } evolution_chain_detail_t;
 
 __attribute__((deprecated)) evolution_chain_detail_t *evolution_chain_detail_create(
-    int id,
+    int *id,
     item_summary_t *baby_trigger_item,
     evolution_chain_detail_chain_t *chain
 );

@@ -53,10 +53,10 @@ class VersionSummary {
       // Note 1: the values aren't checked for validity beyond being non-null.
       // Note 2: this code is stripped in release mode!
       assert(() {
-        requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "VersionSummary[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "VersionSummary[$key]" has a null value in JSON.');
-        });
+        assert(json.containsKey(r'name'), 'Required key "VersionSummary[name]" is missing from JSON.');
+        assert(json[r'name'] != null, 'Required key "VersionSummary[name]" has a null value in JSON.');
+        assert(json.containsKey(r'url'), 'Required key "VersionSummary[url]" is missing from JSON.');
+        assert(json[r'url'] != null, 'Required key "VersionSummary[url]" has a null value in JSON.');
         return true;
       }());
 

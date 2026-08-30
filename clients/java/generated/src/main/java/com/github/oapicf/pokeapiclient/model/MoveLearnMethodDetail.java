@@ -53,7 +53,7 @@ import com.github.oapicf.pokeapiclient.JSON;
 /**
  * MoveLearnMethodDetail
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-07T15:22:35.747827932Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-08-30T01:55:28.842792947Z[Etc/UTC]", comments = "Generator version: 7.24.0")
 public class MoveLearnMethodDetail {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -84,10 +84,16 @@ public class MoveLearnMethodDetail {
   }
 
   public MoveLearnMethodDetail(
-     Integer id
+     Integer id, 
+     List<MoveLearnMethodName> names, 
+     List<MoveLearnMethodDescription> descriptions, 
+     List<AbilityDetailPokemonInnerPokemon> versionGroups
   ) {
     this();
     this.id = id;
+    this.names = names;
+    this.descriptions = descriptions;
+    this.versionGroups = versionGroups;
   }
 
   /**
@@ -120,19 +126,6 @@ public class MoveLearnMethodDetail {
   }
 
 
-  public MoveLearnMethodDetail names(@javax.annotation.Nonnull List<MoveLearnMethodName> names) {
-    this.names = names;
-    return this;
-  }
-
-  public MoveLearnMethodDetail addNamesItem(MoveLearnMethodName namesItem) {
-    if (this.names == null) {
-      this.names = new ArrayList<>();
-    }
-    this.names.add(namesItem);
-    return this;
-  }
-
   /**
    * Get names
    * @return names
@@ -142,23 +135,7 @@ public class MoveLearnMethodDetail {
     return names;
   }
 
-  public void setNames(@javax.annotation.Nonnull List<MoveLearnMethodName> names) {
-    this.names = names;
-  }
 
-
-  public MoveLearnMethodDetail descriptions(@javax.annotation.Nonnull List<MoveLearnMethodDescription> descriptions) {
-    this.descriptions = descriptions;
-    return this;
-  }
-
-  public MoveLearnMethodDetail addDescriptionsItem(MoveLearnMethodDescription descriptionsItem) {
-    if (this.descriptions == null) {
-      this.descriptions = new ArrayList<>();
-    }
-    this.descriptions.add(descriptionsItem);
-    return this;
-  }
 
   /**
    * Get descriptions
@@ -169,23 +146,7 @@ public class MoveLearnMethodDetail {
     return descriptions;
   }
 
-  public void setDescriptions(@javax.annotation.Nonnull List<MoveLearnMethodDescription> descriptions) {
-    this.descriptions = descriptions;
-  }
 
-
-  public MoveLearnMethodDetail versionGroups(@javax.annotation.Nonnull List<AbilityDetailPokemonInnerPokemon> versionGroups) {
-    this.versionGroups = versionGroups;
-    return this;
-  }
-
-  public MoveLearnMethodDetail addVersionGroupsItem(AbilityDetailPokemonInnerPokemon versionGroupsItem) {
-    if (this.versionGroups == null) {
-      this.versionGroups = new ArrayList<>();
-    }
-    this.versionGroups.add(versionGroupsItem);
-    return this;
-  }
 
   /**
    * Get versionGroups
@@ -196,9 +157,6 @@ public class MoveLearnMethodDetail {
     return versionGroups;
   }
 
-  public void setVersionGroups(@javax.annotation.Nonnull List<AbilityDetailPokemonInnerPokemon> versionGroups) {
-    this.versionGroups = versionGroups;
-  }
 
 
 
@@ -241,10 +199,7 @@ public class MoveLearnMethodDetail {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 
@@ -290,36 +245,36 @@ public class MoveLearnMethodDetail {
       if (!jsonObj.get("name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
       }
-      // ensure the json data is an array
-      if (!jsonObj.get("names").isJsonArray()) {
-        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `names` to be an array in the JSON string but got `%s`", jsonObj.get("names").toString()));
+      if (jsonObj.get("names") != null) {
+        if (!jsonObj.get("names").isJsonArray()) {
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `names` to be an array in the JSON string but got `%s`", jsonObj.get("names").toString()));
+        }
+        JsonArray jsonArraynames = jsonObj.getAsJsonArray("names");
+        // validate the required field `names` (array)
+        for (int i = 0; i < jsonArraynames.size(); i++) {
+          MoveLearnMethodName.validateJsonElement(jsonArraynames.get(i));
+        }
       }
-
-      JsonArray jsonArraynames = jsonObj.getAsJsonArray("names");
-      // validate the required field `names` (array)
-      for (int i = 0; i < jsonArraynames.size(); i++) {
-        MoveLearnMethodName.validateJsonElement(jsonArraynames.get(i));
-      };
-      // ensure the json data is an array
-      if (!jsonObj.get("descriptions").isJsonArray()) {
-        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `descriptions` to be an array in the JSON string but got `%s`", jsonObj.get("descriptions").toString()));
+      if (jsonObj.get("descriptions") != null) {
+        if (!jsonObj.get("descriptions").isJsonArray()) {
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `descriptions` to be an array in the JSON string but got `%s`", jsonObj.get("descriptions").toString()));
+        }
+        JsonArray jsonArraydescriptions = jsonObj.getAsJsonArray("descriptions");
+        // validate the required field `descriptions` (array)
+        for (int i = 0; i < jsonArraydescriptions.size(); i++) {
+          MoveLearnMethodDescription.validateJsonElement(jsonArraydescriptions.get(i));
+        }
       }
-
-      JsonArray jsonArraydescriptions = jsonObj.getAsJsonArray("descriptions");
-      // validate the required field `descriptions` (array)
-      for (int i = 0; i < jsonArraydescriptions.size(); i++) {
-        MoveLearnMethodDescription.validateJsonElement(jsonArraydescriptions.get(i));
-      };
-      // ensure the json data is an array
-      if (!jsonObj.get("version_groups").isJsonArray()) {
-        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `version_groups` to be an array in the JSON string but got `%s`", jsonObj.get("version_groups").toString()));
+      if (jsonObj.get("version_groups") != null) {
+        if (!jsonObj.get("version_groups").isJsonArray()) {
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `version_groups` to be an array in the JSON string but got `%s`", jsonObj.get("version_groups").toString()));
+        }
+        JsonArray jsonArrayversionGroups = jsonObj.getAsJsonArray("version_groups");
+        // validate the required field `version_groups` (array)
+        for (int i = 0; i < jsonArrayversionGroups.size(); i++) {
+          AbilityDetailPokemonInnerPokemon.validateJsonElement(jsonArrayversionGroups.get(i));
+        }
       }
-
-      JsonArray jsonArrayversionGroups = jsonObj.getAsJsonArray("version_groups");
-      // validate the required field `version_groups` (array)
-      for (int i = 0; i < jsonArrayversionGroups.size(); i++) {
-        AbilityDetailPokemonInnerPokemon.validateJsonElement(jsonArrayversionGroups.get(i));
-      };
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {

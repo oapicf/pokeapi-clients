@@ -47,7 +47,7 @@ class GenerationDetail
      * @var int|null
      * @SerializedName("id")
      * @Type("int")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Type("int")]
     protected ?int $id = null;
@@ -56,7 +56,7 @@ class GenerationDetail
      * @var string|null
      * @SerializedName("name")
      * @Type("string")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Type("string")]
     #[Assert\Length(max: 100)]
@@ -66,7 +66,7 @@ class GenerationDetail
      * @var AbilitySummary[]|null
      * @SerializedName("abilities")
      * @Type("array<OpenAPI\Server\Model\AbilitySummary>")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Valid]
     #[Assert\All([
@@ -78,7 +78,7 @@ class GenerationDetail
      * @var RegionSummary|null
      * @SerializedName("main_region")
      * @Type("OpenAPI\Server\Model\RegionSummary")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Valid]
     #[Assert\Type("OpenAPI\Server\Model\RegionSummary")]
@@ -88,7 +88,7 @@ class GenerationDetail
      * @var MoveSummary[]|null
      * @SerializedName("moves")
      * @Type("array<OpenAPI\Server\Model\MoveSummary>")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Valid]
     #[Assert\All([
@@ -100,7 +100,7 @@ class GenerationDetail
      * @var GenerationName[]|null
      * @SerializedName("names")
      * @Type("array<OpenAPI\Server\Model\GenerationName>")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Valid]
     #[Assert\All([
@@ -112,7 +112,7 @@ class GenerationDetail
      * @var PokemonSpeciesSummary[]|null
      * @SerializedName("pokemon_species")
      * @Type("array<OpenAPI\Server\Model\PokemonSpeciesSummary>")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Valid]
     #[Assert\All([
@@ -124,7 +124,7 @@ class GenerationDetail
      * @var TypeSummary[]|null
      * @SerializedName("types")
      * @Type("array<OpenAPI\Server\Model\TypeSummary>")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Valid]
     #[Assert\All([
@@ -136,7 +136,7 @@ class GenerationDetail
      * @var VersionGroupSummary[]|null
      * @SerializedName("version_groups")
      * @Type("array<OpenAPI\Server\Model\VersionGroupSummary>")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Valid]
     #[Assert\All([
@@ -174,12 +174,12 @@ class GenerationDetail
     }
 
     /**
-    * Sets id.
-    *
-    * @param int|null $id
-    *
-    * @return $this
-    */
+     * Sets id.
+     *
+     * @param int|null $id
+     *
+     * @return $this
+     */
     public function setId(?int $id): self
     {
         $this->id = $id;
@@ -201,12 +201,12 @@ class GenerationDetail
     }
 
     /**
-    * Sets name.
-    *
-    * @param string|null $name
-    *
-    * @return $this
-    */
+     * Sets name.
+     *
+     * @param string|null $name
+     *
+     * @return $this
+     */
     public function setName(?string $name): self
     {
         $this->name = $name;
@@ -228,12 +228,12 @@ class GenerationDetail
     }
 
     /**
-    * Sets abilities.
-    *
-    * @param AbilitySummary[]|null $abilities
-    *
-    * @return $this
-    */
+     * Sets abilities.
+     *
+     * @param AbilitySummary[]|null $abilities
+     *
+     * @return $this
+     */
     public function setAbilities(?array $abilities): self
     {
         $this->abilities = $abilities;
@@ -255,12 +255,12 @@ class GenerationDetail
     }
 
     /**
-    * Sets mainRegion.
-    *
-    * @param RegionSummary|null $mainRegion
-    *
-    * @return $this
-    */
+     * Sets mainRegion.
+     *
+     * @param RegionSummary|null $mainRegion
+     *
+     * @return $this
+     */
     public function setMainRegion(?RegionSummary $mainRegion): self
     {
         $this->mainRegion = $mainRegion;
@@ -282,12 +282,12 @@ class GenerationDetail
     }
 
     /**
-    * Sets moves.
-    *
-    * @param MoveSummary[]|null $moves
-    *
-    * @return $this
-    */
+     * Sets moves.
+     *
+     * @param MoveSummary[]|null $moves
+     *
+     * @return $this
+     */
     public function setMoves(?array $moves): self
     {
         $this->moves = $moves;
@@ -309,12 +309,12 @@ class GenerationDetail
     }
 
     /**
-    * Sets names.
-    *
-    * @param GenerationName[]|null $names
-    *
-    * @return $this
-    */
+     * Sets names.
+     *
+     * @param GenerationName[]|null $names
+     *
+     * @return $this
+     */
     public function setNames(?array $names): self
     {
         $this->names = $names;
@@ -336,12 +336,12 @@ class GenerationDetail
     }
 
     /**
-    * Sets pokemonSpecies.
-    *
-    * @param PokemonSpeciesSummary[]|null $pokemonSpecies
-    *
-    * @return $this
-    */
+     * Sets pokemonSpecies.
+     *
+     * @param PokemonSpeciesSummary[]|null $pokemonSpecies
+     *
+     * @return $this
+     */
     public function setPokemonSpecies(?array $pokemonSpecies): self
     {
         $this->pokemonSpecies = $pokemonSpecies;
@@ -363,12 +363,12 @@ class GenerationDetail
     }
 
     /**
-    * Sets types.
-    *
-    * @param TypeSummary[]|null $types
-    *
-    * @return $this
-    */
+     * Sets types.
+     *
+     * @param TypeSummary[]|null $types
+     *
+     * @return $this
+     */
     public function setTypes(?array $types): self
     {
         $this->types = $types;
@@ -390,12 +390,12 @@ class GenerationDetail
     }
 
     /**
-    * Sets versionGroups.
-    *
-    * @param VersionGroupSummary[]|null $versionGroups
-    *
-    * @return $this
-    */
+     * Sets versionGroups.
+     *
+     * @param VersionGroupSummary[]|null $versionGroups
+     *
+     * @return $this
+     */
     public function setVersionGroups(?array $versionGroups): self
     {
         $this->versionGroups = $versionGroups;

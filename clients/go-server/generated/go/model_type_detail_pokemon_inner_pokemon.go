@@ -23,7 +23,8 @@ type TypeDetailPokemonInnerPokemon struct {
 	Url string `json:"url,omitempty"`
 }
 
-// AssertTypeDetailPokemonInnerPokemonRequired checks if the required fields are not zero-ed
+// AssertTypeDetailPokemonInnerPokemonRequired checks complex required fields (models, arrays, maps) and embedded parents.
+// Primitive required fields are validated for JSON request bodies in UnmarshalJSON so zero values remain valid.
 func AssertTypeDetailPokemonInnerPokemonRequired(obj TypeDetailPokemonInnerPokemon) error {
 	return nil
 }

@@ -26,6 +26,8 @@ MoveTargetDetail::MoveTargetDetail()
     
 }
 
+MoveTargetDetail::~MoveTargetDetail() = default;
+
 void MoveTargetDetail::validate() const
 {
     std::stringstream msg;

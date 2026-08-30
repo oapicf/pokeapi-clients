@@ -12,48 +12,67 @@
  * Do not edit the class manually.
  */
 
-
 import * as runtime from '../runtime';
-import type {
-  MoveBattleStyleDetail,
-  MoveDetail,
-  MoveLearnMethodDetail,
-  MoveMetaAilmentDetail,
-  MoveMetaCategoryDetail,
-  MoveTargetDetail,
-  PaginatedMoveBattleStyleSummaryList,
-  PaginatedMoveLearnMethodSummaryList,
-  PaginatedMoveMetaAilmentSummaryList,
-  PaginatedMoveMetaCategorySummaryList,
-  PaginatedMoveSummaryList,
-  PaginatedMoveTargetSummaryList,
-} from '../models/index';
 import {
+    type MoveBattleStyleDetail,
     MoveBattleStyleDetailFromJSON,
     MoveBattleStyleDetailToJSON,
+} from '../models/MoveBattleStyleDetail';
+import {
+    type MoveDetail,
     MoveDetailFromJSON,
     MoveDetailToJSON,
+} from '../models/MoveDetail';
+import {
+    type MoveLearnMethodDetail,
     MoveLearnMethodDetailFromJSON,
     MoveLearnMethodDetailToJSON,
+} from '../models/MoveLearnMethodDetail';
+import {
+    type MoveMetaAilmentDetail,
     MoveMetaAilmentDetailFromJSON,
     MoveMetaAilmentDetailToJSON,
+} from '../models/MoveMetaAilmentDetail';
+import {
+    type MoveMetaCategoryDetail,
     MoveMetaCategoryDetailFromJSON,
     MoveMetaCategoryDetailToJSON,
+} from '../models/MoveMetaCategoryDetail';
+import {
+    type MoveTargetDetail,
     MoveTargetDetailFromJSON,
     MoveTargetDetailToJSON,
+} from '../models/MoveTargetDetail';
+import {
+    type PaginatedMoveBattleStyleSummaryList,
     PaginatedMoveBattleStyleSummaryListFromJSON,
     PaginatedMoveBattleStyleSummaryListToJSON,
+} from '../models/PaginatedMoveBattleStyleSummaryList';
+import {
+    type PaginatedMoveLearnMethodSummaryList,
     PaginatedMoveLearnMethodSummaryListFromJSON,
     PaginatedMoveLearnMethodSummaryListToJSON,
+} from '../models/PaginatedMoveLearnMethodSummaryList';
+import {
+    type PaginatedMoveMetaAilmentSummaryList,
     PaginatedMoveMetaAilmentSummaryListFromJSON,
     PaginatedMoveMetaAilmentSummaryListToJSON,
+} from '../models/PaginatedMoveMetaAilmentSummaryList';
+import {
+    type PaginatedMoveMetaCategorySummaryList,
     PaginatedMoveMetaCategorySummaryListFromJSON,
     PaginatedMoveMetaCategorySummaryListToJSON,
+} from '../models/PaginatedMoveMetaCategorySummaryList';
+import {
+    type PaginatedMoveSummaryList,
     PaginatedMoveSummaryListFromJSON,
     PaginatedMoveSummaryListToJSON,
+} from '../models/PaginatedMoveSummaryList';
+import {
+    type PaginatedMoveTargetSummaryList,
     PaginatedMoveTargetSummaryListFromJSON,
     PaginatedMoveTargetSummaryListToJSON,
-} from '../models/index';
+} from '../models/PaginatedMoveTargetSummaryList';
 
 export interface MoveAilmentListRequest {
     limit?: number;
@@ -121,10 +140,9 @@ export interface MoveTargetRetrieveRequest {
 export class MovesApi extends runtime.BaseAPI {
 
     /**
-     * Move Ailments are status conditions caused by moves used during battle. See [Bulbapedia](https://bulbapedia.bulbagarden.net/wiki/Status_condition) for greater detail.
-     * List move meta ailments
+     * Creates request options for moveAilmentList without sending the request
      */
-    async moveAilmentListRaw(requestParameters: MoveAilmentListRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PaginatedMoveMetaAilmentSummaryList>> {
+    async moveAilmentListRequestOpts(requestParameters: MoveAilmentListRequest): Promise<runtime.RequestOpts> {
         const queryParameters: any = {};
 
         if (requestParameters['limit'] != null) {
@@ -147,12 +165,21 @@ export class MovesApi extends runtime.BaseAPI {
 
         let urlPath = `/api/v2/move-ailment/`;
 
-        const response = await this.request({
+        return {
             path: urlPath,
             method: 'GET',
             headers: headerParameters,
             query: queryParameters,
-        }, initOverrides);
+        };
+    }
+
+    /**
+     * Move Ailments are status conditions caused by moves used during battle. See [Bulbapedia](https://bulbapedia.bulbagarden.net/wiki/Status_condition) for greater detail.
+     * List move meta ailments
+     */
+    async moveAilmentListRaw(requestParameters: MoveAilmentListRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PaginatedMoveMetaAilmentSummaryList>> {
+        const requestOptions = await this.moveAilmentListRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => PaginatedMoveMetaAilmentSummaryListFromJSON(jsonValue));
     }
@@ -167,10 +194,9 @@ export class MovesApi extends runtime.BaseAPI {
     }
 
     /**
-     * Move Ailments are status conditions caused by moves used during battle. See [Bulbapedia](https://bulbapedia.bulbagarden.net/wiki/Status_condition) for greater detail.
-     * Get move meta ailment
+     * Creates request options for moveAilmentRetrieve without sending the request
      */
-    async moveAilmentRetrieveRaw(requestParameters: MoveAilmentRetrieveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<MoveMetaAilmentDetail>> {
+    async moveAilmentRetrieveRequestOpts(requestParameters: MoveAilmentRetrieveRequest): Promise<runtime.RequestOpts> {
         if (requestParameters['id'] == null) {
             throw new runtime.RequiredError(
                 'id',
@@ -187,14 +213,23 @@ export class MovesApi extends runtime.BaseAPI {
         }
 
         let urlPath = `/api/v2/move-ailment/{id}/`;
-        urlPath = urlPath.replace(`{${"id"}}`, encodeURIComponent(String(requestParameters['id'])));
+        urlPath = urlPath.replace('{id}', encodeURIComponent(String(requestParameters['id'])));
 
-        const response = await this.request({
+        return {
             path: urlPath,
             method: 'GET',
             headers: headerParameters,
             query: queryParameters,
-        }, initOverrides);
+        };
+    }
+
+    /**
+     * Move Ailments are status conditions caused by moves used during battle. See [Bulbapedia](https://bulbapedia.bulbagarden.net/wiki/Status_condition) for greater detail.
+     * Get move meta ailment
+     */
+    async moveAilmentRetrieveRaw(requestParameters: MoveAilmentRetrieveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<MoveMetaAilmentDetail>> {
+        const requestOptions = await this.moveAilmentRetrieveRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => MoveMetaAilmentDetailFromJSON(jsonValue));
     }
@@ -209,10 +244,9 @@ export class MovesApi extends runtime.BaseAPI {
     }
 
     /**
-     * Styles of moves when used in the Battle Palace. See [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Battle_Frontier_(Generation_III)) for greater detail.
-     * List move battle styles
+     * Creates request options for moveBattleStyleList without sending the request
      */
-    async moveBattleStyleListRaw(requestParameters: MoveBattleStyleListRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PaginatedMoveBattleStyleSummaryList>> {
+    async moveBattleStyleListRequestOpts(requestParameters: MoveBattleStyleListRequest): Promise<runtime.RequestOpts> {
         const queryParameters: any = {};
 
         if (requestParameters['limit'] != null) {
@@ -235,12 +269,21 @@ export class MovesApi extends runtime.BaseAPI {
 
         let urlPath = `/api/v2/move-battle-style/`;
 
-        const response = await this.request({
+        return {
             path: urlPath,
             method: 'GET',
             headers: headerParameters,
             query: queryParameters,
-        }, initOverrides);
+        };
+    }
+
+    /**
+     * Styles of moves when used in the Battle Palace. See [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Battle_Frontier_(Generation_III)) for greater detail.
+     * List move battle styles
+     */
+    async moveBattleStyleListRaw(requestParameters: MoveBattleStyleListRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PaginatedMoveBattleStyleSummaryList>> {
+        const requestOptions = await this.moveBattleStyleListRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => PaginatedMoveBattleStyleSummaryListFromJSON(jsonValue));
     }
@@ -255,10 +298,9 @@ export class MovesApi extends runtime.BaseAPI {
     }
 
     /**
-     * Styles of moves when used in the Battle Palace. See [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Battle_Frontier_(Generation_III)) for greater detail.
-     * Get move battle style
+     * Creates request options for moveBattleStyleRetrieve without sending the request
      */
-    async moveBattleStyleRetrieveRaw(requestParameters: MoveBattleStyleRetrieveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<MoveBattleStyleDetail>> {
+    async moveBattleStyleRetrieveRequestOpts(requestParameters: MoveBattleStyleRetrieveRequest): Promise<runtime.RequestOpts> {
         if (requestParameters['id'] == null) {
             throw new runtime.RequiredError(
                 'id',
@@ -275,14 +317,23 @@ export class MovesApi extends runtime.BaseAPI {
         }
 
         let urlPath = `/api/v2/move-battle-style/{id}/`;
-        urlPath = urlPath.replace(`{${"id"}}`, encodeURIComponent(String(requestParameters['id'])));
+        urlPath = urlPath.replace('{id}', encodeURIComponent(String(requestParameters['id'])));
 
-        const response = await this.request({
+        return {
             path: urlPath,
             method: 'GET',
             headers: headerParameters,
             query: queryParameters,
-        }, initOverrides);
+        };
+    }
+
+    /**
+     * Styles of moves when used in the Battle Palace. See [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Battle_Frontier_(Generation_III)) for greater detail.
+     * Get move battle style
+     */
+    async moveBattleStyleRetrieveRaw(requestParameters: MoveBattleStyleRetrieveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<MoveBattleStyleDetail>> {
+        const requestOptions = await this.moveBattleStyleRetrieveRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => MoveBattleStyleDetailFromJSON(jsonValue));
     }
@@ -297,10 +348,9 @@ export class MovesApi extends runtime.BaseAPI {
     }
 
     /**
-     * Very general categories that loosely group move effects.
-     * List move meta categories
+     * Creates request options for moveCategoryList without sending the request
      */
-    async moveCategoryListRaw(requestParameters: MoveCategoryListRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PaginatedMoveMetaCategorySummaryList>> {
+    async moveCategoryListRequestOpts(requestParameters: MoveCategoryListRequest): Promise<runtime.RequestOpts> {
         const queryParameters: any = {};
 
         if (requestParameters['limit'] != null) {
@@ -323,12 +373,21 @@ export class MovesApi extends runtime.BaseAPI {
 
         let urlPath = `/api/v2/move-category/`;
 
-        const response = await this.request({
+        return {
             path: urlPath,
             method: 'GET',
             headers: headerParameters,
             query: queryParameters,
-        }, initOverrides);
+        };
+    }
+
+    /**
+     * Very general categories that loosely group move effects.
+     * List move meta categories
+     */
+    async moveCategoryListRaw(requestParameters: MoveCategoryListRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PaginatedMoveMetaCategorySummaryList>> {
+        const requestOptions = await this.moveCategoryListRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => PaginatedMoveMetaCategorySummaryListFromJSON(jsonValue));
     }
@@ -343,10 +402,9 @@ export class MovesApi extends runtime.BaseAPI {
     }
 
     /**
-     * Very general categories that loosely group move effects.
-     * Get move meta category
+     * Creates request options for moveCategoryRetrieve without sending the request
      */
-    async moveCategoryRetrieveRaw(requestParameters: MoveCategoryRetrieveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<MoveMetaCategoryDetail>> {
+    async moveCategoryRetrieveRequestOpts(requestParameters: MoveCategoryRetrieveRequest): Promise<runtime.RequestOpts> {
         if (requestParameters['id'] == null) {
             throw new runtime.RequiredError(
                 'id',
@@ -363,14 +421,23 @@ export class MovesApi extends runtime.BaseAPI {
         }
 
         let urlPath = `/api/v2/move-category/{id}/`;
-        urlPath = urlPath.replace(`{${"id"}}`, encodeURIComponent(String(requestParameters['id'])));
+        urlPath = urlPath.replace('{id}', encodeURIComponent(String(requestParameters['id'])));
 
-        const response = await this.request({
+        return {
             path: urlPath,
             method: 'GET',
             headers: headerParameters,
             query: queryParameters,
-        }, initOverrides);
+        };
+    }
+
+    /**
+     * Very general categories that loosely group move effects.
+     * Get move meta category
+     */
+    async moveCategoryRetrieveRaw(requestParameters: MoveCategoryRetrieveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<MoveMetaCategoryDetail>> {
+        const requestOptions = await this.moveCategoryRetrieveRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => MoveMetaCategoryDetailFromJSON(jsonValue));
     }
@@ -385,10 +452,9 @@ export class MovesApi extends runtime.BaseAPI {
     }
 
     /**
-     * Methods by which Pokémon can learn moves.
-     * List move learn methods
+     * Creates request options for moveLearnMethodList without sending the request
      */
-    async moveLearnMethodListRaw(requestParameters: MoveLearnMethodListRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PaginatedMoveLearnMethodSummaryList>> {
+    async moveLearnMethodListRequestOpts(requestParameters: MoveLearnMethodListRequest): Promise<runtime.RequestOpts> {
         const queryParameters: any = {};
 
         if (requestParameters['limit'] != null) {
@@ -411,12 +477,21 @@ export class MovesApi extends runtime.BaseAPI {
 
         let urlPath = `/api/v2/move-learn-method/`;
 
-        const response = await this.request({
+        return {
             path: urlPath,
             method: 'GET',
             headers: headerParameters,
             query: queryParameters,
-        }, initOverrides);
+        };
+    }
+
+    /**
+     * Methods by which Pokémon can learn moves.
+     * List move learn methods
+     */
+    async moveLearnMethodListRaw(requestParameters: MoveLearnMethodListRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PaginatedMoveLearnMethodSummaryList>> {
+        const requestOptions = await this.moveLearnMethodListRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => PaginatedMoveLearnMethodSummaryListFromJSON(jsonValue));
     }
@@ -431,10 +506,9 @@ export class MovesApi extends runtime.BaseAPI {
     }
 
     /**
-     * Methods by which Pokémon can learn moves.
-     * Get move learn method
+     * Creates request options for moveLearnMethodRetrieve without sending the request
      */
-    async moveLearnMethodRetrieveRaw(requestParameters: MoveLearnMethodRetrieveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<MoveLearnMethodDetail>> {
+    async moveLearnMethodRetrieveRequestOpts(requestParameters: MoveLearnMethodRetrieveRequest): Promise<runtime.RequestOpts> {
         if (requestParameters['id'] == null) {
             throw new runtime.RequiredError(
                 'id',
@@ -451,14 +525,23 @@ export class MovesApi extends runtime.BaseAPI {
         }
 
         let urlPath = `/api/v2/move-learn-method/{id}/`;
-        urlPath = urlPath.replace(`{${"id"}}`, encodeURIComponent(String(requestParameters['id'])));
+        urlPath = urlPath.replace('{id}', encodeURIComponent(String(requestParameters['id'])));
 
-        const response = await this.request({
+        return {
             path: urlPath,
             method: 'GET',
             headers: headerParameters,
             query: queryParameters,
-        }, initOverrides);
+        };
+    }
+
+    /**
+     * Methods by which Pokémon can learn moves.
+     * Get move learn method
+     */
+    async moveLearnMethodRetrieveRaw(requestParameters: MoveLearnMethodRetrieveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<MoveLearnMethodDetail>> {
+        const requestOptions = await this.moveLearnMethodRetrieveRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => MoveLearnMethodDetailFromJSON(jsonValue));
     }
@@ -473,10 +556,9 @@ export class MovesApi extends runtime.BaseAPI {
     }
 
     /**
-     * Moves are the skills of Pokémon in battle. In battle, a Pokémon uses one move each turn. Some moves (including those learned by Hidden Machine) can be used outside of battle as well, usually for the purpose of removing obstacles or exploring new areas.
-     * List moves
+     * Creates request options for moveList without sending the request
      */
-    async moveListRaw(requestParameters: MoveListRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PaginatedMoveSummaryList>> {
+    async moveListRequestOpts(requestParameters: MoveListRequest): Promise<runtime.RequestOpts> {
         const queryParameters: any = {};
 
         if (requestParameters['limit'] != null) {
@@ -499,12 +581,21 @@ export class MovesApi extends runtime.BaseAPI {
 
         let urlPath = `/api/v2/move/`;
 
-        const response = await this.request({
+        return {
             path: urlPath,
             method: 'GET',
             headers: headerParameters,
             query: queryParameters,
-        }, initOverrides);
+        };
+    }
+
+    /**
+     * Moves are the skills of Pokémon in battle. In battle, a Pokémon uses one move each turn. Some moves (including those learned by Hidden Machine) can be used outside of battle as well, usually for the purpose of removing obstacles or exploring new areas.
+     * List moves
+     */
+    async moveListRaw(requestParameters: MoveListRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PaginatedMoveSummaryList>> {
+        const requestOptions = await this.moveListRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => PaginatedMoveSummaryListFromJSON(jsonValue));
     }
@@ -519,10 +610,9 @@ export class MovesApi extends runtime.BaseAPI {
     }
 
     /**
-     * Moves are the skills of Pokémon in battle. In battle, a Pokémon uses one move each turn. Some moves (including those learned by Hidden Machine) can be used outside of battle as well, usually for the purpose of removing obstacles or exploring new areas.
-     * Get move
+     * Creates request options for moveRetrieve without sending the request
      */
-    async moveRetrieveRaw(requestParameters: MoveRetrieveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<MoveDetail>> {
+    async moveRetrieveRequestOpts(requestParameters: MoveRetrieveRequest): Promise<runtime.RequestOpts> {
         if (requestParameters['id'] == null) {
             throw new runtime.RequiredError(
                 'id',
@@ -539,14 +629,23 @@ export class MovesApi extends runtime.BaseAPI {
         }
 
         let urlPath = `/api/v2/move/{id}/`;
-        urlPath = urlPath.replace(`{${"id"}}`, encodeURIComponent(String(requestParameters['id'])));
+        urlPath = urlPath.replace('{id}', encodeURIComponent(String(requestParameters['id'])));
 
-        const response = await this.request({
+        return {
             path: urlPath,
             method: 'GET',
             headers: headerParameters,
             query: queryParameters,
-        }, initOverrides);
+        };
+    }
+
+    /**
+     * Moves are the skills of Pokémon in battle. In battle, a Pokémon uses one move each turn. Some moves (including those learned by Hidden Machine) can be used outside of battle as well, usually for the purpose of removing obstacles or exploring new areas.
+     * Get move
+     */
+    async moveRetrieveRaw(requestParameters: MoveRetrieveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<MoveDetail>> {
+        const requestOptions = await this.moveRetrieveRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => MoveDetailFromJSON(jsonValue));
     }
@@ -561,10 +660,9 @@ export class MovesApi extends runtime.BaseAPI {
     }
 
     /**
-     * Targets moves can be directed at during battle. Targets can be Pokémon, environments or even other moves.
-     * List move targets
+     * Creates request options for moveTargetList without sending the request
      */
-    async moveTargetListRaw(requestParameters: MoveTargetListRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PaginatedMoveTargetSummaryList>> {
+    async moveTargetListRequestOpts(requestParameters: MoveTargetListRequest): Promise<runtime.RequestOpts> {
         const queryParameters: any = {};
 
         if (requestParameters['limit'] != null) {
@@ -587,12 +685,21 @@ export class MovesApi extends runtime.BaseAPI {
 
         let urlPath = `/api/v2/move-target/`;
 
-        const response = await this.request({
+        return {
             path: urlPath,
             method: 'GET',
             headers: headerParameters,
             query: queryParameters,
-        }, initOverrides);
+        };
+    }
+
+    /**
+     * Targets moves can be directed at during battle. Targets can be Pokémon, environments or even other moves.
+     * List move targets
+     */
+    async moveTargetListRaw(requestParameters: MoveTargetListRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PaginatedMoveTargetSummaryList>> {
+        const requestOptions = await this.moveTargetListRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => PaginatedMoveTargetSummaryListFromJSON(jsonValue));
     }
@@ -607,10 +714,9 @@ export class MovesApi extends runtime.BaseAPI {
     }
 
     /**
-     * Targets moves can be directed at during battle. Targets can be Pokémon, environments or even other moves.
-     * Get move target
+     * Creates request options for moveTargetRetrieve without sending the request
      */
-    async moveTargetRetrieveRaw(requestParameters: MoveTargetRetrieveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<MoveTargetDetail>> {
+    async moveTargetRetrieveRequestOpts(requestParameters: MoveTargetRetrieveRequest): Promise<runtime.RequestOpts> {
         if (requestParameters['id'] == null) {
             throw new runtime.RequiredError(
                 'id',
@@ -627,14 +733,23 @@ export class MovesApi extends runtime.BaseAPI {
         }
 
         let urlPath = `/api/v2/move-target/{id}/`;
-        urlPath = urlPath.replace(`{${"id"}}`, encodeURIComponent(String(requestParameters['id'])));
+        urlPath = urlPath.replace('{id}', encodeURIComponent(String(requestParameters['id'])));
 
-        const response = await this.request({
+        return {
             path: urlPath,
             method: 'GET',
             headers: headerParameters,
             query: queryParameters,
-        }, initOverrides);
+        };
+    }
+
+    /**
+     * Targets moves can be directed at during battle. Targets can be Pokémon, environments or even other moves.
+     * Get move target
+     */
+    async moveTargetRetrieveRaw(requestParameters: MoveTargetRetrieveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<MoveTargetDetail>> {
+        const requestOptions = await this.moveTargetRetrieveRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => MoveTargetDetailFromJSON(jsonValue));
     }

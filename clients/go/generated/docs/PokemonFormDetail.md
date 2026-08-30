@@ -15,9 +15,9 @@ Name | Type | Description | Notes
 **Pokemon** | [**PokemonSummary**](PokemonSummary.md) |  | 
 **Sprites** | [**PokemonFormDetailSprites**](PokemonFormDetailSprites.md) |  | 
 **VersionGroup** | [**VersionGroupSummary**](VersionGroupSummary.md) |  | 
-**FormNames** | [**[]PokemonFormDetailFormNamesInner**](PokemonFormDetailFormNamesInner.md) |  | 
-**Names** | [**[]PokemonFormDetailFormNamesInner**](PokemonFormDetailFormNamesInner.md) |  | 
-**Types** | [**[]PokemonDetailTypesInner**](PokemonDetailTypesInner.md) |  | 
+**FormNames** | [**[]PokemonFormDetailFormNamesInner**](PokemonFormDetailFormNamesInner.md) |  | [readonly] 
+**Names** | [**[]PokemonFormDetailFormNamesInner**](PokemonFormDetailFormNamesInner.md) |  | [readonly] 
+**Types** | [**[]PokemonDetailTypesInner**](PokemonDetailTypesInner.md) |  | [readonly] 
 
 ## Methods
 

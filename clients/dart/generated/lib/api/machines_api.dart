@@ -32,7 +32,7 @@ class MachinesApi {
   ///
   /// * [String] q:
   ///   > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. 
-  Future<Response> machineListWithHttpInfo({ int? limit, int? offset, String? q, }) async {
+  Future<Response> machineListWithHttpInfo({ int? limit, int? offset, String? q, Future<void>? abortTrigger, }) async {
     // ignore: prefer_const_declarations
     final path = r'/api/v2/machine/';
 
@@ -64,6 +64,7 @@ class MachinesApi {
       headerParams,
       formParams,
       contentTypes.isEmpty ? null : contentTypes.first,
+      abortTrigger: abortTrigger,
     );
   }
 
@@ -81,8 +82,8 @@ class MachinesApi {
   ///
   /// * [String] q:
   ///   > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. 
-  Future<PaginatedMachineSummaryList?> machineList({ int? limit, int? offset, String? q, }) async {
-    final response = await machineListWithHttpInfo( limit: limit, offset: offset, q: q, );
+  Future<PaginatedMachineSummaryList?> machineList({ int? limit, int? offset, String? q, Future<void>? abortTrigger, }) async {
+    final response = await machineListWithHttpInfo(limit: limit, offset: offset, q: q, abortTrigger: abortTrigger,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -106,7 +107,7 @@ class MachinesApi {
   ///
   /// * [String] id (required):
   ///   This parameter can be a string or an integer.
-  Future<Response> machineRetrieveWithHttpInfo(String id,) async {
+  Future<Response> machineRetrieveWithHttpInfo(String id, { Future<void>? abortTrigger, }) async {
     // ignore: prefer_const_declarations
     final path = r'/api/v2/machine/{id}/'
       .replaceAll('{id}', id);
@@ -129,6 +130,7 @@ class MachinesApi {
       headerParams,
       formParams,
       contentTypes.isEmpty ? null : contentTypes.first,
+      abortTrigger: abortTrigger,
     );
   }
 
@@ -140,8 +142,8 @@ class MachinesApi {
   ///
   /// * [String] id (required):
   ///   This parameter can be a string or an integer.
-  Future<MachineDetail?> machineRetrieve(String id,) async {
-    final response = await machineRetrieveWithHttpInfo(id,);
+  Future<MachineDetail?> machineRetrieve(String id, { Future<void>? abortTrigger, }) async {
+    final response = await machineRetrieveWithHttpInfo(id, abortTrigger: abortTrigger,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }

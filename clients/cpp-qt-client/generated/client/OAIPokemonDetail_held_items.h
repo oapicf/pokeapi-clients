@@ -35,13 +35,13 @@ class OAIItemDetail_held_by_pokemon_inner_version_details_inner;
 class OAIPokemonDetail_held_items : public OAIObject {
 public:
     OAIPokemonDetail_held_items();
-    OAIPokemonDetail_held_items(QString json);
+    OAIPokemonDetail_held_items(const QString &json);
     ~OAIPokemonDetail_held_items() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     OAIAbilityDetail_pokemon_inner_pokemon getItem() const;
     void setItem(const OAIAbilityDetail_pokemon_inner_pokemon &item);

@@ -12,26 +12,24 @@ import org.openapitools.model.StatDetailAffectingMovesIncreaseInner;
 import org.springframework.lang.Nullable;
 import org.openapitools.jackson.nullable.JsonNullable;
 import java.time.OffsetDateTime;
-import javax.validation.Valid;
-import javax.validation.constraints.*;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.*;
 import io.swagger.v3.oas.annotations.media.Schema;
 
 
 import java.util.*;
-import javax.annotation.Generated;
+import jakarta.annotation.Generated;
 
 /**
  * StatDetailAffectingMoves
  */
 
 @JsonTypeName("StatDetail_affecting_moves")
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2026-02-07T15:29:13.146999890Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2026-08-30T02:00:43.960184425Z[Etc/UTC]", comments = "Generator version: 7.24.0")
 public class StatDetailAffectingMoves {
 
-  @Valid
   private List<@Valid StatDetailAffectingMovesIncreaseInner> increase = new ArrayList<>();
 
-  @Valid
   private List<@Valid StatDetailAffectingMovesIncreaseInner> decrease = new ArrayList<>();
 
   public StatDetailAffectingMoves() {
@@ -70,6 +68,7 @@ public class StatDetailAffectingMoves {
     return increase;
   }
 
+  @JsonProperty("increase")
   public void setIncrease(List<@Valid StatDetailAffectingMovesIncreaseInner> increase) {
     this.increase = increase;
   }
@@ -98,6 +97,7 @@ public class StatDetailAffectingMoves {
     return decrease;
   }
 
+  @JsonProperty("decrease")
   public void setDecrease(List<@Valid StatDetailAffectingMovesIncreaseInner> decrease) {
     this.decrease = decrease;
   }
@@ -134,11 +134,8 @@ public class StatDetailAffectingMoves {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+  private String toIndentedString(@Nullable Object o) {
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 }
 

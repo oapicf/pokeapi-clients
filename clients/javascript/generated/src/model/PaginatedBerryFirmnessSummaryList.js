@@ -17,7 +17,7 @@ import BerryFirmnessSummary from './BerryFirmnessSummary';
 /**
  * The PaginatedBerryFirmnessSummaryList model module.
  * @module model/PaginatedBerryFirmnessSummaryList
- * @version 1.2.1-pre.0
+ * @version 2.0.1-pre.0
  */
 class PaginatedBerryFirmnessSummaryList {
     /**

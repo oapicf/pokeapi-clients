@@ -15,7 +15,7 @@ import org.openapitools.model.PokeathlonStatDetailAffectingNaturesIncreaseInner;
 /**
  * PokeathlonStatDetailAffectingNatures
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaMSF4JServerCodegen", date = "2026-02-07T15:23:10.683633502Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaMSF4JServerCodegen", date = "2026-08-30T01:55:58.248058654Z[Etc/UTC]", comments = "Generator version: 7.24.0")
 public class PokeathlonStatDetailAffectingNatures   {
   @JsonProperty("decrease")
   private List<@Valid PokeathlonStatDetailAffectingNaturesDecreaseInner> decrease = new ArrayList<>();
@@ -104,10 +104,7 @@ public class PokeathlonStatDetailAffectingNatures   {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 }
 

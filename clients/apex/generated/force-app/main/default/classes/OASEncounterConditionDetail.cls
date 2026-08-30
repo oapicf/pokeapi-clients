@@ -30,13 +30,13 @@ public class OASEncounterConditionDetail {
      * Get values
      * @return values
      */
-    public List<OASEncounterConditionValueSummary> values { get; set; }
+    public List<OASEncounterConditionValueSummary> values { get; private set; }
 
     /**
      * Get names
      * @return names
      */
-    public List<OASEncounterConditionName> names { get; set; }
+    public List<OASEncounterConditionName> names { get; private set; }
 
     public OASEncounterConditionDetail() {
         values = new List<OASEncounterConditionValueSummary>();

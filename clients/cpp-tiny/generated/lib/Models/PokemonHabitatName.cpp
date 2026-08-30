@@ -86,7 +86,7 @@ PokemonHabitatName::getName()
 }
 
 void
-PokemonHabitatName::setName(std::string  name)
+PokemonHabitatName::setName(std::string name)
 {
 	this->name = name;
 }
@@ -98,7 +98,7 @@ PokemonHabitatName::getLanguage()
 }
 
 void
-PokemonHabitatName::setLanguage(LanguageSummary  language)
+PokemonHabitatName::setLanguage(LanguageSummary language)
 {
 	this->language = language;
 }

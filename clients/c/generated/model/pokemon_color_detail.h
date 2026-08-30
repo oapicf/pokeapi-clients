@@ -21,7 +21,7 @@ typedef struct pokemon_color_detail_t pokemon_color_detail_t;
 
 
 typedef struct pokemon_color_detail_t {
-    int id; //numeric
+    int *id; //numeric
     char *name; // string
     list_t *names; //nonprimitive container
     list_t *pokemon_species; //nonprimitive container
@@ -30,7 +30,7 @@ typedef struct pokemon_color_detail_t {
 } pokemon_color_detail_t;
 
 __attribute__((deprecated)) pokemon_color_detail_t *pokemon_color_detail_create(
-    int id,
+    int *id,
     char *name,
     list_t *names,
     list_t *pokemon_species

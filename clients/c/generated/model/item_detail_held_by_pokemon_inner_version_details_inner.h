@@ -20,14 +20,14 @@ typedef struct item_detail_held_by_pokemon_inner_version_details_inner_t item_de
 
 
 typedef struct item_detail_held_by_pokemon_inner_version_details_inner_t {
-    int rarity; //numeric
+    int *rarity; //numeric
     struct ability_detail_pokemon_inner_pokemon_t *version; //model
 
     int _library_owned; // Is the library responsible for freeing this object?
 } item_detail_held_by_pokemon_inner_version_details_inner_t;
 
 __attribute__((deprecated)) item_detail_held_by_pokemon_inner_version_details_inner_t *item_detail_held_by_pokemon_inner_version_details_inner_create(
-    int rarity,
+    int *rarity,
     ability_detail_pokemon_inner_pokemon_t *version
 );
 

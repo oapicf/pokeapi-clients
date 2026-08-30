@@ -34,18 +34,18 @@ typedef struct pokemon_species_detail_t pokemon_species_detail_t;
 
 
 typedef struct pokemon_species_detail_t {
-    int id; //numeric
+    int *id; //numeric
     char *name; // string
-    int order; //numeric
-    int gender_rate; //numeric
-    int capture_rate; //numeric
-    int base_happiness; //numeric
-    int is_baby; //boolean
-    int is_legendary; //boolean
-    int is_mythical; //boolean
-    int hatch_counter; //numeric
-    int has_gender_differences; //boolean
-    int forms_switchable; //boolean
+    int *order; //numeric
+    int *gender_rate; //numeric
+    int *capture_rate; //numeric
+    int *base_happiness; //numeric
+    int *is_baby; //boolean
+    int *is_legendary; //boolean
+    int *is_mythical; //boolean
+    int *hatch_counter; //numeric
+    int *has_gender_differences; //boolean
+    int *forms_switchable; //boolean
     struct growth_rate_summary_t *growth_rate; //model
     list_t *pokedex_numbers; //nonprimitive container
     list_t *egg_groups; //nonprimitive container
@@ -66,18 +66,18 @@ typedef struct pokemon_species_detail_t {
 } pokemon_species_detail_t;
 
 __attribute__((deprecated)) pokemon_species_detail_t *pokemon_species_detail_create(
-    int id,
+    int *id,
     char *name,
-    int order,
-    int gender_rate,
-    int capture_rate,
-    int base_happiness,
-    int is_baby,
-    int is_legendary,
-    int is_mythical,
-    int hatch_counter,
-    int has_gender_differences,
-    int forms_switchable,
+    int *order,
+    int *gender_rate,
+    int *capture_rate,
+    int *base_happiness,
+    int *is_baby,
+    int *is_legendary,
+    int *is_mythical,
+    int *hatch_counter,
+    int *has_gender_differences,
+    int *forms_switchable,
     growth_rate_summary_t *growth_rate,
     list_t *pokedex_numbers,
     list_t *egg_groups,

@@ -9,10 +9,10 @@ Name | Type | Description | Notes
 **name** | **str** |  | 
 **order** | **int** |  | [optional] 
 **generation** | [**GenerationSummary**](GenerationSummary.md) |  | 
-**move_learn_methods** | [**List[AbilityDetailPokemonInnerPokemon]**](AbilityDetailPokemonInnerPokemon.md) |  | 
-**pokedexes** | [**List[AbilityDetailPokemonInnerPokemon]**](AbilityDetailPokemonInnerPokemon.md) |  | 
-**regions** | [**List[AbilityDetailPokemonInnerPokemon]**](AbilityDetailPokemonInnerPokemon.md) |  | 
-**versions** | [**List[VersionSummary]**](VersionSummary.md) |  | 
+**move_learn_methods** | [**List[AbilityDetailPokemonInnerPokemon]**](AbilityDetailPokemonInnerPokemon.md) |  | [readonly] 
+**pokedexes** | [**List[AbilityDetailPokemonInnerPokemon]**](AbilityDetailPokemonInnerPokemon.md) |  | [readonly] 
+**regions** | [**List[AbilityDetailPokemonInnerPokemon]**](AbilityDetailPokemonInnerPokemon.md) |  | [readonly] 
+**versions** | [**List[VersionSummary]**](VersionSummary.md) |  | [readonly] 
 
 ## Example
 

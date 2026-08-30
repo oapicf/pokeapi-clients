@@ -47,7 +47,7 @@ class PokemonDetailPastTypesInner
      * @var AbilityDetailPokemonInnerPokemon|null
      * @SerializedName("generation")
      * @Type("OpenAPI\Server\Model\AbilityDetailPokemonInnerPokemon")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Valid]
     #[Assert\Type("OpenAPI\Server\Model\AbilityDetailPokemonInnerPokemon")]
@@ -57,7 +57,7 @@ class PokemonDetailPastTypesInner
      * @var PokemonDetailTypesInner[]|null
      * @SerializedName("types")
      * @Type("array<OpenAPI\Server\Model\PokemonDetailTypesInner>")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Valid]
     #[Assert\All([
@@ -88,12 +88,12 @@ class PokemonDetailPastTypesInner
     }
 
     /**
-    * Sets generation.
-    *
-    * @param AbilityDetailPokemonInnerPokemon|null $generation
-    *
-    * @return $this
-    */
+     * Sets generation.
+     *
+     * @param AbilityDetailPokemonInnerPokemon|null $generation
+     *
+     * @return $this
+     */
     public function setGeneration(?AbilityDetailPokemonInnerPokemon $generation): self
     {
         $this->generation = $generation;
@@ -115,12 +115,12 @@ class PokemonDetailPastTypesInner
     }
 
     /**
-    * Sets types.
-    *
-    * @param PokemonDetailTypesInner[]|null $types
-    *
-    * @return $this
-    */
+     * Sets types.
+     *
+     * @param PokemonDetailTypesInner[]|null $types
+     *
+     * @return $this
+     */
     public function setTypes(?array $types): self
     {
         $this->types = $types;

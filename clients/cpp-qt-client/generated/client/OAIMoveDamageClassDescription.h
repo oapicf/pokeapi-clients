@@ -33,13 +33,13 @@ class OAILanguageSummary;
 class OAIMoveDamageClassDescription : public OAIObject {
 public:
     OAIMoveDamageClassDescription();
-    OAIMoveDamageClassDescription(QString json);
+    OAIMoveDamageClassDescription(const QString &json);
     ~OAIMoveDamageClassDescription() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     QString getDescription() const;
     void setDescription(const QString &description);

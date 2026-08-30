@@ -86,7 +86,7 @@ MoveName::getName()
 }
 
 void
-MoveName::setName(std::string  name)
+MoveName::setName(std::string name)
 {
 	this->name = name;
 }
@@ -98,7 +98,7 @@ MoveName::getLanguage()
 }
 
 void
-MoveName::setLanguage(LanguageSummary  language)
+MoveName::setLanguage(LanguageSummary language)
 {
 	this->language = language;
 }

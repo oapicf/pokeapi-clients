@@ -30,13 +30,13 @@ public class OASPalParkAreaDetail implements OAS.MappedProperties {
      * Get names
      * @return names
      */
-    public List<OASPalParkAreaName> names { get; set; }
+    public List<OASPalParkAreaName> names { get; private set; }
 
     /**
      * Get pokemonEncounters
      * @return pokemonEncounters
      */
-    public List<OASPalParkAreaDetailPokemonEncounter> pokemonEncounters { get; set; }
+    public List<OASPalParkAreaDetailPokemonEncounter> pokemonEncounters { get; private set; }
 
     private static final Map<String, String> propertyMappings = new Map<String, String>{
         'pokemon_encounters' => 'pokemonEncounters'

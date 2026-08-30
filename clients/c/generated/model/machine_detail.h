@@ -22,7 +22,7 @@ typedef struct machine_detail_t machine_detail_t;
 
 
 typedef struct machine_detail_t {
-    int id; //numeric
+    int *id; //numeric
     struct item_summary_t *item; //model
     struct version_group_summary_t *version_group; //model
     struct move_summary_t *move; //model
@@ -31,7 +31,7 @@ typedef struct machine_detail_t {
 } machine_detail_t;
 
 __attribute__((deprecated)) machine_detail_t *machine_detail_create(
-    int id,
+    int *id,
     item_summary_t *item,
     version_group_summary_t *version_group,
     move_summary_t *move

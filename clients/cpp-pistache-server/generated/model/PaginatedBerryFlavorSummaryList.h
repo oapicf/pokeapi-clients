@@ -34,7 +34,7 @@ class  PaginatedBerryFlavorSummaryList
 {
 public:
     PaginatedBerryFlavorSummaryList();
-    virtual ~PaginatedBerryFlavorSummaryList() = default;
+    virtual ~PaginatedBerryFlavorSummaryList();
 
 
     /// <summary>

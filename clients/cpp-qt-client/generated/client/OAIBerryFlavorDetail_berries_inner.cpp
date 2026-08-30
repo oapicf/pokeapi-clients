@@ -21,7 +21,7 @@
 
 namespace OpenAPI {
 
-OAIBerryFlavorDetail_berries_inner::OAIBerryFlavorDetail_berries_inner(QString json) {
+OAIBerryFlavorDetail_berries_inner::OAIBerryFlavorDetail_berries_inner(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -41,7 +41,7 @@ void OAIBerryFlavorDetail_berries_inner::initializeModel() {
     m_berry_isValid = false;
 }
 
-void OAIBerryFlavorDetail_berries_inner::fromJson(QString jsonString) {
+void OAIBerryFlavorDetail_berries_inner::fromJson(const QString &jsonString) {
     QByteArray array(jsonString.toStdString().c_str());
     QJsonDocument doc = QJsonDocument::fromJson(array);
     QJsonObject jsonObject = doc.object();

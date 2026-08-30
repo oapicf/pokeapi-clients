@@ -18,7 +18,7 @@ import org.openapitools.model.StatSummary;
 /**
  * NatureDetail
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaMSF4JServerCodegen", date = "2026-02-07T15:23:10.683633502Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaMSF4JServerCodegen", date = "2026-08-30T01:55:58.248058654Z[Etc/UTC]", comments = "Generator version: 7.24.0")
 public class NatureDetail   {
   @JsonProperty("id")
   private Integer id;
@@ -149,16 +149,6 @@ public class NatureDetail   {
     this.hatesFlavor = hatesFlavor;
   }
 
-  public NatureDetail berries(List<@Valid BerrySummary> berries) {
-    this.berries = berries;
-    return this;
-  }
-
-  public NatureDetail addBerriesItem(BerrySummary berriesItem) {
-    this.berries.add(berriesItem);
-    return this;
-  }
-
    /**
    * Get berries
    * @return berries
@@ -166,20 +156,6 @@ public class NatureDetail   {
   @ApiModelProperty(required = true, value = "")
   public List<@Valid BerrySummary> getBerries() {
     return berries;
-  }
-
-  public void setBerries(List<@Valid BerrySummary> berries) {
-    this.berries = berries;
-  }
-
-  public NatureDetail pokeathlonStatChanges(List<@Valid NatureDetailPokeathlonStatChangesInner> pokeathlonStatChanges) {
-    this.pokeathlonStatChanges = pokeathlonStatChanges;
-    return this;
-  }
-
-  public NatureDetail addPokeathlonStatChangesItem(NatureDetailPokeathlonStatChangesInner pokeathlonStatChangesItem) {
-    this.pokeathlonStatChanges.add(pokeathlonStatChangesItem);
-    return this;
   }
 
    /**
@@ -191,20 +167,6 @@ public class NatureDetail   {
     return pokeathlonStatChanges;
   }
 
-  public void setPokeathlonStatChanges(List<@Valid NatureDetailPokeathlonStatChangesInner> pokeathlonStatChanges) {
-    this.pokeathlonStatChanges = pokeathlonStatChanges;
-  }
-
-  public NatureDetail moveBattleStylePreferences(List<@Valid NatureBattleStylePreference> moveBattleStylePreferences) {
-    this.moveBattleStylePreferences = moveBattleStylePreferences;
-    return this;
-  }
-
-  public NatureDetail addMoveBattleStylePreferencesItem(NatureBattleStylePreference moveBattleStylePreferencesItem) {
-    this.moveBattleStylePreferences.add(moveBattleStylePreferencesItem);
-    return this;
-  }
-
    /**
    * Get moveBattleStylePreferences
    * @return moveBattleStylePreferences
@@ -214,20 +176,6 @@ public class NatureDetail   {
     return moveBattleStylePreferences;
   }
 
-  public void setMoveBattleStylePreferences(List<@Valid NatureBattleStylePreference> moveBattleStylePreferences) {
-    this.moveBattleStylePreferences = moveBattleStylePreferences;
-  }
-
-  public NatureDetail names(List<@Valid NatureName> names) {
-    this.names = names;
-    return this;
-  }
-
-  public NatureDetail addNamesItem(NatureName namesItem) {
-    this.names.add(namesItem);
-    return this;
-  }
-
    /**
    * Get names
    * @return names
@@ -235,10 +183,6 @@ public class NatureDetail   {
   @ApiModelProperty(required = true, value = "")
   public List<@Valid NatureName> getNames() {
     return names;
-  }
-
-  public void setNames(List<@Valid NatureName> names) {
-    this.names = names;
   }
 
 
@@ -292,10 +236,7 @@ public class NatureDetail   {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 }
 

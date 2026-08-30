@@ -95,19 +95,6 @@ public class RegionDetail  {
     return locations;
   }
 
-  public void setLocations(List<@Valid LocationSummary> locations) {
-    this.locations = locations;
-  }
-
-  public RegionDetail locations(List<@Valid LocationSummary> locations) {
-    this.locations = locations;
-    return this;
-  }
-
-  public RegionDetail addLocationsItem(LocationSummary locationsItem) {
-    this.locations.add(locationsItem);
-    return this;
-  }
 
  /**
    * Get mainGeneration
@@ -130,19 +117,6 @@ public class RegionDetail  {
     return names;
   }
 
-  public void setNames(List<@Valid RegionName> names) {
-    this.names = names;
-  }
-
-  public RegionDetail names(List<@Valid RegionName> names) {
-    this.names = names;
-    return this;
-  }
-
-  public RegionDetail addNamesItem(RegionName namesItem) {
-    this.names.add(namesItem);
-    return this;
-  }
 
  /**
    * Get pokedexes
@@ -154,19 +128,6 @@ public class RegionDetail  {
     return pokedexes;
   }
 
-  public void setPokedexes(List<@Valid PokedexSummary> pokedexes) {
-    this.pokedexes = pokedexes;
-  }
-
-  public RegionDetail pokedexes(List<@Valid PokedexSummary> pokedexes) {
-    this.pokedexes = pokedexes;
-    return this;
-  }
-
-  public RegionDetail addPokedexesItem(PokedexSummary pokedexesItem) {
-    this.pokedexes.add(pokedexesItem);
-    return this;
-  }
 
  /**
    * Get versionGroups
@@ -178,19 +139,6 @@ public class RegionDetail  {
     return versionGroups;
   }
 
-  public void setVersionGroups(List<@Valid AbilityDetailPokemonInnerPokemon> versionGroups) {
-    this.versionGroups = versionGroups;
-  }
-
-  public RegionDetail versionGroups(List<@Valid AbilityDetailPokemonInnerPokemon> versionGroups) {
-    this.versionGroups = versionGroups;
-    return this;
-  }
-
-  public RegionDetail addVersionGroupsItem(AbilityDetailPokemonInnerPokemon versionGroupsItem) {
-    this.versionGroups.add(versionGroupsItem);
-    return this;
-  }
 
   @Override
   public boolean equals(Object o) {
@@ -236,10 +184,7 @@ public class RegionDetail  {
    * (except the first line).
    */
   private static String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 }
 

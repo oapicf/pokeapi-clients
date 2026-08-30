@@ -144,7 +144,7 @@ PaginatedBerryFirmnessSummaryList::getCount()
 }
 
 void
-PaginatedBerryFirmnessSummaryList::setCount(int  count)
+PaginatedBerryFirmnessSummaryList::setCount(int count)
 {
 	this->count = count;
 }
@@ -156,7 +156,7 @@ PaginatedBerryFirmnessSummaryList::getNext()
 }
 
 void
-PaginatedBerryFirmnessSummaryList::setNext(std::string  next)
+PaginatedBerryFirmnessSummaryList::setNext(std::string next)
 {
 	this->next = next;
 }
@@ -168,7 +168,7 @@ PaginatedBerryFirmnessSummaryList::getPrevious()
 }
 
 void
-PaginatedBerryFirmnessSummaryList::setPrevious(std::string  previous)
+PaginatedBerryFirmnessSummaryList::setPrevious(std::string previous)
 {
 	this->previous = previous;
 }
@@ -180,7 +180,7 @@ PaginatedBerryFirmnessSummaryList::getResults()
 }
 
 void
-PaginatedBerryFirmnessSummaryList::setResults(std::list <BerryFirmnessSummary> results)
+PaginatedBerryFirmnessSummaryList::setResults(std::list<BerryFirmnessSummary> results)
 {
 	this->results = results;
 }

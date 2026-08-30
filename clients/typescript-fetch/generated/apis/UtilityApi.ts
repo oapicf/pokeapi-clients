@@ -12,18 +12,17 @@
  * Do not edit the class manually.
  */
 
-
 import * as runtime from '../runtime';
-import type {
-  LanguageDetail,
-  PaginatedLanguageSummaryList,
-} from '../models/index';
 import {
+    type LanguageDetail,
     LanguageDetailFromJSON,
     LanguageDetailToJSON,
+} from '../models/LanguageDetail';
+import {
+    type PaginatedLanguageSummaryList,
     PaginatedLanguageSummaryListFromJSON,
     PaginatedLanguageSummaryListToJSON,
-} from '../models/index';
+} from '../models/PaginatedLanguageSummaryList';
 
 export interface LanguageListRequest {
     limit?: number;
@@ -41,10 +40,9 @@ export interface LanguageRetrieveRequest {
 export class UtilityApi extends runtime.BaseAPI {
 
     /**
-     * Languages for translations of API resource information.
-     * List languages
+     * Creates request options for languageList without sending the request
      */
-    async languageListRaw(requestParameters: LanguageListRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PaginatedLanguageSummaryList>> {
+    async languageListRequestOpts(requestParameters: LanguageListRequest): Promise<runtime.RequestOpts> {
         const queryParameters: any = {};
 
         if (requestParameters['limit'] != null) {
@@ -67,12 +65,21 @@ export class UtilityApi extends runtime.BaseAPI {
 
         let urlPath = `/api/v2/language/`;
 
-        const response = await this.request({
+        return {
             path: urlPath,
             method: 'GET',
             headers: headerParameters,
             query: queryParameters,
-        }, initOverrides);
+        };
+    }
+
+    /**
+     * Languages for translations of API resource information.
+     * List languages
+     */
+    async languageListRaw(requestParameters: LanguageListRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PaginatedLanguageSummaryList>> {
+        const requestOptions = await this.languageListRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => PaginatedLanguageSummaryListFromJSON(jsonValue));
     }
@@ -87,10 +94,9 @@ export class UtilityApi extends runtime.BaseAPI {
     }
 
     /**
-     * Languages for translations of API resource information.
-     * Get language
+     * Creates request options for languageRetrieve without sending the request
      */
-    async languageRetrieveRaw(requestParameters: LanguageRetrieveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<LanguageDetail>> {
+    async languageRetrieveRequestOpts(requestParameters: LanguageRetrieveRequest): Promise<runtime.RequestOpts> {
         if (requestParameters['id'] == null) {
             throw new runtime.RequiredError(
                 'id',
@@ -107,14 +113,23 @@ export class UtilityApi extends runtime.BaseAPI {
         }
 
         let urlPath = `/api/v2/language/{id}/`;
-        urlPath = urlPath.replace(`{${"id"}}`, encodeURIComponent(String(requestParameters['id'])));
+        urlPath = urlPath.replace('{id}', encodeURIComponent(String(requestParameters['id'])));
 
-        const response = await this.request({
+        return {
             path: urlPath,
             method: 'GET',
             headers: headerParameters,
             query: queryParameters,
-        }, initOverrides);
+        };
+    }
+
+    /**
+     * Languages for translations of API resource information.
+     * Get language
+     */
+    async languageRetrieveRaw(requestParameters: LanguageRetrieveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<LanguageDetail>> {
+        const requestOptions = await this.languageRetrieveRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => LanguageDetailFromJSON(jsonValue));
     }

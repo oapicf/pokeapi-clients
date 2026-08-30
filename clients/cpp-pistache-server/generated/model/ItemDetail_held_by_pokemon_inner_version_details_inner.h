@@ -32,7 +32,7 @@ class  ItemDetail_held_by_pokemon_inner_version_details_inner
 {
 public:
     ItemDetail_held_by_pokemon_inner_version_details_inner();
-    virtual ~ItemDetail_held_by_pokemon_inner_version_details_inner() = default;
+    virtual ~ItemDetail_held_by_pokemon_inner_version_details_inner();
 
 
     /// <summary>

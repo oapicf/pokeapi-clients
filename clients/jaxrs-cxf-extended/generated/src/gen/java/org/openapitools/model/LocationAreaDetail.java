@@ -130,6 +130,7 @@ public class LocationAreaDetail  {
 
   /**
    * Sets the <code>encounterMethodRates</code> property.
+   * <br><em>N.B. <code>encounterMethodRates</code> is <b>read only</b>; client code should not call this method</em>.
    */
  public void setEncounterMethodRates(List<@Valid LocationAreaDetailEncounterMethodRatesInner> encounterMethodRates) {
     this.encounterMethodRates = encounterMethodRates;
@@ -137,6 +138,7 @@ public class LocationAreaDetail  {
 
   /**
    * Sets the <code>encounterMethodRates</code> property.
+   * <br><em>N.B. <code>encounterMethodRates</code> is <b>read only</b>; client code should not call this method</em>.
    */
   public LocationAreaDetail encounterMethodRates(List<@Valid LocationAreaDetailEncounterMethodRatesInner> encounterMethodRates) {
     this.encounterMethodRates = encounterMethodRates;
@@ -145,6 +147,7 @@ public class LocationAreaDetail  {
 
   /**
    * Adds a new item to the <code>encounterMethodRates</code> list.
+   * <br><em>N.B. <code>encounterMethodRates</code> is <b>read only</b>; client code should not call this method</em>.
    */
   public LocationAreaDetail addEncounterMethodRatesItem(LocationAreaDetailEncounterMethodRatesInner encounterMethodRatesItem) {
     this.encounterMethodRates.add(encounterMethodRatesItem);
@@ -188,6 +191,7 @@ public class LocationAreaDetail  {
 
   /**
    * Sets the <code>names</code> property.
+   * <br><em>N.B. <code>names</code> is <b>read only</b>; client code should not call this method</em>.
    */
  public void setNames(List<@Valid LocationAreaName> names) {
     this.names = names;
@@ -195,6 +199,7 @@ public class LocationAreaDetail  {
 
   /**
    * Sets the <code>names</code> property.
+   * <br><em>N.B. <code>names</code> is <b>read only</b>; client code should not call this method</em>.
    */
   public LocationAreaDetail names(List<@Valid LocationAreaName> names) {
     this.names = names;
@@ -203,6 +208,7 @@ public class LocationAreaDetail  {
 
   /**
    * Adds a new item to the <code>names</code> list.
+   * <br><em>N.B. <code>names</code> is <b>read only</b>; client code should not call this method</em>.
    */
   public LocationAreaDetail addNamesItem(LocationAreaName namesItem) {
     this.names.add(namesItem);
@@ -221,6 +227,7 @@ public class LocationAreaDetail  {
 
   /**
    * Sets the <code>pokemonEncounters</code> property.
+   * <br><em>N.B. <code>pokemonEncounters</code> is <b>read only</b>; client code should not call this method</em>.
    */
  public void setPokemonEncounters(List<@Valid LocationAreaDetailPokemonEncountersInner> pokemonEncounters) {
     this.pokemonEncounters = pokemonEncounters;
@@ -228,6 +235,7 @@ public class LocationAreaDetail  {
 
   /**
    * Sets the <code>pokemonEncounters</code> property.
+   * <br><em>N.B. <code>pokemonEncounters</code> is <b>read only</b>; client code should not call this method</em>.
    */
   public LocationAreaDetail pokemonEncounters(List<@Valid LocationAreaDetailPokemonEncountersInner> pokemonEncounters) {
     this.pokemonEncounters = pokemonEncounters;
@@ -236,6 +244,7 @@ public class LocationAreaDetail  {
 
   /**
    * Adds a new item to the <code>pokemonEncounters</code> list.
+   * <br><em>N.B. <code>pokemonEncounters</code> is <b>read only</b>; client code should not call this method</em>.
    */
   public LocationAreaDetail addPokemonEncountersItem(LocationAreaDetailPokemonEncountersInner pokemonEncountersItem) {
     this.pokemonEncounters.add(pokemonEncountersItem);
@@ -287,10 +296,7 @@ public class LocationAreaDetail  {
    * (except the first line).
    */
   private static String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 }
 

@@ -8,34 +8,43 @@
 static evolution_chain_detail_chain_t *evolution_chain_detail_chain_create_internal(
     list_t *evolution_details,
     list_t *evolves_to,
-    int is_baby,
+    int *is_baby,
     ability_detail_pokemon_inner_pokemon_t *species
     ) {
     evolution_chain_detail_chain_t *evolution_chain_detail_chain_local_var = malloc(sizeof(evolution_chain_detail_chain_t));
     if (!evolution_chain_detail_chain_local_var) {
         return NULL;
     }
+    memset(evolution_chain_detail_chain_local_var, 0, sizeof(evolution_chain_detail_chain_t));
+    evolution_chain_detail_chain_local_var->_library_owned = 1;
     evolution_chain_detail_chain_local_var->evolution_details = evolution_details;
     evolution_chain_detail_chain_local_var->evolves_to = evolves_to;
     evolution_chain_detail_chain_local_var->is_baby = is_baby;
     evolution_chain_detail_chain_local_var->species = species;
-
-    evolution_chain_detail_chain_local_var->_library_owned = 1;
     return evolution_chain_detail_chain_local_var;
 }
 
 __attribute__((deprecated)) evolution_chain_detail_chain_t *evolution_chain_detail_chain_create(
     list_t *evolution_details,
     list_t *evolves_to,
-    int is_baby,
+    int *is_baby,
     ability_detail_pokemon_inner_pokemon_t *species
     ) {
-    return evolution_chain_detail_chain_create_internal (
+    int *is_baby_copy = NULL;
+    if (is_baby) {
+        is_baby_copy = malloc(sizeof(int));
+        if (is_baby_copy) *is_baby_copy = *is_baby;
+    }
+    evolution_chain_detail_chain_t *result = evolution_chain_detail_chain_create_internal (
         evolution_details,
         evolves_to,
-        is_baby,
+        is_baby_copy,
         species
         );
+    if (!result) {
+        free(is_baby_copy);
+    }
+    return result;
 }
 
 void evolution_chain_detail_chain_free(evolution_chain_detail_chain_t *evolution_chain_detail_chain) {
@@ -60,6 +69,10 @@ void evolution_chain_detail_chain_free(evolution_chain_detail_chain_t *evolution
         }
         list_freeList(evolution_chain_detail_chain->evolves_to);
         evolution_chain_detail_chain->evolves_to = NULL;
+    }
+    if (evolution_chain_detail_chain->is_baby) {
+        free(evolution_chain_detail_chain->is_baby);
+        evolution_chain_detail_chain->is_baby = NULL;
     }
     if (evolution_chain_detail_chain->species) {
         ability_detail_pokemon_inner_pokemon_free(evolution_chain_detail_chain->species);
@@ -117,7 +130,7 @@ cJSON *evolution_chain_detail_chain_convertToJSON(evolution_chain_detail_chain_t
     if (!evolution_chain_detail_chain->is_baby) {
         goto fail;
     }
-    if(cJSON_AddBoolToObject(item, "is_baby", evolution_chain_detail_chain->is_baby) == NULL) {
+    if(cJSON_AddBoolToObject(item, "is_baby", *evolution_chain_detail_chain->is_baby) == NULL) {
     goto fail; //Bool
     }
 
@@ -152,6 +165,9 @@ evolution_chain_detail_chain_t *evolution_chain_detail_chain_parseFromJSON(cJSON
 
     // define the local list for evolution_chain_detail_chain->evolves_to
     list_t *evolves_toList = NULL;
+
+    // define the local variable for evolution_chain_detail_chain->is_baby
+    int *is_baby_local_var = NULL;
 
     // define the local variable for evolution_chain_detail_chain->species
     ability_detail_pokemon_inner_pokemon_t *species_local_nonprim = NULL;
@@ -224,6 +240,12 @@ evolution_chain_detail_chain_t *evolution_chain_detail_chain_parseFromJSON(cJSON
     {
     goto end; //Bool
     }
+    is_baby_local_var = malloc(sizeof(int));
+    if(!is_baby_local_var)
+    {
+        goto end;
+    }
+    *is_baby_local_var = is_baby->valueint;
 
     // evolution_chain_detail_chain->species
     cJSON *species = cJSON_GetObjectItemCaseSensitive(evolution_chain_detail_chainJSON, "species");
@@ -238,12 +260,17 @@ evolution_chain_detail_chain_t *evolution_chain_detail_chain_parseFromJSON(cJSON
     species_local_nonprim = ability_detail_pokemon_inner_pokemon_parseFromJSON(species); //nonprimitive
 
 
+
     evolution_chain_detail_chain_local_var = evolution_chain_detail_chain_create_internal (
         evolution_detailsList,
         evolves_toList,
-        is_baby->valueint,
+        is_baby_local_var,
         species_local_nonprim
         );
+
+    if (!evolution_chain_detail_chain_local_var) {
+        goto end;
+    }
 
     return evolution_chain_detail_chain_local_var;
 end:
@@ -264,6 +291,10 @@ end:
         }
         list_freeList(evolves_toList);
         evolves_toList = NULL;
+    }
+    if (is_baby_local_var) {
+        free(is_baby_local_var);
+        is_baby_local_var = NULL;
     }
     if (species_local_nonprim) {
         ability_detail_pokemon_inner_pokemon_free(species_local_nonprim);

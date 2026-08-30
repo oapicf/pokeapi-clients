@@ -12,6 +12,11 @@
 package openapi
 
 
+import (
+	"encoding/json"
+	"fmt"
+)
+
 
 
 type StatDetailAffectingNatures struct {
@@ -20,8 +25,69 @@ type StatDetailAffectingNatures struct {
 
 	Decrease []AbilityDetailPokemonInnerPokemon `json:"decrease"`
 }
+// UnmarshalJSON validates required property keys then unmarshals into StatDetailAffectingNatures
+func (o *StatDetailAffectingNatures) UnmarshalJSON(data []byte) (err error) {
+	// Presence is checked against required fields that exist on this struct,
+	// including fields promoted from embedded allOf parents.
+	requiredProperties := []string{
+		"increase",
+		"decrease",
+	}
 
-// AssertStatDetailAffectingNaturesRequired checks if the required fields are not zero-ed
+	requiredNullableProperties := map[string]bool{
+		"increase": false,
+		"decrease": false,
+	}
+
+	allowedJsonKeys := map[string]struct{}{
+		"increase": {},
+		"decrease": {},
+	}
+
+	allProperties := make(map[string]json.RawMessage)
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err
+	}
+
+	for _, requiredProperty := range requiredProperties {
+		value, exists := allProperties[requiredProperty]
+		if !exists {
+			return &RequiredError{Field: requiredProperty}
+		}
+		if string(value) == "null" && !requiredNullableProperties[requiredProperty] {
+			return &RequiredError{Field: requiredProperty}
+		}
+	}
+
+	for key := range allProperties {
+		if _, exists := allowedJsonKeys[key]; !exists {
+			return fmt.Errorf("json: unknown field %q", key)
+		}
+	}
+
+	var decoded StatDetailAffectingNatures
+
+	if value, exists := allProperties["increase"]; exists {
+		if err = json.Unmarshal(value, &decoded.Increase); err != nil {
+			return err
+		}
+	}
+	if value, exists := allProperties["decrease"]; exists {
+		if err = json.Unmarshal(value, &decoded.Decrease); err != nil {
+			return err
+		}
+	}
+
+	*o = decoded
+
+	return nil
+}
+
+// AssertStatDetailAffectingNaturesRequired checks complex required fields (models, arrays, maps) and embedded parents.
+// Primitive required fields are validated for JSON request bodies in UnmarshalJSON so zero values remain valid.
 func AssertStatDetailAffectingNaturesRequired(obj StatDetailAffectingNatures) error {
 	elements := map[string]interface{}{
 		"increase": obj.Increase,

@@ -36,7 +36,7 @@ import javax.validation.Valid;
  * <p>All the Pokémon data you'll ever need in one place, easily accessible through a modern free open-source RESTful API.  ## What is this?  This is a full RESTful API linked to an extensive database detailing everything about the Pokémon main game series.  We've covered everything from Pokémon to Berry Flavors.  ## Where do I start?  We have awesome [documentation](https://pokeapi.co/docs/v2) on how to use this API. It takes minutes to get started.  This API will always be publicly available and will never require any extensive setup process to consume.  Created by [**Paul Hallett**(]https://github.com/phalt) and other [**PokéAPI contributors***](https://github.com/PokeAPI/pokeapi#contributing) around the world. Pokémon and Pokémon character names are trademarks of Nintendo.     
  *
  */
-@Path("/api/v2")
+@Path("")
 @Api(value = "/", description = "")
 public interface MovesApi  {
 
@@ -47,7 +47,7 @@ public interface MovesApi  {
      *
      */
     @GET
-    @Path("/move-ailment/")
+    @Path("/api/v2/move-ailment/")
     @Produces({ "application/json" })
     @ApiOperation(value = "List move meta ailments", tags={ "moves" })
     @ApiResponses(value = { 
@@ -61,7 +61,7 @@ public interface MovesApi  {
      *
      */
     @GET
-    @Path("/move-ailment/{id}/")
+    @Path("/api/v2/move-ailment/{id}/")
     @Produces({ "application/json" })
     @ApiOperation(value = "Get move meta ailment", tags={ "moves" })
     @ApiResponses(value = { 
@@ -75,7 +75,7 @@ public interface MovesApi  {
      *
      */
     @GET
-    @Path("/move-battle-style/")
+    @Path("/api/v2/move-battle-style/")
     @Produces({ "application/json" })
     @ApiOperation(value = "List move battle styles", tags={ "moves" })
     @ApiResponses(value = { 
@@ -89,7 +89,7 @@ public interface MovesApi  {
      *
      */
     @GET
-    @Path("/move-battle-style/{id}/")
+    @Path("/api/v2/move-battle-style/{id}/")
     @Produces({ "application/json" })
     @ApiOperation(value = "Get move battle style", tags={ "moves" })
     @ApiResponses(value = { 
@@ -103,7 +103,7 @@ public interface MovesApi  {
      *
      */
     @GET
-    @Path("/move-category/")
+    @Path("/api/v2/move-category/")
     @Produces({ "application/json" })
     @ApiOperation(value = "List move meta categories", tags={ "moves" })
     @ApiResponses(value = { 
@@ -117,7 +117,7 @@ public interface MovesApi  {
      *
      */
     @GET
-    @Path("/move-category/{id}/")
+    @Path("/api/v2/move-category/{id}/")
     @Produces({ "application/json" })
     @ApiOperation(value = "Get move meta category", tags={ "moves" })
     @ApiResponses(value = { 
@@ -131,7 +131,7 @@ public interface MovesApi  {
      *
      */
     @GET
-    @Path("/move-learn-method/")
+    @Path("/api/v2/move-learn-method/")
     @Produces({ "application/json" })
     @ApiOperation(value = "List move learn methods", tags={ "moves" })
     @ApiResponses(value = { 
@@ -145,7 +145,7 @@ public interface MovesApi  {
      *
      */
     @GET
-    @Path("/move-learn-method/{id}/")
+    @Path("/api/v2/move-learn-method/{id}/")
     @Produces({ "application/json" })
     @ApiOperation(value = "Get move learn method", tags={ "moves" })
     @ApiResponses(value = { 
@@ -159,7 +159,7 @@ public interface MovesApi  {
      *
      */
     @GET
-    @Path("/move/")
+    @Path("/api/v2/move/")
     @Produces({ "application/json" })
     @ApiOperation(value = "List moves", tags={ "moves" })
     @ApiResponses(value = { 
@@ -173,7 +173,7 @@ public interface MovesApi  {
      *
      */
     @GET
-    @Path("/move/{id}/")
+    @Path("/api/v2/move/{id}/")
     @Produces({ "application/json" })
     @ApiOperation(value = "Get move", tags={ "moves" })
     @ApiResponses(value = { 
@@ -187,7 +187,7 @@ public interface MovesApi  {
      *
      */
     @GET
-    @Path("/move-target/")
+    @Path("/api/v2/move-target/")
     @Produces({ "application/json" })
     @ApiOperation(value = "List move targets", tags={ "moves" })
     @ApiResponses(value = { 
@@ -201,7 +201,7 @@ public interface MovesApi  {
      *
      */
     @GET
-    @Path("/move-target/{id}/")
+    @Path("/api/v2/move-target/{id}/")
     @Produces({ "application/json" })
     @ApiOperation(value = "Get move target", tags={ "moves" })
     @ApiResponses(value = { 

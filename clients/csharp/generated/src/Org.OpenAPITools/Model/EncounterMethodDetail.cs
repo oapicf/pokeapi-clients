@@ -66,7 +66,7 @@ namespace Org.OpenAPITools.Model
         /// Gets or Sets Names
         /// </summary>
         [JsonPropertyName("names")]
-        public List<EncounterMethodName> Names { get; set; }
+        public List<EncounterMethodName> Names { get; }
 
         /// <summary>
         /// Used to track the state of Order
@@ -79,7 +79,7 @@ namespace Org.OpenAPITools.Model
         /// Gets or Sets Order
         /// </summary>
         [JsonPropertyName("order")]
-        public int? Order { get { return this.OrderOption; } set { this.OrderOption = new(value); } }
+        public int? Order { get { return this.OrderOption.Value; } set { this.OrderOption = new(value); } }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -117,8 +117,18 @@ namespace Org.OpenAPITools.Model
     /// <summary>
     /// A Json converter for type <see cref="EncounterMethodDetail" />
     /// </summary>
-    public class EncounterMethodDetailJsonConverter : JsonConverter<EncounterMethodDetail>
+    public partial class EncounterMethodDetailJsonConverter : JsonConverter<EncounterMethodDetail>
     {
+        partial void OnCreated();
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="EncounterMethodDetailJsonConverter" /> class.
+        /// </summary>
+        public EncounterMethodDetailJsonConverter()
+        {
+            OnCreated();
+        }
+
         /// <summary>
         /// Deserializes json to <see cref="EncounterMethodDetail" />
         /// </summary>

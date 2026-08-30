@@ -103,7 +103,7 @@ LocationAreaDetail_pokemon_encounters_inner::getPokemon()
 }
 
 void
-LocationAreaDetail_pokemon_encounters_inner::setPokemon(AbilityDetail_pokemon_inner_pokemon  pokemon)
+LocationAreaDetail_pokemon_encounters_inner::setPokemon(AbilityDetail_pokemon_inner_pokemon pokemon)
 {
 	this->pokemon = pokemon;
 }
@@ -115,7 +115,7 @@ LocationAreaDetail_pokemon_encounters_inner::getVersionDetails()
 }
 
 void
-LocationAreaDetail_pokemon_encounters_inner::setVersionDetails(std::list <LocationAreaDetail_pokemon_encounters_inner_version_details_inner> version_details)
+LocationAreaDetail_pokemon_encounters_inner::setVersionDetails(std::list<LocationAreaDetail_pokemon_encounters_inner_version_details_inner> version_details)
 {
 	this->version_details = version_details;
 }

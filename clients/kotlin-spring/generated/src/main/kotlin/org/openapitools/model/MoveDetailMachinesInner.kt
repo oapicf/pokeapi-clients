@@ -23,11 +23,13 @@ import io.swagger.v3.oas.annotations.media.Schema
 data class MoveDetailMachinesInner(
 
     @field:Valid
-    @Schema(example = "null", required = true, description = "")
+    @Schema(required = true, description = "")
+    @param:JsonProperty("machine")
     @get:JsonProperty("machine", required = true) val machine: MoveDetailMachinesInnerMachine,
 
     @field:Valid
-    @Schema(example = "null", required = true, description = "")
+    @Schema(required = true, description = "")
+    @param:JsonProperty("version_group")
     @get:JsonProperty("version_group", required = true) val versionGroup: AbilityDetailPokemonInnerPokemon
 ) {
 

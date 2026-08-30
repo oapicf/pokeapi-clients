@@ -53,14 +53,14 @@ public:
 
 	/*! \brief Set 
 	 */
-	void setGeneration(AbilityDetail_pokemon_inner_pokemon  generation);
+	void setGeneration(AbilityDetail_pokemon_inner_pokemon generation);
 	/*! \brief Get 
 	 */
 	TypeDetail_past_damage_relations_inner_damage_relations getDamageRelations();
 
 	/*! \brief Set 
 	 */
-	void setDamageRelations(TypeDetail_past_damage_relations_inner_damage_relations  damage_relations);
+	void setDamageRelations(TypeDetail_past_damage_relations_inner_damage_relations damage_relations);
 
 
     private:

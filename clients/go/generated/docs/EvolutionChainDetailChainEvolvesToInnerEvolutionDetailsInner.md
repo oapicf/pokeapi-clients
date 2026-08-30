@@ -7,8 +7,8 @@ Name | Type | Description | Notes
 **Gender** | [**EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender**](EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender.md) |  | 
 **HeldItem** | [**EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender**](EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender.md) |  | 
 **Item** | [**EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender**](EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender.md) |  | 
-**KnownMove** | **map[string]interface{}** |  | 
-**KnownMoveType** | **map[string]interface{}** |  | 
+**KnownMove** | [**EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender**](EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender.md) |  | 
+**KnownMoveType** | [**EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender**](EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender.md) |  | 
 **Location** | [**EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender**](EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender.md) |  | 
 **MinAffection** | **int32** |  | 
 **MinBeauty** | **int32** |  | 
@@ -27,7 +27,7 @@ Name | Type | Description | Notes
 
 ### NewEvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner
 
-`func NewEvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner(gender EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender, heldItem EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender, item EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender, knownMove map[string]interface{}, knownMoveType map[string]interface{}, location EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender, minAffection int32, minBeauty int32, minHappiness int32, minLevel int32, needsOverworldRain bool, partySpecies string, partyType string, relativePhysicalStats string, timeOfDay string, tradeSpecies string, trigger AbilityDetailPokemonInnerPokemon, turnUpsideDown bool, ) *EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner`
+`func NewEvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner(gender EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender, heldItem EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender, item EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender, knownMove EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender, knownMoveType EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender, location EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender, minAffection int32, minBeauty int32, minHappiness int32, minLevel int32, needsOverworldRain bool, partySpecies string, partyType string, relativePhysicalStats string, timeOfDay string, tradeSpecies string, trigger AbilityDetailPokemonInnerPokemon, turnUpsideDown bool, ) *EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner`
 
 NewEvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner instantiates a new EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner object
 This constructor will assign default values to properties that have it defined,
@@ -104,40 +104,40 @@ SetItem sets Item field to given value.
 
 ### GetKnownMove
 
-`func (o *EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner) GetKnownMove() map[string]interface{}`
+`func (o *EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner) GetKnownMove() EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender`
 
 GetKnownMove returns the KnownMove field if non-nil, zero value otherwise.
 
 ### GetKnownMoveOk
 
-`func (o *EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner) GetKnownMoveOk() (*map[string]interface{}, bool)`
+`func (o *EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner) GetKnownMoveOk() (*EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender, bool)`
 
 GetKnownMoveOk returns a tuple with the KnownMove field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetKnownMove
 
-`func (o *EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner) SetKnownMove(v map[string]interface{})`
+`func (o *EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner) SetKnownMove(v EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender)`
 
 SetKnownMove sets KnownMove field to given value.
 
 
 ### GetKnownMoveType
 
-`func (o *EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner) GetKnownMoveType() map[string]interface{}`
+`func (o *EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner) GetKnownMoveType() EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender`
 
 GetKnownMoveType returns the KnownMoveType field if non-nil, zero value otherwise.
 
 ### GetKnownMoveTypeOk
 
-`func (o *EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner) GetKnownMoveTypeOk() (*map[string]interface{}, bool)`
+`func (o *EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner) GetKnownMoveTypeOk() (*EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender, bool)`
 
 GetKnownMoveTypeOk returns a tuple with the KnownMoveType field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetKnownMoveType
 
-`func (o *EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner) SetKnownMoveType(v map[string]interface{})`
+`func (o *EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner) SetKnownMoveType(v EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender)`
 
 SetKnownMoveType sets KnownMoveType field to given value.
 

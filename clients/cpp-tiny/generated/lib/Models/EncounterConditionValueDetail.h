@@ -54,28 +54,28 @@ public:
 
 	/*! \brief Set 
 	 */
-	void setId(int  id);
+	void setId(int id);
 	/*! \brief Get 
 	 */
 	std::string getName();
 
 	/*! \brief Set 
 	 */
-	void setName(std::string  name);
+	void setName(std::string name);
 	/*! \brief Get 
 	 */
 	EncounterConditionSummary getCondition();
 
 	/*! \brief Set 
 	 */
-	void setCondition(EncounterConditionSummary  condition);
+	void setCondition(EncounterConditionSummary condition);
 	/*! \brief Get 
 	 */
 	std::list<EncounterConditionValueName> getNames();
 
 	/*! \brief Set 
 	 */
-	void setNames(std::list <EncounterConditionValueName> names);
+	void setNames(std::list<EncounterConditionValueName> names);
 
 
     private:

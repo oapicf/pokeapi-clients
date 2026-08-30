@@ -59,25 +59,25 @@ export interface VersionGroupDetail  {
      * @type {Array<AbilityDetailPokemonInnerPokemon>}
      * @memberof VersionGroupDetail
      */
-    moveLearnMethods: Array<AbilityDetailPokemonInnerPokemon>;
+    readonly moveLearnMethods: Array<AbilityDetailPokemonInnerPokemon>;
     /**
      * 
      * @type {Array<AbilityDetailPokemonInnerPokemon>}
      * @memberof VersionGroupDetail
      */
-    pokedexes: Array<AbilityDetailPokemonInnerPokemon>;
+    readonly pokedexes: Array<AbilityDetailPokemonInnerPokemon>;
     /**
      * 
      * @type {Array<AbilityDetailPokemonInnerPokemon>}
      * @memberof VersionGroupDetail
      */
-    regions: Array<AbilityDetailPokemonInnerPokemon>;
+    readonly regions: Array<AbilityDetailPokemonInnerPokemon>;
     /**
      * 
      * @type {Array<VersionSummary>}
      * @memberof VersionGroupDetail
      */
-    versions: Array<VersionSummary>;
+    readonly versions: Array<VersionSummary>;
 }
 
 export function VersionGroupDetailFromJSON(json: any): VersionGroupDetail {
@@ -101,10 +101,6 @@ export function VersionGroupDetailToJSON(value?: VersionGroupDetail): any {
         'name': value.name,
         'order': value.order,
         'generation': GenerationSummaryToJSON(value.generation),
-        'move_learn_methods': (value.moveLearnMethods as Array<any>).map(AbilityDetailPokemonInnerPokemonToJSON),
-        'pokedexes': (value.pokedexes as Array<any>).map(AbilityDetailPokemonInnerPokemonToJSON),
-        'regions': (value.regions as Array<any>).map(AbilityDetailPokemonInnerPokemonToJSON),
-        'versions': (value.versions as Array<any>).map(VersionSummaryToJSON),
     };
 }
 

@@ -92,8 +92,18 @@ namespace Org.OpenAPITools.Model
     /// <summary>
     /// A Json converter for type <see cref="ItemSummary" />
     /// </summary>
-    public class ItemSummaryJsonConverter : JsonConverter<ItemSummary>
+    public partial class ItemSummaryJsonConverter : JsonConverter<ItemSummary>
     {
+        partial void OnCreated();
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ItemSummaryJsonConverter" /> class.
+        /// </summary>
+        public ItemSummaryJsonConverter()
+        {
+            OnCreated();
+        }
+
         /// <summary>
         /// Deserializes json to <see cref="ItemSummary" />
         /// </summary>

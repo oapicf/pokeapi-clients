@@ -52,8 +52,8 @@ export interface MoveDetailEffectChangesInner {
  * Check if a given object implements the MoveDetailEffectChangesInner interface.
  */
 export function instanceOfMoveDetailEffectChangesInner(value: object): value is MoveDetailEffectChangesInner {
-    if (!('effectEntries' in value) || value['effectEntries'] === undefined) return false;
-    if (!('versionGroup' in value) || value['versionGroup'] === undefined) return false;
+    if ((!('effectEntries' in (value as Record<string, any>)) && !('effect_entries' in (value as Record<string, any>))) || ((value as Record<string, any>)['effectEntries'] === undefined && (value as Record<string, any>)['effect_entries'] === undefined)) return false;
+    if ((!('versionGroup' in (value as Record<string, any>)) && !('version_group' in (value as Record<string, any>))) || ((value as Record<string, any>)['versionGroup'] === undefined && (value as Record<string, any>)['version_group'] === undefined)) return false;
     return true;
 }
 

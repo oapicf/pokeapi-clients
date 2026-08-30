@@ -49,8 +49,8 @@ function Initialize-LocationAreaDetailEncounterMethodRatesInner {
 
 
         $PSO = [PSCustomObject]@{
-            "encounter_method" = ${EncounterMethod}
-            "version_details" = ${VersionDetails}
+            'encounter_method' = ${EncounterMethod}
+            'version_details' = ${VersionDetails}
         }
 
 
@@ -88,7 +88,7 @@ function ConvertFrom-JsonToLocationAreaDetailEncounterMethodRatesInner {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in LocationAreaDetailEncounterMethodRatesInner
-        $AllProperties = ("encounter_method", "version_details")
+        $AllProperties = ('encounter_method', 'version_details')
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -99,21 +99,21 @@ function ConvertFrom-JsonToLocationAreaDetailEncounterMethodRatesInner {
             throw "Error! Empty JSON cannot be serialized due to the required property 'encounter_method' missing."
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "encounter_method"))) {
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'encounter_method'))) {
             throw "Error! JSON cannot be serialized due to the required property 'encounter_method' missing."
         } else {
-            $EncounterMethod = $JsonParameters.PSobject.Properties["encounter_method"].value
+            $EncounterMethod = $JsonParameters.PSobject.Properties['encounter_method'].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "version_details"))) {
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'version_details'))) {
             throw "Error! JSON cannot be serialized due to the required property 'version_details' missing."
         } else {
-            $VersionDetails = $JsonParameters.PSobject.Properties["version_details"].value
+            $VersionDetails = $JsonParameters.PSobject.Properties['version_details'].value
         }
 
         $PSO = [PSCustomObject]@{
-            "encounter_method" = ${EncounterMethod}
-            "version_details" = ${VersionDetails}
+            'encounter_method' = ${EncounterMethod}
+            'version_details' = ${VersionDetails}
         }
 
         return $PSO

@@ -22,11 +22,13 @@ import io.swagger.v3.oas.annotations.media.Schema
 data class MoveDetailContestCombosNormal(
 
     @field:Valid
-    @Schema(example = "null", required = true, description = "")
+    @Schema(required = true, description = "")
+    @param:JsonProperty("use_before")
     @get:JsonProperty("use_before", required = true) val useBefore: kotlin.collections.List<AbilityDetailPokemonInnerPokemon>,
 
     @field:Valid
-    @Schema(example = "null", required = true, description = "")
+    @Schema(required = true, description = "")
+    @param:JsonProperty("use_after")
     @get:JsonProperty("use_after", required = true) val useAfter: kotlin.collections.List<AbilityDetailPokemonInnerPokemon>
 ) {
 

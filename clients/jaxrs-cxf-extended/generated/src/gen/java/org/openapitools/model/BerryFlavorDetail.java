@@ -97,6 +97,7 @@ public class BerryFlavorDetail  {
 
   /**
    * Sets the <code>berries</code> property.
+   * <br><em>N.B. <code>berries</code> is <b>read only</b>; client code should not call this method</em>.
    */
  public void setBerries(List<@Valid BerryFlavorDetailBerriesInner> berries) {
     this.berries = berries;
@@ -104,6 +105,7 @@ public class BerryFlavorDetail  {
 
   /**
    * Sets the <code>berries</code> property.
+   * <br><em>N.B. <code>berries</code> is <b>read only</b>; client code should not call this method</em>.
    */
   public BerryFlavorDetail berries(List<@Valid BerryFlavorDetailBerriesInner> berries) {
     this.berries = berries;
@@ -112,6 +114,7 @@ public class BerryFlavorDetail  {
 
   /**
    * Adds a new item to the <code>berries</code> list.
+   * <br><em>N.B. <code>berries</code> is <b>read only</b>; client code should not call this method</em>.
    */
   public BerryFlavorDetail addBerriesItem(BerryFlavorDetailBerriesInner berriesItem) {
     this.berries.add(berriesItem);
@@ -155,6 +158,7 @@ public class BerryFlavorDetail  {
 
   /**
    * Sets the <code>names</code> property.
+   * <br><em>N.B. <code>names</code> is <b>read only</b>; client code should not call this method</em>.
    */
  public void setNames(List<@Valid BerryFlavorName> names) {
     this.names = names;
@@ -162,6 +166,7 @@ public class BerryFlavorDetail  {
 
   /**
    * Sets the <code>names</code> property.
+   * <br><em>N.B. <code>names</code> is <b>read only</b>; client code should not call this method</em>.
    */
   public BerryFlavorDetail names(List<@Valid BerryFlavorName> names) {
     this.names = names;
@@ -170,6 +175,7 @@ public class BerryFlavorDetail  {
 
   /**
    * Adds a new item to the <code>names</code> list.
+   * <br><em>N.B. <code>names</code> is <b>read only</b>; client code should not call this method</em>.
    */
   public BerryFlavorDetail addNamesItem(BerryFlavorName namesItem) {
     this.names.add(namesItem);
@@ -217,10 +223,7 @@ public class BerryFlavorDetail  {
    * (except the first line).
    */
   private static String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 }
 

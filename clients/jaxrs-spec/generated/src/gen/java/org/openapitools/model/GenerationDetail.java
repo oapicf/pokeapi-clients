@@ -26,7 +26,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
 
 
 @JsonTypeName("GenerationDetail")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2026-02-07T15:24:06.001755207Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2026-08-30T01:56:42.280002256Z[Etc/UTC]", comments = "Generator version: 7.24.0")
 public class GenerationDetail   {
   private Integer id;
   private String name;
@@ -112,7 +112,7 @@ public class GenerationDetail   {
   
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(required = true, value = "abilities")
-  @NotNull @Valid public List<@Valid AbilitySummary> getAbilities() {
+  @Valid public List<@Valid AbilitySummary> getAbilities() {
     return abilities;
   }
 
@@ -166,7 +166,7 @@ public class GenerationDetail   {
   
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(required = true, value = "moves")
-  @NotNull @Valid public List<@Valid MoveSummary> getMoves() {
+  @Valid public List<@Valid MoveSummary> getMoves() {
     return moves;
   }
 
@@ -201,7 +201,7 @@ public class GenerationDetail   {
   
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(required = true, value = "names")
-  @NotNull @Valid public List<@Valid GenerationName> getNames() {
+  @Valid public List<@Valid GenerationName> getNames() {
     return names;
   }
 
@@ -236,7 +236,7 @@ public class GenerationDetail   {
   
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(required = true, value = "pokemon_species")
-  @NotNull @Valid public List<@Valid PokemonSpeciesSummary> getPokemonSpecies() {
+  @Valid public List<@Valid PokemonSpeciesSummary> getPokemonSpecies() {
     return pokemonSpecies;
   }
 
@@ -271,7 +271,7 @@ public class GenerationDetail   {
   
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(required = true, value = "types")
-  @NotNull @Valid public List<@Valid TypeSummary> getTypes() {
+  @Valid public List<@Valid TypeSummary> getTypes() {
     return types;
   }
 
@@ -306,7 +306,7 @@ public class GenerationDetail   {
   
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(required = true, value = "version_groups")
-  @NotNull @Valid public List<@Valid VersionGroupSummary> getVersionGroups() {
+  @Valid public List<@Valid VersionGroupSummary> getVersionGroups() {
     return versionGroups;
   }
 
@@ -380,12 +380,8 @@ public class GenerationDetail   {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 
 }
-

@@ -26,6 +26,8 @@ ItemFlingEffectDetail::ItemFlingEffectDetail()
     
 }
 
+ItemFlingEffectDetail::~ItemFlingEffectDetail() = default;
+
 void ItemFlingEffectDetail::validate() const
 {
     std::stringstream msg;

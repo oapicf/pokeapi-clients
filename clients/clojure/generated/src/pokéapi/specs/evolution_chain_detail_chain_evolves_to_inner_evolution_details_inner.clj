@@ -4,8 +4,8 @@
             [pokéapi.specs.evolution-chain-detail-chain-evolves-to-inner-evolution-details-inner-gender :refer :all]
             [pokéapi.specs.evolution-chain-detail-chain-evolves-to-inner-evolution-details-inner-gender :refer :all]
             [pokéapi.specs.evolution-chain-detail-chain-evolves-to-inner-evolution-details-inner-gender :refer :all]
-            [pokéapi.specs. :refer :all]
-            [pokéapi.specs. :refer :all]
+            [pokéapi.specs.evolution-chain-detail-chain-evolves-to-inner-evolution-details-inner-gender :refer :all]
+            [pokéapi.specs.evolution-chain-detail-chain-evolves-to-inner-evolution-details-inner-gender :refer :all]
             [pokéapi.specs.evolution-chain-detail-chain-evolves-to-inner-evolution-details-inner-gender :refer :all]
             [pokéapi.specs.ability-detail-pokemon-inner-pokemon :refer :all]
             )
@@ -17,8 +17,8 @@
    (ds/req :gender) evolution-chain-detail-chain-evolves-to-inner-evolution-details-inner-gender-spec
    (ds/req :held_item) evolution-chain-detail-chain-evolves-to-inner-evolution-details-inner-gender-spec
    (ds/req :item) evolution-chain-detail-chain-evolves-to-inner-evolution-details-inner-gender-spec
-   (ds/req :known_move) any?
-   (ds/req :known_move_type) any?
+   (ds/req :known_move) evolution-chain-detail-chain-evolves-to-inner-evolution-details-inner-gender-spec
+   (ds/req :known_move_type) evolution-chain-detail-chain-evolves-to-inner-evolution-details-inner-gender-spec
    (ds/req :location) evolution-chain-detail-chain-evolves-to-inner-evolution-details-inner-gender-spec
    (ds/req :min_affection) int?
    (ds/req :min_beauty) int?

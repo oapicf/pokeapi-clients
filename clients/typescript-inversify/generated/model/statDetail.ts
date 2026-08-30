@@ -23,7 +23,7 @@ export interface StatDetail {
     is_battle_only?: boolean;
     affecting_moves: StatDetailAffectingMoves;
     affecting_natures: StatDetailAffectingNatures;
-    characteristics: Array<CharacteristicSummary>;
+    readonly characteristics: Array<CharacteristicSummary>;
     move_damage_class: MoveDamageClassSummary;
-    names: Array<StatName>;
+    readonly names: Array<StatName>;
 }

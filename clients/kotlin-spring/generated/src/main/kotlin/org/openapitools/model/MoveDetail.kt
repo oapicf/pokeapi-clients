@@ -59,94 +59,118 @@ import io.swagger.v3.oas.annotations.media.Schema
  */
 data class MoveDetail(
 
-    @Schema(example = "null", required = true, readOnly = true, description = "")
+    @Schema(required = true, readOnly = true, description = "")
+    @param:JsonProperty("id")
     @get:JsonProperty("id", required = true) val id: kotlin.Int,
 
     @get:Size(max=100)
-    @Schema(example = "null", required = true, description = "")
+    @Schema(required = true, description = "")
+    @param:JsonProperty("name")
     @get:JsonProperty("name", required = true) val name: kotlin.String,
 
-    @Schema(example = "null", required = true, description = "")
+    @Schema(required = true, description = "")
+    @param:JsonProperty("effect_chance")
     @get:JsonProperty("effect_chance", required = true) val effectChance: kotlin.Int,
 
     @field:Valid
-    @Schema(example = "null", required = true, description = "")
+    @Schema(required = true, description = "")
+    @param:JsonProperty("contest_combos")
     @get:JsonProperty("contest_combos", required = true) val contestCombos: MoveDetailContestCombos,
 
     @field:Valid
-    @Schema(example = "null", required = true, description = "")
+    @Schema(required = true, description = "")
+    @param:JsonProperty("contest_type")
     @get:JsonProperty("contest_type", required = true) val contestType: ContestTypeSummary,
 
     @field:Valid
-    @Schema(example = "null", required = true, description = "")
+    @Schema(required = true, description = "")
+    @param:JsonProperty("contest_effect")
     @get:JsonProperty("contest_effect", required = true) val contestEffect: ContestEffectSummary,
 
     @field:Valid
-    @Schema(example = "null", required = true, description = "")
+    @Schema(required = true, description = "")
+    @param:JsonProperty("damage_class")
     @get:JsonProperty("damage_class", required = true) val damageClass: MoveDamageClassSummary,
 
     @field:Valid
-    @Schema(example = "null", required = true, description = "")
+    @Schema(required = true, readOnly = true, description = "")
+    @param:JsonProperty("effect_entries")
     @get:JsonProperty("effect_entries", required = true) val effectEntries: kotlin.collections.List<MoveChangeEffectEntriesInner>,
 
     @field:Valid
-    @Schema(example = "null", required = true, description = "")
+    @Schema(required = true, readOnly = true, description = "")
+    @param:JsonProperty("effect_changes")
     @get:JsonProperty("effect_changes", required = true) val effectChanges: kotlin.collections.List<MoveDetailEffectChangesInner>,
 
     @field:Valid
-    @Schema(example = "null", required = true, description = "")
+    @Schema(required = true, description = "")
+    @param:JsonProperty("generation")
     @get:JsonProperty("generation", required = true) val generation: GenerationSummary,
 
     @field:Valid
-    @Schema(example = "null", required = true, readOnly = true, description = "")
+    @Schema(required = true, readOnly = true, description = "")
+    @param:JsonProperty("meta")
     @get:JsonProperty("meta", required = true) val meta: MoveMeta,
 
     @field:Valid
-    @Schema(example = "null", required = true, description = "")
+    @Schema(required = true, readOnly = true, description = "")
+    @param:JsonProperty("names")
     @get:JsonProperty("names", required = true) val names: kotlin.collections.List<MoveName>,
 
     @field:Valid
-    @Schema(example = "null", required = true, description = "")
+    @Schema(required = true, readOnly = true, description = "")
+    @param:JsonProperty("past_values")
     @get:JsonProperty("past_values", required = true) val pastValues: kotlin.collections.List<MoveChange>,
 
     @field:Valid
-    @Schema(example = "null", required = true, description = "")
+    @Schema(required = true, readOnly = true, description = "")
+    @param:JsonProperty("stat_changes")
     @get:JsonProperty("stat_changes", required = true) val statChanges: kotlin.collections.List<MoveDetailStatChangesInner>,
 
     @field:Valid
-    @Schema(example = "null", required = true, description = "")
+    @Schema(required = true, description = "")
+    @param:JsonProperty("super_contest_effect")
     @get:JsonProperty("super_contest_effect", required = true) val superContestEffect: SuperContestEffectSummary,
 
     @field:Valid
-    @Schema(example = "null", required = true, description = "")
+    @Schema(required = true, description = "")
+    @param:JsonProperty("target")
     @get:JsonProperty("target", required = true) val target: MoveTargetSummary,
 
     @field:Valid
-    @Schema(example = "null", required = true, description = "")
+    @Schema(required = true, description = "")
+    @param:JsonProperty("type")
     @get:JsonProperty("type", required = true) val type: TypeSummary,
 
     @field:Valid
-    @Schema(example = "null", required = true, description = "")
+    @Schema(required = true, readOnly = true, description = "")
+    @param:JsonProperty("machines")
     @get:JsonProperty("machines", required = true) val machines: kotlin.collections.List<MoveDetailMachinesInner>,
 
     @field:Valid
-    @Schema(example = "null", required = true, description = "")
+    @Schema(required = true, readOnly = true, description = "")
+    @param:JsonProperty("flavor_text_entries")
     @get:JsonProperty("flavor_text_entries", required = true) val flavorTextEntries: kotlin.collections.List<MoveFlavorText>,
 
     @field:Valid
-    @Schema(example = "null", required = true, description = "")
+    @Schema(required = true, readOnly = true, description = "")
+    @param:JsonProperty("learned_by_pokemon")
     @get:JsonProperty("learned_by_pokemon", required = true) val learnedByPokemon: kotlin.collections.List<AbilityDetailPokemonInnerPokemon>,
 
-    @Schema(example = "null", description = "")
+    @Schema(description = "")
+    @param:JsonProperty("accuracy")
     @get:JsonProperty("accuracy") val accuracy: kotlin.Int? = null,
 
-    @Schema(example = "null", description = "")
+    @Schema(description = "")
+    @param:JsonProperty("pp")
     @get:JsonProperty("pp") val pp: kotlin.Int? = null,
 
-    @Schema(example = "null", description = "")
+    @Schema(description = "")
+    @param:JsonProperty("priority")
     @get:JsonProperty("priority") val priority: kotlin.Int? = null,
 
-    @Schema(example = "null", description = "")
+    @Schema(description = "")
+    @param:JsonProperty("power")
     @get:JsonProperty("power") val power: kotlin.Int? = null
 ) {
 

@@ -17,7 +17,7 @@ import AbilitySummary from './AbilitySummary';
 /**
  * The PaginatedAbilitySummaryList model module.
  * @module model/PaginatedAbilitySummaryList
- * @version 1.2.1-pre.0
+ * @version 2.0.1-pre.0
  */
 class PaginatedAbilitySummaryList {
     /**

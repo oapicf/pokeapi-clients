@@ -125,6 +125,7 @@ public class GrowthRateDetail  {
 
   /**
    * Sets the <code>descriptions</code> property.
+   * <br><em>N.B. <code>descriptions</code> is <b>read only</b>; client code should not call this method</em>.
    */
  public void setDescriptions(List<@Valid GrowthRateDescription> descriptions) {
     this.descriptions = descriptions;
@@ -132,6 +133,7 @@ public class GrowthRateDetail  {
 
   /**
    * Sets the <code>descriptions</code> property.
+   * <br><em>N.B. <code>descriptions</code> is <b>read only</b>; client code should not call this method</em>.
    */
   public GrowthRateDetail descriptions(List<@Valid GrowthRateDescription> descriptions) {
     this.descriptions = descriptions;
@@ -140,6 +142,7 @@ public class GrowthRateDetail  {
 
   /**
    * Adds a new item to the <code>descriptions</code> list.
+   * <br><em>N.B. <code>descriptions</code> is <b>read only</b>; client code should not call this method</em>.
    */
   public GrowthRateDetail addDescriptionsItem(GrowthRateDescription descriptionsItem) {
     this.descriptions.add(descriptionsItem);
@@ -158,6 +161,7 @@ public class GrowthRateDetail  {
 
   /**
    * Sets the <code>levels</code> property.
+   * <br><em>N.B. <code>levels</code> is <b>read only</b>; client code should not call this method</em>.
    */
  public void setLevels(List<@Valid Experience> levels) {
     this.levels = levels;
@@ -165,6 +169,7 @@ public class GrowthRateDetail  {
 
   /**
    * Sets the <code>levels</code> property.
+   * <br><em>N.B. <code>levels</code> is <b>read only</b>; client code should not call this method</em>.
    */
   public GrowthRateDetail levels(List<@Valid Experience> levels) {
     this.levels = levels;
@@ -173,6 +178,7 @@ public class GrowthRateDetail  {
 
   /**
    * Adds a new item to the <code>levels</code> list.
+   * <br><em>N.B. <code>levels</code> is <b>read only</b>; client code should not call this method</em>.
    */
   public GrowthRateDetail addLevelsItem(Experience levelsItem) {
     this.levels.add(levelsItem);
@@ -191,6 +197,7 @@ public class GrowthRateDetail  {
 
   /**
    * Sets the <code>pokemonSpecies</code> property.
+   * <br><em>N.B. <code>pokemonSpecies</code> is <b>read only</b>; client code should not call this method</em>.
    */
  public void setPokemonSpecies(List<@Valid PokemonSpeciesSummary> pokemonSpecies) {
     this.pokemonSpecies = pokemonSpecies;
@@ -198,6 +205,7 @@ public class GrowthRateDetail  {
 
   /**
    * Sets the <code>pokemonSpecies</code> property.
+   * <br><em>N.B. <code>pokemonSpecies</code> is <b>read only</b>; client code should not call this method</em>.
    */
   public GrowthRateDetail pokemonSpecies(List<@Valid PokemonSpeciesSummary> pokemonSpecies) {
     this.pokemonSpecies = pokemonSpecies;
@@ -206,6 +214,7 @@ public class GrowthRateDetail  {
 
   /**
    * Adds a new item to the <code>pokemonSpecies</code> list.
+   * <br><em>N.B. <code>pokemonSpecies</code> is <b>read only</b>; client code should not call this method</em>.
    */
   public GrowthRateDetail addPokemonSpeciesItem(PokemonSpeciesSummary pokemonSpeciesItem) {
     this.pokemonSpecies.add(pokemonSpeciesItem);
@@ -255,10 +264,7 @@ public class GrowthRateDetail  {
    * (except the first line).
    */
   private static String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 }
 

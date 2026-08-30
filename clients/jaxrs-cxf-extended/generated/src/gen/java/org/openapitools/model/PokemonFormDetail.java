@@ -350,6 +350,7 @@ public class PokemonFormDetail  {
 
   /**
    * Sets the <code>formNames</code> property.
+   * <br><em>N.B. <code>formNames</code> is <b>read only</b>; client code should not call this method</em>.
    */
  public void setFormNames(List<@Valid PokemonFormDetailFormNamesInner> formNames) {
     this.formNames = formNames;
@@ -357,6 +358,7 @@ public class PokemonFormDetail  {
 
   /**
    * Sets the <code>formNames</code> property.
+   * <br><em>N.B. <code>formNames</code> is <b>read only</b>; client code should not call this method</em>.
    */
   public PokemonFormDetail formNames(List<@Valid PokemonFormDetailFormNamesInner> formNames) {
     this.formNames = formNames;
@@ -365,6 +367,7 @@ public class PokemonFormDetail  {
 
   /**
    * Adds a new item to the <code>formNames</code> list.
+   * <br><em>N.B. <code>formNames</code> is <b>read only</b>; client code should not call this method</em>.
    */
   public PokemonFormDetail addFormNamesItem(PokemonFormDetailFormNamesInner formNamesItem) {
     this.formNames.add(formNamesItem);
@@ -383,6 +386,7 @@ public class PokemonFormDetail  {
 
   /**
    * Sets the <code>names</code> property.
+   * <br><em>N.B. <code>names</code> is <b>read only</b>; client code should not call this method</em>.
    */
  public void setNames(List<@Valid PokemonFormDetailFormNamesInner> names) {
     this.names = names;
@@ -390,6 +394,7 @@ public class PokemonFormDetail  {
 
   /**
    * Sets the <code>names</code> property.
+   * <br><em>N.B. <code>names</code> is <b>read only</b>; client code should not call this method</em>.
    */
   public PokemonFormDetail names(List<@Valid PokemonFormDetailFormNamesInner> names) {
     this.names = names;
@@ -398,6 +403,7 @@ public class PokemonFormDetail  {
 
   /**
    * Adds a new item to the <code>names</code> list.
+   * <br><em>N.B. <code>names</code> is <b>read only</b>; client code should not call this method</em>.
    */
   public PokemonFormDetail addNamesItem(PokemonFormDetailFormNamesInner namesItem) {
     this.names.add(namesItem);
@@ -416,6 +422,7 @@ public class PokemonFormDetail  {
 
   /**
    * Sets the <code>types</code> property.
+   * <br><em>N.B. <code>types</code> is <b>read only</b>; client code should not call this method</em>.
    */
  public void setTypes(List<@Valid PokemonDetailTypesInner> types) {
     this.types = types;
@@ -423,6 +430,7 @@ public class PokemonFormDetail  {
 
   /**
    * Sets the <code>types</code> property.
+   * <br><em>N.B. <code>types</code> is <b>read only</b>; client code should not call this method</em>.
    */
   public PokemonFormDetail types(List<@Valid PokemonDetailTypesInner> types) {
     this.types = types;
@@ -431,6 +439,7 @@ public class PokemonFormDetail  {
 
   /**
    * Adds a new item to the <code>types</code> list.
+   * <br><em>N.B. <code>types</code> is <b>read only</b>; client code should not call this method</em>.
    */
   public PokemonFormDetail addTypesItem(PokemonDetailTypesInner typesItem) {
     this.types.add(typesItem);
@@ -496,10 +505,7 @@ public class PokemonFormDetail  {
    * (except the first line).
    */
   private static String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 }
 

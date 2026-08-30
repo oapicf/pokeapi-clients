@@ -47,7 +47,7 @@ class PokemonFormDetail
      * @var int|null
      * @SerializedName("id")
      * @Type("int")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Type("int")]
     protected ?int $id = null;
@@ -56,7 +56,7 @@ class PokemonFormDetail
      * @var string|null
      * @SerializedName("name")
      * @Type("string")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Type("string")]
     #[Assert\Length(max: 100)]
@@ -66,7 +66,7 @@ class PokemonFormDetail
      * @var int|null
      * @SerializedName("order")
      * @Type("int")
-    */
+     */
     #[Assert\Type("int")]
     protected ?int $order = null;
 
@@ -74,7 +74,7 @@ class PokemonFormDetail
      * @var int|null
      * @SerializedName("form_order")
      * @Type("int")
-    */
+     */
     #[Assert\Type("int")]
     protected ?int $formOrder = null;
 
@@ -82,7 +82,7 @@ class PokemonFormDetail
      * @var bool|null
      * @SerializedName("is_default")
      * @Type("bool")
-    */
+     */
     #[Assert\Type("bool")]
     protected ?bool $isDefault = null;
 
@@ -90,7 +90,7 @@ class PokemonFormDetail
      * @var bool|null
      * @SerializedName("is_battle_only")
      * @Type("bool")
-    */
+     */
     #[Assert\Type("bool")]
     protected ?bool $isBattleOnly = null;
 
@@ -98,7 +98,7 @@ class PokemonFormDetail
      * @var bool|null
      * @SerializedName("is_mega")
      * @Type("bool")
-    */
+     */
     #[Assert\Type("bool")]
     protected ?bool $isMega = null;
 
@@ -106,7 +106,7 @@ class PokemonFormDetail
      * @var string|null
      * @SerializedName("form_name")
      * @Type("string")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Type("string")]
     #[Assert\Length(max: 30)]
@@ -116,7 +116,7 @@ class PokemonFormDetail
      * @var PokemonSummary|null
      * @SerializedName("pokemon")
      * @Type("OpenAPI\Server\Model\PokemonSummary")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Valid]
     #[Assert\Type("OpenAPI\Server\Model\PokemonSummary")]
@@ -126,7 +126,7 @@ class PokemonFormDetail
      * @var PokemonFormDetailSprites|null
      * @SerializedName("sprites")
      * @Type("OpenAPI\Server\Model\PokemonFormDetailSprites")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Valid]
     #[Assert\Type("OpenAPI\Server\Model\PokemonFormDetailSprites")]
@@ -136,7 +136,7 @@ class PokemonFormDetail
      * @var VersionGroupSummary|null
      * @SerializedName("version_group")
      * @Type("OpenAPI\Server\Model\VersionGroupSummary")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Valid]
     #[Assert\Type("OpenAPI\Server\Model\VersionGroupSummary")]
@@ -146,7 +146,7 @@ class PokemonFormDetail
      * @var PokemonFormDetailFormNamesInner[]|null
      * @SerializedName("form_names")
      * @Type("array<OpenAPI\Server\Model\PokemonFormDetailFormNamesInner>")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Valid]
     #[Assert\All([
@@ -158,7 +158,7 @@ class PokemonFormDetail
      * @var PokemonFormDetailFormNamesInner[]|null
      * @SerializedName("names")
      * @Type("array<OpenAPI\Server\Model\PokemonFormDetailFormNamesInner>")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Valid]
     #[Assert\All([
@@ -170,7 +170,7 @@ class PokemonFormDetail
      * @var PokemonDetailTypesInner[]|null
      * @SerializedName("types")
      * @Type("array<OpenAPI\Server\Model\PokemonDetailTypesInner>")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Valid]
     #[Assert\All([
@@ -213,12 +213,12 @@ class PokemonFormDetail
     }
 
     /**
-    * Sets id.
-    *
-    * @param int|null $id
-    *
-    * @return $this
-    */
+     * Sets id.
+     *
+     * @param int|null $id
+     *
+     * @return $this
+     */
     public function setId(?int $id): self
     {
         $this->id = $id;
@@ -240,12 +240,12 @@ class PokemonFormDetail
     }
 
     /**
-    * Sets name.
-    *
-    * @param string|null $name
-    *
-    * @return $this
-    */
+     * Sets name.
+     *
+     * @param string|null $name
+     *
+     * @return $this
+     */
     public function setName(?string $name): self
     {
         $this->name = $name;
@@ -267,12 +267,12 @@ class PokemonFormDetail
     }
 
     /**
-    * Sets order.
-    *
-    * @param int|null $order
-    *
-    * @return $this
-    */
+     * Sets order.
+     *
+     * @param int|null $order
+     *
+     * @return $this
+     */
     public function setOrder(?int $order = null): self
     {
         $this->order = $order;
@@ -294,12 +294,12 @@ class PokemonFormDetail
     }
 
     /**
-    * Sets formOrder.
-    *
-    * @param int|null $formOrder
-    *
-    * @return $this
-    */
+     * Sets formOrder.
+     *
+     * @param int|null $formOrder
+     *
+     * @return $this
+     */
     public function setFormOrder(?int $formOrder = null): self
     {
         $this->formOrder = $formOrder;
@@ -321,12 +321,12 @@ class PokemonFormDetail
     }
 
     /**
-    * Sets isDefault.
-    *
-    * @param bool|null $isDefault
-    *
-    * @return $this
-    */
+     * Sets isDefault.
+     *
+     * @param bool|null $isDefault
+     *
+     * @return $this
+     */
     public function setIsDefault(?bool $isDefault = null): self
     {
         $this->isDefault = $isDefault;
@@ -348,12 +348,12 @@ class PokemonFormDetail
     }
 
     /**
-    * Sets isBattleOnly.
-    *
-    * @param bool|null $isBattleOnly
-    *
-    * @return $this
-    */
+     * Sets isBattleOnly.
+     *
+     * @param bool|null $isBattleOnly
+     *
+     * @return $this
+     */
     public function setIsBattleOnly(?bool $isBattleOnly = null): self
     {
         $this->isBattleOnly = $isBattleOnly;
@@ -375,12 +375,12 @@ class PokemonFormDetail
     }
 
     /**
-    * Sets isMega.
-    *
-    * @param bool|null $isMega
-    *
-    * @return $this
-    */
+     * Sets isMega.
+     *
+     * @param bool|null $isMega
+     *
+     * @return $this
+     */
     public function setIsMega(?bool $isMega = null): self
     {
         $this->isMega = $isMega;
@@ -402,12 +402,12 @@ class PokemonFormDetail
     }
 
     /**
-    * Sets formName.
-    *
-    * @param string|null $formName
-    *
-    * @return $this
-    */
+     * Sets formName.
+     *
+     * @param string|null $formName
+     *
+     * @return $this
+     */
     public function setFormName(?string $formName): self
     {
         $this->formName = $formName;
@@ -429,12 +429,12 @@ class PokemonFormDetail
     }
 
     /**
-    * Sets pokemon.
-    *
-    * @param PokemonSummary|null $pokemon
-    *
-    * @return $this
-    */
+     * Sets pokemon.
+     *
+     * @param PokemonSummary|null $pokemon
+     *
+     * @return $this
+     */
     public function setPokemon(?PokemonSummary $pokemon): self
     {
         $this->pokemon = $pokemon;
@@ -456,12 +456,12 @@ class PokemonFormDetail
     }
 
     /**
-    * Sets sprites.
-    *
-    * @param PokemonFormDetailSprites|null $sprites
-    *
-    * @return $this
-    */
+     * Sets sprites.
+     *
+     * @param PokemonFormDetailSprites|null $sprites
+     *
+     * @return $this
+     */
     public function setSprites(?PokemonFormDetailSprites $sprites): self
     {
         $this->sprites = $sprites;
@@ -483,12 +483,12 @@ class PokemonFormDetail
     }
 
     /**
-    * Sets versionGroup.
-    *
-    * @param VersionGroupSummary|null $versionGroup
-    *
-    * @return $this
-    */
+     * Sets versionGroup.
+     *
+     * @param VersionGroupSummary|null $versionGroup
+     *
+     * @return $this
+     */
     public function setVersionGroup(?VersionGroupSummary $versionGroup): self
     {
         $this->versionGroup = $versionGroup;
@@ -510,12 +510,12 @@ class PokemonFormDetail
     }
 
     /**
-    * Sets formNames.
-    *
-    * @param PokemonFormDetailFormNamesInner[]|null $formNames
-    *
-    * @return $this
-    */
+     * Sets formNames.
+     *
+     * @param PokemonFormDetailFormNamesInner[]|null $formNames
+     *
+     * @return $this
+     */
     public function setFormNames(?array $formNames): self
     {
         $this->formNames = $formNames;
@@ -537,12 +537,12 @@ class PokemonFormDetail
     }
 
     /**
-    * Sets names.
-    *
-    * @param PokemonFormDetailFormNamesInner[]|null $names
-    *
-    * @return $this
-    */
+     * Sets names.
+     *
+     * @param PokemonFormDetailFormNamesInner[]|null $names
+     *
+     * @return $this
+     */
     public function setNames(?array $names): self
     {
         $this->names = $names;
@@ -564,12 +564,12 @@ class PokemonFormDetail
     }
 
     /**
-    * Sets types.
-    *
-    * @param PokemonDetailTypesInner[]|null $types
-    *
-    * @return $this
-    */
+     * Sets types.
+     *
+     * @param PokemonDetailTypesInner[]|null $types
+     *
+     * @return $this
+     */
     public function setTypes(?array $types): self
     {
         $this->types = $types;

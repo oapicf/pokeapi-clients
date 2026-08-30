@@ -20,14 +20,14 @@ typedef struct type_detail_pokemon_inner_t type_detail_pokemon_inner_t;
 
 
 typedef struct type_detail_pokemon_inner_t {
-    int slot; //numeric
+    int *slot; //numeric
     struct type_detail_pokemon_inner_pokemon_t *pokemon; //model
 
     int _library_owned; // Is the library responsible for freeing this object?
 } type_detail_pokemon_inner_t;
 
 __attribute__((deprecated)) type_detail_pokemon_inner_t *type_detail_pokemon_inner_create(
-    int slot,
+    int *slot,
     type_detail_pokemon_inner_pokemon_t *pokemon
 );
 

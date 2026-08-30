@@ -34,5 +34,5 @@ export interface MoveBattleStyleDetail {
      * @type {Array<MoveBattleStyleName>}
      * @memberof MoveBattleStyleDetail
      */
-    names: Array<MoveBattleStyleName>;
+    readonly names: Array<MoveBattleStyleName>;
 }

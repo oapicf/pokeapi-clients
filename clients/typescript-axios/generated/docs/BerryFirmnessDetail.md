@@ -7,8 +7,8 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **number** |  | [readonly] [default to undefined]
 **name** | **string** |  | [default to undefined]
-**berries** | [**Array&lt;BerrySummary&gt;**](BerrySummary.md) |  | [default to undefined]
-**names** | [**Array&lt;BerryFirmnessName&gt;**](BerryFirmnessName.md) |  | [default to undefined]
+**berries** | [**Array&lt;BerrySummary&gt;**](BerrySummary.md) |  | [readonly] [default to undefined]
+**names** | [**Array&lt;BerryFirmnessName&gt;**](BerryFirmnessName.md) |  | [readonly] [default to undefined]
 
 ## Example
 

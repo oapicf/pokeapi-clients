@@ -24,14 +24,17 @@ import io.swagger.v3.oas.annotations.media.Schema
 data class LocationAreaDetailPokemonEncountersInnerVersionDetailsInner(
 
     @field:Valid
-    @Schema(example = "null", required = true, description = "")
+    @Schema(required = true, description = "")
+    @param:JsonProperty("version")
     @get:JsonProperty("version", required = true) val version: AbilityDetailPokemonInnerPokemon,
 
-    @Schema(example = "null", required = true, description = "")
+    @Schema(required = true, description = "")
+    @param:JsonProperty("max_chance")
     @get:JsonProperty("max_chance", required = true) val maxChance: kotlin.Int,
 
     @field:Valid
-    @Schema(example = "null", required = true, description = "")
+    @Schema(required = true, description = "")
+    @param:JsonProperty("encounter_details")
     @get:JsonProperty("encounter_details", required = true) val encounterDetails: LocationAreaDetailPokemonEncountersInnerVersionDetailsInnerEncounterDetails
 ) {
 

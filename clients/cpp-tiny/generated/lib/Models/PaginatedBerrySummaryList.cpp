@@ -144,7 +144,7 @@ PaginatedBerrySummaryList::getCount()
 }
 
 void
-PaginatedBerrySummaryList::setCount(int  count)
+PaginatedBerrySummaryList::setCount(int count)
 {
 	this->count = count;
 }
@@ -156,7 +156,7 @@ PaginatedBerrySummaryList::getNext()
 }
 
 void
-PaginatedBerrySummaryList::setNext(std::string  next)
+PaginatedBerrySummaryList::setNext(std::string next)
 {
 	this->next = next;
 }
@@ -168,7 +168,7 @@ PaginatedBerrySummaryList::getPrevious()
 }
 
 void
-PaginatedBerrySummaryList::setPrevious(std::string  previous)
+PaginatedBerrySummaryList::setPrevious(std::string previous)
 {
 	this->previous = previous;
 }
@@ -180,7 +180,7 @@ PaginatedBerrySummaryList::getResults()
 }
 
 void
-PaginatedBerrySummaryList::setResults(std::list <BerrySummary> results)
+PaginatedBerrySummaryList::setResults(std::list<BerrySummary> results)
 {
 	this->results = results;
 }

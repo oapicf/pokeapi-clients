@@ -12,6 +12,11 @@
 package openapi
 
 
+import (
+	"encoding/json"
+	"fmt"
+)
+
 
 
 type StatDetail struct {
@@ -34,18 +39,122 @@ type StatDetail struct {
 
 	Names []StatName `json:"names"`
 }
+// UnmarshalJSON validates required property keys then unmarshals into StatDetail
+func (o *StatDetail) UnmarshalJSON(data []byte) (err error) {
+	// Presence is checked against required fields that exist on this struct,
+	// including fields promoted from embedded allOf parents.
+	requiredProperties := []string{
+		"name",
+		"game_index",
+		"affecting_moves",
+		"affecting_natures",
+		"move_damage_class",
+	}
 
-// AssertStatDetailRequired checks if the required fields are not zero-ed
+	requiredNullableProperties := map[string]bool{
+		"name": false,
+		"game_index": false,
+		"affecting_moves": false,
+		"affecting_natures": false,
+		"move_damage_class": false,
+	}
+
+	allowedJsonKeys := map[string]struct{}{
+		"id": {},
+		"name": {},
+		"game_index": {},
+		"is_battle_only": {},
+		"affecting_moves": {},
+		"affecting_natures": {},
+		"characteristics": {},
+		"move_damage_class": {},
+		"names": {},
+	}
+
+	allProperties := make(map[string]json.RawMessage)
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err
+	}
+
+	for _, requiredProperty := range requiredProperties {
+		value, exists := allProperties[requiredProperty]
+		if !exists {
+			return &RequiredError{Field: requiredProperty}
+		}
+		if string(value) == "null" && !requiredNullableProperties[requiredProperty] {
+			return &RequiredError{Field: requiredProperty}
+		}
+	}
+
+	for key := range allProperties {
+		if _, exists := allowedJsonKeys[key]; !exists {
+			return fmt.Errorf("json: unknown field %q", key)
+		}
+	}
+
+	var decoded StatDetail
+
+	if value, exists := allProperties["id"]; exists {
+		if err = json.Unmarshal(value, &decoded.Id); err != nil {
+			return err
+		}
+	}
+	if value, exists := allProperties["name"]; exists {
+		if err = json.Unmarshal(value, &decoded.Name); err != nil {
+			return err
+		}
+	}
+	if value, exists := allProperties["game_index"]; exists {
+		if err = json.Unmarshal(value, &decoded.GameIndex); err != nil {
+			return err
+		}
+	}
+	if value, exists := allProperties["is_battle_only"]; exists {
+		if err = json.Unmarshal(value, &decoded.IsBattleOnly); err != nil {
+			return err
+		}
+	}
+	if value, exists := allProperties["affecting_moves"]; exists {
+		if err = json.Unmarshal(value, &decoded.AffectingMoves); err != nil {
+			return err
+		}
+	}
+	if value, exists := allProperties["affecting_natures"]; exists {
+		if err = json.Unmarshal(value, &decoded.AffectingNatures); err != nil {
+			return err
+		}
+	}
+	if value, exists := allProperties["characteristics"]; exists {
+		if err = json.Unmarshal(value, &decoded.Characteristics); err != nil {
+			return err
+		}
+	}
+	if value, exists := allProperties["move_damage_class"]; exists {
+		if err = json.Unmarshal(value, &decoded.MoveDamageClass); err != nil {
+			return err
+		}
+	}
+	if value, exists := allProperties["names"]; exists {
+		if err = json.Unmarshal(value, &decoded.Names); err != nil {
+			return err
+		}
+	}
+
+	*o = decoded
+
+	return nil
+}
+
+// AssertStatDetailRequired checks complex required fields (models, arrays, maps) and embedded parents.
+// Primitive required fields are validated for JSON request bodies in UnmarshalJSON so zero values remain valid.
 func AssertStatDetailRequired(obj StatDetail) error {
 	elements := map[string]interface{}{
-		"id": obj.Id,
-		"name": obj.Name,
-		"game_index": obj.GameIndex,
 		"affecting_moves": obj.AffectingMoves,
 		"affecting_natures": obj.AffectingNatures,
-		"characteristics": obj.Characteristics,
 		"move_damage_class": obj.MoveDamageClass,
-		"names": obj.Names,
 	}
 	for name, el := range elements {
 		if isZero := IsZeroValue(el); isZero {
@@ -59,18 +168,8 @@ func AssertStatDetailRequired(obj StatDetail) error {
 	if err := AssertStatDetailAffectingNaturesRequired(obj.AffectingNatures); err != nil {
 		return err
 	}
-	for _, el := range obj.Characteristics {
-		if err := AssertCharacteristicSummaryRequired(el); err != nil {
-			return err
-		}
-	}
 	if err := AssertMoveDamageClassSummaryRequired(obj.MoveDamageClass); err != nil {
 		return err
-	}
-	for _, el := range obj.Names {
-		if err := AssertStatNameRequired(el); err != nil {
-			return err
-		}
 	}
 	return nil
 }
@@ -83,18 +182,8 @@ func AssertStatDetailConstraints(obj StatDetail) error {
 	if err := AssertStatDetailAffectingNaturesConstraints(obj.AffectingNatures); err != nil {
 		return err
 	}
-	for _, el := range obj.Characteristics {
-		if err := AssertCharacteristicSummaryConstraints(el); err != nil {
-			return err
-		}
-	}
 	if err := AssertMoveDamageClassSummaryConstraints(obj.MoveDamageClass); err != nil {
 		return err
-	}
-	for _, el := range obj.Names {
-		if err := AssertStatNameConstraints(el); err != nil {
-			return err
-		}
 	}
 	return nil
 }

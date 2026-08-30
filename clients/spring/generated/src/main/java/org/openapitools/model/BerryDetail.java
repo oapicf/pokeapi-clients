@@ -14,19 +14,19 @@ import org.openapitools.model.TypeSummary;
 import org.springframework.lang.Nullable;
 import org.openapitools.jackson.nullable.JsonNullable;
 import java.time.OffsetDateTime;
-import javax.validation.Valid;
-import javax.validation.constraints.*;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.*;
 import io.swagger.v3.oas.annotations.media.Schema;
 
 
 import java.util.*;
-import javax.annotation.Generated;
+import jakarta.annotation.Generated;
 
 /**
  * BerryDetail
  */
 
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2026-02-07T15:29:13.146999890Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2026-08-30T02:00:43.960184425Z[Etc/UTC]", comments = "Generator version: 7.24.0")
 public class BerryDetail {
 
   private Integer id;
@@ -47,7 +47,6 @@ public class BerryDetail {
 
   private BerryFirmnessSummary firmness;
 
-  @Valid
   private List<@Valid BerryDetailFlavorsInner> flavors = new ArrayList<>();
 
   private ItemSummary item;
@@ -92,6 +91,7 @@ public class BerryDetail {
     return id;
   }
 
+  @JsonProperty("id")
   public void setId(Integer id) {
     this.id = id;
   }
@@ -112,6 +112,7 @@ public class BerryDetail {
     return name;
   }
 
+  @JsonProperty("name")
   public void setName(String name) {
     this.name = name;
   }
@@ -132,6 +133,7 @@ public class BerryDetail {
     return growthTime;
   }
 
+  @JsonProperty("growth_time")
   public void setGrowthTime(Integer growthTime) {
     this.growthTime = growthTime;
   }
@@ -152,6 +154,7 @@ public class BerryDetail {
     return maxHarvest;
   }
 
+  @JsonProperty("max_harvest")
   public void setMaxHarvest(Integer maxHarvest) {
     this.maxHarvest = maxHarvest;
   }
@@ -172,6 +175,7 @@ public class BerryDetail {
     return naturalGiftPower;
   }
 
+  @JsonProperty("natural_gift_power")
   public void setNaturalGiftPower(Integer naturalGiftPower) {
     this.naturalGiftPower = naturalGiftPower;
   }
@@ -192,6 +196,7 @@ public class BerryDetail {
     return size;
   }
 
+  @JsonProperty("size")
   public void setSize(Integer size) {
     this.size = size;
   }
@@ -212,6 +217,7 @@ public class BerryDetail {
     return smoothness;
   }
 
+  @JsonProperty("smoothness")
   public void setSmoothness(Integer smoothness) {
     this.smoothness = smoothness;
   }
@@ -232,6 +238,7 @@ public class BerryDetail {
     return soilDryness;
   }
 
+  @JsonProperty("soil_dryness")
   public void setSoilDryness(Integer soilDryness) {
     this.soilDryness = soilDryness;
   }
@@ -252,6 +259,7 @@ public class BerryDetail {
     return firmness;
   }
 
+  @JsonProperty("firmness")
   public void setFirmness(BerryFirmnessSummary firmness) {
     this.firmness = firmness;
   }
@@ -273,13 +281,14 @@ public class BerryDetail {
    * Get flavors
    * @return flavors
    */
-  @NotNull @Valid 
-  @Schema(name = "flavors", requiredMode = Schema.RequiredMode.REQUIRED)
+  @Valid 
+  @Schema(name = "flavors", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("flavors")
   public List<@Valid BerryDetailFlavorsInner> getFlavors() {
     return flavors;
   }
 
+  @JsonProperty("flavors")
   public void setFlavors(List<@Valid BerryDetailFlavorsInner> flavors) {
     this.flavors = flavors;
   }
@@ -300,6 +309,7 @@ public class BerryDetail {
     return item;
   }
 
+  @JsonProperty("item")
   public void setItem(ItemSummary item) {
     this.item = item;
   }
@@ -320,6 +330,7 @@ public class BerryDetail {
     return naturalGiftType;
   }
 
+  @JsonProperty("natural_gift_type")
   public void setNaturalGiftType(TypeSummary naturalGiftType) {
     this.naturalGiftType = naturalGiftType;
   }
@@ -376,11 +387,8 @@ public class BerryDetail {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+  private String toIndentedString(@Nullable Object o) {
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 }
 

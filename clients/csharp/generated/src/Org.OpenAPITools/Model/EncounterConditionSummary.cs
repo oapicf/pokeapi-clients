@@ -92,8 +92,18 @@ namespace Org.OpenAPITools.Model
     /// <summary>
     /// A Json converter for type <see cref="EncounterConditionSummary" />
     /// </summary>
-    public class EncounterConditionSummaryJsonConverter : JsonConverter<EncounterConditionSummary>
+    public partial class EncounterConditionSummaryJsonConverter : JsonConverter<EncounterConditionSummary>
     {
+        partial void OnCreated();
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="EncounterConditionSummaryJsonConverter" /> class.
+        /// </summary>
+        public EncounterConditionSummaryJsonConverter()
+        {
+            OnCreated();
+        }
+
         /// <summary>
         /// Deserializes json to <see cref="EncounterConditionSummary" />
         /// </summary>

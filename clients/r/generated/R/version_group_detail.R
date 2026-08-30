@@ -132,25 +132,48 @@ VersionGroupDetail <- R6::R6Class(
       }
       if (!is.null(self$`generation`)) {
         VersionGroupDetailObject[["generation"]] <-
-          self$`generation`$toSimpleType()
+          self$extractSimpleType(self$`generation`)
       }
       if (!is.null(self$`move_learn_methods`)) {
         VersionGroupDetailObject[["move_learn_methods"]] <-
-          lapply(self$`move_learn_methods`, function(x) x$toSimpleType())
+          self$extractSimpleType(self$`move_learn_methods`)
       }
       if (!is.null(self$`pokedexes`)) {
         VersionGroupDetailObject[["pokedexes"]] <-
-          lapply(self$`pokedexes`, function(x) x$toSimpleType())
+          self$extractSimpleType(self$`pokedexes`)
       }
       if (!is.null(self$`regions`)) {
         VersionGroupDetailObject[["regions"]] <-
-          lapply(self$`regions`, function(x) x$toSimpleType())
+          self$extractSimpleType(self$`regions`)
       }
       if (!is.null(self$`versions`)) {
         VersionGroupDetailObject[["versions"]] <-
-          lapply(self$`versions`, function(x) x$toSimpleType())
+          self$extractSimpleType(self$`versions`)
       }
       return(VersionGroupDetailObject)
+    },
+
+    extractSimpleType = function(x) {
+      if (R6::is.R6(x)) {
+        return(x$toSimpleType())
+      } else if (!self$hasNestedR6(x)) {
+        return(x)
+      }
+      lapply(x, self$extractSimpleType)
+    },
+
+    hasNestedR6 = function(x) {
+      if (R6::is.R6(x)) {
+        return(TRUE)
+      }
+      if (is.list(x)) {
+        for (item in x) {
+          if (self$hasNestedR6(item)) {
+            return(TRUE)
+          }
+        }
+      }
+      FALSE
     },
 
     #' @description

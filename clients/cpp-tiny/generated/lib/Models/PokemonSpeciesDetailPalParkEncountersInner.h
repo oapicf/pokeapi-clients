@@ -52,21 +52,21 @@ public:
 
 	/*! \brief Set 
 	 */
-	void setArea(AbilityDetail_pokemon_inner_pokemon  area);
+	void setArea(AbilityDetail_pokemon_inner_pokemon area);
 	/*! \brief Get 
 	 */
 	int getBaseScore();
 
 	/*! \brief Set 
 	 */
-	void setBaseScore(int  base_score);
+	void setBaseScore(int base_score);
 	/*! \brief Get 
 	 */
 	int getRate();
 
 	/*! \brief Set 
 	 */
-	void setRate(int  rate);
+	void setRate(int rate);
 
 
     private:

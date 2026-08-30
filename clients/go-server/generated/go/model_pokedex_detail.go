@@ -12,6 +12,11 @@
 package openapi
 
 
+import (
+	"encoding/json"
+	"fmt"
+)
+
 
 
 type PokedexDetail struct {
@@ -32,17 +37,108 @@ type PokedexDetail struct {
 
 	VersionGroups []AbilityDetailPokemonInnerPokemon `json:"version_groups"`
 }
+// UnmarshalJSON validates required property keys then unmarshals into PokedexDetail
+func (o *PokedexDetail) UnmarshalJSON(data []byte) (err error) {
+	// Presence is checked against required fields that exist on this struct,
+	// including fields promoted from embedded allOf parents.
+	requiredProperties := []string{
+		"name",
+		"region",
+	}
 
-// AssertPokedexDetailRequired checks if the required fields are not zero-ed
+	requiredNullableProperties := map[string]bool{
+		"name": false,
+		"region": false,
+	}
+
+	allowedJsonKeys := map[string]struct{}{
+		"id": {},
+		"name": {},
+		"is_main_series": {},
+		"descriptions": {},
+		"names": {},
+		"pokemon_entries": {},
+		"region": {},
+		"version_groups": {},
+	}
+
+	allProperties := make(map[string]json.RawMessage)
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err
+	}
+
+	for _, requiredProperty := range requiredProperties {
+		value, exists := allProperties[requiredProperty]
+		if !exists {
+			return &RequiredError{Field: requiredProperty}
+		}
+		if string(value) == "null" && !requiredNullableProperties[requiredProperty] {
+			return &RequiredError{Field: requiredProperty}
+		}
+	}
+
+	for key := range allProperties {
+		if _, exists := allowedJsonKeys[key]; !exists {
+			return fmt.Errorf("json: unknown field %q", key)
+		}
+	}
+
+	var decoded PokedexDetail
+
+	if value, exists := allProperties["id"]; exists {
+		if err = json.Unmarshal(value, &decoded.Id); err != nil {
+			return err
+		}
+	}
+	if value, exists := allProperties["name"]; exists {
+		if err = json.Unmarshal(value, &decoded.Name); err != nil {
+			return err
+		}
+	}
+	if value, exists := allProperties["is_main_series"]; exists {
+		if err = json.Unmarshal(value, &decoded.IsMainSeries); err != nil {
+			return err
+		}
+	}
+	if value, exists := allProperties["descriptions"]; exists {
+		if err = json.Unmarshal(value, &decoded.Descriptions); err != nil {
+			return err
+		}
+	}
+	if value, exists := allProperties["names"]; exists {
+		if err = json.Unmarshal(value, &decoded.Names); err != nil {
+			return err
+		}
+	}
+	if value, exists := allProperties["pokemon_entries"]; exists {
+		if err = json.Unmarshal(value, &decoded.PokemonEntries); err != nil {
+			return err
+		}
+	}
+	if value, exists := allProperties["region"]; exists {
+		if err = json.Unmarshal(value, &decoded.Region); err != nil {
+			return err
+		}
+	}
+	if value, exists := allProperties["version_groups"]; exists {
+		if err = json.Unmarshal(value, &decoded.VersionGroups); err != nil {
+			return err
+		}
+	}
+
+	*o = decoded
+
+	return nil
+}
+
+// AssertPokedexDetailRequired checks complex required fields (models, arrays, maps) and embedded parents.
+// Primitive required fields are validated for JSON request bodies in UnmarshalJSON so zero values remain valid.
 func AssertPokedexDetailRequired(obj PokedexDetail) error {
 	elements := map[string]interface{}{
-		"id": obj.Id,
-		"name": obj.Name,
-		"descriptions": obj.Descriptions,
-		"names": obj.Names,
-		"pokemon_entries": obj.PokemonEntries,
 		"region": obj.Region,
-		"version_groups": obj.VersionGroups,
 	}
 	for name, el := range elements {
 		if isZero := IsZeroValue(el); isZero {
@@ -50,56 +146,16 @@ func AssertPokedexDetailRequired(obj PokedexDetail) error {
 		}
 	}
 
-	for _, el := range obj.Descriptions {
-		if err := AssertPokedexDescriptionRequired(el); err != nil {
-			return err
-		}
-	}
-	for _, el := range obj.Names {
-		if err := AssertPokedexNameRequired(el); err != nil {
-			return err
-		}
-	}
-	for _, el := range obj.PokemonEntries {
-		if err := AssertPokedexDetailPokemonEntriesInnerRequired(el); err != nil {
-			return err
-		}
-	}
 	if err := AssertRegionSummaryRequired(obj.Region); err != nil {
 		return err
-	}
-	for _, el := range obj.VersionGroups {
-		if err := AssertAbilityDetailPokemonInnerPokemonRequired(el); err != nil {
-			return err
-		}
 	}
 	return nil
 }
 
 // AssertPokedexDetailConstraints checks if the values respects the defined constraints
 func AssertPokedexDetailConstraints(obj PokedexDetail) error {
-	for _, el := range obj.Descriptions {
-		if err := AssertPokedexDescriptionConstraints(el); err != nil {
-			return err
-		}
-	}
-	for _, el := range obj.Names {
-		if err := AssertPokedexNameConstraints(el); err != nil {
-			return err
-		}
-	}
-	for _, el := range obj.PokemonEntries {
-		if err := AssertPokedexDetailPokemonEntriesInnerConstraints(el); err != nil {
-			return err
-		}
-	}
 	if err := AssertRegionSummaryConstraints(obj.Region); err != nil {
 		return err
-	}
-	for _, el := range obj.VersionGroups {
-		if err := AssertAbilityDetailPokemonInnerPokemonConstraints(el); err != nil {
-			return err
-		}
 	}
 	return nil
 }

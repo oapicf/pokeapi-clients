@@ -52,7 +52,7 @@ import com.github.oapicf.pokeapiclient.JSON;
 /**
  * PokemonDetailPastAbilitiesInner
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-07T15:22:35.747827932Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-08-30T01:55:28.842792947Z[Etc/UTC]", comments = "Generator version: 7.24.0")
 public class PokemonDetailPastAbilitiesInner {
   public static final String SERIALIZED_NAME_ABILITIES = "abilities";
   @SerializedName(SERIALIZED_NAME_ABILITIES)
@@ -147,10 +147,7 @@ public class PokemonDetailPastAbilitiesInner {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 
@@ -193,16 +190,16 @@ public class PokemonDetailPastAbilitiesInner {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      // ensure the json data is an array
-      if (!jsonObj.get("abilities").isJsonArray()) {
-        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `abilities` to be an array in the JSON string but got `%s`", jsonObj.get("abilities").toString()));
+      if (jsonObj.get("abilities") != null) {
+        if (!jsonObj.get("abilities").isJsonArray()) {
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `abilities` to be an array in the JSON string but got `%s`", jsonObj.get("abilities").toString()));
+        }
+        JsonArray jsonArrayabilities = jsonObj.getAsJsonArray("abilities");
+        // validate the required field `abilities` (array)
+        for (int i = 0; i < jsonArrayabilities.size(); i++) {
+          PokemonDetailAbilitiesInner.validateJsonElement(jsonArrayabilities.get(i));
+        }
       }
-
-      JsonArray jsonArrayabilities = jsonObj.getAsJsonArray("abilities");
-      // validate the required field `abilities` (array)
-      for (int i = 0; i < jsonArrayabilities.size(); i++) {
-        PokemonDetailAbilitiesInner.validateJsonElement(jsonArrayabilities.get(i));
-      };
       // validate the required field `generation`
       AbilityDetailPokemonInnerPokemon.validateJsonElement(jsonObj.get("generation"));
   }

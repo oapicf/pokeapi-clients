@@ -22,7 +22,7 @@ import GenerationSummary from './GenerationSummary';
 /**
  * The AbilityDetail model module.
  * @module model/AbilityDetail
- * @version 1.2.1-pre.0
+ * @version 2.0.1-pre.0
  */
 class AbilityDetail {
     /**

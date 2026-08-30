@@ -86,7 +86,7 @@ TypeDetail_pokemon_inner::getSlot()
 }
 
 void
-TypeDetail_pokemon_inner::setSlot(int  slot)
+TypeDetail_pokemon_inner::setSlot(int slot)
 {
 	this->slot = slot;
 }
@@ -98,7 +98,7 @@ TypeDetail_pokemon_inner::getPokemon()
 }
 
 void
-TypeDetail_pokemon_inner::setPokemon(TypeDetail_pokemon_inner_pokemon  pokemon)
+TypeDetail_pokemon_inner::setPokemon(TypeDetail_pokemon_inner_pokemon pokemon)
 {
 	this->pokemon = pokemon;
 }

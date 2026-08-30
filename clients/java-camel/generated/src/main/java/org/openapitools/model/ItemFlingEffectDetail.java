@@ -11,19 +11,19 @@ import org.openapitools.model.ItemFlingEffectEffectText;
 import org.openapitools.model.ItemSummary;
 import org.openapitools.jackson.nullable.JsonNullable;
 import java.time.OffsetDateTime;
-import javax.validation.Valid;
-import javax.validation.constraints.*;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.*;
 import io.swagger.v3.oas.annotations.media.Schema;
 
 
 import java.util.*;
-import javax.annotation.Generated;
+import jakarta.annotation.Generated;
 
 /**
  * ItemFlingEffectDetail
  */
 
-@Generated(value = "org.openapitools.codegen.languages.JavaCamelServerCodegen", date = "2026-02-07T15:23:32.871052804Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@Generated(value = "org.openapitools.codegen.languages.JavaCamelServerCodegen", date = "2026-08-30T01:56:15.309401083Z[Etc/UTC]", comments = "Generator version: 7.24.0")
 public class ItemFlingEffectDetail {
 
   private Integer id;
@@ -107,8 +107,8 @@ public class ItemFlingEffectDetail {
    * Get effectEntries
    * @return effectEntries
    */
-  @NotNull @Valid 
-  @Schema(name = "effect_entries", requiredMode = Schema.RequiredMode.REQUIRED)
+  @Valid 
+  @Schema(name = "effect_entries", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("effect_entries")
   public List<@Valid ItemFlingEffectEffectText> getEffectEntries() {
     return effectEntries;
@@ -135,8 +135,8 @@ public class ItemFlingEffectDetail {
    * Get items
    * @return items
    */
-  @NotNull @Valid 
-  @Schema(name = "items", requiredMode = Schema.RequiredMode.REQUIRED)
+  @Valid 
+  @Schema(name = "items", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("items")
   public List<@Valid ItemSummary> getItems() {
     return items;
@@ -183,10 +183,7 @@ public class ItemFlingEffectDetail {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 }
 

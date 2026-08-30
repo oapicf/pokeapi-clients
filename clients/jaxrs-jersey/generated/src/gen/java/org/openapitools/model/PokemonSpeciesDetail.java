@@ -72,7 +72,7 @@ import javax.validation.Valid;
   PokemonSpeciesDetail.JSON_PROPERTY_GENERA,
   PokemonSpeciesDetail.JSON_PROPERTY_VARIETIES
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJerseyServerCodegen", date = "2026-02-07T15:23:51.865177194Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJerseyServerCodegen", date = "2026-08-30T01:56:28.710233113Z[Etc/UTC]", comments = "Generator version: 7.24.0")
 public class PokemonSpeciesDetail   {
   public static final String JSON_PROPERTY_ID = "id";
   @JsonProperty(JSON_PROPERTY_ID)
@@ -459,9 +459,9 @@ public class PokemonSpeciesDetail   {
    * Get pokedexNumbers
    * @return pokedexNumbers
    **/
-  @JsonProperty(value = "pokedex_numbers")
+  @JsonProperty(value = "pokedex_numbers", access = JsonProperty.Access.READ_ONLY)
   @ApiModelProperty(required = true, value = "")
-  @NotNull @Valid 
+  @Valid 
   public List<@Valid PokemonDexEntry> getPokedexNumbers() {
     return pokedexNumbers;
   }
@@ -487,9 +487,9 @@ public class PokemonSpeciesDetail   {
    * Get eggGroups
    * @return eggGroups
    **/
-  @JsonProperty(value = "egg_groups")
+  @JsonProperty(value = "egg_groups", access = JsonProperty.Access.READ_ONLY)
   @ApiModelProperty(required = true, value = "")
-  @NotNull @Valid 
+  @Valid 
   public List<@Valid AbilityDetailPokemonInnerPokemon> getEggGroups() {
     return eggGroups;
   }
@@ -635,9 +635,9 @@ public class PokemonSpeciesDetail   {
    * Get names
    * @return names
    **/
-  @JsonProperty(value = "names")
+  @JsonProperty(value = "names", access = JsonProperty.Access.READ_ONLY)
   @ApiModelProperty(required = true, value = "")
-  @NotNull @Valid 
+  @Valid 
   public List<@Valid PokemonFormDetailFormNamesInner> getNames() {
     return names;
   }
@@ -663,9 +663,9 @@ public class PokemonSpeciesDetail   {
    * Get palParkEncounters
    * @return palParkEncounters
    **/
-  @JsonProperty(value = "pal_park_encounters")
+  @JsonProperty(value = "pal_park_encounters", access = JsonProperty.Access.READ_ONLY)
   @ApiModelProperty(required = true, value = "")
-  @NotNull @Valid 
+  @Valid 
   public List<@Valid PokemonSpeciesDetailPalParkEncountersInner> getPalParkEncounters() {
     return palParkEncounters;
   }
@@ -691,9 +691,9 @@ public class PokemonSpeciesDetail   {
    * Get formDescriptions
    * @return formDescriptions
    **/
-  @JsonProperty(value = "form_descriptions")
+  @JsonProperty(value = "form_descriptions", access = JsonProperty.Access.READ_ONLY)
   @ApiModelProperty(required = true, value = "")
-  @NotNull @Valid 
+  @Valid 
   public List<@Valid PokemonSpeciesDescription> getFormDescriptions() {
     return formDescriptions;
   }
@@ -719,9 +719,9 @@ public class PokemonSpeciesDetail   {
    * Get flavorTextEntries
    * @return flavorTextEntries
    **/
-  @JsonProperty(value = "flavor_text_entries")
+  @JsonProperty(value = "flavor_text_entries", access = JsonProperty.Access.READ_ONLY)
   @ApiModelProperty(required = true, value = "")
-  @NotNull @Valid 
+  @Valid 
   public List<@Valid PokemonSpeciesFlavorText> getFlavorTextEntries() {
     return flavorTextEntries;
   }
@@ -747,9 +747,9 @@ public class PokemonSpeciesDetail   {
    * Get genera
    * @return genera
    **/
-  @JsonProperty(value = "genera")
+  @JsonProperty(value = "genera", access = JsonProperty.Access.READ_ONLY)
   @ApiModelProperty(required = true, value = "")
-  @NotNull @Valid 
+  @Valid 
   public List<@Valid PokemonSpeciesDetailGeneraInner> getGenera() {
     return genera;
   }
@@ -775,9 +775,9 @@ public class PokemonSpeciesDetail   {
    * Get varieties
    * @return varieties
    **/
-  @JsonProperty(value = "varieties")
+  @JsonProperty(value = "varieties", access = JsonProperty.Access.READ_ONLY)
   @ApiModelProperty(required = true, value = "")
-  @NotNull @Valid 
+  @Valid 
   public List<@Valid PokemonSpeciesDetailVarietiesInner> getVarieties() {
     return varieties;
   }
@@ -871,10 +871,7 @@ public class PokemonSpeciesDetail   {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 }
 

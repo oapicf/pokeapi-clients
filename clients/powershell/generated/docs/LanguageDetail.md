@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **Official** | **Boolean** |  | [optional] 
 **Iso639** | **String** |  | 
 **Iso3166** | **String** |  | 
-**Names** | [**LanguageName[]**](LanguageName.md) |  | 
+**Names** | [**LanguageName[]**](LanguageName.md) |  | [readonly] 
 
 ## Examples
 

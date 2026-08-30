@@ -58,42 +58,54 @@ class GenerationDetail extends BaseModel
     },
     "abilities" : {
       "type" : "array",
+      "readOnly" : true,
       "items" : {
         "$ref" : "#/components/schemas/AbilitySummary"
-      }
+      },
+      "default" : null
     },
     "main_region" : {
       "$ref" : "#/components/schemas/RegionSummary"
     },
     "moves" : {
       "type" : "array",
+      "readOnly" : true,
       "items" : {
         "$ref" : "#/components/schemas/MoveSummary"
-      }
+      },
+      "default" : null
     },
     "names" : {
       "type" : "array",
+      "readOnly" : true,
       "items" : {
         "$ref" : "#/components/schemas/GenerationName"
-      }
+      },
+      "default" : null
     },
     "pokemon_species" : {
       "type" : "array",
+      "readOnly" : true,
       "items" : {
         "$ref" : "#/components/schemas/PokemonSpeciesSummary"
-      }
+      },
+      "default" : null
     },
     "types" : {
       "type" : "array",
+      "readOnly" : true,
       "items" : {
         "$ref" : "#/components/schemas/TypeSummary"
-      }
+      },
+      "default" : null
     },
     "version_groups" : {
       "type" : "array",
+      "readOnly" : true,
       "items" : {
         "$ref" : "#/components/schemas/VersionGroupSummary"
-      }
+      },
+      "default" : null
     }
   }
 }

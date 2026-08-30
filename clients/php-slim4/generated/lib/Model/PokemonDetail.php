@@ -77,27 +77,35 @@ class PokemonDetail extends BaseModel
     },
     "abilities" : {
       "type" : "array",
+      "readOnly" : true,
       "items" : {
         "$ref" : "#/components/schemas/PokemonDetail_abilities_inner"
-      }
+      },
+      "default" : null
     },
     "past_abilities" : {
       "type" : "array",
+      "readOnly" : true,
       "items" : {
         "$ref" : "#/components/schemas/PokemonDetail_past_abilities_inner"
-      }
+      },
+      "default" : null
     },
     "forms" : {
       "type" : "array",
+      "readOnly" : true,
       "items" : {
         "$ref" : "#/components/schemas/PokemonFormSummary"
-      }
+      },
+      "default" : null
     },
     "game_indices" : {
       "type" : "array",
+      "readOnly" : true,
       "items" : {
         "$ref" : "#/components/schemas/PokemonGameIndex"
-      }
+      },
+      "default" : null
     },
     "held_items" : {
       "$ref" : "#/components/schemas/PokemonDetail_held_items"
@@ -108,9 +116,11 @@ class PokemonDetail extends BaseModel
     },
     "moves" : {
       "type" : "array",
+      "readOnly" : true,
       "items" : {
         "$ref" : "#/components/schemas/PokemonDetail_moves_inner"
-      }
+      },
+      "default" : null
     },
     "species" : {
       "$ref" : "#/components/schemas/PokemonSpeciesSummary"
@@ -123,21 +133,27 @@ class PokemonDetail extends BaseModel
     },
     "stats" : {
       "type" : "array",
+      "readOnly" : true,
       "items" : {
         "$ref" : "#/components/schemas/PokemonStat"
-      }
+      },
+      "default" : null
     },
     "types" : {
       "type" : "array",
+      "readOnly" : true,
       "items" : {
         "$ref" : "#/components/schemas/PokemonDetail_types_inner"
-      }
+      },
+      "default" : null
     },
     "past_types" : {
       "type" : "array",
+      "readOnly" : true,
       "items" : {
         "$ref" : "#/components/schemas/PokemonDetail_past_types_inner"
-      }
+      },
+      "default" : null
     }
   }
 }

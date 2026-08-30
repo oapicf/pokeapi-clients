@@ -6,9 +6,9 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **int32** |  | [readonly] 
 **Name** | **string** |  | 
-**Descriptions** | [**[]MoveDamageClassDescription**](MoveDamageClassDescription.md) |  | 
-**Moves** | [**[]MoveSummary**](MoveSummary.md) |  | 
-**Names** | [**[]MoveDamageClassName**](MoveDamageClassName.md) |  | 
+**Descriptions** | [**[]MoveDamageClassDescription**](MoveDamageClassDescription.md) |  | [readonly] 
+**Moves** | [**[]MoveSummary**](MoveSummary.md) |  | [readonly] 
+**Names** | [**[]MoveDamageClassName**](MoveDamageClassName.md) |  | [readonly] 
 
 ## Methods
 

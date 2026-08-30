@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **int** |  | [readonly] 
 **name** | **str** |  | 
-**names** | [**List[VersionName]**](VersionName.md) |  | 
+**names** | [**List[VersionName]**](VersionName.md) |  | [readonly] 
 **version_group** | [**VersionGroupSummary**](VersionGroupSummary.md) |  | 
 
 ## Example

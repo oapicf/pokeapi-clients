@@ -19,7 +19,7 @@ import MoveSummary from './MoveSummary';
 /**
  * The MoveDamageClassDetail model module.
  * @module model/MoveDamageClassDetail
- * @version 1.2.1-pre.0
+ * @version 2.0.1-pre.0
  */
 class MoveDamageClassDetail {
     /**

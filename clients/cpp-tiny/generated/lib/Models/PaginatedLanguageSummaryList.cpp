@@ -144,7 +144,7 @@ PaginatedLanguageSummaryList::getCount()
 }
 
 void
-PaginatedLanguageSummaryList::setCount(int  count)
+PaginatedLanguageSummaryList::setCount(int count)
 {
 	this->count = count;
 }
@@ -156,7 +156,7 @@ PaginatedLanguageSummaryList::getNext()
 }
 
 void
-PaginatedLanguageSummaryList::setNext(std::string  next)
+PaginatedLanguageSummaryList::setNext(std::string next)
 {
 	this->next = next;
 }
@@ -168,7 +168,7 @@ PaginatedLanguageSummaryList::getPrevious()
 }
 
 void
-PaginatedLanguageSummaryList::setPrevious(std::string  previous)
+PaginatedLanguageSummaryList::setPrevious(std::string previous)
 {
 	this->previous = previous;
 }
@@ -180,7 +180,7 @@ PaginatedLanguageSummaryList::getResults()
 }
 
 void
-PaginatedLanguageSummaryList::setResults(std::list <LanguageSummary> results)
+PaginatedLanguageSummaryList::setResults(std::list<LanguageSummary> results)
 {
 	this->results = results;
 }

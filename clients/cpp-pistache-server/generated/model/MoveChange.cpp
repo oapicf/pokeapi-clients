@@ -31,6 +31,8 @@ MoveChange::MoveChange()
     
 }
 
+MoveChange::~MoveChange() = default;
+
 void MoveChange::validate() const
 {
     std::stringstream msg;

@@ -6,8 +6,8 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **int32** |  | [readonly] 
 **Name** | **string** |  | 
-**Names** | [**[]PalParkAreaName**](PalParkAreaName.md) |  | 
-**PokemonEncounters** | [**[]PalParkAreaDetailPokemonEncountersInner**](PalParkAreaDetailPokemonEncountersInner.md) |  | 
+**Names** | [**[]PalParkAreaName**](PalParkAreaName.md) |  | [readonly] 
+**PokemonEncounters** | [**[]PalParkAreaDetailPokemonEncountersInner**](PalParkAreaDetailPokemonEncountersInner.md) |  | [readonly] 
 
 ## Methods
 

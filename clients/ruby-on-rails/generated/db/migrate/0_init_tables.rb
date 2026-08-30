@@ -388,8 +388,8 @@ class InitTables < ActiveRecord::Migration
       t.string :gender
       t.string :held_item
       t.string :item
-      t.Object :known_move
-      t.Object :known_move_type
+      t.string :known_move
+      t.string :known_move_type
       t.string :location
       t.integer :min_affection
       t.integer :min_beauty

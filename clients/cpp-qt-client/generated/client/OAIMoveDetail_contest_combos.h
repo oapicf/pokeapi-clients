@@ -32,13 +32,13 @@ class OAIMoveDetail_contest_combos_normal;
 class OAIMoveDetail_contest_combos : public OAIObject {
 public:
     OAIMoveDetail_contest_combos();
-    OAIMoveDetail_contest_combos(QString json);
+    OAIMoveDetail_contest_combos(const QString &json);
     ~OAIMoveDetail_contest_combos() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     OAIMoveDetail_contest_combos_normal getNormal() const;
     void setNormal(const OAIMoveDetail_contest_combos_normal &normal);

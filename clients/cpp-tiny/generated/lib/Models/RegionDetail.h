@@ -57,49 +57,49 @@ public:
 
 	/*! \brief Set 
 	 */
-	void setId(int  id);
+	void setId(int id);
 	/*! \brief Get 
 	 */
 	std::string getName();
 
 	/*! \brief Set 
 	 */
-	void setName(std::string  name);
+	void setName(std::string name);
 	/*! \brief Get 
 	 */
 	std::list<LocationSummary> getLocations();
 
 	/*! \brief Set 
 	 */
-	void setLocations(std::list <LocationSummary> locations);
+	void setLocations(std::list<LocationSummary> locations);
 	/*! \brief Get 
 	 */
 	GenerationSummary getMainGeneration();
 
 	/*! \brief Set 
 	 */
-	void setMainGeneration(GenerationSummary  main_generation);
+	void setMainGeneration(GenerationSummary main_generation);
 	/*! \brief Get 
 	 */
 	std::list<RegionName> getNames();
 
 	/*! \brief Set 
 	 */
-	void setNames(std::list <RegionName> names);
+	void setNames(std::list<RegionName> names);
 	/*! \brief Get 
 	 */
 	std::list<PokedexSummary> getPokedexes();
 
 	/*! \brief Set 
 	 */
-	void setPokedexes(std::list <PokedexSummary> pokedexes);
+	void setPokedexes(std::list<PokedexSummary> pokedexes);
 	/*! \brief Get 
 	 */
 	std::list<AbilityDetail_pokemon_inner_pokemon> getVersionGroups();
 
 	/*! \brief Set 
 	 */
-	void setVersionGroups(std::list <AbilityDetail_pokemon_inner_pokemon> version_groups);
+	void setVersionGroups(std::list<AbilityDetail_pokemon_inner_pokemon> version_groups);
 
 
     private:

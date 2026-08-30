@@ -33,7 +33,7 @@ class  StatDetail_affecting_natures
 {
 public:
     StatDetail_affecting_natures();
-    virtual ~StatDetail_affecting_natures() = default;
+    virtual ~StatDetail_affecting_natures();
 
 
     /// <summary>

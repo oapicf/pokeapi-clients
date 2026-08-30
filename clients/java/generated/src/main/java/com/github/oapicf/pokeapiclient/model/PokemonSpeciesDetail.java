@@ -66,7 +66,7 @@ import com.github.oapicf.pokeapiclient.JSON;
 /**
  * PokemonSpeciesDetail
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-07T15:22:35.747827932Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-08-30T01:55:28.842792947Z[Etc/UTC]", comments = "Generator version: 7.24.0")
 public class PokemonSpeciesDetail {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -207,10 +207,26 @@ public class PokemonSpeciesDetail {
   }
 
   public PokemonSpeciesDetail(
-     Integer id
+     Integer id, 
+     List<PokemonDexEntry> pokedexNumbers, 
+     List<AbilityDetailPokemonInnerPokemon> eggGroups, 
+     List<PokemonFormDetailFormNamesInner> names, 
+     List<PokemonSpeciesDetailPalParkEncountersInner> palParkEncounters, 
+     List<PokemonSpeciesDescription> formDescriptions, 
+     List<PokemonSpeciesFlavorText> flavorTextEntries, 
+     List<PokemonSpeciesDetailGeneraInner> genera, 
+     List<PokemonSpeciesDetailVarietiesInner> varieties
   ) {
     this();
     this.id = id;
+    this.pokedexNumbers = pokedexNumbers;
+    this.eggGroups = eggGroups;
+    this.names = names;
+    this.palParkEncounters = palParkEncounters;
+    this.formDescriptions = formDescriptions;
+    this.flavorTextEntries = flavorTextEntries;
+    this.genera = genera;
+    this.varieties = varieties;
   }
 
   /**
@@ -452,19 +468,6 @@ public class PokemonSpeciesDetail {
   }
 
 
-  public PokemonSpeciesDetail pokedexNumbers(@javax.annotation.Nonnull List<PokemonDexEntry> pokedexNumbers) {
-    this.pokedexNumbers = pokedexNumbers;
-    return this;
-  }
-
-  public PokemonSpeciesDetail addPokedexNumbersItem(PokemonDexEntry pokedexNumbersItem) {
-    if (this.pokedexNumbers == null) {
-      this.pokedexNumbers = new ArrayList<>();
-    }
-    this.pokedexNumbers.add(pokedexNumbersItem);
-    return this;
-  }
-
   /**
    * Get pokedexNumbers
    * @return pokedexNumbers
@@ -474,23 +477,7 @@ public class PokemonSpeciesDetail {
     return pokedexNumbers;
   }
 
-  public void setPokedexNumbers(@javax.annotation.Nonnull List<PokemonDexEntry> pokedexNumbers) {
-    this.pokedexNumbers = pokedexNumbers;
-  }
 
-
-  public PokemonSpeciesDetail eggGroups(@javax.annotation.Nonnull List<AbilityDetailPokemonInnerPokemon> eggGroups) {
-    this.eggGroups = eggGroups;
-    return this;
-  }
-
-  public PokemonSpeciesDetail addEggGroupsItem(AbilityDetailPokemonInnerPokemon eggGroupsItem) {
-    if (this.eggGroups == null) {
-      this.eggGroups = new ArrayList<>();
-    }
-    this.eggGroups.add(eggGroupsItem);
-    return this;
-  }
 
   /**
    * Get eggGroups
@@ -501,9 +488,6 @@ public class PokemonSpeciesDetail {
     return eggGroups;
   }
 
-  public void setEggGroups(@javax.annotation.Nonnull List<AbilityDetailPokemonInnerPokemon> eggGroups) {
-    this.eggGroups = eggGroups;
-  }
 
 
   public PokemonSpeciesDetail color(@javax.annotation.Nonnull PokemonColorSummary color) {
@@ -620,19 +604,6 @@ public class PokemonSpeciesDetail {
   }
 
 
-  public PokemonSpeciesDetail names(@javax.annotation.Nonnull List<PokemonFormDetailFormNamesInner> names) {
-    this.names = names;
-    return this;
-  }
-
-  public PokemonSpeciesDetail addNamesItem(PokemonFormDetailFormNamesInner namesItem) {
-    if (this.names == null) {
-      this.names = new ArrayList<>();
-    }
-    this.names.add(namesItem);
-    return this;
-  }
-
   /**
    * Get names
    * @return names
@@ -642,23 +613,7 @@ public class PokemonSpeciesDetail {
     return names;
   }
 
-  public void setNames(@javax.annotation.Nonnull List<PokemonFormDetailFormNamesInner> names) {
-    this.names = names;
-  }
 
-
-  public PokemonSpeciesDetail palParkEncounters(@javax.annotation.Nonnull List<PokemonSpeciesDetailPalParkEncountersInner> palParkEncounters) {
-    this.palParkEncounters = palParkEncounters;
-    return this;
-  }
-
-  public PokemonSpeciesDetail addPalParkEncountersItem(PokemonSpeciesDetailPalParkEncountersInner palParkEncountersItem) {
-    if (this.palParkEncounters == null) {
-      this.palParkEncounters = new ArrayList<>();
-    }
-    this.palParkEncounters.add(palParkEncountersItem);
-    return this;
-  }
 
   /**
    * Get palParkEncounters
@@ -669,23 +624,7 @@ public class PokemonSpeciesDetail {
     return palParkEncounters;
   }
 
-  public void setPalParkEncounters(@javax.annotation.Nonnull List<PokemonSpeciesDetailPalParkEncountersInner> palParkEncounters) {
-    this.palParkEncounters = palParkEncounters;
-  }
 
-
-  public PokemonSpeciesDetail formDescriptions(@javax.annotation.Nonnull List<PokemonSpeciesDescription> formDescriptions) {
-    this.formDescriptions = formDescriptions;
-    return this;
-  }
-
-  public PokemonSpeciesDetail addFormDescriptionsItem(PokemonSpeciesDescription formDescriptionsItem) {
-    if (this.formDescriptions == null) {
-      this.formDescriptions = new ArrayList<>();
-    }
-    this.formDescriptions.add(formDescriptionsItem);
-    return this;
-  }
 
   /**
    * Get formDescriptions
@@ -696,23 +635,7 @@ public class PokemonSpeciesDetail {
     return formDescriptions;
   }
 
-  public void setFormDescriptions(@javax.annotation.Nonnull List<PokemonSpeciesDescription> formDescriptions) {
-    this.formDescriptions = formDescriptions;
-  }
 
-
-  public PokemonSpeciesDetail flavorTextEntries(@javax.annotation.Nonnull List<PokemonSpeciesFlavorText> flavorTextEntries) {
-    this.flavorTextEntries = flavorTextEntries;
-    return this;
-  }
-
-  public PokemonSpeciesDetail addFlavorTextEntriesItem(PokemonSpeciesFlavorText flavorTextEntriesItem) {
-    if (this.flavorTextEntries == null) {
-      this.flavorTextEntries = new ArrayList<>();
-    }
-    this.flavorTextEntries.add(flavorTextEntriesItem);
-    return this;
-  }
 
   /**
    * Get flavorTextEntries
@@ -723,23 +646,7 @@ public class PokemonSpeciesDetail {
     return flavorTextEntries;
   }
 
-  public void setFlavorTextEntries(@javax.annotation.Nonnull List<PokemonSpeciesFlavorText> flavorTextEntries) {
-    this.flavorTextEntries = flavorTextEntries;
-  }
 
-
-  public PokemonSpeciesDetail genera(@javax.annotation.Nonnull List<PokemonSpeciesDetailGeneraInner> genera) {
-    this.genera = genera;
-    return this;
-  }
-
-  public PokemonSpeciesDetail addGeneraItem(PokemonSpeciesDetailGeneraInner generaItem) {
-    if (this.genera == null) {
-      this.genera = new ArrayList<>();
-    }
-    this.genera.add(generaItem);
-    return this;
-  }
 
   /**
    * Get genera
@@ -750,23 +657,7 @@ public class PokemonSpeciesDetail {
     return genera;
   }
 
-  public void setGenera(@javax.annotation.Nonnull List<PokemonSpeciesDetailGeneraInner> genera) {
-    this.genera = genera;
-  }
 
-
-  public PokemonSpeciesDetail varieties(@javax.annotation.Nonnull List<PokemonSpeciesDetailVarietiesInner> varieties) {
-    this.varieties = varieties;
-    return this;
-  }
-
-  public PokemonSpeciesDetail addVarietiesItem(PokemonSpeciesDetailVarietiesInner varietiesItem) {
-    if (this.varieties == null) {
-      this.varieties = new ArrayList<>();
-    }
-    this.varieties.add(varietiesItem);
-    return this;
-  }
 
   /**
    * Get varieties
@@ -777,9 +668,6 @@ public class PokemonSpeciesDetail {
     return varieties;
   }
 
-  public void setVarieties(@javax.annotation.Nonnull List<PokemonSpeciesDetailVarietiesInner> varieties) {
-    this.varieties = varieties;
-  }
 
 
 
@@ -877,10 +765,7 @@ public class PokemonSpeciesDetail {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 
@@ -928,26 +813,26 @@ public class PokemonSpeciesDetail {
       }
       // validate the required field `growth_rate`
       GrowthRateSummary.validateJsonElement(jsonObj.get("growth_rate"));
-      // ensure the json data is an array
-      if (!jsonObj.get("pokedex_numbers").isJsonArray()) {
-        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `pokedex_numbers` to be an array in the JSON string but got `%s`", jsonObj.get("pokedex_numbers").toString()));
+      if (jsonObj.get("pokedex_numbers") != null) {
+        if (!jsonObj.get("pokedex_numbers").isJsonArray()) {
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `pokedex_numbers` to be an array in the JSON string but got `%s`", jsonObj.get("pokedex_numbers").toString()));
+        }
+        JsonArray jsonArraypokedexNumbers = jsonObj.getAsJsonArray("pokedex_numbers");
+        // validate the required field `pokedex_numbers` (array)
+        for (int i = 0; i < jsonArraypokedexNumbers.size(); i++) {
+          PokemonDexEntry.validateJsonElement(jsonArraypokedexNumbers.get(i));
+        }
       }
-
-      JsonArray jsonArraypokedexNumbers = jsonObj.getAsJsonArray("pokedex_numbers");
-      // validate the required field `pokedex_numbers` (array)
-      for (int i = 0; i < jsonArraypokedexNumbers.size(); i++) {
-        PokemonDexEntry.validateJsonElement(jsonArraypokedexNumbers.get(i));
-      };
-      // ensure the json data is an array
-      if (!jsonObj.get("egg_groups").isJsonArray()) {
-        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `egg_groups` to be an array in the JSON string but got `%s`", jsonObj.get("egg_groups").toString()));
+      if (jsonObj.get("egg_groups") != null) {
+        if (!jsonObj.get("egg_groups").isJsonArray()) {
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `egg_groups` to be an array in the JSON string but got `%s`", jsonObj.get("egg_groups").toString()));
+        }
+        JsonArray jsonArrayeggGroups = jsonObj.getAsJsonArray("egg_groups");
+        // validate the required field `egg_groups` (array)
+        for (int i = 0; i < jsonArrayeggGroups.size(); i++) {
+          AbilityDetailPokemonInnerPokemon.validateJsonElement(jsonArrayeggGroups.get(i));
+        }
       }
-
-      JsonArray jsonArrayeggGroups = jsonObj.getAsJsonArray("egg_groups");
-      // validate the required field `egg_groups` (array)
-      for (int i = 0; i < jsonArrayeggGroups.size(); i++) {
-        AbilityDetailPokemonInnerPokemon.validateJsonElement(jsonArrayeggGroups.get(i));
-      };
       // validate the required field `color`
       PokemonColorSummary.validateJsonElement(jsonObj.get("color"));
       // validate the required field `shape`
@@ -960,66 +845,66 @@ public class PokemonSpeciesDetail {
       PokemonHabitatSummary.validateJsonElement(jsonObj.get("habitat"));
       // validate the required field `generation`
       GenerationSummary.validateJsonElement(jsonObj.get("generation"));
-      // ensure the json data is an array
-      if (!jsonObj.get("names").isJsonArray()) {
-        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `names` to be an array in the JSON string but got `%s`", jsonObj.get("names").toString()));
+      if (jsonObj.get("names") != null) {
+        if (!jsonObj.get("names").isJsonArray()) {
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `names` to be an array in the JSON string but got `%s`", jsonObj.get("names").toString()));
+        }
+        JsonArray jsonArraynames = jsonObj.getAsJsonArray("names");
+        // validate the required field `names` (array)
+        for (int i = 0; i < jsonArraynames.size(); i++) {
+          PokemonFormDetailFormNamesInner.validateJsonElement(jsonArraynames.get(i));
+        }
       }
-
-      JsonArray jsonArraynames = jsonObj.getAsJsonArray("names");
-      // validate the required field `names` (array)
-      for (int i = 0; i < jsonArraynames.size(); i++) {
-        PokemonFormDetailFormNamesInner.validateJsonElement(jsonArraynames.get(i));
-      };
-      // ensure the json data is an array
-      if (!jsonObj.get("pal_park_encounters").isJsonArray()) {
-        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `pal_park_encounters` to be an array in the JSON string but got `%s`", jsonObj.get("pal_park_encounters").toString()));
+      if (jsonObj.get("pal_park_encounters") != null) {
+        if (!jsonObj.get("pal_park_encounters").isJsonArray()) {
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `pal_park_encounters` to be an array in the JSON string but got `%s`", jsonObj.get("pal_park_encounters").toString()));
+        }
+        JsonArray jsonArraypalParkEncounters = jsonObj.getAsJsonArray("pal_park_encounters");
+        // validate the required field `pal_park_encounters` (array)
+        for (int i = 0; i < jsonArraypalParkEncounters.size(); i++) {
+          PokemonSpeciesDetailPalParkEncountersInner.validateJsonElement(jsonArraypalParkEncounters.get(i));
+        }
       }
-
-      JsonArray jsonArraypalParkEncounters = jsonObj.getAsJsonArray("pal_park_encounters");
-      // validate the required field `pal_park_encounters` (array)
-      for (int i = 0; i < jsonArraypalParkEncounters.size(); i++) {
-        PokemonSpeciesDetailPalParkEncountersInner.validateJsonElement(jsonArraypalParkEncounters.get(i));
-      };
-      // ensure the json data is an array
-      if (!jsonObj.get("form_descriptions").isJsonArray()) {
-        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `form_descriptions` to be an array in the JSON string but got `%s`", jsonObj.get("form_descriptions").toString()));
+      if (jsonObj.get("form_descriptions") != null) {
+        if (!jsonObj.get("form_descriptions").isJsonArray()) {
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `form_descriptions` to be an array in the JSON string but got `%s`", jsonObj.get("form_descriptions").toString()));
+        }
+        JsonArray jsonArrayformDescriptions = jsonObj.getAsJsonArray("form_descriptions");
+        // validate the required field `form_descriptions` (array)
+        for (int i = 0; i < jsonArrayformDescriptions.size(); i++) {
+          PokemonSpeciesDescription.validateJsonElement(jsonArrayformDescriptions.get(i));
+        }
       }
-
-      JsonArray jsonArrayformDescriptions = jsonObj.getAsJsonArray("form_descriptions");
-      // validate the required field `form_descriptions` (array)
-      for (int i = 0; i < jsonArrayformDescriptions.size(); i++) {
-        PokemonSpeciesDescription.validateJsonElement(jsonArrayformDescriptions.get(i));
-      };
-      // ensure the json data is an array
-      if (!jsonObj.get("flavor_text_entries").isJsonArray()) {
-        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `flavor_text_entries` to be an array in the JSON string but got `%s`", jsonObj.get("flavor_text_entries").toString()));
+      if (jsonObj.get("flavor_text_entries") != null) {
+        if (!jsonObj.get("flavor_text_entries").isJsonArray()) {
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `flavor_text_entries` to be an array in the JSON string but got `%s`", jsonObj.get("flavor_text_entries").toString()));
+        }
+        JsonArray jsonArrayflavorTextEntries = jsonObj.getAsJsonArray("flavor_text_entries");
+        // validate the required field `flavor_text_entries` (array)
+        for (int i = 0; i < jsonArrayflavorTextEntries.size(); i++) {
+          PokemonSpeciesFlavorText.validateJsonElement(jsonArrayflavorTextEntries.get(i));
+        }
       }
-
-      JsonArray jsonArrayflavorTextEntries = jsonObj.getAsJsonArray("flavor_text_entries");
-      // validate the required field `flavor_text_entries` (array)
-      for (int i = 0; i < jsonArrayflavorTextEntries.size(); i++) {
-        PokemonSpeciesFlavorText.validateJsonElement(jsonArrayflavorTextEntries.get(i));
-      };
-      // ensure the json data is an array
-      if (!jsonObj.get("genera").isJsonArray()) {
-        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `genera` to be an array in the JSON string but got `%s`", jsonObj.get("genera").toString()));
+      if (jsonObj.get("genera") != null) {
+        if (!jsonObj.get("genera").isJsonArray()) {
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `genera` to be an array in the JSON string but got `%s`", jsonObj.get("genera").toString()));
+        }
+        JsonArray jsonArraygenera = jsonObj.getAsJsonArray("genera");
+        // validate the required field `genera` (array)
+        for (int i = 0; i < jsonArraygenera.size(); i++) {
+          PokemonSpeciesDetailGeneraInner.validateJsonElement(jsonArraygenera.get(i));
+        }
       }
-
-      JsonArray jsonArraygenera = jsonObj.getAsJsonArray("genera");
-      // validate the required field `genera` (array)
-      for (int i = 0; i < jsonArraygenera.size(); i++) {
-        PokemonSpeciesDetailGeneraInner.validateJsonElement(jsonArraygenera.get(i));
-      };
-      // ensure the json data is an array
-      if (!jsonObj.get("varieties").isJsonArray()) {
-        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `varieties` to be an array in the JSON string but got `%s`", jsonObj.get("varieties").toString()));
+      if (jsonObj.get("varieties") != null) {
+        if (!jsonObj.get("varieties").isJsonArray()) {
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `varieties` to be an array in the JSON string but got `%s`", jsonObj.get("varieties").toString()));
+        }
+        JsonArray jsonArrayvarieties = jsonObj.getAsJsonArray("varieties");
+        // validate the required field `varieties` (array)
+        for (int i = 0; i < jsonArrayvarieties.size(); i++) {
+          PokemonSpeciesDetailVarietiesInner.validateJsonElement(jsonArrayvarieties.get(i));
+        }
       }
-
-      JsonArray jsonArrayvarieties = jsonObj.getAsJsonArray("varieties");
-      // validate the required field `varieties` (array)
-      for (int i = 0; i < jsonArrayvarieties.size(); i++) {
-        PokemonSpeciesDetailVarietiesInner.validateJsonElement(jsonArrayvarieties.get(i));
-      };
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {

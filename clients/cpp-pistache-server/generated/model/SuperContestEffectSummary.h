@@ -32,7 +32,7 @@ class  SuperContestEffectSummary
 {
 public:
     SuperContestEffectSummary();
-    virtual ~SuperContestEffectSummary() = default;
+    virtual ~SuperContestEffectSummary();
 
 
     /// <summary>

@@ -12,108 +12,167 @@
  * Do not edit the class manually.
  */
 
-
 import * as runtime from '../runtime';
-import type {
-  AbilityDetail,
-  CharacteristicDetail,
-  EggGroupDetail,
-  GenderDetail,
-  GrowthRateDetail,
-  MoveDamageClassDetail,
-  NatureDetail,
-  PaginatedAbilitySummaryList,
-  PaginatedCharacteristicSummaryList,
-  PaginatedEggGroupSummaryList,
-  PaginatedGenderSummaryList,
-  PaginatedGrowthRateSummaryList,
-  PaginatedMoveDamageClassSummaryList,
-  PaginatedNatureSummaryList,
-  PaginatedPokeathlonStatSummaryList,
-  PaginatedPokemonColorSummaryList,
-  PaginatedPokemonFormSummaryList,
-  PaginatedPokemonHabitatSummaryList,
-  PaginatedPokemonShapeSummaryList,
-  PaginatedPokemonSpeciesSummaryList,
-  PaginatedPokemonSummaryList,
-  PaginatedStatSummaryList,
-  PaginatedTypeSummaryList,
-  PokeathlonStatDetail,
-  PokemonColorDetail,
-  PokemonDetail,
-  PokemonFormDetail,
-  PokemonHabitatDetail,
-  PokemonShapeDetail,
-  PokemonSpeciesDetail,
-  StatDetail,
-  TypeDetail,
-} from '../models/index';
 import {
+    type AbilityDetail,
     AbilityDetailFromJSON,
     AbilityDetailToJSON,
+} from '../models/AbilityDetail';
+import {
+    type CharacteristicDetail,
     CharacteristicDetailFromJSON,
     CharacteristicDetailToJSON,
+} from '../models/CharacteristicDetail';
+import {
+    type EggGroupDetail,
     EggGroupDetailFromJSON,
     EggGroupDetailToJSON,
+} from '../models/EggGroupDetail';
+import {
+    type GenderDetail,
     GenderDetailFromJSON,
     GenderDetailToJSON,
+} from '../models/GenderDetail';
+import {
+    type GrowthRateDetail,
     GrowthRateDetailFromJSON,
     GrowthRateDetailToJSON,
+} from '../models/GrowthRateDetail';
+import {
+    type MoveDamageClassDetail,
     MoveDamageClassDetailFromJSON,
     MoveDamageClassDetailToJSON,
+} from '../models/MoveDamageClassDetail';
+import {
+    type NatureDetail,
     NatureDetailFromJSON,
     NatureDetailToJSON,
+} from '../models/NatureDetail';
+import {
+    type PaginatedAbilitySummaryList,
     PaginatedAbilitySummaryListFromJSON,
     PaginatedAbilitySummaryListToJSON,
+} from '../models/PaginatedAbilitySummaryList';
+import {
+    type PaginatedCharacteristicSummaryList,
     PaginatedCharacteristicSummaryListFromJSON,
     PaginatedCharacteristicSummaryListToJSON,
+} from '../models/PaginatedCharacteristicSummaryList';
+import {
+    type PaginatedEggGroupSummaryList,
     PaginatedEggGroupSummaryListFromJSON,
     PaginatedEggGroupSummaryListToJSON,
+} from '../models/PaginatedEggGroupSummaryList';
+import {
+    type PaginatedGenderSummaryList,
     PaginatedGenderSummaryListFromJSON,
     PaginatedGenderSummaryListToJSON,
+} from '../models/PaginatedGenderSummaryList';
+import {
+    type PaginatedGrowthRateSummaryList,
     PaginatedGrowthRateSummaryListFromJSON,
     PaginatedGrowthRateSummaryListToJSON,
+} from '../models/PaginatedGrowthRateSummaryList';
+import {
+    type PaginatedMoveDamageClassSummaryList,
     PaginatedMoveDamageClassSummaryListFromJSON,
     PaginatedMoveDamageClassSummaryListToJSON,
+} from '../models/PaginatedMoveDamageClassSummaryList';
+import {
+    type PaginatedNatureSummaryList,
     PaginatedNatureSummaryListFromJSON,
     PaginatedNatureSummaryListToJSON,
+} from '../models/PaginatedNatureSummaryList';
+import {
+    type PaginatedPokeathlonStatSummaryList,
     PaginatedPokeathlonStatSummaryListFromJSON,
     PaginatedPokeathlonStatSummaryListToJSON,
+} from '../models/PaginatedPokeathlonStatSummaryList';
+import {
+    type PaginatedPokemonColorSummaryList,
     PaginatedPokemonColorSummaryListFromJSON,
     PaginatedPokemonColorSummaryListToJSON,
+} from '../models/PaginatedPokemonColorSummaryList';
+import {
+    type PaginatedPokemonFormSummaryList,
     PaginatedPokemonFormSummaryListFromJSON,
     PaginatedPokemonFormSummaryListToJSON,
+} from '../models/PaginatedPokemonFormSummaryList';
+import {
+    type PaginatedPokemonHabitatSummaryList,
     PaginatedPokemonHabitatSummaryListFromJSON,
     PaginatedPokemonHabitatSummaryListToJSON,
+} from '../models/PaginatedPokemonHabitatSummaryList';
+import {
+    type PaginatedPokemonShapeSummaryList,
     PaginatedPokemonShapeSummaryListFromJSON,
     PaginatedPokemonShapeSummaryListToJSON,
+} from '../models/PaginatedPokemonShapeSummaryList';
+import {
+    type PaginatedPokemonSpeciesSummaryList,
     PaginatedPokemonSpeciesSummaryListFromJSON,
     PaginatedPokemonSpeciesSummaryListToJSON,
+} from '../models/PaginatedPokemonSpeciesSummaryList';
+import {
+    type PaginatedPokemonSummaryList,
     PaginatedPokemonSummaryListFromJSON,
     PaginatedPokemonSummaryListToJSON,
+} from '../models/PaginatedPokemonSummaryList';
+import {
+    type PaginatedStatSummaryList,
     PaginatedStatSummaryListFromJSON,
     PaginatedStatSummaryListToJSON,
+} from '../models/PaginatedStatSummaryList';
+import {
+    type PaginatedTypeSummaryList,
     PaginatedTypeSummaryListFromJSON,
     PaginatedTypeSummaryListToJSON,
+} from '../models/PaginatedTypeSummaryList';
+import {
+    type PokeathlonStatDetail,
     PokeathlonStatDetailFromJSON,
     PokeathlonStatDetailToJSON,
+} from '../models/PokeathlonStatDetail';
+import {
+    type PokemonColorDetail,
     PokemonColorDetailFromJSON,
     PokemonColorDetailToJSON,
+} from '../models/PokemonColorDetail';
+import {
+    type PokemonDetail,
     PokemonDetailFromJSON,
     PokemonDetailToJSON,
+} from '../models/PokemonDetail';
+import {
+    type PokemonFormDetail,
     PokemonFormDetailFromJSON,
     PokemonFormDetailToJSON,
+} from '../models/PokemonFormDetail';
+import {
+    type PokemonHabitatDetail,
     PokemonHabitatDetailFromJSON,
     PokemonHabitatDetailToJSON,
+} from '../models/PokemonHabitatDetail';
+import {
+    type PokemonShapeDetail,
     PokemonShapeDetailFromJSON,
     PokemonShapeDetailToJSON,
+} from '../models/PokemonShapeDetail';
+import {
+    type PokemonSpeciesDetail,
     PokemonSpeciesDetailFromJSON,
     PokemonSpeciesDetailToJSON,
+} from '../models/PokemonSpeciesDetail';
+import {
+    type StatDetail,
     StatDetailFromJSON,
     StatDetailToJSON,
+} from '../models/StatDetail';
+import {
+    type TypeDetail,
     TypeDetailFromJSON,
     TypeDetailToJSON,
-} from '../models/index';
+} from '../models/TypeDetail';
 
 export interface AbilityListRequest {
     limit?: number;
@@ -281,9 +340,9 @@ export interface TypeRetrieveRequest {
 export class PokemonApi extends runtime.BaseAPI {
 
     /**
-     * Abilities provide passive effects for Pokémon in battle or in the overworld. Pokémon have multiple possible abilities but can have only one ability at a time. Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Ability) for greater detail.
+     * Creates request options for abilityList without sending the request
      */
-    async abilityListRaw(requestParameters: AbilityListRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PaginatedAbilitySummaryList>> {
+    async abilityListRequestOpts(requestParameters: AbilityListRequest): Promise<runtime.RequestOpts> {
         const queryParameters: any = {};
 
         if (requestParameters['limit'] != null) {
@@ -306,12 +365,20 @@ export class PokemonApi extends runtime.BaseAPI {
 
         let urlPath = `/api/v2/ability/`;
 
-        const response = await this.request({
+        return {
             path: urlPath,
             method: 'GET',
             headers: headerParameters,
             query: queryParameters,
-        }, initOverrides);
+        };
+    }
+
+    /**
+     * Abilities provide passive effects for Pokémon in battle or in the overworld. Pokémon have multiple possible abilities but can have only one ability at a time. Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Ability) for greater detail.
+     */
+    async abilityListRaw(requestParameters: AbilityListRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PaginatedAbilitySummaryList>> {
+        const requestOptions = await this.abilityListRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => PaginatedAbilitySummaryListFromJSON(jsonValue));
     }
@@ -325,9 +392,9 @@ export class PokemonApi extends runtime.BaseAPI {
     }
 
     /**
-     * Abilities provide passive effects for Pokémon in battle or in the overworld. Pokémon have multiple possible abilities but can have only one ability at a time. Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Ability) for greater detail.
+     * Creates request options for abilityRetrieve without sending the request
      */
-    async abilityRetrieveRaw(requestParameters: AbilityRetrieveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<AbilityDetail>> {
+    async abilityRetrieveRequestOpts(requestParameters: AbilityRetrieveRequest): Promise<runtime.RequestOpts> {
         if (requestParameters['id'] == null) {
             throw new runtime.RequiredError(
                 'id',
@@ -344,14 +411,22 @@ export class PokemonApi extends runtime.BaseAPI {
         }
 
         let urlPath = `/api/v2/ability/{id}/`;
-        urlPath = urlPath.replace(`{${"id"}}`, encodeURIComponent(String(requestParameters['id'])));
+        urlPath = urlPath.replace('{id}', encodeURIComponent(String(requestParameters['id'])));
 
-        const response = await this.request({
+        return {
             path: urlPath,
             method: 'GET',
             headers: headerParameters,
             query: queryParameters,
-        }, initOverrides);
+        };
+    }
+
+    /**
+     * Abilities provide passive effects for Pokémon in battle or in the overworld. Pokémon have multiple possible abilities but can have only one ability at a time. Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Ability) for greater detail.
+     */
+    async abilityRetrieveRaw(requestParameters: AbilityRetrieveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<AbilityDetail>> {
+        const requestOptions = await this.abilityRetrieveRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => AbilityDetailFromJSON(jsonValue));
     }
@@ -365,10 +440,9 @@ export class PokemonApi extends runtime.BaseAPI {
     }
 
     /**
-     * Characteristics indicate which stat contains a Pokémon\'s highest IV. A Pokémon\'s Characteristic is determined by the remainder of its highest IV divided by 5 (gene_modulo). Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Characteristic) for greater detail.
-     * List charecterictics
+     * Creates request options for characteristicList without sending the request
      */
-    async characteristicListRaw(requestParameters: CharacteristicListRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PaginatedCharacteristicSummaryList>> {
+    async characteristicListRequestOpts(requestParameters: CharacteristicListRequest): Promise<runtime.RequestOpts> {
         const queryParameters: any = {};
 
         if (requestParameters['limit'] != null) {
@@ -391,12 +465,21 @@ export class PokemonApi extends runtime.BaseAPI {
 
         let urlPath = `/api/v2/characteristic/`;
 
-        const response = await this.request({
+        return {
             path: urlPath,
             method: 'GET',
             headers: headerParameters,
             query: queryParameters,
-        }, initOverrides);
+        };
+    }
+
+    /**
+     * Characteristics indicate which stat contains a Pokémon\'s highest IV. A Pokémon\'s Characteristic is determined by the remainder of its highest IV divided by 5 (gene_modulo). Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Characteristic) for greater detail.
+     * List charecterictics
+     */
+    async characteristicListRaw(requestParameters: CharacteristicListRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PaginatedCharacteristicSummaryList>> {
+        const requestOptions = await this.characteristicListRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => PaginatedCharacteristicSummaryListFromJSON(jsonValue));
     }
@@ -411,10 +494,9 @@ export class PokemonApi extends runtime.BaseAPI {
     }
 
     /**
-     * Characteristics indicate which stat contains a Pokémon\'s highest IV. A Pokémon\'s Characteristic is determined by the remainder of its highest IV divided by 5 (gene_modulo). Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Characteristic) for greater detail.
-     * Get characteristic
+     * Creates request options for characteristicRetrieve without sending the request
      */
-    async characteristicRetrieveRaw(requestParameters: CharacteristicRetrieveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CharacteristicDetail>> {
+    async characteristicRetrieveRequestOpts(requestParameters: CharacteristicRetrieveRequest): Promise<runtime.RequestOpts> {
         if (requestParameters['id'] == null) {
             throw new runtime.RequiredError(
                 'id',
@@ -431,14 +513,23 @@ export class PokemonApi extends runtime.BaseAPI {
         }
 
         let urlPath = `/api/v2/characteristic/{id}/`;
-        urlPath = urlPath.replace(`{${"id"}}`, encodeURIComponent(String(requestParameters['id'])));
+        urlPath = urlPath.replace('{id}', encodeURIComponent(String(requestParameters['id'])));
 
-        const response = await this.request({
+        return {
             path: urlPath,
             method: 'GET',
             headers: headerParameters,
             query: queryParameters,
-        }, initOverrides);
+        };
+    }
+
+    /**
+     * Characteristics indicate which stat contains a Pokémon\'s highest IV. A Pokémon\'s Characteristic is determined by the remainder of its highest IV divided by 5 (gene_modulo). Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Characteristic) for greater detail.
+     * Get characteristic
+     */
+    async characteristicRetrieveRaw(requestParameters: CharacteristicRetrieveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CharacteristicDetail>> {
+        const requestOptions = await this.characteristicRetrieveRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => CharacteristicDetailFromJSON(jsonValue));
     }
@@ -453,10 +544,9 @@ export class PokemonApi extends runtime.BaseAPI {
     }
 
     /**
-     * Egg Groups are categories which determine which Pokémon are able to interbreed. Pokémon may belong to either one or two Egg Groups. Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Egg_Group) for greater detail.
-     * List egg groups
+     * Creates request options for eggGroupList without sending the request
      */
-    async eggGroupListRaw(requestParameters: EggGroupListRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PaginatedEggGroupSummaryList>> {
+    async eggGroupListRequestOpts(requestParameters: EggGroupListRequest): Promise<runtime.RequestOpts> {
         const queryParameters: any = {};
 
         if (requestParameters['limit'] != null) {
@@ -479,12 +569,21 @@ export class PokemonApi extends runtime.BaseAPI {
 
         let urlPath = `/api/v2/egg-group/`;
 
-        const response = await this.request({
+        return {
             path: urlPath,
             method: 'GET',
             headers: headerParameters,
             query: queryParameters,
-        }, initOverrides);
+        };
+    }
+
+    /**
+     * Egg Groups are categories which determine which Pokémon are able to interbreed. Pokémon may belong to either one or two Egg Groups. Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Egg_Group) for greater detail.
+     * List egg groups
+     */
+    async eggGroupListRaw(requestParameters: EggGroupListRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PaginatedEggGroupSummaryList>> {
+        const requestOptions = await this.eggGroupListRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => PaginatedEggGroupSummaryListFromJSON(jsonValue));
     }
@@ -499,10 +598,9 @@ export class PokemonApi extends runtime.BaseAPI {
     }
 
     /**
-     * Egg Groups are categories which determine which Pokémon are able to interbreed. Pokémon may belong to either one or two Egg Groups. Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Egg_Group) for greater detail.
-     * Get egg group
+     * Creates request options for eggGroupRetrieve without sending the request
      */
-    async eggGroupRetrieveRaw(requestParameters: EggGroupRetrieveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EggGroupDetail>> {
+    async eggGroupRetrieveRequestOpts(requestParameters: EggGroupRetrieveRequest): Promise<runtime.RequestOpts> {
         if (requestParameters['id'] == null) {
             throw new runtime.RequiredError(
                 'id',
@@ -519,14 +617,23 @@ export class PokemonApi extends runtime.BaseAPI {
         }
 
         let urlPath = `/api/v2/egg-group/{id}/`;
-        urlPath = urlPath.replace(`{${"id"}}`, encodeURIComponent(String(requestParameters['id'])));
+        urlPath = urlPath.replace('{id}', encodeURIComponent(String(requestParameters['id'])));
 
-        const response = await this.request({
+        return {
             path: urlPath,
             method: 'GET',
             headers: headerParameters,
             query: queryParameters,
-        }, initOverrides);
+        };
+    }
+
+    /**
+     * Egg Groups are categories which determine which Pokémon are able to interbreed. Pokémon may belong to either one or two Egg Groups. Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Egg_Group) for greater detail.
+     * Get egg group
+     */
+    async eggGroupRetrieveRaw(requestParameters: EggGroupRetrieveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EggGroupDetail>> {
+        const requestOptions = await this.eggGroupRetrieveRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => EggGroupDetailFromJSON(jsonValue));
     }
@@ -541,10 +648,9 @@ export class PokemonApi extends runtime.BaseAPI {
     }
 
     /**
-     * Genders were introduced in Generation II for the purposes of breeding Pokémon but can also result in visual differences or even different evolutionary lines. Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Gender) for greater detail.
-     * List genders
+     * Creates request options for genderList without sending the request
      */
-    async genderListRaw(requestParameters: GenderListRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PaginatedGenderSummaryList>> {
+    async genderListRequestOpts(requestParameters: GenderListRequest): Promise<runtime.RequestOpts> {
         const queryParameters: any = {};
 
         if (requestParameters['limit'] != null) {
@@ -567,12 +673,21 @@ export class PokemonApi extends runtime.BaseAPI {
 
         let urlPath = `/api/v2/gender/`;
 
-        const response = await this.request({
+        return {
             path: urlPath,
             method: 'GET',
             headers: headerParameters,
             query: queryParameters,
-        }, initOverrides);
+        };
+    }
+
+    /**
+     * Genders were introduced in Generation II for the purposes of breeding Pokémon but can also result in visual differences or even different evolutionary lines. Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Gender) for greater detail.
+     * List genders
+     */
+    async genderListRaw(requestParameters: GenderListRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PaginatedGenderSummaryList>> {
+        const requestOptions = await this.genderListRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => PaginatedGenderSummaryListFromJSON(jsonValue));
     }
@@ -587,10 +702,9 @@ export class PokemonApi extends runtime.BaseAPI {
     }
 
     /**
-     * Genders were introduced in Generation II for the purposes of breeding Pokémon but can also result in visual differences or even different evolutionary lines. Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Gender) for greater detail.
-     * Get gender
+     * Creates request options for genderRetrieve without sending the request
      */
-    async genderRetrieveRaw(requestParameters: GenderRetrieveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GenderDetail>> {
+    async genderRetrieveRequestOpts(requestParameters: GenderRetrieveRequest): Promise<runtime.RequestOpts> {
         if (requestParameters['id'] == null) {
             throw new runtime.RequiredError(
                 'id',
@@ -607,14 +721,23 @@ export class PokemonApi extends runtime.BaseAPI {
         }
 
         let urlPath = `/api/v2/gender/{id}/`;
-        urlPath = urlPath.replace(`{${"id"}}`, encodeURIComponent(String(requestParameters['id'])));
+        urlPath = urlPath.replace('{id}', encodeURIComponent(String(requestParameters['id'])));
 
-        const response = await this.request({
+        return {
             path: urlPath,
             method: 'GET',
             headers: headerParameters,
             query: queryParameters,
-        }, initOverrides);
+        };
+    }
+
+    /**
+     * Genders were introduced in Generation II for the purposes of breeding Pokémon but can also result in visual differences or even different evolutionary lines. Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Gender) for greater detail.
+     * Get gender
+     */
+    async genderRetrieveRaw(requestParameters: GenderRetrieveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GenderDetail>> {
+        const requestOptions = await this.genderRetrieveRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => GenderDetailFromJSON(jsonValue));
     }
@@ -629,10 +752,9 @@ export class PokemonApi extends runtime.BaseAPI {
     }
 
     /**
-     * Growth rates are the speed with which Pokémon gain levels through experience. Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Experience) for greater detail.
-     * List growth rates
+     * Creates request options for growthRateList without sending the request
      */
-    async growthRateListRaw(requestParameters: GrowthRateListRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PaginatedGrowthRateSummaryList>> {
+    async growthRateListRequestOpts(requestParameters: GrowthRateListRequest): Promise<runtime.RequestOpts> {
         const queryParameters: any = {};
 
         if (requestParameters['limit'] != null) {
@@ -655,12 +777,21 @@ export class PokemonApi extends runtime.BaseAPI {
 
         let urlPath = `/api/v2/growth-rate/`;
 
-        const response = await this.request({
+        return {
             path: urlPath,
             method: 'GET',
             headers: headerParameters,
             query: queryParameters,
-        }, initOverrides);
+        };
+    }
+
+    /**
+     * Growth rates are the speed with which Pokémon gain levels through experience. Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Experience) for greater detail.
+     * List growth rates
+     */
+    async growthRateListRaw(requestParameters: GrowthRateListRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PaginatedGrowthRateSummaryList>> {
+        const requestOptions = await this.growthRateListRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => PaginatedGrowthRateSummaryListFromJSON(jsonValue));
     }
@@ -675,10 +806,9 @@ export class PokemonApi extends runtime.BaseAPI {
     }
 
     /**
-     * Growth rates are the speed with which Pokémon gain levels through experience. Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Experience) for greater detail.
-     * Get growth rate
+     * Creates request options for growthRateRetrieve without sending the request
      */
-    async growthRateRetrieveRaw(requestParameters: GrowthRateRetrieveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GrowthRateDetail>> {
+    async growthRateRetrieveRequestOpts(requestParameters: GrowthRateRetrieveRequest): Promise<runtime.RequestOpts> {
         if (requestParameters['id'] == null) {
             throw new runtime.RequiredError(
                 'id',
@@ -695,14 +825,23 @@ export class PokemonApi extends runtime.BaseAPI {
         }
 
         let urlPath = `/api/v2/growth-rate/{id}/`;
-        urlPath = urlPath.replace(`{${"id"}}`, encodeURIComponent(String(requestParameters['id'])));
+        urlPath = urlPath.replace('{id}', encodeURIComponent(String(requestParameters['id'])));
 
-        const response = await this.request({
+        return {
             path: urlPath,
             method: 'GET',
             headers: headerParameters,
             query: queryParameters,
-        }, initOverrides);
+        };
+    }
+
+    /**
+     * Growth rates are the speed with which Pokémon gain levels through experience. Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Experience) for greater detail.
+     * Get growth rate
+     */
+    async growthRateRetrieveRaw(requestParameters: GrowthRateRetrieveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GrowthRateDetail>> {
+        const requestOptions = await this.growthRateRetrieveRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => GrowthRateDetailFromJSON(jsonValue));
     }
@@ -717,10 +856,9 @@ export class PokemonApi extends runtime.BaseAPI {
     }
 
     /**
-     * Damage classes moves can have, e.g. physical, special, or non-damaging.
-     * List move damage classes
+     * Creates request options for moveDamageClassList without sending the request
      */
-    async moveDamageClassListRaw(requestParameters: MoveDamageClassListRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PaginatedMoveDamageClassSummaryList>> {
+    async moveDamageClassListRequestOpts(requestParameters: MoveDamageClassListRequest): Promise<runtime.RequestOpts> {
         const queryParameters: any = {};
 
         if (requestParameters['limit'] != null) {
@@ -743,12 +881,21 @@ export class PokemonApi extends runtime.BaseAPI {
 
         let urlPath = `/api/v2/move-damage-class/`;
 
-        const response = await this.request({
+        return {
             path: urlPath,
             method: 'GET',
             headers: headerParameters,
             query: queryParameters,
-        }, initOverrides);
+        };
+    }
+
+    /**
+     * Damage classes moves can have, e.g. physical, special, or non-damaging.
+     * List move damage classes
+     */
+    async moveDamageClassListRaw(requestParameters: MoveDamageClassListRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PaginatedMoveDamageClassSummaryList>> {
+        const requestOptions = await this.moveDamageClassListRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => PaginatedMoveDamageClassSummaryListFromJSON(jsonValue));
     }
@@ -763,10 +910,9 @@ export class PokemonApi extends runtime.BaseAPI {
     }
 
     /**
-     * Damage classes moves can have, e.g. physical, special, or non-damaging.
-     * Get move damage class
+     * Creates request options for moveDamageClassRetrieve without sending the request
      */
-    async moveDamageClassRetrieveRaw(requestParameters: MoveDamageClassRetrieveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<MoveDamageClassDetail>> {
+    async moveDamageClassRetrieveRequestOpts(requestParameters: MoveDamageClassRetrieveRequest): Promise<runtime.RequestOpts> {
         if (requestParameters['id'] == null) {
             throw new runtime.RequiredError(
                 'id',
@@ -783,14 +929,23 @@ export class PokemonApi extends runtime.BaseAPI {
         }
 
         let urlPath = `/api/v2/move-damage-class/{id}/`;
-        urlPath = urlPath.replace(`{${"id"}}`, encodeURIComponent(String(requestParameters['id'])));
+        urlPath = urlPath.replace('{id}', encodeURIComponent(String(requestParameters['id'])));
 
-        const response = await this.request({
+        return {
             path: urlPath,
             method: 'GET',
             headers: headerParameters,
             query: queryParameters,
-        }, initOverrides);
+        };
+    }
+
+    /**
+     * Damage classes moves can have, e.g. physical, special, or non-damaging.
+     * Get move damage class
+     */
+    async moveDamageClassRetrieveRaw(requestParameters: MoveDamageClassRetrieveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<MoveDamageClassDetail>> {
+        const requestOptions = await this.moveDamageClassRetrieveRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => MoveDamageClassDetailFromJSON(jsonValue));
     }
@@ -805,10 +960,9 @@ export class PokemonApi extends runtime.BaseAPI {
     }
 
     /**
-     * Natures influence how a Pokémon\'s stats grow. See [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Nature) for greater detail.
-     * List natures
+     * Creates request options for natureList without sending the request
      */
-    async natureListRaw(requestParameters: NatureListRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PaginatedNatureSummaryList>> {
+    async natureListRequestOpts(requestParameters: NatureListRequest): Promise<runtime.RequestOpts> {
         const queryParameters: any = {};
 
         if (requestParameters['limit'] != null) {
@@ -831,12 +985,21 @@ export class PokemonApi extends runtime.BaseAPI {
 
         let urlPath = `/api/v2/nature/`;
 
-        const response = await this.request({
+        return {
             path: urlPath,
             method: 'GET',
             headers: headerParameters,
             query: queryParameters,
-        }, initOverrides);
+        };
+    }
+
+    /**
+     * Natures influence how a Pokémon\'s stats grow. See [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Nature) for greater detail.
+     * List natures
+     */
+    async natureListRaw(requestParameters: NatureListRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PaginatedNatureSummaryList>> {
+        const requestOptions = await this.natureListRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => PaginatedNatureSummaryListFromJSON(jsonValue));
     }
@@ -851,10 +1014,9 @@ export class PokemonApi extends runtime.BaseAPI {
     }
 
     /**
-     * Natures influence how a Pokémon\'s stats grow. See [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Nature) for greater detail.
-     * Get nature
+     * Creates request options for natureRetrieve without sending the request
      */
-    async natureRetrieveRaw(requestParameters: NatureRetrieveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<NatureDetail>> {
+    async natureRetrieveRequestOpts(requestParameters: NatureRetrieveRequest): Promise<runtime.RequestOpts> {
         if (requestParameters['id'] == null) {
             throw new runtime.RequiredError(
                 'id',
@@ -871,14 +1033,23 @@ export class PokemonApi extends runtime.BaseAPI {
         }
 
         let urlPath = `/api/v2/nature/{id}/`;
-        urlPath = urlPath.replace(`{${"id"}}`, encodeURIComponent(String(requestParameters['id'])));
+        urlPath = urlPath.replace('{id}', encodeURIComponent(String(requestParameters['id'])));
 
-        const response = await this.request({
+        return {
             path: urlPath,
             method: 'GET',
             headers: headerParameters,
             query: queryParameters,
-        }, initOverrides);
+        };
+    }
+
+    /**
+     * Natures influence how a Pokémon\'s stats grow. See [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Nature) for greater detail.
+     * Get nature
+     */
+    async natureRetrieveRaw(requestParameters: NatureRetrieveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<NatureDetail>> {
+        const requestOptions = await this.natureRetrieveRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => NatureDetailFromJSON(jsonValue));
     }
@@ -893,10 +1064,9 @@ export class PokemonApi extends runtime.BaseAPI {
     }
 
     /**
-     * Pokeathlon Stats are different attributes of a Pokémon\'s performance in Pokéathlons. In Pokéathlons, competitions happen on different courses; one for each of the different Pokéathlon stats. See [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Pok%C3%A9athlon) for greater detail.
-     * List pokeathlon stats
+     * Creates request options for pokeathlonStatList without sending the request
      */
-    async pokeathlonStatListRaw(requestParameters: PokeathlonStatListRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PaginatedPokeathlonStatSummaryList>> {
+    async pokeathlonStatListRequestOpts(requestParameters: PokeathlonStatListRequest): Promise<runtime.RequestOpts> {
         const queryParameters: any = {};
 
         if (requestParameters['limit'] != null) {
@@ -919,12 +1089,21 @@ export class PokemonApi extends runtime.BaseAPI {
 
         let urlPath = `/api/v2/pokeathlon-stat/`;
 
-        const response = await this.request({
+        return {
             path: urlPath,
             method: 'GET',
             headers: headerParameters,
             query: queryParameters,
-        }, initOverrides);
+        };
+    }
+
+    /**
+     * Pokeathlon Stats are different attributes of a Pokémon\'s performance in Pokéathlons. In Pokéathlons, competitions happen on different courses; one for each of the different Pokéathlon stats. See [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Pok%C3%A9athlon) for greater detail.
+     * List pokeathlon stats
+     */
+    async pokeathlonStatListRaw(requestParameters: PokeathlonStatListRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PaginatedPokeathlonStatSummaryList>> {
+        const requestOptions = await this.pokeathlonStatListRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => PaginatedPokeathlonStatSummaryListFromJSON(jsonValue));
     }
@@ -939,10 +1118,9 @@ export class PokemonApi extends runtime.BaseAPI {
     }
 
     /**
-     * Pokeathlon Stats are different attributes of a Pokémon\'s performance in Pokéathlons. In Pokéathlons, competitions happen on different courses; one for each of the different Pokéathlon stats. See [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Pok%C3%A9athlon) for greater detail.
-     * Get pokeathlon stat
+     * Creates request options for pokeathlonStatRetrieve without sending the request
      */
-    async pokeathlonStatRetrieveRaw(requestParameters: PokeathlonStatRetrieveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PokeathlonStatDetail>> {
+    async pokeathlonStatRetrieveRequestOpts(requestParameters: PokeathlonStatRetrieveRequest): Promise<runtime.RequestOpts> {
         if (requestParameters['id'] == null) {
             throw new runtime.RequiredError(
                 'id',
@@ -959,14 +1137,23 @@ export class PokemonApi extends runtime.BaseAPI {
         }
 
         let urlPath = `/api/v2/pokeathlon-stat/{id}/`;
-        urlPath = urlPath.replace(`{${"id"}}`, encodeURIComponent(String(requestParameters['id'])));
+        urlPath = urlPath.replace('{id}', encodeURIComponent(String(requestParameters['id'])));
 
-        const response = await this.request({
+        return {
             path: urlPath,
             method: 'GET',
             headers: headerParameters,
             query: queryParameters,
-        }, initOverrides);
+        };
+    }
+
+    /**
+     * Pokeathlon Stats are different attributes of a Pokémon\'s performance in Pokéathlons. In Pokéathlons, competitions happen on different courses; one for each of the different Pokéathlon stats. See [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Pok%C3%A9athlon) for greater detail.
+     * Get pokeathlon stat
+     */
+    async pokeathlonStatRetrieveRaw(requestParameters: PokeathlonStatRetrieveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PokeathlonStatDetail>> {
+        const requestOptions = await this.pokeathlonStatRetrieveRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => PokeathlonStatDetailFromJSON(jsonValue));
     }
@@ -981,10 +1168,9 @@ export class PokemonApi extends runtime.BaseAPI {
     }
 
     /**
-     * Colors used for sorting Pokémon in a Pokédex. The color listed in the Pokédex is usually the color most apparent or covering each Pokémon\'s body. No orange category exists; Pokémon that are primarily orange are listed as red or brown.
-     * List pokemon colors
+     * Creates request options for pokemonColorList without sending the request
      */
-    async pokemonColorListRaw(requestParameters: PokemonColorListRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PaginatedPokemonColorSummaryList>> {
+    async pokemonColorListRequestOpts(requestParameters: PokemonColorListRequest): Promise<runtime.RequestOpts> {
         const queryParameters: any = {};
 
         if (requestParameters['limit'] != null) {
@@ -1007,12 +1193,21 @@ export class PokemonApi extends runtime.BaseAPI {
 
         let urlPath = `/api/v2/pokemon-color/`;
 
-        const response = await this.request({
+        return {
             path: urlPath,
             method: 'GET',
             headers: headerParameters,
             query: queryParameters,
-        }, initOverrides);
+        };
+    }
+
+    /**
+     * Colors used for sorting Pokémon in a Pokédex. The color listed in the Pokédex is usually the color most apparent or covering each Pokémon\'s body. No orange category exists; Pokémon that are primarily orange are listed as red or brown.
+     * List pokemon colors
+     */
+    async pokemonColorListRaw(requestParameters: PokemonColorListRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PaginatedPokemonColorSummaryList>> {
+        const requestOptions = await this.pokemonColorListRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => PaginatedPokemonColorSummaryListFromJSON(jsonValue));
     }
@@ -1027,10 +1222,9 @@ export class PokemonApi extends runtime.BaseAPI {
     }
 
     /**
-     * Colors used for sorting Pokémon in a Pokédex. The color listed in the Pokédex is usually the color most apparent or covering each Pokémon\'s body. No orange category exists; Pokémon that are primarily orange are listed as red or brown.
-     * Get pokemon color
+     * Creates request options for pokemonColorRetrieve without sending the request
      */
-    async pokemonColorRetrieveRaw(requestParameters: PokemonColorRetrieveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PokemonColorDetail>> {
+    async pokemonColorRetrieveRequestOpts(requestParameters: PokemonColorRetrieveRequest): Promise<runtime.RequestOpts> {
         if (requestParameters['id'] == null) {
             throw new runtime.RequiredError(
                 'id',
@@ -1047,14 +1241,23 @@ export class PokemonApi extends runtime.BaseAPI {
         }
 
         let urlPath = `/api/v2/pokemon-color/{id}/`;
-        urlPath = urlPath.replace(`{${"id"}}`, encodeURIComponent(String(requestParameters['id'])));
+        urlPath = urlPath.replace('{id}', encodeURIComponent(String(requestParameters['id'])));
 
-        const response = await this.request({
+        return {
             path: urlPath,
             method: 'GET',
             headers: headerParameters,
             query: queryParameters,
-        }, initOverrides);
+        };
+    }
+
+    /**
+     * Colors used for sorting Pokémon in a Pokédex. The color listed in the Pokédex is usually the color most apparent or covering each Pokémon\'s body. No orange category exists; Pokémon that are primarily orange are listed as red or brown.
+     * Get pokemon color
+     */
+    async pokemonColorRetrieveRaw(requestParameters: PokemonColorRetrieveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PokemonColorDetail>> {
+        const requestOptions = await this.pokemonColorRetrieveRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => PokemonColorDetailFromJSON(jsonValue));
     }
@@ -1069,10 +1272,9 @@ export class PokemonApi extends runtime.BaseAPI {
     }
 
     /**
-     * Some Pokémon may appear in one of multiple, visually different forms. These differences are purely cosmetic. For variations within a Pokémon species, which do differ in more than just visuals, the \'Pokémon\' entity is used to represent such a variety.
-     * List pokemon forms
+     * Creates request options for pokemonFormList without sending the request
      */
-    async pokemonFormListRaw(requestParameters: PokemonFormListRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PaginatedPokemonFormSummaryList>> {
+    async pokemonFormListRequestOpts(requestParameters: PokemonFormListRequest): Promise<runtime.RequestOpts> {
         const queryParameters: any = {};
 
         if (requestParameters['limit'] != null) {
@@ -1095,12 +1297,21 @@ export class PokemonApi extends runtime.BaseAPI {
 
         let urlPath = `/api/v2/pokemon-form/`;
 
-        const response = await this.request({
+        return {
             path: urlPath,
             method: 'GET',
             headers: headerParameters,
             query: queryParameters,
-        }, initOverrides);
+        };
+    }
+
+    /**
+     * Some Pokémon may appear in one of multiple, visually different forms. These differences are purely cosmetic. For variations within a Pokémon species, which do differ in more than just visuals, the \'Pokémon\' entity is used to represent such a variety.
+     * List pokemon forms
+     */
+    async pokemonFormListRaw(requestParameters: PokemonFormListRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PaginatedPokemonFormSummaryList>> {
+        const requestOptions = await this.pokemonFormListRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => PaginatedPokemonFormSummaryListFromJSON(jsonValue));
     }
@@ -1115,10 +1326,9 @@ export class PokemonApi extends runtime.BaseAPI {
     }
 
     /**
-     * Some Pokémon may appear in one of multiple, visually different forms. These differences are purely cosmetic. For variations within a Pokémon species, which do differ in more than just visuals, the \'Pokémon\' entity is used to represent such a variety.
-     * Get pokemon form
+     * Creates request options for pokemonFormRetrieve without sending the request
      */
-    async pokemonFormRetrieveRaw(requestParameters: PokemonFormRetrieveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PokemonFormDetail>> {
+    async pokemonFormRetrieveRequestOpts(requestParameters: PokemonFormRetrieveRequest): Promise<runtime.RequestOpts> {
         if (requestParameters['id'] == null) {
             throw new runtime.RequiredError(
                 'id',
@@ -1135,14 +1345,23 @@ export class PokemonApi extends runtime.BaseAPI {
         }
 
         let urlPath = `/api/v2/pokemon-form/{id}/`;
-        urlPath = urlPath.replace(`{${"id"}}`, encodeURIComponent(String(requestParameters['id'])));
+        urlPath = urlPath.replace('{id}', encodeURIComponent(String(requestParameters['id'])));
 
-        const response = await this.request({
+        return {
             path: urlPath,
             method: 'GET',
             headers: headerParameters,
             query: queryParameters,
-        }, initOverrides);
+        };
+    }
+
+    /**
+     * Some Pokémon may appear in one of multiple, visually different forms. These differences are purely cosmetic. For variations within a Pokémon species, which do differ in more than just visuals, the \'Pokémon\' entity is used to represent such a variety.
+     * Get pokemon form
+     */
+    async pokemonFormRetrieveRaw(requestParameters: PokemonFormRetrieveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PokemonFormDetail>> {
+        const requestOptions = await this.pokemonFormRetrieveRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => PokemonFormDetailFromJSON(jsonValue));
     }
@@ -1157,10 +1376,9 @@ export class PokemonApi extends runtime.BaseAPI {
     }
 
     /**
-     * Habitats are generally different terrain Pokémon can be found in but can also be areas designated for rare or legendary Pokémon.
-     * List pokemom habitas
+     * Creates request options for pokemonHabitatList without sending the request
      */
-    async pokemonHabitatListRaw(requestParameters: PokemonHabitatListRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PaginatedPokemonHabitatSummaryList>> {
+    async pokemonHabitatListRequestOpts(requestParameters: PokemonHabitatListRequest): Promise<runtime.RequestOpts> {
         const queryParameters: any = {};
 
         if (requestParameters['limit'] != null) {
@@ -1183,12 +1401,21 @@ export class PokemonApi extends runtime.BaseAPI {
 
         let urlPath = `/api/v2/pokemon-habitat/`;
 
-        const response = await this.request({
+        return {
             path: urlPath,
             method: 'GET',
             headers: headerParameters,
             query: queryParameters,
-        }, initOverrides);
+        };
+    }
+
+    /**
+     * Habitats are generally different terrain Pokémon can be found in but can also be areas designated for rare or legendary Pokémon.
+     * List pokemom habitas
+     */
+    async pokemonHabitatListRaw(requestParameters: PokemonHabitatListRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PaginatedPokemonHabitatSummaryList>> {
+        const requestOptions = await this.pokemonHabitatListRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => PaginatedPokemonHabitatSummaryListFromJSON(jsonValue));
     }
@@ -1203,10 +1430,9 @@ export class PokemonApi extends runtime.BaseAPI {
     }
 
     /**
-     * Habitats are generally different terrain Pokémon can be found in but can also be areas designated for rare or legendary Pokémon.
-     * Get pokemom habita
+     * Creates request options for pokemonHabitatRetrieve without sending the request
      */
-    async pokemonHabitatRetrieveRaw(requestParameters: PokemonHabitatRetrieveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PokemonHabitatDetail>> {
+    async pokemonHabitatRetrieveRequestOpts(requestParameters: PokemonHabitatRetrieveRequest): Promise<runtime.RequestOpts> {
         if (requestParameters['id'] == null) {
             throw new runtime.RequiredError(
                 'id',
@@ -1223,14 +1449,23 @@ export class PokemonApi extends runtime.BaseAPI {
         }
 
         let urlPath = `/api/v2/pokemon-habitat/{id}/`;
-        urlPath = urlPath.replace(`{${"id"}}`, encodeURIComponent(String(requestParameters['id'])));
+        urlPath = urlPath.replace('{id}', encodeURIComponent(String(requestParameters['id'])));
 
-        const response = await this.request({
+        return {
             path: urlPath,
             method: 'GET',
             headers: headerParameters,
             query: queryParameters,
-        }, initOverrides);
+        };
+    }
+
+    /**
+     * Habitats are generally different terrain Pokémon can be found in but can also be areas designated for rare or legendary Pokémon.
+     * Get pokemom habita
+     */
+    async pokemonHabitatRetrieveRaw(requestParameters: PokemonHabitatRetrieveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PokemonHabitatDetail>> {
+        const requestOptions = await this.pokemonHabitatRetrieveRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => PokemonHabitatDetailFromJSON(jsonValue));
     }
@@ -1245,10 +1480,9 @@ export class PokemonApi extends runtime.BaseAPI {
     }
 
     /**
-     * Pokémon are the creatures that inhabit the world of the Pokémon games. They can be caught using Pokéballs and trained by battling with other Pokémon. Each Pokémon belongs to a specific species but may take on a variant which makes it differ from other Pokémon of the same species, such as base stats, available abilities and typings. See [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Pok%C3%A9mon_(species)) for greater detail.
-     * List pokemon
+     * Creates request options for pokemonList without sending the request
      */
-    async pokemonListRaw(requestParameters: PokemonListRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PaginatedPokemonSummaryList>> {
+    async pokemonListRequestOpts(requestParameters: PokemonListRequest): Promise<runtime.RequestOpts> {
         const queryParameters: any = {};
 
         if (requestParameters['limit'] != null) {
@@ -1271,12 +1505,21 @@ export class PokemonApi extends runtime.BaseAPI {
 
         let urlPath = `/api/v2/pokemon/`;
 
-        const response = await this.request({
+        return {
             path: urlPath,
             method: 'GET',
             headers: headerParameters,
             query: queryParameters,
-        }, initOverrides);
+        };
+    }
+
+    /**
+     * Pokémon are the creatures that inhabit the world of the Pokémon games. They can be caught using Pokéballs and trained by battling with other Pokémon. Each Pokémon belongs to a specific species but may take on a variant which makes it differ from other Pokémon of the same species, such as base stats, available abilities and typings. See [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Pok%C3%A9mon_(species)) for greater detail.
+     * List pokemon
+     */
+    async pokemonListRaw(requestParameters: PokemonListRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PaginatedPokemonSummaryList>> {
+        const requestOptions = await this.pokemonListRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => PaginatedPokemonSummaryListFromJSON(jsonValue));
     }
@@ -1291,10 +1534,9 @@ export class PokemonApi extends runtime.BaseAPI {
     }
 
     /**
-     * Pokémon are the creatures that inhabit the world of the Pokémon games. They can be caught using Pokéballs and trained by battling with other Pokémon. Each Pokémon belongs to a specific species but may take on a variant which makes it differ from other Pokémon of the same species, such as base stats, available abilities and typings. See [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Pok%C3%A9mon_(species)) for greater detail.
-     * Get pokemon
+     * Creates request options for pokemonRetrieve without sending the request
      */
-    async pokemonRetrieveRaw(requestParameters: PokemonRetrieveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PokemonDetail>> {
+    async pokemonRetrieveRequestOpts(requestParameters: PokemonRetrieveRequest): Promise<runtime.RequestOpts> {
         if (requestParameters['id'] == null) {
             throw new runtime.RequiredError(
                 'id',
@@ -1311,14 +1553,23 @@ export class PokemonApi extends runtime.BaseAPI {
         }
 
         let urlPath = `/api/v2/pokemon/{id}/`;
-        urlPath = urlPath.replace(`{${"id"}}`, encodeURIComponent(String(requestParameters['id'])));
+        urlPath = urlPath.replace('{id}', encodeURIComponent(String(requestParameters['id'])));
 
-        const response = await this.request({
+        return {
             path: urlPath,
             method: 'GET',
             headers: headerParameters,
             query: queryParameters,
-        }, initOverrides);
+        };
+    }
+
+    /**
+     * Pokémon are the creatures that inhabit the world of the Pokémon games. They can be caught using Pokéballs and trained by battling with other Pokémon. Each Pokémon belongs to a specific species but may take on a variant which makes it differ from other Pokémon of the same species, such as base stats, available abilities and typings. See [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Pok%C3%A9mon_(species)) for greater detail.
+     * Get pokemon
+     */
+    async pokemonRetrieveRaw(requestParameters: PokemonRetrieveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PokemonDetail>> {
+        const requestOptions = await this.pokemonRetrieveRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => PokemonDetailFromJSON(jsonValue));
     }
@@ -1333,10 +1584,9 @@ export class PokemonApi extends runtime.BaseAPI {
     }
 
     /**
-     * Shapes used for sorting Pokémon in a Pokédex.
-     * List pokemon shapes
+     * Creates request options for pokemonShapeList without sending the request
      */
-    async pokemonShapeListRaw(requestParameters: PokemonShapeListRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PaginatedPokemonShapeSummaryList>> {
+    async pokemonShapeListRequestOpts(requestParameters: PokemonShapeListRequest): Promise<runtime.RequestOpts> {
         const queryParameters: any = {};
 
         if (requestParameters['limit'] != null) {
@@ -1359,12 +1609,21 @@ export class PokemonApi extends runtime.BaseAPI {
 
         let urlPath = `/api/v2/pokemon-shape/`;
 
-        const response = await this.request({
+        return {
             path: urlPath,
             method: 'GET',
             headers: headerParameters,
             query: queryParameters,
-        }, initOverrides);
+        };
+    }
+
+    /**
+     * Shapes used for sorting Pokémon in a Pokédex.
+     * List pokemon shapes
+     */
+    async pokemonShapeListRaw(requestParameters: PokemonShapeListRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PaginatedPokemonShapeSummaryList>> {
+        const requestOptions = await this.pokemonShapeListRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => PaginatedPokemonShapeSummaryListFromJSON(jsonValue));
     }
@@ -1379,10 +1638,9 @@ export class PokemonApi extends runtime.BaseAPI {
     }
 
     /**
-     * Shapes used for sorting Pokémon in a Pokédex.
-     * Get pokemon shape
+     * Creates request options for pokemonShapeRetrieve without sending the request
      */
-    async pokemonShapeRetrieveRaw(requestParameters: PokemonShapeRetrieveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PokemonShapeDetail>> {
+    async pokemonShapeRetrieveRequestOpts(requestParameters: PokemonShapeRetrieveRequest): Promise<runtime.RequestOpts> {
         if (requestParameters['id'] == null) {
             throw new runtime.RequiredError(
                 'id',
@@ -1399,14 +1657,23 @@ export class PokemonApi extends runtime.BaseAPI {
         }
 
         let urlPath = `/api/v2/pokemon-shape/{id}/`;
-        urlPath = urlPath.replace(`{${"id"}}`, encodeURIComponent(String(requestParameters['id'])));
+        urlPath = urlPath.replace('{id}', encodeURIComponent(String(requestParameters['id'])));
 
-        const response = await this.request({
+        return {
             path: urlPath,
             method: 'GET',
             headers: headerParameters,
             query: queryParameters,
-        }, initOverrides);
+        };
+    }
+
+    /**
+     * Shapes used for sorting Pokémon in a Pokédex.
+     * Get pokemon shape
+     */
+    async pokemonShapeRetrieveRaw(requestParameters: PokemonShapeRetrieveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PokemonShapeDetail>> {
+        const requestOptions = await this.pokemonShapeRetrieveRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => PokemonShapeDetailFromJSON(jsonValue));
     }
@@ -1421,10 +1688,9 @@ export class PokemonApi extends runtime.BaseAPI {
     }
 
     /**
-     * A Pokémon Species forms the basis for at least one Pokémon. Attributes of a Pokémon species are shared across all varieties of Pokémon within the species. A good example is Wormadam; Wormadam is the species which can be found in three different varieties, Wormadam-Trash, Wormadam-Sandy and Wormadam-Plant.
-     * List pokemon species
+     * Creates request options for pokemonSpeciesList without sending the request
      */
-    async pokemonSpeciesListRaw(requestParameters: PokemonSpeciesListRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PaginatedPokemonSpeciesSummaryList>> {
+    async pokemonSpeciesListRequestOpts(requestParameters: PokemonSpeciesListRequest): Promise<runtime.RequestOpts> {
         const queryParameters: any = {};
 
         if (requestParameters['limit'] != null) {
@@ -1447,12 +1713,21 @@ export class PokemonApi extends runtime.BaseAPI {
 
         let urlPath = `/api/v2/pokemon-species/`;
 
-        const response = await this.request({
+        return {
             path: urlPath,
             method: 'GET',
             headers: headerParameters,
             query: queryParameters,
-        }, initOverrides);
+        };
+    }
+
+    /**
+     * A Pokémon Species forms the basis for at least one Pokémon. Attributes of a Pokémon species are shared across all varieties of Pokémon within the species. A good example is Wormadam; Wormadam is the species which can be found in three different varieties, Wormadam-Trash, Wormadam-Sandy and Wormadam-Plant.
+     * List pokemon species
+     */
+    async pokemonSpeciesListRaw(requestParameters: PokemonSpeciesListRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PaginatedPokemonSpeciesSummaryList>> {
+        const requestOptions = await this.pokemonSpeciesListRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => PaginatedPokemonSpeciesSummaryListFromJSON(jsonValue));
     }
@@ -1467,10 +1742,9 @@ export class PokemonApi extends runtime.BaseAPI {
     }
 
     /**
-     * A Pokémon Species forms the basis for at least one Pokémon. Attributes of a Pokémon species are shared across all varieties of Pokémon within the species. A good example is Wormadam; Wormadam is the species which can be found in three different varieties, Wormadam-Trash, Wormadam-Sandy and Wormadam-Plant.
-     * Get pokemon species
+     * Creates request options for pokemonSpeciesRetrieve without sending the request
      */
-    async pokemonSpeciesRetrieveRaw(requestParameters: PokemonSpeciesRetrieveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PokemonSpeciesDetail>> {
+    async pokemonSpeciesRetrieveRequestOpts(requestParameters: PokemonSpeciesRetrieveRequest): Promise<runtime.RequestOpts> {
         if (requestParameters['id'] == null) {
             throw new runtime.RequiredError(
                 'id',
@@ -1487,14 +1761,23 @@ export class PokemonApi extends runtime.BaseAPI {
         }
 
         let urlPath = `/api/v2/pokemon-species/{id}/`;
-        urlPath = urlPath.replace(`{${"id"}}`, encodeURIComponent(String(requestParameters['id'])));
+        urlPath = urlPath.replace('{id}', encodeURIComponent(String(requestParameters['id'])));
 
-        const response = await this.request({
+        return {
             path: urlPath,
             method: 'GET',
             headers: headerParameters,
             query: queryParameters,
-        }, initOverrides);
+        };
+    }
+
+    /**
+     * A Pokémon Species forms the basis for at least one Pokémon. Attributes of a Pokémon species are shared across all varieties of Pokémon within the species. A good example is Wormadam; Wormadam is the species which can be found in three different varieties, Wormadam-Trash, Wormadam-Sandy and Wormadam-Plant.
+     * Get pokemon species
+     */
+    async pokemonSpeciesRetrieveRaw(requestParameters: PokemonSpeciesRetrieveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PokemonSpeciesDetail>> {
+        const requestOptions = await this.pokemonSpeciesRetrieveRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => PokemonSpeciesDetailFromJSON(jsonValue));
     }
@@ -1509,10 +1792,9 @@ export class PokemonApi extends runtime.BaseAPI {
     }
 
     /**
-     * Stats determine certain aspects of battles. Each Pokémon has a value for each stat which grows as they gain levels and can be altered momentarily by effects in battles.
-     * List stats
+     * Creates request options for statList without sending the request
      */
-    async statListRaw(requestParameters: StatListRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PaginatedStatSummaryList>> {
+    async statListRequestOpts(requestParameters: StatListRequest): Promise<runtime.RequestOpts> {
         const queryParameters: any = {};
 
         if (requestParameters['limit'] != null) {
@@ -1535,12 +1817,21 @@ export class PokemonApi extends runtime.BaseAPI {
 
         let urlPath = `/api/v2/stat/`;
 
-        const response = await this.request({
+        return {
             path: urlPath,
             method: 'GET',
             headers: headerParameters,
             query: queryParameters,
-        }, initOverrides);
+        };
+    }
+
+    /**
+     * Stats determine certain aspects of battles. Each Pokémon has a value for each stat which grows as they gain levels and can be altered momentarily by effects in battles.
+     * List stats
+     */
+    async statListRaw(requestParameters: StatListRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PaginatedStatSummaryList>> {
+        const requestOptions = await this.statListRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => PaginatedStatSummaryListFromJSON(jsonValue));
     }
@@ -1555,10 +1846,9 @@ export class PokemonApi extends runtime.BaseAPI {
     }
 
     /**
-     * Stats determine certain aspects of battles. Each Pokémon has a value for each stat which grows as they gain levels and can be altered momentarily by effects in battles.
-     * Get stat
+     * Creates request options for statRetrieve without sending the request
      */
-    async statRetrieveRaw(requestParameters: StatRetrieveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<StatDetail>> {
+    async statRetrieveRequestOpts(requestParameters: StatRetrieveRequest): Promise<runtime.RequestOpts> {
         if (requestParameters['id'] == null) {
             throw new runtime.RequiredError(
                 'id',
@@ -1575,14 +1865,23 @@ export class PokemonApi extends runtime.BaseAPI {
         }
 
         let urlPath = `/api/v2/stat/{id}/`;
-        urlPath = urlPath.replace(`{${"id"}}`, encodeURIComponent(String(requestParameters['id'])));
+        urlPath = urlPath.replace('{id}', encodeURIComponent(String(requestParameters['id'])));
 
-        const response = await this.request({
+        return {
             path: urlPath,
             method: 'GET',
             headers: headerParameters,
             query: queryParameters,
-        }, initOverrides);
+        };
+    }
+
+    /**
+     * Stats determine certain aspects of battles. Each Pokémon has a value for each stat which grows as they gain levels and can be altered momentarily by effects in battles.
+     * Get stat
+     */
+    async statRetrieveRaw(requestParameters: StatRetrieveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<StatDetail>> {
+        const requestOptions = await this.statRetrieveRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatDetailFromJSON(jsonValue));
     }
@@ -1597,10 +1896,9 @@ export class PokemonApi extends runtime.BaseAPI {
     }
 
     /**
-     * Types are properties for Pokémon and their moves. Each type has three properties: which types of Pokémon it is super effective against, which types of Pokémon it is not very effective against, and which types of Pokémon it is completely ineffective against.
-     * List types
+     * Creates request options for typeList without sending the request
      */
-    async typeListRaw(requestParameters: TypeListRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PaginatedTypeSummaryList>> {
+    async typeListRequestOpts(requestParameters: TypeListRequest): Promise<runtime.RequestOpts> {
         const queryParameters: any = {};
 
         if (requestParameters['limit'] != null) {
@@ -1623,12 +1921,21 @@ export class PokemonApi extends runtime.BaseAPI {
 
         let urlPath = `/api/v2/type/`;
 
-        const response = await this.request({
+        return {
             path: urlPath,
             method: 'GET',
             headers: headerParameters,
             query: queryParameters,
-        }, initOverrides);
+        };
+    }
+
+    /**
+     * Types are properties for Pokémon and their moves. Each type has three properties: which types of Pokémon it is super effective against, which types of Pokémon it is not very effective against, and which types of Pokémon it is completely ineffective against.
+     * List types
+     */
+    async typeListRaw(requestParameters: TypeListRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PaginatedTypeSummaryList>> {
+        const requestOptions = await this.typeListRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => PaginatedTypeSummaryListFromJSON(jsonValue));
     }
@@ -1643,10 +1950,9 @@ export class PokemonApi extends runtime.BaseAPI {
     }
 
     /**
-     * Types are properties for Pokémon and their moves. Each type has three properties: which types of Pokémon it is super effective against, which types of Pokémon it is not very effective against, and which types of Pokémon it is completely ineffective against.
-     * Get types
+     * Creates request options for typeRetrieve without sending the request
      */
-    async typeRetrieveRaw(requestParameters: TypeRetrieveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<TypeDetail>> {
+    async typeRetrieveRequestOpts(requestParameters: TypeRetrieveRequest): Promise<runtime.RequestOpts> {
         if (requestParameters['id'] == null) {
             throw new runtime.RequiredError(
                 'id',
@@ -1663,14 +1969,23 @@ export class PokemonApi extends runtime.BaseAPI {
         }
 
         let urlPath = `/api/v2/type/{id}/`;
-        urlPath = urlPath.replace(`{${"id"}}`, encodeURIComponent(String(requestParameters['id'])));
+        urlPath = urlPath.replace('{id}', encodeURIComponent(String(requestParameters['id'])));
 
-        const response = await this.request({
+        return {
             path: urlPath,
             method: 'GET',
             headers: headerParameters,
             query: queryParameters,
-        }, initOverrides);
+        };
+    }
+
+    /**
+     * Types are properties for Pokémon and their moves. Each type has three properties: which types of Pokémon it is super effective against, which types of Pokémon it is not very effective against, and which types of Pokémon it is completely ineffective against.
+     * Get types
+     */
+    async typeRetrieveRaw(requestParameters: TypeRetrieveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<TypeDetail>> {
+        const requestOptions = await this.typeRetrieveRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => TypeDetailFromJSON(jsonValue));
     }

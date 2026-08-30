@@ -5,7 +5,6 @@
 // ignore_for_file: unused_element
 import 'package:openapi/src/model/ability_detail_pokemon_inner_pokemon.dart';
 import 'package:openapi/src/model/evolution_chain_detail_chain_evolves_to_inner_evolution_details_inner_gender.dart';
-import 'package:built_value/json_object.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
 
@@ -44,10 +43,10 @@ abstract class EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner impl
   EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender get item;
 
   @BuiltValueField(wireName: r'known_move')
-  JsonObject get knownMove;
+  EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender get knownMove;
 
   @BuiltValueField(wireName: r'known_move_type')
-  JsonObject get knownMoveType;
+  EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender get knownMoveType;
 
   @BuiltValueField(wireName: r'location')
   EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender get location;
@@ -129,12 +128,12 @@ class _$EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerSerializer i
     yield r'known_move';
     yield serializers.serialize(
       object.knownMove,
-      specifiedType: const FullType(JsonObject),
+      specifiedType: const FullType(EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender),
     );
     yield r'known_move_type';
     yield serializers.serialize(
       object.knownMoveType,
-      specifiedType: const FullType(JsonObject),
+      specifiedType: const FullType(EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender),
     );
     yield r'location';
     yield serializers.serialize(
@@ -248,16 +247,16 @@ class _$EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerSerializer i
         case r'known_move':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(JsonObject),
-          ) as JsonObject;
-          result.knownMove = valueDes;
+            specifiedType: const FullType(EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender),
+          ) as EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender;
+          result.knownMove.replace(valueDes);
           break;
         case r'known_move_type':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(JsonObject),
-          ) as JsonObject;
-          result.knownMoveType = valueDes;
+            specifiedType: const FullType(EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender),
+          ) as EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender;
+          result.knownMoveType.replace(valueDes);
           break;
         case r'location':
           final valueDes = serializers.deserialize(

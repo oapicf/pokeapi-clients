@@ -12,18 +12,21 @@ static item_detail_baby_trigger_for_t *item_detail_baby_trigger_for_create_inter
     if (!item_detail_baby_trigger_for_local_var) {
         return NULL;
     }
-    item_detail_baby_trigger_for_local_var->url = url;
-
+    memset(item_detail_baby_trigger_for_local_var, 0, sizeof(item_detail_baby_trigger_for_t));
     item_detail_baby_trigger_for_local_var->_library_owned = 1;
+    item_detail_baby_trigger_for_local_var->url = url;
     return item_detail_baby_trigger_for_local_var;
 }
 
 __attribute__((deprecated)) item_detail_baby_trigger_for_t *item_detail_baby_trigger_for_create(
     char *url
     ) {
-    return item_detail_baby_trigger_for_create_internal (
+    item_detail_baby_trigger_for_t *result = item_detail_baby_trigger_for_create_internal (
         url
         );
+    if (!result) {
+    }
+    return result;
 }
 
 void item_detail_baby_trigger_for_free(item_detail_baby_trigger_for_t *item_detail_baby_trigger_for) {
@@ -65,6 +68,8 @@ item_detail_baby_trigger_for_t *item_detail_baby_trigger_for_parseFromJSON(cJSON
 
     item_detail_baby_trigger_for_t *item_detail_baby_trigger_for_local_var = NULL;
 
+    char *url_local_str = NULL;
+
     // item_detail_baby_trigger_for->url
     cJSON *url = cJSON_GetObjectItemCaseSensitive(item_detail_baby_trigger_forJSON, "url");
     if (cJSON_IsNull(url)) {
@@ -81,12 +86,22 @@ item_detail_baby_trigger_for_t *item_detail_baby_trigger_for_parseFromJSON(cJSON
     }
 
 
+    if (url && !cJSON_IsNull(url)) url_local_str = strdup(url->valuestring);
+
     item_detail_baby_trigger_for_local_var = item_detail_baby_trigger_for_create_internal (
-        strdup(url->valuestring)
+        url_local_str
         );
+
+    if (!item_detail_baby_trigger_for_local_var) {
+        goto end;
+    }
 
     return item_detail_baby_trigger_for_local_var;
 end:
+    if (url_local_str) {
+        free(url_local_str);
+        url_local_str = NULL;
+    }
     return NULL;
 
 }

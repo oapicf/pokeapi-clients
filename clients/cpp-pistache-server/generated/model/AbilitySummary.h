@@ -32,7 +32,7 @@ class  AbilitySummary
 {
 public:
     AbilitySummary();
-    virtual ~AbilitySummary() = default;
+    virtual ~AbilitySummary();
 
 
     /// <summary>

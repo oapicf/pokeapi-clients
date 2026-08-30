@@ -58,7 +58,7 @@ export interface BerryFlavorDetail {
      * @type {Array<BerryFlavorDetailBerriesInner>}
      * @memberof BerryFlavorDetail
      */
-    berries: Array<BerryFlavorDetailBerriesInner>;
+    readonly berries: Array<BerryFlavorDetailBerriesInner>;
     /**
      * 
      * @type {ContestTypeSummary}
@@ -70,7 +70,7 @@ export interface BerryFlavorDetail {
      * @type {Array<BerryFlavorName>}
      * @memberof BerryFlavorDetail
      */
-    names: Array<BerryFlavorName>;
+    readonly names: Array<BerryFlavorName>;
 }
 
 /**
@@ -80,7 +80,7 @@ export function instanceOfBerryFlavorDetail(value: object): value is BerryFlavor
     if (!('id' in value) || value['id'] === undefined) return false;
     if (!('name' in value) || value['name'] === undefined) return false;
     if (!('berries' in value) || value['berries'] === undefined) return false;
-    if (!('contestType' in value) || value['contestType'] === undefined) return false;
+    if ((!('contestType' in (value as Record<string, any>)) && !('contest_type' in (value as Record<string, any>))) || ((value as Record<string, any>)['contestType'] === undefined && (value as Record<string, any>)['contest_type'] === undefined)) return false;
     if (!('names' in value) || value['names'] === undefined) return false;
     return true;
 }
@@ -107,7 +107,7 @@ export function BerryFlavorDetailToJSON(json: any): BerryFlavorDetail {
     return BerryFlavorDetailToJSONTyped(json, false);
 }
 
-export function BerryFlavorDetailToJSONTyped(value?: Omit<BerryFlavorDetail, 'id'> | null, ignoreDiscriminator: boolean = false): any {
+export function BerryFlavorDetailToJSONTyped(value?: Omit<BerryFlavorDetail, 'id'|'berries'|'names'> | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
@@ -115,9 +115,7 @@ export function BerryFlavorDetailToJSONTyped(value?: Omit<BerryFlavorDetail, 'id
     return {
         
         'name': value['name'],
-        'berries': ((value['berries'] as Array<any>).map(BerryFlavorDetailBerriesInnerToJSON)),
         'contest_type': ContestTypeSummaryToJSON(value['contestType']),
-        'names': ((value['names'] as Array<any>).map(BerryFlavorNameToJSON)),
     };
 }
 

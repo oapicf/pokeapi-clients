@@ -103,25 +103,25 @@ export interface NatureDetail {
      * @type {Array<BerrySummary>}
      * @memberof NatureDetail
      */
-    berries: Array<BerrySummary>;
+    readonly berries: Array<BerrySummary>;
     /**
      * 
      * @type {Array<NatureDetailPokeathlonStatChangesInner>}
      * @memberof NatureDetail
      */
-    pokeathlonStatChanges: Array<NatureDetailPokeathlonStatChangesInner>;
+    readonly pokeathlonStatChanges: Array<NatureDetailPokeathlonStatChangesInner>;
     /**
      * 
      * @type {Array<NatureBattleStylePreference>}
      * @memberof NatureDetail
      */
-    moveBattleStylePreferences: Array<NatureBattleStylePreference>;
+    readonly moveBattleStylePreferences: Array<NatureBattleStylePreference>;
     /**
      * 
      * @type {Array<NatureName>}
      * @memberof NatureDetail
      */
-    names: Array<NatureName>;
+    readonly names: Array<NatureName>;
 }
 
 /**
@@ -130,13 +130,13 @@ export interface NatureDetail {
 export function instanceOfNatureDetail(value: object): value is NatureDetail {
     if (!('id' in value) || value['id'] === undefined) return false;
     if (!('name' in value) || value['name'] === undefined) return false;
-    if (!('decreasedStat' in value) || value['decreasedStat'] === undefined) return false;
-    if (!('increasedStat' in value) || value['increasedStat'] === undefined) return false;
-    if (!('likesFlavor' in value) || value['likesFlavor'] === undefined) return false;
-    if (!('hatesFlavor' in value) || value['hatesFlavor'] === undefined) return false;
+    if ((!('decreasedStat' in (value as Record<string, any>)) && !('decreased_stat' in (value as Record<string, any>))) || ((value as Record<string, any>)['decreasedStat'] === undefined && (value as Record<string, any>)['decreased_stat'] === undefined)) return false;
+    if ((!('increasedStat' in (value as Record<string, any>)) && !('increased_stat' in (value as Record<string, any>))) || ((value as Record<string, any>)['increasedStat'] === undefined && (value as Record<string, any>)['increased_stat'] === undefined)) return false;
+    if ((!('likesFlavor' in (value as Record<string, any>)) && !('likes_flavor' in (value as Record<string, any>))) || ((value as Record<string, any>)['likesFlavor'] === undefined && (value as Record<string, any>)['likes_flavor'] === undefined)) return false;
+    if ((!('hatesFlavor' in (value as Record<string, any>)) && !('hates_flavor' in (value as Record<string, any>))) || ((value as Record<string, any>)['hatesFlavor'] === undefined && (value as Record<string, any>)['hates_flavor'] === undefined)) return false;
     if (!('berries' in value) || value['berries'] === undefined) return false;
-    if (!('pokeathlonStatChanges' in value) || value['pokeathlonStatChanges'] === undefined) return false;
-    if (!('moveBattleStylePreferences' in value) || value['moveBattleStylePreferences'] === undefined) return false;
+    if ((!('pokeathlonStatChanges' in (value as Record<string, any>)) && !('pokeathlon_stat_changes' in (value as Record<string, any>))) || ((value as Record<string, any>)['pokeathlonStatChanges'] === undefined && (value as Record<string, any>)['pokeathlon_stat_changes'] === undefined)) return false;
+    if ((!('moveBattleStylePreferences' in (value as Record<string, any>)) && !('move_battle_style_preferences' in (value as Record<string, any>))) || ((value as Record<string, any>)['moveBattleStylePreferences'] === undefined && (value as Record<string, any>)['move_battle_style_preferences'] === undefined)) return false;
     if (!('names' in value) || value['names'] === undefined) return false;
     return true;
 }
@@ -168,7 +168,7 @@ export function NatureDetailToJSON(json: any): NatureDetail {
     return NatureDetailToJSONTyped(json, false);
 }
 
-export function NatureDetailToJSONTyped(value?: Omit<NatureDetail, 'id'> | null, ignoreDiscriminator: boolean = false): any {
+export function NatureDetailToJSONTyped(value?: Omit<NatureDetail, 'id'|'berries'|'pokeathlonStatChanges'|'moveBattleStylePreferences'|'names'> | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
@@ -180,10 +180,6 @@ export function NatureDetailToJSONTyped(value?: Omit<NatureDetail, 'id'> | null,
         'increased_stat': StatSummaryToJSON(value['increasedStat']),
         'likes_flavor': BerryFlavorSummaryToJSON(value['likesFlavor']),
         'hates_flavor': BerryFlavorSummaryToJSON(value['hatesFlavor']),
-        'berries': ((value['berries'] as Array<any>).map(BerrySummaryToJSON)),
-        'pokeathlon_stat_changes': ((value['pokeathlonStatChanges'] as Array<any>).map(NatureDetailPokeathlonStatChangesInnerToJSON)),
-        'move_battle_style_preferences': ((value['moveBattleStylePreferences'] as Array<any>).map(NatureBattleStylePreferenceToJSON)),
-        'names': ((value['names'] as Array<any>).map(NatureNameToJSON)),
     };
 }
 

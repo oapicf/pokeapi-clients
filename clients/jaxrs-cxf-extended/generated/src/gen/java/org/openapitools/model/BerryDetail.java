@@ -295,6 +295,7 @@ public class BerryDetail  {
 
   /**
    * Sets the <code>flavors</code> property.
+   * <br><em>N.B. <code>flavors</code> is <b>read only</b>; client code should not call this method</em>.
    */
  public void setFlavors(List<@Valid BerryDetailFlavorsInner> flavors) {
     this.flavors = flavors;
@@ -302,6 +303,7 @@ public class BerryDetail  {
 
   /**
    * Sets the <code>flavors</code> property.
+   * <br><em>N.B. <code>flavors</code> is <b>read only</b>; client code should not call this method</em>.
    */
   public BerryDetail flavors(List<@Valid BerryDetailFlavorsInner> flavors) {
     this.flavors = flavors;
@@ -310,6 +312,7 @@ public class BerryDetail  {
 
   /**
    * Adds a new item to the <code>flavors</code> list.
+   * <br><em>N.B. <code>flavors</code> is <b>read only</b>; client code should not call this method</em>.
    */
   public BerryDetail addFlavorsItem(BerryDetailFlavorsInner flavorsItem) {
     this.flavors.add(flavorsItem);
@@ -421,10 +424,7 @@ public class BerryDetail  {
    * (except the first line).
    */
   private static String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 }
 

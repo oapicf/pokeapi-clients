@@ -13,10 +13,10 @@ static type_detail_pokemon_inner_pokemon_t *type_detail_pokemon_inner_pokemon_cr
     if (!type_detail_pokemon_inner_pokemon_local_var) {
         return NULL;
     }
+    memset(type_detail_pokemon_inner_pokemon_local_var, 0, sizeof(type_detail_pokemon_inner_pokemon_t));
+    type_detail_pokemon_inner_pokemon_local_var->_library_owned = 1;
     type_detail_pokemon_inner_pokemon_local_var->name = name;
     type_detail_pokemon_inner_pokemon_local_var->url = url;
-
-    type_detail_pokemon_inner_pokemon_local_var->_library_owned = 1;
     return type_detail_pokemon_inner_pokemon_local_var;
 }
 
@@ -24,10 +24,13 @@ __attribute__((deprecated)) type_detail_pokemon_inner_pokemon_t *type_detail_pok
     char *name,
     char *url
     ) {
-    return type_detail_pokemon_inner_pokemon_create_internal (
+    type_detail_pokemon_inner_pokemon_t *result = type_detail_pokemon_inner_pokemon_create_internal (
         name,
         url
         );
+    if (!result) {
+    }
+    return result;
 }
 
 void type_detail_pokemon_inner_pokemon_free(type_detail_pokemon_inner_pokemon_t *type_detail_pokemon_inner_pokemon) {
@@ -80,6 +83,10 @@ type_detail_pokemon_inner_pokemon_t *type_detail_pokemon_inner_pokemon_parseFrom
 
     type_detail_pokemon_inner_pokemon_t *type_detail_pokemon_inner_pokemon_local_var = NULL;
 
+    char *name_local_str = NULL;
+
+    char *url_local_str = NULL;
+
     // type_detail_pokemon_inner_pokemon->name
     cJSON *name = cJSON_GetObjectItemCaseSensitive(type_detail_pokemon_inner_pokemonJSON, "name");
     if (cJSON_IsNull(name)) {
@@ -105,13 +112,28 @@ type_detail_pokemon_inner_pokemon_t *type_detail_pokemon_inner_pokemon_parseFrom
     }
 
 
+    if (name && !cJSON_IsNull(name)) name_local_str = strdup(name->valuestring);
+    if (url && !cJSON_IsNull(url)) url_local_str = strdup(url->valuestring);
+
     type_detail_pokemon_inner_pokemon_local_var = type_detail_pokemon_inner_pokemon_create_internal (
-        name && !cJSON_IsNull(name) ? strdup(name->valuestring) : NULL,
-        url && !cJSON_IsNull(url) ? strdup(url->valuestring) : NULL
+        name_local_str,
+        url_local_str
         );
+
+    if (!type_detail_pokemon_inner_pokemon_local_var) {
+        goto end;
+    }
 
     return type_detail_pokemon_inner_pokemon_local_var;
 end:
+    if (name_local_str) {
+        free(name_local_str);
+        name_local_str = NULL;
+    }
+    if (url_local_str) {
+        free(url_local_str);
+        url_local_str = NULL;
+    }
     return NULL;
 
 }

@@ -58,15 +58,19 @@ class PokemonColorDetail extends BaseModel
     },
     "names" : {
       "type" : "array",
+      "readOnly" : true,
       "items" : {
         "$ref" : "#/components/schemas/PokemonColorName"
-      }
+      },
+      "default" : null
     },
     "pokemon_species" : {
       "type" : "array",
+      "readOnly" : true,
       "items" : {
         "$ref" : "#/components/schemas/PokemonSpeciesSummary"
-      }
+      },
+      "default" : null
     }
   }
 }

@@ -22,7 +22,7 @@ class UtilityApi : public Service {
 public:
     UtilityApi() = default;
 
-    virtual ~UtilityApi() = default;
+    virtual ~UtilityApi();
 
     /**
     * List languages.

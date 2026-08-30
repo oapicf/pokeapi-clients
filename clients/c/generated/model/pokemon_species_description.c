@@ -13,10 +13,10 @@ static pokemon_species_description_t *pokemon_species_description_create_interna
     if (!pokemon_species_description_local_var) {
         return NULL;
     }
+    memset(pokemon_species_description_local_var, 0, sizeof(pokemon_species_description_t));
+    pokemon_species_description_local_var->_library_owned = 1;
     pokemon_species_description_local_var->description = description;
     pokemon_species_description_local_var->language = language;
-
-    pokemon_species_description_local_var->_library_owned = 1;
     return pokemon_species_description_local_var;
 }
 
@@ -24,10 +24,13 @@ __attribute__((deprecated)) pokemon_species_description_t *pokemon_species_descr
     char *description,
     language_summary_t *language
     ) {
-    return pokemon_species_description_create_internal (
+    pokemon_species_description_t *result = pokemon_species_description_create_internal (
         description,
         language
         );
+    if (!result) {
+    }
+    return result;
 }
 
 void pokemon_species_description_free(pokemon_species_description_t *pokemon_species_description) {
@@ -86,6 +89,8 @@ pokemon_species_description_t *pokemon_species_description_parseFromJSON(cJSON *
 
     pokemon_species_description_t *pokemon_species_description_local_var = NULL;
 
+    char *description_local_str = NULL;
+
     // define the local variable for pokemon_species_description->language
     language_summary_t *language_local_nonprim = NULL;
 
@@ -114,13 +119,23 @@ pokemon_species_description_t *pokemon_species_description_parseFromJSON(cJSON *
     language_local_nonprim = language_summary_parseFromJSON(language); //nonprimitive
 
 
+    if (description && !cJSON_IsNull(description)) description_local_str = strdup(description->valuestring);
+
     pokemon_species_description_local_var = pokemon_species_description_create_internal (
-        description && !cJSON_IsNull(description) ? strdup(description->valuestring) : NULL,
+        description_local_str,
         language_local_nonprim
         );
 
+    if (!pokemon_species_description_local_var) {
+        goto end;
+    }
+
     return pokemon_species_description_local_var;
 end:
+    if (description_local_str) {
+        free(description_local_str);
+        description_local_str = NULL;
+    }
     if (language_local_nonprim) {
         language_summary_free(language_local_nonprim);
         language_local_nonprim = NULL;

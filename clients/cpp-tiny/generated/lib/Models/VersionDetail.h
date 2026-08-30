@@ -54,28 +54,28 @@ public:
 
 	/*! \brief Set 
 	 */
-	void setId(int  id);
+	void setId(int id);
 	/*! \brief Get 
 	 */
 	std::string getName();
 
 	/*! \brief Set 
 	 */
-	void setName(std::string  name);
+	void setName(std::string name);
 	/*! \brief Get 
 	 */
 	std::list<VersionName> getNames();
 
 	/*! \brief Set 
 	 */
-	void setNames(std::list <VersionName> names);
+	void setNames(std::list<VersionName> names);
 	/*! \brief Get 
 	 */
 	VersionGroupSummary getVersionGroup();
 
 	/*! \brief Set 
 	 */
-	void setVersionGroup(VersionGroupSummary  version_group);
+	void setVersionGroup(VersionGroupSummary version_group);
 
 
     private:

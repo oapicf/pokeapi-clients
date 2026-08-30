@@ -26,7 +26,7 @@ class ContestsApi : public Service {
 public:
     ContestsApi() = default;
 
-    virtual ~ContestsApi() = default;
+    virtual ~ContestsApi();
 
     /**
     * List contest effects.

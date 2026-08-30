@@ -48,7 +48,7 @@ namespace Org.OpenAPITools.Controllers
             //TODO: Uncomment the next line to return response 200 or use other options such as return this.NotFound(), return this.BadRequest(..), ...
             // return StatusCode(200, default);
             string exampleJson = null;
-            exampleJson = "{\n  \"next\" : \"http://api.example.org/accounts/?offset=400&limit=100\",\n  \"previous\" : \"http://api.example.org/accounts/?offset=200&limit=100\",\n  \"count\" : 123,\n  \"results\" : [ {\n    \"name\" : \"name\",\n    \"url\" : \"https://openapi-generator.tech\"\n  }, {\n    \"name\" : \"name\",\n    \"url\" : \"https://openapi-generator.tech\"\n  } ]\n}";
+            exampleJson = "{\n  \"count\" : 123,\n  \"next\" : \"http://api.example.org/accounts/?offset=400&limit=100\",\n  \"previous\" : \"http://api.example.org/accounts/?offset=200&limit=100\",\n  \"results\" : [ {\n    \"name\" : \"name\",\n    \"url\" : \"https://openapi-generator.tech\"\n  }, {\n    \"name\" : \"name\",\n    \"url\" : \"https://openapi-generator.tech\"\n  } ]\n}";
             
             var example = exampleJson != null
             ? JsonConvert.DeserializeObject<PaginatedBerryFirmnessSummaryList>(exampleJson)
@@ -75,7 +75,7 @@ namespace Org.OpenAPITools.Controllers
             //TODO: Uncomment the next line to return response 200 or use other options such as return this.NotFound(), return this.BadRequest(..), ...
             // return StatusCode(200, default);
             string exampleJson = null;
-            exampleJson = "{\n  \"names\" : [ {\n    \"name\" : \"name\",\n    \"language\" : {\n      \"name\" : \"name\",\n      \"url\" : \"https://openapi-generator.tech\"\n    }\n  }, {\n    \"name\" : \"name\",\n    \"language\" : {\n      \"name\" : \"name\",\n      \"url\" : \"https://openapi-generator.tech\"\n    }\n  } ],\n  \"name\" : \"name\",\n  \"id\" : 0,\n  \"berries\" : [ {\n    \"name\" : \"name\",\n    \"url\" : \"https://openapi-generator.tech\"\n  }, {\n    \"name\" : \"name\",\n    \"url\" : \"https://openapi-generator.tech\"\n  } ]\n}";
+            exampleJson = "{\n  \"id\" : 0,\n  \"name\" : \"name\",\n  \"berries\" : [ {\n    \"name\" : \"name\",\n    \"url\" : \"https://openapi-generator.tech\"\n  }, {\n    \"name\" : \"name\",\n    \"url\" : \"https://openapi-generator.tech\"\n  } ],\n  \"names\" : [ {\n    \"name\" : \"name\",\n    \"language\" : {\n      \"name\" : \"name\",\n      \"url\" : \"https://openapi-generator.tech\"\n    }\n  }, {\n    \"name\" : \"name\",\n    \"language\" : {\n      \"name\" : \"name\",\n      \"url\" : \"https://openapi-generator.tech\"\n    }\n  } ]\n}";
             
             var example = exampleJson != null
             ? JsonConvert.DeserializeObject<BerryFirmnessDetail>(exampleJson)
@@ -104,7 +104,7 @@ namespace Org.OpenAPITools.Controllers
             //TODO: Uncomment the next line to return response 200 or use other options such as return this.NotFound(), return this.BadRequest(..), ...
             // return StatusCode(200, default);
             string exampleJson = null;
-            exampleJson = "{\n  \"next\" : \"http://api.example.org/accounts/?offset=400&limit=100\",\n  \"previous\" : \"http://api.example.org/accounts/?offset=200&limit=100\",\n  \"count\" : 123,\n  \"results\" : [ {\n    \"name\" : \"name\",\n    \"url\" : \"https://openapi-generator.tech\"\n  }, {\n    \"name\" : \"name\",\n    \"url\" : \"https://openapi-generator.tech\"\n  } ]\n}";
+            exampleJson = "{\n  \"count\" : 123,\n  \"next\" : \"http://api.example.org/accounts/?offset=400&limit=100\",\n  \"previous\" : \"http://api.example.org/accounts/?offset=200&limit=100\",\n  \"results\" : [ {\n    \"name\" : \"name\",\n    \"url\" : \"https://openapi-generator.tech\"\n  }, {\n    \"name\" : \"name\",\n    \"url\" : \"https://openapi-generator.tech\"\n  } ]\n}";
             
             var example = exampleJson != null
             ? JsonConvert.DeserializeObject<PaginatedBerryFlavorSummaryList>(exampleJson)
@@ -131,7 +131,7 @@ namespace Org.OpenAPITools.Controllers
             //TODO: Uncomment the next line to return response 200 or use other options such as return this.NotFound(), return this.BadRequest(..), ...
             // return StatusCode(200, default);
             string exampleJson = null;
-            exampleJson = "{\n  \"contest_type\" : {\n    \"name\" : \"name\",\n    \"url\" : \"https://openapi-generator.tech\"\n  },\n  \"names\" : [ {\n    \"name\" : \"name\",\n    \"language\" : {\n      \"name\" : \"name\",\n      \"url\" : \"https://openapi-generator.tech\"\n    }\n  }, {\n    \"name\" : \"name\",\n    \"language\" : {\n      \"name\" : \"name\",\n      \"url\" : \"https://openapi-generator.tech\"\n    }\n  } ],\n  \"name\" : \"name\",\n  \"id\" : 0,\n  \"berries\" : [ {\n    \"potency\" : 6,\n    \"berry\" : {\n      \"name\" : \"name\",\n      \"url\" : \"https://openapi-generator.tech\"\n    }\n  }, {\n    \"potency\" : 6,\n    \"berry\" : {\n      \"name\" : \"name\",\n      \"url\" : \"https://openapi-generator.tech\"\n    }\n  } ]\n}";
+            exampleJson = "{\n  \"id\" : 0,\n  \"name\" : \"name\",\n  \"berries\" : [ {\n    \"potency\" : 6,\n    \"berry\" : {\n      \"name\" : \"name\",\n      \"url\" : \"https://openapi-generator.tech\"\n    }\n  }, {\n    \"potency\" : 6,\n    \"berry\" : {\n      \"name\" : \"name\",\n      \"url\" : \"https://openapi-generator.tech\"\n    }\n  } ],\n  \"contest_type\" : {\n    \"name\" : \"name\",\n    \"url\" : \"https://openapi-generator.tech\"\n  },\n  \"names\" : [ {\n    \"name\" : \"name\",\n    \"language\" : {\n      \"name\" : \"name\",\n      \"url\" : \"https://openapi-generator.tech\"\n    }\n  }, {\n    \"name\" : \"name\",\n    \"language\" : {\n      \"name\" : \"name\",\n      \"url\" : \"https://openapi-generator.tech\"\n    }\n  } ]\n}";
             
             var example = exampleJson != null
             ? JsonConvert.DeserializeObject<BerryFlavorDetail>(exampleJson)
@@ -160,7 +160,7 @@ namespace Org.OpenAPITools.Controllers
             //TODO: Uncomment the next line to return response 200 or use other options such as return this.NotFound(), return this.BadRequest(..), ...
             // return StatusCode(200, default);
             string exampleJson = null;
-            exampleJson = "{\n  \"next\" : \"http://api.example.org/accounts/?offset=400&limit=100\",\n  \"previous\" : \"http://api.example.org/accounts/?offset=200&limit=100\",\n  \"count\" : 123,\n  \"results\" : [ {\n    \"name\" : \"name\",\n    \"url\" : \"https://openapi-generator.tech\"\n  }, {\n    \"name\" : \"name\",\n    \"url\" : \"https://openapi-generator.tech\"\n  } ]\n}";
+            exampleJson = "{\n  \"count\" : 123,\n  \"next\" : \"http://api.example.org/accounts/?offset=400&limit=100\",\n  \"previous\" : \"http://api.example.org/accounts/?offset=200&limit=100\",\n  \"results\" : [ {\n    \"name\" : \"name\",\n    \"url\" : \"https://openapi-generator.tech\"\n  }, {\n    \"name\" : \"name\",\n    \"url\" : \"https://openapi-generator.tech\"\n  } ]\n}";
             
             var example = exampleJson != null
             ? JsonConvert.DeserializeObject<PaginatedBerrySummaryList>(exampleJson)
@@ -187,7 +187,7 @@ namespace Org.OpenAPITools.Controllers
             //TODO: Uncomment the next line to return response 200 or use other options such as return this.NotFound(), return this.BadRequest(..), ...
             // return StatusCode(200, default);
             string exampleJson = null;
-            exampleJson = "{\n  \"flavors\" : [ {\n    \"flavor\" : {\n      \"name\" : \"name\",\n      \"url\" : \"https://openapi-generator.tech\"\n    },\n    \"potency\" : 9\n  }, {\n    \"flavor\" : {\n      \"name\" : \"name\",\n      \"url\" : \"https://openapi-generator.tech\"\n    },\n    \"potency\" : 9\n  } ],\n  \"natural_gift_type\" : {\n    \"name\" : \"name\",\n    \"url\" : \"https://openapi-generator.tech\"\n  },\n  \"item\" : {\n    \"name\" : \"name\",\n    \"url\" : \"https://openapi-generator.tech\"\n  },\n  \"smoothness\" : 2,\n  \"size\" : 5,\n  \"natural_gift_power\" : 5,\n  \"firmness\" : {\n    \"name\" : \"name\",\n    \"url\" : \"https://openapi-generator.tech\"\n  },\n  \"name\" : \"name\",\n  \"growth_time\" : 6,\n  \"soil_dryness\" : 7,\n  \"id\" : 0,\n  \"max_harvest\" : 1\n}";
+            exampleJson = "{\n  \"id\" : 0,\n  \"name\" : \"name\",\n  \"growth_time\" : 6,\n  \"max_harvest\" : 1,\n  \"natural_gift_power\" : 5,\n  \"size\" : 5,\n  \"smoothness\" : 2,\n  \"soil_dryness\" : 7,\n  \"firmness\" : {\n    \"name\" : \"name\",\n    \"url\" : \"https://openapi-generator.tech\"\n  },\n  \"flavors\" : [ {\n    \"potency\" : 9,\n    \"flavor\" : {\n      \"name\" : \"name\",\n      \"url\" : \"https://openapi-generator.tech\"\n    }\n  }, {\n    \"potency\" : 9,\n    \"flavor\" : {\n      \"name\" : \"name\",\n      \"url\" : \"https://openapi-generator.tech\"\n    }\n  } ],\n  \"item\" : {\n    \"name\" : \"name\",\n    \"url\" : \"https://openapi-generator.tech\"\n  },\n  \"natural_gift_type\" : {\n    \"name\" : \"name\",\n    \"url\" : \"https://openapi-generator.tech\"\n  }\n}";
             
             var example = exampleJson != null
             ? JsonConvert.DeserializeObject<BerryDetail>(exampleJson)

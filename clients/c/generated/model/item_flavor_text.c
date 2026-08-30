@@ -14,11 +14,11 @@ static item_flavor_text_t *item_flavor_text_create_internal(
     if (!item_flavor_text_local_var) {
         return NULL;
     }
+    memset(item_flavor_text_local_var, 0, sizeof(item_flavor_text_t));
+    item_flavor_text_local_var->_library_owned = 1;
     item_flavor_text_local_var->text = text;
     item_flavor_text_local_var->version_group = version_group;
     item_flavor_text_local_var->language = language;
-
-    item_flavor_text_local_var->_library_owned = 1;
     return item_flavor_text_local_var;
 }
 
@@ -27,11 +27,14 @@ __attribute__((deprecated)) item_flavor_text_t *item_flavor_text_create(
     version_group_summary_t *version_group,
     language_summary_t *language
     ) {
-    return item_flavor_text_create_internal (
+    item_flavor_text_t *result = item_flavor_text_create_internal (
         text,
         version_group,
         language
         );
+    if (!result) {
+    }
+    return result;
 }
 
 void item_flavor_text_free(item_flavor_text_t *item_flavor_text) {
@@ -109,6 +112,8 @@ item_flavor_text_t *item_flavor_text_parseFromJSON(cJSON *item_flavor_textJSON){
 
     item_flavor_text_t *item_flavor_text_local_var = NULL;
 
+    char *text_local_str = NULL;
+
     // define the local variable for item_flavor_text->version_group
     version_group_summary_t *version_group_local_nonprim = NULL;
 
@@ -155,14 +160,24 @@ item_flavor_text_t *item_flavor_text_parseFromJSON(cJSON *item_flavor_textJSON){
     language_local_nonprim = language_summary_parseFromJSON(language); //nonprimitive
 
 
+    if (text && !cJSON_IsNull(text)) text_local_str = strdup(text->valuestring);
+
     item_flavor_text_local_var = item_flavor_text_create_internal (
-        strdup(text->valuestring),
+        text_local_str,
         version_group_local_nonprim,
         language_local_nonprim
         );
 
+    if (!item_flavor_text_local_var) {
+        goto end;
+    }
+
     return item_flavor_text_local_var;
 end:
+    if (text_local_str) {
+        free(text_local_str);
+        text_local_str = NULL;
+    }
     if (version_group_local_nonprim) {
         version_group_summary_free(version_group_local_nonprim);
         version_group_local_nonprim = NULL;

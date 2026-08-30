@@ -7,9 +7,9 @@
 | **id** | **Integer** |  | [readonly] |
 | **name** | **String** |  |  |
 | **formula** | **String** |  |  |
-| **descriptions** | [**Array&lt;GrowthRateDescription&gt;**](GrowthRateDescription.md) |  |  |
-| **levels** | [**Array&lt;Experience&gt;**](Experience.md) |  |  |
-| **pokemon_species** | [**Array&lt;PokemonSpeciesSummary&gt;**](PokemonSpeciesSummary.md) |  |  |
+| **descriptions** | [**Array&lt;GrowthRateDescription&gt;**](GrowthRateDescription.md) |  | [readonly] |
+| **levels** | [**Array&lt;Experience&gt;**](Experience.md) |  | [readonly] |
+| **pokemon_species** | [**Array&lt;PokemonSpeciesSummary&gt;**](PokemonSpeciesSummary.md) |  | [readonly] |
 
 ## Example
 

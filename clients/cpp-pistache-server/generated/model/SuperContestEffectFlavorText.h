@@ -33,7 +33,7 @@ class  SuperContestEffectFlavorText
 {
 public:
     SuperContestEffectFlavorText();
-    virtual ~SuperContestEffectFlavorText() = default;
+    virtual ~SuperContestEffectFlavorText();
 
 
     /// <summary>

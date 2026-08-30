@@ -13,10 +13,10 @@ static berry_flavor_name_t *berry_flavor_name_create_internal(
     if (!berry_flavor_name_local_var) {
         return NULL;
     }
+    memset(berry_flavor_name_local_var, 0, sizeof(berry_flavor_name_t));
+    berry_flavor_name_local_var->_library_owned = 1;
     berry_flavor_name_local_var->name = name;
     berry_flavor_name_local_var->language = language;
-
-    berry_flavor_name_local_var->_library_owned = 1;
     return berry_flavor_name_local_var;
 }
 
@@ -24,10 +24,13 @@ __attribute__((deprecated)) berry_flavor_name_t *berry_flavor_name_create(
     char *name,
     language_summary_t *language
     ) {
-    return berry_flavor_name_create_internal (
+    berry_flavor_name_t *result = berry_flavor_name_create_internal (
         name,
         language
         );
+    if (!result) {
+    }
+    return result;
 }
 
 void berry_flavor_name_free(berry_flavor_name_t *berry_flavor_name) {
@@ -87,6 +90,8 @@ berry_flavor_name_t *berry_flavor_name_parseFromJSON(cJSON *berry_flavor_nameJSO
 
     berry_flavor_name_t *berry_flavor_name_local_var = NULL;
 
+    char *name_local_str = NULL;
+
     // define the local variable for berry_flavor_name->language
     language_summary_t *language_local_nonprim = NULL;
 
@@ -118,13 +123,23 @@ berry_flavor_name_t *berry_flavor_name_parseFromJSON(cJSON *berry_flavor_nameJSO
     language_local_nonprim = language_summary_parseFromJSON(language); //nonprimitive
 
 
+    if (name && !cJSON_IsNull(name)) name_local_str = strdup(name->valuestring);
+
     berry_flavor_name_local_var = berry_flavor_name_create_internal (
-        strdup(name->valuestring),
+        name_local_str,
         language_local_nonprim
         );
 
+    if (!berry_flavor_name_local_var) {
+        goto end;
+    }
+
     return berry_flavor_name_local_var;
 end:
+    if (name_local_str) {
+        free(name_local_str);
+        name_local_str = NULL;
+    }
     if (language_local_nonprim) {
         language_summary_free(language_local_nonprim);
         language_local_nonprim = NULL;

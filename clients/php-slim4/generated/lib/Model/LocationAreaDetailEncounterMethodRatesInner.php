@@ -55,7 +55,8 @@ class LocationAreaDetailEncounterMethodRatesInner extends BaseModel
       "type" : "array",
       "items" : {
         "$ref" : "#/components/schemas/LocationAreaDetail_encounter_method_rates_inner_version_details_inner"
-      }
+      },
+      "default" : null
     }
   }
 }

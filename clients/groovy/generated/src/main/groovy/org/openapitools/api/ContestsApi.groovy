@@ -20,6 +20,7 @@ class ContestsApi {
         def queryParams = [:]
         def headerParams = [:]
         def bodyParams
+        def accept
         def contentType
 
 
@@ -36,7 +37,9 @@ class ContestsApi {
 
 
 
-        apiUtils.invokeApi(onSuccess, onFailure, basePath, versionPath, resourcePath, queryParams, headerParams, bodyParams, contentType,
+        accept = apiUtils.selectHeaderAccept(["application/json"])
+
+        apiUtils.invokeApi(onSuccess, onFailure, basePath, versionPath, resourcePath, queryParams, headerParams, bodyParams, accept, contentType,
                     "GET", "",
                     PaginatedContestEffectSummaryList.class )
 
@@ -49,6 +52,7 @@ class ContestsApi {
         def queryParams = [:]
         def headerParams = [:]
         def bodyParams
+        def accept
         def contentType
 
         // verify required params are set
@@ -60,7 +64,9 @@ class ContestsApi {
 
 
 
-        apiUtils.invokeApi(onSuccess, onFailure, basePath, versionPath, resourcePath, queryParams, headerParams, bodyParams, contentType,
+        accept = apiUtils.selectHeaderAccept(["application/json"])
+
+        apiUtils.invokeApi(onSuccess, onFailure, basePath, versionPath, resourcePath, queryParams, headerParams, bodyParams, accept, contentType,
                     "GET", "",
                     ContestEffectDetail.class )
 
@@ -73,6 +79,7 @@ class ContestsApi {
         def queryParams = [:]
         def headerParams = [:]
         def bodyParams
+        def accept
         def contentType
 
 
@@ -89,7 +96,9 @@ class ContestsApi {
 
 
 
-        apiUtils.invokeApi(onSuccess, onFailure, basePath, versionPath, resourcePath, queryParams, headerParams, bodyParams, contentType,
+        accept = apiUtils.selectHeaderAccept(["application/json"])
+
+        apiUtils.invokeApi(onSuccess, onFailure, basePath, versionPath, resourcePath, queryParams, headerParams, bodyParams, accept, contentType,
                     "GET", "",
                     PaginatedContestTypeSummaryList.class )
 
@@ -102,6 +111,7 @@ class ContestsApi {
         def queryParams = [:]
         def headerParams = [:]
         def bodyParams
+        def accept
         def contentType
 
         // verify required params are set
@@ -113,7 +123,9 @@ class ContestsApi {
 
 
 
-        apiUtils.invokeApi(onSuccess, onFailure, basePath, versionPath, resourcePath, queryParams, headerParams, bodyParams, contentType,
+        accept = apiUtils.selectHeaderAccept(["application/json"])
+
+        apiUtils.invokeApi(onSuccess, onFailure, basePath, versionPath, resourcePath, queryParams, headerParams, bodyParams, accept, contentType,
                     "GET", "",
                     ContestTypeDetail.class )
 
@@ -126,6 +138,7 @@ class ContestsApi {
         def queryParams = [:]
         def headerParams = [:]
         def bodyParams
+        def accept
         def contentType
 
 
@@ -142,7 +155,9 @@ class ContestsApi {
 
 
 
-        apiUtils.invokeApi(onSuccess, onFailure, basePath, versionPath, resourcePath, queryParams, headerParams, bodyParams, contentType,
+        accept = apiUtils.selectHeaderAccept(["application/json"])
+
+        apiUtils.invokeApi(onSuccess, onFailure, basePath, versionPath, resourcePath, queryParams, headerParams, bodyParams, accept, contentType,
                     "GET", "",
                     PaginatedSuperContestEffectSummaryList.class )
 
@@ -155,6 +170,7 @@ class ContestsApi {
         def queryParams = [:]
         def headerParams = [:]
         def bodyParams
+        def accept
         def contentType
 
         // verify required params are set
@@ -166,7 +182,9 @@ class ContestsApi {
 
 
 
-        apiUtils.invokeApi(onSuccess, onFailure, basePath, versionPath, resourcePath, queryParams, headerParams, bodyParams, contentType,
+        accept = apiUtils.selectHeaderAccept(["application/json"])
+
+        apiUtils.invokeApi(onSuccess, onFailure, basePath, versionPath, resourcePath, queryParams, headerParams, bodyParams, accept, contentType,
                     "GET", "",
                     SuperContestEffectDetail.class )
 

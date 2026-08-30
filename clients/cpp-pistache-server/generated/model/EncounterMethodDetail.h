@@ -34,7 +34,7 @@ class  EncounterMethodDetail
 {
 public:
     EncounterMethodDetail();
-    virtual ~EncounterMethodDetail() = default;
+    virtual ~EncounterMethodDetail();
 
 
     /// <summary>

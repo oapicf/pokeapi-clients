@@ -34,7 +34,7 @@ class  MoveBattleStyleDetail
 {
 public:
     MoveBattleStyleDetail();
-    virtual ~MoveBattleStyleDetail() = default;
+    virtual ~MoveBattleStyleDetail();
 
 
     /// <summary>

@@ -58,21 +58,27 @@ class MoveDamageClassDetail extends BaseModel
     },
     "descriptions" : {
       "type" : "array",
+      "readOnly" : true,
       "items" : {
         "$ref" : "#/components/schemas/MoveDamageClassDescription"
-      }
+      },
+      "default" : null
     },
     "moves" : {
       "type" : "array",
+      "readOnly" : true,
       "items" : {
         "$ref" : "#/components/schemas/MoveSummary"
-      }
+      },
+      "default" : null
     },
     "names" : {
       "type" : "array",
+      "readOnly" : true,
       "items" : {
         "$ref" : "#/components/schemas/MoveDamageClassName"
-      }
+      },
+      "default" : null
     }
   }
 }

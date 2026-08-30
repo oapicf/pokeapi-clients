@@ -58,15 +58,19 @@ class EvolutionTriggerDetail extends BaseModel
     },
     "names" : {
       "type" : "array",
+      "readOnly" : true,
       "items" : {
         "$ref" : "#/components/schemas/EvolutionTriggerName"
-      }
+      },
+      "default" : null
     },
     "pokemon_species" : {
       "type" : "array",
+      "readOnly" : true,
       "items" : {
         "$ref" : "#/components/schemas/AbilityDetail_pokemon_inner_pokemon"
-      }
+      },
+      "default" : null
     }
   }
 }

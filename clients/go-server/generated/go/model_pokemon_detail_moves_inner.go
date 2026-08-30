@@ -12,6 +12,11 @@
 package openapi
 
 
+import (
+	"encoding/json"
+	"fmt"
+)
+
 
 
 type PokemonDetailMovesInner struct {
@@ -20,8 +25,69 @@ type PokemonDetailMovesInner struct {
 
 	VersionGroupDetails []PokemonDetailMovesInnerVersionGroupDetailsInner `json:"version_group_details"`
 }
+// UnmarshalJSON validates required property keys then unmarshals into PokemonDetailMovesInner
+func (o *PokemonDetailMovesInner) UnmarshalJSON(data []byte) (err error) {
+	// Presence is checked against required fields that exist on this struct,
+	// including fields promoted from embedded allOf parents.
+	requiredProperties := []string{
+		"move",
+		"version_group_details",
+	}
 
-// AssertPokemonDetailMovesInnerRequired checks if the required fields are not zero-ed
+	requiredNullableProperties := map[string]bool{
+		"move": false,
+		"version_group_details": false,
+	}
+
+	allowedJsonKeys := map[string]struct{}{
+		"move": {},
+		"version_group_details": {},
+	}
+
+	allProperties := make(map[string]json.RawMessage)
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err
+	}
+
+	for _, requiredProperty := range requiredProperties {
+		value, exists := allProperties[requiredProperty]
+		if !exists {
+			return &RequiredError{Field: requiredProperty}
+		}
+		if string(value) == "null" && !requiredNullableProperties[requiredProperty] {
+			return &RequiredError{Field: requiredProperty}
+		}
+	}
+
+	for key := range allProperties {
+		if _, exists := allowedJsonKeys[key]; !exists {
+			return fmt.Errorf("json: unknown field %q", key)
+		}
+	}
+
+	var decoded PokemonDetailMovesInner
+
+	if value, exists := allProperties["move"]; exists {
+		if err = json.Unmarshal(value, &decoded.Move); err != nil {
+			return err
+		}
+	}
+	if value, exists := allProperties["version_group_details"]; exists {
+		if err = json.Unmarshal(value, &decoded.VersionGroupDetails); err != nil {
+			return err
+		}
+	}
+
+	*o = decoded
+
+	return nil
+}
+
+// AssertPokemonDetailMovesInnerRequired checks complex required fields (models, arrays, maps) and embedded parents.
+// Primitive required fields are validated for JSON request bodies in UnmarshalJSON so zero values remain valid.
 func AssertPokemonDetailMovesInnerRequired(obj PokemonDetailMovesInner) error {
 	elements := map[string]interface{}{
 		"move": obj.Move,

@@ -28,7 +28,7 @@ import PokemonStat from './PokemonStat';
 /**
  * The PokemonDetail model module.
  * @module model/PokemonDetail
- * @version 1.2.1-pre.0
+ * @version 2.0.1-pre.0
  */
 class PokemonDetail {
     /**

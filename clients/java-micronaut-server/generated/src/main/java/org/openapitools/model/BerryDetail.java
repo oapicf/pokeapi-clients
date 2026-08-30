@@ -47,7 +47,7 @@ import io.swagger.v3.oas.annotations.media.Schema;
   BerryDetail.JSON_PROPERTY_NATURAL_GIFT_TYPE
 })
 @JsonTypeName("BerryDetail")
-@Generated(value="org.openapitools.codegen.languages.JavaMicronautServerCodegen", date="2026-02-07T15:23:03.167972722Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@Generated(value="org.openapitools.codegen.languages.JavaMicronautServerCodegen", date="2026-08-30T01:55:54.631003115Z[Etc/UTC]", comments = "Generator version: 7.24.0")
 @Introspected
 public class BerryDetail {
     public static final String JSON_PROPERTY_ID = "id";
@@ -299,32 +299,16 @@ public class BerryDetail {
         this.firmness = firmness;
     }
 
-    public BerryDetail flavors(List<@Valid BerryDetailFlavorsInner> flavors) {
-        this.flavors = flavors;
-        return this;
-    }
-
-    public BerryDetail addFlavorsItem(BerryDetailFlavorsInner flavorsItem) {
-        this.flavors.add(flavorsItem);
-        return this;
-    }
-
     /**
      * Get flavors
      * @return flavors
      */
     @NotNull
-    @Schema(name = "flavors", requiredMode = Schema.RequiredMode.REQUIRED)
+    @Schema(name = "flavors", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
     @JsonProperty(JSON_PROPERTY_FLAVORS)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public List<@Valid BerryDetailFlavorsInner> getFlavors() {
         return flavors;
-    }
-
-    @JsonProperty(JSON_PROPERTY_FLAVORS)
-    @JsonInclude(value = JsonInclude.Include.ALWAYS)
-    public void setFlavors(List<@Valid BerryDetailFlavorsInner> flavors) {
-        this.flavors = flavors;
     }
 
     public BerryDetail item(ItemSummary item) {
@@ -428,10 +412,7 @@ public class BerryDetail {
      * (except the first line).
      */
     private String toIndentedString(Object o) {
-        if (o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
+        return o == null ? "null" : o.toString().replace("\n", "\n    ");
     }
 
 }

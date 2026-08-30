@@ -26,6 +26,8 @@ NatureBattleStylePreference::NatureBattleStylePreference()
     
 }
 
+NatureBattleStylePreference::~NatureBattleStylePreference() = default;
+
 void NatureBattleStylePreference::validate() const
 {
     std::stringstream msg;

@@ -21,7 +21,7 @@
 
 namespace OpenAPI {
 
-OAIVersionName::OAIVersionName(QString json) {
+OAIVersionName::OAIVersionName(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -41,7 +41,7 @@ void OAIVersionName::initializeModel() {
     m_language_isValid = false;
 }
 
-void OAIVersionName::fromJson(QString jsonString) {
+void OAIVersionName::fromJson(const QString &jsonString) {
     QByteArray array(jsonString.toStdString().c_str());
     QJsonDocument doc = QJsonDocument::fromJson(array);
     QJsonObject jsonObject = doc.object();

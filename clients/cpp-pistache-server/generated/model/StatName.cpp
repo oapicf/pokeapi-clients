@@ -25,6 +25,8 @@ StatName::StatName()
     
 }
 
+StatName::~StatName() = default;
+
 void StatName::validate() const
 {
     std::stringstream msg;

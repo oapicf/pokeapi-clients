@@ -47,7 +47,7 @@ class EvolutionChainDetailChainEvolvesToInner
      * @var EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner[]|null
      * @SerializedName("evolution_details")
      * @Type("array<OpenAPI\Server\Model\EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner>")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Valid]
     #[Assert\All([
@@ -59,7 +59,7 @@ class EvolutionChainDetailChainEvolvesToInner
      * @var bool|null
      * @SerializedName("is_baby")
      * @Type("bool")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Type("bool")]
     protected ?bool $isBaby = null;
@@ -68,7 +68,7 @@ class EvolutionChainDetailChainEvolvesToInner
      * @var AbilityDetailPokemonInnerPokemon|null
      * @SerializedName("species")
      * @Type("OpenAPI\Server\Model\AbilityDetailPokemonInnerPokemon")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Valid]
     #[Assert\Type("OpenAPI\Server\Model\AbilityDetailPokemonInnerPokemon")]
@@ -98,12 +98,12 @@ class EvolutionChainDetailChainEvolvesToInner
     }
 
     /**
-    * Sets evolutionDetails.
-    *
-    * @param EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner[]|null $evolutionDetails
-    *
-    * @return $this
-    */
+     * Sets evolutionDetails.
+     *
+     * @param EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner[]|null $evolutionDetails
+     *
+     * @return $this
+     */
     public function setEvolutionDetails(?array $evolutionDetails): self
     {
         $this->evolutionDetails = $evolutionDetails;
@@ -125,12 +125,12 @@ class EvolutionChainDetailChainEvolvesToInner
     }
 
     /**
-    * Sets isBaby.
-    *
-    * @param bool|null $isBaby
-    *
-    * @return $this
-    */
+     * Sets isBaby.
+     *
+     * @param bool|null $isBaby
+     *
+     * @return $this
+     */
     public function setIsBaby(?bool $isBaby): self
     {
         $this->isBaby = $isBaby;
@@ -152,12 +152,12 @@ class EvolutionChainDetailChainEvolvesToInner
     }
 
     /**
-    * Sets species.
-    *
-    * @param AbilityDetailPokemonInnerPokemon|null $species
-    *
-    * @return $this
-    */
+     * Sets species.
+     *
+     * @param AbilityDetailPokemonInnerPokemon|null $species
+     *
+     * @return $this
+     */
     public function setSpecies(?AbilityDetailPokemonInnerPokemon $species): self
     {
         $this->species = $species;

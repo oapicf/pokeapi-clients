@@ -16,7 +16,6 @@ package openapitools;
 
 import public "models/ability_detail_pokemon_inner_pokemon.proto";
 import public "models/evolution_chain_detail_chain_evolves_to_inner_evolution_details_inner_gender.proto";
-import public "models/todo_object_mapping.proto";
 
 message EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner {
 
@@ -26,9 +25,9 @@ message EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner {
 
   EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender item = 3242771;
 
-  TODO_OBJECT_MAPPING known_move = 316998478;
+  EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender known_move = 316998478;
 
-  TODO_OBJECT_MAPPING known_move_type = 463162607;
+  EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender known_move_type = 463162607;
 
   EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender location = 290430904;
 

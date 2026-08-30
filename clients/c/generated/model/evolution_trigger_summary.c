@@ -13,10 +13,10 @@ static evolution_trigger_summary_t *evolution_trigger_summary_create_internal(
     if (!evolution_trigger_summary_local_var) {
         return NULL;
     }
+    memset(evolution_trigger_summary_local_var, 0, sizeof(evolution_trigger_summary_t));
+    evolution_trigger_summary_local_var->_library_owned = 1;
     evolution_trigger_summary_local_var->name = name;
     evolution_trigger_summary_local_var->url = url;
-
-    evolution_trigger_summary_local_var->_library_owned = 1;
     return evolution_trigger_summary_local_var;
 }
 
@@ -24,10 +24,13 @@ __attribute__((deprecated)) evolution_trigger_summary_t *evolution_trigger_summa
     char *name,
     char *url
     ) {
-    return evolution_trigger_summary_create_internal (
+    evolution_trigger_summary_t *result = evolution_trigger_summary_create_internal (
         name,
         url
         );
+    if (!result) {
+    }
+    return result;
 }
 
 void evolution_trigger_summary_free(evolution_trigger_summary_t *evolution_trigger_summary) {
@@ -82,6 +85,10 @@ evolution_trigger_summary_t *evolution_trigger_summary_parseFromJSON(cJSON *evol
 
     evolution_trigger_summary_t *evolution_trigger_summary_local_var = NULL;
 
+    char *name_local_str = NULL;
+
+    char *url_local_str = NULL;
+
     // evolution_trigger_summary->name
     cJSON *name = cJSON_GetObjectItemCaseSensitive(evolution_trigger_summaryJSON, "name");
     if (cJSON_IsNull(name)) {
@@ -113,13 +120,28 @@ evolution_trigger_summary_t *evolution_trigger_summary_parseFromJSON(cJSON *evol
     }
 
 
+    if (name && !cJSON_IsNull(name)) name_local_str = strdup(name->valuestring);
+    if (url && !cJSON_IsNull(url)) url_local_str = strdup(url->valuestring);
+
     evolution_trigger_summary_local_var = evolution_trigger_summary_create_internal (
-        strdup(name->valuestring),
-        strdup(url->valuestring)
+        name_local_str,
+        url_local_str
         );
+
+    if (!evolution_trigger_summary_local_var) {
+        goto end;
+    }
 
     return evolution_trigger_summary_local_var;
 end:
+    if (name_local_str) {
+        free(name_local_str);
+        name_local_str = NULL;
+    }
+    if (url_local_str) {
+        free(url_local_str);
+        url_local_str = NULL;
+    }
     return NULL;
 
 }

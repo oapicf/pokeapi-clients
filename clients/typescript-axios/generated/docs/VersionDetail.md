@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **number** |  | [readonly] [default to undefined]
 **name** | **string** |  | [default to undefined]
-**names** | [**Array&lt;VersionName&gt;**](VersionName.md) |  | [default to undefined]
+**names** | [**Array&lt;VersionName&gt;**](VersionName.md) |  | [readonly] [default to undefined]
 **version_group** | [**VersionGroupSummary**](VersionGroupSummary.md) |  | [default to undefined]
 
 ## Example

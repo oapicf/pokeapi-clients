@@ -92,8 +92,18 @@ namespace Org.OpenAPITools.Model
     /// <summary>
     /// A Json converter for type <see cref="GrowthRateSummary" />
     /// </summary>
-    public class GrowthRateSummaryJsonConverter : JsonConverter<GrowthRateSummary>
+    public partial class GrowthRateSummaryJsonConverter : JsonConverter<GrowthRateSummary>
     {
+        partial void OnCreated();
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="GrowthRateSummaryJsonConverter" /> class.
+        /// </summary>
+        public GrowthRateSummaryJsonConverter()
+        {
+            OnCreated();
+        }
+
         /// <summary>
         /// Deserializes json to <see cref="GrowthRateSummary" />
         /// </summary>

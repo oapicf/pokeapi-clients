@@ -12,18 +12,21 @@ static pokemon_detail_sprites_t *pokemon_detail_sprites_create_internal(
     if (!pokemon_detail_sprites_local_var) {
         return NULL;
     }
-    pokemon_detail_sprites_local_var->front_default = front_default;
-
+    memset(pokemon_detail_sprites_local_var, 0, sizeof(pokemon_detail_sprites_t));
     pokemon_detail_sprites_local_var->_library_owned = 1;
+    pokemon_detail_sprites_local_var->front_default = front_default;
     return pokemon_detail_sprites_local_var;
 }
 
 __attribute__((deprecated)) pokemon_detail_sprites_t *pokemon_detail_sprites_create(
     char *front_default
     ) {
-    return pokemon_detail_sprites_create_internal (
+    pokemon_detail_sprites_t *result = pokemon_detail_sprites_create_internal (
         front_default
         );
+    if (!result) {
+    }
+    return result;
 }
 
 void pokemon_detail_sprites_free(pokemon_detail_sprites_t *pokemon_detail_sprites) {
@@ -64,6 +67,8 @@ pokemon_detail_sprites_t *pokemon_detail_sprites_parseFromJSON(cJSON *pokemon_de
 
     pokemon_detail_sprites_t *pokemon_detail_sprites_local_var = NULL;
 
+    char *front_default_local_str = NULL;
+
     // pokemon_detail_sprites->front_default
     cJSON *front_default = cJSON_GetObjectItemCaseSensitive(pokemon_detail_spritesJSON, "front_default");
     if (cJSON_IsNull(front_default)) {
@@ -77,12 +82,22 @@ pokemon_detail_sprites_t *pokemon_detail_sprites_parseFromJSON(cJSON *pokemon_de
     }
 
 
+    if (front_default && !cJSON_IsNull(front_default)) front_default_local_str = strdup(front_default->valuestring);
+
     pokemon_detail_sprites_local_var = pokemon_detail_sprites_create_internal (
-        front_default && !cJSON_IsNull(front_default) ? strdup(front_default->valuestring) : NULL
+        front_default_local_str
         );
+
+    if (!pokemon_detail_sprites_local_var) {
+        goto end;
+    }
 
     return pokemon_detail_sprites_local_var;
 end:
+    if (front_default_local_str) {
+        free(front_default_local_str);
+        front_default_local_str = NULL;
+    }
     return NULL;
 
 }

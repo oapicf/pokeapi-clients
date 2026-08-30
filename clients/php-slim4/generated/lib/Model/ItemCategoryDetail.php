@@ -58,15 +58,19 @@ class ItemCategoryDetail extends BaseModel
     },
     "items" : {
       "type" : "array",
+      "readOnly" : true,
       "items" : {
         "$ref" : "#/components/schemas/ItemSummary"
-      }
+      },
+      "default" : null
     },
     "names" : {
       "type" : "array",
+      "readOnly" : true,
       "items" : {
         "$ref" : "#/components/schemas/ItemCategoryName"
-      }
+      },
+      "default" : null
     },
     "pocket" : {
       "$ref" : "#/components/schemas/ItemPocketSummary"

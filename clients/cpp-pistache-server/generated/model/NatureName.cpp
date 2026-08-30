@@ -25,6 +25,8 @@ NatureName::NatureName()
     
 }
 
+NatureName::~NatureName() = default;
+
 void NatureName::validate() const
 {
     std::stringstream msg;

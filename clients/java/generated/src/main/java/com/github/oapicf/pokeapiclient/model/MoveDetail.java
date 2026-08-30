@@ -68,7 +68,7 @@ import com.github.oapicf.pokeapiclient.JSON;
 /**
  * MoveDetail
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-07T15:22:35.747827932Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-08-30T01:55:28.842792947Z[Etc/UTC]", comments = "Generator version: 7.24.0")
 public class MoveDetail {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -195,11 +195,27 @@ public class MoveDetail {
 
   public MoveDetail(
      Integer id, 
-     MoveMeta meta
+     List<MoveChangeEffectEntriesInner> effectEntries, 
+     List<MoveDetailEffectChangesInner> effectChanges, 
+     MoveMeta meta, 
+     List<MoveName> names, 
+     List<MoveChange> pastValues, 
+     List<MoveDetailStatChangesInner> statChanges, 
+     List<MoveDetailMachinesInner> machines, 
+     List<MoveFlavorText> flavorTextEntries, 
+     List<AbilityDetailPokemonInnerPokemon> learnedByPokemon
   ) {
     this();
     this.id = id;
+    this.effectEntries = effectEntries;
+    this.effectChanges = effectChanges;
     this.meta = meta;
+    this.names = names;
+    this.pastValues = pastValues;
+    this.statChanges = statChanges;
+    this.machines = machines;
+    this.flavorTextEntries = flavorTextEntries;
+    this.learnedByPokemon = learnedByPokemon;
   }
 
   /**
@@ -403,19 +419,6 @@ public class MoveDetail {
   }
 
 
-  public MoveDetail effectEntries(@javax.annotation.Nonnull List<MoveChangeEffectEntriesInner> effectEntries) {
-    this.effectEntries = effectEntries;
-    return this;
-  }
-
-  public MoveDetail addEffectEntriesItem(MoveChangeEffectEntriesInner effectEntriesItem) {
-    if (this.effectEntries == null) {
-      this.effectEntries = new ArrayList<>();
-    }
-    this.effectEntries.add(effectEntriesItem);
-    return this;
-  }
-
   /**
    * Get effectEntries
    * @return effectEntries
@@ -425,23 +428,7 @@ public class MoveDetail {
     return effectEntries;
   }
 
-  public void setEffectEntries(@javax.annotation.Nonnull List<MoveChangeEffectEntriesInner> effectEntries) {
-    this.effectEntries = effectEntries;
-  }
 
-
-  public MoveDetail effectChanges(@javax.annotation.Nonnull List<MoveDetailEffectChangesInner> effectChanges) {
-    this.effectChanges = effectChanges;
-    return this;
-  }
-
-  public MoveDetail addEffectChangesItem(MoveDetailEffectChangesInner effectChangesItem) {
-    if (this.effectChanges == null) {
-      this.effectChanges = new ArrayList<>();
-    }
-    this.effectChanges.add(effectChangesItem);
-    return this;
-  }
 
   /**
    * Get effectChanges
@@ -452,9 +439,6 @@ public class MoveDetail {
     return effectChanges;
   }
 
-  public void setEffectChanges(@javax.annotation.Nonnull List<MoveDetailEffectChangesInner> effectChanges) {
-    this.effectChanges = effectChanges;
-  }
 
 
   public MoveDetail generation(@javax.annotation.Nonnull GenerationSummary generation) {
@@ -487,19 +471,6 @@ public class MoveDetail {
 
 
 
-  public MoveDetail names(@javax.annotation.Nonnull List<MoveName> names) {
-    this.names = names;
-    return this;
-  }
-
-  public MoveDetail addNamesItem(MoveName namesItem) {
-    if (this.names == null) {
-      this.names = new ArrayList<>();
-    }
-    this.names.add(namesItem);
-    return this;
-  }
-
   /**
    * Get names
    * @return names
@@ -509,23 +480,7 @@ public class MoveDetail {
     return names;
   }
 
-  public void setNames(@javax.annotation.Nonnull List<MoveName> names) {
-    this.names = names;
-  }
 
-
-  public MoveDetail pastValues(@javax.annotation.Nonnull List<MoveChange> pastValues) {
-    this.pastValues = pastValues;
-    return this;
-  }
-
-  public MoveDetail addPastValuesItem(MoveChange pastValuesItem) {
-    if (this.pastValues == null) {
-      this.pastValues = new ArrayList<>();
-    }
-    this.pastValues.add(pastValuesItem);
-    return this;
-  }
 
   /**
    * Get pastValues
@@ -536,23 +491,7 @@ public class MoveDetail {
     return pastValues;
   }
 
-  public void setPastValues(@javax.annotation.Nonnull List<MoveChange> pastValues) {
-    this.pastValues = pastValues;
-  }
 
-
-  public MoveDetail statChanges(@javax.annotation.Nonnull List<MoveDetailStatChangesInner> statChanges) {
-    this.statChanges = statChanges;
-    return this;
-  }
-
-  public MoveDetail addStatChangesItem(MoveDetailStatChangesInner statChangesItem) {
-    if (this.statChanges == null) {
-      this.statChanges = new ArrayList<>();
-    }
-    this.statChanges.add(statChangesItem);
-    return this;
-  }
 
   /**
    * Get statChanges
@@ -563,9 +502,6 @@ public class MoveDetail {
     return statChanges;
   }
 
-  public void setStatChanges(@javax.annotation.Nonnull List<MoveDetailStatChangesInner> statChanges) {
-    this.statChanges = statChanges;
-  }
 
 
   public MoveDetail superContestEffect(@javax.annotation.Nonnull SuperContestEffectSummary superContestEffect) {
@@ -625,19 +561,6 @@ public class MoveDetail {
   }
 
 
-  public MoveDetail machines(@javax.annotation.Nonnull List<MoveDetailMachinesInner> machines) {
-    this.machines = machines;
-    return this;
-  }
-
-  public MoveDetail addMachinesItem(MoveDetailMachinesInner machinesItem) {
-    if (this.machines == null) {
-      this.machines = new ArrayList<>();
-    }
-    this.machines.add(machinesItem);
-    return this;
-  }
-
   /**
    * Get machines
    * @return machines
@@ -647,23 +570,7 @@ public class MoveDetail {
     return machines;
   }
 
-  public void setMachines(@javax.annotation.Nonnull List<MoveDetailMachinesInner> machines) {
-    this.machines = machines;
-  }
 
-
-  public MoveDetail flavorTextEntries(@javax.annotation.Nonnull List<MoveFlavorText> flavorTextEntries) {
-    this.flavorTextEntries = flavorTextEntries;
-    return this;
-  }
-
-  public MoveDetail addFlavorTextEntriesItem(MoveFlavorText flavorTextEntriesItem) {
-    if (this.flavorTextEntries == null) {
-      this.flavorTextEntries = new ArrayList<>();
-    }
-    this.flavorTextEntries.add(flavorTextEntriesItem);
-    return this;
-  }
 
   /**
    * Get flavorTextEntries
@@ -674,23 +581,7 @@ public class MoveDetail {
     return flavorTextEntries;
   }
 
-  public void setFlavorTextEntries(@javax.annotation.Nonnull List<MoveFlavorText> flavorTextEntries) {
-    this.flavorTextEntries = flavorTextEntries;
-  }
 
-
-  public MoveDetail learnedByPokemon(@javax.annotation.Nonnull List<AbilityDetailPokemonInnerPokemon> learnedByPokemon) {
-    this.learnedByPokemon = learnedByPokemon;
-    return this;
-  }
-
-  public MoveDetail addLearnedByPokemonItem(AbilityDetailPokemonInnerPokemon learnedByPokemonItem) {
-    if (this.learnedByPokemon == null) {
-      this.learnedByPokemon = new ArrayList<>();
-    }
-    this.learnedByPokemon.add(learnedByPokemonItem);
-    return this;
-  }
 
   /**
    * Get learnedByPokemon
@@ -701,9 +592,6 @@ public class MoveDetail {
     return learnedByPokemon;
   }
 
-  public void setLearnedByPokemon(@javax.annotation.Nonnull List<AbilityDetailPokemonInnerPokemon> learnedByPokemon) {
-    this.learnedByPokemon = learnedByPokemon;
-  }
 
 
 
@@ -795,10 +683,7 @@ public class MoveDetail {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 
@@ -852,96 +737,96 @@ public class MoveDetail {
       ContestEffectSummary.validateJsonElement(jsonObj.get("contest_effect"));
       // validate the required field `damage_class`
       MoveDamageClassSummary.validateJsonElement(jsonObj.get("damage_class"));
-      // ensure the json data is an array
-      if (!jsonObj.get("effect_entries").isJsonArray()) {
-        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `effect_entries` to be an array in the JSON string but got `%s`", jsonObj.get("effect_entries").toString()));
+      if (jsonObj.get("effect_entries") != null) {
+        if (!jsonObj.get("effect_entries").isJsonArray()) {
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `effect_entries` to be an array in the JSON string but got `%s`", jsonObj.get("effect_entries").toString()));
+        }
+        JsonArray jsonArrayeffectEntries = jsonObj.getAsJsonArray("effect_entries");
+        // validate the required field `effect_entries` (array)
+        for (int i = 0; i < jsonArrayeffectEntries.size(); i++) {
+          MoveChangeEffectEntriesInner.validateJsonElement(jsonArrayeffectEntries.get(i));
+        }
       }
-
-      JsonArray jsonArrayeffectEntries = jsonObj.getAsJsonArray("effect_entries");
-      // validate the required field `effect_entries` (array)
-      for (int i = 0; i < jsonArrayeffectEntries.size(); i++) {
-        MoveChangeEffectEntriesInner.validateJsonElement(jsonArrayeffectEntries.get(i));
-      };
-      // ensure the json data is an array
-      if (!jsonObj.get("effect_changes").isJsonArray()) {
-        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `effect_changes` to be an array in the JSON string but got `%s`", jsonObj.get("effect_changes").toString()));
+      if (jsonObj.get("effect_changes") != null) {
+        if (!jsonObj.get("effect_changes").isJsonArray()) {
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `effect_changes` to be an array in the JSON string but got `%s`", jsonObj.get("effect_changes").toString()));
+        }
+        JsonArray jsonArrayeffectChanges = jsonObj.getAsJsonArray("effect_changes");
+        // validate the required field `effect_changes` (array)
+        for (int i = 0; i < jsonArrayeffectChanges.size(); i++) {
+          MoveDetailEffectChangesInner.validateJsonElement(jsonArrayeffectChanges.get(i));
+        }
       }
-
-      JsonArray jsonArrayeffectChanges = jsonObj.getAsJsonArray("effect_changes");
-      // validate the required field `effect_changes` (array)
-      for (int i = 0; i < jsonArrayeffectChanges.size(); i++) {
-        MoveDetailEffectChangesInner.validateJsonElement(jsonArrayeffectChanges.get(i));
-      };
       // validate the required field `generation`
       GenerationSummary.validateJsonElement(jsonObj.get("generation"));
       // validate the required field `meta`
       MoveMeta.validateJsonElement(jsonObj.get("meta"));
-      // ensure the json data is an array
-      if (!jsonObj.get("names").isJsonArray()) {
-        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `names` to be an array in the JSON string but got `%s`", jsonObj.get("names").toString()));
+      if (jsonObj.get("names") != null) {
+        if (!jsonObj.get("names").isJsonArray()) {
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `names` to be an array in the JSON string but got `%s`", jsonObj.get("names").toString()));
+        }
+        JsonArray jsonArraynames = jsonObj.getAsJsonArray("names");
+        // validate the required field `names` (array)
+        for (int i = 0; i < jsonArraynames.size(); i++) {
+          MoveName.validateJsonElement(jsonArraynames.get(i));
+        }
       }
-
-      JsonArray jsonArraynames = jsonObj.getAsJsonArray("names");
-      // validate the required field `names` (array)
-      for (int i = 0; i < jsonArraynames.size(); i++) {
-        MoveName.validateJsonElement(jsonArraynames.get(i));
-      };
-      // ensure the json data is an array
-      if (!jsonObj.get("past_values").isJsonArray()) {
-        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `past_values` to be an array in the JSON string but got `%s`", jsonObj.get("past_values").toString()));
+      if (jsonObj.get("past_values") != null) {
+        if (!jsonObj.get("past_values").isJsonArray()) {
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `past_values` to be an array in the JSON string but got `%s`", jsonObj.get("past_values").toString()));
+        }
+        JsonArray jsonArraypastValues = jsonObj.getAsJsonArray("past_values");
+        // validate the required field `past_values` (array)
+        for (int i = 0; i < jsonArraypastValues.size(); i++) {
+          MoveChange.validateJsonElement(jsonArraypastValues.get(i));
+        }
       }
-
-      JsonArray jsonArraypastValues = jsonObj.getAsJsonArray("past_values");
-      // validate the required field `past_values` (array)
-      for (int i = 0; i < jsonArraypastValues.size(); i++) {
-        MoveChange.validateJsonElement(jsonArraypastValues.get(i));
-      };
-      // ensure the json data is an array
-      if (!jsonObj.get("stat_changes").isJsonArray()) {
-        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `stat_changes` to be an array in the JSON string but got `%s`", jsonObj.get("stat_changes").toString()));
+      if (jsonObj.get("stat_changes") != null) {
+        if (!jsonObj.get("stat_changes").isJsonArray()) {
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `stat_changes` to be an array in the JSON string but got `%s`", jsonObj.get("stat_changes").toString()));
+        }
+        JsonArray jsonArraystatChanges = jsonObj.getAsJsonArray("stat_changes");
+        // validate the required field `stat_changes` (array)
+        for (int i = 0; i < jsonArraystatChanges.size(); i++) {
+          MoveDetailStatChangesInner.validateJsonElement(jsonArraystatChanges.get(i));
+        }
       }
-
-      JsonArray jsonArraystatChanges = jsonObj.getAsJsonArray("stat_changes");
-      // validate the required field `stat_changes` (array)
-      for (int i = 0; i < jsonArraystatChanges.size(); i++) {
-        MoveDetailStatChangesInner.validateJsonElement(jsonArraystatChanges.get(i));
-      };
       // validate the required field `super_contest_effect`
       SuperContestEffectSummary.validateJsonElement(jsonObj.get("super_contest_effect"));
       // validate the required field `target`
       MoveTargetSummary.validateJsonElement(jsonObj.get("target"));
       // validate the required field `type`
       TypeSummary.validateJsonElement(jsonObj.get("type"));
-      // ensure the json data is an array
-      if (!jsonObj.get("machines").isJsonArray()) {
-        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `machines` to be an array in the JSON string but got `%s`", jsonObj.get("machines").toString()));
+      if (jsonObj.get("machines") != null) {
+        if (!jsonObj.get("machines").isJsonArray()) {
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `machines` to be an array in the JSON string but got `%s`", jsonObj.get("machines").toString()));
+        }
+        JsonArray jsonArraymachines = jsonObj.getAsJsonArray("machines");
+        // validate the required field `machines` (array)
+        for (int i = 0; i < jsonArraymachines.size(); i++) {
+          MoveDetailMachinesInner.validateJsonElement(jsonArraymachines.get(i));
+        }
       }
-
-      JsonArray jsonArraymachines = jsonObj.getAsJsonArray("machines");
-      // validate the required field `machines` (array)
-      for (int i = 0; i < jsonArraymachines.size(); i++) {
-        MoveDetailMachinesInner.validateJsonElement(jsonArraymachines.get(i));
-      };
-      // ensure the json data is an array
-      if (!jsonObj.get("flavor_text_entries").isJsonArray()) {
-        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `flavor_text_entries` to be an array in the JSON string but got `%s`", jsonObj.get("flavor_text_entries").toString()));
+      if (jsonObj.get("flavor_text_entries") != null) {
+        if (!jsonObj.get("flavor_text_entries").isJsonArray()) {
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `flavor_text_entries` to be an array in the JSON string but got `%s`", jsonObj.get("flavor_text_entries").toString()));
+        }
+        JsonArray jsonArrayflavorTextEntries = jsonObj.getAsJsonArray("flavor_text_entries");
+        // validate the required field `flavor_text_entries` (array)
+        for (int i = 0; i < jsonArrayflavorTextEntries.size(); i++) {
+          MoveFlavorText.validateJsonElement(jsonArrayflavorTextEntries.get(i));
+        }
       }
-
-      JsonArray jsonArrayflavorTextEntries = jsonObj.getAsJsonArray("flavor_text_entries");
-      // validate the required field `flavor_text_entries` (array)
-      for (int i = 0; i < jsonArrayflavorTextEntries.size(); i++) {
-        MoveFlavorText.validateJsonElement(jsonArrayflavorTextEntries.get(i));
-      };
-      // ensure the json data is an array
-      if (!jsonObj.get("learned_by_pokemon").isJsonArray()) {
-        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `learned_by_pokemon` to be an array in the JSON string but got `%s`", jsonObj.get("learned_by_pokemon").toString()));
+      if (jsonObj.get("learned_by_pokemon") != null) {
+        if (!jsonObj.get("learned_by_pokemon").isJsonArray()) {
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `learned_by_pokemon` to be an array in the JSON string but got `%s`", jsonObj.get("learned_by_pokemon").toString()));
+        }
+        JsonArray jsonArraylearnedByPokemon = jsonObj.getAsJsonArray("learned_by_pokemon");
+        // validate the required field `learned_by_pokemon` (array)
+        for (int i = 0; i < jsonArraylearnedByPokemon.size(); i++) {
+          AbilityDetailPokemonInnerPokemon.validateJsonElement(jsonArraylearnedByPokemon.get(i));
+        }
       }
-
-      JsonArray jsonArraylearnedByPokemon = jsonObj.getAsJsonArray("learned_by_pokemon");
-      // validate the required field `learned_by_pokemon` (array)
-      for (int i = 0; i < jsonArraylearnedByPokemon.size(); i++) {
-        AbilityDetailPokemonInnerPokemon.validateJsonElement(jsonArraylearnedByPokemon.get(i));
-      };
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {

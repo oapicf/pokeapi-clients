@@ -12,6 +12,11 @@
 package openapi
 
 
+import (
+	"encoding/json"
+	"fmt"
+)
+
 
 
 type PokemonSpeciesDetailGeneraInner struct {
@@ -20,11 +25,71 @@ type PokemonSpeciesDetailGeneraInner struct {
 
 	Language AbilityDetailPokemonInnerPokemon `json:"language"`
 }
+// UnmarshalJSON validates required property keys then unmarshals into PokemonSpeciesDetailGeneraInner
+func (o *PokemonSpeciesDetailGeneraInner) UnmarshalJSON(data []byte) (err error) {
+	// Presence is checked against required fields that exist on this struct,
+	// including fields promoted from embedded allOf parents.
+	requiredProperties := []string{
+		"genus",
+		"language",
+	}
 
-// AssertPokemonSpeciesDetailGeneraInnerRequired checks if the required fields are not zero-ed
+	requiredNullableProperties := map[string]bool{
+		"genus": false,
+		"language": false,
+	}
+
+	allowedJsonKeys := map[string]struct{}{
+		"genus": {},
+		"language": {},
+	}
+
+	allProperties := make(map[string]json.RawMessage)
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err
+	}
+
+	for _, requiredProperty := range requiredProperties {
+		value, exists := allProperties[requiredProperty]
+		if !exists {
+			return &RequiredError{Field: requiredProperty}
+		}
+		if string(value) == "null" && !requiredNullableProperties[requiredProperty] {
+			return &RequiredError{Field: requiredProperty}
+		}
+	}
+
+	for key := range allProperties {
+		if _, exists := allowedJsonKeys[key]; !exists {
+			return fmt.Errorf("json: unknown field %q", key)
+		}
+	}
+
+	var decoded PokemonSpeciesDetailGeneraInner
+
+	if value, exists := allProperties["genus"]; exists {
+		if err = json.Unmarshal(value, &decoded.Genus); err != nil {
+			return err
+		}
+	}
+	if value, exists := allProperties["language"]; exists {
+		if err = json.Unmarshal(value, &decoded.Language); err != nil {
+			return err
+		}
+	}
+
+	*o = decoded
+
+	return nil
+}
+
+// AssertPokemonSpeciesDetailGeneraInnerRequired checks complex required fields (models, arrays, maps) and embedded parents.
+// Primitive required fields are validated for JSON request bodies in UnmarshalJSON so zero values remain valid.
 func AssertPokemonSpeciesDetailGeneraInnerRequired(obj PokemonSpeciesDetailGeneraInner) error {
 	elements := map[string]interface{}{
-		"genus": obj.Genus,
 		"language": obj.Language,
 	}
 	for name, el := range elements {

@@ -38,7 +38,7 @@ class  StatDetail
 {
 public:
     StatDetail();
-    virtual ~StatDetail() = default;
+    virtual ~StatDetail();
 
 
     /// <summary>

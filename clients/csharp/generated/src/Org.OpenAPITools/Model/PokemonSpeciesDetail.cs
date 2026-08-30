@@ -118,13 +118,13 @@ namespace Org.OpenAPITools.Model
         /// Gets or Sets PokedexNumbers
         /// </summary>
         [JsonPropertyName("pokedex_numbers")]
-        public List<PokemonDexEntry> PokedexNumbers { get; set; }
+        public List<PokemonDexEntry> PokedexNumbers { get; }
 
         /// <summary>
         /// Gets or Sets EggGroups
         /// </summary>
         [JsonPropertyName("egg_groups")]
-        public List<AbilityDetailPokemonInnerPokemon> EggGroups { get; set; }
+        public List<AbilityDetailPokemonInnerPokemon> EggGroups { get; }
 
         /// <summary>
         /// Gets or Sets Color
@@ -166,37 +166,37 @@ namespace Org.OpenAPITools.Model
         /// Gets or Sets Names
         /// </summary>
         [JsonPropertyName("names")]
-        public List<PokemonFormDetailFormNamesInner> Names { get; set; }
+        public List<PokemonFormDetailFormNamesInner> Names { get; }
 
         /// <summary>
         /// Gets or Sets PalParkEncounters
         /// </summary>
         [JsonPropertyName("pal_park_encounters")]
-        public List<PokemonSpeciesDetailPalParkEncountersInner> PalParkEncounters { get; set; }
+        public List<PokemonSpeciesDetailPalParkEncountersInner> PalParkEncounters { get; }
 
         /// <summary>
         /// Gets or Sets FormDescriptions
         /// </summary>
         [JsonPropertyName("form_descriptions")]
-        public List<PokemonSpeciesDescription> FormDescriptions { get; set; }
+        public List<PokemonSpeciesDescription> FormDescriptions { get; }
 
         /// <summary>
         /// Gets or Sets FlavorTextEntries
         /// </summary>
         [JsonPropertyName("flavor_text_entries")]
-        public List<PokemonSpeciesFlavorText> FlavorTextEntries { get; set; }
+        public List<PokemonSpeciesFlavorText> FlavorTextEntries { get; }
 
         /// <summary>
         /// Gets or Sets Genera
         /// </summary>
         [JsonPropertyName("genera")]
-        public List<PokemonSpeciesDetailGeneraInner> Genera { get; set; }
+        public List<PokemonSpeciesDetailGeneraInner> Genera { get; }
 
         /// <summary>
         /// Gets or Sets Varieties
         /// </summary>
         [JsonPropertyName("varieties")]
-        public List<PokemonSpeciesDetailVarietiesInner> Varieties { get; set; }
+        public List<PokemonSpeciesDetailVarietiesInner> Varieties { get; }
 
         /// <summary>
         /// Used to track the state of Order
@@ -209,7 +209,7 @@ namespace Org.OpenAPITools.Model
         /// Gets or Sets Order
         /// </summary>
         [JsonPropertyName("order")]
-        public int? Order { get { return this.OrderOption; } set { this.OrderOption = new(value); } }
+        public int? Order { get { return this.OrderOption.Value; } set { this.OrderOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of GenderRate
@@ -222,7 +222,7 @@ namespace Org.OpenAPITools.Model
         /// Gets or Sets GenderRate
         /// </summary>
         [JsonPropertyName("gender_rate")]
-        public int? GenderRate { get { return this.GenderRateOption; } set { this.GenderRateOption = new(value); } }
+        public int? GenderRate { get { return this.GenderRateOption.Value; } set { this.GenderRateOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of CaptureRate
@@ -235,7 +235,7 @@ namespace Org.OpenAPITools.Model
         /// Gets or Sets CaptureRate
         /// </summary>
         [JsonPropertyName("capture_rate")]
-        public int? CaptureRate { get { return this.CaptureRateOption; } set { this.CaptureRateOption = new(value); } }
+        public int? CaptureRate { get { return this.CaptureRateOption.Value; } set { this.CaptureRateOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of BaseHappiness
@@ -248,7 +248,7 @@ namespace Org.OpenAPITools.Model
         /// Gets or Sets BaseHappiness
         /// </summary>
         [JsonPropertyName("base_happiness")]
-        public int? BaseHappiness { get { return this.BaseHappinessOption; } set { this.BaseHappinessOption = new(value); } }
+        public int? BaseHappiness { get { return this.BaseHappinessOption.Value; } set { this.BaseHappinessOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of IsBaby
@@ -261,7 +261,7 @@ namespace Org.OpenAPITools.Model
         /// Gets or Sets IsBaby
         /// </summary>
         [JsonPropertyName("is_baby")]
-        public bool? IsBaby { get { return this.IsBabyOption; } set { this.IsBabyOption = new(value); } }
+        public bool? IsBaby { get { return this.IsBabyOption.Value; } set { this.IsBabyOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of IsLegendary
@@ -274,7 +274,7 @@ namespace Org.OpenAPITools.Model
         /// Gets or Sets IsLegendary
         /// </summary>
         [JsonPropertyName("is_legendary")]
-        public bool? IsLegendary { get { return this.IsLegendaryOption; } set { this.IsLegendaryOption = new(value); } }
+        public bool? IsLegendary { get { return this.IsLegendaryOption.Value; } set { this.IsLegendaryOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of IsMythical
@@ -287,7 +287,7 @@ namespace Org.OpenAPITools.Model
         /// Gets or Sets IsMythical
         /// </summary>
         [JsonPropertyName("is_mythical")]
-        public bool? IsMythical { get { return this.IsMythicalOption; } set { this.IsMythicalOption = new(value); } }
+        public bool? IsMythical { get { return this.IsMythicalOption.Value; } set { this.IsMythicalOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of HatchCounter
@@ -300,7 +300,7 @@ namespace Org.OpenAPITools.Model
         /// Gets or Sets HatchCounter
         /// </summary>
         [JsonPropertyName("hatch_counter")]
-        public int? HatchCounter { get { return this.HatchCounterOption; } set { this.HatchCounterOption = new(value); } }
+        public int? HatchCounter { get { return this.HatchCounterOption.Value; } set { this.HatchCounterOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of HasGenderDifferences
@@ -313,7 +313,7 @@ namespace Org.OpenAPITools.Model
         /// Gets or Sets HasGenderDifferences
         /// </summary>
         [JsonPropertyName("has_gender_differences")]
-        public bool? HasGenderDifferences { get { return this.HasGenderDifferencesOption; } set { this.HasGenderDifferencesOption = new(value); } }
+        public bool? HasGenderDifferences { get { return this.HasGenderDifferencesOption.Value; } set { this.HasGenderDifferencesOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of FormsSwitchable
@@ -326,7 +326,7 @@ namespace Org.OpenAPITools.Model
         /// Gets or Sets FormsSwitchable
         /// </summary>
         [JsonPropertyName("forms_switchable")]
-        public bool? FormsSwitchable { get { return this.FormsSwitchableOption; } set { this.FormsSwitchableOption = new(value); } }
+        public bool? FormsSwitchable { get { return this.FormsSwitchableOption.Value; } set { this.FormsSwitchableOption = new(value); } }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -387,8 +387,18 @@ namespace Org.OpenAPITools.Model
     /// <summary>
     /// A Json converter for type <see cref="PokemonSpeciesDetail" />
     /// </summary>
-    public class PokemonSpeciesDetailJsonConverter : JsonConverter<PokemonSpeciesDetail>
+    public partial class PokemonSpeciesDetailJsonConverter : JsonConverter<PokemonSpeciesDetail>
     {
+        partial void OnCreated();
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="PokemonSpeciesDetailJsonConverter" /> class.
+        /// </summary>
+        public PokemonSpeciesDetailJsonConverter()
+        {
+            OnCreated();
+        }
+
         /// <summary>
         /// Deserializes json to <see cref="PokemonSpeciesDetail" />
         /// </summary>

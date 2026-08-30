@@ -32,7 +32,7 @@ class  BerrySummary
 {
 public:
     BerrySummary();
-    virtual ~BerrySummary() = default;
+    virtual ~BerrySummary();
 
 
     /// <summary>

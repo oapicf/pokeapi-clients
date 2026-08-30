@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **VersionGroup** | [**VersionGroupSummary**](VersionGroupSummary.md) |  | 
-**EffectEntries** | [**[]AbilityChangeEffectText**](AbilityChangeEffectText.md) |  | 
+**EffectEntries** | [**[]AbilityChangeEffectText**](AbilityChangeEffectText.md) |  | [readonly] 
 
 ## Methods
 

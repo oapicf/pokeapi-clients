@@ -35,7 +35,7 @@ import io.swagger.v3.oas.annotations.media.Schema;
   StatDetailAffectingNatures.JSON_PROPERTY_DECREASE
 })
 @JsonTypeName("StatDetail_affecting_natures")
-@Generated(value="org.openapitools.codegen.languages.JavaMicronautServerCodegen", date="2026-02-07T15:23:03.167972722Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@Generated(value="org.openapitools.codegen.languages.JavaMicronautServerCodegen", date="2026-08-30T01:55:54.631003115Z[Etc/UTC]", comments = "Generator version: 7.24.0")
 @Introspected
 public class StatDetailAffectingNatures {
     public static final String JSON_PROPERTY_INCREASE = "increase";
@@ -138,10 +138,7 @@ public class StatDetailAffectingNatures {
      * (except the first line).
      */
     private String toIndentedString(Object o) {
-        if (o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
+        return o == null ? "null" : o.toString().replace("\n", "\n    ");
     }
 
 }

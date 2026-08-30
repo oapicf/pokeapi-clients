@@ -10,9 +10,9 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **int** |  | [readonly] 
 **name** | **string** |  | 
-**descriptions** | [**ARRAY[ItemAttributeDescription]**](ItemAttributeDescription.md) |  | 
-**items** | [**ARRAY[AbilityDetailPokemonInnerPokemon]**](AbilityDetailPokemonInnerPokemon.md) |  | 
-**names** | [**ARRAY[ItemAttributeName]**](ItemAttributeName.md) |  | 
+**descriptions** | [**ARRAY[ItemAttributeDescription]**](ItemAttributeDescription.md) |  | [readonly] 
+**items** | [**ARRAY[AbilityDetailPokemonInnerPokemon]**](AbilityDetailPokemonInnerPokemon.md) |  | [readonly] 
+**names** | [**ARRAY[ItemAttributeName]**](ItemAttributeName.md) |  | [readonly] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

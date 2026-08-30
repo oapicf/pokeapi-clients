@@ -45,7 +45,7 @@ export interface LocationGameIndex {
  * Check if a given object implements the LocationGameIndex interface.
  */
 export function instanceOfLocationGameIndex(value: object): value is LocationGameIndex {
-    if (!('gameIndex' in value) || value['gameIndex'] === undefined) return false;
+    if ((!('gameIndex' in (value as Record<string, any>)) && !('game_index' in (value as Record<string, any>))) || ((value as Record<string, any>)['gameIndex'] === undefined && (value as Record<string, any>)['game_index'] === undefined)) return false;
     if (!('generation' in value) || value['generation'] === undefined) return false;
     return true;
 }

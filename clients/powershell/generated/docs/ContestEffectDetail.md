@@ -6,8 +6,8 @@ Name | Type | Description | Notes
 **Id** | **Int32** |  | [readonly] 
 **Appeal** | **Int32** |  | 
 **Jam** | **Int32** |  | 
-**EffectEntries** | [**ContestEffectEffectText[]**](ContestEffectEffectText.md) |  | 
-**FlavorTextEntries** | [**ContestEffectFlavorText[]**](ContestEffectFlavorText.md) |  | 
+**EffectEntries** | [**ContestEffectEffectText[]**](ContestEffectEffectText.md) |  | [readonly] 
+**FlavorTextEntries** | [**ContestEffectFlavorText[]**](ContestEffectFlavorText.md) |  | [readonly] 
 
 ## Examples
 

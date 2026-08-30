@@ -49,5 +49,5 @@ export interface LanguageDetail {
      * @type {Array<LanguageName>}
      * @memberof LanguageDetail
      */
-    names: Array<LanguageName>;
+    readonly names: Array<LanguageName>;
 }

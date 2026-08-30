@@ -13,10 +13,10 @@ static pal_park_area_summary_t *pal_park_area_summary_create_internal(
     if (!pal_park_area_summary_local_var) {
         return NULL;
     }
+    memset(pal_park_area_summary_local_var, 0, sizeof(pal_park_area_summary_t));
+    pal_park_area_summary_local_var->_library_owned = 1;
     pal_park_area_summary_local_var->name = name;
     pal_park_area_summary_local_var->url = url;
-
-    pal_park_area_summary_local_var->_library_owned = 1;
     return pal_park_area_summary_local_var;
 }
 
@@ -24,10 +24,13 @@ __attribute__((deprecated)) pal_park_area_summary_t *pal_park_area_summary_creat
     char *name,
     char *url
     ) {
-    return pal_park_area_summary_create_internal (
+    pal_park_area_summary_t *result = pal_park_area_summary_create_internal (
         name,
         url
         );
+    if (!result) {
+    }
+    return result;
 }
 
 void pal_park_area_summary_free(pal_park_area_summary_t *pal_park_area_summary) {
@@ -82,6 +85,10 @@ pal_park_area_summary_t *pal_park_area_summary_parseFromJSON(cJSON *pal_park_are
 
     pal_park_area_summary_t *pal_park_area_summary_local_var = NULL;
 
+    char *name_local_str = NULL;
+
+    char *url_local_str = NULL;
+
     // pal_park_area_summary->name
     cJSON *name = cJSON_GetObjectItemCaseSensitive(pal_park_area_summaryJSON, "name");
     if (cJSON_IsNull(name)) {
@@ -113,13 +120,28 @@ pal_park_area_summary_t *pal_park_area_summary_parseFromJSON(cJSON *pal_park_are
     }
 
 
+    if (name && !cJSON_IsNull(name)) name_local_str = strdup(name->valuestring);
+    if (url && !cJSON_IsNull(url)) url_local_str = strdup(url->valuestring);
+
     pal_park_area_summary_local_var = pal_park_area_summary_create_internal (
-        strdup(name->valuestring),
-        strdup(url->valuestring)
+        name_local_str,
+        url_local_str
         );
+
+    if (!pal_park_area_summary_local_var) {
+        goto end;
+    }
 
     return pal_park_area_summary_local_var;
 end:
+    if (name_local_str) {
+        free(name_local_str);
+        name_local_str = NULL;
+    }
+    if (url_local_str) {
+        free(url_local_str);
+        url_local_str = NULL;
+    }
     return NULL;
 
 }

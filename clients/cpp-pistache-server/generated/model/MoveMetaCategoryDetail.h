@@ -35,7 +35,7 @@ class  MoveMetaCategoryDetail
 {
 public:
     MoveMetaCategoryDetail();
-    virtual ~MoveMetaCategoryDetail() = default;
+    virtual ~MoveMetaCategoryDetail();
 
 
     /// <summary>

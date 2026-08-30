@@ -102,19 +102,6 @@ public class PokedexDetail  {
     return descriptions;
   }
 
-  public void setDescriptions(List<PokedexDescription> descriptions) {
-    this.descriptions = descriptions;
-  }
-
-  public PokedexDetail descriptions(List<PokedexDescription> descriptions) {
-    this.descriptions = descriptions;
-    return this;
-  }
-
-  public PokedexDetail addDescriptionsItem(PokedexDescription descriptionsItem) {
-    this.descriptions.add(descriptionsItem);
-    return this;
-  }
 
  /**
    * Get names
@@ -125,19 +112,6 @@ public class PokedexDetail  {
     return names;
   }
 
-  public void setNames(List<PokedexName> names) {
-    this.names = names;
-  }
-
-  public PokedexDetail names(List<PokedexName> names) {
-    this.names = names;
-    return this;
-  }
-
-  public PokedexDetail addNamesItem(PokedexName namesItem) {
-    this.names.add(namesItem);
-    return this;
-  }
 
  /**
    * Get pokemonEntries
@@ -148,19 +122,6 @@ public class PokedexDetail  {
     return pokemonEntries;
   }
 
-  public void setPokemonEntries(List<PokedexDetailPokemonEntriesInner> pokemonEntries) {
-    this.pokemonEntries = pokemonEntries;
-  }
-
-  public PokedexDetail pokemonEntries(List<PokedexDetailPokemonEntriesInner> pokemonEntries) {
-    this.pokemonEntries = pokemonEntries;
-    return this;
-  }
-
-  public PokedexDetail addPokemonEntriesItem(PokedexDetailPokemonEntriesInner pokemonEntriesItem) {
-    this.pokemonEntries.add(pokemonEntriesItem);
-    return this;
-  }
 
  /**
    * Get region
@@ -189,19 +150,6 @@ public class PokedexDetail  {
     return versionGroups;
   }
 
-  public void setVersionGroups(List<AbilityDetailPokemonInnerPokemon> versionGroups) {
-    this.versionGroups = versionGroups;
-  }
-
-  public PokedexDetail versionGroups(List<AbilityDetailPokemonInnerPokemon> versionGroups) {
-    this.versionGroups = versionGroups;
-    return this;
-  }
-
-  public PokedexDetail addVersionGroupsItem(AbilityDetailPokemonInnerPokemon versionGroupsItem) {
-    this.versionGroups.add(versionGroupsItem);
-    return this;
-  }
 
   @Override
   public boolean equals(Object o) {
@@ -249,10 +197,7 @@ public class PokedexDetail  {
    * (except the first line).
    */
   private static String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 }
 

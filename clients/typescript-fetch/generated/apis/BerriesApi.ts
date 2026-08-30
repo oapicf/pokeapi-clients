@@ -12,30 +12,37 @@
  * Do not edit the class manually.
  */
 
-
 import * as runtime from '../runtime';
-import type {
-  BerryDetail,
-  BerryFirmnessDetail,
-  BerryFlavorDetail,
-  PaginatedBerryFirmnessSummaryList,
-  PaginatedBerryFlavorSummaryList,
-  PaginatedBerrySummaryList,
-} from '../models/index';
 import {
+    type BerryDetail,
     BerryDetailFromJSON,
     BerryDetailToJSON,
+} from '../models/BerryDetail';
+import {
+    type BerryFirmnessDetail,
     BerryFirmnessDetailFromJSON,
     BerryFirmnessDetailToJSON,
+} from '../models/BerryFirmnessDetail';
+import {
+    type BerryFlavorDetail,
     BerryFlavorDetailFromJSON,
     BerryFlavorDetailToJSON,
+} from '../models/BerryFlavorDetail';
+import {
+    type PaginatedBerryFirmnessSummaryList,
     PaginatedBerryFirmnessSummaryListFromJSON,
     PaginatedBerryFirmnessSummaryListToJSON,
+} from '../models/PaginatedBerryFirmnessSummaryList';
+import {
+    type PaginatedBerryFlavorSummaryList,
     PaginatedBerryFlavorSummaryListFromJSON,
     PaginatedBerryFlavorSummaryListToJSON,
+} from '../models/PaginatedBerryFlavorSummaryList';
+import {
+    type PaginatedBerrySummaryList,
     PaginatedBerrySummaryListFromJSON,
     PaginatedBerrySummaryListToJSON,
-} from '../models/index';
+} from '../models/PaginatedBerrySummaryList';
 
 export interface BerryFirmnessListRequest {
     limit?: number;
@@ -73,10 +80,9 @@ export interface BerryRetrieveRequest {
 export class BerriesApi extends runtime.BaseAPI {
 
     /**
-     * Berries can be soft or hard. Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Category:Berries_by_firmness) for greater detail.
-     * List berry firmness
+     * Creates request options for berryFirmnessList without sending the request
      */
-    async berryFirmnessListRaw(requestParameters: BerryFirmnessListRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PaginatedBerryFirmnessSummaryList>> {
+    async berryFirmnessListRequestOpts(requestParameters: BerryFirmnessListRequest): Promise<runtime.RequestOpts> {
         const queryParameters: any = {};
 
         if (requestParameters['limit'] != null) {
@@ -99,12 +105,21 @@ export class BerriesApi extends runtime.BaseAPI {
 
         let urlPath = `/api/v2/berry-firmness/`;
 
-        const response = await this.request({
+        return {
             path: urlPath,
             method: 'GET',
             headers: headerParameters,
             query: queryParameters,
-        }, initOverrides);
+        };
+    }
+
+    /**
+     * Berries can be soft or hard. Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Category:Berries_by_firmness) for greater detail.
+     * List berry firmness
+     */
+    async berryFirmnessListRaw(requestParameters: BerryFirmnessListRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PaginatedBerryFirmnessSummaryList>> {
+        const requestOptions = await this.berryFirmnessListRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => PaginatedBerryFirmnessSummaryListFromJSON(jsonValue));
     }
@@ -119,10 +134,9 @@ export class BerriesApi extends runtime.BaseAPI {
     }
 
     /**
-     * Berries can be soft or hard. Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Category:Berries_by_firmness) for greater detail.
-     * Get berry by firmness
+     * Creates request options for berryFirmnessRetrieve without sending the request
      */
-    async berryFirmnessRetrieveRaw(requestParameters: BerryFirmnessRetrieveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BerryFirmnessDetail>> {
+    async berryFirmnessRetrieveRequestOpts(requestParameters: BerryFirmnessRetrieveRequest): Promise<runtime.RequestOpts> {
         if (requestParameters['id'] == null) {
             throw new runtime.RequiredError(
                 'id',
@@ -139,14 +153,23 @@ export class BerriesApi extends runtime.BaseAPI {
         }
 
         let urlPath = `/api/v2/berry-firmness/{id}/`;
-        urlPath = urlPath.replace(`{${"id"}}`, encodeURIComponent(String(requestParameters['id'])));
+        urlPath = urlPath.replace('{id}', encodeURIComponent(String(requestParameters['id'])));
 
-        const response = await this.request({
+        return {
             path: urlPath,
             method: 'GET',
             headers: headerParameters,
             query: queryParameters,
-        }, initOverrides);
+        };
+    }
+
+    /**
+     * Berries can be soft or hard. Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Category:Berries_by_firmness) for greater detail.
+     * Get berry by firmness
+     */
+    async berryFirmnessRetrieveRaw(requestParameters: BerryFirmnessRetrieveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BerryFirmnessDetail>> {
+        const requestOptions = await this.berryFirmnessRetrieveRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => BerryFirmnessDetailFromJSON(jsonValue));
     }
@@ -161,10 +184,9 @@ export class BerriesApi extends runtime.BaseAPI {
     }
 
     /**
-     * Flavors determine whether a Pokémon will benefit or suffer from eating a berry based on their **nature**. Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Flavor) for greater detail.
-     * List berry flavors
+     * Creates request options for berryFlavorList without sending the request
      */
-    async berryFlavorListRaw(requestParameters: BerryFlavorListRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PaginatedBerryFlavorSummaryList>> {
+    async berryFlavorListRequestOpts(requestParameters: BerryFlavorListRequest): Promise<runtime.RequestOpts> {
         const queryParameters: any = {};
 
         if (requestParameters['limit'] != null) {
@@ -187,12 +209,21 @@ export class BerriesApi extends runtime.BaseAPI {
 
         let urlPath = `/api/v2/berry-flavor/`;
 
-        const response = await this.request({
+        return {
             path: urlPath,
             method: 'GET',
             headers: headerParameters,
             query: queryParameters,
-        }, initOverrides);
+        };
+    }
+
+    /**
+     * Flavors determine whether a Pokémon will benefit or suffer from eating a berry based on their **nature**. Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Flavor) for greater detail.
+     * List berry flavors
+     */
+    async berryFlavorListRaw(requestParameters: BerryFlavorListRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PaginatedBerryFlavorSummaryList>> {
+        const requestOptions = await this.berryFlavorListRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => PaginatedBerryFlavorSummaryListFromJSON(jsonValue));
     }
@@ -207,10 +238,9 @@ export class BerriesApi extends runtime.BaseAPI {
     }
 
     /**
-     * Flavors determine whether a Pokémon will benefit or suffer from eating a berry based on their **nature**. Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Flavor) for greater detail.
-     * Get berries by flavor
+     * Creates request options for berryFlavorRetrieve without sending the request
      */
-    async berryFlavorRetrieveRaw(requestParameters: BerryFlavorRetrieveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BerryFlavorDetail>> {
+    async berryFlavorRetrieveRequestOpts(requestParameters: BerryFlavorRetrieveRequest): Promise<runtime.RequestOpts> {
         if (requestParameters['id'] == null) {
             throw new runtime.RequiredError(
                 'id',
@@ -227,14 +257,23 @@ export class BerriesApi extends runtime.BaseAPI {
         }
 
         let urlPath = `/api/v2/berry-flavor/{id}/`;
-        urlPath = urlPath.replace(`{${"id"}}`, encodeURIComponent(String(requestParameters['id'])));
+        urlPath = urlPath.replace('{id}', encodeURIComponent(String(requestParameters['id'])));
 
-        const response = await this.request({
+        return {
             path: urlPath,
             method: 'GET',
             headers: headerParameters,
             query: queryParameters,
-        }, initOverrides);
+        };
+    }
+
+    /**
+     * Flavors determine whether a Pokémon will benefit or suffer from eating a berry based on their **nature**. Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Flavor) for greater detail.
+     * Get berries by flavor
+     */
+    async berryFlavorRetrieveRaw(requestParameters: BerryFlavorRetrieveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BerryFlavorDetail>> {
+        const requestOptions = await this.berryFlavorRetrieveRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => BerryFlavorDetailFromJSON(jsonValue));
     }
@@ -249,10 +288,9 @@ export class BerriesApi extends runtime.BaseAPI {
     }
 
     /**
-     * Berries are small fruits that can provide HP and status condition restoration, stat enhancement, and even damage negation when eaten by Pokémon. Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Berry) for greater detail.
-     * List berries
+     * Creates request options for berryList without sending the request
      */
-    async berryListRaw(requestParameters: BerryListRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PaginatedBerrySummaryList>> {
+    async berryListRequestOpts(requestParameters: BerryListRequest): Promise<runtime.RequestOpts> {
         const queryParameters: any = {};
 
         if (requestParameters['limit'] != null) {
@@ -275,12 +313,21 @@ export class BerriesApi extends runtime.BaseAPI {
 
         let urlPath = `/api/v2/berry/`;
 
-        const response = await this.request({
+        return {
             path: urlPath,
             method: 'GET',
             headers: headerParameters,
             query: queryParameters,
-        }, initOverrides);
+        };
+    }
+
+    /**
+     * Berries are small fruits that can provide HP and status condition restoration, stat enhancement, and even damage negation when eaten by Pokémon. Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Berry) for greater detail.
+     * List berries
+     */
+    async berryListRaw(requestParameters: BerryListRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PaginatedBerrySummaryList>> {
+        const requestOptions = await this.berryListRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => PaginatedBerrySummaryListFromJSON(jsonValue));
     }
@@ -295,10 +342,9 @@ export class BerriesApi extends runtime.BaseAPI {
     }
 
     /**
-     * Berries are small fruits that can provide HP and status condition restoration, stat enhancement, and even damage negation when eaten by Pokémon. Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Berry) for greater detail.
-     * Get a berry
+     * Creates request options for berryRetrieve without sending the request
      */
-    async berryRetrieveRaw(requestParameters: BerryRetrieveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BerryDetail>> {
+    async berryRetrieveRequestOpts(requestParameters: BerryRetrieveRequest): Promise<runtime.RequestOpts> {
         if (requestParameters['id'] == null) {
             throw new runtime.RequiredError(
                 'id',
@@ -315,14 +361,23 @@ export class BerriesApi extends runtime.BaseAPI {
         }
 
         let urlPath = `/api/v2/berry/{id}/`;
-        urlPath = urlPath.replace(`{${"id"}}`, encodeURIComponent(String(requestParameters['id'])));
+        urlPath = urlPath.replace('{id}', encodeURIComponent(String(requestParameters['id'])));
 
-        const response = await this.request({
+        return {
             path: urlPath,
             method: 'GET',
             headers: headerParameters,
             query: queryParameters,
-        }, initOverrides);
+        };
+    }
+
+    /**
+     * Berries are small fruits that can provide HP and status condition restoration, stat enhancement, and even damage negation when eaten by Pokémon. Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Berry) for greater detail.
+     * Get a berry
+     */
+    async berryRetrieveRaw(requestParameters: BerryRetrieveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BerryDetail>> {
+        const requestOptions = await this.berryRetrieveRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => BerryDetailFromJSON(jsonValue));
     }

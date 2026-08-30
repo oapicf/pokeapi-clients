@@ -93,19 +93,6 @@ public class LocationDetail  {
     return names;
   }
 
-  public void setNames(List<LocationName> names) {
-    this.names = names;
-  }
-
-  public LocationDetail names(List<LocationName> names) {
-    this.names = names;
-    return this;
-  }
-
-  public LocationDetail addNamesItem(LocationName namesItem) {
-    this.names.add(namesItem);
-    return this;
-  }
 
  /**
    * Get gameIndices
@@ -116,19 +103,6 @@ public class LocationDetail  {
     return gameIndices;
   }
 
-  public void setGameIndices(List<LocationGameIndex> gameIndices) {
-    this.gameIndices = gameIndices;
-  }
-
-  public LocationDetail gameIndices(List<LocationGameIndex> gameIndices) {
-    this.gameIndices = gameIndices;
-    return this;
-  }
-
-  public LocationDetail addGameIndicesItem(LocationGameIndex gameIndicesItem) {
-    this.gameIndices.add(gameIndicesItem);
-    return this;
-  }
 
  /**
    * Get areas
@@ -139,19 +113,6 @@ public class LocationDetail  {
     return areas;
   }
 
-  public void setAreas(List<LocationAreaSummary> areas) {
-    this.areas = areas;
-  }
-
-  public LocationDetail areas(List<LocationAreaSummary> areas) {
-    this.areas = areas;
-    return this;
-  }
-
-  public LocationDetail addAreasItem(LocationAreaSummary areasItem) {
-    this.areas.add(areasItem);
-    return this;
-  }
 
   @Override
   public boolean equals(Object o) {
@@ -195,10 +156,7 @@ public class LocationDetail  {
    * (except the first line).
    */
   private static String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 }
 

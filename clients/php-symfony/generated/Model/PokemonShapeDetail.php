@@ -47,7 +47,7 @@ class PokemonShapeDetail
      * @var int|null
      * @SerializedName("id")
      * @Type("int")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Type("int")]
     protected ?int $id = null;
@@ -56,7 +56,7 @@ class PokemonShapeDetail
      * @var string|null
      * @SerializedName("name")
      * @Type("string")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Type("string")]
     #[Assert\Length(max: 100)]
@@ -66,7 +66,7 @@ class PokemonShapeDetail
      * @var PokemonShapeDetailAwesomeNamesInner[]|null
      * @SerializedName("awesome_names")
      * @Type("array<OpenAPI\Server\Model\PokemonShapeDetailAwesomeNamesInner>")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Valid]
     #[Assert\All([
@@ -78,7 +78,7 @@ class PokemonShapeDetail
      * @var PokemonShapeDetailNamesInner[]|null
      * @SerializedName("names")
      * @Type("array<OpenAPI\Server\Model\PokemonShapeDetailNamesInner>")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Valid]
     #[Assert\All([
@@ -90,7 +90,7 @@ class PokemonShapeDetail
      * @var PokemonSpeciesSummary[]|null
      * @SerializedName("pokemon_species")
      * @Type("array<OpenAPI\Server\Model\PokemonSpeciesSummary>")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Valid]
     #[Assert\All([
@@ -124,12 +124,12 @@ class PokemonShapeDetail
     }
 
     /**
-    * Sets id.
-    *
-    * @param int|null $id
-    *
-    * @return $this
-    */
+     * Sets id.
+     *
+     * @param int|null $id
+     *
+     * @return $this
+     */
     public function setId(?int $id): self
     {
         $this->id = $id;
@@ -151,12 +151,12 @@ class PokemonShapeDetail
     }
 
     /**
-    * Sets name.
-    *
-    * @param string|null $name
-    *
-    * @return $this
-    */
+     * Sets name.
+     *
+     * @param string|null $name
+     *
+     * @return $this
+     */
     public function setName(?string $name): self
     {
         $this->name = $name;
@@ -178,12 +178,12 @@ class PokemonShapeDetail
     }
 
     /**
-    * Sets awesomeNames.
-    *
-    * @param PokemonShapeDetailAwesomeNamesInner[]|null $awesomeNames
-    *
-    * @return $this
-    */
+     * Sets awesomeNames.
+     *
+     * @param PokemonShapeDetailAwesomeNamesInner[]|null $awesomeNames
+     *
+     * @return $this
+     */
     public function setAwesomeNames(?array $awesomeNames): self
     {
         $this->awesomeNames = $awesomeNames;
@@ -205,12 +205,12 @@ class PokemonShapeDetail
     }
 
     /**
-    * Sets names.
-    *
-    * @param PokemonShapeDetailNamesInner[]|null $names
-    *
-    * @return $this
-    */
+     * Sets names.
+     *
+     * @param PokemonShapeDetailNamesInner[]|null $names
+     *
+     * @return $this
+     */
     public function setNames(?array $names): self
     {
         $this->names = $names;
@@ -232,12 +232,12 @@ class PokemonShapeDetail
     }
 
     /**
-    * Sets pokemonSpecies.
-    *
-    * @param PokemonSpeciesSummary[]|null $pokemonSpecies
-    *
-    * @return $this
-    */
+     * Sets pokemonSpecies.
+     *
+     * @param PokemonSpeciesSummary[]|null $pokemonSpecies
+     *
+     * @return $this
+     */
     public function setPokemonSpecies(?array $pokemonSpecies): self
     {
         $this->pokemonSpecies = $pokemonSpecies;

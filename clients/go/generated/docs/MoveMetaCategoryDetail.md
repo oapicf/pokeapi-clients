@@ -6,8 +6,8 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **int32** |  | [readonly] 
 **Name** | **string** |  | 
-**Descriptions** | [**[]MoveMetaCategoryDescription**](MoveMetaCategoryDescription.md) |  | 
-**Moves** | [**[]AbilityDetailPokemonInnerPokemon**](AbilityDetailPokemonInnerPokemon.md) |  | 
+**Descriptions** | [**[]MoveMetaCategoryDescription**](MoveMetaCategoryDescription.md) |  | [readonly] 
+**Moves** | [**[]AbilityDetailPokemonInnerPokemon**](AbilityDetailPokemonInnerPokemon.md) |  | [readonly] 
 
 ## Methods
 

@@ -7,8 +7,8 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **int** |  | [readonly] 
 **name** | **str** |  | 
-**names** | [**List[EggGroupName]**](EggGroupName.md) |  | 
-**pokemon_species** | [**List[EggGroupDetailPokemonSpeciesInner]**](EggGroupDetailPokemonSpeciesInner.md) |  | 
+**names** | [**List[EggGroupName]**](EggGroupName.md) |  | [readonly] 
+**pokemon_species** | [**List[EggGroupDetailPokemonSpeciesInner]**](EggGroupDetailPokemonSpeciesInner.md) |  | [readonly] 
 
 ## Example
 

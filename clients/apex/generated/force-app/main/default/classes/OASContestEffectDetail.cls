@@ -36,13 +36,13 @@ public class OASContestEffectDetail implements OAS.MappedProperties {
      * Get effectEntries
      * @return effectEntries
      */
-    public List<OASContestEffectEffectText> effectEntries { get; set; }
+    public List<OASContestEffectEffectText> effectEntries { get; private set; }
 
     /**
      * Get flavorTextEntries
      * @return flavorTextEntries
      */
-    public List<OASContestEffectFlavorText> flavorTextEntries { get; set; }
+    public List<OASContestEffectFlavorText> flavorTextEntries { get; private set; }
 
     private static final Map<String, String> propertyMappings = new Map<String, String>{
         'effect_entries' => 'effectEntries',

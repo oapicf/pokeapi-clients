@@ -34,7 +34,7 @@ class  PokeathlonStatDetail_affecting_natures
 {
 public:
     PokeathlonStatDetail_affecting_natures();
-    virtual ~PokeathlonStatDetail_affecting_natures() = default;
+    virtual ~PokeathlonStatDetail_affecting_natures();
 
 
     /// <summary>

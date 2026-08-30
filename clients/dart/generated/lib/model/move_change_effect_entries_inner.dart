@@ -59,10 +59,12 @@ class MoveChangeEffectEntriesInner {
       // Note 1: the values aren't checked for validity beyond being non-null.
       // Note 2: this code is stripped in release mode!
       assert(() {
-        requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "MoveChangeEffectEntriesInner[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "MoveChangeEffectEntriesInner[$key]" has a null value in JSON.');
-        });
+        assert(json.containsKey(r'effect'), 'Required key "MoveChangeEffectEntriesInner[effect]" is missing from JSON.');
+        assert(json[r'effect'] != null, 'Required key "MoveChangeEffectEntriesInner[effect]" has a null value in JSON.');
+        assert(json.containsKey(r'short_effect'), 'Required key "MoveChangeEffectEntriesInner[short_effect]" is missing from JSON.');
+        assert(json[r'short_effect'] != null, 'Required key "MoveChangeEffectEntriesInner[short_effect]" has a null value in JSON.');
+        assert(json.containsKey(r'language'), 'Required key "MoveChangeEffectEntriesInner[language]" is missing from JSON.');
+        assert(json[r'language'] != null, 'Required key "MoveChangeEffectEntriesInner[language]" has a null value in JSON.');
         return true;
       }());
 

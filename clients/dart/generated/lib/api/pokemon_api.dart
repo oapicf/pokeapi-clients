@@ -30,7 +30,7 @@ class PokemonApi {
   ///
   /// * [String] q:
   ///   > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. 
-  Future<Response> abilityListWithHttpInfo({ int? limit, int? offset, String? q, }) async {
+  Future<Response> abilityListWithHttpInfo({ int? limit, int? offset, String? q, Future<void>? abortTrigger, }) async {
     // ignore: prefer_const_declarations
     final path = r'/api/v2/ability/';
 
@@ -62,6 +62,7 @@ class PokemonApi {
       headerParams,
       formParams,
       contentTypes.isEmpty ? null : contentTypes.first,
+      abortTrigger: abortTrigger,
     );
   }
 
@@ -77,8 +78,8 @@ class PokemonApi {
   ///
   /// * [String] q:
   ///   > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. 
-  Future<PaginatedAbilitySummaryList?> abilityList({ int? limit, int? offset, String? q, }) async {
-    final response = await abilityListWithHttpInfo( limit: limit, offset: offset, q: q, );
+  Future<PaginatedAbilitySummaryList?> abilityList({ int? limit, int? offset, String? q, Future<void>? abortTrigger, }) async {
+    final response = await abilityListWithHttpInfo(limit: limit, offset: offset, q: q, abortTrigger: abortTrigger,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -100,7 +101,7 @@ class PokemonApi {
   ///
   /// * [String] id (required):
   ///   This parameter can be a string or an integer.
-  Future<Response> abilityRetrieveWithHttpInfo(String id,) async {
+  Future<Response> abilityRetrieveWithHttpInfo(String id, { Future<void>? abortTrigger, }) async {
     // ignore: prefer_const_declarations
     final path = r'/api/v2/ability/{id}/'
       .replaceAll('{id}', id);
@@ -123,6 +124,7 @@ class PokemonApi {
       headerParams,
       formParams,
       contentTypes.isEmpty ? null : contentTypes.first,
+      abortTrigger: abortTrigger,
     );
   }
 
@@ -132,8 +134,8 @@ class PokemonApi {
   ///
   /// * [String] id (required):
   ///   This parameter can be a string or an integer.
-  Future<AbilityDetail?> abilityRetrieve(String id,) async {
-    final response = await abilityRetrieveWithHttpInfo(id,);
+  Future<AbilityDetail?> abilityRetrieve(String id, { Future<void>? abortTrigger, }) async {
+    final response = await abilityRetrieveWithHttpInfo(id, abortTrigger: abortTrigger,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -163,7 +165,7 @@ class PokemonApi {
   ///
   /// * [String] q:
   ///   > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. 
-  Future<Response> characteristicListWithHttpInfo({ int? limit, int? offset, String? q, }) async {
+  Future<Response> characteristicListWithHttpInfo({ int? limit, int? offset, String? q, Future<void>? abortTrigger, }) async {
     // ignore: prefer_const_declarations
     final path = r'/api/v2/characteristic/';
 
@@ -195,6 +197,7 @@ class PokemonApi {
       headerParams,
       formParams,
       contentTypes.isEmpty ? null : contentTypes.first,
+      abortTrigger: abortTrigger,
     );
   }
 
@@ -212,8 +215,8 @@ class PokemonApi {
   ///
   /// * [String] q:
   ///   > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. 
-  Future<PaginatedCharacteristicSummaryList?> characteristicList({ int? limit, int? offset, String? q, }) async {
-    final response = await characteristicListWithHttpInfo( limit: limit, offset: offset, q: q, );
+  Future<PaginatedCharacteristicSummaryList?> characteristicList({ int? limit, int? offset, String? q, Future<void>? abortTrigger, }) async {
+    final response = await characteristicListWithHttpInfo(limit: limit, offset: offset, q: q, abortTrigger: abortTrigger,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -237,7 +240,7 @@ class PokemonApi {
   ///
   /// * [String] id (required):
   ///   This parameter can be a string or an integer.
-  Future<Response> characteristicRetrieveWithHttpInfo(String id,) async {
+  Future<Response> characteristicRetrieveWithHttpInfo(String id, { Future<void>? abortTrigger, }) async {
     // ignore: prefer_const_declarations
     final path = r'/api/v2/characteristic/{id}/'
       .replaceAll('{id}', id);
@@ -260,6 +263,7 @@ class PokemonApi {
       headerParams,
       formParams,
       contentTypes.isEmpty ? null : contentTypes.first,
+      abortTrigger: abortTrigger,
     );
   }
 
@@ -271,8 +275,8 @@ class PokemonApi {
   ///
   /// * [String] id (required):
   ///   This parameter can be a string or an integer.
-  Future<CharacteristicDetail?> characteristicRetrieve(String id,) async {
-    final response = await characteristicRetrieveWithHttpInfo(id,);
+  Future<CharacteristicDetail?> characteristicRetrieve(String id, { Future<void>? abortTrigger, }) async {
+    final response = await characteristicRetrieveWithHttpInfo(id, abortTrigger: abortTrigger,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -302,7 +306,7 @@ class PokemonApi {
   ///
   /// * [String] q:
   ///   > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. 
-  Future<Response> eggGroupListWithHttpInfo({ int? limit, int? offset, String? q, }) async {
+  Future<Response> eggGroupListWithHttpInfo({ int? limit, int? offset, String? q, Future<void>? abortTrigger, }) async {
     // ignore: prefer_const_declarations
     final path = r'/api/v2/egg-group/';
 
@@ -334,6 +338,7 @@ class PokemonApi {
       headerParams,
       formParams,
       contentTypes.isEmpty ? null : contentTypes.first,
+      abortTrigger: abortTrigger,
     );
   }
 
@@ -351,8 +356,8 @@ class PokemonApi {
   ///
   /// * [String] q:
   ///   > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. 
-  Future<PaginatedEggGroupSummaryList?> eggGroupList({ int? limit, int? offset, String? q, }) async {
-    final response = await eggGroupListWithHttpInfo( limit: limit, offset: offset, q: q, );
+  Future<PaginatedEggGroupSummaryList?> eggGroupList({ int? limit, int? offset, String? q, Future<void>? abortTrigger, }) async {
+    final response = await eggGroupListWithHttpInfo(limit: limit, offset: offset, q: q, abortTrigger: abortTrigger,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -376,7 +381,7 @@ class PokemonApi {
   ///
   /// * [String] id (required):
   ///   This parameter can be a string or an integer.
-  Future<Response> eggGroupRetrieveWithHttpInfo(String id,) async {
+  Future<Response> eggGroupRetrieveWithHttpInfo(String id, { Future<void>? abortTrigger, }) async {
     // ignore: prefer_const_declarations
     final path = r'/api/v2/egg-group/{id}/'
       .replaceAll('{id}', id);
@@ -399,6 +404,7 @@ class PokemonApi {
       headerParams,
       formParams,
       contentTypes.isEmpty ? null : contentTypes.first,
+      abortTrigger: abortTrigger,
     );
   }
 
@@ -410,8 +416,8 @@ class PokemonApi {
   ///
   /// * [String] id (required):
   ///   This parameter can be a string or an integer.
-  Future<EggGroupDetail?> eggGroupRetrieve(String id,) async {
-    final response = await eggGroupRetrieveWithHttpInfo(id,);
+  Future<EggGroupDetail?> eggGroupRetrieve(String id, { Future<void>? abortTrigger, }) async {
+    final response = await eggGroupRetrieveWithHttpInfo(id, abortTrigger: abortTrigger,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -441,7 +447,7 @@ class PokemonApi {
   ///
   /// * [String] q:
   ///   > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. 
-  Future<Response> genderListWithHttpInfo({ int? limit, int? offset, String? q, }) async {
+  Future<Response> genderListWithHttpInfo({ int? limit, int? offset, String? q, Future<void>? abortTrigger, }) async {
     // ignore: prefer_const_declarations
     final path = r'/api/v2/gender/';
 
@@ -473,6 +479,7 @@ class PokemonApi {
       headerParams,
       formParams,
       contentTypes.isEmpty ? null : contentTypes.first,
+      abortTrigger: abortTrigger,
     );
   }
 
@@ -490,8 +497,8 @@ class PokemonApi {
   ///
   /// * [String] q:
   ///   > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. 
-  Future<PaginatedGenderSummaryList?> genderList({ int? limit, int? offset, String? q, }) async {
-    final response = await genderListWithHttpInfo( limit: limit, offset: offset, q: q, );
+  Future<PaginatedGenderSummaryList?> genderList({ int? limit, int? offset, String? q, Future<void>? abortTrigger, }) async {
+    final response = await genderListWithHttpInfo(limit: limit, offset: offset, q: q, abortTrigger: abortTrigger,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -515,7 +522,7 @@ class PokemonApi {
   ///
   /// * [String] id (required):
   ///   This parameter can be a string or an integer.
-  Future<Response> genderRetrieveWithHttpInfo(String id,) async {
+  Future<Response> genderRetrieveWithHttpInfo(String id, { Future<void>? abortTrigger, }) async {
     // ignore: prefer_const_declarations
     final path = r'/api/v2/gender/{id}/'
       .replaceAll('{id}', id);
@@ -538,6 +545,7 @@ class PokemonApi {
       headerParams,
       formParams,
       contentTypes.isEmpty ? null : contentTypes.first,
+      abortTrigger: abortTrigger,
     );
   }
 
@@ -549,8 +557,8 @@ class PokemonApi {
   ///
   /// * [String] id (required):
   ///   This parameter can be a string or an integer.
-  Future<GenderDetail?> genderRetrieve(String id,) async {
-    final response = await genderRetrieveWithHttpInfo(id,);
+  Future<GenderDetail?> genderRetrieve(String id, { Future<void>? abortTrigger, }) async {
+    final response = await genderRetrieveWithHttpInfo(id, abortTrigger: abortTrigger,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -580,7 +588,7 @@ class PokemonApi {
   ///
   /// * [String] q:
   ///   > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. 
-  Future<Response> growthRateListWithHttpInfo({ int? limit, int? offset, String? q, }) async {
+  Future<Response> growthRateListWithHttpInfo({ int? limit, int? offset, String? q, Future<void>? abortTrigger, }) async {
     // ignore: prefer_const_declarations
     final path = r'/api/v2/growth-rate/';
 
@@ -612,6 +620,7 @@ class PokemonApi {
       headerParams,
       formParams,
       contentTypes.isEmpty ? null : contentTypes.first,
+      abortTrigger: abortTrigger,
     );
   }
 
@@ -629,8 +638,8 @@ class PokemonApi {
   ///
   /// * [String] q:
   ///   > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. 
-  Future<PaginatedGrowthRateSummaryList?> growthRateList({ int? limit, int? offset, String? q, }) async {
-    final response = await growthRateListWithHttpInfo( limit: limit, offset: offset, q: q, );
+  Future<PaginatedGrowthRateSummaryList?> growthRateList({ int? limit, int? offset, String? q, Future<void>? abortTrigger, }) async {
+    final response = await growthRateListWithHttpInfo(limit: limit, offset: offset, q: q, abortTrigger: abortTrigger,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -654,7 +663,7 @@ class PokemonApi {
   ///
   /// * [String] id (required):
   ///   This parameter can be a string or an integer.
-  Future<Response> growthRateRetrieveWithHttpInfo(String id,) async {
+  Future<Response> growthRateRetrieveWithHttpInfo(String id, { Future<void>? abortTrigger, }) async {
     // ignore: prefer_const_declarations
     final path = r'/api/v2/growth-rate/{id}/'
       .replaceAll('{id}', id);
@@ -677,6 +686,7 @@ class PokemonApi {
       headerParams,
       formParams,
       contentTypes.isEmpty ? null : contentTypes.first,
+      abortTrigger: abortTrigger,
     );
   }
 
@@ -688,8 +698,8 @@ class PokemonApi {
   ///
   /// * [String] id (required):
   ///   This parameter can be a string or an integer.
-  Future<GrowthRateDetail?> growthRateRetrieve(String id,) async {
-    final response = await growthRateRetrieveWithHttpInfo(id,);
+  Future<GrowthRateDetail?> growthRateRetrieve(String id, { Future<void>? abortTrigger, }) async {
+    final response = await growthRateRetrieveWithHttpInfo(id, abortTrigger: abortTrigger,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -719,7 +729,7 @@ class PokemonApi {
   ///
   /// * [String] q:
   ///   > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. 
-  Future<Response> moveDamageClassListWithHttpInfo({ int? limit, int? offset, String? q, }) async {
+  Future<Response> moveDamageClassListWithHttpInfo({ int? limit, int? offset, String? q, Future<void>? abortTrigger, }) async {
     // ignore: prefer_const_declarations
     final path = r'/api/v2/move-damage-class/';
 
@@ -751,6 +761,7 @@ class PokemonApi {
       headerParams,
       formParams,
       contentTypes.isEmpty ? null : contentTypes.first,
+      abortTrigger: abortTrigger,
     );
   }
 
@@ -768,8 +779,8 @@ class PokemonApi {
   ///
   /// * [String] q:
   ///   > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. 
-  Future<PaginatedMoveDamageClassSummaryList?> moveDamageClassList({ int? limit, int? offset, String? q, }) async {
-    final response = await moveDamageClassListWithHttpInfo( limit: limit, offset: offset, q: q, );
+  Future<PaginatedMoveDamageClassSummaryList?> moveDamageClassList({ int? limit, int? offset, String? q, Future<void>? abortTrigger, }) async {
+    final response = await moveDamageClassListWithHttpInfo(limit: limit, offset: offset, q: q, abortTrigger: abortTrigger,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -793,7 +804,7 @@ class PokemonApi {
   ///
   /// * [String] id (required):
   ///   This parameter can be a string or an integer.
-  Future<Response> moveDamageClassRetrieveWithHttpInfo(String id,) async {
+  Future<Response> moveDamageClassRetrieveWithHttpInfo(String id, { Future<void>? abortTrigger, }) async {
     // ignore: prefer_const_declarations
     final path = r'/api/v2/move-damage-class/{id}/'
       .replaceAll('{id}', id);
@@ -816,6 +827,7 @@ class PokemonApi {
       headerParams,
       formParams,
       contentTypes.isEmpty ? null : contentTypes.first,
+      abortTrigger: abortTrigger,
     );
   }
 
@@ -827,8 +839,8 @@ class PokemonApi {
   ///
   /// * [String] id (required):
   ///   This parameter can be a string or an integer.
-  Future<MoveDamageClassDetail?> moveDamageClassRetrieve(String id,) async {
-    final response = await moveDamageClassRetrieveWithHttpInfo(id,);
+  Future<MoveDamageClassDetail?> moveDamageClassRetrieve(String id, { Future<void>? abortTrigger, }) async {
+    final response = await moveDamageClassRetrieveWithHttpInfo(id, abortTrigger: abortTrigger,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -858,7 +870,7 @@ class PokemonApi {
   ///
   /// * [String] q:
   ///   > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. 
-  Future<Response> natureListWithHttpInfo({ int? limit, int? offset, String? q, }) async {
+  Future<Response> natureListWithHttpInfo({ int? limit, int? offset, String? q, Future<void>? abortTrigger, }) async {
     // ignore: prefer_const_declarations
     final path = r'/api/v2/nature/';
 
@@ -890,6 +902,7 @@ class PokemonApi {
       headerParams,
       formParams,
       contentTypes.isEmpty ? null : contentTypes.first,
+      abortTrigger: abortTrigger,
     );
   }
 
@@ -907,8 +920,8 @@ class PokemonApi {
   ///
   /// * [String] q:
   ///   > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. 
-  Future<PaginatedNatureSummaryList?> natureList({ int? limit, int? offset, String? q, }) async {
-    final response = await natureListWithHttpInfo( limit: limit, offset: offset, q: q, );
+  Future<PaginatedNatureSummaryList?> natureList({ int? limit, int? offset, String? q, Future<void>? abortTrigger, }) async {
+    final response = await natureListWithHttpInfo(limit: limit, offset: offset, q: q, abortTrigger: abortTrigger,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -932,7 +945,7 @@ class PokemonApi {
   ///
   /// * [String] id (required):
   ///   This parameter can be a string or an integer.
-  Future<Response> natureRetrieveWithHttpInfo(String id,) async {
+  Future<Response> natureRetrieveWithHttpInfo(String id, { Future<void>? abortTrigger, }) async {
     // ignore: prefer_const_declarations
     final path = r'/api/v2/nature/{id}/'
       .replaceAll('{id}', id);
@@ -955,6 +968,7 @@ class PokemonApi {
       headerParams,
       formParams,
       contentTypes.isEmpty ? null : contentTypes.first,
+      abortTrigger: abortTrigger,
     );
   }
 
@@ -966,8 +980,8 @@ class PokemonApi {
   ///
   /// * [String] id (required):
   ///   This parameter can be a string or an integer.
-  Future<NatureDetail?> natureRetrieve(String id,) async {
-    final response = await natureRetrieveWithHttpInfo(id,);
+  Future<NatureDetail?> natureRetrieve(String id, { Future<void>? abortTrigger, }) async {
+    final response = await natureRetrieveWithHttpInfo(id, abortTrigger: abortTrigger,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -997,7 +1011,7 @@ class PokemonApi {
   ///
   /// * [String] q:
   ///   > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. 
-  Future<Response> pokeathlonStatListWithHttpInfo({ int? limit, int? offset, String? q, }) async {
+  Future<Response> pokeathlonStatListWithHttpInfo({ int? limit, int? offset, String? q, Future<void>? abortTrigger, }) async {
     // ignore: prefer_const_declarations
     final path = r'/api/v2/pokeathlon-stat/';
 
@@ -1029,6 +1043,7 @@ class PokemonApi {
       headerParams,
       formParams,
       contentTypes.isEmpty ? null : contentTypes.first,
+      abortTrigger: abortTrigger,
     );
   }
 
@@ -1046,8 +1061,8 @@ class PokemonApi {
   ///
   /// * [String] q:
   ///   > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. 
-  Future<PaginatedPokeathlonStatSummaryList?> pokeathlonStatList({ int? limit, int? offset, String? q, }) async {
-    final response = await pokeathlonStatListWithHttpInfo( limit: limit, offset: offset, q: q, );
+  Future<PaginatedPokeathlonStatSummaryList?> pokeathlonStatList({ int? limit, int? offset, String? q, Future<void>? abortTrigger, }) async {
+    final response = await pokeathlonStatListWithHttpInfo(limit: limit, offset: offset, q: q, abortTrigger: abortTrigger,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -1071,7 +1086,7 @@ class PokemonApi {
   ///
   /// * [String] id (required):
   ///   This parameter can be a string or an integer.
-  Future<Response> pokeathlonStatRetrieveWithHttpInfo(String id,) async {
+  Future<Response> pokeathlonStatRetrieveWithHttpInfo(String id, { Future<void>? abortTrigger, }) async {
     // ignore: prefer_const_declarations
     final path = r'/api/v2/pokeathlon-stat/{id}/'
       .replaceAll('{id}', id);
@@ -1094,6 +1109,7 @@ class PokemonApi {
       headerParams,
       formParams,
       contentTypes.isEmpty ? null : contentTypes.first,
+      abortTrigger: abortTrigger,
     );
   }
 
@@ -1105,8 +1121,8 @@ class PokemonApi {
   ///
   /// * [String] id (required):
   ///   This parameter can be a string or an integer.
-  Future<PokeathlonStatDetail?> pokeathlonStatRetrieve(String id,) async {
-    final response = await pokeathlonStatRetrieveWithHttpInfo(id,);
+  Future<PokeathlonStatDetail?> pokeathlonStatRetrieve(String id, { Future<void>? abortTrigger, }) async {
+    final response = await pokeathlonStatRetrieveWithHttpInfo(id, abortTrigger: abortTrigger,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -1136,7 +1152,7 @@ class PokemonApi {
   ///
   /// * [String] q:
   ///   > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. 
-  Future<Response> pokemonColorListWithHttpInfo({ int? limit, int? offset, String? q, }) async {
+  Future<Response> pokemonColorListWithHttpInfo({ int? limit, int? offset, String? q, Future<void>? abortTrigger, }) async {
     // ignore: prefer_const_declarations
     final path = r'/api/v2/pokemon-color/';
 
@@ -1168,6 +1184,7 @@ class PokemonApi {
       headerParams,
       formParams,
       contentTypes.isEmpty ? null : contentTypes.first,
+      abortTrigger: abortTrigger,
     );
   }
 
@@ -1185,8 +1202,8 @@ class PokemonApi {
   ///
   /// * [String] q:
   ///   > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. 
-  Future<PaginatedPokemonColorSummaryList?> pokemonColorList({ int? limit, int? offset, String? q, }) async {
-    final response = await pokemonColorListWithHttpInfo( limit: limit, offset: offset, q: q, );
+  Future<PaginatedPokemonColorSummaryList?> pokemonColorList({ int? limit, int? offset, String? q, Future<void>? abortTrigger, }) async {
+    final response = await pokemonColorListWithHttpInfo(limit: limit, offset: offset, q: q, abortTrigger: abortTrigger,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -1210,7 +1227,7 @@ class PokemonApi {
   ///
   /// * [String] id (required):
   ///   This parameter can be a string or an integer.
-  Future<Response> pokemonColorRetrieveWithHttpInfo(String id,) async {
+  Future<Response> pokemonColorRetrieveWithHttpInfo(String id, { Future<void>? abortTrigger, }) async {
     // ignore: prefer_const_declarations
     final path = r'/api/v2/pokemon-color/{id}/'
       .replaceAll('{id}', id);
@@ -1233,6 +1250,7 @@ class PokemonApi {
       headerParams,
       formParams,
       contentTypes.isEmpty ? null : contentTypes.first,
+      abortTrigger: abortTrigger,
     );
   }
 
@@ -1244,8 +1262,8 @@ class PokemonApi {
   ///
   /// * [String] id (required):
   ///   This parameter can be a string or an integer.
-  Future<PokemonColorDetail?> pokemonColorRetrieve(String id,) async {
-    final response = await pokemonColorRetrieveWithHttpInfo(id,);
+  Future<PokemonColorDetail?> pokemonColorRetrieve(String id, { Future<void>? abortTrigger, }) async {
+    final response = await pokemonColorRetrieveWithHttpInfo(id, abortTrigger: abortTrigger,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -1275,7 +1293,7 @@ class PokemonApi {
   ///
   /// * [String] q:
   ///   > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. 
-  Future<Response> pokemonFormListWithHttpInfo({ int? limit, int? offset, String? q, }) async {
+  Future<Response> pokemonFormListWithHttpInfo({ int? limit, int? offset, String? q, Future<void>? abortTrigger, }) async {
     // ignore: prefer_const_declarations
     final path = r'/api/v2/pokemon-form/';
 
@@ -1307,6 +1325,7 @@ class PokemonApi {
       headerParams,
       formParams,
       contentTypes.isEmpty ? null : contentTypes.first,
+      abortTrigger: abortTrigger,
     );
   }
 
@@ -1324,8 +1343,8 @@ class PokemonApi {
   ///
   /// * [String] q:
   ///   > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. 
-  Future<PaginatedPokemonFormSummaryList?> pokemonFormList({ int? limit, int? offset, String? q, }) async {
-    final response = await pokemonFormListWithHttpInfo( limit: limit, offset: offset, q: q, );
+  Future<PaginatedPokemonFormSummaryList?> pokemonFormList({ int? limit, int? offset, String? q, Future<void>? abortTrigger, }) async {
+    final response = await pokemonFormListWithHttpInfo(limit: limit, offset: offset, q: q, abortTrigger: abortTrigger,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -1349,7 +1368,7 @@ class PokemonApi {
   ///
   /// * [String] id (required):
   ///   This parameter can be a string or an integer.
-  Future<Response> pokemonFormRetrieveWithHttpInfo(String id,) async {
+  Future<Response> pokemonFormRetrieveWithHttpInfo(String id, { Future<void>? abortTrigger, }) async {
     // ignore: prefer_const_declarations
     final path = r'/api/v2/pokemon-form/{id}/'
       .replaceAll('{id}', id);
@@ -1372,6 +1391,7 @@ class PokemonApi {
       headerParams,
       formParams,
       contentTypes.isEmpty ? null : contentTypes.first,
+      abortTrigger: abortTrigger,
     );
   }
 
@@ -1383,8 +1403,8 @@ class PokemonApi {
   ///
   /// * [String] id (required):
   ///   This parameter can be a string or an integer.
-  Future<PokemonFormDetail?> pokemonFormRetrieve(String id,) async {
-    final response = await pokemonFormRetrieveWithHttpInfo(id,);
+  Future<PokemonFormDetail?> pokemonFormRetrieve(String id, { Future<void>? abortTrigger, }) async {
+    final response = await pokemonFormRetrieveWithHttpInfo(id, abortTrigger: abortTrigger,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -1414,7 +1434,7 @@ class PokemonApi {
   ///
   /// * [String] q:
   ///   > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. 
-  Future<Response> pokemonHabitatListWithHttpInfo({ int? limit, int? offset, String? q, }) async {
+  Future<Response> pokemonHabitatListWithHttpInfo({ int? limit, int? offset, String? q, Future<void>? abortTrigger, }) async {
     // ignore: prefer_const_declarations
     final path = r'/api/v2/pokemon-habitat/';
 
@@ -1446,6 +1466,7 @@ class PokemonApi {
       headerParams,
       formParams,
       contentTypes.isEmpty ? null : contentTypes.first,
+      abortTrigger: abortTrigger,
     );
   }
 
@@ -1463,8 +1484,8 @@ class PokemonApi {
   ///
   /// * [String] q:
   ///   > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. 
-  Future<PaginatedPokemonHabitatSummaryList?> pokemonHabitatList({ int? limit, int? offset, String? q, }) async {
-    final response = await pokemonHabitatListWithHttpInfo( limit: limit, offset: offset, q: q, );
+  Future<PaginatedPokemonHabitatSummaryList?> pokemonHabitatList({ int? limit, int? offset, String? q, Future<void>? abortTrigger, }) async {
+    final response = await pokemonHabitatListWithHttpInfo(limit: limit, offset: offset, q: q, abortTrigger: abortTrigger,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -1488,7 +1509,7 @@ class PokemonApi {
   ///
   /// * [String] id (required):
   ///   This parameter can be a string or an integer.
-  Future<Response> pokemonHabitatRetrieveWithHttpInfo(String id,) async {
+  Future<Response> pokemonHabitatRetrieveWithHttpInfo(String id, { Future<void>? abortTrigger, }) async {
     // ignore: prefer_const_declarations
     final path = r'/api/v2/pokemon-habitat/{id}/'
       .replaceAll('{id}', id);
@@ -1511,6 +1532,7 @@ class PokemonApi {
       headerParams,
       formParams,
       contentTypes.isEmpty ? null : contentTypes.first,
+      abortTrigger: abortTrigger,
     );
   }
 
@@ -1522,8 +1544,8 @@ class PokemonApi {
   ///
   /// * [String] id (required):
   ///   This parameter can be a string or an integer.
-  Future<PokemonHabitatDetail?> pokemonHabitatRetrieve(String id,) async {
-    final response = await pokemonHabitatRetrieveWithHttpInfo(id,);
+  Future<PokemonHabitatDetail?> pokemonHabitatRetrieve(String id, { Future<void>? abortTrigger, }) async {
+    final response = await pokemonHabitatRetrieveWithHttpInfo(id, abortTrigger: abortTrigger,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -1553,7 +1575,7 @@ class PokemonApi {
   ///
   /// * [String] q:
   ///   > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. 
-  Future<Response> pokemonListWithHttpInfo({ int? limit, int? offset, String? q, }) async {
+  Future<Response> pokemonListWithHttpInfo({ int? limit, int? offset, String? q, Future<void>? abortTrigger, }) async {
     // ignore: prefer_const_declarations
     final path = r'/api/v2/pokemon/';
 
@@ -1585,6 +1607,7 @@ class PokemonApi {
       headerParams,
       formParams,
       contentTypes.isEmpty ? null : contentTypes.first,
+      abortTrigger: abortTrigger,
     );
   }
 
@@ -1602,8 +1625,8 @@ class PokemonApi {
   ///
   /// * [String] q:
   ///   > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. 
-  Future<PaginatedPokemonSummaryList?> pokemonList({ int? limit, int? offset, String? q, }) async {
-    final response = await pokemonListWithHttpInfo( limit: limit, offset: offset, q: q, );
+  Future<PaginatedPokemonSummaryList?> pokemonList({ int? limit, int? offset, String? q, Future<void>? abortTrigger, }) async {
+    final response = await pokemonListWithHttpInfo(limit: limit, offset: offset, q: q, abortTrigger: abortTrigger,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -1627,7 +1650,7 @@ class PokemonApi {
   ///
   /// * [String] id (required):
   ///   This parameter can be a string or an integer.
-  Future<Response> pokemonRetrieveWithHttpInfo(String id,) async {
+  Future<Response> pokemonRetrieveWithHttpInfo(String id, { Future<void>? abortTrigger, }) async {
     // ignore: prefer_const_declarations
     final path = r'/api/v2/pokemon/{id}/'
       .replaceAll('{id}', id);
@@ -1650,6 +1673,7 @@ class PokemonApi {
       headerParams,
       formParams,
       contentTypes.isEmpty ? null : contentTypes.first,
+      abortTrigger: abortTrigger,
     );
   }
 
@@ -1661,8 +1685,8 @@ class PokemonApi {
   ///
   /// * [String] id (required):
   ///   This parameter can be a string or an integer.
-  Future<PokemonDetail?> pokemonRetrieve(String id,) async {
-    final response = await pokemonRetrieveWithHttpInfo(id,);
+  Future<PokemonDetail?> pokemonRetrieve(String id, { Future<void>? abortTrigger, }) async {
+    final response = await pokemonRetrieveWithHttpInfo(id, abortTrigger: abortTrigger,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -1692,7 +1716,7 @@ class PokemonApi {
   ///
   /// * [String] q:
   ///   > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. 
-  Future<Response> pokemonShapeListWithHttpInfo({ int? limit, int? offset, String? q, }) async {
+  Future<Response> pokemonShapeListWithHttpInfo({ int? limit, int? offset, String? q, Future<void>? abortTrigger, }) async {
     // ignore: prefer_const_declarations
     final path = r'/api/v2/pokemon-shape/';
 
@@ -1724,6 +1748,7 @@ class PokemonApi {
       headerParams,
       formParams,
       contentTypes.isEmpty ? null : contentTypes.first,
+      abortTrigger: abortTrigger,
     );
   }
 
@@ -1741,8 +1766,8 @@ class PokemonApi {
   ///
   /// * [String] q:
   ///   > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. 
-  Future<PaginatedPokemonShapeSummaryList?> pokemonShapeList({ int? limit, int? offset, String? q, }) async {
-    final response = await pokemonShapeListWithHttpInfo( limit: limit, offset: offset, q: q, );
+  Future<PaginatedPokemonShapeSummaryList?> pokemonShapeList({ int? limit, int? offset, String? q, Future<void>? abortTrigger, }) async {
+    final response = await pokemonShapeListWithHttpInfo(limit: limit, offset: offset, q: q, abortTrigger: abortTrigger,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -1766,7 +1791,7 @@ class PokemonApi {
   ///
   /// * [String] id (required):
   ///   This parameter can be a string or an integer.
-  Future<Response> pokemonShapeRetrieveWithHttpInfo(String id,) async {
+  Future<Response> pokemonShapeRetrieveWithHttpInfo(String id, { Future<void>? abortTrigger, }) async {
     // ignore: prefer_const_declarations
     final path = r'/api/v2/pokemon-shape/{id}/'
       .replaceAll('{id}', id);
@@ -1789,6 +1814,7 @@ class PokemonApi {
       headerParams,
       formParams,
       contentTypes.isEmpty ? null : contentTypes.first,
+      abortTrigger: abortTrigger,
     );
   }
 
@@ -1800,8 +1826,8 @@ class PokemonApi {
   ///
   /// * [String] id (required):
   ///   This parameter can be a string or an integer.
-  Future<PokemonShapeDetail?> pokemonShapeRetrieve(String id,) async {
-    final response = await pokemonShapeRetrieveWithHttpInfo(id,);
+  Future<PokemonShapeDetail?> pokemonShapeRetrieve(String id, { Future<void>? abortTrigger, }) async {
+    final response = await pokemonShapeRetrieveWithHttpInfo(id, abortTrigger: abortTrigger,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -1831,7 +1857,7 @@ class PokemonApi {
   ///
   /// * [String] q:
   ///   > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. 
-  Future<Response> pokemonSpeciesListWithHttpInfo({ int? limit, int? offset, String? q, }) async {
+  Future<Response> pokemonSpeciesListWithHttpInfo({ int? limit, int? offset, String? q, Future<void>? abortTrigger, }) async {
     // ignore: prefer_const_declarations
     final path = r'/api/v2/pokemon-species/';
 
@@ -1863,6 +1889,7 @@ class PokemonApi {
       headerParams,
       formParams,
       contentTypes.isEmpty ? null : contentTypes.first,
+      abortTrigger: abortTrigger,
     );
   }
 
@@ -1880,8 +1907,8 @@ class PokemonApi {
   ///
   /// * [String] q:
   ///   > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. 
-  Future<PaginatedPokemonSpeciesSummaryList?> pokemonSpeciesList({ int? limit, int? offset, String? q, }) async {
-    final response = await pokemonSpeciesListWithHttpInfo( limit: limit, offset: offset, q: q, );
+  Future<PaginatedPokemonSpeciesSummaryList?> pokemonSpeciesList({ int? limit, int? offset, String? q, Future<void>? abortTrigger, }) async {
+    final response = await pokemonSpeciesListWithHttpInfo(limit: limit, offset: offset, q: q, abortTrigger: abortTrigger,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -1905,7 +1932,7 @@ class PokemonApi {
   ///
   /// * [String] id (required):
   ///   This parameter can be a string or an integer.
-  Future<Response> pokemonSpeciesRetrieveWithHttpInfo(String id,) async {
+  Future<Response> pokemonSpeciesRetrieveWithHttpInfo(String id, { Future<void>? abortTrigger, }) async {
     // ignore: prefer_const_declarations
     final path = r'/api/v2/pokemon-species/{id}/'
       .replaceAll('{id}', id);
@@ -1928,6 +1955,7 @@ class PokemonApi {
       headerParams,
       formParams,
       contentTypes.isEmpty ? null : contentTypes.first,
+      abortTrigger: abortTrigger,
     );
   }
 
@@ -1939,8 +1967,8 @@ class PokemonApi {
   ///
   /// * [String] id (required):
   ///   This parameter can be a string or an integer.
-  Future<PokemonSpeciesDetail?> pokemonSpeciesRetrieve(String id,) async {
-    final response = await pokemonSpeciesRetrieveWithHttpInfo(id,);
+  Future<PokemonSpeciesDetail?> pokemonSpeciesRetrieve(String id, { Future<void>? abortTrigger, }) async {
+    final response = await pokemonSpeciesRetrieveWithHttpInfo(id, abortTrigger: abortTrigger,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -1970,7 +1998,7 @@ class PokemonApi {
   ///
   /// * [String] q:
   ///   > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. 
-  Future<Response> statListWithHttpInfo({ int? limit, int? offset, String? q, }) async {
+  Future<Response> statListWithHttpInfo({ int? limit, int? offset, String? q, Future<void>? abortTrigger, }) async {
     // ignore: prefer_const_declarations
     final path = r'/api/v2/stat/';
 
@@ -2002,6 +2030,7 @@ class PokemonApi {
       headerParams,
       formParams,
       contentTypes.isEmpty ? null : contentTypes.first,
+      abortTrigger: abortTrigger,
     );
   }
 
@@ -2019,8 +2048,8 @@ class PokemonApi {
   ///
   /// * [String] q:
   ///   > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. 
-  Future<PaginatedStatSummaryList?> statList({ int? limit, int? offset, String? q, }) async {
-    final response = await statListWithHttpInfo( limit: limit, offset: offset, q: q, );
+  Future<PaginatedStatSummaryList?> statList({ int? limit, int? offset, String? q, Future<void>? abortTrigger, }) async {
+    final response = await statListWithHttpInfo(limit: limit, offset: offset, q: q, abortTrigger: abortTrigger,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -2044,7 +2073,7 @@ class PokemonApi {
   ///
   /// * [String] id (required):
   ///   This parameter can be a string or an integer.
-  Future<Response> statRetrieveWithHttpInfo(String id,) async {
+  Future<Response> statRetrieveWithHttpInfo(String id, { Future<void>? abortTrigger, }) async {
     // ignore: prefer_const_declarations
     final path = r'/api/v2/stat/{id}/'
       .replaceAll('{id}', id);
@@ -2067,6 +2096,7 @@ class PokemonApi {
       headerParams,
       formParams,
       contentTypes.isEmpty ? null : contentTypes.first,
+      abortTrigger: abortTrigger,
     );
   }
 
@@ -2078,8 +2108,8 @@ class PokemonApi {
   ///
   /// * [String] id (required):
   ///   This parameter can be a string or an integer.
-  Future<StatDetail?> statRetrieve(String id,) async {
-    final response = await statRetrieveWithHttpInfo(id,);
+  Future<StatDetail?> statRetrieve(String id, { Future<void>? abortTrigger, }) async {
+    final response = await statRetrieveWithHttpInfo(id, abortTrigger: abortTrigger,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -2109,7 +2139,7 @@ class PokemonApi {
   ///
   /// * [String] q:
   ///   > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. 
-  Future<Response> typeListWithHttpInfo({ int? limit, int? offset, String? q, }) async {
+  Future<Response> typeListWithHttpInfo({ int? limit, int? offset, String? q, Future<void>? abortTrigger, }) async {
     // ignore: prefer_const_declarations
     final path = r'/api/v2/type/';
 
@@ -2141,6 +2171,7 @@ class PokemonApi {
       headerParams,
       formParams,
       contentTypes.isEmpty ? null : contentTypes.first,
+      abortTrigger: abortTrigger,
     );
   }
 
@@ -2158,8 +2189,8 @@ class PokemonApi {
   ///
   /// * [String] q:
   ///   > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. 
-  Future<PaginatedTypeSummaryList?> typeList({ int? limit, int? offset, String? q, }) async {
-    final response = await typeListWithHttpInfo( limit: limit, offset: offset, q: q, );
+  Future<PaginatedTypeSummaryList?> typeList({ int? limit, int? offset, String? q, Future<void>? abortTrigger, }) async {
+    final response = await typeListWithHttpInfo(limit: limit, offset: offset, q: q, abortTrigger: abortTrigger,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -2183,7 +2214,7 @@ class PokemonApi {
   ///
   /// * [String] id (required):
   ///   This parameter can be a string or an integer.
-  Future<Response> typeRetrieveWithHttpInfo(String id,) async {
+  Future<Response> typeRetrieveWithHttpInfo(String id, { Future<void>? abortTrigger, }) async {
     // ignore: prefer_const_declarations
     final path = r'/api/v2/type/{id}/'
       .replaceAll('{id}', id);
@@ -2206,6 +2237,7 @@ class PokemonApi {
       headerParams,
       formParams,
       contentTypes.isEmpty ? null : contentTypes.first,
+      abortTrigger: abortTrigger,
     );
   }
 
@@ -2217,8 +2249,8 @@ class PokemonApi {
   ///
   /// * [String] id (required):
   ///   This parameter can be a string or an integer.
-  Future<TypeDetail?> typeRetrieve(String id,) async {
-    final response = await typeRetrieveWithHttpInfo(id,);
+  Future<TypeDetail?> typeRetrieve(String id, { Future<void>? abortTrigger, }) async {
+    final response = await typeRetrieveWithHttpInfo(id, abortTrigger: abortTrigger,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }

@@ -52,14 +52,14 @@ public:
 
 	/*! \brief Set 
 	 */
-	void setMachine(std::string  machine);
+	void setMachine(std::string machine);
 	/*! \brief Get 
 	 */
 	AbilityDetail_pokemon_inner_pokemon getVersionGroup();
 
 	/*! \brief Set 
 	 */
-	void setVersionGroup(AbilityDetail_pokemon_inner_pokemon  version_group);
+	void setVersionGroup(AbilityDetail_pokemon_inner_pokemon version_group);
 
 
     private:

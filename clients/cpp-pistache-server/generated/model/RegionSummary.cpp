@@ -26,6 +26,8 @@ RegionSummary::RegionSummary()
     
 }
 
+RegionSummary::~RegionSummary() = default;
+
 void RegionSummary::validate() const
 {
     std::stringstream msg;

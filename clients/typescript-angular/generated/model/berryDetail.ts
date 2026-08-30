@@ -23,7 +23,7 @@ export interface BerryDetail {
     smoothness: number;
     soil_dryness: number;
     firmness: BerryFirmnessSummary;
-    flavors: Array<BerryDetailFlavorsInner>;
+    readonly flavors: Array<BerryDetailFlavorsInner>;
     item: ItemSummary;
     natural_gift_type: TypeSummary;
 }

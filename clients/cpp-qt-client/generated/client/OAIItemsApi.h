@@ -48,6 +48,7 @@ public:
     void initializeServerConfigs();
     int setDefaultServerValue(int serverIndex,const QString &operation, const QString &variable,const QString &val);
     void setServerIndex(const QString &operation, int serverIndex);
+    void setServerIndex(int serverIndex);
     void setApiKey(const QString &apiKeyName, const QString &apiKey);
     void setBearerToken(const QString &token);
     void setUsername(const QString &username);
@@ -128,6 +129,13 @@ public:
 
 
 private:
+    enum class OauthMethod : int {
+        INVALID_VALUE_OPENAPI_GENERATED = 0,
+        ImplicitFlow = 1,
+        AuthorizationFlow = 2,
+        ClientCredentialsFlow = 3,
+        ResourceOwnerPasswordFlow = 4
+    };
     QMap<QString,int> _serverIndices;
     QMap<QString,QList<OAIServerConfiguration>> _serverConfigs;
     QMap<QString, QString> _apiKeys;
@@ -147,7 +155,7 @@ private:
     OauthImplicit _implicitFlow;
     OauthCredentials _credentialFlow;
     OauthPassword _passwordFlow;
-    int _OauthMethod = 0;
+    OauthMethod _OauthMethod = OauthMethod::INVALID_VALUE_OPENAPI_GENERATED;
 
     void itemAttributeListCallback(OAIHttpRequestWorker *worker);
     void itemAttributeRetrieveCallback(OAIHttpRequestWorker *worker);
@@ -185,66 +193,26 @@ Q_SIGNALS:
     void itemPocketRetrieveSignalFull(OAIHttpRequestWorker *worker, OAIItemPocketDetail summary);
     void itemRetrieveSignalFull(OAIHttpRequestWorker *worker, OAIItemDetail summary);
 
-    Q_DECL_DEPRECATED_X("Use itemAttributeListSignalError() instead")
-    void itemAttributeListSignalE(OAIPaginatedItemAttributeSummaryList summary, QNetworkReply::NetworkError error_type, QString error_str);
     void itemAttributeListSignalError(OAIPaginatedItemAttributeSummaryList summary, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use itemAttributeRetrieveSignalError() instead")
-    void itemAttributeRetrieveSignalE(OAIItemAttributeDetail summary, QNetworkReply::NetworkError error_type, QString error_str);
     void itemAttributeRetrieveSignalError(OAIItemAttributeDetail summary, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use itemCategoryListSignalError() instead")
-    void itemCategoryListSignalE(OAIPaginatedItemCategorySummaryList summary, QNetworkReply::NetworkError error_type, QString error_str);
     void itemCategoryListSignalError(OAIPaginatedItemCategorySummaryList summary, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use itemCategoryRetrieveSignalError() instead")
-    void itemCategoryRetrieveSignalE(OAIItemCategoryDetail summary, QNetworkReply::NetworkError error_type, QString error_str);
     void itemCategoryRetrieveSignalError(OAIItemCategoryDetail summary, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use itemFlingEffectListSignalError() instead")
-    void itemFlingEffectListSignalE(OAIPaginatedItemFlingEffectSummaryList summary, QNetworkReply::NetworkError error_type, QString error_str);
     void itemFlingEffectListSignalError(OAIPaginatedItemFlingEffectSummaryList summary, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use itemFlingEffectRetrieveSignalError() instead")
-    void itemFlingEffectRetrieveSignalE(OAIItemFlingEffectDetail summary, QNetworkReply::NetworkError error_type, QString error_str);
     void itemFlingEffectRetrieveSignalError(OAIItemFlingEffectDetail summary, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use itemListSignalError() instead")
-    void itemListSignalE(OAIPaginatedItemSummaryList summary, QNetworkReply::NetworkError error_type, QString error_str);
     void itemListSignalError(OAIPaginatedItemSummaryList summary, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use itemPocketListSignalError() instead")
-    void itemPocketListSignalE(OAIPaginatedItemPocketSummaryList summary, QNetworkReply::NetworkError error_type, QString error_str);
     void itemPocketListSignalError(OAIPaginatedItemPocketSummaryList summary, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use itemPocketRetrieveSignalError() instead")
-    void itemPocketRetrieveSignalE(OAIItemPocketDetail summary, QNetworkReply::NetworkError error_type, QString error_str);
     void itemPocketRetrieveSignalError(OAIItemPocketDetail summary, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use itemRetrieveSignalError() instead")
-    void itemRetrieveSignalE(OAIItemDetail summary, QNetworkReply::NetworkError error_type, QString error_str);
     void itemRetrieveSignalError(OAIItemDetail summary, QNetworkReply::NetworkError error_type, const QString &error_str);
 
-    Q_DECL_DEPRECATED_X("Use itemAttributeListSignalErrorFull() instead")
-    void itemAttributeListSignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void itemAttributeListSignalErrorFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use itemAttributeRetrieveSignalErrorFull() instead")
-    void itemAttributeRetrieveSignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void itemAttributeRetrieveSignalErrorFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use itemCategoryListSignalErrorFull() instead")
-    void itemCategoryListSignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void itemCategoryListSignalErrorFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use itemCategoryRetrieveSignalErrorFull() instead")
-    void itemCategoryRetrieveSignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void itemCategoryRetrieveSignalErrorFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use itemFlingEffectListSignalErrorFull() instead")
-    void itemFlingEffectListSignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void itemFlingEffectListSignalErrorFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use itemFlingEffectRetrieveSignalErrorFull() instead")
-    void itemFlingEffectRetrieveSignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void itemFlingEffectRetrieveSignalErrorFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use itemListSignalErrorFull() instead")
-    void itemListSignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void itemListSignalErrorFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use itemPocketListSignalErrorFull() instead")
-    void itemPocketListSignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void itemPocketListSignalErrorFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use itemPocketRetrieveSignalErrorFull() instead")
-    void itemPocketRetrieveSignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void itemPocketRetrieveSignalErrorFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use itemRetrieveSignalErrorFull() instead")
-    void itemRetrieveSignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void itemRetrieveSignalErrorFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
 
     void abortRequestsSignal();

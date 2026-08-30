@@ -10,9 +10,9 @@ Name | Type | Description | Notes
 **Pokemon** | [**PokemonSummary**](PokemonSummary.md) |  | 
 **Sprites** | [**PokemonFormDetailSprites**](PokemonFormDetailSprites.md) |  | 
 **VersionGroup** | [**VersionGroupSummary**](VersionGroupSummary.md) |  | 
-**FormNames** | [**List&lt;PokemonFormDetailFormNamesInner&gt;**](PokemonFormDetailFormNamesInner.md) |  | 
-**Names** | [**List&lt;PokemonFormDetailFormNamesInner&gt;**](PokemonFormDetailFormNamesInner.md) |  | 
-**Types** | [**List&lt;PokemonDetailTypesInner&gt;**](PokemonDetailTypesInner.md) |  | 
+**FormNames** | [**List&lt;PokemonFormDetailFormNamesInner&gt;**](PokemonFormDetailFormNamesInner.md) |  | [readonly] 
+**Names** | [**List&lt;PokemonFormDetailFormNamesInner&gt;**](PokemonFormDetailFormNamesInner.md) |  | [readonly] 
+**Types** | [**List&lt;PokemonDetailTypesInner&gt;**](PokemonDetailTypesInner.md) |  | [readonly] 
 **Order** | **int** |  | [optional] 
 **FormOrder** | **int** |  | [optional] 
 **IsDefault** | **bool** |  | [optional] 

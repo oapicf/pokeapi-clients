@@ -36,7 +36,7 @@ import javax.validation.Valid;
   MoveMetaAilmentDetail.JSON_PROPERTY_MOVES,
   MoveMetaAilmentDetail.JSON_PROPERTY_NAMES
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJerseyServerCodegen", date = "2026-02-07T15:23:51.865177194Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJerseyServerCodegen", date = "2026-08-30T01:56:28.710233113Z[Etc/UTC]", comments = "Generator version: 7.24.0")
 public class MoveMetaAilmentDetail   {
   public static final String JSON_PROPERTY_ID = "id";
   @JsonProperty(JSON_PROPERTY_ID)
@@ -111,9 +111,9 @@ public class MoveMetaAilmentDetail   {
    * Get moves
    * @return moves
    **/
-  @JsonProperty(value = "moves")
+  @JsonProperty(value = "moves", access = JsonProperty.Access.READ_ONLY)
   @ApiModelProperty(required = true, value = "")
-  @NotNull @Valid 
+  @Valid 
   public List<@Valid AbilityDetailPokemonInnerPokemon> getMoves() {
     return moves;
   }
@@ -139,9 +139,9 @@ public class MoveMetaAilmentDetail   {
    * Get names
    * @return names
    **/
-  @JsonProperty(value = "names")
+  @JsonProperty(value = "names", access = JsonProperty.Access.READ_ONLY)
   @ApiModelProperty(required = true, value = "")
-  @NotNull @Valid 
+  @Valid 
   public List<@Valid MoveMetaAilmentName> getNames() {
     return names;
   }
@@ -189,10 +189,7 @@ public class MoveMetaAilmentDetail   {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 }
 

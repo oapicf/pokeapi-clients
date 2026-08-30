@@ -30,7 +30,7 @@ public class OASBerryFlavorDetail implements OAS.MappedProperties {
      * Get berries
      * @return berries
      */
-    public List<OASBerryFlavorDetailBerriesInner> berries { get; set; }
+    public List<OASBerryFlavorDetailBerriesInner> berries { get; private set; }
 
     /**
      * Get contestType
@@ -42,7 +42,7 @@ public class OASBerryFlavorDetail implements OAS.MappedProperties {
      * Get names
      * @return names
      */
-    public List<OASBerryFlavorName> names { get; set; }
+    public List<OASBerryFlavorName> names { get; private set; }
 
     private static final Map<String, String> propertyMappings = new Map<String, String>{
         'contest_type' => 'contestType'

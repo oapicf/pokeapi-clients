@@ -2,6 +2,7 @@ package org.openapitools.model;
 
 import java.net.URI;
 import java.util.Objects;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import java.util.ArrayList;
@@ -14,19 +15,19 @@ import org.openapitools.model.VersionSummary;
 import java.util.NoSuchElementException;
 import org.openapitools.jackson.nullable.JsonNullable;
 import java.time.OffsetDateTime;
-import javax.validation.Valid;
-import javax.validation.constraints.*;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.*;
 import io.swagger.v3.oas.annotations.media.Schema;
 
 
 import java.util.*;
-import javax.annotation.Generated;
+import jakarta.annotation.Generated;
 
 /**
  * VersionGroupDetail
  */
 
-@Generated(value = "org.openapitools.codegen.languages.JavaCamelServerCodegen", date = "2026-02-07T15:23:32.871052804Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@Generated(value = "org.openapitools.codegen.languages.JavaCamelServerCodegen", date = "2026-08-30T01:56:15.309401083Z[Etc/UTC]", comments = "Generator version: 7.24.0")
 public class VersionGroupDetail {
 
   private Integer id;
@@ -163,8 +164,8 @@ public class VersionGroupDetail {
    * Get moveLearnMethods
    * @return moveLearnMethods
    */
-  @NotNull @Valid 
-  @Schema(name = "move_learn_methods", requiredMode = Schema.RequiredMode.REQUIRED)
+  @Valid 
+  @Schema(name = "move_learn_methods", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("move_learn_methods")
   public List<@Valid AbilityDetailPokemonInnerPokemon> getMoveLearnMethods() {
     return moveLearnMethods;
@@ -191,8 +192,8 @@ public class VersionGroupDetail {
    * Get pokedexes
    * @return pokedexes
    */
-  @NotNull @Valid 
-  @Schema(name = "pokedexes", requiredMode = Schema.RequiredMode.REQUIRED)
+  @Valid 
+  @Schema(name = "pokedexes", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("pokedexes")
   public List<@Valid AbilityDetailPokemonInnerPokemon> getPokedexes() {
     return pokedexes;
@@ -219,8 +220,8 @@ public class VersionGroupDetail {
    * Get regions
    * @return regions
    */
-  @NotNull @Valid 
-  @Schema(name = "regions", requiredMode = Schema.RequiredMode.REQUIRED)
+  @Valid 
+  @Schema(name = "regions", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("regions")
   public List<@Valid AbilityDetailPokemonInnerPokemon> getRegions() {
     return regions;
@@ -247,8 +248,8 @@ public class VersionGroupDetail {
    * Get versions
    * @return versions
    */
-  @NotNull @Valid 
-  @Schema(name = "versions", requiredMode = Schema.RequiredMode.REQUIRED)
+  @Valid 
+  @Schema(name = "versions", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("versions")
   public List<@Valid VersionSummary> getVersions() {
     return versions;
@@ -314,10 +315,7 @@ public class VersionGroupDetail {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 }
 

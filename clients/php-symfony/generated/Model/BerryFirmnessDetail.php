@@ -47,7 +47,7 @@ class BerryFirmnessDetail
      * @var int|null
      * @SerializedName("id")
      * @Type("int")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Type("int")]
     protected ?int $id = null;
@@ -56,7 +56,7 @@ class BerryFirmnessDetail
      * @var string|null
      * @SerializedName("name")
      * @Type("string")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Type("string")]
     #[Assert\Length(max: 100)]
@@ -66,7 +66,7 @@ class BerryFirmnessDetail
      * @var BerrySummary[]|null
      * @SerializedName("berries")
      * @Type("array<OpenAPI\Server\Model\BerrySummary>")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Valid]
     #[Assert\All([
@@ -78,7 +78,7 @@ class BerryFirmnessDetail
      * @var BerryFirmnessName[]|null
      * @SerializedName("names")
      * @Type("array<OpenAPI\Server\Model\BerryFirmnessName>")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Valid]
     #[Assert\All([
@@ -111,12 +111,12 @@ class BerryFirmnessDetail
     }
 
     /**
-    * Sets id.
-    *
-    * @param int|null $id
-    *
-    * @return $this
-    */
+     * Sets id.
+     *
+     * @param int|null $id
+     *
+     * @return $this
+     */
     public function setId(?int $id): self
     {
         $this->id = $id;
@@ -138,12 +138,12 @@ class BerryFirmnessDetail
     }
 
     /**
-    * Sets name.
-    *
-    * @param string|null $name
-    *
-    * @return $this
-    */
+     * Sets name.
+     *
+     * @param string|null $name
+     *
+     * @return $this
+     */
     public function setName(?string $name): self
     {
         $this->name = $name;
@@ -165,12 +165,12 @@ class BerryFirmnessDetail
     }
 
     /**
-    * Sets berries.
-    *
-    * @param BerrySummary[]|null $berries
-    *
-    * @return $this
-    */
+     * Sets berries.
+     *
+     * @param BerrySummary[]|null $berries
+     *
+     * @return $this
+     */
     public function setBerries(?array $berries): self
     {
         $this->berries = $berries;
@@ -192,12 +192,12 @@ class BerryFirmnessDetail
     }
 
     /**
-    * Sets names.
-    *
-    * @param BerryFirmnessName[]|null $names
-    *
-    * @return $this
-    */
+     * Sets names.
+     *
+     * @param BerryFirmnessName[]|null $names
+     *
+     * @return $this
+     */
     public function setNames(?array $names): self
     {
         $this->names = $names;

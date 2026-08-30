@@ -26,6 +26,8 @@ VersionDetail::VersionDetail()
     
 }
 
+VersionDetail::~VersionDetail() = default;
+
 void VersionDetail::validate() const
 {
     std::stringstream msg;

@@ -53,10 +53,10 @@ class TypeDetailPastDamageRelationsInner {
       // Note 1: the values aren't checked for validity beyond being non-null.
       // Note 2: this code is stripped in release mode!
       assert(() {
-        requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "TypeDetailPastDamageRelationsInner[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "TypeDetailPastDamageRelationsInner[$key]" has a null value in JSON.');
-        });
+        assert(json.containsKey(r'generation'), 'Required key "TypeDetailPastDamageRelationsInner[generation]" is missing from JSON.');
+        assert(json[r'generation'] != null, 'Required key "TypeDetailPastDamageRelationsInner[generation]" has a null value in JSON.');
+        assert(json.containsKey(r'damage_relations'), 'Required key "TypeDetailPastDamageRelationsInner[damage_relations]" is missing from JSON.');
+        assert(json[r'damage_relations'] != null, 'Required key "TypeDetailPastDamageRelationsInner[damage_relations]" has a null value in JSON.');
         return true;
       }());
 

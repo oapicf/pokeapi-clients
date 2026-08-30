@@ -51,13 +51,13 @@ export interface PokemonColorDetail {
      * @type {Array<PokemonColorName>}
      * @memberof PokemonColorDetail
      */
-    names: Array<PokemonColorName>;
+    readonly names: Array<PokemonColorName>;
     /**
      * 
      * @type {Array<PokemonSpeciesSummary>}
      * @memberof PokemonColorDetail
      */
-    pokemonSpecies: Array<PokemonSpeciesSummary>;
+    readonly pokemonSpecies: Array<PokemonSpeciesSummary>;
 }
 
 /**
@@ -67,7 +67,7 @@ export function instanceOfPokemonColorDetail(value: object): value is PokemonCol
     if (!('id' in value) || value['id'] === undefined) return false;
     if (!('name' in value) || value['name'] === undefined) return false;
     if (!('names' in value) || value['names'] === undefined) return false;
-    if (!('pokemonSpecies' in value) || value['pokemonSpecies'] === undefined) return false;
+    if ((!('pokemonSpecies' in (value as Record<string, any>)) && !('pokemon_species' in (value as Record<string, any>))) || ((value as Record<string, any>)['pokemonSpecies'] === undefined && (value as Record<string, any>)['pokemon_species'] === undefined)) return false;
     return true;
 }
 
@@ -92,7 +92,7 @@ export function PokemonColorDetailToJSON(json: any): PokemonColorDetail {
     return PokemonColorDetailToJSONTyped(json, false);
 }
 
-export function PokemonColorDetailToJSONTyped(value?: Omit<PokemonColorDetail, 'id'> | null, ignoreDiscriminator: boolean = false): any {
+export function PokemonColorDetailToJSONTyped(value?: Omit<PokemonColorDetail, 'id'|'names'|'pokemonSpecies'> | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
@@ -100,8 +100,6 @@ export function PokemonColorDetailToJSONTyped(value?: Omit<PokemonColorDetail, '
     return {
         
         'name': value['name'],
-        'names': ((value['names'] as Array<any>).map(PokemonColorNameToJSON)),
-        'pokemon_species': ((value['pokemonSpecies'] as Array<any>).map(PokemonSpeciesSummaryToJSON)),
     };
 }
 

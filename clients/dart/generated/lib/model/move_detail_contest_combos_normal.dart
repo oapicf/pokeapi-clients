@@ -53,10 +53,10 @@ class MoveDetailContestCombosNormal {
       // Note 1: the values aren't checked for validity beyond being non-null.
       // Note 2: this code is stripped in release mode!
       assert(() {
-        requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "MoveDetailContestCombosNormal[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "MoveDetailContestCombosNormal[$key]" has a null value in JSON.');
-        });
+        assert(json.containsKey(r'use_before'), 'Required key "MoveDetailContestCombosNormal[use_before]" is missing from JSON.');
+        assert(json[r'use_before'] != null, 'Required key "MoveDetailContestCombosNormal[use_before]" has a null value in JSON.');
+        assert(json.containsKey(r'use_after'), 'Required key "MoveDetailContestCombosNormal[use_after]" is missing from JSON.');
+        assert(json[r'use_after'] != null, 'Required key "MoveDetailContestCombosNormal[use_after]" has a null value in JSON.');
         return true;
       }());
 

@@ -12,6 +12,11 @@
 package openapi
 
 
+import (
+	"encoding/json"
+	"fmt"
+)
+
 
 
 type TypeDetailPastDamageRelationsInnerDamageRelations struct {
@@ -28,8 +33,101 @@ type TypeDetailPastDamageRelationsInnerDamageRelations struct {
 
 	DoubleDamageFrom []AbilityDetailPokemonInnerPokemon `json:"double_damage_from"`
 }
+// UnmarshalJSON validates required property keys then unmarshals into TypeDetailPastDamageRelationsInnerDamageRelations
+func (o *TypeDetailPastDamageRelationsInnerDamageRelations) UnmarshalJSON(data []byte) (err error) {
+	// Presence is checked against required fields that exist on this struct,
+	// including fields promoted from embedded allOf parents.
+	requiredProperties := []string{
+		"no_damage_to",
+		"half_damage_to",
+		"double_damage_to",
+		"no_damage_from",
+		"half_damage_from",
+		"double_damage_from",
+	}
 
-// AssertTypeDetailPastDamageRelationsInnerDamageRelationsRequired checks if the required fields are not zero-ed
+	requiredNullableProperties := map[string]bool{
+		"no_damage_to": false,
+		"half_damage_to": false,
+		"double_damage_to": false,
+		"no_damage_from": false,
+		"half_damage_from": false,
+		"double_damage_from": false,
+	}
+
+	allowedJsonKeys := map[string]struct{}{
+		"no_damage_to": {},
+		"half_damage_to": {},
+		"double_damage_to": {},
+		"no_damage_from": {},
+		"half_damage_from": {},
+		"double_damage_from": {},
+	}
+
+	allProperties := make(map[string]json.RawMessage)
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err
+	}
+
+	for _, requiredProperty := range requiredProperties {
+		value, exists := allProperties[requiredProperty]
+		if !exists {
+			return &RequiredError{Field: requiredProperty}
+		}
+		if string(value) == "null" && !requiredNullableProperties[requiredProperty] {
+			return &RequiredError{Field: requiredProperty}
+		}
+	}
+
+	for key := range allProperties {
+		if _, exists := allowedJsonKeys[key]; !exists {
+			return fmt.Errorf("json: unknown field %q", key)
+		}
+	}
+
+	var decoded TypeDetailPastDamageRelationsInnerDamageRelations
+
+	if value, exists := allProperties["no_damage_to"]; exists {
+		if err = json.Unmarshal(value, &decoded.NoDamageTo); err != nil {
+			return err
+		}
+	}
+	if value, exists := allProperties["half_damage_to"]; exists {
+		if err = json.Unmarshal(value, &decoded.HalfDamageTo); err != nil {
+			return err
+		}
+	}
+	if value, exists := allProperties["double_damage_to"]; exists {
+		if err = json.Unmarshal(value, &decoded.DoubleDamageTo); err != nil {
+			return err
+		}
+	}
+	if value, exists := allProperties["no_damage_from"]; exists {
+		if err = json.Unmarshal(value, &decoded.NoDamageFrom); err != nil {
+			return err
+		}
+	}
+	if value, exists := allProperties["half_damage_from"]; exists {
+		if err = json.Unmarshal(value, &decoded.HalfDamageFrom); err != nil {
+			return err
+		}
+	}
+	if value, exists := allProperties["double_damage_from"]; exists {
+		if err = json.Unmarshal(value, &decoded.DoubleDamageFrom); err != nil {
+			return err
+		}
+	}
+
+	*o = decoded
+
+	return nil
+}
+
+// AssertTypeDetailPastDamageRelationsInnerDamageRelationsRequired checks complex required fields (models, arrays, maps) and embedded parents.
+// Primitive required fields are validated for JSON request bodies in UnmarshalJSON so zero values remain valid.
 func AssertTypeDetailPastDamageRelationsInnerDamageRelationsRequired(obj TypeDetailPastDamageRelationsInnerDamageRelations) error {
 	elements := map[string]interface{}{
 		"no_damage_to": obj.NoDamageTo,

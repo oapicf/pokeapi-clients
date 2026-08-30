@@ -66,13 +66,13 @@ namespace Org.OpenAPITools.Model
         /// Gets or Sets Berries
         /// </summary>
         [JsonPropertyName("berries")]
-        public List<BerrySummary> Berries { get; set; }
+        public List<BerrySummary> Berries { get; }
 
         /// <summary>
         /// Gets or Sets Names
         /// </summary>
         [JsonPropertyName("names")]
-        public List<BerryFirmnessName> Names { get; set; }
+        public List<BerryFirmnessName> Names { get; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -110,8 +110,18 @@ namespace Org.OpenAPITools.Model
     /// <summary>
     /// A Json converter for type <see cref="BerryFirmnessDetail" />
     /// </summary>
-    public class BerryFirmnessDetailJsonConverter : JsonConverter<BerryFirmnessDetail>
+    public partial class BerryFirmnessDetailJsonConverter : JsonConverter<BerryFirmnessDetail>
     {
+        partial void OnCreated();
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="BerryFirmnessDetailJsonConverter" /> class.
+        /// </summary>
+        public BerryFirmnessDetailJsonConverter()
+        {
+            OnCreated();
+        }
+
         /// <summary>
         /// Deserializes json to <see cref="BerryFirmnessDetail" />
         /// </summary>

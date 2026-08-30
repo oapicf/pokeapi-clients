@@ -30,7 +30,7 @@ import javax.validation.Valid;
  * <p>All the Pokémon data you'll ever need in one place, easily accessible through a modern free open-source RESTful API.  ## What is this?  This is a full RESTful API linked to an extensive database detailing everything about the Pokémon main game series.  We've covered everything from Pokémon to Berry Flavors.  ## Where do I start?  We have awesome [documentation](https://pokeapi.co/docs/v2) on how to use this API. It takes minutes to get started.  This API will always be publicly available and will never require any extensive setup process to consume.  Created by [**Paul Hallett**(]https://github.com/phalt) and other [**PokéAPI contributors***](https://github.com/PokeAPI/pokeapi#contributing) around the world. Pokémon and Pokémon character names are trademarks of Nintendo.     
  *
  */
-@Path("/api/v2")
+@Path("")
 @Api(value = "/", description = "")
 public interface EncountersApi  {
 
@@ -41,7 +41,7 @@ public interface EncountersApi  {
      *
      */
     @GET
-    @Path("/encounter-condition/")
+    @Path("/api/v2/encounter-condition/")
     @Produces({ "application/json" })
     @ApiOperation(value = "List encounter conditions", tags={ "encounters" })
     @ApiResponses(value = { 
@@ -55,7 +55,7 @@ public interface EncountersApi  {
      *
      */
     @GET
-    @Path("/encounter-condition/{id}/")
+    @Path("/api/v2/encounter-condition/{id}/")
     @Produces({ "application/json" })
     @ApiOperation(value = "Get encounter condition", tags={ "encounters" })
     @ApiResponses(value = { 
@@ -69,7 +69,7 @@ public interface EncountersApi  {
      *
      */
     @GET
-    @Path("/encounter-condition-value/")
+    @Path("/api/v2/encounter-condition-value/")
     @Produces({ "application/json" })
     @ApiOperation(value = "List encounter condition values", tags={ "encounters" })
     @ApiResponses(value = { 
@@ -83,7 +83,7 @@ public interface EncountersApi  {
      *
      */
     @GET
-    @Path("/encounter-condition-value/{id}/")
+    @Path("/api/v2/encounter-condition-value/{id}/")
     @Produces({ "application/json" })
     @ApiOperation(value = "Get encounter condition value", tags={ "encounters" })
     @ApiResponses(value = { 
@@ -97,7 +97,7 @@ public interface EncountersApi  {
      *
      */
     @GET
-    @Path("/encounter-method/")
+    @Path("/api/v2/encounter-method/")
     @Produces({ "application/json" })
     @ApiOperation(value = "List encounter methods", tags={ "encounters" })
     @ApiResponses(value = { 
@@ -111,7 +111,7 @@ public interface EncountersApi  {
      *
      */
     @GET
-    @Path("/encounter-method/{id}/")
+    @Path("/api/v2/encounter-method/{id}/")
     @Produces({ "application/json" })
     @ApiOperation(value = "Get encounter method", tags={ "encounters" })
     @ApiResponses(value = { 

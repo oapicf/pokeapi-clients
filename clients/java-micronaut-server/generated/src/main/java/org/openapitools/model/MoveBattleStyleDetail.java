@@ -35,7 +35,7 @@ import io.swagger.v3.oas.annotations.media.Schema;
   MoveBattleStyleDetail.JSON_PROPERTY_NAMES
 })
 @JsonTypeName("MoveBattleStyleDetail")
-@Generated(value="org.openapitools.codegen.languages.JavaMicronautServerCodegen", date="2026-02-07T15:23:03.167972722Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@Generated(value="org.openapitools.codegen.languages.JavaMicronautServerCodegen", date="2026-08-30T01:55:54.631003115Z[Etc/UTC]", comments = "Generator version: 7.24.0")
 @Introspected
 public class MoveBattleStyleDetail {
     public static final String JSON_PROPERTY_ID = "id";
@@ -89,32 +89,16 @@ public class MoveBattleStyleDetail {
         this.name = name;
     }
 
-    public MoveBattleStyleDetail names(List<@Valid MoveBattleStyleName> names) {
-        this.names = names;
-        return this;
-    }
-
-    public MoveBattleStyleDetail addNamesItem(MoveBattleStyleName namesItem) {
-        this.names.add(namesItem);
-        return this;
-    }
-
     /**
      * Get names
      * @return names
      */
     @NotNull
-    @Schema(name = "names", requiredMode = Schema.RequiredMode.REQUIRED)
+    @Schema(name = "names", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
     @JsonProperty(JSON_PROPERTY_NAMES)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public List<@Valid MoveBattleStyleName> getNames() {
         return names;
-    }
-
-    @JsonProperty(JSON_PROPERTY_NAMES)
-    @JsonInclude(value = JsonInclude.Include.ALWAYS)
-    public void setNames(List<@Valid MoveBattleStyleName> names) {
-        this.names = names;
     }
 
     @Override
@@ -152,10 +136,7 @@ public class MoveBattleStyleDetail {
      * (except the first line).
      */
     private String toIndentedString(Object o) {
-        if (o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
+        return o == null ? "null" : o.toString().replace("\n", "\n    ");
     }
 
 }

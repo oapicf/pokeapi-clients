@@ -71,10 +71,10 @@ function Initialize-GenderDetail {
 
 
         $PSO = [PSCustomObject]@{
-            "id" = ${Id}
-            "name" = ${Name}
-            "pokemon_species_details" = ${PokemonSpeciesDetails}
-            "required_for_evolution" = ${RequiredForEvolution}
+            'id' = ${Id}
+            'name' = ${Name}
+            'pokemon_species_details' = ${PokemonSpeciesDetails}
+            'required_for_evolution' = ${RequiredForEvolution}
         }
 
 
@@ -112,7 +112,7 @@ function ConvertFrom-JsonToGenderDetail {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in GenderDetail
-        $AllProperties = ("id", "name", "pokemon_species_details", "required_for_evolution")
+        $AllProperties = ('id', 'name', 'pokemon_species_details', 'required_for_evolution')
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -123,35 +123,35 @@ function ConvertFrom-JsonToGenderDetail {
             throw "Error! Empty JSON cannot be serialized due to the required property 'id' missing."
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "id"))) {
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'id'))) {
             throw "Error! JSON cannot be serialized due to the required property 'id' missing."
         } else {
-            $Id = $JsonParameters.PSobject.Properties["id"].value
+            $Id = $JsonParameters.PSobject.Properties['id'].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "name"))) {
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'name'))) {
             throw "Error! JSON cannot be serialized due to the required property 'name' missing."
         } else {
-            $Name = $JsonParameters.PSobject.Properties["name"].value
+            $Name = $JsonParameters.PSobject.Properties['name'].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "pokemon_species_details"))) {
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'pokemon_species_details'))) {
             throw "Error! JSON cannot be serialized due to the required property 'pokemon_species_details' missing."
         } else {
-            $PokemonSpeciesDetails = $JsonParameters.PSobject.Properties["pokemon_species_details"].value
+            $PokemonSpeciesDetails = $JsonParameters.PSobject.Properties['pokemon_species_details'].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "required_for_evolution"))) {
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'required_for_evolution'))) {
             throw "Error! JSON cannot be serialized due to the required property 'required_for_evolution' missing."
         } else {
-            $RequiredForEvolution = $JsonParameters.PSobject.Properties["required_for_evolution"].value
+            $RequiredForEvolution = $JsonParameters.PSobject.Properties['required_for_evolution'].value
         }
 
         $PSO = [PSCustomObject]@{
-            "id" = ${Id}
-            "name" = ${Name}
-            "pokemon_species_details" = ${PokemonSpeciesDetails}
-            "required_for_evolution" = ${RequiredForEvolution}
+            'id' = ${Id}
+            'name' = ${Name}
+            'pokemon_species_details' = ${PokemonSpeciesDetails}
+            'required_for_evolution' = ${RequiredForEvolution}
         }
 
         return $PSO

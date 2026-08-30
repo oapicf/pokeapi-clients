@@ -33,7 +33,7 @@ class  NatureName
 {
 public:
     NatureName();
-    virtual ~NatureName() = default;
+    virtual ~NatureName();
 
 
     /// <summary>

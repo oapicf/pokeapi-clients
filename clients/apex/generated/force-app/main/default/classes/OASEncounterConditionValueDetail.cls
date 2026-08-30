@@ -36,7 +36,7 @@ public class OASEncounterConditionValueDetail {
      * Get names
      * @return names
      */
-    public List<OASEncounterConditionValueName> names { get; set; }
+    public List<OASEncounterConditionValueName> names { get; private set; }
 
     public OASEncounterConditionValueDetail() {
         names = new List<OASEncounterConditionValueName>();

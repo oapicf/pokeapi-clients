@@ -35,13 +35,13 @@ class OAIVersionGroupSummary;
 class OAIAbilityFlavorText : public OAIObject {
 public:
     OAIAbilityFlavorText();
-    OAIAbilityFlavorText(QString json);
+    OAIAbilityFlavorText(const QString &json);
     ~OAIAbilityFlavorText() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     QString getFlavorText() const;
     void setFlavorText(const QString &flavor_text);

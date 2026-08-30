@@ -21,7 +21,7 @@
 
 namespace OpenAPI {
 
-OAIPaginatedMoveBattleStyleSummaryList::OAIPaginatedMoveBattleStyleSummaryList(QString json) {
+OAIPaginatedMoveBattleStyleSummaryList::OAIPaginatedMoveBattleStyleSummaryList(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -47,7 +47,7 @@ void OAIPaginatedMoveBattleStyleSummaryList::initializeModel() {
     m_results_isValid = false;
 }
 
-void OAIPaginatedMoveBattleStyleSummaryList::fromJson(QString jsonString) {
+void OAIPaginatedMoveBattleStyleSummaryList::fromJson(const QString &jsonString) {
     QByteArray array(jsonString.toStdString().c_str());
     QJsonDocument doc = QJsonDocument::fromJson(array);
     QJsonObject jsonObject = doc.object();

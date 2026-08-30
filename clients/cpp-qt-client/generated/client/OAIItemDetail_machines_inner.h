@@ -33,13 +33,13 @@ class OAIAbilityDetail_pokemon_inner_pokemon;
 class OAIItemDetail_machines_inner : public OAIObject {
 public:
     OAIItemDetail_machines_inner();
-    OAIItemDetail_machines_inner(QString json);
+    OAIItemDetail_machines_inner(const QString &json);
     ~OAIItemDetail_machines_inner() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     QString getMachine() const;
     void setMachine(const QString &machine);

@@ -34,7 +34,7 @@ class  PaginatedNatureSummaryList
 {
 public:
     PaginatedNatureSummaryList();
-    virtual ~PaginatedNatureSummaryList() = default;
+    virtual ~PaginatedNatureSummaryList();
 
 
     /// <summary>

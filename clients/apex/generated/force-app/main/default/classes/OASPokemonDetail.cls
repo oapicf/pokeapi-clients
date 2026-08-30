@@ -60,25 +60,25 @@ public class OASPokemonDetail implements OAS.MappedProperties {
      * Get abilities
      * @return abilities
      */
-    public List<OASPokemonDetailAbilitiesInner> abilities { get; set; }
+    public List<OASPokemonDetailAbilitiesInner> abilities { get; private set; }
 
     /**
      * Get pastAbilities
      * @return pastAbilities
      */
-    public List<OASPokemonDetailPastAbilitiesInner> pastAbilities { get; set; }
+    public List<OASPokemonDetailPastAbilitiesInner> pastAbilities { get; private set; }
 
     /**
      * Get forms
      * @return forms
      */
-    public List<OASPokemonFormSummary> forms { get; set; }
+    public List<OASPokemonFormSummary> forms { get; private set; }
 
     /**
      * Get gameIndices
      * @return gameIndices
      */
-    public List<OASPokemonGameIndex> gameIndices { get; set; }
+    public List<OASPokemonGameIndex> gameIndices { get; private set; }
 
     /**
      * Get heldItems
@@ -96,7 +96,7 @@ public class OASPokemonDetail implements OAS.MappedProperties {
      * Get moves
      * @return moves
      */
-    public List<OASPokemonDetailMovesInner> moves { get; set; }
+    public List<OASPokemonDetailMovesInner> moves { get; private set; }
 
     /**
      * Get species
@@ -120,19 +120,19 @@ public class OASPokemonDetail implements OAS.MappedProperties {
      * Get stats
      * @return stats
      */
-    public List<OASPokemonStat> stats { get; set; }
+    public List<OASPokemonStat> stats { get; private set; }
 
     /**
      * Get types
      * @return types
      */
-    public List<OASPokemonDetailTypesInner> types { get; set; }
+    public List<OASPokemonDetailTypesInner> types { get; private set; }
 
     /**
      * Get pastTypes
      * @return pastTypes
      */
-    public List<OASPokemonDetailPastTypesInner> pastTypes { get; set; }
+    public List<OASPokemonDetailPastTypesInner> pastTypes { get; private set; }
 
     private static final Map<String, String> propertyMappings = new Map<String, String>{
         'base_experience' => 'baseExperience',

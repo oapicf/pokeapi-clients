@@ -31,6 +31,8 @@ PaginatedBerryFirmnessSummaryList::PaginatedBerryFirmnessSummaryList()
     
 }
 
+PaginatedBerryFirmnessSummaryList::~PaginatedBerryFirmnessSummaryList() = default;
+
 void PaginatedBerryFirmnessSummaryList::validate() const
 {
     std::stringstream msg;

@@ -32,7 +32,7 @@ class  TypeGameIndex
 {
 public:
     TypeGameIndex();
-    virtual ~TypeGameIndex() = default;
+    virtual ~TypeGameIndex();
 
 
     /// <summary>

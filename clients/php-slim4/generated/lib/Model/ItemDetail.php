@@ -69,42 +69,54 @@ class ItemDetail extends BaseModel
     },
     "attributes" : {
       "type" : "array",
+      "readOnly" : true,
       "items" : {
         "$ref" : "#/components/schemas/AbilityDetail_pokemon_inner_pokemon"
-      }
+      },
+      "default" : null
     },
     "category" : {
       "$ref" : "#/components/schemas/ItemCategorySummary"
     },
     "effect_entries" : {
       "type" : "array",
+      "readOnly" : true,
       "items" : {
         "$ref" : "#/components/schemas/ItemEffectText"
-      }
+      },
+      "default" : null
     },
     "flavor_text_entries" : {
       "type" : "array",
+      "readOnly" : true,
       "items" : {
         "$ref" : "#/components/schemas/ItemFlavorText"
-      }
+      },
+      "default" : null
     },
     "game_indices" : {
       "type" : "array",
+      "readOnly" : true,
       "items" : {
         "$ref" : "#/components/schemas/ItemGameIndex"
-      }
+      },
+      "default" : null
     },
     "names" : {
       "type" : "array",
+      "readOnly" : true,
       "items" : {
         "$ref" : "#/components/schemas/ItemName"
-      }
+      },
+      "default" : null
     },
     "held_by_pokemon" : {
       "type" : "array",
+      "readOnly" : true,
       "items" : {
         "$ref" : "#/components/schemas/ItemDetail_held_by_pokemon_inner"
-      }
+      },
+      "default" : null
     },
     "sprites" : {
       "$ref" : "#/components/schemas/ItemDetail_sprites"
@@ -114,9 +126,11 @@ class ItemDetail extends BaseModel
     },
     "machines" : {
       "type" : "array",
+      "readOnly" : true,
       "items" : {
         "$ref" : "#/components/schemas/ItemDetail_machines_inner"
-      }
+      },
+      "default" : null
     }
   }
 }

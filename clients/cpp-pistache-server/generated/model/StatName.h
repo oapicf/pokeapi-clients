@@ -33,7 +33,7 @@ class  StatName
 {
 public:
     StatName();
-    virtual ~StatName() = default;
+    virtual ~StatName();
 
 
     /// <summary>

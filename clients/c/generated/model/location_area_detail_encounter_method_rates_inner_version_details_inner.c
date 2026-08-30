@@ -6,28 +6,37 @@
 
 
 static location_area_detail_encounter_method_rates_inner_version_details_inner_t *location_area_detail_encounter_method_rates_inner_version_details_inner_create_internal(
-    int rate,
+    int *rate,
     ability_detail_pokemon_inner_pokemon_t *version
     ) {
     location_area_detail_encounter_method_rates_inner_version_details_inner_t *location_area_detail_encounter_method_rates_inner_version_details_inner_local_var = malloc(sizeof(location_area_detail_encounter_method_rates_inner_version_details_inner_t));
     if (!location_area_detail_encounter_method_rates_inner_version_details_inner_local_var) {
         return NULL;
     }
+    memset(location_area_detail_encounter_method_rates_inner_version_details_inner_local_var, 0, sizeof(location_area_detail_encounter_method_rates_inner_version_details_inner_t));
+    location_area_detail_encounter_method_rates_inner_version_details_inner_local_var->_library_owned = 1;
     location_area_detail_encounter_method_rates_inner_version_details_inner_local_var->rate = rate;
     location_area_detail_encounter_method_rates_inner_version_details_inner_local_var->version = version;
-
-    location_area_detail_encounter_method_rates_inner_version_details_inner_local_var->_library_owned = 1;
     return location_area_detail_encounter_method_rates_inner_version_details_inner_local_var;
 }
 
 __attribute__((deprecated)) location_area_detail_encounter_method_rates_inner_version_details_inner_t *location_area_detail_encounter_method_rates_inner_version_details_inner_create(
-    int rate,
+    int *rate,
     ability_detail_pokemon_inner_pokemon_t *version
     ) {
-    return location_area_detail_encounter_method_rates_inner_version_details_inner_create_internal (
-        rate,
+    int *rate_copy = NULL;
+    if (rate) {
+        rate_copy = malloc(sizeof(int));
+        if (rate_copy) *rate_copy = *rate;
+    }
+    location_area_detail_encounter_method_rates_inner_version_details_inner_t *result = location_area_detail_encounter_method_rates_inner_version_details_inner_create_internal (
+        rate_copy,
         version
         );
+    if (!result) {
+        free(rate_copy);
+    }
+    return result;
 }
 
 void location_area_detail_encounter_method_rates_inner_version_details_inner_free(location_area_detail_encounter_method_rates_inner_version_details_inner_t *location_area_detail_encounter_method_rates_inner_version_details_inner) {
@@ -39,6 +48,10 @@ void location_area_detail_encounter_method_rates_inner_version_details_inner_fre
         return ;
     }
     listEntry_t *listEntry;
+    if (location_area_detail_encounter_method_rates_inner_version_details_inner->rate) {
+        free(location_area_detail_encounter_method_rates_inner_version_details_inner->rate);
+        location_area_detail_encounter_method_rates_inner_version_details_inner->rate = NULL;
+    }
     if (location_area_detail_encounter_method_rates_inner_version_details_inner->version) {
         ability_detail_pokemon_inner_pokemon_free(location_area_detail_encounter_method_rates_inner_version_details_inner->version);
         location_area_detail_encounter_method_rates_inner_version_details_inner->version = NULL;
@@ -53,7 +66,7 @@ cJSON *location_area_detail_encounter_method_rates_inner_version_details_inner_c
     if (!location_area_detail_encounter_method_rates_inner_version_details_inner->rate) {
         goto fail;
     }
-    if(cJSON_AddNumberToObject(item, "rate", location_area_detail_encounter_method_rates_inner_version_details_inner->rate) == NULL) {
+    if(cJSON_AddNumberToObject(item, "rate", *location_area_detail_encounter_method_rates_inner_version_details_inner->rate) == NULL) {
     goto fail; //Numeric
     }
 
@@ -83,6 +96,9 @@ location_area_detail_encounter_method_rates_inner_version_details_inner_t *locat
 
     location_area_detail_encounter_method_rates_inner_version_details_inner_t *location_area_detail_encounter_method_rates_inner_version_details_inner_local_var = NULL;
 
+    // define the local variable for location_area_detail_encounter_method_rates_inner_version_details_inner->rate
+    int *rate_local_var = NULL;
+
     // define the local variable for location_area_detail_encounter_method_rates_inner_version_details_inner->version
     ability_detail_pokemon_inner_pokemon_t *version_local_nonprim = NULL;
 
@@ -100,6 +116,12 @@ location_area_detail_encounter_method_rates_inner_version_details_inner_t *locat
     {
     goto end; //Numeric
     }
+    rate_local_var = malloc(sizeof(int));
+    if(!rate_local_var)
+    {
+        goto end;
+    }
+    *rate_local_var = rate->valuedouble;
 
     // location_area_detail_encounter_method_rates_inner_version_details_inner->version
     cJSON *version = cJSON_GetObjectItemCaseSensitive(location_area_detail_encounter_method_rates_inner_version_details_innerJSON, "version");
@@ -114,13 +136,22 @@ location_area_detail_encounter_method_rates_inner_version_details_inner_t *locat
     version_local_nonprim = ability_detail_pokemon_inner_pokemon_parseFromJSON(version); //nonprimitive
 
 
+
     location_area_detail_encounter_method_rates_inner_version_details_inner_local_var = location_area_detail_encounter_method_rates_inner_version_details_inner_create_internal (
-        rate->valuedouble,
+        rate_local_var,
         version_local_nonprim
         );
 
+    if (!location_area_detail_encounter_method_rates_inner_version_details_inner_local_var) {
+        goto end;
+    }
+
     return location_area_detail_encounter_method_rates_inner_version_details_inner_local_var;
 end:
+    if (rate_local_var) {
+        free(rate_local_var);
+        rate_local_var = NULL;
+    }
     if (version_local_nonprim) {
         ability_detail_pokemon_inner_pokemon_free(version_local_nonprim);
         version_local_nonprim = NULL;

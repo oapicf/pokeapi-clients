@@ -26,6 +26,8 @@ BerryFirmnessDetail::BerryFirmnessDetail()
     
 }
 
+BerryFirmnessDetail::~BerryFirmnessDetail() = default;
+
 void BerryFirmnessDetail::validate() const
 {
     std::stringstream msg;

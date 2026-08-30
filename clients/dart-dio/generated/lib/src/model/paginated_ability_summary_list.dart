@@ -108,29 +108,33 @@ class _$PaginatedAbilitySummaryListSerializer implements PrimitiveSerializer<Pag
         case r'count':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(int),
-          ) as int;
+            specifiedType: const FullType.nullable(int),
+          ) as int?;
+          if (valueDes == null) continue;
           result.count = valueDes;
           break;
         case r'next':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(String),
-          ) as String;
+            specifiedType: const FullType.nullable(String),
+          ) as String?;
+          if (valueDes == null) continue;
           result.next = valueDes;
           break;
         case r'previous':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(String),
-          ) as String;
+            specifiedType: const FullType.nullable(String),
+          ) as String?;
+          if (valueDes == null) continue;
           result.previous = valueDes;
           break;
         case r'results':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(BuiltList, [FullType(AbilitySummary)]),
-          ) as BuiltList<AbilitySummary>;
+            specifiedType: const FullType.nullable(BuiltList, [FullType(AbilitySummary)]),
+          ) as BuiltList<AbilitySummary>?;
+          if (valueDes == null) continue;
           result.results.replace(valueDes);
           break;
         default:

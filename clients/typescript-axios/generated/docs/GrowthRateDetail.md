@@ -8,9 +8,9 @@ Name | Type | Description | Notes
 **id** | **number** |  | [readonly] [default to undefined]
 **name** | **string** |  | [default to undefined]
 **formula** | **string** |  | [default to undefined]
-**descriptions** | [**Array&lt;GrowthRateDescription&gt;**](GrowthRateDescription.md) |  | [default to undefined]
-**levels** | [**Array&lt;Experience&gt;**](Experience.md) |  | [default to undefined]
-**pokemon_species** | [**Array&lt;PokemonSpeciesSummary&gt;**](PokemonSpeciesSummary.md) |  | [default to undefined]
+**descriptions** | [**Array&lt;GrowthRateDescription&gt;**](GrowthRateDescription.md) |  | [readonly] [default to undefined]
+**levels** | [**Array&lt;Experience&gt;**](Experience.md) |  | [readonly] [default to undefined]
+**pokemon_species** | [**Array&lt;PokemonSpeciesSummary&gt;**](PokemonSpeciesSummary.md) |  | [readonly] [default to undefined]
 
 ## Example
 

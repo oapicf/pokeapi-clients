@@ -52,14 +52,14 @@ public:
 
 	/*! \brief Set 
 	 */
-	void setEntryNumber(int  entry_number);
+	void setEntryNumber(int entry_number);
 	/*! \brief Get 
 	 */
 	PokedexSummary getPokedex();
 
 	/*! \brief Set 
 	 */
-	void setPokedex(PokedexSummary  pokedex);
+	void setPokedex(PokedexSummary pokedex);
 
 
     private:

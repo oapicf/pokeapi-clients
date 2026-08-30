@@ -25,6 +25,8 @@ PokemonDexEntry::PokemonDexEntry()
     
 }
 
+PokemonDexEntry::~PokemonDexEntry() = default;
+
 void PokemonDexEntry::validate() const
 {
     std::stringstream msg;

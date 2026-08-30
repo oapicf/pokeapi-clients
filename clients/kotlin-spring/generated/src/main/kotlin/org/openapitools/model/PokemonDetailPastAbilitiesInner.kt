@@ -23,11 +23,13 @@ import io.swagger.v3.oas.annotations.media.Schema
 data class PokemonDetailPastAbilitiesInner(
 
     @field:Valid
-    @Schema(example = "null", required = true, description = "")
+    @Schema(required = true, description = "")
+    @param:JsonProperty("abilities")
     @get:JsonProperty("abilities", required = true) val abilities: kotlin.collections.List<PokemonDetailAbilitiesInner>,
 
     @field:Valid
-    @Schema(example = "null", required = true, description = "")
+    @Schema(required = true, description = "")
+    @param:JsonProperty("generation")
     @get:JsonProperty("generation", required = true) val generation: AbilityDetailPokemonInnerPokemon
 ) {
 

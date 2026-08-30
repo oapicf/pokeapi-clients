@@ -26,6 +26,8 @@ PokemonHabitatDetail::PokemonHabitatDetail()
     
 }
 
+PokemonHabitatDetail::~PokemonHabitatDetail() = default;
+
 void PokemonHabitatDetail::validate() const
 {
     std::stringstream msg;

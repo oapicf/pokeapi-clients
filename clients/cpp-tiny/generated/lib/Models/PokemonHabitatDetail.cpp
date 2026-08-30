@@ -161,7 +161,7 @@ PokemonHabitatDetail::getId()
 }
 
 void
-PokemonHabitatDetail::setId(int  id)
+PokemonHabitatDetail::setId(int id)
 {
 	this->id = id;
 }
@@ -173,7 +173,7 @@ PokemonHabitatDetail::getName()
 }
 
 void
-PokemonHabitatDetail::setName(std::string  name)
+PokemonHabitatDetail::setName(std::string name)
 {
 	this->name = name;
 }
@@ -185,7 +185,7 @@ PokemonHabitatDetail::getNames()
 }
 
 void
-PokemonHabitatDetail::setNames(std::list <PokemonHabitatName> names)
+PokemonHabitatDetail::setNames(std::list<PokemonHabitatName> names)
 {
 	this->names = names;
 }
@@ -197,7 +197,7 @@ PokemonHabitatDetail::getPokemonSpecies()
 }
 
 void
-PokemonHabitatDetail::setPokemonSpecies(std::list <PokemonSpeciesSummary> pokemon_species)
+PokemonHabitatDetail::setPokemonSpecies(std::list<PokemonSpeciesSummary> pokemon_species)
 {
 	this->pokemon_species = pokemon_species;
 }

@@ -12,24 +12,27 @@
  * Do not edit the class manually.
  */
 
-
 import * as runtime from '../runtime';
-import type {
-  EvolutionChainDetail,
-  EvolutionTriggerDetail,
-  PaginatedEvolutionChainSummaryList,
-  PaginatedEvolutionTriggerSummaryList,
-} from '../models/index';
 import {
+    type EvolutionChainDetail,
     EvolutionChainDetailFromJSON,
     EvolutionChainDetailToJSON,
+} from '../models/EvolutionChainDetail';
+import {
+    type EvolutionTriggerDetail,
     EvolutionTriggerDetailFromJSON,
     EvolutionTriggerDetailToJSON,
+} from '../models/EvolutionTriggerDetail';
+import {
+    type PaginatedEvolutionChainSummaryList,
     PaginatedEvolutionChainSummaryListFromJSON,
     PaginatedEvolutionChainSummaryListToJSON,
+} from '../models/PaginatedEvolutionChainSummaryList';
+import {
+    type PaginatedEvolutionTriggerSummaryList,
     PaginatedEvolutionTriggerSummaryListFromJSON,
     PaginatedEvolutionTriggerSummaryListToJSON,
-} from '../models/index';
+} from '../models/PaginatedEvolutionTriggerSummaryList';
 
 export interface EvolutionChainListRequest {
     limit?: number;
@@ -57,10 +60,9 @@ export interface EvolutionTriggerRetrieveRequest {
 export class EvolutionApi extends runtime.BaseAPI {
 
     /**
-     * Evolution chains are essentially family trees. They start with the lowest stage within a family and detail evolution conditions for each as well as Pokémon they can evolve into up through the hierarchy.
-     * List evolution chains
+     * Creates request options for evolutionChainList without sending the request
      */
-    async evolutionChainListRaw(requestParameters: EvolutionChainListRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PaginatedEvolutionChainSummaryList>> {
+    async evolutionChainListRequestOpts(requestParameters: EvolutionChainListRequest): Promise<runtime.RequestOpts> {
         const queryParameters: any = {};
 
         if (requestParameters['limit'] != null) {
@@ -83,12 +85,21 @@ export class EvolutionApi extends runtime.BaseAPI {
 
         let urlPath = `/api/v2/evolution-chain/`;
 
-        const response = await this.request({
+        return {
             path: urlPath,
             method: 'GET',
             headers: headerParameters,
             query: queryParameters,
-        }, initOverrides);
+        };
+    }
+
+    /**
+     * Evolution chains are essentially family trees. They start with the lowest stage within a family and detail evolution conditions for each as well as Pokémon they can evolve into up through the hierarchy.
+     * List evolution chains
+     */
+    async evolutionChainListRaw(requestParameters: EvolutionChainListRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PaginatedEvolutionChainSummaryList>> {
+        const requestOptions = await this.evolutionChainListRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => PaginatedEvolutionChainSummaryListFromJSON(jsonValue));
     }
@@ -103,10 +114,9 @@ export class EvolutionApi extends runtime.BaseAPI {
     }
 
     /**
-     * Evolution chains are essentially family trees. They start with the lowest stage within a family and detail evolution conditions for each as well as Pokémon they can evolve into up through the hierarchy.
-     * Get evolution chain
+     * Creates request options for evolutionChainRetrieve without sending the request
      */
-    async evolutionChainRetrieveRaw(requestParameters: EvolutionChainRetrieveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EvolutionChainDetail>> {
+    async evolutionChainRetrieveRequestOpts(requestParameters: EvolutionChainRetrieveRequest): Promise<runtime.RequestOpts> {
         if (requestParameters['id'] == null) {
             throw new runtime.RequiredError(
                 'id',
@@ -123,14 +133,23 @@ export class EvolutionApi extends runtime.BaseAPI {
         }
 
         let urlPath = `/api/v2/evolution-chain/{id}/`;
-        urlPath = urlPath.replace(`{${"id"}}`, encodeURIComponent(String(requestParameters['id'])));
+        urlPath = urlPath.replace('{id}', encodeURIComponent(String(requestParameters['id'])));
 
-        const response = await this.request({
+        return {
             path: urlPath,
             method: 'GET',
             headers: headerParameters,
             query: queryParameters,
-        }, initOverrides);
+        };
+    }
+
+    /**
+     * Evolution chains are essentially family trees. They start with the lowest stage within a family and detail evolution conditions for each as well as Pokémon they can evolve into up through the hierarchy.
+     * Get evolution chain
+     */
+    async evolutionChainRetrieveRaw(requestParameters: EvolutionChainRetrieveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EvolutionChainDetail>> {
+        const requestOptions = await this.evolutionChainRetrieveRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => EvolutionChainDetailFromJSON(jsonValue));
     }
@@ -145,10 +164,9 @@ export class EvolutionApi extends runtime.BaseAPI {
     }
 
     /**
-     * Evolution triggers are the events and conditions that cause a Pokémon to evolve. Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Methods_of_evolution) for greater detail.
-     * List evolution triggers
+     * Creates request options for evolutionTriggerList without sending the request
      */
-    async evolutionTriggerListRaw(requestParameters: EvolutionTriggerListRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PaginatedEvolutionTriggerSummaryList>> {
+    async evolutionTriggerListRequestOpts(requestParameters: EvolutionTriggerListRequest): Promise<runtime.RequestOpts> {
         const queryParameters: any = {};
 
         if (requestParameters['limit'] != null) {
@@ -171,12 +189,21 @@ export class EvolutionApi extends runtime.BaseAPI {
 
         let urlPath = `/api/v2/evolution-trigger/`;
 
-        const response = await this.request({
+        return {
             path: urlPath,
             method: 'GET',
             headers: headerParameters,
             query: queryParameters,
-        }, initOverrides);
+        };
+    }
+
+    /**
+     * Evolution triggers are the events and conditions that cause a Pokémon to evolve. Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Methods_of_evolution) for greater detail.
+     * List evolution triggers
+     */
+    async evolutionTriggerListRaw(requestParameters: EvolutionTriggerListRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PaginatedEvolutionTriggerSummaryList>> {
+        const requestOptions = await this.evolutionTriggerListRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => PaginatedEvolutionTriggerSummaryListFromJSON(jsonValue));
     }
@@ -191,10 +218,9 @@ export class EvolutionApi extends runtime.BaseAPI {
     }
 
     /**
-     * Evolution triggers are the events and conditions that cause a Pokémon to evolve. Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Methods_of_evolution) for greater detail.
-     * Get evolution trigger
+     * Creates request options for evolutionTriggerRetrieve without sending the request
      */
-    async evolutionTriggerRetrieveRaw(requestParameters: EvolutionTriggerRetrieveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EvolutionTriggerDetail>> {
+    async evolutionTriggerRetrieveRequestOpts(requestParameters: EvolutionTriggerRetrieveRequest): Promise<runtime.RequestOpts> {
         if (requestParameters['id'] == null) {
             throw new runtime.RequiredError(
                 'id',
@@ -211,14 +237,23 @@ export class EvolutionApi extends runtime.BaseAPI {
         }
 
         let urlPath = `/api/v2/evolution-trigger/{id}/`;
-        urlPath = urlPath.replace(`{${"id"}}`, encodeURIComponent(String(requestParameters['id'])));
+        urlPath = urlPath.replace('{id}', encodeURIComponent(String(requestParameters['id'])));
 
-        const response = await this.request({
+        return {
             path: urlPath,
             method: 'GET',
             headers: headerParameters,
             query: queryParameters,
-        }, initOverrides);
+        };
+    }
+
+    /**
+     * Evolution triggers are the events and conditions that cause a Pokémon to evolve. Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Methods_of_evolution) for greater detail.
+     * Get evolution trigger
+     */
+    async evolutionTriggerRetrieveRaw(requestParameters: EvolutionTriggerRetrieveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EvolutionTriggerDetail>> {
+        const requestOptions = await this.evolutionTriggerRetrieveRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => EvolutionTriggerDetailFromJSON(jsonValue));
     }

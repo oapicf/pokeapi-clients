@@ -85,7 +85,7 @@ RegionSummary::getName()
 }
 
 void
-RegionSummary::setName(std::string  name)
+RegionSummary::setName(std::string name)
 {
 	this->name = name;
 }
@@ -97,7 +97,7 @@ RegionSummary::getUrl()
 }
 
 void
-RegionSummary::setUrl(std::string  url)
+RegionSummary::setUrl(std::string url)
 {
 	this->url = url;
 }

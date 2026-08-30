@@ -86,7 +86,7 @@ EncounterMethodName::getName()
 }
 
 void
-EncounterMethodName::setName(std::string  name)
+EncounterMethodName::setName(std::string name)
 {
 	this->name = name;
 }
@@ -98,7 +98,7 @@ EncounterMethodName::getLanguage()
 }
 
 void
-EncounterMethodName::setLanguage(LanguageSummary  language)
+EncounterMethodName::setLanguage(LanguageSummary language)
 {
 	this->language = language;
 }

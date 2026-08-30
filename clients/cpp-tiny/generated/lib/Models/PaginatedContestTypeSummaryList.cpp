@@ -144,7 +144,7 @@ PaginatedContestTypeSummaryList::getCount()
 }
 
 void
-PaginatedContestTypeSummaryList::setCount(int  count)
+PaginatedContestTypeSummaryList::setCount(int count)
 {
 	this->count = count;
 }
@@ -156,7 +156,7 @@ PaginatedContestTypeSummaryList::getNext()
 }
 
 void
-PaginatedContestTypeSummaryList::setNext(std::string  next)
+PaginatedContestTypeSummaryList::setNext(std::string next)
 {
 	this->next = next;
 }
@@ -168,7 +168,7 @@ PaginatedContestTypeSummaryList::getPrevious()
 }
 
 void
-PaginatedContestTypeSummaryList::setPrevious(std::string  previous)
+PaginatedContestTypeSummaryList::setPrevious(std::string previous)
 {
 	this->previous = previous;
 }
@@ -180,7 +180,7 @@ PaginatedContestTypeSummaryList::getResults()
 }
 
 void
-PaginatedContestTypeSummaryList::setResults(std::list <ContestTypeSummary> results)
+PaginatedContestTypeSummaryList::setResults(std::list<ContestTypeSummary> results)
 {
 	this->results = results;
 }

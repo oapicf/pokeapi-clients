@@ -86,7 +86,7 @@ PokedexDescription::getDescription()
 }
 
 void
-PokedexDescription::setDescription(std::string  description)
+PokedexDescription::setDescription(std::string description)
 {
 	this->description = description;
 }
@@ -98,7 +98,7 @@ PokedexDescription::getLanguage()
 }
 
 void
-PokedexDescription::setLanguage(LanguageSummary  language)
+PokedexDescription::setLanguage(LanguageSummary language)
 {
 	this->language = language;
 }

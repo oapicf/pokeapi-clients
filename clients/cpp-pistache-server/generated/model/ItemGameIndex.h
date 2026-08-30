@@ -32,7 +32,7 @@ class  ItemGameIndex
 {
 public:
     ItemGameIndex();
-    virtual ~ItemGameIndex() = default;
+    virtual ~ItemGameIndex();
 
 
     /// <summary>

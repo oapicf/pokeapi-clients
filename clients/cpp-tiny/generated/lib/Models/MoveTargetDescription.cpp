@@ -86,7 +86,7 @@ MoveTargetDescription::getDescription()
 }
 
 void
-MoveTargetDescription::setDescription(std::string  description)
+MoveTargetDescription::setDescription(std::string description)
 {
 	this->description = description;
 }
@@ -98,7 +98,7 @@ MoveTargetDescription::getLanguage()
 }
 
 void
-MoveTargetDescription::setLanguage(LanguageSummary  language)
+MoveTargetDescription::setLanguage(LanguageSummary language)
 {
 	this->language = language;
 }

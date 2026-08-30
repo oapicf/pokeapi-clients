@@ -25,6 +25,8 @@ EncounterMethodName::EncounterMethodName()
     
 }
 
+EncounterMethodName::~EncounterMethodName() = default;
+
 void EncounterMethodName::validate() const
 {
     std::stringstream msg;

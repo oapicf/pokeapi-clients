@@ -25,6 +25,8 @@ PokemonDetail_types_inner::PokemonDetail_types_inner()
     
 }
 
+PokemonDetail_types_inner::~PokemonDetail_types_inner() = default;
+
 void PokemonDetail_types_inner::validate() const
 {
     std::stringstream msg;

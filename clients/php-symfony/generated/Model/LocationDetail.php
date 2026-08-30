@@ -47,7 +47,7 @@ class LocationDetail
      * @var int|null
      * @SerializedName("id")
      * @Type("int")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Type("int")]
     protected ?int $id = null;
@@ -56,7 +56,7 @@ class LocationDetail
      * @var string|null
      * @SerializedName("name")
      * @Type("string")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Type("string")]
     #[Assert\Length(max: 100)]
@@ -66,7 +66,7 @@ class LocationDetail
      * @var RegionSummary|null
      * @SerializedName("region")
      * @Type("OpenAPI\Server\Model\RegionSummary")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Valid]
     #[Assert\Type("OpenAPI\Server\Model\RegionSummary")]
@@ -76,7 +76,7 @@ class LocationDetail
      * @var LocationName[]|null
      * @SerializedName("names")
      * @Type("array<OpenAPI\Server\Model\LocationName>")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Valid]
     #[Assert\All([
@@ -88,7 +88,7 @@ class LocationDetail
      * @var LocationGameIndex[]|null
      * @SerializedName("game_indices")
      * @Type("array<OpenAPI\Server\Model\LocationGameIndex>")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Valid]
     #[Assert\All([
@@ -100,7 +100,7 @@ class LocationDetail
      * @var LocationAreaSummary[]|null
      * @SerializedName("areas")
      * @Type("array<OpenAPI\Server\Model\LocationAreaSummary>")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Valid]
     #[Assert\All([
@@ -135,12 +135,12 @@ class LocationDetail
     }
 
     /**
-    * Sets id.
-    *
-    * @param int|null $id
-    *
-    * @return $this
-    */
+     * Sets id.
+     *
+     * @param int|null $id
+     *
+     * @return $this
+     */
     public function setId(?int $id): self
     {
         $this->id = $id;
@@ -162,12 +162,12 @@ class LocationDetail
     }
 
     /**
-    * Sets name.
-    *
-    * @param string|null $name
-    *
-    * @return $this
-    */
+     * Sets name.
+     *
+     * @param string|null $name
+     *
+     * @return $this
+     */
     public function setName(?string $name): self
     {
         $this->name = $name;
@@ -189,12 +189,12 @@ class LocationDetail
     }
 
     /**
-    * Sets region.
-    *
-    * @param RegionSummary|null $region
-    *
-    * @return $this
-    */
+     * Sets region.
+     *
+     * @param RegionSummary|null $region
+     *
+     * @return $this
+     */
     public function setRegion(?RegionSummary $region): self
     {
         $this->region = $region;
@@ -216,12 +216,12 @@ class LocationDetail
     }
 
     /**
-    * Sets names.
-    *
-    * @param LocationName[]|null $names
-    *
-    * @return $this
-    */
+     * Sets names.
+     *
+     * @param LocationName[]|null $names
+     *
+     * @return $this
+     */
     public function setNames(?array $names): self
     {
         $this->names = $names;
@@ -243,12 +243,12 @@ class LocationDetail
     }
 
     /**
-    * Sets gameIndices.
-    *
-    * @param LocationGameIndex[]|null $gameIndices
-    *
-    * @return $this
-    */
+     * Sets gameIndices.
+     *
+     * @param LocationGameIndex[]|null $gameIndices
+     *
+     * @return $this
+     */
     public function setGameIndices(?array $gameIndices): self
     {
         $this->gameIndices = $gameIndices;
@@ -270,12 +270,12 @@ class LocationDetail
     }
 
     /**
-    * Sets areas.
-    *
-    * @param LocationAreaSummary[]|null $areas
-    *
-    * @return $this
-    */
+     * Sets areas.
+     *
+     * @param LocationAreaSummary[]|null $areas
+     *
+     * @return $this
+     */
     public function setAreas(?array $areas): self
     {
         $this->areas = $areas;

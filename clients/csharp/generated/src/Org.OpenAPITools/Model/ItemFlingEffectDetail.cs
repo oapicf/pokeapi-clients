@@ -66,13 +66,13 @@ namespace Org.OpenAPITools.Model
         /// Gets or Sets EffectEntries
         /// </summary>
         [JsonPropertyName("effect_entries")]
-        public List<ItemFlingEffectEffectText> EffectEntries { get; set; }
+        public List<ItemFlingEffectEffectText> EffectEntries { get; }
 
         /// <summary>
         /// Gets or Sets Items
         /// </summary>
         [JsonPropertyName("items")]
-        public List<ItemSummary> Items { get; set; }
+        public List<ItemSummary> Items { get; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -110,8 +110,18 @@ namespace Org.OpenAPITools.Model
     /// <summary>
     /// A Json converter for type <see cref="ItemFlingEffectDetail" />
     /// </summary>
-    public class ItemFlingEffectDetailJsonConverter : JsonConverter<ItemFlingEffectDetail>
+    public partial class ItemFlingEffectDetailJsonConverter : JsonConverter<ItemFlingEffectDetail>
     {
+        partial void OnCreated();
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ItemFlingEffectDetailJsonConverter" /> class.
+        /// </summary>
+        public ItemFlingEffectDetailJsonConverter()
+        {
+            OnCreated();
+        }
+
         /// <summary>
         /// Deserializes json to <see cref="ItemFlingEffectDetail" />
         /// </summary>

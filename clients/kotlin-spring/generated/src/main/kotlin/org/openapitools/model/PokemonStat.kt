@@ -22,14 +22,17 @@ import io.swagger.v3.oas.annotations.media.Schema
  */
 data class PokemonStat(
 
-    @Schema(example = "null", required = true, description = "")
+    @Schema(required = true, description = "")
+    @param:JsonProperty("base_stat")
     @get:JsonProperty("base_stat", required = true) val baseStat: kotlin.Int,
 
-    @Schema(example = "null", required = true, description = "")
+    @Schema(required = true, description = "")
+    @param:JsonProperty("effort")
     @get:JsonProperty("effort", required = true) val effort: kotlin.Int,
 
     @field:Valid
-    @Schema(example = "null", required = true, description = "")
+    @Schema(required = true, description = "")
+    @param:JsonProperty("stat")
     @get:JsonProperty("stat", required = true) val stat: StatSummary
 ) {
 

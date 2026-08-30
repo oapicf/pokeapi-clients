@@ -51,13 +51,13 @@ export interface EvolutionTriggerDetail {
      * @type {Array<EvolutionTriggerName>}
      * @memberof EvolutionTriggerDetail
      */
-    names: Array<EvolutionTriggerName>;
+    readonly names: Array<EvolutionTriggerName>;
     /**
      * 
      * @type {Array<AbilityDetailPokemonInnerPokemon>}
      * @memberof EvolutionTriggerDetail
      */
-    pokemonSpecies: Array<AbilityDetailPokemonInnerPokemon>;
+    readonly pokemonSpecies: Array<AbilityDetailPokemonInnerPokemon>;
 }
 
 /**
@@ -67,7 +67,7 @@ export function instanceOfEvolutionTriggerDetail(value: object): value is Evolut
     if (!('id' in value) || value['id'] === undefined) return false;
     if (!('name' in value) || value['name'] === undefined) return false;
     if (!('names' in value) || value['names'] === undefined) return false;
-    if (!('pokemonSpecies' in value) || value['pokemonSpecies'] === undefined) return false;
+    if ((!('pokemonSpecies' in (value as Record<string, any>)) && !('pokemon_species' in (value as Record<string, any>))) || ((value as Record<string, any>)['pokemonSpecies'] === undefined && (value as Record<string, any>)['pokemon_species'] === undefined)) return false;
     return true;
 }
 
@@ -92,7 +92,7 @@ export function EvolutionTriggerDetailToJSON(json: any): EvolutionTriggerDetail 
     return EvolutionTriggerDetailToJSONTyped(json, false);
 }
 
-export function EvolutionTriggerDetailToJSONTyped(value?: Omit<EvolutionTriggerDetail, 'id'> | null, ignoreDiscriminator: boolean = false): any {
+export function EvolutionTriggerDetailToJSONTyped(value?: Omit<EvolutionTriggerDetail, 'id'|'names'|'pokemonSpecies'> | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
@@ -100,8 +100,6 @@ export function EvolutionTriggerDetailToJSONTyped(value?: Omit<EvolutionTriggerD
     return {
         
         'name': value['name'],
-        'names': ((value['names'] as Array<any>).map(EvolutionTriggerNameToJSON)),
-        'pokemon_species': ((value['pokemonSpecies'] as Array<any>).map(AbilityDetailPokemonInnerPokemonToJSON)),
     };
 }
 

@@ -31,18 +31,18 @@ export interface PokemonDetail {
     is_default?: boolean;
     order?: number | null;
     weight?: number | null;
-    abilities: Array<PokemonDetailAbilitiesInner>;
-    past_abilities: Array<PokemonDetailPastAbilitiesInner>;
-    forms: Array<PokemonFormSummary>;
-    game_indices: Array<PokemonGameIndex>;
+    readonly abilities: Array<PokemonDetailAbilitiesInner>;
+    readonly past_abilities: Array<PokemonDetailPastAbilitiesInner>;
+    readonly forms: Array<PokemonFormSummary>;
+    readonly game_indices: Array<PokemonGameIndex>;
     held_items: PokemonDetailHeldItems;
     readonly location_area_encounters: string;
-    moves: Array<PokemonDetailMovesInner>;
+    readonly moves: Array<PokemonDetailMovesInner>;
     species: PokemonSpeciesSummary;
     sprites: PokemonDetailSprites;
     cries: PokemonDetailCries;
-    stats: Array<PokemonStat>;
-    types: Array<PokemonDetailTypesInner>;
-    past_types: Array<PokemonDetailPastTypesInner>;
+    readonly stats: Array<PokemonStat>;
+    readonly types: Array<PokemonDetailTypesInner>;
+    readonly past_types: Array<PokemonDetailPastTypesInner>;
 }
 

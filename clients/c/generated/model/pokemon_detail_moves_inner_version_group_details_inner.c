@@ -6,7 +6,7 @@
 
 
 static pokemon_detail_moves_inner_version_group_details_inner_t *pokemon_detail_moves_inner_version_group_details_inner_create_internal(
-    int level_learned_at,
+    int *level_learned_at,
     ability_detail_pokemon_inner_pokemon_t *move_learn_method,
     ability_detail_pokemon_inner_pokemon_t *version_group
     ) {
@@ -14,24 +14,33 @@ static pokemon_detail_moves_inner_version_group_details_inner_t *pokemon_detail_
     if (!pokemon_detail_moves_inner_version_group_details_inner_local_var) {
         return NULL;
     }
+    memset(pokemon_detail_moves_inner_version_group_details_inner_local_var, 0, sizeof(pokemon_detail_moves_inner_version_group_details_inner_t));
+    pokemon_detail_moves_inner_version_group_details_inner_local_var->_library_owned = 1;
     pokemon_detail_moves_inner_version_group_details_inner_local_var->level_learned_at = level_learned_at;
     pokemon_detail_moves_inner_version_group_details_inner_local_var->move_learn_method = move_learn_method;
     pokemon_detail_moves_inner_version_group_details_inner_local_var->version_group = version_group;
-
-    pokemon_detail_moves_inner_version_group_details_inner_local_var->_library_owned = 1;
     return pokemon_detail_moves_inner_version_group_details_inner_local_var;
 }
 
 __attribute__((deprecated)) pokemon_detail_moves_inner_version_group_details_inner_t *pokemon_detail_moves_inner_version_group_details_inner_create(
-    int level_learned_at,
+    int *level_learned_at,
     ability_detail_pokemon_inner_pokemon_t *move_learn_method,
     ability_detail_pokemon_inner_pokemon_t *version_group
     ) {
-    return pokemon_detail_moves_inner_version_group_details_inner_create_internal (
-        level_learned_at,
+    int *level_learned_at_copy = NULL;
+    if (level_learned_at) {
+        level_learned_at_copy = malloc(sizeof(int));
+        if (level_learned_at_copy) *level_learned_at_copy = *level_learned_at;
+    }
+    pokemon_detail_moves_inner_version_group_details_inner_t *result = pokemon_detail_moves_inner_version_group_details_inner_create_internal (
+        level_learned_at_copy,
         move_learn_method,
         version_group
         );
+    if (!result) {
+        free(level_learned_at_copy);
+    }
+    return result;
 }
 
 void pokemon_detail_moves_inner_version_group_details_inner_free(pokemon_detail_moves_inner_version_group_details_inner_t *pokemon_detail_moves_inner_version_group_details_inner) {
@@ -43,6 +52,10 @@ void pokemon_detail_moves_inner_version_group_details_inner_free(pokemon_detail_
         return ;
     }
     listEntry_t *listEntry;
+    if (pokemon_detail_moves_inner_version_group_details_inner->level_learned_at) {
+        free(pokemon_detail_moves_inner_version_group_details_inner->level_learned_at);
+        pokemon_detail_moves_inner_version_group_details_inner->level_learned_at = NULL;
+    }
     if (pokemon_detail_moves_inner_version_group_details_inner->move_learn_method) {
         ability_detail_pokemon_inner_pokemon_free(pokemon_detail_moves_inner_version_group_details_inner->move_learn_method);
         pokemon_detail_moves_inner_version_group_details_inner->move_learn_method = NULL;
@@ -61,7 +74,7 @@ cJSON *pokemon_detail_moves_inner_version_group_details_inner_convertToJSON(poke
     if (!pokemon_detail_moves_inner_version_group_details_inner->level_learned_at) {
         goto fail;
     }
-    if(cJSON_AddNumberToObject(item, "level_learned_at", pokemon_detail_moves_inner_version_group_details_inner->level_learned_at) == NULL) {
+    if(cJSON_AddNumberToObject(item, "level_learned_at", *pokemon_detail_moves_inner_version_group_details_inner->level_learned_at) == NULL) {
     goto fail; //Numeric
     }
 
@@ -105,6 +118,9 @@ pokemon_detail_moves_inner_version_group_details_inner_t *pokemon_detail_moves_i
 
     pokemon_detail_moves_inner_version_group_details_inner_t *pokemon_detail_moves_inner_version_group_details_inner_local_var = NULL;
 
+    // define the local variable for pokemon_detail_moves_inner_version_group_details_inner->level_learned_at
+    int *level_learned_at_local_var = NULL;
+
     // define the local variable for pokemon_detail_moves_inner_version_group_details_inner->move_learn_method
     ability_detail_pokemon_inner_pokemon_t *move_learn_method_local_nonprim = NULL;
 
@@ -125,6 +141,12 @@ pokemon_detail_moves_inner_version_group_details_inner_t *pokemon_detail_moves_i
     {
     goto end; //Numeric
     }
+    level_learned_at_local_var = malloc(sizeof(int));
+    if(!level_learned_at_local_var)
+    {
+        goto end;
+    }
+    *level_learned_at_local_var = level_learned_at->valuedouble;
 
     // pokemon_detail_moves_inner_version_group_details_inner->move_learn_method
     cJSON *move_learn_method = cJSON_GetObjectItemCaseSensitive(pokemon_detail_moves_inner_version_group_details_innerJSON, "move_learn_method");
@@ -151,14 +173,23 @@ pokemon_detail_moves_inner_version_group_details_inner_t *pokemon_detail_moves_i
     version_group_local_nonprim = ability_detail_pokemon_inner_pokemon_parseFromJSON(version_group); //nonprimitive
 
 
+
     pokemon_detail_moves_inner_version_group_details_inner_local_var = pokemon_detail_moves_inner_version_group_details_inner_create_internal (
-        level_learned_at->valuedouble,
+        level_learned_at_local_var,
         move_learn_method_local_nonprim,
         version_group_local_nonprim
         );
 
+    if (!pokemon_detail_moves_inner_version_group_details_inner_local_var) {
+        goto end;
+    }
+
     return pokemon_detail_moves_inner_version_group_details_inner_local_var;
 end:
+    if (level_learned_at_local_var) {
+        free(level_learned_at_local_var);
+        level_learned_at_local_var = NULL;
+    }
     if (move_learn_method_local_nonprim) {
         ability_detail_pokemon_inner_pokemon_free(move_learn_method_local_nonprim);
         move_learn_method_local_nonprim = NULL;

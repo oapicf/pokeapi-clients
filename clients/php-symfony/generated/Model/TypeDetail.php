@@ -49,7 +49,7 @@ class TypeDetail
      * @var int|null
      * @SerializedName("id")
      * @Type("int")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Type("int")]
     protected ?int $id = null;
@@ -58,7 +58,7 @@ class TypeDetail
      * @var string|null
      * @SerializedName("name")
      * @Type("string")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Type("string")]
     #[Assert\Length(max: 100)]
@@ -68,7 +68,7 @@ class TypeDetail
      * @var TypeDetailDamageRelations|null
      * @SerializedName("damage_relations")
      * @Type("OpenAPI\Server\Model\TypeDetailDamageRelations")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Valid]
     #[Assert\Type("OpenAPI\Server\Model\TypeDetailDamageRelations")]
@@ -78,7 +78,7 @@ class TypeDetail
      * @var TypeDetailPastDamageRelationsInner[]|null
      * @SerializedName("past_damage_relations")
      * @Type("array<OpenAPI\Server\Model\TypeDetailPastDamageRelationsInner>")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Valid]
     #[Assert\All([
@@ -90,7 +90,7 @@ class TypeDetail
      * @var TypeGameIndex[]|null
      * @SerializedName("game_indices")
      * @Type("array<OpenAPI\Server\Model\TypeGameIndex>")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Valid]
     #[Assert\All([
@@ -102,7 +102,7 @@ class TypeDetail
      * @var GenerationSummary|null
      * @SerializedName("generation")
      * @Type("OpenAPI\Server\Model\GenerationSummary")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Valid]
     #[Assert\Type("OpenAPI\Server\Model\GenerationSummary")]
@@ -112,7 +112,7 @@ class TypeDetail
      * @var MoveDamageClassSummary|null
      * @SerializedName("move_damage_class")
      * @Type("OpenAPI\Server\Model\MoveDamageClassSummary")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Valid]
     #[Assert\Type("OpenAPI\Server\Model\MoveDamageClassSummary")]
@@ -122,7 +122,7 @@ class TypeDetail
      * @var AbilityName[]|null
      * @SerializedName("names")
      * @Type("array<OpenAPI\Server\Model\AbilityName>")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Valid]
     #[Assert\All([
@@ -134,7 +134,7 @@ class TypeDetail
      * @var TypeDetailPokemonInner[]|null
      * @SerializedName("pokemon")
      * @Type("array<OpenAPI\Server\Model\TypeDetailPokemonInner>")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Valid]
     #[Assert\All([
@@ -146,7 +146,7 @@ class TypeDetail
      * @var MoveSummary[]|null
      * @SerializedName("moves")
      * @Type("array<OpenAPI\Server\Model\MoveSummary>")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Valid]
     #[Assert\All([
@@ -158,7 +158,7 @@ class TypeDetail
      * @var TypeDetailSpritesValueValue[]|null
      * @SerializedName("sprites")
      * @Type("array<string, OpenAPI\Server\Model\TypeDetailSpritesValueValue>")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\All([
         new Assert\Type("OpenAPI\Server\Model\TypeDetailSpritesValueValue"),
@@ -197,12 +197,12 @@ class TypeDetail
     }
 
     /**
-    * Sets id.
-    *
-    * @param int|null $id
-    *
-    * @return $this
-    */
+     * Sets id.
+     *
+     * @param int|null $id
+     *
+     * @return $this
+     */
     public function setId(?int $id): self
     {
         $this->id = $id;
@@ -224,12 +224,12 @@ class TypeDetail
     }
 
     /**
-    * Sets name.
-    *
-    * @param string|null $name
-    *
-    * @return $this
-    */
+     * Sets name.
+     *
+     * @param string|null $name
+     *
+     * @return $this
+     */
     public function setName(?string $name): self
     {
         $this->name = $name;
@@ -251,12 +251,12 @@ class TypeDetail
     }
 
     /**
-    * Sets damageRelations.
-    *
-    * @param TypeDetailDamageRelations|null $damageRelations
-    *
-    * @return $this
-    */
+     * Sets damageRelations.
+     *
+     * @param TypeDetailDamageRelations|null $damageRelations
+     *
+     * @return $this
+     */
     public function setDamageRelations(?TypeDetailDamageRelations $damageRelations): self
     {
         $this->damageRelations = $damageRelations;
@@ -278,12 +278,12 @@ class TypeDetail
     }
 
     /**
-    * Sets pastDamageRelations.
-    *
-    * @param TypeDetailPastDamageRelationsInner[]|null $pastDamageRelations
-    *
-    * @return $this
-    */
+     * Sets pastDamageRelations.
+     *
+     * @param TypeDetailPastDamageRelationsInner[]|null $pastDamageRelations
+     *
+     * @return $this
+     */
     public function setPastDamageRelations(?array $pastDamageRelations): self
     {
         $this->pastDamageRelations = $pastDamageRelations;
@@ -305,12 +305,12 @@ class TypeDetail
     }
 
     /**
-    * Sets gameIndices.
-    *
-    * @param TypeGameIndex[]|null $gameIndices
-    *
-    * @return $this
-    */
+     * Sets gameIndices.
+     *
+     * @param TypeGameIndex[]|null $gameIndices
+     *
+     * @return $this
+     */
     public function setGameIndices(?array $gameIndices): self
     {
         $this->gameIndices = $gameIndices;
@@ -332,12 +332,12 @@ class TypeDetail
     }
 
     /**
-    * Sets generation.
-    *
-    * @param GenerationSummary|null $generation
-    *
-    * @return $this
-    */
+     * Sets generation.
+     *
+     * @param GenerationSummary|null $generation
+     *
+     * @return $this
+     */
     public function setGeneration(?GenerationSummary $generation): self
     {
         $this->generation = $generation;
@@ -359,12 +359,12 @@ class TypeDetail
     }
 
     /**
-    * Sets moveDamageClass.
-    *
-    * @param MoveDamageClassSummary|null $moveDamageClass
-    *
-    * @return $this
-    */
+     * Sets moveDamageClass.
+     *
+     * @param MoveDamageClassSummary|null $moveDamageClass
+     *
+     * @return $this
+     */
     public function setMoveDamageClass(?MoveDamageClassSummary $moveDamageClass): self
     {
         $this->moveDamageClass = $moveDamageClass;
@@ -386,12 +386,12 @@ class TypeDetail
     }
 
     /**
-    * Sets names.
-    *
-    * @param AbilityName[]|null $names
-    *
-    * @return $this
-    */
+     * Sets names.
+     *
+     * @param AbilityName[]|null $names
+     *
+     * @return $this
+     */
     public function setNames(?array $names): self
     {
         $this->names = $names;
@@ -413,12 +413,12 @@ class TypeDetail
     }
 
     /**
-    * Sets pokemon.
-    *
-    * @param TypeDetailPokemonInner[]|null $pokemon
-    *
-    * @return $this
-    */
+     * Sets pokemon.
+     *
+     * @param TypeDetailPokemonInner[]|null $pokemon
+     *
+     * @return $this
+     */
     public function setPokemon(?array $pokemon): self
     {
         $this->pokemon = $pokemon;
@@ -440,12 +440,12 @@ class TypeDetail
     }
 
     /**
-    * Sets moves.
-    *
-    * @param MoveSummary[]|null $moves
-    *
-    * @return $this
-    */
+     * Sets moves.
+     *
+     * @param MoveSummary[]|null $moves
+     *
+     * @return $this
+     */
     public function setMoves(?array $moves): self
     {
         $this->moves = $moves;
@@ -467,12 +467,12 @@ class TypeDetail
     }
 
     /**
-    * Sets sprites.
-    *
-    * @param TypeDetailSpritesValueValue[]|null $sprites
-    *
-    * @return $this
-    */
+     * Sets sprites.
+     *
+     * @param TypeDetailSpritesValueValue[]|null $sprites
+     *
+     * @return $this
+     */
     public function setSprites(?array $sprites): self
     {
         $this->sprites = $sprites;

@@ -12,6 +12,11 @@
 package openapi
 
 
+import (
+	"encoding/json"
+	"fmt"
+)
+
 
 
 type PokemonStat struct {
@@ -22,12 +27,79 @@ type PokemonStat struct {
 
 	Stat StatSummary `json:"stat"`
 }
+// UnmarshalJSON validates required property keys then unmarshals into PokemonStat
+func (o *PokemonStat) UnmarshalJSON(data []byte) (err error) {
+	// Presence is checked against required fields that exist on this struct,
+	// including fields promoted from embedded allOf parents.
+	requiredProperties := []string{
+		"base_stat",
+		"effort",
+		"stat",
+	}
 
-// AssertPokemonStatRequired checks if the required fields are not zero-ed
+	requiredNullableProperties := map[string]bool{
+		"base_stat": false,
+		"effort": false,
+		"stat": false,
+	}
+
+	allowedJsonKeys := map[string]struct{}{
+		"base_stat": {},
+		"effort": {},
+		"stat": {},
+	}
+
+	allProperties := make(map[string]json.RawMessage)
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err
+	}
+
+	for _, requiredProperty := range requiredProperties {
+		value, exists := allProperties[requiredProperty]
+		if !exists {
+			return &RequiredError{Field: requiredProperty}
+		}
+		if string(value) == "null" && !requiredNullableProperties[requiredProperty] {
+			return &RequiredError{Field: requiredProperty}
+		}
+	}
+
+	for key := range allProperties {
+		if _, exists := allowedJsonKeys[key]; !exists {
+			return fmt.Errorf("json: unknown field %q", key)
+		}
+	}
+
+	var decoded PokemonStat
+
+	if value, exists := allProperties["base_stat"]; exists {
+		if err = json.Unmarshal(value, &decoded.BaseStat); err != nil {
+			return err
+		}
+	}
+	if value, exists := allProperties["effort"]; exists {
+		if err = json.Unmarshal(value, &decoded.Effort); err != nil {
+			return err
+		}
+	}
+	if value, exists := allProperties["stat"]; exists {
+		if err = json.Unmarshal(value, &decoded.Stat); err != nil {
+			return err
+		}
+	}
+
+	*o = decoded
+
+	return nil
+}
+
+// AssertPokemonStatRequired checks complex required fields (models, arrays, maps) and embedded parents.
+// Primitive required fields are validated for JSON request bodies in UnmarshalJSON so zero values remain valid.
 func AssertPokemonStatRequired(obj PokemonStat) error {
 	elements := map[string]interface{}{
-		"base_stat": obj.BaseStat,
-		"effort": obj.Effort,
 		"stat": obj.Stat,
 	}
 	for name, el := range elements {

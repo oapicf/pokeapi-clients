@@ -49,8 +49,8 @@ function Initialize-MoveDetailEffectChangesInner {
 
 
         $PSO = [PSCustomObject]@{
-            "effect_entries" = ${EffectEntries}
-            "version_group" = ${VersionGroup}
+            'effect_entries' = ${EffectEntries}
+            'version_group' = ${VersionGroup}
         }
 
 
@@ -88,7 +88,7 @@ function ConvertFrom-JsonToMoveDetailEffectChangesInner {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in MoveDetailEffectChangesInner
-        $AllProperties = ("effect_entries", "version_group")
+        $AllProperties = ('effect_entries', 'version_group')
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -99,21 +99,21 @@ function ConvertFrom-JsonToMoveDetailEffectChangesInner {
             throw "Error! Empty JSON cannot be serialized due to the required property 'effect_entries' missing."
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "effect_entries"))) {
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'effect_entries'))) {
             throw "Error! JSON cannot be serialized due to the required property 'effect_entries' missing."
         } else {
-            $EffectEntries = $JsonParameters.PSobject.Properties["effect_entries"].value
+            $EffectEntries = $JsonParameters.PSobject.Properties['effect_entries'].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "version_group"))) {
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'version_group'))) {
             throw "Error! JSON cannot be serialized due to the required property 'version_group' missing."
         } else {
-            $VersionGroup = $JsonParameters.PSobject.Properties["version_group"].value
+            $VersionGroup = $JsonParameters.PSobject.Properties['version_group'].value
         }
 
         $PSO = [PSCustomObject]@{
-            "effect_entries" = ${EffectEntries}
-            "version_group" = ${VersionGroup}
+            'effect_entries' = ${EffectEntries}
+            'version_group' = ${VersionGroup}
         }
 
         return $PSO

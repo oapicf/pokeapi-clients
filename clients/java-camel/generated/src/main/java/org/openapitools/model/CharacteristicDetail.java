@@ -11,19 +11,19 @@ import org.openapitools.model.CharacteristicDescription;
 import org.openapitools.model.StatSummary;
 import org.openapitools.jackson.nullable.JsonNullable;
 import java.time.OffsetDateTime;
-import javax.validation.Valid;
-import javax.validation.constraints.*;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.*;
 import io.swagger.v3.oas.annotations.media.Schema;
 
 
 import java.util.*;
-import javax.annotation.Generated;
+import jakarta.annotation.Generated;
 
 /**
  * CharacteristicDetail
  */
 
-@Generated(value = "org.openapitools.codegen.languages.JavaCamelServerCodegen", date = "2026-02-07T15:23:32.871052804Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@Generated(value = "org.openapitools.codegen.languages.JavaCamelServerCodegen", date = "2026-08-30T01:56:15.309401083Z[Etc/UTC]", comments = "Generator version: 7.24.0")
 public class CharacteristicDetail {
 
   private Integer id;
@@ -110,8 +110,8 @@ public class CharacteristicDetail {
    * Get possibleValues
    * @return possibleValues
    */
-  @NotNull 
-  @Schema(name = "possible_values", requiredMode = Schema.RequiredMode.REQUIRED)
+  
+  @Schema(name = "possible_values", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("possible_values")
   public List<Integer> getPossibleValues() {
     return possibleValues;
@@ -158,8 +158,8 @@ public class CharacteristicDetail {
    * Get descriptions
    * @return descriptions
    */
-  @NotNull @Valid 
-  @Schema(name = "descriptions", requiredMode = Schema.RequiredMode.REQUIRED)
+  @Valid 
+  @Schema(name = "descriptions", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("descriptions")
   public List<@Valid CharacteristicDescription> getDescriptions() {
     return descriptions;
@@ -208,10 +208,7 @@ public class CharacteristicDetail {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 }
 

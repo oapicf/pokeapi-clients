@@ -6,10 +6,10 @@
 
 
 static item_detail_t *item_detail_create_internal(
-    int id,
+    int *id,
     char *name,
-    int cost,
-    int fling_power,
+    int *cost,
+    int *fling_power,
     item_fling_effect_summary_t *fling_effect,
     list_t *attributes,
     item_category_summary_t *category,
@@ -26,6 +26,8 @@ static item_detail_t *item_detail_create_internal(
     if (!item_detail_local_var) {
         return NULL;
     }
+    memset(item_detail_local_var, 0, sizeof(item_detail_t));
+    item_detail_local_var->_library_owned = 1;
     item_detail_local_var->id = id;
     item_detail_local_var->name = name;
     item_detail_local_var->cost = cost;
@@ -41,16 +43,14 @@ static item_detail_t *item_detail_create_internal(
     item_detail_local_var->sprites = sprites;
     item_detail_local_var->baby_trigger_for = baby_trigger_for;
     item_detail_local_var->machines = machines;
-
-    item_detail_local_var->_library_owned = 1;
     return item_detail_local_var;
 }
 
 __attribute__((deprecated)) item_detail_t *item_detail_create(
-    int id,
+    int *id,
     char *name,
-    int cost,
-    int fling_power,
+    int *cost,
+    int *fling_power,
     item_fling_effect_summary_t *fling_effect,
     list_t *attributes,
     item_category_summary_t *category,
@@ -63,11 +63,26 @@ __attribute__((deprecated)) item_detail_t *item_detail_create(
     item_detail_baby_trigger_for_t *baby_trigger_for,
     list_t *machines
     ) {
-    return item_detail_create_internal (
-        id,
+    int *id_copy = NULL;
+    if (id) {
+        id_copy = malloc(sizeof(int));
+        if (id_copy) *id_copy = *id;
+    }
+    int *cost_copy = NULL;
+    if (cost) {
+        cost_copy = malloc(sizeof(int));
+        if (cost_copy) *cost_copy = *cost;
+    }
+    int *fling_power_copy = NULL;
+    if (fling_power) {
+        fling_power_copy = malloc(sizeof(int));
+        if (fling_power_copy) *fling_power_copy = *fling_power;
+    }
+    item_detail_t *result = item_detail_create_internal (
+        id_copy,
         name,
-        cost,
-        fling_power,
+        cost_copy,
+        fling_power_copy,
         fling_effect,
         attributes,
         category,
@@ -80,6 +95,12 @@ __attribute__((deprecated)) item_detail_t *item_detail_create(
         baby_trigger_for,
         machines
         );
+    if (!result) {
+        free(id_copy);
+        free(cost_copy);
+        free(fling_power_copy);
+    }
+    return result;
 }
 
 void item_detail_free(item_detail_t *item_detail) {
@@ -91,9 +112,21 @@ void item_detail_free(item_detail_t *item_detail) {
         return ;
     }
     listEntry_t *listEntry;
+    if (item_detail->id) {
+        free(item_detail->id);
+        item_detail->id = NULL;
+    }
     if (item_detail->name) {
         free(item_detail->name);
         item_detail->name = NULL;
+    }
+    if (item_detail->cost) {
+        free(item_detail->cost);
+        item_detail->cost = NULL;
+    }
+    if (item_detail->fling_power) {
+        free(item_detail->fling_power);
+        item_detail->fling_power = NULL;
     }
     if (item_detail->fling_effect) {
         item_fling_effect_summary_free(item_detail->fling_effect);
@@ -170,7 +203,7 @@ cJSON *item_detail_convertToJSON(item_detail_t *item_detail) {
     if (!item_detail->id) {
         goto fail;
     }
-    if(cJSON_AddNumberToObject(item, "id", item_detail->id) == NULL) {
+    if(cJSON_AddNumberToObject(item, "id", *item_detail->id) == NULL) {
     goto fail; //Numeric
     }
 
@@ -186,7 +219,7 @@ cJSON *item_detail_convertToJSON(item_detail_t *item_detail) {
 
     // item_detail->cost
     if(item_detail->cost) {
-    if(cJSON_AddNumberToObject(item, "cost", item_detail->cost) == NULL) {
+    if(cJSON_AddNumberToObject(item, "cost", *item_detail->cost) == NULL) {
     goto fail; //Numeric
     }
     }
@@ -194,7 +227,7 @@ cJSON *item_detail_convertToJSON(item_detail_t *item_detail) {
 
     // item_detail->fling_power
     if(item_detail->fling_power) {
-    if(cJSON_AddNumberToObject(item, "fling_power", item_detail->fling_power) == NULL) {
+    if(cJSON_AddNumberToObject(item, "fling_power", *item_detail->fling_power) == NULL) {
     goto fail; //Numeric
     }
     }
@@ -414,6 +447,17 @@ item_detail_t *item_detail_parseFromJSON(cJSON *item_detailJSON){
 
     item_detail_t *item_detail_local_var = NULL;
 
+    // define the local variable for item_detail->id
+    int *id_local_var = NULL;
+
+    char *name_local_str = NULL;
+
+    // define the local variable for item_detail->cost
+    int *cost_local_var = NULL;
+
+    // define the local variable for item_detail->fling_power
+    int *fling_power_local_var = NULL;
+
     // define the local variable for item_detail->fling_effect
     item_fling_effect_summary_t *fling_effect_local_nonprim = NULL;
 
@@ -461,6 +505,12 @@ item_detail_t *item_detail_parseFromJSON(cJSON *item_detailJSON){
     {
     goto end; //Numeric
     }
+    id_local_var = malloc(sizeof(int));
+    if(!id_local_var)
+    {
+        goto end;
+    }
+    *id_local_var = id->valuedouble;
 
     // item_detail->name
     cJSON *name = cJSON_GetObjectItemCaseSensitive(item_detailJSON, "name");
@@ -487,6 +537,12 @@ item_detail_t *item_detail_parseFromJSON(cJSON *item_detailJSON){
     {
     goto end; //Numeric
     }
+    cost_local_var = malloc(sizeof(int));
+    if(!cost_local_var)
+    {
+        goto end;
+    }
+    *cost_local_var = cost->valuedouble;
     }
 
     // item_detail->fling_power
@@ -499,6 +555,12 @@ item_detail_t *item_detail_parseFromJSON(cJSON *item_detailJSON){
     {
     goto end; //Numeric
     }
+    fling_power_local_var = malloc(sizeof(int));
+    if(!fling_power_local_var)
+    {
+        goto end;
+    }
+    *fling_power_local_var = fling_power->valuedouble;
     }
 
     // item_detail->fling_effect
@@ -739,11 +801,13 @@ item_detail_t *item_detail_parseFromJSON(cJSON *item_detailJSON){
     }
 
 
+    if (name && !cJSON_IsNull(name)) name_local_str = strdup(name->valuestring);
+
     item_detail_local_var = item_detail_create_internal (
-        id->valuedouble,
-        strdup(name->valuestring),
-        cost ? cost->valuedouble : 0,
-        fling_power ? fling_power->valuedouble : 0,
+        id_local_var,
+        name_local_str,
+        cost_local_var,
+        fling_power_local_var,
         fling_effect_local_nonprim,
         attributesList,
         category_local_nonprim,
@@ -757,8 +821,28 @@ item_detail_t *item_detail_parseFromJSON(cJSON *item_detailJSON){
         machinesList
         );
 
+    if (!item_detail_local_var) {
+        goto end;
+    }
+
     return item_detail_local_var;
 end:
+    if (id_local_var) {
+        free(id_local_var);
+        id_local_var = NULL;
+    }
+    if (name_local_str) {
+        free(name_local_str);
+        name_local_str = NULL;
+    }
+    if (cost_local_var) {
+        free(cost_local_var);
+        cost_local_var = NULL;
+    }
+    if (fling_power_local_var) {
+        free(fling_power_local_var);
+        fling_power_local_var = NULL;
+    }
     if (fling_effect_local_nonprim) {
         item_fling_effect_summary_free(fling_effect_local_nonprim);
         fling_effect_local_nonprim = NULL;

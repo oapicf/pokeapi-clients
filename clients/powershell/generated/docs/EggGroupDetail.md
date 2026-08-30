@@ -5,8 +5,8 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **Int32** |  | [readonly] 
 **Name** | **String** |  | 
-**Names** | [**EggGroupName[]**](EggGroupName.md) |  | 
-**PokemonSpecies** | [**EggGroupDetailPokemonSpeciesInner[]**](EggGroupDetailPokemonSpeciesInner.md) |  | 
+**Names** | [**EggGroupName[]**](EggGroupName.md) |  | [readonly] 
+**PokemonSpecies** | [**EggGroupDetailPokemonSpeciesInner[]**](EggGroupDetailPokemonSpeciesInner.md) |  | [readonly] 
 
 ## Examples
 

@@ -6,32 +6,47 @@
 
 
 static pokemon_stat_t *pokemon_stat_create_internal(
-    int base_stat,
-    int effort,
+    int *base_stat,
+    int *effort,
     stat_summary_t *stat
     ) {
     pokemon_stat_t *pokemon_stat_local_var = malloc(sizeof(pokemon_stat_t));
     if (!pokemon_stat_local_var) {
         return NULL;
     }
+    memset(pokemon_stat_local_var, 0, sizeof(pokemon_stat_t));
+    pokemon_stat_local_var->_library_owned = 1;
     pokemon_stat_local_var->base_stat = base_stat;
     pokemon_stat_local_var->effort = effort;
     pokemon_stat_local_var->stat = stat;
-
-    pokemon_stat_local_var->_library_owned = 1;
     return pokemon_stat_local_var;
 }
 
 __attribute__((deprecated)) pokemon_stat_t *pokemon_stat_create(
-    int base_stat,
-    int effort,
+    int *base_stat,
+    int *effort,
     stat_summary_t *stat
     ) {
-    return pokemon_stat_create_internal (
-        base_stat,
-        effort,
+    int *base_stat_copy = NULL;
+    if (base_stat) {
+        base_stat_copy = malloc(sizeof(int));
+        if (base_stat_copy) *base_stat_copy = *base_stat;
+    }
+    int *effort_copy = NULL;
+    if (effort) {
+        effort_copy = malloc(sizeof(int));
+        if (effort_copy) *effort_copy = *effort;
+    }
+    pokemon_stat_t *result = pokemon_stat_create_internal (
+        base_stat_copy,
+        effort_copy,
         stat
         );
+    if (!result) {
+        free(base_stat_copy);
+        free(effort_copy);
+    }
+    return result;
 }
 
 void pokemon_stat_free(pokemon_stat_t *pokemon_stat) {
@@ -43,6 +58,14 @@ void pokemon_stat_free(pokemon_stat_t *pokemon_stat) {
         return ;
     }
     listEntry_t *listEntry;
+    if (pokemon_stat->base_stat) {
+        free(pokemon_stat->base_stat);
+        pokemon_stat->base_stat = NULL;
+    }
+    if (pokemon_stat->effort) {
+        free(pokemon_stat->effort);
+        pokemon_stat->effort = NULL;
+    }
     if (pokemon_stat->stat) {
         stat_summary_free(pokemon_stat->stat);
         pokemon_stat->stat = NULL;
@@ -57,7 +80,7 @@ cJSON *pokemon_stat_convertToJSON(pokemon_stat_t *pokemon_stat) {
     if (!pokemon_stat->base_stat) {
         goto fail;
     }
-    if(cJSON_AddNumberToObject(item, "base_stat", pokemon_stat->base_stat) == NULL) {
+    if(cJSON_AddNumberToObject(item, "base_stat", *pokemon_stat->base_stat) == NULL) {
     goto fail; //Numeric
     }
 
@@ -66,7 +89,7 @@ cJSON *pokemon_stat_convertToJSON(pokemon_stat_t *pokemon_stat) {
     if (!pokemon_stat->effort) {
         goto fail;
     }
-    if(cJSON_AddNumberToObject(item, "effort", pokemon_stat->effort) == NULL) {
+    if(cJSON_AddNumberToObject(item, "effort", *pokemon_stat->effort) == NULL) {
     goto fail; //Numeric
     }
 
@@ -96,6 +119,12 @@ pokemon_stat_t *pokemon_stat_parseFromJSON(cJSON *pokemon_statJSON){
 
     pokemon_stat_t *pokemon_stat_local_var = NULL;
 
+    // define the local variable for pokemon_stat->base_stat
+    int *base_stat_local_var = NULL;
+
+    // define the local variable for pokemon_stat->effort
+    int *effort_local_var = NULL;
+
     // define the local variable for pokemon_stat->stat
     stat_summary_t *stat_local_nonprim = NULL;
 
@@ -113,6 +142,12 @@ pokemon_stat_t *pokemon_stat_parseFromJSON(cJSON *pokemon_statJSON){
     {
     goto end; //Numeric
     }
+    base_stat_local_var = malloc(sizeof(int));
+    if(!base_stat_local_var)
+    {
+        goto end;
+    }
+    *base_stat_local_var = base_stat->valuedouble;
 
     // pokemon_stat->effort
     cJSON *effort = cJSON_GetObjectItemCaseSensitive(pokemon_statJSON, "effort");
@@ -128,6 +163,12 @@ pokemon_stat_t *pokemon_stat_parseFromJSON(cJSON *pokemon_statJSON){
     {
     goto end; //Numeric
     }
+    effort_local_var = malloc(sizeof(int));
+    if(!effort_local_var)
+    {
+        goto end;
+    }
+    *effort_local_var = effort->valuedouble;
 
     // pokemon_stat->stat
     cJSON *stat = cJSON_GetObjectItemCaseSensitive(pokemon_statJSON, "stat");
@@ -142,14 +183,27 @@ pokemon_stat_t *pokemon_stat_parseFromJSON(cJSON *pokemon_statJSON){
     stat_local_nonprim = stat_summary_parseFromJSON(stat); //nonprimitive
 
 
+
     pokemon_stat_local_var = pokemon_stat_create_internal (
-        base_stat->valuedouble,
-        effort->valuedouble,
+        base_stat_local_var,
+        effort_local_var,
         stat_local_nonprim
         );
 
+    if (!pokemon_stat_local_var) {
+        goto end;
+    }
+
     return pokemon_stat_local_var;
 end:
+    if (base_stat_local_var) {
+        free(base_stat_local_var);
+        base_stat_local_var = NULL;
+    }
+    if (effort_local_var) {
+        free(effort_local_var);
+        effort_local_var = NULL;
+    }
     if (stat_local_nonprim) {
         stat_summary_free(stat_local_nonprim);
         stat_local_nonprim = NULL;

@@ -90,19 +90,6 @@ public class GenerationDetail  {
     return abilities;
   }
 
-  public void setAbilities(List<AbilitySummary> abilities) {
-    this.abilities = abilities;
-  }
-
-  public GenerationDetail abilities(List<AbilitySummary> abilities) {
-    this.abilities = abilities;
-    return this;
-  }
-
-  public GenerationDetail addAbilitiesItem(AbilitySummary abilitiesItem) {
-    this.abilities.add(abilitiesItem);
-    return this;
-  }
 
  /**
    * Get mainRegion
@@ -131,19 +118,6 @@ public class GenerationDetail  {
     return moves;
   }
 
-  public void setMoves(List<MoveSummary> moves) {
-    this.moves = moves;
-  }
-
-  public GenerationDetail moves(List<MoveSummary> moves) {
-    this.moves = moves;
-    return this;
-  }
-
-  public GenerationDetail addMovesItem(MoveSummary movesItem) {
-    this.moves.add(movesItem);
-    return this;
-  }
 
  /**
    * Get names
@@ -154,19 +128,6 @@ public class GenerationDetail  {
     return names;
   }
 
-  public void setNames(List<GenerationName> names) {
-    this.names = names;
-  }
-
-  public GenerationDetail names(List<GenerationName> names) {
-    this.names = names;
-    return this;
-  }
-
-  public GenerationDetail addNamesItem(GenerationName namesItem) {
-    this.names.add(namesItem);
-    return this;
-  }
 
  /**
    * Get pokemonSpecies
@@ -177,19 +138,6 @@ public class GenerationDetail  {
     return pokemonSpecies;
   }
 
-  public void setPokemonSpecies(List<PokemonSpeciesSummary> pokemonSpecies) {
-    this.pokemonSpecies = pokemonSpecies;
-  }
-
-  public GenerationDetail pokemonSpecies(List<PokemonSpeciesSummary> pokemonSpecies) {
-    this.pokemonSpecies = pokemonSpecies;
-    return this;
-  }
-
-  public GenerationDetail addPokemonSpeciesItem(PokemonSpeciesSummary pokemonSpeciesItem) {
-    this.pokemonSpecies.add(pokemonSpeciesItem);
-    return this;
-  }
 
  /**
    * Get types
@@ -200,19 +148,6 @@ public class GenerationDetail  {
     return types;
   }
 
-  public void setTypes(List<TypeSummary> types) {
-    this.types = types;
-  }
-
-  public GenerationDetail types(List<TypeSummary> types) {
-    this.types = types;
-    return this;
-  }
-
-  public GenerationDetail addTypesItem(TypeSummary typesItem) {
-    this.types.add(typesItem);
-    return this;
-  }
 
  /**
    * Get versionGroups
@@ -223,19 +158,6 @@ public class GenerationDetail  {
     return versionGroups;
   }
 
-  public void setVersionGroups(List<VersionGroupSummary> versionGroups) {
-    this.versionGroups = versionGroups;
-  }
-
-  public GenerationDetail versionGroups(List<VersionGroupSummary> versionGroups) {
-    this.versionGroups = versionGroups;
-    return this;
-  }
-
-  public GenerationDetail addVersionGroupsItem(VersionGroupSummary versionGroupsItem) {
-    this.versionGroups.add(versionGroupsItem);
-    return this;
-  }
 
   @Override
   public boolean equals(Object o) {
@@ -285,10 +207,7 @@ public class GenerationDetail  {
    * (except the first line).
    */
   private static String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 }
 

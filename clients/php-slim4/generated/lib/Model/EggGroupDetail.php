@@ -58,15 +58,19 @@ class EggGroupDetail extends BaseModel
     },
     "names" : {
       "type" : "array",
+      "readOnly" : true,
       "items" : {
         "$ref" : "#/components/schemas/EggGroupName"
-      }
+      },
+      "default" : null
     },
     "pokemon_species" : {
       "type" : "array",
+      "readOnly" : true,
       "items" : {
         "$ref" : "#/components/schemas/EggGroupDetail_pokemon_species_inner"
-      }
+      },
+      "default" : null
     }
   }
 }

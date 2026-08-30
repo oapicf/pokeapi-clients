@@ -97,6 +97,7 @@ public class MoveLearnMethodDetail  {
 
   /**
    * Sets the <code>names</code> property.
+   * <br><em>N.B. <code>names</code> is <b>read only</b>; client code should not call this method</em>.
    */
  public void setNames(List<@Valid MoveLearnMethodName> names) {
     this.names = names;
@@ -104,6 +105,7 @@ public class MoveLearnMethodDetail  {
 
   /**
    * Sets the <code>names</code> property.
+   * <br><em>N.B. <code>names</code> is <b>read only</b>; client code should not call this method</em>.
    */
   public MoveLearnMethodDetail names(List<@Valid MoveLearnMethodName> names) {
     this.names = names;
@@ -112,6 +114,7 @@ public class MoveLearnMethodDetail  {
 
   /**
    * Adds a new item to the <code>names</code> list.
+   * <br><em>N.B. <code>names</code> is <b>read only</b>; client code should not call this method</em>.
    */
   public MoveLearnMethodDetail addNamesItem(MoveLearnMethodName namesItem) {
     this.names.add(namesItem);
@@ -130,6 +133,7 @@ public class MoveLearnMethodDetail  {
 
   /**
    * Sets the <code>descriptions</code> property.
+   * <br><em>N.B. <code>descriptions</code> is <b>read only</b>; client code should not call this method</em>.
    */
  public void setDescriptions(List<@Valid MoveLearnMethodDescription> descriptions) {
     this.descriptions = descriptions;
@@ -137,6 +141,7 @@ public class MoveLearnMethodDetail  {
 
   /**
    * Sets the <code>descriptions</code> property.
+   * <br><em>N.B. <code>descriptions</code> is <b>read only</b>; client code should not call this method</em>.
    */
   public MoveLearnMethodDetail descriptions(List<@Valid MoveLearnMethodDescription> descriptions) {
     this.descriptions = descriptions;
@@ -145,6 +150,7 @@ public class MoveLearnMethodDetail  {
 
   /**
    * Adds a new item to the <code>descriptions</code> list.
+   * <br><em>N.B. <code>descriptions</code> is <b>read only</b>; client code should not call this method</em>.
    */
   public MoveLearnMethodDetail addDescriptionsItem(MoveLearnMethodDescription descriptionsItem) {
     this.descriptions.add(descriptionsItem);
@@ -163,6 +169,7 @@ public class MoveLearnMethodDetail  {
 
   /**
    * Sets the <code>versionGroups</code> property.
+   * <br><em>N.B. <code>versionGroups</code> is <b>read only</b>; client code should not call this method</em>.
    */
  public void setVersionGroups(List<@Valid AbilityDetailPokemonInnerPokemon> versionGroups) {
     this.versionGroups = versionGroups;
@@ -170,6 +177,7 @@ public class MoveLearnMethodDetail  {
 
   /**
    * Sets the <code>versionGroups</code> property.
+   * <br><em>N.B. <code>versionGroups</code> is <b>read only</b>; client code should not call this method</em>.
    */
   public MoveLearnMethodDetail versionGroups(List<@Valid AbilityDetailPokemonInnerPokemon> versionGroups) {
     this.versionGroups = versionGroups;
@@ -178,6 +186,7 @@ public class MoveLearnMethodDetail  {
 
   /**
    * Adds a new item to the <code>versionGroups</code> list.
+   * <br><em>N.B. <code>versionGroups</code> is <b>read only</b>; client code should not call this method</em>.
    */
   public MoveLearnMethodDetail addVersionGroupsItem(AbilityDetailPokemonInnerPokemon versionGroupsItem) {
     this.versionGroups.add(versionGroupsItem);
@@ -225,10 +234,7 @@ public class MoveLearnMethodDetail  {
    * (except the first line).
    */
   private static String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 }
 

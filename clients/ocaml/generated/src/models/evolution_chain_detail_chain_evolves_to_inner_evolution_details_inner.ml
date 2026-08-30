@@ -27,13 +27,13 @@
                 
                 
                 ; [@key "item"]
-                                              known_move: Yojson.Safe.t
+                                              known_move: Evolution_chain_detail_chain_evolves_to_inner_evolution_details_inner_gender.t
                   
                   
                 
                 
                 ; [@key "known_move"]
-                                              known_move_type: Yojson.Safe.t
+                                              known_move_type: Evolution_chain_detail_chain_evolves_to_inner_evolution_details_inner_gender.t
                   
                   
                 
@@ -119,7 +119,7 @@
                 ; [@key "turn_upside_down"]
                         } [@@deriving yojson { strict = false }, show, eq ];;
         
-        let create (gender : Evolution_chain_detail_chain_evolves_to_inner_evolution_details_inner_gender.t) (held_item : Evolution_chain_detail_chain_evolves_to_inner_evolution_details_inner_gender.t) (item : Evolution_chain_detail_chain_evolves_to_inner_evolution_details_inner_gender.t) (known_move : Yojson.Safe.t) (known_move_type : Yojson.Safe.t) (location : Evolution_chain_detail_chain_evolves_to_inner_evolution_details_inner_gender.t) (min_affection : int32) (min_beauty : int32) (min_happiness : int32) (min_level : int32) (needs_overworld_rain : bool) (party_species : string) (party_type : string) (relative_physical_stats : string) (time_of_day : string) (trade_species : string) (trigger : Ability_detail_pokemon_inner_pokemon.t) (turn_upside_down : bool) : t = {
+        let create (gender : Evolution_chain_detail_chain_evolves_to_inner_evolution_details_inner_gender.t) (held_item : Evolution_chain_detail_chain_evolves_to_inner_evolution_details_inner_gender.t) (item : Evolution_chain_detail_chain_evolves_to_inner_evolution_details_inner_gender.t) (known_move : Evolution_chain_detail_chain_evolves_to_inner_evolution_details_inner_gender.t) (known_move_type : Evolution_chain_detail_chain_evolves_to_inner_evolution_details_inner_gender.t) (location : Evolution_chain_detail_chain_evolves_to_inner_evolution_details_inner_gender.t) (min_affection : int32) (min_beauty : int32) (min_happiness : int32) (min_level : int32) (needs_overworld_rain : bool) (party_species : string) (party_type : string) (relative_physical_stats : string) (time_of_day : string) (trade_species : string) (trigger : Ability_detail_pokemon_inner_pokemon.t) (turn_upside_down : bool) : t = {
             gender = gender;
             held_item = held_item;
             item = item;

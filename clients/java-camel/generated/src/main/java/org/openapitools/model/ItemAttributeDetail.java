@@ -12,19 +12,19 @@ import org.openapitools.model.ItemAttributeDescription;
 import org.openapitools.model.ItemAttributeName;
 import org.openapitools.jackson.nullable.JsonNullable;
 import java.time.OffsetDateTime;
-import javax.validation.Valid;
-import javax.validation.constraints.*;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.*;
 import io.swagger.v3.oas.annotations.media.Schema;
 
 
 import java.util.*;
-import javax.annotation.Generated;
+import jakarta.annotation.Generated;
 
 /**
  * ItemAttributeDetail
  */
 
-@Generated(value = "org.openapitools.codegen.languages.JavaCamelServerCodegen", date = "2026-02-07T15:23:32.871052804Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@Generated(value = "org.openapitools.codegen.languages.JavaCamelServerCodegen", date = "2026-08-30T01:56:15.309401083Z[Etc/UTC]", comments = "Generator version: 7.24.0")
 public class ItemAttributeDetail {
 
   private Integer id;
@@ -112,8 +112,8 @@ public class ItemAttributeDetail {
    * Get descriptions
    * @return descriptions
    */
-  @NotNull @Valid 
-  @Schema(name = "descriptions", requiredMode = Schema.RequiredMode.REQUIRED)
+  @Valid 
+  @Schema(name = "descriptions", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("descriptions")
   public List<@Valid ItemAttributeDescription> getDescriptions() {
     return descriptions;
@@ -140,8 +140,8 @@ public class ItemAttributeDetail {
    * Get items
    * @return items
    */
-  @NotNull @Valid 
-  @Schema(name = "items", requiredMode = Schema.RequiredMode.REQUIRED)
+  @Valid 
+  @Schema(name = "items", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("items")
   public List<@Valid AbilityDetailPokemonInnerPokemon> getItems() {
     return items;
@@ -168,8 +168,8 @@ public class ItemAttributeDetail {
    * Get names
    * @return names
    */
-  @NotNull @Valid 
-  @Schema(name = "names", requiredMode = Schema.RequiredMode.REQUIRED)
+  @Valid 
+  @Schema(name = "names", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("names")
   public List<@Valid ItemAttributeName> getNames() {
     return names;
@@ -218,10 +218,7 @@ public class ItemAttributeDetail {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 }
 

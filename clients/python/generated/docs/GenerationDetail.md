@@ -7,13 +7,13 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **int** |  | [readonly] 
 **name** | **str** |  | 
-**abilities** | [**List[AbilitySummary]**](AbilitySummary.md) |  | 
+**abilities** | [**List[AbilitySummary]**](AbilitySummary.md) |  | [readonly] 
 **main_region** | [**RegionSummary**](RegionSummary.md) |  | 
-**moves** | [**List[MoveSummary]**](MoveSummary.md) |  | 
-**names** | [**List[GenerationName]**](GenerationName.md) |  | 
-**pokemon_species** | [**List[PokemonSpeciesSummary]**](PokemonSpeciesSummary.md) |  | 
-**types** | [**List[TypeSummary]**](TypeSummary.md) |  | 
-**version_groups** | [**List[VersionGroupSummary]**](VersionGroupSummary.md) |  | 
+**moves** | [**List[MoveSummary]**](MoveSummary.md) |  | [readonly] 
+**names** | [**List[GenerationName]**](GenerationName.md) |  | [readonly] 
+**pokemon_species** | [**List[PokemonSpeciesSummary]**](PokemonSpeciesSummary.md) |  | [readonly] 
+**types** | [**List[TypeSummary]**](TypeSummary.md) |  | [readonly] 
+**version_groups** | [**List[VersionGroupSummary]**](VersionGroupSummary.md) |  | [readonly] 
 
 ## Example
 

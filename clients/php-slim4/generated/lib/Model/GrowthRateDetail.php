@@ -62,21 +62,27 @@ class GrowthRateDetail extends BaseModel
     },
     "descriptions" : {
       "type" : "array",
+      "readOnly" : true,
       "items" : {
         "$ref" : "#/components/schemas/GrowthRateDescription"
-      }
+      },
+      "default" : null
     },
     "levels" : {
       "type" : "array",
+      "readOnly" : true,
       "items" : {
         "$ref" : "#/components/schemas/Experience"
-      }
+      },
+      "default" : null
     },
     "pokemon_species" : {
       "type" : "array",
+      "readOnly" : true,
       "items" : {
         "$ref" : "#/components/schemas/PokemonSpeciesSummary"
-      }
+      },
+      "default" : null
     }
   }
 }

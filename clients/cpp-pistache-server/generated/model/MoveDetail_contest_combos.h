@@ -32,7 +32,7 @@ class  MoveDetail_contest_combos
 {
 public:
     MoveDetail_contest_combos();
-    virtual ~MoveDetail_contest_combos() = default;
+    virtual ~MoveDetail_contest_combos();
 
 
     /// <summary>

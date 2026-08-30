@@ -25,6 +25,8 @@ PokemonGameIndex::PokemonGameIndex()
     
 }
 
+PokemonGameIndex::~PokemonGameIndex() = default;
+
 void PokemonGameIndex::validate() const
 {
     std::stringstream msg;

@@ -32,7 +32,7 @@ class  LocationAreaDetail_encounter_method_rates_inner_version_details_inner
 {
 public:
     LocationAreaDetail_encounter_method_rates_inner_version_details_inner();
-    virtual ~LocationAreaDetail_encounter_method_rates_inner_version_details_inner() = default;
+    virtual ~LocationAreaDetail_encounter_method_rates_inner_version_details_inner();
 
 
     /// <summary>

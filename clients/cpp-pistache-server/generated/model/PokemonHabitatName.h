@@ -33,7 +33,7 @@ class  PokemonHabitatName
 {
 public:
     PokemonHabitatName();
-    virtual ~PokemonHabitatName() = default;
+    virtual ~PokemonHabitatName();
 
 
     /// <summary>

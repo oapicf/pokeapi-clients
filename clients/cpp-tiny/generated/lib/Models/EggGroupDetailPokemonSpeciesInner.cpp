@@ -85,7 +85,7 @@ EggGroupDetail_pokemon_species_inner::getName()
 }
 
 void
-EggGroupDetail_pokemon_species_inner::setName(std::string  name)
+EggGroupDetail_pokemon_species_inner::setName(std::string name)
 {
 	this->name = name;
 }
@@ -97,7 +97,7 @@ EggGroupDetail_pokemon_species_inner::getUrl()
 }
 
 void
-EggGroupDetail_pokemon_species_inner::setUrl(std::string  url)
+EggGroupDetail_pokemon_species_inner::setUrl(std::string url)
 {
 	this->url = url;
 }

@@ -3745,6 +3745,9 @@ components:
   schemas:
     AbilityChange:
       example:
+        version_group:
+          name: name
+          url: https://openapi-generator.tech
         effect_entries:
         - effect: effect
           language:
@@ -3754,17 +3757,16 @@ components:
           language:
             name: name
             url: https://openapi-generator.tech
-        version_group:
-          name: name
-          url: https://openapi-generator.tech
       properties:
         version_group:
           $ref: "#/components/schemas/VersionGroupSummary"
         effect_entries:
           items:
             $ref: "#/components/schemas/AbilityChangeEffectText"
+          readOnly: true
           title: effect_entries
           type: array
+          default: null
       required:
       - effect_entries
       - version_group
@@ -3788,21 +3790,12 @@ components:
       title: AbilityChangeEffectText
     AbilityDetail:
       example:
+        id: 0
+        name: name
         is_main_series: true
         generation:
           name: name
           url: https://openapi-generator.tech
-        effect_entries:
-        - short_effect: short_effect
-          effect: effect
-          language:
-            name: name
-            url: https://openapi-generator.tech
-        - short_effect: short_effect
-          effect: effect
-          language:
-            name: name
-            url: https://openapi-generator.tech
         names:
         - name: name
           language:
@@ -3812,36 +3805,22 @@ components:
           language:
             name: name
             url: https://openapi-generator.tech
-        pokemon:
-        - pokemon:
-            name: name
-            url: https://openapi-generator.tech
-          is_hidden: true
-          slot: 6
-        - pokemon:
-            name: name
-            url: https://openapi-generator.tech
-          is_hidden: true
-          slot: 6
-        flavor_text_entries:
-        - version_group:
-            name: name
-            url: https://openapi-generator.tech
+        effect_entries:
+        - effect: effect
+          short_effect: short_effect
           language:
             name: name
             url: https://openapi-generator.tech
-          flavor_text: flavor_text
-        - version_group:
-            name: name
-            url: https://openapi-generator.tech
+        - effect: effect
+          short_effect: short_effect
           language:
             name: name
             url: https://openapi-generator.tech
-          flavor_text: flavor_text
-        name: name
-        id: 0
         effect_changes:
-        - effect_entries:
+        - version_group:
+            name: name
+            url: https://openapi-generator.tech
+          effect_entries:
           - effect: effect
             language:
               name: name
@@ -3850,19 +3829,42 @@ components:
             language:
               name: name
               url: https://openapi-generator.tech
+        - version_group:
+            name: name
+            url: https://openapi-generator.tech
+          effect_entries:
+          - effect: effect
+            language:
+              name: name
+              url: https://openapi-generator.tech
+          - effect: effect
+            language:
+              name: name
+              url: https://openapi-generator.tech
+        flavor_text_entries:
+        - flavor_text: flavor_text
+          language:
+            name: name
+            url: https://openapi-generator.tech
           version_group:
             name: name
             url: https://openapi-generator.tech
-        - effect_entries:
-          - effect: effect
-            language:
-              name: name
-              url: https://openapi-generator.tech
-          - effect: effect
-            language:
-              name: name
-              url: https://openapi-generator.tech
+        - flavor_text: flavor_text
+          language:
+            name: name
+            url: https://openapi-generator.tech
           version_group:
+            name: name
+            url: https://openapi-generator.tech
+        pokemon:
+        - is_hidden: true
+          slot: 6
+          pokemon:
+            name: name
+            url: https://openapi-generator.tech
+        - is_hidden: true
+          slot: 6
+          pokemon:
             name: name
             url: https://openapi-generator.tech
       properties:
@@ -3882,28 +3884,38 @@ components:
         names:
           items:
             $ref: "#/components/schemas/AbilityName"
+          readOnly: true
           title: names
           type: array
+          default: null
         effect_entries:
           items:
             $ref: "#/components/schemas/AbilityEffectText"
+          readOnly: true
           title: effect_entries
           type: array
+          default: null
         effect_changes:
           items:
             $ref: "#/components/schemas/AbilityChange"
+          readOnly: true
           title: effect_changes
           type: array
+          default: null
         flavor_text_entries:
           items:
             $ref: "#/components/schemas/AbilityFlavorText"
+          readOnly: true
           title: flavor_text_entries
           type: array
+          default: null
         pokemon:
           items:
             $ref: "#/components/schemas/AbilityDetail_pokemon_inner"
+          readOnly: true
           title: pokemon
           type: array
+          default: null
       required:
       - effect_changes
       - effect_entries
@@ -3916,8 +3928,8 @@ components:
       title: AbilityDetail
     AbilityEffectText:
       example:
-        short_effect: short_effect
         effect: effect
+        short_effect: short_effect
         language:
           name: name
           url: https://openapi-generator.tech
@@ -3939,13 +3951,13 @@ components:
       title: AbilityEffectText
     AbilityFlavorText:
       example:
-        version_group:
-          name: name
-          url: https://openapi-generator.tech
+        flavor_text: flavor_text
         language:
           name: name
           url: https://openapi-generator.tech
-        flavor_text: flavor_text
+        version_group:
+          name: name
+          url: https://openapi-generator.tech
       properties:
         flavor_text:
           title: flavor_text
@@ -3996,32 +4008,32 @@ components:
       title: VersionGroupSummary
     BerryDetail:
       example:
-        flavors:
-        - flavor:
-            name: name
-            url: https://openapi-generator.tech
-          potency: 9
-        - flavor:
-            name: name
-            url: https://openapi-generator.tech
-          potency: 9
-        natural_gift_type:
-          name: name
-          url: https://openapi-generator.tech
-        item:
-          name: name
-          url: https://openapi-generator.tech
-        smoothness: 2
-        size: 5
+        id: 0
+        name: name
+        growth_time: 6
+        max_harvest: 1
         natural_gift_power: 5
+        size: 5
+        smoothness: 2
+        soil_dryness: 7
         firmness:
           name: name
           url: https://openapi-generator.tech
-        name: name
-        growth_time: 6
-        soil_dryness: 7
-        id: 0
-        max_harvest: 1
+        flavors:
+        - potency: 9
+          flavor:
+            name: name
+            url: https://openapi-generator.tech
+        - potency: 9
+          flavor:
+            name: name
+            url: https://openapi-generator.tech
+        item:
+          name: name
+          url: https://openapi-generator.tech
+        natural_gift_type:
+          name: name
+          url: https://openapi-generator.tech
       properties:
         id:
           readOnly: true
@@ -4054,8 +4066,10 @@ components:
         flavors:
           items:
             $ref: "#/components/schemas/BerryDetail_flavors_inner"
+          readOnly: true
           title: flavors
           type: array
+          default: null
         item:
           $ref: "#/components/schemas/ItemSummary"
         natural_gift_type:
@@ -4076,6 +4090,13 @@ components:
       title: BerryDetail
     BerryFirmnessDetail:
       example:
+        id: 0
+        name: name
+        berries:
+        - name: name
+          url: https://openapi-generator.tech
+        - name: name
+          url: https://openapi-generator.tech
         names:
         - name: name
           language:
@@ -4085,13 +4106,6 @@ components:
           language:
             name: name
             url: https://openapi-generator.tech
-        name: name
-        id: 0
-        berries:
-        - name: name
-          url: https://openapi-generator.tech
-        - name: name
-          url: https://openapi-generator.tech
       properties:
         id:
           readOnly: true
@@ -4104,13 +4118,17 @@ components:
         berries:
           items:
             $ref: "#/components/schemas/BerrySummary"
+          readOnly: true
           title: berries
           type: array
+          default: null
         names:
           items:
             $ref: "#/components/schemas/BerryFirmnessName"
+          readOnly: true
           title: names
           type: array
+          default: null
       required:
       - berries
       - id
@@ -4154,6 +4172,17 @@ components:
       title: VersionGroupSummary
     BerryFlavorDetail:
       example:
+        id: 0
+        name: name
+        berries:
+        - potency: 6
+          berry:
+            name: name
+            url: https://openapi-generator.tech
+        - potency: 6
+          berry:
+            name: name
+            url: https://openapi-generator.tech
         contest_type:
           name: name
           url: https://openapi-generator.tech
@@ -4164,17 +4193,6 @@ components:
             url: https://openapi-generator.tech
         - name: name
           language:
-            name: name
-            url: https://openapi-generator.tech
-        name: name
-        id: 0
-        berries:
-        - potency: 6
-          berry:
-            name: name
-            url: https://openapi-generator.tech
-        - potency: 6
-          berry:
             name: name
             url: https://openapi-generator.tech
       properties:
@@ -4189,15 +4207,19 @@ components:
         berries:
           items:
             $ref: "#/components/schemas/BerryFlavorDetail_berries_inner"
+          readOnly: true
           title: berries
           type: array
+          default: null
         contest_type:
           $ref: "#/components/schemas/ContestTypeSummary"
         names:
           items:
             $ref: "#/components/schemas/BerryFlavorName"
+          readOnly: true
           title: names
           type: array
+          default: null
       required:
       - berries
       - contest_type
@@ -4276,6 +4298,7 @@ components:
       title: CharacteristicDescription
     CharacteristicDetail:
       example:
+        id: 0
         gene_modulo: 6
         possible_values:
         - 1
@@ -4283,7 +4306,6 @@ components:
         highest_stat:
           name: name
           url: https://openapi-generator.tech
-        id: 0
         descriptions:
         - description: description
           language:
@@ -4305,15 +4327,19 @@ components:
           items:
             format: int32
             type: integer
+          readOnly: true
           title: possible_values
           type: array
+          default: null
         highest_stat:
           $ref: "#/components/schemas/StatSummary"
         descriptions:
           items:
             $ref: "#/components/schemas/CharacteristicDescription"
+          readOnly: true
           title: descriptions
           type: array
+          default: null
       required:
       - descriptions
       - gene_modulo
@@ -4335,6 +4361,9 @@ components:
       title: ContestEffectSummary
     ContestEffectDetail:
       example:
+        id: 0
+        appeal: 6
+        jam: 1
         effect_entries:
         - effect: effect
           language:
@@ -4344,18 +4373,15 @@ components:
           language:
             name: name
             url: https://openapi-generator.tech
-        jam: 1
         flavor_text_entries:
-        - language:
+        - flavor_text: flavor_text
+          language:
             name: name
             url: https://openapi-generator.tech
-          flavor_text: flavor_text
-        - language:
+        - flavor_text: flavor_text
+          language:
             name: name
             url: https://openapi-generator.tech
-          flavor_text: flavor_text
-        id: 0
-        appeal: 6
       properties:
         id:
           readOnly: true
@@ -4370,13 +4396,17 @@ components:
         effect_entries:
           items:
             $ref: "#/components/schemas/ContestEffectEffectText"
+          readOnly: true
           title: effect_entries
           type: array
+          default: null
         flavor_text_entries:
           items:
             $ref: "#/components/schemas/ContestEffectFlavorText"
+          readOnly: true
           title: flavor_text_entries
           type: array
+          default: null
       required:
       - appeal
       - effect_entries
@@ -4403,10 +4433,10 @@ components:
       title: AbilityChangeEffectText
     ContestEffectFlavorText:
       example:
+        flavor_text: flavor_text
         language:
           name: name
           url: https://openapi-generator.tech
-        flavor_text: flavor_text
       properties:
         flavor_text:
           maxLength: 500
@@ -4432,20 +4462,20 @@ components:
       title: ContestEffectSummary
     ContestTypeDetail:
       example:
+        id: 0
+        name: name
         berry_flavor: ""
         names:
-        - color: color
-          name: name
+        - name: name
+          color: color
           language:
             name: name
             url: https://openapi-generator.tech
-        - color: color
-          name: name
+        - name: name
+          color: color
           language:
             name: name
             url: https://openapi-generator.tech
-        name: name
-        id: 0
       properties:
         id:
           readOnly: true
@@ -4463,8 +4493,10 @@ components:
         names:
           items:
             $ref: "#/components/schemas/ContestTypeName"
+          readOnly: true
           title: names
           type: array
+          default: null
       required:
       - berry_flavor
       - id
@@ -4473,8 +4505,8 @@ components:
       title: ContestTypeDetail
     ContestTypeName:
       example:
-        color: color
         name: name
+        color: color
         language:
           name: name
           url: https://openapi-generator.tech
@@ -4514,6 +4546,8 @@ components:
       title: VersionGroupSummary
     EggGroupDetail:
       example:
+        id: 0
+        name: name
         names:
         - name: name
           language:
@@ -4523,8 +4557,6 @@ components:
           language:
             name: name
             url: https://openapi-generator.tech
-        name: name
-        id: 0
         pokemon_species:
         - name: name
           url: https://openapi-generator.tech
@@ -4542,13 +4574,17 @@ components:
         names:
           items:
             $ref: "#/components/schemas/EggGroupName"
+          readOnly: true
           title: names
           type: array
+          default: null
         pokemon_species:
           items:
             $ref: "#/components/schemas/EggGroupDetail_pokemon_species_inner"
+          readOnly: true
           title: pokemon_species
           type: array
+          default: null
       required:
       - id
       - name
@@ -4592,6 +4628,13 @@ components:
       title: VersionGroupSummary
     EncounterConditionDetail:
       example:
+        id: 0
+        name: name
+        values:
+        - name: name
+          url: https://openapi-generator.tech
+        - name: name
+          url: https://openapi-generator.tech
         names:
         - name: name
           language:
@@ -4601,13 +4644,6 @@ components:
           language:
             name: name
             url: https://openapi-generator.tech
-        values:
-        - name: name
-          url: https://openapi-generator.tech
-        - name: name
-          url: https://openapi-generator.tech
-        name: name
-        id: 0
       properties:
         id:
           readOnly: true
@@ -4620,13 +4656,17 @@ components:
         values:
           items:
             $ref: "#/components/schemas/EncounterConditionValueSummary"
+          readOnly: true
           title: values
           type: array
+          default: null
         names:
           items:
             $ref: "#/components/schemas/EncounterConditionName"
+          readOnly: true
           title: names
           type: array
+          default: null
       required:
       - id
       - name
@@ -4670,6 +4710,8 @@ components:
       title: VersionGroupSummary
     EncounterConditionValueDetail:
       example:
+        id: 0
+        name: name
         condition:
           name: name
           url: https://openapi-generator.tech
@@ -4682,8 +4724,6 @@ components:
           language:
             name: name
             url: https://openapi-generator.tech
-        name: name
-        id: 0
       properties:
         id:
           readOnly: true
@@ -4698,8 +4738,10 @@ components:
         names:
           items:
             $ref: "#/components/schemas/EncounterConditionValueName"
+          readOnly: true
           title: names
           type: array
+          default: null
       required:
       - condition
       - id
@@ -4743,6 +4785,9 @@ components:
       title: VersionGroupSummary
     EncounterMethodDetail:
       example:
+        id: 0
+        name: name
+        order: 6
         names:
         - name: name
           language:
@@ -4752,9 +4797,6 @@ components:
           language:
             name: name
             url: https://openapi-generator.tech
-        name: name
-        id: 0
-        order: 6
       properties:
         id:
           readOnly: true
@@ -4771,8 +4813,10 @@ components:
         names:
           items:
             $ref: "#/components/schemas/EncounterMethodName"
+          readOnly: true
           title: names
           type: array
+          default: null
       required:
       - id
       - name
@@ -4815,141 +4859,157 @@ components:
       title: VersionGroupSummary
     EvolutionChainDetail:
       example:
+        id: 0
+        baby_trigger_item:
+          name: name
+          url: https://openapi-generator.tech
         chain:
           evolution_details:
           - ""
           - ""
+          evolves_to:
+          - evolution_details:
+            - gender:
+                name: name
+                url: https://openapi-generator.tech
+              held_item:
+                name: name
+                url: https://openapi-generator.tech
+              item:
+                name: name
+                url: https://openapi-generator.tech
+              known_move:
+                name: name
+                url: https://openapi-generator.tech
+              known_move_type:
+                name: name
+                url: https://openapi-generator.tech
+              location:
+                name: name
+                url: https://openapi-generator.tech
+              min_affection: 6
+              min_beauty: 1
+              min_happiness: 5
+              min_level: 5
+              needs_overworld_rain: true
+              party_species: party_species
+              party_type: party_type
+              relative_physical_stats: relative_physical_stats
+              time_of_day: time_of_day
+              trade_species: trade_species
+              trigger:
+                name: name
+                url: https://openapi-generator.tech
+              turn_upside_down: true
+            - gender:
+                name: name
+                url: https://openapi-generator.tech
+              held_item:
+                name: name
+                url: https://openapi-generator.tech
+              item:
+                name: name
+                url: https://openapi-generator.tech
+              known_move:
+                name: name
+                url: https://openapi-generator.tech
+              known_move_type:
+                name: name
+                url: https://openapi-generator.tech
+              location:
+                name: name
+                url: https://openapi-generator.tech
+              min_affection: 6
+              min_beauty: 1
+              min_happiness: 5
+              min_level: 5
+              needs_overworld_rain: true
+              party_species: party_species
+              party_type: party_type
+              relative_physical_stats: relative_physical_stats
+              time_of_day: time_of_day
+              trade_species: trade_species
+              trigger:
+                name: name
+                url: https://openapi-generator.tech
+              turn_upside_down: true
+            is_baby: true
+            species:
+              name: name
+              url: https://openapi-generator.tech
+          - evolution_details:
+            - gender:
+                name: name
+                url: https://openapi-generator.tech
+              held_item:
+                name: name
+                url: https://openapi-generator.tech
+              item:
+                name: name
+                url: https://openapi-generator.tech
+              known_move:
+                name: name
+                url: https://openapi-generator.tech
+              known_move_type:
+                name: name
+                url: https://openapi-generator.tech
+              location:
+                name: name
+                url: https://openapi-generator.tech
+              min_affection: 6
+              min_beauty: 1
+              min_happiness: 5
+              min_level: 5
+              needs_overworld_rain: true
+              party_species: party_species
+              party_type: party_type
+              relative_physical_stats: relative_physical_stats
+              time_of_day: time_of_day
+              trade_species: trade_species
+              trigger:
+                name: name
+                url: https://openapi-generator.tech
+              turn_upside_down: true
+            - gender:
+                name: name
+                url: https://openapi-generator.tech
+              held_item:
+                name: name
+                url: https://openapi-generator.tech
+              item:
+                name: name
+                url: https://openapi-generator.tech
+              known_move:
+                name: name
+                url: https://openapi-generator.tech
+              known_move_type:
+                name: name
+                url: https://openapi-generator.tech
+              location:
+                name: name
+                url: https://openapi-generator.tech
+              min_affection: 6
+              min_beauty: 1
+              min_happiness: 5
+              min_level: 5
+              needs_overworld_rain: true
+              party_species: party_species
+              party_type: party_type
+              relative_physical_stats: relative_physical_stats
+              time_of_day: time_of_day
+              trade_species: trade_species
+              trigger:
+                name: name
+                url: https://openapi-generator.tech
+              turn_upside_down: true
+            is_baby: true
+            species:
+              name: name
+              url: https://openapi-generator.tech
+          is_baby: true
           species:
             name: name
             url: https://openapi-generator.tech
-          evolves_to:
-          - evolution_details:
-            - item:
-                name: name
-                url: https://openapi-generator.tech
-              relative_physical_stats: relative_physical_stats
-              turn_upside_down: true
-              gender:
-                name: name
-                url: https://openapi-generator.tech
-              min_happiness: 5
-              party_type: party_type
-              held_item:
-                name: name
-                url: https://openapi-generator.tech
-              known_move: "{}"
-              min_beauty: 1
-              trade_species: trade_species
-              trigger:
-                name: name
-                url: https://openapi-generator.tech
-              needs_overworld_rain: true
-              party_species: party_species
-              min_affection: 6
-              known_move_type: "{}"
-              time_of_day: time_of_day
-              location:
-                name: name
-                url: https://openapi-generator.tech
-              min_level: 5
-            - item:
-                name: name
-                url: https://openapi-generator.tech
-              relative_physical_stats: relative_physical_stats
-              turn_upside_down: true
-              gender:
-                name: name
-                url: https://openapi-generator.tech
-              min_happiness: 5
-              party_type: party_type
-              held_item:
-                name: name
-                url: https://openapi-generator.tech
-              known_move: "{}"
-              min_beauty: 1
-              trade_species: trade_species
-              trigger:
-                name: name
-                url: https://openapi-generator.tech
-              needs_overworld_rain: true
-              party_species: party_species
-              min_affection: 6
-              known_move_type: "{}"
-              time_of_day: time_of_day
-              location:
-                name: name
-                url: https://openapi-generator.tech
-              min_level: 5
-            species:
-              name: name
-              url: https://openapi-generator.tech
-            is_baby: true
-          - evolution_details:
-            - item:
-                name: name
-                url: https://openapi-generator.tech
-              relative_physical_stats: relative_physical_stats
-              turn_upside_down: true
-              gender:
-                name: name
-                url: https://openapi-generator.tech
-              min_happiness: 5
-              party_type: party_type
-              held_item:
-                name: name
-                url: https://openapi-generator.tech
-              known_move: "{}"
-              min_beauty: 1
-              trade_species: trade_species
-              trigger:
-                name: name
-                url: https://openapi-generator.tech
-              needs_overworld_rain: true
-              party_species: party_species
-              min_affection: 6
-              known_move_type: "{}"
-              time_of_day: time_of_day
-              location:
-                name: name
-                url: https://openapi-generator.tech
-              min_level: 5
-            - item:
-                name: name
-                url: https://openapi-generator.tech
-              relative_physical_stats: relative_physical_stats
-              turn_upside_down: true
-              gender:
-                name: name
-                url: https://openapi-generator.tech
-              min_happiness: 5
-              party_type: party_type
-              held_item:
-                name: name
-                url: https://openapi-generator.tech
-              known_move: "{}"
-              min_beauty: 1
-              trade_species: trade_species
-              trigger:
-                name: name
-                url: https://openapi-generator.tech
-              needs_overworld_rain: true
-              party_species: party_species
-              min_affection: 6
-              known_move_type: "{}"
-              time_of_day: time_of_day
-              location:
-                name: name
-                url: https://openapi-generator.tech
-              min_level: 5
-            species:
-              name: name
-              url: https://openapi-generator.tech
-            is_baby: true
-          is_baby: true
-        baby_trigger_item:
-          name: name
-          url: https://openapi-generator.tech
-        id: 0
       properties:
         id:
           readOnly: true
@@ -4978,6 +5038,8 @@ components:
       title: ContestEffectSummary
     EvolutionTriggerDetail:
       example:
+        id: 0
+        name: name
         names:
         - name: name
           language:
@@ -4987,8 +5049,6 @@ components:
           language:
             name: name
             url: https://openapi-generator.tech
-        name: name
-        id: 0
         pokemon_species:
         - name: name
           url: https://openapi-generator.tech
@@ -5006,13 +5066,17 @@ components:
         names:
           items:
             $ref: "#/components/schemas/EvolutionTriggerName"
+          readOnly: true
           title: names
           type: array
+          default: null
         pokemon_species:
           items:
             $ref: "#/components/schemas/AbilityDetail_pokemon_inner_pokemon"
+          readOnly: true
           title: pokemon_species
           type: array
+          default: null
       required:
       - id
       - name
@@ -5071,13 +5135,8 @@ components:
       title: Experience
     GenderDetail:
       example:
-        required_for_evolution:
-        - name: name
-          url: https://openapi-generator.tech
-        - name: name
-          url: https://openapi-generator.tech
-        name: name
         id: 0
+        name: name
         pokemon_species_details:
         - rate: 6
           pokemon_species:
@@ -5087,6 +5146,11 @@ components:
           pokemon_species:
             name: name
             url: https://openapi-generator.tech
+        required_for_evolution:
+        - name: name
+          url: https://openapi-generator.tech
+        - name: name
+          url: https://openapi-generator.tech
       properties:
         id:
           readOnly: true
@@ -5099,13 +5163,17 @@ components:
         pokemon_species_details:
           items:
             $ref: "#/components/schemas/GenderDetail_pokemon_species_details_inner"
+          readOnly: true
           title: pokemon_species_details
           type: array
+          default: null
         required_for_evolution:
           items:
             $ref: "#/components/schemas/AbilityDetail_pokemon_inner_pokemon"
+          readOnly: true
           title: required_for_evolution
           type: array
+          default: null
       required:
       - id
       - name
@@ -5132,12 +5200,17 @@ components:
       title: VersionGroupSummary
     GenerationDetail:
       example:
+        id: 0
+        name: name
         abilities:
         - name: name
           url: https://openapi-generator.tech
         - name: name
           url: https://openapi-generator.tech
-        types:
+        main_region:
+          name: name
+          url: https://openapi-generator.tech
+        moves:
         - name: name
           url: https://openapi-generator.tech
         - name: name
@@ -5151,22 +5224,17 @@ components:
           language:
             name: name
             url: https://openapi-generator.tech
-        main_region:
-          name: name
+        pokemon_species:
+        - name: name
+          url: https://openapi-generator.tech
+        - name: name
+          url: https://openapi-generator.tech
+        types:
+        - name: name
+          url: https://openapi-generator.tech
+        - name: name
           url: https://openapi-generator.tech
         version_groups:
-        - name: name
-          url: https://openapi-generator.tech
-        - name: name
-          url: https://openapi-generator.tech
-        moves:
-        - name: name
-          url: https://openapi-generator.tech
-        - name: name
-          url: https://openapi-generator.tech
-        name: name
-        id: 0
-        pokemon_species:
         - name: name
           url: https://openapi-generator.tech
         - name: name
@@ -5183,35 +5251,47 @@ components:
         abilities:
           items:
             $ref: "#/components/schemas/AbilitySummary"
+          readOnly: true
           title: abilities
           type: array
+          default: null
         main_region:
           $ref: "#/components/schemas/RegionSummary"
         moves:
           items:
             $ref: "#/components/schemas/MoveSummary"
+          readOnly: true
           title: moves
           type: array
+          default: null
         names:
           items:
             $ref: "#/components/schemas/GenerationName"
+          readOnly: true
           title: names
           type: array
+          default: null
         pokemon_species:
           items:
             $ref: "#/components/schemas/PokemonSpeciesSummary"
+          readOnly: true
           title: pokemon_species
           type: array
+          default: null
         types:
           items:
             $ref: "#/components/schemas/TypeSummary"
+          readOnly: true
           title: types
           type: array
+          default: null
         version_groups:
           items:
             $ref: "#/components/schemas/VersionGroupSummary"
+          readOnly: true
           title: version_groups
           type: array
+          default: null
       required:
       - abilities
       - id
@@ -5276,14 +5356,9 @@ components:
       title: CharacteristicDescription
     GrowthRateDetail:
       example:
+        id: 0
         name: name
         formula: formula
-        id: 0
-        pokemon_species:
-        - name: name
-          url: https://openapi-generator.tech
-        - name: name
-          url: https://openapi-generator.tech
         descriptions:
         - description: description
           language:
@@ -5298,6 +5373,11 @@ components:
           experience: 1
         - level: 6
           experience: 1
+        pokemon_species:
+        - name: name
+          url: https://openapi-generator.tech
+        - name: name
+          url: https://openapi-generator.tech
       properties:
         id:
           readOnly: true
@@ -5314,18 +5394,24 @@ components:
         descriptions:
           items:
             $ref: "#/components/schemas/GrowthRateDescription"
+          readOnly: true
           title: descriptions
           type: array
+          default: null
         levels:
           items:
             $ref: "#/components/schemas/Experience"
+          readOnly: true
           title: levels
           type: array
+          default: null
         pokemon_species:
           items:
             $ref: "#/components/schemas/PokemonSpeciesSummary"
+          readOnly: true
           title: pokemon_species
           type: array
+          default: null
       required:
       - descriptions
       - formula
@@ -5370,17 +5456,8 @@ components:
       title: CharacteristicDescription
     ItemAttributeDetail:
       example:
-        names:
-        - name: name
-          language:
-            name: name
-            url: https://openapi-generator.tech
-        - name: name
-          language:
-            name: name
-            url: https://openapi-generator.tech
-        name: name
         id: 0
+        name: name
         descriptions:
         - description: description
           language:
@@ -5395,6 +5472,15 @@ components:
           url: https://openapi-generator.tech
         - name: name
           url: https://openapi-generator.tech
+        names:
+        - name: name
+          language:
+            name: name
+            url: https://openapi-generator.tech
+        - name: name
+          language:
+            name: name
+            url: https://openapi-generator.tech
       properties:
         id:
           readOnly: true
@@ -5407,18 +5493,24 @@ components:
         descriptions:
           items:
             $ref: "#/components/schemas/ItemAttributeDescription"
+          readOnly: true
           title: descriptions
           type: array
+          default: null
         items:
           items:
             $ref: "#/components/schemas/AbilityDetail_pokemon_inner_pokemon"
+          readOnly: true
           title: items
           type: array
+          default: null
         names:
           items:
             $ref: "#/components/schemas/ItemAttributeName"
+          readOnly: true
           title: names
           type: array
+          default: null
       required:
       - descriptions
       - id
@@ -5463,6 +5555,13 @@ components:
       title: VersionGroupSummary
     ItemCategoryDetail:
       example:
+        id: 0
+        name: name
+        items:
+        - name: name
+          url: https://openapi-generator.tech
+        - name: name
+          url: https://openapi-generator.tech
         names:
         - name: name
           language:
@@ -5472,13 +5571,6 @@ components:
           language:
             name: name
             url: https://openapi-generator.tech
-        name: name
-        id: 0
-        items:
-        - name: name
-          url: https://openapi-generator.tech
-        - name: name
-          url: https://openapi-generator.tech
         pocket:
           name: name
           url: https://openapi-generator.tech
@@ -5494,13 +5586,17 @@ components:
         items:
           items:
             $ref: "#/components/schemas/ItemSummary"
+          readOnly: true
           title: items
           type: array
+          default: null
         names:
           items:
             $ref: "#/components/schemas/ItemCategoryName"
+          readOnly: true
           title: names
           type: array
+          default: null
         pocket:
           $ref: "#/components/schemas/ItemPocketSummary"
       required:
@@ -5547,33 +5643,56 @@ components:
       title: VersionGroupSummary
     ItemDetail:
       example:
+        id: 0
+        name: name
         cost: 6
         fling_power: 1
-        sprites:
-          default: https://openapi-generator.tech
         fling_effect:
           name: name
           url: https://openapi-generator.tech
+        attributes:
+        - name: name
+          url: https://openapi-generator.tech
+        - name: name
+          url: https://openapi-generator.tech
+        category:
+          name: name
+          url: https://openapi-generator.tech
         effect_entries:
-        - short_effect: short_effect
-          effect: effect
+        - effect: effect
+          short_effect: short_effect
           language:
             name: name
             url: https://openapi-generator.tech
-        - short_effect: short_effect
-          effect: effect
+        - effect: effect
+          short_effect: short_effect
+          language:
+            name: name
+            url: https://openapi-generator.tech
+        flavor_text_entries:
+        - text: text
+          version_group:
+            name: name
+            url: https://openapi-generator.tech
+          language:
+            name: name
+            url: https://openapi-generator.tech
+        - text: text
+          version_group:
+            name: name
+            url: https://openapi-generator.tech
           language:
             name: name
             url: https://openapi-generator.tech
         game_indices:
-        - generation:
+        - game_index: 5
+          generation:
             name: name
             url: https://openapi-generator.tech
-          game_index: 5
-        - generation:
+        - game_index: 5
+          generation:
             name: name
             url: https://openapi-generator.tech
-          game_index: 5
         names:
         - name: name
           language:
@@ -5583,30 +5702,35 @@ components:
           language:
             name: name
             url: https://openapi-generator.tech
+        held_by_pokemon:
+        - pokemon:
+            name: name
+            url: https://openapi-generator.tech
+          version-details:
+          - rarity: 5
+            version:
+              name: name
+              url: https://openapi-generator.tech
+          - rarity: 5
+            version:
+              name: name
+              url: https://openapi-generator.tech
+        - pokemon:
+            name: name
+            url: https://openapi-generator.tech
+          version-details:
+          - rarity: 5
+            version:
+              name: name
+              url: https://openapi-generator.tech
+          - rarity: 5
+            version:
+              name: name
+              url: https://openapi-generator.tech
+        sprites:
+          default: https://openapi-generator.tech
         baby_trigger_for:
           url: https://openapi-generator.tech
-        flavor_text_entries:
-        - version_group:
-            name: name
-            url: https://openapi-generator.tech
-          language:
-            name: name
-            url: https://openapi-generator.tech
-          text: text
-        - version_group:
-            name: name
-            url: https://openapi-generator.tech
-          language:
-            name: name
-            url: https://openapi-generator.tech
-          text: text
-        name: name
-        attributes:
-        - name: name
-          url: https://openapi-generator.tech
-        - name: name
-          url: https://openapi-generator.tech
-        id: 0
         machines:
         - machine: https://openapi-generator.tech
           version_group:
@@ -5616,34 +5740,6 @@ components:
           version_group:
             name: name
             url: https://openapi-generator.tech
-        category:
-          name: name
-          url: https://openapi-generator.tech
-        held_by_pokemon:
-        - pokemon:
-            name: name
-            url: https://openapi-generator.tech
-          version-details:
-          - version:
-              name: name
-              url: https://openapi-generator.tech
-            rarity: 5
-          - version:
-              name: name
-              url: https://openapi-generator.tech
-            rarity: 5
-        - pokemon:
-            name: name
-            url: https://openapi-generator.tech
-          version-details:
-          - version:
-              name: name
-              url: https://openapi-generator.tech
-            rarity: 5
-          - version:
-              name: name
-              url: https://openapi-generator.tech
-            rarity: 5
       properties:
         id:
           readOnly: true
@@ -5666,35 +5762,47 @@ components:
         attributes:
           items:
             $ref: "#/components/schemas/AbilityDetail_pokemon_inner_pokemon"
+          readOnly: true
           title: attributes
           type: array
+          default: null
         category:
           $ref: "#/components/schemas/ItemCategorySummary"
         effect_entries:
           items:
             $ref: "#/components/schemas/ItemEffectText"
+          readOnly: true
           title: effect_entries
           type: array
+          default: null
         flavor_text_entries:
           items:
             $ref: "#/components/schemas/ItemFlavorText"
+          readOnly: true
           title: flavor_text_entries
           type: array
+          default: null
         game_indices:
           items:
             $ref: "#/components/schemas/ItemGameIndex"
+          readOnly: true
           title: game_indices
           type: array
+          default: null
         names:
           items:
             $ref: "#/components/schemas/ItemName"
+          readOnly: true
           title: names
           type: array
+          default: null
         held_by_pokemon:
           items:
             $ref: "#/components/schemas/ItemDetail_held_by_pokemon_inner"
+          readOnly: true
           title: held_by_pokemon
           type: array
+          default: null
         sprites:
           $ref: "#/components/schemas/ItemDetail_sprites"
         baby_trigger_for:
@@ -5702,8 +5810,10 @@ components:
         machines:
           items:
             $ref: "#/components/schemas/ItemDetail_machines_inner"
+          readOnly: true
           title: machines
           type: array
+          default: null
       required:
       - attributes
       - baby_trigger_for
@@ -5721,8 +5831,8 @@ components:
       title: ItemDetail
     ItemEffectText:
       example:
-        short_effect: short_effect
         effect: effect
+        short_effect: short_effect
         language:
           name: name
           url: https://openapi-generator.tech
@@ -5744,13 +5854,13 @@ components:
       title: AbilityEffectText
     ItemFlavorText:
       example:
+        text: text
         version_group:
           name: name
           url: https://openapi-generator.tech
         language:
           name: name
           url: https://openapi-generator.tech
-        text: text
       properties:
         text:
           title: text
@@ -5766,6 +5876,8 @@ components:
       title: ItemFlavorText
     ItemFlingEffectDetail:
       example:
+        id: 0
+        name: name
         effect_entries:
         - effect: effect
           language:
@@ -5775,8 +5887,6 @@ components:
           language:
             name: name
             url: https://openapi-generator.tech
-        name: name
-        id: 0
         items:
         - name: name
           url: https://openapi-generator.tech
@@ -5794,13 +5904,17 @@ components:
         effect_entries:
           items:
             $ref: "#/components/schemas/ItemFlingEffectEffectText"
+          readOnly: true
           title: effect_entries
           type: array
+          default: null
         items:
           items:
             $ref: "#/components/schemas/ItemSummary"
+          readOnly: true
           title: items
           type: array
+          default: null
       required:
       - effect_entries
       - id
@@ -5844,10 +5958,10 @@ components:
       title: VersionGroupSummary
     ItemGameIndex:
       example:
+        game_index: 5
         generation:
           name: name
           url: https://openapi-generator.tech
-        game_index: 5
       properties:
         game_index:
           title: game_index
@@ -5877,6 +5991,13 @@ components:
       title: AbilityName
     ItemPocketDetail:
       example:
+        id: 0
+        name: name
+        categories:
+        - name: name
+          url: https://openapi-generator.tech
+        - name: name
+          url: https://openapi-generator.tech
         names:
         - name: name
           language:
@@ -5886,13 +6007,6 @@ components:
           language:
             name: name
             url: https://openapi-generator.tech
-        name: name
-        id: 0
-        categories:
-        - name: name
-          url: https://openapi-generator.tech
-        - name: name
-          url: https://openapi-generator.tech
       properties:
         id:
           readOnly: true
@@ -5905,13 +6019,17 @@ components:
         categories:
           items:
             $ref: "#/components/schemas/ItemCategorySummary"
+          readOnly: true
           title: categories
           type: array
+          default: null
         names:
           items:
             $ref: "#/components/schemas/ItemPocketName"
+          readOnly: true
           title: names
           type: array
+          default: null
       required:
       - categories
       - id
@@ -5973,7 +6091,11 @@ components:
       title: VersionGroupSummary
     LanguageDetail:
       example:
+        id: 0
+        name: name
+        official: true
         iso639: iso639
+        iso3166: iso3166
         names:
         - name: name
           language:
@@ -5983,10 +6105,6 @@ components:
           language:
             name: name
             url: https://openapi-generator.tech
-        name: name
-        official: true
-        id: 0
-        iso3166: iso3166
       properties:
         id:
           readOnly: true
@@ -6010,8 +6128,10 @@ components:
         names:
           items:
             $ref: "#/components/schemas/LanguageName"
+          readOnly: true
           title: names
           type: array
+          default: null
       required:
       - id
       - iso3166
@@ -6056,7 +6176,37 @@ components:
       title: VersionGroupSummary
     LocationAreaDetail:
       example:
+        id: 0
+        name: name
         game_index: 6
+        encounter_method_rates:
+        - encounter_method:
+            name: name
+            url: https://openapi-generator.tech
+          version_details:
+          - rate: 1
+            version:
+              name: name
+              url: https://openapi-generator.tech
+          - rate: 1
+            version:
+              name: name
+              url: https://openapi-generator.tech
+        - encounter_method:
+            name: name
+            url: https://openapi-generator.tech
+          version_details:
+          - rate: 1
+            version:
+              name: name
+              url: https://openapi-generator.tech
+          - rate: 1
+            version:
+              name: name
+              url: https://openapi-generator.tech
+        location:
+          name: name
+          url: https://openapi-generator.tech
         names:
         - name: name
           language:
@@ -6071,8 +6221,13 @@ components:
             name: name
             url: https://openapi-generator.tech
           version_details:
-          - max_chance: 5
+          - version:
+              name: name
+              url: https://openapi-generator.tech
+            max_chance: 5
             encounter_details:
+              min_level: 5
+              max_level: 2
               condition_values:
                 name: name
                 url: https://openapi-generator.tech
@@ -6080,13 +6235,13 @@ components:
               method:
                 name: name
                 url: https://openapi-generator.tech
-              max_level: 2
-              min_level: 5
-            version:
+          - version:
               name: name
               url: https://openapi-generator.tech
-          - max_chance: 5
+            max_chance: 5
             encounter_details:
+              min_level: 5
+              max_level: 2
               condition_values:
                 name: name
                 url: https://openapi-generator.tech
@@ -6094,17 +6249,17 @@ components:
               method:
                 name: name
                 url: https://openapi-generator.tech
-              max_level: 2
-              min_level: 5
-            version:
-              name: name
-              url: https://openapi-generator.tech
         - pokemon:
             name: name
             url: https://openapi-generator.tech
           version_details:
-          - max_chance: 5
+          - version:
+              name: name
+              url: https://openapi-generator.tech
+            max_chance: 5
             encounter_details:
+              min_level: 5
+              max_level: 2
               condition_values:
                 name: name
                 url: https://openapi-generator.tech
@@ -6112,13 +6267,13 @@ components:
               method:
                 name: name
                 url: https://openapi-generator.tech
-              max_level: 2
-              min_level: 5
-            version:
+          - version:
               name: name
               url: https://openapi-generator.tech
-          - max_chance: 5
+            max_chance: 5
             encounter_details:
+              min_level: 5
+              max_level: 2
               condition_values:
                 name: name
                 url: https://openapi-generator.tech
@@ -6126,41 +6281,6 @@ components:
               method:
                 name: name
                 url: https://openapi-generator.tech
-              max_level: 2
-              min_level: 5
-            version:
-              name: name
-              url: https://openapi-generator.tech
-        name: name
-        location:
-          name: name
-          url: https://openapi-generator.tech
-        id: 0
-        encounter_method_rates:
-        - version_details:
-          - rate: 1
-            version:
-              name: name
-              url: https://openapi-generator.tech
-          - rate: 1
-            version:
-              name: name
-              url: https://openapi-generator.tech
-          encounter_method:
-            name: name
-            url: https://openapi-generator.tech
-        - version_details:
-          - rate: 1
-            version:
-              name: name
-              url: https://openapi-generator.tech
-          - rate: 1
-            version:
-              name: name
-              url: https://openapi-generator.tech
-          encounter_method:
-            name: name
-            url: https://openapi-generator.tech
       properties:
         id:
           readOnly: true
@@ -6176,20 +6296,26 @@ components:
         encounter_method_rates:
           items:
             $ref: "#/components/schemas/LocationAreaDetail_encounter_method_rates_inner"
+          readOnly: true
           title: encounter_method_rates
           type: array
+          default: null
         location:
           $ref: "#/components/schemas/LocationSummary"
         names:
           items:
             $ref: "#/components/schemas/LocationAreaName"
+          readOnly: true
           title: names
           type: array
+          default: null
         pokemon_encounters:
           items:
             $ref: "#/components/schemas/LocationAreaDetail_pokemon_encounters_inner"
+          readOnly: true
           title: pokemon_encounters
           type: array
+          default: null
       required:
       - encounter_method_rates
       - game_index
@@ -6236,15 +6362,11 @@ components:
       title: VersionGroupSummary
     LocationDetail:
       example:
-        game_indices:
-        - generation:
-            name: name
-            url: https://openapi-generator.tech
-          game_index: 5
-        - generation:
-            name: name
-            url: https://openapi-generator.tech
-          game_index: 5
+        id: 0
+        name: name
+        region:
+          name: name
+          url: https://openapi-generator.tech
         names:
         - name: name
           language:
@@ -6254,15 +6376,19 @@ components:
           language:
             name: name
             url: https://openapi-generator.tech
-        name: name
+        game_indices:
+        - game_index: 5
+          generation:
+            name: name
+            url: https://openapi-generator.tech
+        - game_index: 5
+          generation:
+            name: name
+            url: https://openapi-generator.tech
         areas:
         - name: name
           url: https://openapi-generator.tech
         - name: name
-          url: https://openapi-generator.tech
-        id: 0
-        region:
-          name: name
           url: https://openapi-generator.tech
       properties:
         id:
@@ -6278,18 +6404,24 @@ components:
         names:
           items:
             $ref: "#/components/schemas/LocationName"
+          readOnly: true
           title: names
           type: array
+          default: null
         game_indices:
           items:
             $ref: "#/components/schemas/LocationGameIndex"
+          readOnly: true
           title: game_indices
           type: array
+          default: null
         areas:
           items:
             $ref: "#/components/schemas/LocationAreaSummary"
+          readOnly: true
           title: areas
           type: array
+          default: null
       required:
       - areas
       - game_indices
@@ -6300,10 +6432,10 @@ components:
       title: LocationDetail
     LocationGameIndex:
       example:
+        game_index: 5
         generation:
           name: name
           url: https://openapi-generator.tech
-        game_index: 5
       properties:
         game_index:
           title: game_index
@@ -6351,16 +6483,16 @@ components:
       title: VersionGroupSummary
     MachineDetail:
       example:
+        id: 0
         item:
-          name: name
-          url: https://openapi-generator.tech
-        move:
           name: name
           url: https://openapi-generator.tech
         version_group:
           name: name
           url: https://openapi-generator.tech
-        id: 0
+        move:
+          name: name
+          url: https://openapi-generator.tech
       properties:
         id:
           readOnly: true
@@ -6392,6 +6524,8 @@ components:
       title: ContestEffectSummary
     MoveBattleStyleDetail:
       example:
+        id: 0
+        name: name
         names:
         - name: name
           language:
@@ -6401,8 +6535,6 @@ components:
           language:
             name: name
             url: https://openapi-generator.tech
-        name: name
-        id: 0
       properties:
         id:
           readOnly: true
@@ -6415,8 +6547,10 @@ components:
         names:
           items:
             $ref: "#/components/schemas/MoveBattleStyleName"
+          readOnly: true
           title: names
           type: array
+          default: null
       required:
       - id
       - name
@@ -6459,25 +6593,25 @@ components:
       title: VersionGroupSummary
     MoveChange:
       example:
+        accuracy: 7
+        power: 9
         pp: 3
+        effect_chance: 2
         effect_entries:
-        - short_effect: short_effect
-          effect: effect
+        - effect: effect
+          short_effect: short_effect
           language:
             name: name
             url: https://openapi-generator.tech
-        - short_effect: short_effect
-          effect: effect
+        - effect: effect
+          short_effect: short_effect
           language:
             name: name
             url: https://openapi-generator.tech
-        version_group:
+        type:
           name: name
           url: https://openapi-generator.tech
-        accuracy: 7
-        effect_chance: 2
-        power: 9
-        type:
+        version_group:
           name: name
           url: https://openapi-generator.tech
       properties:
@@ -6499,8 +6633,10 @@ components:
         effect_entries:
           items:
             $ref: "#/components/schemas/MoveChange_effect_entries_inner"
+          readOnly: true
           title: effect_entries
           type: array
+          default: null
         type:
           $ref: "#/components/schemas/TypeSummary"
         version_group:
@@ -6529,12 +6665,14 @@ components:
       title: CharacteristicDescription
     MoveDamageClassDetail:
       example:
-        names:
-        - name: name
+        id: 0
+        name: name
+        descriptions:
+        - description: description
           language:
             name: name
             url: https://openapi-generator.tech
-        - name: name
+        - description: description
           language:
             name: name
             url: https://openapi-generator.tech
@@ -6543,14 +6681,12 @@ components:
           url: https://openapi-generator.tech
         - name: name
           url: https://openapi-generator.tech
-        name: name
-        id: 0
-        descriptions:
-        - description: description
+        names:
+        - name: name
           language:
             name: name
             url: https://openapi-generator.tech
-        - description: description
+        - name: name
           language:
             name: name
             url: https://openapi-generator.tech
@@ -6566,18 +6702,24 @@ components:
         descriptions:
           items:
             $ref: "#/components/schemas/MoveDamageClassDescription"
+          readOnly: true
           title: descriptions
           type: array
+          default: null
         moves:
           items:
             $ref: "#/components/schemas/MoveSummary"
+          readOnly: true
           title: moves
           type: array
+          default: null
         names:
           items:
             $ref: "#/components/schemas/MoveDamageClassName"
+          readOnly: true
           title: names
           type: array
+          default: null
       required:
       - descriptions
       - id
@@ -6622,49 +6764,55 @@ components:
       title: VersionGroupSummary
     MoveDetail:
       example:
-        pp: 5
-        generation:
-          name: name
-          url: https://openapi-generator.tech
-        stat_changes:
-        - stat:
-            name: name
-            url: https://openapi-generator.tech
-          change: 4
-        - stat:
-            name: name
-            url: https://openapi-generator.tech
-          change: 4
+        id: 0
+        name: name
         accuracy: 6
-        contest_combos:
-          super:
-            use_after:
-            - name: name
-              url: https://openapi-generator.tech
-            - name: name
-              url: https://openapi-generator.tech
-            use_before:
-            - name: name
-              url: https://openapi-generator.tech
-            - name: name
-              url: https://openapi-generator.tech
-          normal:
-            use_after:
-            - name: name
-              url: https://openapi-generator.tech
-            - name: name
-              url: https://openapi-generator.tech
-            use_before:
-            - name: name
-              url: https://openapi-generator.tech
-            - name: name
-              url: https://openapi-generator.tech
+        effect_chance: 1
+        pp: 5
         priority: 5
-        super_contest_effect:
-          url: https://openapi-generator.tech
-        type:
+        power: 2
+        contest_combos:
+          normal:
+            use_before:
+            - name: name
+              url: https://openapi-generator.tech
+            - name: name
+              url: https://openapi-generator.tech
+            use_after:
+            - name: name
+              url: https://openapi-generator.tech
+            - name: name
+              url: https://openapi-generator.tech
+          super:
+            use_before:
+            - name: name
+              url: https://openapi-generator.tech
+            - name: name
+              url: https://openapi-generator.tech
+            use_after:
+            - name: name
+              url: https://openapi-generator.tech
+            - name: name
+              url: https://openapi-generator.tech
+        contest_type:
           name: name
           url: https://openapi-generator.tech
+        contest_effect:
+          url: https://openapi-generator.tech
+        damage_class:
+          name: name
+          url: https://openapi-generator.tech
+        effect_entries:
+        - effect: effect
+          short_effect: short_effect
+          language:
+            name: name
+            url: https://openapi-generator.tech
+        - effect: effect
+          short_effect: short_effect
+          language:
+            name: name
+            url: https://openapi-generator.tech
         effect_changes:
         - effect_entries:
           - effect: effect
@@ -6690,71 +6838,10 @@ components:
           version_group:
             name: name
             url: https://openapi-generator.tech
-        target:
+        generation:
           name: name
           url: https://openapi-generator.tech
-        learned_by_pokemon:
-        - name: name
-          url: https://openapi-generator.tech
-        - name: name
-          url: https://openapi-generator.tech
-        effect_entries:
-        - short_effect: short_effect
-          effect: effect
-          language:
-            name: name
-            url: https://openapi-generator.tech
-        - short_effect: short_effect
-          effect: effect
-          language:
-            name: name
-            url: https://openapi-generator.tech
-        contest_type:
-          name: name
-          url: https://openapi-generator.tech
-        past_values:
-        - pp: 3
-          effect_entries:
-          - short_effect: short_effect
-            effect: effect
-            language:
-              name: name
-              url: https://openapi-generator.tech
-          - short_effect: short_effect
-            effect: effect
-            language:
-              name: name
-              url: https://openapi-generator.tech
-          version_group:
-            name: name
-            url: https://openapi-generator.tech
-          accuracy: 7
-          effect_chance: 2
-          power: 9
-          type:
-            name: name
-            url: https://openapi-generator.tech
-        - pp: 3
-          effect_entries:
-          - short_effect: short_effect
-            effect: effect
-            language:
-              name: name
-              url: https://openapi-generator.tech
-          - short_effect: short_effect
-            effect: effect
-            language:
-              name: name
-              url: https://openapi-generator.tech
-          version_group:
-            name: name
-            url: https://openapi-generator.tech
-          accuracy: 7
-          effect_chance: 2
-          power: 9
-          type:
-            name: name
-            url: https://openapi-generator.tech
+        meta: ""
         names:
         - name: name
           language:
@@ -6764,29 +6851,66 @@ components:
           language:
             name: name
             url: https://openapi-generator.tech
-        meta: ""
-        flavor_text_entries:
-        - version_group:
+        past_values:
+        - accuracy: 7
+          power: 9
+          pp: 3
+          effect_chance: 2
+          effect_entries:
+          - effect: effect
+            short_effect: short_effect
+            language:
+              name: name
+              url: https://openapi-generator.tech
+          - effect: effect
+            short_effect: short_effect
+            language:
+              name: name
+              url: https://openapi-generator.tech
+          type:
             name: name
             url: https://openapi-generator.tech
-          language:
+          version_group:
             name: name
             url: https://openapi-generator.tech
-          flavor_text: flavor_text
-        - version_group:
+        - accuracy: 7
+          power: 9
+          pp: 3
+          effect_chance: 2
+          effect_entries:
+          - effect: effect
+            short_effect: short_effect
+            language:
+              name: name
+              url: https://openapi-generator.tech
+          - effect: effect
+            short_effect: short_effect
+            language:
+              name: name
+              url: https://openapi-generator.tech
+          type:
             name: name
             url: https://openapi-generator.tech
-          language:
+          version_group:
             name: name
             url: https://openapi-generator.tech
-          flavor_text: flavor_text
-        name: name
-        damage_class:
+        stat_changes:
+        - change: 4
+          stat:
+            name: name
+            url: https://openapi-generator.tech
+        - change: 4
+          stat:
+            name: name
+            url: https://openapi-generator.tech
+        super_contest_effect:
+          url: https://openapi-generator.tech
+        target:
           name: name
           url: https://openapi-generator.tech
-        effect_chance: 1
-        id: 0
-        power: 2
+        type:
+          name: name
+          url: https://openapi-generator.tech
         machines:
         - machine:
             url: https://openapi-generator.tech
@@ -6798,7 +6922,25 @@ components:
           version_group:
             name: name
             url: https://openapi-generator.tech
-        contest_effect:
+        flavor_text_entries:
+        - flavor_text: flavor_text
+          language:
+            name: name
+            url: https://openapi-generator.tech
+          version_group:
+            name: name
+            url: https://openapi-generator.tech
+        - flavor_text: flavor_text
+          language:
+            name: name
+            url: https://openapi-generator.tech
+          version_group:
+            name: name
+            url: https://openapi-generator.tech
+        learned_by_pokemon:
+        - name: name
+          url: https://openapi-generator.tech
+        - name: name
           url: https://openapi-generator.tech
       properties:
         id:
@@ -6839,13 +6981,17 @@ components:
         effect_entries:
           items:
             $ref: "#/components/schemas/MoveChange_effect_entries_inner"
+          readOnly: true
           title: effect_entries
           type: array
+          default: null
         effect_changes:
           items:
             $ref: "#/components/schemas/MoveDetail_effect_changes_inner"
+          readOnly: true
           title: effect_changes
           type: array
+          default: null
         generation:
           $ref: "#/components/schemas/GenerationSummary"
         meta:
@@ -6856,18 +7002,24 @@ components:
         names:
           items:
             $ref: "#/components/schemas/MoveName"
+          readOnly: true
           title: names
           type: array
+          default: null
         past_values:
           items:
             $ref: "#/components/schemas/MoveChange"
+          readOnly: true
           title: past_values
           type: array
+          default: null
         stat_changes:
           items:
             $ref: "#/components/schemas/MoveDetail_stat_changes_inner"
+          readOnly: true
           title: stat_changes
           type: array
+          default: null
         super_contest_effect:
           $ref: "#/components/schemas/SuperContestEffectSummary"
         target:
@@ -6877,18 +7029,24 @@ components:
         machines:
           items:
             $ref: "#/components/schemas/MoveDetail_machines_inner"
+          readOnly: true
           title: machines
           type: array
+          default: null
         flavor_text_entries:
           items:
             $ref: "#/components/schemas/MoveFlavorText"
+          readOnly: true
           title: flavor_text_entries
           type: array
+          default: null
         learned_by_pokemon:
           items:
             $ref: "#/components/schemas/AbilityDetail_pokemon_inner_pokemon"
+          readOnly: true
           title: learned_by_pokemon
           type: array
+          default: null
       required:
       - contest_combos
       - contest_effect
@@ -6913,13 +7071,13 @@ components:
       title: MoveDetail
     MoveFlavorText:
       example:
-        version_group:
-          name: name
-          url: https://openapi-generator.tech
+        flavor_text: flavor_text
         language:
           name: name
           url: https://openapi-generator.tech
-        flavor_text: flavor_text
+        version_group:
+          name: name
+          url: https://openapi-generator.tech
       properties:
         flavor_text:
           title: flavor_text
@@ -6951,6 +7109,8 @@ components:
       title: CharacteristicDescription
     MoveLearnMethodDetail:
       example:
+        id: 0
+        name: name
         names:
         - name: name
           language:
@@ -6960,13 +7120,6 @@ components:
           language:
             name: name
             url: https://openapi-generator.tech
-        version_groups:
-        - name: name
-          url: https://openapi-generator.tech
-        - name: name
-          url: https://openapi-generator.tech
-        name: name
-        id: 0
         descriptions:
         - description: description
           language:
@@ -6976,6 +7129,11 @@ components:
           language:
             name: name
             url: https://openapi-generator.tech
+        version_groups:
+        - name: name
+          url: https://openapi-generator.tech
+        - name: name
+          url: https://openapi-generator.tech
       properties:
         id:
           readOnly: true
@@ -6988,18 +7146,24 @@ components:
         names:
           items:
             $ref: "#/components/schemas/MoveLearnMethodName"
+          readOnly: true
           title: names
           type: array
+          default: null
         descriptions:
           items:
             $ref: "#/components/schemas/MoveLearnMethodDescription"
+          readOnly: true
           title: descriptions
           type: array
+          default: null
         version_groups:
           items:
             $ref: "#/components/schemas/AbilityDetail_pokemon_inner_pokemon"
+          readOnly: true
           title: version_groups
           type: array
+          default: null
       required:
       - descriptions
       - id
@@ -7094,6 +7258,13 @@ components:
       title: MoveMeta
     MoveMetaAilmentDetail:
       example:
+        id: 0
+        name: name
+        moves:
+        - name: name
+          url: https://openapi-generator.tech
+        - name: name
+          url: https://openapi-generator.tech
         names:
         - name: name
           language:
@@ -7103,13 +7274,6 @@ components:
           language:
             name: name
             url: https://openapi-generator.tech
-        moves:
-        - name: name
-          url: https://openapi-generator.tech
-        - name: name
-          url: https://openapi-generator.tech
-        name: name
-        id: 0
       properties:
         id:
           readOnly: true
@@ -7122,13 +7286,17 @@ components:
         moves:
           items:
             $ref: "#/components/schemas/AbilityDetail_pokemon_inner_pokemon"
+          readOnly: true
           title: moves
           type: array
+          default: null
         names:
           items:
             $ref: "#/components/schemas/MoveMetaAilmentName"
+          readOnly: true
           title: names
           type: array
+          default: null
       required:
       - id
       - moves
@@ -7188,13 +7356,8 @@ components:
       title: CharacteristicDescription
     MoveMetaCategoryDetail:
       example:
-        moves:
-        - name: name
-          url: https://openapi-generator.tech
-        - name: name
-          url: https://openapi-generator.tech
-        name: name
         id: 0
+        name: name
         descriptions:
         - description: description
           language:
@@ -7204,6 +7367,11 @@ components:
           language:
             name: name
             url: https://openapi-generator.tech
+        moves:
+        - name: name
+          url: https://openapi-generator.tech
+        - name: name
+          url: https://openapi-generator.tech
       properties:
         id:
           readOnly: true
@@ -7216,13 +7384,17 @@ components:
         descriptions:
           items:
             $ref: "#/components/schemas/MoveMetaCategoryDescription"
+          readOnly: true
           title: descriptions
           type: array
+          default: null
         moves:
           items:
             $ref: "#/components/schemas/AbilityDetail_pokemon_inner_pokemon"
+          readOnly: true
           title: moves
           type: array
+          default: null
       required:
       - descriptions
       - id
@@ -7300,12 +7472,14 @@ components:
       title: CharacteristicDescription
     MoveTargetDetail:
       example:
-        names:
-        - name: name
+        id: 0
+        name: name
+        descriptions:
+        - description: description
           language:
             name: name
             url: https://openapi-generator.tech
-        - name: name
+        - description: description
           language:
             name: name
             url: https://openapi-generator.tech
@@ -7314,14 +7488,12 @@ components:
           url: https://openapi-generator.tech
         - name: name
           url: https://openapi-generator.tech
-        name: name
-        id: 0
-        descriptions:
-        - description: description
+        names:
+        - name: name
           language:
             name: name
             url: https://openapi-generator.tech
-        - description: description
+        - name: name
           language:
             name: name
             url: https://openapi-generator.tech
@@ -7337,18 +7509,24 @@ components:
         descriptions:
           items:
             $ref: "#/components/schemas/MoveTargetDescription"
+          readOnly: true
           title: descriptions
           type: array
+          default: null
         moves:
           items:
             $ref: "#/components/schemas/MoveSummary"
+          readOnly: true
           title: moves
           type: array
+          default: null
         names:
           items:
             $ref: "#/components/schemas/MoveTargetName"
+          readOnly: true
           title: names
           type: array
+          default: null
       required:
       - descriptions
       - id
@@ -7414,15 +7592,34 @@ components:
       title: NatureBattleStylePreference
     NatureDetail:
       example:
+        id: 0
+        name: name
+        decreased_stat:
+          name: name
+          url: https://openapi-generator.tech
+        increased_stat:
+          name: name
+          url: https://openapi-generator.tech
+        likes_flavor:
+          name: name
+          url: https://openapi-generator.tech
+        hates_flavor:
+          name: name
+          url: https://openapi-generator.tech
+        berries:
+        - name: name
+          url: https://openapi-generator.tech
+        - name: name
+          url: https://openapi-generator.tech
         pokeathlon_stat_changes:
-        - pokeathlon_stat:
+        - max_change: 6
+          pokeathlon_stat:
             name: name
             url: https://openapi-generator.tech
-          max_change: 6
-        - pokeathlon_stat:
+        - max_change: 6
+          pokeathlon_stat:
             name: name
             url: https://openapi-generator.tech
-          max_change: 6
         move_battle_style_preferences:
         - low_hp_preference: 1
           high_hp_preference: 5
@@ -7443,25 +7640,6 @@ components:
           language:
             name: name
             url: https://openapi-generator.tech
-        decreased_stat:
-          name: name
-          url: https://openapi-generator.tech
-        likes_flavor:
-          name: name
-          url: https://openapi-generator.tech
-        name: name
-        increased_stat:
-          name: name
-          url: https://openapi-generator.tech
-        id: 0
-        hates_flavor:
-          name: name
-          url: https://openapi-generator.tech
-        berries:
-        - name: name
-          url: https://openapi-generator.tech
-        - name: name
-          url: https://openapi-generator.tech
       properties:
         id:
           readOnly: true
@@ -7482,23 +7660,31 @@ components:
         berries:
           items:
             $ref: "#/components/schemas/BerrySummary"
+          readOnly: true
           title: berries
           type: array
+          default: null
         pokeathlon_stat_changes:
           items:
             $ref: "#/components/schemas/NatureDetail_pokeathlon_stat_changes_inner"
+          readOnly: true
           title: pokeathlon_stat_changes
           type: array
+          default: null
         move_battle_style_preferences:
           items:
             $ref: "#/components/schemas/NatureBattleStylePreference"
+          readOnly: true
           title: move_battle_style_preferences
           type: array
+          default: null
         names:
           items:
             $ref: "#/components/schemas/NatureName"
+          readOnly: true
           title: names
           type: array
+          default: null
       required:
       - berries
       - decreased_stat
@@ -7548,9 +7734,9 @@ components:
       title: VersionGroupSummary
     PaginatedAbilitySummaryList:
       example:
+        count: 123
         next: http://api.example.org/accounts/?offset=400&limit=100
         previous: http://api.example.org/accounts/?offset=200&limit=100
-        count: 123
         results:
         - name: name
           url: https://openapi-generator.tech
@@ -7578,12 +7764,13 @@ components:
             $ref: "#/components/schemas/AbilitySummary"
           title: results
           type: array
+          default: null
       title: PaginatedAbilitySummaryList
     PaginatedBerryFirmnessSummaryList:
       example:
+        count: 123
         next: http://api.example.org/accounts/?offset=400&limit=100
         previous: http://api.example.org/accounts/?offset=200&limit=100
-        count: 123
         results:
         - name: name
           url: https://openapi-generator.tech
@@ -7611,12 +7798,13 @@ components:
             $ref: "#/components/schemas/BerryFirmnessSummary"
           title: results
           type: array
+          default: null
       title: PaginatedBerryFirmnessSummaryList
     PaginatedBerryFlavorSummaryList:
       example:
+        count: 123
         next: http://api.example.org/accounts/?offset=400&limit=100
         previous: http://api.example.org/accounts/?offset=200&limit=100
-        count: 123
         results:
         - name: name
           url: https://openapi-generator.tech
@@ -7644,12 +7832,13 @@ components:
             $ref: "#/components/schemas/BerryFlavorSummary"
           title: results
           type: array
+          default: null
       title: PaginatedBerryFlavorSummaryList
     PaginatedBerrySummaryList:
       example:
+        count: 123
         next: http://api.example.org/accounts/?offset=400&limit=100
         previous: http://api.example.org/accounts/?offset=200&limit=100
-        count: 123
         results:
         - name: name
           url: https://openapi-generator.tech
@@ -7677,12 +7866,13 @@ components:
             $ref: "#/components/schemas/BerrySummary"
           title: results
           type: array
+          default: null
       title: PaginatedBerrySummaryList
     PaginatedCharacteristicSummaryList:
       example:
+        count: 123
         next: http://api.example.org/accounts/?offset=400&limit=100
         previous: http://api.example.org/accounts/?offset=200&limit=100
-        count: 123
         results:
         - url: https://openapi-generator.tech
         - url: https://openapi-generator.tech
@@ -7708,12 +7898,13 @@ components:
             $ref: "#/components/schemas/CharacteristicSummary"
           title: results
           type: array
+          default: null
       title: PaginatedCharacteristicSummaryList
     PaginatedContestEffectSummaryList:
       example:
+        count: 123
         next: http://api.example.org/accounts/?offset=400&limit=100
         previous: http://api.example.org/accounts/?offset=200&limit=100
-        count: 123
         results:
         - url: https://openapi-generator.tech
         - url: https://openapi-generator.tech
@@ -7739,12 +7930,13 @@ components:
             $ref: "#/components/schemas/ContestEffectSummary"
           title: results
           type: array
+          default: null
       title: PaginatedContestEffectSummaryList
     PaginatedContestTypeSummaryList:
       example:
+        count: 123
         next: http://api.example.org/accounts/?offset=400&limit=100
         previous: http://api.example.org/accounts/?offset=200&limit=100
-        count: 123
         results:
         - name: name
           url: https://openapi-generator.tech
@@ -7772,12 +7964,13 @@ components:
             $ref: "#/components/schemas/ContestTypeSummary"
           title: results
           type: array
+          default: null
       title: PaginatedContestTypeSummaryList
     PaginatedEggGroupSummaryList:
       example:
+        count: 123
         next: http://api.example.org/accounts/?offset=400&limit=100
         previous: http://api.example.org/accounts/?offset=200&limit=100
-        count: 123
         results:
         - name: name
           url: https://openapi-generator.tech
@@ -7805,12 +7998,13 @@ components:
             $ref: "#/components/schemas/EggGroupSummary"
           title: results
           type: array
+          default: null
       title: PaginatedEggGroupSummaryList
     PaginatedEncounterConditionSummaryList:
       example:
+        count: 123
         next: http://api.example.org/accounts/?offset=400&limit=100
         previous: http://api.example.org/accounts/?offset=200&limit=100
-        count: 123
         results:
         - name: name
           url: https://openapi-generator.tech
@@ -7838,12 +8032,13 @@ components:
             $ref: "#/components/schemas/EncounterConditionSummary"
           title: results
           type: array
+          default: null
       title: PaginatedEncounterConditionSummaryList
     PaginatedEncounterConditionValueSummaryList:
       example:
+        count: 123
         next: http://api.example.org/accounts/?offset=400&limit=100
         previous: http://api.example.org/accounts/?offset=200&limit=100
-        count: 123
         results:
         - name: name
           url: https://openapi-generator.tech
@@ -7871,12 +8066,13 @@ components:
             $ref: "#/components/schemas/EncounterConditionValueSummary"
           title: results
           type: array
+          default: null
       title: PaginatedEncounterConditionValueSummaryList
     PaginatedEncounterMethodSummaryList:
       example:
+        count: 123
         next: http://api.example.org/accounts/?offset=400&limit=100
         previous: http://api.example.org/accounts/?offset=200&limit=100
-        count: 123
         results:
         - name: name
           url: https://openapi-generator.tech
@@ -7904,12 +8100,13 @@ components:
             $ref: "#/components/schemas/EncounterMethodSummary"
           title: results
           type: array
+          default: null
       title: PaginatedEncounterMethodSummaryList
     PaginatedEvolutionChainSummaryList:
       example:
+        count: 123
         next: http://api.example.org/accounts/?offset=400&limit=100
         previous: http://api.example.org/accounts/?offset=200&limit=100
-        count: 123
         results:
         - url: https://openapi-generator.tech
         - url: https://openapi-generator.tech
@@ -7935,12 +8132,13 @@ components:
             $ref: "#/components/schemas/EvolutionChainSummary"
           title: results
           type: array
+          default: null
       title: PaginatedEvolutionChainSummaryList
     PaginatedEvolutionTriggerSummaryList:
       example:
+        count: 123
         next: http://api.example.org/accounts/?offset=400&limit=100
         previous: http://api.example.org/accounts/?offset=200&limit=100
-        count: 123
         results:
         - name: name
           url: https://openapi-generator.tech
@@ -7968,12 +8166,13 @@ components:
             $ref: "#/components/schemas/EvolutionTriggerSummary"
           title: results
           type: array
+          default: null
       title: PaginatedEvolutionTriggerSummaryList
     PaginatedGenderSummaryList:
       example:
+        count: 123
         next: http://api.example.org/accounts/?offset=400&limit=100
         previous: http://api.example.org/accounts/?offset=200&limit=100
-        count: 123
         results:
         - name: name
           url: https://openapi-generator.tech
@@ -8001,12 +8200,13 @@ components:
             $ref: "#/components/schemas/GenderSummary"
           title: results
           type: array
+          default: null
       title: PaginatedGenderSummaryList
     PaginatedGenerationSummaryList:
       example:
+        count: 123
         next: http://api.example.org/accounts/?offset=400&limit=100
         previous: http://api.example.org/accounts/?offset=200&limit=100
-        count: 123
         results:
         - name: name
           url: https://openapi-generator.tech
@@ -8034,12 +8234,13 @@ components:
             $ref: "#/components/schemas/GenerationSummary"
           title: results
           type: array
+          default: null
       title: PaginatedGenerationSummaryList
     PaginatedGrowthRateSummaryList:
       example:
+        count: 123
         next: http://api.example.org/accounts/?offset=400&limit=100
         previous: http://api.example.org/accounts/?offset=200&limit=100
-        count: 123
         results:
         - name: name
           url: https://openapi-generator.tech
@@ -8067,12 +8268,13 @@ components:
             $ref: "#/components/schemas/GrowthRateSummary"
           title: results
           type: array
+          default: null
       title: PaginatedGrowthRateSummaryList
     PaginatedItemAttributeSummaryList:
       example:
+        count: 123
         next: http://api.example.org/accounts/?offset=400&limit=100
         previous: http://api.example.org/accounts/?offset=200&limit=100
-        count: 123
         results:
         - name: name
           url: https://openapi-generator.tech
@@ -8100,12 +8302,13 @@ components:
             $ref: "#/components/schemas/ItemAttributeSummary"
           title: results
           type: array
+          default: null
       title: PaginatedItemAttributeSummaryList
     PaginatedItemCategorySummaryList:
       example:
+        count: 123
         next: http://api.example.org/accounts/?offset=400&limit=100
         previous: http://api.example.org/accounts/?offset=200&limit=100
-        count: 123
         results:
         - name: name
           url: https://openapi-generator.tech
@@ -8133,12 +8336,13 @@ components:
             $ref: "#/components/schemas/ItemCategorySummary"
           title: results
           type: array
+          default: null
       title: PaginatedItemCategorySummaryList
     PaginatedItemFlingEffectSummaryList:
       example:
+        count: 123
         next: http://api.example.org/accounts/?offset=400&limit=100
         previous: http://api.example.org/accounts/?offset=200&limit=100
-        count: 123
         results:
         - name: name
           url: https://openapi-generator.tech
@@ -8166,12 +8370,13 @@ components:
             $ref: "#/components/schemas/ItemFlingEffectSummary"
           title: results
           type: array
+          default: null
       title: PaginatedItemFlingEffectSummaryList
     PaginatedItemPocketSummaryList:
       example:
+        count: 123
         next: http://api.example.org/accounts/?offset=400&limit=100
         previous: http://api.example.org/accounts/?offset=200&limit=100
-        count: 123
         results:
         - name: name
           url: https://openapi-generator.tech
@@ -8199,12 +8404,13 @@ components:
             $ref: "#/components/schemas/ItemPocketSummary"
           title: results
           type: array
+          default: null
       title: PaginatedItemPocketSummaryList
     PaginatedItemSummaryList:
       example:
+        count: 123
         next: http://api.example.org/accounts/?offset=400&limit=100
         previous: http://api.example.org/accounts/?offset=200&limit=100
-        count: 123
         results:
         - name: name
           url: https://openapi-generator.tech
@@ -8232,12 +8438,13 @@ components:
             $ref: "#/components/schemas/ItemSummary"
           title: results
           type: array
+          default: null
       title: PaginatedItemSummaryList
     PaginatedLanguageSummaryList:
       example:
+        count: 123
         next: http://api.example.org/accounts/?offset=400&limit=100
         previous: http://api.example.org/accounts/?offset=200&limit=100
-        count: 123
         results:
         - name: name
           url: https://openapi-generator.tech
@@ -8265,12 +8472,13 @@ components:
             $ref: "#/components/schemas/LanguageSummary"
           title: results
           type: array
+          default: null
       title: PaginatedLanguageSummaryList
     PaginatedLocationAreaSummaryList:
       example:
+        count: 123
         next: http://api.example.org/accounts/?offset=400&limit=100
         previous: http://api.example.org/accounts/?offset=200&limit=100
-        count: 123
         results:
         - name: name
           url: https://openapi-generator.tech
@@ -8298,12 +8506,13 @@ components:
             $ref: "#/components/schemas/LocationAreaSummary"
           title: results
           type: array
+          default: null
       title: PaginatedLocationAreaSummaryList
     PaginatedLocationSummaryList:
       example:
+        count: 123
         next: http://api.example.org/accounts/?offset=400&limit=100
         previous: http://api.example.org/accounts/?offset=200&limit=100
-        count: 123
         results:
         - name: name
           url: https://openapi-generator.tech
@@ -8331,12 +8540,13 @@ components:
             $ref: "#/components/schemas/LocationSummary"
           title: results
           type: array
+          default: null
       title: PaginatedLocationSummaryList
     PaginatedMachineSummaryList:
       example:
+        count: 123
         next: http://api.example.org/accounts/?offset=400&limit=100
         previous: http://api.example.org/accounts/?offset=200&limit=100
-        count: 123
         results:
         - url: https://openapi-generator.tech
         - url: https://openapi-generator.tech
@@ -8362,12 +8572,13 @@ components:
             $ref: "#/components/schemas/MachineSummary"
           title: results
           type: array
+          default: null
       title: PaginatedMachineSummaryList
     PaginatedMoveBattleStyleSummaryList:
       example:
+        count: 123
         next: http://api.example.org/accounts/?offset=400&limit=100
         previous: http://api.example.org/accounts/?offset=200&limit=100
-        count: 123
         results:
         - name: name
           url: https://openapi-generator.tech
@@ -8395,12 +8606,13 @@ components:
             $ref: "#/components/schemas/MoveBattleStyleSummary"
           title: results
           type: array
+          default: null
       title: PaginatedMoveBattleStyleSummaryList
     PaginatedMoveDamageClassSummaryList:
       example:
+        count: 123
         next: http://api.example.org/accounts/?offset=400&limit=100
         previous: http://api.example.org/accounts/?offset=200&limit=100
-        count: 123
         results:
         - name: name
           url: https://openapi-generator.tech
@@ -8428,12 +8640,13 @@ components:
             $ref: "#/components/schemas/MoveDamageClassSummary"
           title: results
           type: array
+          default: null
       title: PaginatedMoveDamageClassSummaryList
     PaginatedMoveLearnMethodSummaryList:
       example:
+        count: 123
         next: http://api.example.org/accounts/?offset=400&limit=100
         previous: http://api.example.org/accounts/?offset=200&limit=100
-        count: 123
         results:
         - name: name
           url: https://openapi-generator.tech
@@ -8461,12 +8674,13 @@ components:
             $ref: "#/components/schemas/MoveLearnMethodSummary"
           title: results
           type: array
+          default: null
       title: PaginatedMoveLearnMethodSummaryList
     PaginatedMoveMetaAilmentSummaryList:
       example:
+        count: 123
         next: http://api.example.org/accounts/?offset=400&limit=100
         previous: http://api.example.org/accounts/?offset=200&limit=100
-        count: 123
         results:
         - name: name
           url: https://openapi-generator.tech
@@ -8494,12 +8708,13 @@ components:
             $ref: "#/components/schemas/MoveMetaAilmentSummary"
           title: results
           type: array
+          default: null
       title: PaginatedMoveMetaAilmentSummaryList
     PaginatedMoveMetaCategorySummaryList:
       example:
+        count: 123
         next: http://api.example.org/accounts/?offset=400&limit=100
         previous: http://api.example.org/accounts/?offset=200&limit=100
-        count: 123
         results:
         - name: name
           url: https://openapi-generator.tech
@@ -8527,12 +8742,13 @@ components:
             $ref: "#/components/schemas/MoveMetaCategorySummary"
           title: results
           type: array
+          default: null
       title: PaginatedMoveMetaCategorySummaryList
     PaginatedMoveSummaryList:
       example:
+        count: 123
         next: http://api.example.org/accounts/?offset=400&limit=100
         previous: http://api.example.org/accounts/?offset=200&limit=100
-        count: 123
         results:
         - name: name
           url: https://openapi-generator.tech
@@ -8560,12 +8776,13 @@ components:
             $ref: "#/components/schemas/MoveSummary"
           title: results
           type: array
+          default: null
       title: PaginatedMoveSummaryList
     PaginatedMoveTargetSummaryList:
       example:
+        count: 123
         next: http://api.example.org/accounts/?offset=400&limit=100
         previous: http://api.example.org/accounts/?offset=200&limit=100
-        count: 123
         results:
         - name: name
           url: https://openapi-generator.tech
@@ -8593,12 +8810,13 @@ components:
             $ref: "#/components/schemas/MoveTargetSummary"
           title: results
           type: array
+          default: null
       title: PaginatedMoveTargetSummaryList
     PaginatedNatureSummaryList:
       example:
+        count: 123
         next: http://api.example.org/accounts/?offset=400&limit=100
         previous: http://api.example.org/accounts/?offset=200&limit=100
-        count: 123
         results:
         - name: name
           url: https://openapi-generator.tech
@@ -8626,12 +8844,13 @@ components:
             $ref: "#/components/schemas/NatureSummary"
           title: results
           type: array
+          default: null
       title: PaginatedNatureSummaryList
     PaginatedPalParkAreaSummaryList:
       example:
+        count: 123
         next: http://api.example.org/accounts/?offset=400&limit=100
         previous: http://api.example.org/accounts/?offset=200&limit=100
-        count: 123
         results:
         - name: name
           url: https://openapi-generator.tech
@@ -8659,12 +8878,13 @@ components:
             $ref: "#/components/schemas/PalParkAreaSummary"
           title: results
           type: array
+          default: null
       title: PaginatedPalParkAreaSummaryList
     PaginatedPokeathlonStatSummaryList:
       example:
+        count: 123
         next: http://api.example.org/accounts/?offset=400&limit=100
         previous: http://api.example.org/accounts/?offset=200&limit=100
-        count: 123
         results:
         - name: name
           url: https://openapi-generator.tech
@@ -8692,12 +8912,13 @@ components:
             $ref: "#/components/schemas/PokeathlonStatSummary"
           title: results
           type: array
+          default: null
       title: PaginatedPokeathlonStatSummaryList
     PaginatedPokedexSummaryList:
       example:
+        count: 123
         next: http://api.example.org/accounts/?offset=400&limit=100
         previous: http://api.example.org/accounts/?offset=200&limit=100
-        count: 123
         results:
         - name: name
           url: https://openapi-generator.tech
@@ -8725,12 +8946,13 @@ components:
             $ref: "#/components/schemas/PokedexSummary"
           title: results
           type: array
+          default: null
       title: PaginatedPokedexSummaryList
     PaginatedPokemonColorSummaryList:
       example:
+        count: 123
         next: http://api.example.org/accounts/?offset=400&limit=100
         previous: http://api.example.org/accounts/?offset=200&limit=100
-        count: 123
         results:
         - name: name
           url: https://openapi-generator.tech
@@ -8758,12 +8980,13 @@ components:
             $ref: "#/components/schemas/PokemonColorSummary"
           title: results
           type: array
+          default: null
       title: PaginatedPokemonColorSummaryList
     PaginatedPokemonFormSummaryList:
       example:
+        count: 123
         next: http://api.example.org/accounts/?offset=400&limit=100
         previous: http://api.example.org/accounts/?offset=200&limit=100
-        count: 123
         results:
         - name: name
           url: https://openapi-generator.tech
@@ -8791,12 +9014,13 @@ components:
             $ref: "#/components/schemas/PokemonFormSummary"
           title: results
           type: array
+          default: null
       title: PaginatedPokemonFormSummaryList
     PaginatedPokemonHabitatSummaryList:
       example:
+        count: 123
         next: http://api.example.org/accounts/?offset=400&limit=100
         previous: http://api.example.org/accounts/?offset=200&limit=100
-        count: 123
         results:
         - name: name
           url: https://openapi-generator.tech
@@ -8824,12 +9048,13 @@ components:
             $ref: "#/components/schemas/PokemonHabitatSummary"
           title: results
           type: array
+          default: null
       title: PaginatedPokemonHabitatSummaryList
     PaginatedPokemonShapeSummaryList:
       example:
+        count: 123
         next: http://api.example.org/accounts/?offset=400&limit=100
         previous: http://api.example.org/accounts/?offset=200&limit=100
-        count: 123
         results:
         - name: name
           url: https://openapi-generator.tech
@@ -8857,12 +9082,13 @@ components:
             $ref: "#/components/schemas/PokemonShapeSummary"
           title: results
           type: array
+          default: null
       title: PaginatedPokemonShapeSummaryList
     PaginatedPokemonSpeciesSummaryList:
       example:
+        count: 123
         next: http://api.example.org/accounts/?offset=400&limit=100
         previous: http://api.example.org/accounts/?offset=200&limit=100
-        count: 123
         results:
         - name: name
           url: https://openapi-generator.tech
@@ -8890,12 +9116,13 @@ components:
             $ref: "#/components/schemas/PokemonSpeciesSummary"
           title: results
           type: array
+          default: null
       title: PaginatedPokemonSpeciesSummaryList
     PaginatedPokemonSummaryList:
       example:
+        count: 123
         next: http://api.example.org/accounts/?offset=400&limit=100
         previous: http://api.example.org/accounts/?offset=200&limit=100
-        count: 123
         results:
         - name: name
           url: https://openapi-generator.tech
@@ -8923,12 +9150,13 @@ components:
             $ref: "#/components/schemas/PokemonSummary"
           title: results
           type: array
+          default: null
       title: PaginatedPokemonSummaryList
     PaginatedRegionSummaryList:
       example:
+        count: 123
         next: http://api.example.org/accounts/?offset=400&limit=100
         previous: http://api.example.org/accounts/?offset=200&limit=100
-        count: 123
         results:
         - name: name
           url: https://openapi-generator.tech
@@ -8956,12 +9184,13 @@ components:
             $ref: "#/components/schemas/RegionSummary"
           title: results
           type: array
+          default: null
       title: PaginatedRegionSummaryList
     PaginatedStatSummaryList:
       example:
+        count: 123
         next: http://api.example.org/accounts/?offset=400&limit=100
         previous: http://api.example.org/accounts/?offset=200&limit=100
-        count: 123
         results:
         - name: name
           url: https://openapi-generator.tech
@@ -8989,12 +9218,13 @@ components:
             $ref: "#/components/schemas/StatSummary"
           title: results
           type: array
+          default: null
       title: PaginatedStatSummaryList
     PaginatedSuperContestEffectSummaryList:
       example:
+        count: 123
         next: http://api.example.org/accounts/?offset=400&limit=100
         previous: http://api.example.org/accounts/?offset=200&limit=100
-        count: 123
         results:
         - url: https://openapi-generator.tech
         - url: https://openapi-generator.tech
@@ -9020,12 +9250,13 @@ components:
             $ref: "#/components/schemas/SuperContestEffectSummary"
           title: results
           type: array
+          default: null
       title: PaginatedSuperContestEffectSummaryList
     PaginatedTypeSummaryList:
       example:
+        count: 123
         next: http://api.example.org/accounts/?offset=400&limit=100
         previous: http://api.example.org/accounts/?offset=200&limit=100
-        count: 123
         results:
         - name: name
           url: https://openapi-generator.tech
@@ -9053,12 +9284,13 @@ components:
             $ref: "#/components/schemas/TypeSummary"
           title: results
           type: array
+          default: null
       title: PaginatedTypeSummaryList
     PaginatedVersionGroupSummaryList:
       example:
+        count: 123
         next: http://api.example.org/accounts/?offset=400&limit=100
         previous: http://api.example.org/accounts/?offset=200&limit=100
-        count: 123
         results:
         - name: name
           url: https://openapi-generator.tech
@@ -9086,12 +9318,13 @@ components:
             $ref: "#/components/schemas/VersionGroupSummary"
           title: results
           type: array
+          default: null
       title: PaginatedVersionGroupSummaryList
     PaginatedVersionSummaryList:
       example:
+        count: 123
         next: http://api.example.org/accounts/?offset=400&limit=100
         previous: http://api.example.org/accounts/?offset=200&limit=100
-        count: 123
         results:
         - name: name
           url: https://openapi-generator.tech
@@ -9119,9 +9352,12 @@ components:
             $ref: "#/components/schemas/VersionSummary"
           title: results
           type: array
+          default: null
       title: PaginatedVersionSummaryList
     PalParkAreaDetail:
       example:
+        id: 0
+        name: name
         names:
         - name: name
           language:
@@ -9132,18 +9368,16 @@ components:
             name: name
             url: https://openapi-generator.tech
         pokemon_encounters:
-        - pokemon-species:
+        - base_score: 6
+          pokemon-species:
             name: name
             url: https://openapi-generator.tech
-          base_score: 6
           rate: 1
-        - pokemon-species:
+        - base_score: 6
+          pokemon-species:
             name: name
             url: https://openapi-generator.tech
-          base_score: 6
           rate: 1
-        name: name
-        id: 0
       properties:
         id:
           readOnly: true
@@ -9156,13 +9390,17 @@ components:
         names:
           items:
             $ref: "#/components/schemas/PalParkAreaName"
+          readOnly: true
           title: names
           type: array
+          default: null
         pokemon_encounters:
           items:
             $ref: "#/components/schemas/PalParkAreaDetail_pokemon_encounters_inner"
+          readOnly: true
           title: pokemon_encounters
           type: array
+          default: null
       required:
       - id
       - name
@@ -9206,6 +9444,27 @@ components:
       title: VersionGroupSummary
     PokeathlonStatDetail:
       example:
+        id: 0
+        name: name
+        affecting_natures:
+          decrease:
+          - max_change: 0
+            nature:
+              name: name
+              url: https://openapi-generator.tech
+          - max_change: 0
+            nature:
+              name: name
+              url: https://openapi-generator.tech
+          increase:
+          - max_change: 1
+            nature:
+              name: name
+              url: https://openapi-generator.tech
+          - max_change: 1
+            nature:
+              name: name
+              url: https://openapi-generator.tech
         names:
         - name: name
           language:
@@ -9215,27 +9474,6 @@ components:
           language:
             name: name
             url: https://openapi-generator.tech
-        name: name
-        id: 0
-        affecting_natures:
-          increase:
-          - nature:
-              name: name
-              url: https://openapi-generator.tech
-            max_change: 1
-          - nature:
-              name: name
-              url: https://openapi-generator.tech
-            max_change: 1
-          decrease:
-          - nature:
-              name: name
-              url: https://openapi-generator.tech
-            max_change: 0
-          - nature:
-              name: name
-              url: https://openapi-generator.tech
-            max_change: 0
       properties:
         id:
           readOnly: true
@@ -9250,8 +9488,10 @@ components:
         names:
           items:
             $ref: "#/components/schemas/PokeathlonStatName"
+          readOnly: true
           title: names
           type: array
+          default: null
       required:
       - affecting_natures
       - id
@@ -9311,14 +9551,16 @@ components:
       title: CharacteristicDescription
     PokedexDetail:
       example:
+        id: 0
+        name: name
         is_main_series: true
-        pokemon_entries:
-        - entry_number: 6
-          pokemon_species:
+        descriptions:
+        - description: description
+          language:
             name: name
             url: https://openapi-generator.tech
-        - entry_number: 6
-          pokemon_species:
+        - description: description
+          language:
             name: name
             url: https://openapi-generator.tech
         names:
@@ -9330,25 +9572,23 @@ components:
           language:
             name: name
             url: https://openapi-generator.tech
+        pokemon_entries:
+        - entry_number: 6
+          pokemon_species:
+            name: name
+            url: https://openapi-generator.tech
+        - entry_number: 6
+          pokemon_species:
+            name: name
+            url: https://openapi-generator.tech
+        region:
+          name: name
+          url: https://openapi-generator.tech
         version_groups:
         - name: name
           url: https://openapi-generator.tech
         - name: name
           url: https://openapi-generator.tech
-        name: name
-        id: 0
-        region:
-          name: name
-          url: https://openapi-generator.tech
-        descriptions:
-        - description: description
-          language:
-            name: name
-            url: https://openapi-generator.tech
-        - description: description
-          language:
-            name: name
-            url: https://openapi-generator.tech
       properties:
         id:
           readOnly: true
@@ -9364,25 +9604,33 @@ components:
         descriptions:
           items:
             $ref: "#/components/schemas/PokedexDescription"
+          readOnly: true
           title: descriptions
           type: array
+          default: null
         names:
           items:
             $ref: "#/components/schemas/PokedexName"
+          readOnly: true
           title: names
           type: array
+          default: null
         pokemon_entries:
           items:
             $ref: "#/components/schemas/PokedexDetail_pokemon_entries_inner"
+          readOnly: true
           title: pokemon_entries
           type: array
+          default: null
         region:
           $ref: "#/components/schemas/RegionSummary"
         version_groups:
           items:
             $ref: "#/components/schemas/AbilityDetail_pokemon_inner_pokemon"
+          readOnly: true
           title: version_groups
           type: array
+          default: null
       required:
       - descriptions
       - id
@@ -9429,6 +9677,8 @@ components:
       title: VersionGroupSummary
     PokemonColorDetail:
       example:
+        id: 0
+        name: name
         names:
         - name: name
           language:
@@ -9438,8 +9688,6 @@ components:
           language:
             name: name
             url: https://openapi-generator.tech
-        name: name
-        id: 0
         pokemon_species:
         - name: name
           url: https://openapi-generator.tech
@@ -9457,13 +9705,17 @@ components:
         names:
           items:
             $ref: "#/components/schemas/PokemonColorName"
+          readOnly: true
           title: names
           type: array
+          default: null
         pokemon_species:
           items:
             $ref: "#/components/schemas/PokemonSpeciesSummary"
+          readOnly: true
           title: pokemon_species
           type: array
+          default: null
       required:
       - id
       - name
@@ -9507,10 +9759,137 @@ components:
       title: VersionGroupSummary
     PokemonDetail:
       example:
+        id: 0
+        name: name
+        base_experience: 6
+        height: 1
+        is_default: true
+        order: 5
+        weight: 5
+        abilities:
+        - ability:
+            name: name
+            url: https://openapi-generator.tech
+          is_hidden: true
+          slot: 2
+        - ability:
+            name: name
+            url: https://openapi-generator.tech
+          is_hidden: true
+          slot: 2
+        past_abilities:
+        - abilities:
+          - ability:
+              name: name
+              url: https://openapi-generator.tech
+            is_hidden: true
+            slot: 2
+          - ability:
+              name: name
+              url: https://openapi-generator.tech
+            is_hidden: true
+            slot: 2
+          generation:
+            name: name
+            url: https://openapi-generator.tech
+        - abilities:
+          - ability:
+              name: name
+              url: https://openapi-generator.tech
+            is_hidden: true
+            slot: 2
+          - ability:
+              name: name
+              url: https://openapi-generator.tech
+            is_hidden: true
+            slot: 2
+          generation:
+            name: name
+            url: https://openapi-generator.tech
+        forms:
+        - name: name
+          url: https://openapi-generator.tech
+        - name: name
+          url: https://openapi-generator.tech
+        game_indices:
+        - game_index: 7
+          version:
+            name: name
+            url: https://openapi-generator.tech
+        - game_index: 7
+          version:
+            name: name
+            url: https://openapi-generator.tech
+        held_items:
+          item:
+            name: name
+            url: https://openapi-generator.tech
+          version_details:
+          - rarity: 5
+            version:
+              name: name
+              url: https://openapi-generator.tech
+          - rarity: 5
+            version:
+              name: name
+              url: https://openapi-generator.tech
         location_area_encounters: location_area_encounters
+        moves:
+        - move:
+            name: name
+            url: https://openapi-generator.tech
+          version_group_details:
+          - level_learned_at: 9
+            move_learn_method:
+              name: name
+              url: https://openapi-generator.tech
+            version_group:
+              name: name
+              url: https://openapi-generator.tech
+          - level_learned_at: 9
+            move_learn_method:
+              name: name
+              url: https://openapi-generator.tech
+            version_group:
+              name: name
+              url: https://openapi-generator.tech
+        - move:
+            name: name
+            url: https://openapi-generator.tech
+          version_group_details:
+          - level_learned_at: 9
+            move_learn_method:
+              name: name
+              url: https://openapi-generator.tech
+            version_group:
+              name: name
+              url: https://openapi-generator.tech
+          - level_learned_at: 9
+            move_learn_method:
+              name: name
+              url: https://openapi-generator.tech
+            version_group:
+              name: name
+              url: https://openapi-generator.tech
+        species:
+          name: name
+          url: https://openapi-generator.tech
+        sprites:
+          front_default: https://openapi-generator.tech
         cries:
-          legacy: https://openapi-generator.tech
           latest: https://openapi-generator.tech
+          legacy: https://openapi-generator.tech
+        stats:
+        - base_stat: 3
+          effort: 2
+          stat:
+            name: name
+            url: https://openapi-generator.tech
+        - base_stat: 3
+          effort: 2
+          stat:
+            name: name
+            url: https://openapi-generator.tech
         types:
         - slot: 5
           type:
@@ -9520,24 +9899,6 @@ components:
           type:
             name: name
             url: https://openapi-generator.tech
-        base_experience: 6
-        held_items:
-          item:
-            name: name
-            url: https://openapi-generator.tech
-          version_details:
-          - version:
-              name: name
-              url: https://openapi-generator.tech
-            rarity: 5
-          - version:
-              name: name
-              url: https://openapi-generator.tech
-            rarity: 5
-        weight: 5
-        is_default: true
-        sprites:
-          front_default: https://openapi-generator.tech
         past_types:
         - generation:
             name: name
@@ -9563,115 +9924,6 @@ components:
             type:
               name: name
               url: https://openapi-generator.tech
-        past_abilities:
-        - abilities:
-          - is_hidden: true
-            ability:
-              name: name
-              url: https://openapi-generator.tech
-            slot: 2
-          - is_hidden: true
-            ability:
-              name: name
-              url: https://openapi-generator.tech
-            slot: 2
-          generation:
-            name: name
-            url: https://openapi-generator.tech
-        - abilities:
-          - is_hidden: true
-            ability:
-              name: name
-              url: https://openapi-generator.tech
-            slot: 2
-          - is_hidden: true
-            ability:
-              name: name
-              url: https://openapi-generator.tech
-            slot: 2
-          generation:
-            name: name
-            url: https://openapi-generator.tech
-        abilities:
-        - is_hidden: true
-          ability:
-            name: name
-            url: https://openapi-generator.tech
-          slot: 2
-        - is_hidden: true
-          ability:
-            name: name
-            url: https://openapi-generator.tech
-          slot: 2
-        game_indices:
-        - game_index: 7
-          version:
-            name: name
-            url: https://openapi-generator.tech
-        - game_index: 7
-          version:
-            name: name
-            url: https://openapi-generator.tech
-        species:
-          name: name
-          url: https://openapi-generator.tech
-        stats:
-        - stat:
-            name: name
-            url: https://openapi-generator.tech
-          base_stat: 3
-          effort: 2
-        - stat:
-            name: name
-            url: https://openapi-generator.tech
-          base_stat: 3
-          effort: 2
-        moves:
-        - version_group_details:
-          - level_learned_at: 9
-            version_group:
-              name: name
-              url: https://openapi-generator.tech
-            move_learn_method:
-              name: name
-              url: https://openapi-generator.tech
-          - level_learned_at: 9
-            version_group:
-              name: name
-              url: https://openapi-generator.tech
-            move_learn_method:
-              name: name
-              url: https://openapi-generator.tech
-          move:
-            name: name
-            url: https://openapi-generator.tech
-        - version_group_details:
-          - level_learned_at: 9
-            version_group:
-              name: name
-              url: https://openapi-generator.tech
-            move_learn_method:
-              name: name
-              url: https://openapi-generator.tech
-          - level_learned_at: 9
-            version_group:
-              name: name
-              url: https://openapi-generator.tech
-            move_learn_method:
-              name: name
-              url: https://openapi-generator.tech
-          move:
-            name: name
-            url: https://openapi-generator.tech
-        name: name
-        id: 0
-        forms:
-        - name: name
-          url: https://openapi-generator.tech
-        - name: name
-          url: https://openapi-generator.tech
-        height: 1
-        order: 5
       properties:
         id:
           readOnly: true
@@ -9703,23 +9955,31 @@ components:
         abilities:
           items:
             $ref: "#/components/schemas/PokemonDetail_abilities_inner"
+          readOnly: true
           title: abilities
           type: array
+          default: null
         past_abilities:
           items:
             $ref: "#/components/schemas/PokemonDetail_past_abilities_inner"
+          readOnly: true
           title: past_abilities
           type: array
+          default: null
         forms:
           items:
             $ref: "#/components/schemas/PokemonFormSummary"
+          readOnly: true
           title: forms
           type: array
+          default: null
         game_indices:
           items:
             $ref: "#/components/schemas/PokemonGameIndex"
+          readOnly: true
           title: game_indices
           type: array
+          default: null
         held_items:
           $ref: "#/components/schemas/PokemonDetail_held_items"
         location_area_encounters:
@@ -9729,8 +9989,10 @@ components:
         moves:
           items:
             $ref: "#/components/schemas/PokemonDetail_moves_inner"
+          readOnly: true
           title: moves
           type: array
+          default: null
         species:
           $ref: "#/components/schemas/PokemonSpeciesSummary"
         sprites:
@@ -9740,18 +10002,24 @@ components:
         stats:
           items:
             $ref: "#/components/schemas/PokemonStat"
+          readOnly: true
           title: stats
           type: array
+          default: null
         types:
           items:
             $ref: "#/components/schemas/PokemonDetail_types_inner"
+          readOnly: true
           title: types
           type: array
+          default: null
         past_types:
           items:
             $ref: "#/components/schemas/PokemonDetail_past_types_inner"
+          readOnly: true
           title: past_types
           type: array
+          default: null
       required:
       - abilities
       - cries
@@ -9787,6 +10055,40 @@ components:
       title: PokemonDexEntry
     PokemonFormDetail:
       example:
+        id: 0
+        name: name
+        order: 6
+        form_order: 1
+        is_default: true
+        is_battle_only: true
+        is_mega: true
+        form_name: form_name
+        pokemon:
+          name: name
+          url: https://openapi-generator.tech
+        sprites:
+          default: https://openapi-generator.tech
+        version_group:
+          name: name
+          url: https://openapi-generator.tech
+        form_names:
+        - language:
+            name: name
+            url: https://openapi-generator.tech
+          name: name
+        - language:
+            name: name
+            url: https://openapi-generator.tech
+          name: name
+        names:
+        - language:
+            name: name
+            url: https://openapi-generator.tech
+          name: name
+        - language:
+            name: name
+            url: https://openapi-generator.tech
+          name: name
         types:
         - slot: 5
           type:
@@ -9796,40 +10098,6 @@ components:
           type:
             name: name
             url: https://openapi-generator.tech
-        pokemon:
-          name: name
-          url: https://openapi-generator.tech
-        is_battle_only: true
-        is_default: true
-        sprites:
-          default: https://openapi-generator.tech
-        names:
-        - name: name
-          language:
-            name: name
-            url: https://openapi-generator.tech
-        - name: name
-          language:
-            name: name
-            url: https://openapi-generator.tech
-        version_group:
-          name: name
-          url: https://openapi-generator.tech
-        name: name
-        form_order: 1
-        form_names:
-        - name: name
-          language:
-            name: name
-            url: https://openapi-generator.tech
-        - name: name
-          language:
-            name: name
-            url: https://openapi-generator.tech
-        id: 0
-        form_name: form_name
-        is_mega: true
-        order: 6
       properties:
         id:
           readOnly: true
@@ -9869,18 +10137,24 @@ components:
         form_names:
           items:
             $ref: "#/components/schemas/PokemonFormDetail_form_names_inner"
+          readOnly: true
           title: form_names
           type: array
+          default: null
         names:
           items:
             $ref: "#/components/schemas/PokemonFormDetail_form_names_inner"
+          readOnly: true
           title: names
           type: array
+          default: null
         types:
           items:
             $ref: "#/components/schemas/PokemonDetail_types_inner"
+          readOnly: true
           title: types
           type: array
+          default: null
       required:
       - form_name
       - form_names
@@ -9928,6 +10202,8 @@ components:
       title: PokemonGameIndex
     PokemonHabitatDetail:
       example:
+        id: 0
+        name: name
         names:
         - name: name
           language:
@@ -9937,8 +10213,6 @@ components:
           language:
             name: name
             url: https://openapi-generator.tech
-        name: name
-        id: 0
         pokemon_species:
         - name: name
           url: https://openapi-generator.tech
@@ -9956,13 +10230,17 @@ components:
         names:
           items:
             $ref: "#/components/schemas/PokemonHabitatName"
+          readOnly: true
           title: names
           type: array
+          default: null
         pokemon_species:
           items:
             $ref: "#/components/schemas/PokemonSpeciesSummary"
+          readOnly: true
           title: pokemon_species
           type: array
+          default: null
       required:
       - id
       - name
@@ -10006,11 +10284,8 @@ components:
       title: VersionGroupSummary
     PokemonShapeDetail:
       example:
-        names:
-        - name: name
-          url: https://openapi-generator.tech
-        - name: name
-          url: https://openapi-generator.tech
+        id: 0
+        name: name
         awesome_names:
         - awesome_name: awesome_name
           language:
@@ -10020,8 +10295,11 @@ components:
           language:
             name: name
             url: https://openapi-generator.tech
-        name: name
-        id: 0
+        names:
+        - url: https://openapi-generator.tech
+          name: name
+        - url: https://openapi-generator.tech
+          name: name
         pokemon_species:
         - name: name
           url: https://openapi-generator.tech
@@ -10039,18 +10317,24 @@ components:
         awesome_names:
           items:
             $ref: "#/components/schemas/PokemonShapeDetail_awesome_names_inner"
+          readOnly: true
           title: awesome_names
           type: array
+          default: null
         names:
           items:
             $ref: "#/components/schemas/PokemonShapeDetail_names_inner"
+          readOnly: true
           title: names
           type: array
+          default: null
         pokemon_species:
           items:
             $ref: "#/components/schemas/PokemonSpeciesSummary"
+          readOnly: true
           title: pokemon_species
           type: array
+          default: null
       required:
       - awesome_names
       - id
@@ -10094,29 +10378,21 @@ components:
       title: CharacteristicDescription
     PokemonSpeciesDetail:
       example:
-        evolution_chain:
-          url: https://openapi-generator.tech
-        genera:
-        - genus: genus
-          language:
-            name: name
-            url: https://openapi-generator.tech
-        - genus: genus
-          language:
-            name: name
-            url: https://openapi-generator.tech
-        habitat:
-          name: name
-          url: https://openapi-generator.tech
-        color:
-          name: name
-          url: https://openapi-generator.tech
-        egg_groups:
-        - name: name
-          url: https://openapi-generator.tech
-        - name: name
-          url: https://openapi-generator.tech
+        id: 0
+        name: name
+        order: 6
+        gender_rate: 1
         capture_rate: 5
+        base_happiness: 5
+        is_baby: true
+        is_legendary: true
+        is_mythical: true
+        hatch_counter: 2
+        has_gender_differences: true
+        forms_switchable: true
+        growth_rate:
+          name: name
+          url: https://openapi-generator.tech
         pokedex_numbers:
         - entry_number: 7
           pokedex:
@@ -10126,32 +10402,37 @@ components:
           pokedex:
             name: name
             url: https://openapi-generator.tech
-        forms_switchable: true
-        growth_rate:
+        egg_groups:
+        - name: name
+          url: https://openapi-generator.tech
+        - name: name
+          url: https://openapi-generator.tech
+        color:
           name: name
           url: https://openapi-generator.tech
-        flavor_text_entries:
-        - language:
-            name: name
-            url: https://openapi-generator.tech
-          version:
-            name: name
-            url: https://openapi-generator.tech
-          flavor_text: flavor_text
-        - language:
-            name: name
-            url: https://openapi-generator.tech
-          version:
-            name: name
-            url: https://openapi-generator.tech
-          flavor_text: flavor_text
-        id: 0
-        order: 6
-        is_baby: true
+        shape:
+          name: name
+          url: https://openapi-generator.tech
+        evolves_from_species:
+          name: name
+          url: https://openapi-generator.tech
+        evolution_chain:
+          url: https://openapi-generator.tech
+        habitat:
+          name: name
+          url: https://openapi-generator.tech
         generation:
           name: name
           url: https://openapi-generator.tech
-        is_legendary: true
+        names:
+        - language:
+            name: name
+            url: https://openapi-generator.tech
+          name: name
+        - language:
+            name: name
+            url: https://openapi-generator.tech
+          name: name
         pal_park_encounters:
         - area:
             name: name
@@ -10163,33 +10444,6 @@ components:
             url: https://openapi-generator.tech
           base_score: 9
           rate: 3
-        shape:
-          name: name
-          url: https://openapi-generator.tech
-        is_mythical: true
-        base_happiness: 5
-        names:
-        - name: name
-          language:
-            name: name
-            url: https://openapi-generator.tech
-        - name: name
-          language:
-            name: name
-            url: https://openapi-generator.tech
-        varieties:
-        - pokemon:
-            name: name
-            url: https://openapi-generator.tech
-          is_default: true
-        - pokemon:
-            name: name
-            url: https://openapi-generator.tech
-          is_default: true
-        gender_rate: 1
-        name: name
-        has_gender_differences: true
-        hatch_counter: 2
         form_descriptions:
         - description: description
           language:
@@ -10199,9 +10453,39 @@ components:
           language:
             name: name
             url: https://openapi-generator.tech
-        evolves_from_species:
-          name: name
-          url: https://openapi-generator.tech
+        flavor_text_entries:
+        - flavor_text: flavor_text
+          language:
+            name: name
+            url: https://openapi-generator.tech
+          version:
+            name: name
+            url: https://openapi-generator.tech
+        - flavor_text: flavor_text
+          language:
+            name: name
+            url: https://openapi-generator.tech
+          version:
+            name: name
+            url: https://openapi-generator.tech
+        genera:
+        - genus: genus
+          language:
+            name: name
+            url: https://openapi-generator.tech
+        - genus: genus
+          language:
+            name: name
+            url: https://openapi-generator.tech
+        varieties:
+        - is_default: true
+          pokemon:
+            name: name
+            url: https://openapi-generator.tech
+        - is_default: true
+          pokemon:
+            name: name
+            url: https://openapi-generator.tech
       properties:
         id:
           readOnly: true
@@ -10251,13 +10535,17 @@ components:
         pokedex_numbers:
           items:
             $ref: "#/components/schemas/PokemonDexEntry"
+          readOnly: true
           title: pokedex_numbers
           type: array
+          default: null
         egg_groups:
           items:
             $ref: "#/components/schemas/AbilityDetail_pokemon_inner_pokemon"
+          readOnly: true
           title: egg_groups
           type: array
+          default: null
         color:
           $ref: "#/components/schemas/PokemonColorSummary"
         shape:
@@ -10273,33 +10561,45 @@ components:
         names:
           items:
             $ref: "#/components/schemas/PokemonFormDetail_form_names_inner"
+          readOnly: true
           title: names
           type: array
+          default: null
         pal_park_encounters:
           items:
             $ref: "#/components/schemas/PokemonSpeciesDetail_pal_park_encounters_inner"
+          readOnly: true
           title: pal_park_encounters
           type: array
+          default: null
         form_descriptions:
           items:
             $ref: "#/components/schemas/PokemonSpeciesDescription"
+          readOnly: true
           title: form_descriptions
           type: array
+          default: null
         flavor_text_entries:
           items:
             $ref: "#/components/schemas/PokemonSpeciesFlavorText"
+          readOnly: true
           title: flavor_text_entries
           type: array
+          default: null
         genera:
           items:
             $ref: "#/components/schemas/PokemonSpeciesDetail_genera_inner"
+          readOnly: true
           title: genera
           type: array
+          default: null
         varieties:
           items:
             $ref: "#/components/schemas/PokemonSpeciesDetail_varieties_inner"
+          readOnly: true
           title: varieties
           type: array
+          default: null
       required:
       - color
       - egg_groups
@@ -10321,13 +10621,13 @@ components:
       title: PokemonSpeciesDetail
     PokemonSpeciesFlavorText:
       example:
+        flavor_text: flavor_text
         language:
           name: name
           url: https://openapi-generator.tech
         version:
           name: name
           url: https://openapi-generator.tech
-        flavor_text: flavor_text
       properties:
         flavor_text:
           title: flavor_text
@@ -10361,11 +10661,11 @@ components:
       title: VersionGroupSummary
     PokemonStat:
       example:
+        base_stat: 3
+        effort: 2
         stat:
           name: name
           url: https://openapi-generator.tech
-        base_stat: 3
-        effort: 2
       properties:
         base_stat:
           title: base_stat
@@ -10400,6 +10700,13 @@ components:
       title: VersionGroupSummary
     RegionDetail:
       example:
+        id: 0
+        name: name
+        locations:
+        - name: name
+          url: https://openapi-generator.tech
+        - name: name
+          url: https://openapi-generator.tech
         main_generation: ""
         names:
         - name: name
@@ -10420,13 +10727,6 @@ components:
           url: https://openapi-generator.tech
         - name: name
           url: https://openapi-generator.tech
-        name: name
-        locations:
-        - name: name
-          url: https://openapi-generator.tech
-        - name: name
-          url: https://openapi-generator.tech
-        id: 0
       properties:
         id:
           readOnly: true
@@ -10439,8 +10739,10 @@ components:
         locations:
           items:
             $ref: "#/components/schemas/LocationSummary"
+          readOnly: true
           title: locations
           type: array
+          default: null
         main_generation:
           allOf:
           - $ref: "#/components/schemas/GenerationSummary"
@@ -10449,18 +10751,24 @@ components:
         names:
           items:
             $ref: "#/components/schemas/RegionName"
+          readOnly: true
           title: names
           type: array
+          default: null
         pokedexes:
           items:
             $ref: "#/components/schemas/PokedexSummary"
+          readOnly: true
           title: pokedexes
           type: array
+          default: null
         version_groups:
           items:
             $ref: "#/components/schemas/AbilityDetail_pokemon_inner_pokemon"
+          readOnly: true
           title: version_groups
           type: array
+          default: null
       required:
       - id
       - locations
@@ -10507,7 +10815,40 @@ components:
       title: VersionGroupSummary
     StatDetail:
       example:
+        id: 0
+        name: name
         game_index: 6
+        is_battle_only: true
+        affecting_moves:
+          increase:
+          - change: 1
+            move:
+              name: name
+              url: https://openapi-generator.tech
+          - change: 1
+            move:
+              name: name
+              url: https://openapi-generator.tech
+          decrease:
+          - change: 1
+            move:
+              name: name
+              url: https://openapi-generator.tech
+          - change: 1
+            move:
+              name: name
+              url: https://openapi-generator.tech
+        affecting_natures:
+          increase:
+          - name: name
+            url: https://openapi-generator.tech
+          - name: name
+            url: https://openapi-generator.tech
+          decrease:
+          - name: name
+            url: https://openapi-generator.tech
+          - name: name
+            url: https://openapi-generator.tech
         characteristics:
         - url: https://openapi-generator.tech
         - url: https://openapi-generator.tech
@@ -10522,39 +10863,6 @@ components:
         - name: name
           language:
             name: name
-            url: https://openapi-generator.tech
-        name: name
-        is_battle_only: true
-        affecting_moves:
-          increase:
-          - move:
-              name: name
-              url: https://openapi-generator.tech
-            change: 1
-          - move:
-              name: name
-              url: https://openapi-generator.tech
-            change: 1
-          decrease:
-          - move:
-              name: name
-              url: https://openapi-generator.tech
-            change: 1
-          - move:
-              name: name
-              url: https://openapi-generator.tech
-            change: 1
-        id: 0
-        affecting_natures:
-          increase:
-          - name: name
-            url: https://openapi-generator.tech
-          - name: name
-            url: https://openapi-generator.tech
-          decrease:
-          - name: name
-            url: https://openapi-generator.tech
-          - name: name
             url: https://openapi-generator.tech
       properties:
         id:
@@ -10578,15 +10886,19 @@ components:
         characteristics:
           items:
             $ref: "#/components/schemas/CharacteristicSummary"
+          readOnly: true
           title: characteristics
           type: array
+          default: null
         move_damage_class:
           $ref: "#/components/schemas/MoveDamageClassSummary"
         names:
           items:
             $ref: "#/components/schemas/StatName"
+          readOnly: true
           title: names
           type: array
+          default: null
       required:
       - affecting_moves
       - affecting_natures
@@ -10634,22 +10946,22 @@ components:
       title: VersionGroupSummary
     SuperContestEffectDetail:
       example:
+        id: 0
+        appeal: 6
+        flavor_text_entries:
+        - flavor_text: flavor_text
+          language:
+            name: name
+            url: https://openapi-generator.tech
+        - flavor_text: flavor_text
+          language:
+            name: name
+            url: https://openapi-generator.tech
         moves:
         - name: name
           url: https://openapi-generator.tech
         - name: name
           url: https://openapi-generator.tech
-        flavor_text_entries:
-        - language:
-            name: name
-            url: https://openapi-generator.tech
-          flavor_text: flavor_text
-        - language:
-            name: name
-            url: https://openapi-generator.tech
-          flavor_text: flavor_text
-        id: 0
-        appeal: 6
       properties:
         id:
           readOnly: true
@@ -10661,13 +10973,17 @@ components:
         flavor_text_entries:
           items:
             $ref: "#/components/schemas/SuperContestEffectFlavorText"
+          readOnly: true
           title: flavor_text_entries
           type: array
+          default: null
         moves:
           items:
             $ref: "#/components/schemas/MoveSummary"
+          readOnly: true
           title: moves
           type: array
+          default: null
       required:
       - appeal
       - flavor_text_entries
@@ -10676,10 +10992,10 @@ components:
       title: SuperContestEffectDetail
     SuperContestEffectFlavorText:
       example:
+        flavor_text: flavor_text
         language:
           name: name
           url: https://openapi-generator.tech
-        flavor_text: flavor_text
       properties:
         flavor_text:
           maxLength: 500
@@ -10706,50 +11022,9 @@ components:
     TypeDetail:
       description: Serializer for the Type resource
       example:
-        generation:
-          name: name
-          url: https://openapi-generator.tech
-        game_indices:
-        - generation:
-            name: name
-            url: https://openapi-generator.tech
-          game_index: 5
-        - generation:
-            name: name
-            url: https://openapi-generator.tech
-          game_index: 5
-        move_damage_class:
-          name: name
-          url: https://openapi-generator.tech
-        names:
-        - name: name
-          language:
-            name: name
-            url: https://openapi-generator.tech
-        - name: name
-          language:
-            name: name
-            url: https://openapi-generator.tech
-        pokemon:
-        - pokemon:
-            name: name
-            url: https://openapi-generator.tech
-          slot: 6
-        - pokemon:
-            name: name
-            url: https://openapi-generator.tech
-          slot: 6
+        id: 0
+        name: name
         damage_relations:
-          no_damage_from:
-          - name: name
-            url: https://openapi-generator.tech
-          - name: name
-            url: https://openapi-generator.tech
-          half_damage_from:
-          - name: name
-            url: https://openapi-generator.tech
-          - name: name
-            url: https://openapi-generator.tech
           no_damage_to:
           - name: name
             url: https://openapi-generator.tech
@@ -10765,87 +11040,128 @@ components:
             url: https://openapi-generator.tech
           - name: name
             url: https://openapi-generator.tech
+          no_damage_from:
+          - name: name
+            url: https://openapi-generator.tech
+          - name: name
+            url: https://openapi-generator.tech
+          half_damage_from:
+          - name: name
+            url: https://openapi-generator.tech
+          - name: name
+            url: https://openapi-generator.tech
           double_damage_from:
           - name: name
             url: https://openapi-generator.tech
           - name: name
+            url: https://openapi-generator.tech
+        past_damage_relations:
+        - generation:
+            name: name
+            url: https://openapi-generator.tech
+          damage_relations:
+            no_damage_to:
+            - name: name
+              url: https://openapi-generator.tech
+            - name: name
+              url: https://openapi-generator.tech
+            half_damage_to:
+            - name: name
+              url: https://openapi-generator.tech
+            - name: name
+              url: https://openapi-generator.tech
+            double_damage_to:
+            - name: name
+              url: https://openapi-generator.tech
+            - name: name
+              url: https://openapi-generator.tech
+            no_damage_from:
+            - name: name
+              url: https://openapi-generator.tech
+            - name: name
+              url: https://openapi-generator.tech
+            half_damage_from:
+            - name: name
+              url: https://openapi-generator.tech
+            - name: name
+              url: https://openapi-generator.tech
+            double_damage_from:
+            - name: name
+              url: https://openapi-generator.tech
+            - name: name
+              url: https://openapi-generator.tech
+        - generation:
+            name: name
+            url: https://openapi-generator.tech
+          damage_relations:
+            no_damage_to:
+            - name: name
+              url: https://openapi-generator.tech
+            - name: name
+              url: https://openapi-generator.tech
+            half_damage_to:
+            - name: name
+              url: https://openapi-generator.tech
+            - name: name
+              url: https://openapi-generator.tech
+            double_damage_to:
+            - name: name
+              url: https://openapi-generator.tech
+            - name: name
+              url: https://openapi-generator.tech
+            no_damage_from:
+            - name: name
+              url: https://openapi-generator.tech
+            - name: name
+              url: https://openapi-generator.tech
+            half_damage_from:
+            - name: name
+              url: https://openapi-generator.tech
+            - name: name
+              url: https://openapi-generator.tech
+            double_damage_from:
+            - name: name
+              url: https://openapi-generator.tech
+            - name: name
+              url: https://openapi-generator.tech
+        game_indices:
+        - game_index: 5
+          generation:
+            name: name
+            url: https://openapi-generator.tech
+        - game_index: 5
+          generation:
+            name: name
+            url: https://openapi-generator.tech
+        generation:
+          name: name
+          url: https://openapi-generator.tech
+        move_damage_class:
+          name: name
+          url: https://openapi-generator.tech
+        names:
+        - name: name
+          language:
+            name: name
+            url: https://openapi-generator.tech
+        - name: name
+          language:
+            name: name
+            url: https://openapi-generator.tech
+        pokemon:
+        - slot: 6
+          pokemon:
+            name: name
+            url: https://openapi-generator.tech
+        - slot: 6
+          pokemon:
+            name: name
             url: https://openapi-generator.tech
         moves:
         - name: name
           url: https://openapi-generator.tech
         - name: name
           url: https://openapi-generator.tech
-        name: name
-        past_damage_relations:
-        - generation:
-            name: name
-            url: https://openapi-generator.tech
-          damage_relations:
-            no_damage_from:
-            - name: name
-              url: https://openapi-generator.tech
-            - name: name
-              url: https://openapi-generator.tech
-            half_damage_from:
-            - name: name
-              url: https://openapi-generator.tech
-            - name: name
-              url: https://openapi-generator.tech
-            no_damage_to:
-            - name: name
-              url: https://openapi-generator.tech
-            - name: name
-              url: https://openapi-generator.tech
-            half_damage_to:
-            - name: name
-              url: https://openapi-generator.tech
-            - name: name
-              url: https://openapi-generator.tech
-            double_damage_to:
-            - name: name
-              url: https://openapi-generator.tech
-            - name: name
-              url: https://openapi-generator.tech
-            double_damage_from:
-            - name: name
-              url: https://openapi-generator.tech
-            - name: name
-              url: https://openapi-generator.tech
-        - generation:
-            name: name
-            url: https://openapi-generator.tech
-          damage_relations:
-            no_damage_from:
-            - name: name
-              url: https://openapi-generator.tech
-            - name: name
-              url: https://openapi-generator.tech
-            half_damage_from:
-            - name: name
-              url: https://openapi-generator.tech
-            - name: name
-              url: https://openapi-generator.tech
-            no_damage_to:
-            - name: name
-              url: https://openapi-generator.tech
-            - name: name
-              url: https://openapi-generator.tech
-            half_damage_to:
-            - name: name
-              url: https://openapi-generator.tech
-            - name: name
-              url: https://openapi-generator.tech
-            double_damage_to:
-            - name: name
-              url: https://openapi-generator.tech
-            - name: name
-              url: https://openapi-generator.tech
-            double_damage_from:
-            - name: name
-              url: https://openapi-generator.tech
-            - name: name
-              url: https://openapi-generator.tech
-        id: 0
         sprites:
           key:
             key:
@@ -10864,13 +11180,17 @@ components:
         past_damage_relations:
           items:
             $ref: "#/components/schemas/TypeDetail_past_damage_relations_inner"
+          readOnly: true
           title: past_damage_relations
           type: array
+          default: null
         game_indices:
           items:
             $ref: "#/components/schemas/TypeGameIndex"
+          readOnly: true
           title: game_indices
           type: array
+          default: null
         generation:
           $ref: "#/components/schemas/GenerationSummary"
         move_damage_class:
@@ -10878,18 +11198,24 @@ components:
         names:
           items:
             $ref: "#/components/schemas/AbilityName"
+          readOnly: true
           title: names
           type: array
+          default: null
         pokemon:
           items:
             $ref: "#/components/schemas/TypeDetail_pokemon_inner"
+          readOnly: true
           title: pokemon
           type: array
+          default: null
         moves:
           items:
             $ref: "#/components/schemas/MoveSummary"
+          readOnly: true
           title: moves
           type: array
+          default: null
         sprites:
           additionalProperties:
             additionalProperties:
@@ -10911,10 +11237,10 @@ components:
       title: TypeDetail
     TypeGameIndex:
       example:
+        game_index: 5
         generation:
           name: name
           url: https://openapi-generator.tech
-        game_index: 5
       properties:
         game_index:
           title: game_index
@@ -10949,6 +11275,8 @@ components:
         dependency and compilation order fight eachother and I'm
         not sure how to add anything other than a hyperlink
       example:
+        id: 0
+        name: name
         names:
         - name: name
           language:
@@ -10961,8 +11289,6 @@ components:
         version_group:
           name: name
           url: https://openapi-generator.tech
-        name: name
-        id: 0
       properties:
         id:
           readOnly: true
@@ -10975,8 +11301,10 @@ components:
         names:
           items:
             $ref: "#/components/schemas/VersionName"
+          readOnly: true
           title: names
           type: array
+          default: null
         version_group:
           $ref: "#/components/schemas/VersionGroupSummary"
       required:
@@ -10987,10 +11315,13 @@ components:
       title: VersionDetail
     VersionGroupDetail:
       example:
+        id: 0
+        name: name
+        order: 6
         generation:
           name: name
           url: https://openapi-generator.tech
-        regions:
+        move_learn_methods:
         - name: name
           url: https://openapi-generator.tech
         - name: name
@@ -11000,19 +11331,16 @@ components:
           url: https://openapi-generator.tech
         - name: name
           url: https://openapi-generator.tech
+        regions:
+        - name: name
+          url: https://openapi-generator.tech
+        - name: name
+          url: https://openapi-generator.tech
         versions:
         - name: name
           url: https://openapi-generator.tech
         - name: name
           url: https://openapi-generator.tech
-        name: name
-        id: 0
-        move_learn_methods:
-        - name: name
-          url: https://openapi-generator.tech
-        - name: name
-          url: https://openapi-generator.tech
-        order: 6
       properties:
         id:
           readOnly: true
@@ -11031,23 +11359,31 @@ components:
         move_learn_methods:
           items:
             $ref: "#/components/schemas/AbilityDetail_pokemon_inner_pokemon"
+          readOnly: true
           title: move_learn_methods
           type: array
+          default: null
         pokedexes:
           items:
             $ref: "#/components/schemas/AbilityDetail_pokemon_inner_pokemon"
+          readOnly: true
           title: pokedexes
           type: array
+          default: null
         regions:
           items:
             $ref: "#/components/schemas/AbilityDetail_pokemon_inner_pokemon"
+          readOnly: true
           title: regions
           type: array
+          default: null
         versions:
           items:
             $ref: "#/components/schemas/VersionSummary"
+          readOnly: true
           title: versions
           type: array
+          default: null
       required:
       - generation
       - id
@@ -11128,11 +11464,11 @@ components:
       title: AbilityDetail_pokemon_inner_pokemon
     AbilityDetail_pokemon_inner:
       example:
+        is_hidden: true
+        slot: 6
         pokemon:
           name: name
           url: https://openapi-generator.tech
-        is_hidden: true
-        slot: 6
       properties:
         is_hidden:
           title: is_hidden
@@ -11168,10 +11504,10 @@ components:
       - url
     BerryDetail_flavors_inner:
       example:
+        potency: 9
         flavor:
           name: name
           url: https://openapi-generator.tech
-        potency: 9
       properties:
         potency:
           title: potency
@@ -11250,34 +11586,38 @@ components:
       nullable: true
     EvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner:
       example:
-        item:
-          name: name
-          url: https://openapi-generator.tech
-        relative_physical_stats: relative_physical_stats
-        turn_upside_down: true
         gender:
           name: name
           url: https://openapi-generator.tech
-        min_happiness: 5
-        party_type: party_type
         held_item:
           name: name
           url: https://openapi-generator.tech
-        known_move: "{}"
+        item:
+          name: name
+          url: https://openapi-generator.tech
+        known_move:
+          name: name
+          url: https://openapi-generator.tech
+        known_move_type:
+          name: name
+          url: https://openapi-generator.tech
+        location:
+          name: name
+          url: https://openapi-generator.tech
+        min_affection: 6
         min_beauty: 1
+        min_happiness: 5
+        min_level: 5
+        needs_overworld_rain: true
+        party_species: party_species
+        party_type: party_type
+        relative_physical_stats: relative_physical_stats
+        time_of_day: time_of_day
         trade_species: trade_species
         trigger:
           name: name
           url: https://openapi-generator.tech
-        needs_overworld_rain: true
-        party_species: party_species
-        min_affection: 6
-        known_move_type: "{}"
-        time_of_day: time_of_day
-        location:
-          name: name
-          url: https://openapi-generator.tech
-        min_level: 5
+        turn_upside_down: true
       properties:
         gender:
           $ref: "#/components/schemas/EvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner_gender"
@@ -11286,13 +11626,9 @@ components:
         item:
           $ref: "#/components/schemas/EvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner_gender"
         known_move:
-          title: known_move
-          type: object
-          nullable: true
+          $ref: "#/components/schemas/EvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner_gender"
         known_move_type:
-          title: known_move
-          type: object
-          nullable: true
+          $ref: "#/components/schemas/EvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner_gender"
         location:
           $ref: "#/components/schemas/EvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner_gender"
         min_affection:
@@ -11366,72 +11702,81 @@ components:
     EvolutionChainDetail_chain_evolves_to_inner:
       example:
         evolution_details:
-        - item:
+        - gender:
             name: name
             url: https://openapi-generator.tech
-          relative_physical_stats: relative_physical_stats
-          turn_upside_down: true
-          gender:
-            name: name
-            url: https://openapi-generator.tech
-          min_happiness: 5
-          party_type: party_type
           held_item:
             name: name
             url: https://openapi-generator.tech
-          known_move: "{}"
+          item:
+            name: name
+            url: https://openapi-generator.tech
+          known_move:
+            name: name
+            url: https://openapi-generator.tech
+          known_move_type:
+            name: name
+            url: https://openapi-generator.tech
+          location:
+            name: name
+            url: https://openapi-generator.tech
+          min_affection: 6
           min_beauty: 1
+          min_happiness: 5
+          min_level: 5
+          needs_overworld_rain: true
+          party_species: party_species
+          party_type: party_type
+          relative_physical_stats: relative_physical_stats
+          time_of_day: time_of_day
           trade_species: trade_species
           trigger:
             name: name
             url: https://openapi-generator.tech
-          needs_overworld_rain: true
-          party_species: party_species
-          min_affection: 6
-          known_move_type: "{}"
-          time_of_day: time_of_day
-          location:
-            name: name
-            url: https://openapi-generator.tech
-          min_level: 5
-        - item:
-            name: name
-            url: https://openapi-generator.tech
-          relative_physical_stats: relative_physical_stats
           turn_upside_down: true
-          gender:
+        - gender:
             name: name
             url: https://openapi-generator.tech
-          min_happiness: 5
-          party_type: party_type
           held_item:
             name: name
             url: https://openapi-generator.tech
-          known_move: "{}"
+          item:
+            name: name
+            url: https://openapi-generator.tech
+          known_move:
+            name: name
+            url: https://openapi-generator.tech
+          known_move_type:
+            name: name
+            url: https://openapi-generator.tech
+          location:
+            name: name
+            url: https://openapi-generator.tech
+          min_affection: 6
           min_beauty: 1
+          min_happiness: 5
+          min_level: 5
+          needs_overworld_rain: true
+          party_species: party_species
+          party_type: party_type
+          relative_physical_stats: relative_physical_stats
+          time_of_day: time_of_day
           trade_species: trade_species
           trigger:
             name: name
             url: https://openapi-generator.tech
-          needs_overworld_rain: true
-          party_species: party_species
-          min_affection: 6
-          known_move_type: "{}"
-          time_of_day: time_of_day
-          location:
-            name: name
-            url: https://openapi-generator.tech
-          min_level: 5
+          turn_upside_down: true
+        is_baby: true
         species:
           name: name
           url: https://openapi-generator.tech
-        is_baby: true
       properties:
         evolution_details:
           items:
             $ref: "#/components/schemas/EvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner"
           title: evolution_details
           type: array
+          default: null
         is_baby:
           title: turn_upside_down
           type: boolean
@@ -11447,143 +11792,161 @@ components:
         evolution_details:
         - ""
         - ""
+        evolves_to:
+        - evolution_details:
+          - gender:
+              name: name
+              url: https://openapi-generator.tech
+            held_item:
+              name: name
+              url: https://openapi-generator.tech
+            item:
+              name: name
+              url: https://openapi-generator.tech
+            known_move:
+              name: name
+              url: https://openapi-generator.tech
+            known_move_type:
+              name: name
+              url: https://openapi-generator.tech
+            location:
+              name: name
+              url: https://openapi-generator.tech
+            min_affection: 6
+            min_beauty: 1
+            min_happiness: 5
+            min_level: 5
+            needs_overworld_rain: true
+            party_species: party_species
+            party_type: party_type
+            relative_physical_stats: relative_physical_stats
+            time_of_day: time_of_day
+            trade_species: trade_species
+            trigger:
+              name: name
+              url: https://openapi-generator.tech
+            turn_upside_down: true
+          - gender:
+              name: name
+              url: https://openapi-generator.tech
+            held_item:
+              name: name
+              url: https://openapi-generator.tech
+            item:
+              name: name
+              url: https://openapi-generator.tech
+            known_move:
+              name: name
+              url: https://openapi-generator.tech
+            known_move_type:
+              name: name
+              url: https://openapi-generator.tech
+            location:
+              name: name
+              url: https://openapi-generator.tech
+            min_affection: 6
+            min_beauty: 1
+            min_happiness: 5
+            min_level: 5
+            needs_overworld_rain: true
+            party_species: party_species
+            party_type: party_type
+            relative_physical_stats: relative_physical_stats
+            time_of_day: time_of_day
+            trade_species: trade_species
+            trigger:
+              name: name
+              url: https://openapi-generator.tech
+            turn_upside_down: true
+          is_baby: true
+          species:
+            name: name
+            url: https://openapi-generator.tech
+        - evolution_details:
+          - gender:
+              name: name
+              url: https://openapi-generator.tech
+            held_item:
+              name: name
+              url: https://openapi-generator.tech
+            item:
+              name: name
+              url: https://openapi-generator.tech
+            known_move:
+              name: name
+              url: https://openapi-generator.tech
+            known_move_type:
+              name: name
+              url: https://openapi-generator.tech
+            location:
+              name: name
+              url: https://openapi-generator.tech
+            min_affection: 6
+            min_beauty: 1
+            min_happiness: 5
+            min_level: 5
+            needs_overworld_rain: true
+            party_species: party_species
+            party_type: party_type
+            relative_physical_stats: relative_physical_stats
+            time_of_day: time_of_day
+            trade_species: trade_species
+            trigger:
+              name: name
+              url: https://openapi-generator.tech
+            turn_upside_down: true
+          - gender:
+              name: name
+              url: https://openapi-generator.tech
+            held_item:
+              name: name
+              url: https://openapi-generator.tech
+            item:
+              name: name
+              url: https://openapi-generator.tech
+            known_move:
+              name: name
+              url: https://openapi-generator.tech
+            known_move_type:
+              name: name
+              url: https://openapi-generator.tech
+            location:
+              name: name
+              url: https://openapi-generator.tech
+            min_affection: 6
+            min_beauty: 1
+            min_happiness: 5
+            min_level: 5
+            needs_overworld_rain: true
+            party_species: party_species
+            party_type: party_type
+            relative_physical_stats: relative_physical_stats
+            time_of_day: time_of_day
+            trade_species: trade_species
+            trigger:
+              name: name
+              url: https://openapi-generator.tech
+            turn_upside_down: true
+          is_baby: true
+          species:
+            name: name
+            url: https://openapi-generator.tech
+        is_baby: true
         species:
           name: name
           url: https://openapi-generator.tech
-        evolves_to:
-        - evolution_details:
-          - item:
-              name: name
-              url: https://openapi-generator.tech
-            relative_physical_stats: relative_physical_stats
-            turn_upside_down: true
-            gender:
-              name: name
-              url: https://openapi-generator.tech
-            min_happiness: 5
-            party_type: party_type
-            held_item:
-              name: name
-              url: https://openapi-generator.tech
-            known_move: "{}"
-            min_beauty: 1
-            trade_species: trade_species
-            trigger:
-              name: name
-              url: https://openapi-generator.tech
-            needs_overworld_rain: true
-            party_species: party_species
-            min_affection: 6
-            known_move_type: "{}"
-            time_of_day: time_of_day
-            location:
-              name: name
-              url: https://openapi-generator.tech
-            min_level: 5
-          - item:
-              name: name
-              url: https://openapi-generator.tech
-            relative_physical_stats: relative_physical_stats
-            turn_upside_down: true
-            gender:
-              name: name
-              url: https://openapi-generator.tech
-            min_happiness: 5
-            party_type: party_type
-            held_item:
-              name: name
-              url: https://openapi-generator.tech
-            known_move: "{}"
-            min_beauty: 1
-            trade_species: trade_species
-            trigger:
-              name: name
-              url: https://openapi-generator.tech
-            needs_overworld_rain: true
-            party_species: party_species
-            min_affection: 6
-            known_move_type: "{}"
-            time_of_day: time_of_day
-            location:
-              name: name
-              url: https://openapi-generator.tech
-            min_level: 5
-          species:
-            name: name
-            url: https://openapi-generator.tech
-          is_baby: true
-        - evolution_details:
-          - item:
-              name: name
-              url: https://openapi-generator.tech
-            relative_physical_stats: relative_physical_stats
-            turn_upside_down: true
-            gender:
-              name: name
-              url: https://openapi-generator.tech
-            min_happiness: 5
-            party_type: party_type
-            held_item:
-              name: name
-              url: https://openapi-generator.tech
-            known_move: "{}"
-            min_beauty: 1
-            trade_species: trade_species
-            trigger:
-              name: name
-              url: https://openapi-generator.tech
-            needs_overworld_rain: true
-            party_species: party_species
-            min_affection: 6
-            known_move_type: "{}"
-            time_of_day: time_of_day
-            location:
-              name: name
-              url: https://openapi-generator.tech
-            min_level: 5
-          - item:
-              name: name
-              url: https://openapi-generator.tech
-            relative_physical_stats: relative_physical_stats
-            turn_upside_down: true
-            gender:
-              name: name
-              url: https://openapi-generator.tech
-            min_happiness: 5
-            party_type: party_type
-            held_item:
-              name: name
-              url: https://openapi-generator.tech
-            known_move: "{}"
-            min_beauty: 1
-            trade_species: trade_species
-            trigger:
-              name: name
-              url: https://openapi-generator.tech
-            needs_overworld_rain: true
-            party_species: party_species
-            min_affection: 6
-            known_move_type: "{}"
-            time_of_day: time_of_day
-            location:
-              name: name
-              url: https://openapi-generator.tech
-            min_level: 5
-          species:
-            name: name
-            url: https://openapi-generator.tech
-          is_baby: true
-        is_baby: true
       properties:
         evolution_details:
           items: {}
           title: evolution_details
           type: array
+          default: null
         evolves_to:
           items:
             $ref: "#/components/schemas/EvolutionChainDetail_chain_evolves_to_inner"
           title: evolves_to
           type: array
+          default: null
         is_baby:
           title: turn_upside_down
           type: boolean
@@ -11615,10 +11978,10 @@ components:
       title: GenderDetail_pokemon_species_details_inner
     ItemDetail_held_by_pokemon_inner_version_details_inner:
       example:
+        rarity: 5
         version:
           name: name
           url: https://openapi-generator.tech
-        rarity: 5
       properties:
         rarity:
           format: int32
@@ -11636,14 +11999,14 @@ components:
           name: name
           url: https://openapi-generator.tech
         version-details:
-        - version:
+        - rarity: 5
+          version:
             name: name
             url: https://openapi-generator.tech
-          rarity: 5
-        - version:
+        - rarity: 5
+          version:
             name: name
             url: https://openapi-generator.tech
-          rarity: 5
       properties:
         pokemon:
           $ref: "#/components/schemas/AbilityDetail_pokemon_inner_pokemon"
@@ -11652,6 +12015,7 @@ components:
             $ref: "#/components/schemas/ItemDetail_held_by_pokemon_inner_version_details_inner"
           title: version-details
           type: array
+          default: null
       required:
       - pokemon
       - version-details
@@ -11716,6 +12080,9 @@ components:
       title: LocationAreaDetail_encounter_method_rates_inner_version_details_inner
     LocationAreaDetail_encounter_method_rates_inner:
       example:
+        encounter_method:
+          name: name
+          url: https://openapi-generator.tech
         version_details:
         - rate: 1
           version:
@@ -11725,9 +12092,6 @@ components:
           version:
             name: name
             url: https://openapi-generator.tech
-        encounter_method:
-          name: name
-          url: https://openapi-generator.tech
       properties:
         encounter_method:
           $ref: "#/components/schemas/AbilityDetail_pokemon_inner_pokemon"
@@ -11736,12 +12100,15 @@ components:
             $ref: "#/components/schemas/LocationAreaDetail_encounter_method_rates_inner_version_details_inner"
           title: version_details
           type: array
+          default: null
       required:
       - encounter_method
       - version_details
       title: LocationAreaDetail_encounter_method_rates_inner
     LocationAreaDetail_pokemon_encounters_inner_version_details_inner_encounter_details:
       example:
+        min_level: 5
+        max_level: 2
         condition_values:
           name: name
           url: https://openapi-generator.tech
@@ -11749,8 +12116,6 @@ components:
         method:
           name: name
           url: https://openapi-generator.tech
-        max_level: 2
-        min_level: 5
       properties:
         min_level:
           format: int32
@@ -11776,8 +12141,13 @@ components:
       title: LocationAreaDetail_pokemon_encounters_inner_version_details_inner_encounter_details
     LocationAreaDetail_pokemon_encounters_inner_version_details_inner:
       example:
+        version:
+          name: name
+          url: https://openapi-generator.tech
         max_chance: 5
         encounter_details:
+          min_level: 5
+          max_level: 2
           condition_values:
             name: name
             url: https://openapi-generator.tech
@@ -11785,11 +12155,6 @@ components:
           method:
             name: name
             url: https://openapi-generator.tech
-          max_level: 2
-          min_level: 5
-        version:
-          name: name
-          url: https://openapi-generator.tech
       properties:
         version:
           $ref: "#/components/schemas/AbilityDetail_pokemon_inner_pokemon"
@@ -11810,8 +12175,13 @@ components:
           name: name
           url: https://openapi-generator.tech
         version_details:
-        - max_chance: 5
+        - version:
+            name: name
+            url: https://openapi-generator.tech
+          max_chance: 5
           encounter_details:
+            min_level: 5
+            max_level: 2
             condition_values:
               name: name
               url: https://openapi-generator.tech
@@ -11819,13 +12189,13 @@ components:
             method:
               name: name
               url: https://openapi-generator.tech
-            max_level: 2
-            min_level: 5
-          version:
+        - version:
             name: name
             url: https://openapi-generator.tech
-        - max_chance: 5
+          max_chance: 5
           encounter_details:
+            min_level: 5
+            max_level: 2
             condition_values:
               name: name
               url: https://openapi-generator.tech
@@ -11833,11 +12203,6 @@ components:
             method:
               name: name
               url: https://openapi-generator.tech
-            max_level: 2
-            min_level: 5
-          version:
-            name: name
-            url: https://openapi-generator.tech
       properties:
         pokemon:
           $ref: "#/components/schemas/AbilityDetail_pokemon_inner_pokemon"
@@ -11846,14 +12211,15 @@ components:
             $ref: "#/components/schemas/LocationAreaDetail_pokemon_encounters_inner_version_details_inner"
           title: version_details
           type: array
+          default: null
       required:
       - pokemon
       - version_details
       title: LocationAreaDetail_pokemon_encounters_inner
     MoveChange_effect_entries_inner:
       example:
-        short_effect: short_effect
         effect: effect
+        short_effect: short_effect
         language:
           name: name
           url: https://openapi-generator.tech
@@ -11873,12 +12239,12 @@ components:
       title: MoveChange_effect_entries_inner
     MoveDetail_contest_combos_normal:
       example:
-        use_after:
-        - name: name
-          url: https://openapi-generator.tech
-        - name: name
-          url: https://openapi-generator.tech
         use_before:
+        - name: name
+          url: https://openapi-generator.tech
+        - name: name
+          url: https://openapi-generator.tech
+        use_after:
         - name: name
           url: https://openapi-generator.tech
         - name: name
@@ -11890,36 +12256,38 @@ components:
           title: use_before
           type: array
           nullable: true
+          default: null
         use_after:
           items:
             $ref: "#/components/schemas/AbilityDetail_pokemon_inner_pokemon"
           title: use_after
           type: array
           nullable: true
+          default: null
       required:
       - use_after
       - use_before
       title: MoveDetail_contest_combos_normal
     MoveDetail_contest_combos:
       example:
-        super:
-          use_after:
-          - name: name
-            url: https://openapi-generator.tech
-          - name: name
-            url: https://openapi-generator.tech
-          use_before:
-          - name: name
-            url: https://openapi-generator.tech
-          - name: name
-            url: https://openapi-generator.tech
         normal:
+          use_before:
+          - name: name
+            url: https://openapi-generator.tech
+          - name: name
+            url: https://openapi-generator.tech
           use_after:
           - name: name
             url: https://openapi-generator.tech
           - name: name
             url: https://openapi-generator.tech
+        super:
           use_before:
+          - name: name
+            url: https://openapi-generator.tech
+          - name: name
+            url: https://openapi-generator.tech
+          use_after:
           - name: name
             url: https://openapi-generator.tech
           - name: name
@@ -11970,6 +12338,7 @@ components:
             $ref: "#/components/schemas/MoveDetail_effect_changes_inner_effect_entries_inner"
           title: effect_entries
           type: array
+          default: null
         version_group:
           $ref: "#/components/schemas/AbilityDetail_pokemon_inner_pokemon"
       required:
@@ -11978,10 +12347,10 @@ components:
       title: MoveDetail_effect_changes_inner
     MoveDetail_stat_changes_inner:
       example:
+        change: 4
         stat:
           name: name
           url: https://openapi-generator.tech
-        change: 4
       properties:
         change:
           format: int32
@@ -12022,10 +12391,10 @@ components:
       title: MoveDetail_machines_inner
     NatureDetail_pokeathlon_stat_changes_inner:
       example:
+        max_change: 6
         pokeathlon_stat:
           name: name
           url: https://openapi-generator.tech
-        max_change: 6
       properties:
         max_change:
           format: int32
@@ -12039,10 +12408,10 @@ components:
       title: NatureDetail_pokeathlon_stat_changes_inner
     PalParkAreaDetail_pokemon_encounters_inner:
       example:
+        base_score: 6
         pokemon-species:
           name: name
           url: https://openapi-generator.tech
-        base_score: 6
         rate: 1
       properties:
         base_score:
@@ -12062,10 +12431,10 @@ components:
       title: PalParkAreaDetail_pokemon_encounters_inner
     PokeathlonStatDetail_affecting_natures_decrease_inner:
       example:
+        max_change: 0
         nature:
           name: name
           url: https://openapi-generator.tech
-        max_change: 0
       properties:
         max_change:
           format: int32
@@ -12080,10 +12449,10 @@ components:
       title: PokeathlonStatDetail_affecting_natures_decrease_inner
     PokeathlonStatDetail_affecting_natures_increase_inner:
       example:
+        max_change: 1
         nature:
           name: name
           url: https://openapi-generator.tech
-        max_change: 1
       properties:
         max_change:
           format: int32
@@ -12098,35 +12467,37 @@ components:
       title: PokeathlonStatDetail_affecting_natures_increase_inner
     PokeathlonStatDetail_affecting_natures:
       example:
-        increase:
-        - nature:
-            name: name
-            url: https://openapi-generator.tech
-          max_change: 1
-        - nature:
-            name: name
-            url: https://openapi-generator.tech
-          max_change: 1
         decrease:
-        - nature:
+        - max_change: 0
+          nature:
             name: name
             url: https://openapi-generator.tech
-          max_change: 0
-        - nature:
+        - max_change: 0
+          nature:
             name: name
             url: https://openapi-generator.tech
-          max_change: 0
+        increase:
+        - max_change: 1
+          nature:
+            name: name
+            url: https://openapi-generator.tech
+        - max_change: 1
+          nature:
+            name: name
+            url: https://openapi-generator.tech
       properties:
         decrease:
           items:
             $ref: "#/components/schemas/PokeathlonStatDetail_affecting_natures_decrease_inner"
           title: decrease
           type: array
+          default: null
         increase:
           items:
             $ref: "#/components/schemas/PokeathlonStatDetail_affecting_natures_increase_inner"
           title: increase
           type: array
+          default: null
       readOnly: true
       required:
       - decrease
@@ -12151,10 +12522,10 @@ components:
       title: PokedexDetail_pokemon_entries_inner
     PokemonDetail_abilities_inner:
       example:
-        is_hidden: true
         ability:
           name: name
           url: https://openapi-generator.tech
+        is_hidden: true
         slot: 2
       properties:
         ability:
@@ -12174,15 +12545,15 @@ components:
     PokemonDetail_past_abilities_inner:
       example:
         abilities:
-        - is_hidden: true
-          ability:
+        - ability:
             name: name
             url: https://openapi-generator.tech
+          is_hidden: true
           slot: 2
-        - is_hidden: true
-          ability:
+        - ability:
             name: name
             url: https://openapi-generator.tech
+          is_hidden: true
           slot: 2
         generation:
           name: name
@@ -12193,6 +12564,7 @@ components:
             $ref: "#/components/schemas/PokemonDetail_abilities_inner"
           title: abilities
           type: array
+          default: null
         generation:
           $ref: "#/components/schemas/AbilityDetail_pokemon_inner_pokemon"
       required:
@@ -12205,14 +12577,14 @@ components:
           name: name
           url: https://openapi-generator.tech
         version_details:
-        - version:
+        - rarity: 5
+          version:
             name: name
             url: https://openapi-generator.tech
-          rarity: 5
-        - version:
+        - rarity: 5
+          version:
             name: name
             url: https://openapi-generator.tech
-          rarity: 5
       properties:
         item:
           $ref: "#/components/schemas/AbilityDetail_pokemon_inner_pokemon"
@@ -12221,6 +12593,7 @@ components:
             $ref: "#/components/schemas/ItemDetail_held_by_pokemon_inner_version_details_inner"
           title: version_details
           type: array
+          default: null
       readOnly: true
       required:
       - item
@@ -12229,10 +12602,10 @@ components:
     PokemonDetail_moves_inner_version_group_details_inner:
       example:
         level_learned_at: 9
-        version_group:
+        move_learn_method:
           name: name
           url: https://openapi-generator.tech
-        move_learn_method:
+        version_group:
           name: name
           url: https://openapi-generator.tech
       properties:
@@ -12251,24 +12624,24 @@ components:
       title: PokemonDetail_moves_inner_version_group_details_inner
     PokemonDetail_moves_inner:
       example:
-        version_group_details:
-        - level_learned_at: 9
-          version_group:
-            name: name
-            url: https://openapi-generator.tech
-          move_learn_method:
-            name: name
-            url: https://openapi-generator.tech
-        - level_learned_at: 9
-          version_group:
-            name: name
-            url: https://openapi-generator.tech
-          move_learn_method:
-            name: name
-            url: https://openapi-generator.tech
         move:
           name: name
           url: https://openapi-generator.tech
+        version_group_details:
+        - level_learned_at: 9
+          move_learn_method:
+            name: name
+            url: https://openapi-generator.tech
+          version_group:
+            name: name
+            url: https://openapi-generator.tech
+        - level_learned_at: 9
+          move_learn_method:
+            name: name
+            url: https://openapi-generator.tech
+          version_group:
+            name: name
+            url: https://openapi-generator.tech
       properties:
         move:
           $ref: "#/components/schemas/AbilityDetail_pokemon_inner_pokemon"
@@ -12277,6 +12650,7 @@ components:
             $ref: "#/components/schemas/PokemonDetail_moves_inner_version_group_details_inner"
           title: version_group_details
           type: array
+          default: null
       required:
       - move
       - version_group_details
@@ -12296,8 +12670,8 @@ components:
       title: PokemonDetail_sprites
     PokemonDetail_cries:
       example:
-        legacy: https://openapi-generator.tech
         latest: https://openapi-generator.tech
+        legacy: https://openapi-generator.tech
       properties:
         latest:
           format: uri
@@ -12351,6 +12725,7 @@ components:
             $ref: "#/components/schemas/PokemonDetail_types_inner"
           title: types
           type: array
+          default: null
       required:
       - generation
       - types
@@ -12369,10 +12744,10 @@ components:
       title: PokemonFormDetail_sprites
     PokemonFormDetail_form_names_inner:
       example:
-        name: name
         language:
           name: name
           url: https://openapi-generator.tech
+        name: name
       properties:
         language:
           $ref: "#/components/schemas/AbilityDetail_pokemon_inner_pokemon"
@@ -12401,8 +12776,8 @@ components:
       title: PokemonShapeDetail_awesome_names_inner
     PokemonShapeDetail_names_inner:
       example:
-        name: name
         url: https://openapi-generator.tech
+        name: name
       properties:
         url:
           format: uri
@@ -12456,10 +12831,10 @@ components:
       title: PokemonSpeciesDetail_genera_inner
     PokemonSpeciesDetail_varieties_inner:
       example:
+        is_default: true
         pokemon:
           name: name
           url: https://openapi-generator.tech
-        is_default: true
       properties:
         is_default:
           title: is_default
@@ -12472,10 +12847,10 @@ components:
       title: PokemonSpeciesDetail_varieties_inner
     StatDetail_affecting_moves_increase_inner:
       example:
+        change: 1
         move:
           name: name
           url: https://openapi-generator.tech
-        change: 1
       properties:
         change:
           format: int32
@@ -12490,34 +12865,36 @@ components:
     StatDetail_affecting_moves:
       example:
         increase:
-        - move:
+        - change: 1
+          move:
             name: name
             url: https://openapi-generator.tech
-          change: 1
-        - move:
+        - change: 1
+          move:
             name: name
             url: https://openapi-generator.tech
-          change: 1
         decrease:
-        - move:
+        - change: 1
+          move:
             name: name
             url: https://openapi-generator.tech
-          change: 1
-        - move:
+        - change: 1
+          move:
             name: name
             url: https://openapi-generator.tech
-          change: 1
       properties:
         increase:
           items:
             $ref: "#/components/schemas/StatDetail_affecting_moves_increase_inner"
           title: increase
           type: array
+          default: null
         decrease:
           items:
             $ref: "#/components/schemas/StatDetail_affecting_moves_increase_inner"
           title: decrease
           type: array
+          default: null
       readOnly: true
       required:
       - decrease
@@ -12541,11 +12918,13 @@ components:
             $ref: "#/components/schemas/AbilityDetail_pokemon_inner_pokemon"
           title: increase
           type: array
+          default: null
         decrease:
           items:
             $ref: "#/components/schemas/AbilityDetail_pokemon_inner_pokemon"
           title: decrease
           type: array
+          default: null
       readOnly: true
       required:
       - decrease
@@ -12553,16 +12932,6 @@ components:
       title: StatDetail_affecting_natures
     TypeDetail_damage_relations:
       example:
-        no_damage_from:
-        - name: name
-          url: https://openapi-generator.tech
-        - name: name
-          url: https://openapi-generator.tech
-        half_damage_from:
-        - name: name
-          url: https://openapi-generator.tech
-        - name: name
-          url: https://openapi-generator.tech
         no_damage_to:
         - name: name
           url: https://openapi-generator.tech
@@ -12574,6 +12943,16 @@ components:
         - name: name
           url: https://openapi-generator.tech
         double_damage_to:
+        - name: name
+          url: https://openapi-generator.tech
+        - name: name
+          url: https://openapi-generator.tech
+        no_damage_from:
+        - name: name
+          url: https://openapi-generator.tech
+        - name: name
+          url: https://openapi-generator.tech
+        half_damage_from:
         - name: name
           url: https://openapi-generator.tech
         - name: name
@@ -12589,31 +12968,37 @@ components:
             $ref: "#/components/schemas/AbilityDetail_pokemon_inner_pokemon"
           title: no_damage_to
           type: array
+          default: null
         half_damage_to:
           items:
             $ref: "#/components/schemas/AbilityDetail_pokemon_inner_pokemon"
           title: half_damage_to
           type: array
+          default: null
         double_damage_to:
           items:
             $ref: "#/components/schemas/AbilityDetail_pokemon_inner_pokemon"
           title: double_damage_to
           type: array
+          default: null
         no_damage_from:
           items:
             $ref: "#/components/schemas/AbilityDetail_pokemon_inner_pokemon"
           title: no_damage_from
           type: array
+          default: null
         half_damage_from:
           items:
             $ref: "#/components/schemas/AbilityDetail_pokemon_inner_pokemon"
           title: half_damage_from
           type: array
+          default: null
         double_damage_from:
           items:
             $ref: "#/components/schemas/AbilityDetail_pokemon_inner_pokemon"
           title: double_damage_from
           type: array
+          default: null
       readOnly: true
       required:
       - double_damage_from
@@ -12625,16 +13010,6 @@ components:
       title: TypeDetail_damage_relations
     TypeDetail_past_damage_relations_inner_damage_relations:
       example:
-        no_damage_from:
-        - name: name
-          url: https://openapi-generator.tech
-        - name: name
-          url: https://openapi-generator.tech
-        half_damage_from:
-        - name: name
-          url: https://openapi-generator.tech
-        - name: name
-          url: https://openapi-generator.tech
         no_damage_to:
         - name: name
           url: https://openapi-generator.tech
@@ -12646,6 +13021,16 @@ components:
         - name: name
           url: https://openapi-generator.tech
         double_damage_to:
+        - name: name
+          url: https://openapi-generator.tech
+        - name: name
+          url: https://openapi-generator.tech
+        no_damage_from:
+        - name: name
+          url: https://openapi-generator.tech
+        - name: name
+          url: https://openapi-generator.tech
+        half_damage_from:
         - name: name
           url: https://openapi-generator.tech
         - name: name
@@ -12661,31 +13046,37 @@ components:
             $ref: "#/components/schemas/AbilityDetail_pokemon_inner_pokemon"
           title: no_damage_to
           type: array
+          default: null
         half_damage_to:
           items:
             $ref: "#/components/schemas/AbilityDetail_pokemon_inner_pokemon"
           title: half_damage_to
           type: array
+          default: null
         double_damage_to:
           items:
             $ref: "#/components/schemas/AbilityDetail_pokemon_inner_pokemon"
           title: double_damage_to
           type: array
+          default: null
         no_damage_from:
           items:
             $ref: "#/components/schemas/AbilityDetail_pokemon_inner_pokemon"
           title: no_damage_from
           type: array
+          default: null
         half_damage_from:
           items:
             $ref: "#/components/schemas/AbilityDetail_pokemon_inner_pokemon"
           title: half_damage_from
           type: array
+          default: null
         double_damage_from:
           items:
             $ref: "#/components/schemas/AbilityDetail_pokemon_inner_pokemon"
           title: double_damage_from
           type: array
+          default: null
       required:
       - double_damage_from
       - double_damage_to
@@ -12700,16 +13091,6 @@ components:
           name: name
           url: https://openapi-generator.tech
         damage_relations:
-          no_damage_from:
-          - name: name
-            url: https://openapi-generator.tech
-          - name: name
-            url: https://openapi-generator.tech
-          half_damage_from:
-          - name: name
-            url: https://openapi-generator.tech
-          - name: name
-            url: https://openapi-generator.tech
           no_damage_to:
           - name: name
             url: https://openapi-generator.tech
@@ -12721,6 +13102,16 @@ components:
           - name: name
             url: https://openapi-generator.tech
           double_damage_to:
+          - name: name
+            url: https://openapi-generator.tech
+          - name: name
+            url: https://openapi-generator.tech
+          no_damage_from:
+          - name: name
+            url: https://openapi-generator.tech
+          - name: name
+            url: https://openapi-generator.tech
+          half_damage_from:
           - name: name
             url: https://openapi-generator.tech
           - name: name
@@ -12759,10 +13150,10 @@ components:
       - url
     TypeDetail_pokemon_inner:
       example:
+        slot: 6
         pokemon:
           name: name
           url: https://openapi-generator.tech
-        slot: 6
       properties:
         slot:
           title: slot

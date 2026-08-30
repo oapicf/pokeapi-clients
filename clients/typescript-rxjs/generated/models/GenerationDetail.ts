@@ -40,7 +40,7 @@ export interface GenerationDetail {
      * @type {Array<AbilitySummary>}
      * @memberof GenerationDetail
      */
-    abilities: Array<AbilitySummary>;
+    readonly abilities: Array<AbilitySummary>;
     /**
      * @type {RegionSummary}
      * @memberof GenerationDetail
@@ -50,25 +50,25 @@ export interface GenerationDetail {
      * @type {Array<MoveSummary>}
      * @memberof GenerationDetail
      */
-    moves: Array<MoveSummary>;
+    readonly moves: Array<MoveSummary>;
     /**
      * @type {Array<GenerationName>}
      * @memberof GenerationDetail
      */
-    names: Array<GenerationName>;
+    readonly names: Array<GenerationName>;
     /**
      * @type {Array<PokemonSpeciesSummary>}
      * @memberof GenerationDetail
      */
-    pokemon_species: Array<PokemonSpeciesSummary>;
+    readonly pokemon_species: Array<PokemonSpeciesSummary>;
     /**
      * @type {Array<TypeSummary>}
      * @memberof GenerationDetail
      */
-    types: Array<TypeSummary>;
+    readonly types: Array<TypeSummary>;
     /**
      * @type {Array<VersionGroupSummary>}
      * @memberof GenerationDetail
      */
-    version_groups: Array<VersionGroupSummary>;
+    readonly version_groups: Array<VersionGroupSummary>;
 }

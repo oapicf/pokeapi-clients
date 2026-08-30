@@ -59,10 +59,12 @@ class PokemonSpeciesDetailPalParkEncountersInner {
       // Note 1: the values aren't checked for validity beyond being non-null.
       // Note 2: this code is stripped in release mode!
       assert(() {
-        requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "PokemonSpeciesDetailPalParkEncountersInner[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "PokemonSpeciesDetailPalParkEncountersInner[$key]" has a null value in JSON.');
-        });
+        assert(json.containsKey(r'area'), 'Required key "PokemonSpeciesDetailPalParkEncountersInner[area]" is missing from JSON.');
+        assert(json[r'area'] != null, 'Required key "PokemonSpeciesDetailPalParkEncountersInner[area]" has a null value in JSON.');
+        assert(json.containsKey(r'base_score'), 'Required key "PokemonSpeciesDetailPalParkEncountersInner[base_score]" is missing from JSON.');
+        assert(json[r'base_score'] != null, 'Required key "PokemonSpeciesDetailPalParkEncountersInner[base_score]" has a null value in JSON.');
+        assert(json.containsKey(r'rate'), 'Required key "PokemonSpeciesDetailPalParkEncountersInner[rate]" is missing from JSON.');
+        assert(json[r'rate'] != null, 'Required key "PokemonSpeciesDetailPalParkEncountersInner[rate]" has a null value in JSON.');
         return true;
       }());
 

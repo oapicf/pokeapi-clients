@@ -86,7 +86,7 @@ MoveDamageClassName::getName()
 }
 
 void
-MoveDamageClassName::setName(std::string  name)
+MoveDamageClassName::setName(std::string name)
 {
 	this->name = name;
 }
@@ -98,7 +98,7 @@ MoveDamageClassName::getLanguage()
 }
 
 void
-MoveDamageClassName::setLanguage(LanguageSummary  language)
+MoveDamageClassName::setLanguage(LanguageSummary language)
 {
 	this->language = language;
 }

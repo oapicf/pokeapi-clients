@@ -25,19 +25,23 @@ import io.swagger.v3.oas.annotations.media.Schema
  */
 data class MachineDetail(
 
-    @Schema(example = "null", required = true, readOnly = true, description = "")
+    @Schema(required = true, readOnly = true, description = "")
+    @param:JsonProperty("id")
     @get:JsonProperty("id", required = true) val id: kotlin.Int,
 
     @field:Valid
-    @Schema(example = "null", required = true, description = "")
+    @Schema(required = true, description = "")
+    @param:JsonProperty("item")
     @get:JsonProperty("item", required = true) val item: ItemSummary,
 
     @field:Valid
-    @Schema(example = "null", required = true, description = "")
+    @Schema(required = true, description = "")
+    @param:JsonProperty("version_group")
     @get:JsonProperty("version_group", required = true) val versionGroup: VersionGroupSummary,
 
     @field:Valid
-    @Schema(example = "null", required = true, description = "")
+    @Schema(required = true, description = "")
+    @param:JsonProperty("move")
     @get:JsonProperty("move", required = true) val move: MoveSummary
 ) {
 

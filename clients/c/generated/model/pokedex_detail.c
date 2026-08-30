@@ -6,9 +6,9 @@
 
 
 static pokedex_detail_t *pokedex_detail_create_internal(
-    int id,
+    int *id,
     char *name,
-    int is_main_series,
+    int *is_main_series,
     list_t *descriptions,
     list_t *names,
     list_t *pokemon_entries,
@@ -19,6 +19,8 @@ static pokedex_detail_t *pokedex_detail_create_internal(
     if (!pokedex_detail_local_var) {
         return NULL;
     }
+    memset(pokedex_detail_local_var, 0, sizeof(pokedex_detail_t));
+    pokedex_detail_local_var->_library_owned = 1;
     pokedex_detail_local_var->id = id;
     pokedex_detail_local_var->name = name;
     pokedex_detail_local_var->is_main_series = is_main_series;
@@ -27,31 +29,44 @@ static pokedex_detail_t *pokedex_detail_create_internal(
     pokedex_detail_local_var->pokemon_entries = pokemon_entries;
     pokedex_detail_local_var->region = region;
     pokedex_detail_local_var->version_groups = version_groups;
-
-    pokedex_detail_local_var->_library_owned = 1;
     return pokedex_detail_local_var;
 }
 
 __attribute__((deprecated)) pokedex_detail_t *pokedex_detail_create(
-    int id,
+    int *id,
     char *name,
-    int is_main_series,
+    int *is_main_series,
     list_t *descriptions,
     list_t *names,
     list_t *pokemon_entries,
     region_summary_t *region,
     list_t *version_groups
     ) {
-    return pokedex_detail_create_internal (
-        id,
+    int *id_copy = NULL;
+    if (id) {
+        id_copy = malloc(sizeof(int));
+        if (id_copy) *id_copy = *id;
+    }
+    int *is_main_series_copy = NULL;
+    if (is_main_series) {
+        is_main_series_copy = malloc(sizeof(int));
+        if (is_main_series_copy) *is_main_series_copy = *is_main_series;
+    }
+    pokedex_detail_t *result = pokedex_detail_create_internal (
+        id_copy,
         name,
-        is_main_series,
+        is_main_series_copy,
         descriptions,
         names,
         pokemon_entries,
         region,
         version_groups
         );
+    if (!result) {
+        free(id_copy);
+        free(is_main_series_copy);
+    }
+    return result;
 }
 
 void pokedex_detail_free(pokedex_detail_t *pokedex_detail) {
@@ -63,9 +78,17 @@ void pokedex_detail_free(pokedex_detail_t *pokedex_detail) {
         return ;
     }
     listEntry_t *listEntry;
+    if (pokedex_detail->id) {
+        free(pokedex_detail->id);
+        pokedex_detail->id = NULL;
+    }
     if (pokedex_detail->name) {
         free(pokedex_detail->name);
         pokedex_detail->name = NULL;
+    }
+    if (pokedex_detail->is_main_series) {
+        free(pokedex_detail->is_main_series);
+        pokedex_detail->is_main_series = NULL;
     }
     if (pokedex_detail->descriptions) {
         list_ForEach(listEntry, pokedex_detail->descriptions) {
@@ -109,7 +132,7 @@ cJSON *pokedex_detail_convertToJSON(pokedex_detail_t *pokedex_detail) {
     if (!pokedex_detail->id) {
         goto fail;
     }
-    if(cJSON_AddNumberToObject(item, "id", pokedex_detail->id) == NULL) {
+    if(cJSON_AddNumberToObject(item, "id", *pokedex_detail->id) == NULL) {
     goto fail; //Numeric
     }
 
@@ -125,7 +148,7 @@ cJSON *pokedex_detail_convertToJSON(pokedex_detail_t *pokedex_detail) {
 
     // pokedex_detail->is_main_series
     if(pokedex_detail->is_main_series) {
-    if(cJSON_AddBoolToObject(item, "is_main_series", pokedex_detail->is_main_series) == NULL) {
+    if(cJSON_AddBoolToObject(item, "is_main_series", *pokedex_detail->is_main_series) == NULL) {
     goto fail; //Bool
     }
     }
@@ -240,6 +263,14 @@ pokedex_detail_t *pokedex_detail_parseFromJSON(cJSON *pokedex_detailJSON){
 
     pokedex_detail_t *pokedex_detail_local_var = NULL;
 
+    // define the local variable for pokedex_detail->id
+    int *id_local_var = NULL;
+
+    char *name_local_str = NULL;
+
+    // define the local variable for pokedex_detail->is_main_series
+    int *is_main_series_local_var = NULL;
+
     // define the local list for pokedex_detail->descriptions
     list_t *descriptionsList = NULL;
 
@@ -269,6 +300,12 @@ pokedex_detail_t *pokedex_detail_parseFromJSON(cJSON *pokedex_detailJSON){
     {
     goto end; //Numeric
     }
+    id_local_var = malloc(sizeof(int));
+    if(!id_local_var)
+    {
+        goto end;
+    }
+    *id_local_var = id->valuedouble;
 
     // pokedex_detail->name
     cJSON *name = cJSON_GetObjectItemCaseSensitive(pokedex_detailJSON, "name");
@@ -295,6 +332,12 @@ pokedex_detail_t *pokedex_detail_parseFromJSON(cJSON *pokedex_detailJSON){
     {
     goto end; //Bool
     }
+    is_main_series_local_var = malloc(sizeof(int));
+    if(!is_main_series_local_var)
+    {
+        goto end;
+    }
+    *is_main_series_local_var = is_main_series->valueint;
     }
 
     // pokedex_detail->descriptions
@@ -418,10 +461,12 @@ pokedex_detail_t *pokedex_detail_parseFromJSON(cJSON *pokedex_detailJSON){
     }
 
 
+    if (name && !cJSON_IsNull(name)) name_local_str = strdup(name->valuestring);
+
     pokedex_detail_local_var = pokedex_detail_create_internal (
-        id->valuedouble,
-        strdup(name->valuestring),
-        is_main_series ? is_main_series->valueint : 0,
+        id_local_var,
+        name_local_str,
+        is_main_series_local_var,
         descriptionsList,
         namesList,
         pokemon_entriesList,
@@ -429,8 +474,24 @@ pokedex_detail_t *pokedex_detail_parseFromJSON(cJSON *pokedex_detailJSON){
         version_groupsList
         );
 
+    if (!pokedex_detail_local_var) {
+        goto end;
+    }
+
     return pokedex_detail_local_var;
 end:
+    if (id_local_var) {
+        free(id_local_var);
+        id_local_var = NULL;
+    }
+    if (name_local_str) {
+        free(name_local_str);
+        name_local_str = NULL;
+    }
+    if (is_main_series_local_var) {
+        free(is_main_series_local_var);
+        is_main_series_local_var = NULL;
+    }
     if (descriptionsList) {
         listEntry_t *listEntry = NULL;
         list_ForEach(listEntry, descriptionsList) {

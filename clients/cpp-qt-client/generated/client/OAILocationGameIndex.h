@@ -32,13 +32,13 @@ class OAIGenerationSummary;
 class OAILocationGameIndex : public OAIObject {
 public:
     OAILocationGameIndex();
-    OAILocationGameIndex(QString json);
+    OAILocationGameIndex(const QString &json);
     ~OAILocationGameIndex() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     qint32 getGameIndex() const;
     void setGameIndex(const qint32 &game_index);

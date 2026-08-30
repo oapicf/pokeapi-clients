@@ -25,6 +25,8 @@ ItemGameIndex::ItemGameIndex()
     
 }
 
+ItemGameIndex::~ItemGameIndex() = default;
+
 void ItemGameIndex::validate() const
 {
     std::stringstream msg;

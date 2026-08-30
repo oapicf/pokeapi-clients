@@ -144,7 +144,7 @@ PaginatedEvolutionTriggerSummaryList::getCount()
 }
 
 void
-PaginatedEvolutionTriggerSummaryList::setCount(int  count)
+PaginatedEvolutionTriggerSummaryList::setCount(int count)
 {
 	this->count = count;
 }
@@ -156,7 +156,7 @@ PaginatedEvolutionTriggerSummaryList::getNext()
 }
 
 void
-PaginatedEvolutionTriggerSummaryList::setNext(std::string  next)
+PaginatedEvolutionTriggerSummaryList::setNext(std::string next)
 {
 	this->next = next;
 }
@@ -168,7 +168,7 @@ PaginatedEvolutionTriggerSummaryList::getPrevious()
 }
 
 void
-PaginatedEvolutionTriggerSummaryList::setPrevious(std::string  previous)
+PaginatedEvolutionTriggerSummaryList::setPrevious(std::string previous)
 {
 	this->previous = previous;
 }
@@ -180,7 +180,7 @@ PaginatedEvolutionTriggerSummaryList::getResults()
 }
 
 void
-PaginatedEvolutionTriggerSummaryList::setResults(std::list <EvolutionTriggerSummary> results)
+PaginatedEvolutionTriggerSummaryList::setResults(std::list<EvolutionTriggerSummary> results)
 {
 	this->results = results;
 }

@@ -31,6 +31,8 @@ PaginatedEncounterConditionSummaryList::PaginatedEncounterConditionSummaryList()
     
 }
 
+PaginatedEncounterConditionSummaryList::~PaginatedEncounterConditionSummaryList() = default;
+
 void PaginatedEncounterConditionSummaryList::validate() const
 {
     std::stringstream msg;

@@ -90,7 +90,7 @@ newtype Q = Q { unQ :: Text } deriving (P.Eq, P.Show)
 -- | AbilityChange
 data AbilityChange = AbilityChange
   { abilityChangeVersionGroup :: !(VersionGroupSummary) -- ^ /Required/ "version_group"
-  , abilityChangeEffectEntries :: !([AbilityChangeEffectText]) -- ^ /Required/ "effect_entries"
+  , abilityChangeEffectEntries :: !([AbilityChangeEffectText]) -- ^ /Required/ /ReadOnly/ "effect_entries"
   } deriving (P.Show, P.Eq, P.Typeable)
 
 -- | FromJSON AbilityChange
@@ -161,11 +161,11 @@ data AbilityDetail = AbilityDetail
   , abilityDetailName :: !(Text) -- ^ /Required/ "name"
   , abilityDetailIsMainSeries :: !(Maybe Bool) -- ^ "is_main_series"
   , abilityDetailGeneration :: !(GenerationSummary) -- ^ /Required/ "generation"
-  , abilityDetailNames :: !([AbilityName]) -- ^ /Required/ "names"
-  , abilityDetailEffectEntries :: !([AbilityEffectText]) -- ^ /Required/ "effect_entries"
-  , abilityDetailEffectChanges :: !([AbilityChange]) -- ^ /Required/ "effect_changes"
-  , abilityDetailFlavorTextEntries :: !([AbilityFlavorText]) -- ^ /Required/ "flavor_text_entries"
-  , abilityDetailPokemon :: !([AbilityDetailPokemonInner]) -- ^ /Required/ "pokemon"
+  , abilityDetailNames :: !([AbilityName]) -- ^ /Required/ /ReadOnly/ "names"
+  , abilityDetailEffectEntries :: !([AbilityEffectText]) -- ^ /Required/ /ReadOnly/ "effect_entries"
+  , abilityDetailEffectChanges :: !([AbilityChange]) -- ^ /Required/ /ReadOnly/ "effect_changes"
+  , abilityDetailFlavorTextEntries :: !([AbilityFlavorText]) -- ^ /Required/ /ReadOnly/ "flavor_text_entries"
+  , abilityDetailPokemon :: !([AbilityDetailPokemonInner]) -- ^ /Required/ /ReadOnly/ "pokemon"
   } deriving (P.Show, P.Eq, P.Typeable)
 
 -- | FromJSON AbilityDetail
@@ -453,7 +453,7 @@ data BerryDetail = BerryDetail
   , berryDetailSmoothness :: !(Int) -- ^ /Required/ "smoothness"
   , berryDetailSoilDryness :: !(Int) -- ^ /Required/ "soil_dryness"
   , berryDetailFirmness :: !(BerryFirmnessSummary) -- ^ /Required/ "firmness"
-  , berryDetailFlavors :: !([BerryDetailFlavorsInner]) -- ^ /Required/ "flavors"
+  , berryDetailFlavors :: !([BerryDetailFlavorsInner]) -- ^ /Required/ /ReadOnly/ "flavors"
   , berryDetailItem :: !(ItemSummary) -- ^ /Required/ "item"
   , berryDetailNaturalGiftType :: !(TypeSummary) -- ^ /Required/ "natural_gift_type"
   } deriving (P.Show, P.Eq, P.Typeable)
@@ -596,8 +596,8 @@ mkBerryDetailFlavorsInnerFlavor =
 data BerryFirmnessDetail = BerryFirmnessDetail
   { berryFirmnessDetailId :: !(Int) -- ^ /Required/ /ReadOnly/ "id"
   , berryFirmnessDetailName :: !(Text) -- ^ /Required/ "name"
-  , berryFirmnessDetailBerries :: !([BerrySummary]) -- ^ /Required/ "berries"
-  , berryFirmnessDetailNames :: !([BerryFirmnessName]) -- ^ /Required/ "names"
+  , berryFirmnessDetailBerries :: !([BerrySummary]) -- ^ /Required/ /ReadOnly/ "berries"
+  , berryFirmnessDetailNames :: !([BerryFirmnessName]) -- ^ /Required/ /ReadOnly/ "names"
   } deriving (P.Show, P.Eq, P.Typeable)
 
 -- | FromJSON BerryFirmnessDetail
@@ -708,9 +708,9 @@ mkBerryFirmnessSummary berryFirmnessSummaryName berryFirmnessSummaryUrl =
 data BerryFlavorDetail = BerryFlavorDetail
   { berryFlavorDetailId :: !(Int) -- ^ /Required/ /ReadOnly/ "id"
   , berryFlavorDetailName :: !(Text) -- ^ /Required/ "name"
-  , berryFlavorDetailBerries :: !([BerryFlavorDetailBerriesInner]) -- ^ /Required/ "berries"
+  , berryFlavorDetailBerries :: !([BerryFlavorDetailBerriesInner]) -- ^ /Required/ /ReadOnly/ "berries"
   , berryFlavorDetailContestType :: !(ContestTypeSummary) -- ^ /Required/ "contest_type"
-  , berryFlavorDetailNames :: !([BerryFlavorName]) -- ^ /Required/ "names"
+  , berryFlavorDetailNames :: !([BerryFlavorName]) -- ^ /Required/ /ReadOnly/ "names"
   } deriving (P.Show, P.Eq, P.Typeable)
 
 -- | FromJSON BerryFlavorDetail
@@ -958,9 +958,9 @@ mkCharacteristicDescription characteristicDescriptionLanguage =
 data CharacteristicDetail = CharacteristicDetail
   { characteristicDetailId :: !(Int) -- ^ /Required/ /ReadOnly/ "id"
   , characteristicDetailGeneModulo :: !(Int) -- ^ /Required/ "gene_modulo"
-  , characteristicDetailPossibleValues :: !([Int]) -- ^ /Required/ "possible_values"
+  , characteristicDetailPossibleValues :: !([Int]) -- ^ /Required/ /ReadOnly/ "possible_values"
   , characteristicDetailHighestStat :: !(StatSummary) -- ^ /Required/ "highest_stat"
-  , characteristicDetailDescriptions :: !([CharacteristicDescription]) -- ^ /Required/ "descriptions"
+  , characteristicDetailDescriptions :: !([CharacteristicDescription]) -- ^ /Required/ /ReadOnly/ "descriptions"
   } deriving (P.Show, P.Eq, P.Typeable)
 
 -- | FromJSON CharacteristicDetail
@@ -1037,8 +1037,8 @@ data ContestEffectDetail = ContestEffectDetail
   { contestEffectDetailId :: !(Int) -- ^ /Required/ /ReadOnly/ "id"
   , contestEffectDetailAppeal :: !(Int) -- ^ /Required/ "appeal"
   , contestEffectDetailJam :: !(Int) -- ^ /Required/ "jam"
-  , contestEffectDetailEffectEntries :: !([ContestEffectEffectText]) -- ^ /Required/ "effect_entries"
-  , contestEffectDetailFlavorTextEntries :: !([ContestEffectFlavorText]) -- ^ /Required/ "flavor_text_entries"
+  , contestEffectDetailEffectEntries :: !([ContestEffectEffectText]) -- ^ /Required/ /ReadOnly/ "effect_entries"
+  , contestEffectDetailFlavorTextEntries :: !([ContestEffectFlavorText]) -- ^ /Required/ /ReadOnly/ "flavor_text_entries"
   } deriving (P.Show, P.Eq, P.Typeable)
 
 -- | FromJSON ContestEffectDetail
@@ -1183,7 +1183,7 @@ data ContestTypeDetail = ContestTypeDetail
   { contestTypeDetailId :: !(Int) -- ^ /Required/ /ReadOnly/ "id"
   , contestTypeDetailName :: !(Text) -- ^ /Required/ "name"
   , contestTypeDetailBerryFlavor :: !(BerryFlavorSummary) -- ^ /Required/ /ReadOnly/ "berry_flavor"
-  , contestTypeDetailNames :: !([ContestTypeName]) -- ^ /Required/ "names"
+  , contestTypeDetailNames :: !([ContestTypeName]) -- ^ /Required/ /ReadOnly/ "names"
   } deriving (P.Show, P.Eq, P.Typeable)
 
 -- | FromJSON ContestTypeDetail
@@ -1299,8 +1299,8 @@ mkContestTypeSummary contestTypeSummaryName contestTypeSummaryUrl =
 data EggGroupDetail = EggGroupDetail
   { eggGroupDetailId :: !(Int) -- ^ /Required/ /ReadOnly/ "id"
   , eggGroupDetailName :: !(Text) -- ^ /Required/ "name"
-  , eggGroupDetailNames :: !([EggGroupName]) -- ^ /Required/ "names"
-  , eggGroupDetailPokemonSpecies :: !([EggGroupDetailPokemonSpeciesInner]) -- ^ /Required/ "pokemon_species"
+  , eggGroupDetailNames :: !([EggGroupName]) -- ^ /Required/ /ReadOnly/ "names"
+  , eggGroupDetailPokemonSpecies :: !([EggGroupDetailPokemonSpeciesInner]) -- ^ /Required/ /ReadOnly/ "pokemon_species"
   } deriving (P.Show, P.Eq, P.Typeable)
 
 -- | FromJSON EggGroupDetail
@@ -1443,8 +1443,8 @@ mkEggGroupSummary eggGroupSummaryName eggGroupSummaryUrl =
 data EncounterConditionDetail = EncounterConditionDetail
   { encounterConditionDetailId :: !(Int) -- ^ /Required/ /ReadOnly/ "id"
   , encounterConditionDetailName :: !(Text) -- ^ /Required/ "name"
-  , encounterConditionDetailValues :: !([EncounterConditionValueSummary]) -- ^ /Required/ "values"
-  , encounterConditionDetailNames :: !([EncounterConditionName]) -- ^ /Required/ "names"
+  , encounterConditionDetailValues :: !([EncounterConditionValueSummary]) -- ^ /Required/ /ReadOnly/ "values"
+  , encounterConditionDetailNames :: !([EncounterConditionName]) -- ^ /Required/ /ReadOnly/ "names"
   } deriving (P.Show, P.Eq, P.Typeable)
 
 -- | FromJSON EncounterConditionDetail
@@ -1556,7 +1556,7 @@ data EncounterConditionValueDetail = EncounterConditionValueDetail
   { encounterConditionValueDetailId :: !(Int) -- ^ /Required/ /ReadOnly/ "id"
   , encounterConditionValueDetailName :: !(Text) -- ^ /Required/ "name"
   , encounterConditionValueDetailCondition :: !(EncounterConditionSummary) -- ^ /Required/ "condition"
-  , encounterConditionValueDetailNames :: !([EncounterConditionValueName]) -- ^ /Required/ "names"
+  , encounterConditionValueDetailNames :: !([EncounterConditionValueName]) -- ^ /Required/ /ReadOnly/ "names"
   } deriving (P.Show, P.Eq, P.Typeable)
 
 -- | FromJSON EncounterConditionValueDetail
@@ -1668,7 +1668,7 @@ data EncounterMethodDetail = EncounterMethodDetail
   { encounterMethodDetailId :: !(Int) -- ^ /Required/ /ReadOnly/ "id"
   , encounterMethodDetailName :: !(Text) -- ^ /Required/ "name"
   , encounterMethodDetailOrder :: !(Maybe Int) -- ^ "order"
-  , encounterMethodDetailNames :: !([EncounterMethodName]) -- ^ /Required/ "names"
+  , encounterMethodDetailNames :: !([EncounterMethodName]) -- ^ /Required/ /ReadOnly/ "names"
   } deriving (P.Show, P.Eq, P.Typeable)
 
 -- | FromJSON EncounterMethodDetail
@@ -1901,8 +1901,8 @@ data EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner = EvolutionCha
   { evolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender :: !(EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender) -- ^ /Required/ "gender"
   , evolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerHeldItem :: !(EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender) -- ^ /Required/ "held_item"
   , evolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerItem :: !(EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender) -- ^ /Required/ "item"
-  , evolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerKnownMove :: !(A.Value) -- ^ /Required/ "known_move"
-  , evolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerKnownMoveType :: !(A.Value) -- ^ /Required/ "known_move_type"
+  , evolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerKnownMove :: !(EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender) -- ^ /Required/ "known_move"
+  , evolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerKnownMoveType :: !(EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender) -- ^ /Required/ "known_move_type"
   , evolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerLocation :: !(EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender) -- ^ /Required/ "location"
   , evolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerMinAffection :: !(Int) -- ^ /Required/ "min_affection"
   , evolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerMinBeauty :: !(Int) -- ^ /Required/ "min_beauty"
@@ -1971,8 +1971,8 @@ mkEvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner
   :: EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender -- ^ 'evolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender' 
   -> EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender -- ^ 'evolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerHeldItem' 
   -> EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender -- ^ 'evolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerItem' 
-  -> A.Value -- ^ 'evolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerKnownMove' 
-  -> A.Value -- ^ 'evolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerKnownMoveType' 
+  -> EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender -- ^ 'evolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerKnownMove' 
+  -> EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender -- ^ 'evolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerKnownMoveType' 
   -> EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender -- ^ 'evolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerLocation' 
   -> Int -- ^ 'evolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerMinAffection' 
   -> Int -- ^ 'evolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerMinBeauty' 
@@ -2077,8 +2077,8 @@ mkEvolutionChainSummary evolutionChainSummaryUrl =
 data EvolutionTriggerDetail = EvolutionTriggerDetail
   { evolutionTriggerDetailId :: !(Int) -- ^ /Required/ /ReadOnly/ "id"
   , evolutionTriggerDetailName :: !(Text) -- ^ /Required/ "name"
-  , evolutionTriggerDetailNames :: !([EvolutionTriggerName]) -- ^ /Required/ "names"
-  , evolutionTriggerDetailPokemonSpecies :: !([AbilityDetailPokemonInnerPokemon]) -- ^ /Required/ "pokemon_species"
+  , evolutionTriggerDetailNames :: !([EvolutionTriggerName]) -- ^ /Required/ /ReadOnly/ "names"
+  , evolutionTriggerDetailPokemonSpecies :: !([AbilityDetailPokemonInnerPokemon]) -- ^ /Required/ /ReadOnly/ "pokemon_species"
   } deriving (P.Show, P.Eq, P.Typeable)
 
 -- | FromJSON EvolutionTriggerDetail
@@ -2223,8 +2223,8 @@ mkExperience experienceLevel experienceExperience =
 data GenderDetail = GenderDetail
   { genderDetailId :: !(Int) -- ^ /Required/ /ReadOnly/ "id"
   , genderDetailName :: !(Text) -- ^ /Required/ "name"
-  , genderDetailPokemonSpeciesDetails :: !([GenderDetailPokemonSpeciesDetailsInner]) -- ^ /Required/ "pokemon_species_details"
-  , genderDetailRequiredForEvolution :: !([AbilityDetailPokemonInnerPokemon]) -- ^ /Required/ "required_for_evolution"
+  , genderDetailPokemonSpeciesDetails :: !([GenderDetailPokemonSpeciesDetailsInner]) -- ^ /Required/ /ReadOnly/ "pokemon_species_details"
+  , genderDetailRequiredForEvolution :: !([AbilityDetailPokemonInnerPokemon]) -- ^ /Required/ /ReadOnly/ "required_for_evolution"
   } deriving (P.Show, P.Eq, P.Typeable)
 
 -- | FromJSON GenderDetail
@@ -2335,13 +2335,13 @@ mkGenderSummary genderSummaryName genderSummaryUrl =
 data GenerationDetail = GenerationDetail
   { generationDetailId :: !(Int) -- ^ /Required/ /ReadOnly/ "id"
   , generationDetailName :: !(Text) -- ^ /Required/ "name"
-  , generationDetailAbilities :: !([AbilitySummary]) -- ^ /Required/ "abilities"
+  , generationDetailAbilities :: !([AbilitySummary]) -- ^ /Required/ /ReadOnly/ "abilities"
   , generationDetailMainRegion :: !(RegionSummary) -- ^ /Required/ "main_region"
-  , generationDetailMoves :: !([MoveSummary]) -- ^ /Required/ "moves"
-  , generationDetailNames :: !([GenerationName]) -- ^ /Required/ "names"
-  , generationDetailPokemonSpecies :: !([PokemonSpeciesSummary]) -- ^ /Required/ "pokemon_species"
-  , generationDetailTypes :: !([TypeSummary]) -- ^ /Required/ "types"
-  , generationDetailVersionGroups :: !([VersionGroupSummary]) -- ^ /Required/ "version_groups"
+  , generationDetailMoves :: !([MoveSummary]) -- ^ /Required/ /ReadOnly/ "moves"
+  , generationDetailNames :: !([GenerationName]) -- ^ /Required/ /ReadOnly/ "names"
+  , generationDetailPokemonSpecies :: !([PokemonSpeciesSummary]) -- ^ /Required/ /ReadOnly/ "pokemon_species"
+  , generationDetailTypes :: !([TypeSummary]) -- ^ /Required/ /ReadOnly/ "types"
+  , generationDetailVersionGroups :: !([VersionGroupSummary]) -- ^ /Required/ /ReadOnly/ "version_groups"
   } deriving (P.Show, P.Eq, P.Typeable)
 
 -- | FromJSON GenerationDetail
@@ -2506,9 +2506,9 @@ data GrowthRateDetail = GrowthRateDetail
   { growthRateDetailId :: !(Int) -- ^ /Required/ /ReadOnly/ "id"
   , growthRateDetailName :: !(Text) -- ^ /Required/ "name"
   , growthRateDetailFormula :: !(Text) -- ^ /Required/ "formula"
-  , growthRateDetailDescriptions :: !([GrowthRateDescription]) -- ^ /Required/ "descriptions"
-  , growthRateDetailLevels :: !([Experience]) -- ^ /Required/ "levels"
-  , growthRateDetailPokemonSpecies :: !([PokemonSpeciesSummary]) -- ^ /Required/ "pokemon_species"
+  , growthRateDetailDescriptions :: !([GrowthRateDescription]) -- ^ /Required/ /ReadOnly/ "descriptions"
+  , growthRateDetailLevels :: !([Experience]) -- ^ /Required/ /ReadOnly/ "levels"
+  , growthRateDetailPokemonSpecies :: !([PokemonSpeciesSummary]) -- ^ /Required/ /ReadOnly/ "pokemon_species"
   } deriving (P.Show, P.Eq, P.Typeable)
 
 -- | FromJSON GrowthRateDetail
@@ -2626,9 +2626,9 @@ mkItemAttributeDescription itemAttributeDescriptionLanguage =
 data ItemAttributeDetail = ItemAttributeDetail
   { itemAttributeDetailId :: !(Int) -- ^ /Required/ /ReadOnly/ "id"
   , itemAttributeDetailName :: !(Text) -- ^ /Required/ "name"
-  , itemAttributeDetailDescriptions :: !([ItemAttributeDescription]) -- ^ /Required/ "descriptions"
-  , itemAttributeDetailItems :: !([AbilityDetailPokemonInnerPokemon]) -- ^ /Required/ "items"
-  , itemAttributeDetailNames :: !([ItemAttributeName]) -- ^ /Required/ "names"
+  , itemAttributeDetailDescriptions :: !([ItemAttributeDescription]) -- ^ /Required/ /ReadOnly/ "descriptions"
+  , itemAttributeDetailItems :: !([AbilityDetailPokemonInnerPokemon]) -- ^ /Required/ /ReadOnly/ "items"
+  , itemAttributeDetailNames :: !([ItemAttributeName]) -- ^ /Required/ /ReadOnly/ "names"
   } deriving (P.Show, P.Eq, P.Typeable)
 
 -- | FromJSON ItemAttributeDetail
@@ -2743,8 +2743,8 @@ mkItemAttributeSummary itemAttributeSummaryName itemAttributeSummaryUrl =
 data ItemCategoryDetail = ItemCategoryDetail
   { itemCategoryDetailId :: !(Int) -- ^ /Required/ /ReadOnly/ "id"
   , itemCategoryDetailName :: !(Text) -- ^ /Required/ "name"
-  , itemCategoryDetailItems :: !([ItemSummary]) -- ^ /Required/ "items"
-  , itemCategoryDetailNames :: !([ItemCategoryName]) -- ^ /Required/ "names"
+  , itemCategoryDetailItems :: !([ItemSummary]) -- ^ /Required/ /ReadOnly/ "items"
+  , itemCategoryDetailNames :: !([ItemCategoryName]) -- ^ /Required/ /ReadOnly/ "names"
   , itemCategoryDetailPocket :: !(ItemPocketSummary) -- ^ /Required/ "pocket"
   } deriving (P.Show, P.Eq, P.Typeable)
 
@@ -2863,16 +2863,16 @@ data ItemDetail = ItemDetail
   , itemDetailCost :: !(Maybe Int) -- ^ "cost"
   , itemDetailFlingPower :: !(Maybe Int) -- ^ "fling_power"
   , itemDetailFlingEffect :: !(ItemFlingEffectSummary) -- ^ /Required/ "fling_effect"
-  , itemDetailAttributes :: !([AbilityDetailPokemonInnerPokemon]) -- ^ /Required/ "attributes"
+  , itemDetailAttributes :: !([AbilityDetailPokemonInnerPokemon]) -- ^ /Required/ /ReadOnly/ "attributes"
   , itemDetailCategory :: !(ItemCategorySummary) -- ^ /Required/ "category"
-  , itemDetailEffectEntries :: !([ItemEffectText]) -- ^ /Required/ "effect_entries"
-  , itemDetailFlavorTextEntries :: !([ItemFlavorText]) -- ^ /Required/ "flavor_text_entries"
-  , itemDetailGameIndices :: !([ItemGameIndex]) -- ^ /Required/ "game_indices"
-  , itemDetailNames :: !([ItemName]) -- ^ /Required/ "names"
-  , itemDetailHeldByPokemon :: !([ItemDetailHeldByPokemonInner]) -- ^ /Required/ "held_by_pokemon"
+  , itemDetailEffectEntries :: !([ItemEffectText]) -- ^ /Required/ /ReadOnly/ "effect_entries"
+  , itemDetailFlavorTextEntries :: !([ItemFlavorText]) -- ^ /Required/ /ReadOnly/ "flavor_text_entries"
+  , itemDetailGameIndices :: !([ItemGameIndex]) -- ^ /Required/ /ReadOnly/ "game_indices"
+  , itemDetailNames :: !([ItemName]) -- ^ /Required/ /ReadOnly/ "names"
+  , itemDetailHeldByPokemon :: !([ItemDetailHeldByPokemonInner]) -- ^ /Required/ /ReadOnly/ "held_by_pokemon"
   , itemDetailSprites :: !(ItemDetailSprites) -- ^ /Required/ "sprites"
   , itemDetailBabyTriggerFor :: !(ItemDetailBabyTriggerFor) -- ^ /Required/ "baby_trigger_for"
-  , itemDetailMachines :: !([ItemDetailMachinesInner]) -- ^ /Required/ "machines"
+  , itemDetailMachines :: !([ItemDetailMachinesInner]) -- ^ /Required/ /ReadOnly/ "machines"
   } deriving (P.Show, P.Eq, P.Typeable)
 
 -- | FromJSON ItemDetail
@@ -3195,8 +3195,8 @@ mkItemFlavorText itemFlavorTextText itemFlavorTextVersionGroup itemFlavorTextLan
 data ItemFlingEffectDetail = ItemFlingEffectDetail
   { itemFlingEffectDetailId :: !(Int) -- ^ /Required/ /ReadOnly/ "id"
   , itemFlingEffectDetailName :: !(Text) -- ^ /Required/ "name"
-  , itemFlingEffectDetailEffectEntries :: !([ItemFlingEffectEffectText]) -- ^ /Required/ "effect_entries"
-  , itemFlingEffectDetailItems :: !([ItemSummary]) -- ^ /Required/ "items"
+  , itemFlingEffectDetailEffectEntries :: !([ItemFlingEffectEffectText]) -- ^ /Required/ /ReadOnly/ "effect_entries"
+  , itemFlingEffectDetailItems :: !([ItemSummary]) -- ^ /Required/ /ReadOnly/ "items"
   } deriving (P.Show, P.Eq, P.Typeable)
 
 -- | FromJSON ItemFlingEffectDetail
@@ -3375,8 +3375,8 @@ mkItemName itemNameName itemNameLanguage =
 data ItemPocketDetail = ItemPocketDetail
   { itemPocketDetailId :: !(Int) -- ^ /Required/ /ReadOnly/ "id"
   , itemPocketDetailName :: !(Text) -- ^ /Required/ "name"
-  , itemPocketDetailCategories :: !([ItemCategorySummary]) -- ^ /Required/ "categories"
-  , itemPocketDetailNames :: !([ItemPocketName]) -- ^ /Required/ "names"
+  , itemPocketDetailCategories :: !([ItemCategorySummary]) -- ^ /Required/ /ReadOnly/ "categories"
+  , itemPocketDetailNames :: !([ItemPocketName]) -- ^ /Required/ /ReadOnly/ "names"
   } deriving (P.Show, P.Eq, P.Typeable)
 
 -- | FromJSON ItemPocketDetail
@@ -3524,7 +3524,7 @@ data LanguageDetail = LanguageDetail
   , languageDetailOfficial :: !(Maybe Bool) -- ^ "official"
   , languageDetailIso639 :: !(Text) -- ^ /Required/ "iso639"
   , languageDetailIso3166 :: !(Text) -- ^ /Required/ "iso3166"
-  , languageDetailNames :: !([LanguageName]) -- ^ /Required/ "names"
+  , languageDetailNames :: !([LanguageName]) -- ^ /Required/ /ReadOnly/ "names"
   } deriving (P.Show, P.Eq, P.Typeable)
 
 -- | FromJSON LanguageDetail
@@ -3643,10 +3643,10 @@ data LocationAreaDetail = LocationAreaDetail
   { locationAreaDetailId :: !(Int) -- ^ /Required/ /ReadOnly/ "id"
   , locationAreaDetailName :: !(Text) -- ^ /Required/ "name"
   , locationAreaDetailGameIndex :: !(Int) -- ^ /Required/ "game_index"
-  , locationAreaDetailEncounterMethodRates :: !([LocationAreaDetailEncounterMethodRatesInner]) -- ^ /Required/ "encounter_method_rates"
+  , locationAreaDetailEncounterMethodRates :: !([LocationAreaDetailEncounterMethodRatesInner]) -- ^ /Required/ /ReadOnly/ "encounter_method_rates"
   , locationAreaDetailLocation :: !(LocationSummary) -- ^ /Required/ "location"
-  , locationAreaDetailNames :: !([LocationAreaName]) -- ^ /Required/ "names"
-  , locationAreaDetailPokemonEncounters :: !([LocationAreaDetailPokemonEncountersInner]) -- ^ /Required/ "pokemon_encounters"
+  , locationAreaDetailNames :: !([LocationAreaName]) -- ^ /Required/ /ReadOnly/ "names"
+  , locationAreaDetailPokemonEncounters :: !([LocationAreaDetailPokemonEncountersInner]) -- ^ /Required/ /ReadOnly/ "pokemon_encounters"
   } deriving (P.Show, P.Eq, P.Typeable)
 
 -- | FromJSON LocationAreaDetail
@@ -3959,9 +3959,9 @@ data LocationDetail = LocationDetail
   { locationDetailId :: !(Int) -- ^ /Required/ /ReadOnly/ "id"
   , locationDetailName :: !(Text) -- ^ /Required/ "name"
   , locationDetailRegion :: !(RegionSummary) -- ^ /Required/ "region"
-  , locationDetailNames :: !([LocationName]) -- ^ /Required/ "names"
-  , locationDetailGameIndices :: !([LocationGameIndex]) -- ^ /Required/ "game_indices"
-  , locationDetailAreas :: !([LocationAreaSummary]) -- ^ /Required/ "areas"
+  , locationDetailNames :: !([LocationName]) -- ^ /Required/ /ReadOnly/ "names"
+  , locationDetailGameIndices :: !([LocationGameIndex]) -- ^ /Required/ /ReadOnly/ "game_indices"
+  , locationDetailAreas :: !([LocationAreaSummary]) -- ^ /Required/ /ReadOnly/ "areas"
   } deriving (P.Show, P.Eq, P.Typeable)
 
 -- | FromJSON LocationDetail
@@ -4187,7 +4187,7 @@ mkMachineSummary machineSummaryUrl =
 data MoveBattleStyleDetail = MoveBattleStyleDetail
   { moveBattleStyleDetailId :: !(Int) -- ^ /Required/ /ReadOnly/ "id"
   , moveBattleStyleDetailName :: !(Text) -- ^ /Required/ "name"
-  , moveBattleStyleDetailNames :: !([MoveBattleStyleName]) -- ^ /Required/ "names"
+  , moveBattleStyleDetailNames :: !([MoveBattleStyleName]) -- ^ /Required/ /ReadOnly/ "names"
   } deriving (P.Show, P.Eq, P.Typeable)
 
 -- | FromJSON MoveBattleStyleDetail
@@ -4296,7 +4296,7 @@ data MoveChange = MoveChange
   , moveChangePower :: !(Maybe Int) -- ^ "power"
   , moveChangePp :: !(Maybe Int) -- ^ "pp"
   , moveChangeEffectChance :: !(Int) -- ^ /Required/ "effect_chance"
-  , moveChangeEffectEntries :: !([MoveChangeEffectEntriesInner]) -- ^ /Required/ "effect_entries"
+  , moveChangeEffectEntries :: !([MoveChangeEffectEntriesInner]) -- ^ /Required/ /ReadOnly/ "effect_entries"
   , moveChangeType :: !(TypeSummary) -- ^ /Required/ "type"
   , moveChangeVersionGroup :: !(VersionGroupSummary) -- ^ /Required/ "version_group"
   } deriving (P.Show, P.Eq, P.Typeable)
@@ -4422,9 +4422,9 @@ mkMoveDamageClassDescription moveDamageClassDescriptionLanguage =
 data MoveDamageClassDetail = MoveDamageClassDetail
   { moveDamageClassDetailId :: !(Int) -- ^ /Required/ /ReadOnly/ "id"
   , moveDamageClassDetailName :: !(Text) -- ^ /Required/ "name"
-  , moveDamageClassDetailDescriptions :: !([MoveDamageClassDescription]) -- ^ /Required/ "descriptions"
-  , moveDamageClassDetailMoves :: !([MoveSummary]) -- ^ /Required/ "moves"
-  , moveDamageClassDetailNames :: !([MoveDamageClassName]) -- ^ /Required/ "names"
+  , moveDamageClassDetailDescriptions :: !([MoveDamageClassDescription]) -- ^ /Required/ /ReadOnly/ "descriptions"
+  , moveDamageClassDetailMoves :: !([MoveSummary]) -- ^ /Required/ /ReadOnly/ "moves"
+  , moveDamageClassDetailNames :: !([MoveDamageClassName]) -- ^ /Required/ /ReadOnly/ "names"
   } deriving (P.Show, P.Eq, P.Typeable)
 
 -- | FromJSON MoveDamageClassDetail
@@ -4548,19 +4548,19 @@ data MoveDetail = MoveDetail
   , moveDetailContestType :: !(ContestTypeSummary) -- ^ /Required/ "contest_type"
   , moveDetailContestEffect :: !(ContestEffectSummary) -- ^ /Required/ "contest_effect"
   , moveDetailDamageClass :: !(MoveDamageClassSummary) -- ^ /Required/ "damage_class"
-  , moveDetailEffectEntries :: !([MoveChangeEffectEntriesInner]) -- ^ /Required/ "effect_entries"
-  , moveDetailEffectChanges :: !([MoveDetailEffectChangesInner]) -- ^ /Required/ "effect_changes"
+  , moveDetailEffectEntries :: !([MoveChangeEffectEntriesInner]) -- ^ /Required/ /ReadOnly/ "effect_entries"
+  , moveDetailEffectChanges :: !([MoveDetailEffectChangesInner]) -- ^ /Required/ /ReadOnly/ "effect_changes"
   , moveDetailGeneration :: !(GenerationSummary) -- ^ /Required/ "generation"
   , moveDetailMeta :: !(MoveMeta) -- ^ /Required/ /ReadOnly/ "meta"
-  , moveDetailNames :: !([MoveName]) -- ^ /Required/ "names"
-  , moveDetailPastValues :: !([MoveChange]) -- ^ /Required/ "past_values"
-  , moveDetailStatChanges :: !([MoveDetailStatChangesInner]) -- ^ /Required/ "stat_changes"
+  , moveDetailNames :: !([MoveName]) -- ^ /Required/ /ReadOnly/ "names"
+  , moveDetailPastValues :: !([MoveChange]) -- ^ /Required/ /ReadOnly/ "past_values"
+  , moveDetailStatChanges :: !([MoveDetailStatChangesInner]) -- ^ /Required/ /ReadOnly/ "stat_changes"
   , moveDetailSuperContestEffect :: !(SuperContestEffectSummary) -- ^ /Required/ "super_contest_effect"
   , moveDetailTarget :: !(MoveTargetSummary) -- ^ /Required/ "target"
   , moveDetailType :: !(TypeSummary) -- ^ /Required/ "type"
-  , moveDetailMachines :: !([MoveDetailMachinesInner]) -- ^ /Required/ "machines"
-  , moveDetailFlavorTextEntries :: !([MoveFlavorText]) -- ^ /Required/ "flavor_text_entries"
-  , moveDetailLearnedByPokemon :: !([AbilityDetailPokemonInnerPokemon]) -- ^ /Required/ "learned_by_pokemon"
+  , moveDetailMachines :: !([MoveDetailMachinesInner]) -- ^ /Required/ /ReadOnly/ "machines"
+  , moveDetailFlavorTextEntries :: !([MoveFlavorText]) -- ^ /Required/ /ReadOnly/ "flavor_text_entries"
+  , moveDetailLearnedByPokemon :: !([AbilityDetailPokemonInnerPokemon]) -- ^ /Required/ /ReadOnly/ "learned_by_pokemon"
   } deriving (P.Show, P.Eq, P.Typeable)
 
 -- | FromJSON MoveDetail
@@ -4984,9 +4984,9 @@ mkMoveLearnMethodDescription moveLearnMethodDescriptionLanguage =
 data MoveLearnMethodDetail = MoveLearnMethodDetail
   { moveLearnMethodDetailId :: !(Int) -- ^ /Required/ /ReadOnly/ "id"
   , moveLearnMethodDetailName :: !(Text) -- ^ /Required/ "name"
-  , moveLearnMethodDetailNames :: !([MoveLearnMethodName]) -- ^ /Required/ "names"
-  , moveLearnMethodDetailDescriptions :: !([MoveLearnMethodDescription]) -- ^ /Required/ "descriptions"
-  , moveLearnMethodDetailVersionGroups :: !([AbilityDetailPokemonInnerPokemon]) -- ^ /Required/ "version_groups"
+  , moveLearnMethodDetailNames :: !([MoveLearnMethodName]) -- ^ /Required/ /ReadOnly/ "names"
+  , moveLearnMethodDetailDescriptions :: !([MoveLearnMethodDescription]) -- ^ /Required/ /ReadOnly/ "descriptions"
+  , moveLearnMethodDetailVersionGroups :: !([AbilityDetailPokemonInnerPokemon]) -- ^ /Required/ /ReadOnly/ "version_groups"
   } deriving (P.Show, P.Eq, P.Typeable)
 
 -- | FromJSON MoveLearnMethodDetail
@@ -5175,8 +5175,8 @@ mkMoveMeta moveMetaAilment moveMetaCategory =
 data MoveMetaAilmentDetail = MoveMetaAilmentDetail
   { moveMetaAilmentDetailId :: !(Int) -- ^ /Required/ /ReadOnly/ "id"
   , moveMetaAilmentDetailName :: !(Text) -- ^ /Required/ "name"
-  , moveMetaAilmentDetailMoves :: !([AbilityDetailPokemonInnerPokemon]) -- ^ /Required/ "moves"
-  , moveMetaAilmentDetailNames :: !([MoveMetaAilmentName]) -- ^ /Required/ "names"
+  , moveMetaAilmentDetailMoves :: !([AbilityDetailPokemonInnerPokemon]) -- ^ /Required/ /ReadOnly/ "moves"
+  , moveMetaAilmentDetailNames :: !([MoveMetaAilmentName]) -- ^ /Required/ /ReadOnly/ "names"
   } deriving (P.Show, P.Eq, P.Typeable)
 
 -- | FromJSON MoveMetaAilmentDetail
@@ -5320,8 +5320,8 @@ mkMoveMetaCategoryDescription moveMetaCategoryDescriptionLanguage =
 data MoveMetaCategoryDetail = MoveMetaCategoryDetail
   { moveMetaCategoryDetailId :: !(Int) -- ^ /Required/ /ReadOnly/ "id"
   , moveMetaCategoryDetailName :: !(Text) -- ^ /Required/ "name"
-  , moveMetaCategoryDetailDescriptions :: !([MoveMetaCategoryDescription]) -- ^ /Required/ "descriptions"
-  , moveMetaCategoryDetailMoves :: !([AbilityDetailPokemonInnerPokemon]) -- ^ /Required/ "moves"
+  , moveMetaCategoryDetailDescriptions :: !([MoveMetaCategoryDescription]) -- ^ /Required/ /ReadOnly/ "descriptions"
+  , moveMetaCategoryDetailMoves :: !([AbilityDetailPokemonInnerPokemon]) -- ^ /Required/ /ReadOnly/ "moves"
   } deriving (P.Show, P.Eq, P.Typeable)
 
 -- | FromJSON MoveMetaCategoryDetail
@@ -5499,9 +5499,9 @@ mkMoveTargetDescription moveTargetDescriptionLanguage =
 data MoveTargetDetail = MoveTargetDetail
   { moveTargetDetailId :: !(Int) -- ^ /Required/ /ReadOnly/ "id"
   , moveTargetDetailName :: !(Text) -- ^ /Required/ "name"
-  , moveTargetDetailDescriptions :: !([MoveTargetDescription]) -- ^ /Required/ "descriptions"
-  , moveTargetDetailMoves :: !([MoveSummary]) -- ^ /Required/ "moves"
-  , moveTargetDetailNames :: !([MoveTargetName]) -- ^ /Required/ "names"
+  , moveTargetDetailDescriptions :: !([MoveTargetDescription]) -- ^ /Required/ /ReadOnly/ "descriptions"
+  , moveTargetDetailMoves :: !([MoveSummary]) -- ^ /Required/ /ReadOnly/ "moves"
+  , moveTargetDetailNames :: !([MoveTargetName]) -- ^ /Required/ /ReadOnly/ "names"
   } deriving (P.Show, P.Eq, P.Typeable)
 
 -- | FromJSON MoveTargetDetail
@@ -5659,10 +5659,10 @@ data NatureDetail = NatureDetail
   , natureDetailIncreasedStat :: !(StatSummary) -- ^ /Required/ "increased_stat"
   , natureDetailLikesFlavor :: !(BerryFlavorSummary) -- ^ /Required/ "likes_flavor"
   , natureDetailHatesFlavor :: !(BerryFlavorSummary) -- ^ /Required/ "hates_flavor"
-  , natureDetailBerries :: !([BerrySummary]) -- ^ /Required/ "berries"
-  , natureDetailPokeathlonStatChanges :: !([NatureDetailPokeathlonStatChangesInner]) -- ^ /Required/ "pokeathlon_stat_changes"
-  , natureDetailMoveBattleStylePreferences :: !([NatureBattleStylePreference]) -- ^ /Required/ "move_battle_style_preferences"
-  , natureDetailNames :: !([NatureName]) -- ^ /Required/ "names"
+  , natureDetailBerries :: !([BerrySummary]) -- ^ /Required/ /ReadOnly/ "berries"
+  , natureDetailPokeathlonStatChanges :: !([NatureDetailPokeathlonStatChangesInner]) -- ^ /Required/ /ReadOnly/ "pokeathlon_stat_changes"
+  , natureDetailMoveBattleStylePreferences :: !([NatureBattleStylePreference]) -- ^ /Required/ /ReadOnly/ "move_battle_style_preferences"
+  , natureDetailNames :: !([NatureName]) -- ^ /Required/ /ReadOnly/ "names"
   } deriving (P.Show, P.Eq, P.Typeable)
 
 -- | FromJSON NatureDetail
@@ -7751,8 +7751,8 @@ mkPaginatedVersionSummaryList =
 data PalParkAreaDetail = PalParkAreaDetail
   { palParkAreaDetailId :: !(Int) -- ^ /Required/ /ReadOnly/ "id"
   , palParkAreaDetailName :: !(Text) -- ^ /Required/ "name"
-  , palParkAreaDetailNames :: !([PalParkAreaName]) -- ^ /Required/ "names"
-  , palParkAreaDetailPokemonEncounters :: !([PalParkAreaDetailPokemonEncountersInner]) -- ^ /Required/ "pokemon_encounters"
+  , palParkAreaDetailNames :: !([PalParkAreaName]) -- ^ /Required/ /ReadOnly/ "names"
+  , palParkAreaDetailPokemonEncounters :: !([PalParkAreaDetailPokemonEncountersInner]) -- ^ /Required/ /ReadOnly/ "pokemon_encounters"
   } deriving (P.Show, P.Eq, P.Typeable)
 
 -- | FromJSON PalParkAreaDetail
@@ -7903,7 +7903,7 @@ data PokeathlonStatDetail = PokeathlonStatDetail
   { pokeathlonStatDetailId :: !(Int) -- ^ /Required/ /ReadOnly/ "id"
   , pokeathlonStatDetailName :: !(Text) -- ^ /Required/ "name"
   , pokeathlonStatDetailAffectingNatures :: !(PokeathlonStatDetailAffectingNatures) -- ^ /Required/ "affecting_natures"
-  , pokeathlonStatDetailNames :: !([PokeathlonStatName]) -- ^ /Required/ "names"
+  , pokeathlonStatDetailNames :: !([PokeathlonStatName]) -- ^ /Required/ /ReadOnly/ "names"
   } deriving (P.Show, P.Eq, P.Typeable)
 
 -- | FromJSON PokeathlonStatDetail
@@ -8150,11 +8150,11 @@ data PokedexDetail = PokedexDetail
   { pokedexDetailId :: !(Int) -- ^ /Required/ /ReadOnly/ "id"
   , pokedexDetailName :: !(Text) -- ^ /Required/ "name"
   , pokedexDetailIsMainSeries :: !(Maybe Bool) -- ^ "is_main_series"
-  , pokedexDetailDescriptions :: !([PokedexDescription]) -- ^ /Required/ "descriptions"
-  , pokedexDetailNames :: !([PokedexName]) -- ^ /Required/ "names"
-  , pokedexDetailPokemonEntries :: !([PokedexDetailPokemonEntriesInner]) -- ^ /Required/ "pokemon_entries"
+  , pokedexDetailDescriptions :: !([PokedexDescription]) -- ^ /Required/ /ReadOnly/ "descriptions"
+  , pokedexDetailNames :: !([PokedexName]) -- ^ /Required/ /ReadOnly/ "names"
+  , pokedexDetailPokemonEntries :: !([PokedexDetailPokemonEntriesInner]) -- ^ /Required/ /ReadOnly/ "pokemon_entries"
   , pokedexDetailRegion :: !(RegionSummary) -- ^ /Required/ "region"
-  , pokedexDetailVersionGroups :: !([AbilityDetailPokemonInnerPokemon]) -- ^ /Required/ "version_groups"
+  , pokedexDetailVersionGroups :: !([AbilityDetailPokemonInnerPokemon]) -- ^ /Required/ /ReadOnly/ "version_groups"
   } deriving (P.Show, P.Eq, P.Typeable)
 
 -- | FromJSON PokedexDetail
@@ -8314,8 +8314,8 @@ mkPokedexSummary pokedexSummaryName pokedexSummaryUrl =
 data PokemonColorDetail = PokemonColorDetail
   { pokemonColorDetailId :: !(Int) -- ^ /Required/ /ReadOnly/ "id"
   , pokemonColorDetailName :: !(Text) -- ^ /Required/ "name"
-  , pokemonColorDetailNames :: !([PokemonColorName]) -- ^ /Required/ "names"
-  , pokemonColorDetailPokemonSpecies :: !([PokemonSpeciesSummary]) -- ^ /Required/ "pokemon_species"
+  , pokemonColorDetailNames :: !([PokemonColorName]) -- ^ /Required/ /ReadOnly/ "names"
+  , pokemonColorDetailPokemonSpecies :: !([PokemonSpeciesSummary]) -- ^ /Required/ /ReadOnly/ "pokemon_species"
   } deriving (P.Show, P.Eq, P.Typeable)
 
 -- | FromJSON PokemonColorDetail
@@ -8431,19 +8431,19 @@ data PokemonDetail = PokemonDetail
   , pokemonDetailIsDefault :: !(Maybe Bool) -- ^ "is_default"
   , pokemonDetailOrder :: !(Maybe Int) -- ^ "order"
   , pokemonDetailWeight :: !(Maybe Int) -- ^ "weight"
-  , pokemonDetailAbilities :: !([PokemonDetailAbilitiesInner]) -- ^ /Required/ "abilities"
-  , pokemonDetailPastAbilities :: !([PokemonDetailPastAbilitiesInner]) -- ^ /Required/ "past_abilities"
-  , pokemonDetailForms :: !([PokemonFormSummary]) -- ^ /Required/ "forms"
-  , pokemonDetailGameIndices :: !([PokemonGameIndex]) -- ^ /Required/ "game_indices"
+  , pokemonDetailAbilities :: !([PokemonDetailAbilitiesInner]) -- ^ /Required/ /ReadOnly/ "abilities"
+  , pokemonDetailPastAbilities :: !([PokemonDetailPastAbilitiesInner]) -- ^ /Required/ /ReadOnly/ "past_abilities"
+  , pokemonDetailForms :: !([PokemonFormSummary]) -- ^ /Required/ /ReadOnly/ "forms"
+  , pokemonDetailGameIndices :: !([PokemonGameIndex]) -- ^ /Required/ /ReadOnly/ "game_indices"
   , pokemonDetailHeldItems :: !(PokemonDetailHeldItems) -- ^ /Required/ "held_items"
   , pokemonDetailLocationAreaEncounters :: !(Text) -- ^ /Required/ /ReadOnly/ "location_area_encounters"
-  , pokemonDetailMoves :: !([PokemonDetailMovesInner]) -- ^ /Required/ "moves"
+  , pokemonDetailMoves :: !([PokemonDetailMovesInner]) -- ^ /Required/ /ReadOnly/ "moves"
   , pokemonDetailSpecies :: !(PokemonSpeciesSummary) -- ^ /Required/ "species"
   , pokemonDetailSprites :: !(PokemonDetailSprites) -- ^ /Required/ "sprites"
   , pokemonDetailCries :: !(PokemonDetailCries) -- ^ /Required/ "cries"
-  , pokemonDetailStats :: !([PokemonStat]) -- ^ /Required/ "stats"
-  , pokemonDetailTypes :: !([PokemonDetailTypesInner]) -- ^ /Required/ "types"
-  , pokemonDetailPastTypes :: !([PokemonDetailPastTypesInner]) -- ^ /Required/ "past_types"
+  , pokemonDetailStats :: !([PokemonStat]) -- ^ /Required/ /ReadOnly/ "stats"
+  , pokemonDetailTypes :: !([PokemonDetailTypesInner]) -- ^ /Required/ /ReadOnly/ "types"
+  , pokemonDetailPastTypes :: !([PokemonDetailPastTypesInner]) -- ^ /Required/ /ReadOnly/ "past_types"
   } deriving (P.Show, P.Eq, P.Typeable)
 
 -- | FromJSON PokemonDetail
@@ -8898,9 +8898,9 @@ data PokemonFormDetail = PokemonFormDetail
   , pokemonFormDetailPokemon :: !(PokemonSummary) -- ^ /Required/ "pokemon"
   , pokemonFormDetailSprites :: !(PokemonFormDetailSprites) -- ^ /Required/ "sprites"
   , pokemonFormDetailVersionGroup :: !(VersionGroupSummary) -- ^ /Required/ "version_group"
-  , pokemonFormDetailFormNames :: !([PokemonFormDetailFormNamesInner]) -- ^ /Required/ "form_names"
-  , pokemonFormDetailNames :: !([PokemonFormDetailFormNamesInner]) -- ^ /Required/ "names"
-  , pokemonFormDetailTypes :: !([PokemonDetailTypesInner]) -- ^ /Required/ "types"
+  , pokemonFormDetailFormNames :: !([PokemonFormDetailFormNamesInner]) -- ^ /Required/ /ReadOnly/ "form_names"
+  , pokemonFormDetailNames :: !([PokemonFormDetailFormNamesInner]) -- ^ /Required/ /ReadOnly/ "names"
+  , pokemonFormDetailTypes :: !([PokemonDetailTypesInner]) -- ^ /Required/ /ReadOnly/ "types"
   } deriving (P.Show, P.Eq, P.Typeable)
 
 -- | FromJSON PokemonFormDetail
@@ -9108,8 +9108,8 @@ mkPokemonGameIndex pokemonGameIndexGameIndex pokemonGameIndexVersion =
 data PokemonHabitatDetail = PokemonHabitatDetail
   { pokemonHabitatDetailId :: !(Int) -- ^ /Required/ /ReadOnly/ "id"
   , pokemonHabitatDetailName :: !(Text) -- ^ /Required/ "name"
-  , pokemonHabitatDetailNames :: !([PokemonHabitatName]) -- ^ /Required/ "names"
-  , pokemonHabitatDetailPokemonSpecies :: !([PokemonSpeciesSummary]) -- ^ /Required/ "pokemon_species"
+  , pokemonHabitatDetailNames :: !([PokemonHabitatName]) -- ^ /Required/ /ReadOnly/ "names"
+  , pokemonHabitatDetailPokemonSpecies :: !([PokemonSpeciesSummary]) -- ^ /Required/ /ReadOnly/ "pokemon_species"
   } deriving (P.Show, P.Eq, P.Typeable)
 
 -- | FromJSON PokemonHabitatDetail
@@ -9220,9 +9220,9 @@ mkPokemonHabitatSummary pokemonHabitatSummaryName pokemonHabitatSummaryUrl =
 data PokemonShapeDetail = PokemonShapeDetail
   { pokemonShapeDetailId :: !(Int) -- ^ /Required/ /ReadOnly/ "id"
   , pokemonShapeDetailName :: !(Text) -- ^ /Required/ "name"
-  , pokemonShapeDetailAwesomeNames :: !([PokemonShapeDetailAwesomeNamesInner]) -- ^ /Required/ "awesome_names"
-  , pokemonShapeDetailNames :: !([PokemonShapeDetailNamesInner]) -- ^ /Required/ "names"
-  , pokemonShapeDetailPokemonSpecies :: !([PokemonSpeciesSummary]) -- ^ /Required/ "pokemon_species"
+  , pokemonShapeDetailAwesomeNames :: !([PokemonShapeDetailAwesomeNamesInner]) -- ^ /Required/ /ReadOnly/ "awesome_names"
+  , pokemonShapeDetailNames :: !([PokemonShapeDetailNamesInner]) -- ^ /Required/ /ReadOnly/ "names"
+  , pokemonShapeDetailPokemonSpecies :: !([PokemonSpeciesSummary]) -- ^ /Required/ /ReadOnly/ "pokemon_species"
   } deriving (P.Show, P.Eq, P.Typeable)
 
 -- | FromJSON PokemonShapeDetail
@@ -9415,20 +9415,20 @@ data PokemonSpeciesDetail = PokemonSpeciesDetail
   , pokemonSpeciesDetailHasGenderDifferences :: !(Maybe Bool) -- ^ "has_gender_differences"
   , pokemonSpeciesDetailFormsSwitchable :: !(Maybe Bool) -- ^ "forms_switchable"
   , pokemonSpeciesDetailGrowthRate :: !(GrowthRateSummary) -- ^ /Required/ "growth_rate"
-  , pokemonSpeciesDetailPokedexNumbers :: !([PokemonDexEntry]) -- ^ /Required/ "pokedex_numbers"
-  , pokemonSpeciesDetailEggGroups :: !([AbilityDetailPokemonInnerPokemon]) -- ^ /Required/ "egg_groups"
+  , pokemonSpeciesDetailPokedexNumbers :: !([PokemonDexEntry]) -- ^ /Required/ /ReadOnly/ "pokedex_numbers"
+  , pokemonSpeciesDetailEggGroups :: !([AbilityDetailPokemonInnerPokemon]) -- ^ /Required/ /ReadOnly/ "egg_groups"
   , pokemonSpeciesDetailColor :: !(PokemonColorSummary) -- ^ /Required/ "color"
   , pokemonSpeciesDetailShape :: !(PokemonShapeSummary) -- ^ /Required/ "shape"
   , pokemonSpeciesDetailEvolvesFromSpecies :: !(PokemonSpeciesSummary) -- ^ /Required/ "evolves_from_species"
   , pokemonSpeciesDetailEvolutionChain :: !(EvolutionChainSummary) -- ^ /Required/ "evolution_chain"
   , pokemonSpeciesDetailHabitat :: !(PokemonHabitatSummary) -- ^ /Required/ "habitat"
   , pokemonSpeciesDetailGeneration :: !(GenerationSummary) -- ^ /Required/ "generation"
-  , pokemonSpeciesDetailNames :: !([PokemonFormDetailFormNamesInner]) -- ^ /Required/ "names"
-  , pokemonSpeciesDetailPalParkEncounters :: !([PokemonSpeciesDetailPalParkEncountersInner]) -- ^ /Required/ "pal_park_encounters"
-  , pokemonSpeciesDetailFormDescriptions :: !([PokemonSpeciesDescription]) -- ^ /Required/ "form_descriptions"
-  , pokemonSpeciesDetailFlavorTextEntries :: !([PokemonSpeciesFlavorText]) -- ^ /Required/ "flavor_text_entries"
-  , pokemonSpeciesDetailGenera :: !([PokemonSpeciesDetailGeneraInner]) -- ^ /Required/ "genera"
-  , pokemonSpeciesDetailVarieties :: !([PokemonSpeciesDetailVarietiesInner]) -- ^ /Required/ "varieties"
+  , pokemonSpeciesDetailNames :: !([PokemonFormDetailFormNamesInner]) -- ^ /Required/ /ReadOnly/ "names"
+  , pokemonSpeciesDetailPalParkEncounters :: !([PokemonSpeciesDetailPalParkEncountersInner]) -- ^ /Required/ /ReadOnly/ "pal_park_encounters"
+  , pokemonSpeciesDetailFormDescriptions :: !([PokemonSpeciesDescription]) -- ^ /Required/ /ReadOnly/ "form_descriptions"
+  , pokemonSpeciesDetailFlavorTextEntries :: !([PokemonSpeciesFlavorText]) -- ^ /Required/ /ReadOnly/ "flavor_text_entries"
+  , pokemonSpeciesDetailGenera :: !([PokemonSpeciesDetailGeneraInner]) -- ^ /Required/ /ReadOnly/ "genera"
+  , pokemonSpeciesDetailVarieties :: !([PokemonSpeciesDetailVarietiesInner]) -- ^ /Required/ /ReadOnly/ "varieties"
   } deriving (P.Show, P.Eq, P.Typeable)
 
 -- | FromJSON PokemonSpeciesDetail
@@ -9806,11 +9806,11 @@ mkPokemonSummary pokemonSummaryName pokemonSummaryUrl =
 data RegionDetail = RegionDetail
   { regionDetailId :: !(Int) -- ^ /Required/ /ReadOnly/ "id"
   , regionDetailName :: !(Text) -- ^ /Required/ "name"
-  , regionDetailLocations :: !([LocationSummary]) -- ^ /Required/ "locations"
+  , regionDetailLocations :: !([LocationSummary]) -- ^ /Required/ /ReadOnly/ "locations"
   , regionDetailMainGeneration :: !(GenerationSummary) -- ^ /Required/ /ReadOnly/ "main_generation"
-  , regionDetailNames :: !([RegionName]) -- ^ /Required/ "names"
-  , regionDetailPokedexes :: !([PokedexSummary]) -- ^ /Required/ "pokedexes"
-  , regionDetailVersionGroups :: !([AbilityDetailPokemonInnerPokemon]) -- ^ /Required/ "version_groups"
+  , regionDetailNames :: !([RegionName]) -- ^ /Required/ /ReadOnly/ "names"
+  , regionDetailPokedexes :: !([PokedexSummary]) -- ^ /Required/ /ReadOnly/ "pokedexes"
+  , regionDetailVersionGroups :: !([AbilityDetailPokemonInnerPokemon]) -- ^ /Required/ /ReadOnly/ "version_groups"
   } deriving (P.Show, P.Eq, P.Typeable)
 
 -- | FromJSON RegionDetail
@@ -9937,9 +9937,9 @@ data StatDetail = StatDetail
   , statDetailIsBattleOnly :: !(Maybe Bool) -- ^ "is_battle_only"
   , statDetailAffectingMoves :: !(StatDetailAffectingMoves) -- ^ /Required/ "affecting_moves"
   , statDetailAffectingNatures :: !(StatDetailAffectingNatures) -- ^ /Required/ "affecting_natures"
-  , statDetailCharacteristics :: !([CharacteristicSummary]) -- ^ /Required/ "characteristics"
+  , statDetailCharacteristics :: !([CharacteristicSummary]) -- ^ /Required/ /ReadOnly/ "characteristics"
   , statDetailMoveDamageClass :: !(MoveDamageClassSummary) -- ^ /Required/ "move_damage_class"
-  , statDetailNames :: !([StatName]) -- ^ /Required/ "names"
+  , statDetailNames :: !([StatName]) -- ^ /Required/ /ReadOnly/ "names"
   } deriving (P.Show, P.Eq, P.Typeable)
 
 -- | FromJSON StatDetail
@@ -10171,8 +10171,8 @@ mkStatSummary statSummaryName statSummaryUrl =
 data SuperContestEffectDetail = SuperContestEffectDetail
   { superContestEffectDetailId :: !(Int) -- ^ /Required/ /ReadOnly/ "id"
   , superContestEffectDetailAppeal :: !(Int) -- ^ /Required/ "appeal"
-  , superContestEffectDetailFlavorTextEntries :: !([SuperContestEffectFlavorText]) -- ^ /Required/ "flavor_text_entries"
-  , superContestEffectDetailMoves :: !([MoveSummary]) -- ^ /Required/ "moves"
+  , superContestEffectDetailFlavorTextEntries :: !([SuperContestEffectFlavorText]) -- ^ /Required/ /ReadOnly/ "flavor_text_entries"
+  , superContestEffectDetailMoves :: !([MoveSummary]) -- ^ /Required/ /ReadOnly/ "moves"
   } deriving (P.Show, P.Eq, P.Typeable)
 
 -- | FromJSON SuperContestEffectDetail
@@ -10280,13 +10280,13 @@ data TypeDetail = TypeDetail
   { typeDetailId :: !(Int) -- ^ /Required/ /ReadOnly/ "id"
   , typeDetailName :: !(Text) -- ^ /Required/ "name"
   , typeDetailDamageRelations :: !(TypeDetailDamageRelations) -- ^ /Required/ "damage_relations"
-  , typeDetailPastDamageRelations :: !([TypeDetailPastDamageRelationsInner]) -- ^ /Required/ "past_damage_relations"
-  , typeDetailGameIndices :: !([TypeGameIndex]) -- ^ /Required/ "game_indices"
+  , typeDetailPastDamageRelations :: !([TypeDetailPastDamageRelationsInner]) -- ^ /Required/ /ReadOnly/ "past_damage_relations"
+  , typeDetailGameIndices :: !([TypeGameIndex]) -- ^ /Required/ /ReadOnly/ "game_indices"
   , typeDetailGeneration :: !(GenerationSummary) -- ^ /Required/ "generation"
   , typeDetailMoveDamageClass :: !(MoveDamageClassSummary) -- ^ /Required/ "move_damage_class"
-  , typeDetailNames :: !([AbilityName]) -- ^ /Required/ "names"
-  , typeDetailPokemon :: !([TypeDetailPokemonInner]) -- ^ /Required/ "pokemon"
-  , typeDetailMoves :: !([MoveSummary]) -- ^ /Required/ "moves"
+  , typeDetailNames :: !([AbilityName]) -- ^ /Required/ /ReadOnly/ "names"
+  , typeDetailPokemon :: !([TypeDetailPokemonInner]) -- ^ /Required/ /ReadOnly/ "pokemon"
+  , typeDetailMoves :: !([MoveSummary]) -- ^ /Required/ /ReadOnly/ "moves"
   , typeDetailSprites :: !((Map.Map String (Map.Map String TypeDetailSpritesValueValue))) -- ^ /Required/ /ReadOnly/ "sprites"
   } deriving (P.Show, P.Eq, P.Typeable)
 
@@ -10661,7 +10661,7 @@ mkTypeSummary typeSummaryName typeSummaryUrl =
 data VersionDetail = VersionDetail
   { versionDetailId :: !(Int) -- ^ /Required/ /ReadOnly/ "id"
   , versionDetailName :: !(Text) -- ^ /Required/ "name"
-  , versionDetailNames :: !([VersionName]) -- ^ /Required/ "names"
+  , versionDetailNames :: !([VersionName]) -- ^ /Required/ /ReadOnly/ "names"
   , versionDetailVersionGroup :: !(VersionGroupSummary) -- ^ /Required/ "version_group"
   } deriving (P.Show, P.Eq, P.Typeable)
 
@@ -10707,10 +10707,10 @@ data VersionGroupDetail = VersionGroupDetail
   , versionGroupDetailName :: !(Text) -- ^ /Required/ "name"
   , versionGroupDetailOrder :: !(Maybe Int) -- ^ "order"
   , versionGroupDetailGeneration :: !(GenerationSummary) -- ^ /Required/ "generation"
-  , versionGroupDetailMoveLearnMethods :: !([AbilityDetailPokemonInnerPokemon]) -- ^ /Required/ "move_learn_methods"
-  , versionGroupDetailPokedexes :: !([AbilityDetailPokemonInnerPokemon]) -- ^ /Required/ "pokedexes"
-  , versionGroupDetailRegions :: !([AbilityDetailPokemonInnerPokemon]) -- ^ /Required/ "regions"
-  , versionGroupDetailVersions :: !([VersionSummary]) -- ^ /Required/ "versions"
+  , versionGroupDetailMoveLearnMethods :: !([AbilityDetailPokemonInnerPokemon]) -- ^ /Required/ /ReadOnly/ "move_learn_methods"
+  , versionGroupDetailPokedexes :: !([AbilityDetailPokemonInnerPokemon]) -- ^ /Required/ /ReadOnly/ "pokedexes"
+  , versionGroupDetailRegions :: !([AbilityDetailPokemonInnerPokemon]) -- ^ /Required/ /ReadOnly/ "regions"
+  , versionGroupDetailVersions :: !([VersionSummary]) -- ^ /Required/ /ReadOnly/ "versions"
   } deriving (P.Show, P.Eq, P.Typeable)
 
 -- | FromJSON VersionGroupDetail

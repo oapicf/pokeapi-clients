@@ -28,15 +28,15 @@ export interface ItemDetail {
     cost?: number | null;
     fling_power?: number | null;
     fling_effect: ItemFlingEffectSummary;
-    attributes: Array<AbilityDetailPokemonInnerPokemon>;
+    readonly attributes: Array<AbilityDetailPokemonInnerPokemon>;
     category: ItemCategorySummary;
-    effect_entries: Array<ItemEffectText>;
-    flavor_text_entries: Array<ItemFlavorText>;
-    game_indices: Array<ItemGameIndex>;
-    names: Array<ItemName>;
-    held_by_pokemon: Array<ItemDetailHeldByPokemonInner>;
+    readonly effect_entries: Array<ItemEffectText>;
+    readonly flavor_text_entries: Array<ItemFlavorText>;
+    readonly game_indices: Array<ItemGameIndex>;
+    readonly names: Array<ItemName>;
+    readonly held_by_pokemon: Array<ItemDetailHeldByPokemonInner>;
     sprites: ItemDetailSprites;
     baby_trigger_for: ItemDetailBabyTriggerFor;
-    machines: Array<ItemDetailMachinesInner>;
+    readonly machines: Array<ItemDetailMachinesInner>;
 }
 

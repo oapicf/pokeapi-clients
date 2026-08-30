@@ -55,7 +55,7 @@ import com.github.oapicf.pokeapiclient.JSON;
 /**
  * StatDetail
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-07T15:22:35.747827932Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-08-30T01:55:28.842792947Z[Etc/UTC]", comments = "Generator version: 7.24.0")
 public class StatDetail {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -106,10 +106,14 @@ public class StatDetail {
   }
 
   public StatDetail(
-     Integer id
+     Integer id, 
+     List<CharacteristicSummary> characteristics, 
+     List<StatName> names
   ) {
     this();
     this.id = id;
+    this.characteristics = characteristics;
+    this.names = names;
   }
 
   /**
@@ -218,19 +222,6 @@ public class StatDetail {
   }
 
 
-  public StatDetail characteristics(@javax.annotation.Nonnull List<CharacteristicSummary> characteristics) {
-    this.characteristics = characteristics;
-    return this;
-  }
-
-  public StatDetail addCharacteristicsItem(CharacteristicSummary characteristicsItem) {
-    if (this.characteristics == null) {
-      this.characteristics = new ArrayList<>();
-    }
-    this.characteristics.add(characteristicsItem);
-    return this;
-  }
-
   /**
    * Get characteristics
    * @return characteristics
@@ -240,9 +231,6 @@ public class StatDetail {
     return characteristics;
   }
 
-  public void setCharacteristics(@javax.annotation.Nonnull List<CharacteristicSummary> characteristics) {
-    this.characteristics = characteristics;
-  }
 
 
   public StatDetail moveDamageClass(@javax.annotation.Nonnull MoveDamageClassSummary moveDamageClass) {
@@ -264,19 +252,6 @@ public class StatDetail {
   }
 
 
-  public StatDetail names(@javax.annotation.Nonnull List<StatName> names) {
-    this.names = names;
-    return this;
-  }
-
-  public StatDetail addNamesItem(StatName namesItem) {
-    if (this.names == null) {
-      this.names = new ArrayList<>();
-    }
-    this.names.add(namesItem);
-    return this;
-  }
-
   /**
    * Get names
    * @return names
@@ -286,9 +261,6 @@ public class StatDetail {
     return names;
   }
 
-  public void setNames(@javax.annotation.Nonnull List<StatName> names) {
-    this.names = names;
-  }
 
 
 
@@ -339,10 +311,7 @@ public class StatDetail {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 
@@ -392,28 +361,28 @@ public class StatDetail {
       StatDetailAffectingMoves.validateJsonElement(jsonObj.get("affecting_moves"));
       // validate the required field `affecting_natures`
       StatDetailAffectingNatures.validateJsonElement(jsonObj.get("affecting_natures"));
-      // ensure the json data is an array
-      if (!jsonObj.get("characteristics").isJsonArray()) {
-        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `characteristics` to be an array in the JSON string but got `%s`", jsonObj.get("characteristics").toString()));
+      if (jsonObj.get("characteristics") != null) {
+        if (!jsonObj.get("characteristics").isJsonArray()) {
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `characteristics` to be an array in the JSON string but got `%s`", jsonObj.get("characteristics").toString()));
+        }
+        JsonArray jsonArraycharacteristics = jsonObj.getAsJsonArray("characteristics");
+        // validate the required field `characteristics` (array)
+        for (int i = 0; i < jsonArraycharacteristics.size(); i++) {
+          CharacteristicSummary.validateJsonElement(jsonArraycharacteristics.get(i));
+        }
       }
-
-      JsonArray jsonArraycharacteristics = jsonObj.getAsJsonArray("characteristics");
-      // validate the required field `characteristics` (array)
-      for (int i = 0; i < jsonArraycharacteristics.size(); i++) {
-        CharacteristicSummary.validateJsonElement(jsonArraycharacteristics.get(i));
-      };
       // validate the required field `move_damage_class`
       MoveDamageClassSummary.validateJsonElement(jsonObj.get("move_damage_class"));
-      // ensure the json data is an array
-      if (!jsonObj.get("names").isJsonArray()) {
-        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `names` to be an array in the JSON string but got `%s`", jsonObj.get("names").toString()));
+      if (jsonObj.get("names") != null) {
+        if (!jsonObj.get("names").isJsonArray()) {
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `names` to be an array in the JSON string but got `%s`", jsonObj.get("names").toString()));
+        }
+        JsonArray jsonArraynames = jsonObj.getAsJsonArray("names");
+        // validate the required field `names` (array)
+        for (int i = 0; i < jsonArraynames.size(); i++) {
+          StatName.validateJsonElement(jsonArraynames.get(i));
+        }
       }
-
-      JsonArray jsonArraynames = jsonObj.getAsJsonArray("names");
-      // validate the required field `names` (array)
-      for (int i = 0; i < jsonArraynames.size(); i++) {
-        StatName.validateJsonElement(jsonArraynames.get(i));
-      };
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {

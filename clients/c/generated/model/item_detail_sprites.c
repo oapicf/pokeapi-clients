@@ -12,18 +12,21 @@ static item_detail_sprites_t *item_detail_sprites_create_internal(
     if (!item_detail_sprites_local_var) {
         return NULL;
     }
-    item_detail_sprites_local_var->_default = _default;
-
+    memset(item_detail_sprites_local_var, 0, sizeof(item_detail_sprites_t));
     item_detail_sprites_local_var->_library_owned = 1;
+    item_detail_sprites_local_var->_default = _default;
     return item_detail_sprites_local_var;
 }
 
 __attribute__((deprecated)) item_detail_sprites_t *item_detail_sprites_create(
     char *_default
     ) {
-    return item_detail_sprites_create_internal (
+    item_detail_sprites_t *result = item_detail_sprites_create_internal (
         _default
         );
+    if (!result) {
+    }
+    return result;
 }
 
 void item_detail_sprites_free(item_detail_sprites_t *item_detail_sprites) {
@@ -65,6 +68,8 @@ item_detail_sprites_t *item_detail_sprites_parseFromJSON(cJSON *item_detail_spri
 
     item_detail_sprites_t *item_detail_sprites_local_var = NULL;
 
+    char *_default_local_str = NULL;
+
     // item_detail_sprites->_default
     cJSON *_default = cJSON_GetObjectItemCaseSensitive(item_detail_spritesJSON, "default");
     if (cJSON_IsNull(_default)) {
@@ -81,12 +86,22 @@ item_detail_sprites_t *item_detail_sprites_parseFromJSON(cJSON *item_detail_spri
     }
 
 
+    if (_default && !cJSON_IsNull(_default)) _default_local_str = strdup(_default->valuestring);
+
     item_detail_sprites_local_var = item_detail_sprites_create_internal (
-        strdup(_default->valuestring)
+        _default_local_str
         );
+
+    if (!item_detail_sprites_local_var) {
+        goto end;
+    }
 
     return item_detail_sprites_local_var;
 end:
+    if (_default_local_str) {
+        free(_default_local_str);
+        _default_local_str = NULL;
+    }
     return NULL;
 
 }

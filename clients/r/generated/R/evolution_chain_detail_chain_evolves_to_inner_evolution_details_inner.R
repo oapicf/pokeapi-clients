@@ -10,8 +10,8 @@
 #' @field gender  \link{EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender}
 #' @field held_item  \link{EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender}
 #' @field item  \link{EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender}
-#' @field known_move  object
-#' @field known_move_type  object
+#' @field known_move  \link{EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender}
+#' @field known_move_type  \link{EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender}
 #' @field location  \link{EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender}
 #' @field min_affection  integer
 #' @field min_beauty  integer
@@ -86,9 +86,11 @@ EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner <- R6::R6Class(
         self$`item` <- `item`
       }
       if (!missing(`known_move`)) {
+        stopifnot(R6::is.R6(`known_move`))
         self$`known_move` <- `known_move`
       }
       if (!missing(`known_move_type`)) {
+        stopifnot(R6::is.R6(`known_move_type`))
         self$`known_move_type` <- `known_move_type`
       }
       if (!missing(`location`)) {
@@ -200,27 +202,27 @@ EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner <- R6::R6Class(
       EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerObject <- list()
       if (!is.null(self$`gender`)) {
         EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerObject[["gender"]] <-
-          self$`gender`$toSimpleType()
+          self$extractSimpleType(self$`gender`)
       }
       if (!is.null(self$`held_item`)) {
         EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerObject[["held_item"]] <-
-          self$`held_item`$toSimpleType()
+          self$extractSimpleType(self$`held_item`)
       }
       if (!is.null(self$`item`)) {
         EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerObject[["item"]] <-
-          self$`item`$toSimpleType()
+          self$extractSimpleType(self$`item`)
       }
       if (!is.null(self$`known_move`)) {
         EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerObject[["known_move"]] <-
-          self$`known_move`
+          self$extractSimpleType(self$`known_move`)
       }
       if (!is.null(self$`known_move_type`)) {
         EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerObject[["known_move_type"]] <-
-          self$`known_move_type`
+          self$extractSimpleType(self$`known_move_type`)
       }
       if (!is.null(self$`location`)) {
         EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerObject[["location"]] <-
-          self$`location`$toSimpleType()
+          self$extractSimpleType(self$`location`)
       }
       if (!is.null(self$`min_affection`)) {
         EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerObject[["min_affection"]] <-
@@ -264,13 +266,36 @@ EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner <- R6::R6Class(
       }
       if (!is.null(self$`trigger`)) {
         EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerObject[["trigger"]] <-
-          self$`trigger`$toSimpleType()
+          self$extractSimpleType(self$`trigger`)
       }
       if (!is.null(self$`turn_upside_down`)) {
         EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerObject[["turn_upside_down"]] <-
           self$`turn_upside_down`
       }
       return(EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerObject)
+    },
+
+    extractSimpleType = function(x) {
+      if (R6::is.R6(x)) {
+        return(x$toSimpleType())
+      } else if (!self$hasNestedR6(x)) {
+        return(x)
+      }
+      lapply(x, self$extractSimpleType)
+    },
+
+    hasNestedR6 = function(x) {
+      if (R6::is.R6(x)) {
+        return(TRUE)
+      }
+      if (is.list(x)) {
+        for (item in x) {
+          if (self$hasNestedR6(item)) {
+            return(TRUE)
+          }
+        }
+      }
+      FALSE
     },
 
     #' @description
@@ -296,10 +321,14 @@ EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner <- R6::R6Class(
         self$`item` <- `item_object`
       }
       if (!is.null(this_object$`known_move`)) {
-        self$`known_move` <- this_object$`known_move`
+        `known_move_object` <- EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender$new()
+        `known_move_object`$fromJSON(jsonlite::toJSON(this_object$`known_move`, auto_unbox = TRUE, digits = NA))
+        self$`known_move` <- `known_move_object`
       }
       if (!is.null(this_object$`known_move_type`)) {
-        self$`known_move_type` <- this_object$`known_move_type`
+        `known_move_type_object` <- EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender$new()
+        `known_move_type_object`$fromJSON(jsonlite::toJSON(this_object$`known_move_type`, auto_unbox = TRUE, digits = NA))
+        self$`known_move_type` <- `known_move_type_object`
       }
       if (!is.null(this_object$`location`)) {
         `location_object` <- EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender$new()
@@ -368,8 +397,8 @@ EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner <- R6::R6Class(
       self$`gender` <- EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender$new()$fromJSON(jsonlite::toJSON(this_object$`gender`, auto_unbox = TRUE, digits = NA))
       self$`held_item` <- EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender$new()$fromJSON(jsonlite::toJSON(this_object$`held_item`, auto_unbox = TRUE, digits = NA))
       self$`item` <- EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender$new()$fromJSON(jsonlite::toJSON(this_object$`item`, auto_unbox = TRUE, digits = NA))
-      self$`known_move` <- this_object$`known_move`
-      self$`known_move_type` <- this_object$`known_move_type`
+      self$`known_move` <- EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender$new()$fromJSON(jsonlite::toJSON(this_object$`known_move`, auto_unbox = TRUE, digits = NA))
+      self$`known_move_type` <- EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender$new()$fromJSON(jsonlite::toJSON(this_object$`known_move_type`, auto_unbox = TRUE, digits = NA))
       self$`location` <- EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender$new()$fromJSON(jsonlite::toJSON(this_object$`location`, auto_unbox = TRUE, digits = NA))
       self$`min_affection` <- this_object$`min_affection`
       self$`min_beauty` <- this_object$`min_beauty`
@@ -412,11 +441,13 @@ EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner <- R6::R6Class(
       }
       # check the required field `known_move`
       if (!is.null(input_json$`known_move`)) {
+        stopifnot(R6::is.R6(input_json$`known_move`))
       } else {
         stop(paste("The JSON input `", input, "` is invalid for EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner: the required field `known_move` is missing."))
       }
       # check the required field `known_move_type`
       if (!is.null(input_json$`known_move_type`)) {
+        stopifnot(R6::is.R6(input_json$`known_move_type`))
       } else {
         stop(paste("The JSON input `", input, "` is invalid for EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner: the required field `known_move_type` is missing."))
       }

@@ -6,28 +6,37 @@
 
 
 static berry_detail_flavors_inner_t *berry_detail_flavors_inner_create_internal(
-    int potency,
+    int *potency,
     berry_detail_flavors_inner_flavor_t *flavor
     ) {
     berry_detail_flavors_inner_t *berry_detail_flavors_inner_local_var = malloc(sizeof(berry_detail_flavors_inner_t));
     if (!berry_detail_flavors_inner_local_var) {
         return NULL;
     }
+    memset(berry_detail_flavors_inner_local_var, 0, sizeof(berry_detail_flavors_inner_t));
+    berry_detail_flavors_inner_local_var->_library_owned = 1;
     berry_detail_flavors_inner_local_var->potency = potency;
     berry_detail_flavors_inner_local_var->flavor = flavor;
-
-    berry_detail_flavors_inner_local_var->_library_owned = 1;
     return berry_detail_flavors_inner_local_var;
 }
 
 __attribute__((deprecated)) berry_detail_flavors_inner_t *berry_detail_flavors_inner_create(
-    int potency,
+    int *potency,
     berry_detail_flavors_inner_flavor_t *flavor
     ) {
-    return berry_detail_flavors_inner_create_internal (
-        potency,
+    int *potency_copy = NULL;
+    if (potency) {
+        potency_copy = malloc(sizeof(int));
+        if (potency_copy) *potency_copy = *potency;
+    }
+    berry_detail_flavors_inner_t *result = berry_detail_flavors_inner_create_internal (
+        potency_copy,
         flavor
         );
+    if (!result) {
+        free(potency_copy);
+    }
+    return result;
 }
 
 void berry_detail_flavors_inner_free(berry_detail_flavors_inner_t *berry_detail_flavors_inner) {
@@ -39,6 +48,10 @@ void berry_detail_flavors_inner_free(berry_detail_flavors_inner_t *berry_detail_
         return ;
     }
     listEntry_t *listEntry;
+    if (berry_detail_flavors_inner->potency) {
+        free(berry_detail_flavors_inner->potency);
+        berry_detail_flavors_inner->potency = NULL;
+    }
     if (berry_detail_flavors_inner->flavor) {
         berry_detail_flavors_inner_flavor_free(berry_detail_flavors_inner->flavor);
         berry_detail_flavors_inner->flavor = NULL;
@@ -53,7 +66,7 @@ cJSON *berry_detail_flavors_inner_convertToJSON(berry_detail_flavors_inner_t *be
     if (!berry_detail_flavors_inner->potency) {
         goto fail;
     }
-    if(cJSON_AddNumberToObject(item, "potency", berry_detail_flavors_inner->potency) == NULL) {
+    if(cJSON_AddNumberToObject(item, "potency", *berry_detail_flavors_inner->potency) == NULL) {
     goto fail; //Numeric
     }
 
@@ -83,6 +96,9 @@ berry_detail_flavors_inner_t *berry_detail_flavors_inner_parseFromJSON(cJSON *be
 
     berry_detail_flavors_inner_t *berry_detail_flavors_inner_local_var = NULL;
 
+    // define the local variable for berry_detail_flavors_inner->potency
+    int *potency_local_var = NULL;
+
     // define the local variable for berry_detail_flavors_inner->flavor
     berry_detail_flavors_inner_flavor_t *flavor_local_nonprim = NULL;
 
@@ -100,6 +116,12 @@ berry_detail_flavors_inner_t *berry_detail_flavors_inner_parseFromJSON(cJSON *be
     {
     goto end; //Numeric
     }
+    potency_local_var = malloc(sizeof(int));
+    if(!potency_local_var)
+    {
+        goto end;
+    }
+    *potency_local_var = potency->valuedouble;
 
     // berry_detail_flavors_inner->flavor
     cJSON *flavor = cJSON_GetObjectItemCaseSensitive(berry_detail_flavors_innerJSON, "flavor");
@@ -114,13 +136,22 @@ berry_detail_flavors_inner_t *berry_detail_flavors_inner_parseFromJSON(cJSON *be
     flavor_local_nonprim = berry_detail_flavors_inner_flavor_parseFromJSON(flavor); //nonprimitive
 
 
+
     berry_detail_flavors_inner_local_var = berry_detail_flavors_inner_create_internal (
-        potency->valuedouble,
+        potency_local_var,
         flavor_local_nonprim
         );
 
+    if (!berry_detail_flavors_inner_local_var) {
+        goto end;
+    }
+
     return berry_detail_flavors_inner_local_var;
 end:
+    if (potency_local_var) {
+        free(potency_local_var);
+        potency_local_var = NULL;
+    }
     if (flavor_local_nonprim) {
         berry_detail_flavors_inner_flavor_free(flavor_local_nonprim);
         flavor_local_nonprim = NULL;

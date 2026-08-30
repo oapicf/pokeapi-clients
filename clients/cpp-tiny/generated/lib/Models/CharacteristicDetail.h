@@ -54,35 +54,35 @@ public:
 
 	/*! \brief Set 
 	 */
-	void setId(int  id);
+	void setId(int id);
 	/*! \brief Get 
 	 */
 	int getGeneModulo();
 
 	/*! \brief Set 
 	 */
-	void setGeneModulo(int  gene_modulo);
+	void setGeneModulo(int gene_modulo);
 	/*! \brief Get 
 	 */
 	std::list<int> getPossibleValues();
 
 	/*! \brief Set 
 	 */
-	void setPossibleValues(std::list <int> possible_values);
+	void setPossibleValues(std::list<int> possible_values);
 	/*! \brief Get 
 	 */
 	StatSummary getHighestStat();
 
 	/*! \brief Set 
 	 */
-	void setHighestStat(StatSummary  highest_stat);
+	void setHighestStat(StatSummary highest_stat);
 	/*! \brief Get 
 	 */
 	std::list<CharacteristicDescription> getDescriptions();
 
 	/*! \brief Set 
 	 */
-	void setDescriptions(std::list <CharacteristicDescription> descriptions);
+	void setDescriptions(std::list<CharacteristicDescription> descriptions);
 
 
     private:

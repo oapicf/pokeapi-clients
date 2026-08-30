@@ -47,7 +47,7 @@ class ItemDetail
      * @var int|null
      * @SerializedName("id")
      * @Type("int")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Type("int")]
     protected ?int $id = null;
@@ -56,7 +56,7 @@ class ItemDetail
      * @var string|null
      * @SerializedName("name")
      * @Type("string")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Type("string")]
     #[Assert\Length(max: 100)]
@@ -66,7 +66,7 @@ class ItemDetail
      * @var int|null
      * @SerializedName("cost")
      * @Type("int")
-    */
+     */
     #[Assert\Type("int")]
     protected ?int $cost = null;
 
@@ -74,7 +74,7 @@ class ItemDetail
      * @var int|null
      * @SerializedName("fling_power")
      * @Type("int")
-    */
+     */
     #[Assert\Type("int")]
     protected ?int $flingPower = null;
 
@@ -82,7 +82,7 @@ class ItemDetail
      * @var ItemFlingEffectSummary|null
      * @SerializedName("fling_effect")
      * @Type("OpenAPI\Server\Model\ItemFlingEffectSummary")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Valid]
     #[Assert\Type("OpenAPI\Server\Model\ItemFlingEffectSummary")]
@@ -92,7 +92,7 @@ class ItemDetail
      * @var AbilityDetailPokemonInnerPokemon[]|null
      * @SerializedName("attributes")
      * @Type("array<OpenAPI\Server\Model\AbilityDetailPokemonInnerPokemon>")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Valid]
     #[Assert\All([
@@ -104,7 +104,7 @@ class ItemDetail
      * @var ItemCategorySummary|null
      * @SerializedName("category")
      * @Type("OpenAPI\Server\Model\ItemCategorySummary")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Valid]
     #[Assert\Type("OpenAPI\Server\Model\ItemCategorySummary")]
@@ -114,7 +114,7 @@ class ItemDetail
      * @var ItemEffectText[]|null
      * @SerializedName("effect_entries")
      * @Type("array<OpenAPI\Server\Model\ItemEffectText>")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Valid]
     #[Assert\All([
@@ -126,7 +126,7 @@ class ItemDetail
      * @var ItemFlavorText[]|null
      * @SerializedName("flavor_text_entries")
      * @Type("array<OpenAPI\Server\Model\ItemFlavorText>")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Valid]
     #[Assert\All([
@@ -138,7 +138,7 @@ class ItemDetail
      * @var ItemGameIndex[]|null
      * @SerializedName("game_indices")
      * @Type("array<OpenAPI\Server\Model\ItemGameIndex>")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Valid]
     #[Assert\All([
@@ -150,7 +150,7 @@ class ItemDetail
      * @var ItemName[]|null
      * @SerializedName("names")
      * @Type("array<OpenAPI\Server\Model\ItemName>")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Valid]
     #[Assert\All([
@@ -162,7 +162,7 @@ class ItemDetail
      * @var ItemDetailHeldByPokemonInner[]|null
      * @SerializedName("held_by_pokemon")
      * @Type("array<OpenAPI\Server\Model\ItemDetailHeldByPokemonInner>")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Valid]
     #[Assert\All([
@@ -174,7 +174,7 @@ class ItemDetail
      * @var ItemDetailSprites|null
      * @SerializedName("sprites")
      * @Type("OpenAPI\Server\Model\ItemDetailSprites")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Valid]
     #[Assert\Type("OpenAPI\Server\Model\ItemDetailSprites")]
@@ -184,7 +184,7 @@ class ItemDetail
      * @var ItemDetailBabyTriggerFor|null
      * @SerializedName("baby_trigger_for")
      * @Type("OpenAPI\Server\Model\ItemDetailBabyTriggerFor")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Valid]
     #[Assert\Type("OpenAPI\Server\Model\ItemDetailBabyTriggerFor")]
@@ -194,7 +194,7 @@ class ItemDetail
      * @var ItemDetailMachinesInner[]|null
      * @SerializedName("machines")
      * @Type("array<OpenAPI\Server\Model\ItemDetailMachinesInner>")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Valid]
     #[Assert\All([
@@ -238,12 +238,12 @@ class ItemDetail
     }
 
     /**
-    * Sets id.
-    *
-    * @param int|null $id
-    *
-    * @return $this
-    */
+     * Sets id.
+     *
+     * @param int|null $id
+     *
+     * @return $this
+     */
     public function setId(?int $id): self
     {
         $this->id = $id;
@@ -265,12 +265,12 @@ class ItemDetail
     }
 
     /**
-    * Sets name.
-    *
-    * @param string|null $name
-    *
-    * @return $this
-    */
+     * Sets name.
+     *
+     * @param string|null $name
+     *
+     * @return $this
+     */
     public function setName(?string $name): self
     {
         $this->name = $name;
@@ -292,12 +292,12 @@ class ItemDetail
     }
 
     /**
-    * Sets cost.
-    *
-    * @param int|null $cost
-    *
-    * @return $this
-    */
+     * Sets cost.
+     *
+     * @param int|null $cost
+     *
+     * @return $this
+     */
     public function setCost(?int $cost = null): self
     {
         $this->cost = $cost;
@@ -319,12 +319,12 @@ class ItemDetail
     }
 
     /**
-    * Sets flingPower.
-    *
-    * @param int|null $flingPower
-    *
-    * @return $this
-    */
+     * Sets flingPower.
+     *
+     * @param int|null $flingPower
+     *
+     * @return $this
+     */
     public function setFlingPower(?int $flingPower = null): self
     {
         $this->flingPower = $flingPower;
@@ -346,12 +346,12 @@ class ItemDetail
     }
 
     /**
-    * Sets flingEffect.
-    *
-    * @param ItemFlingEffectSummary|null $flingEffect
-    *
-    * @return $this
-    */
+     * Sets flingEffect.
+     *
+     * @param ItemFlingEffectSummary|null $flingEffect
+     *
+     * @return $this
+     */
     public function setFlingEffect(?ItemFlingEffectSummary $flingEffect): self
     {
         $this->flingEffect = $flingEffect;
@@ -373,12 +373,12 @@ class ItemDetail
     }
 
     /**
-    * Sets attributes.
-    *
-    * @param AbilityDetailPokemonInnerPokemon[]|null $attributes
-    *
-    * @return $this
-    */
+     * Sets attributes.
+     *
+     * @param AbilityDetailPokemonInnerPokemon[]|null $attributes
+     *
+     * @return $this
+     */
     public function setAttributes(?array $attributes): self
     {
         $this->attributes = $attributes;
@@ -400,12 +400,12 @@ class ItemDetail
     }
 
     /**
-    * Sets category.
-    *
-    * @param ItemCategorySummary|null $category
-    *
-    * @return $this
-    */
+     * Sets category.
+     *
+     * @param ItemCategorySummary|null $category
+     *
+     * @return $this
+     */
     public function setCategory(?ItemCategorySummary $category): self
     {
         $this->category = $category;
@@ -427,12 +427,12 @@ class ItemDetail
     }
 
     /**
-    * Sets effectEntries.
-    *
-    * @param ItemEffectText[]|null $effectEntries
-    *
-    * @return $this
-    */
+     * Sets effectEntries.
+     *
+     * @param ItemEffectText[]|null $effectEntries
+     *
+     * @return $this
+     */
     public function setEffectEntries(?array $effectEntries): self
     {
         $this->effectEntries = $effectEntries;
@@ -454,12 +454,12 @@ class ItemDetail
     }
 
     /**
-    * Sets flavorTextEntries.
-    *
-    * @param ItemFlavorText[]|null $flavorTextEntries
-    *
-    * @return $this
-    */
+     * Sets flavorTextEntries.
+     *
+     * @param ItemFlavorText[]|null $flavorTextEntries
+     *
+     * @return $this
+     */
     public function setFlavorTextEntries(?array $flavorTextEntries): self
     {
         $this->flavorTextEntries = $flavorTextEntries;
@@ -481,12 +481,12 @@ class ItemDetail
     }
 
     /**
-    * Sets gameIndices.
-    *
-    * @param ItemGameIndex[]|null $gameIndices
-    *
-    * @return $this
-    */
+     * Sets gameIndices.
+     *
+     * @param ItemGameIndex[]|null $gameIndices
+     *
+     * @return $this
+     */
     public function setGameIndices(?array $gameIndices): self
     {
         $this->gameIndices = $gameIndices;
@@ -508,12 +508,12 @@ class ItemDetail
     }
 
     /**
-    * Sets names.
-    *
-    * @param ItemName[]|null $names
-    *
-    * @return $this
-    */
+     * Sets names.
+     *
+     * @param ItemName[]|null $names
+     *
+     * @return $this
+     */
     public function setNames(?array $names): self
     {
         $this->names = $names;
@@ -535,12 +535,12 @@ class ItemDetail
     }
 
     /**
-    * Sets heldByPokemon.
-    *
-    * @param ItemDetailHeldByPokemonInner[]|null $heldByPokemon
-    *
-    * @return $this
-    */
+     * Sets heldByPokemon.
+     *
+     * @param ItemDetailHeldByPokemonInner[]|null $heldByPokemon
+     *
+     * @return $this
+     */
     public function setHeldByPokemon(?array $heldByPokemon): self
     {
         $this->heldByPokemon = $heldByPokemon;
@@ -562,12 +562,12 @@ class ItemDetail
     }
 
     /**
-    * Sets sprites.
-    *
-    * @param ItemDetailSprites|null $sprites
-    *
-    * @return $this
-    */
+     * Sets sprites.
+     *
+     * @param ItemDetailSprites|null $sprites
+     *
+     * @return $this
+     */
     public function setSprites(?ItemDetailSprites $sprites): self
     {
         $this->sprites = $sprites;
@@ -589,12 +589,12 @@ class ItemDetail
     }
 
     /**
-    * Sets babyTriggerFor.
-    *
-    * @param ItemDetailBabyTriggerFor|null $babyTriggerFor
-    *
-    * @return $this
-    */
+     * Sets babyTriggerFor.
+     *
+     * @param ItemDetailBabyTriggerFor|null $babyTriggerFor
+     *
+     * @return $this
+     */
     public function setBabyTriggerFor(?ItemDetailBabyTriggerFor $babyTriggerFor): self
     {
         $this->babyTriggerFor = $babyTriggerFor;
@@ -616,12 +616,12 @@ class ItemDetail
     }
 
     /**
-    * Sets machines.
-    *
-    * @param ItemDetailMachinesInner[]|null $machines
-    *
-    * @return $this
-    */
+     * Sets machines.
+     *
+     * @param ItemDetailMachinesInner[]|null $machines
+     *
+     * @return $this
+     */
     public function setMachines(?array $machines): self
     {
         $this->machines = $machines;

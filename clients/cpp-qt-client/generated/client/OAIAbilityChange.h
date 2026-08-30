@@ -35,13 +35,13 @@ class OAIAbilityChangeEffectText;
 class OAIAbilityChange : public OAIObject {
 public:
     OAIAbilityChange();
-    OAIAbilityChange(QString json);
+    OAIAbilityChange(const QString &json);
     ~OAIAbilityChange() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     OAIVersionGroupSummary getVersionGroup() const;
     void setVersionGroup(const OAIVersionGroupSummary &version_group);

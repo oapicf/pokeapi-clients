@@ -85,7 +85,7 @@ BerryDetail_flavors_inner_flavor::getName()
 }
 
 void
-BerryDetail_flavors_inner_flavor::setName(std::string  name)
+BerryDetail_flavors_inner_flavor::setName(std::string name)
 {
 	this->name = name;
 }
@@ -97,7 +97,7 @@ BerryDetail_flavors_inner_flavor::getUrl()
 }
 
 void
-BerryDetail_flavors_inner_flavor::setUrl(std::string  url)
+BerryDetail_flavors_inner_flavor::setUrl(std::string url)
 {
 	this->url = url;
 }

@@ -32,7 +32,7 @@ class MovesApi : public Service {
 public:
     MovesApi() = default;
 
-    virtual ~MovesApi() = default;
+    virtual ~MovesApi();
 
     /**
     * List move meta ailments.

@@ -58,7 +58,7 @@ export interface StatDetail {
      * @type {Array<CharacteristicSummary>}
      * @memberof StatDetail
      */
-    characteristics: Array<CharacteristicSummary>;
+    readonly characteristics: Array<CharacteristicSummary>;
     /**
      * @type {MoveDamageClassSummary}
      * @memberof StatDetail
@@ -68,5 +68,5 @@ export interface StatDetail {
      * @type {Array<StatName>}
      * @memberof StatDetail
      */
-    names: Array<StatName>;
+    readonly names: Array<StatName>;
 }

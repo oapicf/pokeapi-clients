@@ -280,7 +280,7 @@ VersionGroupDetail::getId()
 }
 
 void
-VersionGroupDetail::setId(int  id)
+VersionGroupDetail::setId(int id)
 {
 	this->id = id;
 }
@@ -292,7 +292,7 @@ VersionGroupDetail::getName()
 }
 
 void
-VersionGroupDetail::setName(std::string  name)
+VersionGroupDetail::setName(std::string name)
 {
 	this->name = name;
 }
@@ -304,7 +304,7 @@ VersionGroupDetail::getOrder()
 }
 
 void
-VersionGroupDetail::setOrder(int  order)
+VersionGroupDetail::setOrder(int order)
 {
 	this->order = order;
 }
@@ -316,7 +316,7 @@ VersionGroupDetail::getGeneration()
 }
 
 void
-VersionGroupDetail::setGeneration(GenerationSummary  generation)
+VersionGroupDetail::setGeneration(GenerationSummary generation)
 {
 	this->generation = generation;
 }
@@ -328,7 +328,7 @@ VersionGroupDetail::getMoveLearnMethods()
 }
 
 void
-VersionGroupDetail::setMoveLearnMethods(std::list <AbilityDetail_pokemon_inner_pokemon> move_learn_methods)
+VersionGroupDetail::setMoveLearnMethods(std::list<AbilityDetail_pokemon_inner_pokemon> move_learn_methods)
 {
 	this->move_learn_methods = move_learn_methods;
 }
@@ -340,7 +340,7 @@ VersionGroupDetail::getPokedexes()
 }
 
 void
-VersionGroupDetail::setPokedexes(std::list <AbilityDetail_pokemon_inner_pokemon> pokedexes)
+VersionGroupDetail::setPokedexes(std::list<AbilityDetail_pokemon_inner_pokemon> pokedexes)
 {
 	this->pokedexes = pokedexes;
 }
@@ -352,7 +352,7 @@ VersionGroupDetail::getRegions()
 }
 
 void
-VersionGroupDetail::setRegions(std::list <AbilityDetail_pokemon_inner_pokemon> regions)
+VersionGroupDetail::setRegions(std::list<AbilityDetail_pokemon_inner_pokemon> regions)
 {
 	this->regions = regions;
 }
@@ -364,7 +364,7 @@ VersionGroupDetail::getVersions()
 }
 
 void
-VersionGroupDetail::setVersions(std::list <VersionSummary> versions)
+VersionGroupDetail::setVersions(std::list<VersionSummary> versions)
 {
 	this->versions = versions;
 }

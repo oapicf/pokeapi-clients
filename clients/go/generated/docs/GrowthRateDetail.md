@@ -7,9 +7,9 @@ Name | Type | Description | Notes
 **Id** | **int32** |  | [readonly] 
 **Name** | **string** |  | 
 **Formula** | **string** |  | 
-**Descriptions** | [**[]GrowthRateDescription**](GrowthRateDescription.md) |  | 
-**Levels** | [**[]Experience**](Experience.md) |  | 
-**PokemonSpecies** | [**[]PokemonSpeciesSummary**](PokemonSpeciesSummary.md) |  | 
+**Descriptions** | [**[]GrowthRateDescription**](GrowthRateDescription.md) |  | [readonly] 
+**Levels** | [**[]Experience**](Experience.md) |  | [readonly] 
+**PokemonSpecies** | [**[]PokemonSpeciesSummary**](PokemonSpeciesSummary.md) |  | [readonly] 
 
 ## Methods
 

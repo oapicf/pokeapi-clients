@@ -58,9 +58,9 @@ function Initialize-PokemonStat {
 
 
         $PSO = [PSCustomObject]@{
-            "base_stat" = ${BaseStat}
-            "effort" = ${Effort}
-            "stat" = ${Stat}
+            'base_stat' = ${BaseStat}
+            'effort' = ${Effort}
+            'stat' = ${Stat}
         }
 
 
@@ -98,7 +98,7 @@ function ConvertFrom-JsonToPokemonStat {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in PokemonStat
-        $AllProperties = ("base_stat", "effort", "stat")
+        $AllProperties = ('base_stat', 'effort', 'stat')
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -109,28 +109,28 @@ function ConvertFrom-JsonToPokemonStat {
             throw "Error! Empty JSON cannot be serialized due to the required property 'base_stat' missing."
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "base_stat"))) {
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'base_stat'))) {
             throw "Error! JSON cannot be serialized due to the required property 'base_stat' missing."
         } else {
-            $BaseStat = $JsonParameters.PSobject.Properties["base_stat"].value
+            $BaseStat = $JsonParameters.PSobject.Properties['base_stat'].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "effort"))) {
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'effort'))) {
             throw "Error! JSON cannot be serialized due to the required property 'effort' missing."
         } else {
-            $Effort = $JsonParameters.PSobject.Properties["effort"].value
+            $Effort = $JsonParameters.PSobject.Properties['effort'].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "stat"))) {
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'stat'))) {
             throw "Error! JSON cannot be serialized due to the required property 'stat' missing."
         } else {
-            $Stat = $JsonParameters.PSobject.Properties["stat"].value
+            $Stat = $JsonParameters.PSobject.Properties['stat'].value
         }
 
         $PSO = [PSCustomObject]@{
-            "base_stat" = ${BaseStat}
-            "effort" = ${Effort}
-            "stat" = ${Stat}
+            'base_stat' = ${BaseStat}
+            'effort' = ${Effort}
+            'stat' = ${Stat}
         }
 
         return $PSO

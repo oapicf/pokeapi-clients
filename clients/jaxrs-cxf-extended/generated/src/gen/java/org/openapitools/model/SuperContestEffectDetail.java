@@ -92,6 +92,7 @@ public class SuperContestEffectDetail  {
 
   /**
    * Sets the <code>flavorTextEntries</code> property.
+   * <br><em>N.B. <code>flavorTextEntries</code> is <b>read only</b>; client code should not call this method</em>.
    */
  public void setFlavorTextEntries(List<@Valid SuperContestEffectFlavorText> flavorTextEntries) {
     this.flavorTextEntries = flavorTextEntries;
@@ -99,6 +100,7 @@ public class SuperContestEffectDetail  {
 
   /**
    * Sets the <code>flavorTextEntries</code> property.
+   * <br><em>N.B. <code>flavorTextEntries</code> is <b>read only</b>; client code should not call this method</em>.
    */
   public SuperContestEffectDetail flavorTextEntries(List<@Valid SuperContestEffectFlavorText> flavorTextEntries) {
     this.flavorTextEntries = flavorTextEntries;
@@ -107,6 +109,7 @@ public class SuperContestEffectDetail  {
 
   /**
    * Adds a new item to the <code>flavorTextEntries</code> list.
+   * <br><em>N.B. <code>flavorTextEntries</code> is <b>read only</b>; client code should not call this method</em>.
    */
   public SuperContestEffectDetail addFlavorTextEntriesItem(SuperContestEffectFlavorText flavorTextEntriesItem) {
     this.flavorTextEntries.add(flavorTextEntriesItem);
@@ -125,6 +128,7 @@ public class SuperContestEffectDetail  {
 
   /**
    * Sets the <code>moves</code> property.
+   * <br><em>N.B. <code>moves</code> is <b>read only</b>; client code should not call this method</em>.
    */
  public void setMoves(List<@Valid MoveSummary> moves) {
     this.moves = moves;
@@ -132,6 +136,7 @@ public class SuperContestEffectDetail  {
 
   /**
    * Sets the <code>moves</code> property.
+   * <br><em>N.B. <code>moves</code> is <b>read only</b>; client code should not call this method</em>.
    */
   public SuperContestEffectDetail moves(List<@Valid MoveSummary> moves) {
     this.moves = moves;
@@ -140,6 +145,7 @@ public class SuperContestEffectDetail  {
 
   /**
    * Adds a new item to the <code>moves</code> list.
+   * <br><em>N.B. <code>moves</code> is <b>read only</b>; client code should not call this method</em>.
    */
   public SuperContestEffectDetail addMovesItem(MoveSummary movesItem) {
     this.moves.add(movesItem);
@@ -185,10 +191,7 @@ public class SuperContestEffectDetail  {
    * (except the first line).
    */
   private static String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 }
 

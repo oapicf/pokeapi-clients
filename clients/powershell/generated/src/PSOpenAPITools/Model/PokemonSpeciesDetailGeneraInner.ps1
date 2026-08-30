@@ -49,8 +49,8 @@ function Initialize-PokemonSpeciesDetailGeneraInner {
 
 
         $PSO = [PSCustomObject]@{
-            "genus" = ${Genus}
-            "language" = ${Language}
+            'genus' = ${Genus}
+            'language' = ${Language}
         }
 
 
@@ -88,7 +88,7 @@ function ConvertFrom-JsonToPokemonSpeciesDetailGeneraInner {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in PokemonSpeciesDetailGeneraInner
-        $AllProperties = ("genus", "language")
+        $AllProperties = ('genus', 'language')
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -99,21 +99,21 @@ function ConvertFrom-JsonToPokemonSpeciesDetailGeneraInner {
             throw "Error! Empty JSON cannot be serialized due to the required property 'genus' missing."
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "genus"))) {
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'genus'))) {
             throw "Error! JSON cannot be serialized due to the required property 'genus' missing."
         } else {
-            $Genus = $JsonParameters.PSobject.Properties["genus"].value
+            $Genus = $JsonParameters.PSobject.Properties['genus'].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "language"))) {
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'language'))) {
             throw "Error! JSON cannot be serialized due to the required property 'language' missing."
         } else {
-            $Language = $JsonParameters.PSobject.Properties["language"].value
+            $Language = $JsonParameters.PSobject.Properties['language'].value
         }
 
         $PSO = [PSCustomObject]@{
-            "genus" = ${Genus}
-            "language" = ${Language}
+            'genus' = ${Genus}
+            'language' = ${Language}
         }
 
         return $PSO

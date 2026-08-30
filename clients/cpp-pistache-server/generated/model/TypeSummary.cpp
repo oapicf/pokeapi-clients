@@ -26,6 +26,8 @@ TypeSummary::TypeSummary()
     
 }
 
+TypeSummary::~TypeSummary() = default;
+
 void TypeSummary::validate() const
 {
     std::stringstream msg;

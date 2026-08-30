@@ -13,19 +13,19 @@ Name | Type | Description | Notes
 **isDefault** | **Boolean** |  |  [optional]
 **order** | **Integer** |  |  [optional]
 **weight** | **Integer** |  |  [optional]
-**abilities** | [**List&lt;PokemonDetailAbilitiesInner&gt;**](PokemonDetailAbilitiesInner.md) |  | 
-**pastAbilities** | [**List&lt;PokemonDetailPastAbilitiesInner&gt;**](PokemonDetailPastAbilitiesInner.md) |  | 
-**forms** | [**List&lt;PokemonFormSummary&gt;**](PokemonFormSummary.md) |  | 
-**gameIndices** | [**List&lt;PokemonGameIndex&gt;**](PokemonGameIndex.md) |  | 
+**abilities** | [**List&lt;PokemonDetailAbilitiesInner&gt;**](PokemonDetailAbilitiesInner.md) |  |  [readonly]
+**pastAbilities** | [**List&lt;PokemonDetailPastAbilitiesInner&gt;**](PokemonDetailPastAbilitiesInner.md) |  |  [readonly]
+**forms** | [**List&lt;PokemonFormSummary&gt;**](PokemonFormSummary.md) |  |  [readonly]
+**gameIndices** | [**List&lt;PokemonGameIndex&gt;**](PokemonGameIndex.md) |  |  [readonly]
 **heldItems** | [**PokemonDetailHeldItems**](PokemonDetailHeldItems.md) |  | 
 **locationAreaEncounters** | **String** |  |  [readonly]
-**moves** | [**List&lt;PokemonDetailMovesInner&gt;**](PokemonDetailMovesInner.md) |  | 
+**moves** | [**List&lt;PokemonDetailMovesInner&gt;**](PokemonDetailMovesInner.md) |  |  [readonly]
 **species** | [**PokemonSpeciesSummary**](PokemonSpeciesSummary.md) |  | 
 **sprites** | [**PokemonDetailSprites**](PokemonDetailSprites.md) |  | 
 **cries** | [**PokemonDetailCries**](PokemonDetailCries.md) |  | 
-**stats** | [**List&lt;PokemonStat&gt;**](PokemonStat.md) |  | 
-**types** | [**List&lt;PokemonDetailTypesInner&gt;**](PokemonDetailTypesInner.md) |  | 
-**pastTypes** | [**List&lt;PokemonDetailPastTypesInner&gt;**](PokemonDetailPastTypesInner.md) |  | 
+**stats** | [**List&lt;PokemonStat&gt;**](PokemonStat.md) |  |  [readonly]
+**types** | [**List&lt;PokemonDetailTypesInner&gt;**](PokemonDetailTypesInner.md) |  |  [readonly]
+**pastTypes** | [**List&lt;PokemonDetailPastTypesInner&gt;**](PokemonDetailPastTypesInner.md) |  |  [readonly]
 
 
 

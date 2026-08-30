@@ -68,13 +68,36 @@ MoveDetailContestCombos <- R6::R6Class(
       MoveDetailContestCombosObject <- list()
       if (!is.null(self$`normal`)) {
         MoveDetailContestCombosObject[["normal"]] <-
-          self$`normal`$toSimpleType()
+          self$extractSimpleType(self$`normal`)
       }
       if (!is.null(self$`item_super`)) {
         MoveDetailContestCombosObject[["super"]] <-
-          self$`item_super`$toSimpleType()
+          self$extractSimpleType(self$`item_super`)
       }
       return(MoveDetailContestCombosObject)
+    },
+
+    extractSimpleType = function(x) {
+      if (R6::is.R6(x)) {
+        return(x$toSimpleType())
+      } else if (!self$hasNestedR6(x)) {
+        return(x)
+      }
+      lapply(x, self$extractSimpleType)
+    },
+
+    hasNestedR6 = function(x) {
+      if (R6::is.R6(x)) {
+        return(TRUE)
+      }
+      if (is.list(x)) {
+        for (item in x) {
+          if (self$hasNestedR6(item)) {
+            return(TRUE)
+          }
+        }
+      }
+      FALSE
     },
 
     #' @description

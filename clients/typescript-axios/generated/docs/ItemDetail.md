@@ -10,16 +10,16 @@ Name | Type | Description | Notes
 **cost** | **number** |  | [optional] [default to undefined]
 **fling_power** | **number** |  | [optional] [default to undefined]
 **fling_effect** | [**ItemFlingEffectSummary**](ItemFlingEffectSummary.md) |  | [default to undefined]
-**attributes** | [**Array&lt;AbilityDetailPokemonInnerPokemon&gt;**](AbilityDetailPokemonInnerPokemon.md) |  | [default to undefined]
+**attributes** | [**Array&lt;AbilityDetailPokemonInnerPokemon&gt;**](AbilityDetailPokemonInnerPokemon.md) |  | [readonly] [default to undefined]
 **category** | [**ItemCategorySummary**](ItemCategorySummary.md) |  | [default to undefined]
-**effect_entries** | [**Array&lt;ItemEffectText&gt;**](ItemEffectText.md) |  | [default to undefined]
-**flavor_text_entries** | [**Array&lt;ItemFlavorText&gt;**](ItemFlavorText.md) |  | [default to undefined]
-**game_indices** | [**Array&lt;ItemGameIndex&gt;**](ItemGameIndex.md) |  | [default to undefined]
-**names** | [**Array&lt;ItemName&gt;**](ItemName.md) |  | [default to undefined]
-**held_by_pokemon** | [**Array&lt;ItemDetailHeldByPokemonInner&gt;**](ItemDetailHeldByPokemonInner.md) |  | [default to undefined]
+**effect_entries** | [**Array&lt;ItemEffectText&gt;**](ItemEffectText.md) |  | [readonly] [default to undefined]
+**flavor_text_entries** | [**Array&lt;ItemFlavorText&gt;**](ItemFlavorText.md) |  | [readonly] [default to undefined]
+**game_indices** | [**Array&lt;ItemGameIndex&gt;**](ItemGameIndex.md) |  | [readonly] [default to undefined]
+**names** | [**Array&lt;ItemName&gt;**](ItemName.md) |  | [readonly] [default to undefined]
+**held_by_pokemon** | [**Array&lt;ItemDetailHeldByPokemonInner&gt;**](ItemDetailHeldByPokemonInner.md) |  | [readonly] [default to undefined]
 **sprites** | [**ItemDetailSprites**](ItemDetailSprites.md) |  | [default to undefined]
 **baby_trigger_for** | [**ItemDetailBabyTriggerFor**](ItemDetailBabyTriggerFor.md) |  | [default to undefined]
-**machines** | [**Array&lt;ItemDetailMachinesInner&gt;**](ItemDetailMachinesInner.md) |  | [default to undefined]
+**machines** | [**Array&lt;ItemDetailMachinesInner&gt;**](ItemDetailMachinesInner.md) |  | [readonly] [default to undefined]
 
 ## Example
 

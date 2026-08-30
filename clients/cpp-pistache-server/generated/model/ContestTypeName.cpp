@@ -26,6 +26,8 @@ ContestTypeName::ContestTypeName()
     
 }
 
+ContestTypeName::~ContestTypeName() = default;
+
 void ContestTypeName::validate() const
 {
     std::stringstream msg;

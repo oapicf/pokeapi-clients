@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The PokemonShapeDetailNamesInner model module.
  * @module model/PokemonShapeDetailNamesInner
- * @version 1.2.1-pre.0
+ * @version 2.0.1-pre.0
  */
 class PokemonShapeDetailNamesInner {
     /**

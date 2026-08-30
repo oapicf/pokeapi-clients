@@ -99,10 +99,20 @@ class PokedexDetail {
       // Note 1: the values aren't checked for validity beyond being non-null.
       // Note 2: this code is stripped in release mode!
       assert(() {
-        requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "PokedexDetail[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "PokedexDetail[$key]" has a null value in JSON.');
-        });
+        assert(json.containsKey(r'id'), 'Required key "PokedexDetail[id]" is missing from JSON.');
+        assert(json[r'id'] != null, 'Required key "PokedexDetail[id]" has a null value in JSON.');
+        assert(json.containsKey(r'name'), 'Required key "PokedexDetail[name]" is missing from JSON.');
+        assert(json[r'name'] != null, 'Required key "PokedexDetail[name]" has a null value in JSON.');
+        assert(json.containsKey(r'descriptions'), 'Required key "PokedexDetail[descriptions]" is missing from JSON.');
+        assert(json[r'descriptions'] != null, 'Required key "PokedexDetail[descriptions]" has a null value in JSON.');
+        assert(json.containsKey(r'names'), 'Required key "PokedexDetail[names]" is missing from JSON.');
+        assert(json[r'names'] != null, 'Required key "PokedexDetail[names]" has a null value in JSON.');
+        assert(json.containsKey(r'pokemon_entries'), 'Required key "PokedexDetail[pokemon_entries]" is missing from JSON.');
+        assert(json[r'pokemon_entries'] != null, 'Required key "PokedexDetail[pokemon_entries]" has a null value in JSON.');
+        assert(json.containsKey(r'region'), 'Required key "PokedexDetail[region]" is missing from JSON.');
+        assert(json[r'region'] != null, 'Required key "PokedexDetail[region]" has a null value in JSON.');
+        assert(json.containsKey(r'version_groups'), 'Required key "PokedexDetail[version_groups]" is missing from JSON.');
+        assert(json[r'version_groups'] != null, 'Required key "PokedexDetail[version_groups]" has a null value in JSON.');
         return true;
       }());
 

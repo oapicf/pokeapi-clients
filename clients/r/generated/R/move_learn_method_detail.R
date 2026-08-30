@@ -104,17 +104,40 @@ MoveLearnMethodDetail <- R6::R6Class(
       }
       if (!is.null(self$`names`)) {
         MoveLearnMethodDetailObject[["names"]] <-
-          lapply(self$`names`, function(x) x$toSimpleType())
+          self$extractSimpleType(self$`names`)
       }
       if (!is.null(self$`descriptions`)) {
         MoveLearnMethodDetailObject[["descriptions"]] <-
-          lapply(self$`descriptions`, function(x) x$toSimpleType())
+          self$extractSimpleType(self$`descriptions`)
       }
       if (!is.null(self$`version_groups`)) {
         MoveLearnMethodDetailObject[["version_groups"]] <-
-          lapply(self$`version_groups`, function(x) x$toSimpleType())
+          self$extractSimpleType(self$`version_groups`)
       }
       return(MoveLearnMethodDetailObject)
+    },
+
+    extractSimpleType = function(x) {
+      if (R6::is.R6(x)) {
+        return(x$toSimpleType())
+      } else if (!self$hasNestedR6(x)) {
+        return(x)
+      }
+      lapply(x, self$extractSimpleType)
+    },
+
+    hasNestedR6 = function(x) {
+      if (R6::is.R6(x)) {
+        return(TRUE)
+      }
+      if (is.list(x)) {
+        for (item in x) {
+          if (self$hasNestedR6(item)) {
+            return(TRUE)
+          }
+        }
+      }
+      FALSE
     },
 
     #' @description

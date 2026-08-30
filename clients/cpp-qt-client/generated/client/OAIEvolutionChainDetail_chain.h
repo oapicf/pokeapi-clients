@@ -36,13 +36,13 @@ class OAIAbilityDetail_pokemon_inner_pokemon;
 class OAIEvolutionChainDetail_chain : public OAIObject {
 public:
     OAIEvolutionChainDetail_chain();
-    OAIEvolutionChainDetail_chain(QString json);
+    OAIEvolutionChainDetail_chain(const QString &json);
     ~OAIEvolutionChainDetail_chain() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     QList<QJsonValue> getEvolutionDetails() const;
     void setEvolutionDetails(const QList<QJsonValue> &evolution_details);

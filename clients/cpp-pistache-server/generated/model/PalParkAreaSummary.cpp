@@ -26,6 +26,8 @@ PalParkAreaSummary::PalParkAreaSummary()
     
 }
 
+PalParkAreaSummary::~PalParkAreaSummary() = default;
+
 void PalParkAreaSummary::validate() const
 {
     std::stringstream msg;

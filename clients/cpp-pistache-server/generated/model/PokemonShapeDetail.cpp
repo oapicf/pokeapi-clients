@@ -26,6 +26,8 @@ PokemonShapeDetail::PokemonShapeDetail()
     
 }
 
+PokemonShapeDetail::~PokemonShapeDetail() = default;
+
 void PokemonShapeDetail::validate() const
 {
     std::stringstream msg;

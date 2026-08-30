@@ -33,7 +33,7 @@ class  EncounterConditionValueName
 {
 public:
     EncounterConditionValueName();
-    virtual ~EncounterConditionValueName() = default;
+    virtual ~EncounterConditionValueName();
 
 
     /// <summary>

@@ -22,7 +22,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
 
 
 @JsonTypeName("LocationAreaDetail_encounter_method_rates_inner")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2026-02-07T15:24:06.001755207Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2026-08-30T01:56:42.280002256Z[Etc/UTC]", comments = "Generator version: 7.24.0")
 public class LocationAreaDetailEncounterMethodRatesInner   {
   private AbilityDetailPokemonInnerPokemon encounterMethod;
   private @Valid List<@Valid LocationAreaDetailEncounterMethodRatesInnerVersionDetailsInner> versionDetails = new ArrayList<>();
@@ -128,12 +128,8 @@ public class LocationAreaDetailEncounterMethodRatesInner   {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 
 }
-

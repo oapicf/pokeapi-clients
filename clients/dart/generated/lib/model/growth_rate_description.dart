@@ -63,10 +63,8 @@ class GrowthRateDescription {
       // Note 1: the values aren't checked for validity beyond being non-null.
       // Note 2: this code is stripped in release mode!
       assert(() {
-        requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "GrowthRateDescription[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "GrowthRateDescription[$key]" has a null value in JSON.');
-        });
+        assert(json.containsKey(r'language'), 'Required key "GrowthRateDescription[language]" is missing from JSON.');
+        assert(json[r'language'] != null, 'Required key "GrowthRateDescription[language]" has a null value in JSON.');
         return true;
       }());
 

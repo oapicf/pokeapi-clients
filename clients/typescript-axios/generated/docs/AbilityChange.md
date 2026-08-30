@@ -6,7 +6,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **version_group** | [**VersionGroupSummary**](VersionGroupSummary.md) |  | [default to undefined]
-**effect_entries** | [**Array&lt;AbilityChangeEffectText&gt;**](AbilityChangeEffectText.md) |  | [default to undefined]
+**effect_entries** | [**Array&lt;AbilityChangeEffectText&gt;**](AbilityChangeEffectText.md) |  | [readonly] [default to undefined]
 
 ## Example
 

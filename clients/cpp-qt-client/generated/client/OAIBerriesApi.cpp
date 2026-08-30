@@ -51,9 +51,9 @@ void OAIBerriesApi::initializeServerConfigs() {
 }
 
 /**
-* returns 0 on success and -1, -2 or -3 on failure.
-* -1 when the variable does not exist and -2 if the value is not defined in the enum and -3 if the operation or server index is not found
-*/
+ * returns 0 on success and -1, -2 or -3 on failure.
+ * -1 when the variable does not exist and -2 if the value is not defined in the enum and -3 if the operation or server index is not found
+ */
 int OAIBerriesApi::setDefaultServerValue(int serverIndex, const QString &operation, const QString &variable, const QString &value) {
     auto it = _serverConfigs.find(operation);
     if (it != _serverConfigs.end() && serverIndex < it.value().size()) {
@@ -61,9 +61,21 @@ int OAIBerriesApi::setDefaultServerValue(int serverIndex, const QString &operati
     }
     return -3;
 }
+
+/**
+ * Sets the server index.
+ * @param operation The id to the target operation.
+ * @param serverIndex The server index.
+ */
 void OAIBerriesApi::setServerIndex(const QString &operation, int serverIndex) {
     if (_serverIndices.contains(operation) && serverIndex < _serverConfigs.find(operation).value().size()) {
         _serverIndices[operation] = serverIndex;
+    }
+}
+
+void OAIBerriesApi::setServerIndex(int serverIndex) {
+    for (auto keyIt = _serverIndices.keyBegin(); keyIt != _serverIndices.keyEnd(); keyIt++) {
+        setServerIndex(*keyIt, serverIndex);
     }
 }
 
@@ -97,13 +109,13 @@ void OAIBerriesApi::setNetworkAccessManager(QNetworkAccessManager* manager) {
 }
 
 /**
-    * Appends a new ServerConfiguration to the config map for a specific operation.
-    * @param operation The id to the target operation.
-    * @param url A string that contains the URL of the server
-    * @param description A String that describes the server
-    * @param variables A map between a variable name and its value. The value is used for substitution in the server's URL template.
-    * returns the index of the new server config on success and -1 if the operation is not found
-    */
+ * Appends a new ServerConfiguration to the config map for a specific operation.
+ * @param operation The id to the target operation.
+ * @param url A string that contains the URL of the server
+ * @param description A String that describes the server
+ * @param variables A map between a variable name and its value. The value is used for substitution in the server's URL template.
+ * returns the index of the new server config on success and -1 if the operation is not found
+ */
 int OAIBerriesApi::addServerConfiguration(const QString &operation, const QUrl &url, const QString &description, const QMap<QString, OAIServerVariable> &variables) {
     if (_serverConfigs.contains(operation)) {
         _serverConfigs[operation].append(OAIServerConfiguration(
@@ -117,11 +129,11 @@ int OAIBerriesApi::addServerConfiguration(const QString &operation, const QUrl &
 }
 
 /**
-    * Appends a new ServerConfiguration to the config map for a all operations and sets the index to that server.
-    * @param url A string that contains the URL of the server
-    * @param description A String that describes the server
-    * @param variables A map between a variable name and its value. The value is used for substitution in the server's URL template.
-    */
+ * Appends a new ServerConfiguration to the config map for a all operations and sets the index to that server.
+ * @param url A string that contains the URL of the server
+ * @param description A String that describes the server
+ * @param variables A map between a variable name and its value. The value is used for substitution in the server's URL template.
+ */
 void OAIBerriesApi::setNewServerForAllOperations(const QUrl &url, const QString &description, const QMap<QString, OAIServerVariable> &variables) {
     for (auto keyIt = _serverIndices.keyBegin(); keyIt != _serverIndices.keyEnd(); keyIt++) {
         setServerIndex(*keyIt, addServerConfiguration(*keyIt, url, description, variables));
@@ -129,11 +141,11 @@ void OAIBerriesApi::setNewServerForAllOperations(const QUrl &url, const QString 
 }
 
 /**
-    * Appends a new ServerConfiguration to the config map for an operations and sets the index to that server.
-    * @param URL A string that contains the URL of the server
-    * @param description A String that describes the server
-    * @param variables A map between a variable name and its value. The value is used for substitution in the server's URL template.
-    */
+ * Appends a new ServerConfiguration to the config map for an operations and sets the index to that server.
+ * @param URL A string that contains the URL of the server
+ * @param description A String that describes the server
+ * @param variables A map between a variable name and its value. The value is used for substitution in the server's URL template.
+ */
 void OAIBerriesApi::setNewServer(const QString &operation, const QUrl &url, const QString &description, const QMap<QString, OAIServerVariable> &variables) {
     setServerIndex(operation, addServerConfiguration(operation, url, description, variables));
 }
@@ -307,32 +319,6 @@ void OAIBerriesApi::berryFirmnessListCallback(OAIHttpRequestWorker *worker) {
         Q_EMIT berryFirmnessListSignal(output);
         Q_EMIT berryFirmnessListSignalFull(worker, output);
     } else {
-
-#if defined(_MSC_VER)
-// For MSVC
-#pragma warning(push)
-#pragma warning(disable : 4996)
-#elif defined(__clang__)
-// For Clang
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
-#elif defined(__GNUC__)
-// For GCC
-#pragma GCC diagnostic push
-#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
-#endif
-
-        Q_EMIT berryFirmnessListSignalE(output, error_type, error_str);
-        Q_EMIT berryFirmnessListSignalEFull(worker, error_type, error_str);
-
-#if defined(_MSC_VER)
-#pragma warning(pop)
-#elif defined(__clang__)
-#pragma clang diagnostic pop
-#elif defined(__GNUC__)
-#pragma GCC diagnostic pop
-#endif
-
         Q_EMIT berryFirmnessListSignalError(output, error_type, error_str);
         Q_EMIT berryFirmnessListSignalErrorFull(worker, error_type, error_str);
     }
@@ -396,32 +382,6 @@ void OAIBerriesApi::berryFirmnessRetrieveCallback(OAIHttpRequestWorker *worker) 
         Q_EMIT berryFirmnessRetrieveSignal(output);
         Q_EMIT berryFirmnessRetrieveSignalFull(worker, output);
     } else {
-
-#if defined(_MSC_VER)
-// For MSVC
-#pragma warning(push)
-#pragma warning(disable : 4996)
-#elif defined(__clang__)
-// For Clang
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
-#elif defined(__GNUC__)
-// For GCC
-#pragma GCC diagnostic push
-#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
-#endif
-
-        Q_EMIT berryFirmnessRetrieveSignalE(output, error_type, error_str);
-        Q_EMIT berryFirmnessRetrieveSignalEFull(worker, error_type, error_str);
-
-#if defined(_MSC_VER)
-#pragma warning(pop)
-#elif defined(__clang__)
-#pragma clang diagnostic pop
-#elif defined(__GNUC__)
-#pragma GCC diagnostic pop
-#endif
-
         Q_EMIT berryFirmnessRetrieveSignalError(output, error_type, error_str);
         Q_EMIT berryFirmnessRetrieveSignalErrorFull(worker, error_type, error_str);
     }
@@ -517,32 +477,6 @@ void OAIBerriesApi::berryFlavorListCallback(OAIHttpRequestWorker *worker) {
         Q_EMIT berryFlavorListSignal(output);
         Q_EMIT berryFlavorListSignalFull(worker, output);
     } else {
-
-#if defined(_MSC_VER)
-// For MSVC
-#pragma warning(push)
-#pragma warning(disable : 4996)
-#elif defined(__clang__)
-// For Clang
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
-#elif defined(__GNUC__)
-// For GCC
-#pragma GCC diagnostic push
-#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
-#endif
-
-        Q_EMIT berryFlavorListSignalE(output, error_type, error_str);
-        Q_EMIT berryFlavorListSignalEFull(worker, error_type, error_str);
-
-#if defined(_MSC_VER)
-#pragma warning(pop)
-#elif defined(__clang__)
-#pragma clang diagnostic pop
-#elif defined(__GNUC__)
-#pragma GCC diagnostic pop
-#endif
-
         Q_EMIT berryFlavorListSignalError(output, error_type, error_str);
         Q_EMIT berryFlavorListSignalErrorFull(worker, error_type, error_str);
     }
@@ -606,32 +540,6 @@ void OAIBerriesApi::berryFlavorRetrieveCallback(OAIHttpRequestWorker *worker) {
         Q_EMIT berryFlavorRetrieveSignal(output);
         Q_EMIT berryFlavorRetrieveSignalFull(worker, output);
     } else {
-
-#if defined(_MSC_VER)
-// For MSVC
-#pragma warning(push)
-#pragma warning(disable : 4996)
-#elif defined(__clang__)
-// For Clang
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
-#elif defined(__GNUC__)
-// For GCC
-#pragma GCC diagnostic push
-#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
-#endif
-
-        Q_EMIT berryFlavorRetrieveSignalE(output, error_type, error_str);
-        Q_EMIT berryFlavorRetrieveSignalEFull(worker, error_type, error_str);
-
-#if defined(_MSC_VER)
-#pragma warning(pop)
-#elif defined(__clang__)
-#pragma clang diagnostic pop
-#elif defined(__GNUC__)
-#pragma GCC diagnostic pop
-#endif
-
         Q_EMIT berryFlavorRetrieveSignalError(output, error_type, error_str);
         Q_EMIT berryFlavorRetrieveSignalErrorFull(worker, error_type, error_str);
     }
@@ -727,32 +635,6 @@ void OAIBerriesApi::berryListCallback(OAIHttpRequestWorker *worker) {
         Q_EMIT berryListSignal(output);
         Q_EMIT berryListSignalFull(worker, output);
     } else {
-
-#if defined(_MSC_VER)
-// For MSVC
-#pragma warning(push)
-#pragma warning(disable : 4996)
-#elif defined(__clang__)
-// For Clang
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
-#elif defined(__GNUC__)
-// For GCC
-#pragma GCC diagnostic push
-#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
-#endif
-
-        Q_EMIT berryListSignalE(output, error_type, error_str);
-        Q_EMIT berryListSignalEFull(worker, error_type, error_str);
-
-#if defined(_MSC_VER)
-#pragma warning(pop)
-#elif defined(__clang__)
-#pragma clang diagnostic pop
-#elif defined(__GNUC__)
-#pragma GCC diagnostic pop
-#endif
-
         Q_EMIT berryListSignalError(output, error_type, error_str);
         Q_EMIT berryListSignalErrorFull(worker, error_type, error_str);
     }
@@ -816,42 +698,16 @@ void OAIBerriesApi::berryRetrieveCallback(OAIHttpRequestWorker *worker) {
         Q_EMIT berryRetrieveSignal(output);
         Q_EMIT berryRetrieveSignalFull(worker, output);
     } else {
-
-#if defined(_MSC_VER)
-// For MSVC
-#pragma warning(push)
-#pragma warning(disable : 4996)
-#elif defined(__clang__)
-// For Clang
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
-#elif defined(__GNUC__)
-// For GCC
-#pragma GCC diagnostic push
-#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
-#endif
-
-        Q_EMIT berryRetrieveSignalE(output, error_type, error_str);
-        Q_EMIT berryRetrieveSignalEFull(worker, error_type, error_str);
-
-#if defined(_MSC_VER)
-#pragma warning(pop)
-#elif defined(__clang__)
-#pragma clang diagnostic pop
-#elif defined(__GNUC__)
-#pragma GCC diagnostic pop
-#endif
-
         Q_EMIT berryRetrieveSignalError(output, error_type, error_str);
         Q_EMIT berryRetrieveSignalErrorFull(worker, error_type, error_str);
     }
 }
 
-void OAIBerriesApi::tokenAvailable(){
+void OAIBerriesApi::tokenAvailable() {
 
     oauthToken token;
     switch (_OauthMethod) {
-    case 1: //implicit flow
+    case OauthMethod::ImplicitFlow:
         token = _implicitFlow.getToken(_latestScope.join(" "));
         if(token.isValid()){
             _latestInput.headers.insert("Authorization", "Bearer " + token.getToken());
@@ -861,7 +717,7 @@ void OAIBerriesApi::tokenAvailable(){
             qDebug() << "Could not retrieve a valid token";
         }
         break;
-    case 2: //authorization flow
+    case OauthMethod::AuthorizationFlow:
         token = _authFlow.getToken(_latestScope.join(" "));
         if(token.isValid()){
             _latestInput.headers.insert("Authorization", "Bearer " + token.getToken());
@@ -871,7 +727,7 @@ void OAIBerriesApi::tokenAvailable(){
             qDebug() << "Could not retrieve a valid token";
         }
         break;
-    case 3: //client credentials flow
+    case OauthMethod::ClientCredentialsFlow:
         token = _credentialFlow.getToken(_latestScope.join(" "));
         if(token.isValid()){
             _latestInput.headers.insert("Authorization", "Bearer " + token.getToken());
@@ -881,7 +737,7 @@ void OAIBerriesApi::tokenAvailable(){
             qDebug() << "Could not retrieve a valid token";
         }
         break;
-    case 4: //resource owner password flow
+    case OauthMethod::ResourceOwnerPasswordFlow:
         token = _passwordFlow.getToken(_latestScope.join(" "));
         if(token.isValid()){
             _latestInput.headers.insert("Authorization", "Bearer " + token.getToken());

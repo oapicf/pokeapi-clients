@@ -7,7 +7,7 @@ Name | Mapping | SQL Type | Default | Type | Description | Notes
 ---- | ------- | -------- | ------- | ---- | ----------- | -----
 **id** | id | int NOT NULL PRIMARY KEY AUTOINCREMENT |  | **kotlin.Int** |  |  [readonly]
 **name** | name | text NOT NULL |  | **kotlin.String** |  | 
-**names** | `One-To-Many` | `----` | `----`  | [**kotlin.Array&lt;EncounterMethodName&gt;**](EncounterMethodName.md) |  | 
+**names** | `One-To-Many` | `----` | `----`  | [**kotlin.Array&lt;EncounterMethodName&gt;**](EncounterMethodName.md) |  |  [readonly]
 **order** | order | int |  | **kotlin.Int** |  |  [optional]
 
 

@@ -34,7 +34,7 @@ class  ContestEffectDetail
 {
 public:
     ContestEffectDetail();
-    virtual ~ContestEffectDetail() = default;
+    virtual ~ContestEffectDetail();
 
 
     /// <summary>

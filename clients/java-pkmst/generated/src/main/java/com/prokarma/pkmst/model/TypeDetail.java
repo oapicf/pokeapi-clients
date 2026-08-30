@@ -29,7 +29,7 @@ import java.util.Map;
  */
 @ApiModel(description = "Serializer for the Type resource")
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPKMSTServerCodegen", date = "2026-02-07T15:23:15.032724200Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPKMSTServerCodegen", date = "2026-08-30T01:56:01.724492951Z[Etc/UTC]", comments = "Generator version: 7.24.0")
 public class TypeDetail   {
   @JsonProperty("id")
   private Integer id;
@@ -141,7 +141,7 @@ public class TypeDetail   {
    * Get pastDamageRelations
    * @return pastDamageRelations
    */
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, readOnly = true, value = "")
   public List<TypeDetailPastDamageRelationsInner> getPastDamageRelations() {
     return pastDamageRelations;
   }
@@ -167,7 +167,7 @@ public class TypeDetail   {
    * Get gameIndices
    * @return gameIndices
    */
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, readOnly = true, value = "")
   public List<TypeGameIndex> getGameIndices() {
     return gameIndices;
   }
@@ -229,7 +229,7 @@ public class TypeDetail   {
    * Get names
    * @return names
    */
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, readOnly = true, value = "")
   public List<AbilityName> getNames() {
     return names;
   }
@@ -255,7 +255,7 @@ public class TypeDetail   {
    * Get pokemon
    * @return pokemon
    */
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, readOnly = true, value = "")
   public List<TypeDetailPokemonInner> getPokemon() {
     return pokemon;
   }
@@ -281,7 +281,7 @@ public class TypeDetail   {
    * Get moves
    * @return moves
    */
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, readOnly = true, value = "")
   public List<MoveSummary> getMoves() {
     return moves;
   }
@@ -369,10 +369,7 @@ public class TypeDetail   {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 }
 

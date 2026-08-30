@@ -175,10 +175,11 @@ ContestsApi <- R6::R6Class(
     #' @param q (optional) > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. 
     #' @param data_file (optional) name of the data file to save the result
     #' @param ... Other optional arguments
+    #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return PaginatedContestEffectSummaryList
-    ContestEffectList = function(limit = NULL, offset = NULL, q = NULL, data_file = NULL, ...) {
-      local_var_response <- self$ContestEffectListWithHttpInfo(limit, offset, q, data_file = data_file, ...)
+    ContestEffectList = function(limit = NULL, offset = NULL, q = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$ContestEffectListWithHttpInfo(limit, offset, q, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -198,9 +199,10 @@ ContestsApi <- R6::R6Class(
     #' @param q (optional) > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. 
     #' @param data_file (optional) name of the data file to save the result
     #' @param ... Other optional arguments
+    #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (PaginatedContestEffectSummaryList) with additional information such as HTTP status code, headers
-    ContestEffectListWithHttpInfo = function(limit = NULL, offset = NULL, q = NULL, data_file = NULL, ...) {
+    ContestEffectListWithHttpInfo = function(limit = NULL, offset = NULL, q = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -259,6 +261,10 @@ ContestsApi <- R6::R6Class(
         if (!is.null(data_file)) {
           self$api_client$WriteFile(local_var_resp, data_file)
         }
+        if (!.parse) {
+          local_var_resp$content <- local_var_resp$response_as_text()
+          return(local_var_resp)
+        }
 
         deserialized_resp_obj <- tryCatch(
           self$api_client$DeserializeResponse(local_var_resp, "PaginatedContestEffectSummaryList"),
@@ -272,11 +278,15 @@ ContestsApi <- R6::R6Class(
       
       local_var_error_msg <- local_var_resp$response_as_text()      
       if (local_var_resp$status_code >= 300 && local_var_resp$status_code <= 399) {
-        ApiResponse$new(paste("Server returned ", local_var_resp$status_code, " response status code."), local_var_resp)
+        ApiResponse$new(content = paste("Server returned ", local_var_resp$status_code, " response status code."),
+                        response = local_var_resp,
+                        status_code = local_var_resp$status_code)
       } else if (local_var_resp$status_code >= 400 && local_var_resp$status_code <= 499) {
-        ApiResponse$new("API client error", local_var_resp)
+        ApiResponse$new(content = "API client error",
+                        response = local_var_resp,
+                        status_code = local_var_resp$status_code)
       } else if (local_var_resp$status_code >= 500 && local_var_resp$status_code <= 599) {
-        if (is.null(local_var_resp$response) || local_var_resp$response == "") {
+        if (is.null(local_var_resp$response) || all(local_var_resp$response == "")) {
           local_var_resp$response <- "API server error"
         }
         return(local_var_resp)
@@ -289,10 +299,11 @@ ContestsApi <- R6::R6Class(
     #' @param id This parameter can be a string or an integer.
     #' @param data_file (optional) name of the data file to save the result
     #' @param ... Other optional arguments
+    #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return ContestEffectDetail
-    ContestEffectRetrieve = function(id, data_file = NULL, ...) {
-      local_var_response <- self$ContestEffectRetrieveWithHttpInfo(id, data_file = data_file, ...)
+    ContestEffectRetrieve = function(id, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$ContestEffectRetrieveWithHttpInfo(id, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -310,9 +321,10 @@ ContestsApi <- R6::R6Class(
     #' @param id This parameter can be a string or an integer.
     #' @param data_file (optional) name of the data file to save the result
     #' @param ... Other optional arguments
+    #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (ContestEffectDetail) with additional information such as HTTP status code, headers
-    ContestEffectRetrieveWithHttpInfo = function(id, data_file = NULL, ...) {
+    ContestEffectRetrieveWithHttpInfo = function(id, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -365,6 +377,10 @@ ContestsApi <- R6::R6Class(
         if (!is.null(data_file)) {
           self$api_client$WriteFile(local_var_resp, data_file)
         }
+        if (!.parse) {
+          local_var_resp$content <- local_var_resp$response_as_text()
+          return(local_var_resp)
+        }
 
         deserialized_resp_obj <- tryCatch(
           self$api_client$DeserializeResponse(local_var_resp, "ContestEffectDetail"),
@@ -378,11 +394,15 @@ ContestsApi <- R6::R6Class(
       
       local_var_error_msg <- local_var_resp$response_as_text()      
       if (local_var_resp$status_code >= 300 && local_var_resp$status_code <= 399) {
-        ApiResponse$new(paste("Server returned ", local_var_resp$status_code, " response status code."), local_var_resp)
+        ApiResponse$new(content = paste("Server returned ", local_var_resp$status_code, " response status code."),
+                        response = local_var_resp,
+                        status_code = local_var_resp$status_code)
       } else if (local_var_resp$status_code >= 400 && local_var_resp$status_code <= 499) {
-        ApiResponse$new("API client error", local_var_resp)
+        ApiResponse$new(content = "API client error",
+                        response = local_var_resp,
+                        status_code = local_var_resp$status_code)
       } else if (local_var_resp$status_code >= 500 && local_var_resp$status_code <= 599) {
-        if (is.null(local_var_resp$response) || local_var_resp$response == "") {
+        if (is.null(local_var_resp$response) || all(local_var_resp$response == "")) {
           local_var_resp$response <- "API server error"
         }
         return(local_var_resp)
@@ -397,10 +417,11 @@ ContestsApi <- R6::R6Class(
     #' @param q (optional) > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. 
     #' @param data_file (optional) name of the data file to save the result
     #' @param ... Other optional arguments
+    #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return PaginatedContestTypeSummaryList
-    ContestTypeList = function(limit = NULL, offset = NULL, q = NULL, data_file = NULL, ...) {
-      local_var_response <- self$ContestTypeListWithHttpInfo(limit, offset, q, data_file = data_file, ...)
+    ContestTypeList = function(limit = NULL, offset = NULL, q = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$ContestTypeListWithHttpInfo(limit, offset, q, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -420,9 +441,10 @@ ContestsApi <- R6::R6Class(
     #' @param q (optional) > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. 
     #' @param data_file (optional) name of the data file to save the result
     #' @param ... Other optional arguments
+    #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (PaginatedContestTypeSummaryList) with additional information such as HTTP status code, headers
-    ContestTypeListWithHttpInfo = function(limit = NULL, offset = NULL, q = NULL, data_file = NULL, ...) {
+    ContestTypeListWithHttpInfo = function(limit = NULL, offset = NULL, q = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -481,6 +503,10 @@ ContestsApi <- R6::R6Class(
         if (!is.null(data_file)) {
           self$api_client$WriteFile(local_var_resp, data_file)
         }
+        if (!.parse) {
+          local_var_resp$content <- local_var_resp$response_as_text()
+          return(local_var_resp)
+        }
 
         deserialized_resp_obj <- tryCatch(
           self$api_client$DeserializeResponse(local_var_resp, "PaginatedContestTypeSummaryList"),
@@ -494,11 +520,15 @@ ContestsApi <- R6::R6Class(
       
       local_var_error_msg <- local_var_resp$response_as_text()      
       if (local_var_resp$status_code >= 300 && local_var_resp$status_code <= 399) {
-        ApiResponse$new(paste("Server returned ", local_var_resp$status_code, " response status code."), local_var_resp)
+        ApiResponse$new(content = paste("Server returned ", local_var_resp$status_code, " response status code."),
+                        response = local_var_resp,
+                        status_code = local_var_resp$status_code)
       } else if (local_var_resp$status_code >= 400 && local_var_resp$status_code <= 499) {
-        ApiResponse$new("API client error", local_var_resp)
+        ApiResponse$new(content = "API client error",
+                        response = local_var_resp,
+                        status_code = local_var_resp$status_code)
       } else if (local_var_resp$status_code >= 500 && local_var_resp$status_code <= 599) {
-        if (is.null(local_var_resp$response) || local_var_resp$response == "") {
+        if (is.null(local_var_resp$response) || all(local_var_resp$response == "")) {
           local_var_resp$response <- "API server error"
         }
         return(local_var_resp)
@@ -511,10 +541,11 @@ ContestsApi <- R6::R6Class(
     #' @param id This parameter can be a string or an integer.
     #' @param data_file (optional) name of the data file to save the result
     #' @param ... Other optional arguments
+    #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return ContestTypeDetail
-    ContestTypeRetrieve = function(id, data_file = NULL, ...) {
-      local_var_response <- self$ContestTypeRetrieveWithHttpInfo(id, data_file = data_file, ...)
+    ContestTypeRetrieve = function(id, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$ContestTypeRetrieveWithHttpInfo(id, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -532,9 +563,10 @@ ContestsApi <- R6::R6Class(
     #' @param id This parameter can be a string or an integer.
     #' @param data_file (optional) name of the data file to save the result
     #' @param ... Other optional arguments
+    #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (ContestTypeDetail) with additional information such as HTTP status code, headers
-    ContestTypeRetrieveWithHttpInfo = function(id, data_file = NULL, ...) {
+    ContestTypeRetrieveWithHttpInfo = function(id, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -587,6 +619,10 @@ ContestsApi <- R6::R6Class(
         if (!is.null(data_file)) {
           self$api_client$WriteFile(local_var_resp, data_file)
         }
+        if (!.parse) {
+          local_var_resp$content <- local_var_resp$response_as_text()
+          return(local_var_resp)
+        }
 
         deserialized_resp_obj <- tryCatch(
           self$api_client$DeserializeResponse(local_var_resp, "ContestTypeDetail"),
@@ -600,11 +636,15 @@ ContestsApi <- R6::R6Class(
       
       local_var_error_msg <- local_var_resp$response_as_text()      
       if (local_var_resp$status_code >= 300 && local_var_resp$status_code <= 399) {
-        ApiResponse$new(paste("Server returned ", local_var_resp$status_code, " response status code."), local_var_resp)
+        ApiResponse$new(content = paste("Server returned ", local_var_resp$status_code, " response status code."),
+                        response = local_var_resp,
+                        status_code = local_var_resp$status_code)
       } else if (local_var_resp$status_code >= 400 && local_var_resp$status_code <= 499) {
-        ApiResponse$new("API client error", local_var_resp)
+        ApiResponse$new(content = "API client error",
+                        response = local_var_resp,
+                        status_code = local_var_resp$status_code)
       } else if (local_var_resp$status_code >= 500 && local_var_resp$status_code <= 599) {
-        if (is.null(local_var_resp$response) || local_var_resp$response == "") {
+        if (is.null(local_var_resp$response) || all(local_var_resp$response == "")) {
           local_var_resp$response <- "API server error"
         }
         return(local_var_resp)
@@ -619,10 +659,11 @@ ContestsApi <- R6::R6Class(
     #' @param q (optional) > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. 
     #' @param data_file (optional) name of the data file to save the result
     #' @param ... Other optional arguments
+    #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return PaginatedSuperContestEffectSummaryList
-    SuperContestEffectList = function(limit = NULL, offset = NULL, q = NULL, data_file = NULL, ...) {
-      local_var_response <- self$SuperContestEffectListWithHttpInfo(limit, offset, q, data_file = data_file, ...)
+    SuperContestEffectList = function(limit = NULL, offset = NULL, q = NULL, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$SuperContestEffectListWithHttpInfo(limit, offset, q, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -642,9 +683,10 @@ ContestsApi <- R6::R6Class(
     #' @param q (optional) > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. 
     #' @param data_file (optional) name of the data file to save the result
     #' @param ... Other optional arguments
+    #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (PaginatedSuperContestEffectSummaryList) with additional information such as HTTP status code, headers
-    SuperContestEffectListWithHttpInfo = function(limit = NULL, offset = NULL, q = NULL, data_file = NULL, ...) {
+    SuperContestEffectListWithHttpInfo = function(limit = NULL, offset = NULL, q = NULL, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -703,6 +745,10 @@ ContestsApi <- R6::R6Class(
         if (!is.null(data_file)) {
           self$api_client$WriteFile(local_var_resp, data_file)
         }
+        if (!.parse) {
+          local_var_resp$content <- local_var_resp$response_as_text()
+          return(local_var_resp)
+        }
 
         deserialized_resp_obj <- tryCatch(
           self$api_client$DeserializeResponse(local_var_resp, "PaginatedSuperContestEffectSummaryList"),
@@ -716,11 +762,15 @@ ContestsApi <- R6::R6Class(
       
       local_var_error_msg <- local_var_resp$response_as_text()      
       if (local_var_resp$status_code >= 300 && local_var_resp$status_code <= 399) {
-        ApiResponse$new(paste("Server returned ", local_var_resp$status_code, " response status code."), local_var_resp)
+        ApiResponse$new(content = paste("Server returned ", local_var_resp$status_code, " response status code."),
+                        response = local_var_resp,
+                        status_code = local_var_resp$status_code)
       } else if (local_var_resp$status_code >= 400 && local_var_resp$status_code <= 499) {
-        ApiResponse$new("API client error", local_var_resp)
+        ApiResponse$new(content = "API client error",
+                        response = local_var_resp,
+                        status_code = local_var_resp$status_code)
       } else if (local_var_resp$status_code >= 500 && local_var_resp$status_code <= 599) {
-        if (is.null(local_var_resp$response) || local_var_resp$response == "") {
+        if (is.null(local_var_resp$response) || all(local_var_resp$response == "")) {
           local_var_resp$response <- "API server error"
         }
         return(local_var_resp)
@@ -733,10 +783,11 @@ ContestsApi <- R6::R6Class(
     #' @param id This parameter can be a string or an integer.
     #' @param data_file (optional) name of the data file to save the result
     #' @param ... Other optional arguments
+    #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return SuperContestEffectDetail
-    SuperContestEffectRetrieve = function(id, data_file = NULL, ...) {
-      local_var_response <- self$SuperContestEffectRetrieveWithHttpInfo(id, data_file = data_file, ...)
+    SuperContestEffectRetrieve = function(id, data_file = NULL, ..., .parse = TRUE) {
+      local_var_response <- self$SuperContestEffectRetrieveWithHttpInfo(id, data_file = data_file, ..., .parse = .parse)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -754,9 +805,10 @@ ContestsApi <- R6::R6Class(
     #' @param id This parameter can be a string or an integer.
     #' @param data_file (optional) name of the data file to save the result
     #' @param ... Other optional arguments
+    #' @param .parse Logical. If \code{TRUE} then the response will be parsed to a generated type. If \code{FALSE} the response will be returned as unparsed text.
     #'
     #' @return API response (SuperContestEffectDetail) with additional information such as HTTP status code, headers
-    SuperContestEffectRetrieveWithHttpInfo = function(id, data_file = NULL, ...) {
+    SuperContestEffectRetrieveWithHttpInfo = function(id, data_file = NULL, ..., .parse = TRUE) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -809,6 +861,10 @@ ContestsApi <- R6::R6Class(
         if (!is.null(data_file)) {
           self$api_client$WriteFile(local_var_resp, data_file)
         }
+        if (!.parse) {
+          local_var_resp$content <- local_var_resp$response_as_text()
+          return(local_var_resp)
+        }
 
         deserialized_resp_obj <- tryCatch(
           self$api_client$DeserializeResponse(local_var_resp, "SuperContestEffectDetail"),
@@ -822,11 +878,15 @@ ContestsApi <- R6::R6Class(
       
       local_var_error_msg <- local_var_resp$response_as_text()      
       if (local_var_resp$status_code >= 300 && local_var_resp$status_code <= 399) {
-        ApiResponse$new(paste("Server returned ", local_var_resp$status_code, " response status code."), local_var_resp)
+        ApiResponse$new(content = paste("Server returned ", local_var_resp$status_code, " response status code."),
+                        response = local_var_resp,
+                        status_code = local_var_resp$status_code)
       } else if (local_var_resp$status_code >= 400 && local_var_resp$status_code <= 499) {
-        ApiResponse$new("API client error", local_var_resp)
+        ApiResponse$new(content = "API client error",
+                        response = local_var_resp,
+                        status_code = local_var_resp$status_code)
       } else if (local_var_resp$status_code >= 500 && local_var_resp$status_code <= 599) {
-        if (is.null(local_var_resp$response) || local_var_resp$response == "") {
+        if (is.null(local_var_resp$response) || all(local_var_resp$response == "")) {
           local_var_resp$response <- "API server error"
         }
         return(local_var_resp)

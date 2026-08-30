@@ -58,9 +58,9 @@ function Initialize-AbilityDetailPokemonInner {
 
 
         $PSO = [PSCustomObject]@{
-            "is_hidden" = ${IsHidden}
-            "slot" = ${Slot}
-            "pokemon" = ${Pokemon}
+            'is_hidden' = ${IsHidden}
+            'slot' = ${Slot}
+            'pokemon' = ${Pokemon}
         }
 
 
@@ -98,7 +98,7 @@ function ConvertFrom-JsonToAbilityDetailPokemonInner {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in AbilityDetailPokemonInner
-        $AllProperties = ("is_hidden", "slot", "pokemon")
+        $AllProperties = ('is_hidden', 'slot', 'pokemon')
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -109,28 +109,28 @@ function ConvertFrom-JsonToAbilityDetailPokemonInner {
             throw "Error! Empty JSON cannot be serialized due to the required property 'is_hidden' missing."
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "is_hidden"))) {
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'is_hidden'))) {
             throw "Error! JSON cannot be serialized due to the required property 'is_hidden' missing."
         } else {
-            $IsHidden = $JsonParameters.PSobject.Properties["is_hidden"].value
+            $IsHidden = $JsonParameters.PSobject.Properties['is_hidden'].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "slot"))) {
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'slot'))) {
             throw "Error! JSON cannot be serialized due to the required property 'slot' missing."
         } else {
-            $Slot = $JsonParameters.PSobject.Properties["slot"].value
+            $Slot = $JsonParameters.PSobject.Properties['slot'].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "pokemon"))) {
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'pokemon'))) {
             throw "Error! JSON cannot be serialized due to the required property 'pokemon' missing."
         } else {
-            $Pokemon = $JsonParameters.PSobject.Properties["pokemon"].value
+            $Pokemon = $JsonParameters.PSobject.Properties['pokemon'].value
         }
 
         $PSO = [PSCustomObject]@{
-            "is_hidden" = ${IsHidden}
-            "slot" = ${Slot}
-            "pokemon" = ${Pokemon}
+            'is_hidden' = ${IsHidden}
+            'slot' = ${Slot}
+            'pokemon' = ${Pokemon}
         }
 
         return $PSO

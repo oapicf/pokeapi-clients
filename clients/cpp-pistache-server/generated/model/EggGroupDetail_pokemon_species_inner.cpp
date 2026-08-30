@@ -28,6 +28,8 @@ EggGroupDetail_pokemon_species_inner::EggGroupDetail_pokemon_species_inner()
     
 }
 
+EggGroupDetail_pokemon_species_inner::~EggGroupDetail_pokemon_species_inner() = default;
+
 void EggGroupDetail_pokemon_species_inner::validate() const
 {
     std::stringstream msg;

@@ -47,7 +47,7 @@ class EncounterConditionDetail
      * @var int|null
      * @SerializedName("id")
      * @Type("int")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Type("int")]
     protected ?int $id = null;
@@ -56,7 +56,7 @@ class EncounterConditionDetail
      * @var string|null
      * @SerializedName("name")
      * @Type("string")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Type("string")]
     #[Assert\Length(max: 100)]
@@ -66,7 +66,7 @@ class EncounterConditionDetail
      * @var EncounterConditionValueSummary[]|null
      * @SerializedName("values")
      * @Type("array<OpenAPI\Server\Model\EncounterConditionValueSummary>")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Valid]
     #[Assert\All([
@@ -78,7 +78,7 @@ class EncounterConditionDetail
      * @var EncounterConditionName[]|null
      * @SerializedName("names")
      * @Type("array<OpenAPI\Server\Model\EncounterConditionName>")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Valid]
     #[Assert\All([
@@ -111,12 +111,12 @@ class EncounterConditionDetail
     }
 
     /**
-    * Sets id.
-    *
-    * @param int|null $id
-    *
-    * @return $this
-    */
+     * Sets id.
+     *
+     * @param int|null $id
+     *
+     * @return $this
+     */
     public function setId(?int $id): self
     {
         $this->id = $id;
@@ -138,12 +138,12 @@ class EncounterConditionDetail
     }
 
     /**
-    * Sets name.
-    *
-    * @param string|null $name
-    *
-    * @return $this
-    */
+     * Sets name.
+     *
+     * @param string|null $name
+     *
+     * @return $this
+     */
     public function setName(?string $name): self
     {
         $this->name = $name;
@@ -165,12 +165,12 @@ class EncounterConditionDetail
     }
 
     /**
-    * Sets values.
-    *
-    * @param EncounterConditionValueSummary[]|null $values
-    *
-    * @return $this
-    */
+     * Sets values.
+     *
+     * @param EncounterConditionValueSummary[]|null $values
+     *
+     * @return $this
+     */
     public function setValues(?array $values): self
     {
         $this->values = $values;
@@ -192,12 +192,12 @@ class EncounterConditionDetail
     }
 
     /**
-    * Sets names.
-    *
-    * @param EncounterConditionName[]|null $names
-    *
-    * @return $this
-    */
+     * Sets names.
+     *
+     * @param EncounterConditionName[]|null $names
+     *
+     * @return $this
+     */
     public function setNames(?array $names): self
     {
         $this->names = $names;

@@ -53,14 +53,16 @@ class MoveDetailContestCombosNormal extends BaseModel
       "items" : {
         "$ref" : "#/components/schemas/AbilityDetail_pokemon_inner_pokemon"
       },
-      "nullable" : true
+      "nullable" : true,
+      "default" : null
     },
     "use_after" : {
       "type" : "array",
       "items" : {
         "$ref" : "#/components/schemas/AbilityDetail_pokemon_inner_pokemon"
       },
-      "nullable" : true
+      "nullable" : true,
+      "default" : null
     }
   }
 }

@@ -59,19 +59,19 @@ export interface PokedexDetail  {
      * @type {Array<PokedexDescription>}
      * @memberof PokedexDetail
      */
-    descriptions: Array<PokedexDescription>;
+    readonly descriptions: Array<PokedexDescription>;
     /**
      * 
      * @type {Array<PokedexName>}
      * @memberof PokedexDetail
      */
-    names: Array<PokedexName>;
+    readonly names: Array<PokedexName>;
     /**
      * 
      * @type {Array<PokedexDetailPokemonEntriesInner>}
      * @memberof PokedexDetail
      */
-    pokemonEntries: Array<PokedexDetailPokemonEntriesInner>;
+    readonly pokemonEntries: Array<PokedexDetailPokemonEntriesInner>;
     /**
      * 
      * @type {RegionSummary}
@@ -83,7 +83,7 @@ export interface PokedexDetail  {
      * @type {Array<AbilityDetailPokemonInnerPokemon>}
      * @memberof PokedexDetail
      */
-    versionGroups: Array<AbilityDetailPokemonInnerPokemon>;
+    readonly versionGroups: Array<AbilityDetailPokemonInnerPokemon>;
 }
 
 export function PokedexDetailFromJSON(json: any): PokedexDetail {
@@ -106,11 +106,7 @@ export function PokedexDetailToJSON(value?: PokedexDetail): any {
     return {
         'name': value.name,
         'is_main_series': value.isMainSeries,
-        'descriptions': (value.descriptions as Array<any>).map(PokedexDescriptionToJSON),
-        'names': (value.names as Array<any>).map(PokedexNameToJSON),
-        'pokemon_entries': (value.pokemonEntries as Array<any>).map(PokedexDetailPokemonEntriesInnerToJSON),
         'region': RegionSummaryToJSON(value.region),
-        'version_groups': (value.versionGroups as Array<any>).map(AbilityDetailPokemonInnerPokemonToJSON),
     };
 }
 

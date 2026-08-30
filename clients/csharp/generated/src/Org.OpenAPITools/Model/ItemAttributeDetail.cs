@@ -68,19 +68,19 @@ namespace Org.OpenAPITools.Model
         /// Gets or Sets Descriptions
         /// </summary>
         [JsonPropertyName("descriptions")]
-        public List<ItemAttributeDescription> Descriptions { get; set; }
+        public List<ItemAttributeDescription> Descriptions { get; }
 
         /// <summary>
         /// Gets or Sets Items
         /// </summary>
         [JsonPropertyName("items")]
-        public List<AbilityDetailPokemonInnerPokemon> Items { get; set; }
+        public List<AbilityDetailPokemonInnerPokemon> Items { get; }
 
         /// <summary>
         /// Gets or Sets Names
         /// </summary>
         [JsonPropertyName("names")]
-        public List<ItemAttributeName> Names { get; set; }
+        public List<ItemAttributeName> Names { get; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -119,8 +119,18 @@ namespace Org.OpenAPITools.Model
     /// <summary>
     /// A Json converter for type <see cref="ItemAttributeDetail" />
     /// </summary>
-    public class ItemAttributeDetailJsonConverter : JsonConverter<ItemAttributeDetail>
+    public partial class ItemAttributeDetailJsonConverter : JsonConverter<ItemAttributeDetail>
     {
+        partial void OnCreated();
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ItemAttributeDetailJsonConverter" /> class.
+        /// </summary>
+        public ItemAttributeDetailJsonConverter()
+        {
+            OnCreated();
+        }
+
         /// <summary>
         /// Deserializes json to <see cref="ItemAttributeDetail" />
         /// </summary>

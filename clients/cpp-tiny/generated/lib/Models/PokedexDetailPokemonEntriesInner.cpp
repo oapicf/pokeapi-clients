@@ -86,7 +86,7 @@ PokedexDetail_pokemon_entries_inner::getEntryNumber()
 }
 
 void
-PokedexDetail_pokemon_entries_inner::setEntryNumber(int  entry_number)
+PokedexDetail_pokemon_entries_inner::setEntryNumber(int entry_number)
 {
 	this->entry_number = entry_number;
 }
@@ -98,7 +98,7 @@ PokedexDetail_pokemon_entries_inner::getPokemonSpecies()
 }
 
 void
-PokedexDetail_pokemon_entries_inner::setPokemonSpecies(AbilityDetail_pokemon_inner_pokemon  pokemon_species)
+PokedexDetail_pokemon_entries_inner::setPokemonSpecies(AbilityDetail_pokemon_inner_pokemon pokemon_species)
 {
 	this->pokemon_species = pokemon_species;
 }

@@ -48,7 +48,7 @@ namespace Org.OpenAPITools.Controllers
             //TODO: Uncomment the next line to return response 200 or use other options such as return this.NotFound(), return this.BadRequest(..), ...
             // return StatusCode(200, default);
             string exampleJson = null;
-            exampleJson = "{\n  \"next\" : \"http://api.example.org/accounts/?offset=400&limit=100\",\n  \"previous\" : \"http://api.example.org/accounts/?offset=200&limit=100\",\n  \"count\" : 123,\n  \"results\" : [ {\n    \"url\" : \"https://openapi-generator.tech\"\n  }, {\n    \"url\" : \"https://openapi-generator.tech\"\n  } ]\n}";
+            exampleJson = "{\n  \"count\" : 123,\n  \"next\" : \"http://api.example.org/accounts/?offset=400&limit=100\",\n  \"previous\" : \"http://api.example.org/accounts/?offset=200&limit=100\",\n  \"results\" : [ {\n    \"url\" : \"https://openapi-generator.tech\"\n  }, {\n    \"url\" : \"https://openapi-generator.tech\"\n  } ]\n}";
             
             var example = exampleJson != null
             ? JsonConvert.DeserializeObject<PaginatedMachineSummaryList>(exampleJson)
@@ -75,7 +75,7 @@ namespace Org.OpenAPITools.Controllers
             //TODO: Uncomment the next line to return response 200 or use other options such as return this.NotFound(), return this.BadRequest(..), ...
             // return StatusCode(200, default);
             string exampleJson = null;
-            exampleJson = "{\n  \"item\" : {\n    \"name\" : \"name\",\n    \"url\" : \"https://openapi-generator.tech\"\n  },\n  \"move\" : {\n    \"name\" : \"name\",\n    \"url\" : \"https://openapi-generator.tech\"\n  },\n  \"version_group\" : {\n    \"name\" : \"name\",\n    \"url\" : \"https://openapi-generator.tech\"\n  },\n  \"id\" : 0\n}";
+            exampleJson = "{\n  \"id\" : 0,\n  \"item\" : {\n    \"name\" : \"name\",\n    \"url\" : \"https://openapi-generator.tech\"\n  },\n  \"version_group\" : {\n    \"name\" : \"name\",\n    \"url\" : \"https://openapi-generator.tech\"\n  },\n  \"move\" : {\n    \"name\" : \"name\",\n    \"url\" : \"https://openapi-generator.tech\"\n  }\n}";
             
             var example = exampleJson != null
             ? JsonConvert.DeserializeObject<MachineDetail>(exampleJson)

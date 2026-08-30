@@ -104,8 +104,18 @@ namespace Org.OpenAPITools.Model
     /// <summary>
     /// A Json converter for type <see cref="MachineDetail" />
     /// </summary>
-    public class MachineDetailJsonConverter : JsonConverter<MachineDetail>
+    public partial class MachineDetailJsonConverter : JsonConverter<MachineDetail>
     {
+        partial void OnCreated();
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="MachineDetailJsonConverter" /> class.
+        /// </summary>
+        public MachineDetailJsonConverter()
+        {
+            OnCreated();
+        }
+
         /// <summary>
         /// Deserializes json to <see cref="MachineDetail" />
         /// </summary>

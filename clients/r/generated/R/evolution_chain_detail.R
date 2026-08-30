@@ -81,13 +81,36 @@ EvolutionChainDetail <- R6::R6Class(
       }
       if (!is.null(self$`baby_trigger_item`)) {
         EvolutionChainDetailObject[["baby_trigger_item"]] <-
-          self$`baby_trigger_item`$toSimpleType()
+          self$extractSimpleType(self$`baby_trigger_item`)
       }
       if (!is.null(self$`chain`)) {
         EvolutionChainDetailObject[["chain"]] <-
-          self$`chain`$toSimpleType()
+          self$extractSimpleType(self$`chain`)
       }
       return(EvolutionChainDetailObject)
+    },
+
+    extractSimpleType = function(x) {
+      if (R6::is.R6(x)) {
+        return(x$toSimpleType())
+      } else if (!self$hasNestedR6(x)) {
+        return(x)
+      }
+      lapply(x, self$extractSimpleType)
+    },
+
+    hasNestedR6 = function(x) {
+      if (R6::is.R6(x)) {
+        return(TRUE)
+      }
+      if (is.list(x)) {
+        for (item in x) {
+          if (self$hasNestedR6(item)) {
+            return(TRUE)
+          }
+        }
+      }
+      FALSE
     },
 
     #' @description

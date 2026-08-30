@@ -144,7 +144,7 @@ PaginatedMachineSummaryList::getCount()
 }
 
 void
-PaginatedMachineSummaryList::setCount(int  count)
+PaginatedMachineSummaryList::setCount(int count)
 {
 	this->count = count;
 }
@@ -156,7 +156,7 @@ PaginatedMachineSummaryList::getNext()
 }
 
 void
-PaginatedMachineSummaryList::setNext(std::string  next)
+PaginatedMachineSummaryList::setNext(std::string next)
 {
 	this->next = next;
 }
@@ -168,7 +168,7 @@ PaginatedMachineSummaryList::getPrevious()
 }
 
 void
-PaginatedMachineSummaryList::setPrevious(std::string  previous)
+PaginatedMachineSummaryList::setPrevious(std::string previous)
 {
 	this->previous = previous;
 }
@@ -180,7 +180,7 @@ PaginatedMachineSummaryList::getResults()
 }
 
 void
-PaginatedMachineSummaryList::setResults(std::list <MachineSummary> results)
+PaginatedMachineSummaryList::setResults(std::list<MachineSummary> results)
 {
 	this->results = results;
 }

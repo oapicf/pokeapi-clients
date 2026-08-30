@@ -86,8 +86,18 @@ namespace Org.OpenAPITools.Model
     /// <summary>
     /// A Json converter for type <see cref="BerryDetailFlavorsInner" />
     /// </summary>
-    public class BerryDetailFlavorsInnerJsonConverter : JsonConverter<BerryDetailFlavorsInner>
+    public partial class BerryDetailFlavorsInnerJsonConverter : JsonConverter<BerryDetailFlavorsInner>
     {
+        partial void OnCreated();
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="BerryDetailFlavorsInnerJsonConverter" /> class.
+        /// </summary>
+        public BerryDetailFlavorsInnerJsonConverter()
+        {
+            OnCreated();
+        }
+
         /// <summary>
         /// Deserializes json to <see cref="BerryDetailFlavorsInner" />
         /// </summary>

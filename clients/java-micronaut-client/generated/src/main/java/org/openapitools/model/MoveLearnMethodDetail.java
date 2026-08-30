@@ -38,7 +38,7 @@ import javax.annotation.Generated;
   MoveLearnMethodDetail.JSON_PROPERTY_VERSION_GROUPS
 })
 @JsonTypeName("MoveLearnMethodDetail")
-@Generated(value="org.openapitools.codegen.languages.JavaMicronautClientCodegen", date="2026-02-07T15:22:54.857535619Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@Generated(value="org.openapitools.codegen.languages.JavaMicronautClientCodegen", date="2026-08-30T01:55:51.056116330Z[Etc/UTC]", comments = "Generator version: 7.24.0")
 @Introspected
 public class MoveLearnMethodDetail {
     public static final String JSON_PROPERTY_ID = "id";
@@ -98,16 +98,6 @@ public class MoveLearnMethodDetail {
         this.name = name;
     }
 
-    public MoveLearnMethodDetail names(List<@Valid MoveLearnMethodName> names) {
-        this.names = names;
-        return this;
-    }
-
-    public MoveLearnMethodDetail addNamesItem(MoveLearnMethodName namesItem) {
-        this.names.add(namesItem);
-        return this;
-    }
-
     /**
      * Get names
      * @return names
@@ -117,22 +107,6 @@ public class MoveLearnMethodDetail {
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public List<@Valid MoveLearnMethodName> getNames() {
         return names;
-    }
-
-    @JsonProperty(JSON_PROPERTY_NAMES)
-    @JsonInclude(value = JsonInclude.Include.ALWAYS)
-    public void setNames(List<@Valid MoveLearnMethodName> names) {
-        this.names = names;
-    }
-
-    public MoveLearnMethodDetail descriptions(List<@Valid MoveLearnMethodDescription> descriptions) {
-        this.descriptions = descriptions;
-        return this;
-    }
-
-    public MoveLearnMethodDetail addDescriptionsItem(MoveLearnMethodDescription descriptionsItem) {
-        this.descriptions.add(descriptionsItem);
-        return this;
     }
 
     /**
@@ -146,22 +120,6 @@ public class MoveLearnMethodDetail {
         return descriptions;
     }
 
-    @JsonProperty(JSON_PROPERTY_DESCRIPTIONS)
-    @JsonInclude(value = JsonInclude.Include.ALWAYS)
-    public void setDescriptions(List<@Valid MoveLearnMethodDescription> descriptions) {
-        this.descriptions = descriptions;
-    }
-
-    public MoveLearnMethodDetail versionGroups(List<@Valid AbilityDetailPokemonInnerPokemon> versionGroups) {
-        this.versionGroups = versionGroups;
-        return this;
-    }
-
-    public MoveLearnMethodDetail addVersionGroupsItem(AbilityDetailPokemonInnerPokemon versionGroupsItem) {
-        this.versionGroups.add(versionGroupsItem);
-        return this;
-    }
-
     /**
      * Get versionGroups
      * @return versionGroups
@@ -171,12 +129,6 @@ public class MoveLearnMethodDetail {
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public List<@Valid AbilityDetailPokemonInnerPokemon> getVersionGroups() {
         return versionGroups;
-    }
-
-    @JsonProperty(JSON_PROPERTY_VERSION_GROUPS)
-    @JsonInclude(value = JsonInclude.Include.ALWAYS)
-    public void setVersionGroups(List<@Valid AbilityDetailPokemonInnerPokemon> versionGroups) {
-        this.versionGroups = versionGroups;
     }
 
     @Override
@@ -218,10 +170,7 @@ public class MoveLearnMethodDetail {
      * (except the first line).
      */
     private String toIndentedString(Object o) {
-        if (o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
+        return o == null ? "null" : o.toString().replace("\n", "\n    ");
     }
 
 }

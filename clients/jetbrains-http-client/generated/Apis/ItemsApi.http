@@ -1,0 +1,71 @@
+## ItemsApi
+
+### List item attributes
+## List item attributes
+GET https://pokeapi.co/api/v2/item-attribute/?limit={{limit}}&offset={{offset}}&q={{q}}
+Accept: application/json
+Authorization: Basic: {{username-password}}
+Cookie: sessionid={{cookieKey}}
+
+### Get item attribute
+## Get item attribute
+GET https://pokeapi.co/api/v2/item-attribute/{{id}}/
+Accept: application/json
+Authorization: Basic: {{username-password}}
+Cookie: sessionid={{cookieKey}}
+
+### List item categories
+## List item categories
+GET https://pokeapi.co/api/v2/item-category/?limit={{limit}}&offset={{offset}}&q={{q}}
+Accept: application/json
+Authorization: Basic: {{username-password}}
+Cookie: sessionid={{cookieKey}}
+
+### Get item category
+## Get item category
+GET https://pokeapi.co/api/v2/item-category/{{id}}/
+Accept: application/json
+Authorization: Basic: {{username-password}}
+Cookie: sessionid={{cookieKey}}
+
+### List item fling effects
+## List item fling effects
+GET https://pokeapi.co/api/v2/item-fling-effect/?limit={{limit}}&offset={{offset}}&q={{q}}
+Accept: application/json
+Authorization: Basic: {{username-password}}
+Cookie: sessionid={{cookieKey}}
+
+### Get item fling effect
+## Get item fling effect
+GET https://pokeapi.co/api/v2/item-fling-effect/{{id}}/
+Accept: application/json
+Authorization: Basic: {{username-password}}
+Cookie: sessionid={{cookieKey}}
+
+### List items
+## List items
+GET https://pokeapi.co/api/v2/item/?limit={{limit}}&offset={{offset}}&q={{q}}
+Accept: application/json
+Authorization: Basic: {{username-password}}
+Cookie: sessionid={{cookieKey}}
+
+### List item pockets
+## List item pockets
+GET https://pokeapi.co/api/v2/item-pocket/?limit={{limit}}&offset={{offset}}&q={{q}}
+Accept: application/json
+Authorization: Basic: {{username-password}}
+Cookie: sessionid={{cookieKey}}
+
+### Get item pocket
+## Get item pocket
+GET https://pokeapi.co/api/v2/item-pocket/{{id}}/
+Accept: application/json
+Authorization: Basic: {{username-password}}
+Cookie: sessionid={{cookieKey}}
+
+### Get item
+## Get item
+GET https://pokeapi.co/api/v2/item/{{id}}/
+Accept: application/json
+Authorization: Basic: {{username-password}}
+Cookie: sessionid={{cookieKey}}

@@ -74,19 +74,6 @@ public class ItemFlingEffectDetail  {
     return effectEntries;
   }
 
-  public void setEffectEntries(List<@Valid ItemFlingEffectEffectText> effectEntries) {
-    this.effectEntries = effectEntries;
-  }
-
-  public ItemFlingEffectDetail effectEntries(List<@Valid ItemFlingEffectEffectText> effectEntries) {
-    this.effectEntries = effectEntries;
-    return this;
-  }
-
-  public ItemFlingEffectDetail addEffectEntriesItem(ItemFlingEffectEffectText effectEntriesItem) {
-    this.effectEntries.add(effectEntriesItem);
-    return this;
-  }
 
  /**
    * Get items
@@ -98,19 +85,6 @@ public class ItemFlingEffectDetail  {
     return items;
   }
 
-  public void setItems(List<@Valid ItemSummary> items) {
-    this.items = items;
-  }
-
-  public ItemFlingEffectDetail items(List<@Valid ItemSummary> items) {
-    this.items = items;
-    return this;
-  }
-
-  public ItemFlingEffectDetail addItemsItem(ItemSummary itemsItem) {
-    this.items.add(itemsItem);
-    return this;
-  }
 
   @Override
   public boolean equals(Object o) {
@@ -150,10 +124,7 @@ public class ItemFlingEffectDetail  {
    * (except the first line).
    */
   private static String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 }
 

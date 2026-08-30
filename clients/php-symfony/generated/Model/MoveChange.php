@@ -47,7 +47,7 @@ class MoveChange
      * @var int|null
      * @SerializedName("accuracy")
      * @Type("int")
-    */
+     */
     #[Assert\Type("int")]
     protected ?int $accuracy = null;
 
@@ -55,7 +55,7 @@ class MoveChange
      * @var int|null
      * @SerializedName("power")
      * @Type("int")
-    */
+     */
     #[Assert\Type("int")]
     protected ?int $power = null;
 
@@ -63,7 +63,7 @@ class MoveChange
      * @var int|null
      * @SerializedName("pp")
      * @Type("int")
-    */
+     */
     #[Assert\Type("int")]
     protected ?int $pp = null;
 
@@ -71,7 +71,7 @@ class MoveChange
      * @var int|null
      * @SerializedName("effect_chance")
      * @Type("int")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Type("int")]
     protected ?int $effectChance = null;
@@ -80,7 +80,7 @@ class MoveChange
      * @var MoveChangeEffectEntriesInner[]|null
      * @SerializedName("effect_entries")
      * @Type("array<OpenAPI\Server\Model\MoveChangeEffectEntriesInner>")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Valid]
     #[Assert\All([
@@ -92,7 +92,7 @@ class MoveChange
      * @var TypeSummary|null
      * @SerializedName("type")
      * @Type("OpenAPI\Server\Model\TypeSummary")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Valid]
     #[Assert\Type("OpenAPI\Server\Model\TypeSummary")]
@@ -102,7 +102,7 @@ class MoveChange
      * @var VersionGroupSummary|null
      * @SerializedName("version_group")
      * @Type("OpenAPI\Server\Model\VersionGroupSummary")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Valid]
     #[Assert\Type("OpenAPI\Server\Model\VersionGroupSummary")]
@@ -136,12 +136,12 @@ class MoveChange
     }
 
     /**
-    * Sets accuracy.
-    *
-    * @param int|null $accuracy
-    *
-    * @return $this
-    */
+     * Sets accuracy.
+     *
+     * @param int|null $accuracy
+     *
+     * @return $this
+     */
     public function setAccuracy(?int $accuracy = null): self
     {
         $this->accuracy = $accuracy;
@@ -163,12 +163,12 @@ class MoveChange
     }
 
     /**
-    * Sets power.
-    *
-    * @param int|null $power
-    *
-    * @return $this
-    */
+     * Sets power.
+     *
+     * @param int|null $power
+     *
+     * @return $this
+     */
     public function setPower(?int $power = null): self
     {
         $this->power = $power;
@@ -190,12 +190,12 @@ class MoveChange
     }
 
     /**
-    * Sets pp.
-    *
-    * @param int|null $pp
-    *
-    * @return $this
-    */
+     * Sets pp.
+     *
+     * @param int|null $pp
+     *
+     * @return $this
+     */
     public function setPp(?int $pp = null): self
     {
         $this->pp = $pp;
@@ -217,12 +217,12 @@ class MoveChange
     }
 
     /**
-    * Sets effectChance.
-    *
-    * @param int|null $effectChance
-    *
-    * @return $this
-    */
+     * Sets effectChance.
+     *
+     * @param int|null $effectChance
+     *
+     * @return $this
+     */
     public function setEffectChance(?int $effectChance): self
     {
         $this->effectChance = $effectChance;
@@ -244,12 +244,12 @@ class MoveChange
     }
 
     /**
-    * Sets effectEntries.
-    *
-    * @param MoveChangeEffectEntriesInner[]|null $effectEntries
-    *
-    * @return $this
-    */
+     * Sets effectEntries.
+     *
+     * @param MoveChangeEffectEntriesInner[]|null $effectEntries
+     *
+     * @return $this
+     */
     public function setEffectEntries(?array $effectEntries): self
     {
         $this->effectEntries = $effectEntries;
@@ -271,12 +271,12 @@ class MoveChange
     }
 
     /**
-    * Sets type.
-    *
-    * @param TypeSummary|null $type
-    *
-    * @return $this
-    */
+     * Sets type.
+     *
+     * @param TypeSummary|null $type
+     *
+     * @return $this
+     */
     public function setType(?TypeSummary $type): self
     {
         $this->type = $type;
@@ -298,12 +298,12 @@ class MoveChange
     }
 
     /**
-    * Sets versionGroup.
-    *
-    * @param VersionGroupSummary|null $versionGroup
-    *
-    * @return $this
-    */
+     * Sets versionGroup.
+     *
+     * @param VersionGroupSummary|null $versionGroup
+     *
+     * @return $this
+     */
     public function setVersionGroup(?VersionGroupSummary $versionGroup): self
     {
         $this->versionGroup = $versionGroup;

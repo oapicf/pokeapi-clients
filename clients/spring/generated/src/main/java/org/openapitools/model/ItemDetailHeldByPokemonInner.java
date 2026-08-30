@@ -13,25 +13,24 @@ import org.openapitools.model.ItemDetailHeldByPokemonInnerVersionDetailsInner;
 import org.springframework.lang.Nullable;
 import org.openapitools.jackson.nullable.JsonNullable;
 import java.time.OffsetDateTime;
-import javax.validation.Valid;
-import javax.validation.constraints.*;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.*;
 import io.swagger.v3.oas.annotations.media.Schema;
 
 
 import java.util.*;
-import javax.annotation.Generated;
+import jakarta.annotation.Generated;
 
 /**
  * ItemDetailHeldByPokemonInner
  */
 
 @JsonTypeName("ItemDetail_held_by_pokemon_inner")
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2026-02-07T15:29:13.146999890Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2026-08-30T02:00:43.960184425Z[Etc/UTC]", comments = "Generator version: 7.24.0")
 public class ItemDetailHeldByPokemonInner {
 
   private AbilityDetailPokemonInnerPokemon pokemon;
 
-  @Valid
   private List<@Valid ItemDetailHeldByPokemonInnerVersionDetailsInner> versionDetails = new ArrayList<>();
 
   public ItemDetailHeldByPokemonInner() {
@@ -62,6 +61,7 @@ public class ItemDetailHeldByPokemonInner {
     return pokemon;
   }
 
+  @JsonProperty("pokemon")
   public void setPokemon(AbilityDetailPokemonInnerPokemon pokemon) {
     this.pokemon = pokemon;
   }
@@ -90,6 +90,7 @@ public class ItemDetailHeldByPokemonInner {
     return versionDetails;
   }
 
+  @JsonProperty("version-details")
   public void setVersionDetails(List<@Valid ItemDetailHeldByPokemonInnerVersionDetailsInner> versionDetails) {
     this.versionDetails = versionDetails;
   }
@@ -126,11 +127,8 @@ public class ItemDetailHeldByPokemonInner {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+  private String toIndentedString(@Nullable Object o) {
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 }
 

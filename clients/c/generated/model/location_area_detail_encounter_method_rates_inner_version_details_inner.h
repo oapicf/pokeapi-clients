@@ -20,14 +20,14 @@ typedef struct location_area_detail_encounter_method_rates_inner_version_details
 
 
 typedef struct location_area_detail_encounter_method_rates_inner_version_details_inner_t {
-    int rate; //numeric
+    int *rate; //numeric
     struct ability_detail_pokemon_inner_pokemon_t *version; //model
 
     int _library_owned; // Is the library responsible for freeing this object?
 } location_area_detail_encounter_method_rates_inner_version_details_inner_t;
 
 __attribute__((deprecated)) location_area_detail_encounter_method_rates_inner_version_details_inner_t *location_area_detail_encounter_method_rates_inner_version_details_inner_create(
-    int rate,
+    int *rate,
     ability_detail_pokemon_inner_pokemon_t *version
 );
 

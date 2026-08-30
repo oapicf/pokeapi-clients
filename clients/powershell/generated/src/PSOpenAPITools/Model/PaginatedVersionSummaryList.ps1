@@ -51,10 +51,10 @@ function Initialize-PaginatedVersionSummaryList {
 
 
         $PSO = [PSCustomObject]@{
-            "count" = ${Count}
-            "next" = ${Next}
-            "previous" = ${Previous}
-            "results" = ${Results}
+            'count' = ${Count}
+            'next' = ${Next}
+            'previous' = ${Previous}
+            'results' = ${Results}
         }
 
 
@@ -92,42 +92,42 @@ function ConvertFrom-JsonToPaginatedVersionSummaryList {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in PaginatedVersionSummaryList
-        $AllProperties = ("count", "next", "previous", "results")
+        $AllProperties = ('count', 'next', 'previous', 'results')
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
             }
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "count"))) { #optional property not found
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'count'))) { #optional property not found
             $Count = $null
         } else {
-            $Count = $JsonParameters.PSobject.Properties["count"].value
+            $Count = $JsonParameters.PSobject.Properties['count'].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "next"))) { #optional property not found
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'next'))) { #optional property not found
             $Next = $null
         } else {
-            $Next = $JsonParameters.PSobject.Properties["next"].value
+            $Next = $JsonParameters.PSobject.Properties['next'].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "previous"))) { #optional property not found
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'previous'))) { #optional property not found
             $Previous = $null
         } else {
-            $Previous = $JsonParameters.PSobject.Properties["previous"].value
+            $Previous = $JsonParameters.PSobject.Properties['previous'].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "results"))) { #optional property not found
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'results'))) { #optional property not found
             $Results = $null
         } else {
-            $Results = $JsonParameters.PSobject.Properties["results"].value
+            $Results = $JsonParameters.PSobject.Properties['results'].value
         }
 
         $PSO = [PSCustomObject]@{
-            "count" = ${Count}
-            "next" = ${Next}
-            "previous" = ${Previous}
-            "results" = ${Results}
+            'count' = ${Count}
+            'next' = ${Next}
+            'previous' = ${Previous}
+            'results' = ${Results}
         }
 
         return $PSO

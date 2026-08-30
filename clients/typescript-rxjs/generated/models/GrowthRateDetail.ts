@@ -41,15 +41,15 @@ export interface GrowthRateDetail {
      * @type {Array<GrowthRateDescription>}
      * @memberof GrowthRateDetail
      */
-    descriptions: Array<GrowthRateDescription>;
+    readonly descriptions: Array<GrowthRateDescription>;
     /**
      * @type {Array<Experience>}
      * @memberof GrowthRateDetail
      */
-    levels: Array<Experience>;
+    readonly levels: Array<Experience>;
     /**
      * @type {Array<PokemonSpeciesSummary>}
      * @memberof GrowthRateDetail
      */
-    pokemon_species: Array<PokemonSpeciesSummary>;
+    readonly pokemon_species: Array<PokemonSpeciesSummary>;
 }

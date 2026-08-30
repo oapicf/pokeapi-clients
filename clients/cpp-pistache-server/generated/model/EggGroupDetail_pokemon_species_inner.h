@@ -32,7 +32,7 @@ class  EggGroupDetail_pokemon_species_inner
 {
 public:
     EggGroupDetail_pokemon_species_inner();
-    virtual ~EggGroupDetail_pokemon_species_inner() = default;
+    virtual ~EggGroupDetail_pokemon_species_inner();
 
 
     /// <summary>

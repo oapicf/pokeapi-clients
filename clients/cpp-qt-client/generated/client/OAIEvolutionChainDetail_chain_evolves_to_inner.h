@@ -35,13 +35,13 @@ class OAIAbilityDetail_pokemon_inner_pokemon;
 class OAIEvolutionChainDetail_chain_evolves_to_inner : public OAIObject {
 public:
     OAIEvolutionChainDetail_chain_evolves_to_inner();
-    OAIEvolutionChainDetail_chain_evolves_to_inner(QString json);
+    OAIEvolutionChainDetail_chain_evolves_to_inner(const QString &json);
     ~OAIEvolutionChainDetail_chain_evolves_to_inner() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     QList<OAIEvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner> getEvolutionDetails() const;
     void setEvolutionDetails(const QList<OAIEvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner> &evolution_details);

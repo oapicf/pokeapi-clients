@@ -31,6 +31,8 @@ PaginatedPokemonHabitatSummaryList::PaginatedPokemonHabitatSummaryList()
     
 }
 
+PaginatedPokemonHabitatSummaryList::~PaginatedPokemonHabitatSummaryList() = default;
+
 void PaginatedPokemonHabitatSummaryList::validate() const
 {
     std::stringstream msg;

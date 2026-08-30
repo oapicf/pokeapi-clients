@@ -41,7 +41,7 @@ export interface MoveBattleStyleDetail  {
      * @type {Array<MoveBattleStyleName>}
      * @memberof MoveBattleStyleDetail
      */
-    names: Array<MoveBattleStyleName>;
+    readonly names: Array<MoveBattleStyleName>;
 }
 
 export function MoveBattleStyleDetailFromJSON(json: any): MoveBattleStyleDetail {
@@ -58,7 +58,6 @@ export function MoveBattleStyleDetailToJSON(value?: MoveBattleStyleDetail): any 
     }
     return {
         'name': value.name,
-        'names': (value.names as Array<any>).map(MoveBattleStyleNameToJSON),
     };
 }
 

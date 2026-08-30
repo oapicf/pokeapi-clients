@@ -20,9 +20,9 @@ typedef struct language_detail_t language_detail_t;
 
 
 typedef struct language_detail_t {
-    int id; //numeric
+    int *id; //numeric
     char *name; // string
-    int official; //boolean
+    int *official; //boolean
     char *iso639; // string
     char *iso3166; // string
     list_t *names; //nonprimitive container
@@ -31,9 +31,9 @@ typedef struct language_detail_t {
 } language_detail_t;
 
 __attribute__((deprecated)) language_detail_t *language_detail_create(
-    int id,
+    int *id,
     char *name,
-    int official,
+    int *official,
     char *iso639,
     char *iso3166,
     list_t *names

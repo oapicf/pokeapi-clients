@@ -21,11 +21,13 @@ import io.swagger.v3.oas.annotations.media.Schema
  */
 data class BerryDetailFlavorsInner(
 
-    @Schema(example = "null", required = true, description = "")
+    @Schema(required = true, description = "")
+    @param:JsonProperty("potency")
     @get:JsonProperty("potency", required = true) val potency: kotlin.Int,
 
     @field:Valid
-    @Schema(example = "null", required = true, description = "")
+    @Schema(required = true, description = "")
+    @param:JsonProperty("flavor")
     @get:JsonProperty("flavor", required = true) val flavor: BerryDetailFlavorsInnerFlavor
 ) {
 

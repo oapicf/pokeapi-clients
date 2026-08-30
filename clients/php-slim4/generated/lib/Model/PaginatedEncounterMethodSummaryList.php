@@ -67,7 +67,8 @@ class PaginatedEncounterMethodSummaryList extends BaseModel
       "type" : "array",
       "items" : {
         "$ref" : "#/components/schemas/EncounterMethodSummary"
-      }
+      },
+      "default" : null
     }
   }
 }

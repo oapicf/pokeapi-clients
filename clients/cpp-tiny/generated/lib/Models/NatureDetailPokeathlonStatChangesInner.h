@@ -52,14 +52,14 @@ public:
 
 	/*! \brief Set 
 	 */
-	void setMaxChange(int  max_change);
+	void setMaxChange(int max_change);
 	/*! \brief Get 
 	 */
 	AbilityDetail_pokemon_inner_pokemon getPokeathlonStat();
 
 	/*! \brief Set 
 	 */
-	void setPokeathlonStat(AbilityDetail_pokemon_inner_pokemon  pokeathlon_stat);
+	void setPokeathlonStat(AbilityDetail_pokemon_inner_pokemon pokeathlon_stat);
 
 
     private:

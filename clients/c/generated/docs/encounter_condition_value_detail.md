@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 **id** | **int** |  | [readonly] 
 **name** | **char \*** |  | 
 **condition** | [**encounter_condition_summary_t**](encounter_condition_summary.md) \* |  | 
-**names** | [**list_t**](encounter_condition_value_name.md) \* |  | 
+**names** | [**list_t**](encounter_condition_value_name.md) \* |  | [readonly] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

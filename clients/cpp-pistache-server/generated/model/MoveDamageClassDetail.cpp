@@ -26,6 +26,8 @@ MoveDamageClassDetail::MoveDamageClassDetail()
     
 }
 
+MoveDamageClassDetail::~MoveDamageClassDetail() = default;
+
 void MoveDamageClassDetail::validate() const
 {
     std::stringstream msg;

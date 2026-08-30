@@ -6,7 +6,7 @@
 
 
 static type_detail_t *type_detail_create_internal(
-    int id,
+    int *id,
     char *name,
     type_detail_damage_relations_t *damage_relations,
     list_t *past_damage_relations,
@@ -22,6 +22,8 @@ static type_detail_t *type_detail_create_internal(
     if (!type_detail_local_var) {
         return NULL;
     }
+    memset(type_detail_local_var, 0, sizeof(type_detail_t));
+    type_detail_local_var->_library_owned = 1;
     type_detail_local_var->id = id;
     type_detail_local_var->name = name;
     type_detail_local_var->damage_relations = damage_relations;
@@ -33,13 +35,11 @@ static type_detail_t *type_detail_create_internal(
     type_detail_local_var->pokemon = pokemon;
     type_detail_local_var->moves = moves;
     type_detail_local_var->sprites = sprites;
-
-    type_detail_local_var->_library_owned = 1;
     return type_detail_local_var;
 }
 
 __attribute__((deprecated)) type_detail_t *type_detail_create(
-    int id,
+    int *id,
     char *name,
     type_detail_damage_relations_t *damage_relations,
     list_t *past_damage_relations,
@@ -51,8 +51,13 @@ __attribute__((deprecated)) type_detail_t *type_detail_create(
     list_t *moves,
     list_t* sprites
     ) {
-    return type_detail_create_internal (
-        id,
+    int *id_copy = NULL;
+    if (id) {
+        id_copy = malloc(sizeof(int));
+        if (id_copy) *id_copy = *id;
+    }
+    type_detail_t *result = type_detail_create_internal (
+        id_copy,
         name,
         damage_relations,
         past_damage_relations,
@@ -64,6 +69,10 @@ __attribute__((deprecated)) type_detail_t *type_detail_create(
         moves,
         sprites
         );
+    if (!result) {
+        free(id_copy);
+    }
+    return result;
 }
 
 void type_detail_free(type_detail_t *type_detail) {
@@ -75,6 +84,10 @@ void type_detail_free(type_detail_t *type_detail) {
         return ;
     }
     listEntry_t *listEntry;
+    if (type_detail->id) {
+        free(type_detail->id);
+        type_detail->id = NULL;
+    }
     if (type_detail->name) {
         free(type_detail->name);
         type_detail->name = NULL;
@@ -146,7 +159,7 @@ cJSON *type_detail_convertToJSON(type_detail_t *type_detail) {
     if (!type_detail->id) {
         goto fail;
     }
-    if(cJSON_AddNumberToObject(item, "id", type_detail->id) == NULL) {
+    if(cJSON_AddNumberToObject(item, "id", *type_detail->id) == NULL) {
     goto fail; //Numeric
     }
 
@@ -335,6 +348,11 @@ type_detail_t *type_detail_parseFromJSON(cJSON *type_detailJSON){
 
     type_detail_t *type_detail_local_var = NULL;
 
+    // define the local variable for type_detail->id
+    int *id_local_var = NULL;
+
+    char *name_local_str = NULL;
+
     // define the local variable for type_detail->damage_relations
     type_detail_damage_relations_t *damage_relations_local_nonprim = NULL;
 
@@ -376,6 +394,12 @@ type_detail_t *type_detail_parseFromJSON(cJSON *type_detailJSON){
     {
     goto end; //Numeric
     }
+    id_local_var = malloc(sizeof(int));
+    if(!id_local_var)
+    {
+        goto end;
+    }
+    *id_local_var = id->valuedouble;
 
     // type_detail->name
     cJSON *name = cJSON_GetObjectItemCaseSensitive(type_detailJSON, "name");
@@ -590,9 +614,11 @@ type_detail_t *type_detail_parseFromJSON(cJSON *type_detailJSON){
     }
 
 
+    if (name && !cJSON_IsNull(name)) name_local_str = strdup(name->valuestring);
+
     type_detail_local_var = type_detail_create_internal (
-        id->valuedouble,
-        strdup(name->valuestring),
+        id_local_var,
+        name_local_str,
         damage_relations_local_nonprim,
         past_damage_relationsList,
         game_indicesList,
@@ -604,8 +630,20 @@ type_detail_t *type_detail_parseFromJSON(cJSON *type_detailJSON){
         spritesList
         );
 
+    if (!type_detail_local_var) {
+        goto end;
+    }
+
     return type_detail_local_var;
 end:
+    if (id_local_var) {
+        free(id_local_var);
+        id_local_var = NULL;
+    }
+    if (name_local_str) {
+        free(name_local_str);
+        name_local_str = NULL;
+    }
     if (damage_relations_local_nonprim) {
         type_detail_damage_relations_free(damage_relations_local_nonprim);
         damage_relations_local_nonprim = NULL;

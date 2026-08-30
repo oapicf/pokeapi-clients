@@ -68,31 +68,31 @@ export interface AbilityDetail  {
      * @type {Array<AbilityName>}
      * @memberof AbilityDetail
      */
-    names: Array<AbilityName>;
+    readonly names: Array<AbilityName>;
     /**
      * 
      * @type {Array<AbilityEffectText>}
      * @memberof AbilityDetail
      */
-    effectEntries: Array<AbilityEffectText>;
+    readonly effectEntries: Array<AbilityEffectText>;
     /**
      * 
      * @type {Array<AbilityChange>}
      * @memberof AbilityDetail
      */
-    effectChanges: Array<AbilityChange>;
+    readonly effectChanges: Array<AbilityChange>;
     /**
      * 
      * @type {Array<AbilityFlavorText>}
      * @memberof AbilityDetail
      */
-    flavorTextEntries: Array<AbilityFlavorText>;
+    readonly flavorTextEntries: Array<AbilityFlavorText>;
     /**
      * 
      * @type {Array<AbilityDetailPokemonInner>}
      * @memberof AbilityDetail
      */
-    pokemon: Array<AbilityDetailPokemonInner>;
+    readonly pokemon: Array<AbilityDetailPokemonInner>;
 }
 
 export function AbilityDetailFromJSON(json: any): AbilityDetail {
@@ -117,11 +117,6 @@ export function AbilityDetailToJSON(value?: AbilityDetail): any {
         'name': value.name,
         'is_main_series': value.isMainSeries,
         'generation': GenerationSummaryToJSON(value.generation),
-        'names': (value.names as Array<any>).map(AbilityNameToJSON),
-        'effect_entries': (value.effectEntries as Array<any>).map(AbilityEffectTextToJSON),
-        'effect_changes': (value.effectChanges as Array<any>).map(AbilityChangeToJSON),
-        'flavor_text_entries': (value.flavorTextEntries as Array<any>).map(AbilityFlavorTextToJSON),
-        'pokemon': (value.pokemon as Array<any>).map(AbilityDetailPokemonInnerToJSON),
     };
 }
 

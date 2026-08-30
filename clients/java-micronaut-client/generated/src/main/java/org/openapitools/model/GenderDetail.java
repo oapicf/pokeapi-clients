@@ -36,7 +36,7 @@ import javax.annotation.Generated;
   GenderDetail.JSON_PROPERTY_REQUIRED_FOR_EVOLUTION
 })
 @JsonTypeName("GenderDetail")
-@Generated(value="org.openapitools.codegen.languages.JavaMicronautClientCodegen", date="2026-02-07T15:22:54.857535619Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@Generated(value="org.openapitools.codegen.languages.JavaMicronautClientCodegen", date="2026-08-30T01:55:51.056116330Z[Etc/UTC]", comments = "Generator version: 7.24.0")
 @Introspected
 public class GenderDetail {
     public static final String JSON_PROPERTY_ID = "id";
@@ -92,16 +92,6 @@ public class GenderDetail {
         this.name = name;
     }
 
-    public GenderDetail pokemonSpeciesDetails(List<@Valid GenderDetailPokemonSpeciesDetailsInner> pokemonSpeciesDetails) {
-        this.pokemonSpeciesDetails = pokemonSpeciesDetails;
-        return this;
-    }
-
-    public GenderDetail addPokemonSpeciesDetailsItem(GenderDetailPokemonSpeciesDetailsInner pokemonSpeciesDetailsItem) {
-        this.pokemonSpeciesDetails.add(pokemonSpeciesDetailsItem);
-        return this;
-    }
-
     /**
      * Get pokemonSpeciesDetails
      * @return pokemonSpeciesDetails
@@ -113,22 +103,6 @@ public class GenderDetail {
         return pokemonSpeciesDetails;
     }
 
-    @JsonProperty(JSON_PROPERTY_POKEMON_SPECIES_DETAILS)
-    @JsonInclude(value = JsonInclude.Include.ALWAYS)
-    public void setPokemonSpeciesDetails(List<@Valid GenderDetailPokemonSpeciesDetailsInner> pokemonSpeciesDetails) {
-        this.pokemonSpeciesDetails = pokemonSpeciesDetails;
-    }
-
-    public GenderDetail requiredForEvolution(List<@Valid AbilityDetailPokemonInnerPokemon> requiredForEvolution) {
-        this.requiredForEvolution = requiredForEvolution;
-        return this;
-    }
-
-    public GenderDetail addRequiredForEvolutionItem(AbilityDetailPokemonInnerPokemon requiredForEvolutionItem) {
-        this.requiredForEvolution.add(requiredForEvolutionItem);
-        return this;
-    }
-
     /**
      * Get requiredForEvolution
      * @return requiredForEvolution
@@ -138,12 +112,6 @@ public class GenderDetail {
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public List<@Valid AbilityDetailPokemonInnerPokemon> getRequiredForEvolution() {
         return requiredForEvolution;
-    }
-
-    @JsonProperty(JSON_PROPERTY_REQUIRED_FOR_EVOLUTION)
-    @JsonInclude(value = JsonInclude.Include.ALWAYS)
-    public void setRequiredForEvolution(List<@Valid AbilityDetailPokemonInnerPokemon> requiredForEvolution) {
-        this.requiredForEvolution = requiredForEvolution;
     }
 
     @Override
@@ -183,10 +151,7 @@ public class GenderDetail {
      * (except the first line).
      */
     private String toIndentedString(Object o) {
-        if (o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
+        return o == null ? "null" : o.toString().replace("\n", "\n    ");
     }
 
 }

@@ -16,20 +16,20 @@ Name | Type | Description | Notes
 **hasGenderDifferences** | **NSNumber*** |  | [optional] 
 **formsSwitchable** | **NSNumber*** |  | [optional] 
 **growthRate** | [**OAIGrowthRateSummary***](OAIGrowthRateSummary.md) |  | 
-**pokedexNumbers** | [**NSArray&lt;OAIPokemonDexEntry&gt;***](OAIPokemonDexEntry.md) |  | 
-**eggGroups** | [**NSArray&lt;OAIAbilityDetailPokemonInnerPokemon&gt;***](OAIAbilityDetailPokemonInnerPokemon.md) |  | 
+**pokedexNumbers** | [**NSArray&lt;OAIPokemonDexEntry&gt;***](OAIPokemonDexEntry.md) |  | [readonly] 
+**eggGroups** | [**NSArray&lt;OAIAbilityDetailPokemonInnerPokemon&gt;***](OAIAbilityDetailPokemonInnerPokemon.md) |  | [readonly] 
 **color** | [**OAIPokemonColorSummary***](OAIPokemonColorSummary.md) |  | 
 **shape** | [**OAIPokemonShapeSummary***](OAIPokemonShapeSummary.md) |  | 
 **evolvesFromSpecies** | [**OAIPokemonSpeciesSummary***](OAIPokemonSpeciesSummary.md) |  | 
 **evolutionChain** | [**OAIEvolutionChainSummary***](OAIEvolutionChainSummary.md) |  | 
 **habitat** | [**OAIPokemonHabitatSummary***](OAIPokemonHabitatSummary.md) |  | 
 **generation** | [**OAIGenerationSummary***](OAIGenerationSummary.md) |  | 
-**names** | [**NSArray&lt;OAIPokemonFormDetailFormNamesInner&gt;***](OAIPokemonFormDetailFormNamesInner.md) |  | 
-**palParkEncounters** | [**NSArray&lt;OAIPokemonSpeciesDetailPalParkEncountersInner&gt;***](OAIPokemonSpeciesDetailPalParkEncountersInner.md) |  | 
-**formDescriptions** | [**NSArray&lt;OAIPokemonSpeciesDescription&gt;***](OAIPokemonSpeciesDescription.md) |  | 
-**flavorTextEntries** | [**NSArray&lt;OAIPokemonSpeciesFlavorText&gt;***](OAIPokemonSpeciesFlavorText.md) |  | 
-**genera** | [**NSArray&lt;OAIPokemonSpeciesDetailGeneraInner&gt;***](OAIPokemonSpeciesDetailGeneraInner.md) |  | 
-**varieties** | [**NSArray&lt;OAIPokemonSpeciesDetailVarietiesInner&gt;***](OAIPokemonSpeciesDetailVarietiesInner.md) |  | 
+**names** | [**NSArray&lt;OAIPokemonFormDetailFormNamesInner&gt;***](OAIPokemonFormDetailFormNamesInner.md) |  | [readonly] 
+**palParkEncounters** | [**NSArray&lt;OAIPokemonSpeciesDetailPalParkEncountersInner&gt;***](OAIPokemonSpeciesDetailPalParkEncountersInner.md) |  | [readonly] 
+**formDescriptions** | [**NSArray&lt;OAIPokemonSpeciesDescription&gt;***](OAIPokemonSpeciesDescription.md) |  | [readonly] 
+**flavorTextEntries** | [**NSArray&lt;OAIPokemonSpeciesFlavorText&gt;***](OAIPokemonSpeciesFlavorText.md) |  | [readonly] 
+**genera** | [**NSArray&lt;OAIPokemonSpeciesDetailGeneraInner&gt;***](OAIPokemonSpeciesDetailGeneraInner.md) |  | [readonly] 
+**varieties** | [**NSArray&lt;OAIPokemonSpeciesDetailVarietiesInner&gt;***](OAIPokemonSpeciesDetailVarietiesInner.md) |  | [readonly] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

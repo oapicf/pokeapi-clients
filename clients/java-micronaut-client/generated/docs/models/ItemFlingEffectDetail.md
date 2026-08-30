@@ -10,8 +10,8 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | `Integer` |  |  [readonly property]
 **name** | `String` |  | 
-**effectEntries** | [`List&lt;ItemFlingEffectEffectText&gt;`](ItemFlingEffectEffectText.md) |  | 
-**items** | [`List&lt;ItemSummary&gt;`](ItemSummary.md) |  | 
+**effectEntries** | [`List&lt;ItemFlingEffectEffectText&gt;`](ItemFlingEffectEffectText.md) |  |  [readonly property]
+**items** | [`List&lt;ItemSummary&gt;`](ItemSummary.md) |  |  [readonly property]
 
 
 

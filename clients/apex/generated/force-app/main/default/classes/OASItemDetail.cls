@@ -48,7 +48,7 @@ public class OASItemDetail implements OAS.MappedProperties {
      * Get attributes
      * @return attributes
      */
-    public List<OASAbilityDetailPokemonInnerPokemon> attributes { get; set; }
+    public List<OASAbilityDetailPokemonInnerPokemon> attributes { get; private set; }
 
     /**
      * Get category
@@ -60,31 +60,31 @@ public class OASItemDetail implements OAS.MappedProperties {
      * Get effectEntries
      * @return effectEntries
      */
-    public List<OASItemEffectText> effectEntries { get; set; }
+    public List<OASItemEffectText> effectEntries { get; private set; }
 
     /**
      * Get flavorTextEntries
      * @return flavorTextEntries
      */
-    public List<OASItemFlavorText> flavorTextEntries { get; set; }
+    public List<OASItemFlavorText> flavorTextEntries { get; private set; }
 
     /**
      * Get gameIndices
      * @return gameIndices
      */
-    public List<OASItemGameIndex> gameIndices { get; set; }
+    public List<OASItemGameIndex> gameIndices { get; private set; }
 
     /**
      * Get names
      * @return names
      */
-    public List<OASItemName> names { get; set; }
+    public List<OASItemName> names { get; private set; }
 
     /**
      * Get heldByPokemon
      * @return heldByPokemon
      */
-    public List<OASItemDetailHeldByPokemonInner> heldByPokemon { get; set; }
+    public List<OASItemDetailHeldByPokemonInner> heldByPokemon { get; private set; }
 
     /**
      * Get sprites
@@ -102,7 +102,7 @@ public class OASItemDetail implements OAS.MappedProperties {
      * Get machines
      * @return machines
      */
-    public List<OASItemDetailMachinesInner> machines { get; set; }
+    public List<OASItemDetailMachinesInner> machines { get; private set; }
 
     private static final Map<String, String> propertyMappings = new Map<String, String>{
         'fling_power' => 'flingPower',

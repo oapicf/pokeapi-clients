@@ -34,7 +34,7 @@ class  MoveFlavorText
 {
 public:
     MoveFlavorText();
-    virtual ~MoveFlavorText() = default;
+    virtual ~MoveFlavorText();
 
 
     /// <summary>

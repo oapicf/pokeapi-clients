@@ -37,13 +37,13 @@ class OAIVersionGroupSummary;
 class OAIMoveChange : public OAIObject {
 public:
     OAIMoveChange();
-    OAIMoveChange(QString json);
+    OAIMoveChange(const QString &json);
     ~OAIMoveChange() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     qint32 getAccuracy() const;
     void setAccuracy(const qint32 &accuracy);

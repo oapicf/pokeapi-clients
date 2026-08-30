@@ -53,10 +53,10 @@ class PokemonFormDetailFormNamesInner {
       // Note 1: the values aren't checked for validity beyond being non-null.
       // Note 2: this code is stripped in release mode!
       assert(() {
-        requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "PokemonFormDetailFormNamesInner[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "PokemonFormDetailFormNamesInner[$key]" has a null value in JSON.');
-        });
+        assert(json.containsKey(r'language'), 'Required key "PokemonFormDetailFormNamesInner[language]" is missing from JSON.');
+        assert(json[r'language'] != null, 'Required key "PokemonFormDetailFormNamesInner[language]" has a null value in JSON.');
+        assert(json.containsKey(r'name'), 'Required key "PokemonFormDetailFormNamesInner[name]" is missing from JSON.');
+        assert(json[r'name'] != null, 'Required key "PokemonFormDetailFormNamesInner[name]" has a null value in JSON.');
         return true;
       }());
 

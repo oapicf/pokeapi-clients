@@ -39,7 +39,7 @@ import io.swagger.v3.oas.annotations.media.Schema;
   TypeDetailPastDamageRelationsInnerDamageRelations.JSON_PROPERTY_DOUBLE_DAMAGE_FROM
 })
 @JsonTypeName("TypeDetail_past_damage_relations_inner_damage_relations")
-@Generated(value="org.openapitools.codegen.languages.JavaMicronautServerCodegen", date="2026-02-07T15:23:03.167972722Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@Generated(value="org.openapitools.codegen.languages.JavaMicronautServerCodegen", date="2026-08-30T01:55:54.631003115Z[Etc/UTC]", comments = "Generator version: 7.24.0")
 @Introspected
 public class TypeDetailPastDamageRelationsInnerDamageRelations {
     public static final String JSON_PROPERTY_NO_DAMAGE_TO = "no_damage_to";
@@ -278,10 +278,7 @@ public class TypeDetailPastDamageRelationsInnerDamageRelations {
      * (except the first line).
      */
     private String toIndentedString(Object o) {
-        if (o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
+        return o == null ? "null" : o.toString().replace("\n", "\n    ");
     }
 
 }

@@ -7,7 +7,7 @@
 | **id** | **Integer** |  | [readonly] |
 | **name** | **String** |  |  |
 | **condition** | [**EncounterConditionSummary**](EncounterConditionSummary.md) |  |  |
-| **names** | [**Array&lt;EncounterConditionValueName&gt;**](EncounterConditionValueName.md) |  |  |
+| **names** | [**Array&lt;EncounterConditionValueName&gt;**](EncounterConditionValueName.md) |  | [readonly] |
 
 ## Example
 

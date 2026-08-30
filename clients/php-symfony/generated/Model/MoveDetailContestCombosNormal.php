@@ -47,7 +47,7 @@ class MoveDetailContestCombosNormal
      * @var AbilityDetailPokemonInnerPokemon[]|null
      * @SerializedName("use_before")
      * @Type("array<OpenAPI\Server\Model\AbilityDetailPokemonInnerPokemon>")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Valid]
     #[Assert\All([
@@ -59,7 +59,7 @@ class MoveDetailContestCombosNormal
      * @var AbilityDetailPokemonInnerPokemon[]|null
      * @SerializedName("use_after")
      * @Type("array<OpenAPI\Server\Model\AbilityDetailPokemonInnerPokemon>")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Valid]
     #[Assert\All([
@@ -90,12 +90,12 @@ class MoveDetailContestCombosNormal
     }
 
     /**
-    * Sets useBefore.
-    *
-    * @param AbilityDetailPokemonInnerPokemon[]|null $useBefore
-    *
-    * @return $this
-    */
+     * Sets useBefore.
+     *
+     * @param AbilityDetailPokemonInnerPokemon[]|null $useBefore
+     *
+     * @return $this
+     */
     public function setUseBefore(?array $useBefore): self
     {
         $this->useBefore = $useBefore;
@@ -117,12 +117,12 @@ class MoveDetailContestCombosNormal
     }
 
     /**
-    * Sets useAfter.
-    *
-    * @param AbilityDetailPokemonInnerPokemon[]|null $useAfter
-    *
-    * @return $this
-    */
+     * Sets useAfter.
+     *
+     * @param AbilityDetailPokemonInnerPokemon[]|null $useAfter
+     *
+     * @return $this
+     */
     public function setUseAfter(?array $useAfter): self
     {
         $this->useAfter = $useAfter;

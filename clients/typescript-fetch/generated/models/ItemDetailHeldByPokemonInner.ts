@@ -53,7 +53,7 @@ export interface ItemDetailHeldByPokemonInner {
  */
 export function instanceOfItemDetailHeldByPokemonInner(value: object): value is ItemDetailHeldByPokemonInner {
     if (!('pokemon' in value) || value['pokemon'] === undefined) return false;
-    if (!('versionDetails' in value) || value['versionDetails'] === undefined) return false;
+    if ((!('versionDetails' in (value as Record<string, any>)) && !('version-details' in (value as Record<string, any>))) || ((value as Record<string, any>)['versionDetails'] === undefined && (value as Record<string, any>)['version-details'] === undefined)) return false;
     return true;
 }
 

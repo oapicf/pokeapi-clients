@@ -6,9 +6,9 @@
 
 
 static version_group_detail_t *version_group_detail_create_internal(
-    int id,
+    int *id,
     char *name,
-    int order,
+    int *order,
     generation_summary_t *generation,
     list_t *move_learn_methods,
     list_t *pokedexes,
@@ -19,6 +19,8 @@ static version_group_detail_t *version_group_detail_create_internal(
     if (!version_group_detail_local_var) {
         return NULL;
     }
+    memset(version_group_detail_local_var, 0, sizeof(version_group_detail_t));
+    version_group_detail_local_var->_library_owned = 1;
     version_group_detail_local_var->id = id;
     version_group_detail_local_var->name = name;
     version_group_detail_local_var->order = order;
@@ -27,31 +29,44 @@ static version_group_detail_t *version_group_detail_create_internal(
     version_group_detail_local_var->pokedexes = pokedexes;
     version_group_detail_local_var->regions = regions;
     version_group_detail_local_var->versions = versions;
-
-    version_group_detail_local_var->_library_owned = 1;
     return version_group_detail_local_var;
 }
 
 __attribute__((deprecated)) version_group_detail_t *version_group_detail_create(
-    int id,
+    int *id,
     char *name,
-    int order,
+    int *order,
     generation_summary_t *generation,
     list_t *move_learn_methods,
     list_t *pokedexes,
     list_t *regions,
     list_t *versions
     ) {
-    return version_group_detail_create_internal (
-        id,
+    int *id_copy = NULL;
+    if (id) {
+        id_copy = malloc(sizeof(int));
+        if (id_copy) *id_copy = *id;
+    }
+    int *order_copy = NULL;
+    if (order) {
+        order_copy = malloc(sizeof(int));
+        if (order_copy) *order_copy = *order;
+    }
+    version_group_detail_t *result = version_group_detail_create_internal (
+        id_copy,
         name,
-        order,
+        order_copy,
         generation,
         move_learn_methods,
         pokedexes,
         regions,
         versions
         );
+    if (!result) {
+        free(id_copy);
+        free(order_copy);
+    }
+    return result;
 }
 
 void version_group_detail_free(version_group_detail_t *version_group_detail) {
@@ -63,9 +78,17 @@ void version_group_detail_free(version_group_detail_t *version_group_detail) {
         return ;
     }
     listEntry_t *listEntry;
+    if (version_group_detail->id) {
+        free(version_group_detail->id);
+        version_group_detail->id = NULL;
+    }
     if (version_group_detail->name) {
         free(version_group_detail->name);
         version_group_detail->name = NULL;
+    }
+    if (version_group_detail->order) {
+        free(version_group_detail->order);
+        version_group_detail->order = NULL;
     }
     if (version_group_detail->generation) {
         generation_summary_free(version_group_detail->generation);
@@ -109,7 +132,7 @@ cJSON *version_group_detail_convertToJSON(version_group_detail_t *version_group_
     if (!version_group_detail->id) {
         goto fail;
     }
-    if(cJSON_AddNumberToObject(item, "id", version_group_detail->id) == NULL) {
+    if(cJSON_AddNumberToObject(item, "id", *version_group_detail->id) == NULL) {
     goto fail; //Numeric
     }
 
@@ -125,7 +148,7 @@ cJSON *version_group_detail_convertToJSON(version_group_detail_t *version_group_
 
     // version_group_detail->order
     if(version_group_detail->order) {
-    if(cJSON_AddNumberToObject(item, "order", version_group_detail->order) == NULL) {
+    if(cJSON_AddNumberToObject(item, "order", *version_group_detail->order) == NULL) {
     goto fail; //Numeric
     }
     }
@@ -240,6 +263,14 @@ version_group_detail_t *version_group_detail_parseFromJSON(cJSON *version_group_
 
     version_group_detail_t *version_group_detail_local_var = NULL;
 
+    // define the local variable for version_group_detail->id
+    int *id_local_var = NULL;
+
+    char *name_local_str = NULL;
+
+    // define the local variable for version_group_detail->order
+    int *order_local_var = NULL;
+
     // define the local variable for version_group_detail->generation
     generation_summary_t *generation_local_nonprim = NULL;
 
@@ -269,6 +300,12 @@ version_group_detail_t *version_group_detail_parseFromJSON(cJSON *version_group_
     {
     goto end; //Numeric
     }
+    id_local_var = malloc(sizeof(int));
+    if(!id_local_var)
+    {
+        goto end;
+    }
+    *id_local_var = id->valuedouble;
 
     // version_group_detail->name
     cJSON *name = cJSON_GetObjectItemCaseSensitive(version_group_detailJSON, "name");
@@ -295,6 +332,12 @@ version_group_detail_t *version_group_detail_parseFromJSON(cJSON *version_group_
     {
     goto end; //Numeric
     }
+    order_local_var = malloc(sizeof(int));
+    if(!order_local_var)
+    {
+        goto end;
+    }
+    *order_local_var = order->valuedouble;
     }
 
     // version_group_detail->generation
@@ -418,10 +461,12 @@ version_group_detail_t *version_group_detail_parseFromJSON(cJSON *version_group_
     }
 
 
+    if (name && !cJSON_IsNull(name)) name_local_str = strdup(name->valuestring);
+
     version_group_detail_local_var = version_group_detail_create_internal (
-        id->valuedouble,
-        strdup(name->valuestring),
-        order ? order->valuedouble : 0,
+        id_local_var,
+        name_local_str,
+        order_local_var,
         generation_local_nonprim,
         move_learn_methodsList,
         pokedexesList,
@@ -429,8 +474,24 @@ version_group_detail_t *version_group_detail_parseFromJSON(cJSON *version_group_
         versionsList
         );
 
+    if (!version_group_detail_local_var) {
+        goto end;
+    }
+
     return version_group_detail_local_var;
 end:
+    if (id_local_var) {
+        free(id_local_var);
+        id_local_var = NULL;
+    }
+    if (name_local_str) {
+        free(name_local_str);
+        name_local_str = NULL;
+    }
+    if (order_local_var) {
+        free(order_local_var);
+        order_local_var = NULL;
+    }
     if (generation_local_nonprim) {
         generation_summary_free(generation_local_nonprim);
         generation_local_nonprim = NULL;

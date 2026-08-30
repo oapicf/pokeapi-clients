@@ -48,7 +48,7 @@ class  PokemonSpeciesDetail
 {
 public:
     PokemonSpeciesDetail();
-    virtual ~PokemonSpeciesDetail() = default;
+    virtual ~PokemonSpeciesDetail();
 
 
     /// <summary>

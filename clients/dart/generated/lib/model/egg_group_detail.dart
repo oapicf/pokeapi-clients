@@ -65,10 +65,14 @@ class EggGroupDetail {
       // Note 1: the values aren't checked for validity beyond being non-null.
       // Note 2: this code is stripped in release mode!
       assert(() {
-        requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "EggGroupDetail[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "EggGroupDetail[$key]" has a null value in JSON.');
-        });
+        assert(json.containsKey(r'id'), 'Required key "EggGroupDetail[id]" is missing from JSON.');
+        assert(json[r'id'] != null, 'Required key "EggGroupDetail[id]" has a null value in JSON.');
+        assert(json.containsKey(r'name'), 'Required key "EggGroupDetail[name]" is missing from JSON.');
+        assert(json[r'name'] != null, 'Required key "EggGroupDetail[name]" has a null value in JSON.');
+        assert(json.containsKey(r'names'), 'Required key "EggGroupDetail[names]" is missing from JSON.');
+        assert(json[r'names'] != null, 'Required key "EggGroupDetail[names]" has a null value in JSON.');
+        assert(json.containsKey(r'pokemon_species'), 'Required key "EggGroupDetail[pokemon_species]" is missing from JSON.');
+        assert(json[r'pokemon_species'] != null, 'Required key "EggGroupDetail[pokemon_species]" has a null value in JSON.');
         return true;
       }());
 

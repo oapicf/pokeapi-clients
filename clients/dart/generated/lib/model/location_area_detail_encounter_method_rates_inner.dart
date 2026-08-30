@@ -53,10 +53,10 @@ class LocationAreaDetailEncounterMethodRatesInner {
       // Note 1: the values aren't checked for validity beyond being non-null.
       // Note 2: this code is stripped in release mode!
       assert(() {
-        requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "LocationAreaDetailEncounterMethodRatesInner[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "LocationAreaDetailEncounterMethodRatesInner[$key]" has a null value in JSON.');
-        });
+        assert(json.containsKey(r'encounter_method'), 'Required key "LocationAreaDetailEncounterMethodRatesInner[encounter_method]" is missing from JSON.');
+        assert(json[r'encounter_method'] != null, 'Required key "LocationAreaDetailEncounterMethodRatesInner[encounter_method]" has a null value in JSON.');
+        assert(json.containsKey(r'version_details'), 'Required key "LocationAreaDetailEncounterMethodRatesInner[version_details]" is missing from JSON.');
+        assert(json[r'version_details'] != null, 'Required key "LocationAreaDetailEncounterMethodRatesInner[version_details]" has a null value in JSON.');
         return true;
       }());
 

@@ -58,18 +58,22 @@ class BerryFlavorDetail extends BaseModel
     },
     "berries" : {
       "type" : "array",
+      "readOnly" : true,
       "items" : {
         "$ref" : "#/components/schemas/BerryFlavorDetail_berries_inner"
-      }
+      },
+      "default" : null
     },
     "contest_type" : {
       "$ref" : "#/components/schemas/ContestTypeSummary"
     },
     "names" : {
       "type" : "array",
+      "readOnly" : true,
       "items" : {
         "$ref" : "#/components/schemas/BerryFlavorName"
-      }
+      },
+      "default" : null
     }
   }
 }

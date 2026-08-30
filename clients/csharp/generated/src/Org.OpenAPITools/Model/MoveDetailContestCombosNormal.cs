@@ -86,8 +86,18 @@ namespace Org.OpenAPITools.Model
     /// <summary>
     /// A Json converter for type <see cref="MoveDetailContestCombosNormal" />
     /// </summary>
-    public class MoveDetailContestCombosNormalJsonConverter : JsonConverter<MoveDetailContestCombosNormal>
+    public partial class MoveDetailContestCombosNormalJsonConverter : JsonConverter<MoveDetailContestCombosNormal>
     {
+        partial void OnCreated();
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="MoveDetailContestCombosNormalJsonConverter" /> class.
+        /// </summary>
+        public MoveDetailContestCombosNormalJsonConverter()
+        {
+            OnCreated();
+        }
+
         /// <summary>
         /// Deserializes json to <see cref="MoveDetailContestCombosNormal" />
         /// </summary>

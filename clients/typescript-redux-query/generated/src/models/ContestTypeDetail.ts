@@ -50,7 +50,7 @@ export interface ContestTypeDetail  {
      * @type {Array<ContestTypeName>}
      * @memberof ContestTypeDetail
      */
-    names: Array<ContestTypeName>;
+    readonly names: Array<ContestTypeName>;
 }
 
 export function ContestTypeDetailFromJSON(json: any): ContestTypeDetail {
@@ -68,7 +68,6 @@ export function ContestTypeDetailToJSON(value?: ContestTypeDetail): any {
     }
     return {
         'name': value.name,
-        'names': (value.names as Array<any>).map(ContestTypeNameToJSON),
     };
 }
 

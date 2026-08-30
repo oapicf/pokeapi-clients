@@ -20,9 +20,9 @@ pub struct EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner {
     #[serde(rename = "item")]
     pub item: Box<models::EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender>,
     #[serde(rename = "known_move")]
-    pub known_move: serde_json::Value,
+    pub known_move: Box<models::EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender>,
     #[serde(rename = "known_move_type")]
-    pub known_move_type: serde_json::Value,
+    pub known_move_type: Box<models::EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender>,
     #[serde(rename = "location")]
     pub location: Box<models::EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender>,
     #[serde(rename = "min_affection")]
@@ -52,13 +52,13 @@ pub struct EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner {
 }
 
 impl EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner {
-    pub fn new(gender: models::EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender, held_item: models::EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender, item: models::EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender, known_move: serde_json::Value, known_move_type: serde_json::Value, location: models::EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender, min_affection: i32, min_beauty: i32, min_happiness: i32, min_level: i32, needs_overworld_rain: bool, party_species: String, party_type: String, relative_physical_stats: String, time_of_day: String, trade_species: String, trigger: models::AbilityDetailPokemonInnerPokemon, turn_upside_down: bool) -> EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner {
+    pub fn new(gender: models::EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender, held_item: models::EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender, item: models::EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender, known_move: models::EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender, known_move_type: models::EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender, location: models::EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender, min_affection: i32, min_beauty: i32, min_happiness: i32, min_level: i32, needs_overworld_rain: bool, party_species: String, party_type: String, relative_physical_stats: String, time_of_day: String, trade_species: String, trigger: models::AbilityDetailPokemonInnerPokemon, turn_upside_down: bool) -> EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner {
         EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner {
             gender: Box::new(gender),
             held_item: Box::new(held_item),
             item: Box::new(item),
-            known_move,
-            known_move_type,
+            known_move: Box::new(known_move),
+            known_move_type: Box::new(known_move_type),
             location: Box::new(location),
             min_affection,
             min_beauty,

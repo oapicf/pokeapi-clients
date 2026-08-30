@@ -6,8 +6,8 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **Number** |  | [readonly] 
 **name** | **String** |  | 
-**names** | [**[MoveLearnMethodName]**](MoveLearnMethodName.md) |  | 
-**descriptions** | [**[MoveLearnMethodDescription]**](MoveLearnMethodDescription.md) |  | 
-**versionGroups** | [**[AbilityDetailPokemonInnerPokemon]**](AbilityDetailPokemonInnerPokemon.md) |  | 
+**names** | [**[MoveLearnMethodName]**](MoveLearnMethodName.md) |  | [readonly] 
+**descriptions** | [**[MoveLearnMethodDescription]**](MoveLearnMethodDescription.md) |  | [readonly] 
+**versionGroups** | [**[AbilityDetailPokemonInnerPokemon]**](AbilityDetailPokemonInnerPokemon.md) |  | [readonly] 
 
 

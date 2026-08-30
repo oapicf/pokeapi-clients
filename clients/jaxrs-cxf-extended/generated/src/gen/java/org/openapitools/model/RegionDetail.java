@@ -107,6 +107,7 @@ public class RegionDetail  {
 
   /**
    * Sets the <code>locations</code> property.
+   * <br><em>N.B. <code>locations</code> is <b>read only</b>; client code should not call this method</em>.
    */
  public void setLocations(List<@Valid LocationSummary> locations) {
     this.locations = locations;
@@ -114,6 +115,7 @@ public class RegionDetail  {
 
   /**
    * Sets the <code>locations</code> property.
+   * <br><em>N.B. <code>locations</code> is <b>read only</b>; client code should not call this method</em>.
    */
   public RegionDetail locations(List<@Valid LocationSummary> locations) {
     this.locations = locations;
@@ -122,6 +124,7 @@ public class RegionDetail  {
 
   /**
    * Adds a new item to the <code>locations</code> list.
+   * <br><em>N.B. <code>locations</code> is <b>read only</b>; client code should not call this method</em>.
    */
   public RegionDetail addLocationsItem(LocationSummary locationsItem) {
     this.locations.add(locationsItem);
@@ -167,6 +170,7 @@ public class RegionDetail  {
 
   /**
    * Sets the <code>names</code> property.
+   * <br><em>N.B. <code>names</code> is <b>read only</b>; client code should not call this method</em>.
    */
  public void setNames(List<@Valid RegionName> names) {
     this.names = names;
@@ -174,6 +178,7 @@ public class RegionDetail  {
 
   /**
    * Sets the <code>names</code> property.
+   * <br><em>N.B. <code>names</code> is <b>read only</b>; client code should not call this method</em>.
    */
   public RegionDetail names(List<@Valid RegionName> names) {
     this.names = names;
@@ -182,6 +187,7 @@ public class RegionDetail  {
 
   /**
    * Adds a new item to the <code>names</code> list.
+   * <br><em>N.B. <code>names</code> is <b>read only</b>; client code should not call this method</em>.
    */
   public RegionDetail addNamesItem(RegionName namesItem) {
     this.names.add(namesItem);
@@ -200,6 +206,7 @@ public class RegionDetail  {
 
   /**
    * Sets the <code>pokedexes</code> property.
+   * <br><em>N.B. <code>pokedexes</code> is <b>read only</b>; client code should not call this method</em>.
    */
  public void setPokedexes(List<@Valid PokedexSummary> pokedexes) {
     this.pokedexes = pokedexes;
@@ -207,6 +214,7 @@ public class RegionDetail  {
 
   /**
    * Sets the <code>pokedexes</code> property.
+   * <br><em>N.B. <code>pokedexes</code> is <b>read only</b>; client code should not call this method</em>.
    */
   public RegionDetail pokedexes(List<@Valid PokedexSummary> pokedexes) {
     this.pokedexes = pokedexes;
@@ -215,6 +223,7 @@ public class RegionDetail  {
 
   /**
    * Adds a new item to the <code>pokedexes</code> list.
+   * <br><em>N.B. <code>pokedexes</code> is <b>read only</b>; client code should not call this method</em>.
    */
   public RegionDetail addPokedexesItem(PokedexSummary pokedexesItem) {
     this.pokedexes.add(pokedexesItem);
@@ -233,6 +242,7 @@ public class RegionDetail  {
 
   /**
    * Sets the <code>versionGroups</code> property.
+   * <br><em>N.B. <code>versionGroups</code> is <b>read only</b>; client code should not call this method</em>.
    */
  public void setVersionGroups(List<@Valid AbilityDetailPokemonInnerPokemon> versionGroups) {
     this.versionGroups = versionGroups;
@@ -240,6 +250,7 @@ public class RegionDetail  {
 
   /**
    * Sets the <code>versionGroups</code> property.
+   * <br><em>N.B. <code>versionGroups</code> is <b>read only</b>; client code should not call this method</em>.
    */
   public RegionDetail versionGroups(List<@Valid AbilityDetailPokemonInnerPokemon> versionGroups) {
     this.versionGroups = versionGroups;
@@ -248,6 +259,7 @@ public class RegionDetail  {
 
   /**
    * Adds a new item to the <code>versionGroups</code> list.
+   * <br><em>N.B. <code>versionGroups</code> is <b>read only</b>; client code should not call this method</em>.
    */
   public RegionDetail addVersionGroupsItem(AbilityDetailPokemonInnerPokemon versionGroupsItem) {
     this.versionGroups.add(versionGroupsItem);
@@ -299,10 +311,7 @@ public class RegionDetail  {
    * (except the first line).
    */
   private static String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 }
 

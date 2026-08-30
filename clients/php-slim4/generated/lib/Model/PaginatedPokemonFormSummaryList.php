@@ -67,7 +67,8 @@ class PaginatedPokemonFormSummaryList extends BaseModel
       "type" : "array",
       "items" : {
         "$ref" : "#/components/schemas/PokemonFormSummary"
-      }
+      },
+      "default" : null
     }
   }
 }

@@ -47,7 +47,7 @@ class StatDetailAffectingMoves
      * @var StatDetailAffectingMovesIncreaseInner[]|null
      * @SerializedName("increase")
      * @Type("array<OpenAPI\Server\Model\StatDetailAffectingMovesIncreaseInner>")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Valid]
     #[Assert\All([
@@ -59,7 +59,7 @@ class StatDetailAffectingMoves
      * @var StatDetailAffectingMovesIncreaseInner[]|null
      * @SerializedName("decrease")
      * @Type("array<OpenAPI\Server\Model\StatDetailAffectingMovesIncreaseInner>")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Valid]
     #[Assert\All([
@@ -90,12 +90,12 @@ class StatDetailAffectingMoves
     }
 
     /**
-    * Sets increase.
-    *
-    * @param StatDetailAffectingMovesIncreaseInner[]|null $increase
-    *
-    * @return $this
-    */
+     * Sets increase.
+     *
+     * @param StatDetailAffectingMovesIncreaseInner[]|null $increase
+     *
+     * @return $this
+     */
     public function setIncrease(?array $increase): self
     {
         $this->increase = $increase;
@@ -117,12 +117,12 @@ class StatDetailAffectingMoves
     }
 
     /**
-    * Sets decrease.
-    *
-    * @param StatDetailAffectingMovesIncreaseInner[]|null $decrease
-    *
-    * @return $this
-    */
+     * Sets decrease.
+     *
+     * @param StatDetailAffectingMovesIncreaseInner[]|null $decrease
+     *
+     * @return $this
+     */
     public function setDecrease(?array $decrease): self
     {
         $this->decrease = $decrease;

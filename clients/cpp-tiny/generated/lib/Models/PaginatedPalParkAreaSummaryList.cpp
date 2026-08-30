@@ -144,7 +144,7 @@ PaginatedPalParkAreaSummaryList::getCount()
 }
 
 void
-PaginatedPalParkAreaSummaryList::setCount(int  count)
+PaginatedPalParkAreaSummaryList::setCount(int count)
 {
 	this->count = count;
 }
@@ -156,7 +156,7 @@ PaginatedPalParkAreaSummaryList::getNext()
 }
 
 void
-PaginatedPalParkAreaSummaryList::setNext(std::string  next)
+PaginatedPalParkAreaSummaryList::setNext(std::string next)
 {
 	this->next = next;
 }
@@ -168,7 +168,7 @@ PaginatedPalParkAreaSummaryList::getPrevious()
 }
 
 void
-PaginatedPalParkAreaSummaryList::setPrevious(std::string  previous)
+PaginatedPalParkAreaSummaryList::setPrevious(std::string previous)
 {
 	this->previous = previous;
 }
@@ -180,7 +180,7 @@ PaginatedPalParkAreaSummaryList::getResults()
 }
 
 void
-PaginatedPalParkAreaSummaryList::setResults(std::list <PalParkAreaSummary> results)
+PaginatedPalParkAreaSummaryList::setResults(std::list<PalParkAreaSummary> results)
 {
 	this->results = results;
 }

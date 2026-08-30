@@ -34,7 +34,7 @@ class  PaginatedVersionGroupSummaryList
 {
 public:
     PaginatedVersionGroupSummaryList();
-    virtual ~PaginatedVersionGroupSummaryList() = default;
+    virtual ~PaginatedVersionGroupSummaryList();
 
 
     /// <summary>

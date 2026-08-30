@@ -49,8 +49,8 @@ function Initialize-StatDetailAffectingMoves {
 
 
         $PSO = [PSCustomObject]@{
-            "increase" = ${Increase}
-            "decrease" = ${Decrease}
+            'increase' = ${Increase}
+            'decrease' = ${Decrease}
         }
 
 
@@ -88,7 +88,7 @@ function ConvertFrom-JsonToStatDetailAffectingMoves {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in StatDetailAffectingMoves
-        $AllProperties = ("increase", "decrease")
+        $AllProperties = ('increase', 'decrease')
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -99,21 +99,21 @@ function ConvertFrom-JsonToStatDetailAffectingMoves {
             throw "Error! Empty JSON cannot be serialized due to the required property 'increase' missing."
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "increase"))) {
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'increase'))) {
             throw "Error! JSON cannot be serialized due to the required property 'increase' missing."
         } else {
-            $Increase = $JsonParameters.PSobject.Properties["increase"].value
+            $Increase = $JsonParameters.PSobject.Properties['increase'].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "decrease"))) {
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'decrease'))) {
             throw "Error! JSON cannot be serialized due to the required property 'decrease' missing."
         } else {
-            $Decrease = $JsonParameters.PSobject.Properties["decrease"].value
+            $Decrease = $JsonParameters.PSobject.Properties['decrease'].value
         }
 
         $PSO = [PSCustomObject]@{
-            "increase" = ${Increase}
-            "decrease" = ${Decrease}
+            'increase' = ${Increase}
+            'decrease' = ${Decrease}
         }
 
         return $PSO

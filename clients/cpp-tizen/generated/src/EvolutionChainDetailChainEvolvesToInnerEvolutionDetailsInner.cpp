@@ -26,8 +26,8 @@ EvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner::__init()
 	//gender = new EvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner_gender();
 	//held_item = new EvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner_gender();
 	//item = new EvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner_gender();
-	//known_move = null;
-	//known_move_type = null;
+	//known_move = new EvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner_gender();
+	//known_move_type = new EvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner_gender();
 	//location = new EvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner_gender();
 	//min_affection = int(0);
 	//min_beauty = int(0);
@@ -191,11 +191,11 @@ EvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner::fromJson(ch
 	if (node !=NULL) {
 	
 
-		if (isprimitive("std::string")) {
-			jsonToValue(&known_move, node, "std::string", "");
+		if (isprimitive("EvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner_gender")) {
+			jsonToValue(&known_move, node, "EvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner_gender", "EvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner_gender");
 		} else {
 			
-			std::string* obj = static_cast<std::string*> (&known_move);
+			EvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner_gender* obj = static_cast<EvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner_gender*> (&known_move);
 			obj->fromJson(json_to_string(node, false));
 			
 		}
@@ -205,11 +205,11 @@ EvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner::fromJson(ch
 	if (node !=NULL) {
 	
 
-		if (isprimitive("std::string")) {
-			jsonToValue(&known_move_type, node, "std::string", "");
+		if (isprimitive("EvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner_gender")) {
+			jsonToValue(&known_move_type, node, "EvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner_gender", "EvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner_gender");
 		} else {
 			
-			std::string* obj = static_cast<std::string*> (&known_move_type);
+			EvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner_gender* obj = static_cast<EvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner_gender*> (&known_move_type);
 			obj->fromJson(json_to_string(node, false));
 			
 		}
@@ -417,13 +417,13 @@ EvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner::toJson()
 	}
 	const gchar *itemKey = "item";
 	json_object_set_member(pJsonObject, itemKey, node);
-	if (isprimitive("std::string")) {
-		std::string obj = getKnownMove();
-		node = converttoJson(&obj, "std::string", "");
+	if (isprimitive("EvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner_gender")) {
+		EvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner_gender obj = getKnownMove();
+		node = converttoJson(&obj, "EvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner_gender", "");
 	}
 	else {
 		
-		std::string obj = static_cast<std::string> (getKnownMove());
+		EvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner_gender obj = static_cast<EvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner_gender> (getKnownMove());
 		GError *mygerror;
 		mygerror = NULL;
 		node = json_from_string(obj.toJson(), &mygerror);
@@ -431,13 +431,13 @@ EvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner::toJson()
 	}
 	const gchar *known_moveKey = "known_move";
 	json_object_set_member(pJsonObject, known_moveKey, node);
-	if (isprimitive("std::string")) {
-		std::string obj = getKnownMoveType();
-		node = converttoJson(&obj, "std::string", "");
+	if (isprimitive("EvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner_gender")) {
+		EvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner_gender obj = getKnownMoveType();
+		node = converttoJson(&obj, "EvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner_gender", "");
 	}
 	else {
 		
-		std::string obj = static_cast<std::string> (getKnownMoveType());
+		EvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner_gender obj = static_cast<EvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner_gender> (getKnownMoveType());
 		GError *mygerror;
 		mygerror = NULL;
 		node = json_from_string(obj.toJson(), &mygerror);
@@ -616,26 +616,26 @@ EvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner::setItem(Evo
 	this->item = item;
 }
 
-std::string
+EvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner_gender
 EvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner::getKnownMove()
 {
 	return known_move;
 }
 
 void
-EvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner::setKnownMove(std::string  known_move)
+EvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner::setKnownMove(EvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner_gender  known_move)
 {
 	this->known_move = known_move;
 }
 
-std::string
+EvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner_gender
 EvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner::getKnownMoveType()
 {
 	return known_move_type;
 }
 
 void
-EvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner::setKnownMoveType(std::string  known_move_type)
+EvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner::setKnownMoveType(EvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner_gender  known_move_type)
 {
 	this->known_move_type = known_move_type;
 }

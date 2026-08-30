@@ -25,6 +25,8 @@ EvolutionChainDetail::EvolutionChainDetail()
     
 }
 
+EvolutionChainDetail::~EvolutionChainDetail() = default;
+
 void EvolutionChainDetail::validate() const
 {
     std::stringstream msg;

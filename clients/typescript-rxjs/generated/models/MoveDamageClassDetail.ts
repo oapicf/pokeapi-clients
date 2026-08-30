@@ -36,15 +36,15 @@ export interface MoveDamageClassDetail {
      * @type {Array<MoveDamageClassDescription>}
      * @memberof MoveDamageClassDetail
      */
-    descriptions: Array<MoveDamageClassDescription>;
+    readonly descriptions: Array<MoveDamageClassDescription>;
     /**
      * @type {Array<MoveSummary>}
      * @memberof MoveDamageClassDetail
      */
-    moves: Array<MoveSummary>;
+    readonly moves: Array<MoveSummary>;
     /**
      * @type {Array<MoveDamageClassName>}
      * @memberof MoveDamageClassDetail
      */
-    names: Array<MoveDamageClassName>;
+    readonly names: Array<MoveDamageClassName>;
 }

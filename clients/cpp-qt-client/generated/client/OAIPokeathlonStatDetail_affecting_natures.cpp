@@ -21,7 +21,7 @@
 
 namespace OpenAPI {
 
-OAIPokeathlonStatDetail_affecting_natures::OAIPokeathlonStatDetail_affecting_natures(QString json) {
+OAIPokeathlonStatDetail_affecting_natures::OAIPokeathlonStatDetail_affecting_natures(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -41,7 +41,7 @@ void OAIPokeathlonStatDetail_affecting_natures::initializeModel() {
     m_increase_isValid = false;
 }
 
-void OAIPokeathlonStatDetail_affecting_natures::fromJson(QString jsonString) {
+void OAIPokeathlonStatDetail_affecting_natures::fromJson(const QString &jsonString) {
     QByteArray array(jsonString.toStdString().c_str());
     QJsonDocument doc = QJsonDocument::fromJson(array);
     QJsonObject jsonObject = doc.object();

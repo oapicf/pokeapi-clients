@@ -21,7 +21,7 @@
 
 namespace OpenAPI {
 
-OAIPaginatedSuperContestEffectSummaryList::OAIPaginatedSuperContestEffectSummaryList(QString json) {
+OAIPaginatedSuperContestEffectSummaryList::OAIPaginatedSuperContestEffectSummaryList(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -47,7 +47,7 @@ void OAIPaginatedSuperContestEffectSummaryList::initializeModel() {
     m_results_isValid = false;
 }
 
-void OAIPaginatedSuperContestEffectSummaryList::fromJson(QString jsonString) {
+void OAIPaginatedSuperContestEffectSummaryList::fromJson(const QString &jsonString) {
     QByteArray array(jsonString.toStdString().c_str());
     QJsonDocument doc = QJsonDocument::fromJson(array);
     QJsonObject jsonObject = doc.object();

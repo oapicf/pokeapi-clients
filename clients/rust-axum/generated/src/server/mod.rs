@@ -1,19 +1,24 @@
 use std::collections::HashMap;
 
 use axum::{body::Body, extract::*, response::Response, routing::*};
-use axum_extra::extract::{CookieJar, Host, Query as QueryExtra};
+use axum_extra::{
+    TypedHeader,
+    extract::{CookieJar, Query as QueryExtra},
+};
 use bytes::Bytes;
-use http::{header::CONTENT_TYPE, HeaderMap, HeaderName, HeaderValue, Method, StatusCode};
+use headers::Host;
+use http::{HeaderMap, HeaderName, HeaderValue, Method, StatusCode, header::CONTENT_TYPE};
 use tracing::error;
 use validator::{Validate, ValidationErrors};
 
-use crate::{header, types::*};
-
 #[allow(unused_imports)]
 use crate::{apis, models};
-
+use crate::{header, types::*};
 #[allow(unused_imports)]
-use crate::{models::check_xss_string, models::check_xss_vec_string, models::check_xss_map_string, models::check_xss_map_nested, models::check_xss_map};
+use crate::{
+    models::check_xss_map, models::check_xss_map_nested, models::check_xss_map_string,
+    models::check_xss_string, models::check_xss_vec_string,
+};
 
 
 /// Setup API Server.
@@ -335,7 +340,7 @@ Ok((
 #[tracing::instrument(skip_all)]
 async fn berry_firmness_list<I, A, E, C>(
   method: Method,
-  host: Host,
+  TypedHeader(host): TypedHeader<Host>,
   cookies: CookieJar,
   headers: HeaderMap,
   QueryExtra(query_params): QueryExtra<models::BerryFirmnessListQueryParams>,
@@ -378,7 +383,7 @@ where
 
 
 
-let result = api_impl.as_ref().berry_firmness_list(
+  let result = api_impl.as_ref().berry_firmness_list(
       
       &method,
       &host,
@@ -387,13 +392,12 @@ let result = api_impl.as_ref().berry_firmness_list(
         &query_params,
   ).await;
 
-  let mut response = Response::builder();
-
   let resp = match result {
                                             Ok(rsp) => match rsp {
                                                 apis::berries::BerryFirmnessListResponse::Status200
                                                     (body)
                                                 => {
+                                                let mut response = Response::builder();
                                                   let mut response = response.status(200);
                                                   {
                                                     let mut response_headers = response.headers_mut().unwrap();
@@ -439,7 +443,7 @@ Ok((
 #[tracing::instrument(skip_all)]
 async fn berry_firmness_retrieve<I, A, E, C>(
   method: Method,
-  host: Host,
+  TypedHeader(host): TypedHeader<Host>,
   cookies: CookieJar,
   headers: HeaderMap,
   Path(path_params): Path<models::BerryFirmnessRetrievePathParams>,
@@ -482,7 +486,7 @@ where
 
 
 
-let result = api_impl.as_ref().berry_firmness_retrieve(
+  let result = api_impl.as_ref().berry_firmness_retrieve(
       
       &method,
       &host,
@@ -491,13 +495,12 @@ let result = api_impl.as_ref().berry_firmness_retrieve(
         &path_params,
   ).await;
 
-  let mut response = Response::builder();
-
   let resp = match result {
                                             Ok(rsp) => match rsp {
                                                 apis::berries::BerryFirmnessRetrieveResponse::Status200
                                                     (body)
                                                 => {
+                                                let mut response = Response::builder();
                                                   let mut response = response.status(200);
                                                   {
                                                     let mut response_headers = response.headers_mut().unwrap();
@@ -543,7 +546,7 @@ Ok((
 #[tracing::instrument(skip_all)]
 async fn berry_flavor_list<I, A, E, C>(
   method: Method,
-  host: Host,
+  TypedHeader(host): TypedHeader<Host>,
   cookies: CookieJar,
   headers: HeaderMap,
   QueryExtra(query_params): QueryExtra<models::BerryFlavorListQueryParams>,
@@ -586,7 +589,7 @@ where
 
 
 
-let result = api_impl.as_ref().berry_flavor_list(
+  let result = api_impl.as_ref().berry_flavor_list(
       
       &method,
       &host,
@@ -595,13 +598,12 @@ let result = api_impl.as_ref().berry_flavor_list(
         &query_params,
   ).await;
 
-  let mut response = Response::builder();
-
   let resp = match result {
                                             Ok(rsp) => match rsp {
                                                 apis::berries::BerryFlavorListResponse::Status200
                                                     (body)
                                                 => {
+                                                let mut response = Response::builder();
                                                   let mut response = response.status(200);
                                                   {
                                                     let mut response_headers = response.headers_mut().unwrap();
@@ -647,7 +649,7 @@ Ok((
 #[tracing::instrument(skip_all)]
 async fn berry_flavor_retrieve<I, A, E, C>(
   method: Method,
-  host: Host,
+  TypedHeader(host): TypedHeader<Host>,
   cookies: CookieJar,
   headers: HeaderMap,
   Path(path_params): Path<models::BerryFlavorRetrievePathParams>,
@@ -690,7 +692,7 @@ where
 
 
 
-let result = api_impl.as_ref().berry_flavor_retrieve(
+  let result = api_impl.as_ref().berry_flavor_retrieve(
       
       &method,
       &host,
@@ -699,13 +701,12 @@ let result = api_impl.as_ref().berry_flavor_retrieve(
         &path_params,
   ).await;
 
-  let mut response = Response::builder();
-
   let resp = match result {
                                             Ok(rsp) => match rsp {
                                                 apis::berries::BerryFlavorRetrieveResponse::Status200
                                                     (body)
                                                 => {
+                                                let mut response = Response::builder();
                                                   let mut response = response.status(200);
                                                   {
                                                     let mut response_headers = response.headers_mut().unwrap();
@@ -751,7 +752,7 @@ Ok((
 #[tracing::instrument(skip_all)]
 async fn berry_list<I, A, E, C>(
   method: Method,
-  host: Host,
+  TypedHeader(host): TypedHeader<Host>,
   cookies: CookieJar,
   headers: HeaderMap,
   QueryExtra(query_params): QueryExtra<models::BerryListQueryParams>,
@@ -794,7 +795,7 @@ where
 
 
 
-let result = api_impl.as_ref().berry_list(
+  let result = api_impl.as_ref().berry_list(
       
       &method,
       &host,
@@ -803,13 +804,12 @@ let result = api_impl.as_ref().berry_list(
         &query_params,
   ).await;
 
-  let mut response = Response::builder();
-
   let resp = match result {
                                             Ok(rsp) => match rsp {
                                                 apis::berries::BerryListResponse::Status200
                                                     (body)
                                                 => {
+                                                let mut response = Response::builder();
                                                   let mut response = response.status(200);
                                                   {
                                                     let mut response_headers = response.headers_mut().unwrap();
@@ -855,7 +855,7 @@ Ok((
 #[tracing::instrument(skip_all)]
 async fn berry_retrieve<I, A, E, C>(
   method: Method,
-  host: Host,
+  TypedHeader(host): TypedHeader<Host>,
   cookies: CookieJar,
   headers: HeaderMap,
   Path(path_params): Path<models::BerryRetrievePathParams>,
@@ -898,7 +898,7 @@ where
 
 
 
-let result = api_impl.as_ref().berry_retrieve(
+  let result = api_impl.as_ref().berry_retrieve(
       
       &method,
       &host,
@@ -907,13 +907,12 @@ let result = api_impl.as_ref().berry_retrieve(
         &path_params,
   ).await;
 
-  let mut response = Response::builder();
-
   let resp = match result {
                                             Ok(rsp) => match rsp {
                                                 apis::berries::BerryRetrieveResponse::Status200
                                                     (body)
                                                 => {
+                                                let mut response = Response::builder();
                                                   let mut response = response.status(200);
                                                   {
                                                     let mut response_headers = response.headers_mut().unwrap();
@@ -959,7 +958,7 @@ Ok((
 #[tracing::instrument(skip_all)]
 async fn contest_effect_list<I, A, E, C>(
   method: Method,
-  host: Host,
+  TypedHeader(host): TypedHeader<Host>,
   cookies: CookieJar,
   headers: HeaderMap,
   QueryExtra(query_params): QueryExtra<models::ContestEffectListQueryParams>,
@@ -1002,7 +1001,7 @@ where
 
 
 
-let result = api_impl.as_ref().contest_effect_list(
+  let result = api_impl.as_ref().contest_effect_list(
       
       &method,
       &host,
@@ -1011,13 +1010,12 @@ let result = api_impl.as_ref().contest_effect_list(
         &query_params,
   ).await;
 
-  let mut response = Response::builder();
-
   let resp = match result {
                                             Ok(rsp) => match rsp {
                                                 apis::contests::ContestEffectListResponse::Status200
                                                     (body)
                                                 => {
+                                                let mut response = Response::builder();
                                                   let mut response = response.status(200);
                                                   {
                                                     let mut response_headers = response.headers_mut().unwrap();
@@ -1063,7 +1061,7 @@ Ok((
 #[tracing::instrument(skip_all)]
 async fn contest_effect_retrieve<I, A, E, C>(
   method: Method,
-  host: Host,
+  TypedHeader(host): TypedHeader<Host>,
   cookies: CookieJar,
   headers: HeaderMap,
   Path(path_params): Path<models::ContestEffectRetrievePathParams>,
@@ -1106,7 +1104,7 @@ where
 
 
 
-let result = api_impl.as_ref().contest_effect_retrieve(
+  let result = api_impl.as_ref().contest_effect_retrieve(
       
       &method,
       &host,
@@ -1115,13 +1113,12 @@ let result = api_impl.as_ref().contest_effect_retrieve(
         &path_params,
   ).await;
 
-  let mut response = Response::builder();
-
   let resp = match result {
                                             Ok(rsp) => match rsp {
                                                 apis::contests::ContestEffectRetrieveResponse::Status200
                                                     (body)
                                                 => {
+                                                let mut response = Response::builder();
                                                   let mut response = response.status(200);
                                                   {
                                                     let mut response_headers = response.headers_mut().unwrap();
@@ -1167,7 +1164,7 @@ Ok((
 #[tracing::instrument(skip_all)]
 async fn contest_type_list<I, A, E, C>(
   method: Method,
-  host: Host,
+  TypedHeader(host): TypedHeader<Host>,
   cookies: CookieJar,
   headers: HeaderMap,
   QueryExtra(query_params): QueryExtra<models::ContestTypeListQueryParams>,
@@ -1210,7 +1207,7 @@ where
 
 
 
-let result = api_impl.as_ref().contest_type_list(
+  let result = api_impl.as_ref().contest_type_list(
       
       &method,
       &host,
@@ -1219,13 +1216,12 @@ let result = api_impl.as_ref().contest_type_list(
         &query_params,
   ).await;
 
-  let mut response = Response::builder();
-
   let resp = match result {
                                             Ok(rsp) => match rsp {
                                                 apis::contests::ContestTypeListResponse::Status200
                                                     (body)
                                                 => {
+                                                let mut response = Response::builder();
                                                   let mut response = response.status(200);
                                                   {
                                                     let mut response_headers = response.headers_mut().unwrap();
@@ -1271,7 +1267,7 @@ Ok((
 #[tracing::instrument(skip_all)]
 async fn contest_type_retrieve<I, A, E, C>(
   method: Method,
-  host: Host,
+  TypedHeader(host): TypedHeader<Host>,
   cookies: CookieJar,
   headers: HeaderMap,
   Path(path_params): Path<models::ContestTypeRetrievePathParams>,
@@ -1314,7 +1310,7 @@ where
 
 
 
-let result = api_impl.as_ref().contest_type_retrieve(
+  let result = api_impl.as_ref().contest_type_retrieve(
       
       &method,
       &host,
@@ -1323,13 +1319,12 @@ let result = api_impl.as_ref().contest_type_retrieve(
         &path_params,
   ).await;
 
-  let mut response = Response::builder();
-
   let resp = match result {
                                             Ok(rsp) => match rsp {
                                                 apis::contests::ContestTypeRetrieveResponse::Status200
                                                     (body)
                                                 => {
+                                                let mut response = Response::builder();
                                                   let mut response = response.status(200);
                                                   {
                                                     let mut response_headers = response.headers_mut().unwrap();
@@ -1375,7 +1370,7 @@ Ok((
 #[tracing::instrument(skip_all)]
 async fn super_contest_effect_list<I, A, E, C>(
   method: Method,
-  host: Host,
+  TypedHeader(host): TypedHeader<Host>,
   cookies: CookieJar,
   headers: HeaderMap,
   QueryExtra(query_params): QueryExtra<models::SuperContestEffectListQueryParams>,
@@ -1418,7 +1413,7 @@ where
 
 
 
-let result = api_impl.as_ref().super_contest_effect_list(
+  let result = api_impl.as_ref().super_contest_effect_list(
       
       &method,
       &host,
@@ -1427,13 +1422,12 @@ let result = api_impl.as_ref().super_contest_effect_list(
         &query_params,
   ).await;
 
-  let mut response = Response::builder();
-
   let resp = match result {
                                             Ok(rsp) => match rsp {
                                                 apis::contests::SuperContestEffectListResponse::Status200
                                                     (body)
                                                 => {
+                                                let mut response = Response::builder();
                                                   let mut response = response.status(200);
                                                   {
                                                     let mut response_headers = response.headers_mut().unwrap();
@@ -1479,7 +1473,7 @@ Ok((
 #[tracing::instrument(skip_all)]
 async fn super_contest_effect_retrieve<I, A, E, C>(
   method: Method,
-  host: Host,
+  TypedHeader(host): TypedHeader<Host>,
   cookies: CookieJar,
   headers: HeaderMap,
   Path(path_params): Path<models::SuperContestEffectRetrievePathParams>,
@@ -1522,7 +1516,7 @@ where
 
 
 
-let result = api_impl.as_ref().super_contest_effect_retrieve(
+  let result = api_impl.as_ref().super_contest_effect_retrieve(
       
       &method,
       &host,
@@ -1531,13 +1525,12 @@ let result = api_impl.as_ref().super_contest_effect_retrieve(
         &path_params,
   ).await;
 
-  let mut response = Response::builder();
-
   let resp = match result {
                                             Ok(rsp) => match rsp {
                                                 apis::contests::SuperContestEffectRetrieveResponse::Status200
                                                     (body)
                                                 => {
+                                                let mut response = Response::builder();
                                                   let mut response = response.status(200);
                                                   {
                                                     let mut response_headers = response.headers_mut().unwrap();
@@ -1583,7 +1576,7 @@ Ok((
 #[tracing::instrument(skip_all)]
 async fn encounter_condition_list<I, A, E, C>(
   method: Method,
-  host: Host,
+  TypedHeader(host): TypedHeader<Host>,
   cookies: CookieJar,
   headers: HeaderMap,
   QueryExtra(query_params): QueryExtra<models::EncounterConditionListQueryParams>,
@@ -1626,7 +1619,7 @@ where
 
 
 
-let result = api_impl.as_ref().encounter_condition_list(
+  let result = api_impl.as_ref().encounter_condition_list(
       
       &method,
       &host,
@@ -1635,13 +1628,12 @@ let result = api_impl.as_ref().encounter_condition_list(
         &query_params,
   ).await;
 
-  let mut response = Response::builder();
-
   let resp = match result {
                                             Ok(rsp) => match rsp {
                                                 apis::encounters::EncounterConditionListResponse::Status200
                                                     (body)
                                                 => {
+                                                let mut response = Response::builder();
                                                   let mut response = response.status(200);
                                                   {
                                                     let mut response_headers = response.headers_mut().unwrap();
@@ -1687,7 +1679,7 @@ Ok((
 #[tracing::instrument(skip_all)]
 async fn encounter_condition_retrieve<I, A, E, C>(
   method: Method,
-  host: Host,
+  TypedHeader(host): TypedHeader<Host>,
   cookies: CookieJar,
   headers: HeaderMap,
   Path(path_params): Path<models::EncounterConditionRetrievePathParams>,
@@ -1730,7 +1722,7 @@ where
 
 
 
-let result = api_impl.as_ref().encounter_condition_retrieve(
+  let result = api_impl.as_ref().encounter_condition_retrieve(
       
       &method,
       &host,
@@ -1739,13 +1731,12 @@ let result = api_impl.as_ref().encounter_condition_retrieve(
         &path_params,
   ).await;
 
-  let mut response = Response::builder();
-
   let resp = match result {
                                             Ok(rsp) => match rsp {
                                                 apis::encounters::EncounterConditionRetrieveResponse::Status200
                                                     (body)
                                                 => {
+                                                let mut response = Response::builder();
                                                   let mut response = response.status(200);
                                                   {
                                                     let mut response_headers = response.headers_mut().unwrap();
@@ -1791,7 +1782,7 @@ Ok((
 #[tracing::instrument(skip_all)]
 async fn encounter_condition_value_list<I, A, E, C>(
   method: Method,
-  host: Host,
+  TypedHeader(host): TypedHeader<Host>,
   cookies: CookieJar,
   headers: HeaderMap,
   QueryExtra(query_params): QueryExtra<models::EncounterConditionValueListQueryParams>,
@@ -1834,7 +1825,7 @@ where
 
 
 
-let result = api_impl.as_ref().encounter_condition_value_list(
+  let result = api_impl.as_ref().encounter_condition_value_list(
       
       &method,
       &host,
@@ -1843,13 +1834,12 @@ let result = api_impl.as_ref().encounter_condition_value_list(
         &query_params,
   ).await;
 
-  let mut response = Response::builder();
-
   let resp = match result {
                                             Ok(rsp) => match rsp {
                                                 apis::encounters::EncounterConditionValueListResponse::Status200
                                                     (body)
                                                 => {
+                                                let mut response = Response::builder();
                                                   let mut response = response.status(200);
                                                   {
                                                     let mut response_headers = response.headers_mut().unwrap();
@@ -1895,7 +1885,7 @@ Ok((
 #[tracing::instrument(skip_all)]
 async fn encounter_condition_value_retrieve<I, A, E, C>(
   method: Method,
-  host: Host,
+  TypedHeader(host): TypedHeader<Host>,
   cookies: CookieJar,
   headers: HeaderMap,
   Path(path_params): Path<models::EncounterConditionValueRetrievePathParams>,
@@ -1938,7 +1928,7 @@ where
 
 
 
-let result = api_impl.as_ref().encounter_condition_value_retrieve(
+  let result = api_impl.as_ref().encounter_condition_value_retrieve(
       
       &method,
       &host,
@@ -1947,13 +1937,12 @@ let result = api_impl.as_ref().encounter_condition_value_retrieve(
         &path_params,
   ).await;
 
-  let mut response = Response::builder();
-
   let resp = match result {
                                             Ok(rsp) => match rsp {
                                                 apis::encounters::EncounterConditionValueRetrieveResponse::Status200
                                                     (body)
                                                 => {
+                                                let mut response = Response::builder();
                                                   let mut response = response.status(200);
                                                   {
                                                     let mut response_headers = response.headers_mut().unwrap();
@@ -1999,7 +1988,7 @@ Ok((
 #[tracing::instrument(skip_all)]
 async fn encounter_method_list<I, A, E, C>(
   method: Method,
-  host: Host,
+  TypedHeader(host): TypedHeader<Host>,
   cookies: CookieJar,
   headers: HeaderMap,
   QueryExtra(query_params): QueryExtra<models::EncounterMethodListQueryParams>,
@@ -2042,7 +2031,7 @@ where
 
 
 
-let result = api_impl.as_ref().encounter_method_list(
+  let result = api_impl.as_ref().encounter_method_list(
       
       &method,
       &host,
@@ -2051,13 +2040,12 @@ let result = api_impl.as_ref().encounter_method_list(
         &query_params,
   ).await;
 
-  let mut response = Response::builder();
-
   let resp = match result {
                                             Ok(rsp) => match rsp {
                                                 apis::encounters::EncounterMethodListResponse::Status200
                                                     (body)
                                                 => {
+                                                let mut response = Response::builder();
                                                   let mut response = response.status(200);
                                                   {
                                                     let mut response_headers = response.headers_mut().unwrap();
@@ -2103,7 +2091,7 @@ Ok((
 #[tracing::instrument(skip_all)]
 async fn encounter_method_retrieve<I, A, E, C>(
   method: Method,
-  host: Host,
+  TypedHeader(host): TypedHeader<Host>,
   cookies: CookieJar,
   headers: HeaderMap,
   Path(path_params): Path<models::EncounterMethodRetrievePathParams>,
@@ -2146,7 +2134,7 @@ where
 
 
 
-let result = api_impl.as_ref().encounter_method_retrieve(
+  let result = api_impl.as_ref().encounter_method_retrieve(
       
       &method,
       &host,
@@ -2155,13 +2143,12 @@ let result = api_impl.as_ref().encounter_method_retrieve(
         &path_params,
   ).await;
 
-  let mut response = Response::builder();
-
   let resp = match result {
                                             Ok(rsp) => match rsp {
                                                 apis::encounters::EncounterMethodRetrieveResponse::Status200
                                                     (body)
                                                 => {
+                                                let mut response = Response::builder();
                                                   let mut response = response.status(200);
                                                   {
                                                     let mut response_headers = response.headers_mut().unwrap();
@@ -2207,7 +2194,7 @@ Ok((
 #[tracing::instrument(skip_all)]
 async fn evolution_chain_list<I, A, E, C>(
   method: Method,
-  host: Host,
+  TypedHeader(host): TypedHeader<Host>,
   cookies: CookieJar,
   headers: HeaderMap,
   QueryExtra(query_params): QueryExtra<models::EvolutionChainListQueryParams>,
@@ -2250,7 +2237,7 @@ where
 
 
 
-let result = api_impl.as_ref().evolution_chain_list(
+  let result = api_impl.as_ref().evolution_chain_list(
       
       &method,
       &host,
@@ -2259,13 +2246,12 @@ let result = api_impl.as_ref().evolution_chain_list(
         &query_params,
   ).await;
 
-  let mut response = Response::builder();
-
   let resp = match result {
                                             Ok(rsp) => match rsp {
                                                 apis::evolution::EvolutionChainListResponse::Status200
                                                     (body)
                                                 => {
+                                                let mut response = Response::builder();
                                                   let mut response = response.status(200);
                                                   {
                                                     let mut response_headers = response.headers_mut().unwrap();
@@ -2311,7 +2297,7 @@ Ok((
 #[tracing::instrument(skip_all)]
 async fn evolution_chain_retrieve<I, A, E, C>(
   method: Method,
-  host: Host,
+  TypedHeader(host): TypedHeader<Host>,
   cookies: CookieJar,
   headers: HeaderMap,
   Path(path_params): Path<models::EvolutionChainRetrievePathParams>,
@@ -2354,7 +2340,7 @@ where
 
 
 
-let result = api_impl.as_ref().evolution_chain_retrieve(
+  let result = api_impl.as_ref().evolution_chain_retrieve(
       
       &method,
       &host,
@@ -2363,13 +2349,12 @@ let result = api_impl.as_ref().evolution_chain_retrieve(
         &path_params,
   ).await;
 
-  let mut response = Response::builder();
-
   let resp = match result {
                                             Ok(rsp) => match rsp {
                                                 apis::evolution::EvolutionChainRetrieveResponse::Status200
                                                     (body)
                                                 => {
+                                                let mut response = Response::builder();
                                                   let mut response = response.status(200);
                                                   {
                                                     let mut response_headers = response.headers_mut().unwrap();
@@ -2415,7 +2400,7 @@ Ok((
 #[tracing::instrument(skip_all)]
 async fn evolution_trigger_list<I, A, E, C>(
   method: Method,
-  host: Host,
+  TypedHeader(host): TypedHeader<Host>,
   cookies: CookieJar,
   headers: HeaderMap,
   QueryExtra(query_params): QueryExtra<models::EvolutionTriggerListQueryParams>,
@@ -2458,7 +2443,7 @@ where
 
 
 
-let result = api_impl.as_ref().evolution_trigger_list(
+  let result = api_impl.as_ref().evolution_trigger_list(
       
       &method,
       &host,
@@ -2467,13 +2452,12 @@ let result = api_impl.as_ref().evolution_trigger_list(
         &query_params,
   ).await;
 
-  let mut response = Response::builder();
-
   let resp = match result {
                                             Ok(rsp) => match rsp {
                                                 apis::evolution::EvolutionTriggerListResponse::Status200
                                                     (body)
                                                 => {
+                                                let mut response = Response::builder();
                                                   let mut response = response.status(200);
                                                   {
                                                     let mut response_headers = response.headers_mut().unwrap();
@@ -2519,7 +2503,7 @@ Ok((
 #[tracing::instrument(skip_all)]
 async fn evolution_trigger_retrieve<I, A, E, C>(
   method: Method,
-  host: Host,
+  TypedHeader(host): TypedHeader<Host>,
   cookies: CookieJar,
   headers: HeaderMap,
   Path(path_params): Path<models::EvolutionTriggerRetrievePathParams>,
@@ -2562,7 +2546,7 @@ where
 
 
 
-let result = api_impl.as_ref().evolution_trigger_retrieve(
+  let result = api_impl.as_ref().evolution_trigger_retrieve(
       
       &method,
       &host,
@@ -2571,13 +2555,12 @@ let result = api_impl.as_ref().evolution_trigger_retrieve(
         &path_params,
   ).await;
 
-  let mut response = Response::builder();
-
   let resp = match result {
                                             Ok(rsp) => match rsp {
                                                 apis::evolution::EvolutionTriggerRetrieveResponse::Status200
                                                     (body)
                                                 => {
+                                                let mut response = Response::builder();
                                                   let mut response = response.status(200);
                                                   {
                                                     let mut response_headers = response.headers_mut().unwrap();
@@ -2623,7 +2606,7 @@ Ok((
 #[tracing::instrument(skip_all)]
 async fn generation_list<I, A, E, C>(
   method: Method,
-  host: Host,
+  TypedHeader(host): TypedHeader<Host>,
   cookies: CookieJar,
   headers: HeaderMap,
   QueryExtra(query_params): QueryExtra<models::GenerationListQueryParams>,
@@ -2666,7 +2649,7 @@ where
 
 
 
-let result = api_impl.as_ref().generation_list(
+  let result = api_impl.as_ref().generation_list(
       
       &method,
       &host,
@@ -2675,13 +2658,12 @@ let result = api_impl.as_ref().generation_list(
         &query_params,
   ).await;
 
-  let mut response = Response::builder();
-
   let resp = match result {
                                             Ok(rsp) => match rsp {
                                                 apis::games::GenerationListResponse::Status200
                                                     (body)
                                                 => {
+                                                let mut response = Response::builder();
                                                   let mut response = response.status(200);
                                                   {
                                                     let mut response_headers = response.headers_mut().unwrap();
@@ -2727,7 +2709,7 @@ Ok((
 #[tracing::instrument(skip_all)]
 async fn generation_retrieve<I, A, E, C>(
   method: Method,
-  host: Host,
+  TypedHeader(host): TypedHeader<Host>,
   cookies: CookieJar,
   headers: HeaderMap,
   Path(path_params): Path<models::GenerationRetrievePathParams>,
@@ -2770,7 +2752,7 @@ where
 
 
 
-let result = api_impl.as_ref().generation_retrieve(
+  let result = api_impl.as_ref().generation_retrieve(
       
       &method,
       &host,
@@ -2779,13 +2761,12 @@ let result = api_impl.as_ref().generation_retrieve(
         &path_params,
   ).await;
 
-  let mut response = Response::builder();
-
   let resp = match result {
                                             Ok(rsp) => match rsp {
                                                 apis::games::GenerationRetrieveResponse::Status200
                                                     (body)
                                                 => {
+                                                let mut response = Response::builder();
                                                   let mut response = response.status(200);
                                                   {
                                                     let mut response_headers = response.headers_mut().unwrap();
@@ -2831,7 +2812,7 @@ Ok((
 #[tracing::instrument(skip_all)]
 async fn pokedex_list<I, A, E, C>(
   method: Method,
-  host: Host,
+  TypedHeader(host): TypedHeader<Host>,
   cookies: CookieJar,
   headers: HeaderMap,
   QueryExtra(query_params): QueryExtra<models::PokedexListQueryParams>,
@@ -2874,7 +2855,7 @@ where
 
 
 
-let result = api_impl.as_ref().pokedex_list(
+  let result = api_impl.as_ref().pokedex_list(
       
       &method,
       &host,
@@ -2883,13 +2864,12 @@ let result = api_impl.as_ref().pokedex_list(
         &query_params,
   ).await;
 
-  let mut response = Response::builder();
-
   let resp = match result {
                                             Ok(rsp) => match rsp {
                                                 apis::games::PokedexListResponse::Status200
                                                     (body)
                                                 => {
+                                                let mut response = Response::builder();
                                                   let mut response = response.status(200);
                                                   {
                                                     let mut response_headers = response.headers_mut().unwrap();
@@ -2935,7 +2915,7 @@ Ok((
 #[tracing::instrument(skip_all)]
 async fn pokedex_retrieve<I, A, E, C>(
   method: Method,
-  host: Host,
+  TypedHeader(host): TypedHeader<Host>,
   cookies: CookieJar,
   headers: HeaderMap,
   Path(path_params): Path<models::PokedexRetrievePathParams>,
@@ -2978,7 +2958,7 @@ where
 
 
 
-let result = api_impl.as_ref().pokedex_retrieve(
+  let result = api_impl.as_ref().pokedex_retrieve(
       
       &method,
       &host,
@@ -2987,13 +2967,12 @@ let result = api_impl.as_ref().pokedex_retrieve(
         &path_params,
   ).await;
 
-  let mut response = Response::builder();
-
   let resp = match result {
                                             Ok(rsp) => match rsp {
                                                 apis::games::PokedexRetrieveResponse::Status200
                                                     (body)
                                                 => {
+                                                let mut response = Response::builder();
                                                   let mut response = response.status(200);
                                                   {
                                                     let mut response_headers = response.headers_mut().unwrap();
@@ -3039,7 +3018,7 @@ Ok((
 #[tracing::instrument(skip_all)]
 async fn version_group_list<I, A, E, C>(
   method: Method,
-  host: Host,
+  TypedHeader(host): TypedHeader<Host>,
   cookies: CookieJar,
   headers: HeaderMap,
   QueryExtra(query_params): QueryExtra<models::VersionGroupListQueryParams>,
@@ -3082,7 +3061,7 @@ where
 
 
 
-let result = api_impl.as_ref().version_group_list(
+  let result = api_impl.as_ref().version_group_list(
       
       &method,
       &host,
@@ -3091,13 +3070,12 @@ let result = api_impl.as_ref().version_group_list(
         &query_params,
   ).await;
 
-  let mut response = Response::builder();
-
   let resp = match result {
                                             Ok(rsp) => match rsp {
                                                 apis::games::VersionGroupListResponse::Status200
                                                     (body)
                                                 => {
+                                                let mut response = Response::builder();
                                                   let mut response = response.status(200);
                                                   {
                                                     let mut response_headers = response.headers_mut().unwrap();
@@ -3143,7 +3121,7 @@ Ok((
 #[tracing::instrument(skip_all)]
 async fn version_group_retrieve<I, A, E, C>(
   method: Method,
-  host: Host,
+  TypedHeader(host): TypedHeader<Host>,
   cookies: CookieJar,
   headers: HeaderMap,
   Path(path_params): Path<models::VersionGroupRetrievePathParams>,
@@ -3186,7 +3164,7 @@ where
 
 
 
-let result = api_impl.as_ref().version_group_retrieve(
+  let result = api_impl.as_ref().version_group_retrieve(
       
       &method,
       &host,
@@ -3195,13 +3173,12 @@ let result = api_impl.as_ref().version_group_retrieve(
         &path_params,
   ).await;
 
-  let mut response = Response::builder();
-
   let resp = match result {
                                             Ok(rsp) => match rsp {
                                                 apis::games::VersionGroupRetrieveResponse::Status200
                                                     (body)
                                                 => {
+                                                let mut response = Response::builder();
                                                   let mut response = response.status(200);
                                                   {
                                                     let mut response_headers = response.headers_mut().unwrap();
@@ -3247,7 +3224,7 @@ Ok((
 #[tracing::instrument(skip_all)]
 async fn version_list<I, A, E, C>(
   method: Method,
-  host: Host,
+  TypedHeader(host): TypedHeader<Host>,
   cookies: CookieJar,
   headers: HeaderMap,
   QueryExtra(query_params): QueryExtra<models::VersionListQueryParams>,
@@ -3290,7 +3267,7 @@ where
 
 
 
-let result = api_impl.as_ref().version_list(
+  let result = api_impl.as_ref().version_list(
       
       &method,
       &host,
@@ -3299,13 +3276,12 @@ let result = api_impl.as_ref().version_list(
         &query_params,
   ).await;
 
-  let mut response = Response::builder();
-
   let resp = match result {
                                             Ok(rsp) => match rsp {
                                                 apis::games::VersionListResponse::Status200
                                                     (body)
                                                 => {
+                                                let mut response = Response::builder();
                                                   let mut response = response.status(200);
                                                   {
                                                     let mut response_headers = response.headers_mut().unwrap();
@@ -3351,7 +3327,7 @@ Ok((
 #[tracing::instrument(skip_all)]
 async fn version_retrieve<I, A, E, C>(
   method: Method,
-  host: Host,
+  TypedHeader(host): TypedHeader<Host>,
   cookies: CookieJar,
   headers: HeaderMap,
   Path(path_params): Path<models::VersionRetrievePathParams>,
@@ -3394,7 +3370,7 @@ where
 
 
 
-let result = api_impl.as_ref().version_retrieve(
+  let result = api_impl.as_ref().version_retrieve(
       
       &method,
       &host,
@@ -3403,13 +3379,12 @@ let result = api_impl.as_ref().version_retrieve(
         &path_params,
   ).await;
 
-  let mut response = Response::builder();
-
   let resp = match result {
                                             Ok(rsp) => match rsp {
                                                 apis::games::VersionRetrieveResponse::Status200
                                                     (body)
                                                 => {
+                                                let mut response = Response::builder();
                                                   let mut response = response.status(200);
                                                   {
                                                     let mut response_headers = response.headers_mut().unwrap();
@@ -3455,7 +3430,7 @@ Ok((
 #[tracing::instrument(skip_all)]
 async fn item_attribute_list<I, A, E, C>(
   method: Method,
-  host: Host,
+  TypedHeader(host): TypedHeader<Host>,
   cookies: CookieJar,
   headers: HeaderMap,
   QueryExtra(query_params): QueryExtra<models::ItemAttributeListQueryParams>,
@@ -3498,7 +3473,7 @@ where
 
 
 
-let result = api_impl.as_ref().item_attribute_list(
+  let result = api_impl.as_ref().item_attribute_list(
       
       &method,
       &host,
@@ -3507,13 +3482,12 @@ let result = api_impl.as_ref().item_attribute_list(
         &query_params,
   ).await;
 
-  let mut response = Response::builder();
-
   let resp = match result {
                                             Ok(rsp) => match rsp {
                                                 apis::items::ItemAttributeListResponse::Status200
                                                     (body)
                                                 => {
+                                                let mut response = Response::builder();
                                                   let mut response = response.status(200);
                                                   {
                                                     let mut response_headers = response.headers_mut().unwrap();
@@ -3559,7 +3533,7 @@ Ok((
 #[tracing::instrument(skip_all)]
 async fn item_attribute_retrieve<I, A, E, C>(
   method: Method,
-  host: Host,
+  TypedHeader(host): TypedHeader<Host>,
   cookies: CookieJar,
   headers: HeaderMap,
   Path(path_params): Path<models::ItemAttributeRetrievePathParams>,
@@ -3602,7 +3576,7 @@ where
 
 
 
-let result = api_impl.as_ref().item_attribute_retrieve(
+  let result = api_impl.as_ref().item_attribute_retrieve(
       
       &method,
       &host,
@@ -3611,13 +3585,12 @@ let result = api_impl.as_ref().item_attribute_retrieve(
         &path_params,
   ).await;
 
-  let mut response = Response::builder();
-
   let resp = match result {
                                             Ok(rsp) => match rsp {
                                                 apis::items::ItemAttributeRetrieveResponse::Status200
                                                     (body)
                                                 => {
+                                                let mut response = Response::builder();
                                                   let mut response = response.status(200);
                                                   {
                                                     let mut response_headers = response.headers_mut().unwrap();
@@ -3663,7 +3636,7 @@ Ok((
 #[tracing::instrument(skip_all)]
 async fn item_category_list<I, A, E, C>(
   method: Method,
-  host: Host,
+  TypedHeader(host): TypedHeader<Host>,
   cookies: CookieJar,
   headers: HeaderMap,
   QueryExtra(query_params): QueryExtra<models::ItemCategoryListQueryParams>,
@@ -3706,7 +3679,7 @@ where
 
 
 
-let result = api_impl.as_ref().item_category_list(
+  let result = api_impl.as_ref().item_category_list(
       
       &method,
       &host,
@@ -3715,13 +3688,12 @@ let result = api_impl.as_ref().item_category_list(
         &query_params,
   ).await;
 
-  let mut response = Response::builder();
-
   let resp = match result {
                                             Ok(rsp) => match rsp {
                                                 apis::items::ItemCategoryListResponse::Status200
                                                     (body)
                                                 => {
+                                                let mut response = Response::builder();
                                                   let mut response = response.status(200);
                                                   {
                                                     let mut response_headers = response.headers_mut().unwrap();
@@ -3767,7 +3739,7 @@ Ok((
 #[tracing::instrument(skip_all)]
 async fn item_category_retrieve<I, A, E, C>(
   method: Method,
-  host: Host,
+  TypedHeader(host): TypedHeader<Host>,
   cookies: CookieJar,
   headers: HeaderMap,
   Path(path_params): Path<models::ItemCategoryRetrievePathParams>,
@@ -3810,7 +3782,7 @@ where
 
 
 
-let result = api_impl.as_ref().item_category_retrieve(
+  let result = api_impl.as_ref().item_category_retrieve(
       
       &method,
       &host,
@@ -3819,13 +3791,12 @@ let result = api_impl.as_ref().item_category_retrieve(
         &path_params,
   ).await;
 
-  let mut response = Response::builder();
-
   let resp = match result {
                                             Ok(rsp) => match rsp {
                                                 apis::items::ItemCategoryRetrieveResponse::Status200
                                                     (body)
                                                 => {
+                                                let mut response = Response::builder();
                                                   let mut response = response.status(200);
                                                   {
                                                     let mut response_headers = response.headers_mut().unwrap();
@@ -3871,7 +3842,7 @@ Ok((
 #[tracing::instrument(skip_all)]
 async fn item_fling_effect_list<I, A, E, C>(
   method: Method,
-  host: Host,
+  TypedHeader(host): TypedHeader<Host>,
   cookies: CookieJar,
   headers: HeaderMap,
   QueryExtra(query_params): QueryExtra<models::ItemFlingEffectListQueryParams>,
@@ -3914,7 +3885,7 @@ where
 
 
 
-let result = api_impl.as_ref().item_fling_effect_list(
+  let result = api_impl.as_ref().item_fling_effect_list(
       
       &method,
       &host,
@@ -3923,13 +3894,12 @@ let result = api_impl.as_ref().item_fling_effect_list(
         &query_params,
   ).await;
 
-  let mut response = Response::builder();
-
   let resp = match result {
                                             Ok(rsp) => match rsp {
                                                 apis::items::ItemFlingEffectListResponse::Status200
                                                     (body)
                                                 => {
+                                                let mut response = Response::builder();
                                                   let mut response = response.status(200);
                                                   {
                                                     let mut response_headers = response.headers_mut().unwrap();
@@ -3975,7 +3945,7 @@ Ok((
 #[tracing::instrument(skip_all)]
 async fn item_fling_effect_retrieve<I, A, E, C>(
   method: Method,
-  host: Host,
+  TypedHeader(host): TypedHeader<Host>,
   cookies: CookieJar,
   headers: HeaderMap,
   Path(path_params): Path<models::ItemFlingEffectRetrievePathParams>,
@@ -4018,7 +3988,7 @@ where
 
 
 
-let result = api_impl.as_ref().item_fling_effect_retrieve(
+  let result = api_impl.as_ref().item_fling_effect_retrieve(
       
       &method,
       &host,
@@ -4027,13 +3997,12 @@ let result = api_impl.as_ref().item_fling_effect_retrieve(
         &path_params,
   ).await;
 
-  let mut response = Response::builder();
-
   let resp = match result {
                                             Ok(rsp) => match rsp {
                                                 apis::items::ItemFlingEffectRetrieveResponse::Status200
                                                     (body)
                                                 => {
+                                                let mut response = Response::builder();
                                                   let mut response = response.status(200);
                                                   {
                                                     let mut response_headers = response.headers_mut().unwrap();
@@ -4079,7 +4048,7 @@ Ok((
 #[tracing::instrument(skip_all)]
 async fn item_list<I, A, E, C>(
   method: Method,
-  host: Host,
+  TypedHeader(host): TypedHeader<Host>,
   cookies: CookieJar,
   headers: HeaderMap,
   QueryExtra(query_params): QueryExtra<models::ItemListQueryParams>,
@@ -4122,7 +4091,7 @@ where
 
 
 
-let result = api_impl.as_ref().item_list(
+  let result = api_impl.as_ref().item_list(
       
       &method,
       &host,
@@ -4131,13 +4100,12 @@ let result = api_impl.as_ref().item_list(
         &query_params,
   ).await;
 
-  let mut response = Response::builder();
-
   let resp = match result {
                                             Ok(rsp) => match rsp {
                                                 apis::items::ItemListResponse::Status200
                                                     (body)
                                                 => {
+                                                let mut response = Response::builder();
                                                   let mut response = response.status(200);
                                                   {
                                                     let mut response_headers = response.headers_mut().unwrap();
@@ -4183,7 +4151,7 @@ Ok((
 #[tracing::instrument(skip_all)]
 async fn item_pocket_list<I, A, E, C>(
   method: Method,
-  host: Host,
+  TypedHeader(host): TypedHeader<Host>,
   cookies: CookieJar,
   headers: HeaderMap,
   QueryExtra(query_params): QueryExtra<models::ItemPocketListQueryParams>,
@@ -4226,7 +4194,7 @@ where
 
 
 
-let result = api_impl.as_ref().item_pocket_list(
+  let result = api_impl.as_ref().item_pocket_list(
       
       &method,
       &host,
@@ -4235,13 +4203,12 @@ let result = api_impl.as_ref().item_pocket_list(
         &query_params,
   ).await;
 
-  let mut response = Response::builder();
-
   let resp = match result {
                                             Ok(rsp) => match rsp {
                                                 apis::items::ItemPocketListResponse::Status200
                                                     (body)
                                                 => {
+                                                let mut response = Response::builder();
                                                   let mut response = response.status(200);
                                                   {
                                                     let mut response_headers = response.headers_mut().unwrap();
@@ -4287,7 +4254,7 @@ Ok((
 #[tracing::instrument(skip_all)]
 async fn item_pocket_retrieve<I, A, E, C>(
   method: Method,
-  host: Host,
+  TypedHeader(host): TypedHeader<Host>,
   cookies: CookieJar,
   headers: HeaderMap,
   Path(path_params): Path<models::ItemPocketRetrievePathParams>,
@@ -4330,7 +4297,7 @@ where
 
 
 
-let result = api_impl.as_ref().item_pocket_retrieve(
+  let result = api_impl.as_ref().item_pocket_retrieve(
       
       &method,
       &host,
@@ -4339,13 +4306,12 @@ let result = api_impl.as_ref().item_pocket_retrieve(
         &path_params,
   ).await;
 
-  let mut response = Response::builder();
-
   let resp = match result {
                                             Ok(rsp) => match rsp {
                                                 apis::items::ItemPocketRetrieveResponse::Status200
                                                     (body)
                                                 => {
+                                                let mut response = Response::builder();
                                                   let mut response = response.status(200);
                                                   {
                                                     let mut response_headers = response.headers_mut().unwrap();
@@ -4391,7 +4357,7 @@ Ok((
 #[tracing::instrument(skip_all)]
 async fn item_retrieve<I, A, E, C>(
   method: Method,
-  host: Host,
+  TypedHeader(host): TypedHeader<Host>,
   cookies: CookieJar,
   headers: HeaderMap,
   Path(path_params): Path<models::ItemRetrievePathParams>,
@@ -4434,7 +4400,7 @@ where
 
 
 
-let result = api_impl.as_ref().item_retrieve(
+  let result = api_impl.as_ref().item_retrieve(
       
       &method,
       &host,
@@ -4443,13 +4409,12 @@ let result = api_impl.as_ref().item_retrieve(
         &path_params,
   ).await;
 
-  let mut response = Response::builder();
-
   let resp = match result {
                                             Ok(rsp) => match rsp {
                                                 apis::items::ItemRetrieveResponse::Status200
                                                     (body)
                                                 => {
+                                                let mut response = Response::builder();
                                                   let mut response = response.status(200);
                                                   {
                                                     let mut response_headers = response.headers_mut().unwrap();
@@ -4495,7 +4460,7 @@ Ok((
 #[tracing::instrument(skip_all)]
 async fn location_area_list<I, A, E, C>(
   method: Method,
-  host: Host,
+  TypedHeader(host): TypedHeader<Host>,
   cookies: CookieJar,
   headers: HeaderMap,
   QueryExtra(query_params): QueryExtra<models::LocationAreaListQueryParams>,
@@ -4538,7 +4503,7 @@ where
 
 
 
-let result = api_impl.as_ref().location_area_list(
+  let result = api_impl.as_ref().location_area_list(
       
       &method,
       &host,
@@ -4547,13 +4512,12 @@ let result = api_impl.as_ref().location_area_list(
         &query_params,
   ).await;
 
-  let mut response = Response::builder();
-
   let resp = match result {
                                             Ok(rsp) => match rsp {
                                                 apis::location::LocationAreaListResponse::Status200
                                                     (body)
                                                 => {
+                                                let mut response = Response::builder();
                                                   let mut response = response.status(200);
                                                   {
                                                     let mut response_headers = response.headers_mut().unwrap();
@@ -4599,7 +4563,7 @@ Ok((
 #[tracing::instrument(skip_all)]
 async fn location_area_retrieve<I, A, E, C>(
   method: Method,
-  host: Host,
+  TypedHeader(host): TypedHeader<Host>,
   cookies: CookieJar,
   headers: HeaderMap,
   Path(path_params): Path<models::LocationAreaRetrievePathParams>,
@@ -4642,7 +4606,7 @@ where
 
 
 
-let result = api_impl.as_ref().location_area_retrieve(
+  let result = api_impl.as_ref().location_area_retrieve(
       
       &method,
       &host,
@@ -4651,13 +4615,12 @@ let result = api_impl.as_ref().location_area_retrieve(
         &path_params,
   ).await;
 
-  let mut response = Response::builder();
-
   let resp = match result {
                                             Ok(rsp) => match rsp {
                                                 apis::location::LocationAreaRetrieveResponse::Status200
                                                     (body)
                                                 => {
+                                                let mut response = Response::builder();
                                                   let mut response = response.status(200);
                                                   {
                                                     let mut response_headers = response.headers_mut().unwrap();
@@ -4703,7 +4666,7 @@ Ok((
 #[tracing::instrument(skip_all)]
 async fn location_list<I, A, E, C>(
   method: Method,
-  host: Host,
+  TypedHeader(host): TypedHeader<Host>,
   cookies: CookieJar,
   headers: HeaderMap,
   QueryExtra(query_params): QueryExtra<models::LocationListQueryParams>,
@@ -4746,7 +4709,7 @@ where
 
 
 
-let result = api_impl.as_ref().location_list(
+  let result = api_impl.as_ref().location_list(
       
       &method,
       &host,
@@ -4755,13 +4718,12 @@ let result = api_impl.as_ref().location_list(
         &query_params,
   ).await;
 
-  let mut response = Response::builder();
-
   let resp = match result {
                                             Ok(rsp) => match rsp {
                                                 apis::location::LocationListResponse::Status200
                                                     (body)
                                                 => {
+                                                let mut response = Response::builder();
                                                   let mut response = response.status(200);
                                                   {
                                                     let mut response_headers = response.headers_mut().unwrap();
@@ -4807,7 +4769,7 @@ Ok((
 #[tracing::instrument(skip_all)]
 async fn location_retrieve<I, A, E, C>(
   method: Method,
-  host: Host,
+  TypedHeader(host): TypedHeader<Host>,
   cookies: CookieJar,
   headers: HeaderMap,
   Path(path_params): Path<models::LocationRetrievePathParams>,
@@ -4850,7 +4812,7 @@ where
 
 
 
-let result = api_impl.as_ref().location_retrieve(
+  let result = api_impl.as_ref().location_retrieve(
       
       &method,
       &host,
@@ -4859,13 +4821,12 @@ let result = api_impl.as_ref().location_retrieve(
         &path_params,
   ).await;
 
-  let mut response = Response::builder();
-
   let resp = match result {
                                             Ok(rsp) => match rsp {
                                                 apis::location::LocationRetrieveResponse::Status200
                                                     (body)
                                                 => {
+                                                let mut response = Response::builder();
                                                   let mut response = response.status(200);
                                                   {
                                                     let mut response_headers = response.headers_mut().unwrap();
@@ -4911,7 +4872,7 @@ Ok((
 #[tracing::instrument(skip_all)]
 async fn pal_park_area_list<I, A, E, C>(
   method: Method,
-  host: Host,
+  TypedHeader(host): TypedHeader<Host>,
   cookies: CookieJar,
   headers: HeaderMap,
   QueryExtra(query_params): QueryExtra<models::PalParkAreaListQueryParams>,
@@ -4954,7 +4915,7 @@ where
 
 
 
-let result = api_impl.as_ref().pal_park_area_list(
+  let result = api_impl.as_ref().pal_park_area_list(
       
       &method,
       &host,
@@ -4963,13 +4924,12 @@ let result = api_impl.as_ref().pal_park_area_list(
         &query_params,
   ).await;
 
-  let mut response = Response::builder();
-
   let resp = match result {
                                             Ok(rsp) => match rsp {
                                                 apis::location::PalParkAreaListResponse::Status200
                                                     (body)
                                                 => {
+                                                let mut response = Response::builder();
                                                   let mut response = response.status(200);
                                                   {
                                                     let mut response_headers = response.headers_mut().unwrap();
@@ -5015,7 +4975,7 @@ Ok((
 #[tracing::instrument(skip_all)]
 async fn pal_park_area_retrieve<I, A, E, C>(
   method: Method,
-  host: Host,
+  TypedHeader(host): TypedHeader<Host>,
   cookies: CookieJar,
   headers: HeaderMap,
   Path(path_params): Path<models::PalParkAreaRetrievePathParams>,
@@ -5058,7 +5018,7 @@ where
 
 
 
-let result = api_impl.as_ref().pal_park_area_retrieve(
+  let result = api_impl.as_ref().pal_park_area_retrieve(
       
       &method,
       &host,
@@ -5067,13 +5027,12 @@ let result = api_impl.as_ref().pal_park_area_retrieve(
         &path_params,
   ).await;
 
-  let mut response = Response::builder();
-
   let resp = match result {
                                             Ok(rsp) => match rsp {
                                                 apis::location::PalParkAreaRetrieveResponse::Status200
                                                     (body)
                                                 => {
+                                                let mut response = Response::builder();
                                                   let mut response = response.status(200);
                                                   {
                                                     let mut response_headers = response.headers_mut().unwrap();
@@ -5119,7 +5078,7 @@ Ok((
 #[tracing::instrument(skip_all)]
 async fn region_list<I, A, E, C>(
   method: Method,
-  host: Host,
+  TypedHeader(host): TypedHeader<Host>,
   cookies: CookieJar,
   headers: HeaderMap,
   QueryExtra(query_params): QueryExtra<models::RegionListQueryParams>,
@@ -5162,7 +5121,7 @@ where
 
 
 
-let result = api_impl.as_ref().region_list(
+  let result = api_impl.as_ref().region_list(
       
       &method,
       &host,
@@ -5171,13 +5130,12 @@ let result = api_impl.as_ref().region_list(
         &query_params,
   ).await;
 
-  let mut response = Response::builder();
-
   let resp = match result {
                                             Ok(rsp) => match rsp {
                                                 apis::location::RegionListResponse::Status200
                                                     (body)
                                                 => {
+                                                let mut response = Response::builder();
                                                   let mut response = response.status(200);
                                                   {
                                                     let mut response_headers = response.headers_mut().unwrap();
@@ -5223,7 +5181,7 @@ Ok((
 #[tracing::instrument(skip_all)]
 async fn region_retrieve<I, A, E, C>(
   method: Method,
-  host: Host,
+  TypedHeader(host): TypedHeader<Host>,
   cookies: CookieJar,
   headers: HeaderMap,
   Path(path_params): Path<models::RegionRetrievePathParams>,
@@ -5266,7 +5224,7 @@ where
 
 
 
-let result = api_impl.as_ref().region_retrieve(
+  let result = api_impl.as_ref().region_retrieve(
       
       &method,
       &host,
@@ -5275,13 +5233,12 @@ let result = api_impl.as_ref().region_retrieve(
         &path_params,
   ).await;
 
-  let mut response = Response::builder();
-
   let resp = match result {
                                             Ok(rsp) => match rsp {
                                                 apis::location::RegionRetrieveResponse::Status200
                                                     (body)
                                                 => {
+                                                let mut response = Response::builder();
                                                   let mut response = response.status(200);
                                                   {
                                                     let mut response_headers = response.headers_mut().unwrap();
@@ -5327,7 +5284,7 @@ Ok((
 #[tracing::instrument(skip_all)]
 async fn machine_list<I, A, E, C>(
   method: Method,
-  host: Host,
+  TypedHeader(host): TypedHeader<Host>,
   cookies: CookieJar,
   headers: HeaderMap,
   QueryExtra(query_params): QueryExtra<models::MachineListQueryParams>,
@@ -5370,7 +5327,7 @@ where
 
 
 
-let result = api_impl.as_ref().machine_list(
+  let result = api_impl.as_ref().machine_list(
       
       &method,
       &host,
@@ -5379,13 +5336,12 @@ let result = api_impl.as_ref().machine_list(
         &query_params,
   ).await;
 
-  let mut response = Response::builder();
-
   let resp = match result {
                                             Ok(rsp) => match rsp {
                                                 apis::machines::MachineListResponse::Status200
                                                     (body)
                                                 => {
+                                                let mut response = Response::builder();
                                                   let mut response = response.status(200);
                                                   {
                                                     let mut response_headers = response.headers_mut().unwrap();
@@ -5431,7 +5387,7 @@ Ok((
 #[tracing::instrument(skip_all)]
 async fn machine_retrieve<I, A, E, C>(
   method: Method,
-  host: Host,
+  TypedHeader(host): TypedHeader<Host>,
   cookies: CookieJar,
   headers: HeaderMap,
   Path(path_params): Path<models::MachineRetrievePathParams>,
@@ -5474,7 +5430,7 @@ where
 
 
 
-let result = api_impl.as_ref().machine_retrieve(
+  let result = api_impl.as_ref().machine_retrieve(
       
       &method,
       &host,
@@ -5483,13 +5439,12 @@ let result = api_impl.as_ref().machine_retrieve(
         &path_params,
   ).await;
 
-  let mut response = Response::builder();
-
   let resp = match result {
                                             Ok(rsp) => match rsp {
                                                 apis::machines::MachineRetrieveResponse::Status200
                                                     (body)
                                                 => {
+                                                let mut response = Response::builder();
                                                   let mut response = response.status(200);
                                                   {
                                                     let mut response_headers = response.headers_mut().unwrap();
@@ -5535,7 +5490,7 @@ Ok((
 #[tracing::instrument(skip_all)]
 async fn move_ailment_list<I, A, E, C>(
   method: Method,
-  host: Host,
+  TypedHeader(host): TypedHeader<Host>,
   cookies: CookieJar,
   headers: HeaderMap,
   QueryExtra(query_params): QueryExtra<models::MoveAilmentListQueryParams>,
@@ -5578,7 +5533,7 @@ where
 
 
 
-let result = api_impl.as_ref().move_ailment_list(
+  let result = api_impl.as_ref().move_ailment_list(
       
       &method,
       &host,
@@ -5587,13 +5542,12 @@ let result = api_impl.as_ref().move_ailment_list(
         &query_params,
   ).await;
 
-  let mut response = Response::builder();
-
   let resp = match result {
                                             Ok(rsp) => match rsp {
                                                 apis::moves::MoveAilmentListResponse::Status200
                                                     (body)
                                                 => {
+                                                let mut response = Response::builder();
                                                   let mut response = response.status(200);
                                                   {
                                                     let mut response_headers = response.headers_mut().unwrap();
@@ -5639,7 +5593,7 @@ Ok((
 #[tracing::instrument(skip_all)]
 async fn move_ailment_retrieve<I, A, E, C>(
   method: Method,
-  host: Host,
+  TypedHeader(host): TypedHeader<Host>,
   cookies: CookieJar,
   headers: HeaderMap,
   Path(path_params): Path<models::MoveAilmentRetrievePathParams>,
@@ -5682,7 +5636,7 @@ where
 
 
 
-let result = api_impl.as_ref().move_ailment_retrieve(
+  let result = api_impl.as_ref().move_ailment_retrieve(
       
       &method,
       &host,
@@ -5691,13 +5645,12 @@ let result = api_impl.as_ref().move_ailment_retrieve(
         &path_params,
   ).await;
 
-  let mut response = Response::builder();
-
   let resp = match result {
                                             Ok(rsp) => match rsp {
                                                 apis::moves::MoveAilmentRetrieveResponse::Status200
                                                     (body)
                                                 => {
+                                                let mut response = Response::builder();
                                                   let mut response = response.status(200);
                                                   {
                                                     let mut response_headers = response.headers_mut().unwrap();
@@ -5743,7 +5696,7 @@ Ok((
 #[tracing::instrument(skip_all)]
 async fn move_battle_style_list<I, A, E, C>(
   method: Method,
-  host: Host,
+  TypedHeader(host): TypedHeader<Host>,
   cookies: CookieJar,
   headers: HeaderMap,
   QueryExtra(query_params): QueryExtra<models::MoveBattleStyleListQueryParams>,
@@ -5786,7 +5739,7 @@ where
 
 
 
-let result = api_impl.as_ref().move_battle_style_list(
+  let result = api_impl.as_ref().move_battle_style_list(
       
       &method,
       &host,
@@ -5795,13 +5748,12 @@ let result = api_impl.as_ref().move_battle_style_list(
         &query_params,
   ).await;
 
-  let mut response = Response::builder();
-
   let resp = match result {
                                             Ok(rsp) => match rsp {
                                                 apis::moves::MoveBattleStyleListResponse::Status200
                                                     (body)
                                                 => {
+                                                let mut response = Response::builder();
                                                   let mut response = response.status(200);
                                                   {
                                                     let mut response_headers = response.headers_mut().unwrap();
@@ -5847,7 +5799,7 @@ Ok((
 #[tracing::instrument(skip_all)]
 async fn move_battle_style_retrieve<I, A, E, C>(
   method: Method,
-  host: Host,
+  TypedHeader(host): TypedHeader<Host>,
   cookies: CookieJar,
   headers: HeaderMap,
   Path(path_params): Path<models::MoveBattleStyleRetrievePathParams>,
@@ -5890,7 +5842,7 @@ where
 
 
 
-let result = api_impl.as_ref().move_battle_style_retrieve(
+  let result = api_impl.as_ref().move_battle_style_retrieve(
       
       &method,
       &host,
@@ -5899,13 +5851,12 @@ let result = api_impl.as_ref().move_battle_style_retrieve(
         &path_params,
   ).await;
 
-  let mut response = Response::builder();
-
   let resp = match result {
                                             Ok(rsp) => match rsp {
                                                 apis::moves::MoveBattleStyleRetrieveResponse::Status200
                                                     (body)
                                                 => {
+                                                let mut response = Response::builder();
                                                   let mut response = response.status(200);
                                                   {
                                                     let mut response_headers = response.headers_mut().unwrap();
@@ -5951,7 +5902,7 @@ Ok((
 #[tracing::instrument(skip_all)]
 async fn move_category_list<I, A, E, C>(
   method: Method,
-  host: Host,
+  TypedHeader(host): TypedHeader<Host>,
   cookies: CookieJar,
   headers: HeaderMap,
   QueryExtra(query_params): QueryExtra<models::MoveCategoryListQueryParams>,
@@ -5994,7 +5945,7 @@ where
 
 
 
-let result = api_impl.as_ref().move_category_list(
+  let result = api_impl.as_ref().move_category_list(
       
       &method,
       &host,
@@ -6003,13 +5954,12 @@ let result = api_impl.as_ref().move_category_list(
         &query_params,
   ).await;
 
-  let mut response = Response::builder();
-
   let resp = match result {
                                             Ok(rsp) => match rsp {
                                                 apis::moves::MoveCategoryListResponse::Status200
                                                     (body)
                                                 => {
+                                                let mut response = Response::builder();
                                                   let mut response = response.status(200);
                                                   {
                                                     let mut response_headers = response.headers_mut().unwrap();
@@ -6055,7 +6005,7 @@ Ok((
 #[tracing::instrument(skip_all)]
 async fn move_category_retrieve<I, A, E, C>(
   method: Method,
-  host: Host,
+  TypedHeader(host): TypedHeader<Host>,
   cookies: CookieJar,
   headers: HeaderMap,
   Path(path_params): Path<models::MoveCategoryRetrievePathParams>,
@@ -6098,7 +6048,7 @@ where
 
 
 
-let result = api_impl.as_ref().move_category_retrieve(
+  let result = api_impl.as_ref().move_category_retrieve(
       
       &method,
       &host,
@@ -6107,13 +6057,12 @@ let result = api_impl.as_ref().move_category_retrieve(
         &path_params,
   ).await;
 
-  let mut response = Response::builder();
-
   let resp = match result {
                                             Ok(rsp) => match rsp {
                                                 apis::moves::MoveCategoryRetrieveResponse::Status200
                                                     (body)
                                                 => {
+                                                let mut response = Response::builder();
                                                   let mut response = response.status(200);
                                                   {
                                                     let mut response_headers = response.headers_mut().unwrap();
@@ -6159,7 +6108,7 @@ Ok((
 #[tracing::instrument(skip_all)]
 async fn move_learn_method_list<I, A, E, C>(
   method: Method,
-  host: Host,
+  TypedHeader(host): TypedHeader<Host>,
   cookies: CookieJar,
   headers: HeaderMap,
   QueryExtra(query_params): QueryExtra<models::MoveLearnMethodListQueryParams>,
@@ -6202,7 +6151,7 @@ where
 
 
 
-let result = api_impl.as_ref().move_learn_method_list(
+  let result = api_impl.as_ref().move_learn_method_list(
       
       &method,
       &host,
@@ -6211,13 +6160,12 @@ let result = api_impl.as_ref().move_learn_method_list(
         &query_params,
   ).await;
 
-  let mut response = Response::builder();
-
   let resp = match result {
                                             Ok(rsp) => match rsp {
                                                 apis::moves::MoveLearnMethodListResponse::Status200
                                                     (body)
                                                 => {
+                                                let mut response = Response::builder();
                                                   let mut response = response.status(200);
                                                   {
                                                     let mut response_headers = response.headers_mut().unwrap();
@@ -6263,7 +6211,7 @@ Ok((
 #[tracing::instrument(skip_all)]
 async fn move_learn_method_retrieve<I, A, E, C>(
   method: Method,
-  host: Host,
+  TypedHeader(host): TypedHeader<Host>,
   cookies: CookieJar,
   headers: HeaderMap,
   Path(path_params): Path<models::MoveLearnMethodRetrievePathParams>,
@@ -6306,7 +6254,7 @@ where
 
 
 
-let result = api_impl.as_ref().move_learn_method_retrieve(
+  let result = api_impl.as_ref().move_learn_method_retrieve(
       
       &method,
       &host,
@@ -6315,13 +6263,12 @@ let result = api_impl.as_ref().move_learn_method_retrieve(
         &path_params,
   ).await;
 
-  let mut response = Response::builder();
-
   let resp = match result {
                                             Ok(rsp) => match rsp {
                                                 apis::moves::MoveLearnMethodRetrieveResponse::Status200
                                                     (body)
                                                 => {
+                                                let mut response = Response::builder();
                                                   let mut response = response.status(200);
                                                   {
                                                     let mut response_headers = response.headers_mut().unwrap();
@@ -6367,7 +6314,7 @@ Ok((
 #[tracing::instrument(skip_all)]
 async fn move_list<I, A, E, C>(
   method: Method,
-  host: Host,
+  TypedHeader(host): TypedHeader<Host>,
   cookies: CookieJar,
   headers: HeaderMap,
   QueryExtra(query_params): QueryExtra<models::MoveListQueryParams>,
@@ -6410,7 +6357,7 @@ where
 
 
 
-let result = api_impl.as_ref().move_list(
+  let result = api_impl.as_ref().move_list(
       
       &method,
       &host,
@@ -6419,13 +6366,12 @@ let result = api_impl.as_ref().move_list(
         &query_params,
   ).await;
 
-  let mut response = Response::builder();
-
   let resp = match result {
                                             Ok(rsp) => match rsp {
                                                 apis::moves::MoveListResponse::Status200
                                                     (body)
                                                 => {
+                                                let mut response = Response::builder();
                                                   let mut response = response.status(200);
                                                   {
                                                     let mut response_headers = response.headers_mut().unwrap();
@@ -6471,7 +6417,7 @@ Ok((
 #[tracing::instrument(skip_all)]
 async fn move_retrieve<I, A, E, C>(
   method: Method,
-  host: Host,
+  TypedHeader(host): TypedHeader<Host>,
   cookies: CookieJar,
   headers: HeaderMap,
   Path(path_params): Path<models::MoveRetrievePathParams>,
@@ -6514,7 +6460,7 @@ where
 
 
 
-let result = api_impl.as_ref().move_retrieve(
+  let result = api_impl.as_ref().move_retrieve(
       
       &method,
       &host,
@@ -6523,13 +6469,12 @@ let result = api_impl.as_ref().move_retrieve(
         &path_params,
   ).await;
 
-  let mut response = Response::builder();
-
   let resp = match result {
                                             Ok(rsp) => match rsp {
                                                 apis::moves::MoveRetrieveResponse::Status200
                                                     (body)
                                                 => {
+                                                let mut response = Response::builder();
                                                   let mut response = response.status(200);
                                                   {
                                                     let mut response_headers = response.headers_mut().unwrap();
@@ -6575,7 +6520,7 @@ Ok((
 #[tracing::instrument(skip_all)]
 async fn move_target_list<I, A, E, C>(
   method: Method,
-  host: Host,
+  TypedHeader(host): TypedHeader<Host>,
   cookies: CookieJar,
   headers: HeaderMap,
   QueryExtra(query_params): QueryExtra<models::MoveTargetListQueryParams>,
@@ -6618,7 +6563,7 @@ where
 
 
 
-let result = api_impl.as_ref().move_target_list(
+  let result = api_impl.as_ref().move_target_list(
       
       &method,
       &host,
@@ -6627,13 +6572,12 @@ let result = api_impl.as_ref().move_target_list(
         &query_params,
   ).await;
 
-  let mut response = Response::builder();
-
   let resp = match result {
                                             Ok(rsp) => match rsp {
                                                 apis::moves::MoveTargetListResponse::Status200
                                                     (body)
                                                 => {
+                                                let mut response = Response::builder();
                                                   let mut response = response.status(200);
                                                   {
                                                     let mut response_headers = response.headers_mut().unwrap();
@@ -6679,7 +6623,7 @@ Ok((
 #[tracing::instrument(skip_all)]
 async fn move_target_retrieve<I, A, E, C>(
   method: Method,
-  host: Host,
+  TypedHeader(host): TypedHeader<Host>,
   cookies: CookieJar,
   headers: HeaderMap,
   Path(path_params): Path<models::MoveTargetRetrievePathParams>,
@@ -6722,7 +6666,7 @@ where
 
 
 
-let result = api_impl.as_ref().move_target_retrieve(
+  let result = api_impl.as_ref().move_target_retrieve(
       
       &method,
       &host,
@@ -6731,13 +6675,12 @@ let result = api_impl.as_ref().move_target_retrieve(
         &path_params,
   ).await;
 
-  let mut response = Response::builder();
-
   let resp = match result {
                                             Ok(rsp) => match rsp {
                                                 apis::moves::MoveTargetRetrieveResponse::Status200
                                                     (body)
                                                 => {
+                                                let mut response = Response::builder();
                                                   let mut response = response.status(200);
                                                   {
                                                     let mut response_headers = response.headers_mut().unwrap();
@@ -6783,7 +6726,7 @@ Ok((
 #[tracing::instrument(skip_all)]
 async fn ability_list<I, A, E, C>(
   method: Method,
-  host: Host,
+  TypedHeader(host): TypedHeader<Host>,
   cookies: CookieJar,
   headers: HeaderMap,
   QueryExtra(query_params): QueryExtra<models::AbilityListQueryParams>,
@@ -6826,7 +6769,7 @@ where
 
 
 
-let result = api_impl.as_ref().ability_list(
+  let result = api_impl.as_ref().ability_list(
       
       &method,
       &host,
@@ -6835,13 +6778,12 @@ let result = api_impl.as_ref().ability_list(
         &query_params,
   ).await;
 
-  let mut response = Response::builder();
-
   let resp = match result {
                                             Ok(rsp) => match rsp {
                                                 apis::pokemon::AbilityListResponse::Status200
                                                     (body)
                                                 => {
+                                                let mut response = Response::builder();
                                                   let mut response = response.status(200);
                                                   {
                                                     let mut response_headers = response.headers_mut().unwrap();
@@ -6887,7 +6829,7 @@ Ok((
 #[tracing::instrument(skip_all)]
 async fn ability_retrieve<I, A, E, C>(
   method: Method,
-  host: Host,
+  TypedHeader(host): TypedHeader<Host>,
   cookies: CookieJar,
   headers: HeaderMap,
   Path(path_params): Path<models::AbilityRetrievePathParams>,
@@ -6930,7 +6872,7 @@ where
 
 
 
-let result = api_impl.as_ref().ability_retrieve(
+  let result = api_impl.as_ref().ability_retrieve(
       
       &method,
       &host,
@@ -6939,13 +6881,12 @@ let result = api_impl.as_ref().ability_retrieve(
         &path_params,
   ).await;
 
-  let mut response = Response::builder();
-
   let resp = match result {
                                             Ok(rsp) => match rsp {
                                                 apis::pokemon::AbilityRetrieveResponse::Status200
                                                     (body)
                                                 => {
+                                                let mut response = Response::builder();
                                                   let mut response = response.status(200);
                                                   {
                                                     let mut response_headers = response.headers_mut().unwrap();
@@ -6991,7 +6932,7 @@ Ok((
 #[tracing::instrument(skip_all)]
 async fn characteristic_list<I, A, E, C>(
   method: Method,
-  host: Host,
+  TypedHeader(host): TypedHeader<Host>,
   cookies: CookieJar,
   headers: HeaderMap,
   QueryExtra(query_params): QueryExtra<models::CharacteristicListQueryParams>,
@@ -7034,7 +6975,7 @@ where
 
 
 
-let result = api_impl.as_ref().characteristic_list(
+  let result = api_impl.as_ref().characteristic_list(
       
       &method,
       &host,
@@ -7043,13 +6984,12 @@ let result = api_impl.as_ref().characteristic_list(
         &query_params,
   ).await;
 
-  let mut response = Response::builder();
-
   let resp = match result {
                                             Ok(rsp) => match rsp {
                                                 apis::pokemon::CharacteristicListResponse::Status200
                                                     (body)
                                                 => {
+                                                let mut response = Response::builder();
                                                   let mut response = response.status(200);
                                                   {
                                                     let mut response_headers = response.headers_mut().unwrap();
@@ -7095,7 +7035,7 @@ Ok((
 #[tracing::instrument(skip_all)]
 async fn characteristic_retrieve<I, A, E, C>(
   method: Method,
-  host: Host,
+  TypedHeader(host): TypedHeader<Host>,
   cookies: CookieJar,
   headers: HeaderMap,
   Path(path_params): Path<models::CharacteristicRetrievePathParams>,
@@ -7138,7 +7078,7 @@ where
 
 
 
-let result = api_impl.as_ref().characteristic_retrieve(
+  let result = api_impl.as_ref().characteristic_retrieve(
       
       &method,
       &host,
@@ -7147,13 +7087,12 @@ let result = api_impl.as_ref().characteristic_retrieve(
         &path_params,
   ).await;
 
-  let mut response = Response::builder();
-
   let resp = match result {
                                             Ok(rsp) => match rsp {
                                                 apis::pokemon::CharacteristicRetrieveResponse::Status200
                                                     (body)
                                                 => {
+                                                let mut response = Response::builder();
                                                   let mut response = response.status(200);
                                                   {
                                                     let mut response_headers = response.headers_mut().unwrap();
@@ -7199,7 +7138,7 @@ Ok((
 #[tracing::instrument(skip_all)]
 async fn egg_group_list<I, A, E, C>(
   method: Method,
-  host: Host,
+  TypedHeader(host): TypedHeader<Host>,
   cookies: CookieJar,
   headers: HeaderMap,
   QueryExtra(query_params): QueryExtra<models::EggGroupListQueryParams>,
@@ -7242,7 +7181,7 @@ where
 
 
 
-let result = api_impl.as_ref().egg_group_list(
+  let result = api_impl.as_ref().egg_group_list(
       
       &method,
       &host,
@@ -7251,13 +7190,12 @@ let result = api_impl.as_ref().egg_group_list(
         &query_params,
   ).await;
 
-  let mut response = Response::builder();
-
   let resp = match result {
                                             Ok(rsp) => match rsp {
                                                 apis::pokemon::EggGroupListResponse::Status200
                                                     (body)
                                                 => {
+                                                let mut response = Response::builder();
                                                   let mut response = response.status(200);
                                                   {
                                                     let mut response_headers = response.headers_mut().unwrap();
@@ -7303,7 +7241,7 @@ Ok((
 #[tracing::instrument(skip_all)]
 async fn egg_group_retrieve<I, A, E, C>(
   method: Method,
-  host: Host,
+  TypedHeader(host): TypedHeader<Host>,
   cookies: CookieJar,
   headers: HeaderMap,
   Path(path_params): Path<models::EggGroupRetrievePathParams>,
@@ -7346,7 +7284,7 @@ where
 
 
 
-let result = api_impl.as_ref().egg_group_retrieve(
+  let result = api_impl.as_ref().egg_group_retrieve(
       
       &method,
       &host,
@@ -7355,13 +7293,12 @@ let result = api_impl.as_ref().egg_group_retrieve(
         &path_params,
   ).await;
 
-  let mut response = Response::builder();
-
   let resp = match result {
                                             Ok(rsp) => match rsp {
                                                 apis::pokemon::EggGroupRetrieveResponse::Status200
                                                     (body)
                                                 => {
+                                                let mut response = Response::builder();
                                                   let mut response = response.status(200);
                                                   {
                                                     let mut response_headers = response.headers_mut().unwrap();
@@ -7407,7 +7344,7 @@ Ok((
 #[tracing::instrument(skip_all)]
 async fn gender_list<I, A, E, C>(
   method: Method,
-  host: Host,
+  TypedHeader(host): TypedHeader<Host>,
   cookies: CookieJar,
   headers: HeaderMap,
   QueryExtra(query_params): QueryExtra<models::GenderListQueryParams>,
@@ -7450,7 +7387,7 @@ where
 
 
 
-let result = api_impl.as_ref().gender_list(
+  let result = api_impl.as_ref().gender_list(
       
       &method,
       &host,
@@ -7459,13 +7396,12 @@ let result = api_impl.as_ref().gender_list(
         &query_params,
   ).await;
 
-  let mut response = Response::builder();
-
   let resp = match result {
                                             Ok(rsp) => match rsp {
                                                 apis::pokemon::GenderListResponse::Status200
                                                     (body)
                                                 => {
+                                                let mut response = Response::builder();
                                                   let mut response = response.status(200);
                                                   {
                                                     let mut response_headers = response.headers_mut().unwrap();
@@ -7511,7 +7447,7 @@ Ok((
 #[tracing::instrument(skip_all)]
 async fn gender_retrieve<I, A, E, C>(
   method: Method,
-  host: Host,
+  TypedHeader(host): TypedHeader<Host>,
   cookies: CookieJar,
   headers: HeaderMap,
   Path(path_params): Path<models::GenderRetrievePathParams>,
@@ -7554,7 +7490,7 @@ where
 
 
 
-let result = api_impl.as_ref().gender_retrieve(
+  let result = api_impl.as_ref().gender_retrieve(
       
       &method,
       &host,
@@ -7563,13 +7499,12 @@ let result = api_impl.as_ref().gender_retrieve(
         &path_params,
   ).await;
 
-  let mut response = Response::builder();
-
   let resp = match result {
                                             Ok(rsp) => match rsp {
                                                 apis::pokemon::GenderRetrieveResponse::Status200
                                                     (body)
                                                 => {
+                                                let mut response = Response::builder();
                                                   let mut response = response.status(200);
                                                   {
                                                     let mut response_headers = response.headers_mut().unwrap();
@@ -7615,7 +7550,7 @@ Ok((
 #[tracing::instrument(skip_all)]
 async fn growth_rate_list<I, A, E, C>(
   method: Method,
-  host: Host,
+  TypedHeader(host): TypedHeader<Host>,
   cookies: CookieJar,
   headers: HeaderMap,
   QueryExtra(query_params): QueryExtra<models::GrowthRateListQueryParams>,
@@ -7658,7 +7593,7 @@ where
 
 
 
-let result = api_impl.as_ref().growth_rate_list(
+  let result = api_impl.as_ref().growth_rate_list(
       
       &method,
       &host,
@@ -7667,13 +7602,12 @@ let result = api_impl.as_ref().growth_rate_list(
         &query_params,
   ).await;
 
-  let mut response = Response::builder();
-
   let resp = match result {
                                             Ok(rsp) => match rsp {
                                                 apis::pokemon::GrowthRateListResponse::Status200
                                                     (body)
                                                 => {
+                                                let mut response = Response::builder();
                                                   let mut response = response.status(200);
                                                   {
                                                     let mut response_headers = response.headers_mut().unwrap();
@@ -7719,7 +7653,7 @@ Ok((
 #[tracing::instrument(skip_all)]
 async fn growth_rate_retrieve<I, A, E, C>(
   method: Method,
-  host: Host,
+  TypedHeader(host): TypedHeader<Host>,
   cookies: CookieJar,
   headers: HeaderMap,
   Path(path_params): Path<models::GrowthRateRetrievePathParams>,
@@ -7762,7 +7696,7 @@ where
 
 
 
-let result = api_impl.as_ref().growth_rate_retrieve(
+  let result = api_impl.as_ref().growth_rate_retrieve(
       
       &method,
       &host,
@@ -7771,13 +7705,12 @@ let result = api_impl.as_ref().growth_rate_retrieve(
         &path_params,
   ).await;
 
-  let mut response = Response::builder();
-
   let resp = match result {
                                             Ok(rsp) => match rsp {
                                                 apis::pokemon::GrowthRateRetrieveResponse::Status200
                                                     (body)
                                                 => {
+                                                let mut response = Response::builder();
                                                   let mut response = response.status(200);
                                                   {
                                                     let mut response_headers = response.headers_mut().unwrap();
@@ -7823,7 +7756,7 @@ Ok((
 #[tracing::instrument(skip_all)]
 async fn move_damage_class_list<I, A, E, C>(
   method: Method,
-  host: Host,
+  TypedHeader(host): TypedHeader<Host>,
   cookies: CookieJar,
   headers: HeaderMap,
   QueryExtra(query_params): QueryExtra<models::MoveDamageClassListQueryParams>,
@@ -7866,7 +7799,7 @@ where
 
 
 
-let result = api_impl.as_ref().move_damage_class_list(
+  let result = api_impl.as_ref().move_damage_class_list(
       
       &method,
       &host,
@@ -7875,13 +7808,12 @@ let result = api_impl.as_ref().move_damage_class_list(
         &query_params,
   ).await;
 
-  let mut response = Response::builder();
-
   let resp = match result {
                                             Ok(rsp) => match rsp {
                                                 apis::pokemon::MoveDamageClassListResponse::Status200
                                                     (body)
                                                 => {
+                                                let mut response = Response::builder();
                                                   let mut response = response.status(200);
                                                   {
                                                     let mut response_headers = response.headers_mut().unwrap();
@@ -7927,7 +7859,7 @@ Ok((
 #[tracing::instrument(skip_all)]
 async fn move_damage_class_retrieve<I, A, E, C>(
   method: Method,
-  host: Host,
+  TypedHeader(host): TypedHeader<Host>,
   cookies: CookieJar,
   headers: HeaderMap,
   Path(path_params): Path<models::MoveDamageClassRetrievePathParams>,
@@ -7970,7 +7902,7 @@ where
 
 
 
-let result = api_impl.as_ref().move_damage_class_retrieve(
+  let result = api_impl.as_ref().move_damage_class_retrieve(
       
       &method,
       &host,
@@ -7979,13 +7911,12 @@ let result = api_impl.as_ref().move_damage_class_retrieve(
         &path_params,
   ).await;
 
-  let mut response = Response::builder();
-
   let resp = match result {
                                             Ok(rsp) => match rsp {
                                                 apis::pokemon::MoveDamageClassRetrieveResponse::Status200
                                                     (body)
                                                 => {
+                                                let mut response = Response::builder();
                                                   let mut response = response.status(200);
                                                   {
                                                     let mut response_headers = response.headers_mut().unwrap();
@@ -8031,7 +7962,7 @@ Ok((
 #[tracing::instrument(skip_all)]
 async fn nature_list<I, A, E, C>(
   method: Method,
-  host: Host,
+  TypedHeader(host): TypedHeader<Host>,
   cookies: CookieJar,
   headers: HeaderMap,
   QueryExtra(query_params): QueryExtra<models::NatureListQueryParams>,
@@ -8074,7 +8005,7 @@ where
 
 
 
-let result = api_impl.as_ref().nature_list(
+  let result = api_impl.as_ref().nature_list(
       
       &method,
       &host,
@@ -8083,13 +8014,12 @@ let result = api_impl.as_ref().nature_list(
         &query_params,
   ).await;
 
-  let mut response = Response::builder();
-
   let resp = match result {
                                             Ok(rsp) => match rsp {
                                                 apis::pokemon::NatureListResponse::Status200
                                                     (body)
                                                 => {
+                                                let mut response = Response::builder();
                                                   let mut response = response.status(200);
                                                   {
                                                     let mut response_headers = response.headers_mut().unwrap();
@@ -8135,7 +8065,7 @@ Ok((
 #[tracing::instrument(skip_all)]
 async fn nature_retrieve<I, A, E, C>(
   method: Method,
-  host: Host,
+  TypedHeader(host): TypedHeader<Host>,
   cookies: CookieJar,
   headers: HeaderMap,
   Path(path_params): Path<models::NatureRetrievePathParams>,
@@ -8178,7 +8108,7 @@ where
 
 
 
-let result = api_impl.as_ref().nature_retrieve(
+  let result = api_impl.as_ref().nature_retrieve(
       
       &method,
       &host,
@@ -8187,13 +8117,12 @@ let result = api_impl.as_ref().nature_retrieve(
         &path_params,
   ).await;
 
-  let mut response = Response::builder();
-
   let resp = match result {
                                             Ok(rsp) => match rsp {
                                                 apis::pokemon::NatureRetrieveResponse::Status200
                                                     (body)
                                                 => {
+                                                let mut response = Response::builder();
                                                   let mut response = response.status(200);
                                                   {
                                                     let mut response_headers = response.headers_mut().unwrap();
@@ -8239,7 +8168,7 @@ Ok((
 #[tracing::instrument(skip_all)]
 async fn pokeathlon_stat_list<I, A, E, C>(
   method: Method,
-  host: Host,
+  TypedHeader(host): TypedHeader<Host>,
   cookies: CookieJar,
   headers: HeaderMap,
   QueryExtra(query_params): QueryExtra<models::PokeathlonStatListQueryParams>,
@@ -8282,7 +8211,7 @@ where
 
 
 
-let result = api_impl.as_ref().pokeathlon_stat_list(
+  let result = api_impl.as_ref().pokeathlon_stat_list(
       
       &method,
       &host,
@@ -8291,13 +8220,12 @@ let result = api_impl.as_ref().pokeathlon_stat_list(
         &query_params,
   ).await;
 
-  let mut response = Response::builder();
-
   let resp = match result {
                                             Ok(rsp) => match rsp {
                                                 apis::pokemon::PokeathlonStatListResponse::Status200
                                                     (body)
                                                 => {
+                                                let mut response = Response::builder();
                                                   let mut response = response.status(200);
                                                   {
                                                     let mut response_headers = response.headers_mut().unwrap();
@@ -8343,7 +8271,7 @@ Ok((
 #[tracing::instrument(skip_all)]
 async fn pokeathlon_stat_retrieve<I, A, E, C>(
   method: Method,
-  host: Host,
+  TypedHeader(host): TypedHeader<Host>,
   cookies: CookieJar,
   headers: HeaderMap,
   Path(path_params): Path<models::PokeathlonStatRetrievePathParams>,
@@ -8386,7 +8314,7 @@ where
 
 
 
-let result = api_impl.as_ref().pokeathlon_stat_retrieve(
+  let result = api_impl.as_ref().pokeathlon_stat_retrieve(
       
       &method,
       &host,
@@ -8395,13 +8323,12 @@ let result = api_impl.as_ref().pokeathlon_stat_retrieve(
         &path_params,
   ).await;
 
-  let mut response = Response::builder();
-
   let resp = match result {
                                             Ok(rsp) => match rsp {
                                                 apis::pokemon::PokeathlonStatRetrieveResponse::Status200
                                                     (body)
                                                 => {
+                                                let mut response = Response::builder();
                                                   let mut response = response.status(200);
                                                   {
                                                     let mut response_headers = response.headers_mut().unwrap();
@@ -8447,7 +8374,7 @@ Ok((
 #[tracing::instrument(skip_all)]
 async fn pokemon_color_list<I, A, E, C>(
   method: Method,
-  host: Host,
+  TypedHeader(host): TypedHeader<Host>,
   cookies: CookieJar,
   headers: HeaderMap,
   QueryExtra(query_params): QueryExtra<models::PokemonColorListQueryParams>,
@@ -8490,7 +8417,7 @@ where
 
 
 
-let result = api_impl.as_ref().pokemon_color_list(
+  let result = api_impl.as_ref().pokemon_color_list(
       
       &method,
       &host,
@@ -8499,13 +8426,12 @@ let result = api_impl.as_ref().pokemon_color_list(
         &query_params,
   ).await;
 
-  let mut response = Response::builder();
-
   let resp = match result {
                                             Ok(rsp) => match rsp {
                                                 apis::pokemon::PokemonColorListResponse::Status200
                                                     (body)
                                                 => {
+                                                let mut response = Response::builder();
                                                   let mut response = response.status(200);
                                                   {
                                                     let mut response_headers = response.headers_mut().unwrap();
@@ -8551,7 +8477,7 @@ Ok((
 #[tracing::instrument(skip_all)]
 async fn pokemon_color_retrieve<I, A, E, C>(
   method: Method,
-  host: Host,
+  TypedHeader(host): TypedHeader<Host>,
   cookies: CookieJar,
   headers: HeaderMap,
   Path(path_params): Path<models::PokemonColorRetrievePathParams>,
@@ -8594,7 +8520,7 @@ where
 
 
 
-let result = api_impl.as_ref().pokemon_color_retrieve(
+  let result = api_impl.as_ref().pokemon_color_retrieve(
       
       &method,
       &host,
@@ -8603,13 +8529,12 @@ let result = api_impl.as_ref().pokemon_color_retrieve(
         &path_params,
   ).await;
 
-  let mut response = Response::builder();
-
   let resp = match result {
                                             Ok(rsp) => match rsp {
                                                 apis::pokemon::PokemonColorRetrieveResponse::Status200
                                                     (body)
                                                 => {
+                                                let mut response = Response::builder();
                                                   let mut response = response.status(200);
                                                   {
                                                     let mut response_headers = response.headers_mut().unwrap();
@@ -8655,7 +8580,7 @@ Ok((
 #[tracing::instrument(skip_all)]
 async fn pokemon_form_list<I, A, E, C>(
   method: Method,
-  host: Host,
+  TypedHeader(host): TypedHeader<Host>,
   cookies: CookieJar,
   headers: HeaderMap,
   QueryExtra(query_params): QueryExtra<models::PokemonFormListQueryParams>,
@@ -8698,7 +8623,7 @@ where
 
 
 
-let result = api_impl.as_ref().pokemon_form_list(
+  let result = api_impl.as_ref().pokemon_form_list(
       
       &method,
       &host,
@@ -8707,13 +8632,12 @@ let result = api_impl.as_ref().pokemon_form_list(
         &query_params,
   ).await;
 
-  let mut response = Response::builder();
-
   let resp = match result {
                                             Ok(rsp) => match rsp {
                                                 apis::pokemon::PokemonFormListResponse::Status200
                                                     (body)
                                                 => {
+                                                let mut response = Response::builder();
                                                   let mut response = response.status(200);
                                                   {
                                                     let mut response_headers = response.headers_mut().unwrap();
@@ -8759,7 +8683,7 @@ Ok((
 #[tracing::instrument(skip_all)]
 async fn pokemon_form_retrieve<I, A, E, C>(
   method: Method,
-  host: Host,
+  TypedHeader(host): TypedHeader<Host>,
   cookies: CookieJar,
   headers: HeaderMap,
   Path(path_params): Path<models::PokemonFormRetrievePathParams>,
@@ -8802,7 +8726,7 @@ where
 
 
 
-let result = api_impl.as_ref().pokemon_form_retrieve(
+  let result = api_impl.as_ref().pokemon_form_retrieve(
       
       &method,
       &host,
@@ -8811,13 +8735,12 @@ let result = api_impl.as_ref().pokemon_form_retrieve(
         &path_params,
   ).await;
 
-  let mut response = Response::builder();
-
   let resp = match result {
                                             Ok(rsp) => match rsp {
                                                 apis::pokemon::PokemonFormRetrieveResponse::Status200
                                                     (body)
                                                 => {
+                                                let mut response = Response::builder();
                                                   let mut response = response.status(200);
                                                   {
                                                     let mut response_headers = response.headers_mut().unwrap();
@@ -8863,7 +8786,7 @@ Ok((
 #[tracing::instrument(skip_all)]
 async fn pokemon_habitat_list<I, A, E, C>(
   method: Method,
-  host: Host,
+  TypedHeader(host): TypedHeader<Host>,
   cookies: CookieJar,
   headers: HeaderMap,
   QueryExtra(query_params): QueryExtra<models::PokemonHabitatListQueryParams>,
@@ -8906,7 +8829,7 @@ where
 
 
 
-let result = api_impl.as_ref().pokemon_habitat_list(
+  let result = api_impl.as_ref().pokemon_habitat_list(
       
       &method,
       &host,
@@ -8915,13 +8838,12 @@ let result = api_impl.as_ref().pokemon_habitat_list(
         &query_params,
   ).await;
 
-  let mut response = Response::builder();
-
   let resp = match result {
                                             Ok(rsp) => match rsp {
                                                 apis::pokemon::PokemonHabitatListResponse::Status200
                                                     (body)
                                                 => {
+                                                let mut response = Response::builder();
                                                   let mut response = response.status(200);
                                                   {
                                                     let mut response_headers = response.headers_mut().unwrap();
@@ -8967,7 +8889,7 @@ Ok((
 #[tracing::instrument(skip_all)]
 async fn pokemon_habitat_retrieve<I, A, E, C>(
   method: Method,
-  host: Host,
+  TypedHeader(host): TypedHeader<Host>,
   cookies: CookieJar,
   headers: HeaderMap,
   Path(path_params): Path<models::PokemonHabitatRetrievePathParams>,
@@ -9010,7 +8932,7 @@ where
 
 
 
-let result = api_impl.as_ref().pokemon_habitat_retrieve(
+  let result = api_impl.as_ref().pokemon_habitat_retrieve(
       
       &method,
       &host,
@@ -9019,13 +8941,12 @@ let result = api_impl.as_ref().pokemon_habitat_retrieve(
         &path_params,
   ).await;
 
-  let mut response = Response::builder();
-
   let resp = match result {
                                             Ok(rsp) => match rsp {
                                                 apis::pokemon::PokemonHabitatRetrieveResponse::Status200
                                                     (body)
                                                 => {
+                                                let mut response = Response::builder();
                                                   let mut response = response.status(200);
                                                   {
                                                     let mut response_headers = response.headers_mut().unwrap();
@@ -9071,7 +8992,7 @@ Ok((
 #[tracing::instrument(skip_all)]
 async fn pokemon_list<I, A, E, C>(
   method: Method,
-  host: Host,
+  TypedHeader(host): TypedHeader<Host>,
   cookies: CookieJar,
   headers: HeaderMap,
   QueryExtra(query_params): QueryExtra<models::PokemonListQueryParams>,
@@ -9114,7 +9035,7 @@ where
 
 
 
-let result = api_impl.as_ref().pokemon_list(
+  let result = api_impl.as_ref().pokemon_list(
       
       &method,
       &host,
@@ -9123,13 +9044,12 @@ let result = api_impl.as_ref().pokemon_list(
         &query_params,
   ).await;
 
-  let mut response = Response::builder();
-
   let resp = match result {
                                             Ok(rsp) => match rsp {
                                                 apis::pokemon::PokemonListResponse::Status200
                                                     (body)
                                                 => {
+                                                let mut response = Response::builder();
                                                   let mut response = response.status(200);
                                                   {
                                                     let mut response_headers = response.headers_mut().unwrap();
@@ -9175,7 +9095,7 @@ Ok((
 #[tracing::instrument(skip_all)]
 async fn pokemon_retrieve<I, A, E, C>(
   method: Method,
-  host: Host,
+  TypedHeader(host): TypedHeader<Host>,
   cookies: CookieJar,
   headers: HeaderMap,
   Path(path_params): Path<models::PokemonRetrievePathParams>,
@@ -9218,7 +9138,7 @@ where
 
 
 
-let result = api_impl.as_ref().pokemon_retrieve(
+  let result = api_impl.as_ref().pokemon_retrieve(
       
       &method,
       &host,
@@ -9227,13 +9147,12 @@ let result = api_impl.as_ref().pokemon_retrieve(
         &path_params,
   ).await;
 
-  let mut response = Response::builder();
-
   let resp = match result {
                                             Ok(rsp) => match rsp {
                                                 apis::pokemon::PokemonRetrieveResponse::Status200
                                                     (body)
                                                 => {
+                                                let mut response = Response::builder();
                                                   let mut response = response.status(200);
                                                   {
                                                     let mut response_headers = response.headers_mut().unwrap();
@@ -9279,7 +9198,7 @@ Ok((
 #[tracing::instrument(skip_all)]
 async fn pokemon_shape_list<I, A, E, C>(
   method: Method,
-  host: Host,
+  TypedHeader(host): TypedHeader<Host>,
   cookies: CookieJar,
   headers: HeaderMap,
   QueryExtra(query_params): QueryExtra<models::PokemonShapeListQueryParams>,
@@ -9322,7 +9241,7 @@ where
 
 
 
-let result = api_impl.as_ref().pokemon_shape_list(
+  let result = api_impl.as_ref().pokemon_shape_list(
       
       &method,
       &host,
@@ -9331,13 +9250,12 @@ let result = api_impl.as_ref().pokemon_shape_list(
         &query_params,
   ).await;
 
-  let mut response = Response::builder();
-
   let resp = match result {
                                             Ok(rsp) => match rsp {
                                                 apis::pokemon::PokemonShapeListResponse::Status200
                                                     (body)
                                                 => {
+                                                let mut response = Response::builder();
                                                   let mut response = response.status(200);
                                                   {
                                                     let mut response_headers = response.headers_mut().unwrap();
@@ -9383,7 +9301,7 @@ Ok((
 #[tracing::instrument(skip_all)]
 async fn pokemon_shape_retrieve<I, A, E, C>(
   method: Method,
-  host: Host,
+  TypedHeader(host): TypedHeader<Host>,
   cookies: CookieJar,
   headers: HeaderMap,
   Path(path_params): Path<models::PokemonShapeRetrievePathParams>,
@@ -9426,7 +9344,7 @@ where
 
 
 
-let result = api_impl.as_ref().pokemon_shape_retrieve(
+  let result = api_impl.as_ref().pokemon_shape_retrieve(
       
       &method,
       &host,
@@ -9435,13 +9353,12 @@ let result = api_impl.as_ref().pokemon_shape_retrieve(
         &path_params,
   ).await;
 
-  let mut response = Response::builder();
-
   let resp = match result {
                                             Ok(rsp) => match rsp {
                                                 apis::pokemon::PokemonShapeRetrieveResponse::Status200
                                                     (body)
                                                 => {
+                                                let mut response = Response::builder();
                                                   let mut response = response.status(200);
                                                   {
                                                     let mut response_headers = response.headers_mut().unwrap();
@@ -9487,7 +9404,7 @@ Ok((
 #[tracing::instrument(skip_all)]
 async fn pokemon_species_list<I, A, E, C>(
   method: Method,
-  host: Host,
+  TypedHeader(host): TypedHeader<Host>,
   cookies: CookieJar,
   headers: HeaderMap,
   QueryExtra(query_params): QueryExtra<models::PokemonSpeciesListQueryParams>,
@@ -9530,7 +9447,7 @@ where
 
 
 
-let result = api_impl.as_ref().pokemon_species_list(
+  let result = api_impl.as_ref().pokemon_species_list(
       
       &method,
       &host,
@@ -9539,13 +9456,12 @@ let result = api_impl.as_ref().pokemon_species_list(
         &query_params,
   ).await;
 
-  let mut response = Response::builder();
-
   let resp = match result {
                                             Ok(rsp) => match rsp {
                                                 apis::pokemon::PokemonSpeciesListResponse::Status200
                                                     (body)
                                                 => {
+                                                let mut response = Response::builder();
                                                   let mut response = response.status(200);
                                                   {
                                                     let mut response_headers = response.headers_mut().unwrap();
@@ -9591,7 +9507,7 @@ Ok((
 #[tracing::instrument(skip_all)]
 async fn pokemon_species_retrieve<I, A, E, C>(
   method: Method,
-  host: Host,
+  TypedHeader(host): TypedHeader<Host>,
   cookies: CookieJar,
   headers: HeaderMap,
   Path(path_params): Path<models::PokemonSpeciesRetrievePathParams>,
@@ -9634,7 +9550,7 @@ where
 
 
 
-let result = api_impl.as_ref().pokemon_species_retrieve(
+  let result = api_impl.as_ref().pokemon_species_retrieve(
       
       &method,
       &host,
@@ -9643,13 +9559,12 @@ let result = api_impl.as_ref().pokemon_species_retrieve(
         &path_params,
   ).await;
 
-  let mut response = Response::builder();
-
   let resp = match result {
                                             Ok(rsp) => match rsp {
                                                 apis::pokemon::PokemonSpeciesRetrieveResponse::Status200
                                                     (body)
                                                 => {
+                                                let mut response = Response::builder();
                                                   let mut response = response.status(200);
                                                   {
                                                     let mut response_headers = response.headers_mut().unwrap();
@@ -9695,7 +9610,7 @@ Ok((
 #[tracing::instrument(skip_all)]
 async fn stat_list<I, A, E, C>(
   method: Method,
-  host: Host,
+  TypedHeader(host): TypedHeader<Host>,
   cookies: CookieJar,
   headers: HeaderMap,
   QueryExtra(query_params): QueryExtra<models::StatListQueryParams>,
@@ -9738,7 +9653,7 @@ where
 
 
 
-let result = api_impl.as_ref().stat_list(
+  let result = api_impl.as_ref().stat_list(
       
       &method,
       &host,
@@ -9747,13 +9662,12 @@ let result = api_impl.as_ref().stat_list(
         &query_params,
   ).await;
 
-  let mut response = Response::builder();
-
   let resp = match result {
                                             Ok(rsp) => match rsp {
                                                 apis::pokemon::StatListResponse::Status200
                                                     (body)
                                                 => {
+                                                let mut response = Response::builder();
                                                   let mut response = response.status(200);
                                                   {
                                                     let mut response_headers = response.headers_mut().unwrap();
@@ -9799,7 +9713,7 @@ Ok((
 #[tracing::instrument(skip_all)]
 async fn stat_retrieve<I, A, E, C>(
   method: Method,
-  host: Host,
+  TypedHeader(host): TypedHeader<Host>,
   cookies: CookieJar,
   headers: HeaderMap,
   Path(path_params): Path<models::StatRetrievePathParams>,
@@ -9842,7 +9756,7 @@ where
 
 
 
-let result = api_impl.as_ref().stat_retrieve(
+  let result = api_impl.as_ref().stat_retrieve(
       
       &method,
       &host,
@@ -9851,13 +9765,12 @@ let result = api_impl.as_ref().stat_retrieve(
         &path_params,
   ).await;
 
-  let mut response = Response::builder();
-
   let resp = match result {
                                             Ok(rsp) => match rsp {
                                                 apis::pokemon::StatRetrieveResponse::Status200
                                                     (body)
                                                 => {
+                                                let mut response = Response::builder();
                                                   let mut response = response.status(200);
                                                   {
                                                     let mut response_headers = response.headers_mut().unwrap();
@@ -9903,7 +9816,7 @@ Ok((
 #[tracing::instrument(skip_all)]
 async fn type_list<I, A, E, C>(
   method: Method,
-  host: Host,
+  TypedHeader(host): TypedHeader<Host>,
   cookies: CookieJar,
   headers: HeaderMap,
   QueryExtra(query_params): QueryExtra<models::TypeListQueryParams>,
@@ -9946,7 +9859,7 @@ where
 
 
 
-let result = api_impl.as_ref().type_list(
+  let result = api_impl.as_ref().type_list(
       
       &method,
       &host,
@@ -9955,13 +9868,12 @@ let result = api_impl.as_ref().type_list(
         &query_params,
   ).await;
 
-  let mut response = Response::builder();
-
   let resp = match result {
                                             Ok(rsp) => match rsp {
                                                 apis::pokemon::TypeListResponse::Status200
                                                     (body)
                                                 => {
+                                                let mut response = Response::builder();
                                                   let mut response = response.status(200);
                                                   {
                                                     let mut response_headers = response.headers_mut().unwrap();
@@ -10007,7 +9919,7 @@ Ok((
 #[tracing::instrument(skip_all)]
 async fn type_retrieve<I, A, E, C>(
   method: Method,
-  host: Host,
+  TypedHeader(host): TypedHeader<Host>,
   cookies: CookieJar,
   headers: HeaderMap,
   Path(path_params): Path<models::TypeRetrievePathParams>,
@@ -10050,7 +9962,7 @@ where
 
 
 
-let result = api_impl.as_ref().type_retrieve(
+  let result = api_impl.as_ref().type_retrieve(
       
       &method,
       &host,
@@ -10059,13 +9971,12 @@ let result = api_impl.as_ref().type_retrieve(
         &path_params,
   ).await;
 
-  let mut response = Response::builder();
-
   let resp = match result {
                                             Ok(rsp) => match rsp {
                                                 apis::pokemon::TypeRetrieveResponse::Status200
                                                     (body)
                                                 => {
+                                                let mut response = Response::builder();
                                                   let mut response = response.status(200);
                                                   {
                                                     let mut response_headers = response.headers_mut().unwrap();
@@ -10111,7 +10022,7 @@ Ok((
 #[tracing::instrument(skip_all)]
 async fn language_list<I, A, E, C>(
   method: Method,
-  host: Host,
+  TypedHeader(host): TypedHeader<Host>,
   cookies: CookieJar,
   headers: HeaderMap,
   QueryExtra(query_params): QueryExtra<models::LanguageListQueryParams>,
@@ -10154,7 +10065,7 @@ where
 
 
 
-let result = api_impl.as_ref().language_list(
+  let result = api_impl.as_ref().language_list(
       
       &method,
       &host,
@@ -10163,13 +10074,12 @@ let result = api_impl.as_ref().language_list(
         &query_params,
   ).await;
 
-  let mut response = Response::builder();
-
   let resp = match result {
                                             Ok(rsp) => match rsp {
                                                 apis::utility::LanguageListResponse::Status200
                                                     (body)
                                                 => {
+                                                let mut response = Response::builder();
                                                   let mut response = response.status(200);
                                                   {
                                                     let mut response_headers = response.headers_mut().unwrap();
@@ -10215,7 +10125,7 @@ Ok((
 #[tracing::instrument(skip_all)]
 async fn language_retrieve<I, A, E, C>(
   method: Method,
-  host: Host,
+  TypedHeader(host): TypedHeader<Host>,
   cookies: CookieJar,
   headers: HeaderMap,
   Path(path_params): Path<models::LanguageRetrievePathParams>,
@@ -10258,7 +10168,7 @@ where
 
 
 
-let result = api_impl.as_ref().language_retrieve(
+  let result = api_impl.as_ref().language_retrieve(
       
       &method,
       &host,
@@ -10267,13 +10177,12 @@ let result = api_impl.as_ref().language_retrieve(
         &path_params,
   ).await;
 
-  let mut response = Response::builder();
-
   let resp = match result {
                                             Ok(rsp) => match rsp {
                                                 apis::utility::LanguageRetrieveResponse::Status200
                                                     (body)
                                                 => {
+                                                let mut response = Response::builder();
                                                   let mut response = response.status(200);
                                                   {
                                                     let mut response_headers = response.headers_mut().unwrap();

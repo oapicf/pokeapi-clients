@@ -6,9 +6,9 @@ Name | Type | Description | Notes
 **id** | **int** |  | [readonly] 
 **name** | **char \*** |  | 
 **region** | [**region_summary_t**](region_summary.md) \* |  | 
-**names** | [**list_t**](location_name.md) \* |  | 
-**game_indices** | [**list_t**](location_game_index.md) \* |  | 
-**areas** | [**list_t**](location_area_summary.md) \* |  | 
+**names** | [**list_t**](location_name.md) \* |  | [readonly] 
+**game_indices** | [**list_t**](location_game_index.md) \* |  | [readonly] 
+**areas** | [**list_t**](location_area_summary.md) \* |  | [readonly] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -151,25 +151,25 @@ export interface PokemonDetail {
      * @type {Array<PokemonDetailAbilitiesInner>}
      * @memberof PokemonDetail
      */
-    abilities: Array<PokemonDetailAbilitiesInner>;
+    readonly abilities: Array<PokemonDetailAbilitiesInner>;
     /**
      * 
      * @type {Array<PokemonDetailPastAbilitiesInner>}
      * @memberof PokemonDetail
      */
-    pastAbilities: Array<PokemonDetailPastAbilitiesInner>;
+    readonly pastAbilities: Array<PokemonDetailPastAbilitiesInner>;
     /**
      * 
      * @type {Array<PokemonFormSummary>}
      * @memberof PokemonDetail
      */
-    forms: Array<PokemonFormSummary>;
+    readonly forms: Array<PokemonFormSummary>;
     /**
      * 
      * @type {Array<PokemonGameIndex>}
      * @memberof PokemonDetail
      */
-    gameIndices: Array<PokemonGameIndex>;
+    readonly gameIndices: Array<PokemonGameIndex>;
     /**
      * 
      * @type {PokemonDetailHeldItems}
@@ -187,7 +187,7 @@ export interface PokemonDetail {
      * @type {Array<PokemonDetailMovesInner>}
      * @memberof PokemonDetail
      */
-    moves: Array<PokemonDetailMovesInner>;
+    readonly moves: Array<PokemonDetailMovesInner>;
     /**
      * 
      * @type {PokemonSpeciesSummary}
@@ -211,19 +211,19 @@ export interface PokemonDetail {
      * @type {Array<PokemonStat>}
      * @memberof PokemonDetail
      */
-    stats: Array<PokemonStat>;
+    readonly stats: Array<PokemonStat>;
     /**
      * 
      * @type {Array<PokemonDetailTypesInner>}
      * @memberof PokemonDetail
      */
-    types: Array<PokemonDetailTypesInner>;
+    readonly types: Array<PokemonDetailTypesInner>;
     /**
      * 
      * @type {Array<PokemonDetailPastTypesInner>}
      * @memberof PokemonDetail
      */
-    pastTypes: Array<PokemonDetailPastTypesInner>;
+    readonly pastTypes: Array<PokemonDetailPastTypesInner>;
 }
 
 /**
@@ -233,18 +233,18 @@ export function instanceOfPokemonDetail(value: object): value is PokemonDetail {
     if (!('id' in value) || value['id'] === undefined) return false;
     if (!('name' in value) || value['name'] === undefined) return false;
     if (!('abilities' in value) || value['abilities'] === undefined) return false;
-    if (!('pastAbilities' in value) || value['pastAbilities'] === undefined) return false;
+    if ((!('pastAbilities' in (value as Record<string, any>)) && !('past_abilities' in (value as Record<string, any>))) || ((value as Record<string, any>)['pastAbilities'] === undefined && (value as Record<string, any>)['past_abilities'] === undefined)) return false;
     if (!('forms' in value) || value['forms'] === undefined) return false;
-    if (!('gameIndices' in value) || value['gameIndices'] === undefined) return false;
-    if (!('heldItems' in value) || value['heldItems'] === undefined) return false;
-    if (!('locationAreaEncounters' in value) || value['locationAreaEncounters'] === undefined) return false;
+    if ((!('gameIndices' in (value as Record<string, any>)) && !('game_indices' in (value as Record<string, any>))) || ((value as Record<string, any>)['gameIndices'] === undefined && (value as Record<string, any>)['game_indices'] === undefined)) return false;
+    if ((!('heldItems' in (value as Record<string, any>)) && !('held_items' in (value as Record<string, any>))) || ((value as Record<string, any>)['heldItems'] === undefined && (value as Record<string, any>)['held_items'] === undefined)) return false;
+    if ((!('locationAreaEncounters' in (value as Record<string, any>)) && !('location_area_encounters' in (value as Record<string, any>))) || ((value as Record<string, any>)['locationAreaEncounters'] === undefined && (value as Record<string, any>)['location_area_encounters'] === undefined)) return false;
     if (!('moves' in value) || value['moves'] === undefined) return false;
     if (!('species' in value) || value['species'] === undefined) return false;
     if (!('sprites' in value) || value['sprites'] === undefined) return false;
     if (!('cries' in value) || value['cries'] === undefined) return false;
     if (!('stats' in value) || value['stats'] === undefined) return false;
     if (!('types' in value) || value['types'] === undefined) return false;
-    if (!('pastTypes' in value) || value['pastTypes'] === undefined) return false;
+    if ((!('pastTypes' in (value as Record<string, any>)) && !('past_types' in (value as Record<string, any>))) || ((value as Record<string, any>)['pastTypes'] === undefined && (value as Record<string, any>)['past_types'] === undefined)) return false;
     return true;
 }
 
@@ -260,11 +260,11 @@ export function PokemonDetailFromJSONTyped(json: any, ignoreDiscriminator: boole
         
         'id': json['id'],
         'name': json['name'],
-        'baseExperience': json['base_experience'] == null ? undefined : json['base_experience'],
-        'height': json['height'] == null ? undefined : json['height'],
+        'baseExperience': json['base_experience'] === undefined ? undefined : json['base_experience'] === null ? null : json['base_experience'],
+        'height': json['height'] === undefined ? undefined : json['height'] === null ? null : json['height'],
         'isDefault': json['is_default'] == null ? undefined : json['is_default'],
-        'order': json['order'] == null ? undefined : json['order'],
-        'weight': json['weight'] == null ? undefined : json['weight'],
+        'order': json['order'] === undefined ? undefined : json['order'] === null ? null : json['order'],
+        'weight': json['weight'] === undefined ? undefined : json['weight'] === null ? null : json['weight'],
         'abilities': ((json['abilities'] as Array<any>).map(PokemonDetailAbilitiesInnerFromJSON)),
         'pastAbilities': ((json['past_abilities'] as Array<any>).map(PokemonDetailPastAbilitiesInnerFromJSON)),
         'forms': ((json['forms'] as Array<any>).map(PokemonFormSummaryFromJSON)),
@@ -285,7 +285,7 @@ export function PokemonDetailToJSON(json: any): PokemonDetail {
     return PokemonDetailToJSONTyped(json, false);
 }
 
-export function PokemonDetailToJSONTyped(value?: Omit<PokemonDetail, 'id'|'location_area_encounters'> | null, ignoreDiscriminator: boolean = false): any {
+export function PokemonDetailToJSONTyped(value?: Omit<PokemonDetail, 'id'|'abilities'|'pastAbilities'|'forms'|'gameIndices'|'locationAreaEncounters'|'moves'|'stats'|'types'|'pastTypes'> | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
@@ -298,18 +298,10 @@ export function PokemonDetailToJSONTyped(value?: Omit<PokemonDetail, 'id'|'locat
         'is_default': value['isDefault'],
         'order': value['order'],
         'weight': value['weight'],
-        'abilities': ((value['abilities'] as Array<any>).map(PokemonDetailAbilitiesInnerToJSON)),
-        'past_abilities': ((value['pastAbilities'] as Array<any>).map(PokemonDetailPastAbilitiesInnerToJSON)),
-        'forms': ((value['forms'] as Array<any>).map(PokemonFormSummaryToJSON)),
-        'game_indices': ((value['gameIndices'] as Array<any>).map(PokemonGameIndexToJSON)),
         'held_items': PokemonDetailHeldItemsToJSON(value['heldItems']),
-        'moves': ((value['moves'] as Array<any>).map(PokemonDetailMovesInnerToJSON)),
         'species': PokemonSpeciesSummaryToJSON(value['species']),
         'sprites': PokemonDetailSpritesToJSON(value['sprites']),
         'cries': PokemonDetailCriesToJSON(value['cries']),
-        'stats': ((value['stats'] as Array<any>).map(PokemonStatToJSON)),
-        'types': ((value['types'] as Array<any>).map(PokemonDetailTypesInnerToJSON)),
-        'past_types': ((value['pastTypes'] as Array<any>).map(PokemonDetailPastTypesInnerToJSON)),
     };
 }
 

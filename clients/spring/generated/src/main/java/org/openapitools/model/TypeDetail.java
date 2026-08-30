@@ -21,20 +21,20 @@ import org.openapitools.model.TypeGameIndex;
 import org.springframework.lang.Nullable;
 import org.openapitools.jackson.nullable.JsonNullable;
 import java.time.OffsetDateTime;
-import javax.validation.Valid;
-import javax.validation.constraints.*;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.*;
 import io.swagger.v3.oas.annotations.media.Schema;
 
 
 import java.util.*;
-import javax.annotation.Generated;
+import jakarta.annotation.Generated;
 
 /**
  * Serializer for the Type resource
  */
 
 @Schema(name = "TypeDetail", description = "Serializer for the Type resource")
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2026-02-07T15:29:13.146999890Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2026-08-30T02:00:43.960184425Z[Etc/UTC]", comments = "Generator version: 7.24.0")
 public class TypeDetail {
 
   private Integer id;
@@ -43,26 +43,20 @@ public class TypeDetail {
 
   private TypeDetailDamageRelations damageRelations;
 
-  @Valid
   private List<@Valid TypeDetailPastDamageRelationsInner> pastDamageRelations = new ArrayList<>();
 
-  @Valid
   private List<@Valid TypeGameIndex> gameIndices = new ArrayList<>();
 
   private GenerationSummary generation;
 
   private MoveDamageClassSummary moveDamageClass;
 
-  @Valid
   private List<@Valid AbilityName> names = new ArrayList<>();
 
-  @Valid
   private List<@Valid TypeDetailPokemonInner> pokemon = new ArrayList<>();
 
-  @Valid
   private List<@Valid MoveSummary> moves = new ArrayList<>();
 
-  @Valid
   private Map<String, Map<String, TypeDetailSpritesValueValue>> sprites = new HashMap<>();
 
   public TypeDetail() {
@@ -102,6 +96,7 @@ public class TypeDetail {
     return id;
   }
 
+  @JsonProperty("id")
   public void setId(Integer id) {
     this.id = id;
   }
@@ -122,6 +117,7 @@ public class TypeDetail {
     return name;
   }
 
+  @JsonProperty("name")
   public void setName(String name) {
     this.name = name;
   }
@@ -142,6 +138,7 @@ public class TypeDetail {
     return damageRelations;
   }
 
+  @JsonProperty("damage_relations")
   public void setDamageRelations(TypeDetailDamageRelations damageRelations) {
     this.damageRelations = damageRelations;
   }
@@ -163,13 +160,14 @@ public class TypeDetail {
    * Get pastDamageRelations
    * @return pastDamageRelations
    */
-  @NotNull @Valid 
-  @Schema(name = "past_damage_relations", requiredMode = Schema.RequiredMode.REQUIRED)
+  @Valid 
+  @Schema(name = "past_damage_relations", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("past_damage_relations")
   public List<@Valid TypeDetailPastDamageRelationsInner> getPastDamageRelations() {
     return pastDamageRelations;
   }
 
+  @JsonProperty("past_damage_relations")
   public void setPastDamageRelations(List<@Valid TypeDetailPastDamageRelationsInner> pastDamageRelations) {
     this.pastDamageRelations = pastDamageRelations;
   }
@@ -191,13 +189,14 @@ public class TypeDetail {
    * Get gameIndices
    * @return gameIndices
    */
-  @NotNull @Valid 
-  @Schema(name = "game_indices", requiredMode = Schema.RequiredMode.REQUIRED)
+  @Valid 
+  @Schema(name = "game_indices", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("game_indices")
   public List<@Valid TypeGameIndex> getGameIndices() {
     return gameIndices;
   }
 
+  @JsonProperty("game_indices")
   public void setGameIndices(List<@Valid TypeGameIndex> gameIndices) {
     this.gameIndices = gameIndices;
   }
@@ -218,6 +217,7 @@ public class TypeDetail {
     return generation;
   }
 
+  @JsonProperty("generation")
   public void setGeneration(GenerationSummary generation) {
     this.generation = generation;
   }
@@ -238,6 +238,7 @@ public class TypeDetail {
     return moveDamageClass;
   }
 
+  @JsonProperty("move_damage_class")
   public void setMoveDamageClass(MoveDamageClassSummary moveDamageClass) {
     this.moveDamageClass = moveDamageClass;
   }
@@ -259,13 +260,14 @@ public class TypeDetail {
    * Get names
    * @return names
    */
-  @NotNull @Valid 
-  @Schema(name = "names", requiredMode = Schema.RequiredMode.REQUIRED)
+  @Valid 
+  @Schema(name = "names", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("names")
   public List<@Valid AbilityName> getNames() {
     return names;
   }
 
+  @JsonProperty("names")
   public void setNames(List<@Valid AbilityName> names) {
     this.names = names;
   }
@@ -287,13 +289,14 @@ public class TypeDetail {
    * Get pokemon
    * @return pokemon
    */
-  @NotNull @Valid 
-  @Schema(name = "pokemon", requiredMode = Schema.RequiredMode.REQUIRED)
+  @Valid 
+  @Schema(name = "pokemon", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("pokemon")
   public List<@Valid TypeDetailPokemonInner> getPokemon() {
     return pokemon;
   }
 
+  @JsonProperty("pokemon")
   public void setPokemon(List<@Valid TypeDetailPokemonInner> pokemon) {
     this.pokemon = pokemon;
   }
@@ -315,13 +318,14 @@ public class TypeDetail {
    * Get moves
    * @return moves
    */
-  @NotNull @Valid 
-  @Schema(name = "moves", requiredMode = Schema.RequiredMode.REQUIRED)
+  @Valid 
+  @Schema(name = "moves", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("moves")
   public List<@Valid MoveSummary> getMoves() {
     return moves;
   }
 
+  @JsonProperty("moves")
   public void setMoves(List<@Valid MoveSummary> moves) {
     this.moves = moves;
   }
@@ -350,6 +354,7 @@ public class TypeDetail {
     return sprites;
   }
 
+  @JsonProperty("sprites")
   public void setSprites(Map<String, Map<String, TypeDetailSpritesValueValue>> sprites) {
     this.sprites = sprites;
   }
@@ -404,11 +409,8 @@ public class TypeDetail {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+  private String toIndentedString(@Nullable Object o) {
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 }
 

@@ -36,13 +36,13 @@ public class OASTypeDetail implements OAS.MappedProperties {
      * Get pastDamageRelations
      * @return pastDamageRelations
      */
-    public List<OASTypeDetailPastDamageRelationsInne> pastDamageRelations { get; set; }
+    public List<OASTypeDetailPastDamageRelationsInne> pastDamageRelations { get; private set; }
 
     /**
      * Get gameIndices
      * @return gameIndices
      */
-    public List<OASTypeGameIndex> gameIndices { get; set; }
+    public List<OASTypeGameIndex> gameIndices { get; private set; }
 
     /**
      * Get generation
@@ -60,19 +60,19 @@ public class OASTypeDetail implements OAS.MappedProperties {
      * Get names
      * @return names
      */
-    public List<OASAbilityName> names { get; set; }
+    public List<OASAbilityName> names { get; private set; }
 
     /**
      * Get pokemon
      * @return pokemon
      */
-    public List<OASTypeDetailPokemonInner> pokemon { get; set; }
+    public List<OASTypeDetailPokemonInner> pokemon { get; private set; }
 
     /**
      * Get moves
      * @return moves
      */
-    public List<OASMoveSummary> moves { get; set; }
+    public List<OASMoveSummary> moves { get; private set; }
 
     /**
      * Get sprites

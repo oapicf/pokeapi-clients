@@ -14,7 +14,7 @@ import org.openapitools.model.MoveMetaAilmentName;
 /**
  * MoveMetaAilmentDetail
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaMSF4JServerCodegen", date = "2026-02-07T15:23:10.683633502Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaMSF4JServerCodegen", date = "2026-08-30T01:55:58.248058654Z[Etc/UTC]", comments = "Generator version: 7.24.0")
 public class MoveMetaAilmentDetail   {
   @JsonProperty("id")
   private Integer id;
@@ -55,16 +55,6 @@ public class MoveMetaAilmentDetail   {
     this.name = name;
   }
 
-  public MoveMetaAilmentDetail moves(List<@Valid AbilityDetailPokemonInnerPokemon> moves) {
-    this.moves = moves;
-    return this;
-  }
-
-  public MoveMetaAilmentDetail addMovesItem(AbilityDetailPokemonInnerPokemon movesItem) {
-    this.moves.add(movesItem);
-    return this;
-  }
-
    /**
    * Get moves
    * @return moves
@@ -74,20 +64,6 @@ public class MoveMetaAilmentDetail   {
     return moves;
   }
 
-  public void setMoves(List<@Valid AbilityDetailPokemonInnerPokemon> moves) {
-    this.moves = moves;
-  }
-
-  public MoveMetaAilmentDetail names(List<@Valid MoveMetaAilmentName> names) {
-    this.names = names;
-    return this;
-  }
-
-  public MoveMetaAilmentDetail addNamesItem(MoveMetaAilmentName namesItem) {
-    this.names.add(namesItem);
-    return this;
-  }
-
    /**
    * Get names
    * @return names
@@ -95,10 +71,6 @@ public class MoveMetaAilmentDetail   {
   @ApiModelProperty(required = true, value = "")
   public List<@Valid MoveMetaAilmentName> getNames() {
     return names;
-  }
-
-  public void setNames(List<@Valid MoveMetaAilmentName> names) {
-    this.names = names;
   }
 
 
@@ -140,10 +112,7 @@ public class MoveMetaAilmentDetail   {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 }
 

@@ -12,11 +12,11 @@ Name | Type | Description | Notes
 **name** | `String` |  | 
 **isMainSeries** | `Boolean` |  |  [optional property]
 **generation** | [`GenerationSummary`](GenerationSummary.md) |  | 
-**names** | [`List&lt;AbilityName&gt;`](AbilityName.md) |  | 
-**effectEntries** | [`List&lt;AbilityEffectText&gt;`](AbilityEffectText.md) |  | 
-**effectChanges** | [`List&lt;AbilityChange&gt;`](AbilityChange.md) |  | 
-**flavorTextEntries** | [`List&lt;AbilityFlavorText&gt;`](AbilityFlavorText.md) |  | 
-**pokemon** | [`List&lt;AbilityDetailPokemonInner&gt;`](AbilityDetailPokemonInner.md) |  | 
+**names** | [`List&lt;AbilityName&gt;`](AbilityName.md) |  |  [readonly property]
+**effectEntries** | [`List&lt;AbilityEffectText&gt;`](AbilityEffectText.md) |  |  [readonly property]
+**effectChanges** | [`List&lt;AbilityChange&gt;`](AbilityChange.md) |  |  [readonly property]
+**flavorTextEntries** | [`List&lt;AbilityFlavorText&gt;`](AbilityFlavorText.md) |  |  [readonly property]
+**pokemon** | [`List&lt;AbilityDetailPokemonInner&gt;`](AbilityDetailPokemonInner.md) |  |  [readonly property]
 
 
 

@@ -52,7 +52,7 @@ import com.github.oapicf.pokeapiclient.JSON;
 /**
  * MoveMetaCategoryDetail
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-07T15:22:35.747827932Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-08-30T01:55:28.842792947Z[Etc/UTC]", comments = "Generator version: 7.24.0")
 public class MoveMetaCategoryDetail {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -78,10 +78,14 @@ public class MoveMetaCategoryDetail {
   }
 
   public MoveMetaCategoryDetail(
-     Integer id
+     Integer id, 
+     List<MoveMetaCategoryDescription> descriptions, 
+     List<AbilityDetailPokemonInnerPokemon> moves
   ) {
     this();
     this.id = id;
+    this.descriptions = descriptions;
+    this.moves = moves;
   }
 
   /**
@@ -114,19 +118,6 @@ public class MoveMetaCategoryDetail {
   }
 
 
-  public MoveMetaCategoryDetail descriptions(@javax.annotation.Nonnull List<MoveMetaCategoryDescription> descriptions) {
-    this.descriptions = descriptions;
-    return this;
-  }
-
-  public MoveMetaCategoryDetail addDescriptionsItem(MoveMetaCategoryDescription descriptionsItem) {
-    if (this.descriptions == null) {
-      this.descriptions = new ArrayList<>();
-    }
-    this.descriptions.add(descriptionsItem);
-    return this;
-  }
-
   /**
    * Get descriptions
    * @return descriptions
@@ -136,23 +127,7 @@ public class MoveMetaCategoryDetail {
     return descriptions;
   }
 
-  public void setDescriptions(@javax.annotation.Nonnull List<MoveMetaCategoryDescription> descriptions) {
-    this.descriptions = descriptions;
-  }
 
-
-  public MoveMetaCategoryDetail moves(@javax.annotation.Nonnull List<AbilityDetailPokemonInnerPokemon> moves) {
-    this.moves = moves;
-    return this;
-  }
-
-  public MoveMetaCategoryDetail addMovesItem(AbilityDetailPokemonInnerPokemon movesItem) {
-    if (this.moves == null) {
-      this.moves = new ArrayList<>();
-    }
-    this.moves.add(movesItem);
-    return this;
-  }
 
   /**
    * Get moves
@@ -163,9 +138,6 @@ public class MoveMetaCategoryDetail {
     return moves;
   }
 
-  public void setMoves(@javax.annotation.Nonnull List<AbilityDetailPokemonInnerPokemon> moves) {
-    this.moves = moves;
-  }
 
 
 
@@ -206,10 +178,7 @@ public class MoveMetaCategoryDetail {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 
@@ -255,26 +224,26 @@ public class MoveMetaCategoryDetail {
       if (!jsonObj.get("name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
       }
-      // ensure the json data is an array
-      if (!jsonObj.get("descriptions").isJsonArray()) {
-        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `descriptions` to be an array in the JSON string but got `%s`", jsonObj.get("descriptions").toString()));
+      if (jsonObj.get("descriptions") != null) {
+        if (!jsonObj.get("descriptions").isJsonArray()) {
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `descriptions` to be an array in the JSON string but got `%s`", jsonObj.get("descriptions").toString()));
+        }
+        JsonArray jsonArraydescriptions = jsonObj.getAsJsonArray("descriptions");
+        // validate the required field `descriptions` (array)
+        for (int i = 0; i < jsonArraydescriptions.size(); i++) {
+          MoveMetaCategoryDescription.validateJsonElement(jsonArraydescriptions.get(i));
+        }
       }
-
-      JsonArray jsonArraydescriptions = jsonObj.getAsJsonArray("descriptions");
-      // validate the required field `descriptions` (array)
-      for (int i = 0; i < jsonArraydescriptions.size(); i++) {
-        MoveMetaCategoryDescription.validateJsonElement(jsonArraydescriptions.get(i));
-      };
-      // ensure the json data is an array
-      if (!jsonObj.get("moves").isJsonArray()) {
-        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `moves` to be an array in the JSON string but got `%s`", jsonObj.get("moves").toString()));
+      if (jsonObj.get("moves") != null) {
+        if (!jsonObj.get("moves").isJsonArray()) {
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `moves` to be an array in the JSON string but got `%s`", jsonObj.get("moves").toString()));
+        }
+        JsonArray jsonArraymoves = jsonObj.getAsJsonArray("moves");
+        // validate the required field `moves` (array)
+        for (int i = 0; i < jsonArraymoves.size(); i++) {
+          AbilityDetailPokemonInnerPokemon.validateJsonElement(jsonArraymoves.get(i));
+        }
       }
-
-      JsonArray jsonArraymoves = jsonObj.getAsJsonArray("moves");
-      // validate the required field `moves` (array)
-      for (int i = 0; i < jsonArraymoves.size(); i++) {
-        AbilityDetailPokemonInnerPokemon.validateJsonElement(jsonArraymoves.get(i));
-      };
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {

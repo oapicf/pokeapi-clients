@@ -13,10 +13,10 @@ static ability_name_t *ability_name_create_internal(
     if (!ability_name_local_var) {
         return NULL;
     }
+    memset(ability_name_local_var, 0, sizeof(ability_name_t));
+    ability_name_local_var->_library_owned = 1;
     ability_name_local_var->name = name;
     ability_name_local_var->language = language;
-
-    ability_name_local_var->_library_owned = 1;
     return ability_name_local_var;
 }
 
@@ -24,10 +24,13 @@ __attribute__((deprecated)) ability_name_t *ability_name_create(
     char *name,
     language_summary_t *language
     ) {
-    return ability_name_create_internal (
+    ability_name_t *result = ability_name_create_internal (
         name,
         language
         );
+    if (!result) {
+    }
+    return result;
 }
 
 void ability_name_free(ability_name_t *ability_name) {
@@ -87,6 +90,8 @@ ability_name_t *ability_name_parseFromJSON(cJSON *ability_nameJSON){
 
     ability_name_t *ability_name_local_var = NULL;
 
+    char *name_local_str = NULL;
+
     // define the local variable for ability_name->language
     language_summary_t *language_local_nonprim = NULL;
 
@@ -118,13 +123,23 @@ ability_name_t *ability_name_parseFromJSON(cJSON *ability_nameJSON){
     language_local_nonprim = language_summary_parseFromJSON(language); //nonprimitive
 
 
+    if (name && !cJSON_IsNull(name)) name_local_str = strdup(name->valuestring);
+
     ability_name_local_var = ability_name_create_internal (
-        strdup(name->valuestring),
+        name_local_str,
         language_local_nonprim
         );
 
+    if (!ability_name_local_var) {
+        goto end;
+    }
+
     return ability_name_local_var;
 end:
+    if (name_local_str) {
+        free(name_local_str);
+        name_local_str = NULL;
+    }
     if (language_local_nonprim) {
         language_summary_free(language_local_nonprim);
         language_local_nonprim = NULL;

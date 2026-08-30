@@ -72,7 +72,7 @@ import javax.annotation.Generated;
   MoveDetail.JSON_PROPERTY_LEARNED_BY_POKEMON
 })
 @JsonTypeName("MoveDetail")
-@Generated(value="org.openapitools.codegen.languages.JavaMicronautClientCodegen", date="2026-02-07T15:22:54.857535619Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@Generated(value="org.openapitools.codegen.languages.JavaMicronautClientCodegen", date="2026-08-30T01:55:51.056116330Z[Etc/UTC]", comments = "Generator version: 7.24.0")
 @Introspected
 public class MoveDetail {
     public static final String JSON_PROPERTY_ID = "id";
@@ -406,16 +406,6 @@ public class MoveDetail {
         this.damageClass = damageClass;
     }
 
-    public MoveDetail effectEntries(List<@Valid MoveChangeEffectEntriesInner> effectEntries) {
-        this.effectEntries = effectEntries;
-        return this;
-    }
-
-    public MoveDetail addEffectEntriesItem(MoveChangeEffectEntriesInner effectEntriesItem) {
-        this.effectEntries.add(effectEntriesItem);
-        return this;
-    }
-
     /**
      * Get effectEntries
      * @return effectEntries
@@ -427,22 +417,6 @@ public class MoveDetail {
         return effectEntries;
     }
 
-    @JsonProperty(JSON_PROPERTY_EFFECT_ENTRIES)
-    @JsonInclude(value = JsonInclude.Include.ALWAYS)
-    public void setEffectEntries(List<@Valid MoveChangeEffectEntriesInner> effectEntries) {
-        this.effectEntries = effectEntries;
-    }
-
-    public MoveDetail effectChanges(List<@Valid MoveDetailEffectChangesInner> effectChanges) {
-        this.effectChanges = effectChanges;
-        return this;
-    }
-
-    public MoveDetail addEffectChangesItem(MoveDetailEffectChangesInner effectChangesItem) {
-        this.effectChanges.add(effectChangesItem);
-        return this;
-    }
-
     /**
      * Get effectChanges
      * @return effectChanges
@@ -452,12 +426,6 @@ public class MoveDetail {
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public List<@Valid MoveDetailEffectChangesInner> getEffectChanges() {
         return effectChanges;
-    }
-
-    @JsonProperty(JSON_PROPERTY_EFFECT_CHANGES)
-    @JsonInclude(value = JsonInclude.Include.ALWAYS)
-    public void setEffectChanges(List<@Valid MoveDetailEffectChangesInner> effectChanges) {
-        this.effectChanges = effectChanges;
     }
 
     public MoveDetail generation(GenerationSummary generation) {
@@ -495,16 +463,6 @@ public class MoveDetail {
         return meta;
     }
 
-    public MoveDetail names(List<@Valid MoveName> names) {
-        this.names = names;
-        return this;
-    }
-
-    public MoveDetail addNamesItem(MoveName namesItem) {
-        this.names.add(namesItem);
-        return this;
-    }
-
     /**
      * Get names
      * @return names
@@ -514,22 +472,6 @@ public class MoveDetail {
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public List<@Valid MoveName> getNames() {
         return names;
-    }
-
-    @JsonProperty(JSON_PROPERTY_NAMES)
-    @JsonInclude(value = JsonInclude.Include.ALWAYS)
-    public void setNames(List<@Valid MoveName> names) {
-        this.names = names;
-    }
-
-    public MoveDetail pastValues(List<@Valid MoveChange> pastValues) {
-        this.pastValues = pastValues;
-        return this;
-    }
-
-    public MoveDetail addPastValuesItem(MoveChange pastValuesItem) {
-        this.pastValues.add(pastValuesItem);
-        return this;
     }
 
     /**
@@ -543,22 +485,6 @@ public class MoveDetail {
         return pastValues;
     }
 
-    @JsonProperty(JSON_PROPERTY_PAST_VALUES)
-    @JsonInclude(value = JsonInclude.Include.ALWAYS)
-    public void setPastValues(List<@Valid MoveChange> pastValues) {
-        this.pastValues = pastValues;
-    }
-
-    public MoveDetail statChanges(List<@Valid MoveDetailStatChangesInner> statChanges) {
-        this.statChanges = statChanges;
-        return this;
-    }
-
-    public MoveDetail addStatChangesItem(MoveDetailStatChangesInner statChangesItem) {
-        this.statChanges.add(statChangesItem);
-        return this;
-    }
-
     /**
      * Get statChanges
      * @return statChanges
@@ -568,12 +494,6 @@ public class MoveDetail {
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public List<@Valid MoveDetailStatChangesInner> getStatChanges() {
         return statChanges;
-    }
-
-    @JsonProperty(JSON_PROPERTY_STAT_CHANGES)
-    @JsonInclude(value = JsonInclude.Include.ALWAYS)
-    public void setStatChanges(List<@Valid MoveDetailStatChangesInner> statChanges) {
-        this.statChanges = statChanges;
     }
 
     public MoveDetail superContestEffect(SuperContestEffectSummary superContestEffect) {
@@ -645,16 +565,6 @@ public class MoveDetail {
         this.type = type;
     }
 
-    public MoveDetail machines(List<@Valid MoveDetailMachinesInner> machines) {
-        this.machines = machines;
-        return this;
-    }
-
-    public MoveDetail addMachinesItem(MoveDetailMachinesInner machinesItem) {
-        this.machines.add(machinesItem);
-        return this;
-    }
-
     /**
      * Get machines
      * @return machines
@@ -664,22 +574,6 @@ public class MoveDetail {
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public List<@Valid MoveDetailMachinesInner> getMachines() {
         return machines;
-    }
-
-    @JsonProperty(JSON_PROPERTY_MACHINES)
-    @JsonInclude(value = JsonInclude.Include.ALWAYS)
-    public void setMachines(List<@Valid MoveDetailMachinesInner> machines) {
-        this.machines = machines;
-    }
-
-    public MoveDetail flavorTextEntries(List<@Valid MoveFlavorText> flavorTextEntries) {
-        this.flavorTextEntries = flavorTextEntries;
-        return this;
-    }
-
-    public MoveDetail addFlavorTextEntriesItem(MoveFlavorText flavorTextEntriesItem) {
-        this.flavorTextEntries.add(flavorTextEntriesItem);
-        return this;
     }
 
     /**
@@ -693,22 +587,6 @@ public class MoveDetail {
         return flavorTextEntries;
     }
 
-    @JsonProperty(JSON_PROPERTY_FLAVOR_TEXT_ENTRIES)
-    @JsonInclude(value = JsonInclude.Include.ALWAYS)
-    public void setFlavorTextEntries(List<@Valid MoveFlavorText> flavorTextEntries) {
-        this.flavorTextEntries = flavorTextEntries;
-    }
-
-    public MoveDetail learnedByPokemon(List<@Valid AbilityDetailPokemonInnerPokemon> learnedByPokemon) {
-        this.learnedByPokemon = learnedByPokemon;
-        return this;
-    }
-
-    public MoveDetail addLearnedByPokemonItem(AbilityDetailPokemonInnerPokemon learnedByPokemonItem) {
-        this.learnedByPokemon.add(learnedByPokemonItem);
-        return this;
-    }
-
     /**
      * Get learnedByPokemon
      * @return learnedByPokemon
@@ -718,12 +596,6 @@ public class MoveDetail {
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public List<@Valid AbilityDetailPokemonInnerPokemon> getLearnedByPokemon() {
         return learnedByPokemon;
-    }
-
-    @JsonProperty(JSON_PROPERTY_LEARNED_BY_POKEMON)
-    @JsonInclude(value = JsonInclude.Include.ALWAYS)
-    public void setLearnedByPokemon(List<@Valid AbilityDetailPokemonInnerPokemon> learnedByPokemon) {
-        this.learnedByPokemon = learnedByPokemon;
     }
 
     @Override
@@ -803,10 +675,7 @@ public class MoveDetail {
      * (except the first line).
      */
     private String toIndentedString(Object o) {
-        if (o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
+        return o == null ? "null" : o.toString().replace("\n", "\n    ");
     }
 
 }

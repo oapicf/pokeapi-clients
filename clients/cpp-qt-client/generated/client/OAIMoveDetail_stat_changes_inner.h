@@ -32,13 +32,13 @@ class OAIAbilityDetail_pokemon_inner_pokemon;
 class OAIMoveDetail_stat_changes_inner : public OAIObject {
 public:
     OAIMoveDetail_stat_changes_inner();
-    OAIMoveDetail_stat_changes_inner(QString json);
+    OAIMoveDetail_stat_changes_inner(const QString &json);
     ~OAIMoveDetail_stat_changes_inner() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     qint32 getChange() const;
     void setChange(const qint32 &change);

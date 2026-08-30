@@ -24,6 +24,8 @@ PokemonDetail_past_types_inner::PokemonDetail_past_types_inner()
     
 }
 
+PokemonDetail_past_types_inner::~PokemonDetail_past_types_inner() = default;
+
 void PokemonDetail_past_types_inner::validate() const
 {
     std::stringstream msg;

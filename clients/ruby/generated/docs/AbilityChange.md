@@ -5,7 +5,7 @@
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **version_group** | [**VersionGroupSummary**](VersionGroupSummary.md) |  |  |
-| **effect_entries** | [**Array&lt;AbilityChangeEffectText&gt;**](AbilityChangeEffectText.md) |  |  |
+| **effect_entries** | [**Array&lt;AbilityChangeEffectText&gt;**](AbilityChangeEffectText.md) |  | [readonly] |
 
 ## Example
 

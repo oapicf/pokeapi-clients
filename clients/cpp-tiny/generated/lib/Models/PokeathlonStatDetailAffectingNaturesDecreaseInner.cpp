@@ -86,7 +86,7 @@ PokeathlonStatDetail_affecting_natures_decrease_inner::getMaxChange()
 }
 
 void
-PokeathlonStatDetail_affecting_natures_decrease_inner::setMaxChange(int  max_change)
+PokeathlonStatDetail_affecting_natures_decrease_inner::setMaxChange(int max_change)
 {
 	this->max_change = max_change;
 }
@@ -98,7 +98,7 @@ PokeathlonStatDetail_affecting_natures_decrease_inner::getNature()
 }
 
 void
-PokeathlonStatDetail_affecting_natures_decrease_inner::setNature(AbilityDetail_pokemon_inner_pokemon  nature)
+PokeathlonStatDetail_affecting_natures_decrease_inner::setNature(AbilityDetail_pokemon_inner_pokemon nature)
 {
 	this->nature = nature;
 }

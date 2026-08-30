@@ -86,13 +86,13 @@ namespace Org.OpenAPITools.Model
         /// Gets or Sets PastDamageRelations
         /// </summary>
         [JsonPropertyName("past_damage_relations")]
-        public List<TypeDetailPastDamageRelationsInner> PastDamageRelations { get; set; }
+        public List<TypeDetailPastDamageRelationsInner> PastDamageRelations { get; }
 
         /// <summary>
         /// Gets or Sets GameIndices
         /// </summary>
         [JsonPropertyName("game_indices")]
-        public List<TypeGameIndex> GameIndices { get; set; }
+        public List<TypeGameIndex> GameIndices { get; }
 
         /// <summary>
         /// Gets or Sets Generation
@@ -110,19 +110,19 @@ namespace Org.OpenAPITools.Model
         /// Gets or Sets Names
         /// </summary>
         [JsonPropertyName("names")]
-        public List<AbilityName> Names { get; set; }
+        public List<AbilityName> Names { get; }
 
         /// <summary>
         /// Gets or Sets Pokemon
         /// </summary>
         [JsonPropertyName("pokemon")]
-        public List<TypeDetailPokemonInner> Pokemon { get; set; }
+        public List<TypeDetailPokemonInner> Pokemon { get; }
 
         /// <summary>
         /// Gets or Sets Moves
         /// </summary>
         [JsonPropertyName("moves")]
-        public List<MoveSummary> Moves { get; set; }
+        public List<MoveSummary> Moves { get; }
 
         /// <summary>
         /// Gets or Sets Sprites
@@ -173,8 +173,18 @@ namespace Org.OpenAPITools.Model
     /// <summary>
     /// A Json converter for type <see cref="TypeDetail" />
     /// </summary>
-    public class TypeDetailJsonConverter : JsonConverter<TypeDetail>
+    public partial class TypeDetailJsonConverter : JsonConverter<TypeDetail>
     {
+        partial void OnCreated();
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="TypeDetailJsonConverter" /> class.
+        /// </summary>
+        public TypeDetailJsonConverter()
+        {
+            OnCreated();
+        }
+
         /// <summary>
         /// Deserializes json to <see cref="TypeDetail" />
         /// </summary>

@@ -7,13 +7,13 @@ Name | Type | Description | Notes
 **Id** | **int32** |  | [readonly] 
 **Name** | **string** |  | 
 **DamageRelations** | [**TypeDetailDamageRelations**](TypeDetailDamageRelations.md) |  | 
-**PastDamageRelations** | [**[]TypeDetailPastDamageRelationsInner**](TypeDetailPastDamageRelationsInner.md) |  | 
-**GameIndices** | [**[]TypeGameIndex**](TypeGameIndex.md) |  | 
+**PastDamageRelations** | [**[]TypeDetailPastDamageRelationsInner**](TypeDetailPastDamageRelationsInner.md) |  | [readonly] 
+**GameIndices** | [**[]TypeGameIndex**](TypeGameIndex.md) |  | [readonly] 
 **Generation** | [**GenerationSummary**](GenerationSummary.md) |  | 
 **MoveDamageClass** | [**MoveDamageClassSummary**](MoveDamageClassSummary.md) |  | 
-**Names** | [**[]AbilityName**](AbilityName.md) |  | 
-**Pokemon** | [**[]TypeDetailPokemonInner**](TypeDetailPokemonInner.md) |  | 
-**Moves** | [**[]MoveSummary**](MoveSummary.md) |  | 
+**Names** | [**[]AbilityName**](AbilityName.md) |  | [readonly] 
+**Pokemon** | [**[]TypeDetailPokemonInner**](TypeDetailPokemonInner.md) |  | [readonly] 
+**Moves** | [**[]MoveSummary**](MoveSummary.md) |  | [readonly] 
 **Sprites** | [**map[string]map[string]TypeDetailSpritesValueValue**](map.md) |  | [readonly] 
 
 ## Methods

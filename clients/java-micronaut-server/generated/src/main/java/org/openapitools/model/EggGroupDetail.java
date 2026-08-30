@@ -37,7 +37,7 @@ import io.swagger.v3.oas.annotations.media.Schema;
   EggGroupDetail.JSON_PROPERTY_POKEMON_SPECIES
 })
 @JsonTypeName("EggGroupDetail")
-@Generated(value="org.openapitools.codegen.languages.JavaMicronautServerCodegen", date="2026-02-07T15:23:03.167972722Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@Generated(value="org.openapitools.codegen.languages.JavaMicronautServerCodegen", date="2026-08-30T01:55:54.631003115Z[Etc/UTC]", comments = "Generator version: 7.24.0")
 @Introspected
 public class EggGroupDetail {
     public static final String JSON_PROPERTY_ID = "id";
@@ -95,42 +95,16 @@ public class EggGroupDetail {
         this.name = name;
     }
 
-    public EggGroupDetail names(List<@Valid EggGroupName> names) {
-        this.names = names;
-        return this;
-    }
-
-    public EggGroupDetail addNamesItem(EggGroupName namesItem) {
-        this.names.add(namesItem);
-        return this;
-    }
-
     /**
      * Get names
      * @return names
      */
     @NotNull
-    @Schema(name = "names", requiredMode = Schema.RequiredMode.REQUIRED)
+    @Schema(name = "names", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
     @JsonProperty(JSON_PROPERTY_NAMES)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public List<@Valid EggGroupName> getNames() {
         return names;
-    }
-
-    @JsonProperty(JSON_PROPERTY_NAMES)
-    @JsonInclude(value = JsonInclude.Include.ALWAYS)
-    public void setNames(List<@Valid EggGroupName> names) {
-        this.names = names;
-    }
-
-    public EggGroupDetail pokemonSpecies(List<@Valid EggGroupDetailPokemonSpeciesInner> pokemonSpecies) {
-        this.pokemonSpecies = pokemonSpecies;
-        return this;
-    }
-
-    public EggGroupDetail addPokemonSpeciesItem(EggGroupDetailPokemonSpeciesInner pokemonSpeciesItem) {
-        this.pokemonSpecies.add(pokemonSpeciesItem);
-        return this;
     }
 
     /**
@@ -138,17 +112,11 @@ public class EggGroupDetail {
      * @return pokemonSpecies
      */
     @NotNull
-    @Schema(name = "pokemon_species", requiredMode = Schema.RequiredMode.REQUIRED)
+    @Schema(name = "pokemon_species", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
     @JsonProperty(JSON_PROPERTY_POKEMON_SPECIES)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public List<@Valid EggGroupDetailPokemonSpeciesInner> getPokemonSpecies() {
         return pokemonSpecies;
-    }
-
-    @JsonProperty(JSON_PROPERTY_POKEMON_SPECIES)
-    @JsonInclude(value = JsonInclude.Include.ALWAYS)
-    public void setPokemonSpecies(List<@Valid EggGroupDetailPokemonSpeciesInner> pokemonSpecies) {
-        this.pokemonSpecies = pokemonSpecies;
     }
 
     @Override
@@ -188,10 +156,7 @@ public class EggGroupDetail {
      * (except the first line).
      */
     private String toIndentedString(Object o) {
-        if (o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
+        return o == null ? "null" : o.toString().replace("\n", "\n    ");
     }
 
 }

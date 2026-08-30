@@ -54,7 +54,7 @@ public class OASStatDetail implements OAS.MappedProperties {
      * Get characteristics
      * @return characteristics
      */
-    public List<OASCharacteristicSummary> characteristics { get; set; }
+    public List<OASCharacteristicSummary> characteristics { get; private set; }
 
     /**
      * Get moveDamageClass
@@ -66,7 +66,7 @@ public class OASStatDetail implements OAS.MappedProperties {
      * Get names
      * @return names
      */
-    public List<OASStatName> names { get; set; }
+    public List<OASStatName> names { get; private set; }
 
     private static final Map<String, String> propertyMappings = new Map<String, String>{
         'game_index' => 'gameIndex',

@@ -32,7 +32,7 @@ class  PokeathlonStatSummary
 {
 public:
     PokeathlonStatSummary();
-    virtual ~PokeathlonStatSummary() = default;
+    virtual ~PokeathlonStatSummary();
 
 
     /// <summary>

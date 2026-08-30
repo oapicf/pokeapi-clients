@@ -26,6 +26,8 @@ PalParkAreaDetail_pokemon_encounters_inner::PalParkAreaDetail_pokemon_encounters
     
 }
 
+PalParkAreaDetail_pokemon_encounters_inner::~PalParkAreaDetail_pokemon_encounters_inner() = default;
+
 void PalParkAreaDetail_pokemon_encounters_inner::validate() const
 {
     std::stringstream msg;

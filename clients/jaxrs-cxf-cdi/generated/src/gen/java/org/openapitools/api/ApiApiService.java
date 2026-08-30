@@ -113,7 +113,7 @@ import javax.validation.Valid;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.SecurityContext;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSCXFCDIServerCodegen", date = "2026-02-07T15:23:48.055342879Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSCXFCDIServerCodegen", date = "2026-08-30T01:56:25.314067139Z[Etc/UTC]", comments = "Generator version: 7.24.0")
 public interface ApiApiService {
       public Response abilityList(Integer limit, Integer offset, String q, SecurityContext securityContext);
       public Response abilityRetrieve(String id, SecurityContext securityContext);

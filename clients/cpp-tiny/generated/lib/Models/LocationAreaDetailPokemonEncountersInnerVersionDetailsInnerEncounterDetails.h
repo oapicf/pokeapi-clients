@@ -52,35 +52,35 @@ public:
 
 	/*! \brief Set 
 	 */
-	void setMinLevel(int  min_level);
+	void setMinLevel(int min_level);
 	/*! \brief Get 
 	 */
 	int getMaxLevel();
 
 	/*! \brief Set 
 	 */
-	void setMaxLevel(int  max_level);
+	void setMaxLevel(int max_level);
 	/*! \brief Get 
 	 */
 	AbilityDetail_pokemon_inner_pokemon getConditionValues();
 
 	/*! \brief Set 
 	 */
-	void setConditionValues(AbilityDetail_pokemon_inner_pokemon  condition_values);
+	void setConditionValues(AbilityDetail_pokemon_inner_pokemon condition_values);
 	/*! \brief Get 
 	 */
 	int getChance();
 
 	/*! \brief Set 
 	 */
-	void setChance(int  chance);
+	void setChance(int chance);
 	/*! \brief Get 
 	 */
 	AbilityDetail_pokemon_inner_pokemon getMethod();
 
 	/*! \brief Set 
 	 */
-	void setMethod(AbilityDetail_pokemon_inner_pokemon  method);
+	void setMethod(AbilityDetail_pokemon_inner_pokemon method);
 
 
     private:

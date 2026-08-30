@@ -32,7 +32,7 @@ class  MoveDetail_stat_changes_inner
 {
 public:
     MoveDetail_stat_changes_inner();
-    virtual ~MoveDetail_stat_changes_inner() = default;
+    virtual ~MoveDetail_stat_changes_inner();
 
 
     /// <summary>

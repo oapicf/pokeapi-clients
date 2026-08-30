@@ -14,7 +14,7 @@ import org.openapitools.model.ContestEffectFlavorText;
 /**
  * ContestEffectDetail
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaMSF4JServerCodegen", date = "2026-02-07T15:23:10.683633502Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaMSF4JServerCodegen", date = "2026-08-30T01:55:58.248058654Z[Etc/UTC]", comments = "Generator version: 7.24.0")
 public class ContestEffectDetail   {
   @JsonProperty("id")
   private Integer id;
@@ -76,16 +76,6 @@ public class ContestEffectDetail   {
     this.jam = jam;
   }
 
-  public ContestEffectDetail effectEntries(List<@Valid ContestEffectEffectText> effectEntries) {
-    this.effectEntries = effectEntries;
-    return this;
-  }
-
-  public ContestEffectDetail addEffectEntriesItem(ContestEffectEffectText effectEntriesItem) {
-    this.effectEntries.add(effectEntriesItem);
-    return this;
-  }
-
    /**
    * Get effectEntries
    * @return effectEntries
@@ -95,20 +85,6 @@ public class ContestEffectDetail   {
     return effectEntries;
   }
 
-  public void setEffectEntries(List<@Valid ContestEffectEffectText> effectEntries) {
-    this.effectEntries = effectEntries;
-  }
-
-  public ContestEffectDetail flavorTextEntries(List<@Valid ContestEffectFlavorText> flavorTextEntries) {
-    this.flavorTextEntries = flavorTextEntries;
-    return this;
-  }
-
-  public ContestEffectDetail addFlavorTextEntriesItem(ContestEffectFlavorText flavorTextEntriesItem) {
-    this.flavorTextEntries.add(flavorTextEntriesItem);
-    return this;
-  }
-
    /**
    * Get flavorTextEntries
    * @return flavorTextEntries
@@ -116,10 +92,6 @@ public class ContestEffectDetail   {
   @ApiModelProperty(required = true, value = "")
   public List<@Valid ContestEffectFlavorText> getFlavorTextEntries() {
     return flavorTextEntries;
-  }
-
-  public void setFlavorTextEntries(List<@Valid ContestEffectFlavorText> flavorTextEntries) {
-    this.flavorTextEntries = flavorTextEntries;
   }
 
 
@@ -163,10 +135,7 @@ public class ContestEffectDetail   {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 }
 

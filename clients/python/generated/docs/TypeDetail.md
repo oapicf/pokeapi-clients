@@ -9,13 +9,13 @@ Name | Type | Description | Notes
 **id** | **int** |  | [readonly] 
 **name** | **str** |  | 
 **damage_relations** | [**TypeDetailDamageRelations**](TypeDetailDamageRelations.md) |  | 
-**past_damage_relations** | [**List[TypeDetailPastDamageRelationsInner]**](TypeDetailPastDamageRelationsInner.md) |  | 
-**game_indices** | [**List[TypeGameIndex]**](TypeGameIndex.md) |  | 
+**past_damage_relations** | [**List[TypeDetailPastDamageRelationsInner]**](TypeDetailPastDamageRelationsInner.md) |  | [readonly] 
+**game_indices** | [**List[TypeGameIndex]**](TypeGameIndex.md) |  | [readonly] 
 **generation** | [**GenerationSummary**](GenerationSummary.md) |  | 
 **move_damage_class** | [**MoveDamageClassSummary**](MoveDamageClassSummary.md) |  | 
-**names** | [**List[AbilityName]**](AbilityName.md) |  | 
-**pokemon** | [**List[TypeDetailPokemonInner]**](TypeDetailPokemonInner.md) |  | 
-**moves** | [**List[MoveSummary]**](MoveSummary.md) |  | 
+**names** | [**List[AbilityName]**](AbilityName.md) |  | [readonly] 
+**pokemon** | [**List[TypeDetailPokemonInner]**](TypeDetailPokemonInner.md) |  | [readonly] 
+**moves** | [**List[MoveSummary]**](MoveSummary.md) |  | [readonly] 
 **sprites** | **Dict[str, Dict[str, TypeDetailSpritesValueValue]]** |  | [readonly] 
 
 ## Example

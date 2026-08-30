@@ -34,13 +34,13 @@ class OAIBerryFirmnessSummary;
 class OAIPaginatedBerryFirmnessSummaryList : public OAIObject {
 public:
     OAIPaginatedBerryFirmnessSummaryList();
-    OAIPaginatedBerryFirmnessSummaryList(QString json);
+    OAIPaginatedBerryFirmnessSummaryList(const QString &json);
     ~OAIPaginatedBerryFirmnessSummaryList() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     qint32 getCount() const;
     void setCount(const qint32 &count);

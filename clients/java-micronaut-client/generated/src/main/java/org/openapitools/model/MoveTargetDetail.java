@@ -38,7 +38,7 @@ import javax.annotation.Generated;
   MoveTargetDetail.JSON_PROPERTY_NAMES
 })
 @JsonTypeName("MoveTargetDetail")
-@Generated(value="org.openapitools.codegen.languages.JavaMicronautClientCodegen", date="2026-02-07T15:22:54.857535619Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@Generated(value="org.openapitools.codegen.languages.JavaMicronautClientCodegen", date="2026-08-30T01:55:51.056116330Z[Etc/UTC]", comments = "Generator version: 7.24.0")
 @Introspected
 public class MoveTargetDetail {
     public static final String JSON_PROPERTY_ID = "id";
@@ -98,16 +98,6 @@ public class MoveTargetDetail {
         this.name = name;
     }
 
-    public MoveTargetDetail descriptions(List<@Valid MoveTargetDescription> descriptions) {
-        this.descriptions = descriptions;
-        return this;
-    }
-
-    public MoveTargetDetail addDescriptionsItem(MoveTargetDescription descriptionsItem) {
-        this.descriptions.add(descriptionsItem);
-        return this;
-    }
-
     /**
      * Get descriptions
      * @return descriptions
@@ -117,22 +107,6 @@ public class MoveTargetDetail {
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public List<@Valid MoveTargetDescription> getDescriptions() {
         return descriptions;
-    }
-
-    @JsonProperty(JSON_PROPERTY_DESCRIPTIONS)
-    @JsonInclude(value = JsonInclude.Include.ALWAYS)
-    public void setDescriptions(List<@Valid MoveTargetDescription> descriptions) {
-        this.descriptions = descriptions;
-    }
-
-    public MoveTargetDetail moves(List<@Valid MoveSummary> moves) {
-        this.moves = moves;
-        return this;
-    }
-
-    public MoveTargetDetail addMovesItem(MoveSummary movesItem) {
-        this.moves.add(movesItem);
-        return this;
     }
 
     /**
@@ -146,22 +120,6 @@ public class MoveTargetDetail {
         return moves;
     }
 
-    @JsonProperty(JSON_PROPERTY_MOVES)
-    @JsonInclude(value = JsonInclude.Include.ALWAYS)
-    public void setMoves(List<@Valid MoveSummary> moves) {
-        this.moves = moves;
-    }
-
-    public MoveTargetDetail names(List<@Valid MoveTargetName> names) {
-        this.names = names;
-        return this;
-    }
-
-    public MoveTargetDetail addNamesItem(MoveTargetName namesItem) {
-        this.names.add(namesItem);
-        return this;
-    }
-
     /**
      * Get names
      * @return names
@@ -171,12 +129,6 @@ public class MoveTargetDetail {
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public List<@Valid MoveTargetName> getNames() {
         return names;
-    }
-
-    @JsonProperty(JSON_PROPERTY_NAMES)
-    @JsonInclude(value = JsonInclude.Include.ALWAYS)
-    public void setNames(List<@Valid MoveTargetName> names) {
-        this.names = names;
     }
 
     @Override
@@ -218,10 +170,7 @@ public class MoveTargetDetail {
      * (except the first line).
      */
     private String toIndentedString(Object o) {
-        if (o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
+        return o == null ? "null" : o.toString().replace("\n", "\n    ");
     }
 
 }

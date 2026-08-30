@@ -31,6 +31,8 @@ PaginatedBerryFlavorSummaryList::PaginatedBerryFlavorSummaryList()
     
 }
 
+PaginatedBerryFlavorSummaryList::~PaginatedBerryFlavorSummaryList() = default;
+
 void PaginatedBerryFlavorSummaryList::validate() const
 {
     std::stringstream msg;

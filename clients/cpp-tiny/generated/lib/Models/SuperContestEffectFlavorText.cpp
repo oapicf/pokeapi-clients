@@ -86,7 +86,7 @@ SuperContestEffectFlavorText::getFlavorText()
 }
 
 void
-SuperContestEffectFlavorText::setFlavorText(std::string  flavor_text)
+SuperContestEffectFlavorText::setFlavorText(std::string flavor_text)
 {
 	this->flavor_text = flavor_text;
 }
@@ -98,7 +98,7 @@ SuperContestEffectFlavorText::getLanguage()
 }
 
 void
-SuperContestEffectFlavorText::setLanguage(LanguageSummary  language)
+SuperContestEffectFlavorText::setLanguage(LanguageSummary language)
 {
 	this->language = language;
 }

@@ -13,32 +13,29 @@ import org.openapitools.model.MoveTargetName;
 import org.springframework.lang.Nullable;
 import org.openapitools.jackson.nullable.JsonNullable;
 import java.time.OffsetDateTime;
-import javax.validation.Valid;
-import javax.validation.constraints.*;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.*;
 import io.swagger.v3.oas.annotations.media.Schema;
 
 
 import java.util.*;
-import javax.annotation.Generated;
+import jakarta.annotation.Generated;
 
 /**
  * MoveTargetDetail
  */
 
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2026-02-07T15:29:13.146999890Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2026-08-30T02:00:43.960184425Z[Etc/UTC]", comments = "Generator version: 7.24.0")
 public class MoveTargetDetail {
 
   private Integer id;
 
   private String name;
 
-  @Valid
   private List<@Valid MoveTargetDescription> descriptions = new ArrayList<>();
 
-  @Valid
   private List<@Valid MoveSummary> moves = new ArrayList<>();
 
-  @Valid
   private List<@Valid MoveTargetName> names = new ArrayList<>();
 
   public MoveTargetDetail() {
@@ -72,6 +69,7 @@ public class MoveTargetDetail {
     return id;
   }
 
+  @JsonProperty("id")
   public void setId(Integer id) {
     this.id = id;
   }
@@ -92,6 +90,7 @@ public class MoveTargetDetail {
     return name;
   }
 
+  @JsonProperty("name")
   public void setName(String name) {
     this.name = name;
   }
@@ -113,13 +112,14 @@ public class MoveTargetDetail {
    * Get descriptions
    * @return descriptions
    */
-  @NotNull @Valid 
-  @Schema(name = "descriptions", requiredMode = Schema.RequiredMode.REQUIRED)
+  @Valid 
+  @Schema(name = "descriptions", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("descriptions")
   public List<@Valid MoveTargetDescription> getDescriptions() {
     return descriptions;
   }
 
+  @JsonProperty("descriptions")
   public void setDescriptions(List<@Valid MoveTargetDescription> descriptions) {
     this.descriptions = descriptions;
   }
@@ -141,13 +141,14 @@ public class MoveTargetDetail {
    * Get moves
    * @return moves
    */
-  @NotNull @Valid 
-  @Schema(name = "moves", requiredMode = Schema.RequiredMode.REQUIRED)
+  @Valid 
+  @Schema(name = "moves", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("moves")
   public List<@Valid MoveSummary> getMoves() {
     return moves;
   }
 
+  @JsonProperty("moves")
   public void setMoves(List<@Valid MoveSummary> moves) {
     this.moves = moves;
   }
@@ -169,13 +170,14 @@ public class MoveTargetDetail {
    * Get names
    * @return names
    */
-  @NotNull @Valid 
-  @Schema(name = "names", requiredMode = Schema.RequiredMode.REQUIRED)
+  @Valid 
+  @Schema(name = "names", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("names")
   public List<@Valid MoveTargetName> getNames() {
     return names;
   }
 
+  @JsonProperty("names")
   public void setNames(List<@Valid MoveTargetName> names) {
     this.names = names;
   }
@@ -218,11 +220,8 @@ public class MoveTargetDetail {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+  private String toIndentedString(@Nullable Object o) {
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 }
 

@@ -7,11 +7,11 @@
 | **id** | **Integer** |  | [readonly] |
 | **name** | **String** |  |  |
 | **is_main_series** | **Boolean** |  | [optional] |
-| **descriptions** | [**Array&lt;PokedexDescription&gt;**](PokedexDescription.md) |  |  |
-| **names** | [**Array&lt;PokedexName&gt;**](PokedexName.md) |  |  |
-| **pokemon_entries** | [**Array&lt;PokedexDetailPokemonEntriesInner&gt;**](PokedexDetailPokemonEntriesInner.md) |  |  |
+| **descriptions** | [**Array&lt;PokedexDescription&gt;**](PokedexDescription.md) |  | [readonly] |
+| **names** | [**Array&lt;PokedexName&gt;**](PokedexName.md) |  | [readonly] |
+| **pokemon_entries** | [**Array&lt;PokedexDetailPokemonEntriesInner&gt;**](PokedexDetailPokemonEntriesInner.md) |  | [readonly] |
 | **region** | [**RegionSummary**](RegionSummary.md) |  |  |
-| **version_groups** | [**Array&lt;AbilityDetailPokemonInnerPokemon&gt;**](AbilityDetailPokemonInnerPokemon.md) |  |  |
+| **version_groups** | [**Array&lt;AbilityDetailPokemonInnerPokemon&gt;**](AbilityDetailPokemonInnerPokemon.md) |  | [readonly] |
 
 ## Example
 

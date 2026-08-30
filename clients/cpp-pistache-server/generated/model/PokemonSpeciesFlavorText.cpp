@@ -25,6 +25,8 @@ PokemonSpeciesFlavorText::PokemonSpeciesFlavorText()
     
 }
 
+PokemonSpeciesFlavorText::~PokemonSpeciesFlavorText() = default;
+
 void PokemonSpeciesFlavorText::validate() const
 {
     std::stringstream msg;

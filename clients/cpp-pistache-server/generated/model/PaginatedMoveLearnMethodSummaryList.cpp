@@ -31,6 +31,8 @@ PaginatedMoveLearnMethodSummaryList::PaginatedMoveLearnMethodSummaryList()
     
 }
 
+PaginatedMoveLearnMethodSummaryList::~PaginatedMoveLearnMethodSummaryList() = default;
+
 void PaginatedMoveLearnMethodSummaryList::validate() const
 {
     std::stringstream msg;

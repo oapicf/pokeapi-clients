@@ -199,7 +199,7 @@ MoveTargetDetail::getId()
 }
 
 void
-MoveTargetDetail::setId(int  id)
+MoveTargetDetail::setId(int id)
 {
 	this->id = id;
 }
@@ -211,7 +211,7 @@ MoveTargetDetail::getName()
 }
 
 void
-MoveTargetDetail::setName(std::string  name)
+MoveTargetDetail::setName(std::string name)
 {
 	this->name = name;
 }
@@ -223,7 +223,7 @@ MoveTargetDetail::getDescriptions()
 }
 
 void
-MoveTargetDetail::setDescriptions(std::list <MoveTargetDescription> descriptions)
+MoveTargetDetail::setDescriptions(std::list<MoveTargetDescription> descriptions)
 {
 	this->descriptions = descriptions;
 }
@@ -235,7 +235,7 @@ MoveTargetDetail::getMoves()
 }
 
 void
-MoveTargetDetail::setMoves(std::list <MoveSummary> moves)
+MoveTargetDetail::setMoves(std::list<MoveSummary> moves)
 {
 	this->moves = moves;
 }
@@ -247,7 +247,7 @@ MoveTargetDetail::getNames()
 }
 
 void
-MoveTargetDetail::setNames(std::list <MoveTargetName> names)
+MoveTargetDetail::setNames(std::list<MoveTargetName> names)
 {
 	this->names = names;
 }

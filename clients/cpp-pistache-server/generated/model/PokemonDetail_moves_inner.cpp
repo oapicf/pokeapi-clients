@@ -24,6 +24,8 @@ PokemonDetail_moves_inner::PokemonDetail_moves_inner()
     
 }
 
+PokemonDetail_moves_inner::~PokemonDetail_moves_inner() = default;
+
 void PokemonDetail_moves_inner::validate() const
 {
     std::stringstream msg;

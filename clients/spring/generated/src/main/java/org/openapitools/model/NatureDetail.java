@@ -16,19 +16,19 @@ import org.openapitools.model.StatSummary;
 import org.springframework.lang.Nullable;
 import org.openapitools.jackson.nullable.JsonNullable;
 import java.time.OffsetDateTime;
-import javax.validation.Valid;
-import javax.validation.constraints.*;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.*;
 import io.swagger.v3.oas.annotations.media.Schema;
 
 
 import java.util.*;
-import javax.annotation.Generated;
+import jakarta.annotation.Generated;
 
 /**
  * NatureDetail
  */
 
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2026-02-07T15:29:13.146999890Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2026-08-30T02:00:43.960184425Z[Etc/UTC]", comments = "Generator version: 7.24.0")
 public class NatureDetail {
 
   private Integer id;
@@ -43,16 +43,12 @@ public class NatureDetail {
 
   private BerryFlavorSummary hatesFlavor;
 
-  @Valid
   private List<@Valid BerrySummary> berries = new ArrayList<>();
 
-  @Valid
   private List<@Valid NatureDetailPokeathlonStatChangesInner> pokeathlonStatChanges = new ArrayList<>();
 
-  @Valid
   private List<@Valid NatureBattleStylePreference> moveBattleStylePreferences = new ArrayList<>();
 
-  @Valid
   private List<@Valid NatureName> names = new ArrayList<>();
 
   public NatureDetail() {
@@ -91,6 +87,7 @@ public class NatureDetail {
     return id;
   }
 
+  @JsonProperty("id")
   public void setId(Integer id) {
     this.id = id;
   }
@@ -111,6 +108,7 @@ public class NatureDetail {
     return name;
   }
 
+  @JsonProperty("name")
   public void setName(String name) {
     this.name = name;
   }
@@ -131,6 +129,7 @@ public class NatureDetail {
     return decreasedStat;
   }
 
+  @JsonProperty("decreased_stat")
   public void setDecreasedStat(StatSummary decreasedStat) {
     this.decreasedStat = decreasedStat;
   }
@@ -151,6 +150,7 @@ public class NatureDetail {
     return increasedStat;
   }
 
+  @JsonProperty("increased_stat")
   public void setIncreasedStat(StatSummary increasedStat) {
     this.increasedStat = increasedStat;
   }
@@ -171,6 +171,7 @@ public class NatureDetail {
     return likesFlavor;
   }
 
+  @JsonProperty("likes_flavor")
   public void setLikesFlavor(BerryFlavorSummary likesFlavor) {
     this.likesFlavor = likesFlavor;
   }
@@ -191,6 +192,7 @@ public class NatureDetail {
     return hatesFlavor;
   }
 
+  @JsonProperty("hates_flavor")
   public void setHatesFlavor(BerryFlavorSummary hatesFlavor) {
     this.hatesFlavor = hatesFlavor;
   }
@@ -212,13 +214,14 @@ public class NatureDetail {
    * Get berries
    * @return berries
    */
-  @NotNull @Valid 
-  @Schema(name = "berries", requiredMode = Schema.RequiredMode.REQUIRED)
+  @Valid 
+  @Schema(name = "berries", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("berries")
   public List<@Valid BerrySummary> getBerries() {
     return berries;
   }
 
+  @JsonProperty("berries")
   public void setBerries(List<@Valid BerrySummary> berries) {
     this.berries = berries;
   }
@@ -240,13 +243,14 @@ public class NatureDetail {
    * Get pokeathlonStatChanges
    * @return pokeathlonStatChanges
    */
-  @NotNull @Valid 
-  @Schema(name = "pokeathlon_stat_changes", requiredMode = Schema.RequiredMode.REQUIRED)
+  @Valid 
+  @Schema(name = "pokeathlon_stat_changes", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("pokeathlon_stat_changes")
   public List<@Valid NatureDetailPokeathlonStatChangesInner> getPokeathlonStatChanges() {
     return pokeathlonStatChanges;
   }
 
+  @JsonProperty("pokeathlon_stat_changes")
   public void setPokeathlonStatChanges(List<@Valid NatureDetailPokeathlonStatChangesInner> pokeathlonStatChanges) {
     this.pokeathlonStatChanges = pokeathlonStatChanges;
   }
@@ -268,13 +272,14 @@ public class NatureDetail {
    * Get moveBattleStylePreferences
    * @return moveBattleStylePreferences
    */
-  @NotNull @Valid 
-  @Schema(name = "move_battle_style_preferences", requiredMode = Schema.RequiredMode.REQUIRED)
+  @Valid 
+  @Schema(name = "move_battle_style_preferences", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("move_battle_style_preferences")
   public List<@Valid NatureBattleStylePreference> getMoveBattleStylePreferences() {
     return moveBattleStylePreferences;
   }
 
+  @JsonProperty("move_battle_style_preferences")
   public void setMoveBattleStylePreferences(List<@Valid NatureBattleStylePreference> moveBattleStylePreferences) {
     this.moveBattleStylePreferences = moveBattleStylePreferences;
   }
@@ -296,13 +301,14 @@ public class NatureDetail {
    * Get names
    * @return names
    */
-  @NotNull @Valid 
-  @Schema(name = "names", requiredMode = Schema.RequiredMode.REQUIRED)
+  @Valid 
+  @Schema(name = "names", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("names")
   public List<@Valid NatureName> getNames() {
     return names;
   }
 
+  @JsonProperty("names")
   public void setNames(List<@Valid NatureName> names) {
     this.names = names;
   }
@@ -355,11 +361,8 @@ public class NatureDetail {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+  private String toIndentedString(@Nullable Object o) {
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 }
 

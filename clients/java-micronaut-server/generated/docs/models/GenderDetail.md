@@ -10,8 +10,8 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | `Integer` |  |  [readonly property]
 **name** | `String` |  | 
-**pokemonSpeciesDetails** | [`List&lt;GenderDetailPokemonSpeciesDetailsInner&gt;`](GenderDetailPokemonSpeciesDetailsInner.md) |  | 
-**requiredForEvolution** | [`List&lt;AbilityDetailPokemonInnerPokemon&gt;`](AbilityDetailPokemonInnerPokemon.md) |  | 
+**pokemonSpeciesDetails** | [`List&lt;GenderDetailPokemonSpeciesDetailsInner&gt;`](GenderDetailPokemonSpeciesDetailsInner.md) |  |  [readonly property]
+**requiredForEvolution** | [`List&lt;AbilityDetailPokemonInnerPokemon&gt;`](AbilityDetailPokemonInnerPokemon.md) |  |  [readonly property]
 
 
 

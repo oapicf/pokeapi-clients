@@ -12,18 +12,17 @@
  * Do not edit the class manually.
  */
 
-
 import * as runtime from '../runtime';
-import type {
-  MachineDetail,
-  PaginatedMachineSummaryList,
-} from '../models/index';
 import {
+    type MachineDetail,
     MachineDetailFromJSON,
     MachineDetailToJSON,
+} from '../models/MachineDetail';
+import {
+    type PaginatedMachineSummaryList,
     PaginatedMachineSummaryListFromJSON,
     PaginatedMachineSummaryListToJSON,
-} from '../models/index';
+} from '../models/PaginatedMachineSummaryList';
 
 export interface MachineListRequest {
     limit?: number;
@@ -41,10 +40,9 @@ export interface MachineRetrieveRequest {
 export class MachinesApi extends runtime.BaseAPI {
 
     /**
-     * Machines are the representation of items that teach moves to Pokémon. They vary from version to version, so it is not certain that one specific TM or HM corresponds to a single Machine.
-     * List machines
+     * Creates request options for machineList without sending the request
      */
-    async machineListRaw(requestParameters: MachineListRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PaginatedMachineSummaryList>> {
+    async machineListRequestOpts(requestParameters: MachineListRequest): Promise<runtime.RequestOpts> {
         const queryParameters: any = {};
 
         if (requestParameters['limit'] != null) {
@@ -67,12 +65,21 @@ export class MachinesApi extends runtime.BaseAPI {
 
         let urlPath = `/api/v2/machine/`;
 
-        const response = await this.request({
+        return {
             path: urlPath,
             method: 'GET',
             headers: headerParameters,
             query: queryParameters,
-        }, initOverrides);
+        };
+    }
+
+    /**
+     * Machines are the representation of items that teach moves to Pokémon. They vary from version to version, so it is not certain that one specific TM or HM corresponds to a single Machine.
+     * List machines
+     */
+    async machineListRaw(requestParameters: MachineListRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PaginatedMachineSummaryList>> {
+        const requestOptions = await this.machineListRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => PaginatedMachineSummaryListFromJSON(jsonValue));
     }
@@ -87,10 +94,9 @@ export class MachinesApi extends runtime.BaseAPI {
     }
 
     /**
-     * Machines are the representation of items that teach moves to Pokémon. They vary from version to version, so it is not certain that one specific TM or HM corresponds to a single Machine.
-     * Get machine
+     * Creates request options for machineRetrieve without sending the request
      */
-    async machineRetrieveRaw(requestParameters: MachineRetrieveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<MachineDetail>> {
+    async machineRetrieveRequestOpts(requestParameters: MachineRetrieveRequest): Promise<runtime.RequestOpts> {
         if (requestParameters['id'] == null) {
             throw new runtime.RequiredError(
                 'id',
@@ -107,14 +113,23 @@ export class MachinesApi extends runtime.BaseAPI {
         }
 
         let urlPath = `/api/v2/machine/{id}/`;
-        urlPath = urlPath.replace(`{${"id"}}`, encodeURIComponent(String(requestParameters['id'])));
+        urlPath = urlPath.replace('{id}', encodeURIComponent(String(requestParameters['id'])));
 
-        const response = await this.request({
+        return {
             path: urlPath,
             method: 'GET',
             headers: headerParameters,
             query: queryParameters,
-        }, initOverrides);
+        };
+    }
+
+    /**
+     * Machines are the representation of items that teach moves to Pokémon. They vary from version to version, so it is not certain that one specific TM or HM corresponds to a single Machine.
+     * Get machine
+     */
+    async machineRetrieveRaw(requestParameters: MachineRetrieveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<MachineDetail>> {
+        const requestOptions = await this.machineRetrieveRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => MachineDetailFromJSON(jsonValue));
     }

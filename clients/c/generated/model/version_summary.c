@@ -13,10 +13,10 @@ static version_summary_t *version_summary_create_internal(
     if (!version_summary_local_var) {
         return NULL;
     }
+    memset(version_summary_local_var, 0, sizeof(version_summary_t));
+    version_summary_local_var->_library_owned = 1;
     version_summary_local_var->name = name;
     version_summary_local_var->url = url;
-
-    version_summary_local_var->_library_owned = 1;
     return version_summary_local_var;
 }
 
@@ -24,10 +24,13 @@ __attribute__((deprecated)) version_summary_t *version_summary_create(
     char *name,
     char *url
     ) {
-    return version_summary_create_internal (
+    version_summary_t *result = version_summary_create_internal (
         name,
         url
         );
+    if (!result) {
+    }
+    return result;
 }
 
 void version_summary_free(version_summary_t *version_summary) {
@@ -82,6 +85,10 @@ version_summary_t *version_summary_parseFromJSON(cJSON *version_summaryJSON){
 
     version_summary_t *version_summary_local_var = NULL;
 
+    char *name_local_str = NULL;
+
+    char *url_local_str = NULL;
+
     // version_summary->name
     cJSON *name = cJSON_GetObjectItemCaseSensitive(version_summaryJSON, "name");
     if (cJSON_IsNull(name)) {
@@ -113,13 +120,28 @@ version_summary_t *version_summary_parseFromJSON(cJSON *version_summaryJSON){
     }
 
 
+    if (name && !cJSON_IsNull(name)) name_local_str = strdup(name->valuestring);
+    if (url && !cJSON_IsNull(url)) url_local_str = strdup(url->valuestring);
+
     version_summary_local_var = version_summary_create_internal (
-        strdup(name->valuestring),
-        strdup(url->valuestring)
+        name_local_str,
+        url_local_str
         );
+
+    if (!version_summary_local_var) {
+        goto end;
+    }
 
     return version_summary_local_var;
 end:
+    if (name_local_str) {
+        free(name_local_str);
+        name_local_str = NULL;
+    }
+    if (url_local_str) {
+        free(url_local_str);
+        url_local_str = NULL;
+    }
     return NULL;
 
 }

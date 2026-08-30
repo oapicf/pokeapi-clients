@@ -86,8 +86,18 @@ namespace Org.OpenAPITools.Model
     /// <summary>
     /// A Json converter for type <see cref="LocationGameIndex" />
     /// </summary>
-    public class LocationGameIndexJsonConverter : JsonConverter<LocationGameIndex>
+    public partial class LocationGameIndexJsonConverter : JsonConverter<LocationGameIndex>
     {
+        partial void OnCreated();
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="LocationGameIndexJsonConverter" /> class.
+        /// </summary>
+        public LocationGameIndexJsonConverter()
+        {
+            OnCreated();
+        }
+
         /// <summary>
         /// Deserializes json to <see cref="LocationGameIndex" />
         /// </summary>

@@ -54,7 +54,7 @@ import com.github.oapicf.pokeapiclient.JSON;
 /**
  * MoveChange
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-07T15:22:35.747827932Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-08-30T01:55:28.842792947Z[Etc/UTC]", comments = "Generator version: 7.24.0")
 public class MoveChange {
   public static final String SERIALIZED_NAME_ACCURACY = "accuracy";
   @SerializedName(SERIALIZED_NAME_ACCURACY)
@@ -92,6 +92,13 @@ public class MoveChange {
   private VersionGroupSummary versionGroup;
 
   public MoveChange() {
+  }
+
+  public MoveChange(
+     List<MoveChangeEffectEntriesInner> effectEntries
+  ) {
+    this();
+    this.effectEntries = effectEntries;
   }
 
   public MoveChange accuracy(@javax.annotation.Nullable Integer accuracy) {
@@ -170,19 +177,6 @@ public class MoveChange {
   }
 
 
-  public MoveChange effectEntries(@javax.annotation.Nonnull List<MoveChangeEffectEntriesInner> effectEntries) {
-    this.effectEntries = effectEntries;
-    return this;
-  }
-
-  public MoveChange addEffectEntriesItem(MoveChangeEffectEntriesInner effectEntriesItem) {
-    if (this.effectEntries == null) {
-      this.effectEntries = new ArrayList<>();
-    }
-    this.effectEntries.add(effectEntriesItem);
-    return this;
-  }
-
   /**
    * Get effectEntries
    * @return effectEntries
@@ -192,9 +186,6 @@ public class MoveChange {
     return effectEntries;
   }
 
-  public void setEffectEntries(@javax.annotation.Nonnull List<MoveChangeEffectEntriesInner> effectEntries) {
-    this.effectEntries = effectEntries;
-  }
 
 
   public MoveChange type(@javax.annotation.Nonnull TypeSummary type) {
@@ -290,10 +281,7 @@ public class MoveChange {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 
@@ -336,16 +324,16 @@ public class MoveChange {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      // ensure the json data is an array
-      if (!jsonObj.get("effect_entries").isJsonArray()) {
-        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `effect_entries` to be an array in the JSON string but got `%s`", jsonObj.get("effect_entries").toString()));
+      if (jsonObj.get("effect_entries") != null) {
+        if (!jsonObj.get("effect_entries").isJsonArray()) {
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `effect_entries` to be an array in the JSON string but got `%s`", jsonObj.get("effect_entries").toString()));
+        }
+        JsonArray jsonArrayeffectEntries = jsonObj.getAsJsonArray("effect_entries");
+        // validate the required field `effect_entries` (array)
+        for (int i = 0; i < jsonArrayeffectEntries.size(); i++) {
+          MoveChangeEffectEntriesInner.validateJsonElement(jsonArrayeffectEntries.get(i));
+        }
       }
-
-      JsonArray jsonArrayeffectEntries = jsonObj.getAsJsonArray("effect_entries");
-      // validate the required field `effect_entries` (array)
-      for (int i = 0; i < jsonArrayeffectEntries.size(); i++) {
-        MoveChangeEffectEntriesInner.validateJsonElement(jsonArrayeffectEntries.get(i));
-      };
       // validate the required field `type`
       TypeSummary.validateJsonElement(jsonObj.get("type"));
       // validate the required field `version_group`

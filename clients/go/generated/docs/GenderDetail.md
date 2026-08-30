@@ -6,8 +6,8 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **int32** |  | [readonly] 
 **Name** | **string** |  | 
-**PokemonSpeciesDetails** | [**[]GenderDetailPokemonSpeciesDetailsInner**](GenderDetailPokemonSpeciesDetailsInner.md) |  | 
-**RequiredForEvolution** | [**[]AbilityDetailPokemonInnerPokemon**](AbilityDetailPokemonInnerPokemon.md) |  | 
+**PokemonSpeciesDetails** | [**[]GenderDetailPokemonSpeciesDetailsInner**](GenderDetailPokemonSpeciesDetailsInner.md) |  | [readonly] 
+**RequiredForEvolution** | [**[]AbilityDetailPokemonInnerPokemon**](AbilityDetailPokemonInnerPokemon.md) |  | [readonly] 
 
 ## Methods
 

@@ -18,7 +18,7 @@ import PokeathlonStatName from './PokeathlonStatName';
 /**
  * The PokeathlonStatDetail model module.
  * @module model/PokeathlonStatDetail
- * @version 1.2.1-pre.0
+ * @version 2.0.1-pre.0
  */
 class PokeathlonStatDetail {
     /**

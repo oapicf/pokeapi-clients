@@ -53,14 +53,14 @@ public:
 
 	/*! \brief Set 
 	 */
-	void setMachine(MoveDetail_machines_inner_machine  machine);
+	void setMachine(MoveDetail_machines_inner_machine machine);
 	/*! \brief Get 
 	 */
 	AbilityDetail_pokemon_inner_pokemon getVersionGroup();
 
 	/*! \brief Set 
 	 */
-	void setVersionGroup(AbilityDetail_pokemon_inner_pokemon  version_group);
+	void setVersionGroup(AbilityDetail_pokemon_inner_pokemon version_group);
 
 
     private:

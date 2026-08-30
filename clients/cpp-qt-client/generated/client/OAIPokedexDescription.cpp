@@ -21,7 +21,7 @@
 
 namespace OpenAPI {
 
-OAIPokedexDescription::OAIPokedexDescription(QString json) {
+OAIPokedexDescription::OAIPokedexDescription(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -41,7 +41,7 @@ void OAIPokedexDescription::initializeModel() {
     m_language_isValid = false;
 }
 
-void OAIPokedexDescription::fromJson(QString jsonString) {
+void OAIPokedexDescription::fromJson(const QString &jsonString) {
     QByteArray array(jsonString.toStdString().c_str());
     QJsonDocument doc = QJsonDocument::fromJson(array);
     QJsonObject jsonObject = doc.object();

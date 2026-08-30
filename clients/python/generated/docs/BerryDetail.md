@@ -14,7 +14,7 @@ Name | Type | Description | Notes
 **smoothness** | **int** |  | 
 **soil_dryness** | **int** |  | 
 **firmness** | [**BerryFirmnessSummary**](BerryFirmnessSummary.md) |  | 
-**flavors** | [**List[BerryDetailFlavorsInner]**](BerryDetailFlavorsInner.md) |  | 
+**flavors** | [**List[BerryDetailFlavorsInner]**](BerryDetailFlavorsInner.md) |  | [readonly] 
 **item** | [**ItemSummary**](ItemSummary.md) |  | 
 **natural_gift_type** | [**TypeSummary**](TypeSummary.md) |  | 
 

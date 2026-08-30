@@ -199,7 +199,7 @@ MoveDamageClassDetail::getId()
 }
 
 void
-MoveDamageClassDetail::setId(int  id)
+MoveDamageClassDetail::setId(int id)
 {
 	this->id = id;
 }
@@ -211,7 +211,7 @@ MoveDamageClassDetail::getName()
 }
 
 void
-MoveDamageClassDetail::setName(std::string  name)
+MoveDamageClassDetail::setName(std::string name)
 {
 	this->name = name;
 }
@@ -223,7 +223,7 @@ MoveDamageClassDetail::getDescriptions()
 }
 
 void
-MoveDamageClassDetail::setDescriptions(std::list <MoveDamageClassDescription> descriptions)
+MoveDamageClassDetail::setDescriptions(std::list<MoveDamageClassDescription> descriptions)
 {
 	this->descriptions = descriptions;
 }
@@ -235,7 +235,7 @@ MoveDamageClassDetail::getMoves()
 }
 
 void
-MoveDamageClassDetail::setMoves(std::list <MoveSummary> moves)
+MoveDamageClassDetail::setMoves(std::list<MoveSummary> moves)
 {
 	this->moves = moves;
 }
@@ -247,7 +247,7 @@ MoveDamageClassDetail::getNames()
 }
 
 void
-MoveDamageClassDetail::setNames(std::list <MoveDamageClassName> names)
+MoveDamageClassDetail::setNames(std::list<MoveDamageClassName> names)
 {
 	this->names = names;
 }

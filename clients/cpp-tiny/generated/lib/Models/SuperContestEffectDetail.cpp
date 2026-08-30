@@ -161,7 +161,7 @@ SuperContestEffectDetail::getId()
 }
 
 void
-SuperContestEffectDetail::setId(int  id)
+SuperContestEffectDetail::setId(int id)
 {
 	this->id = id;
 }
@@ -173,7 +173,7 @@ SuperContestEffectDetail::getAppeal()
 }
 
 void
-SuperContestEffectDetail::setAppeal(int  appeal)
+SuperContestEffectDetail::setAppeal(int appeal)
 {
 	this->appeal = appeal;
 }
@@ -185,7 +185,7 @@ SuperContestEffectDetail::getFlavorTextEntries()
 }
 
 void
-SuperContestEffectDetail::setFlavorTextEntries(std::list <SuperContestEffectFlavorText> flavor_text_entries)
+SuperContestEffectDetail::setFlavorTextEntries(std::list<SuperContestEffectFlavorText> flavor_text_entries)
 {
 	this->flavor_text_entries = flavor_text_entries;
 }
@@ -197,7 +197,7 @@ SuperContestEffectDetail::getMoves()
 }
 
 void
-SuperContestEffectDetail::setMoves(std::list <MoveSummary> moves)
+SuperContestEffectDetail::setMoves(std::list<MoveSummary> moves)
 {
 	this->moves = moves;
 }

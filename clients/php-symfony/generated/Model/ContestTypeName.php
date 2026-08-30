@@ -47,7 +47,7 @@ class ContestTypeName
      * @var string|null
      * @SerializedName("name")
      * @Type("string")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Type("string")]
     #[Assert\Length(max: 100)]
@@ -57,7 +57,7 @@ class ContestTypeName
      * @var string|null
      * @SerializedName("color")
      * @Type("string")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Type("string")]
     #[Assert\Length(max: 10)]
@@ -67,7 +67,7 @@ class ContestTypeName
      * @var LanguageSummary|null
      * @SerializedName("language")
      * @Type("OpenAPI\Server\Model\LanguageSummary")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Valid]
     #[Assert\Type("OpenAPI\Server\Model\LanguageSummary")]
@@ -97,12 +97,12 @@ class ContestTypeName
     }
 
     /**
-    * Sets name.
-    *
-    * @param string|null $name
-    *
-    * @return $this
-    */
+     * Sets name.
+     *
+     * @param string|null $name
+     *
+     * @return $this
+     */
     public function setName(?string $name): self
     {
         $this->name = $name;
@@ -124,12 +124,12 @@ class ContestTypeName
     }
 
     /**
-    * Sets color.
-    *
-    * @param string|null $color
-    *
-    * @return $this
-    */
+     * Sets color.
+     *
+     * @param string|null $color
+     *
+     * @return $this
+     */
     public function setColor(?string $color): self
     {
         $this->color = $color;
@@ -151,12 +151,12 @@ class ContestTypeName
     }
 
     /**
-    * Sets language.
-    *
-    * @param LanguageSummary|null $language
-    *
-    * @return $this
-    */
+     * Sets language.
+     *
+     * @param LanguageSummary|null $language
+     *
+     * @return $this
+     */
     public function setLanguage(?LanguageSummary $language): self
     {
         $this->language = $language;

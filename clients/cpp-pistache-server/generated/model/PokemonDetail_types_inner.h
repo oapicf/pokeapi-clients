@@ -32,7 +32,7 @@ class  PokemonDetail_types_inner
 {
 public:
     PokemonDetail_types_inner();
-    virtual ~PokemonDetail_types_inner() = default;
+    virtual ~PokemonDetail_types_inner();
 
 
     /// <summary>

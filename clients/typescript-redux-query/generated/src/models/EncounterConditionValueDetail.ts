@@ -50,7 +50,7 @@ export interface EncounterConditionValueDetail  {
      * @type {Array<EncounterConditionValueName>}
      * @memberof EncounterConditionValueDetail
      */
-    names: Array<EncounterConditionValueName>;
+    readonly names: Array<EncounterConditionValueName>;
 }
 
 export function EncounterConditionValueDetailFromJSON(json: any): EncounterConditionValueDetail {
@@ -69,7 +69,6 @@ export function EncounterConditionValueDetailToJSON(value?: EncounterConditionVa
     return {
         'name': value.name,
         'condition': EncounterConditionSummaryToJSON(value.condition),
-        'names': (value.names as Array<any>).map(EncounterConditionValueNameToJSON),
     };
 }
 

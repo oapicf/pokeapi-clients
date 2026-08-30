@@ -30,7 +30,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
  * PokemonDetail
  */
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPKMSTServerCodegen", date = "2026-02-07T15:23:15.032724200Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPKMSTServerCodegen", date = "2026-08-30T01:56:01.724492951Z[Etc/UTC]", comments = "Generator version: 7.24.0")
 public class PokemonDetail   {
   @JsonProperty("id")
   private Integer id;
@@ -243,7 +243,7 @@ public class PokemonDetail   {
    * Get abilities
    * @return abilities
    */
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, readOnly = true, value = "")
   public List<PokemonDetailAbilitiesInner> getAbilities() {
     return abilities;
   }
@@ -269,7 +269,7 @@ public class PokemonDetail   {
    * Get pastAbilities
    * @return pastAbilities
    */
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, readOnly = true, value = "")
   public List<PokemonDetailPastAbilitiesInner> getPastAbilities() {
     return pastAbilities;
   }
@@ -295,7 +295,7 @@ public class PokemonDetail   {
    * Get forms
    * @return forms
    */
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, readOnly = true, value = "")
   public List<PokemonFormSummary> getForms() {
     return forms;
   }
@@ -321,7 +321,7 @@ public class PokemonDetail   {
    * Get gameIndices
    * @return gameIndices
    */
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, readOnly = true, value = "")
   public List<PokemonGameIndex> getGameIndices() {
     return gameIndices;
   }
@@ -383,7 +383,7 @@ public class PokemonDetail   {
    * Get moves
    * @return moves
    */
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, readOnly = true, value = "")
   public List<PokemonDetailMovesInner> getMoves() {
     return moves;
   }
@@ -463,7 +463,7 @@ public class PokemonDetail   {
    * Get stats
    * @return stats
    */
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, readOnly = true, value = "")
   public List<PokemonStat> getStats() {
     return stats;
   }
@@ -489,7 +489,7 @@ public class PokemonDetail   {
    * Get types
    * @return types
    */
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, readOnly = true, value = "")
   public List<PokemonDetailTypesInner> getTypes() {
     return types;
   }
@@ -515,7 +515,7 @@ public class PokemonDetail   {
    * Get pastTypes
    * @return pastTypes
    */
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, readOnly = true, value = "")
   public List<PokemonDetailPastTypesInner> getPastTypes() {
     return pastTypes;
   }
@@ -595,10 +595,7 @@ public class PokemonDetail   {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 }
 

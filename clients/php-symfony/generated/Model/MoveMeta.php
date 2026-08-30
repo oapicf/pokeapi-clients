@@ -47,7 +47,7 @@ class MoveMeta
      * @var MoveMetaAilmentSummary|null
      * @SerializedName("ailment")
      * @Type("OpenAPI\Server\Model\MoveMetaAilmentSummary")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Valid]
     #[Assert\Type("OpenAPI\Server\Model\MoveMetaAilmentSummary")]
@@ -57,7 +57,7 @@ class MoveMeta
      * @var MoveMetaCategorySummary|null
      * @SerializedName("category")
      * @Type("OpenAPI\Server\Model\MoveMetaCategorySummary")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Valid]
     #[Assert\Type("OpenAPI\Server\Model\MoveMetaCategorySummary")]
@@ -67,7 +67,7 @@ class MoveMeta
      * @var int|null
      * @SerializedName("min_hits")
      * @Type("int")
-    */
+     */
     #[Assert\Type("int")]
     protected ?int $minHits = null;
 
@@ -75,7 +75,7 @@ class MoveMeta
      * @var int|null
      * @SerializedName("max_hits")
      * @Type("int")
-    */
+     */
     #[Assert\Type("int")]
     protected ?int $maxHits = null;
 
@@ -83,7 +83,7 @@ class MoveMeta
      * @var int|null
      * @SerializedName("min_turns")
      * @Type("int")
-    */
+     */
     #[Assert\Type("int")]
     protected ?int $minTurns = null;
 
@@ -91,7 +91,7 @@ class MoveMeta
      * @var int|null
      * @SerializedName("max_turns")
      * @Type("int")
-    */
+     */
     #[Assert\Type("int")]
     protected ?int $maxTurns = null;
 
@@ -99,7 +99,7 @@ class MoveMeta
      * @var int|null
      * @SerializedName("drain")
      * @Type("int")
-    */
+     */
     #[Assert\Type("int")]
     protected ?int $drain = null;
 
@@ -107,7 +107,7 @@ class MoveMeta
      * @var int|null
      * @SerializedName("healing")
      * @Type("int")
-    */
+     */
     #[Assert\Type("int")]
     protected ?int $healing = null;
 
@@ -115,7 +115,7 @@ class MoveMeta
      * @var int|null
      * @SerializedName("crit_rate")
      * @Type("int")
-    */
+     */
     #[Assert\Type("int")]
     protected ?int $critRate = null;
 
@@ -123,7 +123,7 @@ class MoveMeta
      * @var int|null
      * @SerializedName("ailment_chance")
      * @Type("int")
-    */
+     */
     #[Assert\Type("int")]
     protected ?int $ailmentChance = null;
 
@@ -131,7 +131,7 @@ class MoveMeta
      * @var int|null
      * @SerializedName("flinch_chance")
      * @Type("int")
-    */
+     */
     #[Assert\Type("int")]
     protected ?int $flinchChance = null;
 
@@ -139,7 +139,7 @@ class MoveMeta
      * @var int|null
      * @SerializedName("stat_chance")
      * @Type("int")
-    */
+     */
     #[Assert\Type("int")]
     protected ?int $statChance = null;
 
@@ -176,12 +176,12 @@ class MoveMeta
     }
 
     /**
-    * Sets ailment.
-    *
-    * @param MoveMetaAilmentSummary|null $ailment
-    *
-    * @return $this
-    */
+     * Sets ailment.
+     *
+     * @param MoveMetaAilmentSummary|null $ailment
+     *
+     * @return $this
+     */
     public function setAilment(?MoveMetaAilmentSummary $ailment): self
     {
         $this->ailment = $ailment;
@@ -203,12 +203,12 @@ class MoveMeta
     }
 
     /**
-    * Sets category.
-    *
-    * @param MoveMetaCategorySummary|null $category
-    *
-    * @return $this
-    */
+     * Sets category.
+     *
+     * @param MoveMetaCategorySummary|null $category
+     *
+     * @return $this
+     */
     public function setCategory(?MoveMetaCategorySummary $category): self
     {
         $this->category = $category;
@@ -230,12 +230,12 @@ class MoveMeta
     }
 
     /**
-    * Sets minHits.
-    *
-    * @param int|null $minHits
-    *
-    * @return $this
-    */
+     * Sets minHits.
+     *
+     * @param int|null $minHits
+     *
+     * @return $this
+     */
     public function setMinHits(?int $minHits = null): self
     {
         $this->minHits = $minHits;
@@ -257,12 +257,12 @@ class MoveMeta
     }
 
     /**
-    * Sets maxHits.
-    *
-    * @param int|null $maxHits
-    *
-    * @return $this
-    */
+     * Sets maxHits.
+     *
+     * @param int|null $maxHits
+     *
+     * @return $this
+     */
     public function setMaxHits(?int $maxHits = null): self
     {
         $this->maxHits = $maxHits;
@@ -284,12 +284,12 @@ class MoveMeta
     }
 
     /**
-    * Sets minTurns.
-    *
-    * @param int|null $minTurns
-    *
-    * @return $this
-    */
+     * Sets minTurns.
+     *
+     * @param int|null $minTurns
+     *
+     * @return $this
+     */
     public function setMinTurns(?int $minTurns = null): self
     {
         $this->minTurns = $minTurns;
@@ -311,12 +311,12 @@ class MoveMeta
     }
 
     /**
-    * Sets maxTurns.
-    *
-    * @param int|null $maxTurns
-    *
-    * @return $this
-    */
+     * Sets maxTurns.
+     *
+     * @param int|null $maxTurns
+     *
+     * @return $this
+     */
     public function setMaxTurns(?int $maxTurns = null): self
     {
         $this->maxTurns = $maxTurns;
@@ -338,12 +338,12 @@ class MoveMeta
     }
 
     /**
-    * Sets drain.
-    *
-    * @param int|null $drain
-    *
-    * @return $this
-    */
+     * Sets drain.
+     *
+     * @param int|null $drain
+     *
+     * @return $this
+     */
     public function setDrain(?int $drain = null): self
     {
         $this->drain = $drain;
@@ -365,12 +365,12 @@ class MoveMeta
     }
 
     /**
-    * Sets healing.
-    *
-    * @param int|null $healing
-    *
-    * @return $this
-    */
+     * Sets healing.
+     *
+     * @param int|null $healing
+     *
+     * @return $this
+     */
     public function setHealing(?int $healing = null): self
     {
         $this->healing = $healing;
@@ -392,12 +392,12 @@ class MoveMeta
     }
 
     /**
-    * Sets critRate.
-    *
-    * @param int|null $critRate
-    *
-    * @return $this
-    */
+     * Sets critRate.
+     *
+     * @param int|null $critRate
+     *
+     * @return $this
+     */
     public function setCritRate(?int $critRate = null): self
     {
         $this->critRate = $critRate;
@@ -419,12 +419,12 @@ class MoveMeta
     }
 
     /**
-    * Sets ailmentChance.
-    *
-    * @param int|null $ailmentChance
-    *
-    * @return $this
-    */
+     * Sets ailmentChance.
+     *
+     * @param int|null $ailmentChance
+     *
+     * @return $this
+     */
     public function setAilmentChance(?int $ailmentChance = null): self
     {
         $this->ailmentChance = $ailmentChance;
@@ -446,12 +446,12 @@ class MoveMeta
     }
 
     /**
-    * Sets flinchChance.
-    *
-    * @param int|null $flinchChance
-    *
-    * @return $this
-    */
+     * Sets flinchChance.
+     *
+     * @param int|null $flinchChance
+     *
+     * @return $this
+     */
     public function setFlinchChance(?int $flinchChance = null): self
     {
         $this->flinchChance = $flinchChance;
@@ -473,12 +473,12 @@ class MoveMeta
     }
 
     /**
-    * Sets statChance.
-    *
-    * @param int|null $statChance
-    *
-    * @return $this
-    */
+     * Sets statChance.
+     *
+     * @param int|null $statChance
+     *
+     * @return $this
+     */
     public function setStatChance(?int $statChance = null): self
     {
         $this->statChance = $statChance;

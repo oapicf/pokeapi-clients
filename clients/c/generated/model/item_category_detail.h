@@ -22,7 +22,7 @@ typedef struct item_category_detail_t item_category_detail_t;
 
 
 typedef struct item_category_detail_t {
-    int id; //numeric
+    int *id; //numeric
     char *name; // string
     list_t *items; //nonprimitive container
     list_t *names; //nonprimitive container
@@ -32,7 +32,7 @@ typedef struct item_category_detail_t {
 } item_category_detail_t;
 
 __attribute__((deprecated)) item_category_detail_t *item_category_detail_create(
-    int id,
+    int *id,
     char *name,
     list_t *items,
     list_t *names,

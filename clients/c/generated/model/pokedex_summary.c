@@ -13,10 +13,10 @@ static pokedex_summary_t *pokedex_summary_create_internal(
     if (!pokedex_summary_local_var) {
         return NULL;
     }
+    memset(pokedex_summary_local_var, 0, sizeof(pokedex_summary_t));
+    pokedex_summary_local_var->_library_owned = 1;
     pokedex_summary_local_var->name = name;
     pokedex_summary_local_var->url = url;
-
-    pokedex_summary_local_var->_library_owned = 1;
     return pokedex_summary_local_var;
 }
 
@@ -24,10 +24,13 @@ __attribute__((deprecated)) pokedex_summary_t *pokedex_summary_create(
     char *name,
     char *url
     ) {
-    return pokedex_summary_create_internal (
+    pokedex_summary_t *result = pokedex_summary_create_internal (
         name,
         url
         );
+    if (!result) {
+    }
+    return result;
 }
 
 void pokedex_summary_free(pokedex_summary_t *pokedex_summary) {
@@ -82,6 +85,10 @@ pokedex_summary_t *pokedex_summary_parseFromJSON(cJSON *pokedex_summaryJSON){
 
     pokedex_summary_t *pokedex_summary_local_var = NULL;
 
+    char *name_local_str = NULL;
+
+    char *url_local_str = NULL;
+
     // pokedex_summary->name
     cJSON *name = cJSON_GetObjectItemCaseSensitive(pokedex_summaryJSON, "name");
     if (cJSON_IsNull(name)) {
@@ -113,13 +120,28 @@ pokedex_summary_t *pokedex_summary_parseFromJSON(cJSON *pokedex_summaryJSON){
     }
 
 
+    if (name && !cJSON_IsNull(name)) name_local_str = strdup(name->valuestring);
+    if (url && !cJSON_IsNull(url)) url_local_str = strdup(url->valuestring);
+
     pokedex_summary_local_var = pokedex_summary_create_internal (
-        strdup(name->valuestring),
-        strdup(url->valuestring)
+        name_local_str,
+        url_local_str
         );
+
+    if (!pokedex_summary_local_var) {
+        goto end;
+    }
 
     return pokedex_summary_local_var;
 end:
+    if (name_local_str) {
+        free(name_local_str);
+        name_local_str = NULL;
+    }
+    if (url_local_str) {
+        free(url_local_str);
+        url_local_str = NULL;
+    }
     return NULL;
 
 }

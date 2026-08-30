@@ -56,49 +56,49 @@ public:
 
 	/*! \brief Set 
 	 */
-	void setId(int  id);
+	void setId(int id);
 	/*! \brief Get 
 	 */
 	std::string getName();
 
 	/*! \brief Set 
 	 */
-	void setName(std::string  name);
+	void setName(std::string name);
 	/*! \brief Get 
 	 */
 	int getGameIndex();
 
 	/*! \brief Set 
 	 */
-	void setGameIndex(int  game_index);
+	void setGameIndex(int game_index);
 	/*! \brief Get 
 	 */
 	std::list<LocationAreaDetail_encounter_method_rates_inner> getEncounterMethodRates();
 
 	/*! \brief Set 
 	 */
-	void setEncounterMethodRates(std::list <LocationAreaDetail_encounter_method_rates_inner> encounter_method_rates);
+	void setEncounterMethodRates(std::list<LocationAreaDetail_encounter_method_rates_inner> encounter_method_rates);
 	/*! \brief Get 
 	 */
 	LocationSummary getLocation();
 
 	/*! \brief Set 
 	 */
-	void setLocation(LocationSummary  location);
+	void setLocation(LocationSummary location);
 	/*! \brief Get 
 	 */
 	std::list<LocationAreaName> getNames();
 
 	/*! \brief Set 
 	 */
-	void setNames(std::list <LocationAreaName> names);
+	void setNames(std::list<LocationAreaName> names);
 	/*! \brief Get 
 	 */
 	std::list<LocationAreaDetail_pokemon_encounters_inner> getPokemonEncounters();
 
 	/*! \brief Set 
 	 */
-	void setPokemonEncounters(std::list <LocationAreaDetail_pokemon_encounters_inner> pokemon_encounters);
+	void setPokemonEncounters(std::list<LocationAreaDetail_pokemon_encounters_inner> pokemon_encounters);
 
 
     private:

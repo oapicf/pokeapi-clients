@@ -65,15 +65,21 @@ class EvolutionChainDetailChain {
       // Note 1: the values aren't checked for validity beyond being non-null.
       // Note 2: this code is stripped in release mode!
       assert(() {
-        requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "EvolutionChainDetailChain[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "EvolutionChainDetailChain[$key]" has a null value in JSON.');
-        });
+        assert(json.containsKey(r'evolution_details'), 'Required key "EvolutionChainDetailChain[evolution_details]" is missing from JSON.');
+        assert(json[r'evolution_details'] != null, 'Required key "EvolutionChainDetailChain[evolution_details]" has a null value in JSON.');
+        assert(json.containsKey(r'evolves_to'), 'Required key "EvolutionChainDetailChain[evolves_to]" is missing from JSON.');
+        assert(json[r'evolves_to'] != null, 'Required key "EvolutionChainDetailChain[evolves_to]" has a null value in JSON.');
+        assert(json.containsKey(r'is_baby'), 'Required key "EvolutionChainDetailChain[is_baby]" is missing from JSON.');
+        assert(json[r'is_baby'] != null, 'Required key "EvolutionChainDetailChain[is_baby]" has a null value in JSON.');
+        assert(json.containsKey(r'species'), 'Required key "EvolutionChainDetailChain[species]" is missing from JSON.');
+        assert(json[r'species'] != null, 'Required key "EvolutionChainDetailChain[species]" has a null value in JSON.');
         return true;
       }());
 
       return EvolutionChainDetailChain(
-        evolutionDetails: Object.listFromJson(json[r'evolution_details']),
+        evolutionDetails: json[r'evolution_details'] is Iterable
+            ? (json[r'evolution_details'] as Iterable).cast<Object>().toList(growable: false)
+            : const [],
         evolvesTo: EvolutionChainDetailChainEvolvesToInner.listFromJson(json[r'evolves_to']),
         isBaby: mapValueOfType<bool>(json, r'is_baby')!,
         species: AbilityDetailPokemonInnerPokemon.fromJson(json[r'species'])!,

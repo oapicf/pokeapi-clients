@@ -7,11 +7,11 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **number** |  | [readonly] [default to undefined]
 **name** | **string** |  | [default to undefined]
-**locations** | [**Array&lt;LocationSummary&gt;**](LocationSummary.md) |  | [default to undefined]
+**locations** | [**Array&lt;LocationSummary&gt;**](LocationSummary.md) |  | [readonly] [default to undefined]
 **main_generation** | [**GenerationSummary**](GenerationSummary.md) |  | [readonly] [default to undefined]
-**names** | [**Array&lt;RegionName&gt;**](RegionName.md) |  | [default to undefined]
-**pokedexes** | [**Array&lt;PokedexSummary&gt;**](PokedexSummary.md) |  | [default to undefined]
-**version_groups** | [**Array&lt;AbilityDetailPokemonInnerPokemon&gt;**](AbilityDetailPokemonInnerPokemon.md) |  | [default to undefined]
+**names** | [**Array&lt;RegionName&gt;**](RegionName.md) |  | [readonly] [default to undefined]
+**pokedexes** | [**Array&lt;PokedexSummary&gt;**](PokedexSummary.md) |  | [readonly] [default to undefined]
+**version_groups** | [**Array&lt;AbilityDetailPokemonInnerPokemon&gt;**](AbilityDetailPokemonInnerPokemon.md) |  | [readonly] [default to undefined]
 
 ## Example
 

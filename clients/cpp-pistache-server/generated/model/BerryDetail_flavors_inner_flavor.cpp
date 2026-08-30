@@ -28,6 +28,8 @@ BerryDetail_flavors_inner_flavor::BerryDetail_flavors_inner_flavor()
     
 }
 
+BerryDetail_flavors_inner_flavor::~BerryDetail_flavors_inner_flavor() = default;
+
 void BerryDetail_flavors_inner_flavor::validate() const
 {
     std::stringstream msg;

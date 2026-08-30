@@ -26,6 +26,8 @@ GenderDetail::GenderDetail()
     
 }
 
+GenderDetail::~GenderDetail() = default;
+
 void GenderDetail::validate() const
 {
     std::stringstream msg;

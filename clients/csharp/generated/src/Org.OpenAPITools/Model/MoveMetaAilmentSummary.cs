@@ -92,8 +92,18 @@ namespace Org.OpenAPITools.Model
     /// <summary>
     /// A Json converter for type <see cref="MoveMetaAilmentSummary" />
     /// </summary>
-    public class MoveMetaAilmentSummaryJsonConverter : JsonConverter<MoveMetaAilmentSummary>
+    public partial class MoveMetaAilmentSummaryJsonConverter : JsonConverter<MoveMetaAilmentSummary>
     {
+        partial void OnCreated();
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="MoveMetaAilmentSummaryJsonConverter" /> class.
+        /// </summary>
+        public MoveMetaAilmentSummaryJsonConverter()
+        {
+            OnCreated();
+        }
+
         /// <summary>
         /// Deserializes json to <see cref="MoveMetaAilmentSummary" />
         /// </summary>

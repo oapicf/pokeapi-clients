@@ -107,7 +107,7 @@ ItemEffectText::getEffect()
 }
 
 void
-ItemEffectText::setEffect(std::string  effect)
+ItemEffectText::setEffect(std::string effect)
 {
 	this->effect = effect;
 }
@@ -119,7 +119,7 @@ ItemEffectText::getShortEffect()
 }
 
 void
-ItemEffectText::setShortEffect(std::string  short_effect)
+ItemEffectText::setShortEffect(std::string short_effect)
 {
 	this->short_effect = short_effect;
 }
@@ -131,7 +131,7 @@ ItemEffectText::getLanguage()
 }
 
 void
-ItemEffectText::setLanguage(LanguageSummary  language)
+ItemEffectText::setLanguage(LanguageSummary language)
 {
 	this->language = language;
 }

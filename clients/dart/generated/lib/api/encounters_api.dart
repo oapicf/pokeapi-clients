@@ -32,7 +32,7 @@ class EncountersApi {
   ///
   /// * [String] q:
   ///   > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. 
-  Future<Response> encounterConditionListWithHttpInfo({ int? limit, int? offset, String? q, }) async {
+  Future<Response> encounterConditionListWithHttpInfo({ int? limit, int? offset, String? q, Future<void>? abortTrigger, }) async {
     // ignore: prefer_const_declarations
     final path = r'/api/v2/encounter-condition/';
 
@@ -64,6 +64,7 @@ class EncountersApi {
       headerParams,
       formParams,
       contentTypes.isEmpty ? null : contentTypes.first,
+      abortTrigger: abortTrigger,
     );
   }
 
@@ -81,8 +82,8 @@ class EncountersApi {
   ///
   /// * [String] q:
   ///   > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. 
-  Future<PaginatedEncounterConditionSummaryList?> encounterConditionList({ int? limit, int? offset, String? q, }) async {
-    final response = await encounterConditionListWithHttpInfo( limit: limit, offset: offset, q: q, );
+  Future<PaginatedEncounterConditionSummaryList?> encounterConditionList({ int? limit, int? offset, String? q, Future<void>? abortTrigger, }) async {
+    final response = await encounterConditionListWithHttpInfo(limit: limit, offset: offset, q: q, abortTrigger: abortTrigger,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -106,7 +107,7 @@ class EncountersApi {
   ///
   /// * [String] id (required):
   ///   This parameter can be a string or an integer.
-  Future<Response> encounterConditionRetrieveWithHttpInfo(String id,) async {
+  Future<Response> encounterConditionRetrieveWithHttpInfo(String id, { Future<void>? abortTrigger, }) async {
     // ignore: prefer_const_declarations
     final path = r'/api/v2/encounter-condition/{id}/'
       .replaceAll('{id}', id);
@@ -129,6 +130,7 @@ class EncountersApi {
       headerParams,
       formParams,
       contentTypes.isEmpty ? null : contentTypes.first,
+      abortTrigger: abortTrigger,
     );
   }
 
@@ -140,8 +142,8 @@ class EncountersApi {
   ///
   /// * [String] id (required):
   ///   This parameter can be a string or an integer.
-  Future<EncounterConditionDetail?> encounterConditionRetrieve(String id,) async {
-    final response = await encounterConditionRetrieveWithHttpInfo(id,);
+  Future<EncounterConditionDetail?> encounterConditionRetrieve(String id, { Future<void>? abortTrigger, }) async {
+    final response = await encounterConditionRetrieveWithHttpInfo(id, abortTrigger: abortTrigger,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -171,7 +173,7 @@ class EncountersApi {
   ///
   /// * [String] q:
   ///   > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. 
-  Future<Response> encounterConditionValueListWithHttpInfo({ int? limit, int? offset, String? q, }) async {
+  Future<Response> encounterConditionValueListWithHttpInfo({ int? limit, int? offset, String? q, Future<void>? abortTrigger, }) async {
     // ignore: prefer_const_declarations
     final path = r'/api/v2/encounter-condition-value/';
 
@@ -203,6 +205,7 @@ class EncountersApi {
       headerParams,
       formParams,
       contentTypes.isEmpty ? null : contentTypes.first,
+      abortTrigger: abortTrigger,
     );
   }
 
@@ -220,8 +223,8 @@ class EncountersApi {
   ///
   /// * [String] q:
   ///   > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. 
-  Future<PaginatedEncounterConditionValueSummaryList?> encounterConditionValueList({ int? limit, int? offset, String? q, }) async {
-    final response = await encounterConditionValueListWithHttpInfo( limit: limit, offset: offset, q: q, );
+  Future<PaginatedEncounterConditionValueSummaryList?> encounterConditionValueList({ int? limit, int? offset, String? q, Future<void>? abortTrigger, }) async {
+    final response = await encounterConditionValueListWithHttpInfo(limit: limit, offset: offset, q: q, abortTrigger: abortTrigger,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -245,7 +248,7 @@ class EncountersApi {
   ///
   /// * [String] id (required):
   ///   This parameter can be a string or an integer.
-  Future<Response> encounterConditionValueRetrieveWithHttpInfo(String id,) async {
+  Future<Response> encounterConditionValueRetrieveWithHttpInfo(String id, { Future<void>? abortTrigger, }) async {
     // ignore: prefer_const_declarations
     final path = r'/api/v2/encounter-condition-value/{id}/'
       .replaceAll('{id}', id);
@@ -268,6 +271,7 @@ class EncountersApi {
       headerParams,
       formParams,
       contentTypes.isEmpty ? null : contentTypes.first,
+      abortTrigger: abortTrigger,
     );
   }
 
@@ -279,8 +283,8 @@ class EncountersApi {
   ///
   /// * [String] id (required):
   ///   This parameter can be a string or an integer.
-  Future<EncounterConditionValueDetail?> encounterConditionValueRetrieve(String id,) async {
-    final response = await encounterConditionValueRetrieveWithHttpInfo(id,);
+  Future<EncounterConditionValueDetail?> encounterConditionValueRetrieve(String id, { Future<void>? abortTrigger, }) async {
+    final response = await encounterConditionValueRetrieveWithHttpInfo(id, abortTrigger: abortTrigger,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -310,7 +314,7 @@ class EncountersApi {
   ///
   /// * [String] q:
   ///   > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. 
-  Future<Response> encounterMethodListWithHttpInfo({ int? limit, int? offset, String? q, }) async {
+  Future<Response> encounterMethodListWithHttpInfo({ int? limit, int? offset, String? q, Future<void>? abortTrigger, }) async {
     // ignore: prefer_const_declarations
     final path = r'/api/v2/encounter-method/';
 
@@ -342,6 +346,7 @@ class EncountersApi {
       headerParams,
       formParams,
       contentTypes.isEmpty ? null : contentTypes.first,
+      abortTrigger: abortTrigger,
     );
   }
 
@@ -359,8 +364,8 @@ class EncountersApi {
   ///
   /// * [String] q:
   ///   > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. 
-  Future<PaginatedEncounterMethodSummaryList?> encounterMethodList({ int? limit, int? offset, String? q, }) async {
-    final response = await encounterMethodListWithHttpInfo( limit: limit, offset: offset, q: q, );
+  Future<PaginatedEncounterMethodSummaryList?> encounterMethodList({ int? limit, int? offset, String? q, Future<void>? abortTrigger, }) async {
+    final response = await encounterMethodListWithHttpInfo(limit: limit, offset: offset, q: q, abortTrigger: abortTrigger,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -384,7 +389,7 @@ class EncountersApi {
   ///
   /// * [String] id (required):
   ///   This parameter can be a string or an integer.
-  Future<Response> encounterMethodRetrieveWithHttpInfo(String id,) async {
+  Future<Response> encounterMethodRetrieveWithHttpInfo(String id, { Future<void>? abortTrigger, }) async {
     // ignore: prefer_const_declarations
     final path = r'/api/v2/encounter-method/{id}/'
       .replaceAll('{id}', id);
@@ -407,6 +412,7 @@ class EncountersApi {
       headerParams,
       formParams,
       contentTypes.isEmpty ? null : contentTypes.first,
+      abortTrigger: abortTrigger,
     );
   }
 
@@ -418,8 +424,8 @@ class EncountersApi {
   ///
   /// * [String] id (required):
   ///   This parameter can be a string or an integer.
-  Future<EncounterMethodDetail?> encounterMethodRetrieve(String id,) async {
-    final response = await encounterMethodRetrieveWithHttpInfo(id,);
+  Future<EncounterMethodDetail?> encounterMethodRetrieve(String id, { Future<void>? abortTrigger, }) async {
+    final response = await encounterMethodRetrieveWithHttpInfo(id, abortTrigger: abortTrigger,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }

@@ -15,7 +15,7 @@ import org.openapitools.model.MoveLearnMethodName;
 /**
  * MoveLearnMethodDetail
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaMSF4JServerCodegen", date = "2026-02-07T15:23:10.683633502Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaMSF4JServerCodegen", date = "2026-08-30T01:55:58.248058654Z[Etc/UTC]", comments = "Generator version: 7.24.0")
 public class MoveLearnMethodDetail   {
   @JsonProperty("id")
   private Integer id;
@@ -59,16 +59,6 @@ public class MoveLearnMethodDetail   {
     this.name = name;
   }
 
-  public MoveLearnMethodDetail names(List<@Valid MoveLearnMethodName> names) {
-    this.names = names;
-    return this;
-  }
-
-  public MoveLearnMethodDetail addNamesItem(MoveLearnMethodName namesItem) {
-    this.names.add(namesItem);
-    return this;
-  }
-
    /**
    * Get names
    * @return names
@@ -76,20 +66,6 @@ public class MoveLearnMethodDetail   {
   @ApiModelProperty(required = true, value = "")
   public List<@Valid MoveLearnMethodName> getNames() {
     return names;
-  }
-
-  public void setNames(List<@Valid MoveLearnMethodName> names) {
-    this.names = names;
-  }
-
-  public MoveLearnMethodDetail descriptions(List<@Valid MoveLearnMethodDescription> descriptions) {
-    this.descriptions = descriptions;
-    return this;
-  }
-
-  public MoveLearnMethodDetail addDescriptionsItem(MoveLearnMethodDescription descriptionsItem) {
-    this.descriptions.add(descriptionsItem);
-    return this;
   }
 
    /**
@@ -101,20 +77,6 @@ public class MoveLearnMethodDetail   {
     return descriptions;
   }
 
-  public void setDescriptions(List<@Valid MoveLearnMethodDescription> descriptions) {
-    this.descriptions = descriptions;
-  }
-
-  public MoveLearnMethodDetail versionGroups(List<@Valid AbilityDetailPokemonInnerPokemon> versionGroups) {
-    this.versionGroups = versionGroups;
-    return this;
-  }
-
-  public MoveLearnMethodDetail addVersionGroupsItem(AbilityDetailPokemonInnerPokemon versionGroupsItem) {
-    this.versionGroups.add(versionGroupsItem);
-    return this;
-  }
-
    /**
    * Get versionGroups
    * @return versionGroups
@@ -122,10 +84,6 @@ public class MoveLearnMethodDetail   {
   @ApiModelProperty(required = true, value = "")
   public List<@Valid AbilityDetailPokemonInnerPokemon> getVersionGroups() {
     return versionGroups;
-  }
-
-  public void setVersionGroups(List<@Valid AbilityDetailPokemonInnerPokemon> versionGroups) {
-    this.versionGroups = versionGroups;
   }
 
 
@@ -169,10 +127,7 @@ public class MoveLearnMethodDetail   {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 }
 

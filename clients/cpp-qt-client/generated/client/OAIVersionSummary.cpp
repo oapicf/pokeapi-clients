@@ -21,7 +21,7 @@
 
 namespace OpenAPI {
 
-OAIVersionSummary::OAIVersionSummary(QString json) {
+OAIVersionSummary::OAIVersionSummary(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -41,7 +41,7 @@ void OAIVersionSummary::initializeModel() {
     m_url_isValid = false;
 }
 
-void OAIVersionSummary::fromJson(QString jsonString) {
+void OAIVersionSummary::fromJson(const QString &jsonString) {
     QByteArray array(jsonString.toStdString().c_str());
     QJsonDocument doc = QJsonDocument::fromJson(array);
     QJsonObject jsonObject = doc.object();

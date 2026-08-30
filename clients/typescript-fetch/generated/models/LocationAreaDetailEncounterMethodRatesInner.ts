@@ -52,8 +52,8 @@ export interface LocationAreaDetailEncounterMethodRatesInner {
  * Check if a given object implements the LocationAreaDetailEncounterMethodRatesInner interface.
  */
 export function instanceOfLocationAreaDetailEncounterMethodRatesInner(value: object): value is LocationAreaDetailEncounterMethodRatesInner {
-    if (!('encounterMethod' in value) || value['encounterMethod'] === undefined) return false;
-    if (!('versionDetails' in value) || value['versionDetails'] === undefined) return false;
+    if ((!('encounterMethod' in (value as Record<string, any>)) && !('encounter_method' in (value as Record<string, any>))) || ((value as Record<string, any>)['encounterMethod'] === undefined && (value as Record<string, any>)['encounter_method'] === undefined)) return false;
+    if ((!('versionDetails' in (value as Record<string, any>)) && !('version_details' in (value as Record<string, any>))) || ((value as Record<string, any>)['versionDetails'] === undefined && (value as Record<string, any>)['version_details'] === undefined)) return false;
     return true;
 }
 

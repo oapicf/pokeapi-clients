@@ -14,7 +14,7 @@ Name | Mapping | SQL Type | Default | Type | Description | Notes
 **smoothness** | smoothness | int NOT NULL |  | **kotlin.Int** |  | 
 **soilDryness** | soil_dryness | int NOT NULL |  | **kotlin.Int** |  | 
 **firmness** | firmness | long NOT NULL |  | [**BerryFirmnessSummary**](BerryFirmnessSummary.md) |  |  [foreignkey]
-**flavors** | `One-To-Many` | `----` | `----`  | [**kotlin.Array&lt;BerryDetailFlavorsInner&gt;**](BerryDetailFlavorsInner.md) |  | 
+**flavors** | `One-To-Many` | `----` | `----`  | [**kotlin.Array&lt;BerryDetailFlavorsInner&gt;**](BerryDetailFlavorsInner.md) |  |  [readonly]
 **item** | item | long NOT NULL |  | [**ItemSummary**](ItemSummary.md) |  |  [foreignkey]
 **naturalGiftType** | natural_gift_type | long NOT NULL |  | [**TypeSummary**](TypeSummary.md) |  |  [foreignkey]
 

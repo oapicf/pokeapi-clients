@@ -57,7 +57,7 @@ export interface EncounterConditionValueDetail {
      * @type {Array<EncounterConditionValueName>}
      * @memberof EncounterConditionValueDetail
      */
-    names: Array<EncounterConditionValueName>;
+    readonly names: Array<EncounterConditionValueName>;
 }
 
 /**
@@ -92,7 +92,7 @@ export function EncounterConditionValueDetailToJSON(json: any): EncounterConditi
     return EncounterConditionValueDetailToJSONTyped(json, false);
 }
 
-export function EncounterConditionValueDetailToJSONTyped(value?: Omit<EncounterConditionValueDetail, 'id'> | null, ignoreDiscriminator: boolean = false): any {
+export function EncounterConditionValueDetailToJSONTyped(value?: Omit<EncounterConditionValueDetail, 'id'|'names'> | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
@@ -101,7 +101,6 @@ export function EncounterConditionValueDetailToJSONTyped(value?: Omit<EncounterC
         
         'name': value['name'],
         'condition': EncounterConditionSummaryToJSON(value['condition']),
-        'names': ((value['names'] as Array<any>).map(EncounterConditionValueNameToJSON)),
     };
 }
 

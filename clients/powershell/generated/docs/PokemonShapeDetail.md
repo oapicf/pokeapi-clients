@@ -5,9 +5,9 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **Int32** |  | [readonly] 
 **Name** | **String** |  | 
-**AwesomeNames** | [**PokemonShapeDetailAwesomeNamesInner[]**](PokemonShapeDetailAwesomeNamesInner.md) |  | 
-**Names** | [**PokemonShapeDetailNamesInner[]**](PokemonShapeDetailNamesInner.md) |  | 
-**PokemonSpecies** | [**PokemonSpeciesSummary[]**](PokemonSpeciesSummary.md) |  | 
+**AwesomeNames** | [**PokemonShapeDetailAwesomeNamesInner[]**](PokemonShapeDetailAwesomeNamesInner.md) |  | [readonly] 
+**Names** | [**PokemonShapeDetailNamesInner[]**](PokemonShapeDetailNamesInner.md) |  | [readonly] 
+**PokemonSpecies** | [**PokemonSpeciesSummary[]**](PokemonSpeciesSummary.md) |  | [readonly] 
 
 ## Examples
 

@@ -6,8 +6,8 @@
 | ------------ | ------------- | ------------- | ------------- |
 | **id** | **kotlin.Int** |  |  [readonly] |
 | **appeal** | **kotlin.Int** |  |  |
-| **flavorTextEntries** | [**kotlin.collections.List&lt;SuperContestEffectFlavorText&gt;**](SuperContestEffectFlavorText.md) |  |  |
-| **moves** | [**kotlin.collections.List&lt;MoveSummary&gt;**](MoveSummary.md) |  |  |
+| **flavorTextEntries** | [**kotlin.collections.List&lt;SuperContestEffectFlavorText&gt;**](SuperContestEffectFlavorText.md) |  |  [readonly] |
+| **moves** | [**kotlin.collections.List&lt;MoveSummary&gt;**](MoveSummary.md) |  |  [readonly] |
 
 
 

@@ -37,7 +37,7 @@ class  BerryDetail
 {
 public:
     BerryDetail();
-    virtual ~BerryDetail() = default;
+    virtual ~BerryDetail();
 
 
     /// <summary>

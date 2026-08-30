@@ -35,10 +35,10 @@ export interface EvolutionTriggerDetail {
      * @type {Array<EvolutionTriggerName>}
      * @memberof EvolutionTriggerDetail
      */
-    names: Array<EvolutionTriggerName>;
+    readonly names: Array<EvolutionTriggerName>;
     /**
      * @type {Array<AbilityDetailPokemonInnerPokemon>}
      * @memberof EvolutionTriggerDetail
      */
-    pokemon_species: Array<AbilityDetailPokemonInnerPokemon>;
+    readonly pokemon_species: Array<AbilityDetailPokemonInnerPokemon>;
 }

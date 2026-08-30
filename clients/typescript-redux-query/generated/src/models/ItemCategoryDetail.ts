@@ -47,13 +47,13 @@ export interface ItemCategoryDetail  {
      * @type {Array<ItemSummary>}
      * @memberof ItemCategoryDetail
      */
-    items: Array<ItemSummary>;
+    readonly items: Array<ItemSummary>;
     /**
      * 
      * @type {Array<ItemCategoryName>}
      * @memberof ItemCategoryDetail
      */
-    names: Array<ItemCategoryName>;
+    readonly names: Array<ItemCategoryName>;
     /**
      * 
      * @type {ItemPocketSummary}
@@ -78,8 +78,6 @@ export function ItemCategoryDetailToJSON(value?: ItemCategoryDetail): any {
     }
     return {
         'name': value.name,
-        'items': (value.items as Array<any>).map(ItemSummaryToJSON),
-        'names': (value.names as Array<any>).map(ItemCategoryNameToJSON),
         'pocket': ItemPocketSummaryToJSON(value.pocket),
     };
 }

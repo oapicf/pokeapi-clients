@@ -13,10 +13,10 @@ static generation_name_t *generation_name_create_internal(
     if (!generation_name_local_var) {
         return NULL;
     }
+    memset(generation_name_local_var, 0, sizeof(generation_name_t));
+    generation_name_local_var->_library_owned = 1;
     generation_name_local_var->name = name;
     generation_name_local_var->language = language;
-
-    generation_name_local_var->_library_owned = 1;
     return generation_name_local_var;
 }
 
@@ -24,10 +24,13 @@ __attribute__((deprecated)) generation_name_t *generation_name_create(
     char *name,
     language_summary_t *language
     ) {
-    return generation_name_create_internal (
+    generation_name_t *result = generation_name_create_internal (
         name,
         language
         );
+    if (!result) {
+    }
+    return result;
 }
 
 void generation_name_free(generation_name_t *generation_name) {
@@ -87,6 +90,8 @@ generation_name_t *generation_name_parseFromJSON(cJSON *generation_nameJSON){
 
     generation_name_t *generation_name_local_var = NULL;
 
+    char *name_local_str = NULL;
+
     // define the local variable for generation_name->language
     language_summary_t *language_local_nonprim = NULL;
 
@@ -118,13 +123,23 @@ generation_name_t *generation_name_parseFromJSON(cJSON *generation_nameJSON){
     language_local_nonprim = language_summary_parseFromJSON(language); //nonprimitive
 
 
+    if (name && !cJSON_IsNull(name)) name_local_str = strdup(name->valuestring);
+
     generation_name_local_var = generation_name_create_internal (
-        strdup(name->valuestring),
+        name_local_str,
         language_local_nonprim
         );
 
+    if (!generation_name_local_var) {
+        goto end;
+    }
+
     return generation_name_local_var;
 end:
+    if (name_local_str) {
+        free(name_local_str);
+        name_local_str = NULL;
+    }
     if (language_local_nonprim) {
         language_summary_free(language_local_nonprim);
         language_local_nonprim = NULL;

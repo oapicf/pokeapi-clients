@@ -47,7 +47,7 @@ class PokedexDetail
      * @var int|null
      * @SerializedName("id")
      * @Type("int")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Type("int")]
     protected ?int $id = null;
@@ -56,7 +56,7 @@ class PokedexDetail
      * @var string|null
      * @SerializedName("name")
      * @Type("string")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Type("string")]
     #[Assert\Length(max: 100)]
@@ -66,7 +66,7 @@ class PokedexDetail
      * @var bool|null
      * @SerializedName("is_main_series")
      * @Type("bool")
-    */
+     */
     #[Assert\Type("bool")]
     protected ?bool $isMainSeries = null;
 
@@ -74,7 +74,7 @@ class PokedexDetail
      * @var PokedexDescription[]|null
      * @SerializedName("descriptions")
      * @Type("array<OpenAPI\Server\Model\PokedexDescription>")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Valid]
     #[Assert\All([
@@ -86,7 +86,7 @@ class PokedexDetail
      * @var PokedexName[]|null
      * @SerializedName("names")
      * @Type("array<OpenAPI\Server\Model\PokedexName>")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Valid]
     #[Assert\All([
@@ -98,7 +98,7 @@ class PokedexDetail
      * @var PokedexDetailPokemonEntriesInner[]|null
      * @SerializedName("pokemon_entries")
      * @Type("array<OpenAPI\Server\Model\PokedexDetailPokemonEntriesInner>")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Valid]
     #[Assert\All([
@@ -110,7 +110,7 @@ class PokedexDetail
      * @var RegionSummary|null
      * @SerializedName("region")
      * @Type("OpenAPI\Server\Model\RegionSummary")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Valid]
     #[Assert\Type("OpenAPI\Server\Model\RegionSummary")]
@@ -120,7 +120,7 @@ class PokedexDetail
      * @var AbilityDetailPokemonInnerPokemon[]|null
      * @SerializedName("version_groups")
      * @Type("array<OpenAPI\Server\Model\AbilityDetailPokemonInnerPokemon>")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Valid]
     #[Assert\All([
@@ -157,12 +157,12 @@ class PokedexDetail
     }
 
     /**
-    * Sets id.
-    *
-    * @param int|null $id
-    *
-    * @return $this
-    */
+     * Sets id.
+     *
+     * @param int|null $id
+     *
+     * @return $this
+     */
     public function setId(?int $id): self
     {
         $this->id = $id;
@@ -184,12 +184,12 @@ class PokedexDetail
     }
 
     /**
-    * Sets name.
-    *
-    * @param string|null $name
-    *
-    * @return $this
-    */
+     * Sets name.
+     *
+     * @param string|null $name
+     *
+     * @return $this
+     */
     public function setName(?string $name): self
     {
         $this->name = $name;
@@ -211,12 +211,12 @@ class PokedexDetail
     }
 
     /**
-    * Sets isMainSeries.
-    *
-    * @param bool|null $isMainSeries
-    *
-    * @return $this
-    */
+     * Sets isMainSeries.
+     *
+     * @param bool|null $isMainSeries
+     *
+     * @return $this
+     */
     public function setIsMainSeries(?bool $isMainSeries = null): self
     {
         $this->isMainSeries = $isMainSeries;
@@ -238,12 +238,12 @@ class PokedexDetail
     }
 
     /**
-    * Sets descriptions.
-    *
-    * @param PokedexDescription[]|null $descriptions
-    *
-    * @return $this
-    */
+     * Sets descriptions.
+     *
+     * @param PokedexDescription[]|null $descriptions
+     *
+     * @return $this
+     */
     public function setDescriptions(?array $descriptions): self
     {
         $this->descriptions = $descriptions;
@@ -265,12 +265,12 @@ class PokedexDetail
     }
 
     /**
-    * Sets names.
-    *
-    * @param PokedexName[]|null $names
-    *
-    * @return $this
-    */
+     * Sets names.
+     *
+     * @param PokedexName[]|null $names
+     *
+     * @return $this
+     */
     public function setNames(?array $names): self
     {
         $this->names = $names;
@@ -292,12 +292,12 @@ class PokedexDetail
     }
 
     /**
-    * Sets pokemonEntries.
-    *
-    * @param PokedexDetailPokemonEntriesInner[]|null $pokemonEntries
-    *
-    * @return $this
-    */
+     * Sets pokemonEntries.
+     *
+     * @param PokedexDetailPokemonEntriesInner[]|null $pokemonEntries
+     *
+     * @return $this
+     */
     public function setPokemonEntries(?array $pokemonEntries): self
     {
         $this->pokemonEntries = $pokemonEntries;
@@ -319,12 +319,12 @@ class PokedexDetail
     }
 
     /**
-    * Sets region.
-    *
-    * @param RegionSummary|null $region
-    *
-    * @return $this
-    */
+     * Sets region.
+     *
+     * @param RegionSummary|null $region
+     *
+     * @return $this
+     */
     public function setRegion(?RegionSummary $region): self
     {
         $this->region = $region;
@@ -346,12 +346,12 @@ class PokedexDetail
     }
 
     /**
-    * Sets versionGroups.
-    *
-    * @param AbilityDetailPokemonInnerPokemon[]|null $versionGroups
-    *
-    * @return $this
-    */
+     * Sets versionGroups.
+     *
+     * @param AbilityDetailPokemonInnerPokemon[]|null $versionGroups
+     *
+     * @return $this
+     */
     public function setVersionGroups(?array $versionGroups): self
     {
         $this->versionGroups = $versionGroups;

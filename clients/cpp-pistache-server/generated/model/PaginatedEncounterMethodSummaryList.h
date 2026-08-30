@@ -34,7 +34,7 @@ class  PaginatedEncounterMethodSummaryList
 {
 public:
     PaginatedEncounterMethodSummaryList();
-    virtual ~PaginatedEncounterMethodSummaryList() = default;
+    virtual ~PaginatedEncounterMethodSummaryList();
 
 
     /// <summary>

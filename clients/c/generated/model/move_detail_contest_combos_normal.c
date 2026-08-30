@@ -13,10 +13,10 @@ static move_detail_contest_combos_normal_t *move_detail_contest_combos_normal_cr
     if (!move_detail_contest_combos_normal_local_var) {
         return NULL;
     }
+    memset(move_detail_contest_combos_normal_local_var, 0, sizeof(move_detail_contest_combos_normal_t));
+    move_detail_contest_combos_normal_local_var->_library_owned = 1;
     move_detail_contest_combos_normal_local_var->use_before = use_before;
     move_detail_contest_combos_normal_local_var->use_after = use_after;
-
-    move_detail_contest_combos_normal_local_var->_library_owned = 1;
     return move_detail_contest_combos_normal_local_var;
 }
 
@@ -24,10 +24,13 @@ __attribute__((deprecated)) move_detail_contest_combos_normal_t *move_detail_con
     list_t *use_before,
     list_t *use_after
     ) {
-    return move_detail_contest_combos_normal_create_internal (
+    move_detail_contest_combos_normal_t *result = move_detail_contest_combos_normal_create_internal (
         use_before,
         use_after
         );
+    if (!result) {
+    }
+    return result;
 }
 
 void move_detail_contest_combos_normal_free(move_detail_contest_combos_normal_t *move_detail_contest_combos_normal) {
@@ -173,10 +176,15 @@ move_detail_contest_combos_normal_t *move_detail_contest_combos_normal_parseFrom
     }
 
 
+
     move_detail_contest_combos_normal_local_var = move_detail_contest_combos_normal_create_internal (
         use_beforeList,
         use_afterList
         );
+
+    if (!move_detail_contest_combos_normal_local_var) {
+        goto end;
+    }
 
     return move_detail_contest_combos_normal_local_var;
 end:

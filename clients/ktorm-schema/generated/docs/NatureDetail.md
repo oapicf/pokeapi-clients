@@ -11,10 +11,10 @@ Name | Mapping | SQL Type | Default | Type | Description | Notes
 **increasedStat** | increased_stat | long NOT NULL |  | [**StatSummary**](StatSummary.md) |  |  [foreignkey]
 **likesFlavor** | likes_flavor | long NOT NULL |  | [**BerryFlavorSummary**](BerryFlavorSummary.md) |  |  [foreignkey]
 **hatesFlavor** | hates_flavor | long NOT NULL |  | [**BerryFlavorSummary**](BerryFlavorSummary.md) |  |  [foreignkey]
-**berries** | `One-To-Many` | `----` | `----`  | [**kotlin.Array&lt;BerrySummary&gt;**](BerrySummary.md) |  | 
-**pokeathlonStatChanges** | `One-To-Many` | `----` | `----`  | [**kotlin.Array&lt;NatureDetailPokeathlonStatChangesInner&gt;**](NatureDetailPokeathlonStatChangesInner.md) |  | 
-**moveBattleStylePreferences** | `One-To-Many` | `----` | `----`  | [**kotlin.Array&lt;NatureBattleStylePreference&gt;**](NatureBattleStylePreference.md) |  | 
-**names** | `One-To-Many` | `----` | `----`  | [**kotlin.Array&lt;NatureName&gt;**](NatureName.md) |  | 
+**berries** | `One-To-Many` | `----` | `----`  | [**kotlin.Array&lt;BerrySummary&gt;**](BerrySummary.md) |  |  [readonly]
+**pokeathlonStatChanges** | `One-To-Many` | `----` | `----`  | [**kotlin.Array&lt;NatureDetailPokeathlonStatChangesInner&gt;**](NatureDetailPokeathlonStatChangesInner.md) |  |  [readonly]
+**moveBattleStylePreferences** | `One-To-Many` | `----` | `----`  | [**kotlin.Array&lt;NatureBattleStylePreference&gt;**](NatureBattleStylePreference.md) |  |  [readonly]
+**names** | `One-To-Many` | `----` | `----`  | [**kotlin.Array&lt;NatureName&gt;**](NatureName.md) |  |  [readonly]
 
 
 

@@ -36,7 +36,7 @@ class  PokemonShapeDetail
 {
 public:
     PokemonShapeDetail();
-    virtual ~PokemonShapeDetail() = default;
+    virtual ~PokemonShapeDetail();
 
 
     /// <summary>

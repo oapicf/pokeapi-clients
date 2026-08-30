@@ -32,7 +32,7 @@ class GamesApi {
   ///
   /// * [String] q:
   ///   > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. 
-  Future<Response> generationListWithHttpInfo({ int? limit, int? offset, String? q, }) async {
+  Future<Response> generationListWithHttpInfo({ int? limit, int? offset, String? q, Future<void>? abortTrigger, }) async {
     // ignore: prefer_const_declarations
     final path = r'/api/v2/generation/';
 
@@ -64,6 +64,7 @@ class GamesApi {
       headerParams,
       formParams,
       contentTypes.isEmpty ? null : contentTypes.first,
+      abortTrigger: abortTrigger,
     );
   }
 
@@ -81,8 +82,8 @@ class GamesApi {
   ///
   /// * [String] q:
   ///   > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. 
-  Future<PaginatedGenerationSummaryList?> generationList({ int? limit, int? offset, String? q, }) async {
-    final response = await generationListWithHttpInfo( limit: limit, offset: offset, q: q, );
+  Future<PaginatedGenerationSummaryList?> generationList({ int? limit, int? offset, String? q, Future<void>? abortTrigger, }) async {
+    final response = await generationListWithHttpInfo(limit: limit, offset: offset, q: q, abortTrigger: abortTrigger,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -106,7 +107,7 @@ class GamesApi {
   ///
   /// * [String] id (required):
   ///   This parameter can be a string or an integer.
-  Future<Response> generationRetrieveWithHttpInfo(String id,) async {
+  Future<Response> generationRetrieveWithHttpInfo(String id, { Future<void>? abortTrigger, }) async {
     // ignore: prefer_const_declarations
     final path = r'/api/v2/generation/{id}/'
       .replaceAll('{id}', id);
@@ -129,6 +130,7 @@ class GamesApi {
       headerParams,
       formParams,
       contentTypes.isEmpty ? null : contentTypes.first,
+      abortTrigger: abortTrigger,
     );
   }
 
@@ -140,8 +142,8 @@ class GamesApi {
   ///
   /// * [String] id (required):
   ///   This parameter can be a string or an integer.
-  Future<GenerationDetail?> generationRetrieve(String id,) async {
-    final response = await generationRetrieveWithHttpInfo(id,);
+  Future<GenerationDetail?> generationRetrieve(String id, { Future<void>? abortTrigger, }) async {
+    final response = await generationRetrieveWithHttpInfo(id, abortTrigger: abortTrigger,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -171,7 +173,7 @@ class GamesApi {
   ///
   /// * [String] q:
   ///   > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. 
-  Future<Response> pokedexListWithHttpInfo({ int? limit, int? offset, String? q, }) async {
+  Future<Response> pokedexListWithHttpInfo({ int? limit, int? offset, String? q, Future<void>? abortTrigger, }) async {
     // ignore: prefer_const_declarations
     final path = r'/api/v2/pokedex/';
 
@@ -203,6 +205,7 @@ class GamesApi {
       headerParams,
       formParams,
       contentTypes.isEmpty ? null : contentTypes.first,
+      abortTrigger: abortTrigger,
     );
   }
 
@@ -220,8 +223,8 @@ class GamesApi {
   ///
   /// * [String] q:
   ///   > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. 
-  Future<PaginatedPokedexSummaryList?> pokedexList({ int? limit, int? offset, String? q, }) async {
-    final response = await pokedexListWithHttpInfo( limit: limit, offset: offset, q: q, );
+  Future<PaginatedPokedexSummaryList?> pokedexList({ int? limit, int? offset, String? q, Future<void>? abortTrigger, }) async {
+    final response = await pokedexListWithHttpInfo(limit: limit, offset: offset, q: q, abortTrigger: abortTrigger,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -245,7 +248,7 @@ class GamesApi {
   ///
   /// * [String] id (required):
   ///   This parameter can be a string or an integer.
-  Future<Response> pokedexRetrieveWithHttpInfo(String id,) async {
+  Future<Response> pokedexRetrieveWithHttpInfo(String id, { Future<void>? abortTrigger, }) async {
     // ignore: prefer_const_declarations
     final path = r'/api/v2/pokedex/{id}/'
       .replaceAll('{id}', id);
@@ -268,6 +271,7 @@ class GamesApi {
       headerParams,
       formParams,
       contentTypes.isEmpty ? null : contentTypes.first,
+      abortTrigger: abortTrigger,
     );
   }
 
@@ -279,8 +283,8 @@ class GamesApi {
   ///
   /// * [String] id (required):
   ///   This parameter can be a string or an integer.
-  Future<PokedexDetail?> pokedexRetrieve(String id,) async {
-    final response = await pokedexRetrieveWithHttpInfo(id,);
+  Future<PokedexDetail?> pokedexRetrieve(String id, { Future<void>? abortTrigger, }) async {
+    final response = await pokedexRetrieveWithHttpInfo(id, abortTrigger: abortTrigger,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -310,7 +314,7 @@ class GamesApi {
   ///
   /// * [String] q:
   ///   > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. 
-  Future<Response> versionGroupListWithHttpInfo({ int? limit, int? offset, String? q, }) async {
+  Future<Response> versionGroupListWithHttpInfo({ int? limit, int? offset, String? q, Future<void>? abortTrigger, }) async {
     // ignore: prefer_const_declarations
     final path = r'/api/v2/version-group/';
 
@@ -342,6 +346,7 @@ class GamesApi {
       headerParams,
       formParams,
       contentTypes.isEmpty ? null : contentTypes.first,
+      abortTrigger: abortTrigger,
     );
   }
 
@@ -359,8 +364,8 @@ class GamesApi {
   ///
   /// * [String] q:
   ///   > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. 
-  Future<PaginatedVersionGroupSummaryList?> versionGroupList({ int? limit, int? offset, String? q, }) async {
-    final response = await versionGroupListWithHttpInfo( limit: limit, offset: offset, q: q, );
+  Future<PaginatedVersionGroupSummaryList?> versionGroupList({ int? limit, int? offset, String? q, Future<void>? abortTrigger, }) async {
+    final response = await versionGroupListWithHttpInfo(limit: limit, offset: offset, q: q, abortTrigger: abortTrigger,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -384,7 +389,7 @@ class GamesApi {
   ///
   /// * [String] id (required):
   ///   This parameter can be a string or an integer.
-  Future<Response> versionGroupRetrieveWithHttpInfo(String id,) async {
+  Future<Response> versionGroupRetrieveWithHttpInfo(String id, { Future<void>? abortTrigger, }) async {
     // ignore: prefer_const_declarations
     final path = r'/api/v2/version-group/{id}/'
       .replaceAll('{id}', id);
@@ -407,6 +412,7 @@ class GamesApi {
       headerParams,
       formParams,
       contentTypes.isEmpty ? null : contentTypes.first,
+      abortTrigger: abortTrigger,
     );
   }
 
@@ -418,8 +424,8 @@ class GamesApi {
   ///
   /// * [String] id (required):
   ///   This parameter can be a string or an integer.
-  Future<VersionGroupDetail?> versionGroupRetrieve(String id,) async {
-    final response = await versionGroupRetrieveWithHttpInfo(id,);
+  Future<VersionGroupDetail?> versionGroupRetrieve(String id, { Future<void>? abortTrigger, }) async {
+    final response = await versionGroupRetrieveWithHttpInfo(id, abortTrigger: abortTrigger,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -449,7 +455,7 @@ class GamesApi {
   ///
   /// * [String] q:
   ///   > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. 
-  Future<Response> versionListWithHttpInfo({ int? limit, int? offset, String? q, }) async {
+  Future<Response> versionListWithHttpInfo({ int? limit, int? offset, String? q, Future<void>? abortTrigger, }) async {
     // ignore: prefer_const_declarations
     final path = r'/api/v2/version/';
 
@@ -481,6 +487,7 @@ class GamesApi {
       headerParams,
       formParams,
       contentTypes.isEmpty ? null : contentTypes.first,
+      abortTrigger: abortTrigger,
     );
   }
 
@@ -498,8 +505,8 @@ class GamesApi {
   ///
   /// * [String] q:
   ///   > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. 
-  Future<PaginatedVersionSummaryList?> versionList({ int? limit, int? offset, String? q, }) async {
-    final response = await versionListWithHttpInfo( limit: limit, offset: offset, q: q, );
+  Future<PaginatedVersionSummaryList?> versionList({ int? limit, int? offset, String? q, Future<void>? abortTrigger, }) async {
+    final response = await versionListWithHttpInfo(limit: limit, offset: offset, q: q, abortTrigger: abortTrigger,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -523,7 +530,7 @@ class GamesApi {
   ///
   /// * [String] id (required):
   ///   This parameter can be a string or an integer.
-  Future<Response> versionRetrieveWithHttpInfo(String id,) async {
+  Future<Response> versionRetrieveWithHttpInfo(String id, { Future<void>? abortTrigger, }) async {
     // ignore: prefer_const_declarations
     final path = r'/api/v2/version/{id}/'
       .replaceAll('{id}', id);
@@ -546,6 +553,7 @@ class GamesApi {
       headerParams,
       formParams,
       contentTypes.isEmpty ? null : contentTypes.first,
+      abortTrigger: abortTrigger,
     );
   }
 
@@ -557,8 +565,8 @@ class GamesApi {
   ///
   /// * [String] id (required):
   ///   This parameter can be a string or an integer.
-  Future<VersionDetail?> versionRetrieve(String id,) async {
-    final response = await versionRetrieveWithHttpInfo(id,);
+  Future<VersionDetail?> versionRetrieve(String id, { Future<void>? abortTrigger, }) async {
+    final response = await versionRetrieveWithHttpInfo(id, abortTrigger: abortTrigger,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }

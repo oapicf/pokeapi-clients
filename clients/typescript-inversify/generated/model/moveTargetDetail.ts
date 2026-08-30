@@ -17,7 +17,7 @@ import { MoveTargetName } from './moveTargetName';
 export interface MoveTargetDetail { 
     readonly id: number;
     name: string;
-    descriptions: Array<MoveTargetDescription>;
-    moves: Array<MoveSummary>;
-    names: Array<MoveTargetName>;
+    readonly descriptions: Array<MoveTargetDescription>;
+    readonly moves: Array<MoveSummary>;
+    readonly names: Array<MoveTargetName>;
 }

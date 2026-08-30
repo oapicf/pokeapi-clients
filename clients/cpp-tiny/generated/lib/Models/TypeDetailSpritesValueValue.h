@@ -51,7 +51,7 @@ public:
 
 	/*! \brief Set 
 	 */
-	void setNameicon(std::string  nameicon);
+	void setNameicon(std::string nameicon);
 
 
     private:

@@ -25,6 +25,8 @@ GenerationName::GenerationName()
     
 }
 
+GenerationName::~GenerationName() = default;
+
 void GenerationName::validate() const
 {
     std::stringstream msg;

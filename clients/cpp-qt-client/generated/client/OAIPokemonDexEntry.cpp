@@ -21,7 +21,7 @@
 
 namespace OpenAPI {
 
-OAIPokemonDexEntry::OAIPokemonDexEntry(QString json) {
+OAIPokemonDexEntry::OAIPokemonDexEntry(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -41,7 +41,7 @@ void OAIPokemonDexEntry::initializeModel() {
     m_pokedex_isValid = false;
 }
 
-void OAIPokemonDexEntry::fromJson(QString jsonString) {
+void OAIPokemonDexEntry::fromJson(const QString &jsonString) {
     QByteArray array(jsonString.toStdString().c_str());
     QJsonDocument doc = QJsonDocument::fromJson(array);
     QJsonObject jsonObject = doc.object();

@@ -70,19 +70,6 @@ public class VersionDetail  {
     return names;
   }
 
-  public void setNames(List<VersionName> names) {
-    this.names = names;
-  }
-
-  public VersionDetail names(List<VersionName> names) {
-    this.names = names;
-    return this;
-  }
-
-  public VersionDetail addNamesItem(VersionName namesItem) {
-    this.names.add(namesItem);
-    return this;
-  }
 
  /**
    * Get versionGroup
@@ -140,10 +127,7 @@ public class VersionDetail  {
    * (except the first line).
    */
   private static String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 }
 

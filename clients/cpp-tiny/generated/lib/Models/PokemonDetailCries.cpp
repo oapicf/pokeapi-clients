@@ -85,7 +85,7 @@ PokemonDetail_cries::getLatest()
 }
 
 void
-PokemonDetail_cries::setLatest(std::string  latest)
+PokemonDetail_cries::setLatest(std::string latest)
 {
 	this->latest = latest;
 }
@@ -97,7 +97,7 @@ PokemonDetail_cries::getLegacy()
 }
 
 void
-PokemonDetail_cries::setLegacy(std::string  legacy)
+PokemonDetail_cries::setLegacy(std::string legacy)
 {
 	this->legacy = legacy;
 }

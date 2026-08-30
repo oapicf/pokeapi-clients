@@ -2,6 +2,7 @@ package org.openapitools.model;
 
 import java.net.URI;
 import java.util.Objects;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import java.util.ArrayList;
@@ -28,19 +29,19 @@ import org.openapitools.model.TypeSummary;
 import java.util.NoSuchElementException;
 import org.openapitools.jackson.nullable.JsonNullable;
 import java.time.OffsetDateTime;
-import javax.validation.Valid;
-import javax.validation.constraints.*;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.*;
 import io.swagger.v3.oas.annotations.media.Schema;
 
 
 import java.util.*;
-import javax.annotation.Generated;
+import jakarta.annotation.Generated;
 
 /**
  * MoveDetail
  */
 
-@Generated(value = "org.openapitools.codegen.languages.JavaCamelServerCodegen", date = "2026-02-07T15:23:32.871052804Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@Generated(value = "org.openapitools.codegen.languages.JavaCamelServerCodegen", date = "2026-08-30T01:56:15.309401083Z[Etc/UTC]", comments = "Generator version: 7.24.0")
 public class MoveDetail {
 
   private Integer id;
@@ -366,8 +367,8 @@ public class MoveDetail {
    * Get effectEntries
    * @return effectEntries
    */
-  @NotNull @Valid 
-  @Schema(name = "effect_entries", requiredMode = Schema.RequiredMode.REQUIRED)
+  @Valid 
+  @Schema(name = "effect_entries", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("effect_entries")
   public List<@Valid MoveChangeEffectEntriesInner> getEffectEntries() {
     return effectEntries;
@@ -394,8 +395,8 @@ public class MoveDetail {
    * Get effectChanges
    * @return effectChanges
    */
-  @NotNull @Valid 
-  @Schema(name = "effect_changes", requiredMode = Schema.RequiredMode.REQUIRED)
+  @Valid 
+  @Schema(name = "effect_changes", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("effect_changes")
   public List<@Valid MoveDetailEffectChangesInner> getEffectChanges() {
     return effectChanges;
@@ -462,8 +463,8 @@ public class MoveDetail {
    * Get names
    * @return names
    */
-  @NotNull @Valid 
-  @Schema(name = "names", requiredMode = Schema.RequiredMode.REQUIRED)
+  @Valid 
+  @Schema(name = "names", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("names")
   public List<@Valid MoveName> getNames() {
     return names;
@@ -490,8 +491,8 @@ public class MoveDetail {
    * Get pastValues
    * @return pastValues
    */
-  @NotNull @Valid 
-  @Schema(name = "past_values", requiredMode = Schema.RequiredMode.REQUIRED)
+  @Valid 
+  @Schema(name = "past_values", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("past_values")
   public List<@Valid MoveChange> getPastValues() {
     return pastValues;
@@ -518,8 +519,8 @@ public class MoveDetail {
    * Get statChanges
    * @return statChanges
    */
-  @NotNull @Valid 
-  @Schema(name = "stat_changes", requiredMode = Schema.RequiredMode.REQUIRED)
+  @Valid 
+  @Schema(name = "stat_changes", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("stat_changes")
   public List<@Valid MoveDetailStatChangesInner> getStatChanges() {
     return statChanges;
@@ -606,8 +607,8 @@ public class MoveDetail {
    * Get machines
    * @return machines
    */
-  @NotNull @Valid 
-  @Schema(name = "machines", requiredMode = Schema.RequiredMode.REQUIRED)
+  @Valid 
+  @Schema(name = "machines", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("machines")
   public List<@Valid MoveDetailMachinesInner> getMachines() {
     return machines;
@@ -634,8 +635,8 @@ public class MoveDetail {
    * Get flavorTextEntries
    * @return flavorTextEntries
    */
-  @NotNull @Valid 
-  @Schema(name = "flavor_text_entries", requiredMode = Schema.RequiredMode.REQUIRED)
+  @Valid 
+  @Schema(name = "flavor_text_entries", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("flavor_text_entries")
   public List<@Valid MoveFlavorText> getFlavorTextEntries() {
     return flavorTextEntries;
@@ -662,8 +663,8 @@ public class MoveDetail {
    * Get learnedByPokemon
    * @return learnedByPokemon
    */
-  @NotNull @Valid 
-  @Schema(name = "learned_by_pokemon", requiredMode = Schema.RequiredMode.REQUIRED)
+  @Valid 
+  @Schema(name = "learned_by_pokemon", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("learned_by_pokemon")
   public List<@Valid AbilityDetailPokemonInnerPokemon> getLearnedByPokemon() {
     return learnedByPokemon;
@@ -761,10 +762,7 @@ public class MoveDetail {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 }
 

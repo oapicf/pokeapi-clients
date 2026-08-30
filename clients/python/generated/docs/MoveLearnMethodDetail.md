@@ -7,9 +7,9 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **int** |  | [readonly] 
 **name** | **str** |  | 
-**names** | [**List[MoveLearnMethodName]**](MoveLearnMethodName.md) |  | 
-**descriptions** | [**List[MoveLearnMethodDescription]**](MoveLearnMethodDescription.md) |  | 
-**version_groups** | [**List[AbilityDetailPokemonInnerPokemon]**](AbilityDetailPokemonInnerPokemon.md) |  | 
+**names** | [**List[MoveLearnMethodName]**](MoveLearnMethodName.md) |  | [readonly] 
+**descriptions** | [**List[MoveLearnMethodDescription]**](MoveLearnMethodDescription.md) |  | [readonly] 
+**version_groups** | [**List[AbilityDetailPokemonInnerPokemon]**](AbilityDetailPokemonInnerPokemon.md) |  | [readonly] 
 
 ## Example
 

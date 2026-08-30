@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **integer** |  | [readonly] 
 **name** | **character** |  | [Max. length: 100] 
-**names** | [**array[VersionName]**](VersionName.md) |  | 
+**names** | [**array[VersionName]**](VersionName.md) |  | [readonly] 
 **version_group** | [**VersionGroupSummary**](VersionGroupSummary.md) |  | 
 
 

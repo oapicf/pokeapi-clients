@@ -32,7 +32,7 @@ class ContestsApi {
   ///
   /// * [String] q:
   ///   > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. 
-  Future<Response> contestEffectListWithHttpInfo({ int? limit, int? offset, String? q, }) async {
+  Future<Response> contestEffectListWithHttpInfo({ int? limit, int? offset, String? q, Future<void>? abortTrigger, }) async {
     // ignore: prefer_const_declarations
     final path = r'/api/v2/contest-effect/';
 
@@ -64,6 +64,7 @@ class ContestsApi {
       headerParams,
       formParams,
       contentTypes.isEmpty ? null : contentTypes.first,
+      abortTrigger: abortTrigger,
     );
   }
 
@@ -81,8 +82,8 @@ class ContestsApi {
   ///
   /// * [String] q:
   ///   > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. 
-  Future<PaginatedContestEffectSummaryList?> contestEffectList({ int? limit, int? offset, String? q, }) async {
-    final response = await contestEffectListWithHttpInfo( limit: limit, offset: offset, q: q, );
+  Future<PaginatedContestEffectSummaryList?> contestEffectList({ int? limit, int? offset, String? q, Future<void>? abortTrigger, }) async {
+    final response = await contestEffectListWithHttpInfo(limit: limit, offset: offset, q: q, abortTrigger: abortTrigger,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -106,7 +107,7 @@ class ContestsApi {
   ///
   /// * [String] id (required):
   ///   This parameter can be a string or an integer.
-  Future<Response> contestEffectRetrieveWithHttpInfo(String id,) async {
+  Future<Response> contestEffectRetrieveWithHttpInfo(String id, { Future<void>? abortTrigger, }) async {
     // ignore: prefer_const_declarations
     final path = r'/api/v2/contest-effect/{id}/'
       .replaceAll('{id}', id);
@@ -129,6 +130,7 @@ class ContestsApi {
       headerParams,
       formParams,
       contentTypes.isEmpty ? null : contentTypes.first,
+      abortTrigger: abortTrigger,
     );
   }
 
@@ -140,8 +142,8 @@ class ContestsApi {
   ///
   /// * [String] id (required):
   ///   This parameter can be a string or an integer.
-  Future<ContestEffectDetail?> contestEffectRetrieve(String id,) async {
-    final response = await contestEffectRetrieveWithHttpInfo(id,);
+  Future<ContestEffectDetail?> contestEffectRetrieve(String id, { Future<void>? abortTrigger, }) async {
+    final response = await contestEffectRetrieveWithHttpInfo(id, abortTrigger: abortTrigger,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -171,7 +173,7 @@ class ContestsApi {
   ///
   /// * [String] q:
   ///   > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. 
-  Future<Response> contestTypeListWithHttpInfo({ int? limit, int? offset, String? q, }) async {
+  Future<Response> contestTypeListWithHttpInfo({ int? limit, int? offset, String? q, Future<void>? abortTrigger, }) async {
     // ignore: prefer_const_declarations
     final path = r'/api/v2/contest-type/';
 
@@ -203,6 +205,7 @@ class ContestsApi {
       headerParams,
       formParams,
       contentTypes.isEmpty ? null : contentTypes.first,
+      abortTrigger: abortTrigger,
     );
   }
 
@@ -220,8 +223,8 @@ class ContestsApi {
   ///
   /// * [String] q:
   ///   > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. 
-  Future<PaginatedContestTypeSummaryList?> contestTypeList({ int? limit, int? offset, String? q, }) async {
-    final response = await contestTypeListWithHttpInfo( limit: limit, offset: offset, q: q, );
+  Future<PaginatedContestTypeSummaryList?> contestTypeList({ int? limit, int? offset, String? q, Future<void>? abortTrigger, }) async {
+    final response = await contestTypeListWithHttpInfo(limit: limit, offset: offset, q: q, abortTrigger: abortTrigger,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -245,7 +248,7 @@ class ContestsApi {
   ///
   /// * [String] id (required):
   ///   This parameter can be a string or an integer.
-  Future<Response> contestTypeRetrieveWithHttpInfo(String id,) async {
+  Future<Response> contestTypeRetrieveWithHttpInfo(String id, { Future<void>? abortTrigger, }) async {
     // ignore: prefer_const_declarations
     final path = r'/api/v2/contest-type/{id}/'
       .replaceAll('{id}', id);
@@ -268,6 +271,7 @@ class ContestsApi {
       headerParams,
       formParams,
       contentTypes.isEmpty ? null : contentTypes.first,
+      abortTrigger: abortTrigger,
     );
   }
 
@@ -279,8 +283,8 @@ class ContestsApi {
   ///
   /// * [String] id (required):
   ///   This parameter can be a string or an integer.
-  Future<ContestTypeDetail?> contestTypeRetrieve(String id,) async {
-    final response = await contestTypeRetrieveWithHttpInfo(id,);
+  Future<ContestTypeDetail?> contestTypeRetrieve(String id, { Future<void>? abortTrigger, }) async {
+    final response = await contestTypeRetrieveWithHttpInfo(id, abortTrigger: abortTrigger,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -310,7 +314,7 @@ class ContestsApi {
   ///
   /// * [String] q:
   ///   > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. 
-  Future<Response> superContestEffectListWithHttpInfo({ int? limit, int? offset, String? q, }) async {
+  Future<Response> superContestEffectListWithHttpInfo({ int? limit, int? offset, String? q, Future<void>? abortTrigger, }) async {
     // ignore: prefer_const_declarations
     final path = r'/api/v2/super-contest-effect/';
 
@@ -342,6 +346,7 @@ class ContestsApi {
       headerParams,
       formParams,
       contentTypes.isEmpty ? null : contentTypes.first,
+      abortTrigger: abortTrigger,
     );
   }
 
@@ -359,8 +364,8 @@ class ContestsApi {
   ///
   /// * [String] q:
   ///   > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. 
-  Future<PaginatedSuperContestEffectSummaryList?> superContestEffectList({ int? limit, int? offset, String? q, }) async {
-    final response = await superContestEffectListWithHttpInfo( limit: limit, offset: offset, q: q, );
+  Future<PaginatedSuperContestEffectSummaryList?> superContestEffectList({ int? limit, int? offset, String? q, Future<void>? abortTrigger, }) async {
+    final response = await superContestEffectListWithHttpInfo(limit: limit, offset: offset, q: q, abortTrigger: abortTrigger,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -384,7 +389,7 @@ class ContestsApi {
   ///
   /// * [String] id (required):
   ///   This parameter can be a string or an integer.
-  Future<Response> superContestEffectRetrieveWithHttpInfo(String id,) async {
+  Future<Response> superContestEffectRetrieveWithHttpInfo(String id, { Future<void>? abortTrigger, }) async {
     // ignore: prefer_const_declarations
     final path = r'/api/v2/super-contest-effect/{id}/'
       .replaceAll('{id}', id);
@@ -407,6 +412,7 @@ class ContestsApi {
       headerParams,
       formParams,
       contentTypes.isEmpty ? null : contentTypes.first,
+      abortTrigger: abortTrigger,
     );
   }
 
@@ -418,8 +424,8 @@ class ContestsApi {
   ///
   /// * [String] id (required):
   ///   This parameter can be a string or an integer.
-  Future<SuperContestEffectDetail?> superContestEffectRetrieve(String id,) async {
-    final response = await superContestEffectRetrieveWithHttpInfo(id,);
+  Future<SuperContestEffectDetail?> superContestEffectRetrieve(String id, { Future<void>? abortTrigger, }) async {
+    final response = await superContestEffectRetrieveWithHttpInfo(id, abortTrigger: abortTrigger,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }

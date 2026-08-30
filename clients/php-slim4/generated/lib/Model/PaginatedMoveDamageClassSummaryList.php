@@ -67,7 +67,8 @@ class PaginatedMoveDamageClassSummaryList extends BaseModel
       "type" : "array",
       "items" : {
         "$ref" : "#/components/schemas/MoveDamageClassSummary"
-      }
+      },
+      "default" : null
     }
   }
 }

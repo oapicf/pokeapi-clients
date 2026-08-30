@@ -145,7 +145,7 @@ ContestTypeDetail::getId()
 }
 
 void
-ContestTypeDetail::setId(int  id)
+ContestTypeDetail::setId(int id)
 {
 	this->id = id;
 }
@@ -157,7 +157,7 @@ ContestTypeDetail::getName()
 }
 
 void
-ContestTypeDetail::setName(std::string  name)
+ContestTypeDetail::setName(std::string name)
 {
 	this->name = name;
 }
@@ -169,7 +169,7 @@ ContestTypeDetail::getBerryFlavor()
 }
 
 void
-ContestTypeDetail::setBerryFlavor(BerryFlavorSummary  berry_flavor)
+ContestTypeDetail::setBerryFlavor(BerryFlavorSummary berry_flavor)
 {
 	this->berry_flavor = berry_flavor;
 }
@@ -181,7 +181,7 @@ ContestTypeDetail::getNames()
 }
 
 void
-ContestTypeDetail::setNames(std::list <ContestTypeName> names)
+ContestTypeDetail::setNames(std::list<ContestTypeName> names)
 {
 	this->names = names;
 }

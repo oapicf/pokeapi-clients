@@ -110,19 +110,19 @@ namespace Org.OpenAPITools.Model
         /// Gets or Sets FormNames
         /// </summary>
         [JsonPropertyName("form_names")]
-        public List<PokemonFormDetailFormNamesInner> FormNames { get; set; }
+        public List<PokemonFormDetailFormNamesInner> FormNames { get; }
 
         /// <summary>
         /// Gets or Sets Names
         /// </summary>
         [JsonPropertyName("names")]
-        public List<PokemonFormDetailFormNamesInner> Names { get; set; }
+        public List<PokemonFormDetailFormNamesInner> Names { get; }
 
         /// <summary>
         /// Gets or Sets Types
         /// </summary>
         [JsonPropertyName("types")]
-        public List<PokemonDetailTypesInner> Types { get; set; }
+        public List<PokemonDetailTypesInner> Types { get; }
 
         /// <summary>
         /// Used to track the state of Order
@@ -135,7 +135,7 @@ namespace Org.OpenAPITools.Model
         /// Gets or Sets Order
         /// </summary>
         [JsonPropertyName("order")]
-        public int? Order { get { return this.OrderOption; } set { this.OrderOption = new(value); } }
+        public int? Order { get { return this.OrderOption.Value; } set { this.OrderOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of FormOrder
@@ -148,7 +148,7 @@ namespace Org.OpenAPITools.Model
         /// Gets or Sets FormOrder
         /// </summary>
         [JsonPropertyName("form_order")]
-        public int? FormOrder { get { return this.FormOrderOption; } set { this.FormOrderOption = new(value); } }
+        public int? FormOrder { get { return this.FormOrderOption.Value; } set { this.FormOrderOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of IsDefault
@@ -161,7 +161,7 @@ namespace Org.OpenAPITools.Model
         /// Gets or Sets IsDefault
         /// </summary>
         [JsonPropertyName("is_default")]
-        public bool? IsDefault { get { return this.IsDefaultOption; } set { this.IsDefaultOption = new(value); } }
+        public bool? IsDefault { get { return this.IsDefaultOption.Value; } set { this.IsDefaultOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of IsBattleOnly
@@ -174,7 +174,7 @@ namespace Org.OpenAPITools.Model
         /// Gets or Sets IsBattleOnly
         /// </summary>
         [JsonPropertyName("is_battle_only")]
-        public bool? IsBattleOnly { get { return this.IsBattleOnlyOption; } set { this.IsBattleOnlyOption = new(value); } }
+        public bool? IsBattleOnly { get { return this.IsBattleOnlyOption.Value; } set { this.IsBattleOnlyOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of IsMega
@@ -187,7 +187,7 @@ namespace Org.OpenAPITools.Model
         /// Gets or Sets IsMega
         /// </summary>
         [JsonPropertyName("is_mega")]
-        public bool? IsMega { get { return this.IsMegaOption; } set { this.IsMegaOption = new(value); } }
+        public bool? IsMega { get { return this.IsMegaOption.Value; } set { this.IsMegaOption = new(value); } }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -241,8 +241,18 @@ namespace Org.OpenAPITools.Model
     /// <summary>
     /// A Json converter for type <see cref="PokemonFormDetail" />
     /// </summary>
-    public class PokemonFormDetailJsonConverter : JsonConverter<PokemonFormDetail>
+    public partial class PokemonFormDetailJsonConverter : JsonConverter<PokemonFormDetail>
     {
+        partial void OnCreated();
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="PokemonFormDetailJsonConverter" /> class.
+        /// </summary>
+        public PokemonFormDetailJsonConverter()
+        {
+            OnCreated();
+        }
+
         /// <summary>
         /// Deserializes json to <see cref="PokemonFormDetail" />
         /// </summary>

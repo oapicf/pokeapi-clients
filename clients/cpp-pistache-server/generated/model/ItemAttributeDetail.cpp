@@ -26,6 +26,8 @@ ItemAttributeDetail::ItemAttributeDetail()
     
 }
 
+ItemAttributeDetail::~ItemAttributeDetail() = default;
+
 void ItemAttributeDetail::validate() const
 {
     std::stringstream msg;

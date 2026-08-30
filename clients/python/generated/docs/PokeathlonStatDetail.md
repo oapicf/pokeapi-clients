@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **id** | **int** |  | [readonly] 
 **name** | **str** |  | 
 **affecting_natures** | [**PokeathlonStatDetailAffectingNatures**](PokeathlonStatDetailAffectingNatures.md) |  | 
-**names** | [**List[PokeathlonStatName]**](PokeathlonStatName.md) |  | 
+**names** | [**List[PokeathlonStatName]**](PokeathlonStatName.md) |  | [readonly] 
 
 ## Example
 

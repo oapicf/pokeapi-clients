@@ -39,7 +39,7 @@ import javax.annotation.Generated;
   GrowthRateDetail.JSON_PROPERTY_POKEMON_SPECIES
 })
 @JsonTypeName("GrowthRateDetail")
-@Generated(value="org.openapitools.codegen.languages.JavaMicronautClientCodegen", date="2026-02-07T15:22:54.857535619Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@Generated(value="org.openapitools.codegen.languages.JavaMicronautClientCodegen", date="2026-08-30T01:55:51.056116330Z[Etc/UTC]", comments = "Generator version: 7.24.0")
 @Introspected
 public class GrowthRateDetail {
     public static final String JSON_PROPERTY_ID = "id";
@@ -126,16 +126,6 @@ public class GrowthRateDetail {
         this.formula = formula;
     }
 
-    public GrowthRateDetail descriptions(List<@Valid GrowthRateDescription> descriptions) {
-        this.descriptions = descriptions;
-        return this;
-    }
-
-    public GrowthRateDetail addDescriptionsItem(GrowthRateDescription descriptionsItem) {
-        this.descriptions.add(descriptionsItem);
-        return this;
-    }
-
     /**
      * Get descriptions
      * @return descriptions
@@ -145,22 +135,6 @@ public class GrowthRateDetail {
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public List<@Valid GrowthRateDescription> getDescriptions() {
         return descriptions;
-    }
-
-    @JsonProperty(JSON_PROPERTY_DESCRIPTIONS)
-    @JsonInclude(value = JsonInclude.Include.ALWAYS)
-    public void setDescriptions(List<@Valid GrowthRateDescription> descriptions) {
-        this.descriptions = descriptions;
-    }
-
-    public GrowthRateDetail levels(List<@Valid Experience> levels) {
-        this.levels = levels;
-        return this;
-    }
-
-    public GrowthRateDetail addLevelsItem(Experience levelsItem) {
-        this.levels.add(levelsItem);
-        return this;
     }
 
     /**
@@ -174,22 +148,6 @@ public class GrowthRateDetail {
         return levels;
     }
 
-    @JsonProperty(JSON_PROPERTY_LEVELS)
-    @JsonInclude(value = JsonInclude.Include.ALWAYS)
-    public void setLevels(List<@Valid Experience> levels) {
-        this.levels = levels;
-    }
-
-    public GrowthRateDetail pokemonSpecies(List<@Valid PokemonSpeciesSummary> pokemonSpecies) {
-        this.pokemonSpecies = pokemonSpecies;
-        return this;
-    }
-
-    public GrowthRateDetail addPokemonSpeciesItem(PokemonSpeciesSummary pokemonSpeciesItem) {
-        this.pokemonSpecies.add(pokemonSpeciesItem);
-        return this;
-    }
-
     /**
      * Get pokemonSpecies
      * @return pokemonSpecies
@@ -199,12 +157,6 @@ public class GrowthRateDetail {
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public List<@Valid PokemonSpeciesSummary> getPokemonSpecies() {
         return pokemonSpecies;
-    }
-
-    @JsonProperty(JSON_PROPERTY_POKEMON_SPECIES)
-    @JsonInclude(value = JsonInclude.Include.ALWAYS)
-    public void setPokemonSpecies(List<@Valid PokemonSpeciesSummary> pokemonSpecies) {
-        this.pokemonSpecies = pokemonSpecies;
     }
 
     @Override
@@ -248,10 +200,7 @@ public class GrowthRateDetail {
      * (except the first line).
      */
     private String toIndentedString(Object o) {
-        if (o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
+        return o == null ? "null" : o.toString().replace("\n", "\n    ");
     }
 
 }

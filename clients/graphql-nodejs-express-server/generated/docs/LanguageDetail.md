@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **official** | **Boolean!** |  | [optional] [default to null]
 **iso639** | **String!** |  | [default to null]
 **iso3166** | **String!** |  | [default to null]
-**names** | [**LanguageName**](LanguageName.md) |  | [default to null]
+**names** | [**LanguageName**](LanguageName.md) |  | [readonly] [default to null]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

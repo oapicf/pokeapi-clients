@@ -32,7 +32,7 @@ class  EvolutionChainSummary
 {
 public:
     EvolutionChainSummary();
-    virtual ~EvolutionChainSummary() = default;
+    virtual ~EvolutionChainSummary();
 
 
     /// <summary>

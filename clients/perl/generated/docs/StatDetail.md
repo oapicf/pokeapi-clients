@@ -14,9 +14,9 @@ Name | Type | Description | Notes
 **is_battle_only** | **boolean** |  | [optional] 
 **affecting_moves** | [**StatDetailAffectingMoves**](StatDetailAffectingMoves.md) |  | 
 **affecting_natures** | [**StatDetailAffectingNatures**](StatDetailAffectingNatures.md) |  | 
-**characteristics** | [**ARRAY[CharacteristicSummary]**](CharacteristicSummary.md) |  | 
+**characteristics** | [**ARRAY[CharacteristicSummary]**](CharacteristicSummary.md) |  | [readonly] 
 **move_damage_class** | [**MoveDamageClassSummary**](MoveDamageClassSummary.md) |  | 
-**names** | [**ARRAY[StatName]**](StatName.md) |  | 
+**names** | [**ARRAY[StatName]**](StatName.md) |  | [readonly] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

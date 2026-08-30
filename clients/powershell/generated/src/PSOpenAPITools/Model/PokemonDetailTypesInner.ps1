@@ -49,8 +49,8 @@ function Initialize-PokemonDetailTypesInner {
 
 
         $PSO = [PSCustomObject]@{
-            "slot" = ${Slot}
-            "type" = ${Type}
+            'slot' = ${Slot}
+            'type' = ${Type}
         }
 
 
@@ -88,7 +88,7 @@ function ConvertFrom-JsonToPokemonDetailTypesInner {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in PokemonDetailTypesInner
-        $AllProperties = ("slot", "type")
+        $AllProperties = ('slot', 'type')
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -99,21 +99,21 @@ function ConvertFrom-JsonToPokemonDetailTypesInner {
             throw "Error! Empty JSON cannot be serialized due to the required property 'slot' missing."
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "slot"))) {
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'slot'))) {
             throw "Error! JSON cannot be serialized due to the required property 'slot' missing."
         } else {
-            $Slot = $JsonParameters.PSobject.Properties["slot"].value
+            $Slot = $JsonParameters.PSobject.Properties['slot'].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "type"))) {
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'type'))) {
             throw "Error! JSON cannot be serialized due to the required property 'type' missing."
         } else {
-            $Type = $JsonParameters.PSobject.Properties["type"].value
+            $Type = $JsonParameters.PSobject.Properties['type'].value
         }
 
         $PSO = [PSCustomObject]@{
-            "slot" = ${Slot}
-            "type" = ${Type}
+            'slot' = ${Slot}
+            'type' = ${Type}
         }
 
         return $PSO

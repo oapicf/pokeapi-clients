@@ -12,26 +12,24 @@ import org.openapitools.model.AbilityDetailPokemonInnerPokemon;
 import org.springframework.lang.Nullable;
 import org.openapitools.jackson.nullable.JsonNullable;
 import java.time.OffsetDateTime;
-import javax.validation.Valid;
-import javax.validation.constraints.*;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.*;
 import io.swagger.v3.oas.annotations.media.Schema;
 
 
 import java.util.*;
-import javax.annotation.Generated;
+import jakarta.annotation.Generated;
 
 /**
  * MoveDetailContestCombosNormal
  */
 
 @JsonTypeName("MoveDetail_contest_combos_normal")
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2026-02-07T15:29:13.146999890Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2026-08-30T02:00:43.960184425Z[Etc/UTC]", comments = "Generator version: 7.24.0")
 public class MoveDetailContestCombosNormal {
 
-  @Valid
   private List<@Valid AbilityDetailPokemonInnerPokemon> useBefore = new ArrayList<>();
 
-  @Valid
   private List<@Valid AbilityDetailPokemonInnerPokemon> useAfter = new ArrayList<>();
 
   public MoveDetailContestCombosNormal() {
@@ -70,6 +68,7 @@ public class MoveDetailContestCombosNormal {
     return useBefore;
   }
 
+  @JsonProperty("use_before")
   public void setUseBefore(List<@Valid AbilityDetailPokemonInnerPokemon> useBefore) {
     this.useBefore = useBefore;
   }
@@ -98,6 +97,7 @@ public class MoveDetailContestCombosNormal {
     return useAfter;
   }
 
+  @JsonProperty("use_after")
   public void setUseAfter(List<@Valid AbilityDetailPokemonInnerPokemon> useAfter) {
     this.useAfter = useAfter;
   }
@@ -134,11 +134,8 @@ public class MoveDetailContestCombosNormal {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+  private String toIndentedString(@Nullable Object o) {
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 }
 

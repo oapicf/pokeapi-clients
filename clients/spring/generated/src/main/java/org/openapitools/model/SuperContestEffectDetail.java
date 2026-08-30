@@ -12,29 +12,27 @@ import org.openapitools.model.SuperContestEffectFlavorText;
 import org.springframework.lang.Nullable;
 import org.openapitools.jackson.nullable.JsonNullable;
 import java.time.OffsetDateTime;
-import javax.validation.Valid;
-import javax.validation.constraints.*;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.*;
 import io.swagger.v3.oas.annotations.media.Schema;
 
 
 import java.util.*;
-import javax.annotation.Generated;
+import jakarta.annotation.Generated;
 
 /**
  * SuperContestEffectDetail
  */
 
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2026-02-07T15:29:13.146999890Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2026-08-30T02:00:43.960184425Z[Etc/UTC]", comments = "Generator version: 7.24.0")
 public class SuperContestEffectDetail {
 
   private Integer id;
 
   private Integer appeal;
 
-  @Valid
   private List<@Valid SuperContestEffectFlavorText> flavorTextEntries = new ArrayList<>();
 
-  @Valid
   private List<@Valid MoveSummary> moves = new ArrayList<>();
 
   public SuperContestEffectDetail() {
@@ -67,6 +65,7 @@ public class SuperContestEffectDetail {
     return id;
   }
 
+  @JsonProperty("id")
   public void setId(Integer id) {
     this.id = id;
   }
@@ -87,6 +86,7 @@ public class SuperContestEffectDetail {
     return appeal;
   }
 
+  @JsonProperty("appeal")
   public void setAppeal(Integer appeal) {
     this.appeal = appeal;
   }
@@ -108,13 +108,14 @@ public class SuperContestEffectDetail {
    * Get flavorTextEntries
    * @return flavorTextEntries
    */
-  @NotNull @Valid 
-  @Schema(name = "flavor_text_entries", requiredMode = Schema.RequiredMode.REQUIRED)
+  @Valid 
+  @Schema(name = "flavor_text_entries", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("flavor_text_entries")
   public List<@Valid SuperContestEffectFlavorText> getFlavorTextEntries() {
     return flavorTextEntries;
   }
 
+  @JsonProperty("flavor_text_entries")
   public void setFlavorTextEntries(List<@Valid SuperContestEffectFlavorText> flavorTextEntries) {
     this.flavorTextEntries = flavorTextEntries;
   }
@@ -136,13 +137,14 @@ public class SuperContestEffectDetail {
    * Get moves
    * @return moves
    */
-  @NotNull @Valid 
-  @Schema(name = "moves", requiredMode = Schema.RequiredMode.REQUIRED)
+  @Valid 
+  @Schema(name = "moves", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("moves")
   public List<@Valid MoveSummary> getMoves() {
     return moves;
   }
 
+  @JsonProperty("moves")
   public void setMoves(List<@Valid MoveSummary> moves) {
     this.moves = moves;
   }
@@ -183,11 +185,8 @@ public class SuperContestEffectDetail {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+  private String toIndentedString(@Nullable Object o) {
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 }
 

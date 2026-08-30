@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 **power** | **int** |  | [optional] 
 **pp** | **int** |  | [optional] 
 **effect_chance** | **int** |  | 
-**effect_entries** | [**list_t**](move_change_effect_entries_inner.md) \* |  | 
+**effect_entries** | [**list_t**](move_change_effect_entries_inner.md) \* |  | [readonly] 
 **type** | [**type_summary_t**](type_summary.md) \* |  | 
 **version_group** | [**version_group_summary_t**](version_group_summary.md) \* |  | 
 

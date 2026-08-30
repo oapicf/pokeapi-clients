@@ -23,7 +23,7 @@ typedef struct location_detail_t location_detail_t;
 
 
 typedef struct location_detail_t {
-    int id; //numeric
+    int *id; //numeric
     char *name; // string
     struct region_summary_t *region; //model
     list_t *names; //nonprimitive container
@@ -34,7 +34,7 @@ typedef struct location_detail_t {
 } location_detail_t;
 
 __attribute__((deprecated)) location_detail_t *location_detail_create(
-    int id,
+    int *id,
     char *name,
     region_summary_t *region,
     list_t *names,

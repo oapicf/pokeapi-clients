@@ -8,10 +8,10 @@ Name | Type | Description | Notes
 **name** | **String** |  | 
 **order** | Option<**i32**> |  | [optional]
 **generation** | [**models::GenerationSummary**](GenerationSummary.md) |  | 
-**move_learn_methods** | [**Vec<models::AbilityDetailPokemonInnerPokemon>**](AbilityDetail_pokemon_inner_pokemon.md) |  | 
-**pokedexes** | [**Vec<models::AbilityDetailPokemonInnerPokemon>**](AbilityDetail_pokemon_inner_pokemon.md) |  | 
-**regions** | [**Vec<models::AbilityDetailPokemonInnerPokemon>**](AbilityDetail_pokemon_inner_pokemon.md) |  | 
-**versions** | [**Vec<models::VersionSummary>**](VersionSummary.md) |  | 
+**move_learn_methods** | [**Vec<models::AbilityDetailPokemonInnerPokemon>**](AbilityDetailPokemonInnerPokemon.md) |  | [readonly]
+**pokedexes** | [**Vec<models::AbilityDetailPokemonInnerPokemon>**](AbilityDetailPokemonInnerPokemon.md) |  | [readonly]
+**regions** | [**Vec<models::AbilityDetailPokemonInnerPokemon>**](AbilityDetailPokemonInnerPokemon.md) |  | [readonly]
+**versions** | [**Vec<models::VersionSummary>**](VersionSummary.md) |  | [readonly]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

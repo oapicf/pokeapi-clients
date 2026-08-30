@@ -12,6 +12,7 @@
 #include <string>
 #include "bourne/json.hpp"
 #include "Helpers.h"
+#include <map>
 
 namespace Tiny {
 
@@ -51,7 +52,7 @@ public:
 
 	/*! \brief Set 
 	 */
-	void setRDefault(std::string  r_default);
+	void setRDefault(std::string r_default);
 
 
     private:

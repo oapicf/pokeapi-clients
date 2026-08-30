@@ -34,7 +34,7 @@ class  CharacteristicDetail
 {
 public:
     CharacteristicDetail();
-    virtual ~CharacteristicDetail() = default;
+    virtual ~CharacteristicDetail();
 
 
     /// <summary>

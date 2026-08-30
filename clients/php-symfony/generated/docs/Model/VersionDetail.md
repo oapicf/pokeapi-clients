@@ -5,7 +5,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **int** |  | [readonly] 
 **name** | **string** |  | 
-**names** | [**OpenAPI\Server\Model\VersionName**](VersionName.md) |  | 
+**names** | [**OpenAPI\Server\Model\VersionName**](VersionName.md) |  | [readonly] 
 **versionGroup** | [**OpenAPI\Server\Model\VersionGroupSummary**](VersionGroupSummary.md) |  | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

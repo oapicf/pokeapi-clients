@@ -55,7 +55,7 @@ namespace Org.OpenAPITools.Model
         /// Gets or Sets Default
         /// </summary>
         [JsonPropertyName("default")]
-        public string? Default { get { return this.DefaultOption; } set { this.DefaultOption = new(value); } }
+        public string? Default { get { return this.DefaultOption.Value; } set { this.DefaultOption = new(value); } }
 
         /// <summary>
         /// Gets or Sets additional properties
@@ -91,8 +91,18 @@ namespace Org.OpenAPITools.Model
     /// <summary>
     /// A Json converter for type <see cref="PokemonFormDetailSprites" />
     /// </summary>
-    public class PokemonFormDetailSpritesJsonConverter : JsonConverter<PokemonFormDetailSprites>
+    public partial class PokemonFormDetailSpritesJsonConverter : JsonConverter<PokemonFormDetailSprites>
     {
+        partial void OnCreated();
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="PokemonFormDetailSpritesJsonConverter" /> class.
+        /// </summary>
+        public PokemonFormDetailSpritesJsonConverter()
+        {
+            OnCreated();
+        }
+
         /// <summary>
         /// Deserializes json to <see cref="PokemonFormDetailSprites" />
         /// </summary>

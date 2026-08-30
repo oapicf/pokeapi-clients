@@ -6,8 +6,8 @@
 | ------------ | ------------- | ------------- | ------------- |
 | **id** | **kotlin.Int** |  |  [readonly] |
 | **name** | **kotlin.String** |  |  |
-| **names** | [**kotlin.collections.List&lt;EvolutionTriggerName&gt;**](EvolutionTriggerName.md) |  |  |
-| **pokemonSpecies** | [**kotlin.collections.List&lt;AbilityDetailPokemonInnerPokemon&gt;**](AbilityDetailPokemonInnerPokemon.md) |  |  |
+| **names** | [**kotlin.collections.List&lt;EvolutionTriggerName&gt;**](EvolutionTriggerName.md) |  |  [readonly] |
+| **pokemonSpecies** | [**kotlin.collections.List&lt;AbilityDetailPokemonInnerPokemon&gt;**](AbilityDetailPokemonInnerPokemon.md) |  |  [readonly] |
 
 
 

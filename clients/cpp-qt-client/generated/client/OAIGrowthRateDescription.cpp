@@ -21,7 +21,7 @@
 
 namespace OpenAPI {
 
-OAIGrowthRateDescription::OAIGrowthRateDescription(QString json) {
+OAIGrowthRateDescription::OAIGrowthRateDescription(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -41,7 +41,7 @@ void OAIGrowthRateDescription::initializeModel() {
     m_language_isValid = false;
 }
 
-void OAIGrowthRateDescription::fromJson(QString jsonString) {
+void OAIGrowthRateDescription::fromJson(const QString &jsonString) {
     QByteArray array(jsonString.toStdString().c_str());
     QJsonDocument doc = QJsonDocument::fromJson(array);
     QJsonObject jsonObject = doc.object();

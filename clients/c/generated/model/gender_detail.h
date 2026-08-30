@@ -21,7 +21,7 @@ typedef struct gender_detail_t gender_detail_t;
 
 
 typedef struct gender_detail_t {
-    int id; //numeric
+    int *id; //numeric
     char *name; // string
     list_t *pokemon_species_details; //nonprimitive container
     list_t *required_for_evolution; //nonprimitive container
@@ -30,7 +30,7 @@ typedef struct gender_detail_t {
 } gender_detail_t;
 
 __attribute__((deprecated)) gender_detail_t *gender_detail_create(
-    int id,
+    int *id,
     char *name,
     list_t *pokemon_species_details,
     list_t *required_for_evolution

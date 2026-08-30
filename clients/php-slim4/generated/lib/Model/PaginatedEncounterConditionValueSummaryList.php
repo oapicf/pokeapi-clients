@@ -67,7 +67,8 @@ class PaginatedEncounterConditionValueSummaryList extends BaseModel
       "type" : "array",
       "items" : {
         "$ref" : "#/components/schemas/EncounterConditionValueSummary"
-      }
+      },
+      "default" : null
     }
   }
 }

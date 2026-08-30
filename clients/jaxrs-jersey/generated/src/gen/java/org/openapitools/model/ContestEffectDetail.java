@@ -37,7 +37,7 @@ import javax.validation.Valid;
   ContestEffectDetail.JSON_PROPERTY_EFFECT_ENTRIES,
   ContestEffectDetail.JSON_PROPERTY_FLAVOR_TEXT_ENTRIES
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJerseyServerCodegen", date = "2026-02-07T15:23:51.865177194Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJerseyServerCodegen", date = "2026-08-30T01:56:28.710233113Z[Etc/UTC]", comments = "Generator version: 7.24.0")
 public class ContestEffectDetail   {
   public static final String JSON_PROPERTY_ID = "id";
   @JsonProperty(JSON_PROPERTY_ID)
@@ -136,9 +136,9 @@ public class ContestEffectDetail   {
    * Get effectEntries
    * @return effectEntries
    **/
-  @JsonProperty(value = "effect_entries")
+  @JsonProperty(value = "effect_entries", access = JsonProperty.Access.READ_ONLY)
   @ApiModelProperty(required = true, value = "")
-  @NotNull @Valid 
+  @Valid 
   public List<@Valid ContestEffectEffectText> getEffectEntries() {
     return effectEntries;
   }
@@ -164,9 +164,9 @@ public class ContestEffectDetail   {
    * Get flavorTextEntries
    * @return flavorTextEntries
    **/
-  @JsonProperty(value = "flavor_text_entries")
+  @JsonProperty(value = "flavor_text_entries", access = JsonProperty.Access.READ_ONLY)
   @ApiModelProperty(required = true, value = "")
-  @NotNull @Valid 
+  @Valid 
   public List<@Valid ContestEffectFlavorText> getFlavorTextEntries() {
     return flavorTextEntries;
   }
@@ -216,10 +216,7 @@ public class ContestEffectDetail   {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 }
 

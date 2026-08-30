@@ -47,7 +47,7 @@ class ItemEffectText
      * @var string|null
      * @SerializedName("effect")
      * @Type("string")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Type("string")]
     #[Assert\Length(max: 6000)]
@@ -57,7 +57,7 @@ class ItemEffectText
      * @var string|null
      * @SerializedName("short_effect")
      * @Type("string")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Type("string")]
     #[Assert\Length(max: 300)]
@@ -67,7 +67,7 @@ class ItemEffectText
      * @var LanguageSummary|null
      * @SerializedName("language")
      * @Type("OpenAPI\Server\Model\LanguageSummary")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Valid]
     #[Assert\Type("OpenAPI\Server\Model\LanguageSummary")]
@@ -97,12 +97,12 @@ class ItemEffectText
     }
 
     /**
-    * Sets effect.
-    *
-    * @param string|null $effect
-    *
-    * @return $this
-    */
+     * Sets effect.
+     *
+     * @param string|null $effect
+     *
+     * @return $this
+     */
     public function setEffect(?string $effect): self
     {
         $this->effect = $effect;
@@ -124,12 +124,12 @@ class ItemEffectText
     }
 
     /**
-    * Sets shortEffect.
-    *
-    * @param string|null $shortEffect
-    *
-    * @return $this
-    */
+     * Sets shortEffect.
+     *
+     * @param string|null $shortEffect
+     *
+     * @return $this
+     */
     public function setShortEffect(?string $shortEffect): self
     {
         $this->shortEffect = $shortEffect;
@@ -151,12 +151,12 @@ class ItemEffectText
     }
 
     /**
-    * Sets language.
-    *
-    * @param LanguageSummary|null $language
-    *
-    * @return $this
-    */
+     * Sets language.
+     *
+     * @param LanguageSummary|null $language
+     *
+     * @return $this
+     */
     public function setLanguage(?LanguageSummary $language): self
     {
         $this->language = $language;

@@ -6,8 +6,8 @@
 | ---- | ---- | ----------- | ----- |
 | **id** | **Integer** |  | [readonly] |
 | **name** | **String** |  |  |
-| **names** | [**Array&lt;EvolutionTriggerName&gt;**](EvolutionTriggerName.md) |  |  |
-| **pokemon_species** | [**Array&lt;AbilityDetailPokemonInnerPokemon&gt;**](AbilityDetailPokemonInnerPokemon.md) |  |  |
+| **names** | [**Array&lt;EvolutionTriggerName&gt;**](EvolutionTriggerName.md) |  | [readonly] |
+| **pokemon_species** | [**Array&lt;AbilityDetailPokemonInnerPokemon&gt;**](AbilityDetailPokemonInnerPokemon.md) |  | [readonly] |
 
 ## Example
 

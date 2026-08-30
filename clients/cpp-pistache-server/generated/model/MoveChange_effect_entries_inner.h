@@ -33,7 +33,7 @@ class  MoveChange_effect_entries_inner
 {
 public:
     MoveChange_effect_entries_inner();
-    virtual ~MoveChange_effect_entries_inner() = default;
+    virtual ~MoveChange_effect_entries_inner();
 
 
     /// <summary>

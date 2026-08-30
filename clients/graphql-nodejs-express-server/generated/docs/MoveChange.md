@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 **power** | **Int** |  | [optional] [default to null]
 **pp** | **Int** |  | [optional] [default to null]
 **effectChance** | **Int!** |  | [default to null]
-**effectEntries** | [**MoveChangeEffectEntriesInner**](MoveChange_effect_entries_inner.md) |  | [default to null]
+**effectEntries** | [**MoveChangeEffectEntriesInner**](MoveChange_effect_entries_inner.md) |  | [readonly] [default to null]
 **Type_** | [***TypeSummary**](TypeSummary.md) |  | [default to null]
 **versionGroup** | [***VersionGroupSummary**](VersionGroupSummary.md) |  | [default to null]
 

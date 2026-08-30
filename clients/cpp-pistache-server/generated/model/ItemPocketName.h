@@ -33,7 +33,7 @@ class  ItemPocketName
 {
 public:
     ItemPocketName();
-    virtual ~ItemPocketName() = default;
+    virtual ~ItemPocketName();
 
 
     /// <summary>

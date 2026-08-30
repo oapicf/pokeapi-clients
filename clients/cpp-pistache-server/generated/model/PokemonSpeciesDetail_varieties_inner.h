@@ -32,7 +32,7 @@ class  PokemonSpeciesDetail_varieties_inner
 {
 public:
     PokemonSpeciesDetail_varieties_inner();
-    virtual ~PokemonSpeciesDetail_varieties_inner() = default;
+    virtual ~PokemonSpeciesDetail_varieties_inner();
 
 
     /// <summary>

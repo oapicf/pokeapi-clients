@@ -40,7 +40,7 @@ class  GenerationDetail
 {
 public:
     GenerationDetail();
-    virtual ~GenerationDetail() = default;
+    virtual ~GenerationDetail();
 
 
     /// <summary>

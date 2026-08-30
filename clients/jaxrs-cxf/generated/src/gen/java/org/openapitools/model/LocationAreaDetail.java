@@ -111,19 +111,6 @@ public class LocationAreaDetail  {
     return encounterMethodRates;
   }
 
-  public void setEncounterMethodRates(List<@Valid LocationAreaDetailEncounterMethodRatesInner> encounterMethodRates) {
-    this.encounterMethodRates = encounterMethodRates;
-  }
-
-  public LocationAreaDetail encounterMethodRates(List<@Valid LocationAreaDetailEncounterMethodRatesInner> encounterMethodRates) {
-    this.encounterMethodRates = encounterMethodRates;
-    return this;
-  }
-
-  public LocationAreaDetail addEncounterMethodRatesItem(LocationAreaDetailEncounterMethodRatesInner encounterMethodRatesItem) {
-    this.encounterMethodRates.add(encounterMethodRatesItem);
-    return this;
-  }
 
  /**
    * Get location
@@ -154,19 +141,6 @@ public class LocationAreaDetail  {
     return names;
   }
 
-  public void setNames(List<@Valid LocationAreaName> names) {
-    this.names = names;
-  }
-
-  public LocationAreaDetail names(List<@Valid LocationAreaName> names) {
-    this.names = names;
-    return this;
-  }
-
-  public LocationAreaDetail addNamesItem(LocationAreaName namesItem) {
-    this.names.add(namesItem);
-    return this;
-  }
 
  /**
    * Get pokemonEncounters
@@ -178,19 +152,6 @@ public class LocationAreaDetail  {
     return pokemonEncounters;
   }
 
-  public void setPokemonEncounters(List<@Valid LocationAreaDetailPokemonEncountersInner> pokemonEncounters) {
-    this.pokemonEncounters = pokemonEncounters;
-  }
-
-  public LocationAreaDetail pokemonEncounters(List<@Valid LocationAreaDetailPokemonEncountersInner> pokemonEncounters) {
-    this.pokemonEncounters = pokemonEncounters;
-    return this;
-  }
-
-  public LocationAreaDetail addPokemonEncountersItem(LocationAreaDetailPokemonEncountersInner pokemonEncountersItem) {
-    this.pokemonEncounters.add(pokemonEncountersItem);
-    return this;
-  }
 
   @Override
   public boolean equals(Object o) {
@@ -236,10 +197,7 @@ public class LocationAreaDetail  {
    * (except the first line).
    */
   private static String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 }
 

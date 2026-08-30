@@ -9,10 +9,10 @@ Name | Type | Description | Notes
 **increased_stat** | [**STAT_SUMMARY**](StatSummary.md) |  | [default to null]
 **likes_flavor** | [**BERRY_FLAVOR_SUMMARY**](BerryFlavorSummary.md) |  | [default to null]
 **hates_flavor** | [**BERRY_FLAVOR_SUMMARY**](BerryFlavorSummary.md) |  | [default to null]
-**berries** | [**LIST [BERRY_SUMMARY]**](BerrySummary.md) |  | [default to null]
-**pokeathlon_stat_changes** | [**LIST [NATURE_DETAIL_POKEATHLON_STAT_CHANGES_INNER]**](NatureDetail_pokeathlon_stat_changes_inner.md) |  | [default to null]
-**move_battle_style_preferences** | [**LIST [NATURE_BATTLE_STYLE_PREFERENCE]**](NatureBattleStylePreference.md) |  | [default to null]
-**names** | [**LIST [NATURE_NAME]**](NatureName.md) |  | [default to null]
+**berries** | [**LIST [BERRY_SUMMARY]**](BerrySummary.md) |  | [readonly] [default to null]
+**pokeathlon_stat_changes** | [**LIST [NATURE_DETAIL_POKEATHLON_STAT_CHANGES_INNER]**](NatureDetail_pokeathlon_stat_changes_inner.md) |  | [readonly] [default to null]
+**move_battle_style_preferences** | [**LIST [NATURE_BATTLE_STYLE_PREFERENCE]**](NatureBattleStylePreference.md) |  | [readonly] [default to null]
+**names** | [**LIST [NATURE_NAME]**](NatureName.md) |  | [readonly] [default to null]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

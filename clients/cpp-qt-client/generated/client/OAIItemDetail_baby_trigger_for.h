@@ -31,13 +31,13 @@ namespace OpenAPI {
 class OAIItemDetail_baby_trigger_for : public OAIObject {
 public:
     OAIItemDetail_baby_trigger_for();
-    OAIItemDetail_baby_trigger_for(QString json);
+    OAIItemDetail_baby_trigger_for(const QString &json);
     ~OAIItemDetail_baby_trigger_for() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     QString getUrl() const;
     void setUrl(const QString &url);

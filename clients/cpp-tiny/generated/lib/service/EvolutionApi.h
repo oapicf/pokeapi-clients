@@ -24,7 +24,7 @@ class EvolutionApi : public Service {
 public:
     EvolutionApi() = default;
 
-    virtual ~EvolutionApi() = default;
+    virtual ~EvolutionApi();
 
     /**
     * List evolution chains.

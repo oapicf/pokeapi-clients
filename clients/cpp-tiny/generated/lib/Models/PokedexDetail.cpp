@@ -280,7 +280,7 @@ PokedexDetail::getId()
 }
 
 void
-PokedexDetail::setId(int  id)
+PokedexDetail::setId(int id)
 {
 	this->id = id;
 }
@@ -292,7 +292,7 @@ PokedexDetail::getName()
 }
 
 void
-PokedexDetail::setName(std::string  name)
+PokedexDetail::setName(std::string name)
 {
 	this->name = name;
 }
@@ -304,7 +304,7 @@ PokedexDetail::isIsMainSeries()
 }
 
 void
-PokedexDetail::setIsMainSeries(bool  is_main_series)
+PokedexDetail::setIsMainSeries(bool is_main_series)
 {
 	this->is_main_series = is_main_series;
 }
@@ -316,7 +316,7 @@ PokedexDetail::getDescriptions()
 }
 
 void
-PokedexDetail::setDescriptions(std::list <PokedexDescription> descriptions)
+PokedexDetail::setDescriptions(std::list<PokedexDescription> descriptions)
 {
 	this->descriptions = descriptions;
 }
@@ -328,7 +328,7 @@ PokedexDetail::getNames()
 }
 
 void
-PokedexDetail::setNames(std::list <PokedexName> names)
+PokedexDetail::setNames(std::list<PokedexName> names)
 {
 	this->names = names;
 }
@@ -340,7 +340,7 @@ PokedexDetail::getPokemonEntries()
 }
 
 void
-PokedexDetail::setPokemonEntries(std::list <PokedexDetail_pokemon_entries_inner> pokemon_entries)
+PokedexDetail::setPokemonEntries(std::list<PokedexDetail_pokemon_entries_inner> pokemon_entries)
 {
 	this->pokemon_entries = pokemon_entries;
 }
@@ -352,7 +352,7 @@ PokedexDetail::getRegion()
 }
 
 void
-PokedexDetail::setRegion(RegionSummary  region)
+PokedexDetail::setRegion(RegionSummary region)
 {
 	this->region = region;
 }
@@ -364,7 +364,7 @@ PokedexDetail::getVersionGroups()
 }
 
 void
-PokedexDetail::setVersionGroups(std::list <AbilityDetail_pokemon_inner_pokemon> version_groups)
+PokedexDetail::setVersionGroups(std::list<AbilityDetail_pokemon_inner_pokemon> version_groups)
 {
 	this->version_groups = version_groups;
 }

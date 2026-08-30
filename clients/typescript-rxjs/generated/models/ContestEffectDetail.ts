@@ -40,10 +40,10 @@ export interface ContestEffectDetail {
      * @type {Array<ContestEffectEffectText>}
      * @memberof ContestEffectDetail
      */
-    effect_entries: Array<ContestEffectEffectText>;
+    readonly effect_entries: Array<ContestEffectEffectText>;
     /**
      * @type {Array<ContestEffectFlavorText>}
      * @memberof ContestEffectDetail
      */
-    flavor_text_entries: Array<ContestEffectFlavorText>;
+    readonly flavor_text_entries: Array<ContestEffectFlavorText>;
 }

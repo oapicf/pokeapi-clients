@@ -6,7 +6,7 @@
 
 
 static generation_detail_t *generation_detail_create_internal(
-    int id,
+    int *id,
     char *name,
     list_t *abilities,
     region_summary_t *main_region,
@@ -20,6 +20,8 @@ static generation_detail_t *generation_detail_create_internal(
     if (!generation_detail_local_var) {
         return NULL;
     }
+    memset(generation_detail_local_var, 0, sizeof(generation_detail_t));
+    generation_detail_local_var->_library_owned = 1;
     generation_detail_local_var->id = id;
     generation_detail_local_var->name = name;
     generation_detail_local_var->abilities = abilities;
@@ -29,13 +31,11 @@ static generation_detail_t *generation_detail_create_internal(
     generation_detail_local_var->pokemon_species = pokemon_species;
     generation_detail_local_var->types = types;
     generation_detail_local_var->version_groups = version_groups;
-
-    generation_detail_local_var->_library_owned = 1;
     return generation_detail_local_var;
 }
 
 __attribute__((deprecated)) generation_detail_t *generation_detail_create(
-    int id,
+    int *id,
     char *name,
     list_t *abilities,
     region_summary_t *main_region,
@@ -45,8 +45,13 @@ __attribute__((deprecated)) generation_detail_t *generation_detail_create(
     list_t *types,
     list_t *version_groups
     ) {
-    return generation_detail_create_internal (
-        id,
+    int *id_copy = NULL;
+    if (id) {
+        id_copy = malloc(sizeof(int));
+        if (id_copy) *id_copy = *id;
+    }
+    generation_detail_t *result = generation_detail_create_internal (
+        id_copy,
         name,
         abilities,
         main_region,
@@ -56,6 +61,10 @@ __attribute__((deprecated)) generation_detail_t *generation_detail_create(
         types,
         version_groups
         );
+    if (!result) {
+        free(id_copy);
+    }
+    return result;
 }
 
 void generation_detail_free(generation_detail_t *generation_detail) {
@@ -67,6 +76,10 @@ void generation_detail_free(generation_detail_t *generation_detail) {
         return ;
     }
     listEntry_t *listEntry;
+    if (generation_detail->id) {
+        free(generation_detail->id);
+        generation_detail->id = NULL;
+    }
     if (generation_detail->name) {
         free(generation_detail->name);
         generation_detail->name = NULL;
@@ -127,7 +140,7 @@ cJSON *generation_detail_convertToJSON(generation_detail_t *generation_detail) {
     if (!generation_detail->id) {
         goto fail;
     }
-    if(cJSON_AddNumberToObject(item, "id", generation_detail->id) == NULL) {
+    if(cJSON_AddNumberToObject(item, "id", *generation_detail->id) == NULL) {
     goto fail; //Numeric
     }
 
@@ -292,6 +305,11 @@ generation_detail_t *generation_detail_parseFromJSON(cJSON *generation_detailJSO
 
     generation_detail_t *generation_detail_local_var = NULL;
 
+    // define the local variable for generation_detail->id
+    int *id_local_var = NULL;
+
+    char *name_local_str = NULL;
+
     // define the local list for generation_detail->abilities
     list_t *abilitiesList = NULL;
 
@@ -327,6 +345,12 @@ generation_detail_t *generation_detail_parseFromJSON(cJSON *generation_detailJSO
     {
     goto end; //Numeric
     }
+    id_local_var = malloc(sizeof(int));
+    if(!id_local_var)
+    {
+        goto end;
+    }
+    *id_local_var = id->valuedouble;
 
     // generation_detail->name
     cJSON *name = cJSON_GetObjectItemCaseSensitive(generation_detailJSON, "name");
@@ -518,9 +542,11 @@ generation_detail_t *generation_detail_parseFromJSON(cJSON *generation_detailJSO
     }
 
 
+    if (name && !cJSON_IsNull(name)) name_local_str = strdup(name->valuestring);
+
     generation_detail_local_var = generation_detail_create_internal (
-        id->valuedouble,
-        strdup(name->valuestring),
+        id_local_var,
+        name_local_str,
         abilitiesList,
         main_region_local_nonprim,
         movesList,
@@ -530,8 +556,20 @@ generation_detail_t *generation_detail_parseFromJSON(cJSON *generation_detailJSO
         version_groupsList
         );
 
+    if (!generation_detail_local_var) {
+        goto end;
+    }
+
     return generation_detail_local_var;
 end:
+    if (id_local_var) {
+        free(id_local_var);
+        id_local_var = NULL;
+    }
+    if (name_local_str) {
+        free(name_local_str);
+        name_local_str = NULL;
+    }
     if (abilitiesList) {
         listEntry_t *listEntry = NULL;
         list_ForEach(listEntry, abilitiesList) {

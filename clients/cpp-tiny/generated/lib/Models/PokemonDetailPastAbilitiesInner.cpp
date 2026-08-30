@@ -103,7 +103,7 @@ PokemonDetail_past_abilities_inner::getAbilities()
 }
 
 void
-PokemonDetail_past_abilities_inner::setAbilities(std::list <PokemonDetail_abilities_inner> abilities)
+PokemonDetail_past_abilities_inner::setAbilities(std::list<PokemonDetail_abilities_inner> abilities)
 {
 	this->abilities = abilities;
 }
@@ -115,7 +115,7 @@ PokemonDetail_past_abilities_inner::getGeneration()
 }
 
 void
-PokemonDetail_past_abilities_inner::setGeneration(AbilityDetail_pokemon_inner_pokemon  generation)
+PokemonDetail_past_abilities_inner::setGeneration(AbilityDetail_pokemon_inner_pokemon generation)
 {
 	this->generation = generation;
 }

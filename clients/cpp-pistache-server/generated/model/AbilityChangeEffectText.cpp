@@ -25,6 +25,8 @@ AbilityChangeEffectText::AbilityChangeEffectText()
     
 }
 
+AbilityChangeEffectText::~AbilityChangeEffectText() = default;
+
 void AbilityChangeEffectText::validate() const
 {
     std::stringstream msg;

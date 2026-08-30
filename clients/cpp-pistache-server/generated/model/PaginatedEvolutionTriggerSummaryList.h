@@ -34,7 +34,7 @@ class  PaginatedEvolutionTriggerSummaryList
 {
 public:
     PaginatedEvolutionTriggerSummaryList();
-    virtual ~PaginatedEvolutionTriggerSummaryList() = default;
+    virtual ~PaginatedEvolutionTriggerSummaryList();
 
 
     /// <summary>

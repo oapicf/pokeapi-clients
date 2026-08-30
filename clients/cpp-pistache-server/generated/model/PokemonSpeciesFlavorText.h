@@ -34,7 +34,7 @@ class  PokemonSpeciesFlavorText
 {
 public:
     PokemonSpeciesFlavorText();
-    virtual ~PokemonSpeciesFlavorText() = default;
+    virtual ~PokemonSpeciesFlavorText();
 
 
     /// <summary>

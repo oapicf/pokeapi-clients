@@ -21,7 +21,7 @@
 
 namespace OpenAPI {
 
-OAIItemFlingEffectDetail::OAIItemFlingEffectDetail(QString json) {
+OAIItemFlingEffectDetail::OAIItemFlingEffectDetail(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -47,7 +47,7 @@ void OAIItemFlingEffectDetail::initializeModel() {
     m_items_isValid = false;
 }
 
-void OAIItemFlingEffectDetail::fromJson(QString jsonString) {
+void OAIItemFlingEffectDetail::fromJson(const QString &jsonString) {
     QByteArray array(jsonString.toStdString().c_str());
     QJsonDocument doc = QJsonDocument::fromJson(array);
     QJsonObject jsonObject = doc.object();

@@ -220,7 +220,7 @@ GrowthRateDetail::getId()
 }
 
 void
-GrowthRateDetail::setId(int  id)
+GrowthRateDetail::setId(int id)
 {
 	this->id = id;
 }
@@ -232,7 +232,7 @@ GrowthRateDetail::getName()
 }
 
 void
-GrowthRateDetail::setName(std::string  name)
+GrowthRateDetail::setName(std::string name)
 {
 	this->name = name;
 }
@@ -244,7 +244,7 @@ GrowthRateDetail::getFormula()
 }
 
 void
-GrowthRateDetail::setFormula(std::string  formula)
+GrowthRateDetail::setFormula(std::string formula)
 {
 	this->formula = formula;
 }
@@ -256,7 +256,7 @@ GrowthRateDetail::getDescriptions()
 }
 
 void
-GrowthRateDetail::setDescriptions(std::list <GrowthRateDescription> descriptions)
+GrowthRateDetail::setDescriptions(std::list<GrowthRateDescription> descriptions)
 {
 	this->descriptions = descriptions;
 }
@@ -268,7 +268,7 @@ GrowthRateDetail::getLevels()
 }
 
 void
-GrowthRateDetail::setLevels(std::list <Experience> levels)
+GrowthRateDetail::setLevels(std::list<Experience> levels)
 {
 	this->levels = levels;
 }
@@ -280,7 +280,7 @@ GrowthRateDetail::getPokemonSpecies()
 }
 
 void
-GrowthRateDetail::setPokemonSpecies(std::list <PokemonSpeciesSummary> pokemon_species)
+GrowthRateDetail::setPokemonSpecies(std::list<PokemonSpeciesSummary> pokemon_species)
 {
 	this->pokemon_species = pokemon_species;
 }

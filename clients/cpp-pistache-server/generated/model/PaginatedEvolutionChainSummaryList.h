@@ -34,7 +34,7 @@ class  PaginatedEvolutionChainSummaryList
 {
 public:
     PaginatedEvolutionChainSummaryList();
-    virtual ~PaginatedEvolutionChainSummaryList() = default;
+    virtual ~PaginatedEvolutionChainSummaryList();
 
 
     /// <summary>

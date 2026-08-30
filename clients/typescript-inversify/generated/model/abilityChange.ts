@@ -15,5 +15,5 @@ import { VersionGroupSummary } from './versionGroupSummary';
 
 export interface AbilityChange { 
     version_group: VersionGroupSummary;
-    effect_entries: Array<AbilityChangeEffectText>;
+    readonly effect_entries: Array<AbilityChangeEffectText>;
 }

@@ -15,7 +15,7 @@ import org.openapitools.model.PokemonSpeciesSummary;
 /**
  * GrowthRateDetail
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaMSF4JServerCodegen", date = "2026-02-07T15:23:10.683633502Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaMSF4JServerCodegen", date = "2026-08-30T01:55:58.248058654Z[Etc/UTC]", comments = "Generator version: 7.24.0")
 public class GrowthRateDetail   {
   @JsonProperty("id")
   private Integer id;
@@ -80,16 +80,6 @@ public class GrowthRateDetail   {
     this.formula = formula;
   }
 
-  public GrowthRateDetail descriptions(List<@Valid GrowthRateDescription> descriptions) {
-    this.descriptions = descriptions;
-    return this;
-  }
-
-  public GrowthRateDetail addDescriptionsItem(GrowthRateDescription descriptionsItem) {
-    this.descriptions.add(descriptionsItem);
-    return this;
-  }
-
    /**
    * Get descriptions
    * @return descriptions
@@ -97,20 +87,6 @@ public class GrowthRateDetail   {
   @ApiModelProperty(required = true, value = "")
   public List<@Valid GrowthRateDescription> getDescriptions() {
     return descriptions;
-  }
-
-  public void setDescriptions(List<@Valid GrowthRateDescription> descriptions) {
-    this.descriptions = descriptions;
-  }
-
-  public GrowthRateDetail levels(List<@Valid Experience> levels) {
-    this.levels = levels;
-    return this;
-  }
-
-  public GrowthRateDetail addLevelsItem(Experience levelsItem) {
-    this.levels.add(levelsItem);
-    return this;
   }
 
    /**
@@ -122,20 +98,6 @@ public class GrowthRateDetail   {
     return levels;
   }
 
-  public void setLevels(List<@Valid Experience> levels) {
-    this.levels = levels;
-  }
-
-  public GrowthRateDetail pokemonSpecies(List<@Valid PokemonSpeciesSummary> pokemonSpecies) {
-    this.pokemonSpecies = pokemonSpecies;
-    return this;
-  }
-
-  public GrowthRateDetail addPokemonSpeciesItem(PokemonSpeciesSummary pokemonSpeciesItem) {
-    this.pokemonSpecies.add(pokemonSpeciesItem);
-    return this;
-  }
-
    /**
    * Get pokemonSpecies
    * @return pokemonSpecies
@@ -143,10 +105,6 @@ public class GrowthRateDetail   {
   @ApiModelProperty(required = true, value = "")
   public List<@Valid PokemonSpeciesSummary> getPokemonSpecies() {
     return pokemonSpecies;
-  }
-
-  public void setPokemonSpecies(List<@Valid PokemonSpeciesSummary> pokemonSpecies) {
-    this.pokemonSpecies = pokemonSpecies;
   }
 
 
@@ -192,10 +150,7 @@ public class GrowthRateDetail   {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 }
 

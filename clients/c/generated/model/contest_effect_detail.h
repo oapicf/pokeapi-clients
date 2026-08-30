@@ -21,9 +21,9 @@ typedef struct contest_effect_detail_t contest_effect_detail_t;
 
 
 typedef struct contest_effect_detail_t {
-    int id; //numeric
-    int appeal; //numeric
-    int jam; //numeric
+    int *id; //numeric
+    int *appeal; //numeric
+    int *jam; //numeric
     list_t *effect_entries; //nonprimitive container
     list_t *flavor_text_entries; //nonprimitive container
 
@@ -31,9 +31,9 @@ typedef struct contest_effect_detail_t {
 } contest_effect_detail_t;
 
 __attribute__((deprecated)) contest_effect_detail_t *contest_effect_detail_create(
-    int id,
-    int appeal,
-    int jam,
+    int *id,
+    int *appeal,
+    int *jam,
     list_t *effect_entries,
     list_t *flavor_text_entries
 );

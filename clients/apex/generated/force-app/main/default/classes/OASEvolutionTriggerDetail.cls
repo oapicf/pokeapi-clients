@@ -30,13 +30,13 @@ public class OASEvolutionTriggerDetail implements OAS.MappedProperties {
      * Get names
      * @return names
      */
-    public List<OASEvolutionTriggerName> names { get; set; }
+    public List<OASEvolutionTriggerName> names { get; private set; }
 
     /**
      * Get pokemonSpecies
      * @return pokemonSpecies
      */
-    public List<OASAbilityDetailPokemonInnerPokemon> pokemonSpecies { get; set; }
+    public List<OASAbilityDetailPokemonInnerPokemon> pokemonSpecies { get; private set; }
 
     private static final Map<String, String> propertyMappings = new Map<String, String>{
         'pokemon_species' => 'pokemonSpecies'

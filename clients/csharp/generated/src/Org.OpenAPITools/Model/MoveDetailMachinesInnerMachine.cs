@@ -77,8 +77,18 @@ namespace Org.OpenAPITools.Model
     /// <summary>
     /// A Json converter for type <see cref="MoveDetailMachinesInnerMachine" />
     /// </summary>
-    public class MoveDetailMachinesInnerMachineJsonConverter : JsonConverter<MoveDetailMachinesInnerMachine>
+    public partial class MoveDetailMachinesInnerMachineJsonConverter : JsonConverter<MoveDetailMachinesInnerMachine>
     {
+        partial void OnCreated();
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="MoveDetailMachinesInnerMachineJsonConverter" /> class.
+        /// </summary>
+        public MoveDetailMachinesInnerMachineJsonConverter()
+        {
+            OnCreated();
+        }
+
         /// <summary>
         /// Deserializes json to <see cref="MoveDetailMachinesInnerMachine" />
         /// </summary>

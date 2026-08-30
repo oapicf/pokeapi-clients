@@ -6,8 +6,8 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **int** |  | [readonly] 
 **Appeal** | **int** |  | 
-**FlavorTextEntries** | [**List&lt;SuperContestEffectFlavorText&gt;**](SuperContestEffectFlavorText.md) |  | 
-**Moves** | [**List&lt;MoveSummary&gt;**](MoveSummary.md) |  | 
+**FlavorTextEntries** | [**List&lt;SuperContestEffectFlavorText&gt;**](SuperContestEffectFlavorText.md) |  | [readonly] 
+**Moves** | [**List&lt;MoveSummary&gt;**](MoveSummary.md) |  | [readonly] 
 
 [[Back to Model list]](../../README.md#documentation-for-models) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)
 

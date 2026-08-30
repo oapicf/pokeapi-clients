@@ -6,7 +6,7 @@
 
 
 static encounter_condition_value_detail_t *encounter_condition_value_detail_create_internal(
-    int id,
+    int *id,
     char *name,
     encounter_condition_summary_t *condition,
     list_t *names
@@ -15,27 +15,36 @@ static encounter_condition_value_detail_t *encounter_condition_value_detail_crea
     if (!encounter_condition_value_detail_local_var) {
         return NULL;
     }
+    memset(encounter_condition_value_detail_local_var, 0, sizeof(encounter_condition_value_detail_t));
+    encounter_condition_value_detail_local_var->_library_owned = 1;
     encounter_condition_value_detail_local_var->id = id;
     encounter_condition_value_detail_local_var->name = name;
     encounter_condition_value_detail_local_var->condition = condition;
     encounter_condition_value_detail_local_var->names = names;
-
-    encounter_condition_value_detail_local_var->_library_owned = 1;
     return encounter_condition_value_detail_local_var;
 }
 
 __attribute__((deprecated)) encounter_condition_value_detail_t *encounter_condition_value_detail_create(
-    int id,
+    int *id,
     char *name,
     encounter_condition_summary_t *condition,
     list_t *names
     ) {
-    return encounter_condition_value_detail_create_internal (
-        id,
+    int *id_copy = NULL;
+    if (id) {
+        id_copy = malloc(sizeof(int));
+        if (id_copy) *id_copy = *id;
+    }
+    encounter_condition_value_detail_t *result = encounter_condition_value_detail_create_internal (
+        id_copy,
         name,
         condition,
         names
         );
+    if (!result) {
+        free(id_copy);
+    }
+    return result;
 }
 
 void encounter_condition_value_detail_free(encounter_condition_value_detail_t *encounter_condition_value_detail) {
@@ -47,6 +56,10 @@ void encounter_condition_value_detail_free(encounter_condition_value_detail_t *e
         return ;
     }
     listEntry_t *listEntry;
+    if (encounter_condition_value_detail->id) {
+        free(encounter_condition_value_detail->id);
+        encounter_condition_value_detail->id = NULL;
+    }
     if (encounter_condition_value_detail->name) {
         free(encounter_condition_value_detail->name);
         encounter_condition_value_detail->name = NULL;
@@ -72,7 +85,7 @@ cJSON *encounter_condition_value_detail_convertToJSON(encounter_condition_value_
     if (!encounter_condition_value_detail->id) {
         goto fail;
     }
-    if(cJSON_AddNumberToObject(item, "id", encounter_condition_value_detail->id) == NULL) {
+    if(cJSON_AddNumberToObject(item, "id", *encounter_condition_value_detail->id) == NULL) {
     goto fail; //Numeric
     }
 
@@ -132,6 +145,11 @@ encounter_condition_value_detail_t *encounter_condition_value_detail_parseFromJS
 
     encounter_condition_value_detail_t *encounter_condition_value_detail_local_var = NULL;
 
+    // define the local variable for encounter_condition_value_detail->id
+    int *id_local_var = NULL;
+
+    char *name_local_str = NULL;
+
     // define the local variable for encounter_condition_value_detail->condition
     encounter_condition_summary_t *condition_local_nonprim = NULL;
 
@@ -152,6 +170,12 @@ encounter_condition_value_detail_t *encounter_condition_value_detail_parseFromJS
     {
     goto end; //Numeric
     }
+    id_local_var = malloc(sizeof(int));
+    if(!id_local_var)
+    {
+        goto end;
+    }
+    *id_local_var = id->valuedouble;
 
     // encounter_condition_value_detail->name
     cJSON *name = cJSON_GetObjectItemCaseSensitive(encounter_condition_value_detailJSON, "name");
@@ -208,15 +232,29 @@ encounter_condition_value_detail_t *encounter_condition_value_detail_parseFromJS
     }
 
 
+    if (name && !cJSON_IsNull(name)) name_local_str = strdup(name->valuestring);
+
     encounter_condition_value_detail_local_var = encounter_condition_value_detail_create_internal (
-        id->valuedouble,
-        strdup(name->valuestring),
+        id_local_var,
+        name_local_str,
         condition_local_nonprim,
         namesList
         );
 
+    if (!encounter_condition_value_detail_local_var) {
+        goto end;
+    }
+
     return encounter_condition_value_detail_local_var;
 end:
+    if (id_local_var) {
+        free(id_local_var);
+        id_local_var = NULL;
+    }
+    if (name_local_str) {
+        free(name_local_str);
+        name_local_str = NULL;
+    }
     if (condition_local_nonprim) {
         encounter_condition_summary_free(condition_local_nonprim);
         condition_local_nonprim = NULL;

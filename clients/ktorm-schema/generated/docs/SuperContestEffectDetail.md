@@ -7,8 +7,8 @@ Name | Mapping | SQL Type | Default | Type | Description | Notes
 ---- | ------- | -------- | ------- | ---- | ----------- | -----
 **id** | id | int NOT NULL PRIMARY KEY AUTOINCREMENT |  | **kotlin.Int** |  |  [readonly]
 **appeal** | appeal | int NOT NULL |  | **kotlin.Int** |  | 
-**flavorTextEntries** | `One-To-Many` | `----` | `----`  | [**kotlin.Array&lt;SuperContestEffectFlavorText&gt;**](SuperContestEffectFlavorText.md) |  | 
-**moves** | `One-To-Many` | `----` | `----`  | [**kotlin.Array&lt;MoveSummary&gt;**](MoveSummary.md) |  | 
+**flavorTextEntries** | `One-To-Many` | `----` | `----`  | [**kotlin.Array&lt;SuperContestEffectFlavorText&gt;**](SuperContestEffectFlavorText.md) |  |  [readonly]
+**moves** | `One-To-Many` | `----` | `----`  | [**kotlin.Array&lt;MoveSummary&gt;**](MoveSummary.md) |  |  [readonly]
 
 
 

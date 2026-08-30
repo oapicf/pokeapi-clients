@@ -17,7 +17,7 @@ import CharacteristicSummary from './CharacteristicSummary';
 /**
  * The PaginatedCharacteristicSummaryList model module.
  * @module model/PaginatedCharacteristicSummaryList
- * @version 1.2.1-pre.0
+ * @version 2.0.1-pre.0
  */
 class PaginatedCharacteristicSummaryList {
     /**

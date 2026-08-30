@@ -128,69 +128,39 @@ fn main() {
     let matches = Command::new("client")
         .arg(Arg::new("operation")
             .help("Sets the operation to run")
-            .value_parser([
+            .value_parser(Vec::<&str>::from([
                 "BerryFirmnessList",
                 "BerryFlavorList",
                 "BerryList",
-                "BerryFirmnessRetrieve",
-                "BerryFlavorRetrieve",
-                "BerryRetrieve",
                 "ContestEffectList",
                 "ContestTypeList",
                 "SuperContestEffectList",
-                "ContestEffectRetrieve",
-                "ContestTypeRetrieve",
-                "SuperContestEffectRetrieve",
                 "EncounterConditionList",
                 "EncounterConditionValueList",
                 "EncounterMethodList",
-                "EncounterConditionRetrieve",
-                "EncounterConditionValueRetrieve",
-                "EncounterMethodRetrieve",
                 "EvolutionChainList",
                 "EvolutionTriggerList",
-                "EvolutionChainRetrieve",
-                "EvolutionTriggerRetrieve",
                 "GenerationList",
                 "PokedexList",
                 "VersionGroupList",
                 "VersionList",
-                "GenerationRetrieve",
-                "PokedexRetrieve",
-                "VersionGroupRetrieve",
-                "VersionRetrieve",
                 "ItemAttributeList",
                 "ItemCategoryList",
                 "ItemFlingEffectList",
                 "ItemList",
                 "ItemPocketList",
-                "ItemAttributeRetrieve",
-                "ItemCategoryRetrieve",
-                "ItemFlingEffectRetrieve",
-                "ItemPocketRetrieve",
-                "ItemRetrieve",
                 "LocationAreaList",
                 "LocationList",
                 "PalParkAreaList",
                 "RegionList",
                 "LocationAreaRetrieve",
-                "LocationRetrieve",
-                "PalParkAreaRetrieve",
-                "RegionRetrieve",
                 "MachineList",
-                "MachineRetrieve",
                 "MoveAilmentList",
                 "MoveBattleStyleList",
                 "MoveCategoryList",
                 "MoveLearnMethodList",
                 "MoveList",
                 "MoveTargetList",
-                "MoveAilmentRetrieve",
-                "MoveBattleStyleRetrieve",
-                "MoveCategoryRetrieve",
-                "MoveLearnMethodRetrieve",
-                "MoveRetrieve",
-                "MoveTargetRetrieve",
                 "AbilityList",
                 "CharacteristicList",
                 "EggGroupList",
@@ -207,25 +177,8 @@ fn main() {
                 "PokemonSpeciesList",
                 "StatList",
                 "TypeList",
-                "AbilityRetrieve",
-                "CharacteristicRetrieve",
-                "EggGroupRetrieve",
-                "GenderRetrieve",
-                "GrowthRateRetrieve",
-                "MoveDamageClassRetrieve",
-                "NatureRetrieve",
-                "PokeathlonStatRetrieve",
-                "PokemonColorRetrieve",
-                "PokemonFormRetrieve",
-                "PokemonHabitatRetrieve",
-                "PokemonRetrieve",
-                "PokemonShapeRetrieve",
-                "PokemonSpeciesRetrieve",
-                "StatRetrieve",
-                "TypeRetrieve",
                 "LanguageList",
-                "LanguageRetrieve",
-            ])
+            ]))
             .required(true)
             .index(1))
         .arg(Arg::new("https")
@@ -275,17 +228,33 @@ fn main() {
     let context: ClientContext =
         swagger::make_context!(ContextBuilder, EmptyContext, auth_data, XSpanIdString::default());
 
-    let mut client : Box<dyn ApiNoContext<ClientContext>> = if is_https {
-        // Using Simple HTTPS
-        let client = Box::new(Client::try_new_https(&base_url)
-            .expect("Failed to create HTTPS client"));
-        Box::new(client.with_context(context))
-    } else {
-        // Using HTTP
-        let client = Box::new(Client::try_new_http(
-            &base_url)
-            .expect("Failed to create HTTP client"));
-        Box::new(client.with_context(context))
+    let mut client : Box<dyn ApiNoContext<ClientContext>> = {
+        #[cfg(feature = "client-tls")]
+        {
+            if is_https {
+                // Using HTTPS with native-tls
+                let client = Box::new(Client::try_new_https(&base_url)
+                    .expect("Failed to create HTTPS client"));
+                Box::new(client.with_context(context))
+            } else {
+                // Using HTTP
+                let client = Box::new(Client::try_new_http(&base_url)
+                    .expect("Failed to create HTTP client"));
+                Box::new(client.with_context(context))
+            }
+        }
+
+        #[cfg(not(feature = "client-tls"))]
+        {
+            if is_https {
+                panic!("HTTPS requested but TLS support not enabled. \
+                        Enable the 'client-tls' feature to use HTTPS.");
+            }
+            // Using HTTP only
+            let client = Box::new(Client::try_new_http(&base_url)
+                .expect("Failed to create HTTP client"));
+            Box::new(client.with_context(context))
+        }
     };
 
     let mut rt = tokio::runtime::Runtime::new().unwrap();
@@ -293,675 +262,769 @@ fn main() {
     match matches.get_one::<String>("operation").map(String::as_str) {
         Some("BerryFirmnessList") => {
             let result = rt.block_on(client.berry_firmness_list(
-                  Some(56),
-                  Some(56),
-                  Some("q_example".to_string())
+                  Some(0),
+                  Some(0),
+                  None
             ));
             info!("{:?} (X-Span-ID: {:?})", result, (client.context() as &dyn Has<XSpanIdString>).get().clone());
         },
         Some("BerryFlavorList") => {
             let result = rt.block_on(client.berry_flavor_list(
-                  Some(56),
-                  Some(56),
-                  Some("q_example".to_string())
+                  Some(0),
+                  Some(0),
+                  None
             ));
             info!("{:?} (X-Span-ID: {:?})", result, (client.context() as &dyn Has<XSpanIdString>).get().clone());
         },
         Some("BerryList") => {
             let result = rt.block_on(client.berry_list(
-                  Some(56),
-                  Some(56),
-                  Some("q_example".to_string())
+                  Some(0),
+                  Some(0),
+                  None
             ));
             info!("{:?} (X-Span-ID: {:?})", result, (client.context() as &dyn Has<XSpanIdString>).get().clone());
         },
+        /* Disabled because there's no example.
         Some("BerryFirmnessRetrieve") => {
             let result = rt.block_on(client.berry_firmness_retrieve(
-                  "id_example".to_string()
+                  ???
             ));
             info!("{:?} (X-Span-ID: {:?})", result, (client.context() as &dyn Has<XSpanIdString>).get().clone());
         },
+        */
+        /* Disabled because there's no example.
         Some("BerryFlavorRetrieve") => {
             let result = rt.block_on(client.berry_flavor_retrieve(
-                  "id_example".to_string()
+                  ???
             ));
             info!("{:?} (X-Span-ID: {:?})", result, (client.context() as &dyn Has<XSpanIdString>).get().clone());
         },
+        */
+        /* Disabled because there's no example.
         Some("BerryRetrieve") => {
             let result = rt.block_on(client.berry_retrieve(
-                  "id_example".to_string()
+                  ???
             ));
             info!("{:?} (X-Span-ID: {:?})", result, (client.context() as &dyn Has<XSpanIdString>).get().clone());
         },
+        */
         Some("ContestEffectList") => {
             let result = rt.block_on(client.contest_effect_list(
-                  Some(56),
-                  Some(56),
-                  Some("q_example".to_string())
+                  Some(0),
+                  Some(0),
+                  None
             ));
             info!("{:?} (X-Span-ID: {:?})", result, (client.context() as &dyn Has<XSpanIdString>).get().clone());
         },
         Some("ContestTypeList") => {
             let result = rt.block_on(client.contest_type_list(
-                  Some(56),
-                  Some(56),
-                  Some("q_example".to_string())
+                  Some(0),
+                  Some(0),
+                  None
             ));
             info!("{:?} (X-Span-ID: {:?})", result, (client.context() as &dyn Has<XSpanIdString>).get().clone());
         },
         Some("SuperContestEffectList") => {
             let result = rt.block_on(client.super_contest_effect_list(
-                  Some(56),
-                  Some(56),
-                  Some("q_example".to_string())
+                  Some(0),
+                  Some(0),
+                  None
             ));
             info!("{:?} (X-Span-ID: {:?})", result, (client.context() as &dyn Has<XSpanIdString>).get().clone());
         },
+        /* Disabled because there's no example.
         Some("ContestEffectRetrieve") => {
             let result = rt.block_on(client.contest_effect_retrieve(
-                  "id_example".to_string()
+                  ???
             ));
             info!("{:?} (X-Span-ID: {:?})", result, (client.context() as &dyn Has<XSpanIdString>).get().clone());
         },
+        */
+        /* Disabled because there's no example.
         Some("ContestTypeRetrieve") => {
             let result = rt.block_on(client.contest_type_retrieve(
-                  "id_example".to_string()
+                  ???
             ));
             info!("{:?} (X-Span-ID: {:?})", result, (client.context() as &dyn Has<XSpanIdString>).get().clone());
         },
+        */
+        /* Disabled because there's no example.
         Some("SuperContestEffectRetrieve") => {
             let result = rt.block_on(client.super_contest_effect_retrieve(
-                  "id_example".to_string()
+                  ???
             ));
             info!("{:?} (X-Span-ID: {:?})", result, (client.context() as &dyn Has<XSpanIdString>).get().clone());
         },
+        */
         Some("EncounterConditionList") => {
             let result = rt.block_on(client.encounter_condition_list(
-                  Some(56),
-                  Some(56),
-                  Some("q_example".to_string())
+                  Some(0),
+                  Some(0),
+                  None
             ));
             info!("{:?} (X-Span-ID: {:?})", result, (client.context() as &dyn Has<XSpanIdString>).get().clone());
         },
         Some("EncounterConditionValueList") => {
             let result = rt.block_on(client.encounter_condition_value_list(
-                  Some(56),
-                  Some(56),
-                  Some("q_example".to_string())
+                  Some(0),
+                  Some(0),
+                  None
             ));
             info!("{:?} (X-Span-ID: {:?})", result, (client.context() as &dyn Has<XSpanIdString>).get().clone());
         },
         Some("EncounterMethodList") => {
             let result = rt.block_on(client.encounter_method_list(
-                  Some(56),
-                  Some(56),
-                  Some("q_example".to_string())
+                  Some(0),
+                  Some(0),
+                  None
             ));
             info!("{:?} (X-Span-ID: {:?})", result, (client.context() as &dyn Has<XSpanIdString>).get().clone());
         },
+        /* Disabled because there's no example.
         Some("EncounterConditionRetrieve") => {
             let result = rt.block_on(client.encounter_condition_retrieve(
-                  "id_example".to_string()
+                  ???
             ));
             info!("{:?} (X-Span-ID: {:?})", result, (client.context() as &dyn Has<XSpanIdString>).get().clone());
         },
+        */
+        /* Disabled because there's no example.
         Some("EncounterConditionValueRetrieve") => {
             let result = rt.block_on(client.encounter_condition_value_retrieve(
-                  "id_example".to_string()
+                  ???
             ));
             info!("{:?} (X-Span-ID: {:?})", result, (client.context() as &dyn Has<XSpanIdString>).get().clone());
         },
+        */
+        /* Disabled because there's no example.
         Some("EncounterMethodRetrieve") => {
             let result = rt.block_on(client.encounter_method_retrieve(
-                  "id_example".to_string()
+                  ???
             ));
             info!("{:?} (X-Span-ID: {:?})", result, (client.context() as &dyn Has<XSpanIdString>).get().clone());
         },
+        */
         Some("EvolutionChainList") => {
             let result = rt.block_on(client.evolution_chain_list(
-                  Some(56),
-                  Some(56),
-                  Some("q_example".to_string())
+                  Some(0),
+                  Some(0),
+                  None
             ));
             info!("{:?} (X-Span-ID: {:?})", result, (client.context() as &dyn Has<XSpanIdString>).get().clone());
         },
         Some("EvolutionTriggerList") => {
             let result = rt.block_on(client.evolution_trigger_list(
-                  Some(56),
-                  Some(56),
-                  Some("q_example".to_string())
+                  Some(0),
+                  Some(0),
+                  None
             ));
             info!("{:?} (X-Span-ID: {:?})", result, (client.context() as &dyn Has<XSpanIdString>).get().clone());
         },
+        /* Disabled because there's no example.
         Some("EvolutionChainRetrieve") => {
             let result = rt.block_on(client.evolution_chain_retrieve(
-                  "id_example".to_string()
+                  ???
             ));
             info!("{:?} (X-Span-ID: {:?})", result, (client.context() as &dyn Has<XSpanIdString>).get().clone());
         },
+        */
+        /* Disabled because there's no example.
         Some("EvolutionTriggerRetrieve") => {
             let result = rt.block_on(client.evolution_trigger_retrieve(
-                  "id_example".to_string()
+                  ???
             ));
             info!("{:?} (X-Span-ID: {:?})", result, (client.context() as &dyn Has<XSpanIdString>).get().clone());
         },
+        */
         Some("GenerationList") => {
             let result = rt.block_on(client.generation_list(
-                  Some(56),
-                  Some(56),
-                  Some("q_example".to_string())
+                  Some(0),
+                  Some(0),
+                  None
             ));
             info!("{:?} (X-Span-ID: {:?})", result, (client.context() as &dyn Has<XSpanIdString>).get().clone());
         },
         Some("PokedexList") => {
             let result = rt.block_on(client.pokedex_list(
-                  Some(56),
-                  Some(56),
-                  Some("q_example".to_string())
+                  Some(0),
+                  Some(0),
+                  None
             ));
             info!("{:?} (X-Span-ID: {:?})", result, (client.context() as &dyn Has<XSpanIdString>).get().clone());
         },
         Some("VersionGroupList") => {
             let result = rt.block_on(client.version_group_list(
-                  Some(56),
-                  Some(56),
-                  Some("q_example".to_string())
+                  Some(0),
+                  Some(0),
+                  None
             ));
             info!("{:?} (X-Span-ID: {:?})", result, (client.context() as &dyn Has<XSpanIdString>).get().clone());
         },
         Some("VersionList") => {
             let result = rt.block_on(client.version_list(
-                  Some(56),
-                  Some(56),
-                  Some("q_example".to_string())
+                  Some(0),
+                  Some(0),
+                  None
             ));
             info!("{:?} (X-Span-ID: {:?})", result, (client.context() as &dyn Has<XSpanIdString>).get().clone());
         },
+        /* Disabled because there's no example.
         Some("GenerationRetrieve") => {
             let result = rt.block_on(client.generation_retrieve(
-                  "id_example".to_string()
+                  ???
             ));
             info!("{:?} (X-Span-ID: {:?})", result, (client.context() as &dyn Has<XSpanIdString>).get().clone());
         },
+        */
+        /* Disabled because there's no example.
         Some("PokedexRetrieve") => {
             let result = rt.block_on(client.pokedex_retrieve(
-                  "id_example".to_string()
+                  ???
             ));
             info!("{:?} (X-Span-ID: {:?})", result, (client.context() as &dyn Has<XSpanIdString>).get().clone());
         },
+        */
+        /* Disabled because there's no example.
         Some("VersionGroupRetrieve") => {
             let result = rt.block_on(client.version_group_retrieve(
-                  "id_example".to_string()
+                  ???
             ));
             info!("{:?} (X-Span-ID: {:?})", result, (client.context() as &dyn Has<XSpanIdString>).get().clone());
         },
+        */
+        /* Disabled because there's no example.
         Some("VersionRetrieve") => {
             let result = rt.block_on(client.version_retrieve(
-                  "id_example".to_string()
+                  ???
             ));
             info!("{:?} (X-Span-ID: {:?})", result, (client.context() as &dyn Has<XSpanIdString>).get().clone());
         },
+        */
         Some("ItemAttributeList") => {
             let result = rt.block_on(client.item_attribute_list(
-                  Some(56),
-                  Some(56),
-                  Some("q_example".to_string())
+                  Some(0),
+                  Some(0),
+                  None
             ));
             info!("{:?} (X-Span-ID: {:?})", result, (client.context() as &dyn Has<XSpanIdString>).get().clone());
         },
         Some("ItemCategoryList") => {
             let result = rt.block_on(client.item_category_list(
-                  Some(56),
-                  Some(56),
-                  Some("q_example".to_string())
+                  Some(0),
+                  Some(0),
+                  None
             ));
             info!("{:?} (X-Span-ID: {:?})", result, (client.context() as &dyn Has<XSpanIdString>).get().clone());
         },
         Some("ItemFlingEffectList") => {
             let result = rt.block_on(client.item_fling_effect_list(
-                  Some(56),
-                  Some(56),
-                  Some("q_example".to_string())
+                  Some(0),
+                  Some(0),
+                  None
             ));
             info!("{:?} (X-Span-ID: {:?})", result, (client.context() as &dyn Has<XSpanIdString>).get().clone());
         },
         Some("ItemList") => {
             let result = rt.block_on(client.item_list(
-                  Some(56),
-                  Some(56),
-                  Some("q_example".to_string())
+                  Some(0),
+                  Some(0),
+                  None
             ));
             info!("{:?} (X-Span-ID: {:?})", result, (client.context() as &dyn Has<XSpanIdString>).get().clone());
         },
         Some("ItemPocketList") => {
             let result = rt.block_on(client.item_pocket_list(
-                  Some(56),
-                  Some(56),
-                  Some("q_example".to_string())
+                  Some(0),
+                  Some(0),
+                  None
             ));
             info!("{:?} (X-Span-ID: {:?})", result, (client.context() as &dyn Has<XSpanIdString>).get().clone());
         },
+        /* Disabled because there's no example.
         Some("ItemAttributeRetrieve") => {
             let result = rt.block_on(client.item_attribute_retrieve(
-                  "id_example".to_string()
+                  ???
             ));
             info!("{:?} (X-Span-ID: {:?})", result, (client.context() as &dyn Has<XSpanIdString>).get().clone());
         },
+        */
+        /* Disabled because there's no example.
         Some("ItemCategoryRetrieve") => {
             let result = rt.block_on(client.item_category_retrieve(
-                  "id_example".to_string()
+                  ???
             ));
             info!("{:?} (X-Span-ID: {:?})", result, (client.context() as &dyn Has<XSpanIdString>).get().clone());
         },
+        */
+        /* Disabled because there's no example.
         Some("ItemFlingEffectRetrieve") => {
             let result = rt.block_on(client.item_fling_effect_retrieve(
-                  "id_example".to_string()
+                  ???
             ));
             info!("{:?} (X-Span-ID: {:?})", result, (client.context() as &dyn Has<XSpanIdString>).get().clone());
         },
+        */
+        /* Disabled because there's no example.
         Some("ItemPocketRetrieve") => {
             let result = rt.block_on(client.item_pocket_retrieve(
-                  "id_example".to_string()
+                  ???
             ));
             info!("{:?} (X-Span-ID: {:?})", result, (client.context() as &dyn Has<XSpanIdString>).get().clone());
         },
+        */
+        /* Disabled because there's no example.
         Some("ItemRetrieve") => {
             let result = rt.block_on(client.item_retrieve(
-                  "id_example".to_string()
+                  ???
             ));
             info!("{:?} (X-Span-ID: {:?})", result, (client.context() as &dyn Has<XSpanIdString>).get().clone());
         },
+        */
         Some("LocationAreaList") => {
             let result = rt.block_on(client.location_area_list(
-                  Some(56),
-                  Some(56)
+                  Some(0),
+                  Some(0)
             ));
             info!("{:?} (X-Span-ID: {:?})", result, (client.context() as &dyn Has<XSpanIdString>).get().clone());
         },
         Some("LocationList") => {
             let result = rt.block_on(client.location_list(
-                  Some(56),
-                  Some(56),
-                  Some("q_example".to_string())
+                  Some(0),
+                  Some(0),
+                  None
             ));
             info!("{:?} (X-Span-ID: {:?})", result, (client.context() as &dyn Has<XSpanIdString>).get().clone());
         },
         Some("PalParkAreaList") => {
             let result = rt.block_on(client.pal_park_area_list(
-                  Some(56),
-                  Some(56),
-                  Some("q_example".to_string())
+                  Some(0),
+                  Some(0),
+                  None
             ));
             info!("{:?} (X-Span-ID: {:?})", result, (client.context() as &dyn Has<XSpanIdString>).get().clone());
         },
         Some("RegionList") => {
             let result = rt.block_on(client.region_list(
-                  Some(56),
-                  Some(56),
-                  Some("q_example".to_string())
+                  Some(0),
+                  Some(0),
+                  None
             ));
             info!("{:?} (X-Span-ID: {:?})", result, (client.context() as &dyn Has<XSpanIdString>).get().clone());
         },
         Some("LocationAreaRetrieve") => {
             let result = rt.block_on(client.location_area_retrieve(
-                  56
+                  0
             ));
             info!("{:?} (X-Span-ID: {:?})", result, (client.context() as &dyn Has<XSpanIdString>).get().clone());
         },
+        /* Disabled because there's no example.
         Some("LocationRetrieve") => {
             let result = rt.block_on(client.location_retrieve(
-                  "id_example".to_string()
+                  ???
             ));
             info!("{:?} (X-Span-ID: {:?})", result, (client.context() as &dyn Has<XSpanIdString>).get().clone());
         },
+        */
+        /* Disabled because there's no example.
         Some("PalParkAreaRetrieve") => {
             let result = rt.block_on(client.pal_park_area_retrieve(
-                  "id_example".to_string()
+                  ???
             ));
             info!("{:?} (X-Span-ID: {:?})", result, (client.context() as &dyn Has<XSpanIdString>).get().clone());
         },
+        */
+        /* Disabled because there's no example.
         Some("RegionRetrieve") => {
             let result = rt.block_on(client.region_retrieve(
-                  "id_example".to_string()
+                  ???
             ));
             info!("{:?} (X-Span-ID: {:?})", result, (client.context() as &dyn Has<XSpanIdString>).get().clone());
         },
+        */
         Some("MachineList") => {
             let result = rt.block_on(client.machine_list(
-                  Some(56),
-                  Some(56),
-                  Some("q_example".to_string())
+                  Some(0),
+                  Some(0),
+                  None
             ));
             info!("{:?} (X-Span-ID: {:?})", result, (client.context() as &dyn Has<XSpanIdString>).get().clone());
         },
+        /* Disabled because there's no example.
         Some("MachineRetrieve") => {
             let result = rt.block_on(client.machine_retrieve(
-                  "id_example".to_string()
+                  ???
             ));
             info!("{:?} (X-Span-ID: {:?})", result, (client.context() as &dyn Has<XSpanIdString>).get().clone());
         },
+        */
         Some("MoveAilmentList") => {
             let result = rt.block_on(client.move_ailment_list(
-                  Some(56),
-                  Some(56),
-                  Some("q_example".to_string())
+                  Some(0),
+                  Some(0),
+                  None
             ));
             info!("{:?} (X-Span-ID: {:?})", result, (client.context() as &dyn Has<XSpanIdString>).get().clone());
         },
         Some("MoveBattleStyleList") => {
             let result = rt.block_on(client.move_battle_style_list(
-                  Some(56),
-                  Some(56),
-                  Some("q_example".to_string())
+                  Some(0),
+                  Some(0),
+                  None
             ));
             info!("{:?} (X-Span-ID: {:?})", result, (client.context() as &dyn Has<XSpanIdString>).get().clone());
         },
         Some("MoveCategoryList") => {
             let result = rt.block_on(client.move_category_list(
-                  Some(56),
-                  Some(56),
-                  Some("q_example".to_string())
+                  Some(0),
+                  Some(0),
+                  None
             ));
             info!("{:?} (X-Span-ID: {:?})", result, (client.context() as &dyn Has<XSpanIdString>).get().clone());
         },
         Some("MoveLearnMethodList") => {
             let result = rt.block_on(client.move_learn_method_list(
-                  Some(56),
-                  Some(56),
-                  Some("q_example".to_string())
+                  Some(0),
+                  Some(0),
+                  None
             ));
             info!("{:?} (X-Span-ID: {:?})", result, (client.context() as &dyn Has<XSpanIdString>).get().clone());
         },
         Some("MoveList") => {
             let result = rt.block_on(client.move_list(
-                  Some(56),
-                  Some(56),
-                  Some("q_example".to_string())
+                  Some(0),
+                  Some(0),
+                  None
             ));
             info!("{:?} (X-Span-ID: {:?})", result, (client.context() as &dyn Has<XSpanIdString>).get().clone());
         },
         Some("MoveTargetList") => {
             let result = rt.block_on(client.move_target_list(
-                  Some(56),
-                  Some(56),
-                  Some("q_example".to_string())
+                  Some(0),
+                  Some(0),
+                  None
             ));
             info!("{:?} (X-Span-ID: {:?})", result, (client.context() as &dyn Has<XSpanIdString>).get().clone());
         },
+        /* Disabled because there's no example.
         Some("MoveAilmentRetrieve") => {
             let result = rt.block_on(client.move_ailment_retrieve(
-                  "id_example".to_string()
+                  ???
             ));
             info!("{:?} (X-Span-ID: {:?})", result, (client.context() as &dyn Has<XSpanIdString>).get().clone());
         },
+        */
+        /* Disabled because there's no example.
         Some("MoveBattleStyleRetrieve") => {
             let result = rt.block_on(client.move_battle_style_retrieve(
-                  "id_example".to_string()
+                  ???
             ));
             info!("{:?} (X-Span-ID: {:?})", result, (client.context() as &dyn Has<XSpanIdString>).get().clone());
         },
+        */
+        /* Disabled because there's no example.
         Some("MoveCategoryRetrieve") => {
             let result = rt.block_on(client.move_category_retrieve(
-                  "id_example".to_string()
+                  ???
             ));
             info!("{:?} (X-Span-ID: {:?})", result, (client.context() as &dyn Has<XSpanIdString>).get().clone());
         },
+        */
+        /* Disabled because there's no example.
         Some("MoveLearnMethodRetrieve") => {
             let result = rt.block_on(client.move_learn_method_retrieve(
-                  "id_example".to_string()
+                  ???
             ));
             info!("{:?} (X-Span-ID: {:?})", result, (client.context() as &dyn Has<XSpanIdString>).get().clone());
         },
+        */
+        /* Disabled because there's no example.
         Some("MoveRetrieve") => {
             let result = rt.block_on(client.move_retrieve(
-                  "id_example".to_string()
+                  ???
             ));
             info!("{:?} (X-Span-ID: {:?})", result, (client.context() as &dyn Has<XSpanIdString>).get().clone());
         },
+        */
+        /* Disabled because there's no example.
         Some("MoveTargetRetrieve") => {
             let result = rt.block_on(client.move_target_retrieve(
-                  "id_example".to_string()
+                  ???
             ));
             info!("{:?} (X-Span-ID: {:?})", result, (client.context() as &dyn Has<XSpanIdString>).get().clone());
         },
+        */
         Some("AbilityList") => {
             let result = rt.block_on(client.ability_list(
-                  Some(56),
-                  Some(56),
-                  Some("q_example".to_string())
+                  Some(0),
+                  Some(0),
+                  None
             ));
             info!("{:?} (X-Span-ID: {:?})", result, (client.context() as &dyn Has<XSpanIdString>).get().clone());
         },
         Some("CharacteristicList") => {
             let result = rt.block_on(client.characteristic_list(
-                  Some(56),
-                  Some(56),
-                  Some("q_example".to_string())
+                  Some(0),
+                  Some(0),
+                  None
             ));
             info!("{:?} (X-Span-ID: {:?})", result, (client.context() as &dyn Has<XSpanIdString>).get().clone());
         },
         Some("EggGroupList") => {
             let result = rt.block_on(client.egg_group_list(
-                  Some(56),
-                  Some(56),
-                  Some("q_example".to_string())
+                  Some(0),
+                  Some(0),
+                  None
             ));
             info!("{:?} (X-Span-ID: {:?})", result, (client.context() as &dyn Has<XSpanIdString>).get().clone());
         },
         Some("GenderList") => {
             let result = rt.block_on(client.gender_list(
-                  Some(56),
-                  Some(56),
-                  Some("q_example".to_string())
+                  Some(0),
+                  Some(0),
+                  None
             ));
             info!("{:?} (X-Span-ID: {:?})", result, (client.context() as &dyn Has<XSpanIdString>).get().clone());
         },
         Some("GrowthRateList") => {
             let result = rt.block_on(client.growth_rate_list(
-                  Some(56),
-                  Some(56),
-                  Some("q_example".to_string())
+                  Some(0),
+                  Some(0),
+                  None
             ));
             info!("{:?} (X-Span-ID: {:?})", result, (client.context() as &dyn Has<XSpanIdString>).get().clone());
         },
         Some("MoveDamageClassList") => {
             let result = rt.block_on(client.move_damage_class_list(
-                  Some(56),
-                  Some(56),
-                  Some("q_example".to_string())
+                  Some(0),
+                  Some(0),
+                  None
             ));
             info!("{:?} (X-Span-ID: {:?})", result, (client.context() as &dyn Has<XSpanIdString>).get().clone());
         },
         Some("NatureList") => {
             let result = rt.block_on(client.nature_list(
-                  Some(56),
-                  Some(56),
-                  Some("q_example".to_string())
+                  Some(0),
+                  Some(0),
+                  None
             ));
             info!("{:?} (X-Span-ID: {:?})", result, (client.context() as &dyn Has<XSpanIdString>).get().clone());
         },
         Some("PokeathlonStatList") => {
             let result = rt.block_on(client.pokeathlon_stat_list(
-                  Some(56),
-                  Some(56),
-                  Some("q_example".to_string())
+                  Some(0),
+                  Some(0),
+                  None
             ));
             info!("{:?} (X-Span-ID: {:?})", result, (client.context() as &dyn Has<XSpanIdString>).get().clone());
         },
         Some("PokemonColorList") => {
             let result = rt.block_on(client.pokemon_color_list(
-                  Some(56),
-                  Some(56),
-                  Some("q_example".to_string())
+                  Some(0),
+                  Some(0),
+                  None
             ));
             info!("{:?} (X-Span-ID: {:?})", result, (client.context() as &dyn Has<XSpanIdString>).get().clone());
         },
         Some("PokemonFormList") => {
             let result = rt.block_on(client.pokemon_form_list(
-                  Some(56),
-                  Some(56),
-                  Some("q_example".to_string())
+                  Some(0),
+                  Some(0),
+                  None
             ));
             info!("{:?} (X-Span-ID: {:?})", result, (client.context() as &dyn Has<XSpanIdString>).get().clone());
         },
         Some("PokemonHabitatList") => {
             let result = rt.block_on(client.pokemon_habitat_list(
-                  Some(56),
-                  Some(56),
-                  Some("q_example".to_string())
+                  Some(0),
+                  Some(0),
+                  None
             ));
             info!("{:?} (X-Span-ID: {:?})", result, (client.context() as &dyn Has<XSpanIdString>).get().clone());
         },
         Some("PokemonList") => {
             let result = rt.block_on(client.pokemon_list(
-                  Some(56),
-                  Some(56),
-                  Some("q_example".to_string())
+                  Some(0),
+                  Some(0),
+                  None
             ));
             info!("{:?} (X-Span-ID: {:?})", result, (client.context() as &dyn Has<XSpanIdString>).get().clone());
         },
         Some("PokemonShapeList") => {
             let result = rt.block_on(client.pokemon_shape_list(
-                  Some(56),
-                  Some(56),
-                  Some("q_example".to_string())
+                  Some(0),
+                  Some(0),
+                  None
             ));
             info!("{:?} (X-Span-ID: {:?})", result, (client.context() as &dyn Has<XSpanIdString>).get().clone());
         },
         Some("PokemonSpeciesList") => {
             let result = rt.block_on(client.pokemon_species_list(
-                  Some(56),
-                  Some(56),
-                  Some("q_example".to_string())
+                  Some(0),
+                  Some(0),
+                  None
             ));
             info!("{:?} (X-Span-ID: {:?})", result, (client.context() as &dyn Has<XSpanIdString>).get().clone());
         },
         Some("StatList") => {
             let result = rt.block_on(client.stat_list(
-                  Some(56),
-                  Some(56),
-                  Some("q_example".to_string())
+                  Some(0),
+                  Some(0),
+                  None
             ));
             info!("{:?} (X-Span-ID: {:?})", result, (client.context() as &dyn Has<XSpanIdString>).get().clone());
         },
         Some("TypeList") => {
             let result = rt.block_on(client.type_list(
-                  Some(56),
-                  Some(56),
-                  Some("q_example".to_string())
+                  Some(0),
+                  Some(0),
+                  None
             ));
             info!("{:?} (X-Span-ID: {:?})", result, (client.context() as &dyn Has<XSpanIdString>).get().clone());
         },
+        /* Disabled because there's no example.
         Some("AbilityRetrieve") => {
             let result = rt.block_on(client.ability_retrieve(
-                  "id_example".to_string()
+                  ???
             ));
             info!("{:?} (X-Span-ID: {:?})", result, (client.context() as &dyn Has<XSpanIdString>).get().clone());
         },
+        */
+        /* Disabled because there's no example.
         Some("CharacteristicRetrieve") => {
             let result = rt.block_on(client.characteristic_retrieve(
-                  "id_example".to_string()
+                  ???
             ));
             info!("{:?} (X-Span-ID: {:?})", result, (client.context() as &dyn Has<XSpanIdString>).get().clone());
         },
+        */
+        /* Disabled because there's no example.
         Some("EggGroupRetrieve") => {
             let result = rt.block_on(client.egg_group_retrieve(
-                  "id_example".to_string()
+                  ???
             ));
             info!("{:?} (X-Span-ID: {:?})", result, (client.context() as &dyn Has<XSpanIdString>).get().clone());
         },
+        */
+        /* Disabled because there's no example.
         Some("GenderRetrieve") => {
             let result = rt.block_on(client.gender_retrieve(
-                  "id_example".to_string()
+                  ???
             ));
             info!("{:?} (X-Span-ID: {:?})", result, (client.context() as &dyn Has<XSpanIdString>).get().clone());
         },
+        */
+        /* Disabled because there's no example.
         Some("GrowthRateRetrieve") => {
             let result = rt.block_on(client.growth_rate_retrieve(
-                  "id_example".to_string()
+                  ???
             ));
             info!("{:?} (X-Span-ID: {:?})", result, (client.context() as &dyn Has<XSpanIdString>).get().clone());
         },
+        */
+        /* Disabled because there's no example.
         Some("MoveDamageClassRetrieve") => {
             let result = rt.block_on(client.move_damage_class_retrieve(
-                  "id_example".to_string()
+                  ???
             ));
             info!("{:?} (X-Span-ID: {:?})", result, (client.context() as &dyn Has<XSpanIdString>).get().clone());
         },
+        */
+        /* Disabled because there's no example.
         Some("NatureRetrieve") => {
             let result = rt.block_on(client.nature_retrieve(
-                  "id_example".to_string()
+                  ???
             ));
             info!("{:?} (X-Span-ID: {:?})", result, (client.context() as &dyn Has<XSpanIdString>).get().clone());
         },
+        */
+        /* Disabled because there's no example.
         Some("PokeathlonStatRetrieve") => {
             let result = rt.block_on(client.pokeathlon_stat_retrieve(
-                  "id_example".to_string()
+                  ???
             ));
             info!("{:?} (X-Span-ID: {:?})", result, (client.context() as &dyn Has<XSpanIdString>).get().clone());
         },
+        */
+        /* Disabled because there's no example.
         Some("PokemonColorRetrieve") => {
             let result = rt.block_on(client.pokemon_color_retrieve(
-                  "id_example".to_string()
+                  ???
             ));
             info!("{:?} (X-Span-ID: {:?})", result, (client.context() as &dyn Has<XSpanIdString>).get().clone());
         },
+        */
+        /* Disabled because there's no example.
         Some("PokemonFormRetrieve") => {
             let result = rt.block_on(client.pokemon_form_retrieve(
-                  "id_example".to_string()
+                  ???
             ));
             info!("{:?} (X-Span-ID: {:?})", result, (client.context() as &dyn Has<XSpanIdString>).get().clone());
         },
+        */
+        /* Disabled because there's no example.
         Some("PokemonHabitatRetrieve") => {
             let result = rt.block_on(client.pokemon_habitat_retrieve(
-                  "id_example".to_string()
+                  ???
             ));
             info!("{:?} (X-Span-ID: {:?})", result, (client.context() as &dyn Has<XSpanIdString>).get().clone());
         },
+        */
+        /* Disabled because there's no example.
         Some("PokemonRetrieve") => {
             let result = rt.block_on(client.pokemon_retrieve(
-                  "id_example".to_string()
+                  ???
             ));
             info!("{:?} (X-Span-ID: {:?})", result, (client.context() as &dyn Has<XSpanIdString>).get().clone());
         },
+        */
+        /* Disabled because there's no example.
         Some("PokemonShapeRetrieve") => {
             let result = rt.block_on(client.pokemon_shape_retrieve(
-                  "id_example".to_string()
+                  ???
             ));
             info!("{:?} (X-Span-ID: {:?})", result, (client.context() as &dyn Has<XSpanIdString>).get().clone());
         },
+        */
+        /* Disabled because there's no example.
         Some("PokemonSpeciesRetrieve") => {
             let result = rt.block_on(client.pokemon_species_retrieve(
-                  "id_example".to_string()
+                  ???
             ));
             info!("{:?} (X-Span-ID: {:?})", result, (client.context() as &dyn Has<XSpanIdString>).get().clone());
         },
+        */
+        /* Disabled because there's no example.
         Some("StatRetrieve") => {
             let result = rt.block_on(client.stat_retrieve(
-                  "id_example".to_string()
+                  ???
             ));
             info!("{:?} (X-Span-ID: {:?})", result, (client.context() as &dyn Has<XSpanIdString>).get().clone());
         },
+        */
+        /* Disabled because there's no example.
         Some("TypeRetrieve") => {
             let result = rt.block_on(client.type_retrieve(
-                  "id_example".to_string()
+                  ???
             ));
             info!("{:?} (X-Span-ID: {:?})", result, (client.context() as &dyn Has<XSpanIdString>).get().clone());
         },
+        */
         Some("LanguageList") => {
             let result = rt.block_on(client.language_list(
-                  Some(56),
-                  Some(56),
-                  Some("q_example".to_string())
+                  Some(0),
+                  Some(0),
+                  None
             ));
             info!("{:?} (X-Span-ID: {:?})", result, (client.context() as &dyn Has<XSpanIdString>).get().clone());
         },
+        /* Disabled because there's no example.
         Some("LanguageRetrieve") => {
             let result = rt.block_on(client.language_retrieve(
-                  "id_example".to_string()
+                  ???
             ));
             info!("{:?} (X-Span-ID: {:?})", result, (client.context() as &dyn Has<XSpanIdString>).get().clone());
         },
+        */
         _ => {
             panic!("Invalid operation provided")
         }

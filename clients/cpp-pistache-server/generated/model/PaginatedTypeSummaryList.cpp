@@ -31,6 +31,8 @@ PaginatedTypeSummaryList::PaginatedTypeSummaryList()
     
 }
 
+PaginatedTypeSummaryList::~PaginatedTypeSummaryList() = default;
+
 void PaginatedTypeSummaryList::validate() const
 {
     std::stringstream msg;

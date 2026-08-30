@@ -6,7 +6,7 @@
 
 
 static pal_park_area_detail_t *pal_park_area_detail_create_internal(
-    int id,
+    int *id,
     char *name,
     list_t *names,
     list_t *pokemon_encounters
@@ -15,27 +15,36 @@ static pal_park_area_detail_t *pal_park_area_detail_create_internal(
     if (!pal_park_area_detail_local_var) {
         return NULL;
     }
+    memset(pal_park_area_detail_local_var, 0, sizeof(pal_park_area_detail_t));
+    pal_park_area_detail_local_var->_library_owned = 1;
     pal_park_area_detail_local_var->id = id;
     pal_park_area_detail_local_var->name = name;
     pal_park_area_detail_local_var->names = names;
     pal_park_area_detail_local_var->pokemon_encounters = pokemon_encounters;
-
-    pal_park_area_detail_local_var->_library_owned = 1;
     return pal_park_area_detail_local_var;
 }
 
 __attribute__((deprecated)) pal_park_area_detail_t *pal_park_area_detail_create(
-    int id,
+    int *id,
     char *name,
     list_t *names,
     list_t *pokemon_encounters
     ) {
-    return pal_park_area_detail_create_internal (
-        id,
+    int *id_copy = NULL;
+    if (id) {
+        id_copy = malloc(sizeof(int));
+        if (id_copy) *id_copy = *id;
+    }
+    pal_park_area_detail_t *result = pal_park_area_detail_create_internal (
+        id_copy,
         name,
         names,
         pokemon_encounters
         );
+    if (!result) {
+        free(id_copy);
+    }
+    return result;
 }
 
 void pal_park_area_detail_free(pal_park_area_detail_t *pal_park_area_detail) {
@@ -47,6 +56,10 @@ void pal_park_area_detail_free(pal_park_area_detail_t *pal_park_area_detail) {
         return ;
     }
     listEntry_t *listEntry;
+    if (pal_park_area_detail->id) {
+        free(pal_park_area_detail->id);
+        pal_park_area_detail->id = NULL;
+    }
     if (pal_park_area_detail->name) {
         free(pal_park_area_detail->name);
         pal_park_area_detail->name = NULL;
@@ -75,7 +88,7 @@ cJSON *pal_park_area_detail_convertToJSON(pal_park_area_detail_t *pal_park_area_
     if (!pal_park_area_detail->id) {
         goto fail;
     }
-    if(cJSON_AddNumberToObject(item, "id", pal_park_area_detail->id) == NULL) {
+    if(cJSON_AddNumberToObject(item, "id", *pal_park_area_detail->id) == NULL) {
     goto fail; //Numeric
     }
 
@@ -142,6 +155,11 @@ pal_park_area_detail_t *pal_park_area_detail_parseFromJSON(cJSON *pal_park_area_
 
     pal_park_area_detail_t *pal_park_area_detail_local_var = NULL;
 
+    // define the local variable for pal_park_area_detail->id
+    int *id_local_var = NULL;
+
+    char *name_local_str = NULL;
+
     // define the local list for pal_park_area_detail->names
     list_t *namesList = NULL;
 
@@ -162,6 +180,12 @@ pal_park_area_detail_t *pal_park_area_detail_parseFromJSON(cJSON *pal_park_area_
     {
     goto end; //Numeric
     }
+    id_local_var = malloc(sizeof(int));
+    if(!id_local_var)
+    {
+        goto end;
+    }
+    *id_local_var = id->valuedouble;
 
     // pal_park_area_detail->name
     cJSON *name = cJSON_GetObjectItemCaseSensitive(pal_park_area_detailJSON, "name");
@@ -233,15 +257,29 @@ pal_park_area_detail_t *pal_park_area_detail_parseFromJSON(cJSON *pal_park_area_
     }
 
 
+    if (name && !cJSON_IsNull(name)) name_local_str = strdup(name->valuestring);
+
     pal_park_area_detail_local_var = pal_park_area_detail_create_internal (
-        id->valuedouble,
-        strdup(name->valuestring),
+        id_local_var,
+        name_local_str,
         namesList,
         pokemon_encountersList
         );
 
+    if (!pal_park_area_detail_local_var) {
+        goto end;
+    }
+
     return pal_park_area_detail_local_var;
 end:
+    if (id_local_var) {
+        free(id_local_var);
+        id_local_var = NULL;
+    }
+    if (name_local_str) {
+        free(name_local_str);
+        name_local_str = NULL;
+    }
     if (namesList) {
         listEntry_t *listEntry = NULL;
         list_ForEach(listEntry, namesList) {

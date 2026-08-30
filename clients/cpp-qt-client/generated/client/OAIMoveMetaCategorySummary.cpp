@@ -21,7 +21,7 @@
 
 namespace OpenAPI {
 
-OAIMoveMetaCategorySummary::OAIMoveMetaCategorySummary(QString json) {
+OAIMoveMetaCategorySummary::OAIMoveMetaCategorySummary(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -41,7 +41,7 @@ void OAIMoveMetaCategorySummary::initializeModel() {
     m_url_isValid = false;
 }
 
-void OAIMoveMetaCategorySummary::fromJson(QString jsonString) {
+void OAIMoveMetaCategorySummary::fromJson(const QString &jsonString) {
     QByteArray array(jsonString.toStdString().c_str());
     QJsonDocument doc = QJsonDocument::fromJson(array);
     QJsonObject jsonObject = doc.object();

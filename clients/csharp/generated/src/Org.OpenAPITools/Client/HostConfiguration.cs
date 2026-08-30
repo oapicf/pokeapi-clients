@@ -25,7 +25,7 @@ namespace Org.OpenAPITools.Client
     /// <summary>
     /// Provides hosting configuration for Org.OpenAPITools
     /// </summary>
-    public class HostConfiguration
+    public partial class HostConfiguration
     {
         private readonly IServiceCollection _services;
         private readonly JsonSerializerOptions _jsonOptions = new JsonSerializerOptions();
@@ -326,6 +326,17 @@ namespace Org.OpenAPITools.Client
             _services.AddSingleton<MovesApiEvents>();
             _services.AddSingleton<PokemonApiEvents>();
             _services.AddSingleton<UtilityApiEvents>();
+            OnHostConfigurationCreated();
+        }
+
+        /// <summary>
+        /// Configures the HttpClients.
+        /// </summary>
+        /// <param name="builder"></param>
+        /// <returns></returns>
+        public HostConfiguration AddApiHttpClients(Action<IHttpClientBuilder>? builder = null)
+        {
+            return AddApiHttpClients((Action<IServiceProvider, HttpClient>?)null, builder);
         }
 
         /// <summary>
@@ -334,35 +345,77 @@ namespace Org.OpenAPITools.Client
         /// <param name="client"></param>
         /// <param name="builder"></param>
         /// <returns></returns>
-        public HostConfiguration AddApiHttpClients
-        (
-            Action<HttpClient>? client = null, Action<IHttpClientBuilder>? builder = null)
+        public HostConfiguration AddApiHttpClients(
+            Action<HttpClient>? client,
+            Action<IHttpClientBuilder>? builder = null)
+        {
+            var wrapped = client != null ? new Action<IServiceProvider, HttpClient>((_, httpClient) =>
+            {
+                client(httpClient);
+            }) : null;
+            return AddApiHttpClients(wrapped, builder);
+        }
+
+        /// <summary>
+        /// Configures the HttpClients.
+        /// </summary>
+        /// <param name="client"></param>
+        /// <param name="builder"></param>
+        /// <returns></returns>
+        public HostConfiguration AddApiHttpClients(
+            Action<IServiceProvider, HttpClient>? client,
+            Action<IHttpClientBuilder>? builder = null)
         {
             if (client == null)
-                client = c => c.BaseAddress = new Uri(ClientUtils.BASE_ADDRESS);
+                client = (_, c) => c.BaseAddress = new Uri(ClientUtils.BASE_ADDRESS);
 
             List<IHttpClientBuilder> builders = new List<IHttpClientBuilder>();
 
-            builders.Add(_services.AddHttpClient<IBerriesApi, BerriesApi>(client));
-            builders.Add(_services.AddHttpClient<IContestsApi, ContestsApi>(client));
-            builders.Add(_services.AddHttpClient<IEncountersApi, EncountersApi>(client));
-            builders.Add(_services.AddHttpClient<IEvolutionApi, EvolutionApi>(client));
-            builders.Add(_services.AddHttpClient<IGamesApi, GamesApi>(client));
-            builders.Add(_services.AddHttpClient<IItemsApi, ItemsApi>(client));
-            builders.Add(_services.AddHttpClient<ILocationApi, LocationApi>(client));
-            builders.Add(_services.AddHttpClient<IMachinesApi, MachinesApi>(client));
-            builders.Add(_services.AddHttpClient<IMovesApi, MovesApi>(client));
-            builders.Add(_services.AddHttpClient<IPokemonApi, PokemonApi>(client));
-            builders.Add(_services.AddHttpClient<IUtilityApi, UtilityApi>(client));
-            
-            if (builder != null)
-                foreach (IHttpClientBuilder instance in builders)
-                    builder(instance);
+            builders.Add(_services.AddHttpClient<IBerriesApi, BerriesApi>("Org.OpenAPITools.Api.IBerriesApi", client));
+            builders.Add(_services.AddHttpClient<IContestsApi, ContestsApi>("Org.OpenAPITools.Api.IContestsApi", client));
+            builders.Add(_services.AddHttpClient<IEncountersApi, EncountersApi>("Org.OpenAPITools.Api.IEncountersApi", client));
+            builders.Add(_services.AddHttpClient<IEvolutionApi, EvolutionApi>("Org.OpenAPITools.Api.IEvolutionApi", client));
+            builders.Add(_services.AddHttpClient<IGamesApi, GamesApi>("Org.OpenAPITools.Api.IGamesApi", client));
+            builders.Add(_services.AddHttpClient<IItemsApi, ItemsApi>("Org.OpenAPITools.Api.IItemsApi", client));
+            builders.Add(_services.AddHttpClient<ILocationApi, LocationApi>("Org.OpenAPITools.Api.ILocationApi", client));
+            builders.Add(_services.AddHttpClient<IMachinesApi, MachinesApi>("Org.OpenAPITools.Api.IMachinesApi", client));
+            builders.Add(_services.AddHttpClient<IMovesApi, MovesApi>("Org.OpenAPITools.Api.IMovesApi", client));
+            builders.Add(_services.AddHttpClient<IPokemonApi, PokemonApi>("Org.OpenAPITools.Api.IPokemonApi", client));
+            builders.Add(_services.AddHttpClient<IUtilityApi, UtilityApi>("Org.OpenAPITools.Api.IUtilityApi", client));
+
+            foreach (IHttpClientBuilder instance in builders)
+            {
+                OnAddApiHttpClientBuilder(instance);
+                builder?.Invoke(instance);
+            }
 
             HttpClientsAdded = true;
 
             return this;
         }
+
+        /// <summary>
+        /// Applies configuration to each HttpClient after registration.
+        /// Implement this partial method in a separate file to provide custom defaults;
+        /// the caller's <c>builder</c> action runs after.
+        /// </summary>
+        /// <param name="builder"></param>
+        partial void OnAddApiHttpClientBuilder(IHttpClientBuilder builder);
+
+        /// <summary>
+        /// Called at the end of the constructor after all JSON converters and services are registered.
+        /// Implement this partial method to further configure <c>_jsonOptions</c> or register additional singletons via <c>_services</c>.
+        /// </summary>
+        partial void OnHostConfigurationCreated();
+
+        /// <summary>
+        /// Called after all services have been registered.
+        /// Implement this partial method to register additional services.
+        /// </summary>
+        /// <param name="services"></param>
+        partial void OnServicesAdded(IServiceCollection services);
+
+        internal void NotifyServicesAdded(IServiceCollection services) => OnServicesAdded(services);
 
         /// <summary>
         /// Configures the JsonSerializerSettings

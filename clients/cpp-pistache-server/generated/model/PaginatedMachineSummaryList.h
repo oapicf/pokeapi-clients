@@ -34,7 +34,7 @@ class  PaginatedMachineSummaryList
 {
 public:
     PaginatedMachineSummaryList();
-    virtual ~PaginatedMachineSummaryList() = default;
+    virtual ~PaginatedMachineSummaryList();
 
 
     /// <summary>

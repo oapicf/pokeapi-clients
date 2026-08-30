@@ -85,7 +85,7 @@ EncounterConditionValueSummary::getName()
 }
 
 void
-EncounterConditionValueSummary::setName(std::string  name)
+EncounterConditionValueSummary::setName(std::string name)
 {
 	this->name = name;
 }
@@ -97,7 +97,7 @@ EncounterConditionValueSummary::getUrl()
 }
 
 void
-EncounterConditionValueSummary::setUrl(std::string  url)
+EncounterConditionValueSummary::setUrl(std::string url)
 {
 	this->url = url;
 }

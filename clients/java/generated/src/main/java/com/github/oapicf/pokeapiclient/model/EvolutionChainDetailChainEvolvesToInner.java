@@ -52,7 +52,7 @@ import com.github.oapicf.pokeapiclient.JSON;
 /**
  * EvolutionChainDetailChainEvolvesToInner
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-07T15:22:35.747827932Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-08-30T01:55:28.842792947Z[Etc/UTC]", comments = "Generator version: 7.24.0")
 public class EvolutionChainDetailChainEvolvesToInner {
   public static final String SERIALIZED_NAME_EVOLUTION_DETAILS = "evolution_details";
   @SerializedName(SERIALIZED_NAME_EVOLUTION_DETAILS)
@@ -173,10 +173,7 @@ public class EvolutionChainDetailChainEvolvesToInner {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 
@@ -219,16 +216,16 @@ public class EvolutionChainDetailChainEvolvesToInner {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      // ensure the json data is an array
-      if (!jsonObj.get("evolution_details").isJsonArray()) {
-        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `evolution_details` to be an array in the JSON string but got `%s`", jsonObj.get("evolution_details").toString()));
+      if (jsonObj.get("evolution_details") != null) {
+        if (!jsonObj.get("evolution_details").isJsonArray()) {
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `evolution_details` to be an array in the JSON string but got `%s`", jsonObj.get("evolution_details").toString()));
+        }
+        JsonArray jsonArrayevolutionDetails = jsonObj.getAsJsonArray("evolution_details");
+        // validate the required field `evolution_details` (array)
+        for (int i = 0; i < jsonArrayevolutionDetails.size(); i++) {
+          EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner.validateJsonElement(jsonArrayevolutionDetails.get(i));
+        }
       }
-
-      JsonArray jsonArrayevolutionDetails = jsonObj.getAsJsonArray("evolution_details");
-      // validate the required field `evolution_details` (array)
-      for (int i = 0; i < jsonArrayevolutionDetails.size(); i++) {
-        EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner.validateJsonElement(jsonArrayevolutionDetails.get(i));
-      };
       // validate the required field `species`
       AbilityDetailPokemonInnerPokemon.validateJsonElement(jsonObj.get("species"));
   }

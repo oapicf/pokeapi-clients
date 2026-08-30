@@ -34,7 +34,7 @@ class  PaginatedPalParkAreaSummaryList
 {
 public:
     PaginatedPalParkAreaSummaryList();
-    virtual ~PaginatedPalParkAreaSummaryList() = default;
+    virtual ~PaginatedPalParkAreaSummaryList();
 
 
     /// <summary>

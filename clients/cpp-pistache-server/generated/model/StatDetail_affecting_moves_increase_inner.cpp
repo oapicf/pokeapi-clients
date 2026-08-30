@@ -25,6 +25,8 @@ StatDetail_affecting_moves_increase_inner::StatDetail_affecting_moves_increase_i
     
 }
 
+StatDetail_affecting_moves_increase_inner::~StatDetail_affecting_moves_increase_inner() = default;
+
 void StatDetail_affecting_moves_increase_inner::validate() const
 {
     std::stringstream msg;

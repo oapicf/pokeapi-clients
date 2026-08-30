@@ -33,7 +33,7 @@ class  ItemName
 {
 public:
     ItemName();
-    virtual ~ItemName() = default;
+    virtual ~ItemName();
 
 
     /// <summary>

@@ -37,6 +37,8 @@ PokemonFormDetail::PokemonFormDetail()
     
 }
 
+PokemonFormDetail::~PokemonFormDetail() = default;
+
 void PokemonFormDetail::validate() const
 {
     std::stringstream msg;

@@ -19,7 +19,7 @@ import MoveTargetName from './MoveTargetName';
 /**
  * The MoveTargetDetail model module.
  * @module model/MoveTargetDetail
- * @version 1.2.1-pre.0
+ * @version 2.0.1-pre.0
  */
 class MoveTargetDetail {
     /**

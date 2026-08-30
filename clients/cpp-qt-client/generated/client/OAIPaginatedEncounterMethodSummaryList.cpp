@@ -21,7 +21,7 @@
 
 namespace OpenAPI {
 
-OAIPaginatedEncounterMethodSummaryList::OAIPaginatedEncounterMethodSummaryList(QString json) {
+OAIPaginatedEncounterMethodSummaryList::OAIPaginatedEncounterMethodSummaryList(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -47,7 +47,7 @@ void OAIPaginatedEncounterMethodSummaryList::initializeModel() {
     m_results_isValid = false;
 }
 
-void OAIPaginatedEncounterMethodSummaryList::fromJson(QString jsonString) {
+void OAIPaginatedEncounterMethodSummaryList::fromJson(const QString &jsonString) {
     QByteArray array(jsonString.toStdString().c_str());
     QJsonDocument doc = QJsonDocument::fromJson(array);
     QJsonObject jsonObject = doc.object();

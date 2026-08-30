@@ -34,7 +34,7 @@ class  PokemonDetail_moves_inner
 {
 public:
     PokemonDetail_moves_inner();
-    virtual ~PokemonDetail_moves_inner() = default;
+    virtual ~PokemonDetail_moves_inner();
 
 
     /// <summary>

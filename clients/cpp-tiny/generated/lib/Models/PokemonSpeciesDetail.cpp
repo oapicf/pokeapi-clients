@@ -753,7 +753,7 @@ PokemonSpeciesDetail::getId()
 }
 
 void
-PokemonSpeciesDetail::setId(int  id)
+PokemonSpeciesDetail::setId(int id)
 {
 	this->id = id;
 }
@@ -765,7 +765,7 @@ PokemonSpeciesDetail::getName()
 }
 
 void
-PokemonSpeciesDetail::setName(std::string  name)
+PokemonSpeciesDetail::setName(std::string name)
 {
 	this->name = name;
 }
@@ -777,7 +777,7 @@ PokemonSpeciesDetail::getOrder()
 }
 
 void
-PokemonSpeciesDetail::setOrder(int  order)
+PokemonSpeciesDetail::setOrder(int order)
 {
 	this->order = order;
 }
@@ -789,7 +789,7 @@ PokemonSpeciesDetail::getGenderRate()
 }
 
 void
-PokemonSpeciesDetail::setGenderRate(int  gender_rate)
+PokemonSpeciesDetail::setGenderRate(int gender_rate)
 {
 	this->gender_rate = gender_rate;
 }
@@ -801,7 +801,7 @@ PokemonSpeciesDetail::getCaptureRate()
 }
 
 void
-PokemonSpeciesDetail::setCaptureRate(int  capture_rate)
+PokemonSpeciesDetail::setCaptureRate(int capture_rate)
 {
 	this->capture_rate = capture_rate;
 }
@@ -813,7 +813,7 @@ PokemonSpeciesDetail::getBaseHappiness()
 }
 
 void
-PokemonSpeciesDetail::setBaseHappiness(int  base_happiness)
+PokemonSpeciesDetail::setBaseHappiness(int base_happiness)
 {
 	this->base_happiness = base_happiness;
 }
@@ -825,7 +825,7 @@ PokemonSpeciesDetail::isIsBaby()
 }
 
 void
-PokemonSpeciesDetail::setIsBaby(bool  is_baby)
+PokemonSpeciesDetail::setIsBaby(bool is_baby)
 {
 	this->is_baby = is_baby;
 }
@@ -837,7 +837,7 @@ PokemonSpeciesDetail::isIsLegendary()
 }
 
 void
-PokemonSpeciesDetail::setIsLegendary(bool  is_legendary)
+PokemonSpeciesDetail::setIsLegendary(bool is_legendary)
 {
 	this->is_legendary = is_legendary;
 }
@@ -849,7 +849,7 @@ PokemonSpeciesDetail::isIsMythical()
 }
 
 void
-PokemonSpeciesDetail::setIsMythical(bool  is_mythical)
+PokemonSpeciesDetail::setIsMythical(bool is_mythical)
 {
 	this->is_mythical = is_mythical;
 }
@@ -861,7 +861,7 @@ PokemonSpeciesDetail::getHatchCounter()
 }
 
 void
-PokemonSpeciesDetail::setHatchCounter(int  hatch_counter)
+PokemonSpeciesDetail::setHatchCounter(int hatch_counter)
 {
 	this->hatch_counter = hatch_counter;
 }
@@ -873,7 +873,7 @@ PokemonSpeciesDetail::isHasGenderDifferences()
 }
 
 void
-PokemonSpeciesDetail::setHasGenderDifferences(bool  has_gender_differences)
+PokemonSpeciesDetail::setHasGenderDifferences(bool has_gender_differences)
 {
 	this->has_gender_differences = has_gender_differences;
 }
@@ -885,7 +885,7 @@ PokemonSpeciesDetail::isFormsSwitchable()
 }
 
 void
-PokemonSpeciesDetail::setFormsSwitchable(bool  forms_switchable)
+PokemonSpeciesDetail::setFormsSwitchable(bool forms_switchable)
 {
 	this->forms_switchable = forms_switchable;
 }
@@ -897,7 +897,7 @@ PokemonSpeciesDetail::getGrowthRate()
 }
 
 void
-PokemonSpeciesDetail::setGrowthRate(GrowthRateSummary  growth_rate)
+PokemonSpeciesDetail::setGrowthRate(GrowthRateSummary growth_rate)
 {
 	this->growth_rate = growth_rate;
 }
@@ -909,7 +909,7 @@ PokemonSpeciesDetail::getPokedexNumbers()
 }
 
 void
-PokemonSpeciesDetail::setPokedexNumbers(std::list <PokemonDexEntry> pokedex_numbers)
+PokemonSpeciesDetail::setPokedexNumbers(std::list<PokemonDexEntry> pokedex_numbers)
 {
 	this->pokedex_numbers = pokedex_numbers;
 }
@@ -921,7 +921,7 @@ PokemonSpeciesDetail::getEggGroups()
 }
 
 void
-PokemonSpeciesDetail::setEggGroups(std::list <AbilityDetail_pokemon_inner_pokemon> egg_groups)
+PokemonSpeciesDetail::setEggGroups(std::list<AbilityDetail_pokemon_inner_pokemon> egg_groups)
 {
 	this->egg_groups = egg_groups;
 }
@@ -933,7 +933,7 @@ PokemonSpeciesDetail::getColor()
 }
 
 void
-PokemonSpeciesDetail::setColor(PokemonColorSummary  color)
+PokemonSpeciesDetail::setColor(PokemonColorSummary color)
 {
 	this->color = color;
 }
@@ -945,7 +945,7 @@ PokemonSpeciesDetail::getShape()
 }
 
 void
-PokemonSpeciesDetail::setShape(PokemonShapeSummary  shape)
+PokemonSpeciesDetail::setShape(PokemonShapeSummary shape)
 {
 	this->shape = shape;
 }
@@ -957,7 +957,7 @@ PokemonSpeciesDetail::getEvolvesFromSpecies()
 }
 
 void
-PokemonSpeciesDetail::setEvolvesFromSpecies(PokemonSpeciesSummary  evolves_from_species)
+PokemonSpeciesDetail::setEvolvesFromSpecies(PokemonSpeciesSummary evolves_from_species)
 {
 	this->evolves_from_species = evolves_from_species;
 }
@@ -969,7 +969,7 @@ PokemonSpeciesDetail::getEvolutionChain()
 }
 
 void
-PokemonSpeciesDetail::setEvolutionChain(EvolutionChainSummary  evolution_chain)
+PokemonSpeciesDetail::setEvolutionChain(EvolutionChainSummary evolution_chain)
 {
 	this->evolution_chain = evolution_chain;
 }
@@ -981,7 +981,7 @@ PokemonSpeciesDetail::getHabitat()
 }
 
 void
-PokemonSpeciesDetail::setHabitat(PokemonHabitatSummary  habitat)
+PokemonSpeciesDetail::setHabitat(PokemonHabitatSummary habitat)
 {
 	this->habitat = habitat;
 }
@@ -993,7 +993,7 @@ PokemonSpeciesDetail::getGeneration()
 }
 
 void
-PokemonSpeciesDetail::setGeneration(GenerationSummary  generation)
+PokemonSpeciesDetail::setGeneration(GenerationSummary generation)
 {
 	this->generation = generation;
 }
@@ -1005,7 +1005,7 @@ PokemonSpeciesDetail::getNames()
 }
 
 void
-PokemonSpeciesDetail::setNames(std::list <PokemonFormDetail_form_names_inner> names)
+PokemonSpeciesDetail::setNames(std::list<PokemonFormDetail_form_names_inner> names)
 {
 	this->names = names;
 }
@@ -1017,7 +1017,7 @@ PokemonSpeciesDetail::getPalParkEncounters()
 }
 
 void
-PokemonSpeciesDetail::setPalParkEncounters(std::list <PokemonSpeciesDetail_pal_park_encounters_inner> pal_park_encounters)
+PokemonSpeciesDetail::setPalParkEncounters(std::list<PokemonSpeciesDetail_pal_park_encounters_inner> pal_park_encounters)
 {
 	this->pal_park_encounters = pal_park_encounters;
 }
@@ -1029,7 +1029,7 @@ PokemonSpeciesDetail::getFormDescriptions()
 }
 
 void
-PokemonSpeciesDetail::setFormDescriptions(std::list <PokemonSpeciesDescription> form_descriptions)
+PokemonSpeciesDetail::setFormDescriptions(std::list<PokemonSpeciesDescription> form_descriptions)
 {
 	this->form_descriptions = form_descriptions;
 }
@@ -1041,7 +1041,7 @@ PokemonSpeciesDetail::getFlavorTextEntries()
 }
 
 void
-PokemonSpeciesDetail::setFlavorTextEntries(std::list <PokemonSpeciesFlavorText> flavor_text_entries)
+PokemonSpeciesDetail::setFlavorTextEntries(std::list<PokemonSpeciesFlavorText> flavor_text_entries)
 {
 	this->flavor_text_entries = flavor_text_entries;
 }
@@ -1053,7 +1053,7 @@ PokemonSpeciesDetail::getGenera()
 }
 
 void
-PokemonSpeciesDetail::setGenera(std::list <PokemonSpeciesDetail_genera_inner> genera)
+PokemonSpeciesDetail::setGenera(std::list<PokemonSpeciesDetail_genera_inner> genera)
 {
 	this->genera = genera;
 }
@@ -1065,7 +1065,7 @@ PokemonSpeciesDetail::getVarieties()
 }
 
 void
-PokemonSpeciesDetail::setVarieties(std::list <PokemonSpeciesDetail_varieties_inner> varieties)
+PokemonSpeciesDetail::setVarieties(std::list<PokemonSpeciesDetail_varieties_inner> varieties)
 {
 	this->varieties = varieties;
 }

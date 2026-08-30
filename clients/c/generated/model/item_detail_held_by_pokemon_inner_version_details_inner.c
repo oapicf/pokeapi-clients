@@ -6,28 +6,37 @@
 
 
 static item_detail_held_by_pokemon_inner_version_details_inner_t *item_detail_held_by_pokemon_inner_version_details_inner_create_internal(
-    int rarity,
+    int *rarity,
     ability_detail_pokemon_inner_pokemon_t *version
     ) {
     item_detail_held_by_pokemon_inner_version_details_inner_t *item_detail_held_by_pokemon_inner_version_details_inner_local_var = malloc(sizeof(item_detail_held_by_pokemon_inner_version_details_inner_t));
     if (!item_detail_held_by_pokemon_inner_version_details_inner_local_var) {
         return NULL;
     }
+    memset(item_detail_held_by_pokemon_inner_version_details_inner_local_var, 0, sizeof(item_detail_held_by_pokemon_inner_version_details_inner_t));
+    item_detail_held_by_pokemon_inner_version_details_inner_local_var->_library_owned = 1;
     item_detail_held_by_pokemon_inner_version_details_inner_local_var->rarity = rarity;
     item_detail_held_by_pokemon_inner_version_details_inner_local_var->version = version;
-
-    item_detail_held_by_pokemon_inner_version_details_inner_local_var->_library_owned = 1;
     return item_detail_held_by_pokemon_inner_version_details_inner_local_var;
 }
 
 __attribute__((deprecated)) item_detail_held_by_pokemon_inner_version_details_inner_t *item_detail_held_by_pokemon_inner_version_details_inner_create(
-    int rarity,
+    int *rarity,
     ability_detail_pokemon_inner_pokemon_t *version
     ) {
-    return item_detail_held_by_pokemon_inner_version_details_inner_create_internal (
-        rarity,
+    int *rarity_copy = NULL;
+    if (rarity) {
+        rarity_copy = malloc(sizeof(int));
+        if (rarity_copy) *rarity_copy = *rarity;
+    }
+    item_detail_held_by_pokemon_inner_version_details_inner_t *result = item_detail_held_by_pokemon_inner_version_details_inner_create_internal (
+        rarity_copy,
         version
         );
+    if (!result) {
+        free(rarity_copy);
+    }
+    return result;
 }
 
 void item_detail_held_by_pokemon_inner_version_details_inner_free(item_detail_held_by_pokemon_inner_version_details_inner_t *item_detail_held_by_pokemon_inner_version_details_inner) {
@@ -39,6 +48,10 @@ void item_detail_held_by_pokemon_inner_version_details_inner_free(item_detail_he
         return ;
     }
     listEntry_t *listEntry;
+    if (item_detail_held_by_pokemon_inner_version_details_inner->rarity) {
+        free(item_detail_held_by_pokemon_inner_version_details_inner->rarity);
+        item_detail_held_by_pokemon_inner_version_details_inner->rarity = NULL;
+    }
     if (item_detail_held_by_pokemon_inner_version_details_inner->version) {
         ability_detail_pokemon_inner_pokemon_free(item_detail_held_by_pokemon_inner_version_details_inner->version);
         item_detail_held_by_pokemon_inner_version_details_inner->version = NULL;
@@ -53,7 +66,7 @@ cJSON *item_detail_held_by_pokemon_inner_version_details_inner_convertToJSON(ite
     if (!item_detail_held_by_pokemon_inner_version_details_inner->rarity) {
         goto fail;
     }
-    if(cJSON_AddNumberToObject(item, "rarity", item_detail_held_by_pokemon_inner_version_details_inner->rarity) == NULL) {
+    if(cJSON_AddNumberToObject(item, "rarity", *item_detail_held_by_pokemon_inner_version_details_inner->rarity) == NULL) {
     goto fail; //Numeric
     }
 
@@ -83,6 +96,9 @@ item_detail_held_by_pokemon_inner_version_details_inner_t *item_detail_held_by_p
 
     item_detail_held_by_pokemon_inner_version_details_inner_t *item_detail_held_by_pokemon_inner_version_details_inner_local_var = NULL;
 
+    // define the local variable for item_detail_held_by_pokemon_inner_version_details_inner->rarity
+    int *rarity_local_var = NULL;
+
     // define the local variable for item_detail_held_by_pokemon_inner_version_details_inner->version
     ability_detail_pokemon_inner_pokemon_t *version_local_nonprim = NULL;
 
@@ -100,6 +116,12 @@ item_detail_held_by_pokemon_inner_version_details_inner_t *item_detail_held_by_p
     {
     goto end; //Numeric
     }
+    rarity_local_var = malloc(sizeof(int));
+    if(!rarity_local_var)
+    {
+        goto end;
+    }
+    *rarity_local_var = rarity->valuedouble;
 
     // item_detail_held_by_pokemon_inner_version_details_inner->version
     cJSON *version = cJSON_GetObjectItemCaseSensitive(item_detail_held_by_pokemon_inner_version_details_innerJSON, "version");
@@ -114,13 +136,22 @@ item_detail_held_by_pokemon_inner_version_details_inner_t *item_detail_held_by_p
     version_local_nonprim = ability_detail_pokemon_inner_pokemon_parseFromJSON(version); //nonprimitive
 
 
+
     item_detail_held_by_pokemon_inner_version_details_inner_local_var = item_detail_held_by_pokemon_inner_version_details_inner_create_internal (
-        rarity->valuedouble,
+        rarity_local_var,
         version_local_nonprim
         );
 
+    if (!item_detail_held_by_pokemon_inner_version_details_inner_local_var) {
+        goto end;
+    }
+
     return item_detail_held_by_pokemon_inner_version_details_inner_local_var;
 end:
+    if (rarity_local_var) {
+        free(rarity_local_var);
+        rarity_local_var = NULL;
+    }
     if (version_local_nonprim) {
         ability_detail_pokemon_inner_pokemon_free(version_local_nonprim);
         version_local_nonprim = NULL;

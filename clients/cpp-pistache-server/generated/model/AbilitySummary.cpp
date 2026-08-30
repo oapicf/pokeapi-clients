@@ -26,6 +26,8 @@ AbilitySummary::AbilitySummary()
     
 }
 
+AbilitySummary::~AbilitySummary() = default;
+
 void AbilitySummary::validate() const
 {
     std::stringstream msg;

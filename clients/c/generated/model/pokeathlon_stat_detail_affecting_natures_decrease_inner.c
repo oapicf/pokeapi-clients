@@ -6,28 +6,37 @@
 
 
 static pokeathlon_stat_detail_affecting_natures_decrease_inner_t *pokeathlon_stat_detail_affecting_natures_decrease_inner_create_internal(
-    int max_change,
+    int *max_change,
     ability_detail_pokemon_inner_pokemon_t *nature
     ) {
     pokeathlon_stat_detail_affecting_natures_decrease_inner_t *pokeathlon_stat_detail_affecting_natures_decrease_inner_local_var = malloc(sizeof(pokeathlon_stat_detail_affecting_natures_decrease_inner_t));
     if (!pokeathlon_stat_detail_affecting_natures_decrease_inner_local_var) {
         return NULL;
     }
+    memset(pokeathlon_stat_detail_affecting_natures_decrease_inner_local_var, 0, sizeof(pokeathlon_stat_detail_affecting_natures_decrease_inner_t));
+    pokeathlon_stat_detail_affecting_natures_decrease_inner_local_var->_library_owned = 1;
     pokeathlon_stat_detail_affecting_natures_decrease_inner_local_var->max_change = max_change;
     pokeathlon_stat_detail_affecting_natures_decrease_inner_local_var->nature = nature;
-
-    pokeathlon_stat_detail_affecting_natures_decrease_inner_local_var->_library_owned = 1;
     return pokeathlon_stat_detail_affecting_natures_decrease_inner_local_var;
 }
 
 __attribute__((deprecated)) pokeathlon_stat_detail_affecting_natures_decrease_inner_t *pokeathlon_stat_detail_affecting_natures_decrease_inner_create(
-    int max_change,
+    int *max_change,
     ability_detail_pokemon_inner_pokemon_t *nature
     ) {
-    return pokeathlon_stat_detail_affecting_natures_decrease_inner_create_internal (
-        max_change,
+    int *max_change_copy = NULL;
+    if (max_change) {
+        max_change_copy = malloc(sizeof(int));
+        if (max_change_copy) *max_change_copy = *max_change;
+    }
+    pokeathlon_stat_detail_affecting_natures_decrease_inner_t *result = pokeathlon_stat_detail_affecting_natures_decrease_inner_create_internal (
+        max_change_copy,
         nature
         );
+    if (!result) {
+        free(max_change_copy);
+    }
+    return result;
 }
 
 void pokeathlon_stat_detail_affecting_natures_decrease_inner_free(pokeathlon_stat_detail_affecting_natures_decrease_inner_t *pokeathlon_stat_detail_affecting_natures_decrease_inner) {
@@ -39,6 +48,10 @@ void pokeathlon_stat_detail_affecting_natures_decrease_inner_free(pokeathlon_sta
         return ;
     }
     listEntry_t *listEntry;
+    if (pokeathlon_stat_detail_affecting_natures_decrease_inner->max_change) {
+        free(pokeathlon_stat_detail_affecting_natures_decrease_inner->max_change);
+        pokeathlon_stat_detail_affecting_natures_decrease_inner->max_change = NULL;
+    }
     if (pokeathlon_stat_detail_affecting_natures_decrease_inner->nature) {
         ability_detail_pokemon_inner_pokemon_free(pokeathlon_stat_detail_affecting_natures_decrease_inner->nature);
         pokeathlon_stat_detail_affecting_natures_decrease_inner->nature = NULL;
@@ -53,7 +66,7 @@ cJSON *pokeathlon_stat_detail_affecting_natures_decrease_inner_convertToJSON(pok
     if (!pokeathlon_stat_detail_affecting_natures_decrease_inner->max_change) {
         goto fail;
     }
-    if(cJSON_AddNumberToObject(item, "max_change", pokeathlon_stat_detail_affecting_natures_decrease_inner->max_change) == NULL) {
+    if(cJSON_AddNumberToObject(item, "max_change", *pokeathlon_stat_detail_affecting_natures_decrease_inner->max_change) == NULL) {
     goto fail; //Numeric
     }
 
@@ -83,6 +96,9 @@ pokeathlon_stat_detail_affecting_natures_decrease_inner_t *pokeathlon_stat_detai
 
     pokeathlon_stat_detail_affecting_natures_decrease_inner_t *pokeathlon_stat_detail_affecting_natures_decrease_inner_local_var = NULL;
 
+    // define the local variable for pokeathlon_stat_detail_affecting_natures_decrease_inner->max_change
+    int *max_change_local_var = NULL;
+
     // define the local variable for pokeathlon_stat_detail_affecting_natures_decrease_inner->nature
     ability_detail_pokemon_inner_pokemon_t *nature_local_nonprim = NULL;
 
@@ -100,6 +116,12 @@ pokeathlon_stat_detail_affecting_natures_decrease_inner_t *pokeathlon_stat_detai
     {
     goto end; //Numeric
     }
+    max_change_local_var = malloc(sizeof(int));
+    if(!max_change_local_var)
+    {
+        goto end;
+    }
+    *max_change_local_var = max_change->valuedouble;
 
     // pokeathlon_stat_detail_affecting_natures_decrease_inner->nature
     cJSON *nature = cJSON_GetObjectItemCaseSensitive(pokeathlon_stat_detail_affecting_natures_decrease_innerJSON, "nature");
@@ -114,13 +136,22 @@ pokeathlon_stat_detail_affecting_natures_decrease_inner_t *pokeathlon_stat_detai
     nature_local_nonprim = ability_detail_pokemon_inner_pokemon_parseFromJSON(nature); //nonprimitive
 
 
+
     pokeathlon_stat_detail_affecting_natures_decrease_inner_local_var = pokeathlon_stat_detail_affecting_natures_decrease_inner_create_internal (
-        max_change->valuedouble,
+        max_change_local_var,
         nature_local_nonprim
         );
 
+    if (!pokeathlon_stat_detail_affecting_natures_decrease_inner_local_var) {
+        goto end;
+    }
+
     return pokeathlon_stat_detail_affecting_natures_decrease_inner_local_var;
 end:
+    if (max_change_local_var) {
+        free(max_change_local_var);
+        max_change_local_var = NULL;
+    }
     if (nature_local_nonprim) {
         ability_detail_pokemon_inner_pokemon_free(nature_local_nonprim);
         nature_local_nonprim = NULL;

@@ -77,8 +77,18 @@ namespace Org.OpenAPITools.Model
     /// <summary>
     /// A Json converter for type <see cref="ItemDetailBabyTriggerFor" />
     /// </summary>
-    public class ItemDetailBabyTriggerForJsonConverter : JsonConverter<ItemDetailBabyTriggerFor>
+    public partial class ItemDetailBabyTriggerForJsonConverter : JsonConverter<ItemDetailBabyTriggerFor>
     {
+        partial void OnCreated();
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ItemDetailBabyTriggerForJsonConverter" /> class.
+        /// </summary>
+        public ItemDetailBabyTriggerForJsonConverter()
+        {
+            OnCreated();
+        }
+
         /// <summary>
         /// Deserializes json to <see cref="ItemDetailBabyTriggerFor" />
         /// </summary>

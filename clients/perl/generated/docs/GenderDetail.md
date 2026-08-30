@@ -10,8 +10,8 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **int** |  | [readonly] 
 **name** | **string** |  | 
-**pokemon_species_details** | [**ARRAY[GenderDetailPokemonSpeciesDetailsInner]**](GenderDetailPokemonSpeciesDetailsInner.md) |  | 
-**required_for_evolution** | [**ARRAY[AbilityDetailPokemonInnerPokemon]**](AbilityDetailPokemonInnerPokemon.md) |  | 
+**pokemon_species_details** | [**ARRAY[GenderDetailPokemonSpeciesDetailsInner]**](GenderDetailPokemonSpeciesDetailsInner.md) |  | [readonly] 
+**required_for_evolution** | [**ARRAY[AbilityDetailPokemonInnerPokemon]**](AbilityDetailPokemonInnerPokemon.md) |  | [readonly] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

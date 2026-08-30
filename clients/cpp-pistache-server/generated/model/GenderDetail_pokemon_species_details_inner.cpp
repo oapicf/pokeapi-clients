@@ -25,6 +25,8 @@ GenderDetail_pokemon_species_details_inner::GenderDetail_pokemon_species_details
     
 }
 
+GenderDetail_pokemon_species_details_inner::~GenderDetail_pokemon_species_details_inner() = default;
+
 void GenderDetail_pokemon_species_details_inner::validate() const
 {
     std::stringstream msg;

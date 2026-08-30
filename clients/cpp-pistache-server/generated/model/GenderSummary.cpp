@@ -26,6 +26,8 @@ GenderSummary::GenderSummary()
     
 }
 
+GenderSummary::~GenderSummary() = default;
+
 void GenderSummary::validate() const
 {
     std::stringstream msg;

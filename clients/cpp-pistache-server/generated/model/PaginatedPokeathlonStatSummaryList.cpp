@@ -31,6 +31,8 @@ PaginatedPokeathlonStatSummaryList::PaginatedPokeathlonStatSummaryList()
     
 }
 
+PaginatedPokeathlonStatSummaryList::~PaginatedPokeathlonStatSummaryList() = default;
+
 void PaginatedPokeathlonStatSummaryList::validate() const
 {
     std::stringstream msg;

@@ -144,7 +144,7 @@ PaginatedMoveMetaCategorySummaryList::getCount()
 }
 
 void
-PaginatedMoveMetaCategorySummaryList::setCount(int  count)
+PaginatedMoveMetaCategorySummaryList::setCount(int count)
 {
 	this->count = count;
 }
@@ -156,7 +156,7 @@ PaginatedMoveMetaCategorySummaryList::getNext()
 }
 
 void
-PaginatedMoveMetaCategorySummaryList::setNext(std::string  next)
+PaginatedMoveMetaCategorySummaryList::setNext(std::string next)
 {
 	this->next = next;
 }
@@ -168,7 +168,7 @@ PaginatedMoveMetaCategorySummaryList::getPrevious()
 }
 
 void
-PaginatedMoveMetaCategorySummaryList::setPrevious(std::string  previous)
+PaginatedMoveMetaCategorySummaryList::setPrevious(std::string previous)
 {
 	this->previous = previous;
 }
@@ -180,7 +180,7 @@ PaginatedMoveMetaCategorySummaryList::getResults()
 }
 
 void
-PaginatedMoveMetaCategorySummaryList::setResults(std::list <MoveMetaCategorySummary> results)
+PaginatedMoveMetaCategorySummaryList::setResults(std::list<MoveMetaCategorySummary> results)
 {
 	this->results = results;
 }

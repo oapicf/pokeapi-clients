@@ -32,7 +32,7 @@ class  StatDetail_affecting_moves_increase_inner
 {
 public:
     StatDetail_affecting_moves_increase_inner();
-    virtual ~StatDetail_affecting_moves_increase_inner() = default;
+    virtual ~StatDetail_affecting_moves_increase_inner();
 
 
     /// <summary>

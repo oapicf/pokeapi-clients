@@ -21,7 +21,7 @@
 
 namespace OpenAPI {
 
-OAIPaginatedEvolutionChainSummaryList::OAIPaginatedEvolutionChainSummaryList(QString json) {
+OAIPaginatedEvolutionChainSummaryList::OAIPaginatedEvolutionChainSummaryList(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -47,7 +47,7 @@ void OAIPaginatedEvolutionChainSummaryList::initializeModel() {
     m_results_isValid = false;
 }
 
-void OAIPaginatedEvolutionChainSummaryList::fromJson(QString jsonString) {
+void OAIPaginatedEvolutionChainSummaryList::fromJson(const QString &jsonString) {
     QByteArray array(jsonString.toStdString().c_str());
     QJsonDocument doc = QJsonDocument::fromJson(array);
     QJsonObject jsonObject = doc.object();

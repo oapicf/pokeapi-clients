@@ -25,7 +25,8 @@ type PaginatedBerryFlavorSummaryList struct {
 	Results []BerryFlavorSummary `json:"results,omitempty"`
 }
 
-// AssertPaginatedBerryFlavorSummaryListRequired checks if the required fields are not zero-ed
+// AssertPaginatedBerryFlavorSummaryListRequired checks complex required fields (models, arrays, maps) and embedded parents.
+// Primitive required fields are validated for JSON request bodies in UnmarshalJSON so zero values remain valid.
 func AssertPaginatedBerryFlavorSummaryListRequired(obj PaginatedBerryFlavorSummaryList) error {
 	for _, el := range obj.Results {
 		if err := AssertBerryFlavorSummaryRequired(el); err != nil {

@@ -33,13 +33,13 @@ class OAIAbilityDetail_pokemon_inner_pokemon;
 class OAIMoveDetail_contest_combos_normal : public OAIObject {
 public:
     OAIMoveDetail_contest_combos_normal();
-    OAIMoveDetail_contest_combos_normal(QString json);
+    OAIMoveDetail_contest_combos_normal(const QString &json);
     ~OAIMoveDetail_contest_combos_normal() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     QList<OAIAbilityDetail_pokemon_inner_pokemon> getUseBefore() const;
     void setUseBefore(const QList<OAIAbilityDetail_pokemon_inner_pokemon> &use_before);

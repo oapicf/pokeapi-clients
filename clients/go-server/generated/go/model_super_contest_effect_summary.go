@@ -19,17 +19,9 @@ type SuperContestEffectSummary struct {
 	Url string `json:"url"`
 }
 
-// AssertSuperContestEffectSummaryRequired checks if the required fields are not zero-ed
+// AssertSuperContestEffectSummaryRequired checks complex required fields (models, arrays, maps) and embedded parents.
+// Primitive required fields are validated for JSON request bodies in UnmarshalJSON so zero values remain valid.
 func AssertSuperContestEffectSummaryRequired(obj SuperContestEffectSummary) error {
-	elements := map[string]interface{}{
-		"url": obj.Url,
-	}
-	for name, el := range elements {
-		if isZero := IsZeroValue(el); isZero {
-			return &RequiredError{Field: name}
-		}
-	}
-
 	return nil
 }
 

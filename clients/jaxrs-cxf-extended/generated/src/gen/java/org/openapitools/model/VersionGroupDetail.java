@@ -158,6 +158,7 @@ public class VersionGroupDetail  {
 
   /**
    * Sets the <code>moveLearnMethods</code> property.
+   * <br><em>N.B. <code>moveLearnMethods</code> is <b>read only</b>; client code should not call this method</em>.
    */
  public void setMoveLearnMethods(List<@Valid AbilityDetailPokemonInnerPokemon> moveLearnMethods) {
     this.moveLearnMethods = moveLearnMethods;
@@ -165,6 +166,7 @@ public class VersionGroupDetail  {
 
   /**
    * Sets the <code>moveLearnMethods</code> property.
+   * <br><em>N.B. <code>moveLearnMethods</code> is <b>read only</b>; client code should not call this method</em>.
    */
   public VersionGroupDetail moveLearnMethods(List<@Valid AbilityDetailPokemonInnerPokemon> moveLearnMethods) {
     this.moveLearnMethods = moveLearnMethods;
@@ -173,6 +175,7 @@ public class VersionGroupDetail  {
 
   /**
    * Adds a new item to the <code>moveLearnMethods</code> list.
+   * <br><em>N.B. <code>moveLearnMethods</code> is <b>read only</b>; client code should not call this method</em>.
    */
   public VersionGroupDetail addMoveLearnMethodsItem(AbilityDetailPokemonInnerPokemon moveLearnMethodsItem) {
     this.moveLearnMethods.add(moveLearnMethodsItem);
@@ -191,6 +194,7 @@ public class VersionGroupDetail  {
 
   /**
    * Sets the <code>pokedexes</code> property.
+   * <br><em>N.B. <code>pokedexes</code> is <b>read only</b>; client code should not call this method</em>.
    */
  public void setPokedexes(List<@Valid AbilityDetailPokemonInnerPokemon> pokedexes) {
     this.pokedexes = pokedexes;
@@ -198,6 +202,7 @@ public class VersionGroupDetail  {
 
   /**
    * Sets the <code>pokedexes</code> property.
+   * <br><em>N.B. <code>pokedexes</code> is <b>read only</b>; client code should not call this method</em>.
    */
   public VersionGroupDetail pokedexes(List<@Valid AbilityDetailPokemonInnerPokemon> pokedexes) {
     this.pokedexes = pokedexes;
@@ -206,6 +211,7 @@ public class VersionGroupDetail  {
 
   /**
    * Adds a new item to the <code>pokedexes</code> list.
+   * <br><em>N.B. <code>pokedexes</code> is <b>read only</b>; client code should not call this method</em>.
    */
   public VersionGroupDetail addPokedexesItem(AbilityDetailPokemonInnerPokemon pokedexesItem) {
     this.pokedexes.add(pokedexesItem);
@@ -224,6 +230,7 @@ public class VersionGroupDetail  {
 
   /**
    * Sets the <code>regions</code> property.
+   * <br><em>N.B. <code>regions</code> is <b>read only</b>; client code should not call this method</em>.
    */
  public void setRegions(List<@Valid AbilityDetailPokemonInnerPokemon> regions) {
     this.regions = regions;
@@ -231,6 +238,7 @@ public class VersionGroupDetail  {
 
   /**
    * Sets the <code>regions</code> property.
+   * <br><em>N.B. <code>regions</code> is <b>read only</b>; client code should not call this method</em>.
    */
   public VersionGroupDetail regions(List<@Valid AbilityDetailPokemonInnerPokemon> regions) {
     this.regions = regions;
@@ -239,6 +247,7 @@ public class VersionGroupDetail  {
 
   /**
    * Adds a new item to the <code>regions</code> list.
+   * <br><em>N.B. <code>regions</code> is <b>read only</b>; client code should not call this method</em>.
    */
   public VersionGroupDetail addRegionsItem(AbilityDetailPokemonInnerPokemon regionsItem) {
     this.regions.add(regionsItem);
@@ -257,6 +266,7 @@ public class VersionGroupDetail  {
 
   /**
    * Sets the <code>versions</code> property.
+   * <br><em>N.B. <code>versions</code> is <b>read only</b>; client code should not call this method</em>.
    */
  public void setVersions(List<@Valid VersionSummary> versions) {
     this.versions = versions;
@@ -264,6 +274,7 @@ public class VersionGroupDetail  {
 
   /**
    * Sets the <code>versions</code> property.
+   * <br><em>N.B. <code>versions</code> is <b>read only</b>; client code should not call this method</em>.
    */
   public VersionGroupDetail versions(List<@Valid VersionSummary> versions) {
     this.versions = versions;
@@ -272,6 +283,7 @@ public class VersionGroupDetail  {
 
   /**
    * Adds a new item to the <code>versions</code> list.
+   * <br><em>N.B. <code>versions</code> is <b>read only</b>; client code should not call this method</em>.
    */
   public VersionGroupDetail addVersionsItem(VersionSummary versionsItem) {
     this.versions.add(versionsItem);
@@ -325,10 +337,7 @@ public class VersionGroupDetail  {
    * (except the first line).
    */
   private static String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 }
 

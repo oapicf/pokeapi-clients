@@ -6,7 +6,7 @@
 | ---- | ---- | ----------- | ----- |
 | **id** | **Integer** |  | [readonly] |
 | **name** | **String** |  |  |
-| **names** | [**Array&lt;VersionName&gt;**](VersionName.md) |  |  |
+| **names** | [**Array&lt;VersionName&gt;**](VersionName.md) |  | [readonly] |
 | **version_group** | [**VersionGroupSummary**](VersionGroupSummary.md) |  |  |
 
 ## Example

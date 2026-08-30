@@ -47,7 +47,7 @@ class NatureDetail
      * @var int|null
      * @SerializedName("id")
      * @Type("int")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Type("int")]
     protected ?int $id = null;
@@ -56,7 +56,7 @@ class NatureDetail
      * @var string|null
      * @SerializedName("name")
      * @Type("string")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Type("string")]
     #[Assert\Length(max: 100)]
@@ -66,7 +66,7 @@ class NatureDetail
      * @var StatSummary|null
      * @SerializedName("decreased_stat")
      * @Type("OpenAPI\Server\Model\StatSummary")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Valid]
     #[Assert\Type("OpenAPI\Server\Model\StatSummary")]
@@ -76,7 +76,7 @@ class NatureDetail
      * @var StatSummary|null
      * @SerializedName("increased_stat")
      * @Type("OpenAPI\Server\Model\StatSummary")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Valid]
     #[Assert\Type("OpenAPI\Server\Model\StatSummary")]
@@ -86,7 +86,7 @@ class NatureDetail
      * @var BerryFlavorSummary|null
      * @SerializedName("likes_flavor")
      * @Type("OpenAPI\Server\Model\BerryFlavorSummary")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Valid]
     #[Assert\Type("OpenAPI\Server\Model\BerryFlavorSummary")]
@@ -96,7 +96,7 @@ class NatureDetail
      * @var BerryFlavorSummary|null
      * @SerializedName("hates_flavor")
      * @Type("OpenAPI\Server\Model\BerryFlavorSummary")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Valid]
     #[Assert\Type("OpenAPI\Server\Model\BerryFlavorSummary")]
@@ -106,7 +106,7 @@ class NatureDetail
      * @var BerrySummary[]|null
      * @SerializedName("berries")
      * @Type("array<OpenAPI\Server\Model\BerrySummary>")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Valid]
     #[Assert\All([
@@ -118,7 +118,7 @@ class NatureDetail
      * @var NatureDetailPokeathlonStatChangesInner[]|null
      * @SerializedName("pokeathlon_stat_changes")
      * @Type("array<OpenAPI\Server\Model\NatureDetailPokeathlonStatChangesInner>")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Valid]
     #[Assert\All([
@@ -130,7 +130,7 @@ class NatureDetail
      * @var NatureBattleStylePreference[]|null
      * @SerializedName("move_battle_style_preferences")
      * @Type("array<OpenAPI\Server\Model\NatureBattleStylePreference>")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Valid]
     #[Assert\All([
@@ -142,7 +142,7 @@ class NatureDetail
      * @var NatureName[]|null
      * @SerializedName("names")
      * @Type("array<OpenAPI\Server\Model\NatureName>")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Valid]
     #[Assert\All([
@@ -181,12 +181,12 @@ class NatureDetail
     }
 
     /**
-    * Sets id.
-    *
-    * @param int|null $id
-    *
-    * @return $this
-    */
+     * Sets id.
+     *
+     * @param int|null $id
+     *
+     * @return $this
+     */
     public function setId(?int $id): self
     {
         $this->id = $id;
@@ -208,12 +208,12 @@ class NatureDetail
     }
 
     /**
-    * Sets name.
-    *
-    * @param string|null $name
-    *
-    * @return $this
-    */
+     * Sets name.
+     *
+     * @param string|null $name
+     *
+     * @return $this
+     */
     public function setName(?string $name): self
     {
         $this->name = $name;
@@ -235,12 +235,12 @@ class NatureDetail
     }
 
     /**
-    * Sets decreasedStat.
-    *
-    * @param StatSummary|null $decreasedStat
-    *
-    * @return $this
-    */
+     * Sets decreasedStat.
+     *
+     * @param StatSummary|null $decreasedStat
+     *
+     * @return $this
+     */
     public function setDecreasedStat(?StatSummary $decreasedStat): self
     {
         $this->decreasedStat = $decreasedStat;
@@ -262,12 +262,12 @@ class NatureDetail
     }
 
     /**
-    * Sets increasedStat.
-    *
-    * @param StatSummary|null $increasedStat
-    *
-    * @return $this
-    */
+     * Sets increasedStat.
+     *
+     * @param StatSummary|null $increasedStat
+     *
+     * @return $this
+     */
     public function setIncreasedStat(?StatSummary $increasedStat): self
     {
         $this->increasedStat = $increasedStat;
@@ -289,12 +289,12 @@ class NatureDetail
     }
 
     /**
-    * Sets likesFlavor.
-    *
-    * @param BerryFlavorSummary|null $likesFlavor
-    *
-    * @return $this
-    */
+     * Sets likesFlavor.
+     *
+     * @param BerryFlavorSummary|null $likesFlavor
+     *
+     * @return $this
+     */
     public function setLikesFlavor(?BerryFlavorSummary $likesFlavor): self
     {
         $this->likesFlavor = $likesFlavor;
@@ -316,12 +316,12 @@ class NatureDetail
     }
 
     /**
-    * Sets hatesFlavor.
-    *
-    * @param BerryFlavorSummary|null $hatesFlavor
-    *
-    * @return $this
-    */
+     * Sets hatesFlavor.
+     *
+     * @param BerryFlavorSummary|null $hatesFlavor
+     *
+     * @return $this
+     */
     public function setHatesFlavor(?BerryFlavorSummary $hatesFlavor): self
     {
         $this->hatesFlavor = $hatesFlavor;
@@ -343,12 +343,12 @@ class NatureDetail
     }
 
     /**
-    * Sets berries.
-    *
-    * @param BerrySummary[]|null $berries
-    *
-    * @return $this
-    */
+     * Sets berries.
+     *
+     * @param BerrySummary[]|null $berries
+     *
+     * @return $this
+     */
     public function setBerries(?array $berries): self
     {
         $this->berries = $berries;
@@ -370,12 +370,12 @@ class NatureDetail
     }
 
     /**
-    * Sets pokeathlonStatChanges.
-    *
-    * @param NatureDetailPokeathlonStatChangesInner[]|null $pokeathlonStatChanges
-    *
-    * @return $this
-    */
+     * Sets pokeathlonStatChanges.
+     *
+     * @param NatureDetailPokeathlonStatChangesInner[]|null $pokeathlonStatChanges
+     *
+     * @return $this
+     */
     public function setPokeathlonStatChanges(?array $pokeathlonStatChanges): self
     {
         $this->pokeathlonStatChanges = $pokeathlonStatChanges;
@@ -397,12 +397,12 @@ class NatureDetail
     }
 
     /**
-    * Sets moveBattleStylePreferences.
-    *
-    * @param NatureBattleStylePreference[]|null $moveBattleStylePreferences
-    *
-    * @return $this
-    */
+     * Sets moveBattleStylePreferences.
+     *
+     * @param NatureBattleStylePreference[]|null $moveBattleStylePreferences
+     *
+     * @return $this
+     */
     public function setMoveBattleStylePreferences(?array $moveBattleStylePreferences): self
     {
         $this->moveBattleStylePreferences = $moveBattleStylePreferences;
@@ -424,12 +424,12 @@ class NatureDetail
     }
 
     /**
-    * Sets names.
-    *
-    * @param NatureName[]|null $names
-    *
-    * @return $this
-    */
+     * Sets names.
+     *
+     * @param NatureName[]|null $names
+     *
+     * @return $this
+     */
     public function setNames(?array $names): self
     {
         $this->names = $names;

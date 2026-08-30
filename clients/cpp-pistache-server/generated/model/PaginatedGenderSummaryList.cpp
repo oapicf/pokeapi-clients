@@ -31,6 +31,8 @@ PaginatedGenderSummaryList::PaginatedGenderSummaryList()
     
 }
 
+PaginatedGenderSummaryList::~PaginatedGenderSummaryList() = default;
+
 void PaginatedGenderSummaryList::validate() const
 {
     std::stringstream msg;

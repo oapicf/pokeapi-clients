@@ -95,8 +95,18 @@ namespace Org.OpenAPITools.Model
     /// <summary>
     /// A Json converter for type <see cref="AbilityFlavorText" />
     /// </summary>
-    public class AbilityFlavorTextJsonConverter : JsonConverter<AbilityFlavorText>
+    public partial class AbilityFlavorTextJsonConverter : JsonConverter<AbilityFlavorText>
     {
+        partial void OnCreated();
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="AbilityFlavorTextJsonConverter" /> class.
+        /// </summary>
+        public AbilityFlavorTextJsonConverter()
+        {
+            OnCreated();
+        }
+
         /// <summary>
         /// Deserializes json to <see cref="AbilityFlavorText" />
         /// </summary>

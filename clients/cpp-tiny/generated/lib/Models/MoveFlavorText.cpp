@@ -108,7 +108,7 @@ MoveFlavorText::getFlavorText()
 }
 
 void
-MoveFlavorText::setFlavorText(std::string  flavor_text)
+MoveFlavorText::setFlavorText(std::string flavor_text)
 {
 	this->flavor_text = flavor_text;
 }
@@ -120,7 +120,7 @@ MoveFlavorText::getLanguage()
 }
 
 void
-MoveFlavorText::setLanguage(LanguageSummary  language)
+MoveFlavorText::setLanguage(LanguageSummary language)
 {
 	this->language = language;
 }
@@ -132,7 +132,7 @@ MoveFlavorText::getVersionGroup()
 }
 
 void
-MoveFlavorText::setVersionGroup(VersionGroupSummary  version_group)
+MoveFlavorText::setVersionGroup(VersionGroupSummary version_group)
 {
 	this->version_group = version_group;
 }

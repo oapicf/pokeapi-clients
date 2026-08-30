@@ -47,7 +47,7 @@ class Experience
      * @var int|null
      * @SerializedName("level")
      * @Type("int")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Type("int")]
     protected ?int $level = null;
@@ -56,7 +56,7 @@ class Experience
      * @var int|null
      * @SerializedName("experience")
      * @Type("int")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Type("int")]
     protected ?int $experience = null;
@@ -84,12 +84,12 @@ class Experience
     }
 
     /**
-    * Sets level.
-    *
-    * @param int|null $level
-    *
-    * @return $this
-    */
+     * Sets level.
+     *
+     * @param int|null $level
+     *
+     * @return $this
+     */
     public function setLevel(?int $level): self
     {
         $this->level = $level;
@@ -111,12 +111,12 @@ class Experience
     }
 
     /**
-    * Sets experience.
-    *
-    * @param int|null $experience
-    *
-    * @return $this
-    */
+     * Sets experience.
+     *
+     * @param int|null $experience
+     *
+     * @return $this
+     */
     public function setExperience(?int $experience): self
     {
         $this->experience = $experience;

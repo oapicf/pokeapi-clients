@@ -78,19 +78,19 @@ export interface PokedexDetail {
      * @type {Array<PokedexDescription>}
      * @memberof PokedexDetail
      */
-    descriptions: Array<PokedexDescription>;
+    readonly descriptions: Array<PokedexDescription>;
     /**
      * 
      * @type {Array<PokedexName>}
      * @memberof PokedexDetail
      */
-    names: Array<PokedexName>;
+    readonly names: Array<PokedexName>;
     /**
      * 
      * @type {Array<PokedexDetailPokemonEntriesInner>}
      * @memberof PokedexDetail
      */
-    pokemonEntries: Array<PokedexDetailPokemonEntriesInner>;
+    readonly pokemonEntries: Array<PokedexDetailPokemonEntriesInner>;
     /**
      * 
      * @type {RegionSummary}
@@ -102,7 +102,7 @@ export interface PokedexDetail {
      * @type {Array<AbilityDetailPokemonInnerPokemon>}
      * @memberof PokedexDetail
      */
-    versionGroups: Array<AbilityDetailPokemonInnerPokemon>;
+    readonly versionGroups: Array<AbilityDetailPokemonInnerPokemon>;
 }
 
 /**
@@ -113,9 +113,9 @@ export function instanceOfPokedexDetail(value: object): value is PokedexDetail {
     if (!('name' in value) || value['name'] === undefined) return false;
     if (!('descriptions' in value) || value['descriptions'] === undefined) return false;
     if (!('names' in value) || value['names'] === undefined) return false;
-    if (!('pokemonEntries' in value) || value['pokemonEntries'] === undefined) return false;
+    if ((!('pokemonEntries' in (value as Record<string, any>)) && !('pokemon_entries' in (value as Record<string, any>))) || ((value as Record<string, any>)['pokemonEntries'] === undefined && (value as Record<string, any>)['pokemon_entries'] === undefined)) return false;
     if (!('region' in value) || value['region'] === undefined) return false;
-    if (!('versionGroups' in value) || value['versionGroups'] === undefined) return false;
+    if ((!('versionGroups' in (value as Record<string, any>)) && !('version_groups' in (value as Record<string, any>))) || ((value as Record<string, any>)['versionGroups'] === undefined && (value as Record<string, any>)['version_groups'] === undefined)) return false;
     return true;
 }
 
@@ -144,7 +144,7 @@ export function PokedexDetailToJSON(json: any): PokedexDetail {
     return PokedexDetailToJSONTyped(json, false);
 }
 
-export function PokedexDetailToJSONTyped(value?: Omit<PokedexDetail, 'id'> | null, ignoreDiscriminator: boolean = false): any {
+export function PokedexDetailToJSONTyped(value?: Omit<PokedexDetail, 'id'|'descriptions'|'names'|'pokemonEntries'|'versionGroups'> | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
@@ -153,11 +153,7 @@ export function PokedexDetailToJSONTyped(value?: Omit<PokedexDetail, 'id'> | nul
         
         'name': value['name'],
         'is_main_series': value['isMainSeries'],
-        'descriptions': ((value['descriptions'] as Array<any>).map(PokedexDescriptionToJSON)),
-        'names': ((value['names'] as Array<any>).map(PokedexNameToJSON)),
-        'pokemon_entries': ((value['pokemonEntries'] as Array<any>).map(PokedexDetailPokemonEntriesInnerToJSON)),
         'region': RegionSummaryToJSON(value['region']),
-        'version_groups': ((value['versionGroups'] as Array<any>).map(AbilityDetailPokemonInnerPokemonToJSON)),
     };
 }
 

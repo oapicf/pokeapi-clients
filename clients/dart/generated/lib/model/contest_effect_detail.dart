@@ -71,10 +71,16 @@ class ContestEffectDetail {
       // Note 1: the values aren't checked for validity beyond being non-null.
       // Note 2: this code is stripped in release mode!
       assert(() {
-        requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "ContestEffectDetail[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "ContestEffectDetail[$key]" has a null value in JSON.');
-        });
+        assert(json.containsKey(r'id'), 'Required key "ContestEffectDetail[id]" is missing from JSON.');
+        assert(json[r'id'] != null, 'Required key "ContestEffectDetail[id]" has a null value in JSON.');
+        assert(json.containsKey(r'appeal'), 'Required key "ContestEffectDetail[appeal]" is missing from JSON.');
+        assert(json[r'appeal'] != null, 'Required key "ContestEffectDetail[appeal]" has a null value in JSON.');
+        assert(json.containsKey(r'jam'), 'Required key "ContestEffectDetail[jam]" is missing from JSON.');
+        assert(json[r'jam'] != null, 'Required key "ContestEffectDetail[jam]" has a null value in JSON.');
+        assert(json.containsKey(r'effect_entries'), 'Required key "ContestEffectDetail[effect_entries]" is missing from JSON.');
+        assert(json[r'effect_entries'] != null, 'Required key "ContestEffectDetail[effect_entries]" has a null value in JSON.');
+        assert(json.containsKey(r'flavor_text_entries'), 'Required key "ContestEffectDetail[flavor_text_entries]" is missing from JSON.');
+        assert(json[r'flavor_text_entries'] != null, 'Required key "ContestEffectDetail[flavor_text_entries]" has a null value in JSON.');
         return true;
       }());
 

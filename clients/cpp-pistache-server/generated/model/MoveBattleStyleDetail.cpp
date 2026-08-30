@@ -26,6 +26,8 @@ MoveBattleStyleDetail::MoveBattleStyleDetail()
     
 }
 
+MoveBattleStyleDetail::~MoveBattleStyleDetail() = default;
+
 void MoveBattleStyleDetail::validate() const
 {
     std::stringstream msg;

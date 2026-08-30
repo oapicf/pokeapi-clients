@@ -92,8 +92,18 @@ namespace Org.OpenAPITools.Model
     /// <summary>
     /// A Json converter for type <see cref="PokedexName" />
     /// </summary>
-    public class PokedexNameJsonConverter : JsonConverter<PokedexName>
+    public partial class PokedexNameJsonConverter : JsonConverter<PokedexName>
     {
+        partial void OnCreated();
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="PokedexNameJsonConverter" /> class.
+        /// </summary>
+        public PokedexNameJsonConverter()
+        {
+            OnCreated();
+        }
+
         /// <summary>
         /// Deserializes json to <see cref="PokedexName" />
         /// </summary>

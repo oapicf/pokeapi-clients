@@ -47,7 +47,7 @@ class MoveMetaCategoryDetail
      * @var int|null
      * @SerializedName("id")
      * @Type("int")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Type("int")]
     protected ?int $id = null;
@@ -56,7 +56,7 @@ class MoveMetaCategoryDetail
      * @var string|null
      * @SerializedName("name")
      * @Type("string")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Type("string")]
     #[Assert\Length(max: 100)]
@@ -66,7 +66,7 @@ class MoveMetaCategoryDetail
      * @var MoveMetaCategoryDescription[]|null
      * @SerializedName("descriptions")
      * @Type("array<OpenAPI\Server\Model\MoveMetaCategoryDescription>")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Valid]
     #[Assert\All([
@@ -78,7 +78,7 @@ class MoveMetaCategoryDetail
      * @var AbilityDetailPokemonInnerPokemon[]|null
      * @SerializedName("moves")
      * @Type("array<OpenAPI\Server\Model\AbilityDetailPokemonInnerPokemon>")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Valid]
     #[Assert\All([
@@ -111,12 +111,12 @@ class MoveMetaCategoryDetail
     }
 
     /**
-    * Sets id.
-    *
-    * @param int|null $id
-    *
-    * @return $this
-    */
+     * Sets id.
+     *
+     * @param int|null $id
+     *
+     * @return $this
+     */
     public function setId(?int $id): self
     {
         $this->id = $id;
@@ -138,12 +138,12 @@ class MoveMetaCategoryDetail
     }
 
     /**
-    * Sets name.
-    *
-    * @param string|null $name
-    *
-    * @return $this
-    */
+     * Sets name.
+     *
+     * @param string|null $name
+     *
+     * @return $this
+     */
     public function setName(?string $name): self
     {
         $this->name = $name;
@@ -165,12 +165,12 @@ class MoveMetaCategoryDetail
     }
 
     /**
-    * Sets descriptions.
-    *
-    * @param MoveMetaCategoryDescription[]|null $descriptions
-    *
-    * @return $this
-    */
+     * Sets descriptions.
+     *
+     * @param MoveMetaCategoryDescription[]|null $descriptions
+     *
+     * @return $this
+     */
     public function setDescriptions(?array $descriptions): self
     {
         $this->descriptions = $descriptions;
@@ -192,12 +192,12 @@ class MoveMetaCategoryDetail
     }
 
     /**
-    * Sets moves.
-    *
-    * @param AbilityDetailPokemonInnerPokemon[]|null $moves
-    *
-    * @return $this
-    */
+     * Sets moves.
+     *
+     * @param AbilityDetailPokemonInnerPokemon[]|null $moves
+     *
+     * @return $this
+     */
     public function setMoves(?array $moves): self
     {
         $this->moves = $moves;

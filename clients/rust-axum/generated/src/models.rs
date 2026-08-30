@@ -8,6 +8,9 @@ use crate::header;
 use crate::{models, types::*};
 
 #[allow(dead_code)]
+pub type SSE = std::pin::Pin<std::boxed::Box<dyn futures_util::Stream<Item = std::result::Result<axum::response::sse::Event, std::convert::Infallible>> + std::marker::Send + std::marker::Sync>>;
+
+#[allow(dead_code)]
 fn from_validation_error(e: validator::ValidationError) -> validator::ValidationErrors {
   let mut errs = validator::ValidationErrors::new();
   errs.add("na", e);
@@ -7996,10 +7999,12 @@ pub struct EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner {
     pub item: models::EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender,
 
     #[serde(rename = "known_move")]
-    pub known_move: crate::types::Object,
+          #[validate(nested)]
+    pub known_move: models::EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender,
 
     #[serde(rename = "known_move_type")]
-    pub known_move_type: crate::types::Object,
+          #[validate(nested)]
+    pub known_move_type: models::EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender,
 
     #[serde(rename = "location")]
           #[validate(nested)]
@@ -8053,7 +8058,7 @@ pub struct EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner {
 
 impl EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner {
     #[allow(clippy::new_without_default, clippy::too_many_arguments)]
-    pub fn new(gender: models::EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender, held_item: models::EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender, item: models::EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender, known_move: crate::types::Object, known_move_type: crate::types::Object, location: models::EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender, min_affection: i32, min_beauty: i32, min_happiness: i32, min_level: i32, needs_overworld_rain: bool, party_species: String, party_type: String, relative_physical_stats: String, time_of_day: String, trade_species: String, trigger: models::AbilityDetailPokemonInnerPokemon, turn_upside_down: bool, ) -> EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner {
+    pub fn new(gender: models::EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender, held_item: models::EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender, item: models::EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender, known_move: models::EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender, known_move_type: models::EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender, location: models::EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender, min_affection: i32, min_beauty: i32, min_happiness: i32, min_level: i32, needs_overworld_rain: bool, party_species: String, party_type: String, relative_physical_stats: String, time_of_day: String, trade_species: String, trigger: models::AbilityDetailPokemonInnerPokemon, turn_upside_down: bool, ) -> EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner {
         EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner {
  gender,
  held_item,
@@ -8161,8 +8166,8 @@ impl std::str::FromStr for EvolutionChainDetailChainEvolvesToInnerEvolutionDetai
             pub gender: Vec<models::EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender>,
             pub held_item: Vec<models::EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender>,
             pub item: Vec<models::EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender>,
-            pub known_move: Vec<crate::types::Object>,
-            pub known_move_type: Vec<crate::types::Object>,
+            pub known_move: Vec<models::EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender>,
+            pub known_move_type: Vec<models::EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender>,
             pub location: Vec<models::EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender>,
             pub min_affection: Vec<i32>,
             pub min_beauty: Vec<i32>,
@@ -8200,9 +8205,9 @@ impl std::str::FromStr for EvolutionChainDetailChainEvolvesToInnerEvolutionDetai
                     #[allow(clippy::redundant_clone)]
                     "item" => intermediate_rep.item.push(<models::EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender as std::str::FromStr>::from_str(val).map_err(|x| x.to_string())?),
                     #[allow(clippy::redundant_clone)]
-                    "known_move" => intermediate_rep.known_move.push(<crate::types::Object as std::str::FromStr>::from_str(val).map_err(|x| x.to_string())?),
+                    "known_move" => intermediate_rep.known_move.push(<models::EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender as std::str::FromStr>::from_str(val).map_err(|x| x.to_string())?),
                     #[allow(clippy::redundant_clone)]
-                    "known_move_type" => intermediate_rep.known_move_type.push(<crate::types::Object as std::str::FromStr>::from_str(val).map_err(|x| x.to_string())?),
+                    "known_move_type" => intermediate_rep.known_move_type.push(<models::EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender as std::str::FromStr>::from_str(val).map_err(|x| x.to_string())?),
                     #[allow(clippy::redundant_clone)]
                     "location" => intermediate_rep.location.push(<models::EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender as std::str::FromStr>::from_str(val).map_err(|x| x.to_string())?),
                     #[allow(clippy::redundant_clone)]

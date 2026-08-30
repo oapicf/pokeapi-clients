@@ -36,12 +36,12 @@ export interface ItemCategoryDetail {
      * @type {Array<ItemSummary>}
      * @memberof ItemCategoryDetail
      */
-    items: Array<ItemSummary>;
+    readonly items: Array<ItemSummary>;
     /**
      * @type {Array<ItemCategoryName>}
      * @memberof ItemCategoryDetail
      */
-    names: Array<ItemCategoryName>;
+    readonly names: Array<ItemCategoryName>;
     /**
      * @type {ItemPocketSummary}
      * @memberof ItemCategoryDetail

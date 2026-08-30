@@ -31,6 +31,8 @@ PaginatedMoveBattleStyleSummaryList::PaginatedMoveBattleStyleSummaryList()
     
 }
 
+PaginatedMoveBattleStyleSummaryList::~PaginatedMoveBattleStyleSummaryList() = default;
+
 void PaginatedMoveBattleStyleSummaryList::validate() const
 {
     std::stringstream msg;

@@ -1,4 +1,4 @@
-.openapi-generator-ignore
+.scalafmt.conf
 README.md
 build.sbt
 docs/AbilityChange.md
@@ -282,6 +282,7 @@ docs/VersionName.md
 docs/VersionSummary.md
 pom.xml
 project/build.properties
+project/plugins.sbt
 src/main/resources/reference.conf
 src/main/scala/org/openapitools/client/api/BerriesApi.scala
 src/main/scala/org/openapitools/client/api/ContestsApi.scala

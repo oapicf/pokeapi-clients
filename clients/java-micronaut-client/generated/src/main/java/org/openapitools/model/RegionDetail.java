@@ -42,7 +42,7 @@ import javax.annotation.Generated;
   RegionDetail.JSON_PROPERTY_VERSION_GROUPS
 })
 @JsonTypeName("RegionDetail")
-@Generated(value="org.openapitools.codegen.languages.JavaMicronautClientCodegen", date="2026-02-07T15:22:54.857535619Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@Generated(value="org.openapitools.codegen.languages.JavaMicronautClientCodegen", date="2026-08-30T01:55:51.056116330Z[Etc/UTC]", comments = "Generator version: 7.24.0")
 @Introspected
 public class RegionDetail {
     public static final String JSON_PROPERTY_ID = "id";
@@ -110,16 +110,6 @@ public class RegionDetail {
         this.name = name;
     }
 
-    public RegionDetail locations(List<@Valid LocationSummary> locations) {
-        this.locations = locations;
-        return this;
-    }
-
-    public RegionDetail addLocationsItem(LocationSummary locationsItem) {
-        this.locations.add(locationsItem);
-        return this;
-    }
-
     /**
      * Get locations
      * @return locations
@@ -129,12 +119,6 @@ public class RegionDetail {
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public List<@Valid LocationSummary> getLocations() {
         return locations;
-    }
-
-    @JsonProperty(JSON_PROPERTY_LOCATIONS)
-    @JsonInclude(value = JsonInclude.Include.ALWAYS)
-    public void setLocations(List<@Valid LocationSummary> locations) {
-        this.locations = locations;
     }
 
     /**
@@ -149,16 +133,6 @@ public class RegionDetail {
         return mainGeneration;
     }
 
-    public RegionDetail names(List<@Valid RegionName> names) {
-        this.names = names;
-        return this;
-    }
-
-    public RegionDetail addNamesItem(RegionName namesItem) {
-        this.names.add(namesItem);
-        return this;
-    }
-
     /**
      * Get names
      * @return names
@@ -168,22 +142,6 @@ public class RegionDetail {
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public List<@Valid RegionName> getNames() {
         return names;
-    }
-
-    @JsonProperty(JSON_PROPERTY_NAMES)
-    @JsonInclude(value = JsonInclude.Include.ALWAYS)
-    public void setNames(List<@Valid RegionName> names) {
-        this.names = names;
-    }
-
-    public RegionDetail pokedexes(List<@Valid PokedexSummary> pokedexes) {
-        this.pokedexes = pokedexes;
-        return this;
-    }
-
-    public RegionDetail addPokedexesItem(PokedexSummary pokedexesItem) {
-        this.pokedexes.add(pokedexesItem);
-        return this;
     }
 
     /**
@@ -197,22 +155,6 @@ public class RegionDetail {
         return pokedexes;
     }
 
-    @JsonProperty(JSON_PROPERTY_POKEDEXES)
-    @JsonInclude(value = JsonInclude.Include.ALWAYS)
-    public void setPokedexes(List<@Valid PokedexSummary> pokedexes) {
-        this.pokedexes = pokedexes;
-    }
-
-    public RegionDetail versionGroups(List<@Valid AbilityDetailPokemonInnerPokemon> versionGroups) {
-        this.versionGroups = versionGroups;
-        return this;
-    }
-
-    public RegionDetail addVersionGroupsItem(AbilityDetailPokemonInnerPokemon versionGroupsItem) {
-        this.versionGroups.add(versionGroupsItem);
-        return this;
-    }
-
     /**
      * Get versionGroups
      * @return versionGroups
@@ -222,12 +164,6 @@ public class RegionDetail {
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public List<@Valid AbilityDetailPokemonInnerPokemon> getVersionGroups() {
         return versionGroups;
-    }
-
-    @JsonProperty(JSON_PROPERTY_VERSION_GROUPS)
-    @JsonInclude(value = JsonInclude.Include.ALWAYS)
-    public void setVersionGroups(List<@Valid AbilityDetailPokemonInnerPokemon> versionGroups) {
-        this.versionGroups = versionGroups;
     }
 
     @Override
@@ -273,10 +209,7 @@ public class RegionDetail {
      * (except the first line).
      */
     private String toIndentedString(Object o) {
-        if (o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
+        return o == null ? "null" : o.toString().replace("\n", "\n    ");
     }
 
 }

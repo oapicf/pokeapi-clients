@@ -34,7 +34,7 @@ import javax.validation.Valid;
   AbilityChange.JSON_PROPERTY_VERSION_GROUP,
   AbilityChange.JSON_PROPERTY_EFFECT_ENTRIES
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJerseyServerCodegen", date = "2026-02-07T15:23:51.865177194Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJerseyServerCodegen", date = "2026-08-30T01:56:28.710233113Z[Etc/UTC]", comments = "Generator version: 7.24.0")
 public class AbilityChange   {
   public static final String JSON_PROPERTY_VERSION_GROUP = "version_group";
   @JsonProperty(JSON_PROPERTY_VERSION_GROUP)
@@ -81,9 +81,9 @@ public class AbilityChange   {
    * Get effectEntries
    * @return effectEntries
    **/
-  @JsonProperty(value = "effect_entries")
+  @JsonProperty(value = "effect_entries", access = JsonProperty.Access.READ_ONLY)
   @ApiModelProperty(required = true, value = "")
-  @NotNull @Valid 
+  @Valid 
   public List<@Valid AbilityChangeEffectText> getEffectEntries() {
     return effectEntries;
   }
@@ -127,10 +127,7 @@ public class AbilityChange   {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 }
 

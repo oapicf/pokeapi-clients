@@ -40,6 +40,7 @@ public:
     void initializeServerConfigs();
     int setDefaultServerValue(int serverIndex,const QString &operation, const QString &variable,const QString &val);
     void setServerIndex(const QString &operation, int serverIndex);
+    void setServerIndex(int serverIndex);
     void setApiKey(const QString &apiKeyName, const QString &apiKey);
     void setBearerToken(const QString &token);
     void setUsername(const QString &username);
@@ -72,6 +73,13 @@ public:
 
 
 private:
+    enum class OauthMethod : int {
+        INVALID_VALUE_OPENAPI_GENERATED = 0,
+        ImplicitFlow = 1,
+        AuthorizationFlow = 2,
+        ClientCredentialsFlow = 3,
+        ResourceOwnerPasswordFlow = 4
+    };
     QMap<QString,int> _serverIndices;
     QMap<QString,QList<OAIServerConfiguration>> _serverConfigs;
     QMap<QString, QString> _apiKeys;
@@ -91,7 +99,7 @@ private:
     OauthImplicit _implicitFlow;
     OauthCredentials _credentialFlow;
     OauthPassword _passwordFlow;
-    int _OauthMethod = 0;
+    OauthMethod _OauthMethod = OauthMethod::INVALID_VALUE_OPENAPI_GENERATED;
 
     void languageListCallback(OAIHttpRequestWorker *worker);
     void languageRetrieveCallback(OAIHttpRequestWorker *worker);
@@ -105,18 +113,10 @@ Q_SIGNALS:
     void languageListSignalFull(OAIHttpRequestWorker *worker, OAIPaginatedLanguageSummaryList summary);
     void languageRetrieveSignalFull(OAIHttpRequestWorker *worker, OAILanguageDetail summary);
 
-    Q_DECL_DEPRECATED_X("Use languageListSignalError() instead")
-    void languageListSignalE(OAIPaginatedLanguageSummaryList summary, QNetworkReply::NetworkError error_type, QString error_str);
     void languageListSignalError(OAIPaginatedLanguageSummaryList summary, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use languageRetrieveSignalError() instead")
-    void languageRetrieveSignalE(OAILanguageDetail summary, QNetworkReply::NetworkError error_type, QString error_str);
     void languageRetrieveSignalError(OAILanguageDetail summary, QNetworkReply::NetworkError error_type, const QString &error_str);
 
-    Q_DECL_DEPRECATED_X("Use languageListSignalErrorFull() instead")
-    void languageListSignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void languageListSignalErrorFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use languageRetrieveSignalErrorFull() instead")
-    void languageRetrieveSignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void languageRetrieveSignalErrorFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
 
     void abortRequestsSignal();

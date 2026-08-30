@@ -25,6 +25,8 @@ AbilityName::AbilityName()
     
 }
 
+AbilityName::~AbilityName() = default;
+
 void AbilityName::validate() const
 {
     std::stringstream msg;

@@ -52,7 +52,7 @@ import com.github.oapicf.pokeapiclient.JSON;
 /**
  * CharacteristicDetail
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-07T15:22:35.747827932Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-08-30T01:55:28.842792947Z[Etc/UTC]", comments = "Generator version: 7.24.0")
 public class CharacteristicDetail {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -83,10 +83,14 @@ public class CharacteristicDetail {
   }
 
   public CharacteristicDetail(
-     Integer id
+     Integer id, 
+     List<Integer> possibleValues, 
+     List<CharacteristicDescription> descriptions
   ) {
     this();
     this.id = id;
+    this.possibleValues = possibleValues;
+    this.descriptions = descriptions;
   }
 
   /**
@@ -119,19 +123,6 @@ public class CharacteristicDetail {
   }
 
 
-  public CharacteristicDetail possibleValues(@javax.annotation.Nonnull List<Integer> possibleValues) {
-    this.possibleValues = possibleValues;
-    return this;
-  }
-
-  public CharacteristicDetail addPossibleValuesItem(Integer possibleValuesItem) {
-    if (this.possibleValues == null) {
-      this.possibleValues = new ArrayList<>();
-    }
-    this.possibleValues.add(possibleValuesItem);
-    return this;
-  }
-
   /**
    * Get possibleValues
    * @return possibleValues
@@ -141,9 +132,6 @@ public class CharacteristicDetail {
     return possibleValues;
   }
 
-  public void setPossibleValues(@javax.annotation.Nonnull List<Integer> possibleValues) {
-    this.possibleValues = possibleValues;
-  }
 
 
   public CharacteristicDetail highestStat(@javax.annotation.Nonnull StatSummary highestStat) {
@@ -165,19 +153,6 @@ public class CharacteristicDetail {
   }
 
 
-  public CharacteristicDetail descriptions(@javax.annotation.Nonnull List<CharacteristicDescription> descriptions) {
-    this.descriptions = descriptions;
-    return this;
-  }
-
-  public CharacteristicDetail addDescriptionsItem(CharacteristicDescription descriptionsItem) {
-    if (this.descriptions == null) {
-      this.descriptions = new ArrayList<>();
-    }
-    this.descriptions.add(descriptionsItem);
-    return this;
-  }
-
   /**
    * Get descriptions
    * @return descriptions
@@ -187,9 +162,6 @@ public class CharacteristicDetail {
     return descriptions;
   }
 
-  public void setDescriptions(@javax.annotation.Nonnull List<CharacteristicDescription> descriptions) {
-    this.descriptions = descriptions;
-  }
 
 
 
@@ -232,10 +204,7 @@ public class CharacteristicDetail {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 
@@ -286,16 +255,16 @@ public class CharacteristicDetail {
       }
       // validate the required field `highest_stat`
       StatSummary.validateJsonElement(jsonObj.get("highest_stat"));
-      // ensure the json data is an array
-      if (!jsonObj.get("descriptions").isJsonArray()) {
-        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `descriptions` to be an array in the JSON string but got `%s`", jsonObj.get("descriptions").toString()));
+      if (jsonObj.get("descriptions") != null) {
+        if (!jsonObj.get("descriptions").isJsonArray()) {
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `descriptions` to be an array in the JSON string but got `%s`", jsonObj.get("descriptions").toString()));
+        }
+        JsonArray jsonArraydescriptions = jsonObj.getAsJsonArray("descriptions");
+        // validate the required field `descriptions` (array)
+        for (int i = 0; i < jsonArraydescriptions.size(); i++) {
+          CharacteristicDescription.validateJsonElement(jsonArraydescriptions.get(i));
+        }
       }
-
-      JsonArray jsonArraydescriptions = jsonObj.getAsJsonArray("descriptions");
-      // validate the required field `descriptions` (array)
-      for (int i = 0; i < jsonArraydescriptions.size(); i++) {
-        CharacteristicDescription.validateJsonElement(jsonArraydescriptions.get(i));
-      };
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {

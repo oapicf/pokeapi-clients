@@ -23,7 +23,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
 
 
 @JsonTypeName("VersionGroupDetail")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2026-02-07T15:24:06.001755207Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2026-08-30T01:56:42.280002256Z[Etc/UTC]", comments = "Generator version: 7.24.0")
 public class VersionGroupDetail   {
   private Integer id;
   private String name;
@@ -142,7 +142,7 @@ public class VersionGroupDetail   {
   
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(required = true, value = "move_learn_methods")
-  @NotNull @Valid public List<@Valid AbilityDetailPokemonInnerPokemon> getMoveLearnMethods() {
+  @Valid public List<@Valid AbilityDetailPokemonInnerPokemon> getMoveLearnMethods() {
     return moveLearnMethods;
   }
 
@@ -177,7 +177,7 @@ public class VersionGroupDetail   {
   
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(required = true, value = "pokedexes")
-  @NotNull @Valid public List<@Valid AbilityDetailPokemonInnerPokemon> getPokedexes() {
+  @Valid public List<@Valid AbilityDetailPokemonInnerPokemon> getPokedexes() {
     return pokedexes;
   }
 
@@ -212,7 +212,7 @@ public class VersionGroupDetail   {
   
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(required = true, value = "regions")
-  @NotNull @Valid public List<@Valid AbilityDetailPokemonInnerPokemon> getRegions() {
+  @Valid public List<@Valid AbilityDetailPokemonInnerPokemon> getRegions() {
     return regions;
   }
 
@@ -247,7 +247,7 @@ public class VersionGroupDetail   {
   
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(required = true, value = "versions")
-  @NotNull @Valid public List<@Valid VersionSummary> getVersions() {
+  @Valid public List<@Valid VersionSummary> getVersions() {
     return versions;
   }
 
@@ -319,12 +319,8 @@ public class VersionGroupDetail   {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 
 }
-

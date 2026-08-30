@@ -7,9 +7,9 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **number** |  | [readonly] [default to undefined]
 **gene_modulo** | **number** |  | [default to undefined]
-**possible_values** | **Array&lt;number&gt;** |  | [default to undefined]
+**possible_values** | **Array&lt;number&gt;** |  | [readonly] [default to undefined]
 **highest_stat** | [**StatSummary**](StatSummary.md) |  | [default to undefined]
-**descriptions** | [**Array&lt;CharacteristicDescription&gt;**](CharacteristicDescription.md) |  | [default to undefined]
+**descriptions** | [**Array&lt;CharacteristicDescription&gt;**](CharacteristicDescription.md) |  | [readonly] [default to undefined]
 
 ## Example
 

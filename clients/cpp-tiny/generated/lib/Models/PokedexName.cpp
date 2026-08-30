@@ -86,7 +86,7 @@ PokedexName::getName()
 }
 
 void
-PokedexName::setName(std::string  name)
+PokedexName::setName(std::string name)
 {
 	this->name = name;
 }
@@ -98,7 +98,7 @@ PokedexName::getLanguage()
 }
 
 void
-PokedexName::setLanguage(LanguageSummary  language)
+PokedexName::setLanguage(LanguageSummary language)
 {
 	this->language = language;
 }

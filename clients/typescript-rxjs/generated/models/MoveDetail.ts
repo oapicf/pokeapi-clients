@@ -95,12 +95,12 @@ export interface MoveDetail {
      * @type {Array<MoveChangeEffectEntriesInner>}
      * @memberof MoveDetail
      */
-    effect_entries: Array<MoveChangeEffectEntriesInner>;
+    readonly effect_entries: Array<MoveChangeEffectEntriesInner>;
     /**
      * @type {Array<MoveDetailEffectChangesInner>}
      * @memberof MoveDetail
      */
-    effect_changes: Array<MoveDetailEffectChangesInner>;
+    readonly effect_changes: Array<MoveDetailEffectChangesInner>;
     /**
      * @type {GenerationSummary}
      * @memberof MoveDetail
@@ -115,17 +115,17 @@ export interface MoveDetail {
      * @type {Array<MoveName>}
      * @memberof MoveDetail
      */
-    names: Array<MoveName>;
+    readonly names: Array<MoveName>;
     /**
      * @type {Array<MoveChange>}
      * @memberof MoveDetail
      */
-    past_values: Array<MoveChange>;
+    readonly past_values: Array<MoveChange>;
     /**
      * @type {Array<MoveDetailStatChangesInner>}
      * @memberof MoveDetail
      */
-    stat_changes: Array<MoveDetailStatChangesInner>;
+    readonly stat_changes: Array<MoveDetailStatChangesInner>;
     /**
      * @type {SuperContestEffectSummary}
      * @memberof MoveDetail
@@ -145,15 +145,15 @@ export interface MoveDetail {
      * @type {Array<MoveDetailMachinesInner>}
      * @memberof MoveDetail
      */
-    machines: Array<MoveDetailMachinesInner>;
+    readonly machines: Array<MoveDetailMachinesInner>;
     /**
      * @type {Array<MoveFlavorText>}
      * @memberof MoveDetail
      */
-    flavor_text_entries: Array<MoveFlavorText>;
+    readonly flavor_text_entries: Array<MoveFlavorText>;
     /**
      * @type {Array<AbilityDetailPokemonInnerPokemon>}
      * @memberof MoveDetail
      */
-    learned_by_pokemon: Array<AbilityDetailPokemonInnerPokemon>;
+    readonly learned_by_pokemon: Array<AbilityDetailPokemonInnerPokemon>;
 }

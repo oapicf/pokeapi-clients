@@ -42,6 +42,7 @@ public:
     void initializeServerConfigs();
     int setDefaultServerValue(int serverIndex,const QString &operation, const QString &variable,const QString &val);
     void setServerIndex(const QString &operation, int serverIndex);
+    void setServerIndex(int serverIndex);
     void setApiKey(const QString &apiKeyName, const QString &apiKey);
     void setBearerToken(const QString &token);
     void setUsername(const QString &username);
@@ -86,6 +87,13 @@ public:
 
 
 private:
+    enum class OauthMethod : int {
+        INVALID_VALUE_OPENAPI_GENERATED = 0,
+        ImplicitFlow = 1,
+        AuthorizationFlow = 2,
+        ClientCredentialsFlow = 3,
+        ResourceOwnerPasswordFlow = 4
+    };
     QMap<QString,int> _serverIndices;
     QMap<QString,QList<OAIServerConfiguration>> _serverConfigs;
     QMap<QString, QString> _apiKeys;
@@ -105,7 +113,7 @@ private:
     OauthImplicit _implicitFlow;
     OauthCredentials _credentialFlow;
     OauthPassword _passwordFlow;
-    int _OauthMethod = 0;
+    OauthMethod _OauthMethod = OauthMethod::INVALID_VALUE_OPENAPI_GENERATED;
 
     void evolutionChainListCallback(OAIHttpRequestWorker *worker);
     void evolutionChainRetrieveCallback(OAIHttpRequestWorker *worker);
@@ -125,30 +133,14 @@ Q_SIGNALS:
     void evolutionTriggerListSignalFull(OAIHttpRequestWorker *worker, OAIPaginatedEvolutionTriggerSummaryList summary);
     void evolutionTriggerRetrieveSignalFull(OAIHttpRequestWorker *worker, OAIEvolutionTriggerDetail summary);
 
-    Q_DECL_DEPRECATED_X("Use evolutionChainListSignalError() instead")
-    void evolutionChainListSignalE(OAIPaginatedEvolutionChainSummaryList summary, QNetworkReply::NetworkError error_type, QString error_str);
     void evolutionChainListSignalError(OAIPaginatedEvolutionChainSummaryList summary, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use evolutionChainRetrieveSignalError() instead")
-    void evolutionChainRetrieveSignalE(OAIEvolutionChainDetail summary, QNetworkReply::NetworkError error_type, QString error_str);
     void evolutionChainRetrieveSignalError(OAIEvolutionChainDetail summary, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use evolutionTriggerListSignalError() instead")
-    void evolutionTriggerListSignalE(OAIPaginatedEvolutionTriggerSummaryList summary, QNetworkReply::NetworkError error_type, QString error_str);
     void evolutionTriggerListSignalError(OAIPaginatedEvolutionTriggerSummaryList summary, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use evolutionTriggerRetrieveSignalError() instead")
-    void evolutionTriggerRetrieveSignalE(OAIEvolutionTriggerDetail summary, QNetworkReply::NetworkError error_type, QString error_str);
     void evolutionTriggerRetrieveSignalError(OAIEvolutionTriggerDetail summary, QNetworkReply::NetworkError error_type, const QString &error_str);
 
-    Q_DECL_DEPRECATED_X("Use evolutionChainListSignalErrorFull() instead")
-    void evolutionChainListSignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void evolutionChainListSignalErrorFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use evolutionChainRetrieveSignalErrorFull() instead")
-    void evolutionChainRetrieveSignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void evolutionChainRetrieveSignalErrorFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use evolutionTriggerListSignalErrorFull() instead")
-    void evolutionTriggerListSignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void evolutionTriggerListSignalErrorFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use evolutionTriggerRetrieveSignalErrorFull() instead")
-    void evolutionTriggerRetrieveSignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void evolutionTriggerRetrieveSignalErrorFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
 
     void abortRequestsSignal();

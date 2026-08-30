@@ -92,6 +92,7 @@ public class EncounterConditionDetail  {
 
   /**
    * Sets the <code>values</code> property.
+   * <br><em>N.B. <code>values</code> is <b>read only</b>; client code should not call this method</em>.
    */
  public void setValues(List<@Valid EncounterConditionValueSummary> values) {
     this.values = values;
@@ -99,6 +100,7 @@ public class EncounterConditionDetail  {
 
   /**
    * Sets the <code>values</code> property.
+   * <br><em>N.B. <code>values</code> is <b>read only</b>; client code should not call this method</em>.
    */
   public EncounterConditionDetail values(List<@Valid EncounterConditionValueSummary> values) {
     this.values = values;
@@ -107,6 +109,7 @@ public class EncounterConditionDetail  {
 
   /**
    * Adds a new item to the <code>values</code> list.
+   * <br><em>N.B. <code>values</code> is <b>read only</b>; client code should not call this method</em>.
    */
   public EncounterConditionDetail addValuesItem(EncounterConditionValueSummary valuesItem) {
     this.values.add(valuesItem);
@@ -125,6 +128,7 @@ public class EncounterConditionDetail  {
 
   /**
    * Sets the <code>names</code> property.
+   * <br><em>N.B. <code>names</code> is <b>read only</b>; client code should not call this method</em>.
    */
  public void setNames(List<@Valid EncounterConditionName> names) {
     this.names = names;
@@ -132,6 +136,7 @@ public class EncounterConditionDetail  {
 
   /**
    * Sets the <code>names</code> property.
+   * <br><em>N.B. <code>names</code> is <b>read only</b>; client code should not call this method</em>.
    */
   public EncounterConditionDetail names(List<@Valid EncounterConditionName> names) {
     this.names = names;
@@ -140,6 +145,7 @@ public class EncounterConditionDetail  {
 
   /**
    * Adds a new item to the <code>names</code> list.
+   * <br><em>N.B. <code>names</code> is <b>read only</b>; client code should not call this method</em>.
    */
   public EncounterConditionDetail addNamesItem(EncounterConditionName namesItem) {
     this.names.add(namesItem);
@@ -185,10 +191,7 @@ public class EncounterConditionDetail  {
    * (except the first line).
    */
   private static String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 }
 

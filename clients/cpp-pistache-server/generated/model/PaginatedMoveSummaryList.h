@@ -34,7 +34,7 @@ class  PaginatedMoveSummaryList
 {
 public:
     PaginatedMoveSummaryList();
-    virtual ~PaginatedMoveSummaryList() = default;
+    virtual ~PaginatedMoveSummaryList();
 
 
     /// <summary>

@@ -7,8 +7,8 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **number** |  | [readonly] [default to undefined]
 **name** | **string** |  | [default to undefined]
-**moves** | [**Array&lt;AbilityDetailPokemonInnerPokemon&gt;**](AbilityDetailPokemonInnerPokemon.md) |  | [default to undefined]
-**names** | [**Array&lt;MoveMetaAilmentName&gt;**](MoveMetaAilmentName.md) |  | [default to undefined]
+**moves** | [**Array&lt;AbilityDetailPokemonInnerPokemon&gt;**](AbilityDetailPokemonInnerPokemon.md) |  | [readonly] [default to undefined]
+**names** | [**Array&lt;MoveMetaAilmentName&gt;**](MoveMetaAilmentName.md) |  | [readonly] [default to undefined]
 
 ## Example
 

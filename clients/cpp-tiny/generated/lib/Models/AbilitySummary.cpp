@@ -85,7 +85,7 @@ AbilitySummary::getName()
 }
 
 void
-AbilitySummary::setName(std::string  name)
+AbilitySummary::setName(std::string name)
 {
 	this->name = name;
 }
@@ -97,7 +97,7 @@ AbilitySummary::getUrl()
 }
 
 void
-AbilitySummary::setUrl(std::string  url)
+AbilitySummary::setUrl(std::string url)
 {
 	this->url = url;
 }

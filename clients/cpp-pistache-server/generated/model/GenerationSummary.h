@@ -32,7 +32,7 @@ class  GenerationSummary
 {
 public:
     GenerationSummary();
-    virtual ~GenerationSummary() = default;
+    virtual ~GenerationSummary();
 
 
     /// <summary>

@@ -43,7 +43,7 @@ class  TypeDetail
 {
 public:
     TypeDetail();
-    virtual ~TypeDetail() = default;
+    virtual ~TypeDetail();
 
 
     /// <summary>

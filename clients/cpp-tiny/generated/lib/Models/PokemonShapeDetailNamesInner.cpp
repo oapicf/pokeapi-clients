@@ -85,7 +85,7 @@ PokemonShapeDetail_names_inner::getUrl()
 }
 
 void
-PokemonShapeDetail_names_inner::setUrl(std::string  url)
+PokemonShapeDetail_names_inner::setUrl(std::string url)
 {
 	this->url = url;
 }
@@ -97,7 +97,7 @@ PokemonShapeDetail_names_inner::getName()
 }
 
 void
-PokemonShapeDetail_names_inner::setName(std::string  name)
+PokemonShapeDetail_names_inner::setName(std::string name)
 {
 	this->name = name;
 }

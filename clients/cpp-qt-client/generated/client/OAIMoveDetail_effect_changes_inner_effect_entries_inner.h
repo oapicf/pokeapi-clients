@@ -33,13 +33,13 @@ class OAIAbilityDetail_pokemon_inner_pokemon;
 class OAIMoveDetail_effect_changes_inner_effect_entries_inner : public OAIObject {
 public:
     OAIMoveDetail_effect_changes_inner_effect_entries_inner();
-    OAIMoveDetail_effect_changes_inner_effect_entries_inner(QString json);
+    OAIMoveDetail_effect_changes_inner_effect_entries_inner(const QString &json);
     ~OAIMoveDetail_effect_changes_inner_effect_entries_inner() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     QString getEffect() const;
     void setEffect(const QString &effect);

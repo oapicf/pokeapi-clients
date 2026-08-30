@@ -37,8 +37,8 @@ class EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner(BaseModel):
     gender: EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender
     held_item: EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender
     item: EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender
-    known_move: Dict[str, Any]
-    known_move_type: Dict[str, Any]
+    known_move: EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender
+    known_move_type: EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender
     location: EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender
     min_affection: StrictInt
     min_beauty: StrictInt
@@ -100,6 +100,12 @@ class EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of item
         if self.item:
             _dict['item'] = self.item.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of known_move
+        if self.known_move:
+            _dict['known_move'] = self.known_move.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of known_move_type
+        if self.known_move_type:
+            _dict['known_move_type'] = self.known_move_type.to_dict()
         # override the default output from pydantic by calling `to_dict()` of location
         if self.location:
             _dict['location'] = self.location.to_dict()
@@ -121,8 +127,8 @@ class EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner(BaseModel):
             "gender": EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender.from_dict(obj.get("gender")) if obj.get("gender") is not None else None,
             "held_item": EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender.from_dict(obj.get("held_item")) if obj.get("held_item") is not None else None,
             "item": EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender.from_dict(obj.get("item")) if obj.get("item") is not None else None,
-            "known_move": obj.get("known_move"),
-            "known_move_type": obj.get("known_move_type"),
+            "known_move": EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender.from_dict(obj.get("known_move")) if obj.get("known_move") is not None else None,
+            "known_move_type": EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender.from_dict(obj.get("known_move_type")) if obj.get("known_move_type") is not None else None,
             "location": EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender.from_dict(obj.get("location")) if obj.get("location") is not None else None,
             "min_affection": obj.get("min_affection"),
             "min_beauty": obj.get("min_beauty"),

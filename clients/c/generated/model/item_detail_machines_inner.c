@@ -13,10 +13,10 @@ static item_detail_machines_inner_t *item_detail_machines_inner_create_internal(
     if (!item_detail_machines_inner_local_var) {
         return NULL;
     }
+    memset(item_detail_machines_inner_local_var, 0, sizeof(item_detail_machines_inner_t));
+    item_detail_machines_inner_local_var->_library_owned = 1;
     item_detail_machines_inner_local_var->machine = machine;
     item_detail_machines_inner_local_var->version_group = version_group;
-
-    item_detail_machines_inner_local_var->_library_owned = 1;
     return item_detail_machines_inner_local_var;
 }
 
@@ -24,10 +24,13 @@ __attribute__((deprecated)) item_detail_machines_inner_t *item_detail_machines_i
     char *machine,
     ability_detail_pokemon_inner_pokemon_t *version_group
     ) {
-    return item_detail_machines_inner_create_internal (
+    item_detail_machines_inner_t *result = item_detail_machines_inner_create_internal (
         machine,
         version_group
         );
+    if (!result) {
+    }
+    return result;
 }
 
 void item_detail_machines_inner_free(item_detail_machines_inner_t *item_detail_machines_inner) {
@@ -87,6 +90,8 @@ item_detail_machines_inner_t *item_detail_machines_inner_parseFromJSON(cJSON *it
 
     item_detail_machines_inner_t *item_detail_machines_inner_local_var = NULL;
 
+    char *machine_local_str = NULL;
+
     // define the local variable for item_detail_machines_inner->version_group
     ability_detail_pokemon_inner_pokemon_t *version_group_local_nonprim = NULL;
 
@@ -118,13 +123,23 @@ item_detail_machines_inner_t *item_detail_machines_inner_parseFromJSON(cJSON *it
     version_group_local_nonprim = ability_detail_pokemon_inner_pokemon_parseFromJSON(version_group); //nonprimitive
 
 
+    if (machine && !cJSON_IsNull(machine)) machine_local_str = strdup(machine->valuestring);
+
     item_detail_machines_inner_local_var = item_detail_machines_inner_create_internal (
-        strdup(machine->valuestring),
+        machine_local_str,
         version_group_local_nonprim
         );
 
+    if (!item_detail_machines_inner_local_var) {
+        goto end;
+    }
+
     return item_detail_machines_inner_local_var;
 end:
+    if (machine_local_str) {
+        free(machine_local_str);
+        machine_local_str = NULL;
+    }
     if (version_group_local_nonprim) {
         ability_detail_pokemon_inner_pokemon_free(version_group_local_nonprim);
         version_group_local_nonprim = NULL;

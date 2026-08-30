@@ -14,7 +14,7 @@ import org.openapitools.model.ItemPocketName;
 /**
  * ItemPocketDetail
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaMSF4JServerCodegen", date = "2026-02-07T15:23:10.683633502Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaMSF4JServerCodegen", date = "2026-08-30T01:55:58.248058654Z[Etc/UTC]", comments = "Generator version: 7.24.0")
 public class ItemPocketDetail   {
   @JsonProperty("id")
   private Integer id;
@@ -55,16 +55,6 @@ public class ItemPocketDetail   {
     this.name = name;
   }
 
-  public ItemPocketDetail categories(List<@Valid ItemCategorySummary> categories) {
-    this.categories = categories;
-    return this;
-  }
-
-  public ItemPocketDetail addCategoriesItem(ItemCategorySummary categoriesItem) {
-    this.categories.add(categoriesItem);
-    return this;
-  }
-
    /**
    * Get categories
    * @return categories
@@ -74,20 +64,6 @@ public class ItemPocketDetail   {
     return categories;
   }
 
-  public void setCategories(List<@Valid ItemCategorySummary> categories) {
-    this.categories = categories;
-  }
-
-  public ItemPocketDetail names(List<@Valid ItemPocketName> names) {
-    this.names = names;
-    return this;
-  }
-
-  public ItemPocketDetail addNamesItem(ItemPocketName namesItem) {
-    this.names.add(namesItem);
-    return this;
-  }
-
    /**
    * Get names
    * @return names
@@ -95,10 +71,6 @@ public class ItemPocketDetail   {
   @ApiModelProperty(required = true, value = "")
   public List<@Valid ItemPocketName> getNames() {
     return names;
-  }
-
-  public void setNames(List<@Valid ItemPocketName> names) {
-    this.names = names;
   }
 
 
@@ -140,10 +112,7 @@ public class ItemPocketDetail   {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 }
 

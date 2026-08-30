@@ -31,6 +31,8 @@ PaginatedMoveDamageClassSummaryList::PaginatedMoveDamageClassSummaryList()
     
 }
 
+PaginatedMoveDamageClassSummaryList::~PaginatedMoveDamageClassSummaryList() = default;
+
 void PaginatedMoveDamageClassSummaryList::validate() const
 {
     std::stringstream msg;

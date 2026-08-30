@@ -12,6 +12,11 @@
 package openapi
 
 
+import (
+	"encoding/json"
+	"fmt"
+)
+
 
 
 type NatureDetail struct {
@@ -36,20 +41,129 @@ type NatureDetail struct {
 
 	Names []NatureName `json:"names"`
 }
+// UnmarshalJSON validates required property keys then unmarshals into NatureDetail
+func (o *NatureDetail) UnmarshalJSON(data []byte) (err error) {
+	// Presence is checked against required fields that exist on this struct,
+	// including fields promoted from embedded allOf parents.
+	requiredProperties := []string{
+		"name",
+		"decreased_stat",
+		"increased_stat",
+		"likes_flavor",
+		"hates_flavor",
+	}
 
-// AssertNatureDetailRequired checks if the required fields are not zero-ed
+	requiredNullableProperties := map[string]bool{
+		"name": false,
+		"decreased_stat": false,
+		"increased_stat": false,
+		"likes_flavor": false,
+		"hates_flavor": false,
+	}
+
+	allowedJsonKeys := map[string]struct{}{
+		"id": {},
+		"name": {},
+		"decreased_stat": {},
+		"increased_stat": {},
+		"likes_flavor": {},
+		"hates_flavor": {},
+		"berries": {},
+		"pokeathlon_stat_changes": {},
+		"move_battle_style_preferences": {},
+		"names": {},
+	}
+
+	allProperties := make(map[string]json.RawMessage)
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err
+	}
+
+	for _, requiredProperty := range requiredProperties {
+		value, exists := allProperties[requiredProperty]
+		if !exists {
+			return &RequiredError{Field: requiredProperty}
+		}
+		if string(value) == "null" && !requiredNullableProperties[requiredProperty] {
+			return &RequiredError{Field: requiredProperty}
+		}
+	}
+
+	for key := range allProperties {
+		if _, exists := allowedJsonKeys[key]; !exists {
+			return fmt.Errorf("json: unknown field %q", key)
+		}
+	}
+
+	var decoded NatureDetail
+
+	if value, exists := allProperties["id"]; exists {
+		if err = json.Unmarshal(value, &decoded.Id); err != nil {
+			return err
+		}
+	}
+	if value, exists := allProperties["name"]; exists {
+		if err = json.Unmarshal(value, &decoded.Name); err != nil {
+			return err
+		}
+	}
+	if value, exists := allProperties["decreased_stat"]; exists {
+		if err = json.Unmarshal(value, &decoded.DecreasedStat); err != nil {
+			return err
+		}
+	}
+	if value, exists := allProperties["increased_stat"]; exists {
+		if err = json.Unmarshal(value, &decoded.IncreasedStat); err != nil {
+			return err
+		}
+	}
+	if value, exists := allProperties["likes_flavor"]; exists {
+		if err = json.Unmarshal(value, &decoded.LikesFlavor); err != nil {
+			return err
+		}
+	}
+	if value, exists := allProperties["hates_flavor"]; exists {
+		if err = json.Unmarshal(value, &decoded.HatesFlavor); err != nil {
+			return err
+		}
+	}
+	if value, exists := allProperties["berries"]; exists {
+		if err = json.Unmarshal(value, &decoded.Berries); err != nil {
+			return err
+		}
+	}
+	if value, exists := allProperties["pokeathlon_stat_changes"]; exists {
+		if err = json.Unmarshal(value, &decoded.PokeathlonStatChanges); err != nil {
+			return err
+		}
+	}
+	if value, exists := allProperties["move_battle_style_preferences"]; exists {
+		if err = json.Unmarshal(value, &decoded.MoveBattleStylePreferences); err != nil {
+			return err
+		}
+	}
+	if value, exists := allProperties["names"]; exists {
+		if err = json.Unmarshal(value, &decoded.Names); err != nil {
+			return err
+		}
+	}
+
+	*o = decoded
+
+	return nil
+}
+
+// AssertNatureDetailRequired checks complex required fields (models, arrays, maps) and embedded parents.
+// Primitive required fields are validated for JSON request bodies in UnmarshalJSON so zero values remain valid.
 func AssertNatureDetailRequired(obj NatureDetail) error {
 	elements := map[string]interface{}{
-		"id": obj.Id,
-		"name": obj.Name,
 		"decreased_stat": obj.DecreasedStat,
 		"increased_stat": obj.IncreasedStat,
 		"likes_flavor": obj.LikesFlavor,
 		"hates_flavor": obj.HatesFlavor,
-		"berries": obj.Berries,
-		"pokeathlon_stat_changes": obj.PokeathlonStatChanges,
-		"move_battle_style_preferences": obj.MoveBattleStylePreferences,
-		"names": obj.Names,
 	}
 	for name, el := range elements {
 		if isZero := IsZeroValue(el); isZero {
@@ -69,26 +183,6 @@ func AssertNatureDetailRequired(obj NatureDetail) error {
 	if err := AssertBerryFlavorSummaryRequired(obj.HatesFlavor); err != nil {
 		return err
 	}
-	for _, el := range obj.Berries {
-		if err := AssertBerrySummaryRequired(el); err != nil {
-			return err
-		}
-	}
-	for _, el := range obj.PokeathlonStatChanges {
-		if err := AssertNatureDetailPokeathlonStatChangesInnerRequired(el); err != nil {
-			return err
-		}
-	}
-	for _, el := range obj.MoveBattleStylePreferences {
-		if err := AssertNatureBattleStylePreferenceRequired(el); err != nil {
-			return err
-		}
-	}
-	for _, el := range obj.Names {
-		if err := AssertNatureNameRequired(el); err != nil {
-			return err
-		}
-	}
 	return nil
 }
 
@@ -105,26 +199,6 @@ func AssertNatureDetailConstraints(obj NatureDetail) error {
 	}
 	if err := AssertBerryFlavorSummaryConstraints(obj.HatesFlavor); err != nil {
 		return err
-	}
-	for _, el := range obj.Berries {
-		if err := AssertBerrySummaryConstraints(el); err != nil {
-			return err
-		}
-	}
-	for _, el := range obj.PokeathlonStatChanges {
-		if err := AssertNatureDetailPokeathlonStatChangesInnerConstraints(el); err != nil {
-			return err
-		}
-	}
-	for _, el := range obj.MoveBattleStylePreferences {
-		if err := AssertNatureBattleStylePreferenceConstraints(el); err != nil {
-			return err
-		}
-	}
-	for _, el := range obj.Names {
-		if err := AssertNatureNameConstraints(el); err != nil {
-			return err
-		}
 	}
 	return nil
 }

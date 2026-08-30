@@ -34,7 +34,7 @@ class  PaginatedMoveBattleStyleSummaryList
 {
 public:
     PaginatedMoveBattleStyleSummaryList();
-    virtual ~PaginatedMoveBattleStyleSummaryList() = default;
+    virtual ~PaginatedMoveBattleStyleSummaryList();
 
 
     /// <summary>

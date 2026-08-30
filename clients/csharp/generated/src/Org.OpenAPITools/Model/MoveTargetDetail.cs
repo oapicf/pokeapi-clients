@@ -68,19 +68,19 @@ namespace Org.OpenAPITools.Model
         /// Gets or Sets Descriptions
         /// </summary>
         [JsonPropertyName("descriptions")]
-        public List<MoveTargetDescription> Descriptions { get; set; }
+        public List<MoveTargetDescription> Descriptions { get; }
 
         /// <summary>
         /// Gets or Sets Moves
         /// </summary>
         [JsonPropertyName("moves")]
-        public List<MoveSummary> Moves { get; set; }
+        public List<MoveSummary> Moves { get; }
 
         /// <summary>
         /// Gets or Sets Names
         /// </summary>
         [JsonPropertyName("names")]
-        public List<MoveTargetName> Names { get; set; }
+        public List<MoveTargetName> Names { get; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -119,8 +119,18 @@ namespace Org.OpenAPITools.Model
     /// <summary>
     /// A Json converter for type <see cref="MoveTargetDetail" />
     /// </summary>
-    public class MoveTargetDetailJsonConverter : JsonConverter<MoveTargetDetail>
+    public partial class MoveTargetDetailJsonConverter : JsonConverter<MoveTargetDetail>
     {
+        partial void OnCreated();
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="MoveTargetDetailJsonConverter" /> class.
+        /// </summary>
+        public MoveTargetDetailJsonConverter()
+        {
+            OnCreated();
+        }
+
         /// <summary>
         /// Deserializes json to <see cref="MoveTargetDetail" />
         /// </summary>

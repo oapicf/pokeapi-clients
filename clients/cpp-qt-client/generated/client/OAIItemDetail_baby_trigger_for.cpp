@@ -21,7 +21,7 @@
 
 namespace OpenAPI {
 
-OAIItemDetail_baby_trigger_for::OAIItemDetail_baby_trigger_for(QString json) {
+OAIItemDetail_baby_trigger_for::OAIItemDetail_baby_trigger_for(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -38,7 +38,7 @@ void OAIItemDetail_baby_trigger_for::initializeModel() {
     m_url_isValid = false;
 }
 
-void OAIItemDetail_baby_trigger_for::fromJson(QString jsonString) {
+void OAIItemDetail_baby_trigger_for::fromJson(const QString &jsonString) {
     QByteArray array(jsonString.toStdString().c_str());
     QJsonDocument doc = QJsonDocument::fromJson(array);
     QJsonObject jsonObject = doc.object();

@@ -107,7 +107,7 @@ PokemonSpeciesDetail_pal_park_encounters_inner::getArea()
 }
 
 void
-PokemonSpeciesDetail_pal_park_encounters_inner::setArea(AbilityDetail_pokemon_inner_pokemon  area)
+PokemonSpeciesDetail_pal_park_encounters_inner::setArea(AbilityDetail_pokemon_inner_pokemon area)
 {
 	this->area = area;
 }
@@ -119,7 +119,7 @@ PokemonSpeciesDetail_pal_park_encounters_inner::getBaseScore()
 }
 
 void
-PokemonSpeciesDetail_pal_park_encounters_inner::setBaseScore(int  base_score)
+PokemonSpeciesDetail_pal_park_encounters_inner::setBaseScore(int base_score)
 {
 	this->base_score = base_score;
 }
@@ -131,7 +131,7 @@ PokemonSpeciesDetail_pal_park_encounters_inner::getRate()
 }
 
 void
-PokemonSpeciesDetail_pal_park_encounters_inner::setRate(int  rate)
+PokemonSpeciesDetail_pal_park_encounters_inner::setRate(int rate)
 {
 	this->rate = rate;
 }

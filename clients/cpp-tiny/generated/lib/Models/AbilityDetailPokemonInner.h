@@ -52,21 +52,21 @@ public:
 
 	/*! \brief Set 
 	 */
-	void setIsHidden(bool  is_hidden);
+	void setIsHidden(bool is_hidden);
 	/*! \brief Get 
 	 */
 	int getSlot();
 
 	/*! \brief Set 
 	 */
-	void setSlot(int  slot);
+	void setSlot(int slot);
 	/*! \brief Get 
 	 */
 	AbilityDetail_pokemon_inner_pokemon getPokemon();
 
 	/*! \brief Set 
 	 */
-	void setPokemon(AbilityDetail_pokemon_inner_pokemon  pokemon);
+	void setPokemon(AbilityDetail_pokemon_inner_pokemon pokemon);
 
 
     private:

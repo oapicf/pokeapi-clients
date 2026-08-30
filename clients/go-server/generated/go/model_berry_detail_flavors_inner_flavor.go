@@ -23,7 +23,8 @@ type BerryDetailFlavorsInnerFlavor struct {
 	Url string `json:"url,omitempty"`
 }
 
-// AssertBerryDetailFlavorsInnerFlavorRequired checks if the required fields are not zero-ed
+// AssertBerryDetailFlavorsInnerFlavorRequired checks complex required fields (models, arrays, maps) and embedded parents.
+// Primitive required fields are validated for JSON request bodies in UnmarshalJSON so zero values remain valid.
 func AssertBerryDetailFlavorsInnerFlavorRequired(obj BerryDetailFlavorsInnerFlavor) error {
 	return nil
 }

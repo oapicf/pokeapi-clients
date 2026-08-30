@@ -85,7 +85,7 @@ NatureSummary::getName()
 }
 
 void
-NatureSummary::setName(std::string  name)
+NatureSummary::setName(std::string name)
 {
 	this->name = name;
 }
@@ -97,7 +97,7 @@ NatureSummary::getUrl()
 }
 
 void
-NatureSummary::setUrl(std::string  url)
+NatureSummary::setUrl(std::string url)
 {
 	this->url = url;
 }

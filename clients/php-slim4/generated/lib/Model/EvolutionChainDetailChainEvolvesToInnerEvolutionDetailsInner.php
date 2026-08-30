@@ -58,12 +58,10 @@ class EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner extends BaseM
       "$ref" : "#/components/schemas/EvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner_gender"
     },
     "known_move" : {
-      "type" : "object",
-      "nullable" : true
+      "$ref" : "#/components/schemas/EvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner_gender"
     },
     "known_move_type" : {
-      "type" : "object",
-      "nullable" : true
+      "$ref" : "#/components/schemas/EvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner_gender"
     },
     "location" : {
       "$ref" : "#/components/schemas/EvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner_gender"

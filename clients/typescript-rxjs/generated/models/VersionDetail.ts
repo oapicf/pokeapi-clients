@@ -36,7 +36,7 @@ export interface VersionDetail {
      * @type {Array<VersionName>}
      * @memberof VersionDetail
      */
-    names: Array<VersionName>;
+    readonly names: Array<VersionName>;
     /**
      * @type {VersionGroupSummary}
      * @memberof VersionDetail

@@ -47,7 +47,7 @@ class PokemonSpeciesDetail
      * @var int|null
      * @SerializedName("id")
      * @Type("int")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Type("int")]
     protected ?int $id = null;
@@ -56,7 +56,7 @@ class PokemonSpeciesDetail
      * @var string|null
      * @SerializedName("name")
      * @Type("string")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Type("string")]
     #[Assert\Length(max: 100)]
@@ -66,7 +66,7 @@ class PokemonSpeciesDetail
      * @var int|null
      * @SerializedName("order")
      * @Type("int")
-    */
+     */
     #[Assert\Type("int")]
     protected ?int $order = null;
 
@@ -74,7 +74,7 @@ class PokemonSpeciesDetail
      * @var int|null
      * @SerializedName("gender_rate")
      * @Type("int")
-    */
+     */
     #[Assert\Type("int")]
     protected ?int $genderRate = null;
 
@@ -82,7 +82,7 @@ class PokemonSpeciesDetail
      * @var int|null
      * @SerializedName("capture_rate")
      * @Type("int")
-    */
+     */
     #[Assert\Type("int")]
     protected ?int $captureRate = null;
 
@@ -90,7 +90,7 @@ class PokemonSpeciesDetail
      * @var int|null
      * @SerializedName("base_happiness")
      * @Type("int")
-    */
+     */
     #[Assert\Type("int")]
     protected ?int $baseHappiness = null;
 
@@ -98,7 +98,7 @@ class PokemonSpeciesDetail
      * @var bool|null
      * @SerializedName("is_baby")
      * @Type("bool")
-    */
+     */
     #[Assert\Type("bool")]
     protected ?bool $isBaby = null;
 
@@ -106,7 +106,7 @@ class PokemonSpeciesDetail
      * @var bool|null
      * @SerializedName("is_legendary")
      * @Type("bool")
-    */
+     */
     #[Assert\Type("bool")]
     protected ?bool $isLegendary = null;
 
@@ -114,7 +114,7 @@ class PokemonSpeciesDetail
      * @var bool|null
      * @SerializedName("is_mythical")
      * @Type("bool")
-    */
+     */
     #[Assert\Type("bool")]
     protected ?bool $isMythical = null;
 
@@ -122,7 +122,7 @@ class PokemonSpeciesDetail
      * @var int|null
      * @SerializedName("hatch_counter")
      * @Type("int")
-    */
+     */
     #[Assert\Type("int")]
     protected ?int $hatchCounter = null;
 
@@ -130,7 +130,7 @@ class PokemonSpeciesDetail
      * @var bool|null
      * @SerializedName("has_gender_differences")
      * @Type("bool")
-    */
+     */
     #[Assert\Type("bool")]
     protected ?bool $hasGenderDifferences = null;
 
@@ -138,7 +138,7 @@ class PokemonSpeciesDetail
      * @var bool|null
      * @SerializedName("forms_switchable")
      * @Type("bool")
-    */
+     */
     #[Assert\Type("bool")]
     protected ?bool $formsSwitchable = null;
 
@@ -146,7 +146,7 @@ class PokemonSpeciesDetail
      * @var GrowthRateSummary|null
      * @SerializedName("growth_rate")
      * @Type("OpenAPI\Server\Model\GrowthRateSummary")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Valid]
     #[Assert\Type("OpenAPI\Server\Model\GrowthRateSummary")]
@@ -156,7 +156,7 @@ class PokemonSpeciesDetail
      * @var PokemonDexEntry[]|null
      * @SerializedName("pokedex_numbers")
      * @Type("array<OpenAPI\Server\Model\PokemonDexEntry>")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Valid]
     #[Assert\All([
@@ -168,7 +168,7 @@ class PokemonSpeciesDetail
      * @var AbilityDetailPokemonInnerPokemon[]|null
      * @SerializedName("egg_groups")
      * @Type("array<OpenAPI\Server\Model\AbilityDetailPokemonInnerPokemon>")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Valid]
     #[Assert\All([
@@ -180,7 +180,7 @@ class PokemonSpeciesDetail
      * @var PokemonColorSummary|null
      * @SerializedName("color")
      * @Type("OpenAPI\Server\Model\PokemonColorSummary")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Valid]
     #[Assert\Type("OpenAPI\Server\Model\PokemonColorSummary")]
@@ -190,7 +190,7 @@ class PokemonSpeciesDetail
      * @var PokemonShapeSummary|null
      * @SerializedName("shape")
      * @Type("OpenAPI\Server\Model\PokemonShapeSummary")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Valid]
     #[Assert\Type("OpenAPI\Server\Model\PokemonShapeSummary")]
@@ -200,7 +200,7 @@ class PokemonSpeciesDetail
      * @var PokemonSpeciesSummary|null
      * @SerializedName("evolves_from_species")
      * @Type("OpenAPI\Server\Model\PokemonSpeciesSummary")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Valid]
     #[Assert\Type("OpenAPI\Server\Model\PokemonSpeciesSummary")]
@@ -210,7 +210,7 @@ class PokemonSpeciesDetail
      * @var EvolutionChainSummary|null
      * @SerializedName("evolution_chain")
      * @Type("OpenAPI\Server\Model\EvolutionChainSummary")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Valid]
     #[Assert\Type("OpenAPI\Server\Model\EvolutionChainSummary")]
@@ -220,7 +220,7 @@ class PokemonSpeciesDetail
      * @var PokemonHabitatSummary|null
      * @SerializedName("habitat")
      * @Type("OpenAPI\Server\Model\PokemonHabitatSummary")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Valid]
     #[Assert\Type("OpenAPI\Server\Model\PokemonHabitatSummary")]
@@ -230,7 +230,7 @@ class PokemonSpeciesDetail
      * @var GenerationSummary|null
      * @SerializedName("generation")
      * @Type("OpenAPI\Server\Model\GenerationSummary")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Valid]
     #[Assert\Type("OpenAPI\Server\Model\GenerationSummary")]
@@ -240,7 +240,7 @@ class PokemonSpeciesDetail
      * @var PokemonFormDetailFormNamesInner[]|null
      * @SerializedName("names")
      * @Type("array<OpenAPI\Server\Model\PokemonFormDetailFormNamesInner>")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Valid]
     #[Assert\All([
@@ -252,7 +252,7 @@ class PokemonSpeciesDetail
      * @var PokemonSpeciesDetailPalParkEncountersInner[]|null
      * @SerializedName("pal_park_encounters")
      * @Type("array<OpenAPI\Server\Model\PokemonSpeciesDetailPalParkEncountersInner>")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Valid]
     #[Assert\All([
@@ -264,7 +264,7 @@ class PokemonSpeciesDetail
      * @var PokemonSpeciesDescription[]|null
      * @SerializedName("form_descriptions")
      * @Type("array<OpenAPI\Server\Model\PokemonSpeciesDescription>")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Valid]
     #[Assert\All([
@@ -276,7 +276,7 @@ class PokemonSpeciesDetail
      * @var PokemonSpeciesFlavorText[]|null
      * @SerializedName("flavor_text_entries")
      * @Type("array<OpenAPI\Server\Model\PokemonSpeciesFlavorText>")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Valid]
     #[Assert\All([
@@ -288,7 +288,7 @@ class PokemonSpeciesDetail
      * @var PokemonSpeciesDetailGeneraInner[]|null
      * @SerializedName("genera")
      * @Type("array<OpenAPI\Server\Model\PokemonSpeciesDetailGeneraInner>")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Valid]
     #[Assert\All([
@@ -300,7 +300,7 @@ class PokemonSpeciesDetail
      * @var PokemonSpeciesDetailVarietiesInner[]|null
      * @SerializedName("varieties")
      * @Type("array<OpenAPI\Server\Model\PokemonSpeciesDetailVarietiesInner>")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Valid]
     #[Assert\All([
@@ -356,12 +356,12 @@ class PokemonSpeciesDetail
     }
 
     /**
-    * Sets id.
-    *
-    * @param int|null $id
-    *
-    * @return $this
-    */
+     * Sets id.
+     *
+     * @param int|null $id
+     *
+     * @return $this
+     */
     public function setId(?int $id): self
     {
         $this->id = $id;
@@ -383,12 +383,12 @@ class PokemonSpeciesDetail
     }
 
     /**
-    * Sets name.
-    *
-    * @param string|null $name
-    *
-    * @return $this
-    */
+     * Sets name.
+     *
+     * @param string|null $name
+     *
+     * @return $this
+     */
     public function setName(?string $name): self
     {
         $this->name = $name;
@@ -410,12 +410,12 @@ class PokemonSpeciesDetail
     }
 
     /**
-    * Sets order.
-    *
-    * @param int|null $order
-    *
-    * @return $this
-    */
+     * Sets order.
+     *
+     * @param int|null $order
+     *
+     * @return $this
+     */
     public function setOrder(?int $order = null): self
     {
         $this->order = $order;
@@ -437,12 +437,12 @@ class PokemonSpeciesDetail
     }
 
     /**
-    * Sets genderRate.
-    *
-    * @param int|null $genderRate
-    *
-    * @return $this
-    */
+     * Sets genderRate.
+     *
+     * @param int|null $genderRate
+     *
+     * @return $this
+     */
     public function setGenderRate(?int $genderRate = null): self
     {
         $this->genderRate = $genderRate;
@@ -464,12 +464,12 @@ class PokemonSpeciesDetail
     }
 
     /**
-    * Sets captureRate.
-    *
-    * @param int|null $captureRate
-    *
-    * @return $this
-    */
+     * Sets captureRate.
+     *
+     * @param int|null $captureRate
+     *
+     * @return $this
+     */
     public function setCaptureRate(?int $captureRate = null): self
     {
         $this->captureRate = $captureRate;
@@ -491,12 +491,12 @@ class PokemonSpeciesDetail
     }
 
     /**
-    * Sets baseHappiness.
-    *
-    * @param int|null $baseHappiness
-    *
-    * @return $this
-    */
+     * Sets baseHappiness.
+     *
+     * @param int|null $baseHappiness
+     *
+     * @return $this
+     */
     public function setBaseHappiness(?int $baseHappiness = null): self
     {
         $this->baseHappiness = $baseHappiness;
@@ -518,12 +518,12 @@ class PokemonSpeciesDetail
     }
 
     /**
-    * Sets isBaby.
-    *
-    * @param bool|null $isBaby
-    *
-    * @return $this
-    */
+     * Sets isBaby.
+     *
+     * @param bool|null $isBaby
+     *
+     * @return $this
+     */
     public function setIsBaby(?bool $isBaby = null): self
     {
         $this->isBaby = $isBaby;
@@ -545,12 +545,12 @@ class PokemonSpeciesDetail
     }
 
     /**
-    * Sets isLegendary.
-    *
-    * @param bool|null $isLegendary
-    *
-    * @return $this
-    */
+     * Sets isLegendary.
+     *
+     * @param bool|null $isLegendary
+     *
+     * @return $this
+     */
     public function setIsLegendary(?bool $isLegendary = null): self
     {
         $this->isLegendary = $isLegendary;
@@ -572,12 +572,12 @@ class PokemonSpeciesDetail
     }
 
     /**
-    * Sets isMythical.
-    *
-    * @param bool|null $isMythical
-    *
-    * @return $this
-    */
+     * Sets isMythical.
+     *
+     * @param bool|null $isMythical
+     *
+     * @return $this
+     */
     public function setIsMythical(?bool $isMythical = null): self
     {
         $this->isMythical = $isMythical;
@@ -599,12 +599,12 @@ class PokemonSpeciesDetail
     }
 
     /**
-    * Sets hatchCounter.
-    *
-    * @param int|null $hatchCounter
-    *
-    * @return $this
-    */
+     * Sets hatchCounter.
+     *
+     * @param int|null $hatchCounter
+     *
+     * @return $this
+     */
     public function setHatchCounter(?int $hatchCounter = null): self
     {
         $this->hatchCounter = $hatchCounter;
@@ -626,12 +626,12 @@ class PokemonSpeciesDetail
     }
 
     /**
-    * Sets hasGenderDifferences.
-    *
-    * @param bool|null $hasGenderDifferences
-    *
-    * @return $this
-    */
+     * Sets hasGenderDifferences.
+     *
+     * @param bool|null $hasGenderDifferences
+     *
+     * @return $this
+     */
     public function setHasGenderDifferences(?bool $hasGenderDifferences = null): self
     {
         $this->hasGenderDifferences = $hasGenderDifferences;
@@ -653,12 +653,12 @@ class PokemonSpeciesDetail
     }
 
     /**
-    * Sets formsSwitchable.
-    *
-    * @param bool|null $formsSwitchable
-    *
-    * @return $this
-    */
+     * Sets formsSwitchable.
+     *
+     * @param bool|null $formsSwitchable
+     *
+     * @return $this
+     */
     public function setFormsSwitchable(?bool $formsSwitchable = null): self
     {
         $this->formsSwitchable = $formsSwitchable;
@@ -680,12 +680,12 @@ class PokemonSpeciesDetail
     }
 
     /**
-    * Sets growthRate.
-    *
-    * @param GrowthRateSummary|null $growthRate
-    *
-    * @return $this
-    */
+     * Sets growthRate.
+     *
+     * @param GrowthRateSummary|null $growthRate
+     *
+     * @return $this
+     */
     public function setGrowthRate(?GrowthRateSummary $growthRate): self
     {
         $this->growthRate = $growthRate;
@@ -707,12 +707,12 @@ class PokemonSpeciesDetail
     }
 
     /**
-    * Sets pokedexNumbers.
-    *
-    * @param PokemonDexEntry[]|null $pokedexNumbers
-    *
-    * @return $this
-    */
+     * Sets pokedexNumbers.
+     *
+     * @param PokemonDexEntry[]|null $pokedexNumbers
+     *
+     * @return $this
+     */
     public function setPokedexNumbers(?array $pokedexNumbers): self
     {
         $this->pokedexNumbers = $pokedexNumbers;
@@ -734,12 +734,12 @@ class PokemonSpeciesDetail
     }
 
     /**
-    * Sets eggGroups.
-    *
-    * @param AbilityDetailPokemonInnerPokemon[]|null $eggGroups
-    *
-    * @return $this
-    */
+     * Sets eggGroups.
+     *
+     * @param AbilityDetailPokemonInnerPokemon[]|null $eggGroups
+     *
+     * @return $this
+     */
     public function setEggGroups(?array $eggGroups): self
     {
         $this->eggGroups = $eggGroups;
@@ -761,12 +761,12 @@ class PokemonSpeciesDetail
     }
 
     /**
-    * Sets color.
-    *
-    * @param PokemonColorSummary|null $color
-    *
-    * @return $this
-    */
+     * Sets color.
+     *
+     * @param PokemonColorSummary|null $color
+     *
+     * @return $this
+     */
     public function setColor(?PokemonColorSummary $color): self
     {
         $this->color = $color;
@@ -788,12 +788,12 @@ class PokemonSpeciesDetail
     }
 
     /**
-    * Sets shape.
-    *
-    * @param PokemonShapeSummary|null $shape
-    *
-    * @return $this
-    */
+     * Sets shape.
+     *
+     * @param PokemonShapeSummary|null $shape
+     *
+     * @return $this
+     */
     public function setShape(?PokemonShapeSummary $shape): self
     {
         $this->shape = $shape;
@@ -815,12 +815,12 @@ class PokemonSpeciesDetail
     }
 
     /**
-    * Sets evolvesFromSpecies.
-    *
-    * @param PokemonSpeciesSummary|null $evolvesFromSpecies
-    *
-    * @return $this
-    */
+     * Sets evolvesFromSpecies.
+     *
+     * @param PokemonSpeciesSummary|null $evolvesFromSpecies
+     *
+     * @return $this
+     */
     public function setEvolvesFromSpecies(?PokemonSpeciesSummary $evolvesFromSpecies): self
     {
         $this->evolvesFromSpecies = $evolvesFromSpecies;
@@ -842,12 +842,12 @@ class PokemonSpeciesDetail
     }
 
     /**
-    * Sets evolutionChain.
-    *
-    * @param EvolutionChainSummary|null $evolutionChain
-    *
-    * @return $this
-    */
+     * Sets evolutionChain.
+     *
+     * @param EvolutionChainSummary|null $evolutionChain
+     *
+     * @return $this
+     */
     public function setEvolutionChain(?EvolutionChainSummary $evolutionChain): self
     {
         $this->evolutionChain = $evolutionChain;
@@ -869,12 +869,12 @@ class PokemonSpeciesDetail
     }
 
     /**
-    * Sets habitat.
-    *
-    * @param PokemonHabitatSummary|null $habitat
-    *
-    * @return $this
-    */
+     * Sets habitat.
+     *
+     * @param PokemonHabitatSummary|null $habitat
+     *
+     * @return $this
+     */
     public function setHabitat(?PokemonHabitatSummary $habitat): self
     {
         $this->habitat = $habitat;
@@ -896,12 +896,12 @@ class PokemonSpeciesDetail
     }
 
     /**
-    * Sets generation.
-    *
-    * @param GenerationSummary|null $generation
-    *
-    * @return $this
-    */
+     * Sets generation.
+     *
+     * @param GenerationSummary|null $generation
+     *
+     * @return $this
+     */
     public function setGeneration(?GenerationSummary $generation): self
     {
         $this->generation = $generation;
@@ -923,12 +923,12 @@ class PokemonSpeciesDetail
     }
 
     /**
-    * Sets names.
-    *
-    * @param PokemonFormDetailFormNamesInner[]|null $names
-    *
-    * @return $this
-    */
+     * Sets names.
+     *
+     * @param PokemonFormDetailFormNamesInner[]|null $names
+     *
+     * @return $this
+     */
     public function setNames(?array $names): self
     {
         $this->names = $names;
@@ -950,12 +950,12 @@ class PokemonSpeciesDetail
     }
 
     /**
-    * Sets palParkEncounters.
-    *
-    * @param PokemonSpeciesDetailPalParkEncountersInner[]|null $palParkEncounters
-    *
-    * @return $this
-    */
+     * Sets palParkEncounters.
+     *
+     * @param PokemonSpeciesDetailPalParkEncountersInner[]|null $palParkEncounters
+     *
+     * @return $this
+     */
     public function setPalParkEncounters(?array $palParkEncounters): self
     {
         $this->palParkEncounters = $palParkEncounters;
@@ -977,12 +977,12 @@ class PokemonSpeciesDetail
     }
 
     /**
-    * Sets formDescriptions.
-    *
-    * @param PokemonSpeciesDescription[]|null $formDescriptions
-    *
-    * @return $this
-    */
+     * Sets formDescriptions.
+     *
+     * @param PokemonSpeciesDescription[]|null $formDescriptions
+     *
+     * @return $this
+     */
     public function setFormDescriptions(?array $formDescriptions): self
     {
         $this->formDescriptions = $formDescriptions;
@@ -1004,12 +1004,12 @@ class PokemonSpeciesDetail
     }
 
     /**
-    * Sets flavorTextEntries.
-    *
-    * @param PokemonSpeciesFlavorText[]|null $flavorTextEntries
-    *
-    * @return $this
-    */
+     * Sets flavorTextEntries.
+     *
+     * @param PokemonSpeciesFlavorText[]|null $flavorTextEntries
+     *
+     * @return $this
+     */
     public function setFlavorTextEntries(?array $flavorTextEntries): self
     {
         $this->flavorTextEntries = $flavorTextEntries;
@@ -1031,12 +1031,12 @@ class PokemonSpeciesDetail
     }
 
     /**
-    * Sets genera.
-    *
-    * @param PokemonSpeciesDetailGeneraInner[]|null $genera
-    *
-    * @return $this
-    */
+     * Sets genera.
+     *
+     * @param PokemonSpeciesDetailGeneraInner[]|null $genera
+     *
+     * @return $this
+     */
     public function setGenera(?array $genera): self
     {
         $this->genera = $genera;
@@ -1058,12 +1058,12 @@ class PokemonSpeciesDetail
     }
 
     /**
-    * Sets varieties.
-    *
-    * @param PokemonSpeciesDetailVarietiesInner[]|null $varieties
-    *
-    * @return $this
-    */
+     * Sets varieties.
+     *
+     * @param PokemonSpeciesDetailVarietiesInner[]|null $varieties
+     *
+     * @return $this
+     */
     public function setVarieties(?array $varieties): self
     {
         $this->varieties = $varieties;

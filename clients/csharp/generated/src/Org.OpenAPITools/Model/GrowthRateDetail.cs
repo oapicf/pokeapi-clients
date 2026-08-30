@@ -76,19 +76,19 @@ namespace Org.OpenAPITools.Model
         /// Gets or Sets Descriptions
         /// </summary>
         [JsonPropertyName("descriptions")]
-        public List<GrowthRateDescription> Descriptions { get; set; }
+        public List<GrowthRateDescription> Descriptions { get; }
 
         /// <summary>
         /// Gets or Sets Levels
         /// </summary>
         [JsonPropertyName("levels")]
-        public List<Experience> Levels { get; set; }
+        public List<Experience> Levels { get; }
 
         /// <summary>
         /// Gets or Sets PokemonSpecies
         /// </summary>
         [JsonPropertyName("pokemon_species")]
-        public List<PokemonSpeciesSummary> PokemonSpecies { get; set; }
+        public List<PokemonSpeciesSummary> PokemonSpecies { get; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -134,8 +134,18 @@ namespace Org.OpenAPITools.Model
     /// <summary>
     /// A Json converter for type <see cref="GrowthRateDetail" />
     /// </summary>
-    public class GrowthRateDetailJsonConverter : JsonConverter<GrowthRateDetail>
+    public partial class GrowthRateDetailJsonConverter : JsonConverter<GrowthRateDetail>
     {
+        partial void OnCreated();
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="GrowthRateDetailJsonConverter" /> class.
+        /// </summary>
+        public GrowthRateDetailJsonConverter()
+        {
+            OnCreated();
+        }
+
         /// <summary>
         /// Deserializes json to <see cref="GrowthRateDetail" />
         /// </summary>

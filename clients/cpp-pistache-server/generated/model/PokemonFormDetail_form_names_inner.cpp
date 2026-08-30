@@ -25,6 +25,8 @@ PokemonFormDetail_form_names_inner::PokemonFormDetail_form_names_inner()
     
 }
 
+PokemonFormDetail_form_names_inner::~PokemonFormDetail_form_names_inner() = default;
+
 void PokemonFormDetail_form_names_inner::validate() const
 {
     std::stringstream msg;

@@ -26,6 +26,8 @@ LocationDetail::LocationDetail()
     
 }
 
+LocationDetail::~LocationDetail() = default;
+
 void LocationDetail::validate() const
 {
     std::stringstream msg;

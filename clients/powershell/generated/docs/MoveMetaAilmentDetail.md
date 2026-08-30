@@ -5,8 +5,8 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **Int32** |  | [readonly] 
 **Name** | **String** |  | 
-**Moves** | [**AbilityDetailPokemonInnerPokemon[]**](AbilityDetailPokemonInnerPokemon.md) |  | 
-**Names** | [**MoveMetaAilmentName[]**](MoveMetaAilmentName.md) |  | 
+**Moves** | [**AbilityDetailPokemonInnerPokemon[]**](AbilityDetailPokemonInnerPokemon.md) |  | [readonly] 
+**Names** | [**MoveMetaAilmentName[]**](MoveMetaAilmentName.md) |  | [readonly] 
 
 ## Examples
 

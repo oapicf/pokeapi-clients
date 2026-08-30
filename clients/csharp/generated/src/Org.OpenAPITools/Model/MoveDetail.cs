@@ -136,13 +136,13 @@ namespace Org.OpenAPITools.Model
         /// Gets or Sets EffectEntries
         /// </summary>
         [JsonPropertyName("effect_entries")]
-        public List<MoveChangeEffectEntriesInner> EffectEntries { get; set; }
+        public List<MoveChangeEffectEntriesInner> EffectEntries { get; }
 
         /// <summary>
         /// Gets or Sets EffectChanges
         /// </summary>
         [JsonPropertyName("effect_changes")]
-        public List<MoveDetailEffectChangesInner> EffectChanges { get; set; }
+        public List<MoveDetailEffectChangesInner> EffectChanges { get; }
 
         /// <summary>
         /// Gets or Sets Generation
@@ -160,19 +160,19 @@ namespace Org.OpenAPITools.Model
         /// Gets or Sets Names
         /// </summary>
         [JsonPropertyName("names")]
-        public List<MoveName> Names { get; set; }
+        public List<MoveName> Names { get; }
 
         /// <summary>
         /// Gets or Sets PastValues
         /// </summary>
         [JsonPropertyName("past_values")]
-        public List<MoveChange> PastValues { get; set; }
+        public List<MoveChange> PastValues { get; }
 
         /// <summary>
         /// Gets or Sets StatChanges
         /// </summary>
         [JsonPropertyName("stat_changes")]
-        public List<MoveDetailStatChangesInner> StatChanges { get; set; }
+        public List<MoveDetailStatChangesInner> StatChanges { get; }
 
         /// <summary>
         /// Gets or Sets SuperContestEffect
@@ -196,19 +196,19 @@ namespace Org.OpenAPITools.Model
         /// Gets or Sets Machines
         /// </summary>
         [JsonPropertyName("machines")]
-        public List<MoveDetailMachinesInner> Machines { get; set; }
+        public List<MoveDetailMachinesInner> Machines { get; }
 
         /// <summary>
         /// Gets or Sets FlavorTextEntries
         /// </summary>
         [JsonPropertyName("flavor_text_entries")]
-        public List<MoveFlavorText> FlavorTextEntries { get; set; }
+        public List<MoveFlavorText> FlavorTextEntries { get; }
 
         /// <summary>
         /// Gets or Sets LearnedByPokemon
         /// </summary>
         [JsonPropertyName("learned_by_pokemon")]
-        public List<AbilityDetailPokemonInnerPokemon> LearnedByPokemon { get; set; }
+        public List<AbilityDetailPokemonInnerPokemon> LearnedByPokemon { get; }
 
         /// <summary>
         /// Used to track the state of Accuracy
@@ -221,7 +221,7 @@ namespace Org.OpenAPITools.Model
         /// Gets or Sets Accuracy
         /// </summary>
         [JsonPropertyName("accuracy")]
-        public int? Accuracy { get { return this.AccuracyOption; } set { this.AccuracyOption = new(value); } }
+        public int? Accuracy { get { return this.AccuracyOption.Value; } set { this.AccuracyOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of Pp
@@ -234,7 +234,7 @@ namespace Org.OpenAPITools.Model
         /// Gets or Sets Pp
         /// </summary>
         [JsonPropertyName("pp")]
-        public int? Pp { get { return this.PpOption; } set { this.PpOption = new(value); } }
+        public int? Pp { get { return this.PpOption.Value; } set { this.PpOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of Priority
@@ -247,7 +247,7 @@ namespace Org.OpenAPITools.Model
         /// Gets or Sets Priority
         /// </summary>
         [JsonPropertyName("priority")]
-        public int? Priority { get { return this.PriorityOption; } set { this.PriorityOption = new(value); } }
+        public int? Priority { get { return this.PriorityOption.Value; } set { this.PriorityOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of Power
@@ -260,7 +260,7 @@ namespace Org.OpenAPITools.Model
         /// Gets or Sets Power
         /// </summary>
         [JsonPropertyName("power")]
-        public int? Power { get { return this.PowerOption; } set { this.PowerOption = new(value); } }
+        public int? Power { get { return this.PowerOption.Value; } set { this.PowerOption = new(value); } }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -318,8 +318,18 @@ namespace Org.OpenAPITools.Model
     /// <summary>
     /// A Json converter for type <see cref="MoveDetail" />
     /// </summary>
-    public class MoveDetailJsonConverter : JsonConverter<MoveDetail>
+    public partial class MoveDetailJsonConverter : JsonConverter<MoveDetail>
     {
+        partial void OnCreated();
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="MoveDetailJsonConverter" /> class.
+        /// </summary>
+        public MoveDetailJsonConverter()
+        {
+            OnCreated();
+        }
+
         /// <summary>
         /// Deserializes json to <see cref="MoveDetail" />
         /// </summary>

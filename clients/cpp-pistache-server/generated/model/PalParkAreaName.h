@@ -33,7 +33,7 @@ class  PalParkAreaName
 {
 public:
     PalParkAreaName();
-    virtual ~PalParkAreaName() = default;
+    virtual ~PalParkAreaName();
 
 
     /// <summary>

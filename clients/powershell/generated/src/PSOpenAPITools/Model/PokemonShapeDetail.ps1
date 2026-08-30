@@ -80,11 +80,11 @@ function Initialize-PokemonShapeDetail {
 
 
         $PSO = [PSCustomObject]@{
-            "id" = ${Id}
-            "name" = ${Name}
-            "awesome_names" = ${AwesomeNames}
-            "names" = ${Names}
-            "pokemon_species" = ${PokemonSpecies}
+            'id' = ${Id}
+            'name' = ${Name}
+            'awesome_names' = ${AwesomeNames}
+            'names' = ${Names}
+            'pokemon_species' = ${PokemonSpecies}
         }
 
 
@@ -122,7 +122,7 @@ function ConvertFrom-JsonToPokemonShapeDetail {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in PokemonShapeDetail
-        $AllProperties = ("id", "name", "awesome_names", "names", "pokemon_species")
+        $AllProperties = ('id', 'name', 'awesome_names', 'names', 'pokemon_species')
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -133,42 +133,42 @@ function ConvertFrom-JsonToPokemonShapeDetail {
             throw "Error! Empty JSON cannot be serialized due to the required property 'id' missing."
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "id"))) {
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'id'))) {
             throw "Error! JSON cannot be serialized due to the required property 'id' missing."
         } else {
-            $Id = $JsonParameters.PSobject.Properties["id"].value
+            $Id = $JsonParameters.PSobject.Properties['id'].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "name"))) {
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'name'))) {
             throw "Error! JSON cannot be serialized due to the required property 'name' missing."
         } else {
-            $Name = $JsonParameters.PSobject.Properties["name"].value
+            $Name = $JsonParameters.PSobject.Properties['name'].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "awesome_names"))) {
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'awesome_names'))) {
             throw "Error! JSON cannot be serialized due to the required property 'awesome_names' missing."
         } else {
-            $AwesomeNames = $JsonParameters.PSobject.Properties["awesome_names"].value
+            $AwesomeNames = $JsonParameters.PSobject.Properties['awesome_names'].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "names"))) {
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'names'))) {
             throw "Error! JSON cannot be serialized due to the required property 'names' missing."
         } else {
-            $Names = $JsonParameters.PSobject.Properties["names"].value
+            $Names = $JsonParameters.PSobject.Properties['names'].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "pokemon_species"))) {
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'pokemon_species'))) {
             throw "Error! JSON cannot be serialized due to the required property 'pokemon_species' missing."
         } else {
-            $PokemonSpecies = $JsonParameters.PSobject.Properties["pokemon_species"].value
+            $PokemonSpecies = $JsonParameters.PSobject.Properties['pokemon_species'].value
         }
 
         $PSO = [PSCustomObject]@{
-            "id" = ${Id}
-            "name" = ${Name}
-            "awesome_names" = ${AwesomeNames}
-            "names" = ${Names}
-            "pokemon_species" = ${PokemonSpecies}
+            'id' = ${Id}
+            'name' = ${Name}
+            'awesome_names' = ${AwesomeNames}
+            'names' = ${Names}
+            'pokemon_species' = ${PokemonSpecies}
         }
 
         return $PSO

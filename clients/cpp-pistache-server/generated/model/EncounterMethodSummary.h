@@ -32,7 +32,7 @@ class  EncounterMethodSummary
 {
 public:
     EncounterMethodSummary();
-    virtual ~EncounterMethodSummary() = default;
+    virtual ~EncounterMethodSummary();
 
 
     /// <summary>

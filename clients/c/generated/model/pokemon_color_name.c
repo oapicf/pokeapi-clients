@@ -13,10 +13,10 @@ static pokemon_color_name_t *pokemon_color_name_create_internal(
     if (!pokemon_color_name_local_var) {
         return NULL;
     }
+    memset(pokemon_color_name_local_var, 0, sizeof(pokemon_color_name_t));
+    pokemon_color_name_local_var->_library_owned = 1;
     pokemon_color_name_local_var->name = name;
     pokemon_color_name_local_var->language = language;
-
-    pokemon_color_name_local_var->_library_owned = 1;
     return pokemon_color_name_local_var;
 }
 
@@ -24,10 +24,13 @@ __attribute__((deprecated)) pokemon_color_name_t *pokemon_color_name_create(
     char *name,
     language_summary_t *language
     ) {
-    return pokemon_color_name_create_internal (
+    pokemon_color_name_t *result = pokemon_color_name_create_internal (
         name,
         language
         );
+    if (!result) {
+    }
+    return result;
 }
 
 void pokemon_color_name_free(pokemon_color_name_t *pokemon_color_name) {
@@ -87,6 +90,8 @@ pokemon_color_name_t *pokemon_color_name_parseFromJSON(cJSON *pokemon_color_name
 
     pokemon_color_name_t *pokemon_color_name_local_var = NULL;
 
+    char *name_local_str = NULL;
+
     // define the local variable for pokemon_color_name->language
     language_summary_t *language_local_nonprim = NULL;
 
@@ -118,13 +123,23 @@ pokemon_color_name_t *pokemon_color_name_parseFromJSON(cJSON *pokemon_color_name
     language_local_nonprim = language_summary_parseFromJSON(language); //nonprimitive
 
 
+    if (name && !cJSON_IsNull(name)) name_local_str = strdup(name->valuestring);
+
     pokemon_color_name_local_var = pokemon_color_name_create_internal (
-        strdup(name->valuestring),
+        name_local_str,
         language_local_nonprim
         );
 
+    if (!pokemon_color_name_local_var) {
+        goto end;
+    }
+
     return pokemon_color_name_local_var;
 end:
+    if (name_local_str) {
+        free(name_local_str);
+        name_local_str = NULL;
+    }
     if (language_local_nonprim) {
         language_summary_free(language_local_nonprim);
         language_local_nonprim = NULL;

@@ -85,7 +85,7 @@ TypeSummary::getName()
 }
 
 void
-TypeSummary::setName(std::string  name)
+TypeSummary::setName(std::string name)
 {
 	this->name = name;
 }
@@ -97,7 +97,7 @@ TypeSummary::getUrl()
 }
 
 void
-TypeSummary::setUrl(std::string  url)
+TypeSummary::setUrl(std::string url)
 {
 	this->url = url;
 }

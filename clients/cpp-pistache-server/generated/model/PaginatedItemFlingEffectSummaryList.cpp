@@ -31,6 +31,8 @@ PaginatedItemFlingEffectSummaryList::PaginatedItemFlingEffectSummaryList()
     
 }
 
+PaginatedItemFlingEffectSummaryList::~PaginatedItemFlingEffectSummaryList() = default;
+
 void PaginatedItemFlingEffectSummaryList::validate() const
 {
     std::stringstream msg;

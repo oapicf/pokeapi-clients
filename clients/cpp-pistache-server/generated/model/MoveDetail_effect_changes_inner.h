@@ -34,7 +34,7 @@ class  MoveDetail_effect_changes_inner
 {
 public:
     MoveDetail_effect_changes_inner();
-    virtual ~MoveDetail_effect_changes_inner() = default;
+    virtual ~MoveDetail_effect_changes_inner();
 
 
     /// <summary>

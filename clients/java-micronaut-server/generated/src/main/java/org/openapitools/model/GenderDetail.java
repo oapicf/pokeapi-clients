@@ -37,7 +37,7 @@ import io.swagger.v3.oas.annotations.media.Schema;
   GenderDetail.JSON_PROPERTY_REQUIRED_FOR_EVOLUTION
 })
 @JsonTypeName("GenderDetail")
-@Generated(value="org.openapitools.codegen.languages.JavaMicronautServerCodegen", date="2026-02-07T15:23:03.167972722Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@Generated(value="org.openapitools.codegen.languages.JavaMicronautServerCodegen", date="2026-08-30T01:55:54.631003115Z[Etc/UTC]", comments = "Generator version: 7.24.0")
 @Introspected
 public class GenderDetail {
     public static final String JSON_PROPERTY_ID = "id";
@@ -95,42 +95,16 @@ public class GenderDetail {
         this.name = name;
     }
 
-    public GenderDetail pokemonSpeciesDetails(List<@Valid GenderDetailPokemonSpeciesDetailsInner> pokemonSpeciesDetails) {
-        this.pokemonSpeciesDetails = pokemonSpeciesDetails;
-        return this;
-    }
-
-    public GenderDetail addPokemonSpeciesDetailsItem(GenderDetailPokemonSpeciesDetailsInner pokemonSpeciesDetailsItem) {
-        this.pokemonSpeciesDetails.add(pokemonSpeciesDetailsItem);
-        return this;
-    }
-
     /**
      * Get pokemonSpeciesDetails
      * @return pokemonSpeciesDetails
      */
     @NotNull
-    @Schema(name = "pokemon_species_details", requiredMode = Schema.RequiredMode.REQUIRED)
+    @Schema(name = "pokemon_species_details", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
     @JsonProperty(JSON_PROPERTY_POKEMON_SPECIES_DETAILS)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public List<@Valid GenderDetailPokemonSpeciesDetailsInner> getPokemonSpeciesDetails() {
         return pokemonSpeciesDetails;
-    }
-
-    @JsonProperty(JSON_PROPERTY_POKEMON_SPECIES_DETAILS)
-    @JsonInclude(value = JsonInclude.Include.ALWAYS)
-    public void setPokemonSpeciesDetails(List<@Valid GenderDetailPokemonSpeciesDetailsInner> pokemonSpeciesDetails) {
-        this.pokemonSpeciesDetails = pokemonSpeciesDetails;
-    }
-
-    public GenderDetail requiredForEvolution(List<@Valid AbilityDetailPokemonInnerPokemon> requiredForEvolution) {
-        this.requiredForEvolution = requiredForEvolution;
-        return this;
-    }
-
-    public GenderDetail addRequiredForEvolutionItem(AbilityDetailPokemonInnerPokemon requiredForEvolutionItem) {
-        this.requiredForEvolution.add(requiredForEvolutionItem);
-        return this;
     }
 
     /**
@@ -138,17 +112,11 @@ public class GenderDetail {
      * @return requiredForEvolution
      */
     @NotNull
-    @Schema(name = "required_for_evolution", requiredMode = Schema.RequiredMode.REQUIRED)
+    @Schema(name = "required_for_evolution", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
     @JsonProperty(JSON_PROPERTY_REQUIRED_FOR_EVOLUTION)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public List<@Valid AbilityDetailPokemonInnerPokemon> getRequiredForEvolution() {
         return requiredForEvolution;
-    }
-
-    @JsonProperty(JSON_PROPERTY_REQUIRED_FOR_EVOLUTION)
-    @JsonInclude(value = JsonInclude.Include.ALWAYS)
-    public void setRequiredForEvolution(List<@Valid AbilityDetailPokemonInnerPokemon> requiredForEvolution) {
-        this.requiredForEvolution = requiredForEvolution;
     }
 
     @Override
@@ -188,10 +156,7 @@ public class GenderDetail {
      * (except the first line).
      */
     private String toIndentedString(Object o) {
-        if (o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
+        return o == null ? "null" : o.toString().replace("\n", "\n    ");
     }
 
 }

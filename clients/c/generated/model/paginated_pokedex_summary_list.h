@@ -20,7 +20,7 @@ typedef struct paginated_pokedex_summary_list_t paginated_pokedex_summary_list_t
 
 
 typedef struct paginated_pokedex_summary_list_t {
-    int count; //numeric
+    int *count; //numeric
     char *next; // string
     char *previous; // string
     list_t *results; //nonprimitive container
@@ -29,7 +29,7 @@ typedef struct paginated_pokedex_summary_list_t {
 } paginated_pokedex_summary_list_t;
 
 __attribute__((deprecated)) paginated_pokedex_summary_list_t *paginated_pokedex_summary_list_create(
-    int count,
+    int *count,
     char *next,
     char *previous,
     list_t *results

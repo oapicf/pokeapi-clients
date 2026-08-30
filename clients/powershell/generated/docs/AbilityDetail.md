@@ -7,11 +7,11 @@ Name | Type | Description | Notes
 **Name** | **String** |  | 
 **IsMainSeries** | **Boolean** |  | [optional] 
 **Generation** | [**GenerationSummary**](GenerationSummary.md) |  | 
-**Names** | [**AbilityName[]**](AbilityName.md) |  | 
-**EffectEntries** | [**AbilityEffectText[]**](AbilityEffectText.md) |  | 
-**EffectChanges** | [**AbilityChange[]**](AbilityChange.md) |  | 
-**FlavorTextEntries** | [**AbilityFlavorText[]**](AbilityFlavorText.md) |  | 
-**Pokemon** | [**AbilityDetailPokemonInner[]**](AbilityDetailPokemonInner.md) |  | 
+**Names** | [**AbilityName[]**](AbilityName.md) |  | [readonly] 
+**EffectEntries** | [**AbilityEffectText[]**](AbilityEffectText.md) |  | [readonly] 
+**EffectChanges** | [**AbilityChange[]**](AbilityChange.md) |  | [readonly] 
+**FlavorTextEntries** | [**AbilityFlavorText[]**](AbilityFlavorText.md) |  | [readonly] 
+**Pokemon** | [**AbilityDetailPokemonInner[]**](AbilityDetailPokemonInner.md) |  | [readonly] 
 
 ## Examples
 

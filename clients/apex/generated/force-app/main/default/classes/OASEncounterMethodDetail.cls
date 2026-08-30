@@ -36,7 +36,7 @@ public class OASEncounterMethodDetail {
      * Get names
      * @return names
      */
-    public List<OASEncounterMethodName> names { get; set; }
+    public List<OASEncounterMethodName> names { get; private set; }
 
     public OASEncounterMethodDetail() {
         names = new List<OASEncounterMethodName>();

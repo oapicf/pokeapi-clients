@@ -12,18 +12,21 @@ static pokemon_form_detail_sprites_t *pokemon_form_detail_sprites_create_interna
     if (!pokemon_form_detail_sprites_local_var) {
         return NULL;
     }
-    pokemon_form_detail_sprites_local_var->_default = _default;
-
+    memset(pokemon_form_detail_sprites_local_var, 0, sizeof(pokemon_form_detail_sprites_t));
     pokemon_form_detail_sprites_local_var->_library_owned = 1;
+    pokemon_form_detail_sprites_local_var->_default = _default;
     return pokemon_form_detail_sprites_local_var;
 }
 
 __attribute__((deprecated)) pokemon_form_detail_sprites_t *pokemon_form_detail_sprites_create(
     char *_default
     ) {
-    return pokemon_form_detail_sprites_create_internal (
+    pokemon_form_detail_sprites_t *result = pokemon_form_detail_sprites_create_internal (
         _default
         );
+    if (!result) {
+    }
+    return result;
 }
 
 void pokemon_form_detail_sprites_free(pokemon_form_detail_sprites_t *pokemon_form_detail_sprites) {
@@ -64,6 +67,8 @@ pokemon_form_detail_sprites_t *pokemon_form_detail_sprites_parseFromJSON(cJSON *
 
     pokemon_form_detail_sprites_t *pokemon_form_detail_sprites_local_var = NULL;
 
+    char *_default_local_str = NULL;
+
     // pokemon_form_detail_sprites->_default
     cJSON *_default = cJSON_GetObjectItemCaseSensitive(pokemon_form_detail_spritesJSON, "default");
     if (cJSON_IsNull(_default)) {
@@ -77,12 +82,22 @@ pokemon_form_detail_sprites_t *pokemon_form_detail_sprites_parseFromJSON(cJSON *
     }
 
 
+    if (_default && !cJSON_IsNull(_default)) _default_local_str = strdup(_default->valuestring);
+
     pokemon_form_detail_sprites_local_var = pokemon_form_detail_sprites_create_internal (
-        _default && !cJSON_IsNull(_default) ? strdup(_default->valuestring) : NULL
+        _default_local_str
         );
+
+    if (!pokemon_form_detail_sprites_local_var) {
+        goto end;
+    }
 
     return pokemon_form_detail_sprites_local_var;
 end:
+    if (_default_local_str) {
+        free(_default_local_str);
+        _default_local_str = NULL;
+    }
     return NULL;
 
 }

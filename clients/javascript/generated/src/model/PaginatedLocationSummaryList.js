@@ -17,7 +17,7 @@ import LocationSummary from './LocationSummary';
 /**
  * The PaginatedLocationSummaryList model module.
  * @module model/PaginatedLocationSummaryList
- * @version 1.2.1-pre.0
+ * @version 2.0.1-pre.0
  */
 class PaginatedLocationSummaryList {
     /**

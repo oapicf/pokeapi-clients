@@ -33,7 +33,7 @@ class  PokemonColorName
 {
 public:
     PokemonColorName();
-    virtual ~PokemonColorName() = default;
+    virtual ~PokemonColorName();
 
 
     /// <summary>

@@ -22,7 +22,7 @@ typedef struct growth_rate_detail_t growth_rate_detail_t;
 
 
 typedef struct growth_rate_detail_t {
-    int id; //numeric
+    int *id; //numeric
     char *name; // string
     char *formula; // string
     list_t *descriptions; //nonprimitive container
@@ -33,7 +33,7 @@ typedef struct growth_rate_detail_t {
 } growth_rate_detail_t;
 
 __attribute__((deprecated)) growth_rate_detail_t *growth_rate_detail_create(
-    int id,
+    int *id,
     char *name,
     char *formula,
     list_t *descriptions,

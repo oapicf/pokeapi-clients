@@ -25,6 +25,8 @@ PokemonColorName::PokemonColorName()
     
 }
 
+PokemonColorName::~PokemonColorName() = default;
+
 void PokemonColorName::validate() const
 {
     std::stringstream msg;

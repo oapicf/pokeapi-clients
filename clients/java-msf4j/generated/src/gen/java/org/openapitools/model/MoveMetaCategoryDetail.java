@@ -14,7 +14,7 @@ import org.openapitools.model.MoveMetaCategoryDescription;
 /**
  * MoveMetaCategoryDetail
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaMSF4JServerCodegen", date = "2026-02-07T15:23:10.683633502Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaMSF4JServerCodegen", date = "2026-08-30T01:55:58.248058654Z[Etc/UTC]", comments = "Generator version: 7.24.0")
 public class MoveMetaCategoryDetail   {
   @JsonProperty("id")
   private Integer id;
@@ -55,16 +55,6 @@ public class MoveMetaCategoryDetail   {
     this.name = name;
   }
 
-  public MoveMetaCategoryDetail descriptions(List<@Valid MoveMetaCategoryDescription> descriptions) {
-    this.descriptions = descriptions;
-    return this;
-  }
-
-  public MoveMetaCategoryDetail addDescriptionsItem(MoveMetaCategoryDescription descriptionsItem) {
-    this.descriptions.add(descriptionsItem);
-    return this;
-  }
-
    /**
    * Get descriptions
    * @return descriptions
@@ -74,20 +64,6 @@ public class MoveMetaCategoryDetail   {
     return descriptions;
   }
 
-  public void setDescriptions(List<@Valid MoveMetaCategoryDescription> descriptions) {
-    this.descriptions = descriptions;
-  }
-
-  public MoveMetaCategoryDetail moves(List<@Valid AbilityDetailPokemonInnerPokemon> moves) {
-    this.moves = moves;
-    return this;
-  }
-
-  public MoveMetaCategoryDetail addMovesItem(AbilityDetailPokemonInnerPokemon movesItem) {
-    this.moves.add(movesItem);
-    return this;
-  }
-
    /**
    * Get moves
    * @return moves
@@ -95,10 +71,6 @@ public class MoveMetaCategoryDetail   {
   @ApiModelProperty(required = true, value = "")
   public List<@Valid AbilityDetailPokemonInnerPokemon> getMoves() {
     return moves;
-  }
-
-  public void setMoves(List<@Valid AbilityDetailPokemonInnerPokemon> moves) {
-    this.moves = moves;
   }
 
 
@@ -140,10 +112,7 @@ public class MoveMetaCategoryDetail   {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 }
 

@@ -26,6 +26,8 @@ NatureSummary::NatureSummary()
     
 }
 
+NatureSummary::~NatureSummary() = default;
+
 void NatureSummary::validate() const
 {
     std::stringstream msg;

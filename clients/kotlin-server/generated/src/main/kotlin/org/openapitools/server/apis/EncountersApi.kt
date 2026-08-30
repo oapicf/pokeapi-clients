@@ -33,11 +33,9 @@ import org.openapitools.server.models.PaginatedEncounterConditionValueSummaryLis
 import org.openapitools.server.models.PaginatedEncounterMethodSummaryList
 
 fun Route.EncountersApi() {
-    val empty = mutableMapOf<String, Any?>()
-
     authenticate("basicAuth") {
     authenticate("cookieAuth") {
-    get<Paths.encounterConditionList> {
+    get<Paths.encounterConditionList> { encounterConditionList ->
         val principal = call.authentication.principal<UserIdPrincipal>()
         
         
@@ -46,9 +44,9 @@ fun Route.EncountersApi() {
         
         val exampleContentType = "application/json"
             val exampleContentString = """{
+              "count" : 123,
               "next" : "http://api.example.org/accounts/?offset=400&limit=100",
               "previous" : "http://api.example.org/accounts/?offset=200&limit=100",
-              "count" : 123,
               "results" : [ {
                 "name" : "name",
                 "url" : "https://openapi-generator.tech"
@@ -66,10 +64,9 @@ fun Route.EncountersApi() {
         
     }
     }
-
     authenticate("basicAuth") {
     authenticate("cookieAuth") {
-    get<Paths.encounterConditionRetrieve> {
+    get<Paths.encounterConditionRetrieve> { encounterConditionRetrieve ->
         val principal = call.authentication.principal<UserIdPrincipal>()
         
         
@@ -78,6 +75,15 @@ fun Route.EncountersApi() {
         
         val exampleContentType = "application/json"
             val exampleContentString = """{
+              "id" : 0,
+              "name" : "name",
+              "values" : [ {
+                "name" : "name",
+                "url" : "https://openapi-generator.tech"
+              }, {
+                "name" : "name",
+                "url" : "https://openapi-generator.tech"
+              } ],
               "names" : [ {
                 "name" : "name",
                 "language" : {
@@ -90,16 +96,7 @@ fun Route.EncountersApi() {
                   "name" : "name",
                   "url" : "https://openapi-generator.tech"
                 }
-              } ],
-              "values" : [ {
-                "name" : "name",
-                "url" : "https://openapi-generator.tech"
-              }, {
-                "name" : "name",
-                "url" : "https://openapi-generator.tech"
-              } ],
-              "name" : "name",
-              "id" : 0
+              } ]
             }"""
             
             when (exampleContentType) {
@@ -110,10 +107,9 @@ fun Route.EncountersApi() {
         
     }
     }
-
     authenticate("basicAuth") {
     authenticate("cookieAuth") {
-    get<Paths.encounterConditionValueList> {
+    get<Paths.encounterConditionValueList> { encounterConditionValueList ->
         val principal = call.authentication.principal<UserIdPrincipal>()
         
         
@@ -122,9 +118,9 @@ fun Route.EncountersApi() {
         
         val exampleContentType = "application/json"
             val exampleContentString = """{
+              "count" : 123,
               "next" : "http://api.example.org/accounts/?offset=400&limit=100",
               "previous" : "http://api.example.org/accounts/?offset=200&limit=100",
-              "count" : 123,
               "results" : [ {
                 "name" : "name",
                 "url" : "https://openapi-generator.tech"
@@ -142,10 +138,9 @@ fun Route.EncountersApi() {
         
     }
     }
-
     authenticate("basicAuth") {
     authenticate("cookieAuth") {
-    get<Paths.encounterConditionValueRetrieve> {
+    get<Paths.encounterConditionValueRetrieve> { encounterConditionValueRetrieve ->
         val principal = call.authentication.principal<UserIdPrincipal>()
         
         
@@ -154,6 +149,8 @@ fun Route.EncountersApi() {
         
         val exampleContentType = "application/json"
             val exampleContentString = """{
+              "id" : 0,
+              "name" : "name",
               "condition" : {
                 "name" : "name",
                 "url" : "https://openapi-generator.tech"
@@ -170,9 +167,7 @@ fun Route.EncountersApi() {
                   "name" : "name",
                   "url" : "https://openapi-generator.tech"
                 }
-              } ],
-              "name" : "name",
-              "id" : 0
+              } ]
             }"""
             
             when (exampleContentType) {
@@ -183,10 +178,9 @@ fun Route.EncountersApi() {
         
     }
     }
-
     authenticate("basicAuth") {
     authenticate("cookieAuth") {
-    get<Paths.encounterMethodList> {
+    get<Paths.encounterMethodList> { encounterMethodList ->
         val principal = call.authentication.principal<UserIdPrincipal>()
         
         
@@ -195,9 +189,9 @@ fun Route.EncountersApi() {
         
         val exampleContentType = "application/json"
             val exampleContentString = """{
+              "count" : 123,
               "next" : "http://api.example.org/accounts/?offset=400&limit=100",
               "previous" : "http://api.example.org/accounts/?offset=200&limit=100",
-              "count" : 123,
               "results" : [ {
                 "name" : "name",
                 "url" : "https://openapi-generator.tech"
@@ -215,10 +209,9 @@ fun Route.EncountersApi() {
         
     }
     }
-
     authenticate("basicAuth") {
     authenticate("cookieAuth") {
-    get<Paths.encounterMethodRetrieve> {
+    get<Paths.encounterMethodRetrieve> { encounterMethodRetrieve ->
         val principal = call.authentication.principal<UserIdPrincipal>()
         
         
@@ -227,6 +220,9 @@ fun Route.EncountersApi() {
         
         val exampleContentType = "application/json"
             val exampleContentString = """{
+              "id" : 0,
+              "name" : "name",
+              "order" : 6,
               "names" : [ {
                 "name" : "name",
                 "language" : {
@@ -239,10 +235,7 @@ fun Route.EncountersApi() {
                   "name" : "name",
                   "url" : "https://openapi-generator.tech"
                 }
-              } ],
-              "name" : "name",
-              "id" : 0,
-              "order" : 6
+              } ]
             }"""
             
             when (exampleContentType) {
@@ -253,5 +246,4 @@ fun Route.EncountersApi() {
         
     }
     }
-
 }

@@ -271,7 +271,7 @@ TypeDetail_past_damage_relations_inner_damage_relations::getNoDamageTo()
 }
 
 void
-TypeDetail_past_damage_relations_inner_damage_relations::setNoDamageTo(std::list <AbilityDetail_pokemon_inner_pokemon> no_damage_to)
+TypeDetail_past_damage_relations_inner_damage_relations::setNoDamageTo(std::list<AbilityDetail_pokemon_inner_pokemon> no_damage_to)
 {
 	this->no_damage_to = no_damage_to;
 }
@@ -283,7 +283,7 @@ TypeDetail_past_damage_relations_inner_damage_relations::getHalfDamageTo()
 }
 
 void
-TypeDetail_past_damage_relations_inner_damage_relations::setHalfDamageTo(std::list <AbilityDetail_pokemon_inner_pokemon> half_damage_to)
+TypeDetail_past_damage_relations_inner_damage_relations::setHalfDamageTo(std::list<AbilityDetail_pokemon_inner_pokemon> half_damage_to)
 {
 	this->half_damage_to = half_damage_to;
 }
@@ -295,7 +295,7 @@ TypeDetail_past_damage_relations_inner_damage_relations::getDoubleDamageTo()
 }
 
 void
-TypeDetail_past_damage_relations_inner_damage_relations::setDoubleDamageTo(std::list <AbilityDetail_pokemon_inner_pokemon> double_damage_to)
+TypeDetail_past_damage_relations_inner_damage_relations::setDoubleDamageTo(std::list<AbilityDetail_pokemon_inner_pokemon> double_damage_to)
 {
 	this->double_damage_to = double_damage_to;
 }
@@ -307,7 +307,7 @@ TypeDetail_past_damage_relations_inner_damage_relations::getNoDamageFrom()
 }
 
 void
-TypeDetail_past_damage_relations_inner_damage_relations::setNoDamageFrom(std::list <AbilityDetail_pokemon_inner_pokemon> no_damage_from)
+TypeDetail_past_damage_relations_inner_damage_relations::setNoDamageFrom(std::list<AbilityDetail_pokemon_inner_pokemon> no_damage_from)
 {
 	this->no_damage_from = no_damage_from;
 }
@@ -319,7 +319,7 @@ TypeDetail_past_damage_relations_inner_damage_relations::getHalfDamageFrom()
 }
 
 void
-TypeDetail_past_damage_relations_inner_damage_relations::setHalfDamageFrom(std::list <AbilityDetail_pokemon_inner_pokemon> half_damage_from)
+TypeDetail_past_damage_relations_inner_damage_relations::setHalfDamageFrom(std::list<AbilityDetail_pokemon_inner_pokemon> half_damage_from)
 {
 	this->half_damage_from = half_damage_from;
 }
@@ -331,7 +331,7 @@ TypeDetail_past_damage_relations_inner_damage_relations::getDoubleDamageFrom()
 }
 
 void
-TypeDetail_past_damage_relations_inner_damage_relations::setDoubleDamageFrom(std::list <AbilityDetail_pokemon_inner_pokemon> double_damage_from)
+TypeDetail_past_damage_relations_inner_damage_relations::setDoubleDamageFrom(std::list<AbilityDetail_pokemon_inner_pokemon> double_damage_from)
 {
 	this->double_damage_from = double_damage_from;
 }

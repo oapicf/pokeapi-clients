@@ -52,21 +52,21 @@ public:
 
 	/*! \brief Set 
 	 */
-	void setLowHpPreference(int  low_hp_preference);
+	void setLowHpPreference(int low_hp_preference);
 	/*! \brief Get 
 	 */
 	int getHighHpPreference();
 
 	/*! \brief Set 
 	 */
-	void setHighHpPreference(int  high_hp_preference);
+	void setHighHpPreference(int high_hp_preference);
 	/*! \brief Get 
 	 */
 	MoveBattleStyleSummary getMoveBattleStyle();
 
 	/*! \brief Set 
 	 */
-	void setMoveBattleStyle(MoveBattleStyleSummary  move_battle_style);
+	void setMoveBattleStyle(MoveBattleStyleSummary move_battle_style);
 
 
     private:

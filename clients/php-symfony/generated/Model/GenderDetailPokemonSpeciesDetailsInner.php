@@ -47,7 +47,7 @@ class GenderDetailPokemonSpeciesDetailsInner
      * @var int|null
      * @SerializedName("rate")
      * @Type("int")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Type("int")]
     protected ?int $rate = null;
@@ -56,7 +56,7 @@ class GenderDetailPokemonSpeciesDetailsInner
      * @var AbilityDetailPokemonInnerPokemon|null
      * @SerializedName("pokemon_species")
      * @Type("OpenAPI\Server\Model\AbilityDetailPokemonInnerPokemon")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Valid]
     #[Assert\Type("OpenAPI\Server\Model\AbilityDetailPokemonInnerPokemon")]
@@ -85,12 +85,12 @@ class GenderDetailPokemonSpeciesDetailsInner
     }
 
     /**
-    * Sets rate.
-    *
-    * @param int|null $rate
-    *
-    * @return $this
-    */
+     * Sets rate.
+     *
+     * @param int|null $rate
+     *
+     * @return $this
+     */
     public function setRate(?int $rate): self
     {
         $this->rate = $rate;
@@ -112,12 +112,12 @@ class GenderDetailPokemonSpeciesDetailsInner
     }
 
     /**
-    * Sets pokemonSpecies.
-    *
-    * @param AbilityDetailPokemonInnerPokemon|null $pokemonSpecies
-    *
-    * @return $this
-    */
+     * Sets pokemonSpecies.
+     *
+     * @param AbilityDetailPokemonInnerPokemon|null $pokemonSpecies
+     *
+     * @return $this
+     */
     public function setPokemonSpecies(?AbilityDetailPokemonInnerPokemon $pokemonSpecies): self
     {
         $this->pokemonSpecies = $pokemonSpecies;

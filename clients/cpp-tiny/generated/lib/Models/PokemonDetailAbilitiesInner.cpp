@@ -107,7 +107,7 @@ PokemonDetail_abilities_inner::getAbility()
 }
 
 void
-PokemonDetail_abilities_inner::setAbility(AbilityDetail_pokemon_inner_pokemon  ability)
+PokemonDetail_abilities_inner::setAbility(AbilityDetail_pokemon_inner_pokemon ability)
 {
 	this->ability = ability;
 }
@@ -119,7 +119,7 @@ PokemonDetail_abilities_inner::isIsHidden()
 }
 
 void
-PokemonDetail_abilities_inner::setIsHidden(bool  is_hidden)
+PokemonDetail_abilities_inner::setIsHidden(bool is_hidden)
 {
 	this->is_hidden = is_hidden;
 }
@@ -131,7 +131,7 @@ PokemonDetail_abilities_inner::getSlot()
 }
 
 void
-PokemonDetail_abilities_inner::setSlot(int  slot)
+PokemonDetail_abilities_inner::setSlot(int slot)
 {
 	this->slot = slot;
 }

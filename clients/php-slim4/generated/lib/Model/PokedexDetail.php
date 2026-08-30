@@ -61,30 +61,38 @@ class PokedexDetail extends BaseModel
     },
     "descriptions" : {
       "type" : "array",
+      "readOnly" : true,
       "items" : {
         "$ref" : "#/components/schemas/PokedexDescription"
-      }
+      },
+      "default" : null
     },
     "names" : {
       "type" : "array",
+      "readOnly" : true,
       "items" : {
         "$ref" : "#/components/schemas/PokedexName"
-      }
+      },
+      "default" : null
     },
     "pokemon_entries" : {
       "type" : "array",
+      "readOnly" : true,
       "items" : {
         "$ref" : "#/components/schemas/PokedexDetail_pokemon_entries_inner"
-      }
+      },
+      "default" : null
     },
     "region" : {
       "$ref" : "#/components/schemas/RegionSummary"
     },
     "version_groups" : {
       "type" : "array",
+      "readOnly" : true,
       "items" : {
         "$ref" : "#/components/schemas/AbilityDetail_pokemon_inner_pokemon"
-      }
+      },
+      "default" : null
     }
   }
 }

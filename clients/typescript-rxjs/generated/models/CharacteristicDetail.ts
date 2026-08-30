@@ -35,7 +35,7 @@ export interface CharacteristicDetail {
      * @type {Array<number>}
      * @memberof CharacteristicDetail
      */
-    possible_values: Array<number>;
+    readonly possible_values: Array<number>;
     /**
      * @type {StatSummary}
      * @memberof CharacteristicDetail
@@ -45,5 +45,5 @@ export interface CharacteristicDetail {
      * @type {Array<CharacteristicDescription>}
      * @memberof CharacteristicDetail
      */
-    descriptions: Array<CharacteristicDescription>;
+    readonly descriptions: Array<CharacteristicDescription>;
 }

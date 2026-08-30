@@ -7,9 +7,9 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **number** |  | [readonly] [default to undefined]
 **name** | **string** |  | [default to undefined]
-**descriptions** | [**Array&lt;ItemAttributeDescription&gt;**](ItemAttributeDescription.md) |  | [default to undefined]
-**items** | [**Array&lt;AbilityDetailPokemonInnerPokemon&gt;**](AbilityDetailPokemonInnerPokemon.md) |  | [default to undefined]
-**names** | [**Array&lt;ItemAttributeName&gt;**](ItemAttributeName.md) |  | [default to undefined]
+**descriptions** | [**Array&lt;ItemAttributeDescription&gt;**](ItemAttributeDescription.md) |  | [readonly] [default to undefined]
+**items** | [**Array&lt;AbilityDetailPokemonInnerPokemon&gt;**](AbilityDetailPokemonInnerPokemon.md) |  | [readonly] [default to undefined]
+**names** | [**Array&lt;ItemAttributeName&gt;**](ItemAttributeName.md) |  | [readonly] [default to undefined]
 
 ## Example
 

@@ -85,7 +85,7 @@ MoveLearnMethodSummary::getName()
 }
 
 void
-MoveLearnMethodSummary::setName(std::string  name)
+MoveLearnMethodSummary::setName(std::string name)
 {
 	this->name = name;
 }
@@ -97,7 +97,7 @@ MoveLearnMethodSummary::getUrl()
 }
 
 void
-MoveLearnMethodSummary::setUrl(std::string  url)
+MoveLearnMethodSummary::setUrl(std::string url)
 {
 	this->url = url;
 }

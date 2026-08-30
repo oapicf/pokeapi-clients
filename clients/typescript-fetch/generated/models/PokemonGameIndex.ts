@@ -45,7 +45,7 @@ export interface PokemonGameIndex {
  * Check if a given object implements the PokemonGameIndex interface.
  */
 export function instanceOfPokemonGameIndex(value: object): value is PokemonGameIndex {
-    if (!('gameIndex' in value) || value['gameIndex'] === undefined) return false;
+    if ((!('gameIndex' in (value as Record<string, any>)) && !('game_index' in (value as Record<string, any>))) || ((value as Record<string, any>)['gameIndex'] === undefined && (value as Record<string, any>)['game_index'] === undefined)) return false;
     if (!('version' in value) || value['version'] === undefined) return false;
     return true;
 }

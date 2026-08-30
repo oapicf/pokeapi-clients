@@ -12,6 +12,11 @@
 package openapi
 
 
+import (
+	"encoding/json"
+	"fmt"
+)
+
 
 
 // TypeDetail - Serializer for the Type resource
@@ -39,21 +44,132 @@ type TypeDetail struct {
 
 	Sprites map[string]map[string]TypeDetailSpritesValueValue `json:"sprites"`
 }
+// UnmarshalJSON validates required property keys then unmarshals into TypeDetail
+func (o *TypeDetail) UnmarshalJSON(data []byte) (err error) {
+	// Presence is checked against required fields that exist on this struct,
+	// including fields promoted from embedded allOf parents.
+	requiredProperties := []string{
+		"name",
+		"damage_relations",
+		"generation",
+		"move_damage_class",
+	}
 
-// AssertTypeDetailRequired checks if the required fields are not zero-ed
+	requiredNullableProperties := map[string]bool{
+		"name": false,
+		"damage_relations": false,
+		"generation": false,
+		"move_damage_class": false,
+	}
+
+	allowedJsonKeys := map[string]struct{}{
+		"id": {},
+		"name": {},
+		"damage_relations": {},
+		"past_damage_relations": {},
+		"game_indices": {},
+		"generation": {},
+		"move_damage_class": {},
+		"names": {},
+		"pokemon": {},
+		"moves": {},
+		"sprites": {},
+	}
+
+	allProperties := make(map[string]json.RawMessage)
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err
+	}
+
+	for _, requiredProperty := range requiredProperties {
+		value, exists := allProperties[requiredProperty]
+		if !exists {
+			return &RequiredError{Field: requiredProperty}
+		}
+		if string(value) == "null" && !requiredNullableProperties[requiredProperty] {
+			return &RequiredError{Field: requiredProperty}
+		}
+	}
+
+	for key := range allProperties {
+		if _, exists := allowedJsonKeys[key]; !exists {
+			return fmt.Errorf("json: unknown field %q", key)
+		}
+	}
+
+	var decoded TypeDetail
+
+	if value, exists := allProperties["id"]; exists {
+		if err = json.Unmarshal(value, &decoded.Id); err != nil {
+			return err
+		}
+	}
+	if value, exists := allProperties["name"]; exists {
+		if err = json.Unmarshal(value, &decoded.Name); err != nil {
+			return err
+		}
+	}
+	if value, exists := allProperties["damage_relations"]; exists {
+		if err = json.Unmarshal(value, &decoded.DamageRelations); err != nil {
+			return err
+		}
+	}
+	if value, exists := allProperties["past_damage_relations"]; exists {
+		if err = json.Unmarshal(value, &decoded.PastDamageRelations); err != nil {
+			return err
+		}
+	}
+	if value, exists := allProperties["game_indices"]; exists {
+		if err = json.Unmarshal(value, &decoded.GameIndices); err != nil {
+			return err
+		}
+	}
+	if value, exists := allProperties["generation"]; exists {
+		if err = json.Unmarshal(value, &decoded.Generation); err != nil {
+			return err
+		}
+	}
+	if value, exists := allProperties["move_damage_class"]; exists {
+		if err = json.Unmarshal(value, &decoded.MoveDamageClass); err != nil {
+			return err
+		}
+	}
+	if value, exists := allProperties["names"]; exists {
+		if err = json.Unmarshal(value, &decoded.Names); err != nil {
+			return err
+		}
+	}
+	if value, exists := allProperties["pokemon"]; exists {
+		if err = json.Unmarshal(value, &decoded.Pokemon); err != nil {
+			return err
+		}
+	}
+	if value, exists := allProperties["moves"]; exists {
+		if err = json.Unmarshal(value, &decoded.Moves); err != nil {
+			return err
+		}
+	}
+	if value, exists := allProperties["sprites"]; exists {
+		if err = json.Unmarshal(value, &decoded.Sprites); err != nil {
+			return err
+		}
+	}
+
+	*o = decoded
+
+	return nil
+}
+
+// AssertTypeDetailRequired checks complex required fields (models, arrays, maps) and embedded parents.
+// Primitive required fields are validated for JSON request bodies in UnmarshalJSON so zero values remain valid.
 func AssertTypeDetailRequired(obj TypeDetail) error {
 	elements := map[string]interface{}{
-		"id": obj.Id,
-		"name": obj.Name,
 		"damage_relations": obj.DamageRelations,
-		"past_damage_relations": obj.PastDamageRelations,
-		"game_indices": obj.GameIndices,
 		"generation": obj.Generation,
 		"move_damage_class": obj.MoveDamageClass,
-		"names": obj.Names,
-		"pokemon": obj.Pokemon,
-		"moves": obj.Moves,
-		"sprites": obj.Sprites,
 	}
 	for name, el := range elements {
 		if isZero := IsZeroValue(el); isZero {
@@ -64,36 +180,11 @@ func AssertTypeDetailRequired(obj TypeDetail) error {
 	if err := AssertTypeDetailDamageRelationsRequired(obj.DamageRelations); err != nil {
 		return err
 	}
-	for _, el := range obj.PastDamageRelations {
-		if err := AssertTypeDetailPastDamageRelationsInnerRequired(el); err != nil {
-			return err
-		}
-	}
-	for _, el := range obj.GameIndices {
-		if err := AssertTypeGameIndexRequired(el); err != nil {
-			return err
-		}
-	}
 	if err := AssertGenerationSummaryRequired(obj.Generation); err != nil {
 		return err
 	}
 	if err := AssertMoveDamageClassSummaryRequired(obj.MoveDamageClass); err != nil {
 		return err
-	}
-	for _, el := range obj.Names {
-		if err := AssertAbilityNameRequired(el); err != nil {
-			return err
-		}
-	}
-	for _, el := range obj.Pokemon {
-		if err := AssertTypeDetailPokemonInnerRequired(el); err != nil {
-			return err
-		}
-	}
-	for _, el := range obj.Moves {
-		if err := AssertMoveSummaryRequired(el); err != nil {
-			return err
-		}
 	}
 	return nil
 }
@@ -103,36 +194,11 @@ func AssertTypeDetailConstraints(obj TypeDetail) error {
 	if err := AssertTypeDetailDamageRelationsConstraints(obj.DamageRelations); err != nil {
 		return err
 	}
-	for _, el := range obj.PastDamageRelations {
-		if err := AssertTypeDetailPastDamageRelationsInnerConstraints(el); err != nil {
-			return err
-		}
-	}
-	for _, el := range obj.GameIndices {
-		if err := AssertTypeGameIndexConstraints(el); err != nil {
-			return err
-		}
-	}
 	if err := AssertGenerationSummaryConstraints(obj.Generation); err != nil {
 		return err
 	}
 	if err := AssertMoveDamageClassSummaryConstraints(obj.MoveDamageClass); err != nil {
 		return err
-	}
-	for _, el := range obj.Names {
-		if err := AssertAbilityNameConstraints(el); err != nil {
-			return err
-		}
-	}
-	for _, el := range obj.Pokemon {
-		if err := AssertTypeDetailPokemonInnerConstraints(el); err != nil {
-			return err
-		}
-	}
-	for _, el := range obj.Moves {
-		if err := AssertMoveSummaryConstraints(el); err != nil {
-			return err
-		}
 	}
 	return nil
 }

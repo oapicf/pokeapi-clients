@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The PokemonDetailCries model module.
  * @module model/PokemonDetailCries
- * @version 1.2.1-pre.0
+ * @version 2.0.1-pre.0
  */
 class PokemonDetailCries {
     /**

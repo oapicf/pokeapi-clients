@@ -26,6 +26,8 @@ PokemonFormDetail_sprites::PokemonFormDetail_sprites()
     
 }
 
+PokemonFormDetail_sprites::~PokemonFormDetail_sprites() = default;
+
 void PokemonFormDetail_sprites::validate() const
 {
     std::stringstream msg;

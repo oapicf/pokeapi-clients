@@ -15,6 +15,6 @@ export interface ContestTypeDetail {
     readonly id: number;
     name: string;
     readonly berry_flavor: BerryFlavorSummary;
-    names: Array<ContestTypeName>;
+    readonly names: Array<ContestTypeName>;
 }
 

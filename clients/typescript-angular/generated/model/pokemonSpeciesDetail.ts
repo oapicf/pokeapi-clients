@@ -38,19 +38,19 @@ export interface PokemonSpeciesDetail {
     has_gender_differences?: boolean;
     forms_switchable?: boolean;
     growth_rate: GrowthRateSummary;
-    pokedex_numbers: Array<PokemonDexEntry>;
-    egg_groups: Array<AbilityDetailPokemonInnerPokemon>;
+    readonly pokedex_numbers: Array<PokemonDexEntry>;
+    readonly egg_groups: Array<AbilityDetailPokemonInnerPokemon>;
     color: PokemonColorSummary;
     shape: PokemonShapeSummary;
     evolves_from_species: PokemonSpeciesSummary;
     evolution_chain: EvolutionChainSummary;
     habitat: PokemonHabitatSummary;
     generation: GenerationSummary;
-    names: Array<PokemonFormDetailFormNamesInner>;
-    pal_park_encounters: Array<PokemonSpeciesDetailPalParkEncountersInner>;
-    form_descriptions: Array<PokemonSpeciesDescription>;
-    flavor_text_entries: Array<PokemonSpeciesFlavorText>;
-    genera: Array<PokemonSpeciesDetailGeneraInner>;
-    varieties: Array<PokemonSpeciesDetailVarietiesInner>;
+    readonly names: Array<PokemonFormDetailFormNamesInner>;
+    readonly pal_park_encounters: Array<PokemonSpeciesDetailPalParkEncountersInner>;
+    readonly form_descriptions: Array<PokemonSpeciesDescription>;
+    readonly flavor_text_entries: Array<PokemonSpeciesFlavorText>;
+    readonly genera: Array<PokemonSpeciesDetailGeneraInner>;
+    readonly varieties: Array<PokemonSpeciesDetailVarietiesInner>;
 }
 

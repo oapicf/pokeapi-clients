@@ -23,7 +23,7 @@ import VersionGroupSummary from './VersionGroupSummary';
 /**
  * The GenerationDetail model module.
  * @module model/GenerationDetail
- * @version 1.2.1-pre.0
+ * @version 2.0.1-pre.0
  */
 class GenerationDetail {
     /**

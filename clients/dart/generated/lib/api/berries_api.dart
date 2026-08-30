@@ -32,7 +32,7 @@ class BerriesApi {
   ///
   /// * [String] q:
   ///   > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. 
-  Future<Response> berryFirmnessListWithHttpInfo({ int? limit, int? offset, String? q, }) async {
+  Future<Response> berryFirmnessListWithHttpInfo({ int? limit, int? offset, String? q, Future<void>? abortTrigger, }) async {
     // ignore: prefer_const_declarations
     final path = r'/api/v2/berry-firmness/';
 
@@ -64,6 +64,7 @@ class BerriesApi {
       headerParams,
       formParams,
       contentTypes.isEmpty ? null : contentTypes.first,
+      abortTrigger: abortTrigger,
     );
   }
 
@@ -81,8 +82,8 @@ class BerriesApi {
   ///
   /// * [String] q:
   ///   > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. 
-  Future<PaginatedBerryFirmnessSummaryList?> berryFirmnessList({ int? limit, int? offset, String? q, }) async {
-    final response = await berryFirmnessListWithHttpInfo( limit: limit, offset: offset, q: q, );
+  Future<PaginatedBerryFirmnessSummaryList?> berryFirmnessList({ int? limit, int? offset, String? q, Future<void>? abortTrigger, }) async {
+    final response = await berryFirmnessListWithHttpInfo(limit: limit, offset: offset, q: q, abortTrigger: abortTrigger,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -106,7 +107,7 @@ class BerriesApi {
   ///
   /// * [String] id (required):
   ///   This parameter can be a string or an integer.
-  Future<Response> berryFirmnessRetrieveWithHttpInfo(String id,) async {
+  Future<Response> berryFirmnessRetrieveWithHttpInfo(String id, { Future<void>? abortTrigger, }) async {
     // ignore: prefer_const_declarations
     final path = r'/api/v2/berry-firmness/{id}/'
       .replaceAll('{id}', id);
@@ -129,6 +130,7 @@ class BerriesApi {
       headerParams,
       formParams,
       contentTypes.isEmpty ? null : contentTypes.first,
+      abortTrigger: abortTrigger,
     );
   }
 
@@ -140,8 +142,8 @@ class BerriesApi {
   ///
   /// * [String] id (required):
   ///   This parameter can be a string or an integer.
-  Future<BerryFirmnessDetail?> berryFirmnessRetrieve(String id,) async {
-    final response = await berryFirmnessRetrieveWithHttpInfo(id,);
+  Future<BerryFirmnessDetail?> berryFirmnessRetrieve(String id, { Future<void>? abortTrigger, }) async {
+    final response = await berryFirmnessRetrieveWithHttpInfo(id, abortTrigger: abortTrigger,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -171,7 +173,7 @@ class BerriesApi {
   ///
   /// * [String] q:
   ///   > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. 
-  Future<Response> berryFlavorListWithHttpInfo({ int? limit, int? offset, String? q, }) async {
+  Future<Response> berryFlavorListWithHttpInfo({ int? limit, int? offset, String? q, Future<void>? abortTrigger, }) async {
     // ignore: prefer_const_declarations
     final path = r'/api/v2/berry-flavor/';
 
@@ -203,6 +205,7 @@ class BerriesApi {
       headerParams,
       formParams,
       contentTypes.isEmpty ? null : contentTypes.first,
+      abortTrigger: abortTrigger,
     );
   }
 
@@ -220,8 +223,8 @@ class BerriesApi {
   ///
   /// * [String] q:
   ///   > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. 
-  Future<PaginatedBerryFlavorSummaryList?> berryFlavorList({ int? limit, int? offset, String? q, }) async {
-    final response = await berryFlavorListWithHttpInfo( limit: limit, offset: offset, q: q, );
+  Future<PaginatedBerryFlavorSummaryList?> berryFlavorList({ int? limit, int? offset, String? q, Future<void>? abortTrigger, }) async {
+    final response = await berryFlavorListWithHttpInfo(limit: limit, offset: offset, q: q, abortTrigger: abortTrigger,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -245,7 +248,7 @@ class BerriesApi {
   ///
   /// * [String] id (required):
   ///   This parameter can be a string or an integer.
-  Future<Response> berryFlavorRetrieveWithHttpInfo(String id,) async {
+  Future<Response> berryFlavorRetrieveWithHttpInfo(String id, { Future<void>? abortTrigger, }) async {
     // ignore: prefer_const_declarations
     final path = r'/api/v2/berry-flavor/{id}/'
       .replaceAll('{id}', id);
@@ -268,6 +271,7 @@ class BerriesApi {
       headerParams,
       formParams,
       contentTypes.isEmpty ? null : contentTypes.first,
+      abortTrigger: abortTrigger,
     );
   }
 
@@ -279,8 +283,8 @@ class BerriesApi {
   ///
   /// * [String] id (required):
   ///   This parameter can be a string or an integer.
-  Future<BerryFlavorDetail?> berryFlavorRetrieve(String id,) async {
-    final response = await berryFlavorRetrieveWithHttpInfo(id,);
+  Future<BerryFlavorDetail?> berryFlavorRetrieve(String id, { Future<void>? abortTrigger, }) async {
+    final response = await berryFlavorRetrieveWithHttpInfo(id, abortTrigger: abortTrigger,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -310,7 +314,7 @@ class BerriesApi {
   ///
   /// * [String] q:
   ///   > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. 
-  Future<Response> berryListWithHttpInfo({ int? limit, int? offset, String? q, }) async {
+  Future<Response> berryListWithHttpInfo({ int? limit, int? offset, String? q, Future<void>? abortTrigger, }) async {
     // ignore: prefer_const_declarations
     final path = r'/api/v2/berry/';
 
@@ -342,6 +346,7 @@ class BerriesApi {
       headerParams,
       formParams,
       contentTypes.isEmpty ? null : contentTypes.first,
+      abortTrigger: abortTrigger,
     );
   }
 
@@ -359,8 +364,8 @@ class BerriesApi {
   ///
   /// * [String] q:
   ///   > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. 
-  Future<PaginatedBerrySummaryList?> berryList({ int? limit, int? offset, String? q, }) async {
-    final response = await berryListWithHttpInfo( limit: limit, offset: offset, q: q, );
+  Future<PaginatedBerrySummaryList?> berryList({ int? limit, int? offset, String? q, Future<void>? abortTrigger, }) async {
+    final response = await berryListWithHttpInfo(limit: limit, offset: offset, q: q, abortTrigger: abortTrigger,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -384,7 +389,7 @@ class BerriesApi {
   ///
   /// * [String] id (required):
   ///   This parameter can be a string or an integer.
-  Future<Response> berryRetrieveWithHttpInfo(String id,) async {
+  Future<Response> berryRetrieveWithHttpInfo(String id, { Future<void>? abortTrigger, }) async {
     // ignore: prefer_const_declarations
     final path = r'/api/v2/berry/{id}/'
       .replaceAll('{id}', id);
@@ -407,6 +412,7 @@ class BerriesApi {
       headerParams,
       formParams,
       contentTypes.isEmpty ? null : contentTypes.first,
+      abortTrigger: abortTrigger,
     );
   }
 
@@ -418,8 +424,8 @@ class BerriesApi {
   ///
   /// * [String] id (required):
   ///   This parameter can be a string or an integer.
-  Future<BerryDetail?> berryRetrieve(String id,) async {
-    final response = await berryRetrieveWithHttpInfo(id,);
+  Future<BerryDetail?> berryRetrieve(String id, { Future<void>? abortTrigger, }) async {
+    final response = await berryRetrieveWithHttpInfo(id, abortTrigger: abortTrigger,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }

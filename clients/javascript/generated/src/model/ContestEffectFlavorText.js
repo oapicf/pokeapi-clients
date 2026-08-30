@@ -17,7 +17,7 @@ import LanguageSummary from './LanguageSummary';
 /**
  * The ContestEffectFlavorText model module.
  * @module model/ContestEffectFlavorText
- * @version 1.2.1-pre.0
+ * @version 2.0.1-pre.0
  */
 class ContestEffectFlavorText {
     /**

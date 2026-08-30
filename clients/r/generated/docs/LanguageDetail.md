@@ -9,6 +9,6 @@ Name | Type | Description | Notes
 **official** | **character** |  | [optional] 
 **iso639** | **character** |  | [Max. length: 10] 
 **iso3166** | **character** |  | [Max. length: 2] 
-**names** | [**array[LanguageName]**](LanguageName.md) |  | 
+**names** | [**array[LanguageName]**](LanguageName.md) |  | [readonly] 
 
 

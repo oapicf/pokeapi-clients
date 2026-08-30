@@ -25,21 +25,26 @@ import io.swagger.v3.oas.annotations.media.Schema
  */
 data class ContestEffectDetail(
 
-    @Schema(example = "null", required = true, readOnly = true, description = "")
+    @Schema(required = true, readOnly = true, description = "")
+    @param:JsonProperty("id")
     @get:JsonProperty("id", required = true) val id: kotlin.Int,
 
-    @Schema(example = "null", required = true, description = "")
+    @Schema(required = true, description = "")
+    @param:JsonProperty("appeal")
     @get:JsonProperty("appeal", required = true) val appeal: kotlin.Int,
 
-    @Schema(example = "null", required = true, description = "")
+    @Schema(required = true, description = "")
+    @param:JsonProperty("jam")
     @get:JsonProperty("jam", required = true) val jam: kotlin.Int,
 
     @field:Valid
-    @Schema(example = "null", required = true, description = "")
+    @Schema(required = true, readOnly = true, description = "")
+    @param:JsonProperty("effect_entries")
     @get:JsonProperty("effect_entries", required = true) val effectEntries: kotlin.collections.List<ContestEffectEffectText>,
 
     @field:Valid
-    @Schema(example = "null", required = true, description = "")
+    @Schema(required = true, readOnly = true, description = "")
+    @param:JsonProperty("flavor_text_entries")
     @get:JsonProperty("flavor_text_entries", required = true) val flavorTextEntries: kotlin.collections.List<ContestEffectFlavorText>
 ) {
 

@@ -33,7 +33,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
  * PokemonSpeciesDetail
  */
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPKMSTServerCodegen", date = "2026-02-07T15:23:15.032724200Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPKMSTServerCodegen", date = "2026-08-30T01:56:01.724492951Z[Etc/UTC]", comments = "Generator version: 7.24.0")
 public class PokemonSpeciesDetail   {
   @JsonProperty("id")
   private Integer id;
@@ -375,7 +375,7 @@ public class PokemonSpeciesDetail   {
    * Get pokedexNumbers
    * @return pokedexNumbers
    */
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, readOnly = true, value = "")
   public List<PokemonDexEntry> getPokedexNumbers() {
     return pokedexNumbers;
   }
@@ -401,7 +401,7 @@ public class PokemonSpeciesDetail   {
    * Get eggGroups
    * @return eggGroups
    */
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, readOnly = true, value = "")
   public List<AbilityDetailPokemonInnerPokemon> getEggGroups() {
     return eggGroups;
   }
@@ -535,7 +535,7 @@ public class PokemonSpeciesDetail   {
    * Get names
    * @return names
    */
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, readOnly = true, value = "")
   public List<PokemonFormDetailFormNamesInner> getNames() {
     return names;
   }
@@ -561,7 +561,7 @@ public class PokemonSpeciesDetail   {
    * Get palParkEncounters
    * @return palParkEncounters
    */
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, readOnly = true, value = "")
   public List<PokemonSpeciesDetailPalParkEncountersInner> getPalParkEncounters() {
     return palParkEncounters;
   }
@@ -587,7 +587,7 @@ public class PokemonSpeciesDetail   {
    * Get formDescriptions
    * @return formDescriptions
    */
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, readOnly = true, value = "")
   public List<PokemonSpeciesDescription> getFormDescriptions() {
     return formDescriptions;
   }
@@ -613,7 +613,7 @@ public class PokemonSpeciesDetail   {
    * Get flavorTextEntries
    * @return flavorTextEntries
    */
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, readOnly = true, value = "")
   public List<PokemonSpeciesFlavorText> getFlavorTextEntries() {
     return flavorTextEntries;
   }
@@ -639,7 +639,7 @@ public class PokemonSpeciesDetail   {
    * Get genera
    * @return genera
    */
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, readOnly = true, value = "")
   public List<PokemonSpeciesDetailGeneraInner> getGenera() {
     return genera;
   }
@@ -665,7 +665,7 @@ public class PokemonSpeciesDetail   {
    * Get varieties
    * @return varieties
    */
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, readOnly = true, value = "")
   public List<PokemonSpeciesDetailVarietiesInner> getVarieties() {
     return varieties;
   }
@@ -759,10 +759,7 @@ public class PokemonSpeciesDetail   {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 }
 

@@ -51,7 +51,7 @@ export interface CharacteristicDetail {
      * @type {Array<number>}
      * @memberof CharacteristicDetail
      */
-    possibleValues: Array<number>;
+    readonly possibleValues: Array<number>;
     /**
      * 
      * @type {StatSummary}
@@ -63,7 +63,7 @@ export interface CharacteristicDetail {
      * @type {Array<CharacteristicDescription>}
      * @memberof CharacteristicDetail
      */
-    descriptions: Array<CharacteristicDescription>;
+    readonly descriptions: Array<CharacteristicDescription>;
 }
 
 /**
@@ -71,9 +71,9 @@ export interface CharacteristicDetail {
  */
 export function instanceOfCharacteristicDetail(value: object): value is CharacteristicDetail {
     if (!('id' in value) || value['id'] === undefined) return false;
-    if (!('geneModulo' in value) || value['geneModulo'] === undefined) return false;
-    if (!('possibleValues' in value) || value['possibleValues'] === undefined) return false;
-    if (!('highestStat' in value) || value['highestStat'] === undefined) return false;
+    if ((!('geneModulo' in (value as Record<string, any>)) && !('gene_modulo' in (value as Record<string, any>))) || ((value as Record<string, any>)['geneModulo'] === undefined && (value as Record<string, any>)['gene_modulo'] === undefined)) return false;
+    if ((!('possibleValues' in (value as Record<string, any>)) && !('possible_values' in (value as Record<string, any>))) || ((value as Record<string, any>)['possibleValues'] === undefined && (value as Record<string, any>)['possible_values'] === undefined)) return false;
+    if ((!('highestStat' in (value as Record<string, any>)) && !('highest_stat' in (value as Record<string, any>))) || ((value as Record<string, any>)['highestStat'] === undefined && (value as Record<string, any>)['highest_stat'] === undefined)) return false;
     if (!('descriptions' in value) || value['descriptions'] === undefined) return false;
     return true;
 }
@@ -100,7 +100,7 @@ export function CharacteristicDetailToJSON(json: any): CharacteristicDetail {
     return CharacteristicDetailToJSONTyped(json, false);
 }
 
-export function CharacteristicDetailToJSONTyped(value?: Omit<CharacteristicDetail, 'id'> | null, ignoreDiscriminator: boolean = false): any {
+export function CharacteristicDetailToJSONTyped(value?: Omit<CharacteristicDetail, 'id'|'possibleValues'|'descriptions'> | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
@@ -108,9 +108,7 @@ export function CharacteristicDetailToJSONTyped(value?: Omit<CharacteristicDetai
     return {
         
         'gene_modulo': value['geneModulo'],
-        'possible_values': value['possibleValues'],
         'highest_stat': StatSummaryToJSON(value['highestStat']),
-        'descriptions': ((value['descriptions'] as Array<any>).map(CharacteristicDescriptionToJSON)),
     };
 }
 

@@ -9,10 +9,10 @@ Name | Type | Description | Notes
 **increasedUnderscorestat** | [**StatSummary**](StatSummary.md) |  | [default to null]
 **likesUnderscoreflavor** | [**BerryFlavorSummary**](BerryFlavorSummary.md) |  | [default to null]
 **hatesUnderscoreflavor** | [**BerryFlavorSummary**](BerryFlavorSummary.md) |  | [default to null]
-**berries** | [**array[BerrySummary]**](BerrySummary.md) |  | [default to null]
-**pokeathlonUnderscorestatUnderscorechanges** | [**array[NatureDetailPokeathlonStatChangesInner]**](NatureDetailPokeathlonStatChangesInner.md) |  | [default to null]
-**moveUnderscorebattleUnderscorestyleUnderscorepreferences** | [**array[NatureBattleStylePreference]**](NatureBattleStylePreference.md) |  | [default to null]
-**names** | [**array[NatureName]**](NatureName.md) |  | [default to null]
+**berries** | [**array[BerrySummary]**](BerrySummary.md) |  | [readonly] [default to null]
+**pokeathlonUnderscorestatUnderscorechanges** | [**array[NatureDetailPokeathlonStatChangesInner]**](NatureDetailPokeathlonStatChangesInner.md) |  | [readonly] [default to null]
+**moveUnderscorebattleUnderscorestyleUnderscorepreferences** | [**array[NatureBattleStylePreference]**](NatureBattleStylePreference.md) |  | [readonly] [default to null]
+**names** | [**array[NatureName]**](NatureName.md) |  | [readonly] [default to null]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

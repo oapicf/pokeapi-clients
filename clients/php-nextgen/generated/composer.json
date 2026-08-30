@@ -1,0 +1,45 @@
+{
+    "description": "All the Pokémon data you'll ever need in one place, easily accessible through a modern free open-source RESTful API.  ## What is this?  This is a full RESTful API linked to an extensive database detailing everything about the Pokémon main game series.  We've covered everything from Pokémon to Berry Flavors.  ## Where do I start?  We have awesome [documentation](https://pokeapi.co/docs/v2) on how to use this API. It takes minutes to get started.  This API will always be publicly available and will never require any extensive setup process to consume.  Created by [**Paul Hallett**(]https://github.com/phalt) and other [**PokéAPI contributors***](https://github.com/PokeAPI/pokeapi#contributing) around the world. Pokémon and Pokémon character names are trademarks of Nintendo.",
+    "keywords": [
+        "openapitools",
+        "openapi-generator",
+        "openapi",
+        "php",
+        "sdk",
+        "rest",
+        "api"
+    ],
+    "homepage": "https://openapi-generator.tech",
+    "license": "unlicense",
+    "authors": [
+        {
+            "name": "OpenAPI-Generator contributors",
+            "homepage": "https://openapi-generator.tech"
+        }
+    ],
+    "require": {
+        "php": "^8.1",
+        "ext-curl": "*",
+        "ext-json": "*",
+        "ext-mbstring": "*",
+        "guzzlehttp/guzzle": "^7.4.5",
+        "guzzlehttp/psr7": "^2.0"
+    },
+    "require-dev": {
+        "friendsofphp/php-cs-fixer": "^3.5",
+        "overtrue/phplint": "^9.0",
+        "phpunit/phpunit": "^9.0"
+    },
+    "autoload": {
+        "psr-4": { "OpenAPI\\Client\\" : "src/" }
+    },
+    "autoload-dev": {
+        "psr-4": { "OpenAPI\\Client\\Test\\" : "tests/" }
+    },
+    "scripts": {
+        "test": [
+            "@phplint"
+        ],
+        "phplint": "phplint"
+    }
+}

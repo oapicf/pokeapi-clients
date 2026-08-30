@@ -51,14 +51,14 @@ public:
 
 	/*! \brief Set The name of the berry
 	 */
-	void setName(std::string  name);
+	void setName(std::string name);
 	/*! \brief Get The URL to get more information about the berry
 	 */
 	std::string getUrl();
 
 	/*! \brief Set The URL to get more information about the berry
 	 */
-	void setUrl(std::string  url);
+	void setUrl(std::string url);
 
 
     private:

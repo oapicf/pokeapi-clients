@@ -13,10 +13,10 @@ static move_detail_effect_changes_inner_t *move_detail_effect_changes_inner_crea
     if (!move_detail_effect_changes_inner_local_var) {
         return NULL;
     }
+    memset(move_detail_effect_changes_inner_local_var, 0, sizeof(move_detail_effect_changes_inner_t));
+    move_detail_effect_changes_inner_local_var->_library_owned = 1;
     move_detail_effect_changes_inner_local_var->effect_entries = effect_entries;
     move_detail_effect_changes_inner_local_var->version_group = version_group;
-
-    move_detail_effect_changes_inner_local_var->_library_owned = 1;
     return move_detail_effect_changes_inner_local_var;
 }
 
@@ -24,10 +24,13 @@ __attribute__((deprecated)) move_detail_effect_changes_inner_t *move_detail_effe
     list_t *effect_entries,
     ability_detail_pokemon_inner_pokemon_t *version_group
     ) {
-    return move_detail_effect_changes_inner_create_internal (
+    move_detail_effect_changes_inner_t *result = move_detail_effect_changes_inner_create_internal (
         effect_entries,
         version_group
         );
+    if (!result) {
+    }
+    return result;
 }
 
 void move_detail_effect_changes_inner_free(move_detail_effect_changes_inner_t *move_detail_effect_changes_inner) {
@@ -148,10 +151,15 @@ move_detail_effect_changes_inner_t *move_detail_effect_changes_inner_parseFromJS
     version_group_local_nonprim = ability_detail_pokemon_inner_pokemon_parseFromJSON(version_group); //nonprimitive
 
 
+
     move_detail_effect_changes_inner_local_var = move_detail_effect_changes_inner_create_internal (
         effect_entriesList,
         version_group_local_nonprim
         );
+
+    if (!move_detail_effect_changes_inner_local_var) {
+        goto end;
+    }
 
     return move_detail_effect_changes_inner_local_var;
 end:

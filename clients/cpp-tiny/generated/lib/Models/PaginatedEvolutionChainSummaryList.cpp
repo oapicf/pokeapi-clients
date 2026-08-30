@@ -144,7 +144,7 @@ PaginatedEvolutionChainSummaryList::getCount()
 }
 
 void
-PaginatedEvolutionChainSummaryList::setCount(int  count)
+PaginatedEvolutionChainSummaryList::setCount(int count)
 {
 	this->count = count;
 }
@@ -156,7 +156,7 @@ PaginatedEvolutionChainSummaryList::getNext()
 }
 
 void
-PaginatedEvolutionChainSummaryList::setNext(std::string  next)
+PaginatedEvolutionChainSummaryList::setNext(std::string next)
 {
 	this->next = next;
 }
@@ -168,7 +168,7 @@ PaginatedEvolutionChainSummaryList::getPrevious()
 }
 
 void
-PaginatedEvolutionChainSummaryList::setPrevious(std::string  previous)
+PaginatedEvolutionChainSummaryList::setPrevious(std::string previous)
 {
 	this->previous = previous;
 }
@@ -180,7 +180,7 @@ PaginatedEvolutionChainSummaryList::getResults()
 }
 
 void
-PaginatedEvolutionChainSummaryList::setResults(std::list <EvolutionChainSummary> results)
+PaginatedEvolutionChainSummaryList::setResults(std::list<EvolutionChainSummary> results)
 {
 	this->results = results;
 }

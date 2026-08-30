@@ -21,7 +21,7 @@
 
 namespace OpenAPI {
 
-OAIPokemonStat::OAIPokemonStat(QString json) {
+OAIPokemonStat::OAIPokemonStat(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -44,7 +44,7 @@ void OAIPokemonStat::initializeModel() {
     m_stat_isValid = false;
 }
 
-void OAIPokemonStat::fromJson(QString jsonString) {
+void OAIPokemonStat::fromJson(const QString &jsonString) {
     QByteArray array(jsonString.toStdString().c_str());
     QJsonDocument doc = QJsonDocument::fromJson(array);
     QJsonObject jsonObject = doc.object();

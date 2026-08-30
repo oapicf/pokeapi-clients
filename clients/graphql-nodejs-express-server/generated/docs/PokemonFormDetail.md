@@ -14,9 +14,9 @@ Name | Type | Description | Notes
 **pokemon** | [***PokemonSummary**](PokemonSummary.md) |  | [default to null]
 **sprites** | [***PokemonFormDetailSprites**](PokemonFormDetail_sprites.md) |  | [default to null]
 **versionGroup** | [***VersionGroupSummary**](VersionGroupSummary.md) |  | [default to null]
-**formNames** | [**PokemonFormDetailFormNamesInner**](PokemonFormDetail_form_names_inner.md) |  | [default to null]
-**names** | [**PokemonFormDetailFormNamesInner**](PokemonFormDetail_form_names_inner.md) |  | [default to null]
-**types** | [**PokemonDetailTypesInner**](PokemonDetail_types_inner.md) |  | [default to null]
+**formNames** | [**PokemonFormDetailFormNamesInner**](PokemonFormDetail_form_names_inner.md) |  | [readonly] [default to null]
+**names** | [**PokemonFormDetailFormNamesInner**](PokemonFormDetail_form_names_inner.md) |  | [readonly] [default to null]
+**types** | [**PokemonDetailTypesInner**](PokemonDetail_types_inner.md) |  | [readonly] [default to null]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

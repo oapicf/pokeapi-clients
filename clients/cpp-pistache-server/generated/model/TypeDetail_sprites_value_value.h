@@ -32,7 +32,7 @@ class  TypeDetail_sprites_value_value
 {
 public:
     TypeDetail_sprites_value_value();
-    virtual ~TypeDetail_sprites_value_value() = default;
+    virtual ~TypeDetail_sprites_value_value();
 
 
     /// <summary>

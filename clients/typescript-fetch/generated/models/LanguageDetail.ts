@@ -62,7 +62,7 @@ export interface LanguageDetail {
      * @type {Array<LanguageName>}
      * @memberof LanguageDetail
      */
-    names: Array<LanguageName>;
+    readonly names: Array<LanguageName>;
 }
 
 /**
@@ -100,7 +100,7 @@ export function LanguageDetailToJSON(json: any): LanguageDetail {
     return LanguageDetailToJSONTyped(json, false);
 }
 
-export function LanguageDetailToJSONTyped(value?: Omit<LanguageDetail, 'id'> | null, ignoreDiscriminator: boolean = false): any {
+export function LanguageDetailToJSONTyped(value?: Omit<LanguageDetail, 'id'|'names'> | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
@@ -111,7 +111,6 @@ export function LanguageDetailToJSONTyped(value?: Omit<LanguageDetail, 'id'> | n
         'official': value['official'],
         'iso639': value['iso639'],
         'iso3166': value['iso3166'],
-        'names': ((value['names'] as Array<any>).map(LanguageNameToJSON)),
     };
 }
 

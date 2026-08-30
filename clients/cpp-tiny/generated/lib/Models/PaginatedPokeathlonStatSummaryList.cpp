@@ -144,7 +144,7 @@ PaginatedPokeathlonStatSummaryList::getCount()
 }
 
 void
-PaginatedPokeathlonStatSummaryList::setCount(int  count)
+PaginatedPokeathlonStatSummaryList::setCount(int count)
 {
 	this->count = count;
 }
@@ -156,7 +156,7 @@ PaginatedPokeathlonStatSummaryList::getNext()
 }
 
 void
-PaginatedPokeathlonStatSummaryList::setNext(std::string  next)
+PaginatedPokeathlonStatSummaryList::setNext(std::string next)
 {
 	this->next = next;
 }
@@ -168,7 +168,7 @@ PaginatedPokeathlonStatSummaryList::getPrevious()
 }
 
 void
-PaginatedPokeathlonStatSummaryList::setPrevious(std::string  previous)
+PaginatedPokeathlonStatSummaryList::setPrevious(std::string previous)
 {
 	this->previous = previous;
 }
@@ -180,7 +180,7 @@ PaginatedPokeathlonStatSummaryList::getResults()
 }
 
 void
-PaginatedPokeathlonStatSummaryList::setResults(std::list <PokeathlonStatSummary> results)
+PaginatedPokeathlonStatSummaryList::setResults(std::list<PokeathlonStatSummary> results)
 {
 	this->results = results;
 }

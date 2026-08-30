@@ -40,5 +40,5 @@ export interface ContestTypeDetail {
      * @type {Array<ContestTypeName>}
      * @memberof ContestTypeDetail
      */
-    names: Array<ContestTypeName>;
+    readonly names: Array<ContestTypeName>;
 }

@@ -14,7 +14,7 @@ import { PokemonSpeciesSummary } from './pokemonSpeciesSummary';
 export interface PokemonHabitatDetail { 
     readonly id: number;
     name: string;
-    names: Array<PokemonHabitatName>;
-    pokemon_species: Array<PokemonSpeciesSummary>;
+    readonly names: Array<PokemonHabitatName>;
+    readonly pokemon_species: Array<PokemonSpeciesSummary>;
 }
 

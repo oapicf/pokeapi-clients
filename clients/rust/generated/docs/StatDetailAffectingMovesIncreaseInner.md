@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **change** | **i32** |  | 
-**r#move** | [**models::AbilityDetailPokemonInnerPokemon**](AbilityDetail_pokemon_inner_pokemon.md) |  | 
+**r#move** | [**models::AbilityDetailPokemonInnerPokemon**](AbilityDetailPokemonInnerPokemon.md) |  | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

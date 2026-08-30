@@ -126,19 +126,6 @@ public class LanguageDetail  {
     return names;
   }
 
-  public void setNames(List<LanguageName> names) {
-    this.names = names;
-  }
-
-  public LanguageDetail names(List<LanguageName> names) {
-    this.names = names;
-    return this;
-  }
-
-  public LanguageDetail addNamesItem(LanguageName namesItem) {
-    this.names.add(namesItem);
-    return this;
-  }
 
   @Override
   public boolean equals(Object o) {
@@ -182,10 +169,7 @@ public class LanguageDetail  {
    * (except the first line).
    */
   private static String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 }
 

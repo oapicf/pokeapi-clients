@@ -34,7 +34,7 @@ class  ItemFlavorText
 {
 public:
     ItemFlavorText();
-    virtual ~ItemFlavorText() = default;
+    virtual ~ItemFlavorText();
 
 
     /// <summary>

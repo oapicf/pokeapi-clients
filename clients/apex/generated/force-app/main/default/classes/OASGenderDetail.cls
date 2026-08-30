@@ -30,13 +30,13 @@ public class OASGenderDetail implements OAS.MappedProperties {
      * Get pokemonSpeciesDetails
      * @return pokemonSpeciesDetails
      */
-    public List<OASGenderDetailPokemonSpeciesDetails> pokemonSpeciesDetails { get; set; }
+    public List<OASGenderDetailPokemonSpeciesDetails> pokemonSpeciesDetails { get; private set; }
 
     /**
      * Get requiredForEvolution
      * @return requiredForEvolution
      */
-    public List<OASAbilityDetailPokemonInnerPokemon> requiredForEvolution { get; set; }
+    public List<OASAbilityDetailPokemonInnerPokemon> requiredForEvolution { get; private set; }
 
     private static final Map<String, String> propertyMappings = new Map<String, String>{
         'pokemon_species_details' => 'pokemonSpeciesDetails',

@@ -22,7 +22,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
 
 
 @JsonTypeName("BerryFlavorDetail")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2026-02-07T15:24:06.001755207Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2026-08-30T01:56:42.280002256Z[Etc/UTC]", comments = "Generator version: 7.24.0")
 public class BerryFlavorDetail   {
   private Integer id;
   private String name;
@@ -96,7 +96,7 @@ public class BerryFlavorDetail   {
   
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(required = true, value = "berries")
-  @NotNull @Valid public List<@Valid BerryFlavorDetailBerriesInner> getBerries() {
+  @Valid public List<@Valid BerryFlavorDetailBerriesInner> getBerries() {
     return berries;
   }
 
@@ -150,7 +150,7 @@ public class BerryFlavorDetail   {
   
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(required = true, value = "names")
-  @NotNull @Valid public List<@Valid BerryFlavorName> getNames() {
+  @Valid public List<@Valid BerryFlavorName> getNames() {
     return names;
   }
 
@@ -216,12 +216,8 @@ public class BerryFlavorDetail   {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 
 }
-

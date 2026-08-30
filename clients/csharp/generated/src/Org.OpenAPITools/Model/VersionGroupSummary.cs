@@ -92,8 +92,18 @@ namespace Org.OpenAPITools.Model
     /// <summary>
     /// A Json converter for type <see cref="VersionGroupSummary" />
     /// </summary>
-    public class VersionGroupSummaryJsonConverter : JsonConverter<VersionGroupSummary>
+    public partial class VersionGroupSummaryJsonConverter : JsonConverter<VersionGroupSummary>
     {
+        partial void OnCreated();
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="VersionGroupSummaryJsonConverter" /> class.
+        /// </summary>
+        public VersionGroupSummaryJsonConverter()
+        {
+            OnCreated();
+        }
+
         /// <summary>
         /// Deserializes json to <see cref="VersionGroupSummary" />
         /// </summary>

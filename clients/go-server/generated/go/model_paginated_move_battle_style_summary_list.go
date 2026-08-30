@@ -25,7 +25,8 @@ type PaginatedMoveBattleStyleSummaryList struct {
 	Results []MoveBattleStyleSummary `json:"results,omitempty"`
 }
 
-// AssertPaginatedMoveBattleStyleSummaryListRequired checks if the required fields are not zero-ed
+// AssertPaginatedMoveBattleStyleSummaryListRequired checks complex required fields (models, arrays, maps) and embedded parents.
+// Primitive required fields are validated for JSON request bodies in UnmarshalJSON so zero values remain valid.
 func AssertPaginatedMoveBattleStyleSummaryListRequired(obj PaginatedMoveBattleStyleSummaryList) error {
 	for _, el := range obj.Results {
 		if err := AssertMoveBattleStyleSummaryRequired(el); err != nil {

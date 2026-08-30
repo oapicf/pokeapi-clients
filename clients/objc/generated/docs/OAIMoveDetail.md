@@ -14,19 +14,19 @@ Name | Type | Description | Notes
 **contestType** | [**OAIContestTypeSummary***](OAIContestTypeSummary.md) |  | 
 **contestEffect** | [**OAIContestEffectSummary***](OAIContestEffectSummary.md) |  | 
 **damageClass** | [**OAIMoveDamageClassSummary***](OAIMoveDamageClassSummary.md) |  | 
-**effectEntries** | [**NSArray&lt;OAIMoveChangeEffectEntriesInner&gt;***](OAIMoveChangeEffectEntriesInner.md) |  | 
-**effectChanges** | [**NSArray&lt;OAIMoveDetailEffectChangesInner&gt;***](OAIMoveDetailEffectChangesInner.md) |  | 
+**effectEntries** | [**NSArray&lt;OAIMoveChangeEffectEntriesInner&gt;***](OAIMoveChangeEffectEntriesInner.md) |  | [readonly] 
+**effectChanges** | [**NSArray&lt;OAIMoveDetailEffectChangesInner&gt;***](OAIMoveDetailEffectChangesInner.md) |  | [readonly] 
 **generation** | [**OAIGenerationSummary***](OAIGenerationSummary.md) |  | 
 **meta** | [**OAIMoveMeta***](OAIMoveMeta.md) |  | [readonly] 
-**names** | [**NSArray&lt;OAIMoveName&gt;***](OAIMoveName.md) |  | 
-**pastValues** | [**NSArray&lt;OAIMoveChange&gt;***](OAIMoveChange.md) |  | 
-**statChanges** | [**NSArray&lt;OAIMoveDetailStatChangesInner&gt;***](OAIMoveDetailStatChangesInner.md) |  | 
+**names** | [**NSArray&lt;OAIMoveName&gt;***](OAIMoveName.md) |  | [readonly] 
+**pastValues** | [**NSArray&lt;OAIMoveChange&gt;***](OAIMoveChange.md) |  | [readonly] 
+**statChanges** | [**NSArray&lt;OAIMoveDetailStatChangesInner&gt;***](OAIMoveDetailStatChangesInner.md) |  | [readonly] 
 **superContestEffect** | [**OAISuperContestEffectSummary***](OAISuperContestEffectSummary.md) |  | 
 **target** | [**OAIMoveTargetSummary***](OAIMoveTargetSummary.md) |  | 
 **type** | [**OAITypeSummary***](OAITypeSummary.md) |  | 
-**machines** | [**NSArray&lt;OAIMoveDetailMachinesInner&gt;***](OAIMoveDetailMachinesInner.md) |  | 
-**flavorTextEntries** | [**NSArray&lt;OAIMoveFlavorText&gt;***](OAIMoveFlavorText.md) |  | 
-**learnedByPokemon** | [**NSArray&lt;OAIAbilityDetailPokemonInnerPokemon&gt;***](OAIAbilityDetailPokemonInnerPokemon.md) |  | 
+**machines** | [**NSArray&lt;OAIMoveDetailMachinesInner&gt;***](OAIMoveDetailMachinesInner.md) |  | [readonly] 
+**flavorTextEntries** | [**NSArray&lt;OAIMoveFlavorText&gt;***](OAIMoveFlavorText.md) |  | [readonly] 
+**learnedByPokemon** | [**NSArray&lt;OAIAbilityDetailPokemonInnerPokemon&gt;***](OAIAbilityDetailPokemonInnerPokemon.md) |  | [readonly] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -26,6 +26,8 @@ EggGroupDetail::EggGroupDetail()
     
 }
 
+EggGroupDetail::~EggGroupDetail() = default;
+
 void EggGroupDetail::validate() const
 {
     std::stringstream msg;

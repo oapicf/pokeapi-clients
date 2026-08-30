@@ -31,13 +31,13 @@ namespace OpenAPI {
 class OAIItemAttributeSummary : public OAIObject {
 public:
     OAIItemAttributeSummary();
-    OAIItemAttributeSummary(QString json);
+    OAIItemAttributeSummary(const QString &json);
     ~OAIItemAttributeSummary() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     QString getName() const;
     void setName(const QString &name);

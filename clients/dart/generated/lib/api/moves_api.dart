@@ -32,7 +32,7 @@ class MovesApi {
   ///
   /// * [String] q:
   ///   > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. 
-  Future<Response> moveAilmentListWithHttpInfo({ int? limit, int? offset, String? q, }) async {
+  Future<Response> moveAilmentListWithHttpInfo({ int? limit, int? offset, String? q, Future<void>? abortTrigger, }) async {
     // ignore: prefer_const_declarations
     final path = r'/api/v2/move-ailment/';
 
@@ -64,6 +64,7 @@ class MovesApi {
       headerParams,
       formParams,
       contentTypes.isEmpty ? null : contentTypes.first,
+      abortTrigger: abortTrigger,
     );
   }
 
@@ -81,8 +82,8 @@ class MovesApi {
   ///
   /// * [String] q:
   ///   > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. 
-  Future<PaginatedMoveMetaAilmentSummaryList?> moveAilmentList({ int? limit, int? offset, String? q, }) async {
-    final response = await moveAilmentListWithHttpInfo( limit: limit, offset: offset, q: q, );
+  Future<PaginatedMoveMetaAilmentSummaryList?> moveAilmentList({ int? limit, int? offset, String? q, Future<void>? abortTrigger, }) async {
+    final response = await moveAilmentListWithHttpInfo(limit: limit, offset: offset, q: q, abortTrigger: abortTrigger,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -106,7 +107,7 @@ class MovesApi {
   ///
   /// * [String] id (required):
   ///   This parameter can be a string or an integer.
-  Future<Response> moveAilmentRetrieveWithHttpInfo(String id,) async {
+  Future<Response> moveAilmentRetrieveWithHttpInfo(String id, { Future<void>? abortTrigger, }) async {
     // ignore: prefer_const_declarations
     final path = r'/api/v2/move-ailment/{id}/'
       .replaceAll('{id}', id);
@@ -129,6 +130,7 @@ class MovesApi {
       headerParams,
       formParams,
       contentTypes.isEmpty ? null : contentTypes.first,
+      abortTrigger: abortTrigger,
     );
   }
 
@@ -140,8 +142,8 @@ class MovesApi {
   ///
   /// * [String] id (required):
   ///   This parameter can be a string or an integer.
-  Future<MoveMetaAilmentDetail?> moveAilmentRetrieve(String id,) async {
-    final response = await moveAilmentRetrieveWithHttpInfo(id,);
+  Future<MoveMetaAilmentDetail?> moveAilmentRetrieve(String id, { Future<void>? abortTrigger, }) async {
+    final response = await moveAilmentRetrieveWithHttpInfo(id, abortTrigger: abortTrigger,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -171,7 +173,7 @@ class MovesApi {
   ///
   /// * [String] q:
   ///   > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. 
-  Future<Response> moveBattleStyleListWithHttpInfo({ int? limit, int? offset, String? q, }) async {
+  Future<Response> moveBattleStyleListWithHttpInfo({ int? limit, int? offset, String? q, Future<void>? abortTrigger, }) async {
     // ignore: prefer_const_declarations
     final path = r'/api/v2/move-battle-style/';
 
@@ -203,6 +205,7 @@ class MovesApi {
       headerParams,
       formParams,
       contentTypes.isEmpty ? null : contentTypes.first,
+      abortTrigger: abortTrigger,
     );
   }
 
@@ -220,8 +223,8 @@ class MovesApi {
   ///
   /// * [String] q:
   ///   > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. 
-  Future<PaginatedMoveBattleStyleSummaryList?> moveBattleStyleList({ int? limit, int? offset, String? q, }) async {
-    final response = await moveBattleStyleListWithHttpInfo( limit: limit, offset: offset, q: q, );
+  Future<PaginatedMoveBattleStyleSummaryList?> moveBattleStyleList({ int? limit, int? offset, String? q, Future<void>? abortTrigger, }) async {
+    final response = await moveBattleStyleListWithHttpInfo(limit: limit, offset: offset, q: q, abortTrigger: abortTrigger,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -245,7 +248,7 @@ class MovesApi {
   ///
   /// * [String] id (required):
   ///   This parameter can be a string or an integer.
-  Future<Response> moveBattleStyleRetrieveWithHttpInfo(String id,) async {
+  Future<Response> moveBattleStyleRetrieveWithHttpInfo(String id, { Future<void>? abortTrigger, }) async {
     // ignore: prefer_const_declarations
     final path = r'/api/v2/move-battle-style/{id}/'
       .replaceAll('{id}', id);
@@ -268,6 +271,7 @@ class MovesApi {
       headerParams,
       formParams,
       contentTypes.isEmpty ? null : contentTypes.first,
+      abortTrigger: abortTrigger,
     );
   }
 
@@ -279,8 +283,8 @@ class MovesApi {
   ///
   /// * [String] id (required):
   ///   This parameter can be a string or an integer.
-  Future<MoveBattleStyleDetail?> moveBattleStyleRetrieve(String id,) async {
-    final response = await moveBattleStyleRetrieveWithHttpInfo(id,);
+  Future<MoveBattleStyleDetail?> moveBattleStyleRetrieve(String id, { Future<void>? abortTrigger, }) async {
+    final response = await moveBattleStyleRetrieveWithHttpInfo(id, abortTrigger: abortTrigger,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -310,7 +314,7 @@ class MovesApi {
   ///
   /// * [String] q:
   ///   > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. 
-  Future<Response> moveCategoryListWithHttpInfo({ int? limit, int? offset, String? q, }) async {
+  Future<Response> moveCategoryListWithHttpInfo({ int? limit, int? offset, String? q, Future<void>? abortTrigger, }) async {
     // ignore: prefer_const_declarations
     final path = r'/api/v2/move-category/';
 
@@ -342,6 +346,7 @@ class MovesApi {
       headerParams,
       formParams,
       contentTypes.isEmpty ? null : contentTypes.first,
+      abortTrigger: abortTrigger,
     );
   }
 
@@ -359,8 +364,8 @@ class MovesApi {
   ///
   /// * [String] q:
   ///   > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. 
-  Future<PaginatedMoveMetaCategorySummaryList?> moveCategoryList({ int? limit, int? offset, String? q, }) async {
-    final response = await moveCategoryListWithHttpInfo( limit: limit, offset: offset, q: q, );
+  Future<PaginatedMoveMetaCategorySummaryList?> moveCategoryList({ int? limit, int? offset, String? q, Future<void>? abortTrigger, }) async {
+    final response = await moveCategoryListWithHttpInfo(limit: limit, offset: offset, q: q, abortTrigger: abortTrigger,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -384,7 +389,7 @@ class MovesApi {
   ///
   /// * [String] id (required):
   ///   This parameter can be a string or an integer.
-  Future<Response> moveCategoryRetrieveWithHttpInfo(String id,) async {
+  Future<Response> moveCategoryRetrieveWithHttpInfo(String id, { Future<void>? abortTrigger, }) async {
     // ignore: prefer_const_declarations
     final path = r'/api/v2/move-category/{id}/'
       .replaceAll('{id}', id);
@@ -407,6 +412,7 @@ class MovesApi {
       headerParams,
       formParams,
       contentTypes.isEmpty ? null : contentTypes.first,
+      abortTrigger: abortTrigger,
     );
   }
 
@@ -418,8 +424,8 @@ class MovesApi {
   ///
   /// * [String] id (required):
   ///   This parameter can be a string or an integer.
-  Future<MoveMetaCategoryDetail?> moveCategoryRetrieve(String id,) async {
-    final response = await moveCategoryRetrieveWithHttpInfo(id,);
+  Future<MoveMetaCategoryDetail?> moveCategoryRetrieve(String id, { Future<void>? abortTrigger, }) async {
+    final response = await moveCategoryRetrieveWithHttpInfo(id, abortTrigger: abortTrigger,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -449,7 +455,7 @@ class MovesApi {
   ///
   /// * [String] q:
   ///   > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. 
-  Future<Response> moveLearnMethodListWithHttpInfo({ int? limit, int? offset, String? q, }) async {
+  Future<Response> moveLearnMethodListWithHttpInfo({ int? limit, int? offset, String? q, Future<void>? abortTrigger, }) async {
     // ignore: prefer_const_declarations
     final path = r'/api/v2/move-learn-method/';
 
@@ -481,6 +487,7 @@ class MovesApi {
       headerParams,
       formParams,
       contentTypes.isEmpty ? null : contentTypes.first,
+      abortTrigger: abortTrigger,
     );
   }
 
@@ -498,8 +505,8 @@ class MovesApi {
   ///
   /// * [String] q:
   ///   > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. 
-  Future<PaginatedMoveLearnMethodSummaryList?> moveLearnMethodList({ int? limit, int? offset, String? q, }) async {
-    final response = await moveLearnMethodListWithHttpInfo( limit: limit, offset: offset, q: q, );
+  Future<PaginatedMoveLearnMethodSummaryList?> moveLearnMethodList({ int? limit, int? offset, String? q, Future<void>? abortTrigger, }) async {
+    final response = await moveLearnMethodListWithHttpInfo(limit: limit, offset: offset, q: q, abortTrigger: abortTrigger,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -523,7 +530,7 @@ class MovesApi {
   ///
   /// * [String] id (required):
   ///   This parameter can be a string or an integer.
-  Future<Response> moveLearnMethodRetrieveWithHttpInfo(String id,) async {
+  Future<Response> moveLearnMethodRetrieveWithHttpInfo(String id, { Future<void>? abortTrigger, }) async {
     // ignore: prefer_const_declarations
     final path = r'/api/v2/move-learn-method/{id}/'
       .replaceAll('{id}', id);
@@ -546,6 +553,7 @@ class MovesApi {
       headerParams,
       formParams,
       contentTypes.isEmpty ? null : contentTypes.first,
+      abortTrigger: abortTrigger,
     );
   }
 
@@ -557,8 +565,8 @@ class MovesApi {
   ///
   /// * [String] id (required):
   ///   This parameter can be a string or an integer.
-  Future<MoveLearnMethodDetail?> moveLearnMethodRetrieve(String id,) async {
-    final response = await moveLearnMethodRetrieveWithHttpInfo(id,);
+  Future<MoveLearnMethodDetail?> moveLearnMethodRetrieve(String id, { Future<void>? abortTrigger, }) async {
+    final response = await moveLearnMethodRetrieveWithHttpInfo(id, abortTrigger: abortTrigger,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -588,7 +596,7 @@ class MovesApi {
   ///
   /// * [String] q:
   ///   > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. 
-  Future<Response> moveListWithHttpInfo({ int? limit, int? offset, String? q, }) async {
+  Future<Response> moveListWithHttpInfo({ int? limit, int? offset, String? q, Future<void>? abortTrigger, }) async {
     // ignore: prefer_const_declarations
     final path = r'/api/v2/move/';
 
@@ -620,6 +628,7 @@ class MovesApi {
       headerParams,
       formParams,
       contentTypes.isEmpty ? null : contentTypes.first,
+      abortTrigger: abortTrigger,
     );
   }
 
@@ -637,8 +646,8 @@ class MovesApi {
   ///
   /// * [String] q:
   ///   > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. 
-  Future<PaginatedMoveSummaryList?> moveList({ int? limit, int? offset, String? q, }) async {
-    final response = await moveListWithHttpInfo( limit: limit, offset: offset, q: q, );
+  Future<PaginatedMoveSummaryList?> moveList({ int? limit, int? offset, String? q, Future<void>? abortTrigger, }) async {
+    final response = await moveListWithHttpInfo(limit: limit, offset: offset, q: q, abortTrigger: abortTrigger,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -662,7 +671,7 @@ class MovesApi {
   ///
   /// * [String] id (required):
   ///   This parameter can be a string or an integer.
-  Future<Response> moveRetrieveWithHttpInfo(String id,) async {
+  Future<Response> moveRetrieveWithHttpInfo(String id, { Future<void>? abortTrigger, }) async {
     // ignore: prefer_const_declarations
     final path = r'/api/v2/move/{id}/'
       .replaceAll('{id}', id);
@@ -685,6 +694,7 @@ class MovesApi {
       headerParams,
       formParams,
       contentTypes.isEmpty ? null : contentTypes.first,
+      abortTrigger: abortTrigger,
     );
   }
 
@@ -696,8 +706,8 @@ class MovesApi {
   ///
   /// * [String] id (required):
   ///   This parameter can be a string or an integer.
-  Future<MoveDetail?> moveRetrieve(String id,) async {
-    final response = await moveRetrieveWithHttpInfo(id,);
+  Future<MoveDetail?> moveRetrieve(String id, { Future<void>? abortTrigger, }) async {
+    final response = await moveRetrieveWithHttpInfo(id, abortTrigger: abortTrigger,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -727,7 +737,7 @@ class MovesApi {
   ///
   /// * [String] q:
   ///   > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. 
-  Future<Response> moveTargetListWithHttpInfo({ int? limit, int? offset, String? q, }) async {
+  Future<Response> moveTargetListWithHttpInfo({ int? limit, int? offset, String? q, Future<void>? abortTrigger, }) async {
     // ignore: prefer_const_declarations
     final path = r'/api/v2/move-target/';
 
@@ -759,6 +769,7 @@ class MovesApi {
       headerParams,
       formParams,
       contentTypes.isEmpty ? null : contentTypes.first,
+      abortTrigger: abortTrigger,
     );
   }
 
@@ -776,8 +787,8 @@ class MovesApi {
   ///
   /// * [String] q:
   ///   > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. 
-  Future<PaginatedMoveTargetSummaryList?> moveTargetList({ int? limit, int? offset, String? q, }) async {
-    final response = await moveTargetListWithHttpInfo( limit: limit, offset: offset, q: q, );
+  Future<PaginatedMoveTargetSummaryList?> moveTargetList({ int? limit, int? offset, String? q, Future<void>? abortTrigger, }) async {
+    final response = await moveTargetListWithHttpInfo(limit: limit, offset: offset, q: q, abortTrigger: abortTrigger,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -801,7 +812,7 @@ class MovesApi {
   ///
   /// * [String] id (required):
   ///   This parameter can be a string or an integer.
-  Future<Response> moveTargetRetrieveWithHttpInfo(String id,) async {
+  Future<Response> moveTargetRetrieveWithHttpInfo(String id, { Future<void>? abortTrigger, }) async {
     // ignore: prefer_const_declarations
     final path = r'/api/v2/move-target/{id}/'
       .replaceAll('{id}', id);
@@ -824,6 +835,7 @@ class MovesApi {
       headerParams,
       formParams,
       contentTypes.isEmpty ? null : contentTypes.first,
+      abortTrigger: abortTrigger,
     );
   }
 
@@ -835,8 +847,8 @@ class MovesApi {
   ///
   /// * [String] id (required):
   ///   This parameter can be a string or an integer.
-  Future<MoveTargetDetail?> moveTargetRetrieve(String id,) async {
-    final response = await moveTargetRetrieveWithHttpInfo(id,);
+  Future<MoveTargetDetail?> moveTargetRetrieve(String id, { Future<void>? abortTrigger, }) async {
+    final response = await moveTargetRetrieveWithHttpInfo(id, abortTrigger: abortTrigger,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }

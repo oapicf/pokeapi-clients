@@ -14,7 +14,7 @@ import { EvolutionTriggerName } from './evolutionTriggerName';
 export interface EvolutionTriggerDetail { 
     readonly id: number;
     name: string;
-    names: Array<EvolutionTriggerName>;
-    pokemon_species: Array<AbilityDetailPokemonInnerPokemon>;
+    readonly names: Array<EvolutionTriggerName>;
+    readonly pokemon_species: Array<AbilityDetailPokemonInnerPokemon>;
 }
 

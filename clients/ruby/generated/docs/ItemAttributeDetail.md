@@ -6,9 +6,9 @@
 | ---- | ---- | ----------- | ----- |
 | **id** | **Integer** |  | [readonly] |
 | **name** | **String** |  |  |
-| **descriptions** | [**Array&lt;ItemAttributeDescription&gt;**](ItemAttributeDescription.md) |  |  |
-| **items** | [**Array&lt;AbilityDetailPokemonInnerPokemon&gt;**](AbilityDetailPokemonInnerPokemon.md) |  |  |
-| **names** | [**Array&lt;ItemAttributeName&gt;**](ItemAttributeName.md) |  |  |
+| **descriptions** | [**Array&lt;ItemAttributeDescription&gt;**](ItemAttributeDescription.md) |  | [readonly] |
+| **items** | [**Array&lt;AbilityDetailPokemonInnerPokemon&gt;**](AbilityDetailPokemonInnerPokemon.md) |  | [readonly] |
+| **names** | [**Array&lt;ItemAttributeName&gt;**](ItemAttributeName.md) |  | [readonly] |
 
 ## Example
 

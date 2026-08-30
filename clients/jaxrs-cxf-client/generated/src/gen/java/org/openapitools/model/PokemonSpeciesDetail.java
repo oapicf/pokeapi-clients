@@ -369,19 +369,6 @@ public class PokemonSpeciesDetail  {
     return pokedexNumbers;
   }
 
-  public void setPokedexNumbers(List<PokemonDexEntry> pokedexNumbers) {
-    this.pokedexNumbers = pokedexNumbers;
-  }
-
-  public PokemonSpeciesDetail pokedexNumbers(List<PokemonDexEntry> pokedexNumbers) {
-    this.pokedexNumbers = pokedexNumbers;
-    return this;
-  }
-
-  public PokemonSpeciesDetail addPokedexNumbersItem(PokemonDexEntry pokedexNumbersItem) {
-    this.pokedexNumbers.add(pokedexNumbersItem);
-    return this;
-  }
 
  /**
    * Get eggGroups
@@ -392,19 +379,6 @@ public class PokemonSpeciesDetail  {
     return eggGroups;
   }
 
-  public void setEggGroups(List<AbilityDetailPokemonInnerPokemon> eggGroups) {
-    this.eggGroups = eggGroups;
-  }
-
-  public PokemonSpeciesDetail eggGroups(List<AbilityDetailPokemonInnerPokemon> eggGroups) {
-    this.eggGroups = eggGroups;
-    return this;
-  }
-
-  public PokemonSpeciesDetail addEggGroupsItem(AbilityDetailPokemonInnerPokemon eggGroupsItem) {
-    this.eggGroups.add(eggGroupsItem);
-    return this;
-  }
 
  /**
    * Get color
@@ -523,19 +497,6 @@ public class PokemonSpeciesDetail  {
     return names;
   }
 
-  public void setNames(List<PokemonFormDetailFormNamesInner> names) {
-    this.names = names;
-  }
-
-  public PokemonSpeciesDetail names(List<PokemonFormDetailFormNamesInner> names) {
-    this.names = names;
-    return this;
-  }
-
-  public PokemonSpeciesDetail addNamesItem(PokemonFormDetailFormNamesInner namesItem) {
-    this.names.add(namesItem);
-    return this;
-  }
 
  /**
    * Get palParkEncounters
@@ -546,19 +507,6 @@ public class PokemonSpeciesDetail  {
     return palParkEncounters;
   }
 
-  public void setPalParkEncounters(List<PokemonSpeciesDetailPalParkEncountersInner> palParkEncounters) {
-    this.palParkEncounters = palParkEncounters;
-  }
-
-  public PokemonSpeciesDetail palParkEncounters(List<PokemonSpeciesDetailPalParkEncountersInner> palParkEncounters) {
-    this.palParkEncounters = palParkEncounters;
-    return this;
-  }
-
-  public PokemonSpeciesDetail addPalParkEncountersItem(PokemonSpeciesDetailPalParkEncountersInner palParkEncountersItem) {
-    this.palParkEncounters.add(palParkEncountersItem);
-    return this;
-  }
 
  /**
    * Get formDescriptions
@@ -569,19 +517,6 @@ public class PokemonSpeciesDetail  {
     return formDescriptions;
   }
 
-  public void setFormDescriptions(List<PokemonSpeciesDescription> formDescriptions) {
-    this.formDescriptions = formDescriptions;
-  }
-
-  public PokemonSpeciesDetail formDescriptions(List<PokemonSpeciesDescription> formDescriptions) {
-    this.formDescriptions = formDescriptions;
-    return this;
-  }
-
-  public PokemonSpeciesDetail addFormDescriptionsItem(PokemonSpeciesDescription formDescriptionsItem) {
-    this.formDescriptions.add(formDescriptionsItem);
-    return this;
-  }
 
  /**
    * Get flavorTextEntries
@@ -592,19 +527,6 @@ public class PokemonSpeciesDetail  {
     return flavorTextEntries;
   }
 
-  public void setFlavorTextEntries(List<PokemonSpeciesFlavorText> flavorTextEntries) {
-    this.flavorTextEntries = flavorTextEntries;
-  }
-
-  public PokemonSpeciesDetail flavorTextEntries(List<PokemonSpeciesFlavorText> flavorTextEntries) {
-    this.flavorTextEntries = flavorTextEntries;
-    return this;
-  }
-
-  public PokemonSpeciesDetail addFlavorTextEntriesItem(PokemonSpeciesFlavorText flavorTextEntriesItem) {
-    this.flavorTextEntries.add(flavorTextEntriesItem);
-    return this;
-  }
 
  /**
    * Get genera
@@ -615,19 +537,6 @@ public class PokemonSpeciesDetail  {
     return genera;
   }
 
-  public void setGenera(List<PokemonSpeciesDetailGeneraInner> genera) {
-    this.genera = genera;
-  }
-
-  public PokemonSpeciesDetail genera(List<PokemonSpeciesDetailGeneraInner> genera) {
-    this.genera = genera;
-    return this;
-  }
-
-  public PokemonSpeciesDetail addGeneraItem(PokemonSpeciesDetailGeneraInner generaItem) {
-    this.genera.add(generaItem);
-    return this;
-  }
 
  /**
    * Get varieties
@@ -638,19 +547,6 @@ public class PokemonSpeciesDetail  {
     return varieties;
   }
 
-  public void setVarieties(List<PokemonSpeciesDetailVarietiesInner> varieties) {
-    this.varieties = varieties;
-  }
-
-  public PokemonSpeciesDetail varieties(List<PokemonSpeciesDetailVarietiesInner> varieties) {
-    this.varieties = varieties;
-    return this;
-  }
-
-  public PokemonSpeciesDetail addVarietiesItem(PokemonSpeciesDetailVarietiesInner varietiesItem) {
-    this.varieties.add(varietiesItem);
-    return this;
-  }
 
   @Override
   public boolean equals(Object o) {
@@ -736,10 +632,7 @@ public class PokemonSpeciesDetail  {
    * (except the first line).
    */
   private static String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 }
 

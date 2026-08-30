@@ -6,8 +6,8 @@
 | ---- | ---- | ----------- | ----- |
 | **id** | **Integer** |  | [readonly] |
 | **name** | **String** |  |  |
-| **effect_entries** | [**Array&lt;ItemFlingEffectEffectText&gt;**](ItemFlingEffectEffectText.md) |  |  |
-| **items** | [**Array&lt;ItemSummary&gt;**](ItemSummary.md) |  |  |
+| **effect_entries** | [**Array&lt;ItemFlingEffectEffectText&gt;**](ItemFlingEffectEffectText.md) |  | [readonly] |
+| **items** | [**Array&lt;ItemSummary&gt;**](ItemSummary.md) |  | [readonly] |
 
 ## Example
 

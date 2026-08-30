@@ -112,15 +112,15 @@ function Initialize-StatDetail {
 
 
         $PSO = [PSCustomObject]@{
-            "id" = ${Id}
-            "name" = ${Name}
-            "game_index" = ${GameIndex}
-            "is_battle_only" = ${IsBattleOnly}
-            "affecting_moves" = ${AffectingMoves}
-            "affecting_natures" = ${AffectingNatures}
-            "characteristics" = ${Characteristics}
-            "move_damage_class" = ${MoveDamageClass}
-            "names" = ${Names}
+            'id' = ${Id}
+            'name' = ${Name}
+            'game_index' = ${GameIndex}
+            'is_battle_only' = ${IsBattleOnly}
+            'affecting_moves' = ${AffectingMoves}
+            'affecting_natures' = ${AffectingNatures}
+            'characteristics' = ${Characteristics}
+            'move_damage_class' = ${MoveDamageClass}
+            'names' = ${Names}
         }
 
 
@@ -158,7 +158,7 @@ function ConvertFrom-JsonToStatDetail {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in StatDetail
-        $AllProperties = ("id", "name", "game_index", "is_battle_only", "affecting_moves", "affecting_natures", "characteristics", "move_damage_class", "names")
+        $AllProperties = ('id', 'name', 'game_index', 'is_battle_only', 'affecting_moves', 'affecting_natures', 'characteristics', 'move_damage_class', 'names')
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -169,70 +169,70 @@ function ConvertFrom-JsonToStatDetail {
             throw "Error! Empty JSON cannot be serialized due to the required property 'id' missing."
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "id"))) {
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'id'))) {
             throw "Error! JSON cannot be serialized due to the required property 'id' missing."
         } else {
-            $Id = $JsonParameters.PSobject.Properties["id"].value
+            $Id = $JsonParameters.PSobject.Properties['id'].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "name"))) {
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'name'))) {
             throw "Error! JSON cannot be serialized due to the required property 'name' missing."
         } else {
-            $Name = $JsonParameters.PSobject.Properties["name"].value
+            $Name = $JsonParameters.PSobject.Properties['name'].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "game_index"))) {
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'game_index'))) {
             throw "Error! JSON cannot be serialized due to the required property 'game_index' missing."
         } else {
-            $GameIndex = $JsonParameters.PSobject.Properties["game_index"].value
+            $GameIndex = $JsonParameters.PSobject.Properties['game_index'].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "affecting_moves"))) {
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'affecting_moves'))) {
             throw "Error! JSON cannot be serialized due to the required property 'affecting_moves' missing."
         } else {
-            $AffectingMoves = $JsonParameters.PSobject.Properties["affecting_moves"].value
+            $AffectingMoves = $JsonParameters.PSobject.Properties['affecting_moves'].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "affecting_natures"))) {
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'affecting_natures'))) {
             throw "Error! JSON cannot be serialized due to the required property 'affecting_natures' missing."
         } else {
-            $AffectingNatures = $JsonParameters.PSobject.Properties["affecting_natures"].value
+            $AffectingNatures = $JsonParameters.PSobject.Properties['affecting_natures'].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "characteristics"))) {
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'characteristics'))) {
             throw "Error! JSON cannot be serialized due to the required property 'characteristics' missing."
         } else {
-            $Characteristics = $JsonParameters.PSobject.Properties["characteristics"].value
+            $Characteristics = $JsonParameters.PSobject.Properties['characteristics'].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "move_damage_class"))) {
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'move_damage_class'))) {
             throw "Error! JSON cannot be serialized due to the required property 'move_damage_class' missing."
         } else {
-            $MoveDamageClass = $JsonParameters.PSobject.Properties["move_damage_class"].value
+            $MoveDamageClass = $JsonParameters.PSobject.Properties['move_damage_class'].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "names"))) {
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'names'))) {
             throw "Error! JSON cannot be serialized due to the required property 'names' missing."
         } else {
-            $Names = $JsonParameters.PSobject.Properties["names"].value
+            $Names = $JsonParameters.PSobject.Properties['names'].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "is_battle_only"))) { #optional property not found
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'is_battle_only'))) { #optional property not found
             $IsBattleOnly = $null
         } else {
-            $IsBattleOnly = $JsonParameters.PSobject.Properties["is_battle_only"].value
+            $IsBattleOnly = $JsonParameters.PSobject.Properties['is_battle_only'].value
         }
 
         $PSO = [PSCustomObject]@{
-            "id" = ${Id}
-            "name" = ${Name}
-            "game_index" = ${GameIndex}
-            "is_battle_only" = ${IsBattleOnly}
-            "affecting_moves" = ${AffectingMoves}
-            "affecting_natures" = ${AffectingNatures}
-            "characteristics" = ${Characteristics}
-            "move_damage_class" = ${MoveDamageClass}
-            "names" = ${Names}
+            'id' = ${Id}
+            'name' = ${Name}
+            'game_index' = ${GameIndex}
+            'is_battle_only' = ${IsBattleOnly}
+            'affecting_moves' = ${AffectingMoves}
+            'affecting_natures' = ${AffectingNatures}
+            'characteristics' = ${Characteristics}
+            'move_damage_class' = ${MoveDamageClass}
+            'names' = ${Names}
         }
 
         return $PSO

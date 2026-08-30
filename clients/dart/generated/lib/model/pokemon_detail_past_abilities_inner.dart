@@ -53,10 +53,10 @@ class PokemonDetailPastAbilitiesInner {
       // Note 1: the values aren't checked for validity beyond being non-null.
       // Note 2: this code is stripped in release mode!
       assert(() {
-        requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "PokemonDetailPastAbilitiesInner[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "PokemonDetailPastAbilitiesInner[$key]" has a null value in JSON.');
-        });
+        assert(json.containsKey(r'abilities'), 'Required key "PokemonDetailPastAbilitiesInner[abilities]" is missing from JSON.');
+        assert(json[r'abilities'] != null, 'Required key "PokemonDetailPastAbilitiesInner[abilities]" has a null value in JSON.');
+        assert(json.containsKey(r'generation'), 'Required key "PokemonDetailPastAbilitiesInner[generation]" is missing from JSON.');
+        assert(json[r'generation'] != null, 'Required key "PokemonDetailPastAbilitiesInner[generation]" has a null value in JSON.');
         return true;
       }());
 

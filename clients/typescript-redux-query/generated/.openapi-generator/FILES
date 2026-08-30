@@ -1,5 +1,4 @@
 .gitignore
-.openapi-generator-ignore
 src/apis/BerriesApi.ts
 src/apis/ContestsApi.ts
 src/apis/EncountersApi.ts

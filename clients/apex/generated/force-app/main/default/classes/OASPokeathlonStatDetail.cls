@@ -36,7 +36,7 @@ public class OASPokeathlonStatDetail implements OAS.MappedProperties {
      * Get names
      * @return names
      */
-    public List<OASPokeathlonStatName> names { get; set; }
+    public List<OASPokeathlonStatName> names { get; private set; }
 
     private static final Map<String, String> propertyMappings = new Map<String, String>{
         'affecting_natures' => 'affectingNatures'

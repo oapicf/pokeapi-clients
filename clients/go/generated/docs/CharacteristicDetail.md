@@ -6,9 +6,9 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **int32** |  | [readonly] 
 **GeneModulo** | **int32** |  | 
-**PossibleValues** | **[]int32** |  | 
+**PossibleValues** | **[]int32** |  | [readonly] 
 **HighestStat** | [**StatSummary**](StatSummary.md) |  | 
-**Descriptions** | [**[]CharacteristicDescription**](CharacteristicDescription.md) |  | 
+**Descriptions** | [**[]CharacteristicDescription**](CharacteristicDescription.md) |  | [readonly] 
 
 ## Methods
 

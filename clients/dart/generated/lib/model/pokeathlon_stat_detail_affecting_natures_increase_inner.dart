@@ -54,10 +54,10 @@ class PokeathlonStatDetailAffectingNaturesIncreaseInner {
       // Note 1: the values aren't checked for validity beyond being non-null.
       // Note 2: this code is stripped in release mode!
       assert(() {
-        requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "PokeathlonStatDetailAffectingNaturesIncreaseInner[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "PokeathlonStatDetailAffectingNaturesIncreaseInner[$key]" has a null value in JSON.');
-        });
+        assert(json.containsKey(r'max_change'), 'Required key "PokeathlonStatDetailAffectingNaturesIncreaseInner[max_change]" is missing from JSON.');
+        assert(json[r'max_change'] != null, 'Required key "PokeathlonStatDetailAffectingNaturesIncreaseInner[max_change]" has a null value in JSON.');
+        assert(json.containsKey(r'nature'), 'Required key "PokeathlonStatDetailAffectingNaturesIncreaseInner[nature]" is missing from JSON.');
+        assert(json[r'nature'] != null, 'Required key "PokeathlonStatDetailAffectingNaturesIncreaseInner[nature]" has a null value in JSON.');
         return true;
       }());
 

@@ -161,7 +161,7 @@ EncounterConditionDetail::getId()
 }
 
 void
-EncounterConditionDetail::setId(int  id)
+EncounterConditionDetail::setId(int id)
 {
 	this->id = id;
 }
@@ -173,7 +173,7 @@ EncounterConditionDetail::getName()
 }
 
 void
-EncounterConditionDetail::setName(std::string  name)
+EncounterConditionDetail::setName(std::string name)
 {
 	this->name = name;
 }
@@ -185,7 +185,7 @@ EncounterConditionDetail::getValues()
 }
 
 void
-EncounterConditionDetail::setValues(std::list <EncounterConditionValueSummary> values)
+EncounterConditionDetail::setValues(std::list<EncounterConditionValueSummary> values)
 {
 	this->values = values;
 }
@@ -197,7 +197,7 @@ EncounterConditionDetail::getNames()
 }
 
 void
-EncounterConditionDetail::setNames(std::list <EncounterConditionName> names)
+EncounterConditionDetail::setNames(std::list<EncounterConditionName> names)
 {
 	this->names = names;
 }

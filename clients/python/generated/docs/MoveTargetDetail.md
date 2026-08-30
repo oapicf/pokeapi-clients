@@ -7,9 +7,9 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **int** |  | [readonly] 
 **name** | **str** |  | 
-**descriptions** | [**List[MoveTargetDescription]**](MoveTargetDescription.md) |  | 
-**moves** | [**List[MoveSummary]**](MoveSummary.md) |  | 
-**names** | [**List[MoveTargetName]**](MoveTargetName.md) |  | 
+**descriptions** | [**List[MoveTargetDescription]**](MoveTargetDescription.md) |  | [readonly] 
+**moves** | [**List[MoveSummary]**](MoveSummary.md) |  | [readonly] 
+**names** | [**List[MoveTargetName]**](MoveTargetName.md) |  | [readonly] 
 
 ## Example
 

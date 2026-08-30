@@ -67,7 +67,8 @@ class PaginatedGenerationSummaryList extends BaseModel
       "type" : "array",
       "items" : {
         "$ref" : "#/components/schemas/GenerationSummary"
-      }
+      },
+      "default" : null
     }
   }
 }

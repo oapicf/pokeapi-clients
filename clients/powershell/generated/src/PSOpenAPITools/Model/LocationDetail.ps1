@@ -89,12 +89,12 @@ function Initialize-LocationDetail {
 
 
         $PSO = [PSCustomObject]@{
-            "id" = ${Id}
-            "name" = ${Name}
-            "region" = ${Region}
-            "names" = ${Names}
-            "game_indices" = ${GameIndices}
-            "areas" = ${Areas}
+            'id' = ${Id}
+            'name' = ${Name}
+            'region' = ${Region}
+            'names' = ${Names}
+            'game_indices' = ${GameIndices}
+            'areas' = ${Areas}
         }
 
 
@@ -132,7 +132,7 @@ function ConvertFrom-JsonToLocationDetail {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in LocationDetail
-        $AllProperties = ("id", "name", "region", "names", "game_indices", "areas")
+        $AllProperties = ('id', 'name', 'region', 'names', 'game_indices', 'areas')
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -143,49 +143,49 @@ function ConvertFrom-JsonToLocationDetail {
             throw "Error! Empty JSON cannot be serialized due to the required property 'id' missing."
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "id"))) {
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'id'))) {
             throw "Error! JSON cannot be serialized due to the required property 'id' missing."
         } else {
-            $Id = $JsonParameters.PSobject.Properties["id"].value
+            $Id = $JsonParameters.PSobject.Properties['id'].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "name"))) {
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'name'))) {
             throw "Error! JSON cannot be serialized due to the required property 'name' missing."
         } else {
-            $Name = $JsonParameters.PSobject.Properties["name"].value
+            $Name = $JsonParameters.PSobject.Properties['name'].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "region"))) {
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'region'))) {
             throw "Error! JSON cannot be serialized due to the required property 'region' missing."
         } else {
-            $Region = $JsonParameters.PSobject.Properties["region"].value
+            $Region = $JsonParameters.PSobject.Properties['region'].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "names"))) {
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'names'))) {
             throw "Error! JSON cannot be serialized due to the required property 'names' missing."
         } else {
-            $Names = $JsonParameters.PSobject.Properties["names"].value
+            $Names = $JsonParameters.PSobject.Properties['names'].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "game_indices"))) {
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'game_indices'))) {
             throw "Error! JSON cannot be serialized due to the required property 'game_indices' missing."
         } else {
-            $GameIndices = $JsonParameters.PSobject.Properties["game_indices"].value
+            $GameIndices = $JsonParameters.PSobject.Properties['game_indices'].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "areas"))) {
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'areas'))) {
             throw "Error! JSON cannot be serialized due to the required property 'areas' missing."
         } else {
-            $Areas = $JsonParameters.PSobject.Properties["areas"].value
+            $Areas = $JsonParameters.PSobject.Properties['areas'].value
         }
 
         $PSO = [PSCustomObject]@{
-            "id" = ${Id}
-            "name" = ${Name}
-            "region" = ${Region}
-            "names" = ${Names}
-            "game_indices" = ${GameIndices}
-            "areas" = ${Areas}
+            'id' = ${Id}
+            'name' = ${Name}
+            'region' = ${Region}
+            'names' = ${Names}
+            'game_indices' = ${GameIndices}
+            'areas' = ${Areas}
         }
 
         return $PSO

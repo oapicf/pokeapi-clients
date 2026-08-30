@@ -21,7 +21,7 @@
 
 namespace OpenAPI {
 
-OAIMoveDamageClassDetail::OAIMoveDamageClassDetail(QString json) {
+OAIMoveDamageClassDetail::OAIMoveDamageClassDetail(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -50,7 +50,7 @@ void OAIMoveDamageClassDetail::initializeModel() {
     m_names_isValid = false;
 }
 
-void OAIMoveDamageClassDetail::fromJson(QString jsonString) {
+void OAIMoveDamageClassDetail::fromJson(const QString &jsonString) {
     QByteArray array(jsonString.toStdString().c_str());
     QJsonDocument doc = QJsonDocument::fromJson(array);
     QJsonObject jsonObject = doc.object();

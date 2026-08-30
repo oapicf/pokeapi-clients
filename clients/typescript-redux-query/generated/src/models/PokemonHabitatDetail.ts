@@ -44,13 +44,13 @@ export interface PokemonHabitatDetail  {
      * @type {Array<PokemonHabitatName>}
      * @memberof PokemonHabitatDetail
      */
-    names: Array<PokemonHabitatName>;
+    readonly names: Array<PokemonHabitatName>;
     /**
      * 
      * @type {Array<PokemonSpeciesSummary>}
      * @memberof PokemonHabitatDetail
      */
-    pokemonSpecies: Array<PokemonSpeciesSummary>;
+    readonly pokemonSpecies: Array<PokemonSpeciesSummary>;
 }
 
 export function PokemonHabitatDetailFromJSON(json: any): PokemonHabitatDetail {
@@ -68,8 +68,6 @@ export function PokemonHabitatDetailToJSON(value?: PokemonHabitatDetail): any {
     }
     return {
         'name': value.name,
-        'names': (value.names as Array<any>).map(PokemonHabitatNameToJSON),
-        'pokemon_species': (value.pokemonSpecies as Array<any>).map(PokemonSpeciesSummaryToJSON),
     };
 }
 

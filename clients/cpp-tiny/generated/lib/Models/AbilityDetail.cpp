@@ -318,7 +318,7 @@ AbilityDetail::getId()
 }
 
 void
-AbilityDetail::setId(int  id)
+AbilityDetail::setId(int id)
 {
 	this->id = id;
 }
@@ -330,7 +330,7 @@ AbilityDetail::getName()
 }
 
 void
-AbilityDetail::setName(std::string  name)
+AbilityDetail::setName(std::string name)
 {
 	this->name = name;
 }
@@ -342,7 +342,7 @@ AbilityDetail::isIsMainSeries()
 }
 
 void
-AbilityDetail::setIsMainSeries(bool  is_main_series)
+AbilityDetail::setIsMainSeries(bool is_main_series)
 {
 	this->is_main_series = is_main_series;
 }
@@ -354,7 +354,7 @@ AbilityDetail::getGeneration()
 }
 
 void
-AbilityDetail::setGeneration(GenerationSummary  generation)
+AbilityDetail::setGeneration(GenerationSummary generation)
 {
 	this->generation = generation;
 }
@@ -366,7 +366,7 @@ AbilityDetail::getNames()
 }
 
 void
-AbilityDetail::setNames(std::list <AbilityName> names)
+AbilityDetail::setNames(std::list<AbilityName> names)
 {
 	this->names = names;
 }
@@ -378,7 +378,7 @@ AbilityDetail::getEffectEntries()
 }
 
 void
-AbilityDetail::setEffectEntries(std::list <AbilityEffectText> effect_entries)
+AbilityDetail::setEffectEntries(std::list<AbilityEffectText> effect_entries)
 {
 	this->effect_entries = effect_entries;
 }
@@ -390,7 +390,7 @@ AbilityDetail::getEffectChanges()
 }
 
 void
-AbilityDetail::setEffectChanges(std::list <AbilityChange> effect_changes)
+AbilityDetail::setEffectChanges(std::list<AbilityChange> effect_changes)
 {
 	this->effect_changes = effect_changes;
 }
@@ -402,7 +402,7 @@ AbilityDetail::getFlavorTextEntries()
 }
 
 void
-AbilityDetail::setFlavorTextEntries(std::list <AbilityFlavorText> flavor_text_entries)
+AbilityDetail::setFlavorTextEntries(std::list<AbilityFlavorText> flavor_text_entries)
 {
 	this->flavor_text_entries = flavor_text_entries;
 }
@@ -414,7 +414,7 @@ AbilityDetail::getPokemon()
 }
 
 void
-AbilityDetail::setPokemon(std::list <AbilityDetail_pokemon_inner> pokemon)
+AbilityDetail::setPokemon(std::list<AbilityDetail_pokemon_inner> pokemon)
 {
 	this->pokemon = pokemon;
 }

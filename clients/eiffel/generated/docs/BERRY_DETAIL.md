@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 **smoothness** | **INTEGER_32** |  | [default to null]
 **soil_dryness** | **INTEGER_32** |  | [default to null]
 **firmness** | [**BERRY_FIRMNESS_SUMMARY**](BerryFirmnessSummary.md) |  | [default to null]
-**flavors** | [**LIST [BERRY_DETAIL_FLAVORS_INNER]**](BerryDetail_flavors_inner.md) |  | [default to null]
+**flavors** | [**LIST [BERRY_DETAIL_FLAVORS_INNER]**](BerryDetail_flavors_inner.md) |  | [readonly] [default to null]
 **item** | [**ITEM_SUMMARY**](ItemSummary.md) |  | [default to null]
 **natural_gift_type** | [**TYPE_SUMMARY**](TypeSummary.md) |  | [default to null]
 

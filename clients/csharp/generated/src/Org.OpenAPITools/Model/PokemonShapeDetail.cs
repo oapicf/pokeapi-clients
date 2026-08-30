@@ -68,19 +68,19 @@ namespace Org.OpenAPITools.Model
         /// Gets or Sets AwesomeNames
         /// </summary>
         [JsonPropertyName("awesome_names")]
-        public List<PokemonShapeDetailAwesomeNamesInner> AwesomeNames { get; set; }
+        public List<PokemonShapeDetailAwesomeNamesInner> AwesomeNames { get; }
 
         /// <summary>
         /// Gets or Sets Names
         /// </summary>
         [JsonPropertyName("names")]
-        public List<PokemonShapeDetailNamesInner> Names { get; set; }
+        public List<PokemonShapeDetailNamesInner> Names { get; }
 
         /// <summary>
         /// Gets or Sets PokemonSpecies
         /// </summary>
         [JsonPropertyName("pokemon_species")]
-        public List<PokemonSpeciesSummary> PokemonSpecies { get; set; }
+        public List<PokemonSpeciesSummary> PokemonSpecies { get; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -119,8 +119,18 @@ namespace Org.OpenAPITools.Model
     /// <summary>
     /// A Json converter for type <see cref="PokemonShapeDetail" />
     /// </summary>
-    public class PokemonShapeDetailJsonConverter : JsonConverter<PokemonShapeDetail>
+    public partial class PokemonShapeDetailJsonConverter : JsonConverter<PokemonShapeDetail>
     {
+        partial void OnCreated();
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="PokemonShapeDetailJsonConverter" /> class.
+        /// </summary>
+        public PokemonShapeDetailJsonConverter()
+        {
+            OnCreated();
+        }
+
         /// <summary>
         /// Deserializes json to <see cref="PokemonShapeDetail" />
         /// </summary>

@@ -9,13 +9,13 @@ Name | Type | Description | Notes
 **id** | **number** |  | [readonly] [default to undefined]
 **name** | **string** |  | [default to undefined]
 **damage_relations** | [**TypeDetailDamageRelations**](TypeDetailDamageRelations.md) |  | [default to undefined]
-**past_damage_relations** | [**Array&lt;TypeDetailPastDamageRelationsInner&gt;**](TypeDetailPastDamageRelationsInner.md) |  | [default to undefined]
-**game_indices** | [**Array&lt;TypeGameIndex&gt;**](TypeGameIndex.md) |  | [default to undefined]
+**past_damage_relations** | [**Array&lt;TypeDetailPastDamageRelationsInner&gt;**](TypeDetailPastDamageRelationsInner.md) |  | [readonly] [default to undefined]
+**game_indices** | [**Array&lt;TypeGameIndex&gt;**](TypeGameIndex.md) |  | [readonly] [default to undefined]
 **generation** | [**GenerationSummary**](GenerationSummary.md) |  | [default to undefined]
 **move_damage_class** | [**MoveDamageClassSummary**](MoveDamageClassSummary.md) |  | [default to undefined]
-**names** | [**Array&lt;AbilityName&gt;**](AbilityName.md) |  | [default to undefined]
-**pokemon** | [**Array&lt;TypeDetailPokemonInner&gt;**](TypeDetailPokemonInner.md) |  | [default to undefined]
-**moves** | [**Array&lt;MoveSummary&gt;**](MoveSummary.md) |  | [default to undefined]
+**names** | [**Array&lt;AbilityName&gt;**](AbilityName.md) |  | [readonly] [default to undefined]
+**pokemon** | [**Array&lt;TypeDetailPokemonInner&gt;**](TypeDetailPokemonInner.md) |  | [readonly] [default to undefined]
+**moves** | [**Array&lt;MoveSummary&gt;**](MoveSummary.md) |  | [readonly] [default to undefined]
 **sprites** | **{ [key: string]: { [key: string]: TypeDetailSpritesValueValue; }; }** |  | [readonly] [default to undefined]
 
 ## Example

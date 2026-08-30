@@ -74,19 +74,6 @@ public class ItemPocketDetail  {
     return categories;
   }
 
-  public void setCategories(List<@Valid ItemCategorySummary> categories) {
-    this.categories = categories;
-  }
-
-  public ItemPocketDetail categories(List<@Valid ItemCategorySummary> categories) {
-    this.categories = categories;
-    return this;
-  }
-
-  public ItemPocketDetail addCategoriesItem(ItemCategorySummary categoriesItem) {
-    this.categories.add(categoriesItem);
-    return this;
-  }
 
  /**
    * Get names
@@ -98,19 +85,6 @@ public class ItemPocketDetail  {
     return names;
   }
 
-  public void setNames(List<@Valid ItemPocketName> names) {
-    this.names = names;
-  }
-
-  public ItemPocketDetail names(List<@Valid ItemPocketName> names) {
-    this.names = names;
-    return this;
-  }
-
-  public ItemPocketDetail addNamesItem(ItemPocketName namesItem) {
-    this.names.add(namesItem);
-    return this;
-  }
 
   @Override
   public boolean equals(Object o) {
@@ -150,10 +124,7 @@ public class ItemPocketDetail  {
    * (except the first line).
    */
   private static String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 }
 

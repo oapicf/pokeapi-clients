@@ -30,7 +30,7 @@ public class OASCharacteristicDetail implements OAS.MappedProperties {
      * Get possibleValues
      * @return possibleValues
      */
-    public List<Integer> possibleValues { get; set; }
+    public List<Integer> possibleValues { get; private set; }
 
     /**
      * Get highestStat
@@ -42,7 +42,7 @@ public class OASCharacteristicDetail implements OAS.MappedProperties {
      * Get descriptions
      * @return descriptions
      */
-    public List<OASCharacteristicDescription> descriptions { get; set; }
+    public List<OASCharacteristicDescription> descriptions { get; private set; }
 
     private static final Map<String, String> propertyMappings = new Map<String, String>{
         'gene_modulo' => 'geneModulo',

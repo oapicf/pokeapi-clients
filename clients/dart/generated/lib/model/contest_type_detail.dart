@@ -65,10 +65,14 @@ class ContestTypeDetail {
       // Note 1: the values aren't checked for validity beyond being non-null.
       // Note 2: this code is stripped in release mode!
       assert(() {
-        requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "ContestTypeDetail[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "ContestTypeDetail[$key]" has a null value in JSON.');
-        });
+        assert(json.containsKey(r'id'), 'Required key "ContestTypeDetail[id]" is missing from JSON.');
+        assert(json[r'id'] != null, 'Required key "ContestTypeDetail[id]" has a null value in JSON.');
+        assert(json.containsKey(r'name'), 'Required key "ContestTypeDetail[name]" is missing from JSON.');
+        assert(json[r'name'] != null, 'Required key "ContestTypeDetail[name]" has a null value in JSON.');
+        assert(json.containsKey(r'berry_flavor'), 'Required key "ContestTypeDetail[berry_flavor]" is missing from JSON.');
+        assert(json[r'berry_flavor'] != null, 'Required key "ContestTypeDetail[berry_flavor]" has a null value in JSON.');
+        assert(json.containsKey(r'names'), 'Required key "ContestTypeDetail[names]" is missing from JSON.');
+        assert(json[r'names'] != null, 'Required key "ContestTypeDetail[names]" has a null value in JSON.');
         return true;
       }());
 

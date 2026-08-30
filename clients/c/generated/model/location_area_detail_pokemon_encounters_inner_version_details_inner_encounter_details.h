@@ -20,20 +20,20 @@ typedef struct location_area_detail_pokemon_encounters_inner_version_details_inn
 
 
 typedef struct location_area_detail_pokemon_encounters_inner_version_details_inner_encounter_details_t {
-    int min_level; //numeric
-    int max_level; //numeric
+    int *min_level; //numeric
+    int *max_level; //numeric
     struct ability_detail_pokemon_inner_pokemon_t *condition_values; //model
-    int chance; //numeric
+    int *chance; //numeric
     struct ability_detail_pokemon_inner_pokemon_t *method; //model
 
     int _library_owned; // Is the library responsible for freeing this object?
 } location_area_detail_pokemon_encounters_inner_version_details_inner_encounter_details_t;
 
 __attribute__((deprecated)) location_area_detail_pokemon_encounters_inner_version_details_inner_encounter_details_t *location_area_detail_pokemon_encounters_inner_version_details_inner_encounter_details_create(
-    int min_level,
-    int max_level,
+    int *min_level,
+    int *max_level,
     ability_detail_pokemon_inner_pokemon_t *condition_values,
-    int chance,
+    int *chance,
     ability_detail_pokemon_inner_pokemon_t *method
 );
 

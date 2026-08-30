@@ -16,6 +16,6 @@ import { GenderDetailPokemonSpeciesDetailsInner } from './genderDetailPokemonSpe
 export interface GenderDetail { 
     readonly id: number;
     name: string;
-    pokemon_species_details: Array<GenderDetailPokemonSpeciesDetailsInner>;
-    required_for_evolution: Array<AbilityDetailPokemonInnerPokemon>;
+    readonly pokemon_species_details: Array<GenderDetailPokemonSpeciesDetailsInner>;
+    readonly required_for_evolution: Array<AbilityDetailPokemonInnerPokemon>;
 }

@@ -44,13 +44,13 @@ export interface ItemFlingEffectDetail  {
      * @type {Array<ItemFlingEffectEffectText>}
      * @memberof ItemFlingEffectDetail
      */
-    effectEntries: Array<ItemFlingEffectEffectText>;
+    readonly effectEntries: Array<ItemFlingEffectEffectText>;
     /**
      * 
      * @type {Array<ItemSummary>}
      * @memberof ItemFlingEffectDetail
      */
-    items: Array<ItemSummary>;
+    readonly items: Array<ItemSummary>;
 }
 
 export function ItemFlingEffectDetailFromJSON(json: any): ItemFlingEffectDetail {
@@ -68,8 +68,6 @@ export function ItemFlingEffectDetailToJSON(value?: ItemFlingEffectDetail): any 
     }
     return {
         'name': value.name,
-        'effect_entries': (value.effectEntries as Array<any>).map(ItemFlingEffectEffectTextToJSON),
-        'items': (value.items as Array<any>).map(ItemSummaryToJSON),
     };
 }
 

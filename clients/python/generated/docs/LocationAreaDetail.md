@@ -8,10 +8,10 @@ Name | Type | Description | Notes
 **id** | **int** |  | [readonly] 
 **name** | **str** |  | 
 **game_index** | **int** |  | 
-**encounter_method_rates** | [**List[LocationAreaDetailEncounterMethodRatesInner]**](LocationAreaDetailEncounterMethodRatesInner.md) |  | 
+**encounter_method_rates** | [**List[LocationAreaDetailEncounterMethodRatesInner]**](LocationAreaDetailEncounterMethodRatesInner.md) |  | [readonly] 
 **location** | [**LocationSummary**](LocationSummary.md) |  | 
-**names** | [**List[LocationAreaName]**](LocationAreaName.md) |  | 
-**pokemon_encounters** | [**List[LocationAreaDetailPokemonEncountersInner]**](LocationAreaDetailPokemonEncountersInner.md) |  | 
+**names** | [**List[LocationAreaName]**](LocationAreaName.md) |  | [readonly] 
+**pokemon_encounters** | [**List[LocationAreaDetailPokemonEncountersInner]**](LocationAreaDetailPokemonEncountersInner.md) |  | [readonly] 
 
 ## Example
 

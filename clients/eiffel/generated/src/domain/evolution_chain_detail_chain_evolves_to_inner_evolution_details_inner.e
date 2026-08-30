@@ -25,9 +25,9 @@ feature --Access
       
     item: detachable EVOLUTION_CHAIN_DETAIL_CHAIN_EVOLVES_TO_INNER_EVOLUTION_DETAILS_INNER_GENDER
       
-    known_move: detachable ANY
+    known_move: detachable EVOLUTION_CHAIN_DETAIL_CHAIN_EVOLVES_TO_INNER_EVOLUTION_DETAILS_INNER_GENDER
       
-    known_move_type: detachable ANY
+    known_move_type: detachable EVOLUTION_CHAIN_DETAIL_CHAIN_EVOLVES_TO_INNER_EVOLUTION_DETAILS_INNER_GENDER
       
     location: detachable EVOLUTION_CHAIN_DETAIL_CHAIN_EVOLVES_TO_INNER_EVOLUTION_DETAILS_INNER_GENDER
       

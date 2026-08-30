@@ -26,6 +26,8 @@ GrowthRateDescription::GrowthRateDescription()
     
 }
 
+GrowthRateDescription::~GrowthRateDescription() = default;
+
 void GrowthRateDescription::validate() const
 {
     std::stringstream msg;

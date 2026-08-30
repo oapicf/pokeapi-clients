@@ -17,7 +17,7 @@ import LanguageSummary from './LanguageSummary';
 /**
  * The NatureName model module.
  * @module model/NatureName
- * @version 1.2.1-pre.0
+ * @version 2.0.1-pre.0
  */
 class NatureName {
     /**

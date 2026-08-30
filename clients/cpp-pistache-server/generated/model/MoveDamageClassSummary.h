@@ -32,7 +32,7 @@ class  MoveDamageClassSummary
 {
 public:
     MoveDamageClassSummary();
-    virtual ~MoveDamageClassSummary() = default;
+    virtual ~MoveDamageClassSummary();
 
 
     /// <summary>

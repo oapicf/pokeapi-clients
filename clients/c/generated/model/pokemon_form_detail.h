@@ -24,13 +24,13 @@ typedef struct pokemon_form_detail_t pokemon_form_detail_t;
 
 
 typedef struct pokemon_form_detail_t {
-    int id; //numeric
+    int *id; //numeric
     char *name; // string
-    int order; //numeric
-    int form_order; //numeric
-    int is_default; //boolean
-    int is_battle_only; //boolean
-    int is_mega; //boolean
+    int *order; //numeric
+    int *form_order; //numeric
+    int *is_default; //boolean
+    int *is_battle_only; //boolean
+    int *is_mega; //boolean
     char *form_name; // string
     struct pokemon_summary_t *pokemon; //model
     pokemon_form_detail_sprites_t *sprites; // custom
@@ -43,13 +43,13 @@ typedef struct pokemon_form_detail_t {
 } pokemon_form_detail_t;
 
 __attribute__((deprecated)) pokemon_form_detail_t *pokemon_form_detail_create(
-    int id,
+    int *id,
     char *name,
-    int order,
-    int form_order,
-    int is_default,
-    int is_battle_only,
-    int is_mega,
+    int *order,
+    int *form_order,
+    int *is_default,
+    int *is_battle_only,
+    int *is_mega,
     char *form_name,
     pokemon_summary_t *pokemon,
     pokemon_form_detail_sprites_t *sprites,

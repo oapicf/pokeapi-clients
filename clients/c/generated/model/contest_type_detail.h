@@ -21,7 +21,7 @@ typedef struct contest_type_detail_t contest_type_detail_t;
 
 
 typedef struct contest_type_detail_t {
-    int id; //numeric
+    int *id; //numeric
     char *name; // string
     struct berry_flavor_summary_t *berry_flavor; //model
     list_t *names; //nonprimitive container
@@ -30,7 +30,7 @@ typedef struct contest_type_detail_t {
 } contest_type_detail_t;
 
 __attribute__((deprecated)) contest_type_detail_t *contest_type_detail_create(
-    int id,
+    int *id,
     char *name,
     berry_flavor_summary_t *berry_flavor,
     list_t *names

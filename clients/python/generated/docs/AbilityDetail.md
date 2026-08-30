@@ -9,11 +9,11 @@ Name | Type | Description | Notes
 **name** | **str** |  | 
 **is_main_series** | **bool** |  | [optional] 
 **generation** | [**GenerationSummary**](GenerationSummary.md) |  | 
-**names** | [**List[AbilityName]**](AbilityName.md) |  | 
-**effect_entries** | [**List[AbilityEffectText]**](AbilityEffectText.md) |  | 
-**effect_changes** | [**List[AbilityChange]**](AbilityChange.md) |  | 
-**flavor_text_entries** | [**List[AbilityFlavorText]**](AbilityFlavorText.md) |  | 
-**pokemon** | [**List[AbilityDetailPokemonInner]**](AbilityDetailPokemonInner.md) |  | 
+**names** | [**List[AbilityName]**](AbilityName.md) |  | [readonly] 
+**effect_entries** | [**List[AbilityEffectText]**](AbilityEffectText.md) |  | [readonly] 
+**effect_changes** | [**List[AbilityChange]**](AbilityChange.md) |  | [readonly] 
+**flavor_text_entries** | [**List[AbilityFlavorText]**](AbilityFlavorText.md) |  | [readonly] 
+**pokemon** | [**List[AbilityDetailPokemonInner]**](AbilityDetailPokemonInner.md) |  | [readonly] 
 
 ## Example
 

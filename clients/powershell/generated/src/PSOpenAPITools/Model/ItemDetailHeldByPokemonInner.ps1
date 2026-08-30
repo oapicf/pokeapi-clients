@@ -49,8 +49,8 @@ function Initialize-ItemDetailHeldByPokemonInner {
 
 
         $PSO = [PSCustomObject]@{
-            "pokemon" = ${Pokemon}
-            "version-details" = ${VersionDetails}
+            'pokemon' = ${Pokemon}
+            'version-details' = ${VersionDetails}
         }
 
 
@@ -88,7 +88,7 @@ function ConvertFrom-JsonToItemDetailHeldByPokemonInner {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in ItemDetailHeldByPokemonInner
-        $AllProperties = ("pokemon", "version-details")
+        $AllProperties = ('pokemon', 'version-details')
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -99,21 +99,21 @@ function ConvertFrom-JsonToItemDetailHeldByPokemonInner {
             throw "Error! Empty JSON cannot be serialized due to the required property 'pokemon' missing."
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "pokemon"))) {
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'pokemon'))) {
             throw "Error! JSON cannot be serialized due to the required property 'pokemon' missing."
         } else {
-            $Pokemon = $JsonParameters.PSobject.Properties["pokemon"].value
+            $Pokemon = $JsonParameters.PSobject.Properties['pokemon'].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "version-details"))) {
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'version-details'))) {
             throw "Error! JSON cannot be serialized due to the required property 'version-details' missing."
         } else {
-            $VersionDetails = $JsonParameters.PSobject.Properties["version-details"].value
+            $VersionDetails = $JsonParameters.PSobject.Properties['version-details'].value
         }
 
         $PSO = [PSCustomObject]@{
-            "pokemon" = ${Pokemon}
-            "version-details" = ${VersionDetails}
+            'pokemon' = ${Pokemon}
+            'version-details' = ${VersionDetails}
         }
 
         return $PSO

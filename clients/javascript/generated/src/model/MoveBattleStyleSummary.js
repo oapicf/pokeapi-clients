@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The MoveBattleStyleSummary model module.
  * @module model/MoveBattleStyleSummary
- * @version 1.2.1-pre.0
+ * @version 2.0.1-pre.0
  */
 class MoveBattleStyleSummary {
     /**

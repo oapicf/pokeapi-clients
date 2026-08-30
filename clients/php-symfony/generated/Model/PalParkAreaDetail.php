@@ -47,7 +47,7 @@ class PalParkAreaDetail
      * @var int|null
      * @SerializedName("id")
      * @Type("int")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Type("int")]
     protected ?int $id = null;
@@ -56,7 +56,7 @@ class PalParkAreaDetail
      * @var string|null
      * @SerializedName("name")
      * @Type("string")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Type("string")]
     #[Assert\Length(max: 100)]
@@ -66,7 +66,7 @@ class PalParkAreaDetail
      * @var PalParkAreaName[]|null
      * @SerializedName("names")
      * @Type("array<OpenAPI\Server\Model\PalParkAreaName>")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Valid]
     #[Assert\All([
@@ -78,7 +78,7 @@ class PalParkAreaDetail
      * @var PalParkAreaDetailPokemonEncountersInner[]|null
      * @SerializedName("pokemon_encounters")
      * @Type("array<OpenAPI\Server\Model\PalParkAreaDetailPokemonEncountersInner>")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Valid]
     #[Assert\All([
@@ -111,12 +111,12 @@ class PalParkAreaDetail
     }
 
     /**
-    * Sets id.
-    *
-    * @param int|null $id
-    *
-    * @return $this
-    */
+     * Sets id.
+     *
+     * @param int|null $id
+     *
+     * @return $this
+     */
     public function setId(?int $id): self
     {
         $this->id = $id;
@@ -138,12 +138,12 @@ class PalParkAreaDetail
     }
 
     /**
-    * Sets name.
-    *
-    * @param string|null $name
-    *
-    * @return $this
-    */
+     * Sets name.
+     *
+     * @param string|null $name
+     *
+     * @return $this
+     */
     public function setName(?string $name): self
     {
         $this->name = $name;
@@ -165,12 +165,12 @@ class PalParkAreaDetail
     }
 
     /**
-    * Sets names.
-    *
-    * @param PalParkAreaName[]|null $names
-    *
-    * @return $this
-    */
+     * Sets names.
+     *
+     * @param PalParkAreaName[]|null $names
+     *
+     * @return $this
+     */
     public function setNames(?array $names): self
     {
         $this->names = $names;
@@ -192,12 +192,12 @@ class PalParkAreaDetail
     }
 
     /**
-    * Sets pokemonEncounters.
-    *
-    * @param PalParkAreaDetailPokemonEncountersInner[]|null $pokemonEncounters
-    *
-    * @return $this
-    */
+     * Sets pokemonEncounters.
+     *
+     * @param PalParkAreaDetailPokemonEncountersInner[]|null $pokemonEncounters
+     *
+     * @return $this
+     */
     public function setPokemonEncounters(?array $pokemonEncounters): self
     {
         $this->pokemonEncounters = $pokemonEncounters;

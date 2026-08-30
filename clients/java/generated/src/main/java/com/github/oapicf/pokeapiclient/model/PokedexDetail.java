@@ -55,7 +55,7 @@ import com.github.oapicf.pokeapiclient.JSON;
 /**
  * PokedexDetail
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-07T15:22:35.747827932Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-08-30T01:55:28.842792947Z[Etc/UTC]", comments = "Generator version: 7.24.0")
 public class PokedexDetail {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -101,10 +101,18 @@ public class PokedexDetail {
   }
 
   public PokedexDetail(
-     Integer id
+     Integer id, 
+     List<PokedexDescription> descriptions, 
+     List<PokedexName> names, 
+     List<PokedexDetailPokemonEntriesInner> pokemonEntries, 
+     List<AbilityDetailPokemonInnerPokemon> versionGroups
   ) {
     this();
     this.id = id;
+    this.descriptions = descriptions;
+    this.names = names;
+    this.pokemonEntries = pokemonEntries;
+    this.versionGroups = versionGroups;
   }
 
   /**
@@ -156,19 +164,6 @@ public class PokedexDetail {
   }
 
 
-  public PokedexDetail descriptions(@javax.annotation.Nonnull List<PokedexDescription> descriptions) {
-    this.descriptions = descriptions;
-    return this;
-  }
-
-  public PokedexDetail addDescriptionsItem(PokedexDescription descriptionsItem) {
-    if (this.descriptions == null) {
-      this.descriptions = new ArrayList<>();
-    }
-    this.descriptions.add(descriptionsItem);
-    return this;
-  }
-
   /**
    * Get descriptions
    * @return descriptions
@@ -178,23 +173,7 @@ public class PokedexDetail {
     return descriptions;
   }
 
-  public void setDescriptions(@javax.annotation.Nonnull List<PokedexDescription> descriptions) {
-    this.descriptions = descriptions;
-  }
 
-
-  public PokedexDetail names(@javax.annotation.Nonnull List<PokedexName> names) {
-    this.names = names;
-    return this;
-  }
-
-  public PokedexDetail addNamesItem(PokedexName namesItem) {
-    if (this.names == null) {
-      this.names = new ArrayList<>();
-    }
-    this.names.add(namesItem);
-    return this;
-  }
 
   /**
    * Get names
@@ -205,23 +184,7 @@ public class PokedexDetail {
     return names;
   }
 
-  public void setNames(@javax.annotation.Nonnull List<PokedexName> names) {
-    this.names = names;
-  }
 
-
-  public PokedexDetail pokemonEntries(@javax.annotation.Nonnull List<PokedexDetailPokemonEntriesInner> pokemonEntries) {
-    this.pokemonEntries = pokemonEntries;
-    return this;
-  }
-
-  public PokedexDetail addPokemonEntriesItem(PokedexDetailPokemonEntriesInner pokemonEntriesItem) {
-    if (this.pokemonEntries == null) {
-      this.pokemonEntries = new ArrayList<>();
-    }
-    this.pokemonEntries.add(pokemonEntriesItem);
-    return this;
-  }
 
   /**
    * Get pokemonEntries
@@ -232,9 +195,6 @@ public class PokedexDetail {
     return pokemonEntries;
   }
 
-  public void setPokemonEntries(@javax.annotation.Nonnull List<PokedexDetailPokemonEntriesInner> pokemonEntries) {
-    this.pokemonEntries = pokemonEntries;
-  }
 
 
   public PokedexDetail region(@javax.annotation.Nonnull RegionSummary region) {
@@ -256,19 +216,6 @@ public class PokedexDetail {
   }
 
 
-  public PokedexDetail versionGroups(@javax.annotation.Nonnull List<AbilityDetailPokemonInnerPokemon> versionGroups) {
-    this.versionGroups = versionGroups;
-    return this;
-  }
-
-  public PokedexDetail addVersionGroupsItem(AbilityDetailPokemonInnerPokemon versionGroupsItem) {
-    if (this.versionGroups == null) {
-      this.versionGroups = new ArrayList<>();
-    }
-    this.versionGroups.add(versionGroupsItem);
-    return this;
-  }
-
   /**
    * Get versionGroups
    * @return versionGroups
@@ -278,9 +225,6 @@ public class PokedexDetail {
     return versionGroups;
   }
 
-  public void setVersionGroups(@javax.annotation.Nonnull List<AbilityDetailPokemonInnerPokemon> versionGroups) {
-    this.versionGroups = versionGroups;
-  }
 
 
 
@@ -329,10 +273,7 @@ public class PokedexDetail {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 
@@ -378,48 +319,48 @@ public class PokedexDetail {
       if (!jsonObj.get("name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
       }
-      // ensure the json data is an array
-      if (!jsonObj.get("descriptions").isJsonArray()) {
-        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `descriptions` to be an array in the JSON string but got `%s`", jsonObj.get("descriptions").toString()));
+      if (jsonObj.get("descriptions") != null) {
+        if (!jsonObj.get("descriptions").isJsonArray()) {
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `descriptions` to be an array in the JSON string but got `%s`", jsonObj.get("descriptions").toString()));
+        }
+        JsonArray jsonArraydescriptions = jsonObj.getAsJsonArray("descriptions");
+        // validate the required field `descriptions` (array)
+        for (int i = 0; i < jsonArraydescriptions.size(); i++) {
+          PokedexDescription.validateJsonElement(jsonArraydescriptions.get(i));
+        }
       }
-
-      JsonArray jsonArraydescriptions = jsonObj.getAsJsonArray("descriptions");
-      // validate the required field `descriptions` (array)
-      for (int i = 0; i < jsonArraydescriptions.size(); i++) {
-        PokedexDescription.validateJsonElement(jsonArraydescriptions.get(i));
-      };
-      // ensure the json data is an array
-      if (!jsonObj.get("names").isJsonArray()) {
-        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `names` to be an array in the JSON string but got `%s`", jsonObj.get("names").toString()));
+      if (jsonObj.get("names") != null) {
+        if (!jsonObj.get("names").isJsonArray()) {
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `names` to be an array in the JSON string but got `%s`", jsonObj.get("names").toString()));
+        }
+        JsonArray jsonArraynames = jsonObj.getAsJsonArray("names");
+        // validate the required field `names` (array)
+        for (int i = 0; i < jsonArraynames.size(); i++) {
+          PokedexName.validateJsonElement(jsonArraynames.get(i));
+        }
       }
-
-      JsonArray jsonArraynames = jsonObj.getAsJsonArray("names");
-      // validate the required field `names` (array)
-      for (int i = 0; i < jsonArraynames.size(); i++) {
-        PokedexName.validateJsonElement(jsonArraynames.get(i));
-      };
-      // ensure the json data is an array
-      if (!jsonObj.get("pokemon_entries").isJsonArray()) {
-        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `pokemon_entries` to be an array in the JSON string but got `%s`", jsonObj.get("pokemon_entries").toString()));
+      if (jsonObj.get("pokemon_entries") != null) {
+        if (!jsonObj.get("pokemon_entries").isJsonArray()) {
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `pokemon_entries` to be an array in the JSON string but got `%s`", jsonObj.get("pokemon_entries").toString()));
+        }
+        JsonArray jsonArraypokemonEntries = jsonObj.getAsJsonArray("pokemon_entries");
+        // validate the required field `pokemon_entries` (array)
+        for (int i = 0; i < jsonArraypokemonEntries.size(); i++) {
+          PokedexDetailPokemonEntriesInner.validateJsonElement(jsonArraypokemonEntries.get(i));
+        }
       }
-
-      JsonArray jsonArraypokemonEntries = jsonObj.getAsJsonArray("pokemon_entries");
-      // validate the required field `pokemon_entries` (array)
-      for (int i = 0; i < jsonArraypokemonEntries.size(); i++) {
-        PokedexDetailPokemonEntriesInner.validateJsonElement(jsonArraypokemonEntries.get(i));
-      };
       // validate the required field `region`
       RegionSummary.validateJsonElement(jsonObj.get("region"));
-      // ensure the json data is an array
-      if (!jsonObj.get("version_groups").isJsonArray()) {
-        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `version_groups` to be an array in the JSON string but got `%s`", jsonObj.get("version_groups").toString()));
+      if (jsonObj.get("version_groups") != null) {
+        if (!jsonObj.get("version_groups").isJsonArray()) {
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `version_groups` to be an array in the JSON string but got `%s`", jsonObj.get("version_groups").toString()));
+        }
+        JsonArray jsonArrayversionGroups = jsonObj.getAsJsonArray("version_groups");
+        // validate the required field `version_groups` (array)
+        for (int i = 0; i < jsonArrayversionGroups.size(); i++) {
+          AbilityDetailPokemonInnerPokemon.validateJsonElement(jsonArrayversionGroups.get(i));
+        }
       }
-
-      JsonArray jsonArrayversionGroups = jsonObj.getAsJsonArray("version_groups");
-      // validate the required field `version_groups` (array)
-      for (int i = 0; i < jsonArrayversionGroups.size(); i++) {
-        AbilityDetailPokemonInnerPokemon.validateJsonElement(jsonArrayversionGroups.get(i));
-      };
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {

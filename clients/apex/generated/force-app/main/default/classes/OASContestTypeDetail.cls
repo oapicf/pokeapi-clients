@@ -36,7 +36,7 @@ public class OASContestTypeDetail implements OAS.MappedProperties {
      * Get names
      * @return names
      */
-    public List<OASContestTypeName> names { get; set; }
+    public List<OASContestTypeName> names { get; private set; }
 
     private static final Map<String, String> propertyMappings = new Map<String, String>{
         'berry_flavor' => 'berryFlavor'

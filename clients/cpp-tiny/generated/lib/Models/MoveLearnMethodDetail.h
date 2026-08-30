@@ -55,35 +55,35 @@ public:
 
 	/*! \brief Set 
 	 */
-	void setId(int  id);
+	void setId(int id);
 	/*! \brief Get 
 	 */
 	std::string getName();
 
 	/*! \brief Set 
 	 */
-	void setName(std::string  name);
+	void setName(std::string name);
 	/*! \brief Get 
 	 */
 	std::list<MoveLearnMethodName> getNames();
 
 	/*! \brief Set 
 	 */
-	void setNames(std::list <MoveLearnMethodName> names);
+	void setNames(std::list<MoveLearnMethodName> names);
 	/*! \brief Get 
 	 */
 	std::list<MoveLearnMethodDescription> getDescriptions();
 
 	/*! \brief Set 
 	 */
-	void setDescriptions(std::list <MoveLearnMethodDescription> descriptions);
+	void setDescriptions(std::list<MoveLearnMethodDescription> descriptions);
 	/*! \brief Get 
 	 */
 	std::list<AbilityDetail_pokemon_inner_pokemon> getVersionGroups();
 
 	/*! \brief Set 
 	 */
-	void setVersionGroups(std::list <AbilityDetail_pokemon_inner_pokemon> version_groups);
+	void setVersionGroups(std::list<AbilityDetail_pokemon_inner_pokemon> version_groups);
 
 
     private:

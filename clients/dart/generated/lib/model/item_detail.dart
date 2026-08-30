@@ -139,10 +139,32 @@ class ItemDetail {
       // Note 1: the values aren't checked for validity beyond being non-null.
       // Note 2: this code is stripped in release mode!
       assert(() {
-        requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "ItemDetail[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "ItemDetail[$key]" has a null value in JSON.');
-        });
+        assert(json.containsKey(r'id'), 'Required key "ItemDetail[id]" is missing from JSON.');
+        assert(json[r'id'] != null, 'Required key "ItemDetail[id]" has a null value in JSON.');
+        assert(json.containsKey(r'name'), 'Required key "ItemDetail[name]" is missing from JSON.');
+        assert(json[r'name'] != null, 'Required key "ItemDetail[name]" has a null value in JSON.');
+        assert(json.containsKey(r'fling_effect'), 'Required key "ItemDetail[fling_effect]" is missing from JSON.');
+        assert(json[r'fling_effect'] != null, 'Required key "ItemDetail[fling_effect]" has a null value in JSON.');
+        assert(json.containsKey(r'attributes'), 'Required key "ItemDetail[attributes]" is missing from JSON.');
+        assert(json[r'attributes'] != null, 'Required key "ItemDetail[attributes]" has a null value in JSON.');
+        assert(json.containsKey(r'category'), 'Required key "ItemDetail[category]" is missing from JSON.');
+        assert(json[r'category'] != null, 'Required key "ItemDetail[category]" has a null value in JSON.');
+        assert(json.containsKey(r'effect_entries'), 'Required key "ItemDetail[effect_entries]" is missing from JSON.');
+        assert(json[r'effect_entries'] != null, 'Required key "ItemDetail[effect_entries]" has a null value in JSON.');
+        assert(json.containsKey(r'flavor_text_entries'), 'Required key "ItemDetail[flavor_text_entries]" is missing from JSON.');
+        assert(json[r'flavor_text_entries'] != null, 'Required key "ItemDetail[flavor_text_entries]" has a null value in JSON.');
+        assert(json.containsKey(r'game_indices'), 'Required key "ItemDetail[game_indices]" is missing from JSON.');
+        assert(json[r'game_indices'] != null, 'Required key "ItemDetail[game_indices]" has a null value in JSON.');
+        assert(json.containsKey(r'names'), 'Required key "ItemDetail[names]" is missing from JSON.');
+        assert(json[r'names'] != null, 'Required key "ItemDetail[names]" has a null value in JSON.');
+        assert(json.containsKey(r'held_by_pokemon'), 'Required key "ItemDetail[held_by_pokemon]" is missing from JSON.');
+        assert(json[r'held_by_pokemon'] != null, 'Required key "ItemDetail[held_by_pokemon]" has a null value in JSON.');
+        assert(json.containsKey(r'sprites'), 'Required key "ItemDetail[sprites]" is missing from JSON.');
+        assert(json[r'sprites'] != null, 'Required key "ItemDetail[sprites]" has a null value in JSON.');
+        assert(json.containsKey(r'baby_trigger_for'), 'Required key "ItemDetail[baby_trigger_for]" is missing from JSON.');
+        assert(json[r'baby_trigger_for'] != null, 'Required key "ItemDetail[baby_trigger_for]" has a null value in JSON.');
+        assert(json.containsKey(r'machines'), 'Required key "ItemDetail[machines]" is missing from JSON.');
+        assert(json[r'machines'] != null, 'Required key "ItemDetail[machines]" has a null value in JSON.');
         return true;
       }());
 

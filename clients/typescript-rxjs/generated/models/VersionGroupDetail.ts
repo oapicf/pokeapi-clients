@@ -46,20 +46,20 @@ export interface VersionGroupDetail {
      * @type {Array<AbilityDetailPokemonInnerPokemon>}
      * @memberof VersionGroupDetail
      */
-    move_learn_methods: Array<AbilityDetailPokemonInnerPokemon>;
+    readonly move_learn_methods: Array<AbilityDetailPokemonInnerPokemon>;
     /**
      * @type {Array<AbilityDetailPokemonInnerPokemon>}
      * @memberof VersionGroupDetail
      */
-    pokedexes: Array<AbilityDetailPokemonInnerPokemon>;
+    readonly pokedexes: Array<AbilityDetailPokemonInnerPokemon>;
     /**
      * @type {Array<AbilityDetailPokemonInnerPokemon>}
      * @memberof VersionGroupDetail
      */
-    regions: Array<AbilityDetailPokemonInnerPokemon>;
+    readonly regions: Array<AbilityDetailPokemonInnerPokemon>;
     /**
      * @type {Array<VersionSummary>}
      * @memberof VersionGroupDetail
      */
-    versions: Array<VersionSummary>;
+    readonly versions: Array<VersionSummary>;
 }

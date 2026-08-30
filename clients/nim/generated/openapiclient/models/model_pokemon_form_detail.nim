@@ -29,7 +29,7 @@ type PokemonFormDetail* = object
   isMega*: Option[bool]
   formName*: string
   pokemon*: PokemonSummary
-  sprites*: PokemonFormDetail_sprites
+  sprites*: Table[string, string]
   versionGroup*: VersionGroupSummary
   formNames*: seq[PokemonFormDetail_form_names_inner]
   names*: seq[PokemonFormDetail_form_names_inner]
@@ -59,7 +59,7 @@ proc to*(node: JsonNode, T: typedesc[PokemonFormDetail]): PokemonFormDetail =
     if node.hasKey("pokemon"):
       result.pokemon = to(node["pokemon"], PokemonSummary)
     if node.hasKey("sprites"):
-      result.sprites = to(node["sprites"], PokemonFormDetail_sprites)
+      result.sprites = to(node["sprites"], Table[string, string])
     if node.hasKey("version_group"):
       result.versionGroup = to(node["version_group"], VersionGroupSummary)
     if node.hasKey("form_names"):

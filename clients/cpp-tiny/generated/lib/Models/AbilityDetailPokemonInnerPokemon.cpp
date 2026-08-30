@@ -85,7 +85,7 @@ AbilityDetail_pokemon_inner_pokemon::getName()
 }
 
 void
-AbilityDetail_pokemon_inner_pokemon::setName(std::string  name)
+AbilityDetail_pokemon_inner_pokemon::setName(std::string name)
 {
 	this->name = name;
 }
@@ -97,7 +97,7 @@ AbilityDetail_pokemon_inner_pokemon::getUrl()
 }
 
 void
-AbilityDetail_pokemon_inner_pokemon::setUrl(std::string  url)
+AbilityDetail_pokemon_inner_pokemon::setUrl(std::string url)
 {
 	this->url = url;
 }

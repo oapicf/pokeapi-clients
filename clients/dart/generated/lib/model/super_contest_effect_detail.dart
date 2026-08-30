@@ -65,10 +65,14 @@ class SuperContestEffectDetail {
       // Note 1: the values aren't checked for validity beyond being non-null.
       // Note 2: this code is stripped in release mode!
       assert(() {
-        requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "SuperContestEffectDetail[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "SuperContestEffectDetail[$key]" has a null value in JSON.');
-        });
+        assert(json.containsKey(r'id'), 'Required key "SuperContestEffectDetail[id]" is missing from JSON.');
+        assert(json[r'id'] != null, 'Required key "SuperContestEffectDetail[id]" has a null value in JSON.');
+        assert(json.containsKey(r'appeal'), 'Required key "SuperContestEffectDetail[appeal]" is missing from JSON.');
+        assert(json[r'appeal'] != null, 'Required key "SuperContestEffectDetail[appeal]" has a null value in JSON.');
+        assert(json.containsKey(r'flavor_text_entries'), 'Required key "SuperContestEffectDetail[flavor_text_entries]" is missing from JSON.');
+        assert(json[r'flavor_text_entries'] != null, 'Required key "SuperContestEffectDetail[flavor_text_entries]" has a null value in JSON.');
+        assert(json.containsKey(r'moves'), 'Required key "SuperContestEffectDetail[moves]" is missing from JSON.');
+        assert(json[r'moves'] != null, 'Required key "SuperContestEffectDetail[moves]" has a null value in JSON.');
         return true;
       }());
 

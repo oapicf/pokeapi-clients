@@ -21,7 +21,7 @@
 
 namespace OpenAPI {
 
-OAIBerrySummary::OAIBerrySummary(QString json) {
+OAIBerrySummary::OAIBerrySummary(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -41,7 +41,7 @@ void OAIBerrySummary::initializeModel() {
     m_url_isValid = false;
 }
 
-void OAIBerrySummary::fromJson(QString jsonString) {
+void OAIBerrySummary::fromJson(const QString &jsonString) {
     QByteArray array(jsonString.toStdString().c_str());
     QJsonDocument doc = QJsonDocument::fromJson(array);
     QJsonObject jsonObject = doc.object();

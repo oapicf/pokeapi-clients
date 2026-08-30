@@ -74,19 +74,6 @@ public class EggGroupDetail  {
     return names;
   }
 
-  public void setNames(List<@Valid EggGroupName> names) {
-    this.names = names;
-  }
-
-  public EggGroupDetail names(List<@Valid EggGroupName> names) {
-    this.names = names;
-    return this;
-  }
-
-  public EggGroupDetail addNamesItem(EggGroupName namesItem) {
-    this.names.add(namesItem);
-    return this;
-  }
 
  /**
    * Get pokemonSpecies
@@ -98,19 +85,6 @@ public class EggGroupDetail  {
     return pokemonSpecies;
   }
 
-  public void setPokemonSpecies(List<@Valid EggGroupDetailPokemonSpeciesInner> pokemonSpecies) {
-    this.pokemonSpecies = pokemonSpecies;
-  }
-
-  public EggGroupDetail pokemonSpecies(List<@Valid EggGroupDetailPokemonSpeciesInner> pokemonSpecies) {
-    this.pokemonSpecies = pokemonSpecies;
-    return this;
-  }
-
-  public EggGroupDetail addPokemonSpeciesItem(EggGroupDetailPokemonSpeciesInner pokemonSpeciesItem) {
-    this.pokemonSpecies.add(pokemonSpeciesItem);
-    return this;
-  }
 
   @Override
   public boolean equals(Object o) {
@@ -150,10 +124,7 @@ public class EggGroupDetail  {
    * (except the first line).
    */
   private static String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 }
 

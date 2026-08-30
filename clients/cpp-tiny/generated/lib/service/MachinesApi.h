@@ -22,7 +22,7 @@ class MachinesApi : public Service {
 public:
     MachinesApi() = default;
 
-    virtual ~MachinesApi() = default;
+    virtual ~MachinesApi();
 
     /**
     * List machines.

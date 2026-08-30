@@ -327,10 +327,10 @@ bool OAIPokemonFormDetail::is_pokemon_Valid() const{
     return m_pokemon_isValid;
 }
 
-OAIPokemonFormDetail_sprites OAIPokemonFormDetail::getSprites() const {
+OAIPokemonFormDetail_sprites<QString, QString> OAIPokemonFormDetail::getSprites() const {
     return sprites;
 }
-void OAIPokemonFormDetail::setSprites(const OAIPokemonFormDetail_sprites &sprites) {
+void OAIPokemonFormDetail::setSprites(const OAIPokemonFormDetail_sprites<QString, QString> &sprites) {
     this->sprites = sprites;
     this->m_sprites_isSet = true;
 }

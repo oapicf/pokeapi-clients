@@ -42,7 +42,7 @@ type PokemonDetail* = object
   locationAreaEncounters*: string
   moves*: seq[PokemonDetail_moves_inner]
   species*: PokemonSpeciesSummary
-  sprites*: PokemonDetail_sprites
+  sprites*: Table[string, string]
   cries*: PokemonDetail_cries
   stats*: seq[PokemonStat]
   types*: seq[PokemonDetail_types_inner]
@@ -89,7 +89,7 @@ proc to*(node: JsonNode, T: typedesc[PokemonDetail]): PokemonDetail =
     if node.hasKey("species"):
       result.species = to(node["species"], PokemonSpeciesSummary)
     if node.hasKey("sprites"):
-      result.sprites = to(node["sprites"], PokemonDetail_sprites)
+      result.sprites = to(node["sprites"], Table[string, string])
     if node.hasKey("cries"):
       result.cries = to(node["cries"], PokemonDetail_cries)
     if node.hasKey("stats"):

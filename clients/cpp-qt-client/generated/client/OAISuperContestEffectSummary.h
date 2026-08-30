@@ -31,13 +31,13 @@ namespace OpenAPI {
 class OAISuperContestEffectSummary : public OAIObject {
 public:
     OAISuperContestEffectSummary();
-    OAISuperContestEffectSummary(QString json);
+    OAISuperContestEffectSummary(const QString &json);
     ~OAISuperContestEffectSummary() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     QString getUrl() const;
     void setUrl(const QString &url);

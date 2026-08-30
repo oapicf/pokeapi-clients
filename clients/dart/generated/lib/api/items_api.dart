@@ -32,7 +32,7 @@ class ItemsApi {
   ///
   /// * [String] q:
   ///   > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. 
-  Future<Response> itemAttributeListWithHttpInfo({ int? limit, int? offset, String? q, }) async {
+  Future<Response> itemAttributeListWithHttpInfo({ int? limit, int? offset, String? q, Future<void>? abortTrigger, }) async {
     // ignore: prefer_const_declarations
     final path = r'/api/v2/item-attribute/';
 
@@ -64,6 +64,7 @@ class ItemsApi {
       headerParams,
       formParams,
       contentTypes.isEmpty ? null : contentTypes.first,
+      abortTrigger: abortTrigger,
     );
   }
 
@@ -81,8 +82,8 @@ class ItemsApi {
   ///
   /// * [String] q:
   ///   > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. 
-  Future<PaginatedItemAttributeSummaryList?> itemAttributeList({ int? limit, int? offset, String? q, }) async {
-    final response = await itemAttributeListWithHttpInfo( limit: limit, offset: offset, q: q, );
+  Future<PaginatedItemAttributeSummaryList?> itemAttributeList({ int? limit, int? offset, String? q, Future<void>? abortTrigger, }) async {
+    final response = await itemAttributeListWithHttpInfo(limit: limit, offset: offset, q: q, abortTrigger: abortTrigger,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -106,7 +107,7 @@ class ItemsApi {
   ///
   /// * [String] id (required):
   ///   This parameter can be a string or an integer.
-  Future<Response> itemAttributeRetrieveWithHttpInfo(String id,) async {
+  Future<Response> itemAttributeRetrieveWithHttpInfo(String id, { Future<void>? abortTrigger, }) async {
     // ignore: prefer_const_declarations
     final path = r'/api/v2/item-attribute/{id}/'
       .replaceAll('{id}', id);
@@ -129,6 +130,7 @@ class ItemsApi {
       headerParams,
       formParams,
       contentTypes.isEmpty ? null : contentTypes.first,
+      abortTrigger: abortTrigger,
     );
   }
 
@@ -140,8 +142,8 @@ class ItemsApi {
   ///
   /// * [String] id (required):
   ///   This parameter can be a string or an integer.
-  Future<ItemAttributeDetail?> itemAttributeRetrieve(String id,) async {
-    final response = await itemAttributeRetrieveWithHttpInfo(id,);
+  Future<ItemAttributeDetail?> itemAttributeRetrieve(String id, { Future<void>? abortTrigger, }) async {
+    final response = await itemAttributeRetrieveWithHttpInfo(id, abortTrigger: abortTrigger,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -171,7 +173,7 @@ class ItemsApi {
   ///
   /// * [String] q:
   ///   > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. 
-  Future<Response> itemCategoryListWithHttpInfo({ int? limit, int? offset, String? q, }) async {
+  Future<Response> itemCategoryListWithHttpInfo({ int? limit, int? offset, String? q, Future<void>? abortTrigger, }) async {
     // ignore: prefer_const_declarations
     final path = r'/api/v2/item-category/';
 
@@ -203,6 +205,7 @@ class ItemsApi {
       headerParams,
       formParams,
       contentTypes.isEmpty ? null : contentTypes.first,
+      abortTrigger: abortTrigger,
     );
   }
 
@@ -220,8 +223,8 @@ class ItemsApi {
   ///
   /// * [String] q:
   ///   > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. 
-  Future<PaginatedItemCategorySummaryList?> itemCategoryList({ int? limit, int? offset, String? q, }) async {
-    final response = await itemCategoryListWithHttpInfo( limit: limit, offset: offset, q: q, );
+  Future<PaginatedItemCategorySummaryList?> itemCategoryList({ int? limit, int? offset, String? q, Future<void>? abortTrigger, }) async {
+    final response = await itemCategoryListWithHttpInfo(limit: limit, offset: offset, q: q, abortTrigger: abortTrigger,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -245,7 +248,7 @@ class ItemsApi {
   ///
   /// * [String] id (required):
   ///   This parameter can be a string or an integer.
-  Future<Response> itemCategoryRetrieveWithHttpInfo(String id,) async {
+  Future<Response> itemCategoryRetrieveWithHttpInfo(String id, { Future<void>? abortTrigger, }) async {
     // ignore: prefer_const_declarations
     final path = r'/api/v2/item-category/{id}/'
       .replaceAll('{id}', id);
@@ -268,6 +271,7 @@ class ItemsApi {
       headerParams,
       formParams,
       contentTypes.isEmpty ? null : contentTypes.first,
+      abortTrigger: abortTrigger,
     );
   }
 
@@ -279,8 +283,8 @@ class ItemsApi {
   ///
   /// * [String] id (required):
   ///   This parameter can be a string or an integer.
-  Future<ItemCategoryDetail?> itemCategoryRetrieve(String id,) async {
-    final response = await itemCategoryRetrieveWithHttpInfo(id,);
+  Future<ItemCategoryDetail?> itemCategoryRetrieve(String id, { Future<void>? abortTrigger, }) async {
+    final response = await itemCategoryRetrieveWithHttpInfo(id, abortTrigger: abortTrigger,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -310,7 +314,7 @@ class ItemsApi {
   ///
   /// * [String] q:
   ///   > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. 
-  Future<Response> itemFlingEffectListWithHttpInfo({ int? limit, int? offset, String? q, }) async {
+  Future<Response> itemFlingEffectListWithHttpInfo({ int? limit, int? offset, String? q, Future<void>? abortTrigger, }) async {
     // ignore: prefer_const_declarations
     final path = r'/api/v2/item-fling-effect/';
 
@@ -342,6 +346,7 @@ class ItemsApi {
       headerParams,
       formParams,
       contentTypes.isEmpty ? null : contentTypes.first,
+      abortTrigger: abortTrigger,
     );
   }
 
@@ -359,8 +364,8 @@ class ItemsApi {
   ///
   /// * [String] q:
   ///   > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. 
-  Future<PaginatedItemFlingEffectSummaryList?> itemFlingEffectList({ int? limit, int? offset, String? q, }) async {
-    final response = await itemFlingEffectListWithHttpInfo( limit: limit, offset: offset, q: q, );
+  Future<PaginatedItemFlingEffectSummaryList?> itemFlingEffectList({ int? limit, int? offset, String? q, Future<void>? abortTrigger, }) async {
+    final response = await itemFlingEffectListWithHttpInfo(limit: limit, offset: offset, q: q, abortTrigger: abortTrigger,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -384,7 +389,7 @@ class ItemsApi {
   ///
   /// * [String] id (required):
   ///   This parameter can be a string or an integer.
-  Future<Response> itemFlingEffectRetrieveWithHttpInfo(String id,) async {
+  Future<Response> itemFlingEffectRetrieveWithHttpInfo(String id, { Future<void>? abortTrigger, }) async {
     // ignore: prefer_const_declarations
     final path = r'/api/v2/item-fling-effect/{id}/'
       .replaceAll('{id}', id);
@@ -407,6 +412,7 @@ class ItemsApi {
       headerParams,
       formParams,
       contentTypes.isEmpty ? null : contentTypes.first,
+      abortTrigger: abortTrigger,
     );
   }
 
@@ -418,8 +424,8 @@ class ItemsApi {
   ///
   /// * [String] id (required):
   ///   This parameter can be a string or an integer.
-  Future<ItemFlingEffectDetail?> itemFlingEffectRetrieve(String id,) async {
-    final response = await itemFlingEffectRetrieveWithHttpInfo(id,);
+  Future<ItemFlingEffectDetail?> itemFlingEffectRetrieve(String id, { Future<void>? abortTrigger, }) async {
+    final response = await itemFlingEffectRetrieveWithHttpInfo(id, abortTrigger: abortTrigger,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -449,7 +455,7 @@ class ItemsApi {
   ///
   /// * [String] q:
   ///   > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. 
-  Future<Response> itemListWithHttpInfo({ int? limit, int? offset, String? q, }) async {
+  Future<Response> itemListWithHttpInfo({ int? limit, int? offset, String? q, Future<void>? abortTrigger, }) async {
     // ignore: prefer_const_declarations
     final path = r'/api/v2/item/';
 
@@ -481,6 +487,7 @@ class ItemsApi {
       headerParams,
       formParams,
       contentTypes.isEmpty ? null : contentTypes.first,
+      abortTrigger: abortTrigger,
     );
   }
 
@@ -498,8 +505,8 @@ class ItemsApi {
   ///
   /// * [String] q:
   ///   > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. 
-  Future<PaginatedItemSummaryList?> itemList({ int? limit, int? offset, String? q, }) async {
-    final response = await itemListWithHttpInfo( limit: limit, offset: offset, q: q, );
+  Future<PaginatedItemSummaryList?> itemList({ int? limit, int? offset, String? q, Future<void>? abortTrigger, }) async {
+    final response = await itemListWithHttpInfo(limit: limit, offset: offset, q: q, abortTrigger: abortTrigger,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -529,7 +536,7 @@ class ItemsApi {
   ///
   /// * [String] q:
   ///   > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. 
-  Future<Response> itemPocketListWithHttpInfo({ int? limit, int? offset, String? q, }) async {
+  Future<Response> itemPocketListWithHttpInfo({ int? limit, int? offset, String? q, Future<void>? abortTrigger, }) async {
     // ignore: prefer_const_declarations
     final path = r'/api/v2/item-pocket/';
 
@@ -561,6 +568,7 @@ class ItemsApi {
       headerParams,
       formParams,
       contentTypes.isEmpty ? null : contentTypes.first,
+      abortTrigger: abortTrigger,
     );
   }
 
@@ -578,8 +586,8 @@ class ItemsApi {
   ///
   /// * [String] q:
   ///   > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. 
-  Future<PaginatedItemPocketSummaryList?> itemPocketList({ int? limit, int? offset, String? q, }) async {
-    final response = await itemPocketListWithHttpInfo( limit: limit, offset: offset, q: q, );
+  Future<PaginatedItemPocketSummaryList?> itemPocketList({ int? limit, int? offset, String? q, Future<void>? abortTrigger, }) async {
+    final response = await itemPocketListWithHttpInfo(limit: limit, offset: offset, q: q, abortTrigger: abortTrigger,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -603,7 +611,7 @@ class ItemsApi {
   ///
   /// * [String] id (required):
   ///   This parameter can be a string or an integer.
-  Future<Response> itemPocketRetrieveWithHttpInfo(String id,) async {
+  Future<Response> itemPocketRetrieveWithHttpInfo(String id, { Future<void>? abortTrigger, }) async {
     // ignore: prefer_const_declarations
     final path = r'/api/v2/item-pocket/{id}/'
       .replaceAll('{id}', id);
@@ -626,6 +634,7 @@ class ItemsApi {
       headerParams,
       formParams,
       contentTypes.isEmpty ? null : contentTypes.first,
+      abortTrigger: abortTrigger,
     );
   }
 
@@ -637,8 +646,8 @@ class ItemsApi {
   ///
   /// * [String] id (required):
   ///   This parameter can be a string or an integer.
-  Future<ItemPocketDetail?> itemPocketRetrieve(String id,) async {
-    final response = await itemPocketRetrieveWithHttpInfo(id,);
+  Future<ItemPocketDetail?> itemPocketRetrieve(String id, { Future<void>? abortTrigger, }) async {
+    final response = await itemPocketRetrieveWithHttpInfo(id, abortTrigger: abortTrigger,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -662,7 +671,7 @@ class ItemsApi {
   ///
   /// * [String] id (required):
   ///   This parameter can be a string or an integer.
-  Future<Response> itemRetrieveWithHttpInfo(String id,) async {
+  Future<Response> itemRetrieveWithHttpInfo(String id, { Future<void>? abortTrigger, }) async {
     // ignore: prefer_const_declarations
     final path = r'/api/v2/item/{id}/'
       .replaceAll('{id}', id);
@@ -685,6 +694,7 @@ class ItemsApi {
       headerParams,
       formParams,
       contentTypes.isEmpty ? null : contentTypes.first,
+      abortTrigger: abortTrigger,
     );
   }
 
@@ -696,8 +706,8 @@ class ItemsApi {
   ///
   /// * [String] id (required):
   ///   This parameter can be a string or an integer.
-  Future<ItemDetail?> itemRetrieve(String id,) async {
-    final response = await itemRetrieveWithHttpInfo(id,);
+  Future<ItemDetail?> itemRetrieve(String id, { Future<void>? abortTrigger, }) async {
+    final response = await itemRetrieveWithHttpInfo(id, abortTrigger: abortTrigger,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }

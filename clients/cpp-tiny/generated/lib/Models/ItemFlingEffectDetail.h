@@ -54,28 +54,28 @@ public:
 
 	/*! \brief Set 
 	 */
-	void setId(int  id);
+	void setId(int id);
 	/*! \brief Get 
 	 */
 	std::string getName();
 
 	/*! \brief Set 
 	 */
-	void setName(std::string  name);
+	void setName(std::string name);
 	/*! \brief Get 
 	 */
 	std::list<ItemFlingEffectEffectText> getEffectEntries();
 
 	/*! \brief Set 
 	 */
-	void setEffectEntries(std::list <ItemFlingEffectEffectText> effect_entries);
+	void setEffectEntries(std::list<ItemFlingEffectEffectText> effect_entries);
 	/*! \brief Get 
 	 */
 	std::list<ItemSummary> getItems();
 
 	/*! \brief Set 
 	 */
-	void setItems(std::list <ItemSummary> items);
+	void setItems(std::list<ItemSummary> items);
 
 
     private:

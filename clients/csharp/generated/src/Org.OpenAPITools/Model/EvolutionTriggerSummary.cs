@@ -92,8 +92,18 @@ namespace Org.OpenAPITools.Model
     /// <summary>
     /// A Json converter for type <see cref="EvolutionTriggerSummary" />
     /// </summary>
-    public class EvolutionTriggerSummaryJsonConverter : JsonConverter<EvolutionTriggerSummary>
+    public partial class EvolutionTriggerSummaryJsonConverter : JsonConverter<EvolutionTriggerSummary>
     {
+        partial void OnCreated();
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="EvolutionTriggerSummaryJsonConverter" /> class.
+        /// </summary>
+        public EvolutionTriggerSummaryJsonConverter()
+        {
+            OnCreated();
+        }
+
         /// <summary>
         /// Deserializes json to <see cref="EvolutionTriggerSummary" />
         /// </summary>

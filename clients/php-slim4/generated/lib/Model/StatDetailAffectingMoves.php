@@ -52,13 +52,15 @@ class StatDetailAffectingMoves extends BaseModel
       "type" : "array",
       "items" : {
         "$ref" : "#/components/schemas/StatDetail_affecting_moves_increase_inner"
-      }
+      },
+      "default" : null
     },
     "decrease" : {
       "type" : "array",
       "items" : {
         "$ref" : "#/components/schemas/StatDetail_affecting_moves_increase_inner"
-      }
+      },
+      "default" : null
     }
   },
   "readOnly" : true

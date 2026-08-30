@@ -45,7 +45,7 @@ export interface ContestEffectFlavorText {
  * Check if a given object implements the ContestEffectFlavorText interface.
  */
 export function instanceOfContestEffectFlavorText(value: object): value is ContestEffectFlavorText {
-    if (!('flavorText' in value) || value['flavorText'] === undefined) return false;
+    if ((!('flavorText' in (value as Record<string, any>)) && !('flavor_text' in (value as Record<string, any>))) || ((value as Record<string, any>)['flavorText'] === undefined && (value as Record<string, any>)['flavor_text'] === undefined)) return false;
     if (!('language' in value) || value['language'] === undefined) return false;
     return true;
 }

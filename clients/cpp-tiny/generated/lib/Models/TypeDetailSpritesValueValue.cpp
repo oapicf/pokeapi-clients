@@ -64,7 +64,7 @@ TypeDetail_sprites_value_value::getNameicon()
 }
 
 void
-TypeDetail_sprites_value_value::setNameicon(std::string  nameicon)
+TypeDetail_sprites_value_value::setNameicon(std::string nameicon)
 {
 	this->nameicon = nameicon;
 }

@@ -85,7 +85,7 @@ LocationSummary::getName()
 }
 
 void
-LocationSummary::setName(std::string  name)
+LocationSummary::setName(std::string name)
 {
 	this->name = name;
 }
@@ -97,7 +97,7 @@ LocationSummary::getUrl()
 }
 
 void
-LocationSummary::setUrl(std::string  url)
+LocationSummary::setUrl(std::string url)
 {
 	this->url = url;
 }

@@ -92,8 +92,18 @@ namespace Org.OpenAPITools.Model
     /// <summary>
     /// A Json converter for type <see cref="AbilityName" />
     /// </summary>
-    public class AbilityNameJsonConverter : JsonConverter<AbilityName>
+    public partial class AbilityNameJsonConverter : JsonConverter<AbilityName>
     {
+        partial void OnCreated();
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="AbilityNameJsonConverter" /> class.
+        /// </summary>
+        public AbilityNameJsonConverter()
+        {
+            OnCreated();
+        }
+
         /// <summary>
         /// Deserializes json to <see cref="AbilityName" />
         /// </summary>

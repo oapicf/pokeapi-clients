@@ -140,37 +140,60 @@ NatureDetail <- R6::R6Class(
       }
       if (!is.null(self$`decreased_stat`)) {
         NatureDetailObject[["decreased_stat"]] <-
-          self$`decreased_stat`$toSimpleType()
+          self$extractSimpleType(self$`decreased_stat`)
       }
       if (!is.null(self$`increased_stat`)) {
         NatureDetailObject[["increased_stat"]] <-
-          self$`increased_stat`$toSimpleType()
+          self$extractSimpleType(self$`increased_stat`)
       }
       if (!is.null(self$`likes_flavor`)) {
         NatureDetailObject[["likes_flavor"]] <-
-          self$`likes_flavor`$toSimpleType()
+          self$extractSimpleType(self$`likes_flavor`)
       }
       if (!is.null(self$`hates_flavor`)) {
         NatureDetailObject[["hates_flavor"]] <-
-          self$`hates_flavor`$toSimpleType()
+          self$extractSimpleType(self$`hates_flavor`)
       }
       if (!is.null(self$`berries`)) {
         NatureDetailObject[["berries"]] <-
-          lapply(self$`berries`, function(x) x$toSimpleType())
+          self$extractSimpleType(self$`berries`)
       }
       if (!is.null(self$`pokeathlon_stat_changes`)) {
         NatureDetailObject[["pokeathlon_stat_changes"]] <-
-          lapply(self$`pokeathlon_stat_changes`, function(x) x$toSimpleType())
+          self$extractSimpleType(self$`pokeathlon_stat_changes`)
       }
       if (!is.null(self$`move_battle_style_preferences`)) {
         NatureDetailObject[["move_battle_style_preferences"]] <-
-          lapply(self$`move_battle_style_preferences`, function(x) x$toSimpleType())
+          self$extractSimpleType(self$`move_battle_style_preferences`)
       }
       if (!is.null(self$`names`)) {
         NatureDetailObject[["names"]] <-
-          lapply(self$`names`, function(x) x$toSimpleType())
+          self$extractSimpleType(self$`names`)
       }
       return(NatureDetailObject)
+    },
+
+    extractSimpleType = function(x) {
+      if (R6::is.R6(x)) {
+        return(x$toSimpleType())
+      } else if (!self$hasNestedR6(x)) {
+        return(x)
+      }
+      lapply(x, self$extractSimpleType)
+    },
+
+    hasNestedR6 = function(x) {
+      if (R6::is.R6(x)) {
+        return(TRUE)
+      }
+      if (is.list(x)) {
+        for (item in x) {
+          if (self$hasNestedR6(item)) {
+            return(TRUE)
+          }
+        }
+      }
+      FALSE
     },
 
     #' @description

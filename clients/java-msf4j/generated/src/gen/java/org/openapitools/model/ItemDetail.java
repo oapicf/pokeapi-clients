@@ -24,7 +24,7 @@ import org.openapitools.model.ItemName;
 /**
  * ItemDetail
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaMSF4JServerCodegen", date = "2026-02-07T15:23:10.683633502Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaMSF4JServerCodegen", date = "2026-08-30T01:55:58.248058654Z[Etc/UTC]", comments = "Generator version: 7.24.0")
 public class ItemDetail   {
   @JsonProperty("id")
   private Integer id;
@@ -152,16 +152,6 @@ public class ItemDetail   {
     this.flingEffect = flingEffect;
   }
 
-  public ItemDetail attributes(List<@Valid AbilityDetailPokemonInnerPokemon> attributes) {
-    this.attributes = attributes;
-    return this;
-  }
-
-  public ItemDetail addAttributesItem(AbilityDetailPokemonInnerPokemon attributesItem) {
-    this.attributes.add(attributesItem);
-    return this;
-  }
-
    /**
    * Get attributes
    * @return attributes
@@ -169,10 +159,6 @@ public class ItemDetail   {
   @ApiModelProperty(required = true, value = "")
   public List<@Valid AbilityDetailPokemonInnerPokemon> getAttributes() {
     return attributes;
-  }
-
-  public void setAttributes(List<@Valid AbilityDetailPokemonInnerPokemon> attributes) {
-    this.attributes = attributes;
   }
 
   public ItemDetail category(ItemCategorySummary category) {
@@ -193,16 +179,6 @@ public class ItemDetail   {
     this.category = category;
   }
 
-  public ItemDetail effectEntries(List<@Valid ItemEffectText> effectEntries) {
-    this.effectEntries = effectEntries;
-    return this;
-  }
-
-  public ItemDetail addEffectEntriesItem(ItemEffectText effectEntriesItem) {
-    this.effectEntries.add(effectEntriesItem);
-    return this;
-  }
-
    /**
    * Get effectEntries
    * @return effectEntries
@@ -210,20 +186,6 @@ public class ItemDetail   {
   @ApiModelProperty(required = true, value = "")
   public List<@Valid ItemEffectText> getEffectEntries() {
     return effectEntries;
-  }
-
-  public void setEffectEntries(List<@Valid ItemEffectText> effectEntries) {
-    this.effectEntries = effectEntries;
-  }
-
-  public ItemDetail flavorTextEntries(List<@Valid ItemFlavorText> flavorTextEntries) {
-    this.flavorTextEntries = flavorTextEntries;
-    return this;
-  }
-
-  public ItemDetail addFlavorTextEntriesItem(ItemFlavorText flavorTextEntriesItem) {
-    this.flavorTextEntries.add(flavorTextEntriesItem);
-    return this;
   }
 
    /**
@@ -235,20 +197,6 @@ public class ItemDetail   {
     return flavorTextEntries;
   }
 
-  public void setFlavorTextEntries(List<@Valid ItemFlavorText> flavorTextEntries) {
-    this.flavorTextEntries = flavorTextEntries;
-  }
-
-  public ItemDetail gameIndices(List<@Valid ItemGameIndex> gameIndices) {
-    this.gameIndices = gameIndices;
-    return this;
-  }
-
-  public ItemDetail addGameIndicesItem(ItemGameIndex gameIndicesItem) {
-    this.gameIndices.add(gameIndicesItem);
-    return this;
-  }
-
    /**
    * Get gameIndices
    * @return gameIndices
@@ -256,20 +204,6 @@ public class ItemDetail   {
   @ApiModelProperty(required = true, value = "")
   public List<@Valid ItemGameIndex> getGameIndices() {
     return gameIndices;
-  }
-
-  public void setGameIndices(List<@Valid ItemGameIndex> gameIndices) {
-    this.gameIndices = gameIndices;
-  }
-
-  public ItemDetail names(List<@Valid ItemName> names) {
-    this.names = names;
-    return this;
-  }
-
-  public ItemDetail addNamesItem(ItemName namesItem) {
-    this.names.add(namesItem);
-    return this;
   }
 
    /**
@@ -281,20 +215,6 @@ public class ItemDetail   {
     return names;
   }
 
-  public void setNames(List<@Valid ItemName> names) {
-    this.names = names;
-  }
-
-  public ItemDetail heldByPokemon(List<@Valid ItemDetailHeldByPokemonInner> heldByPokemon) {
-    this.heldByPokemon = heldByPokemon;
-    return this;
-  }
-
-  public ItemDetail addHeldByPokemonItem(ItemDetailHeldByPokemonInner heldByPokemonItem) {
-    this.heldByPokemon.add(heldByPokemonItem);
-    return this;
-  }
-
    /**
    * Get heldByPokemon
    * @return heldByPokemon
@@ -302,10 +222,6 @@ public class ItemDetail   {
   @ApiModelProperty(required = true, value = "")
   public List<@Valid ItemDetailHeldByPokemonInner> getHeldByPokemon() {
     return heldByPokemon;
-  }
-
-  public void setHeldByPokemon(List<@Valid ItemDetailHeldByPokemonInner> heldByPokemon) {
-    this.heldByPokemon = heldByPokemon;
   }
 
   public ItemDetail sprites(ItemDetailSprites sprites) {
@@ -344,16 +260,6 @@ public class ItemDetail   {
     this.babyTriggerFor = babyTriggerFor;
   }
 
-  public ItemDetail machines(List<@Valid ItemDetailMachinesInner> machines) {
-    this.machines = machines;
-    return this;
-  }
-
-  public ItemDetail addMachinesItem(ItemDetailMachinesInner machinesItem) {
-    this.machines.add(machinesItem);
-    return this;
-  }
-
    /**
    * Get machines
    * @return machines
@@ -361,10 +267,6 @@ public class ItemDetail   {
   @ApiModelProperty(required = true, value = "")
   public List<@Valid ItemDetailMachinesInner> getMachines() {
     return machines;
-  }
-
-  public void setMachines(List<@Valid ItemDetailMachinesInner> machines) {
-    this.machines = machines;
   }
 
 
@@ -428,10 +330,7 @@ public class ItemDetail   {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 }
 

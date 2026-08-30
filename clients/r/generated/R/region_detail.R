@@ -119,25 +119,48 @@ RegionDetail <- R6::R6Class(
       }
       if (!is.null(self$`locations`)) {
         RegionDetailObject[["locations"]] <-
-          lapply(self$`locations`, function(x) x$toSimpleType())
+          self$extractSimpleType(self$`locations`)
       }
       if (!is.null(self$`main_generation`)) {
         RegionDetailObject[["main_generation"]] <-
-          self$`main_generation`$toSimpleType()
+          self$extractSimpleType(self$`main_generation`)
       }
       if (!is.null(self$`names`)) {
         RegionDetailObject[["names"]] <-
-          lapply(self$`names`, function(x) x$toSimpleType())
+          self$extractSimpleType(self$`names`)
       }
       if (!is.null(self$`pokedexes`)) {
         RegionDetailObject[["pokedexes"]] <-
-          lapply(self$`pokedexes`, function(x) x$toSimpleType())
+          self$extractSimpleType(self$`pokedexes`)
       }
       if (!is.null(self$`version_groups`)) {
         RegionDetailObject[["version_groups"]] <-
-          lapply(self$`version_groups`, function(x) x$toSimpleType())
+          self$extractSimpleType(self$`version_groups`)
       }
       return(RegionDetailObject)
+    },
+
+    extractSimpleType = function(x) {
+      if (R6::is.R6(x)) {
+        return(x$toSimpleType())
+      } else if (!self$hasNestedR6(x)) {
+        return(x)
+      }
+      lapply(x, self$extractSimpleType)
+    },
+
+    hasNestedR6 = function(x) {
+      if (R6::is.R6(x)) {
+        return(TRUE)
+      }
+      if (is.list(x)) {
+        for (item in x) {
+          if (self$hasNestedR6(item)) {
+            return(TRUE)
+          }
+        }
+      }
+      FALSE
     },
 
     #' @description

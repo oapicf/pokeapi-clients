@@ -21,7 +21,7 @@
 
 namespace OpenAPI {
 
-OAIMoveMeta::OAIMoveMeta(QString json) {
+OAIMoveMeta::OAIMoveMeta(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -71,7 +71,7 @@ void OAIMoveMeta::initializeModel() {
     m_stat_chance_isValid = false;
 }
 
-void OAIMoveMeta::fromJson(QString jsonString) {
+void OAIMoveMeta::fromJson(const QString &jsonString) {
     QByteArray array(jsonString.toStdString().c_str());
     QJsonDocument doc = QJsonDocument::fromJson(array);
     QJsonObject jsonObject = doc.object();

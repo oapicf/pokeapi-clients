@@ -297,7 +297,7 @@ MoveMeta::getAilment()
 }
 
 void
-MoveMeta::setAilment(MoveMetaAilmentSummary  ailment)
+MoveMeta::setAilment(MoveMetaAilmentSummary ailment)
 {
 	this->ailment = ailment;
 }
@@ -309,7 +309,7 @@ MoveMeta::getCategory()
 }
 
 void
-MoveMeta::setCategory(MoveMetaCategorySummary  category)
+MoveMeta::setCategory(MoveMetaCategorySummary category)
 {
 	this->category = category;
 }
@@ -321,7 +321,7 @@ MoveMeta::getMinHits()
 }
 
 void
-MoveMeta::setMinHits(int  min_hits)
+MoveMeta::setMinHits(int min_hits)
 {
 	this->min_hits = min_hits;
 }
@@ -333,7 +333,7 @@ MoveMeta::getMaxHits()
 }
 
 void
-MoveMeta::setMaxHits(int  max_hits)
+MoveMeta::setMaxHits(int max_hits)
 {
 	this->max_hits = max_hits;
 }
@@ -345,7 +345,7 @@ MoveMeta::getMinTurns()
 }
 
 void
-MoveMeta::setMinTurns(int  min_turns)
+MoveMeta::setMinTurns(int min_turns)
 {
 	this->min_turns = min_turns;
 }
@@ -357,7 +357,7 @@ MoveMeta::getMaxTurns()
 }
 
 void
-MoveMeta::setMaxTurns(int  max_turns)
+MoveMeta::setMaxTurns(int max_turns)
 {
 	this->max_turns = max_turns;
 }
@@ -369,7 +369,7 @@ MoveMeta::getDrain()
 }
 
 void
-MoveMeta::setDrain(int  drain)
+MoveMeta::setDrain(int drain)
 {
 	this->drain = drain;
 }
@@ -381,7 +381,7 @@ MoveMeta::getHealing()
 }
 
 void
-MoveMeta::setHealing(int  healing)
+MoveMeta::setHealing(int healing)
 {
 	this->healing = healing;
 }
@@ -393,7 +393,7 @@ MoveMeta::getCritRate()
 }
 
 void
-MoveMeta::setCritRate(int  crit_rate)
+MoveMeta::setCritRate(int crit_rate)
 {
 	this->crit_rate = crit_rate;
 }
@@ -405,7 +405,7 @@ MoveMeta::getAilmentChance()
 }
 
 void
-MoveMeta::setAilmentChance(int  ailment_chance)
+MoveMeta::setAilmentChance(int ailment_chance)
 {
 	this->ailment_chance = ailment_chance;
 }
@@ -417,7 +417,7 @@ MoveMeta::getFlinchChance()
 }
 
 void
-MoveMeta::setFlinchChance(int  flinch_chance)
+MoveMeta::setFlinchChance(int flinch_chance)
 {
 	this->flinch_chance = flinch_chance;
 }
@@ -429,7 +429,7 @@ MoveMeta::getStatChance()
 }
 
 void
-MoveMeta::setStatChance(int  stat_chance)
+MoveMeta::setStatChance(int stat_chance)
 {
 	this->stat_chance = stat_chance;
 }

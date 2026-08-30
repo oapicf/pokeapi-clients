@@ -49,8 +49,8 @@ function Initialize-MoveDetailContestCombos {
 
 
         $PSO = [PSCustomObject]@{
-            "normal" = ${Normal}
-            "super" = ${Super}
+            'normal' = ${Normal}
+            'super' = ${Super}
         }
 
 
@@ -88,7 +88,7 @@ function ConvertFrom-JsonToMoveDetailContestCombos {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in MoveDetailContestCombos
-        $AllProperties = ("normal", "super")
+        $AllProperties = ('normal', 'super')
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -99,21 +99,21 @@ function ConvertFrom-JsonToMoveDetailContestCombos {
             throw "Error! Empty JSON cannot be serialized due to the required property 'normal' missing."
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "normal"))) {
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'normal'))) {
             throw "Error! JSON cannot be serialized due to the required property 'normal' missing."
         } else {
-            $Normal = $JsonParameters.PSobject.Properties["normal"].value
+            $Normal = $JsonParameters.PSobject.Properties['normal'].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "super"))) {
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'super'))) {
             throw "Error! JSON cannot be serialized due to the required property 'super' missing."
         } else {
-            $Super = $JsonParameters.PSobject.Properties["super"].value
+            $Super = $JsonParameters.PSobject.Properties['super'].value
         }
 
         $PSO = [PSCustomObject]@{
-            "normal" = ${Normal}
-            "super" = ${Super}
+            'normal' = ${Normal}
+            'super' = ${Super}
         }
 
         return $PSO

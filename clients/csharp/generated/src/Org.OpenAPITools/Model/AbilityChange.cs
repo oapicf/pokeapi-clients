@@ -56,7 +56,7 @@ namespace Org.OpenAPITools.Model
         /// Gets or Sets EffectEntries
         /// </summary>
         [JsonPropertyName("effect_entries")]
-        public List<AbilityChangeEffectText> EffectEntries { get; set; }
+        public List<AbilityChangeEffectText> EffectEntries { get; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -86,8 +86,18 @@ namespace Org.OpenAPITools.Model
     /// <summary>
     /// A Json converter for type <see cref="AbilityChange" />
     /// </summary>
-    public class AbilityChangeJsonConverter : JsonConverter<AbilityChange>
+    public partial class AbilityChangeJsonConverter : JsonConverter<AbilityChange>
     {
+        partial void OnCreated();
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="AbilityChangeJsonConverter" /> class.
+        /// </summary>
+        public AbilityChangeJsonConverter()
+        {
+            OnCreated();
+        }
+
         /// <summary>
         /// Deserializes json to <see cref="AbilityChange" />
         /// </summary>

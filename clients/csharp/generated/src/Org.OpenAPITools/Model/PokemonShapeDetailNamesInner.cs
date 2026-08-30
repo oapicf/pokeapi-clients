@@ -86,8 +86,18 @@ namespace Org.OpenAPITools.Model
     /// <summary>
     /// A Json converter for type <see cref="PokemonShapeDetailNamesInner" />
     /// </summary>
-    public class PokemonShapeDetailNamesInnerJsonConverter : JsonConverter<PokemonShapeDetailNamesInner>
+    public partial class PokemonShapeDetailNamesInnerJsonConverter : JsonConverter<PokemonShapeDetailNamesInner>
     {
+        partial void OnCreated();
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="PokemonShapeDetailNamesInnerJsonConverter" /> class.
+        /// </summary>
+        public PokemonShapeDetailNamesInnerJsonConverter()
+        {
+            OnCreated();
+        }
+
         /// <summary>
         /// Deserializes json to <see cref="PokemonShapeDetailNamesInner" />
         /// </summary>

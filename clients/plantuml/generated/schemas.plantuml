@@ -285,8 +285,8 @@ entity EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner {
     * gender: EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender
     * held_item: EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender
     * item: EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender
-    * known_move: Object
-    * known_move_type: Object
+    * known_move: EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender
+    * known_move_type: EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender
     * location: EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender
     * min_affection: Integer
     * min_beauty: Integer
@@ -1878,6 +1878,8 @@ MoveDetailMachinesInner -- AbilityDetailPokemonInnerPokemon : version_group
 EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner -- EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender : gender
 EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner -- EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender : held_item
 EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner -- EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender : item
+EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner -- EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender : known_move
+EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner -- EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender : known_move_type
 EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner -- EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender : location
 EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner -- AbilityDetailPokemonInnerPokemon : trigger
 AbilityName -- LanguageSummary : language

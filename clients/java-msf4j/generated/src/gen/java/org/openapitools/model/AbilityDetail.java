@@ -18,7 +18,7 @@ import org.openapitools.model.GenerationSummary;
 /**
  * AbilityDetail
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaMSF4JServerCodegen", date = "2026-02-07T15:23:10.683633502Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaMSF4JServerCodegen", date = "2026-08-30T01:55:58.248058654Z[Etc/UTC]", comments = "Generator version: 7.24.0")
 public class AbilityDetail   {
   @JsonProperty("id")
   private Integer id;
@@ -110,16 +110,6 @@ public class AbilityDetail   {
     this.generation = generation;
   }
 
-  public AbilityDetail names(List<@Valid AbilityName> names) {
-    this.names = names;
-    return this;
-  }
-
-  public AbilityDetail addNamesItem(AbilityName namesItem) {
-    this.names.add(namesItem);
-    return this;
-  }
-
    /**
    * Get names
    * @return names
@@ -127,20 +117,6 @@ public class AbilityDetail   {
   @ApiModelProperty(required = true, value = "")
   public List<@Valid AbilityName> getNames() {
     return names;
-  }
-
-  public void setNames(List<@Valid AbilityName> names) {
-    this.names = names;
-  }
-
-  public AbilityDetail effectEntries(List<@Valid AbilityEffectText> effectEntries) {
-    this.effectEntries = effectEntries;
-    return this;
-  }
-
-  public AbilityDetail addEffectEntriesItem(AbilityEffectText effectEntriesItem) {
-    this.effectEntries.add(effectEntriesItem);
-    return this;
   }
 
    /**
@@ -152,20 +128,6 @@ public class AbilityDetail   {
     return effectEntries;
   }
 
-  public void setEffectEntries(List<@Valid AbilityEffectText> effectEntries) {
-    this.effectEntries = effectEntries;
-  }
-
-  public AbilityDetail effectChanges(List<@Valid AbilityChange> effectChanges) {
-    this.effectChanges = effectChanges;
-    return this;
-  }
-
-  public AbilityDetail addEffectChangesItem(AbilityChange effectChangesItem) {
-    this.effectChanges.add(effectChangesItem);
-    return this;
-  }
-
    /**
    * Get effectChanges
    * @return effectChanges
@@ -173,20 +135,6 @@ public class AbilityDetail   {
   @ApiModelProperty(required = true, value = "")
   public List<@Valid AbilityChange> getEffectChanges() {
     return effectChanges;
-  }
-
-  public void setEffectChanges(List<@Valid AbilityChange> effectChanges) {
-    this.effectChanges = effectChanges;
-  }
-
-  public AbilityDetail flavorTextEntries(List<@Valid AbilityFlavorText> flavorTextEntries) {
-    this.flavorTextEntries = flavorTextEntries;
-    return this;
-  }
-
-  public AbilityDetail addFlavorTextEntriesItem(AbilityFlavorText flavorTextEntriesItem) {
-    this.flavorTextEntries.add(flavorTextEntriesItem);
-    return this;
   }
 
    /**
@@ -198,20 +146,6 @@ public class AbilityDetail   {
     return flavorTextEntries;
   }
 
-  public void setFlavorTextEntries(List<@Valid AbilityFlavorText> flavorTextEntries) {
-    this.flavorTextEntries = flavorTextEntries;
-  }
-
-  public AbilityDetail pokemon(List<@Valid AbilityDetailPokemonInner> pokemon) {
-    this.pokemon = pokemon;
-    return this;
-  }
-
-  public AbilityDetail addPokemonItem(AbilityDetailPokemonInner pokemonItem) {
-    this.pokemon.add(pokemonItem);
-    return this;
-  }
-
    /**
    * Get pokemon
    * @return pokemon
@@ -219,10 +153,6 @@ public class AbilityDetail   {
   @ApiModelProperty(required = true, value = "")
   public List<@Valid AbilityDetailPokemonInner> getPokemon() {
     return pokemon;
-  }
-
-  public void setPokemon(List<@Valid AbilityDetailPokemonInner> pokemon) {
-    this.pokemon = pokemon;
   }
 
 
@@ -274,10 +204,7 @@ public class AbilityDetail   {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 }
 

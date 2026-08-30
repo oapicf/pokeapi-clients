@@ -108,7 +108,7 @@ LocationAreaDetail_pokemon_encounters_inner_version_details_inner::getVersion()
 }
 
 void
-LocationAreaDetail_pokemon_encounters_inner_version_details_inner::setVersion(AbilityDetail_pokemon_inner_pokemon  version)
+LocationAreaDetail_pokemon_encounters_inner_version_details_inner::setVersion(AbilityDetail_pokemon_inner_pokemon version)
 {
 	this->version = version;
 }
@@ -120,7 +120,7 @@ LocationAreaDetail_pokemon_encounters_inner_version_details_inner::getMaxChance(
 }
 
 void
-LocationAreaDetail_pokemon_encounters_inner_version_details_inner::setMaxChance(int  max_chance)
+LocationAreaDetail_pokemon_encounters_inner_version_details_inner::setMaxChance(int max_chance)
 {
 	this->max_chance = max_chance;
 }
@@ -132,7 +132,7 @@ LocationAreaDetail_pokemon_encounters_inner_version_details_inner::getEncounterD
 }
 
 void
-LocationAreaDetail_pokemon_encounters_inner_version_details_inner::setEncounterDetails(LocationAreaDetail_pokemon_encounters_inner_version_details_inner_encounter_details  encounter_details)
+LocationAreaDetail_pokemon_encounters_inner_version_details_inner::setEncounterDetails(LocationAreaDetail_pokemon_encounters_inner_version_details_inner_encounter_details encounter_details)
 {
 	this->encounter_details = encounter_details;
 }

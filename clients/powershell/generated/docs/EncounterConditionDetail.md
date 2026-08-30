@@ -5,8 +5,8 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **Int32** |  | [readonly] 
 **Name** | **String** |  | 
-**Values** | [**EncounterConditionValueSummary[]**](EncounterConditionValueSummary.md) |  | 
-**Names** | [**EncounterConditionName[]**](EncounterConditionName.md) |  | 
+**Values** | [**EncounterConditionValueSummary[]**](EncounterConditionValueSummary.md) |  | [readonly] 
+**Names** | [**EncounterConditionName[]**](EncounterConditionName.md) |  | [readonly] 
 
 ## Examples
 

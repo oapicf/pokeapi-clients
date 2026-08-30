@@ -129,16 +129,16 @@ export function MoveMetaFromJSONTyped(json: any, ignoreDiscriminator: boolean): 
         
         'ailment': MoveMetaAilmentSummaryFromJSON(json['ailment']),
         'category': MoveMetaCategorySummaryFromJSON(json['category']),
-        'minHits': json['min_hits'] == null ? undefined : json['min_hits'],
-        'maxHits': json['max_hits'] == null ? undefined : json['max_hits'],
-        'minTurns': json['min_turns'] == null ? undefined : json['min_turns'],
-        'maxTurns': json['max_turns'] == null ? undefined : json['max_turns'],
-        'drain': json['drain'] == null ? undefined : json['drain'],
-        'healing': json['healing'] == null ? undefined : json['healing'],
-        'critRate': json['crit_rate'] == null ? undefined : json['crit_rate'],
-        'ailmentChance': json['ailment_chance'] == null ? undefined : json['ailment_chance'],
-        'flinchChance': json['flinch_chance'] == null ? undefined : json['flinch_chance'],
-        'statChance': json['stat_chance'] == null ? undefined : json['stat_chance'],
+        'minHits': json['min_hits'] === undefined ? undefined : json['min_hits'] === null ? null : json['min_hits'],
+        'maxHits': json['max_hits'] === undefined ? undefined : json['max_hits'] === null ? null : json['max_hits'],
+        'minTurns': json['min_turns'] === undefined ? undefined : json['min_turns'] === null ? null : json['min_turns'],
+        'maxTurns': json['max_turns'] === undefined ? undefined : json['max_turns'] === null ? null : json['max_turns'],
+        'drain': json['drain'] === undefined ? undefined : json['drain'] === null ? null : json['drain'],
+        'healing': json['healing'] === undefined ? undefined : json['healing'] === null ? null : json['healing'],
+        'critRate': json['crit_rate'] === undefined ? undefined : json['crit_rate'] === null ? null : json['crit_rate'],
+        'ailmentChance': json['ailment_chance'] === undefined ? undefined : json['ailment_chance'] === null ? null : json['ailment_chance'],
+        'flinchChance': json['flinch_chance'] === undefined ? undefined : json['flinch_chance'] === null ? null : json['flinch_chance'],
+        'statChance': json['stat_chance'] === undefined ? undefined : json['stat_chance'] === null ? null : json['stat_chance'],
     };
 }
 

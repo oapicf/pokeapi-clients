@@ -6,7 +6,7 @@
 | ---- | ---- | ----------- | ----- |
 | **id** | **Integer** |  | [readonly] |
 | **name** | **String** |  |  |
-| **names** | [**Array&lt;MoveBattleStyleName&gt;**](MoveBattleStyleName.md) |  |  |
+| **names** | [**Array&lt;MoveBattleStyleName&gt;**](MoveBattleStyleName.md) |  | [readonly] |
 
 ## Example
 

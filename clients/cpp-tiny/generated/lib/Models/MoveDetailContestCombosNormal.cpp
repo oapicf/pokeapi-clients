@@ -119,7 +119,7 @@ MoveDetail_contest_combos_normal::getUseBefore()
 }
 
 void
-MoveDetail_contest_combos_normal::setUseBefore(std::list <AbilityDetail_pokemon_inner_pokemon> use_before)
+MoveDetail_contest_combos_normal::setUseBefore(std::list<AbilityDetail_pokemon_inner_pokemon> use_before)
 {
 	this->use_before = use_before;
 }
@@ -131,7 +131,7 @@ MoveDetail_contest_combos_normal::getUseAfter()
 }
 
 void
-MoveDetail_contest_combos_normal::setUseAfter(std::list <AbilityDetail_pokemon_inner_pokemon> use_after)
+MoveDetail_contest_combos_normal::setUseAfter(std::list<AbilityDetail_pokemon_inner_pokemon> use_after)
 {
 	this->use_after = use_after;
 }

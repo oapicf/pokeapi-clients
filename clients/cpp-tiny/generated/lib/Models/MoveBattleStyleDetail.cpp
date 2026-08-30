@@ -123,7 +123,7 @@ MoveBattleStyleDetail::getId()
 }
 
 void
-MoveBattleStyleDetail::setId(int  id)
+MoveBattleStyleDetail::setId(int id)
 {
 	this->id = id;
 }
@@ -135,7 +135,7 @@ MoveBattleStyleDetail::getName()
 }
 
 void
-MoveBattleStyleDetail::setName(std::string  name)
+MoveBattleStyleDetail::setName(std::string name)
 {
 	this->name = name;
 }
@@ -147,7 +147,7 @@ MoveBattleStyleDetail::getNames()
 }
 
 void
-MoveBattleStyleDetail::setNames(std::list <MoveBattleStyleName> names)
+MoveBattleStyleDetail::setNames(std::list<MoveBattleStyleName> names)
 {
 	this->names = names;
 }

@@ -34,7 +34,7 @@ class  PaginatedLocationSummaryList
 {
 public:
     PaginatedLocationSummaryList();
-    virtual ~PaginatedLocationSummaryList() = default;
+    virtual ~PaginatedLocationSummaryList();
 
 
     /// <summary>

@@ -6,11 +6,11 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **int** |  | [readonly] 
 **Name** | **string** |  | 
-**Locations** | [**List&lt;LocationSummary&gt;**](LocationSummary.md) |  | 
+**Locations** | [**List&lt;LocationSummary&gt;**](LocationSummary.md) |  | [readonly] 
 **MainGeneration** | [**GenerationSummary**](GenerationSummary.md) |  | [readonly] 
-**Names** | [**List&lt;RegionName&gt;**](RegionName.md) |  | 
-**Pokedexes** | [**List&lt;PokedexSummary&gt;**](PokedexSummary.md) |  | 
-**VersionGroups** | [**List&lt;AbilityDetailPokemonInnerPokemon&gt;**](AbilityDetailPokemonInnerPokemon.md) |  | 
+**Names** | [**List&lt;RegionName&gt;**](RegionName.md) |  | [readonly] 
+**Pokedexes** | [**List&lt;PokedexSummary&gt;**](PokedexSummary.md) |  | [readonly] 
+**VersionGroups** | [**List&lt;AbilityDetailPokemonInnerPokemon&gt;**](AbilityDetailPokemonInnerPokemon.md) |  | [readonly] 
 
 [[Back to Model list]](../../README.md#documentation-for-models) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)
 

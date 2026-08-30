@@ -64,19 +64,19 @@ export interface GrowthRateDetail {
      * @type {Array<GrowthRateDescription>}
      * @memberof GrowthRateDetail
      */
-    descriptions: Array<GrowthRateDescription>;
+    readonly descriptions: Array<GrowthRateDescription>;
     /**
      * 
      * @type {Array<Experience>}
      * @memberof GrowthRateDetail
      */
-    levels: Array<Experience>;
+    readonly levels: Array<Experience>;
     /**
      * 
      * @type {Array<PokemonSpeciesSummary>}
      * @memberof GrowthRateDetail
      */
-    pokemonSpecies: Array<PokemonSpeciesSummary>;
+    readonly pokemonSpecies: Array<PokemonSpeciesSummary>;
 }
 
 /**
@@ -88,7 +88,7 @@ export function instanceOfGrowthRateDetail(value: object): value is GrowthRateDe
     if (!('formula' in value) || value['formula'] === undefined) return false;
     if (!('descriptions' in value) || value['descriptions'] === undefined) return false;
     if (!('levels' in value) || value['levels'] === undefined) return false;
-    if (!('pokemonSpecies' in value) || value['pokemonSpecies'] === undefined) return false;
+    if ((!('pokemonSpecies' in (value as Record<string, any>)) && !('pokemon_species' in (value as Record<string, any>))) || ((value as Record<string, any>)['pokemonSpecies'] === undefined && (value as Record<string, any>)['pokemon_species'] === undefined)) return false;
     return true;
 }
 
@@ -115,7 +115,7 @@ export function GrowthRateDetailToJSON(json: any): GrowthRateDetail {
     return GrowthRateDetailToJSONTyped(json, false);
 }
 
-export function GrowthRateDetailToJSONTyped(value?: Omit<GrowthRateDetail, 'id'> | null, ignoreDiscriminator: boolean = false): any {
+export function GrowthRateDetailToJSONTyped(value?: Omit<GrowthRateDetail, 'id'|'descriptions'|'levels'|'pokemonSpecies'> | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
@@ -124,9 +124,6 @@ export function GrowthRateDetailToJSONTyped(value?: Omit<GrowthRateDetail, 'id'>
         
         'name': value['name'],
         'formula': value['formula'],
-        'descriptions': ((value['descriptions'] as Array<any>).map(GrowthRateDescriptionToJSON)),
-        'levels': ((value['levels'] as Array<any>).map(ExperienceToJSON)),
-        'pokemon_species': ((value['pokemonSpecies'] as Array<any>).map(PokemonSpeciesSummaryToJSON)),
     };
 }
 

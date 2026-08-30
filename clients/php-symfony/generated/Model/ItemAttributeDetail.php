@@ -47,7 +47,7 @@ class ItemAttributeDetail
      * @var int|null
      * @SerializedName("id")
      * @Type("int")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Type("int")]
     protected ?int $id = null;
@@ -56,7 +56,7 @@ class ItemAttributeDetail
      * @var string|null
      * @SerializedName("name")
      * @Type("string")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Type("string")]
     #[Assert\Length(max: 100)]
@@ -66,7 +66,7 @@ class ItemAttributeDetail
      * @var ItemAttributeDescription[]|null
      * @SerializedName("descriptions")
      * @Type("array<OpenAPI\Server\Model\ItemAttributeDescription>")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Valid]
     #[Assert\All([
@@ -78,7 +78,7 @@ class ItemAttributeDetail
      * @var AbilityDetailPokemonInnerPokemon[]|null
      * @SerializedName("items")
      * @Type("array<OpenAPI\Server\Model\AbilityDetailPokemonInnerPokemon>")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Valid]
     #[Assert\All([
@@ -90,7 +90,7 @@ class ItemAttributeDetail
      * @var ItemAttributeName[]|null
      * @SerializedName("names")
      * @Type("array<OpenAPI\Server\Model\ItemAttributeName>")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Valid]
     #[Assert\All([
@@ -124,12 +124,12 @@ class ItemAttributeDetail
     }
 
     /**
-    * Sets id.
-    *
-    * @param int|null $id
-    *
-    * @return $this
-    */
+     * Sets id.
+     *
+     * @param int|null $id
+     *
+     * @return $this
+     */
     public function setId(?int $id): self
     {
         $this->id = $id;
@@ -151,12 +151,12 @@ class ItemAttributeDetail
     }
 
     /**
-    * Sets name.
-    *
-    * @param string|null $name
-    *
-    * @return $this
-    */
+     * Sets name.
+     *
+     * @param string|null $name
+     *
+     * @return $this
+     */
     public function setName(?string $name): self
     {
         $this->name = $name;
@@ -178,12 +178,12 @@ class ItemAttributeDetail
     }
 
     /**
-    * Sets descriptions.
-    *
-    * @param ItemAttributeDescription[]|null $descriptions
-    *
-    * @return $this
-    */
+     * Sets descriptions.
+     *
+     * @param ItemAttributeDescription[]|null $descriptions
+     *
+     * @return $this
+     */
     public function setDescriptions(?array $descriptions): self
     {
         $this->descriptions = $descriptions;
@@ -205,12 +205,12 @@ class ItemAttributeDetail
     }
 
     /**
-    * Sets items.
-    *
-    * @param AbilityDetailPokemonInnerPokemon[]|null $items
-    *
-    * @return $this
-    */
+     * Sets items.
+     *
+     * @param AbilityDetailPokemonInnerPokemon[]|null $items
+     *
+     * @return $this
+     */
     public function setItems(?array $items): self
     {
         $this->items = $items;
@@ -232,12 +232,12 @@ class ItemAttributeDetail
     }
 
     /**
-    * Sets names.
-    *
-    * @param ItemAttributeName[]|null $names
-    *
-    * @return $this
-    */
+     * Sets names.
+     *
+     * @param ItemAttributeName[]|null $names
+     *
+     * @return $this
+     */
     public function setNames(?array $names): self
     {
         $this->names = $names;

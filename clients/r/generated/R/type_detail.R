@@ -149,41 +149,64 @@ TypeDetail <- R6::R6Class(
       }
       if (!is.null(self$`damage_relations`)) {
         TypeDetailObject[["damage_relations"]] <-
-          self$`damage_relations`$toSimpleType()
+          self$extractSimpleType(self$`damage_relations`)
       }
       if (!is.null(self$`past_damage_relations`)) {
         TypeDetailObject[["past_damage_relations"]] <-
-          lapply(self$`past_damage_relations`, function(x) x$toSimpleType())
+          self$extractSimpleType(self$`past_damage_relations`)
       }
       if (!is.null(self$`game_indices`)) {
         TypeDetailObject[["game_indices"]] <-
-          lapply(self$`game_indices`, function(x) x$toSimpleType())
+          self$extractSimpleType(self$`game_indices`)
       }
       if (!is.null(self$`generation`)) {
         TypeDetailObject[["generation"]] <-
-          self$`generation`$toSimpleType()
+          self$extractSimpleType(self$`generation`)
       }
       if (!is.null(self$`move_damage_class`)) {
         TypeDetailObject[["move_damage_class"]] <-
-          self$`move_damage_class`$toSimpleType()
+          self$extractSimpleType(self$`move_damage_class`)
       }
       if (!is.null(self$`names`)) {
         TypeDetailObject[["names"]] <-
-          lapply(self$`names`, function(x) x$toSimpleType())
+          self$extractSimpleType(self$`names`)
       }
       if (!is.null(self$`pokemon`)) {
         TypeDetailObject[["pokemon"]] <-
-          lapply(self$`pokemon`, function(x) x$toSimpleType())
+          self$extractSimpleType(self$`pokemon`)
       }
       if (!is.null(self$`moves`)) {
         TypeDetailObject[["moves"]] <-
-          lapply(self$`moves`, function(x) x$toSimpleType())
+          self$extractSimpleType(self$`moves`)
       }
       if (!is.null(self$`sprites`)) {
         TypeDetailObject[["sprites"]] <-
-          lapply(self$`sprites`, function(x) x$toSimpleType())
+          self$extractSimpleType(self$`sprites`)
       }
       return(TypeDetailObject)
+    },
+
+    extractSimpleType = function(x) {
+      if (R6::is.R6(x)) {
+        return(x$toSimpleType())
+      } else if (!self$hasNestedR6(x)) {
+        return(x)
+      }
+      lapply(x, self$extractSimpleType)
+    },
+
+    hasNestedR6 = function(x) {
+      if (R6::is.R6(x)) {
+        return(TRUE)
+      }
+      if (is.list(x)) {
+        for (item in x) {
+          if (self$hasNestedR6(item)) {
+            return(TRUE)
+          }
+        }
+      }
+      FALSE
     },
 
     #' @description

@@ -23,11 +23,13 @@ import io.swagger.v3.oas.annotations.media.Schema
 data class LocationAreaDetailPokemonEncountersInner(
 
     @field:Valid
-    @Schema(example = "null", required = true, description = "")
+    @Schema(required = true, description = "")
+    @param:JsonProperty("pokemon")
     @get:JsonProperty("pokemon", required = true) val pokemon: AbilityDetailPokemonInnerPokemon,
 
     @field:Valid
-    @Schema(example = "null", required = true, description = "")
+    @Schema(required = true, description = "")
+    @param:JsonProperty("version_details")
     @get:JsonProperty("version_details", required = true) val versionDetails: kotlin.collections.List<LocationAreaDetailPokemonEncountersInnerVersionDetailsInner>
 ) {
 

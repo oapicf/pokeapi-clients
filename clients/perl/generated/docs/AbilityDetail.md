@@ -12,11 +12,11 @@ Name | Type | Description | Notes
 **name** | **string** |  | 
 **is_main_series** | **boolean** |  | [optional] 
 **generation** | [**GenerationSummary**](GenerationSummary.md) |  | 
-**names** | [**ARRAY[AbilityName]**](AbilityName.md) |  | 
-**effect_entries** | [**ARRAY[AbilityEffectText]**](AbilityEffectText.md) |  | 
-**effect_changes** | [**ARRAY[AbilityChange]**](AbilityChange.md) |  | 
-**flavor_text_entries** | [**ARRAY[AbilityFlavorText]**](AbilityFlavorText.md) |  | 
-**pokemon** | [**ARRAY[AbilityDetailPokemonInner]**](AbilityDetailPokemonInner.md) |  | 
+**names** | [**ARRAY[AbilityName]**](AbilityName.md) |  | [readonly] 
+**effect_entries** | [**ARRAY[AbilityEffectText]**](AbilityEffectText.md) |  | [readonly] 
+**effect_changes** | [**ARRAY[AbilityChange]**](AbilityChange.md) |  | [readonly] 
+**flavor_text_entries** | [**ARRAY[AbilityFlavorText]**](AbilityFlavorText.md) |  | [readonly] 
+**pokemon** | [**ARRAY[AbilityDetailPokemonInner]**](AbilityDetailPokemonInner.md) |  | [readonly] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

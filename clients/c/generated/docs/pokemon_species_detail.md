@@ -16,20 +16,20 @@ Name | Type | Description | Notes
 **has_gender_differences** | **int** |  | [optional] 
 **forms_switchable** | **int** |  | [optional] 
 **growth_rate** | [**growth_rate_summary_t**](growth_rate_summary.md) \* |  | 
-**pokedex_numbers** | [**list_t**](pokemon_dex_entry.md) \* |  | 
-**egg_groups** | [**list_t**](ability_detail_pokemon_inner_pokemon.md) \* |  | 
+**pokedex_numbers** | [**list_t**](pokemon_dex_entry.md) \* |  | [readonly] 
+**egg_groups** | [**list_t**](ability_detail_pokemon_inner_pokemon.md) \* |  | [readonly] 
 **color** | [**pokemon_color_summary_t**](pokemon_color_summary.md) \* |  | 
 **shape** | [**pokemon_shape_summary_t**](pokemon_shape_summary.md) \* |  | 
 **evolves_from_species** | [**pokemon_species_summary_t**](pokemon_species_summary.md) \* |  | 
 **evolution_chain** | [**evolution_chain_summary_t**](evolution_chain_summary.md) \* |  | 
 **habitat** | [**pokemon_habitat_summary_t**](pokemon_habitat_summary.md) \* |  | 
 **generation** | [**generation_summary_t**](generation_summary.md) \* |  | 
-**names** | [**list_t**](pokemon_form_detail_form_names_inner.md) \* |  | 
-**pal_park_encounters** | [**list_t**](pokemon_species_detail_pal_park_encounters_inner.md) \* |  | 
-**form_descriptions** | [**list_t**](pokemon_species_description.md) \* |  | 
-**flavor_text_entries** | [**list_t**](pokemon_species_flavor_text.md) \* |  | 
-**genera** | [**list_t**](pokemon_species_detail_genera_inner.md) \* |  | 
-**varieties** | [**list_t**](pokemon_species_detail_varieties_inner.md) \* |  | 
+**names** | [**list_t**](pokemon_form_detail_form_names_inner.md) \* |  | [readonly] 
+**pal_park_encounters** | [**list_t**](pokemon_species_detail_pal_park_encounters_inner.md) \* |  | [readonly] 
+**form_descriptions** | [**list_t**](pokemon_species_description.md) \* |  | [readonly] 
+**flavor_text_entries** | [**list_t**](pokemon_species_flavor_text.md) \* |  | [readonly] 
+**genera** | [**list_t**](pokemon_species_detail_genera_inner.md) \* |  | [readonly] 
+**varieties** | [**list_t**](pokemon_species_detail_varieties_inner.md) \* |  | [readonly] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

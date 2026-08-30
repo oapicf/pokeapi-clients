@@ -21,7 +21,7 @@
 
 namespace OpenAPI {
 
-OAIMoveDetail_contest_combos::OAIMoveDetail_contest_combos(QString json) {
+OAIMoveDetail_contest_combos::OAIMoveDetail_contest_combos(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -41,7 +41,7 @@ void OAIMoveDetail_contest_combos::initializeModel() {
     m_super_isValid = false;
 }
 
-void OAIMoveDetail_contest_combos::fromJson(QString jsonString) {
+void OAIMoveDetail_contest_combos::fromJson(const QString &jsonString) {
     QByteArray array(jsonString.toStdString().c_str());
     QJsonDocument doc = QJsonDocument::fromJson(array);
     QJsonObject jsonObject = doc.object();

@@ -21,7 +21,7 @@
 
 namespace OpenAPI {
 
-OAIEvolutionChainDetail_chain::OAIEvolutionChainDetail_chain(QString json) {
+OAIEvolutionChainDetail_chain::OAIEvolutionChainDetail_chain(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -47,7 +47,7 @@ void OAIEvolutionChainDetail_chain::initializeModel() {
     m_species_isValid = false;
 }
 
-void OAIEvolutionChainDetail_chain::fromJson(QString jsonString) {
+void OAIEvolutionChainDetail_chain::fromJson(const QString &jsonString) {
     QByteArray array(jsonString.toStdString().c_str());
     QJsonDocument doc = QJsonDocument::fromJson(array);
     QJsonObject jsonObject = doc.object();

@@ -38,7 +38,7 @@ import io.swagger.v3.oas.annotations.media.Schema;
   CharacteristicDetail.JSON_PROPERTY_DESCRIPTIONS
 })
 @JsonTypeName("CharacteristicDetail")
-@Generated(value="org.openapitools.codegen.languages.JavaMicronautServerCodegen", date="2026-02-07T15:23:03.167972722Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@Generated(value="org.openapitools.codegen.languages.JavaMicronautServerCodegen", date="2026-08-30T01:55:54.631003115Z[Etc/UTC]", comments = "Generator version: 7.24.0")
 @Introspected
 public class CharacteristicDetail {
     public static final String JSON_PROPERTY_ID = "id";
@@ -99,32 +99,16 @@ public class CharacteristicDetail {
         this.geneModulo = geneModulo;
     }
 
-    public CharacteristicDetail possibleValues(List<Integer> possibleValues) {
-        this.possibleValues = possibleValues;
-        return this;
-    }
-
-    public CharacteristicDetail addPossibleValuesItem(Integer possibleValuesItem) {
-        this.possibleValues.add(possibleValuesItem);
-        return this;
-    }
-
     /**
      * Get possibleValues
      * @return possibleValues
      */
     @NotNull
-    @Schema(name = "possible_values", requiredMode = Schema.RequiredMode.REQUIRED)
+    @Schema(name = "possible_values", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
     @JsonProperty(JSON_PROPERTY_POSSIBLE_VALUES)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public List<Integer> getPossibleValues() {
         return possibleValues;
-    }
-
-    @JsonProperty(JSON_PROPERTY_POSSIBLE_VALUES)
-    @JsonInclude(value = JsonInclude.Include.ALWAYS)
-    public void setPossibleValues(List<Integer> possibleValues) {
-        this.possibleValues = possibleValues;
     }
 
     public CharacteristicDetail highestStat(StatSummary highestStat) {
@@ -151,32 +135,16 @@ public class CharacteristicDetail {
         this.highestStat = highestStat;
     }
 
-    public CharacteristicDetail descriptions(List<@Valid CharacteristicDescription> descriptions) {
-        this.descriptions = descriptions;
-        return this;
-    }
-
-    public CharacteristicDetail addDescriptionsItem(CharacteristicDescription descriptionsItem) {
-        this.descriptions.add(descriptionsItem);
-        return this;
-    }
-
     /**
      * Get descriptions
      * @return descriptions
      */
     @NotNull
-    @Schema(name = "descriptions", requiredMode = Schema.RequiredMode.REQUIRED)
+    @Schema(name = "descriptions", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
     @JsonProperty(JSON_PROPERTY_DESCRIPTIONS)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public List<@Valid CharacteristicDescription> getDescriptions() {
         return descriptions;
-    }
-
-    @JsonProperty(JSON_PROPERTY_DESCRIPTIONS)
-    @JsonInclude(value = JsonInclude.Include.ALWAYS)
-    public void setDescriptions(List<@Valid CharacteristicDescription> descriptions) {
-        this.descriptions = descriptions;
     }
 
     @Override
@@ -218,10 +186,7 @@ public class CharacteristicDetail {
      * (except the first line).
      */
     private String toIndentedString(Object o) {
-        if (o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
+        return o == null ? "null" : o.toString().replace("\n", "\n    ");
     }
 
 }

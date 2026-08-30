@@ -49,8 +49,8 @@ function Initialize-PokedexDetailPokemonEntriesInner {
 
 
         $PSO = [PSCustomObject]@{
-            "entry_number" = ${EntryNumber}
-            "pokemon_species" = ${PokemonSpecies}
+            'entry_number' = ${EntryNumber}
+            'pokemon_species' = ${PokemonSpecies}
         }
 
 
@@ -88,7 +88,7 @@ function ConvertFrom-JsonToPokedexDetailPokemonEntriesInner {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in PokedexDetailPokemonEntriesInner
-        $AllProperties = ("entry_number", "pokemon_species")
+        $AllProperties = ('entry_number', 'pokemon_species')
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -99,21 +99,21 @@ function ConvertFrom-JsonToPokedexDetailPokemonEntriesInner {
             throw "Error! Empty JSON cannot be serialized due to the required property 'entry_number' missing."
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "entry_number"))) {
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'entry_number'))) {
             throw "Error! JSON cannot be serialized due to the required property 'entry_number' missing."
         } else {
-            $EntryNumber = $JsonParameters.PSobject.Properties["entry_number"].value
+            $EntryNumber = $JsonParameters.PSobject.Properties['entry_number'].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "pokemon_species"))) {
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'pokemon_species'))) {
             throw "Error! JSON cannot be serialized due to the required property 'pokemon_species' missing."
         } else {
-            $PokemonSpecies = $JsonParameters.PSobject.Properties["pokemon_species"].value
+            $PokemonSpecies = $JsonParameters.PSobject.Properties['pokemon_species'].value
         }
 
         $PSO = [PSCustomObject]@{
-            "entry_number" = ${EntryNumber}
-            "pokemon_species" = ${PokemonSpecies}
+            'entry_number' = ${EntryNumber}
+            'pokemon_species' = ${PokemonSpecies}
         }
 
         return $PSO

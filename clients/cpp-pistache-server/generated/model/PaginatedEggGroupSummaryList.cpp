@@ -31,6 +31,8 @@ PaginatedEggGroupSummaryList::PaginatedEggGroupSummaryList()
     
 }
 
+PaginatedEggGroupSummaryList::~PaginatedEggGroupSummaryList() = default;
+
 void PaginatedEggGroupSummaryList::validate() const
 {
     std::stringstream msg;

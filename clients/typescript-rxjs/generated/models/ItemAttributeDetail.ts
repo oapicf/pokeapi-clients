@@ -36,15 +36,15 @@ export interface ItemAttributeDetail {
      * @type {Array<ItemAttributeDescription>}
      * @memberof ItemAttributeDetail
      */
-    descriptions: Array<ItemAttributeDescription>;
+    readonly descriptions: Array<ItemAttributeDescription>;
     /**
      * @type {Array<AbilityDetailPokemonInnerPokemon>}
      * @memberof ItemAttributeDetail
      */
-    items: Array<AbilityDetailPokemonInnerPokemon>;
+    readonly items: Array<AbilityDetailPokemonInnerPokemon>;
     /**
      * @type {Array<ItemAttributeName>}
      * @memberof ItemAttributeDetail
      */
-    names: Array<ItemAttributeName>;
+    readonly names: Array<ItemAttributeName>;
 }

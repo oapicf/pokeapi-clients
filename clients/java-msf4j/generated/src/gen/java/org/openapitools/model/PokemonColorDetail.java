@@ -14,7 +14,7 @@ import org.openapitools.model.PokemonSpeciesSummary;
 /**
  * PokemonColorDetail
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaMSF4JServerCodegen", date = "2026-02-07T15:23:10.683633502Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaMSF4JServerCodegen", date = "2026-08-30T01:55:58.248058654Z[Etc/UTC]", comments = "Generator version: 7.24.0")
 public class PokemonColorDetail   {
   @JsonProperty("id")
   private Integer id;
@@ -55,16 +55,6 @@ public class PokemonColorDetail   {
     this.name = name;
   }
 
-  public PokemonColorDetail names(List<@Valid PokemonColorName> names) {
-    this.names = names;
-    return this;
-  }
-
-  public PokemonColorDetail addNamesItem(PokemonColorName namesItem) {
-    this.names.add(namesItem);
-    return this;
-  }
-
    /**
    * Get names
    * @return names
@@ -74,20 +64,6 @@ public class PokemonColorDetail   {
     return names;
   }
 
-  public void setNames(List<@Valid PokemonColorName> names) {
-    this.names = names;
-  }
-
-  public PokemonColorDetail pokemonSpecies(List<@Valid PokemonSpeciesSummary> pokemonSpecies) {
-    this.pokemonSpecies = pokemonSpecies;
-    return this;
-  }
-
-  public PokemonColorDetail addPokemonSpeciesItem(PokemonSpeciesSummary pokemonSpeciesItem) {
-    this.pokemonSpecies.add(pokemonSpeciesItem);
-    return this;
-  }
-
    /**
    * Get pokemonSpecies
    * @return pokemonSpecies
@@ -95,10 +71,6 @@ public class PokemonColorDetail   {
   @ApiModelProperty(required = true, value = "")
   public List<@Valid PokemonSpeciesSummary> getPokemonSpecies() {
     return pokemonSpecies;
-  }
-
-  public void setPokemonSpecies(List<@Valid PokemonSpeciesSummary> pokemonSpecies) {
-    this.pokemonSpecies = pokemonSpecies;
   }
 
 
@@ -140,10 +112,7 @@ public class PokemonColorDetail   {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 }
 

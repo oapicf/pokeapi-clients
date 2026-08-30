@@ -2,6 +2,7 @@ package org.openapitools.model;
 
 import java.net.URI;
 import java.util.Objects;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import java.util.ArrayList;
@@ -23,19 +24,19 @@ import org.openapitools.model.PokemonStat;
 import java.util.NoSuchElementException;
 import org.openapitools.jackson.nullable.JsonNullable;
 import java.time.OffsetDateTime;
-import javax.validation.Valid;
-import javax.validation.constraints.*;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.*;
 import io.swagger.v3.oas.annotations.media.Schema;
 
 
 import java.util.*;
-import javax.annotation.Generated;
+import jakarta.annotation.Generated;
 
 /**
  * PokemonDetail
  */
 
-@Generated(value = "org.openapitools.codegen.languages.JavaCamelServerCodegen", date = "2026-02-07T15:23:32.871052804Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@Generated(value = "org.openapitools.codegen.languages.JavaCamelServerCodegen", date = "2026-08-30T01:56:15.309401083Z[Etc/UTC]", comments = "Generator version: 7.24.0")
 public class PokemonDetail {
 
   private Integer id;
@@ -268,8 +269,8 @@ public class PokemonDetail {
    * Get abilities
    * @return abilities
    */
-  @NotNull @Valid 
-  @Schema(name = "abilities", requiredMode = Schema.RequiredMode.REQUIRED)
+  @Valid 
+  @Schema(name = "abilities", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("abilities")
   public List<@Valid PokemonDetailAbilitiesInner> getAbilities() {
     return abilities;
@@ -296,8 +297,8 @@ public class PokemonDetail {
    * Get pastAbilities
    * @return pastAbilities
    */
-  @NotNull @Valid 
-  @Schema(name = "past_abilities", requiredMode = Schema.RequiredMode.REQUIRED)
+  @Valid 
+  @Schema(name = "past_abilities", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("past_abilities")
   public List<@Valid PokemonDetailPastAbilitiesInner> getPastAbilities() {
     return pastAbilities;
@@ -324,8 +325,8 @@ public class PokemonDetail {
    * Get forms
    * @return forms
    */
-  @NotNull @Valid 
-  @Schema(name = "forms", requiredMode = Schema.RequiredMode.REQUIRED)
+  @Valid 
+  @Schema(name = "forms", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("forms")
   public List<@Valid PokemonFormSummary> getForms() {
     return forms;
@@ -352,8 +353,8 @@ public class PokemonDetail {
    * Get gameIndices
    * @return gameIndices
    */
-  @NotNull @Valid 
-  @Schema(name = "game_indices", requiredMode = Schema.RequiredMode.REQUIRED)
+  @Valid 
+  @Schema(name = "game_indices", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("game_indices")
   public List<@Valid PokemonGameIndex> getGameIndices() {
     return gameIndices;
@@ -420,8 +421,8 @@ public class PokemonDetail {
    * Get moves
    * @return moves
    */
-  @NotNull @Valid 
-  @Schema(name = "moves", requiredMode = Schema.RequiredMode.REQUIRED)
+  @Valid 
+  @Schema(name = "moves", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("moves")
   public List<@Valid PokemonDetailMovesInner> getMoves() {
     return moves;
@@ -508,8 +509,8 @@ public class PokemonDetail {
    * Get stats
    * @return stats
    */
-  @NotNull @Valid 
-  @Schema(name = "stats", requiredMode = Schema.RequiredMode.REQUIRED)
+  @Valid 
+  @Schema(name = "stats", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("stats")
   public List<@Valid PokemonStat> getStats() {
     return stats;
@@ -536,8 +537,8 @@ public class PokemonDetail {
    * Get types
    * @return types
    */
-  @NotNull @Valid 
-  @Schema(name = "types", requiredMode = Schema.RequiredMode.REQUIRED)
+  @Valid 
+  @Schema(name = "types", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("types")
   public List<@Valid PokemonDetailTypesInner> getTypes() {
     return types;
@@ -564,8 +565,8 @@ public class PokemonDetail {
    * Get pastTypes
    * @return pastTypes
    */
-  @NotNull @Valid 
-  @Schema(name = "past_types", requiredMode = Schema.RequiredMode.REQUIRED)
+  @Valid 
+  @Schema(name = "past_types", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("past_types")
   public List<@Valid PokemonDetailPastTypesInner> getPastTypes() {
     return pastTypes;
@@ -655,10 +656,7 @@ public class PokemonDetail {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 }
 

@@ -6,7 +6,7 @@
 
 
 static machine_detail_t *machine_detail_create_internal(
-    int id,
+    int *id,
     item_summary_t *item,
     version_group_summary_t *version_group,
     move_summary_t *move
@@ -15,27 +15,36 @@ static machine_detail_t *machine_detail_create_internal(
     if (!machine_detail_local_var) {
         return NULL;
     }
+    memset(machine_detail_local_var, 0, sizeof(machine_detail_t));
+    machine_detail_local_var->_library_owned = 1;
     machine_detail_local_var->id = id;
     machine_detail_local_var->item = item;
     machine_detail_local_var->version_group = version_group;
     machine_detail_local_var->move = move;
-
-    machine_detail_local_var->_library_owned = 1;
     return machine_detail_local_var;
 }
 
 __attribute__((deprecated)) machine_detail_t *machine_detail_create(
-    int id,
+    int *id,
     item_summary_t *item,
     version_group_summary_t *version_group,
     move_summary_t *move
     ) {
-    return machine_detail_create_internal (
-        id,
+    int *id_copy = NULL;
+    if (id) {
+        id_copy = malloc(sizeof(int));
+        if (id_copy) *id_copy = *id;
+    }
+    machine_detail_t *result = machine_detail_create_internal (
+        id_copy,
         item,
         version_group,
         move
         );
+    if (!result) {
+        free(id_copy);
+    }
+    return result;
 }
 
 void machine_detail_free(machine_detail_t *machine_detail) {
@@ -47,6 +56,10 @@ void machine_detail_free(machine_detail_t *machine_detail) {
         return ;
     }
     listEntry_t *listEntry;
+    if (machine_detail->id) {
+        free(machine_detail->id);
+        machine_detail->id = NULL;
+    }
     if (machine_detail->item) {
         item_summary_free(machine_detail->item);
         machine_detail->item = NULL;
@@ -69,7 +82,7 @@ cJSON *machine_detail_convertToJSON(machine_detail_t *machine_detail) {
     if (!machine_detail->id) {
         goto fail;
     }
-    if(cJSON_AddNumberToObject(item, "id", machine_detail->id) == NULL) {
+    if(cJSON_AddNumberToObject(item, "id", *machine_detail->id) == NULL) {
     goto fail; //Numeric
     }
 
@@ -127,6 +140,9 @@ machine_detail_t *machine_detail_parseFromJSON(cJSON *machine_detailJSON){
 
     machine_detail_t *machine_detail_local_var = NULL;
 
+    // define the local variable for machine_detail->id
+    int *id_local_var = NULL;
+
     // define the local variable for machine_detail->item
     item_summary_t *item_local_nonprim = NULL;
 
@@ -150,6 +166,12 @@ machine_detail_t *machine_detail_parseFromJSON(cJSON *machine_detailJSON){
     {
     goto end; //Numeric
     }
+    id_local_var = malloc(sizeof(int));
+    if(!id_local_var)
+    {
+        goto end;
+    }
+    *id_local_var = id->valuedouble;
 
     // machine_detail->item
     cJSON *item = cJSON_GetObjectItemCaseSensitive(machine_detailJSON, "item");
@@ -188,15 +210,24 @@ machine_detail_t *machine_detail_parseFromJSON(cJSON *machine_detailJSON){
     move_local_nonprim = move_summary_parseFromJSON(move); //nonprimitive
 
 
+
     machine_detail_local_var = machine_detail_create_internal (
-        id->valuedouble,
+        id_local_var,
         item_local_nonprim,
         version_group_local_nonprim,
         move_local_nonprim
         );
 
+    if (!machine_detail_local_var) {
+        goto end;
+    }
+
     return machine_detail_local_var;
 end:
+    if (id_local_var) {
+        free(id_local_var);
+        id_local_var = NULL;
+    }
     if (item_local_nonprim) {
         item_summary_free(item_local_nonprim);
         item_local_nonprim = NULL;

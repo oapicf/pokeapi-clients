@@ -86,7 +86,7 @@ ItemDetail_machines_inner::getMachine()
 }
 
 void
-ItemDetail_machines_inner::setMachine(std::string  machine)
+ItemDetail_machines_inner::setMachine(std::string machine)
 {
 	this->machine = machine;
 }
@@ -98,7 +98,7 @@ ItemDetail_machines_inner::getVersionGroup()
 }
 
 void
-ItemDetail_machines_inner::setVersionGroup(AbilityDetail_pokemon_inner_pokemon  version_group)
+ItemDetail_machines_inner::setVersionGroup(AbilityDetail_pokemon_inner_pokemon version_group)
 {
 	this->version_group = version_group;
 }

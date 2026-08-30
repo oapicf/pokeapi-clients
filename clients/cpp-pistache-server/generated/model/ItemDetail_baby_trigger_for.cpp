@@ -25,6 +25,8 @@ ItemDetail_baby_trigger_for::ItemDetail_baby_trigger_for()
     
 }
 
+ItemDetail_baby_trigger_for::~ItemDetail_baby_trigger_for() = default;
+
 void ItemDetail_baby_trigger_for::validate() const
 {
     std::stringstream msg;

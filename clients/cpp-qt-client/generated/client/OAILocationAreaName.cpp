@@ -21,7 +21,7 @@
 
 namespace OpenAPI {
 
-OAILocationAreaName::OAILocationAreaName(QString json) {
+OAILocationAreaName::OAILocationAreaName(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -41,7 +41,7 @@ void OAILocationAreaName::initializeModel() {
     m_language_isValid = false;
 }
 
-void OAILocationAreaName::fromJson(QString jsonString) {
+void OAILocationAreaName::fromJson(const QString &jsonString) {
     QByteArray array(jsonString.toStdString().c_str());
     QJsonDocument doc = QJsonDocument::fromJson(array);
     QJsonObject jsonObject = doc.object();

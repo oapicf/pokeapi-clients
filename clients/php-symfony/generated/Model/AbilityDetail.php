@@ -47,7 +47,7 @@ class AbilityDetail
      * @var int|null
      * @SerializedName("id")
      * @Type("int")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Type("int")]
     protected ?int $id = null;
@@ -56,7 +56,7 @@ class AbilityDetail
      * @var string|null
      * @SerializedName("name")
      * @Type("string")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Type("string")]
     #[Assert\Length(max: 100)]
@@ -66,7 +66,7 @@ class AbilityDetail
      * @var bool|null
      * @SerializedName("is_main_series")
      * @Type("bool")
-    */
+     */
     #[Assert\Type("bool")]
     protected ?bool $isMainSeries = null;
 
@@ -74,7 +74,7 @@ class AbilityDetail
      * @var GenerationSummary|null
      * @SerializedName("generation")
      * @Type("OpenAPI\Server\Model\GenerationSummary")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Valid]
     #[Assert\Type("OpenAPI\Server\Model\GenerationSummary")]
@@ -84,7 +84,7 @@ class AbilityDetail
      * @var AbilityName[]|null
      * @SerializedName("names")
      * @Type("array<OpenAPI\Server\Model\AbilityName>")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Valid]
     #[Assert\All([
@@ -96,7 +96,7 @@ class AbilityDetail
      * @var AbilityEffectText[]|null
      * @SerializedName("effect_entries")
      * @Type("array<OpenAPI\Server\Model\AbilityEffectText>")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Valid]
     #[Assert\All([
@@ -108,7 +108,7 @@ class AbilityDetail
      * @var AbilityChange[]|null
      * @SerializedName("effect_changes")
      * @Type("array<OpenAPI\Server\Model\AbilityChange>")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Valid]
     #[Assert\All([
@@ -120,7 +120,7 @@ class AbilityDetail
      * @var AbilityFlavorText[]|null
      * @SerializedName("flavor_text_entries")
      * @Type("array<OpenAPI\Server\Model\AbilityFlavorText>")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Valid]
     #[Assert\All([
@@ -132,7 +132,7 @@ class AbilityDetail
      * @var AbilityDetailPokemonInner[]|null
      * @SerializedName("pokemon")
      * @Type("array<OpenAPI\Server\Model\AbilityDetailPokemonInner>")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Valid]
     #[Assert\All([
@@ -170,12 +170,12 @@ class AbilityDetail
     }
 
     /**
-    * Sets id.
-    *
-    * @param int|null $id
-    *
-    * @return $this
-    */
+     * Sets id.
+     *
+     * @param int|null $id
+     *
+     * @return $this
+     */
     public function setId(?int $id): self
     {
         $this->id = $id;
@@ -197,12 +197,12 @@ class AbilityDetail
     }
 
     /**
-    * Sets name.
-    *
-    * @param string|null $name
-    *
-    * @return $this
-    */
+     * Sets name.
+     *
+     * @param string|null $name
+     *
+     * @return $this
+     */
     public function setName(?string $name): self
     {
         $this->name = $name;
@@ -224,12 +224,12 @@ class AbilityDetail
     }
 
     /**
-    * Sets isMainSeries.
-    *
-    * @param bool|null $isMainSeries
-    *
-    * @return $this
-    */
+     * Sets isMainSeries.
+     *
+     * @param bool|null $isMainSeries
+     *
+     * @return $this
+     */
     public function setIsMainSeries(?bool $isMainSeries = null): self
     {
         $this->isMainSeries = $isMainSeries;
@@ -251,12 +251,12 @@ class AbilityDetail
     }
 
     /**
-    * Sets generation.
-    *
-    * @param GenerationSummary|null $generation
-    *
-    * @return $this
-    */
+     * Sets generation.
+     *
+     * @param GenerationSummary|null $generation
+     *
+     * @return $this
+     */
     public function setGeneration(?GenerationSummary $generation): self
     {
         $this->generation = $generation;
@@ -278,12 +278,12 @@ class AbilityDetail
     }
 
     /**
-    * Sets names.
-    *
-    * @param AbilityName[]|null $names
-    *
-    * @return $this
-    */
+     * Sets names.
+     *
+     * @param AbilityName[]|null $names
+     *
+     * @return $this
+     */
     public function setNames(?array $names): self
     {
         $this->names = $names;
@@ -305,12 +305,12 @@ class AbilityDetail
     }
 
     /**
-    * Sets effectEntries.
-    *
-    * @param AbilityEffectText[]|null $effectEntries
-    *
-    * @return $this
-    */
+     * Sets effectEntries.
+     *
+     * @param AbilityEffectText[]|null $effectEntries
+     *
+     * @return $this
+     */
     public function setEffectEntries(?array $effectEntries): self
     {
         $this->effectEntries = $effectEntries;
@@ -332,12 +332,12 @@ class AbilityDetail
     }
 
     /**
-    * Sets effectChanges.
-    *
-    * @param AbilityChange[]|null $effectChanges
-    *
-    * @return $this
-    */
+     * Sets effectChanges.
+     *
+     * @param AbilityChange[]|null $effectChanges
+     *
+     * @return $this
+     */
     public function setEffectChanges(?array $effectChanges): self
     {
         $this->effectChanges = $effectChanges;
@@ -359,12 +359,12 @@ class AbilityDetail
     }
 
     /**
-    * Sets flavorTextEntries.
-    *
-    * @param AbilityFlavorText[]|null $flavorTextEntries
-    *
-    * @return $this
-    */
+     * Sets flavorTextEntries.
+     *
+     * @param AbilityFlavorText[]|null $flavorTextEntries
+     *
+     * @return $this
+     */
     public function setFlavorTextEntries(?array $flavorTextEntries): self
     {
         $this->flavorTextEntries = $flavorTextEntries;
@@ -386,12 +386,12 @@ class AbilityDetail
     }
 
     /**
-    * Sets pokemon.
-    *
-    * @param AbilityDetailPokemonInner[]|null $pokemon
-    *
-    * @return $this
-    */
+     * Sets pokemon.
+     *
+     * @param AbilityDetailPokemonInner[]|null $pokemon
+     *
+     * @return $this
+     */
     public function setPokemon(?array $pokemon): self
     {
         $this->pokemon = $pokemon;

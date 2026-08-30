@@ -17,7 +17,7 @@ import EncounterConditionSummary from './EncounterConditionSummary';
 /**
  * The PaginatedEncounterConditionSummaryList model module.
  * @module model/PaginatedEncounterConditionSummaryList
- * @version 1.2.1-pre.0
+ * @version 2.0.1-pre.0
  */
 class PaginatedEncounterConditionSummaryList {
     /**

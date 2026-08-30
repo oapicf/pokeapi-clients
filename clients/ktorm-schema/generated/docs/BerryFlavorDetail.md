@@ -7,9 +7,9 @@ Name | Mapping | SQL Type | Default | Type | Description | Notes
 ---- | ------- | -------- | ------- | ---- | ----------- | -----
 **id** | id | int NOT NULL PRIMARY KEY AUTOINCREMENT |  | **kotlin.Int** |  |  [readonly]
 **name** | name | text NOT NULL |  | **kotlin.String** |  | 
-**berries** | `One-To-Many` | `----` | `----`  | [**kotlin.Array&lt;BerryFlavorDetailBerriesInner&gt;**](BerryFlavorDetailBerriesInner.md) |  | 
+**berries** | `One-To-Many` | `----` | `----`  | [**kotlin.Array&lt;BerryFlavorDetailBerriesInner&gt;**](BerryFlavorDetailBerriesInner.md) |  |  [readonly]
 **contestType** | contest_type | long NOT NULL |  | [**ContestTypeSummary**](ContestTypeSummary.md) |  |  [foreignkey]
-**names** | `One-To-Many` | `----` | `----`  | [**kotlin.Array&lt;BerryFlavorName&gt;**](BerryFlavorName.md) |  | 
+**names** | `One-To-Many` | `----` | `----`  | [**kotlin.Array&lt;BerryFlavorName&gt;**](BerryFlavorName.md) |  |  [readonly]
 
 
 

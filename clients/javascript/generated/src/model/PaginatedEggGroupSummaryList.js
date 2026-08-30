@@ -17,7 +17,7 @@ import EggGroupSummary from './EggGroupSummary';
 /**
  * The PaginatedEggGroupSummaryList model module.
  * @module model/PaginatedEggGroupSummaryList
- * @version 1.2.1-pre.0
+ * @version 2.0.1-pre.0
  */
 class PaginatedEggGroupSummaryList {
     /**

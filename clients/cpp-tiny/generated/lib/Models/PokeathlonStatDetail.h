@@ -54,28 +54,28 @@ public:
 
 	/*! \brief Set 
 	 */
-	void setId(int  id);
+	void setId(int id);
 	/*! \brief Get 
 	 */
 	std::string getName();
 
 	/*! \brief Set 
 	 */
-	void setName(std::string  name);
+	void setName(std::string name);
 	/*! \brief Get 
 	 */
 	PokeathlonStatDetail_affecting_natures getAffectingNatures();
 
 	/*! \brief Set 
 	 */
-	void setAffectingNatures(PokeathlonStatDetail_affecting_natures  affecting_natures);
+	void setAffectingNatures(PokeathlonStatDetail_affecting_natures affecting_natures);
 	/*! \brief Get 
 	 */
 	std::list<PokeathlonStatName> getNames();
 
 	/*! \brief Set 
 	 */
-	void setNames(std::list <PokeathlonStatName> names);
+	void setNames(std::list<PokeathlonStatName> names);
 
 
     private:

@@ -85,19 +85,6 @@ public class ContestTypeDetail  {
     return names;
   }
 
-  public void setNames(List<@Valid ContestTypeName> names) {
-    this.names = names;
-  }
-
-  public ContestTypeDetail names(List<@Valid ContestTypeName> names) {
-    this.names = names;
-    return this;
-  }
-
-  public ContestTypeDetail addNamesItem(ContestTypeName namesItem) {
-    this.names.add(namesItem);
-    return this;
-  }
 
   @Override
   public boolean equals(Object o) {
@@ -137,10 +124,7 @@ public class ContestTypeDetail  {
    * (except the first line).
    */
   private static String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 }
 

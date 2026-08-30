@@ -14,11 +14,11 @@ static ability_effect_text_t *ability_effect_text_create_internal(
     if (!ability_effect_text_local_var) {
         return NULL;
     }
+    memset(ability_effect_text_local_var, 0, sizeof(ability_effect_text_t));
+    ability_effect_text_local_var->_library_owned = 1;
     ability_effect_text_local_var->effect = effect;
     ability_effect_text_local_var->short_effect = short_effect;
     ability_effect_text_local_var->language = language;
-
-    ability_effect_text_local_var->_library_owned = 1;
     return ability_effect_text_local_var;
 }
 
@@ -27,11 +27,14 @@ __attribute__((deprecated)) ability_effect_text_t *ability_effect_text_create(
     char *short_effect,
     language_summary_t *language
     ) {
-    return ability_effect_text_create_internal (
+    ability_effect_text_t *result = ability_effect_text_create_internal (
         effect,
         short_effect,
         language
         );
+    if (!result) {
+    }
+    return result;
 }
 
 void ability_effect_text_free(ability_effect_text_t *ability_effect_text) {
@@ -104,6 +107,10 @@ ability_effect_text_t *ability_effect_text_parseFromJSON(cJSON *ability_effect_t
 
     ability_effect_text_t *ability_effect_text_local_var = NULL;
 
+    char *effect_local_str = NULL;
+
+    char *short_effect_local_str = NULL;
+
     // define the local variable for ability_effect_text->language
     language_summary_t *language_local_nonprim = NULL;
 
@@ -150,14 +157,29 @@ ability_effect_text_t *ability_effect_text_parseFromJSON(cJSON *ability_effect_t
     language_local_nonprim = language_summary_parseFromJSON(language); //nonprimitive
 
 
+    if (effect && !cJSON_IsNull(effect)) effect_local_str = strdup(effect->valuestring);
+    if (short_effect && !cJSON_IsNull(short_effect)) short_effect_local_str = strdup(short_effect->valuestring);
+
     ability_effect_text_local_var = ability_effect_text_create_internal (
-        strdup(effect->valuestring),
-        strdup(short_effect->valuestring),
+        effect_local_str,
+        short_effect_local_str,
         language_local_nonprim
         );
 
+    if (!ability_effect_text_local_var) {
+        goto end;
+    }
+
     return ability_effect_text_local_var;
 end:
+    if (effect_local_str) {
+        free(effect_local_str);
+        effect_local_str = NULL;
+    }
+    if (short_effect_local_str) {
+        free(short_effect_local_str);
+        short_effect_local_str = NULL;
+    }
     if (language_local_nonprim) {
         language_summary_free(language_local_nonprim);
         language_local_nonprim = NULL;

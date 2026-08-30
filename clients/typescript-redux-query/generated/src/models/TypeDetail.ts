@@ -71,13 +71,13 @@ export interface TypeDetail  {
      * @type {Array<TypeDetailPastDamageRelationsInner>}
      * @memberof TypeDetail
      */
-    pastDamageRelations: Array<TypeDetailPastDamageRelationsInner>;
+    readonly pastDamageRelations: Array<TypeDetailPastDamageRelationsInner>;
     /**
      * 
      * @type {Array<TypeGameIndex>}
      * @memberof TypeDetail
      */
-    gameIndices: Array<TypeGameIndex>;
+    readonly gameIndices: Array<TypeGameIndex>;
     /**
      * 
      * @type {GenerationSummary}
@@ -95,19 +95,19 @@ export interface TypeDetail  {
      * @type {Array<AbilityName>}
      * @memberof TypeDetail
      */
-    names: Array<AbilityName>;
+    readonly names: Array<AbilityName>;
     /**
      * 
      * @type {Array<TypeDetailPokemonInner>}
      * @memberof TypeDetail
      */
-    pokemon: Array<TypeDetailPokemonInner>;
+    readonly pokemon: Array<TypeDetailPokemonInner>;
     /**
      * 
      * @type {Array<MoveSummary>}
      * @memberof TypeDetail
      */
-    moves: Array<MoveSummary>;
+    readonly moves: Array<MoveSummary>;
     /**
      * 
      * @type {{ [key: string]: { [key: string]: TypeDetailSpritesValueValue; }; }}
@@ -139,13 +139,8 @@ export function TypeDetailToJSON(value?: TypeDetail): any {
     return {
         'name': value.name,
         'damage_relations': TypeDetailDamageRelationsToJSON(value.damageRelations),
-        'past_damage_relations': (value.pastDamageRelations as Array<any>).map(TypeDetailPastDamageRelationsInnerToJSON),
-        'game_indices': (value.gameIndices as Array<any>).map(TypeGameIndexToJSON),
         'generation': GenerationSummaryToJSON(value.generation),
         'move_damage_class': MoveDamageClassSummaryToJSON(value.moveDamageClass),
-        'names': (value.names as Array<any>).map(AbilityNameToJSON),
-        'pokemon': (value.pokemon as Array<any>).map(TypeDetailPokemonInnerToJSON),
-        'moves': (value.moves as Array<any>).map(MoveSummaryToJSON),
     };
 }
 

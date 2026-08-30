@@ -31,6 +31,8 @@ PaginatedLanguageSummaryList::PaginatedLanguageSummaryList()
     
 }
 
+PaginatedLanguageSummaryList::~PaginatedLanguageSummaryList() = default;
+
 void PaginatedLanguageSummaryList::validate() const
 {
     std::stringstream msg;

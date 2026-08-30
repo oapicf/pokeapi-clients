@@ -64,7 +64,7 @@ ItemDetail_sprites::getRDefault()
 }
 
 void
-ItemDetail_sprites::setRDefault(std::string  r_default)
+ItemDetail_sprites::setRDefault(std::string r_default)
 {
 	this->r_default = r_default;
 }

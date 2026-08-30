@@ -66,13 +66,13 @@ namespace Org.OpenAPITools.Model
         /// Gets or Sets Descriptions
         /// </summary>
         [JsonPropertyName("descriptions")]
-        public List<MoveMetaCategoryDescription> Descriptions { get; set; }
+        public List<MoveMetaCategoryDescription> Descriptions { get; }
 
         /// <summary>
         /// Gets or Sets Moves
         /// </summary>
         [JsonPropertyName("moves")]
-        public List<AbilityDetailPokemonInnerPokemon> Moves { get; set; }
+        public List<AbilityDetailPokemonInnerPokemon> Moves { get; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -110,8 +110,18 @@ namespace Org.OpenAPITools.Model
     /// <summary>
     /// A Json converter for type <see cref="MoveMetaCategoryDetail" />
     /// </summary>
-    public class MoveMetaCategoryDetailJsonConverter : JsonConverter<MoveMetaCategoryDetail>
+    public partial class MoveMetaCategoryDetailJsonConverter : JsonConverter<MoveMetaCategoryDetail>
     {
+        partial void OnCreated();
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="MoveMetaCategoryDetailJsonConverter" /> class.
+        /// </summary>
+        public MoveMetaCategoryDetailJsonConverter()
+        {
+            OnCreated();
+        }
+
         /// <summary>
         /// Deserializes json to <see cref="MoveMetaCategoryDetail" />
         /// </summary>

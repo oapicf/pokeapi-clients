@@ -52,7 +52,7 @@ export interface PokemonDetailAbilitiesInner {
  */
 export function instanceOfPokemonDetailAbilitiesInner(value: object): value is PokemonDetailAbilitiesInner {
     if (!('ability' in value) || value['ability'] === undefined) return false;
-    if (!('isHidden' in value) || value['isHidden'] === undefined) return false;
+    if ((!('isHidden' in (value as Record<string, any>)) && !('is_hidden' in (value as Record<string, any>))) || ((value as Record<string, any>)['isHidden'] === undefined && (value as Record<string, any>)['is_hidden'] === undefined)) return false;
     if (!('slot' in value) || value['slot'] === undefined) return false;
     return true;
 }

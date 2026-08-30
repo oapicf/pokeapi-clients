@@ -25,6 +25,8 @@ PokemonDetail_moves_inner_version_group_details_inner::PokemonDetail_moves_inner
     
 }
 
+PokemonDetail_moves_inner_version_group_details_inner::~PokemonDetail_moves_inner_version_group_details_inner() = default;
+
 void PokemonDetail_moves_inner_version_group_details_inner::validate() const
 {
     std::stringstream msg;

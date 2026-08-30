@@ -53,10 +53,10 @@ class ItemName {
       // Note 1: the values aren't checked for validity beyond being non-null.
       // Note 2: this code is stripped in release mode!
       assert(() {
-        requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "ItemName[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "ItemName[$key]" has a null value in JSON.');
-        });
+        assert(json.containsKey(r'name'), 'Required key "ItemName[name]" is missing from JSON.');
+        assert(json[r'name'] != null, 'Required key "ItemName[name]" has a null value in JSON.');
+        assert(json.containsKey(r'language'), 'Required key "ItemName[language]" is missing from JSON.');
+        assert(json[r'language'] != null, 'Required key "ItemName[language]" has a null value in JSON.');
         return true;
       }());
 

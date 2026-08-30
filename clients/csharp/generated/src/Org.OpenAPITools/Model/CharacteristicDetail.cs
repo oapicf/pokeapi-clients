@@ -68,7 +68,7 @@ namespace Org.OpenAPITools.Model
         /// Gets or Sets PossibleValues
         /// </summary>
         [JsonPropertyName("possible_values")]
-        public List<int> PossibleValues { get; set; }
+        public List<int> PossibleValues { get; }
 
         /// <summary>
         /// Gets or Sets HighestStat
@@ -80,7 +80,7 @@ namespace Org.OpenAPITools.Model
         /// Gets or Sets Descriptions
         /// </summary>
         [JsonPropertyName("descriptions")]
-        public List<CharacteristicDescription> Descriptions { get; set; }
+        public List<CharacteristicDescription> Descriptions { get; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -113,8 +113,18 @@ namespace Org.OpenAPITools.Model
     /// <summary>
     /// A Json converter for type <see cref="CharacteristicDetail" />
     /// </summary>
-    public class CharacteristicDetailJsonConverter : JsonConverter<CharacteristicDetail>
+    public partial class CharacteristicDetailJsonConverter : JsonConverter<CharacteristicDetail>
     {
+        partial void OnCreated();
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="CharacteristicDetailJsonConverter" /> class.
+        /// </summary>
+        public CharacteristicDetailJsonConverter()
+        {
+            OnCreated();
+        }
+
         /// <summary>
         /// Deserializes json to <see cref="CharacteristicDetail" />
         /// </summary>

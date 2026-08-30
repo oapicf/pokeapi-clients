@@ -98,13 +98,13 @@ function Initialize-RegionDetail {
 
 
         $PSO = [PSCustomObject]@{
-            "id" = ${Id}
-            "name" = ${Name}
-            "locations" = ${Locations}
-            "main_generation" = ${MainGeneration}
-            "names" = ${Names}
-            "pokedexes" = ${Pokedexes}
-            "version_groups" = ${VersionGroups}
+            'id' = ${Id}
+            'name' = ${Name}
+            'locations' = ${Locations}
+            'main_generation' = ${MainGeneration}
+            'names' = ${Names}
+            'pokedexes' = ${Pokedexes}
+            'version_groups' = ${VersionGroups}
         }
 
 
@@ -142,7 +142,7 @@ function ConvertFrom-JsonToRegionDetail {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in RegionDetail
-        $AllProperties = ("id", "name", "locations", "main_generation", "names", "pokedexes", "version_groups")
+        $AllProperties = ('id', 'name', 'locations', 'main_generation', 'names', 'pokedexes', 'version_groups')
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -153,56 +153,56 @@ function ConvertFrom-JsonToRegionDetail {
             throw "Error! Empty JSON cannot be serialized due to the required property 'id' missing."
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "id"))) {
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'id'))) {
             throw "Error! JSON cannot be serialized due to the required property 'id' missing."
         } else {
-            $Id = $JsonParameters.PSobject.Properties["id"].value
+            $Id = $JsonParameters.PSobject.Properties['id'].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "name"))) {
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'name'))) {
             throw "Error! JSON cannot be serialized due to the required property 'name' missing."
         } else {
-            $Name = $JsonParameters.PSobject.Properties["name"].value
+            $Name = $JsonParameters.PSobject.Properties['name'].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "locations"))) {
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'locations'))) {
             throw "Error! JSON cannot be serialized due to the required property 'locations' missing."
         } else {
-            $Locations = $JsonParameters.PSobject.Properties["locations"].value
+            $Locations = $JsonParameters.PSobject.Properties['locations'].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "main_generation"))) {
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'main_generation'))) {
             throw "Error! JSON cannot be serialized due to the required property 'main_generation' missing."
         } else {
-            $MainGeneration = $JsonParameters.PSobject.Properties["main_generation"].value
+            $MainGeneration = $JsonParameters.PSobject.Properties['main_generation'].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "names"))) {
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'names'))) {
             throw "Error! JSON cannot be serialized due to the required property 'names' missing."
         } else {
-            $Names = $JsonParameters.PSobject.Properties["names"].value
+            $Names = $JsonParameters.PSobject.Properties['names'].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "pokedexes"))) {
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'pokedexes'))) {
             throw "Error! JSON cannot be serialized due to the required property 'pokedexes' missing."
         } else {
-            $Pokedexes = $JsonParameters.PSobject.Properties["pokedexes"].value
+            $Pokedexes = $JsonParameters.PSobject.Properties['pokedexes'].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "version_groups"))) {
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'version_groups'))) {
             throw "Error! JSON cannot be serialized due to the required property 'version_groups' missing."
         } else {
-            $VersionGroups = $JsonParameters.PSobject.Properties["version_groups"].value
+            $VersionGroups = $JsonParameters.PSobject.Properties['version_groups'].value
         }
 
         $PSO = [PSCustomObject]@{
-            "id" = ${Id}
-            "name" = ${Name}
-            "locations" = ${Locations}
-            "main_generation" = ${MainGeneration}
-            "names" = ${Names}
-            "pokedexes" = ${Pokedexes}
-            "version_groups" = ${VersionGroups}
+            'id' = ${Id}
+            'name' = ${Name}
+            'locations' = ${Locations}
+            'main_generation' = ${MainGeneration}
+            'names' = ${Names}
+            'pokedexes' = ${Pokedexes}
+            'version_groups' = ${VersionGroups}
         }
 
         return $PSO

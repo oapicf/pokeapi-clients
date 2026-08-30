@@ -24,19 +24,23 @@ import io.swagger.v3.oas.annotations.media.Schema
  */
 data class GenderDetail(
 
-    @Schema(example = "null", required = true, readOnly = true, description = "")
+    @Schema(required = true, readOnly = true, description = "")
+    @param:JsonProperty("id")
     @get:JsonProperty("id", required = true) val id: kotlin.Int,
 
     @get:Size(max=100)
-    @Schema(example = "null", required = true, description = "")
+    @Schema(required = true, description = "")
+    @param:JsonProperty("name")
     @get:JsonProperty("name", required = true) val name: kotlin.String,
 
     @field:Valid
-    @Schema(example = "null", required = true, description = "")
+    @Schema(required = true, readOnly = true, description = "")
+    @param:JsonProperty("pokemon_species_details")
     @get:JsonProperty("pokemon_species_details", required = true) val pokemonSpeciesDetails: kotlin.collections.List<GenderDetailPokemonSpeciesDetailsInner>,
 
     @field:Valid
-    @Schema(example = "null", required = true, description = "")
+    @Schema(required = true, readOnly = true, description = "")
+    @param:JsonProperty("required_for_evolution")
     @get:JsonProperty("required_for_evolution", required = true) val requiredForEvolution: kotlin.collections.List<AbilityDetailPokemonInnerPokemon>
 ) {
 

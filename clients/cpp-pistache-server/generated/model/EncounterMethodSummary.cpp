@@ -26,6 +26,8 @@ EncounterMethodSummary::EncounterMethodSummary()
     
 }
 
+EncounterMethodSummary::~EncounterMethodSummary() = default;
+
 void EncounterMethodSummary::validate() const
 {
     std::stringstream msg;

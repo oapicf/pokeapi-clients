@@ -33,7 +33,7 @@ class  MoveMetaAilmentName
 {
 public:
     MoveMetaAilmentName();
-    virtual ~MoveMetaAilmentName() = default;
+    virtual ~MoveMetaAilmentName();
 
 
     /// <summary>

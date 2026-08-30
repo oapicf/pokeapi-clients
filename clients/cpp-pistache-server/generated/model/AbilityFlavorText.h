@@ -34,7 +34,7 @@ class  AbilityFlavorText
 {
 public:
     AbilityFlavorText();
-    virtual ~AbilityFlavorText() = default;
+    virtual ~AbilityFlavorText();
 
 
     /// <summary>

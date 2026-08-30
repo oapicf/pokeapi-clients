@@ -6,9 +6,9 @@
 
 
 static contest_effect_detail_t *contest_effect_detail_create_internal(
-    int id,
-    int appeal,
-    int jam,
+    int *id,
+    int *appeal,
+    int *jam,
     list_t *effect_entries,
     list_t *flavor_text_entries
     ) {
@@ -16,30 +16,51 @@ static contest_effect_detail_t *contest_effect_detail_create_internal(
     if (!contest_effect_detail_local_var) {
         return NULL;
     }
+    memset(contest_effect_detail_local_var, 0, sizeof(contest_effect_detail_t));
+    contest_effect_detail_local_var->_library_owned = 1;
     contest_effect_detail_local_var->id = id;
     contest_effect_detail_local_var->appeal = appeal;
     contest_effect_detail_local_var->jam = jam;
     contest_effect_detail_local_var->effect_entries = effect_entries;
     contest_effect_detail_local_var->flavor_text_entries = flavor_text_entries;
-
-    contest_effect_detail_local_var->_library_owned = 1;
     return contest_effect_detail_local_var;
 }
 
 __attribute__((deprecated)) contest_effect_detail_t *contest_effect_detail_create(
-    int id,
-    int appeal,
-    int jam,
+    int *id,
+    int *appeal,
+    int *jam,
     list_t *effect_entries,
     list_t *flavor_text_entries
     ) {
-    return contest_effect_detail_create_internal (
-        id,
-        appeal,
-        jam,
+    int *id_copy = NULL;
+    if (id) {
+        id_copy = malloc(sizeof(int));
+        if (id_copy) *id_copy = *id;
+    }
+    int *appeal_copy = NULL;
+    if (appeal) {
+        appeal_copy = malloc(sizeof(int));
+        if (appeal_copy) *appeal_copy = *appeal;
+    }
+    int *jam_copy = NULL;
+    if (jam) {
+        jam_copy = malloc(sizeof(int));
+        if (jam_copy) *jam_copy = *jam;
+    }
+    contest_effect_detail_t *result = contest_effect_detail_create_internal (
+        id_copy,
+        appeal_copy,
+        jam_copy,
         effect_entries,
         flavor_text_entries
         );
+    if (!result) {
+        free(id_copy);
+        free(appeal_copy);
+        free(jam_copy);
+    }
+    return result;
 }
 
 void contest_effect_detail_free(contest_effect_detail_t *contest_effect_detail) {
@@ -51,6 +72,18 @@ void contest_effect_detail_free(contest_effect_detail_t *contest_effect_detail) 
         return ;
     }
     listEntry_t *listEntry;
+    if (contest_effect_detail->id) {
+        free(contest_effect_detail->id);
+        contest_effect_detail->id = NULL;
+    }
+    if (contest_effect_detail->appeal) {
+        free(contest_effect_detail->appeal);
+        contest_effect_detail->appeal = NULL;
+    }
+    if (contest_effect_detail->jam) {
+        free(contest_effect_detail->jam);
+        contest_effect_detail->jam = NULL;
+    }
     if (contest_effect_detail->effect_entries) {
         list_ForEach(listEntry, contest_effect_detail->effect_entries) {
             contest_effect_effect_text_free(listEntry->data);
@@ -75,7 +108,7 @@ cJSON *contest_effect_detail_convertToJSON(contest_effect_detail_t *contest_effe
     if (!contest_effect_detail->id) {
         goto fail;
     }
-    if(cJSON_AddNumberToObject(item, "id", contest_effect_detail->id) == NULL) {
+    if(cJSON_AddNumberToObject(item, "id", *contest_effect_detail->id) == NULL) {
     goto fail; //Numeric
     }
 
@@ -84,7 +117,7 @@ cJSON *contest_effect_detail_convertToJSON(contest_effect_detail_t *contest_effe
     if (!contest_effect_detail->appeal) {
         goto fail;
     }
-    if(cJSON_AddNumberToObject(item, "appeal", contest_effect_detail->appeal) == NULL) {
+    if(cJSON_AddNumberToObject(item, "appeal", *contest_effect_detail->appeal) == NULL) {
     goto fail; //Numeric
     }
 
@@ -93,7 +126,7 @@ cJSON *contest_effect_detail_convertToJSON(contest_effect_detail_t *contest_effe
     if (!contest_effect_detail->jam) {
         goto fail;
     }
-    if(cJSON_AddNumberToObject(item, "jam", contest_effect_detail->jam) == NULL) {
+    if(cJSON_AddNumberToObject(item, "jam", *contest_effect_detail->jam) == NULL) {
     goto fail; //Numeric
     }
 
@@ -151,6 +184,15 @@ contest_effect_detail_t *contest_effect_detail_parseFromJSON(cJSON *contest_effe
 
     contest_effect_detail_t *contest_effect_detail_local_var = NULL;
 
+    // define the local variable for contest_effect_detail->id
+    int *id_local_var = NULL;
+
+    // define the local variable for contest_effect_detail->appeal
+    int *appeal_local_var = NULL;
+
+    // define the local variable for contest_effect_detail->jam
+    int *jam_local_var = NULL;
+
     // define the local list for contest_effect_detail->effect_entries
     list_t *effect_entriesList = NULL;
 
@@ -171,6 +213,12 @@ contest_effect_detail_t *contest_effect_detail_parseFromJSON(cJSON *contest_effe
     {
     goto end; //Numeric
     }
+    id_local_var = malloc(sizeof(int));
+    if(!id_local_var)
+    {
+        goto end;
+    }
+    *id_local_var = id->valuedouble;
 
     // contest_effect_detail->appeal
     cJSON *appeal = cJSON_GetObjectItemCaseSensitive(contest_effect_detailJSON, "appeal");
@@ -186,6 +234,12 @@ contest_effect_detail_t *contest_effect_detail_parseFromJSON(cJSON *contest_effe
     {
     goto end; //Numeric
     }
+    appeal_local_var = malloc(sizeof(int));
+    if(!appeal_local_var)
+    {
+        goto end;
+    }
+    *appeal_local_var = appeal->valuedouble;
 
     // contest_effect_detail->jam
     cJSON *jam = cJSON_GetObjectItemCaseSensitive(contest_effect_detailJSON, "jam");
@@ -201,6 +255,12 @@ contest_effect_detail_t *contest_effect_detail_parseFromJSON(cJSON *contest_effe
     {
     goto end; //Numeric
     }
+    jam_local_var = malloc(sizeof(int));
+    if(!jam_local_var)
+    {
+        goto end;
+    }
+    *jam_local_var = jam->valuedouble;
 
     // contest_effect_detail->effect_entries
     cJSON *effect_entries = cJSON_GetObjectItemCaseSensitive(contest_effect_detailJSON, "effect_entries");
@@ -257,16 +317,33 @@ contest_effect_detail_t *contest_effect_detail_parseFromJSON(cJSON *contest_effe
     }
 
 
+
     contest_effect_detail_local_var = contest_effect_detail_create_internal (
-        id->valuedouble,
-        appeal->valuedouble,
-        jam->valuedouble,
+        id_local_var,
+        appeal_local_var,
+        jam_local_var,
         effect_entriesList,
         flavor_text_entriesList
         );
 
+    if (!contest_effect_detail_local_var) {
+        goto end;
+    }
+
     return contest_effect_detail_local_var;
 end:
+    if (id_local_var) {
+        free(id_local_var);
+        id_local_var = NULL;
+    }
+    if (appeal_local_var) {
+        free(appeal_local_var);
+        appeal_local_var = NULL;
+    }
+    if (jam_local_var) {
+        free(jam_local_var);
+        jam_local_var = NULL;
+    }
     if (effect_entriesList) {
         listEntry_t *listEntry = NULL;
         list_ForEach(listEntry, effect_entriesList) {

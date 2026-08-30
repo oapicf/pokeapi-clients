@@ -210,13 +210,13 @@ export interface MoveDetail {
      * @type {Array<MoveChangeEffectEntriesInner>}
      * @memberof MoveDetail
      */
-    effectEntries: Array<MoveChangeEffectEntriesInner>;
+    readonly effectEntries: Array<MoveChangeEffectEntriesInner>;
     /**
      * 
      * @type {Array<MoveDetailEffectChangesInner>}
      * @memberof MoveDetail
      */
-    effectChanges: Array<MoveDetailEffectChangesInner>;
+    readonly effectChanges: Array<MoveDetailEffectChangesInner>;
     /**
      * 
      * @type {GenerationSummary}
@@ -234,19 +234,19 @@ export interface MoveDetail {
      * @type {Array<MoveName>}
      * @memberof MoveDetail
      */
-    names: Array<MoveName>;
+    readonly names: Array<MoveName>;
     /**
      * 
      * @type {Array<MoveChange>}
      * @memberof MoveDetail
      */
-    pastValues: Array<MoveChange>;
+    readonly pastValues: Array<MoveChange>;
     /**
      * 
      * @type {Array<MoveDetailStatChangesInner>}
      * @memberof MoveDetail
      */
-    statChanges: Array<MoveDetailStatChangesInner>;
+    readonly statChanges: Array<MoveDetailStatChangesInner>;
     /**
      * 
      * @type {SuperContestEffectSummary}
@@ -270,19 +270,19 @@ export interface MoveDetail {
      * @type {Array<MoveDetailMachinesInner>}
      * @memberof MoveDetail
      */
-    machines: Array<MoveDetailMachinesInner>;
+    readonly machines: Array<MoveDetailMachinesInner>;
     /**
      * 
      * @type {Array<MoveFlavorText>}
      * @memberof MoveDetail
      */
-    flavorTextEntries: Array<MoveFlavorText>;
+    readonly flavorTextEntries: Array<MoveFlavorText>;
     /**
      * 
      * @type {Array<AbilityDetailPokemonInnerPokemon>}
      * @memberof MoveDetail
      */
-    learnedByPokemon: Array<AbilityDetailPokemonInnerPokemon>;
+    readonly learnedByPokemon: Array<AbilityDetailPokemonInnerPokemon>;
 }
 
 /**
@@ -291,24 +291,24 @@ export interface MoveDetail {
 export function instanceOfMoveDetail(value: object): value is MoveDetail {
     if (!('id' in value) || value['id'] === undefined) return false;
     if (!('name' in value) || value['name'] === undefined) return false;
-    if (!('effectChance' in value) || value['effectChance'] === undefined) return false;
-    if (!('contestCombos' in value) || value['contestCombos'] === undefined) return false;
-    if (!('contestType' in value) || value['contestType'] === undefined) return false;
-    if (!('contestEffect' in value) || value['contestEffect'] === undefined) return false;
-    if (!('damageClass' in value) || value['damageClass'] === undefined) return false;
-    if (!('effectEntries' in value) || value['effectEntries'] === undefined) return false;
-    if (!('effectChanges' in value) || value['effectChanges'] === undefined) return false;
+    if ((!('effectChance' in (value as Record<string, any>)) && !('effect_chance' in (value as Record<string, any>))) || ((value as Record<string, any>)['effectChance'] === undefined && (value as Record<string, any>)['effect_chance'] === undefined)) return false;
+    if ((!('contestCombos' in (value as Record<string, any>)) && !('contest_combos' in (value as Record<string, any>))) || ((value as Record<string, any>)['contestCombos'] === undefined && (value as Record<string, any>)['contest_combos'] === undefined)) return false;
+    if ((!('contestType' in (value as Record<string, any>)) && !('contest_type' in (value as Record<string, any>))) || ((value as Record<string, any>)['contestType'] === undefined && (value as Record<string, any>)['contest_type'] === undefined)) return false;
+    if ((!('contestEffect' in (value as Record<string, any>)) && !('contest_effect' in (value as Record<string, any>))) || ((value as Record<string, any>)['contestEffect'] === undefined && (value as Record<string, any>)['contest_effect'] === undefined)) return false;
+    if ((!('damageClass' in (value as Record<string, any>)) && !('damage_class' in (value as Record<string, any>))) || ((value as Record<string, any>)['damageClass'] === undefined && (value as Record<string, any>)['damage_class'] === undefined)) return false;
+    if ((!('effectEntries' in (value as Record<string, any>)) && !('effect_entries' in (value as Record<string, any>))) || ((value as Record<string, any>)['effectEntries'] === undefined && (value as Record<string, any>)['effect_entries'] === undefined)) return false;
+    if ((!('effectChanges' in (value as Record<string, any>)) && !('effect_changes' in (value as Record<string, any>))) || ((value as Record<string, any>)['effectChanges'] === undefined && (value as Record<string, any>)['effect_changes'] === undefined)) return false;
     if (!('generation' in value) || value['generation'] === undefined) return false;
     if (!('meta' in value) || value['meta'] === undefined) return false;
     if (!('names' in value) || value['names'] === undefined) return false;
-    if (!('pastValues' in value) || value['pastValues'] === undefined) return false;
-    if (!('statChanges' in value) || value['statChanges'] === undefined) return false;
-    if (!('superContestEffect' in value) || value['superContestEffect'] === undefined) return false;
+    if ((!('pastValues' in (value as Record<string, any>)) && !('past_values' in (value as Record<string, any>))) || ((value as Record<string, any>)['pastValues'] === undefined && (value as Record<string, any>)['past_values'] === undefined)) return false;
+    if ((!('statChanges' in (value as Record<string, any>)) && !('stat_changes' in (value as Record<string, any>))) || ((value as Record<string, any>)['statChanges'] === undefined && (value as Record<string, any>)['stat_changes'] === undefined)) return false;
+    if ((!('superContestEffect' in (value as Record<string, any>)) && !('super_contest_effect' in (value as Record<string, any>))) || ((value as Record<string, any>)['superContestEffect'] === undefined && (value as Record<string, any>)['super_contest_effect'] === undefined)) return false;
     if (!('target' in value) || value['target'] === undefined) return false;
     if (!('type' in value) || value['type'] === undefined) return false;
     if (!('machines' in value) || value['machines'] === undefined) return false;
-    if (!('flavorTextEntries' in value) || value['flavorTextEntries'] === undefined) return false;
-    if (!('learnedByPokemon' in value) || value['learnedByPokemon'] === undefined) return false;
+    if ((!('flavorTextEntries' in (value as Record<string, any>)) && !('flavor_text_entries' in (value as Record<string, any>))) || ((value as Record<string, any>)['flavorTextEntries'] === undefined && (value as Record<string, any>)['flavor_text_entries'] === undefined)) return false;
+    if ((!('learnedByPokemon' in (value as Record<string, any>)) && !('learned_by_pokemon' in (value as Record<string, any>))) || ((value as Record<string, any>)['learnedByPokemon'] === undefined && (value as Record<string, any>)['learned_by_pokemon'] === undefined)) return false;
     return true;
 }
 
@@ -324,11 +324,11 @@ export function MoveDetailFromJSONTyped(json: any, ignoreDiscriminator: boolean)
         
         'id': json['id'],
         'name': json['name'],
-        'accuracy': json['accuracy'] == null ? undefined : json['accuracy'],
+        'accuracy': json['accuracy'] === undefined ? undefined : json['accuracy'] === null ? null : json['accuracy'],
         'effectChance': json['effect_chance'],
-        'pp': json['pp'] == null ? undefined : json['pp'],
-        'priority': json['priority'] == null ? undefined : json['priority'],
-        'power': json['power'] == null ? undefined : json['power'],
+        'pp': json['pp'] === undefined ? undefined : json['pp'] === null ? null : json['pp'],
+        'priority': json['priority'] === undefined ? undefined : json['priority'] === null ? null : json['priority'],
+        'power': json['power'] === undefined ? undefined : json['power'] === null ? null : json['power'],
         'contestCombos': MoveDetailContestCombosFromJSON(json['contest_combos']),
         'contestType': ContestTypeSummaryFromJSON(json['contest_type']),
         'contestEffect': ContestEffectSummaryFromJSON(json['contest_effect']),
@@ -353,7 +353,7 @@ export function MoveDetailToJSON(json: any): MoveDetail {
     return MoveDetailToJSONTyped(json, false);
 }
 
-export function MoveDetailToJSONTyped(value?: Omit<MoveDetail, 'id'|'meta'> | null, ignoreDiscriminator: boolean = false): any {
+export function MoveDetailToJSONTyped(value?: Omit<MoveDetail, 'id'|'effectEntries'|'effectChanges'|'meta'|'names'|'pastValues'|'statChanges'|'machines'|'flavorTextEntries'|'learnedByPokemon'> | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
@@ -370,18 +370,10 @@ export function MoveDetailToJSONTyped(value?: Omit<MoveDetail, 'id'|'meta'> | nu
         'contest_type': ContestTypeSummaryToJSON(value['contestType']),
         'contest_effect': ContestEffectSummaryToJSON(value['contestEffect']),
         'damage_class': MoveDamageClassSummaryToJSON(value['damageClass']),
-        'effect_entries': ((value['effectEntries'] as Array<any>).map(MoveChangeEffectEntriesInnerToJSON)),
-        'effect_changes': ((value['effectChanges'] as Array<any>).map(MoveDetailEffectChangesInnerToJSON)),
         'generation': GenerationSummaryToJSON(value['generation']),
-        'names': ((value['names'] as Array<any>).map(MoveNameToJSON)),
-        'past_values': ((value['pastValues'] as Array<any>).map(MoveChangeToJSON)),
-        'stat_changes': ((value['statChanges'] as Array<any>).map(MoveDetailStatChangesInnerToJSON)),
         'super_contest_effect': SuperContestEffectSummaryToJSON(value['superContestEffect']),
         'target': MoveTargetSummaryToJSON(value['target']),
         'type': TypeSummaryToJSON(value['type']),
-        'machines': ((value['machines'] as Array<any>).map(MoveDetailMachinesInnerToJSON)),
-        'flavor_text_entries': ((value['flavorTextEntries'] as Array<any>).map(MoveFlavorTextToJSON)),
-        'learned_by_pokemon': ((value['learnedByPokemon'] as Array<any>).map(AbilityDetailPokemonInnerPokemonToJSON)),
     };
 }
 

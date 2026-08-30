@@ -31,6 +31,8 @@ PaginatedRegionSummaryList::PaginatedRegionSummaryList()
     
 }
 
+PaginatedRegionSummaryList::~PaginatedRegionSummaryList() = default;
+
 void PaginatedRegionSummaryList::validate() const
 {
     std::stringstream msg;

@@ -55,35 +55,35 @@ public:
 
 	/*! \brief Set 
 	 */
-	void setId(int  id);
+	void setId(int id);
 	/*! \brief Get 
 	 */
 	std::string getName();
 
 	/*! \brief Set 
 	 */
-	void setName(std::string  name);
+	void setName(std::string name);
 	/*! \brief Get 
 	 */
 	std::list<ItemAttributeDescription> getDescriptions();
 
 	/*! \brief Set 
 	 */
-	void setDescriptions(std::list <ItemAttributeDescription> descriptions);
+	void setDescriptions(std::list<ItemAttributeDescription> descriptions);
 	/*! \brief Get 
 	 */
 	std::list<AbilityDetail_pokemon_inner_pokemon> getItems();
 
 	/*! \brief Set 
 	 */
-	void setItems(std::list <AbilityDetail_pokemon_inner_pokemon> items);
+	void setItems(std::list<AbilityDetail_pokemon_inner_pokemon> items);
 	/*! \brief Get 
 	 */
 	std::list<ItemAttributeName> getNames();
 
 	/*! \brief Set 
 	 */
-	void setNames(std::list <ItemAttributeName> names);
+	void setNames(std::list<ItemAttributeName> names);
 
 
     private:

@@ -91,31 +91,31 @@ export interface AbilityDetail {
      * @type {Array<AbilityName>}
      * @memberof AbilityDetail
      */
-    names: Array<AbilityName>;
+    readonly names: Array<AbilityName>;
     /**
      * 
      * @type {Array<AbilityEffectText>}
      * @memberof AbilityDetail
      */
-    effectEntries: Array<AbilityEffectText>;
+    readonly effectEntries: Array<AbilityEffectText>;
     /**
      * 
      * @type {Array<AbilityChange>}
      * @memberof AbilityDetail
      */
-    effectChanges: Array<AbilityChange>;
+    readonly effectChanges: Array<AbilityChange>;
     /**
      * 
      * @type {Array<AbilityFlavorText>}
      * @memberof AbilityDetail
      */
-    flavorTextEntries: Array<AbilityFlavorText>;
+    readonly flavorTextEntries: Array<AbilityFlavorText>;
     /**
      * 
      * @type {Array<AbilityDetailPokemonInner>}
      * @memberof AbilityDetail
      */
-    pokemon: Array<AbilityDetailPokemonInner>;
+    readonly pokemon: Array<AbilityDetailPokemonInner>;
 }
 
 /**
@@ -126,9 +126,9 @@ export function instanceOfAbilityDetail(value: object): value is AbilityDetail {
     if (!('name' in value) || value['name'] === undefined) return false;
     if (!('generation' in value) || value['generation'] === undefined) return false;
     if (!('names' in value) || value['names'] === undefined) return false;
-    if (!('effectEntries' in value) || value['effectEntries'] === undefined) return false;
-    if (!('effectChanges' in value) || value['effectChanges'] === undefined) return false;
-    if (!('flavorTextEntries' in value) || value['flavorTextEntries'] === undefined) return false;
+    if ((!('effectEntries' in (value as Record<string, any>)) && !('effect_entries' in (value as Record<string, any>))) || ((value as Record<string, any>)['effectEntries'] === undefined && (value as Record<string, any>)['effect_entries'] === undefined)) return false;
+    if ((!('effectChanges' in (value as Record<string, any>)) && !('effect_changes' in (value as Record<string, any>))) || ((value as Record<string, any>)['effectChanges'] === undefined && (value as Record<string, any>)['effect_changes'] === undefined)) return false;
+    if ((!('flavorTextEntries' in (value as Record<string, any>)) && !('flavor_text_entries' in (value as Record<string, any>))) || ((value as Record<string, any>)['flavorTextEntries'] === undefined && (value as Record<string, any>)['flavor_text_entries'] === undefined)) return false;
     if (!('pokemon' in value) || value['pokemon'] === undefined) return false;
     return true;
 }
@@ -159,7 +159,7 @@ export function AbilityDetailToJSON(json: any): AbilityDetail {
     return AbilityDetailToJSONTyped(json, false);
 }
 
-export function AbilityDetailToJSONTyped(value?: Omit<AbilityDetail, 'id'> | null, ignoreDiscriminator: boolean = false): any {
+export function AbilityDetailToJSONTyped(value?: Omit<AbilityDetail, 'id'|'names'|'effectEntries'|'effectChanges'|'flavorTextEntries'|'pokemon'> | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
@@ -169,11 +169,6 @@ export function AbilityDetailToJSONTyped(value?: Omit<AbilityDetail, 'id'> | nul
         'name': value['name'],
         'is_main_series': value['isMainSeries'],
         'generation': GenerationSummaryToJSON(value['generation']),
-        'names': ((value['names'] as Array<any>).map(AbilityNameToJSON)),
-        'effect_entries': ((value['effectEntries'] as Array<any>).map(AbilityEffectTextToJSON)),
-        'effect_changes': ((value['effectChanges'] as Array<any>).map(AbilityChangeToJSON)),
-        'flavor_text_entries': ((value['flavorTextEntries'] as Array<any>).map(AbilityFlavorTextToJSON)),
-        'pokemon': ((value['pokemon'] as Array<any>).map(AbilityDetailPokemonInnerToJSON)),
     };
 }
 

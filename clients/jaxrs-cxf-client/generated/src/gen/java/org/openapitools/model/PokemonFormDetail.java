@@ -271,19 +271,6 @@ public class PokemonFormDetail  {
     return formNames;
   }
 
-  public void setFormNames(List<PokemonFormDetailFormNamesInner> formNames) {
-    this.formNames = formNames;
-  }
-
-  public PokemonFormDetail formNames(List<PokemonFormDetailFormNamesInner> formNames) {
-    this.formNames = formNames;
-    return this;
-  }
-
-  public PokemonFormDetail addFormNamesItem(PokemonFormDetailFormNamesInner formNamesItem) {
-    this.formNames.add(formNamesItem);
-    return this;
-  }
 
  /**
    * Get names
@@ -294,19 +281,6 @@ public class PokemonFormDetail  {
     return names;
   }
 
-  public void setNames(List<PokemonFormDetailFormNamesInner> names) {
-    this.names = names;
-  }
-
-  public PokemonFormDetail names(List<PokemonFormDetailFormNamesInner> names) {
-    this.names = names;
-    return this;
-  }
-
-  public PokemonFormDetail addNamesItem(PokemonFormDetailFormNamesInner namesItem) {
-    this.names.add(namesItem);
-    return this;
-  }
 
  /**
    * Get types
@@ -317,19 +291,6 @@ public class PokemonFormDetail  {
     return types;
   }
 
-  public void setTypes(List<PokemonDetailTypesInner> types) {
-    this.types = types;
-  }
-
-  public PokemonFormDetail types(List<PokemonDetailTypesInner> types) {
-    this.types = types;
-    return this;
-  }
-
-  public PokemonFormDetail addTypesItem(PokemonDetailTypesInner typesItem) {
-    this.types.add(typesItem);
-    return this;
-  }
 
   @Override
   public boolean equals(Object o) {
@@ -389,10 +350,7 @@ public class PokemonFormDetail  {
    * (except the first line).
    */
   private static String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 }
 

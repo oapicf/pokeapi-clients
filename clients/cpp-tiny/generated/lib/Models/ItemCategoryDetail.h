@@ -55,35 +55,35 @@ public:
 
 	/*! \brief Set 
 	 */
-	void setId(int  id);
+	void setId(int id);
 	/*! \brief Get 
 	 */
 	std::string getName();
 
 	/*! \brief Set 
 	 */
-	void setName(std::string  name);
+	void setName(std::string name);
 	/*! \brief Get 
 	 */
 	std::list<ItemSummary> getItems();
 
 	/*! \brief Set 
 	 */
-	void setItems(std::list <ItemSummary> items);
+	void setItems(std::list<ItemSummary> items);
 	/*! \brief Get 
 	 */
 	std::list<ItemCategoryName> getNames();
 
 	/*! \brief Set 
 	 */
-	void setNames(std::list <ItemCategoryName> names);
+	void setNames(std::list<ItemCategoryName> names);
 	/*! \brief Get 
 	 */
 	ItemPocketSummary getPocket();
 
 	/*! \brief Set 
 	 */
-	void setPocket(ItemPocketSummary  pocket);
+	void setPocket(ItemPocketSummary pocket);
 
 
     private:

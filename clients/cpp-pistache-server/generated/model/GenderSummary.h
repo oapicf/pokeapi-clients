@@ -32,7 +32,7 @@ class  GenderSummary
 {
 public:
     GenderSummary();
-    virtual ~GenderSummary() = default;
+    virtual ~GenderSummary();
 
 
     /// <summary>

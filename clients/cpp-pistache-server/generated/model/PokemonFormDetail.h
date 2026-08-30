@@ -38,7 +38,7 @@ class  PokemonFormDetail
 {
 public:
     PokemonFormDetail();
-    virtual ~PokemonFormDetail() = default;
+    virtual ~PokemonFormDetail();
 
 
     /// <summary>

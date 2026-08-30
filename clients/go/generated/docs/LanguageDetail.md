@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **Official** | Pointer to **bool** |  | [optional] 
 **Iso639** | **string** |  | 
 **Iso3166** | **string** |  | 
-**Names** | [**[]LanguageName**](LanguageName.md) |  | 
+**Names** | [**[]LanguageName**](LanguageName.md) |  | [readonly] 
 
 ## Methods
 

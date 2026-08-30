@@ -82,31 +82,31 @@ namespace Org.OpenAPITools.Model
         /// Gets or Sets Names
         /// </summary>
         [JsonPropertyName("names")]
-        public List<AbilityName> Names { get; set; }
+        public List<AbilityName> Names { get; }
 
         /// <summary>
         /// Gets or Sets EffectEntries
         /// </summary>
         [JsonPropertyName("effect_entries")]
-        public List<AbilityEffectText> EffectEntries { get; set; }
+        public List<AbilityEffectText> EffectEntries { get; }
 
         /// <summary>
         /// Gets or Sets EffectChanges
         /// </summary>
         [JsonPropertyName("effect_changes")]
-        public List<AbilityChange> EffectChanges { get; set; }
+        public List<AbilityChange> EffectChanges { get; }
 
         /// <summary>
         /// Gets or Sets FlavorTextEntries
         /// </summary>
         [JsonPropertyName("flavor_text_entries")]
-        public List<AbilityFlavorText> FlavorTextEntries { get; set; }
+        public List<AbilityFlavorText> FlavorTextEntries { get; }
 
         /// <summary>
         /// Gets or Sets Pokemon
         /// </summary>
         [JsonPropertyName("pokemon")]
-        public List<AbilityDetailPokemonInner> Pokemon { get; set; }
+        public List<AbilityDetailPokemonInner> Pokemon { get; }
 
         /// <summary>
         /// Used to track the state of IsMainSeries
@@ -119,7 +119,7 @@ namespace Org.OpenAPITools.Model
         /// Gets or Sets IsMainSeries
         /// </summary>
         [JsonPropertyName("is_main_series")]
-        public bool? IsMainSeries { get { return this.IsMainSeriesOption; } set { this.IsMainSeriesOption = new(value); } }
+        public bool? IsMainSeries { get { return this.IsMainSeriesOption.Value; } set { this.IsMainSeriesOption = new(value); } }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -162,8 +162,18 @@ namespace Org.OpenAPITools.Model
     /// <summary>
     /// A Json converter for type <see cref="AbilityDetail" />
     /// </summary>
-    public class AbilityDetailJsonConverter : JsonConverter<AbilityDetail>
+    public partial class AbilityDetailJsonConverter : JsonConverter<AbilityDetail>
     {
+        partial void OnCreated();
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="AbilityDetailJsonConverter" /> class.
+        /// </summary>
+        public AbilityDetailJsonConverter()
+        {
+            OnCreated();
+        }
+
         /// <summary>
         /// Deserializes json to <see cref="AbilityDetail" />
         /// </summary>

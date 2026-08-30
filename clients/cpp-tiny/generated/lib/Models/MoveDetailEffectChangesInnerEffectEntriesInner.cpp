@@ -86,7 +86,7 @@ MoveDetail_effect_changes_inner_effect_entries_inner::getEffect()
 }
 
 void
-MoveDetail_effect_changes_inner_effect_entries_inner::setEffect(std::string  effect)
+MoveDetail_effect_changes_inner_effect_entries_inner::setEffect(std::string effect)
 {
 	this->effect = effect;
 }
@@ -98,7 +98,7 @@ MoveDetail_effect_changes_inner_effect_entries_inner::getLanguage()
 }
 
 void
-MoveDetail_effect_changes_inner_effect_entries_inner::setLanguage(AbilityDetail_pokemon_inner_pokemon  language)
+MoveDetail_effect_changes_inner_effect_entries_inner::setLanguage(AbilityDetail_pokemon_inner_pokemon language)
 {
 	this->language = language;
 }

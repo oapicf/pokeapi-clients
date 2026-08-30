@@ -1160,8 +1160,8 @@ type alias EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner =
     { gender : EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender
     , heldItem : EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender
     , item : EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender
-    , knownMove : Object
-    , knownMoveType : Object
+    , knownMove : EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender
+    , knownMoveType : EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender
     , location : EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender
     , minAffection : Int
     , minBeauty : Int
@@ -3878,8 +3878,8 @@ encodeEvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerPairs model =
             [ encode "gender" encodeEvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender model.gender
             , encode "held_item" encodeEvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender model.heldItem
             , encode "item" encodeEvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender model.item
-            , encode "known_move" encodeObject model.knownMove
-            , encode "known_move_type" encodeObject model.knownMoveType
+            , encode "known_move" encodeEvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender model.knownMove
+            , encode "known_move_type" encodeEvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender model.knownMoveType
             , encode "location" encodeEvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender model.location
             , encode "min_affection" Json.Encode.int model.minAffection
             , encode "min_beauty" Json.Encode.int model.minBeauty
@@ -9225,8 +9225,8 @@ evolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerDecoder =
         |> decode "gender" evolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGenderDecoder 
         |> decode "held_item" evolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGenderDecoder 
         |> decode "item" evolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGenderDecoder 
-        |> decode "known_move" objectDecoder 
-        |> decode "known_move_type" objectDecoder 
+        |> decode "known_move" evolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGenderDecoder 
+        |> decode "known_move_type" evolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGenderDecoder 
         |> decode "location" evolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGenderDecoder 
         |> decode "min_affection" Json.Decode.int 
         |> decode "min_beauty" Json.Decode.int 

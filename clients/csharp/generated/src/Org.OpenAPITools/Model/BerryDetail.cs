@@ -124,7 +124,7 @@ namespace Org.OpenAPITools.Model
         /// Gets or Sets Flavors
         /// </summary>
         [JsonPropertyName("flavors")]
-        public List<BerryDetailFlavorsInner> Flavors { get; set; }
+        public List<BerryDetailFlavorsInner> Flavors { get; }
 
         /// <summary>
         /// Gets or Sets Item
@@ -182,8 +182,18 @@ namespace Org.OpenAPITools.Model
     /// <summary>
     /// A Json converter for type <see cref="BerryDetail" />
     /// </summary>
-    public class BerryDetailJsonConverter : JsonConverter<BerryDetail>
+    public partial class BerryDetailJsonConverter : JsonConverter<BerryDetail>
     {
+        partial void OnCreated();
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="BerryDetailJsonConverter" /> class.
+        /// </summary>
+        public BerryDetailJsonConverter()
+        {
+            OnCreated();
+        }
+
         /// <summary>
         /// Deserializes json to <see cref="BerryDetail" />
         /// </summary>

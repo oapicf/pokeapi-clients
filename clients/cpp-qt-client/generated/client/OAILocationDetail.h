@@ -40,13 +40,13 @@ class OAILocationAreaSummary;
 class OAILocationDetail : public OAIObject {
 public:
     OAILocationDetail();
-    OAILocationDetail(QString json);
+    OAILocationDetail(const QString &json);
     ~OAILocationDetail() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     qint32 getId() const;
     void setId(const qint32 &id);

@@ -25,6 +25,8 @@ PokedexDetail_pokemon_entries_inner::PokedexDetail_pokemon_entries_inner()
     
 }
 
+PokedexDetail_pokemon_entries_inner::~PokedexDetail_pokemon_entries_inner() = default;
+
 void PokedexDetail_pokemon_entries_inner::validate() const
 {
     std::stringstream msg;

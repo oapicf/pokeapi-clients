@@ -16,6 +16,6 @@ import { PalParkAreaName } from './palParkAreaName';
 export interface PalParkAreaDetail { 
     readonly id: number;
     name: string;
-    names: Array<PalParkAreaName>;
-    pokemon_encounters: Array<PalParkAreaDetailPokemonEncountersInner>;
+    readonly names: Array<PalParkAreaName>;
+    readonly pokemon_encounters: Array<PalParkAreaDetailPokemonEncountersInner>;
 }

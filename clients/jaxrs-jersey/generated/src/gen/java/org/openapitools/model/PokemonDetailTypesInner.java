@@ -31,7 +31,7 @@ import javax.validation.Valid;
   PokemonDetailTypesInner.JSON_PROPERTY_SLOT,
   PokemonDetailTypesInner.JSON_PROPERTY_TYPE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJerseyServerCodegen", date = "2026-02-07T15:23:51.865177194Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJerseyServerCodegen", date = "2026-08-30T01:56:28.710233113Z[Etc/UTC]", comments = "Generator version: 7.24.0")
 public class PokemonDetailTypesInner   {
   public static final String JSON_PROPERTY_SLOT = "slot";
   @JsonProperty(JSON_PROPERTY_SLOT)
@@ -116,10 +116,7 @@ public class PokemonDetailTypesInner   {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 }
 

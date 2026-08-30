@@ -23,9 +23,9 @@ typedef struct location_area_detail_t location_area_detail_t;
 
 
 typedef struct location_area_detail_t {
-    int id; //numeric
+    int *id; //numeric
     char *name; // string
-    int game_index; //numeric
+    int *game_index; //numeric
     list_t *encounter_method_rates; //nonprimitive container
     struct location_summary_t *location; //model
     list_t *names; //nonprimitive container
@@ -35,9 +35,9 @@ typedef struct location_area_detail_t {
 } location_area_detail_t;
 
 __attribute__((deprecated)) location_area_detail_t *location_area_detail_create(
-    int id,
+    int *id,
     char *name,
-    int game_index,
+    int *game_index,
     list_t *encounter_method_rates,
     location_summary_t *location,
     list_t *names,

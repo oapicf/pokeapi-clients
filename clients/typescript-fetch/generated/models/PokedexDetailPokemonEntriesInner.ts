@@ -45,8 +45,8 @@ export interface PokedexDetailPokemonEntriesInner {
  * Check if a given object implements the PokedexDetailPokemonEntriesInner interface.
  */
 export function instanceOfPokedexDetailPokemonEntriesInner(value: object): value is PokedexDetailPokemonEntriesInner {
-    if (!('entryNumber' in value) || value['entryNumber'] === undefined) return false;
-    if (!('pokemonSpecies' in value) || value['pokemonSpecies'] === undefined) return false;
+    if ((!('entryNumber' in (value as Record<string, any>)) && !('entry_number' in (value as Record<string, any>))) || ((value as Record<string, any>)['entryNumber'] === undefined && (value as Record<string, any>)['entry_number'] === undefined)) return false;
+    if ((!('pokemonSpecies' in (value as Record<string, any>)) && !('pokemon_species' in (value as Record<string, any>))) || ((value as Record<string, any>)['pokemonSpecies'] === undefined && (value as Record<string, any>)['pokemon_species'] === undefined)) return false;
     return true;
 }
 

@@ -82,7 +82,7 @@ namespace Org.OpenAPITools.Model
         /// Gets or Sets Names
         /// </summary>
         [JsonPropertyName("names")]
-        public List<LanguageName> Names { get; set; }
+        public List<LanguageName> Names { get; }
 
         /// <summary>
         /// Used to track the state of Official
@@ -95,7 +95,7 @@ namespace Org.OpenAPITools.Model
         /// Gets or Sets Official
         /// </summary>
         [JsonPropertyName("official")]
-        public bool? Official { get { return this.OfficialOption; } set { this.OfficialOption = new(value); } }
+        public bool? Official { get { return this.OfficialOption.Value; } set { this.OfficialOption = new(value); } }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -147,8 +147,18 @@ namespace Org.OpenAPITools.Model
     /// <summary>
     /// A Json converter for type <see cref="LanguageDetail" />
     /// </summary>
-    public class LanguageDetailJsonConverter : JsonConverter<LanguageDetail>
+    public partial class LanguageDetailJsonConverter : JsonConverter<LanguageDetail>
     {
+        partial void OnCreated();
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="LanguageDetailJsonConverter" /> class.
+        /// </summary>
+        public LanguageDetailJsonConverter()
+        {
+            OnCreated();
+        }
+
         /// <summary>
         /// Deserializes json to <see cref="LanguageDetail" />
         /// </summary>

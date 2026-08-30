@@ -77,8 +77,18 @@ namespace Org.OpenAPITools.Model
     /// <summary>
     /// A Json converter for type <see cref="SuperContestEffectSummary" />
     /// </summary>
-    public class SuperContestEffectSummaryJsonConverter : JsonConverter<SuperContestEffectSummary>
+    public partial class SuperContestEffectSummaryJsonConverter : JsonConverter<SuperContestEffectSummary>
     {
+        partial void OnCreated();
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="SuperContestEffectSummaryJsonConverter" /> class.
+        /// </summary>
+        public SuperContestEffectSummaryJsonConverter()
+        {
+            OnCreated();
+        }
+
         /// <summary>
         /// Deserializes json to <see cref="SuperContestEffectSummary" />
         /// </summary>

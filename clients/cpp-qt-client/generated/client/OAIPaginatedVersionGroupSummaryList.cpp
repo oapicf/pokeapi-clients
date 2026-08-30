@@ -21,7 +21,7 @@
 
 namespace OpenAPI {
 
-OAIPaginatedVersionGroupSummaryList::OAIPaginatedVersionGroupSummaryList(QString json) {
+OAIPaginatedVersionGroupSummaryList::OAIPaginatedVersionGroupSummaryList(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -47,7 +47,7 @@ void OAIPaginatedVersionGroupSummaryList::initializeModel() {
     m_results_isValid = false;
 }
 
-void OAIPaginatedVersionGroupSummaryList::fromJson(QString jsonString) {
+void OAIPaginatedVersionGroupSummaryList::fromJson(const QString &jsonString) {
     QByteArray array(jsonString.toStdString().c_str());
     QJsonDocument doc = QJsonDocument::fromJson(array);
     QJsonObject jsonObject = doc.object();

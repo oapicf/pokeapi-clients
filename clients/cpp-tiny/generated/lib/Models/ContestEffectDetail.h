@@ -54,35 +54,35 @@ public:
 
 	/*! \brief Set 
 	 */
-	void setId(int  id);
+	void setId(int id);
 	/*! \brief Get 
 	 */
 	int getAppeal();
 
 	/*! \brief Set 
 	 */
-	void setAppeal(int  appeal);
+	void setAppeal(int appeal);
 	/*! \brief Get 
 	 */
 	int getJam();
 
 	/*! \brief Set 
 	 */
-	void setJam(int  jam);
+	void setJam(int jam);
 	/*! \brief Get 
 	 */
 	std::list<ContestEffectEffectText> getEffectEntries();
 
 	/*! \brief Set 
 	 */
-	void setEffectEntries(std::list <ContestEffectEffectText> effect_entries);
+	void setEffectEntries(std::list<ContestEffectEffectText> effect_entries);
 	/*! \brief Get 
 	 */
 	std::list<ContestEffectFlavorText> getFlavorTextEntries();
 
 	/*! \brief Set 
 	 */
-	void setFlavorTextEntries(std::list <ContestEffectFlavorText> flavor_text_entries);
+	void setFlavorTextEntries(std::list<ContestEffectFlavorText> flavor_text_entries);
 
 
     private:

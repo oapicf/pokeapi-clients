@@ -272,73 +272,96 @@ MoveDetail <- R6::R6Class(
       }
       if (!is.null(self$`contest_combos`)) {
         MoveDetailObject[["contest_combos"]] <-
-          self$`contest_combos`$toSimpleType()
+          self$extractSimpleType(self$`contest_combos`)
       }
       if (!is.null(self$`contest_type`)) {
         MoveDetailObject[["contest_type"]] <-
-          self$`contest_type`$toSimpleType()
+          self$extractSimpleType(self$`contest_type`)
       }
       if (!is.null(self$`contest_effect`)) {
         MoveDetailObject[["contest_effect"]] <-
-          self$`contest_effect`$toSimpleType()
+          self$extractSimpleType(self$`contest_effect`)
       }
       if (!is.null(self$`damage_class`)) {
         MoveDetailObject[["damage_class"]] <-
-          self$`damage_class`$toSimpleType()
+          self$extractSimpleType(self$`damage_class`)
       }
       if (!is.null(self$`effect_entries`)) {
         MoveDetailObject[["effect_entries"]] <-
-          lapply(self$`effect_entries`, function(x) x$toSimpleType())
+          self$extractSimpleType(self$`effect_entries`)
       }
       if (!is.null(self$`effect_changes`)) {
         MoveDetailObject[["effect_changes"]] <-
-          lapply(self$`effect_changes`, function(x) x$toSimpleType())
+          self$extractSimpleType(self$`effect_changes`)
       }
       if (!is.null(self$`generation`)) {
         MoveDetailObject[["generation"]] <-
-          self$`generation`$toSimpleType()
+          self$extractSimpleType(self$`generation`)
       }
       if (!is.null(self$`meta`)) {
         MoveDetailObject[["meta"]] <-
-          self$`meta`$toSimpleType()
+          self$extractSimpleType(self$`meta`)
       }
       if (!is.null(self$`names`)) {
         MoveDetailObject[["names"]] <-
-          lapply(self$`names`, function(x) x$toSimpleType())
+          self$extractSimpleType(self$`names`)
       }
       if (!is.null(self$`past_values`)) {
         MoveDetailObject[["past_values"]] <-
-          lapply(self$`past_values`, function(x) x$toSimpleType())
+          self$extractSimpleType(self$`past_values`)
       }
       if (!is.null(self$`stat_changes`)) {
         MoveDetailObject[["stat_changes"]] <-
-          lapply(self$`stat_changes`, function(x) x$toSimpleType())
+          self$extractSimpleType(self$`stat_changes`)
       }
       if (!is.null(self$`super_contest_effect`)) {
         MoveDetailObject[["super_contest_effect"]] <-
-          self$`super_contest_effect`$toSimpleType()
+          self$extractSimpleType(self$`super_contest_effect`)
       }
       if (!is.null(self$`target`)) {
         MoveDetailObject[["target"]] <-
-          self$`target`$toSimpleType()
+          self$extractSimpleType(self$`target`)
       }
       if (!is.null(self$`type`)) {
         MoveDetailObject[["type"]] <-
-          self$`type`$toSimpleType()
+          self$extractSimpleType(self$`type`)
       }
       if (!is.null(self$`machines`)) {
         MoveDetailObject[["machines"]] <-
-          lapply(self$`machines`, function(x) x$toSimpleType())
+          self$extractSimpleType(self$`machines`)
       }
       if (!is.null(self$`flavor_text_entries`)) {
         MoveDetailObject[["flavor_text_entries"]] <-
-          lapply(self$`flavor_text_entries`, function(x) x$toSimpleType())
+          self$extractSimpleType(self$`flavor_text_entries`)
       }
       if (!is.null(self$`learned_by_pokemon`)) {
         MoveDetailObject[["learned_by_pokemon"]] <-
-          lapply(self$`learned_by_pokemon`, function(x) x$toSimpleType())
+          self$extractSimpleType(self$`learned_by_pokemon`)
       }
       return(MoveDetailObject)
+    },
+
+    extractSimpleType = function(x) {
+      if (R6::is.R6(x)) {
+        return(x$toSimpleType())
+      } else if (!self$hasNestedR6(x)) {
+        return(x)
+      }
+      lapply(x, self$extractSimpleType)
+    },
+
+    hasNestedR6 = function(x) {
+      if (R6::is.R6(x)) {
+        return(TRUE)
+      }
+      if (is.list(x)) {
+        for (item in x) {
+          if (self$hasNestedR6(item)) {
+            return(TRUE)
+          }
+        }
+      }
+      FALSE
     },
 
     #' @description

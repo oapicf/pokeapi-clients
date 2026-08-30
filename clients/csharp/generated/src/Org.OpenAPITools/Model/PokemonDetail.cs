@@ -98,25 +98,25 @@ namespace Org.OpenAPITools.Model
         /// Gets or Sets Abilities
         /// </summary>
         [JsonPropertyName("abilities")]
-        public List<PokemonDetailAbilitiesInner> Abilities { get; set; }
+        public List<PokemonDetailAbilitiesInner> Abilities { get; }
 
         /// <summary>
         /// Gets or Sets PastAbilities
         /// </summary>
         [JsonPropertyName("past_abilities")]
-        public List<PokemonDetailPastAbilitiesInner> PastAbilities { get; set; }
+        public List<PokemonDetailPastAbilitiesInner> PastAbilities { get; }
 
         /// <summary>
         /// Gets or Sets Forms
         /// </summary>
         [JsonPropertyName("forms")]
-        public List<PokemonFormSummary> Forms { get; set; }
+        public List<PokemonFormSummary> Forms { get; }
 
         /// <summary>
         /// Gets or Sets GameIndices
         /// </summary>
         [JsonPropertyName("game_indices")]
-        public List<PokemonGameIndex> GameIndices { get; set; }
+        public List<PokemonGameIndex> GameIndices { get; }
 
         /// <summary>
         /// Gets or Sets HeldItems
@@ -134,7 +134,7 @@ namespace Org.OpenAPITools.Model
         /// Gets or Sets Moves
         /// </summary>
         [JsonPropertyName("moves")]
-        public List<PokemonDetailMovesInner> Moves { get; set; }
+        public List<PokemonDetailMovesInner> Moves { get; }
 
         /// <summary>
         /// Gets or Sets Species
@@ -158,19 +158,19 @@ namespace Org.OpenAPITools.Model
         /// Gets or Sets Stats
         /// </summary>
         [JsonPropertyName("stats")]
-        public List<PokemonStat> Stats { get; set; }
+        public List<PokemonStat> Stats { get; }
 
         /// <summary>
         /// Gets or Sets Types
         /// </summary>
         [JsonPropertyName("types")]
-        public List<PokemonDetailTypesInner> Types { get; set; }
+        public List<PokemonDetailTypesInner> Types { get; }
 
         /// <summary>
         /// Gets or Sets PastTypes
         /// </summary>
         [JsonPropertyName("past_types")]
-        public List<PokemonDetailPastTypesInner> PastTypes { get; set; }
+        public List<PokemonDetailPastTypesInner> PastTypes { get; }
 
         /// <summary>
         /// Used to track the state of BaseExperience
@@ -183,7 +183,7 @@ namespace Org.OpenAPITools.Model
         /// Gets or Sets BaseExperience
         /// </summary>
         [JsonPropertyName("base_experience")]
-        public int? BaseExperience { get { return this.BaseExperienceOption; } set { this.BaseExperienceOption = new(value); } }
+        public int? BaseExperience { get { return this.BaseExperienceOption.Value; } set { this.BaseExperienceOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of Height
@@ -196,7 +196,7 @@ namespace Org.OpenAPITools.Model
         /// Gets or Sets Height
         /// </summary>
         [JsonPropertyName("height")]
-        public int? Height { get { return this.HeightOption; } set { this.HeightOption = new(value); } }
+        public int? Height { get { return this.HeightOption.Value; } set { this.HeightOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of IsDefault
@@ -209,7 +209,7 @@ namespace Org.OpenAPITools.Model
         /// Gets or Sets IsDefault
         /// </summary>
         [JsonPropertyName("is_default")]
-        public bool? IsDefault { get { return this.IsDefaultOption; } set { this.IsDefaultOption = new(value); } }
+        public bool? IsDefault { get { return this.IsDefaultOption.Value; } set { this.IsDefaultOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of Order
@@ -222,7 +222,7 @@ namespace Org.OpenAPITools.Model
         /// Gets or Sets Order
         /// </summary>
         [JsonPropertyName("order")]
-        public int? Order { get { return this.OrderOption; } set { this.OrderOption = new(value); } }
+        public int? Order { get { return this.OrderOption.Value; } set { this.OrderOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of Weight
@@ -235,7 +235,7 @@ namespace Org.OpenAPITools.Model
         /// Gets or Sets Weight
         /// </summary>
         [JsonPropertyName("weight")]
-        public int? Weight { get { return this.WeightOption; } set { this.WeightOption = new(value); } }
+        public int? Weight { get { return this.WeightOption.Value; } set { this.WeightOption = new(value); } }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -289,8 +289,18 @@ namespace Org.OpenAPITools.Model
     /// <summary>
     /// A Json converter for type <see cref="PokemonDetail" />
     /// </summary>
-    public class PokemonDetailJsonConverter : JsonConverter<PokemonDetail>
+    public partial class PokemonDetailJsonConverter : JsonConverter<PokemonDetail>
     {
+        partial void OnCreated();
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="PokemonDetailJsonConverter" /> class.
+        /// </summary>
+        public PokemonDetailJsonConverter()
+        {
+            OnCreated();
+        }
+
         /// <summary>
         /// Deserializes json to <see cref="PokemonDetail" />
         /// </summary>

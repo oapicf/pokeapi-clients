@@ -26,6 +26,8 @@ GenerationDetail::GenerationDetail()
     
 }
 
+GenerationDetail::~GenerationDetail() = default;
+
 void GenerationDetail::validate() const
 {
     std::stringstream msg;

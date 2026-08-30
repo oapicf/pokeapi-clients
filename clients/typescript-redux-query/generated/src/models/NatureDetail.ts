@@ -80,25 +80,25 @@ export interface NatureDetail  {
      * @type {Array<BerrySummary>}
      * @memberof NatureDetail
      */
-    berries: Array<BerrySummary>;
+    readonly berries: Array<BerrySummary>;
     /**
      * 
      * @type {Array<NatureDetailPokeathlonStatChangesInner>}
      * @memberof NatureDetail
      */
-    pokeathlonStatChanges: Array<NatureDetailPokeathlonStatChangesInner>;
+    readonly pokeathlonStatChanges: Array<NatureDetailPokeathlonStatChangesInner>;
     /**
      * 
      * @type {Array<NatureBattleStylePreference>}
      * @memberof NatureDetail
      */
-    moveBattleStylePreferences: Array<NatureBattleStylePreference>;
+    readonly moveBattleStylePreferences: Array<NatureBattleStylePreference>;
     /**
      * 
      * @type {Array<NatureName>}
      * @memberof NatureDetail
      */
-    names: Array<NatureName>;
+    readonly names: Array<NatureName>;
 }
 
 export function NatureDetailFromJSON(json: any): NatureDetail {
@@ -126,10 +126,6 @@ export function NatureDetailToJSON(value?: NatureDetail): any {
         'increased_stat': StatSummaryToJSON(value.increasedStat),
         'likes_flavor': BerryFlavorSummaryToJSON(value.likesFlavor),
         'hates_flavor': BerryFlavorSummaryToJSON(value.hatesFlavor),
-        'berries': (value.berries as Array<any>).map(BerrySummaryToJSON),
-        'pokeathlon_stat_changes': (value.pokeathlonStatChanges as Array<any>).map(NatureDetailPokeathlonStatChangesInnerToJSON),
-        'move_battle_style_preferences': (value.moveBattleStylePreferences as Array<any>).map(NatureBattleStylePreferenceToJSON),
-        'names': (value.names as Array<any>).map(NatureNameToJSON),
     };
 }
 

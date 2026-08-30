@@ -18,7 +18,7 @@ import ItemPocketName from './ItemPocketName';
 /**
  * The ItemPocketDetail model module.
  * @module model/ItemPocketDetail
- * @version 1.2.1-pre.0
+ * @version 2.0.1-pre.0
  */
 class ItemPocketDetail {
     /**

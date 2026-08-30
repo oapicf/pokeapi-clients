@@ -51,14 +51,14 @@ public:
 
 	/*! \brief Set 
 	 */
-	void setLatest(std::string  latest);
+	void setLatest(std::string latest);
 	/*! \brief Get 
 	 */
 	std::string getLegacy();
 
 	/*! \brief Set 
 	 */
-	void setLegacy(std::string  legacy);
+	void setLegacy(std::string legacy);
 
 
     private:

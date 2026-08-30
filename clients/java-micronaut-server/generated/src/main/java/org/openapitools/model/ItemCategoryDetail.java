@@ -39,7 +39,7 @@ import io.swagger.v3.oas.annotations.media.Schema;
   ItemCategoryDetail.JSON_PROPERTY_POCKET
 })
 @JsonTypeName("ItemCategoryDetail")
-@Generated(value="org.openapitools.codegen.languages.JavaMicronautServerCodegen", date="2026-02-07T15:23:03.167972722Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@Generated(value="org.openapitools.codegen.languages.JavaMicronautServerCodegen", date="2026-08-30T01:55:54.631003115Z[Etc/UTC]", comments = "Generator version: 7.24.0")
 @Introspected
 public class ItemCategoryDetail {
     public static final String JSON_PROPERTY_ID = "id";
@@ -101,42 +101,16 @@ public class ItemCategoryDetail {
         this.name = name;
     }
 
-    public ItemCategoryDetail items(List<@Valid ItemSummary> items) {
-        this.items = items;
-        return this;
-    }
-
-    public ItemCategoryDetail addItemsItem(ItemSummary itemsItem) {
-        this.items.add(itemsItem);
-        return this;
-    }
-
     /**
      * Get items
      * @return items
      */
     @NotNull
-    @Schema(name = "items", requiredMode = Schema.RequiredMode.REQUIRED)
+    @Schema(name = "items", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
     @JsonProperty(JSON_PROPERTY_ITEMS)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public List<@Valid ItemSummary> getItems() {
         return items;
-    }
-
-    @JsonProperty(JSON_PROPERTY_ITEMS)
-    @JsonInclude(value = JsonInclude.Include.ALWAYS)
-    public void setItems(List<@Valid ItemSummary> items) {
-        this.items = items;
-    }
-
-    public ItemCategoryDetail names(List<@Valid ItemCategoryName> names) {
-        this.names = names;
-        return this;
-    }
-
-    public ItemCategoryDetail addNamesItem(ItemCategoryName namesItem) {
-        this.names.add(namesItem);
-        return this;
     }
 
     /**
@@ -144,17 +118,11 @@ public class ItemCategoryDetail {
      * @return names
      */
     @NotNull
-    @Schema(name = "names", requiredMode = Schema.RequiredMode.REQUIRED)
+    @Schema(name = "names", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
     @JsonProperty(JSON_PROPERTY_NAMES)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public List<@Valid ItemCategoryName> getNames() {
         return names;
-    }
-
-    @JsonProperty(JSON_PROPERTY_NAMES)
-    @JsonInclude(value = JsonInclude.Include.ALWAYS)
-    public void setNames(List<@Valid ItemCategoryName> names) {
-        this.names = names;
     }
 
     public ItemCategoryDetail pocket(ItemPocketSummary pocket) {
@@ -220,10 +188,7 @@ public class ItemCategoryDetail {
      * (except the first line).
      */
     private String toIndentedString(Object o) {
-        if (o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
+        return o == null ? "null" : o.toString().replace("\n", "\n    ");
     }
 
 }

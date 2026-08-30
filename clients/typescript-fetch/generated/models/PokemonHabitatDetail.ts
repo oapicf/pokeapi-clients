@@ -51,13 +51,13 @@ export interface PokemonHabitatDetail {
      * @type {Array<PokemonHabitatName>}
      * @memberof PokemonHabitatDetail
      */
-    names: Array<PokemonHabitatName>;
+    readonly names: Array<PokemonHabitatName>;
     /**
      * 
      * @type {Array<PokemonSpeciesSummary>}
      * @memberof PokemonHabitatDetail
      */
-    pokemonSpecies: Array<PokemonSpeciesSummary>;
+    readonly pokemonSpecies: Array<PokemonSpeciesSummary>;
 }
 
 /**
@@ -67,7 +67,7 @@ export function instanceOfPokemonHabitatDetail(value: object): value is PokemonH
     if (!('id' in value) || value['id'] === undefined) return false;
     if (!('name' in value) || value['name'] === undefined) return false;
     if (!('names' in value) || value['names'] === undefined) return false;
-    if (!('pokemonSpecies' in value) || value['pokemonSpecies'] === undefined) return false;
+    if ((!('pokemonSpecies' in (value as Record<string, any>)) && !('pokemon_species' in (value as Record<string, any>))) || ((value as Record<string, any>)['pokemonSpecies'] === undefined && (value as Record<string, any>)['pokemon_species'] === undefined)) return false;
     return true;
 }
 
@@ -92,7 +92,7 @@ export function PokemonHabitatDetailToJSON(json: any): PokemonHabitatDetail {
     return PokemonHabitatDetailToJSONTyped(json, false);
 }
 
-export function PokemonHabitatDetailToJSONTyped(value?: Omit<PokemonHabitatDetail, 'id'> | null, ignoreDiscriminator: boolean = false): any {
+export function PokemonHabitatDetailToJSONTyped(value?: Omit<PokemonHabitatDetail, 'id'|'names'|'pokemonSpecies'> | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
@@ -100,8 +100,6 @@ export function PokemonHabitatDetailToJSONTyped(value?: Omit<PokemonHabitatDetai
     return {
         
         'name': value['name'],
-        'names': ((value['names'] as Array<any>).map(PokemonHabitatNameToJSON)),
-        'pokemon_species': ((value['pokemonSpecies'] as Array<any>).map(PokemonSpeciesSummaryToJSON)),
     };
 }
 

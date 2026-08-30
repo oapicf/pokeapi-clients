@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **id** | **int** |  | [readonly] 
 **name** | **str** |  | 
 **condition** | [**EncounterConditionSummary**](EncounterConditionSummary.md) |  | 
-**names** | [**List[EncounterConditionValueName]**](EncounterConditionValueName.md) |  | 
+**names** | [**List[EncounterConditionValueName]**](EncounterConditionValueName.md) |  | [readonly] 
 
 ## Example
 

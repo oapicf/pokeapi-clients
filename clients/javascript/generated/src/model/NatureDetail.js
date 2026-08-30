@@ -22,7 +22,7 @@ import StatSummary from './StatSummary';
 /**
  * The NatureDetail model module.
  * @module model/NatureDetail
- * @version 1.2.1-pre.0
+ * @version 2.0.1-pre.0
  */
 class NatureDetail {
     /**

@@ -6,8 +6,8 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **int32** |  | [readonly] 
 **Appeal** | **int32** |  | 
-**FlavorTextEntries** | [**[]SuperContestEffectFlavorText**](SuperContestEffectFlavorText.md) |  | 
-**Moves** | [**[]MoveSummary**](MoveSummary.md) |  | 
+**FlavorTextEntries** | [**[]SuperContestEffectFlavorText**](SuperContestEffectFlavorText.md) |  | [readonly] 
+**Moves** | [**[]MoveSummary**](MoveSummary.md) |  | [readonly] 
 
 ## Methods
 

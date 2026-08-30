@@ -203,29 +203,52 @@ PokemonFormDetail <- R6::R6Class(
       }
       if (!is.null(self$`pokemon`)) {
         PokemonFormDetailObject[["pokemon"]] <-
-          self$`pokemon`$toSimpleType()
+          self$extractSimpleType(self$`pokemon`)
       }
       if (!is.null(self$`sprites`)) {
         PokemonFormDetailObject[["sprites"]] <-
-          self$`sprites`$toSimpleType()
+          self$extractSimpleType(self$`sprites`)
       }
       if (!is.null(self$`version_group`)) {
         PokemonFormDetailObject[["version_group"]] <-
-          self$`version_group`$toSimpleType()
+          self$extractSimpleType(self$`version_group`)
       }
       if (!is.null(self$`form_names`)) {
         PokemonFormDetailObject[["form_names"]] <-
-          lapply(self$`form_names`, function(x) x$toSimpleType())
+          self$extractSimpleType(self$`form_names`)
       }
       if (!is.null(self$`names`)) {
         PokemonFormDetailObject[["names"]] <-
-          lapply(self$`names`, function(x) x$toSimpleType())
+          self$extractSimpleType(self$`names`)
       }
       if (!is.null(self$`types`)) {
         PokemonFormDetailObject[["types"]] <-
-          lapply(self$`types`, function(x) x$toSimpleType())
+          self$extractSimpleType(self$`types`)
       }
       return(PokemonFormDetailObject)
+    },
+
+    extractSimpleType = function(x) {
+      if (R6::is.R6(x)) {
+        return(x$toSimpleType())
+      } else if (!self$hasNestedR6(x)) {
+        return(x)
+      }
+      lapply(x, self$extractSimpleType)
+    },
+
+    hasNestedR6 = function(x) {
+      if (R6::is.R6(x)) {
+        return(TRUE)
+      }
+      if (is.list(x)) {
+        for (item in x) {
+          if (self$hasNestedR6(item)) {
+            return(TRUE)
+          }
+        }
+      }
+      FALSE
     },
 
     #' @description

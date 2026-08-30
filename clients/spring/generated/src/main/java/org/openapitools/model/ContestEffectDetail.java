@@ -12,19 +12,19 @@ import org.openapitools.model.ContestEffectFlavorText;
 import org.springframework.lang.Nullable;
 import org.openapitools.jackson.nullable.JsonNullable;
 import java.time.OffsetDateTime;
-import javax.validation.Valid;
-import javax.validation.constraints.*;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.*;
 import io.swagger.v3.oas.annotations.media.Schema;
 
 
 import java.util.*;
-import javax.annotation.Generated;
+import jakarta.annotation.Generated;
 
 /**
  * ContestEffectDetail
  */
 
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2026-02-07T15:29:13.146999890Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2026-08-30T02:00:43.960184425Z[Etc/UTC]", comments = "Generator version: 7.24.0")
 public class ContestEffectDetail {
 
   private Integer id;
@@ -33,10 +33,8 @@ public class ContestEffectDetail {
 
   private Integer jam;
 
-  @Valid
   private List<@Valid ContestEffectEffectText> effectEntries = new ArrayList<>();
 
-  @Valid
   private List<@Valid ContestEffectFlavorText> flavorTextEntries = new ArrayList<>();
 
   public ContestEffectDetail() {
@@ -70,6 +68,7 @@ public class ContestEffectDetail {
     return id;
   }
 
+  @JsonProperty("id")
   public void setId(Integer id) {
     this.id = id;
   }
@@ -90,6 +89,7 @@ public class ContestEffectDetail {
     return appeal;
   }
 
+  @JsonProperty("appeal")
   public void setAppeal(Integer appeal) {
     this.appeal = appeal;
   }
@@ -110,6 +110,7 @@ public class ContestEffectDetail {
     return jam;
   }
 
+  @JsonProperty("jam")
   public void setJam(Integer jam) {
     this.jam = jam;
   }
@@ -131,13 +132,14 @@ public class ContestEffectDetail {
    * Get effectEntries
    * @return effectEntries
    */
-  @NotNull @Valid 
-  @Schema(name = "effect_entries", requiredMode = Schema.RequiredMode.REQUIRED)
+  @Valid 
+  @Schema(name = "effect_entries", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("effect_entries")
   public List<@Valid ContestEffectEffectText> getEffectEntries() {
     return effectEntries;
   }
 
+  @JsonProperty("effect_entries")
   public void setEffectEntries(List<@Valid ContestEffectEffectText> effectEntries) {
     this.effectEntries = effectEntries;
   }
@@ -159,13 +161,14 @@ public class ContestEffectDetail {
    * Get flavorTextEntries
    * @return flavorTextEntries
    */
-  @NotNull @Valid 
-  @Schema(name = "flavor_text_entries", requiredMode = Schema.RequiredMode.REQUIRED)
+  @Valid 
+  @Schema(name = "flavor_text_entries", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("flavor_text_entries")
   public List<@Valid ContestEffectFlavorText> getFlavorTextEntries() {
     return flavorTextEntries;
   }
 
+  @JsonProperty("flavor_text_entries")
   public void setFlavorTextEntries(List<@Valid ContestEffectFlavorText> flavorTextEntries) {
     this.flavorTextEntries = flavorTextEntries;
   }
@@ -208,11 +211,8 @@ public class ContestEffectDetail {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+  private String toIndentedString(@Nullable Object o) {
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 }
 

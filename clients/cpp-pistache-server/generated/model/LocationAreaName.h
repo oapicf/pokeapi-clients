@@ -33,7 +33,7 @@ class  LocationAreaName
 {
 public:
     LocationAreaName();
-    virtual ~LocationAreaName() = default;
+    virtual ~LocationAreaName();
 
 
     /// <summary>

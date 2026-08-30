@@ -53,28 +53,28 @@ public:
 
 	/*! \brief Set 
 	 */
-	void setCount(int  count);
+	void setCount(int count);
 	/*! \brief Get 
 	 */
 	std::string getNext();
 
 	/*! \brief Set 
 	 */
-	void setNext(std::string  next);
+	void setNext(std::string next);
 	/*! \brief Get 
 	 */
 	std::string getPrevious();
 
 	/*! \brief Set 
 	 */
-	void setPrevious(std::string  previous);
+	void setPrevious(std::string previous);
 	/*! \brief Get 
 	 */
 	std::list<ItemSummary> getResults();
 
 	/*! \brief Set 
 	 */
-	void setResults(std::list <ItemSummary> results);
+	void setResults(std::list<ItemSummary> results);
 
 
     private:

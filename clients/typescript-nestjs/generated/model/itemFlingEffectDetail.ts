@@ -16,7 +16,7 @@ import { ItemFlingEffectEffectText } from './itemFlingEffectEffectText';
 export interface ItemFlingEffectDetail { 
     readonly id: number;
     name: string;
-    effect_entries: Array<ItemFlingEffectEffectText>;
-    items: Array<ItemSummary>;
+    readonly effect_entries: Array<ItemFlingEffectEffectText>;
+    readonly items: Array<ItemSummary>;
 }
 

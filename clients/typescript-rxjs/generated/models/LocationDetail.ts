@@ -42,15 +42,15 @@ export interface LocationDetail {
      * @type {Array<LocationName>}
      * @memberof LocationDetail
      */
-    names: Array<LocationName>;
+    readonly names: Array<LocationName>;
     /**
      * @type {Array<LocationGameIndex>}
      * @memberof LocationDetail
      */
-    game_indices: Array<LocationGameIndex>;
+    readonly game_indices: Array<LocationGameIndex>;
     /**
      * @type {Array<LocationAreaSummary>}
      * @memberof LocationDetail
      */
-    areas: Array<LocationAreaSummary>;
+    readonly areas: Array<LocationAreaSummary>;
 }

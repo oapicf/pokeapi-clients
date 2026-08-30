@@ -58,9 +58,9 @@ function Initialize-EvolutionChainDetail {
 
 
         $PSO = [PSCustomObject]@{
-            "id" = ${Id}
-            "baby_trigger_item" = ${BabyTriggerItem}
-            "chain" = ${Chain}
+            'id' = ${Id}
+            'baby_trigger_item' = ${BabyTriggerItem}
+            'chain' = ${Chain}
         }
 
 
@@ -98,7 +98,7 @@ function ConvertFrom-JsonToEvolutionChainDetail {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in EvolutionChainDetail
-        $AllProperties = ("id", "baby_trigger_item", "chain")
+        $AllProperties = ('id', 'baby_trigger_item', 'chain')
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -109,28 +109,28 @@ function ConvertFrom-JsonToEvolutionChainDetail {
             throw "Error! Empty JSON cannot be serialized due to the required property 'id' missing."
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "id"))) {
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'id'))) {
             throw "Error! JSON cannot be serialized due to the required property 'id' missing."
         } else {
-            $Id = $JsonParameters.PSobject.Properties["id"].value
+            $Id = $JsonParameters.PSobject.Properties['id'].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "baby_trigger_item"))) {
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'baby_trigger_item'))) {
             throw "Error! JSON cannot be serialized due to the required property 'baby_trigger_item' missing."
         } else {
-            $BabyTriggerItem = $JsonParameters.PSobject.Properties["baby_trigger_item"].value
+            $BabyTriggerItem = $JsonParameters.PSobject.Properties['baby_trigger_item'].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "chain"))) {
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'chain'))) {
             throw "Error! JSON cannot be serialized due to the required property 'chain' missing."
         } else {
-            $Chain = $JsonParameters.PSobject.Properties["chain"].value
+            $Chain = $JsonParameters.PSobject.Properties['chain'].value
         }
 
         $PSO = [PSCustomObject]@{
-            "id" = ${Id}
-            "baby_trigger_item" = ${BabyTriggerItem}
-            "chain" = ${Chain}
+            'id' = ${Id}
+            'baby_trigger_item' = ${BabyTriggerItem}
+            'chain' = ${Chain}
         }
 
         return $PSO

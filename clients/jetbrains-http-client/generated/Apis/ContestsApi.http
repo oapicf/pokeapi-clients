@@ -1,0 +1,43 @@
+## ContestsApi
+
+### List contest effects
+## List contest effects
+GET https://pokeapi.co/api/v2/contest-effect/?limit={{limit}}&offset={{offset}}&q={{q}}
+Accept: application/json
+Authorization: Basic: {{username-password}}
+Cookie: sessionid={{cookieKey}}
+
+### Get contest effect
+## Get contest effect
+GET https://pokeapi.co/api/v2/contest-effect/{{id}}/
+Accept: application/json
+Authorization: Basic: {{username-password}}
+Cookie: sessionid={{cookieKey}}
+
+### List contest types
+## List contest types
+GET https://pokeapi.co/api/v2/contest-type/?limit={{limit}}&offset={{offset}}&q={{q}}
+Accept: application/json
+Authorization: Basic: {{username-password}}
+Cookie: sessionid={{cookieKey}}
+
+### Get contest type
+## Get contest type
+GET https://pokeapi.co/api/v2/contest-type/{{id}}/
+Accept: application/json
+Authorization: Basic: {{username-password}}
+Cookie: sessionid={{cookieKey}}
+
+### List super contest effects
+## List super contest effects
+GET https://pokeapi.co/api/v2/super-contest-effect/?limit={{limit}}&offset={{offset}}&q={{q}}
+Accept: application/json
+Authorization: Basic: {{username-password}}
+Cookie: sessionid={{cookieKey}}
+
+### Get super contest effect
+## Get super contest effect
+GET https://pokeapi.co/api/v2/super-contest-effect/{{id}}/
+Accept: application/json
+Authorization: Basic: {{username-password}}
+Cookie: sessionid={{cookieKey}}

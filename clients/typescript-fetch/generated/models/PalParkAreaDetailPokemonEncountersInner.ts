@@ -51,8 +51,8 @@ export interface PalParkAreaDetailPokemonEncountersInner {
  * Check if a given object implements the PalParkAreaDetailPokemonEncountersInner interface.
  */
 export function instanceOfPalParkAreaDetailPokemonEncountersInner(value: object): value is PalParkAreaDetailPokemonEncountersInner {
-    if (!('baseScore' in value) || value['baseScore'] === undefined) return false;
-    if (!('pokemonSpecies' in value) || value['pokemonSpecies'] === undefined) return false;
+    if ((!('baseScore' in (value as Record<string, any>)) && !('base_score' in (value as Record<string, any>))) || ((value as Record<string, any>)['baseScore'] === undefined && (value as Record<string, any>)['base_score'] === undefined)) return false;
+    if ((!('pokemonSpecies' in (value as Record<string, any>)) && !('pokemon-species' in (value as Record<string, any>))) || ((value as Record<string, any>)['pokemonSpecies'] === undefined && (value as Record<string, any>)['pokemon-species'] === undefined)) return false;
     if (!('rate' in value) || value['rate'] === undefined) return false;
     return true;
 }

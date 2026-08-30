@@ -74,19 +74,6 @@ public class BerryFirmnessDetail  {
     return berries;
   }
 
-  public void setBerries(List<@Valid BerrySummary> berries) {
-    this.berries = berries;
-  }
-
-  public BerryFirmnessDetail berries(List<@Valid BerrySummary> berries) {
-    this.berries = berries;
-    return this;
-  }
-
-  public BerryFirmnessDetail addBerriesItem(BerrySummary berriesItem) {
-    this.berries.add(berriesItem);
-    return this;
-  }
 
  /**
    * Get names
@@ -98,19 +85,6 @@ public class BerryFirmnessDetail  {
     return names;
   }
 
-  public void setNames(List<@Valid BerryFirmnessName> names) {
-    this.names = names;
-  }
-
-  public BerryFirmnessDetail names(List<@Valid BerryFirmnessName> names) {
-    this.names = names;
-    return this;
-  }
-
-  public BerryFirmnessDetail addNamesItem(BerryFirmnessName namesItem) {
-    this.names.add(namesItem);
-    return this;
-  }
 
   @Override
   public boolean equals(Object o) {
@@ -150,10 +124,7 @@ public class BerryFirmnessDetail  {
    * (except the first line).
    */
   private static String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 }
 

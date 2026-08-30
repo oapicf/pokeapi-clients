@@ -34,7 +34,7 @@ class  PaginatedEggGroupSummaryList
 {
 public:
     PaginatedEggGroupSummaryList();
-    virtual ~PaginatedEggGroupSummaryList() = default;
+    virtual ~PaginatedEggGroupSummaryList();
 
 
     /// <summary>

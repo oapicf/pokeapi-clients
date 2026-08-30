@@ -13,10 +13,10 @@ static generation_summary_t *generation_summary_create_internal(
     if (!generation_summary_local_var) {
         return NULL;
     }
+    memset(generation_summary_local_var, 0, sizeof(generation_summary_t));
+    generation_summary_local_var->_library_owned = 1;
     generation_summary_local_var->name = name;
     generation_summary_local_var->url = url;
-
-    generation_summary_local_var->_library_owned = 1;
     return generation_summary_local_var;
 }
 
@@ -24,10 +24,13 @@ __attribute__((deprecated)) generation_summary_t *generation_summary_create(
     char *name,
     char *url
     ) {
-    return generation_summary_create_internal (
+    generation_summary_t *result = generation_summary_create_internal (
         name,
         url
         );
+    if (!result) {
+    }
+    return result;
 }
 
 void generation_summary_free(generation_summary_t *generation_summary) {
@@ -82,6 +85,10 @@ generation_summary_t *generation_summary_parseFromJSON(cJSON *generation_summary
 
     generation_summary_t *generation_summary_local_var = NULL;
 
+    char *name_local_str = NULL;
+
+    char *url_local_str = NULL;
+
     // generation_summary->name
     cJSON *name = cJSON_GetObjectItemCaseSensitive(generation_summaryJSON, "name");
     if (cJSON_IsNull(name)) {
@@ -113,13 +120,28 @@ generation_summary_t *generation_summary_parseFromJSON(cJSON *generation_summary
     }
 
 
+    if (name && !cJSON_IsNull(name)) name_local_str = strdup(name->valuestring);
+    if (url && !cJSON_IsNull(url)) url_local_str = strdup(url->valuestring);
+
     generation_summary_local_var = generation_summary_create_internal (
-        strdup(name->valuestring),
-        strdup(url->valuestring)
+        name_local_str,
+        url_local_str
         );
+
+    if (!generation_summary_local_var) {
+        goto end;
+    }
 
     return generation_summary_local_var;
 end:
+    if (name_local_str) {
+        free(name_local_str);
+        name_local_str = NULL;
+    }
+    if (url_local_str) {
+        free(url_local_str);
+        url_local_str = NULL;
+    }
     return NULL;
 
 }

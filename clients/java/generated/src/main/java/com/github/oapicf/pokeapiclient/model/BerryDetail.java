@@ -54,7 +54,7 @@ import com.github.oapicf.pokeapiclient.JSON;
 /**
  * BerryDetail
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-07T15:22:35.747827932Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-08-30T01:55:28.842792947Z[Etc/UTC]", comments = "Generator version: 7.24.0")
 public class BerryDetail {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -120,10 +120,12 @@ public class BerryDetail {
   }
 
   public BerryDetail(
-     Integer id
+     Integer id, 
+     List<BerryDetailFlavorsInner> flavors
   ) {
     this();
     this.id = id;
+    this.flavors = flavors;
   }
 
   /**
@@ -289,19 +291,6 @@ public class BerryDetail {
   }
 
 
-  public BerryDetail flavors(@javax.annotation.Nonnull List<BerryDetailFlavorsInner> flavors) {
-    this.flavors = flavors;
-    return this;
-  }
-
-  public BerryDetail addFlavorsItem(BerryDetailFlavorsInner flavorsItem) {
-    if (this.flavors == null) {
-      this.flavors = new ArrayList<>();
-    }
-    this.flavors.add(flavorsItem);
-    return this;
-  }
-
   /**
    * Get flavors
    * @return flavors
@@ -311,9 +300,6 @@ public class BerryDetail {
     return flavors;
   }
 
-  public void setFlavors(@javax.annotation.Nonnull List<BerryDetailFlavorsInner> flavors) {
-    this.flavors = flavors;
-  }
 
 
   public BerryDetail item(@javax.annotation.Nonnull ItemSummary item) {
@@ -408,10 +394,7 @@ public class BerryDetail {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 
@@ -459,16 +442,16 @@ public class BerryDetail {
       }
       // validate the required field `firmness`
       BerryFirmnessSummary.validateJsonElement(jsonObj.get("firmness"));
-      // ensure the json data is an array
-      if (!jsonObj.get("flavors").isJsonArray()) {
-        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `flavors` to be an array in the JSON string but got `%s`", jsonObj.get("flavors").toString()));
+      if (jsonObj.get("flavors") != null) {
+        if (!jsonObj.get("flavors").isJsonArray()) {
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `flavors` to be an array in the JSON string but got `%s`", jsonObj.get("flavors").toString()));
+        }
+        JsonArray jsonArrayflavors = jsonObj.getAsJsonArray("flavors");
+        // validate the required field `flavors` (array)
+        for (int i = 0; i < jsonArrayflavors.size(); i++) {
+          BerryDetailFlavorsInner.validateJsonElement(jsonArrayflavors.get(i));
+        }
       }
-
-      JsonArray jsonArrayflavors = jsonObj.getAsJsonArray("flavors");
-      // validate the required field `flavors` (array)
-      for (int i = 0; i < jsonArrayflavors.size(); i++) {
-        BerryDetailFlavorsInner.validateJsonElement(jsonArrayflavors.get(i));
-      };
       // validate the required field `item`
       ItemSummary.validateJsonElement(jsonObj.get("item"));
       // validate the required field `natural_gift_type`

@@ -17,7 +17,7 @@ import MachineSummary from './MachineSummary';
 /**
  * The PaginatedMachineSummaryList model module.
  * @module model/PaginatedMachineSummaryList
- * @version 1.2.1-pre.0
+ * @version 2.0.1-pre.0
  */
 class PaginatedMachineSummaryList {
     /**

@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **int** |  | [readonly] 
 **Name** | **string** |  | 
-**Names** | [**List&lt;VersionName&gt;**](VersionName.md) |  | 
+**Names** | [**List&lt;VersionName&gt;**](VersionName.md) |  | [readonly] 
 **VersionGroup** | [**VersionGroupSummary**](VersionGroupSummary.md) |  | 
 
 [[Back to Model list]](../../README.md#documentation-for-models) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)

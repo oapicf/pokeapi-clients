@@ -31,6 +31,8 @@ PaginatedNatureSummaryList::PaginatedNatureSummaryList()
     
 }
 
+PaginatedNatureSummaryList::~PaginatedNatureSummaryList() = default;
+
 void PaginatedNatureSummaryList::validate() const
 {
     std::stringstream msg;

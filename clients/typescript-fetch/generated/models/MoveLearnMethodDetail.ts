@@ -58,19 +58,19 @@ export interface MoveLearnMethodDetail {
      * @type {Array<MoveLearnMethodName>}
      * @memberof MoveLearnMethodDetail
      */
-    names: Array<MoveLearnMethodName>;
+    readonly names: Array<MoveLearnMethodName>;
     /**
      * 
      * @type {Array<MoveLearnMethodDescription>}
      * @memberof MoveLearnMethodDetail
      */
-    descriptions: Array<MoveLearnMethodDescription>;
+    readonly descriptions: Array<MoveLearnMethodDescription>;
     /**
      * 
      * @type {Array<AbilityDetailPokemonInnerPokemon>}
      * @memberof MoveLearnMethodDetail
      */
-    versionGroups: Array<AbilityDetailPokemonInnerPokemon>;
+    readonly versionGroups: Array<AbilityDetailPokemonInnerPokemon>;
 }
 
 /**
@@ -81,7 +81,7 @@ export function instanceOfMoveLearnMethodDetail(value: object): value is MoveLea
     if (!('name' in value) || value['name'] === undefined) return false;
     if (!('names' in value) || value['names'] === undefined) return false;
     if (!('descriptions' in value) || value['descriptions'] === undefined) return false;
-    if (!('versionGroups' in value) || value['versionGroups'] === undefined) return false;
+    if ((!('versionGroups' in (value as Record<string, any>)) && !('version_groups' in (value as Record<string, any>))) || ((value as Record<string, any>)['versionGroups'] === undefined && (value as Record<string, any>)['version_groups'] === undefined)) return false;
     return true;
 }
 
@@ -107,7 +107,7 @@ export function MoveLearnMethodDetailToJSON(json: any): MoveLearnMethodDetail {
     return MoveLearnMethodDetailToJSONTyped(json, false);
 }
 
-export function MoveLearnMethodDetailToJSONTyped(value?: Omit<MoveLearnMethodDetail, 'id'> | null, ignoreDiscriminator: boolean = false): any {
+export function MoveLearnMethodDetailToJSONTyped(value?: Omit<MoveLearnMethodDetail, 'id'|'names'|'descriptions'|'versionGroups'> | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
@@ -115,9 +115,6 @@ export function MoveLearnMethodDetailToJSONTyped(value?: Omit<MoveLearnMethodDet
     return {
         
         'name': value['name'],
-        'names': ((value['names'] as Array<any>).map(MoveLearnMethodNameToJSON)),
-        'descriptions': ((value['descriptions'] as Array<any>).map(MoveLearnMethodDescriptionToJSON)),
-        'version_groups': ((value['versionGroups'] as Array<any>).map(AbilityDetailPokemonInnerPokemonToJSON)),
     };
 }
 

@@ -5,9 +5,9 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **Int32** |  | [readonly] 
 **Name** | **String** |  | 
-**Descriptions** | [**MoveTargetDescription[]**](MoveTargetDescription.md) |  | 
-**Moves** | [**MoveSummary[]**](MoveSummary.md) |  | 
-**Names** | [**MoveTargetName[]**](MoveTargetName.md) |  | 
+**Descriptions** | [**MoveTargetDescription[]**](MoveTargetDescription.md) |  | [readonly] 
+**Moves** | [**MoveSummary[]**](MoveSummary.md) |  | [readonly] 
+**Names** | [**MoveTargetName[]**](MoveTargetName.md) |  | [readonly] 
 
 ## Examples
 

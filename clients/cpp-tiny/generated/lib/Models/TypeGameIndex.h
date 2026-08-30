@@ -52,14 +52,14 @@ public:
 
 	/*! \brief Set 
 	 */
-	void setGameIndex(int  game_index);
+	void setGameIndex(int game_index);
 	/*! \brief Get 
 	 */
 	GenerationSummary getGeneration();
 
 	/*! \brief Set 
 	 */
-	void setGeneration(GenerationSummary  generation);
+	void setGeneration(GenerationSummary generation);
 
 
     private:

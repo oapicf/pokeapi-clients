@@ -17,7 +17,7 @@ import BerryDetailFlavorsInnerFlavor from './BerryDetailFlavorsInnerFlavor';
 /**
  * The BerryDetailFlavorsInner model module.
  * @module model/BerryDetailFlavorsInner
- * @version 1.2.1-pre.0
+ * @version 2.0.1-pre.0
  */
 class BerryDetailFlavorsInner {
     /**

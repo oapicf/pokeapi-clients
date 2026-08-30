@@ -67,7 +67,8 @@ class PaginatedItemSummaryList extends BaseModel
       "type" : "array",
       "items" : {
         "$ref" : "#/components/schemas/ItemSummary"
-      }
+      },
+      "default" : null
     }
   }
 }

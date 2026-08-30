@@ -103,7 +103,7 @@ ItemDetail_held_by_pokemon_inner::getPokemon()
 }
 
 void
-ItemDetail_held_by_pokemon_inner::setPokemon(AbilityDetail_pokemon_inner_pokemon  pokemon)
+ItemDetail_held_by_pokemon_inner::setPokemon(AbilityDetail_pokemon_inner_pokemon pokemon)
 {
 	this->pokemon = pokemon;
 }
@@ -115,7 +115,7 @@ ItemDetail_held_by_pokemon_inner::getVersiondetails()
 }
 
 void
-ItemDetail_held_by_pokemon_inner::setVersiondetails(std::list <ItemDetail_held_by_pokemon_inner_version_details_inner> versiondetails)
+ItemDetail_held_by_pokemon_inner::setVersiondetails(std::list<ItemDetail_held_by_pokemon_inner_version_details_inner> versiondetails)
 {
 	this->versiondetails = versiondetails;
 }

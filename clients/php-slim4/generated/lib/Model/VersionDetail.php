@@ -58,9 +58,11 @@ class VersionDetail extends BaseModel
     },
     "names" : {
       "type" : "array",
+      "readOnly" : true,
       "items" : {
         "$ref" : "#/components/schemas/VersionName"
-      }
+      },
+      "default" : null
     },
     "version_group" : {
       "$ref" : "#/components/schemas/VersionGroupSummary"

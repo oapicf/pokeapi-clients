@@ -161,7 +161,7 @@ ItemFlingEffectDetail::getId()
 }
 
 void
-ItemFlingEffectDetail::setId(int  id)
+ItemFlingEffectDetail::setId(int id)
 {
 	this->id = id;
 }
@@ -173,7 +173,7 @@ ItemFlingEffectDetail::getName()
 }
 
 void
-ItemFlingEffectDetail::setName(std::string  name)
+ItemFlingEffectDetail::setName(std::string name)
 {
 	this->name = name;
 }
@@ -185,7 +185,7 @@ ItemFlingEffectDetail::getEffectEntries()
 }
 
 void
-ItemFlingEffectDetail::setEffectEntries(std::list <ItemFlingEffectEffectText> effect_entries)
+ItemFlingEffectDetail::setEffectEntries(std::list<ItemFlingEffectEffectText> effect_entries)
 {
 	this->effect_entries = effect_entries;
 }
@@ -197,7 +197,7 @@ ItemFlingEffectDetail::getItems()
 }
 
 void
-ItemFlingEffectDetail::setItems(std::list <ItemSummary> items)
+ItemFlingEffectDetail::setItems(std::list<ItemSummary> items)
 {
 	this->items = items;
 }

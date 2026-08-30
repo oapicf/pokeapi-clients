@@ -25,6 +25,8 @@ EvolutionChainDetail_chain_evolves_to_inner::EvolutionChainDetail_chain_evolves_
     
 }
 
+EvolutionChainDetail_chain_evolves_to_inner::~EvolutionChainDetail_chain_evolves_to_inner() = default;
+
 void EvolutionChainDetail_chain_evolves_to_inner::validate() const
 {
     std::stringstream msg;

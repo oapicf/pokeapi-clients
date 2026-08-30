@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **power** | **number** |  | [optional] [default to undefined]
 **pp** | **number** |  | [optional] [default to undefined]
 **effect_chance** | **number** |  | [default to undefined]
-**effect_entries** | [**Array&lt;MoveChangeEffectEntriesInner&gt;**](MoveChangeEffectEntriesInner.md) |  | [default to undefined]
+**effect_entries** | [**Array&lt;MoveChangeEffectEntriesInner&gt;**](MoveChangeEffectEntriesInner.md) |  | [readonly] [default to undefined]
 **type** | [**TypeSummary**](TypeSummary.md) |  | [default to undefined]
 **version_group** | [**VersionGroupSummary**](VersionGroupSummary.md) |  | [default to undefined]
 

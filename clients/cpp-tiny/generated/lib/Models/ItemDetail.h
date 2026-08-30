@@ -63,105 +63,105 @@ public:
 
 	/*! \brief Set 
 	 */
-	void setId(int  id);
+	void setId(int id);
 	/*! \brief Get 
 	 */
 	std::string getName();
 
 	/*! \brief Set 
 	 */
-	void setName(std::string  name);
+	void setName(std::string name);
 	/*! \brief Get 
 	 */
 	int getCost();
 
 	/*! \brief Set 
 	 */
-	void setCost(int  cost);
+	void setCost(int cost);
 	/*! \brief Get 
 	 */
 	int getFlingPower();
 
 	/*! \brief Set 
 	 */
-	void setFlingPower(int  fling_power);
+	void setFlingPower(int fling_power);
 	/*! \brief Get 
 	 */
 	ItemFlingEffectSummary getFlingEffect();
 
 	/*! \brief Set 
 	 */
-	void setFlingEffect(ItemFlingEffectSummary  fling_effect);
+	void setFlingEffect(ItemFlingEffectSummary fling_effect);
 	/*! \brief Get 
 	 */
 	std::list<AbilityDetail_pokemon_inner_pokemon> getAttributes();
 
 	/*! \brief Set 
 	 */
-	void setAttributes(std::list <AbilityDetail_pokemon_inner_pokemon> attributes);
+	void setAttributes(std::list<AbilityDetail_pokemon_inner_pokemon> attributes);
 	/*! \brief Get 
 	 */
 	ItemCategorySummary getCategory();
 
 	/*! \brief Set 
 	 */
-	void setCategory(ItemCategorySummary  category);
+	void setCategory(ItemCategorySummary category);
 	/*! \brief Get 
 	 */
 	std::list<ItemEffectText> getEffectEntries();
 
 	/*! \brief Set 
 	 */
-	void setEffectEntries(std::list <ItemEffectText> effect_entries);
+	void setEffectEntries(std::list<ItemEffectText> effect_entries);
 	/*! \brief Get 
 	 */
 	std::list<ItemFlavorText> getFlavorTextEntries();
 
 	/*! \brief Set 
 	 */
-	void setFlavorTextEntries(std::list <ItemFlavorText> flavor_text_entries);
+	void setFlavorTextEntries(std::list<ItemFlavorText> flavor_text_entries);
 	/*! \brief Get 
 	 */
 	std::list<ItemGameIndex> getGameIndices();
 
 	/*! \brief Set 
 	 */
-	void setGameIndices(std::list <ItemGameIndex> game_indices);
+	void setGameIndices(std::list<ItemGameIndex> game_indices);
 	/*! \brief Get 
 	 */
 	std::list<ItemName> getNames();
 
 	/*! \brief Set 
 	 */
-	void setNames(std::list <ItemName> names);
+	void setNames(std::list<ItemName> names);
 	/*! \brief Get 
 	 */
 	std::list<ItemDetail_held_by_pokemon_inner> getHeldByPokemon();
 
 	/*! \brief Set 
 	 */
-	void setHeldByPokemon(std::list <ItemDetail_held_by_pokemon_inner> held_by_pokemon);
+	void setHeldByPokemon(std::list<ItemDetail_held_by_pokemon_inner> held_by_pokemon);
 	/*! \brief Get 
 	 */
 	ItemDetail_sprites getSprites();
 
 	/*! \brief Set 
 	 */
-	void setSprites(ItemDetail_sprites  sprites);
+	void setSprites(ItemDetail_sprites sprites);
 	/*! \brief Get 
 	 */
 	ItemDetail_baby_trigger_for getBabyTriggerFor();
 
 	/*! \brief Set 
 	 */
-	void setBabyTriggerFor(ItemDetail_baby_trigger_for  baby_trigger_for);
+	void setBabyTriggerFor(ItemDetail_baby_trigger_for baby_trigger_for);
 	/*! \brief Get 
 	 */
 	std::list<ItemDetail_machines_inner> getMachines();
 
 	/*! \brief Set 
 	 */
-	void setMachines(std::list <ItemDetail_machines_inner> machines);
+	void setMachines(std::list<ItemDetail_machines_inner> machines);
 
 
     private:

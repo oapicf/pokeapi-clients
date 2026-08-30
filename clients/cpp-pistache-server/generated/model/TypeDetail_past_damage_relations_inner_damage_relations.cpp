@@ -24,6 +24,8 @@ TypeDetail_past_damage_relations_inner_damage_relations::TypeDetail_past_damage_
     
 }
 
+TypeDetail_past_damage_relations_inner_damage_relations::~TypeDetail_past_damage_relations_inner_damage_relations() = default;
+
 void TypeDetail_past_damage_relations_inner_damage_relations::validate() const
 {
     std::stringstream msg;

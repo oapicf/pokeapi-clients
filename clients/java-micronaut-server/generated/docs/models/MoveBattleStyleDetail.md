@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | `Integer` |  |  [readonly property]
 **name** | `String` |  | 
-**names** | [`List&lt;MoveBattleStyleName&gt;`](MoveBattleStyleName.md) |  | 
+**names** | [`List&lt;MoveBattleStyleName&gt;`](MoveBattleStyleName.md) |  |  [readonly property]
 
 
 

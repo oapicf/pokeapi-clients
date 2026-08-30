@@ -85,7 +85,7 @@ MoveSummary::getName()
 }
 
 void
-MoveSummary::setName(std::string  name)
+MoveSummary::setName(std::string name)
 {
 	this->name = name;
 }
@@ -97,7 +97,7 @@ MoveSummary::getUrl()
 }
 
 void
-MoveSummary::setUrl(std::string  url)
+MoveSummary::setUrl(std::string url)
 {
 	this->url = url;
 }

@@ -18,7 +18,7 @@ import LocationAreaDetailPokemonEncountersInnerVersionDetailsInner from './Locat
 /**
  * The LocationAreaDetailPokemonEncountersInner model module.
  * @module model/LocationAreaDetailPokemonEncountersInner
- * @version 1.2.1-pre.0
+ * @version 2.0.1-pre.0
  */
 class LocationAreaDetailPokemonEncountersInner {
     /**

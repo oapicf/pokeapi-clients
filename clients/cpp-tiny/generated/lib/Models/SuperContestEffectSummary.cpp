@@ -64,7 +64,7 @@ SuperContestEffectSummary::getUrl()
 }
 
 void
-SuperContestEffectSummary::setUrl(std::string  url)
+SuperContestEffectSummary::setUrl(std::string url)
 {
 	this->url = url;
 }

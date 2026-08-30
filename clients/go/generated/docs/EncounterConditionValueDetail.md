@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 **Id** | **int32** |  | [readonly] 
 **Name** | **string** |  | 
 **Condition** | [**EncounterConditionSummary**](EncounterConditionSummary.md) |  | 
-**Names** | [**[]EncounterConditionValueName**](EncounterConditionValueName.md) |  | 
+**Names** | [**[]EncounterConditionValueName**](EncounterConditionValueName.md) |  | [readonly] 
 
 ## Methods
 

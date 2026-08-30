@@ -26,6 +26,8 @@ BerrySummary::BerrySummary()
     
 }
 
+BerrySummary::~BerrySummary() = default;
+
 void BerrySummary::validate() const
 {
     std::stringstream msg;

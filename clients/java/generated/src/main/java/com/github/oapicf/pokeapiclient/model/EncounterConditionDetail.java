@@ -52,7 +52,7 @@ import com.github.oapicf.pokeapiclient.JSON;
 /**
  * EncounterConditionDetail
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-07T15:22:35.747827932Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-08-30T01:55:28.842792947Z[Etc/UTC]", comments = "Generator version: 7.24.0")
 public class EncounterConditionDetail {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -78,10 +78,14 @@ public class EncounterConditionDetail {
   }
 
   public EncounterConditionDetail(
-     Integer id
+     Integer id, 
+     List<EncounterConditionValueSummary> values, 
+     List<EncounterConditionName> names
   ) {
     this();
     this.id = id;
+    this.values = values;
+    this.names = names;
   }
 
   /**
@@ -114,19 +118,6 @@ public class EncounterConditionDetail {
   }
 
 
-  public EncounterConditionDetail values(@javax.annotation.Nonnull List<EncounterConditionValueSummary> values) {
-    this.values = values;
-    return this;
-  }
-
-  public EncounterConditionDetail addValuesItem(EncounterConditionValueSummary valuesItem) {
-    if (this.values == null) {
-      this.values = new ArrayList<>();
-    }
-    this.values.add(valuesItem);
-    return this;
-  }
-
   /**
    * Get values
    * @return values
@@ -136,23 +127,7 @@ public class EncounterConditionDetail {
     return values;
   }
 
-  public void setValues(@javax.annotation.Nonnull List<EncounterConditionValueSummary> values) {
-    this.values = values;
-  }
 
-
-  public EncounterConditionDetail names(@javax.annotation.Nonnull List<EncounterConditionName> names) {
-    this.names = names;
-    return this;
-  }
-
-  public EncounterConditionDetail addNamesItem(EncounterConditionName namesItem) {
-    if (this.names == null) {
-      this.names = new ArrayList<>();
-    }
-    this.names.add(namesItem);
-    return this;
-  }
 
   /**
    * Get names
@@ -163,9 +138,6 @@ public class EncounterConditionDetail {
     return names;
   }
 
-  public void setNames(@javax.annotation.Nonnull List<EncounterConditionName> names) {
-    this.names = names;
-  }
 
 
 
@@ -206,10 +178,7 @@ public class EncounterConditionDetail {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 
@@ -255,26 +224,26 @@ public class EncounterConditionDetail {
       if (!jsonObj.get("name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
       }
-      // ensure the json data is an array
-      if (!jsonObj.get("values").isJsonArray()) {
-        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `values` to be an array in the JSON string but got `%s`", jsonObj.get("values").toString()));
+      if (jsonObj.get("values") != null) {
+        if (!jsonObj.get("values").isJsonArray()) {
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `values` to be an array in the JSON string but got `%s`", jsonObj.get("values").toString()));
+        }
+        JsonArray jsonArrayvalues = jsonObj.getAsJsonArray("values");
+        // validate the required field `values` (array)
+        for (int i = 0; i < jsonArrayvalues.size(); i++) {
+          EncounterConditionValueSummary.validateJsonElement(jsonArrayvalues.get(i));
+        }
       }
-
-      JsonArray jsonArrayvalues = jsonObj.getAsJsonArray("values");
-      // validate the required field `values` (array)
-      for (int i = 0; i < jsonArrayvalues.size(); i++) {
-        EncounterConditionValueSummary.validateJsonElement(jsonArrayvalues.get(i));
-      };
-      // ensure the json data is an array
-      if (!jsonObj.get("names").isJsonArray()) {
-        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `names` to be an array in the JSON string but got `%s`", jsonObj.get("names").toString()));
+      if (jsonObj.get("names") != null) {
+        if (!jsonObj.get("names").isJsonArray()) {
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `names` to be an array in the JSON string but got `%s`", jsonObj.get("names").toString()));
+        }
+        JsonArray jsonArraynames = jsonObj.getAsJsonArray("names");
+        // validate the required field `names` (array)
+        for (int i = 0; i < jsonArraynames.size(); i++) {
+          EncounterConditionName.validateJsonElement(jsonArraynames.get(i));
+        }
       }
-
-      JsonArray jsonArraynames = jsonObj.getAsJsonArray("names");
-      // validate the required field `names` (array)
-      for (int i = 0; i < jsonArraynames.size(); i++) {
-        EncounterConditionName.validateJsonElement(jsonArraynames.get(i));
-      };
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {

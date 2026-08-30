@@ -53,10 +53,10 @@ class BerryFlavorSummary {
       // Note 1: the values aren't checked for validity beyond being non-null.
       // Note 2: this code is stripped in release mode!
       assert(() {
-        requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "BerryFlavorSummary[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "BerryFlavorSummary[$key]" has a null value in JSON.');
-        });
+        assert(json.containsKey(r'name'), 'Required key "BerryFlavorSummary[name]" is missing from JSON.');
+        assert(json[r'name'] != null, 'Required key "BerryFlavorSummary[name]" has a null value in JSON.');
+        assert(json.containsKey(r'url'), 'Required key "BerryFlavorSummary[url]" is missing from JSON.');
+        assert(json[r'url'] != null, 'Required key "BerryFlavorSummary[url]" has a null value in JSON.');
         return true;
       }());
 

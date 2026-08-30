@@ -28,7 +28,7 @@ class LocationApi : public Service {
 public:
     LocationApi() = default;
 
-    virtual ~LocationApi() = default;
+    virtual ~LocationApi();
 
     /**
     * List location areas.

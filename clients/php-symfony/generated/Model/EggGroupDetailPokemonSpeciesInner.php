@@ -49,7 +49,7 @@ class EggGroupDetailPokemonSpeciesInner
      * @var string|null
      * @SerializedName("name")
      * @Type("string")
-    */
+     */
     #[Assert\Type("string")]
     protected ?string $name = null;
 
@@ -59,7 +59,7 @@ class EggGroupDetailPokemonSpeciesInner
      * @var string|null
      * @SerializedName("url")
      * @Type("string")
-    */
+     */
     #[Assert\Type("string")]
     protected ?string $url = null;
 
@@ -86,12 +86,12 @@ class EggGroupDetailPokemonSpeciesInner
     }
 
     /**
-    * Sets name.
-    *
-    * @param string|null $name  Pokemon species name.
-    *
-    * @return $this
-    */
+     * Sets name.
+     *
+     * @param string|null $name  Pokemon species name.
+     *
+     * @return $this
+     */
     public function setName(?string $name = null): self
     {
         $this->name = $name;
@@ -113,12 +113,12 @@ class EggGroupDetailPokemonSpeciesInner
     }
 
     /**
-    * Sets url.
-    *
-    * @param string|null $url  The URL to get more information about the species
-    *
-    * @return $this
-    */
+     * Sets url.
+     *
+     * @param string|null $url  The URL to get more information about the species
+     *
+     * @return $this
+     */
     public function setUrl(?string $url = null): self
     {
         $this->url = $url;

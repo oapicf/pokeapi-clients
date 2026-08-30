@@ -66,13 +66,13 @@ namespace Org.OpenAPITools.Model
         /// Gets or Sets Names
         /// </summary>
         [JsonPropertyName("names")]
-        public List<PokemonColorName> Names { get; set; }
+        public List<PokemonColorName> Names { get; }
 
         /// <summary>
         /// Gets or Sets PokemonSpecies
         /// </summary>
         [JsonPropertyName("pokemon_species")]
-        public List<PokemonSpeciesSummary> PokemonSpecies { get; set; }
+        public List<PokemonSpeciesSummary> PokemonSpecies { get; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -110,8 +110,18 @@ namespace Org.OpenAPITools.Model
     /// <summary>
     /// A Json converter for type <see cref="PokemonColorDetail" />
     /// </summary>
-    public class PokemonColorDetailJsonConverter : JsonConverter<PokemonColorDetail>
+    public partial class PokemonColorDetailJsonConverter : JsonConverter<PokemonColorDetail>
     {
+        partial void OnCreated();
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="PokemonColorDetailJsonConverter" /> class.
+        /// </summary>
+        public PokemonColorDetailJsonConverter()
+        {
+            OnCreated();
+        }
+
         /// <summary>
         /// Deserializes json to <see cref="PokemonColorDetail" />
         /// </summary>

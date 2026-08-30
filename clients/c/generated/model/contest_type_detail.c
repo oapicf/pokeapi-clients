@@ -6,7 +6,7 @@
 
 
 static contest_type_detail_t *contest_type_detail_create_internal(
-    int id,
+    int *id,
     char *name,
     berry_flavor_summary_t *berry_flavor,
     list_t *names
@@ -15,27 +15,36 @@ static contest_type_detail_t *contest_type_detail_create_internal(
     if (!contest_type_detail_local_var) {
         return NULL;
     }
+    memset(contest_type_detail_local_var, 0, sizeof(contest_type_detail_t));
+    contest_type_detail_local_var->_library_owned = 1;
     contest_type_detail_local_var->id = id;
     contest_type_detail_local_var->name = name;
     contest_type_detail_local_var->berry_flavor = berry_flavor;
     contest_type_detail_local_var->names = names;
-
-    contest_type_detail_local_var->_library_owned = 1;
     return contest_type_detail_local_var;
 }
 
 __attribute__((deprecated)) contest_type_detail_t *contest_type_detail_create(
-    int id,
+    int *id,
     char *name,
     berry_flavor_summary_t *berry_flavor,
     list_t *names
     ) {
-    return contest_type_detail_create_internal (
-        id,
+    int *id_copy = NULL;
+    if (id) {
+        id_copy = malloc(sizeof(int));
+        if (id_copy) *id_copy = *id;
+    }
+    contest_type_detail_t *result = contest_type_detail_create_internal (
+        id_copy,
         name,
         berry_flavor,
         names
         );
+    if (!result) {
+        free(id_copy);
+    }
+    return result;
 }
 
 void contest_type_detail_free(contest_type_detail_t *contest_type_detail) {
@@ -47,6 +56,10 @@ void contest_type_detail_free(contest_type_detail_t *contest_type_detail) {
         return ;
     }
     listEntry_t *listEntry;
+    if (contest_type_detail->id) {
+        free(contest_type_detail->id);
+        contest_type_detail->id = NULL;
+    }
     if (contest_type_detail->name) {
         free(contest_type_detail->name);
         contest_type_detail->name = NULL;
@@ -72,7 +85,7 @@ cJSON *contest_type_detail_convertToJSON(contest_type_detail_t *contest_type_det
     if (!contest_type_detail->id) {
         goto fail;
     }
-    if(cJSON_AddNumberToObject(item, "id", contest_type_detail->id) == NULL) {
+    if(cJSON_AddNumberToObject(item, "id", *contest_type_detail->id) == NULL) {
     goto fail; //Numeric
     }
 
@@ -132,6 +145,11 @@ contest_type_detail_t *contest_type_detail_parseFromJSON(cJSON *contest_type_det
 
     contest_type_detail_t *contest_type_detail_local_var = NULL;
 
+    // define the local variable for contest_type_detail->id
+    int *id_local_var = NULL;
+
+    char *name_local_str = NULL;
+
     // define the local variable for contest_type_detail->berry_flavor
     berry_flavor_summary_t *berry_flavor_local_nonprim = NULL;
 
@@ -152,6 +170,12 @@ contest_type_detail_t *contest_type_detail_parseFromJSON(cJSON *contest_type_det
     {
     goto end; //Numeric
     }
+    id_local_var = malloc(sizeof(int));
+    if(!id_local_var)
+    {
+        goto end;
+    }
+    *id_local_var = id->valuedouble;
 
     // contest_type_detail->name
     cJSON *name = cJSON_GetObjectItemCaseSensitive(contest_type_detailJSON, "name");
@@ -208,15 +232,29 @@ contest_type_detail_t *contest_type_detail_parseFromJSON(cJSON *contest_type_det
     }
 
 
+    if (name && !cJSON_IsNull(name)) name_local_str = strdup(name->valuestring);
+
     contest_type_detail_local_var = contest_type_detail_create_internal (
-        id->valuedouble,
-        strdup(name->valuestring),
+        id_local_var,
+        name_local_str,
         berry_flavor_local_nonprim,
         namesList
         );
 
+    if (!contest_type_detail_local_var) {
+        goto end;
+    }
+
     return contest_type_detail_local_var;
 end:
+    if (id_local_var) {
+        free(id_local_var);
+        id_local_var = NULL;
+    }
+    if (name_local_str) {
+        free(name_local_str);
+        name_local_str = NULL;
+    }
     if (berry_flavor_local_nonprim) {
         berry_flavor_summary_free(berry_flavor_local_nonprim);
         berry_flavor_local_nonprim = NULL;

@@ -2,6 +2,7 @@ package org.openapitools.model;
 
 import java.net.URI;
 import java.util.Objects;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import java.util.ArrayList;
@@ -17,33 +18,38 @@ import org.springframework.lang.Nullable;
 import java.util.NoSuchElementException;
 import org.openapitools.jackson.nullable.JsonNullable;
 import java.time.OffsetDateTime;
-import javax.validation.Valid;
-import javax.validation.constraints.*;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.*;
 import io.swagger.v3.oas.annotations.media.Schema;
 
 
 import java.util.*;
-import javax.annotation.Generated;
+import jakarta.annotation.Generated;
 
 /**
  * PokemonFormDetail
  */
 
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2026-02-07T15:29:13.146999890Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2026-08-30T02:00:43.960184425Z[Etc/UTC]", comments = "Generator version: 7.24.0")
 public class PokemonFormDetail {
 
   private Integer id;
 
   private String name;
 
+  @JsonInclude(JsonInclude.Include.NON_ABSENT)
   private JsonNullable<Integer> order = JsonNullable.<Integer>undefined();
 
+  @JsonInclude(JsonInclude.Include.NON_ABSENT)
   private JsonNullable<Integer> formOrder = JsonNullable.<Integer>undefined();
 
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private @Nullable Boolean isDefault;
 
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private @Nullable Boolean isBattleOnly;
 
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private @Nullable Boolean isMega;
 
   private String formName;
@@ -54,13 +60,10 @@ public class PokemonFormDetail {
 
   private VersionGroupSummary versionGroup;
 
-  @Valid
   private List<@Valid PokemonFormDetailFormNamesInner> formNames = new ArrayList<>();
 
-  @Valid
   private List<@Valid PokemonFormDetailFormNamesInner> names = new ArrayList<>();
 
-  @Valid
   private List<@Valid PokemonDetailTypesInner> types = new ArrayList<>();
 
   public PokemonFormDetail() {
@@ -98,6 +101,7 @@ public class PokemonFormDetail {
     return id;
   }
 
+  @JsonProperty("id")
   public void setId(Integer id) {
     this.id = id;
   }
@@ -118,6 +122,7 @@ public class PokemonFormDetail {
     return name;
   }
 
+  @JsonProperty("name")
   public void setName(String name) {
     this.name = name;
   }
@@ -178,6 +183,7 @@ public class PokemonFormDetail {
     return isDefault;
   }
 
+  @JsonProperty("is_default")
   public void setIsDefault(@Nullable Boolean isDefault) {
     this.isDefault = isDefault;
   }
@@ -198,6 +204,7 @@ public class PokemonFormDetail {
     return isBattleOnly;
   }
 
+  @JsonProperty("is_battle_only")
   public void setIsBattleOnly(@Nullable Boolean isBattleOnly) {
     this.isBattleOnly = isBattleOnly;
   }
@@ -218,6 +225,7 @@ public class PokemonFormDetail {
     return isMega;
   }
 
+  @JsonProperty("is_mega")
   public void setIsMega(@Nullable Boolean isMega) {
     this.isMega = isMega;
   }
@@ -238,6 +246,7 @@ public class PokemonFormDetail {
     return formName;
   }
 
+  @JsonProperty("form_name")
   public void setFormName(String formName) {
     this.formName = formName;
   }
@@ -258,6 +267,7 @@ public class PokemonFormDetail {
     return pokemon;
   }
 
+  @JsonProperty("pokemon")
   public void setPokemon(PokemonSummary pokemon) {
     this.pokemon = pokemon;
   }
@@ -278,6 +288,7 @@ public class PokemonFormDetail {
     return sprites;
   }
 
+  @JsonProperty("sprites")
   public void setSprites(PokemonFormDetailSprites sprites) {
     this.sprites = sprites;
   }
@@ -298,6 +309,7 @@ public class PokemonFormDetail {
     return versionGroup;
   }
 
+  @JsonProperty("version_group")
   public void setVersionGroup(VersionGroupSummary versionGroup) {
     this.versionGroup = versionGroup;
   }
@@ -319,13 +331,14 @@ public class PokemonFormDetail {
    * Get formNames
    * @return formNames
    */
-  @NotNull @Valid 
-  @Schema(name = "form_names", requiredMode = Schema.RequiredMode.REQUIRED)
+  @Valid 
+  @Schema(name = "form_names", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("form_names")
   public List<@Valid PokemonFormDetailFormNamesInner> getFormNames() {
     return formNames;
   }
 
+  @JsonProperty("form_names")
   public void setFormNames(List<@Valid PokemonFormDetailFormNamesInner> formNames) {
     this.formNames = formNames;
   }
@@ -347,13 +360,14 @@ public class PokemonFormDetail {
    * Get names
    * @return names
    */
-  @NotNull @Valid 
-  @Schema(name = "names", requiredMode = Schema.RequiredMode.REQUIRED)
+  @Valid 
+  @Schema(name = "names", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("names")
   public List<@Valid PokemonFormDetailFormNamesInner> getNames() {
     return names;
   }
 
+  @JsonProperty("names")
   public void setNames(List<@Valid PokemonFormDetailFormNamesInner> names) {
     this.names = names;
   }
@@ -375,13 +389,14 @@ public class PokemonFormDetail {
    * Get types
    * @return types
    */
-  @NotNull @Valid 
-  @Schema(name = "types", requiredMode = Schema.RequiredMode.REQUIRED)
+  @Valid 
+  @Schema(name = "types", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("types")
   public List<@Valid PokemonDetailTypesInner> getTypes() {
     return types;
   }
 
+  @JsonProperty("types")
   public void setTypes(List<@Valid PokemonDetailTypesInner> types) {
     this.types = types;
   }
@@ -453,11 +468,8 @@ public class PokemonFormDetail {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+  private String toIndentedString(@Nullable Object o) {
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 }
 

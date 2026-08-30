@@ -47,7 +47,7 @@ class BerryFlavorDetailBerriesInner
      * @var int|null
      * @SerializedName("potency")
      * @Type("int")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Type("int")]
     protected ?int $potency = null;
@@ -56,7 +56,7 @@ class BerryFlavorDetailBerriesInner
      * @var BerryFlavorDetailBerriesInnerBerry|null
      * @SerializedName("berry")
      * @Type("OpenAPI\Server\Model\BerryFlavorDetailBerriesInnerBerry")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Valid]
     #[Assert\Type("OpenAPI\Server\Model\BerryFlavorDetailBerriesInnerBerry")]
@@ -85,12 +85,12 @@ class BerryFlavorDetailBerriesInner
     }
 
     /**
-    * Sets potency.
-    *
-    * @param int|null $potency
-    *
-    * @return $this
-    */
+     * Sets potency.
+     *
+     * @param int|null $potency
+     *
+     * @return $this
+     */
     public function setPotency(?int $potency): self
     {
         $this->potency = $potency;
@@ -112,12 +112,12 @@ class BerryFlavorDetailBerriesInner
     }
 
     /**
-    * Sets berry.
-    *
-    * @param BerryFlavorDetailBerriesInnerBerry|null $berry
-    *
-    * @return $this
-    */
+     * Sets berry.
+     *
+     * @param BerryFlavorDetailBerriesInnerBerry|null $berry
+     *
+     * @return $this
+     */
     public function setBerry(?BerryFlavorDetailBerriesInnerBerry $berry): self
     {
         $this->berry = $berry;

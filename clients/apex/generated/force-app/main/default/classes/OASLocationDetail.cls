@@ -36,19 +36,19 @@ public class OASLocationDetail implements OAS.MappedProperties {
      * Get names
      * @return names
      */
-    public List<OASLocationName> names { get; set; }
+    public List<OASLocationName> names { get; private set; }
 
     /**
      * Get gameIndices
      * @return gameIndices
      */
-    public List<OASLocationGameIndex> gameIndices { get; set; }
+    public List<OASLocationGameIndex> gameIndices { get; private set; }
 
     /**
      * Get areas
      * @return areas
      */
-    public List<OASLocationAreaSummary> areas { get; set; }
+    public List<OASLocationAreaSummary> areas { get; private set; }
 
     private static final Map<String, String> propertyMappings = new Map<String, String>{
         'game_indices' => 'gameIndices'

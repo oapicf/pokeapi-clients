@@ -61,9 +61,11 @@ class PokeathlonStatDetail extends BaseModel
     },
     "names" : {
       "type" : "array",
+      "readOnly" : true,
       "items" : {
         "$ref" : "#/components/schemas/PokeathlonStatName"
-      }
+      },
+      "default" : null
     }
   }
 }

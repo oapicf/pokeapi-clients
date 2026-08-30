@@ -39,11 +39,9 @@ import org.openapitools.server.models.PaginatedMoveSummaryList
 import org.openapitools.server.models.PaginatedMoveTargetSummaryList
 
 fun Route.MovesApi() {
-    val empty = mutableMapOf<String, Any?>()
-
     authenticate("basicAuth") {
     authenticate("cookieAuth") {
-    get<Paths.moveAilmentList> {
+    get<Paths.moveAilmentList> { moveAilmentList ->
         val principal = call.authentication.principal<UserIdPrincipal>()
         
         
@@ -52,9 +50,9 @@ fun Route.MovesApi() {
         
         val exampleContentType = "application/json"
             val exampleContentString = """{
+              "count" : 123,
               "next" : "http://api.example.org/accounts/?offset=400&limit=100",
               "previous" : "http://api.example.org/accounts/?offset=200&limit=100",
-              "count" : 123,
               "results" : [ {
                 "name" : "name",
                 "url" : "https://openapi-generator.tech"
@@ -72,10 +70,9 @@ fun Route.MovesApi() {
         
     }
     }
-
     authenticate("basicAuth") {
     authenticate("cookieAuth") {
-    get<Paths.moveAilmentRetrieve> {
+    get<Paths.moveAilmentRetrieve> { moveAilmentRetrieve ->
         val principal = call.authentication.principal<UserIdPrincipal>()
         
         
@@ -84,160 +81,149 @@ fun Route.MovesApi() {
         
         val exampleContentType = "application/json"
             val exampleContentString = """{
-              "names" : [ {
-                "name" : "name",
-                "language" : {
-                  "name" : "name",
-                  "url" : "https://openapi-generator.tech"
-                }
-              }, {
-                "name" : "name",
-                "language" : {
-                  "name" : "name",
-                  "url" : "https://openapi-generator.tech"
-                }
-              } ],
-              "moves" : [ {
-                "name" : "name",
-                "url" : "https://openapi-generator.tech"
-              }, {
-                "name" : "name",
-                "url" : "https://openapi-generator.tech"
-              } ],
-              "name" : "name",
-              "id" : 0
-            }"""
-            
-            when (exampleContentType) {
-                "application/json" -> call.respondText(exampleContentType, ContentType.Application.Json)
-                "application/xml" -> call.respondText(exampleContentString, ContentType.Text.Xml)
-                else -> call.respondText(exampleContentString)
-            }
-        
-    }
-    }
-
-    authenticate("basicAuth") {
-    authenticate("cookieAuth") {
-    get<Paths.moveBattleStyleList> {
-        val principal = call.authentication.principal<UserIdPrincipal>()
-        
-        
-        val principal = call.authentication.principal<ApiPrincipal>()
-        
-        
-        val exampleContentType = "application/json"
-            val exampleContentString = """{
-              "next" : "http://api.example.org/accounts/?offset=400&limit=100",
-              "previous" : "http://api.example.org/accounts/?offset=200&limit=100",
-              "count" : 123,
-              "results" : [ {
-                "name" : "name",
-                "url" : "https://openapi-generator.tech"
-              }, {
-                "name" : "name",
-                "url" : "https://openapi-generator.tech"
-              } ]
-            }"""
-            
-            when (exampleContentType) {
-                "application/json" -> call.respondText(exampleContentType, ContentType.Application.Json)
-                "application/xml" -> call.respondText(exampleContentString, ContentType.Text.Xml)
-                else -> call.respondText(exampleContentString)
-            }
-        
-    }
-    }
-
-    authenticate("basicAuth") {
-    authenticate("cookieAuth") {
-    get<Paths.moveBattleStyleRetrieve> {
-        val principal = call.authentication.principal<UserIdPrincipal>()
-        
-        
-        val principal = call.authentication.principal<ApiPrincipal>()
-        
-        
-        val exampleContentType = "application/json"
-            val exampleContentString = """{
-              "names" : [ {
-                "name" : "name",
-                "language" : {
-                  "name" : "name",
-                  "url" : "https://openapi-generator.tech"
-                }
-              }, {
-                "name" : "name",
-                "language" : {
-                  "name" : "name",
-                  "url" : "https://openapi-generator.tech"
-                }
-              } ],
-              "name" : "name",
-              "id" : 0
-            }"""
-            
-            when (exampleContentType) {
-                "application/json" -> call.respondText(exampleContentType, ContentType.Application.Json)
-                "application/xml" -> call.respondText(exampleContentString, ContentType.Text.Xml)
-                else -> call.respondText(exampleContentString)
-            }
-        
-    }
-    }
-
-    authenticate("basicAuth") {
-    authenticate("cookieAuth") {
-    get<Paths.moveCategoryList> {
-        val principal = call.authentication.principal<UserIdPrincipal>()
-        
-        
-        val principal = call.authentication.principal<ApiPrincipal>()
-        
-        
-        val exampleContentType = "application/json"
-            val exampleContentString = """{
-              "next" : "http://api.example.org/accounts/?offset=400&limit=100",
-              "previous" : "http://api.example.org/accounts/?offset=200&limit=100",
-              "count" : 123,
-              "results" : [ {
-                "name" : "name",
-                "url" : "https://openapi-generator.tech"
-              }, {
-                "name" : "name",
-                "url" : "https://openapi-generator.tech"
-              } ]
-            }"""
-            
-            when (exampleContentType) {
-                "application/json" -> call.respondText(exampleContentType, ContentType.Application.Json)
-                "application/xml" -> call.respondText(exampleContentString, ContentType.Text.Xml)
-                else -> call.respondText(exampleContentString)
-            }
-        
-    }
-    }
-
-    authenticate("basicAuth") {
-    authenticate("cookieAuth") {
-    get<Paths.moveCategoryRetrieve> {
-        val principal = call.authentication.principal<UserIdPrincipal>()
-        
-        
-        val principal = call.authentication.principal<ApiPrincipal>()
-        
-        
-        val exampleContentType = "application/json"
-            val exampleContentString = """{
-              "moves" : [ {
-                "name" : "name",
-                "url" : "https://openapi-generator.tech"
-              }, {
-                "name" : "name",
-                "url" : "https://openapi-generator.tech"
-              } ],
-              "name" : "name",
               "id" : 0,
+              "name" : "name",
+              "moves" : [ {
+                "name" : "name",
+                "url" : "https://openapi-generator.tech"
+              }, {
+                "name" : "name",
+                "url" : "https://openapi-generator.tech"
+              } ],
+              "names" : [ {
+                "name" : "name",
+                "language" : {
+                  "name" : "name",
+                  "url" : "https://openapi-generator.tech"
+                }
+              }, {
+                "name" : "name",
+                "language" : {
+                  "name" : "name",
+                  "url" : "https://openapi-generator.tech"
+                }
+              } ]
+            }"""
+            
+            when (exampleContentType) {
+                "application/json" -> call.respondText(exampleContentType, ContentType.Application.Json)
+                "application/xml" -> call.respondText(exampleContentString, ContentType.Text.Xml)
+                else -> call.respondText(exampleContentString)
+            }
+        
+    }
+    }
+    authenticate("basicAuth") {
+    authenticate("cookieAuth") {
+    get<Paths.moveBattleStyleList> { moveBattleStyleList ->
+        val principal = call.authentication.principal<UserIdPrincipal>()
+        
+        
+        val principal = call.authentication.principal<ApiPrincipal>()
+        
+        
+        val exampleContentType = "application/json"
+            val exampleContentString = """{
+              "count" : 123,
+              "next" : "http://api.example.org/accounts/?offset=400&limit=100",
+              "previous" : "http://api.example.org/accounts/?offset=200&limit=100",
+              "results" : [ {
+                "name" : "name",
+                "url" : "https://openapi-generator.tech"
+              }, {
+                "name" : "name",
+                "url" : "https://openapi-generator.tech"
+              } ]
+            }"""
+            
+            when (exampleContentType) {
+                "application/json" -> call.respondText(exampleContentType, ContentType.Application.Json)
+                "application/xml" -> call.respondText(exampleContentString, ContentType.Text.Xml)
+                else -> call.respondText(exampleContentString)
+            }
+        
+    }
+    }
+    authenticate("basicAuth") {
+    authenticate("cookieAuth") {
+    get<Paths.moveBattleStyleRetrieve> { moveBattleStyleRetrieve ->
+        val principal = call.authentication.principal<UserIdPrincipal>()
+        
+        
+        val principal = call.authentication.principal<ApiPrincipal>()
+        
+        
+        val exampleContentType = "application/json"
+            val exampleContentString = """{
+              "id" : 0,
+              "name" : "name",
+              "names" : [ {
+                "name" : "name",
+                "language" : {
+                  "name" : "name",
+                  "url" : "https://openapi-generator.tech"
+                }
+              }, {
+                "name" : "name",
+                "language" : {
+                  "name" : "name",
+                  "url" : "https://openapi-generator.tech"
+                }
+              } ]
+            }"""
+            
+            when (exampleContentType) {
+                "application/json" -> call.respondText(exampleContentType, ContentType.Application.Json)
+                "application/xml" -> call.respondText(exampleContentString, ContentType.Text.Xml)
+                else -> call.respondText(exampleContentString)
+            }
+        
+    }
+    }
+    authenticate("basicAuth") {
+    authenticate("cookieAuth") {
+    get<Paths.moveCategoryList> { moveCategoryList ->
+        val principal = call.authentication.principal<UserIdPrincipal>()
+        
+        
+        val principal = call.authentication.principal<ApiPrincipal>()
+        
+        
+        val exampleContentType = "application/json"
+            val exampleContentString = """{
+              "count" : 123,
+              "next" : "http://api.example.org/accounts/?offset=400&limit=100",
+              "previous" : "http://api.example.org/accounts/?offset=200&limit=100",
+              "results" : [ {
+                "name" : "name",
+                "url" : "https://openapi-generator.tech"
+              }, {
+                "name" : "name",
+                "url" : "https://openapi-generator.tech"
+              } ]
+            }"""
+            
+            when (exampleContentType) {
+                "application/json" -> call.respondText(exampleContentType, ContentType.Application.Json)
+                "application/xml" -> call.respondText(exampleContentString, ContentType.Text.Xml)
+                else -> call.respondText(exampleContentString)
+            }
+        
+    }
+    }
+    authenticate("basicAuth") {
+    authenticate("cookieAuth") {
+    get<Paths.moveCategoryRetrieve> { moveCategoryRetrieve ->
+        val principal = call.authentication.principal<UserIdPrincipal>()
+        
+        
+        val principal = call.authentication.principal<ApiPrincipal>()
+        
+        
+        val exampleContentType = "application/json"
+            val exampleContentString = """{
+              "id" : 0,
+              "name" : "name",
               "descriptions" : [ {
                 "description" : "description",
                 "language" : {
@@ -250,6 +236,13 @@ fun Route.MovesApi() {
                   "name" : "name",
                   "url" : "https://openapi-generator.tech"
                 }
+              } ],
+              "moves" : [ {
+                "name" : "name",
+                "url" : "https://openapi-generator.tech"
+              }, {
+                "name" : "name",
+                "url" : "https://openapi-generator.tech"
               } ]
             }"""
             
@@ -261,10 +254,9 @@ fun Route.MovesApi() {
         
     }
     }
-
     authenticate("basicAuth") {
     authenticate("cookieAuth") {
-    get<Paths.moveLearnMethodList> {
+    get<Paths.moveLearnMethodList> { moveLearnMethodList ->
         val principal = call.authentication.principal<UserIdPrincipal>()
         
         
@@ -273,9 +265,9 @@ fun Route.MovesApi() {
         
         val exampleContentType = "application/json"
             val exampleContentString = """{
+              "count" : 123,
               "next" : "http://api.example.org/accounts/?offset=400&limit=100",
               "previous" : "http://api.example.org/accounts/?offset=200&limit=100",
-              "count" : 123,
               "results" : [ {
                 "name" : "name",
                 "url" : "https://openapi-generator.tech"
@@ -293,10 +285,9 @@ fun Route.MovesApi() {
         
     }
     }
-
     authenticate("basicAuth") {
     authenticate("cookieAuth") {
-    get<Paths.moveLearnMethodRetrieve> {
+    get<Paths.moveLearnMethodRetrieve> { moveLearnMethodRetrieve ->
         val principal = call.authentication.principal<UserIdPrincipal>()
         
         
@@ -305,6 +296,8 @@ fun Route.MovesApi() {
         
         val exampleContentType = "application/json"
             val exampleContentString = """{
+              "id" : 0,
+              "name" : "name",
               "names" : [ {
                 "name" : "name",
                 "language" : {
@@ -313,6 +306,19 @@ fun Route.MovesApi() {
                 }
               }, {
                 "name" : "name",
+                "language" : {
+                  "name" : "name",
+                  "url" : "https://openapi-generator.tech"
+                }
+              } ],
+              "descriptions" : [ {
+                "description" : "description",
+                "language" : {
+                  "name" : "name",
+                  "url" : "https://openapi-generator.tech"
+                }
+              }, {
+                "description" : "description",
                 "language" : {
                   "name" : "name",
                   "url" : "https://openapi-generator.tech"
@@ -324,21 +330,6 @@ fun Route.MovesApi() {
               }, {
                 "name" : "name",
                 "url" : "https://openapi-generator.tech"
-              } ],
-              "name" : "name",
-              "id" : 0,
-              "descriptions" : [ {
-                "description" : "description",
-                "language" : {
-                  "name" : "name",
-                  "url" : "https://openapi-generator.tech"
-                }
-              }, {
-                "description" : "description",
-                "language" : {
-                  "name" : "name",
-                  "url" : "https://openapi-generator.tech"
-                }
               } ]
             }"""
             
@@ -350,10 +341,9 @@ fun Route.MovesApi() {
         
     }
     }
-
     authenticate("basicAuth") {
     authenticate("cookieAuth") {
-    get<Paths.moveList> {
+    get<Paths.moveList> { moveList ->
         val principal = call.authentication.principal<UserIdPrincipal>()
         
         
@@ -362,9 +352,9 @@ fun Route.MovesApi() {
         
         val exampleContentType = "application/json"
             val exampleContentString = """{
+              "count" : 123,
               "next" : "http://api.example.org/accounts/?offset=400&limit=100",
               "previous" : "http://api.example.org/accounts/?offset=200&limit=100",
-              "count" : 123,
               "results" : [ {
                 "name" : "name",
                 "url" : "https://openapi-generator.tech"
@@ -382,10 +372,9 @@ fun Route.MovesApi() {
         
     }
     }
-
     authenticate("basicAuth") {
     authenticate("cookieAuth") {
-    get<Paths.moveRetrieve> {
+    get<Paths.moveRetrieve> { moveRetrieve ->
         val principal = call.authentication.principal<UserIdPrincipal>()
         
         
@@ -394,35 +383,23 @@ fun Route.MovesApi() {
         
         val exampleContentType = "application/json"
             val exampleContentString = """{
-              "pp" : 5,
-              "generation" : {
-                "name" : "name",
-                "url" : "https://openapi-generator.tech"
-              },
-              "stat_changes" : [ {
-                "stat" : {
-                  "name" : "name",
-                  "url" : "https://openapi-generator.tech"
-                },
-                "change" : 4
-              }, {
-                "stat" : {
-                  "name" : "name",
-                  "url" : "https://openapi-generator.tech"
-                },
-                "change" : 4
-              } ],
+              "id" : 0,
+              "name" : "name",
               "accuracy" : 6,
+              "effect_chance" : 1,
+              "pp" : 5,
+              "priority" : 5,
+              "power" : 2,
               "contest_combos" : {
-                "super" : {
-                  "use_after" : [ {
+                "normal" : {
+                  "use_before" : [ {
                     "name" : "name",
                     "url" : "https://openapi-generator.tech"
                   }, {
                     "name" : "name",
                     "url" : "https://openapi-generator.tech"
                   } ],
-                  "use_before" : [ {
+                  "use_after" : [ {
                     "name" : "name",
                     "url" : "https://openapi-generator.tech"
                   }, {
@@ -430,15 +407,15 @@ fun Route.MovesApi() {
                     "url" : "https://openapi-generator.tech"
                   } ]
                 },
-                "normal" : {
-                  "use_after" : [ {
+                "super" : {
+                  "use_before" : [ {
                     "name" : "name",
                     "url" : "https://openapi-generator.tech"
                   }, {
                     "name" : "name",
                     "url" : "https://openapi-generator.tech"
                   } ],
-                  "use_before" : [ {
+                  "use_after" : [ {
                     "name" : "name",
                     "url" : "https://openapi-generator.tech"
                   }, {
@@ -447,14 +424,32 @@ fun Route.MovesApi() {
                   } ]
                 }
               },
-              "priority" : 5,
-              "super_contest_effect" : {
-                "url" : "https://openapi-generator.tech"
-              },
-              "type" : {
+              "contest_type" : {
                 "name" : "name",
                 "url" : "https://openapi-generator.tech"
               },
+              "contest_effect" : {
+                "url" : "https://openapi-generator.tech"
+              },
+              "damage_class" : {
+                "name" : "name",
+                "url" : "https://openapi-generator.tech"
+              },
+              "effect_entries" : [ {
+                "effect" : "effect",
+                "short_effect" : "short_effect",
+                "language" : {
+                  "name" : "name",
+                  "url" : "https://openapi-generator.tech"
+                }
+              }, {
+                "effect" : "effect",
+                "short_effect" : "short_effect",
+                "language" : {
+                  "name" : "name",
+                  "url" : "https://openapi-generator.tech"
+                }
+              } ],
               "effect_changes" : [ {
                 "effect_entries" : [ {
                   "effect" : "effect",
@@ -492,93 +487,11 @@ fun Route.MovesApi() {
                   "url" : "https://openapi-generator.tech"
                 }
               } ],
-              "target" : {
+              "generation" : {
                 "name" : "name",
                 "url" : "https://openapi-generator.tech"
               },
-              "learned_by_pokemon" : [ {
-                "name" : "name",
-                "url" : "https://openapi-generator.tech"
-              }, {
-                "name" : "name",
-                "url" : "https://openapi-generator.tech"
-              } ],
-              "effect_entries" : [ {
-                "short_effect" : "short_effect",
-                "effect" : "effect",
-                "language" : {
-                  "name" : "name",
-                  "url" : "https://openapi-generator.tech"
-                }
-              }, {
-                "short_effect" : "short_effect",
-                "effect" : "effect",
-                "language" : {
-                  "name" : "name",
-                  "url" : "https://openapi-generator.tech"
-                }
-              } ],
-              "contest_type" : {
-                "name" : "name",
-                "url" : "https://openapi-generator.tech"
-              },
-              "past_values" : [ {
-                "pp" : 3,
-                "effect_entries" : [ {
-                  "short_effect" : "short_effect",
-                  "effect" : "effect",
-                  "language" : {
-                    "name" : "name",
-                    "url" : "https://openapi-generator.tech"
-                  }
-                }, {
-                  "short_effect" : "short_effect",
-                  "effect" : "effect",
-                  "language" : {
-                    "name" : "name",
-                    "url" : "https://openapi-generator.tech"
-                  }
-                } ],
-                "version_group" : {
-                  "name" : "name",
-                  "url" : "https://openapi-generator.tech"
-                },
-                "accuracy" : 7,
-                "effect_chance" : 2,
-                "power" : 9,
-                "type" : {
-                  "name" : "name",
-                  "url" : "https://openapi-generator.tech"
-                }
-              }, {
-                "pp" : 3,
-                "effect_entries" : [ {
-                  "short_effect" : "short_effect",
-                  "effect" : "effect",
-                  "language" : {
-                    "name" : "name",
-                    "url" : "https://openapi-generator.tech"
-                  }
-                }, {
-                  "short_effect" : "short_effect",
-                  "effect" : "effect",
-                  "language" : {
-                    "name" : "name",
-                    "url" : "https://openapi-generator.tech"
-                  }
-                } ],
-                "version_group" : {
-                  "name" : "name",
-                  "url" : "https://openapi-generator.tech"
-                },
-                "accuracy" : 7,
-                "effect_chance" : 2,
-                "power" : 9,
-                "type" : {
-                  "name" : "name",
-                  "url" : "https://openapi-generator.tech"
-                }
-              } ],
+              "meta" : "",
               "names" : [ {
                 "name" : "name",
                 "language" : {
@@ -592,36 +505,87 @@ fun Route.MovesApi() {
                   "url" : "https://openapi-generator.tech"
                 }
               } ],
-              "meta" : "",
-              "flavor_text_entries" : [ {
+              "past_values" : [ {
+                "accuracy" : 7,
+                "power" : 9,
+                "pp" : 3,
+                "effect_chance" : 2,
+                "effect_entries" : [ {
+                  "effect" : "effect",
+                  "short_effect" : "short_effect",
+                  "language" : {
+                    "name" : "name",
+                    "url" : "https://openapi-generator.tech"
+                  }
+                }, {
+                  "effect" : "effect",
+                  "short_effect" : "short_effect",
+                  "language" : {
+                    "name" : "name",
+                    "url" : "https://openapi-generator.tech"
+                  }
+                } ],
+                "type" : {
+                  "name" : "name",
+                  "url" : "https://openapi-generator.tech"
+                },
                 "version_group" : {
                   "name" : "name",
                   "url" : "https://openapi-generator.tech"
-                },
-                "language" : {
-                  "name" : "name",
-                  "url" : "https://openapi-generator.tech"
-                },
-                "flavor_text" : "flavor_text"
+                }
               }, {
+                "accuracy" : 7,
+                "power" : 9,
+                "pp" : 3,
+                "effect_chance" : 2,
+                "effect_entries" : [ {
+                  "effect" : "effect",
+                  "short_effect" : "short_effect",
+                  "language" : {
+                    "name" : "name",
+                    "url" : "https://openapi-generator.tech"
+                  }
+                }, {
+                  "effect" : "effect",
+                  "short_effect" : "short_effect",
+                  "language" : {
+                    "name" : "name",
+                    "url" : "https://openapi-generator.tech"
+                  }
+                } ],
+                "type" : {
+                  "name" : "name",
+                  "url" : "https://openapi-generator.tech"
+                },
                 "version_group" : {
                   "name" : "name",
                   "url" : "https://openapi-generator.tech"
-                },
-                "language" : {
+                }
+              } ],
+              "stat_changes" : [ {
+                "change" : 4,
+                "stat" : {
                   "name" : "name",
                   "url" : "https://openapi-generator.tech"
-                },
-                "flavor_text" : "flavor_text"
+                }
+              }, {
+                "change" : 4,
+                "stat" : {
+                  "name" : "name",
+                  "url" : "https://openapi-generator.tech"
+                }
               } ],
-              "name" : "name",
-              "damage_class" : {
+              "super_contest_effect" : {
+                "url" : "https://openapi-generator.tech"
+              },
+              "target" : {
                 "name" : "name",
                 "url" : "https://openapi-generator.tech"
               },
-              "effect_chance" : 1,
-              "id" : 0,
-              "power" : 2,
+              "type" : {
+                "name" : "name",
+                "url" : "https://openapi-generator.tech"
+              },
               "machines" : [ {
                 "machine" : {
                   "url" : "https://openapi-generator.tech"
@@ -639,9 +603,34 @@ fun Route.MovesApi() {
                   "url" : "https://openapi-generator.tech"
                 }
               } ],
-              "contest_effect" : {
+              "flavor_text_entries" : [ {
+                "flavor_text" : "flavor_text",
+                "language" : {
+                  "name" : "name",
+                  "url" : "https://openapi-generator.tech"
+                },
+                "version_group" : {
+                  "name" : "name",
+                  "url" : "https://openapi-generator.tech"
+                }
+              }, {
+                "flavor_text" : "flavor_text",
+                "language" : {
+                  "name" : "name",
+                  "url" : "https://openapi-generator.tech"
+                },
+                "version_group" : {
+                  "name" : "name",
+                  "url" : "https://openapi-generator.tech"
+                }
+              } ],
+              "learned_by_pokemon" : [ {
+                "name" : "name",
                 "url" : "https://openapi-generator.tech"
-              }
+              }, {
+                "name" : "name",
+                "url" : "https://openapi-generator.tech"
+              } ]
             }"""
             
             when (exampleContentType) {
@@ -652,10 +641,9 @@ fun Route.MovesApi() {
         
     }
     }
-
     authenticate("basicAuth") {
     authenticate("cookieAuth") {
-    get<Paths.moveTargetList> {
+    get<Paths.moveTargetList> { moveTargetList ->
         val principal = call.authentication.principal<UserIdPrincipal>()
         
         
@@ -664,9 +652,9 @@ fun Route.MovesApi() {
         
         val exampleContentType = "application/json"
             val exampleContentString = """{
+              "count" : 123,
               "next" : "http://api.example.org/accounts/?offset=400&limit=100",
               "previous" : "http://api.example.org/accounts/?offset=200&limit=100",
-              "count" : 123,
               "results" : [ {
                 "name" : "name",
                 "url" : "https://openapi-generator.tech"
@@ -684,10 +672,9 @@ fun Route.MovesApi() {
         
     }
     }
-
     authenticate("basicAuth") {
     authenticate("cookieAuth") {
-    get<Paths.moveTargetRetrieve> {
+    get<Paths.moveTargetRetrieve> { moveTargetRetrieve ->
         val principal = call.authentication.principal<UserIdPrincipal>()
         
         
@@ -696,14 +683,16 @@ fun Route.MovesApi() {
         
         val exampleContentType = "application/json"
             val exampleContentString = """{
-              "names" : [ {
-                "name" : "name",
+              "id" : 0,
+              "name" : "name",
+              "descriptions" : [ {
+                "description" : "description",
                 "language" : {
                   "name" : "name",
                   "url" : "https://openapi-generator.tech"
                 }
               }, {
-                "name" : "name",
+                "description" : "description",
                 "language" : {
                   "name" : "name",
                   "url" : "https://openapi-generator.tech"
@@ -716,16 +705,14 @@ fun Route.MovesApi() {
                 "name" : "name",
                 "url" : "https://openapi-generator.tech"
               } ],
-              "name" : "name",
-              "id" : 0,
-              "descriptions" : [ {
-                "description" : "description",
+              "names" : [ {
+                "name" : "name",
                 "language" : {
                   "name" : "name",
                   "url" : "https://openapi-generator.tech"
                 }
               }, {
-                "description" : "description",
+                "name" : "name",
                 "language" : {
                   "name" : "name",
                   "url" : "https://openapi-generator.tech"
@@ -741,5 +728,4 @@ fun Route.MovesApi() {
         
     }
     }
-
 }

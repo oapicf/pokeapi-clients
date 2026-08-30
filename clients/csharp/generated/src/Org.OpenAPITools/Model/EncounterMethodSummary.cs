@@ -92,8 +92,18 @@ namespace Org.OpenAPITools.Model
     /// <summary>
     /// A Json converter for type <see cref="EncounterMethodSummary" />
     /// </summary>
-    public class EncounterMethodSummaryJsonConverter : JsonConverter<EncounterMethodSummary>
+    public partial class EncounterMethodSummaryJsonConverter : JsonConverter<EncounterMethodSummary>
     {
+        partial void OnCreated();
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="EncounterMethodSummaryJsonConverter" /> class.
+        /// </summary>
+        public EncounterMethodSummaryJsonConverter()
+        {
+            OnCreated();
+        }
+
         /// <summary>
         /// Deserializes json to <see cref="EncounterMethodSummary" />
         /// </summary>

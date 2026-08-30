@@ -95,8 +95,18 @@ namespace Org.OpenAPITools.Model
     /// <summary>
     /// A Json converter for type <see cref="NatureBattleStylePreference" />
     /// </summary>
-    public class NatureBattleStylePreferenceJsonConverter : JsonConverter<NatureBattleStylePreference>
+    public partial class NatureBattleStylePreferenceJsonConverter : JsonConverter<NatureBattleStylePreference>
     {
+        partial void OnCreated();
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="NatureBattleStylePreferenceJsonConverter" /> class.
+        /// </summary>
+        public NatureBattleStylePreferenceJsonConverter()
+        {
+            OnCreated();
+        }
+
         /// <summary>
         /// Deserializes json to <see cref="NatureBattleStylePreference" />
         /// </summary>

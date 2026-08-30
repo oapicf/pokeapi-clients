@@ -25,6 +25,8 @@ MachineSummary::MachineSummary()
     
 }
 
+MachineSummary::~MachineSummary() = default;
+
 void MachineSummary::validate() const
 {
     std::stringstream msg;

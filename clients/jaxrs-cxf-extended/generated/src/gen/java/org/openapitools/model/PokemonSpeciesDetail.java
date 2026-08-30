@@ -453,6 +453,7 @@ public class PokemonSpeciesDetail  {
 
   /**
    * Sets the <code>pokedexNumbers</code> property.
+   * <br><em>N.B. <code>pokedexNumbers</code> is <b>read only</b>; client code should not call this method</em>.
    */
  public void setPokedexNumbers(List<@Valid PokemonDexEntry> pokedexNumbers) {
     this.pokedexNumbers = pokedexNumbers;
@@ -460,6 +461,7 @@ public class PokemonSpeciesDetail  {
 
   /**
    * Sets the <code>pokedexNumbers</code> property.
+   * <br><em>N.B. <code>pokedexNumbers</code> is <b>read only</b>; client code should not call this method</em>.
    */
   public PokemonSpeciesDetail pokedexNumbers(List<@Valid PokemonDexEntry> pokedexNumbers) {
     this.pokedexNumbers = pokedexNumbers;
@@ -468,6 +470,7 @@ public class PokemonSpeciesDetail  {
 
   /**
    * Adds a new item to the <code>pokedexNumbers</code> list.
+   * <br><em>N.B. <code>pokedexNumbers</code> is <b>read only</b>; client code should not call this method</em>.
    */
   public PokemonSpeciesDetail addPokedexNumbersItem(PokemonDexEntry pokedexNumbersItem) {
     this.pokedexNumbers.add(pokedexNumbersItem);
@@ -486,6 +489,7 @@ public class PokemonSpeciesDetail  {
 
   /**
    * Sets the <code>eggGroups</code> property.
+   * <br><em>N.B. <code>eggGroups</code> is <b>read only</b>; client code should not call this method</em>.
    */
  public void setEggGroups(List<@Valid AbilityDetailPokemonInnerPokemon> eggGroups) {
     this.eggGroups = eggGroups;
@@ -493,6 +497,7 @@ public class PokemonSpeciesDetail  {
 
   /**
    * Sets the <code>eggGroups</code> property.
+   * <br><em>N.B. <code>eggGroups</code> is <b>read only</b>; client code should not call this method</em>.
    */
   public PokemonSpeciesDetail eggGroups(List<@Valid AbilityDetailPokemonInnerPokemon> eggGroups) {
     this.eggGroups = eggGroups;
@@ -501,6 +506,7 @@ public class PokemonSpeciesDetail  {
 
   /**
    * Adds a new item to the <code>eggGroups</code> list.
+   * <br><em>N.B. <code>eggGroups</code> is <b>read only</b>; client code should not call this method</em>.
    */
   public PokemonSpeciesDetail addEggGroupsItem(AbilityDetailPokemonInnerPokemon eggGroupsItem) {
     this.eggGroups.add(eggGroupsItem);
@@ -669,6 +675,7 @@ public class PokemonSpeciesDetail  {
 
   /**
    * Sets the <code>names</code> property.
+   * <br><em>N.B. <code>names</code> is <b>read only</b>; client code should not call this method</em>.
    */
  public void setNames(List<@Valid PokemonFormDetailFormNamesInner> names) {
     this.names = names;
@@ -676,6 +683,7 @@ public class PokemonSpeciesDetail  {
 
   /**
    * Sets the <code>names</code> property.
+   * <br><em>N.B. <code>names</code> is <b>read only</b>; client code should not call this method</em>.
    */
   public PokemonSpeciesDetail names(List<@Valid PokemonFormDetailFormNamesInner> names) {
     this.names = names;
@@ -684,6 +692,7 @@ public class PokemonSpeciesDetail  {
 
   /**
    * Adds a new item to the <code>names</code> list.
+   * <br><em>N.B. <code>names</code> is <b>read only</b>; client code should not call this method</em>.
    */
   public PokemonSpeciesDetail addNamesItem(PokemonFormDetailFormNamesInner namesItem) {
     this.names.add(namesItem);
@@ -702,6 +711,7 @@ public class PokemonSpeciesDetail  {
 
   /**
    * Sets the <code>palParkEncounters</code> property.
+   * <br><em>N.B. <code>palParkEncounters</code> is <b>read only</b>; client code should not call this method</em>.
    */
  public void setPalParkEncounters(List<@Valid PokemonSpeciesDetailPalParkEncountersInner> palParkEncounters) {
     this.palParkEncounters = palParkEncounters;
@@ -709,6 +719,7 @@ public class PokemonSpeciesDetail  {
 
   /**
    * Sets the <code>palParkEncounters</code> property.
+   * <br><em>N.B. <code>palParkEncounters</code> is <b>read only</b>; client code should not call this method</em>.
    */
   public PokemonSpeciesDetail palParkEncounters(List<@Valid PokemonSpeciesDetailPalParkEncountersInner> palParkEncounters) {
     this.palParkEncounters = palParkEncounters;
@@ -717,6 +728,7 @@ public class PokemonSpeciesDetail  {
 
   /**
    * Adds a new item to the <code>palParkEncounters</code> list.
+   * <br><em>N.B. <code>palParkEncounters</code> is <b>read only</b>; client code should not call this method</em>.
    */
   public PokemonSpeciesDetail addPalParkEncountersItem(PokemonSpeciesDetailPalParkEncountersInner palParkEncountersItem) {
     this.palParkEncounters.add(palParkEncountersItem);
@@ -735,6 +747,7 @@ public class PokemonSpeciesDetail  {
 
   /**
    * Sets the <code>formDescriptions</code> property.
+   * <br><em>N.B. <code>formDescriptions</code> is <b>read only</b>; client code should not call this method</em>.
    */
  public void setFormDescriptions(List<@Valid PokemonSpeciesDescription> formDescriptions) {
     this.formDescriptions = formDescriptions;
@@ -742,6 +755,7 @@ public class PokemonSpeciesDetail  {
 
   /**
    * Sets the <code>formDescriptions</code> property.
+   * <br><em>N.B. <code>formDescriptions</code> is <b>read only</b>; client code should not call this method</em>.
    */
   public PokemonSpeciesDetail formDescriptions(List<@Valid PokemonSpeciesDescription> formDescriptions) {
     this.formDescriptions = formDescriptions;
@@ -750,6 +764,7 @@ public class PokemonSpeciesDetail  {
 
   /**
    * Adds a new item to the <code>formDescriptions</code> list.
+   * <br><em>N.B. <code>formDescriptions</code> is <b>read only</b>; client code should not call this method</em>.
    */
   public PokemonSpeciesDetail addFormDescriptionsItem(PokemonSpeciesDescription formDescriptionsItem) {
     this.formDescriptions.add(formDescriptionsItem);
@@ -768,6 +783,7 @@ public class PokemonSpeciesDetail  {
 
   /**
    * Sets the <code>flavorTextEntries</code> property.
+   * <br><em>N.B. <code>flavorTextEntries</code> is <b>read only</b>; client code should not call this method</em>.
    */
  public void setFlavorTextEntries(List<@Valid PokemonSpeciesFlavorText> flavorTextEntries) {
     this.flavorTextEntries = flavorTextEntries;
@@ -775,6 +791,7 @@ public class PokemonSpeciesDetail  {
 
   /**
    * Sets the <code>flavorTextEntries</code> property.
+   * <br><em>N.B. <code>flavorTextEntries</code> is <b>read only</b>; client code should not call this method</em>.
    */
   public PokemonSpeciesDetail flavorTextEntries(List<@Valid PokemonSpeciesFlavorText> flavorTextEntries) {
     this.flavorTextEntries = flavorTextEntries;
@@ -783,6 +800,7 @@ public class PokemonSpeciesDetail  {
 
   /**
    * Adds a new item to the <code>flavorTextEntries</code> list.
+   * <br><em>N.B. <code>flavorTextEntries</code> is <b>read only</b>; client code should not call this method</em>.
    */
   public PokemonSpeciesDetail addFlavorTextEntriesItem(PokemonSpeciesFlavorText flavorTextEntriesItem) {
     this.flavorTextEntries.add(flavorTextEntriesItem);
@@ -801,6 +819,7 @@ public class PokemonSpeciesDetail  {
 
   /**
    * Sets the <code>genera</code> property.
+   * <br><em>N.B. <code>genera</code> is <b>read only</b>; client code should not call this method</em>.
    */
  public void setGenera(List<@Valid PokemonSpeciesDetailGeneraInner> genera) {
     this.genera = genera;
@@ -808,6 +827,7 @@ public class PokemonSpeciesDetail  {
 
   /**
    * Sets the <code>genera</code> property.
+   * <br><em>N.B. <code>genera</code> is <b>read only</b>; client code should not call this method</em>.
    */
   public PokemonSpeciesDetail genera(List<@Valid PokemonSpeciesDetailGeneraInner> genera) {
     this.genera = genera;
@@ -816,6 +836,7 @@ public class PokemonSpeciesDetail  {
 
   /**
    * Adds a new item to the <code>genera</code> list.
+   * <br><em>N.B. <code>genera</code> is <b>read only</b>; client code should not call this method</em>.
    */
   public PokemonSpeciesDetail addGeneraItem(PokemonSpeciesDetailGeneraInner generaItem) {
     this.genera.add(generaItem);
@@ -834,6 +855,7 @@ public class PokemonSpeciesDetail  {
 
   /**
    * Sets the <code>varieties</code> property.
+   * <br><em>N.B. <code>varieties</code> is <b>read only</b>; client code should not call this method</em>.
    */
  public void setVarieties(List<@Valid PokemonSpeciesDetailVarietiesInner> varieties) {
     this.varieties = varieties;
@@ -841,6 +863,7 @@ public class PokemonSpeciesDetail  {
 
   /**
    * Sets the <code>varieties</code> property.
+   * <br><em>N.B. <code>varieties</code> is <b>read only</b>; client code should not call this method</em>.
    */
   public PokemonSpeciesDetail varieties(List<@Valid PokemonSpeciesDetailVarietiesInner> varieties) {
     this.varieties = varieties;
@@ -849,6 +872,7 @@ public class PokemonSpeciesDetail  {
 
   /**
    * Adds a new item to the <code>varieties</code> list.
+   * <br><em>N.B. <code>varieties</code> is <b>read only</b>; client code should not call this method</em>.
    */
   public PokemonSpeciesDetail addVarietiesItem(PokemonSpeciesDetailVarietiesInner varietiesItem) {
     this.varieties.add(varietiesItem);
@@ -940,10 +964,7 @@ public class PokemonSpeciesDetail  {
    * (except the first line).
    */
   private static String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 }
 

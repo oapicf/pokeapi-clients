@@ -7,8 +7,8 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **int** |  | [readonly] 
 **name** | **str** |  | 
-**items** | [**List[ItemSummary]**](ItemSummary.md) |  | 
-**names** | [**List[ItemCategoryName]**](ItemCategoryName.md) |  | 
+**items** | [**List[ItemSummary]**](ItemSummary.md) |  | [readonly] 
+**names** | [**List[ItemCategoryName]**](ItemCategoryName.md) |  | [readonly] 
 **pocket** | [**ItemPocketSummary**](ItemPocketSummary.md) |  | 
 
 ## Example

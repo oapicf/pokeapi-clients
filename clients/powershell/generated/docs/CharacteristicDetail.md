@@ -5,9 +5,9 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **Int32** |  | [readonly] 
 **GeneModulo** | **Int32** |  | 
-**PossibleValues** | **Int32[]** |  | 
+**PossibleValues** | **Int32[]** |  | [readonly] 
 **HighestStat** | [**StatSummary**](StatSummary.md) |  | 
-**Descriptions** | [**CharacteristicDescription[]**](CharacteristicDescription.md) |  | 
+**Descriptions** | [**CharacteristicDescription[]**](CharacteristicDescription.md) |  | [readonly] 
 
 ## Examples
 

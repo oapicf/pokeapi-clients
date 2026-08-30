@@ -6,9 +6,9 @@
 
 
 static ability_detail_t *ability_detail_create_internal(
-    int id,
+    int *id,
     char *name,
-    int is_main_series,
+    int *is_main_series,
     generation_summary_t *generation,
     list_t *names,
     list_t *effect_entries,
@@ -20,6 +20,8 @@ static ability_detail_t *ability_detail_create_internal(
     if (!ability_detail_local_var) {
         return NULL;
     }
+    memset(ability_detail_local_var, 0, sizeof(ability_detail_t));
+    ability_detail_local_var->_library_owned = 1;
     ability_detail_local_var->id = id;
     ability_detail_local_var->name = name;
     ability_detail_local_var->is_main_series = is_main_series;
@@ -29,15 +31,13 @@ static ability_detail_t *ability_detail_create_internal(
     ability_detail_local_var->effect_changes = effect_changes;
     ability_detail_local_var->flavor_text_entries = flavor_text_entries;
     ability_detail_local_var->pokemon = pokemon;
-
-    ability_detail_local_var->_library_owned = 1;
     return ability_detail_local_var;
 }
 
 __attribute__((deprecated)) ability_detail_t *ability_detail_create(
-    int id,
+    int *id,
     char *name,
-    int is_main_series,
+    int *is_main_series,
     generation_summary_t *generation,
     list_t *names,
     list_t *effect_entries,
@@ -45,10 +45,20 @@ __attribute__((deprecated)) ability_detail_t *ability_detail_create(
     list_t *flavor_text_entries,
     list_t *pokemon
     ) {
-    return ability_detail_create_internal (
-        id,
+    int *id_copy = NULL;
+    if (id) {
+        id_copy = malloc(sizeof(int));
+        if (id_copy) *id_copy = *id;
+    }
+    int *is_main_series_copy = NULL;
+    if (is_main_series) {
+        is_main_series_copy = malloc(sizeof(int));
+        if (is_main_series_copy) *is_main_series_copy = *is_main_series;
+    }
+    ability_detail_t *result = ability_detail_create_internal (
+        id_copy,
         name,
-        is_main_series,
+        is_main_series_copy,
         generation,
         names,
         effect_entries,
@@ -56,6 +66,11 @@ __attribute__((deprecated)) ability_detail_t *ability_detail_create(
         flavor_text_entries,
         pokemon
         );
+    if (!result) {
+        free(id_copy);
+        free(is_main_series_copy);
+    }
+    return result;
 }
 
 void ability_detail_free(ability_detail_t *ability_detail) {
@@ -67,9 +82,17 @@ void ability_detail_free(ability_detail_t *ability_detail) {
         return ;
     }
     listEntry_t *listEntry;
+    if (ability_detail->id) {
+        free(ability_detail->id);
+        ability_detail->id = NULL;
+    }
     if (ability_detail->name) {
         free(ability_detail->name);
         ability_detail->name = NULL;
+    }
+    if (ability_detail->is_main_series) {
+        free(ability_detail->is_main_series);
+        ability_detail->is_main_series = NULL;
     }
     if (ability_detail->generation) {
         generation_summary_free(ability_detail->generation);
@@ -120,7 +143,7 @@ cJSON *ability_detail_convertToJSON(ability_detail_t *ability_detail) {
     if (!ability_detail->id) {
         goto fail;
     }
-    if(cJSON_AddNumberToObject(item, "id", ability_detail->id) == NULL) {
+    if(cJSON_AddNumberToObject(item, "id", *ability_detail->id) == NULL) {
     goto fail; //Numeric
     }
 
@@ -136,7 +159,7 @@ cJSON *ability_detail_convertToJSON(ability_detail_t *ability_detail) {
 
     // ability_detail->is_main_series
     if(ability_detail->is_main_series) {
-    if(cJSON_AddBoolToObject(item, "is_main_series", ability_detail->is_main_series) == NULL) {
+    if(cJSON_AddBoolToObject(item, "is_main_series", *ability_detail->is_main_series) == NULL) {
     goto fail; //Bool
     }
     }
@@ -272,6 +295,14 @@ ability_detail_t *ability_detail_parseFromJSON(cJSON *ability_detailJSON){
 
     ability_detail_t *ability_detail_local_var = NULL;
 
+    // define the local variable for ability_detail->id
+    int *id_local_var = NULL;
+
+    char *name_local_str = NULL;
+
+    // define the local variable for ability_detail->is_main_series
+    int *is_main_series_local_var = NULL;
+
     // define the local variable for ability_detail->generation
     generation_summary_t *generation_local_nonprim = NULL;
 
@@ -304,6 +335,12 @@ ability_detail_t *ability_detail_parseFromJSON(cJSON *ability_detailJSON){
     {
     goto end; //Numeric
     }
+    id_local_var = malloc(sizeof(int));
+    if(!id_local_var)
+    {
+        goto end;
+    }
+    *id_local_var = id->valuedouble;
 
     // ability_detail->name
     cJSON *name = cJSON_GetObjectItemCaseSensitive(ability_detailJSON, "name");
@@ -330,6 +367,12 @@ ability_detail_t *ability_detail_parseFromJSON(cJSON *ability_detailJSON){
     {
     goto end; //Bool
     }
+    is_main_series_local_var = malloc(sizeof(int));
+    if(!is_main_series_local_var)
+    {
+        goto end;
+    }
+    *is_main_series_local_var = is_main_series->valueint;
     }
 
     // ability_detail->generation
@@ -480,10 +523,12 @@ ability_detail_t *ability_detail_parseFromJSON(cJSON *ability_detailJSON){
     }
 
 
+    if (name && !cJSON_IsNull(name)) name_local_str = strdup(name->valuestring);
+
     ability_detail_local_var = ability_detail_create_internal (
-        id->valuedouble,
-        strdup(name->valuestring),
-        is_main_series ? is_main_series->valueint : 0,
+        id_local_var,
+        name_local_str,
+        is_main_series_local_var,
         generation_local_nonprim,
         namesList,
         effect_entriesList,
@@ -492,8 +537,24 @@ ability_detail_t *ability_detail_parseFromJSON(cJSON *ability_detailJSON){
         pokemonList
         );
 
+    if (!ability_detail_local_var) {
+        goto end;
+    }
+
     return ability_detail_local_var;
 end:
+    if (id_local_var) {
+        free(id_local_var);
+        id_local_var = NULL;
+    }
+    if (name_local_str) {
+        free(name_local_str);
+        name_local_str = NULL;
+    }
+    if (is_main_series_local_var) {
+        free(is_main_series_local_var);
+        is_main_series_local_var = NULL;
+    }
     if (generation_local_nonprim) {
         generation_summary_free(generation_local_nonprim);
         generation_local_nonprim = NULL;

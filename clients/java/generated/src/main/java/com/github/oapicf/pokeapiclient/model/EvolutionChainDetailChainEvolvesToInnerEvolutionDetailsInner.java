@@ -50,7 +50,7 @@ import com.github.oapicf.pokeapiclient.JSON;
 /**
  * EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-07T15:22:35.747827932Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-08-30T01:55:28.842792947Z[Etc/UTC]", comments = "Generator version: 7.24.0")
 public class EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner {
   public static final String SERIALIZED_NAME_GENDER = "gender";
   @SerializedName(SERIALIZED_NAME_GENDER)
@@ -70,12 +70,12 @@ public class EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner {
   public static final String SERIALIZED_NAME_KNOWN_MOVE = "known_move";
   @SerializedName(SERIALIZED_NAME_KNOWN_MOVE)
   @javax.annotation.Nonnull
-  private Object knownMove;
+  private EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender knownMove;
 
   public static final String SERIALIZED_NAME_KNOWN_MOVE_TYPE = "known_move_type";
   @SerializedName(SERIALIZED_NAME_KNOWN_MOVE_TYPE)
   @javax.annotation.Nonnull
-  private Object knownMoveType;
+  private EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender knownMoveType;
 
   public static final String SERIALIZED_NAME_LOCATION = "location";
   @SerializedName(SERIALIZED_NAME_LOCATION)
@@ -202,7 +202,7 @@ public class EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner {
   }
 
 
-  public EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner knownMove(@javax.annotation.Nonnull Object knownMove) {
+  public EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner knownMove(@javax.annotation.Nonnull EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender knownMove) {
     this.knownMove = knownMove;
     return this;
   }
@@ -212,16 +212,16 @@ public class EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner {
    * @return knownMove
    */
   @javax.annotation.Nonnull
-  public Object getKnownMove() {
+  public EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender getKnownMove() {
     return knownMove;
   }
 
-  public void setKnownMove(@javax.annotation.Nonnull Object knownMove) {
+  public void setKnownMove(@javax.annotation.Nonnull EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender knownMove) {
     this.knownMove = knownMove;
   }
 
 
-  public EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner knownMoveType(@javax.annotation.Nonnull Object knownMoveType) {
+  public EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner knownMoveType(@javax.annotation.Nonnull EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender knownMoveType) {
     this.knownMoveType = knownMoveType;
     return this;
   }
@@ -231,11 +231,11 @@ public class EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner {
    * @return knownMoveType
    */
   @javax.annotation.Nonnull
-  public Object getKnownMoveType() {
+  public EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender getKnownMoveType() {
     return knownMoveType;
   }
 
-  public void setKnownMoveType(@javax.annotation.Nonnull Object knownMoveType) {
+  public void setKnownMoveType(@javax.annotation.Nonnull EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender knownMoveType) {
     this.knownMoveType = knownMoveType;
   }
 
@@ -553,10 +553,7 @@ public class EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 
@@ -605,6 +602,10 @@ public class EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner {
       EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender.validateJsonElement(jsonObj.get("held_item"));
       // validate the required field `item`
       EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender.validateJsonElement(jsonObj.get("item"));
+      // validate the required field `known_move`
+      EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender.validateJsonElement(jsonObj.get("known_move"));
+      // validate the required field `known_move_type`
+      EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender.validateJsonElement(jsonObj.get("known_move_type"));
       // validate the required field `location`
       EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender.validateJsonElement(jsonObj.get("location"));
       if (!jsonObj.get("party_species").isJsonPrimitive()) {

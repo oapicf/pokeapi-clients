@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The PokemonSummary model module.
  * @module model/PokemonSummary
- * @version 1.2.1-pre.0
+ * @version 2.0.1-pre.0
  */
 class PokemonSummary {
     /**

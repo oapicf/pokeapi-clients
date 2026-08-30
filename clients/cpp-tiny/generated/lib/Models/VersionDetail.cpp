@@ -145,7 +145,7 @@ VersionDetail::getId()
 }
 
 void
-VersionDetail::setId(int  id)
+VersionDetail::setId(int id)
 {
 	this->id = id;
 }
@@ -157,7 +157,7 @@ VersionDetail::getName()
 }
 
 void
-VersionDetail::setName(std::string  name)
+VersionDetail::setName(std::string name)
 {
 	this->name = name;
 }
@@ -169,7 +169,7 @@ VersionDetail::getNames()
 }
 
 void
-VersionDetail::setNames(std::list <VersionName> names)
+VersionDetail::setNames(std::list<VersionName> names)
 {
 	this->names = names;
 }
@@ -181,7 +181,7 @@ VersionDetail::getVersionGroup()
 }
 
 void
-VersionDetail::setVersionGroup(VersionGroupSummary  version_group)
+VersionDetail::setVersionGroup(VersionGroupSummary version_group)
 {
 	this->version_group = version_group;
 }

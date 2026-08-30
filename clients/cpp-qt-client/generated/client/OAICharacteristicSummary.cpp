@@ -21,7 +21,7 @@
 
 namespace OpenAPI {
 
-OAICharacteristicSummary::OAICharacteristicSummary(QString json) {
+OAICharacteristicSummary::OAICharacteristicSummary(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -38,7 +38,7 @@ void OAICharacteristicSummary::initializeModel() {
     m_url_isValid = false;
 }
 
-void OAICharacteristicSummary::fromJson(QString jsonString) {
+void OAICharacteristicSummary::fromJson(const QString &jsonString) {
     QByteArray array(jsonString.toStdString().c_str());
     QJsonDocument doc = QJsonDocument::fromJson(array);
     QJsonObject jsonObject = doc.object();

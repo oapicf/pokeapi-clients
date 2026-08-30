@@ -55,49 +55,49 @@ public:
 
 	/*! \brief Set 
 	 */
-	void setAccuracy(int  accuracy);
+	void setAccuracy(int accuracy);
 	/*! \brief Get 
 	 */
 	int getPower();
 
 	/*! \brief Set 
 	 */
-	void setPower(int  power);
+	void setPower(int power);
 	/*! \brief Get 
 	 */
 	int getPp();
 
 	/*! \brief Set 
 	 */
-	void setPp(int  pp);
+	void setPp(int pp);
 	/*! \brief Get 
 	 */
 	int getEffectChance();
 
 	/*! \brief Set 
 	 */
-	void setEffectChance(int  effect_chance);
+	void setEffectChance(int effect_chance);
 	/*! \brief Get 
 	 */
 	std::list<MoveChange_effect_entries_inner> getEffectEntries();
 
 	/*! \brief Set 
 	 */
-	void setEffectEntries(std::list <MoveChange_effect_entries_inner> effect_entries);
+	void setEffectEntries(std::list<MoveChange_effect_entries_inner> effect_entries);
 	/*! \brief Get 
 	 */
 	TypeSummary getType();
 
 	/*! \brief Set 
 	 */
-	void setType(TypeSummary  type);
+	void setType(TypeSummary type);
 	/*! \brief Get 
 	 */
 	VersionGroupSummary getVersionGroup();
 
 	/*! \brief Set 
 	 */
-	void setVersionGroup(VersionGroupSummary  version_group);
+	void setVersionGroup(VersionGroupSummary version_group);
 
 
     private:

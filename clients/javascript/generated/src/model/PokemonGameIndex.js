@@ -17,7 +17,7 @@ import VersionSummary from './VersionSummary';
 /**
  * The PokemonGameIndex model module.
  * @module model/PokemonGameIndex
- * @version 1.2.1-pre.0
+ * @version 2.0.1-pre.0
  */
 class PokemonGameIndex {
     /**

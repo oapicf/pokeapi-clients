@@ -6,7 +6,7 @@
 
 
 static move_learn_method_detail_t *move_learn_method_detail_create_internal(
-    int id,
+    int *id,
     char *name,
     list_t *names,
     list_t *descriptions,
@@ -16,30 +16,39 @@ static move_learn_method_detail_t *move_learn_method_detail_create_internal(
     if (!move_learn_method_detail_local_var) {
         return NULL;
     }
+    memset(move_learn_method_detail_local_var, 0, sizeof(move_learn_method_detail_t));
+    move_learn_method_detail_local_var->_library_owned = 1;
     move_learn_method_detail_local_var->id = id;
     move_learn_method_detail_local_var->name = name;
     move_learn_method_detail_local_var->names = names;
     move_learn_method_detail_local_var->descriptions = descriptions;
     move_learn_method_detail_local_var->version_groups = version_groups;
-
-    move_learn_method_detail_local_var->_library_owned = 1;
     return move_learn_method_detail_local_var;
 }
 
 __attribute__((deprecated)) move_learn_method_detail_t *move_learn_method_detail_create(
-    int id,
+    int *id,
     char *name,
     list_t *names,
     list_t *descriptions,
     list_t *version_groups
     ) {
-    return move_learn_method_detail_create_internal (
-        id,
+    int *id_copy = NULL;
+    if (id) {
+        id_copy = malloc(sizeof(int));
+        if (id_copy) *id_copy = *id;
+    }
+    move_learn_method_detail_t *result = move_learn_method_detail_create_internal (
+        id_copy,
         name,
         names,
         descriptions,
         version_groups
         );
+    if (!result) {
+        free(id_copy);
+    }
+    return result;
 }
 
 void move_learn_method_detail_free(move_learn_method_detail_t *move_learn_method_detail) {
@@ -51,6 +60,10 @@ void move_learn_method_detail_free(move_learn_method_detail_t *move_learn_method
         return ;
     }
     listEntry_t *listEntry;
+    if (move_learn_method_detail->id) {
+        free(move_learn_method_detail->id);
+        move_learn_method_detail->id = NULL;
+    }
     if (move_learn_method_detail->name) {
         free(move_learn_method_detail->name);
         move_learn_method_detail->name = NULL;
@@ -86,7 +99,7 @@ cJSON *move_learn_method_detail_convertToJSON(move_learn_method_detail_t *move_l
     if (!move_learn_method_detail->id) {
         goto fail;
     }
-    if(cJSON_AddNumberToObject(item, "id", move_learn_method_detail->id) == NULL) {
+    if(cJSON_AddNumberToObject(item, "id", *move_learn_method_detail->id) == NULL) {
     goto fail; //Numeric
     }
 
@@ -174,6 +187,11 @@ move_learn_method_detail_t *move_learn_method_detail_parseFromJSON(cJSON *move_l
 
     move_learn_method_detail_t *move_learn_method_detail_local_var = NULL;
 
+    // define the local variable for move_learn_method_detail->id
+    int *id_local_var = NULL;
+
+    char *name_local_str = NULL;
+
     // define the local list for move_learn_method_detail->names
     list_t *namesList = NULL;
 
@@ -197,6 +215,12 @@ move_learn_method_detail_t *move_learn_method_detail_parseFromJSON(cJSON *move_l
     {
     goto end; //Numeric
     }
+    id_local_var = malloc(sizeof(int));
+    if(!id_local_var)
+    {
+        goto end;
+    }
+    *id_local_var = id->valuedouble;
 
     // move_learn_method_detail->name
     cJSON *name = cJSON_GetObjectItemCaseSensitive(move_learn_method_detailJSON, "name");
@@ -295,16 +319,30 @@ move_learn_method_detail_t *move_learn_method_detail_parseFromJSON(cJSON *move_l
     }
 
 
+    if (name && !cJSON_IsNull(name)) name_local_str = strdup(name->valuestring);
+
     move_learn_method_detail_local_var = move_learn_method_detail_create_internal (
-        id->valuedouble,
-        strdup(name->valuestring),
+        id_local_var,
+        name_local_str,
         namesList,
         descriptionsList,
         version_groupsList
         );
 
+    if (!move_learn_method_detail_local_var) {
+        goto end;
+    }
+
     return move_learn_method_detail_local_var;
 end:
+    if (id_local_var) {
+        free(id_local_var);
+        id_local_var = NULL;
+    }
+    if (name_local_str) {
+        free(name_local_str);
+        name_local_str = NULL;
+    }
     if (namesList) {
         listEntry_t *listEntry = NULL;
         list_ForEach(listEntry, namesList) {

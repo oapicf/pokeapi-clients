@@ -11,19 +11,19 @@
 | **is_default** | **Boolean** |  | [optional] |
 | **order** | **Integer** |  | [optional] |
 | **weight** | **Integer** |  | [optional] |
-| **abilities** | [**Array&lt;PokemonDetailAbilitiesInner&gt;**](PokemonDetailAbilitiesInner.md) |  |  |
-| **past_abilities** | [**Array&lt;PokemonDetailPastAbilitiesInner&gt;**](PokemonDetailPastAbilitiesInner.md) |  |  |
-| **forms** | [**Array&lt;PokemonFormSummary&gt;**](PokemonFormSummary.md) |  |  |
-| **game_indices** | [**Array&lt;PokemonGameIndex&gt;**](PokemonGameIndex.md) |  |  |
+| **abilities** | [**Array&lt;PokemonDetailAbilitiesInner&gt;**](PokemonDetailAbilitiesInner.md) |  | [readonly] |
+| **past_abilities** | [**Array&lt;PokemonDetailPastAbilitiesInner&gt;**](PokemonDetailPastAbilitiesInner.md) |  | [readonly] |
+| **forms** | [**Array&lt;PokemonFormSummary&gt;**](PokemonFormSummary.md) |  | [readonly] |
+| **game_indices** | [**Array&lt;PokemonGameIndex&gt;**](PokemonGameIndex.md) |  | [readonly] |
 | **held_items** | [**PokemonDetailHeldItems**](PokemonDetailHeldItems.md) |  |  |
 | **location_area_encounters** | **String** |  | [readonly] |
-| **moves** | [**Array&lt;PokemonDetailMovesInner&gt;**](PokemonDetailMovesInner.md) |  |  |
+| **moves** | [**Array&lt;PokemonDetailMovesInner&gt;**](PokemonDetailMovesInner.md) |  | [readonly] |
 | **species** | [**PokemonSpeciesSummary**](PokemonSpeciesSummary.md) |  |  |
 | **sprites** | [**PokemonDetailSprites**](PokemonDetailSprites.md) |  |  |
 | **cries** | [**PokemonDetailCries**](PokemonDetailCries.md) |  |  |
-| **stats** | [**Array&lt;PokemonStat&gt;**](PokemonStat.md) |  |  |
-| **types** | [**Array&lt;PokemonDetailTypesInner&gt;**](PokemonDetailTypesInner.md) |  |  |
-| **past_types** | [**Array&lt;PokemonDetailPastTypesInner&gt;**](PokemonDetailPastTypesInner.md) |  |  |
+| **stats** | [**Array&lt;PokemonStat&gt;**](PokemonStat.md) |  | [readonly] |
+| **types** | [**Array&lt;PokemonDetailTypesInner&gt;**](PokemonDetailTypesInner.md) |  | [readonly] |
+| **past_types** | [**Array&lt;PokemonDetailPastTypesInner&gt;**](PokemonDetailPastTypesInner.md) |  | [readonly] |
 
 ## Example
 

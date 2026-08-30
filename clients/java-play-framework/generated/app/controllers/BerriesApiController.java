@@ -29,7 +29,7 @@ import com.typesafe.config.Config;
 
 import openapitools.OpenAPIUtils.ApiAction;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPlayFrameworkCodegen", date = "2026-02-07T15:23:19.397731995Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPlayFrameworkCodegen", date = "2026-08-30T01:56:05.058856094Z[Etc/UTC]", comments = "Generator version: 7.24.0")
 public class BerriesApiController extends Controller {
     private final BerriesApiControllerImpInterface imp;
     private final ObjectMapper mapper;

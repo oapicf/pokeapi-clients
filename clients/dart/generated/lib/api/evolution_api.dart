@@ -32,7 +32,7 @@ class EvolutionApi {
   ///
   /// * [String] q:
   ///   > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. 
-  Future<Response> evolutionChainListWithHttpInfo({ int? limit, int? offset, String? q, }) async {
+  Future<Response> evolutionChainListWithHttpInfo({ int? limit, int? offset, String? q, Future<void>? abortTrigger, }) async {
     // ignore: prefer_const_declarations
     final path = r'/api/v2/evolution-chain/';
 
@@ -64,6 +64,7 @@ class EvolutionApi {
       headerParams,
       formParams,
       contentTypes.isEmpty ? null : contentTypes.first,
+      abortTrigger: abortTrigger,
     );
   }
 
@@ -81,8 +82,8 @@ class EvolutionApi {
   ///
   /// * [String] q:
   ///   > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. 
-  Future<PaginatedEvolutionChainSummaryList?> evolutionChainList({ int? limit, int? offset, String? q, }) async {
-    final response = await evolutionChainListWithHttpInfo( limit: limit, offset: offset, q: q, );
+  Future<PaginatedEvolutionChainSummaryList?> evolutionChainList({ int? limit, int? offset, String? q, Future<void>? abortTrigger, }) async {
+    final response = await evolutionChainListWithHttpInfo(limit: limit, offset: offset, q: q, abortTrigger: abortTrigger,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -106,7 +107,7 @@ class EvolutionApi {
   ///
   /// * [String] id (required):
   ///   This parameter can be a string or an integer.
-  Future<Response> evolutionChainRetrieveWithHttpInfo(String id,) async {
+  Future<Response> evolutionChainRetrieveWithHttpInfo(String id, { Future<void>? abortTrigger, }) async {
     // ignore: prefer_const_declarations
     final path = r'/api/v2/evolution-chain/{id}/'
       .replaceAll('{id}', id);
@@ -129,6 +130,7 @@ class EvolutionApi {
       headerParams,
       formParams,
       contentTypes.isEmpty ? null : contentTypes.first,
+      abortTrigger: abortTrigger,
     );
   }
 
@@ -140,8 +142,8 @@ class EvolutionApi {
   ///
   /// * [String] id (required):
   ///   This parameter can be a string or an integer.
-  Future<EvolutionChainDetail?> evolutionChainRetrieve(String id,) async {
-    final response = await evolutionChainRetrieveWithHttpInfo(id,);
+  Future<EvolutionChainDetail?> evolutionChainRetrieve(String id, { Future<void>? abortTrigger, }) async {
+    final response = await evolutionChainRetrieveWithHttpInfo(id, abortTrigger: abortTrigger,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -171,7 +173,7 @@ class EvolutionApi {
   ///
   /// * [String] q:
   ///   > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. 
-  Future<Response> evolutionTriggerListWithHttpInfo({ int? limit, int? offset, String? q, }) async {
+  Future<Response> evolutionTriggerListWithHttpInfo({ int? limit, int? offset, String? q, Future<void>? abortTrigger, }) async {
     // ignore: prefer_const_declarations
     final path = r'/api/v2/evolution-trigger/';
 
@@ -203,6 +205,7 @@ class EvolutionApi {
       headerParams,
       formParams,
       contentTypes.isEmpty ? null : contentTypes.first,
+      abortTrigger: abortTrigger,
     );
   }
 
@@ -220,8 +223,8 @@ class EvolutionApi {
   ///
   /// * [String] q:
   ///   > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. 
-  Future<PaginatedEvolutionTriggerSummaryList?> evolutionTriggerList({ int? limit, int? offset, String? q, }) async {
-    final response = await evolutionTriggerListWithHttpInfo( limit: limit, offset: offset, q: q, );
+  Future<PaginatedEvolutionTriggerSummaryList?> evolutionTriggerList({ int? limit, int? offset, String? q, Future<void>? abortTrigger, }) async {
+    final response = await evolutionTriggerListWithHttpInfo(limit: limit, offset: offset, q: q, abortTrigger: abortTrigger,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -245,7 +248,7 @@ class EvolutionApi {
   ///
   /// * [String] id (required):
   ///   This parameter can be a string or an integer.
-  Future<Response> evolutionTriggerRetrieveWithHttpInfo(String id,) async {
+  Future<Response> evolutionTriggerRetrieveWithHttpInfo(String id, { Future<void>? abortTrigger, }) async {
     // ignore: prefer_const_declarations
     final path = r'/api/v2/evolution-trigger/{id}/'
       .replaceAll('{id}', id);
@@ -268,6 +271,7 @@ class EvolutionApi {
       headerParams,
       formParams,
       contentTypes.isEmpty ? null : contentTypes.first,
+      abortTrigger: abortTrigger,
     );
   }
 
@@ -279,8 +283,8 @@ class EvolutionApi {
   ///
   /// * [String] id (required):
   ///   This parameter can be a string or an integer.
-  Future<EvolutionTriggerDetail?> evolutionTriggerRetrieve(String id,) async {
-    final response = await evolutionTriggerRetrieveWithHttpInfo(id,);
+  Future<EvolutionTriggerDetail?> evolutionTriggerRetrieve(String id, { Future<void>? abortTrigger, }) async {
+    final response = await evolutionTriggerRetrieveWithHttpInfo(id, abortTrigger: abortTrigger,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }

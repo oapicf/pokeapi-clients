@@ -21,7 +21,7 @@
 
 namespace OpenAPI {
 
-OAIPokemonFormDetail_form_names_inner::OAIPokemonFormDetail_form_names_inner(QString json) {
+OAIPokemonFormDetail_form_names_inner::OAIPokemonFormDetail_form_names_inner(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -41,7 +41,7 @@ void OAIPokemonFormDetail_form_names_inner::initializeModel() {
     m_name_isValid = false;
 }
 
-void OAIPokemonFormDetail_form_names_inner::fromJson(QString jsonString) {
+void OAIPokemonFormDetail_form_names_inner::fromJson(const QString &jsonString) {
     QByteArray array(jsonString.toStdString().c_str());
     QJsonDocument doc = QJsonDocument::fromJson(array);
     QJsonObject jsonObject = doc.object();

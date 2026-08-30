@@ -13,10 +13,10 @@ static super_contest_effect_flavor_text_t *super_contest_effect_flavor_text_crea
     if (!super_contest_effect_flavor_text_local_var) {
         return NULL;
     }
+    memset(super_contest_effect_flavor_text_local_var, 0, sizeof(super_contest_effect_flavor_text_t));
+    super_contest_effect_flavor_text_local_var->_library_owned = 1;
     super_contest_effect_flavor_text_local_var->flavor_text = flavor_text;
     super_contest_effect_flavor_text_local_var->language = language;
-
-    super_contest_effect_flavor_text_local_var->_library_owned = 1;
     return super_contest_effect_flavor_text_local_var;
 }
 
@@ -24,10 +24,13 @@ __attribute__((deprecated)) super_contest_effect_flavor_text_t *super_contest_ef
     char *flavor_text,
     language_summary_t *language
     ) {
-    return super_contest_effect_flavor_text_create_internal (
+    super_contest_effect_flavor_text_t *result = super_contest_effect_flavor_text_create_internal (
         flavor_text,
         language
         );
+    if (!result) {
+    }
+    return result;
 }
 
 void super_contest_effect_flavor_text_free(super_contest_effect_flavor_text_t *super_contest_effect_flavor_text) {
@@ -87,6 +90,8 @@ super_contest_effect_flavor_text_t *super_contest_effect_flavor_text_parseFromJS
 
     super_contest_effect_flavor_text_t *super_contest_effect_flavor_text_local_var = NULL;
 
+    char *flavor_text_local_str = NULL;
+
     // define the local variable for super_contest_effect_flavor_text->language
     language_summary_t *language_local_nonprim = NULL;
 
@@ -118,13 +123,23 @@ super_contest_effect_flavor_text_t *super_contest_effect_flavor_text_parseFromJS
     language_local_nonprim = language_summary_parseFromJSON(language); //nonprimitive
 
 
+    if (flavor_text && !cJSON_IsNull(flavor_text)) flavor_text_local_str = strdup(flavor_text->valuestring);
+
     super_contest_effect_flavor_text_local_var = super_contest_effect_flavor_text_create_internal (
-        strdup(flavor_text->valuestring),
+        flavor_text_local_str,
         language_local_nonprim
         );
 
+    if (!super_contest_effect_flavor_text_local_var) {
+        goto end;
+    }
+
     return super_contest_effect_flavor_text_local_var;
 end:
+    if (flavor_text_local_str) {
+        free(flavor_text_local_str);
+        flavor_text_local_str = NULL;
+    }
     if (language_local_nonprim) {
         language_summary_free(language_local_nonprim);
         language_local_nonprim = NULL;

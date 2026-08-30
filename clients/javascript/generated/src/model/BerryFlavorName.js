@@ -17,7 +17,7 @@ import LanguageSummary from './LanguageSummary';
 /**
  * The BerryFlavorName model module.
  * @module model/BerryFlavorName
- * @version 1.2.1-pre.0
+ * @version 2.0.1-pre.0
  */
 class BerryFlavorName {
     /**

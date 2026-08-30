@@ -144,7 +144,7 @@ PaginatedItemCategorySummaryList::getCount()
 }
 
 void
-PaginatedItemCategorySummaryList::setCount(int  count)
+PaginatedItemCategorySummaryList::setCount(int count)
 {
 	this->count = count;
 }
@@ -156,7 +156,7 @@ PaginatedItemCategorySummaryList::getNext()
 }
 
 void
-PaginatedItemCategorySummaryList::setNext(std::string  next)
+PaginatedItemCategorySummaryList::setNext(std::string next)
 {
 	this->next = next;
 }
@@ -168,7 +168,7 @@ PaginatedItemCategorySummaryList::getPrevious()
 }
 
 void
-PaginatedItemCategorySummaryList::setPrevious(std::string  previous)
+PaginatedItemCategorySummaryList::setPrevious(std::string previous)
 {
 	this->previous = previous;
 }
@@ -180,7 +180,7 @@ PaginatedItemCategorySummaryList::getResults()
 }
 
 void
-PaginatedItemCategorySummaryList::setResults(std::list <ItemCategorySummary> results)
+PaginatedItemCategorySummaryList::setResults(std::list<ItemCategorySummary> results)
 {
 	this->results = results;
 }

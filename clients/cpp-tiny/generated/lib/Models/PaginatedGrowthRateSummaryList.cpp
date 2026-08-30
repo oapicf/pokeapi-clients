@@ -144,7 +144,7 @@ PaginatedGrowthRateSummaryList::getCount()
 }
 
 void
-PaginatedGrowthRateSummaryList::setCount(int  count)
+PaginatedGrowthRateSummaryList::setCount(int count)
 {
 	this->count = count;
 }
@@ -156,7 +156,7 @@ PaginatedGrowthRateSummaryList::getNext()
 }
 
 void
-PaginatedGrowthRateSummaryList::setNext(std::string  next)
+PaginatedGrowthRateSummaryList::setNext(std::string next)
 {
 	this->next = next;
 }
@@ -168,7 +168,7 @@ PaginatedGrowthRateSummaryList::getPrevious()
 }
 
 void
-PaginatedGrowthRateSummaryList::setPrevious(std::string  previous)
+PaginatedGrowthRateSummaryList::setPrevious(std::string previous)
 {
 	this->previous = previous;
 }
@@ -180,7 +180,7 @@ PaginatedGrowthRateSummaryList::getResults()
 }
 
 void
-PaginatedGrowthRateSummaryList::setResults(std::list <GrowthRateSummary> results)
+PaginatedGrowthRateSummaryList::setResults(std::list<GrowthRateSummary> results)
 {
 	this->results = results;
 }

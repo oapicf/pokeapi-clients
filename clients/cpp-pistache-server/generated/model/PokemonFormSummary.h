@@ -32,7 +32,7 @@ class  PokemonFormSummary
 {
 public:
     PokemonFormSummary();
-    virtual ~PokemonFormSummary() = default;
+    virtual ~PokemonFormSummary();
 
 
     /// <summary>

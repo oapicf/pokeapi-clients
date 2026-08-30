@@ -95,6 +95,7 @@ public class CharacteristicDetail  {
 
   /**
    * Sets the <code>possibleValues</code> property.
+   * <br><em>N.B. <code>possibleValues</code> is <b>read only</b>; client code should not call this method</em>.
    */
  public void setPossibleValues(List<Integer> possibleValues) {
     this.possibleValues = possibleValues;
@@ -102,6 +103,7 @@ public class CharacteristicDetail  {
 
   /**
    * Sets the <code>possibleValues</code> property.
+   * <br><em>N.B. <code>possibleValues</code> is <b>read only</b>; client code should not call this method</em>.
    */
   public CharacteristicDetail possibleValues(List<Integer> possibleValues) {
     this.possibleValues = possibleValues;
@@ -110,6 +112,7 @@ public class CharacteristicDetail  {
 
   /**
    * Adds a new item to the <code>possibleValues</code> list.
+   * <br><em>N.B. <code>possibleValues</code> is <b>read only</b>; client code should not call this method</em>.
    */
   public CharacteristicDetail addPossibleValuesItem(Integer possibleValuesItem) {
     this.possibleValues.add(possibleValuesItem);
@@ -153,6 +156,7 @@ public class CharacteristicDetail  {
 
   /**
    * Sets the <code>descriptions</code> property.
+   * <br><em>N.B. <code>descriptions</code> is <b>read only</b>; client code should not call this method</em>.
    */
  public void setDescriptions(List<@Valid CharacteristicDescription> descriptions) {
     this.descriptions = descriptions;
@@ -160,6 +164,7 @@ public class CharacteristicDetail  {
 
   /**
    * Sets the <code>descriptions</code> property.
+   * <br><em>N.B. <code>descriptions</code> is <b>read only</b>; client code should not call this method</em>.
    */
   public CharacteristicDetail descriptions(List<@Valid CharacteristicDescription> descriptions) {
     this.descriptions = descriptions;
@@ -168,6 +173,7 @@ public class CharacteristicDetail  {
 
   /**
    * Adds a new item to the <code>descriptions</code> list.
+   * <br><em>N.B. <code>descriptions</code> is <b>read only</b>; client code should not call this method</em>.
    */
   public CharacteristicDetail addDescriptionsItem(CharacteristicDescription descriptionsItem) {
     this.descriptions.add(descriptionsItem);
@@ -215,10 +221,7 @@ public class CharacteristicDetail  {
    * (except the first line).
    */
   private static String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 }
 

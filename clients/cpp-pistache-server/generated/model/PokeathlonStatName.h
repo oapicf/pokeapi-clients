@@ -33,7 +33,7 @@ class  PokeathlonStatName
 {
 public:
     PokeathlonStatName();
-    virtual ~PokeathlonStatName() = default;
+    virtual ~PokeathlonStatName();
 
 
     /// <summary>

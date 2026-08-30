@@ -6,28 +6,37 @@
 
 
 static location_game_index_t *location_game_index_create_internal(
-    int game_index,
+    int *game_index,
     generation_summary_t *generation
     ) {
     location_game_index_t *location_game_index_local_var = malloc(sizeof(location_game_index_t));
     if (!location_game_index_local_var) {
         return NULL;
     }
+    memset(location_game_index_local_var, 0, sizeof(location_game_index_t));
+    location_game_index_local_var->_library_owned = 1;
     location_game_index_local_var->game_index = game_index;
     location_game_index_local_var->generation = generation;
-
-    location_game_index_local_var->_library_owned = 1;
     return location_game_index_local_var;
 }
 
 __attribute__((deprecated)) location_game_index_t *location_game_index_create(
-    int game_index,
+    int *game_index,
     generation_summary_t *generation
     ) {
-    return location_game_index_create_internal (
-        game_index,
+    int *game_index_copy = NULL;
+    if (game_index) {
+        game_index_copy = malloc(sizeof(int));
+        if (game_index_copy) *game_index_copy = *game_index;
+    }
+    location_game_index_t *result = location_game_index_create_internal (
+        game_index_copy,
         generation
         );
+    if (!result) {
+        free(game_index_copy);
+    }
+    return result;
 }
 
 void location_game_index_free(location_game_index_t *location_game_index) {
@@ -39,6 +48,10 @@ void location_game_index_free(location_game_index_t *location_game_index) {
         return ;
     }
     listEntry_t *listEntry;
+    if (location_game_index->game_index) {
+        free(location_game_index->game_index);
+        location_game_index->game_index = NULL;
+    }
     if (location_game_index->generation) {
         generation_summary_free(location_game_index->generation);
         location_game_index->generation = NULL;
@@ -53,7 +66,7 @@ cJSON *location_game_index_convertToJSON(location_game_index_t *location_game_in
     if (!location_game_index->game_index) {
         goto fail;
     }
-    if(cJSON_AddNumberToObject(item, "game_index", location_game_index->game_index) == NULL) {
+    if(cJSON_AddNumberToObject(item, "game_index", *location_game_index->game_index) == NULL) {
     goto fail; //Numeric
     }
 
@@ -83,6 +96,9 @@ location_game_index_t *location_game_index_parseFromJSON(cJSON *location_game_in
 
     location_game_index_t *location_game_index_local_var = NULL;
 
+    // define the local variable for location_game_index->game_index
+    int *game_index_local_var = NULL;
+
     // define the local variable for location_game_index->generation
     generation_summary_t *generation_local_nonprim = NULL;
 
@@ -100,6 +116,12 @@ location_game_index_t *location_game_index_parseFromJSON(cJSON *location_game_in
     {
     goto end; //Numeric
     }
+    game_index_local_var = malloc(sizeof(int));
+    if(!game_index_local_var)
+    {
+        goto end;
+    }
+    *game_index_local_var = game_index->valuedouble;
 
     // location_game_index->generation
     cJSON *generation = cJSON_GetObjectItemCaseSensitive(location_game_indexJSON, "generation");
@@ -114,13 +136,22 @@ location_game_index_t *location_game_index_parseFromJSON(cJSON *location_game_in
     generation_local_nonprim = generation_summary_parseFromJSON(generation); //nonprimitive
 
 
+
     location_game_index_local_var = location_game_index_create_internal (
-        game_index->valuedouble,
+        game_index_local_var,
         generation_local_nonprim
         );
 
+    if (!location_game_index_local_var) {
+        goto end;
+    }
+
     return location_game_index_local_var;
 end:
+    if (game_index_local_var) {
+        free(game_index_local_var);
+        game_index_local_var = NULL;
+    }
     if (generation_local_nonprim) {
         generation_summary_free(generation_local_nonprim);
         generation_local_nonprim = NULL;

@@ -86,7 +86,7 @@ PokemonSpeciesDetail_varieties_inner::isIsDefault()
 }
 
 void
-PokemonSpeciesDetail_varieties_inner::setIsDefault(bool  is_default)
+PokemonSpeciesDetail_varieties_inner::setIsDefault(bool is_default)
 {
 	this->is_default = is_default;
 }
@@ -98,7 +98,7 @@ PokemonSpeciesDetail_varieties_inner::getPokemon()
 }
 
 void
-PokemonSpeciesDetail_varieties_inner::setPokemon(AbilityDetail_pokemon_inner_pokemon  pokemon)
+PokemonSpeciesDetail_varieties_inner::setPokemon(AbilityDetail_pokemon_inner_pokemon pokemon)
 {
 	this->pokemon = pokemon;
 }

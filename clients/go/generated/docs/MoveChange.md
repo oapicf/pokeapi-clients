@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **Power** | Pointer to **NullableInt32** |  | [optional] 
 **Pp** | Pointer to **NullableInt32** |  | [optional] 
 **EffectChance** | **int32** |  | 
-**EffectEntries** | [**[]MoveChangeEffectEntriesInner**](MoveChangeEffectEntriesInner.md) |  | 
+**EffectEntries** | [**[]MoveChangeEffectEntriesInner**](MoveChangeEffectEntriesInner.md) |  | [readonly] 
 **Type** | [**TypeSummary**](TypeSummary.md) |  | 
 **VersionGroup** | [**VersionGroupSummary**](VersionGroupSummary.md) |  | 
 

@@ -7,10 +7,10 @@
 | **id** | **Integer** |  | [readonly] |
 | **name** | **String** |  |  |
 | **game_index** | **Integer** |  |  |
-| **encounter_method_rates** | [**Array&lt;LocationAreaDetailEncounterMethodRatesInner&gt;**](LocationAreaDetailEncounterMethodRatesInner.md) |  |  |
+| **encounter_method_rates** | [**Array&lt;LocationAreaDetailEncounterMethodRatesInner&gt;**](LocationAreaDetailEncounterMethodRatesInner.md) |  | [readonly] |
 | **location** | [**LocationSummary**](LocationSummary.md) |  |  |
-| **names** | [**Array&lt;LocationAreaName&gt;**](LocationAreaName.md) |  |  |
-| **pokemon_encounters** | [**Array&lt;LocationAreaDetailPokemonEncountersInner&gt;**](LocationAreaDetailPokemonEncountersInner.md) |  |  |
+| **names** | [**Array&lt;LocationAreaName&gt;**](LocationAreaName.md) |  | [readonly] |
+| **pokemon_encounters** | [**Array&lt;LocationAreaDetailPokemonEncountersInner&gt;**](LocationAreaDetailPokemonEncountersInner.md) |  | [readonly] |
 
 ## Example
 

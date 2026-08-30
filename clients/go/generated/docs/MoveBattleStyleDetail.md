@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **int32** |  | [readonly] 
 **Name** | **string** |  | 
-**Names** | [**[]MoveBattleStyleName**](MoveBattleStyleName.md) |  | 
+**Names** | [**[]MoveBattleStyleName**](MoveBattleStyleName.md) |  | [readonly] 
 
 ## Methods
 

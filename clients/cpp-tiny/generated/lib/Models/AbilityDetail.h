@@ -58,63 +58,63 @@ public:
 
 	/*! \brief Set 
 	 */
-	void setId(int  id);
+	void setId(int id);
 	/*! \brief Get 
 	 */
 	std::string getName();
 
 	/*! \brief Set 
 	 */
-	void setName(std::string  name);
+	void setName(std::string name);
 	/*! \brief Get 
 	 */
 	bool isIsMainSeries();
 
 	/*! \brief Set 
 	 */
-	void setIsMainSeries(bool  is_main_series);
+	void setIsMainSeries(bool is_main_series);
 	/*! \brief Get 
 	 */
 	GenerationSummary getGeneration();
 
 	/*! \brief Set 
 	 */
-	void setGeneration(GenerationSummary  generation);
+	void setGeneration(GenerationSummary generation);
 	/*! \brief Get 
 	 */
 	std::list<AbilityName> getNames();
 
 	/*! \brief Set 
 	 */
-	void setNames(std::list <AbilityName> names);
+	void setNames(std::list<AbilityName> names);
 	/*! \brief Get 
 	 */
 	std::list<AbilityEffectText> getEffectEntries();
 
 	/*! \brief Set 
 	 */
-	void setEffectEntries(std::list <AbilityEffectText> effect_entries);
+	void setEffectEntries(std::list<AbilityEffectText> effect_entries);
 	/*! \brief Get 
 	 */
 	std::list<AbilityChange> getEffectChanges();
 
 	/*! \brief Set 
 	 */
-	void setEffectChanges(std::list <AbilityChange> effect_changes);
+	void setEffectChanges(std::list<AbilityChange> effect_changes);
 	/*! \brief Get 
 	 */
 	std::list<AbilityFlavorText> getFlavorTextEntries();
 
 	/*! \brief Set 
 	 */
-	void setFlavorTextEntries(std::list <AbilityFlavorText> flavor_text_entries);
+	void setFlavorTextEntries(std::list<AbilityFlavorText> flavor_text_entries);
 	/*! \brief Get 
 	 */
 	std::list<AbilityDetail_pokemon_inner> getPokemon();
 
 	/*! \brief Set 
 	 */
-	void setPokemon(std::list <AbilityDetail_pokemon_inner> pokemon);
+	void setPokemon(std::list<AbilityDetail_pokemon_inner> pokemon);
 
 
     private:

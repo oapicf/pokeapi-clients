@@ -8,8 +8,8 @@ Name | Type | Description | Notes
 **id** | **int** |  | [readonly] 
 **appeal** | **int** |  | 
 **jam** | **int** |  | 
-**effect_entries** | [**List[ContestEffectEffectText]**](ContestEffectEffectText.md) |  | 
-**flavor_text_entries** | [**List[ContestEffectFlavorText]**](ContestEffectFlavorText.md) |  | 
+**effect_entries** | [**List[ContestEffectEffectText]**](ContestEffectEffectText.md) |  | [readonly] 
+**flavor_text_entries** | [**List[ContestEffectFlavorText]**](ContestEffectFlavorText.md) |  | [readonly] 
 
 ## Example
 

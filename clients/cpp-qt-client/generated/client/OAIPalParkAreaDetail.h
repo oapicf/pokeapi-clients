@@ -36,13 +36,13 @@ class OAIPalParkAreaDetail_pokemon_encounters_inner;
 class OAIPalParkAreaDetail : public OAIObject {
 public:
     OAIPalParkAreaDetail();
-    OAIPalParkAreaDetail(QString json);
+    OAIPalParkAreaDetail(const QString &json);
     ~OAIPalParkAreaDetail() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     qint32 getId() const;
     void setId(const qint32 &id);

@@ -47,7 +47,7 @@ class ItemDetailSprites
      * @var string|null
      * @SerializedName("default")
      * @Type("string")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Type("string")]
     protected ?string $default = null;
@@ -74,12 +74,12 @@ class ItemDetailSprites
     }
 
     /**
-    * Sets default.
-    *
-    * @param string|null $default
-    *
-    * @return $this
-    */
+     * Sets default.
+     *
+     * @param string|null $default
+     *
+     * @return $this
+     */
     public function setDefault(?string $default): self
     {
         $this->default = $default;

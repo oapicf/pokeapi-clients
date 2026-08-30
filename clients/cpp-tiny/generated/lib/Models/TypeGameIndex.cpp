@@ -86,7 +86,7 @@ TypeGameIndex::getGameIndex()
 }
 
 void
-TypeGameIndex::setGameIndex(int  game_index)
+TypeGameIndex::setGameIndex(int game_index)
 {
 	this->game_index = game_index;
 }
@@ -98,7 +98,7 @@ TypeGameIndex::getGeneration()
 }
 
 void
-TypeGameIndex::setGeneration(GenerationSummary  generation)
+TypeGameIndex::setGeneration(GenerationSummary generation)
 {
 	this->generation = generation;
 }

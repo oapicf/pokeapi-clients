@@ -124,7 +124,7 @@ EvolutionChainDetail_chain_evolves_to_inner::getEvolutionDetails()
 }
 
 void
-EvolutionChainDetail_chain_evolves_to_inner::setEvolutionDetails(std::list <EvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner> evolution_details)
+EvolutionChainDetail_chain_evolves_to_inner::setEvolutionDetails(std::list<EvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner> evolution_details)
 {
 	this->evolution_details = evolution_details;
 }
@@ -136,7 +136,7 @@ EvolutionChainDetail_chain_evolves_to_inner::isIsBaby()
 }
 
 void
-EvolutionChainDetail_chain_evolves_to_inner::setIsBaby(bool  is_baby)
+EvolutionChainDetail_chain_evolves_to_inner::setIsBaby(bool is_baby)
 {
 	this->is_baby = is_baby;
 }
@@ -148,7 +148,7 @@ EvolutionChainDetail_chain_evolves_to_inner::getSpecies()
 }
 
 void
-EvolutionChainDetail_chain_evolves_to_inner::setSpecies(AbilityDetail_pokemon_inner_pokemon  species)
+EvolutionChainDetail_chain_evolves_to_inner::setSpecies(AbilityDetail_pokemon_inner_pokemon species)
 {
 	this->species = species;
 }

@@ -31,13 +31,13 @@ namespace OpenAPI {
 class OAIMoveDetail_machines_inner_machine : public OAIObject {
 public:
     OAIMoveDetail_machines_inner_machine();
-    OAIMoveDetail_machines_inner_machine(QString json);
+    OAIMoveDetail_machines_inner_machine(const QString &json);
     ~OAIMoveDetail_machines_inner_machine() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     QString getUrl() const;
     void setUrl(const QString &url);

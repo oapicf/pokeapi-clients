@@ -32,6 +32,8 @@ BerryDetail::BerryDetail()
     
 }
 
+BerryDetail::~BerryDetail() = default;
+
 void BerryDetail::validate() const
 {
     std::stringstream msg;

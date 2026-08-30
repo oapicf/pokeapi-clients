@@ -86,8 +86,18 @@ namespace Org.OpenAPITools.Model
     /// <summary>
     /// A Json converter for type <see cref="StatDetailAffectingNatures" />
     /// </summary>
-    public class StatDetailAffectingNaturesJsonConverter : JsonConverter<StatDetailAffectingNatures>
+    public partial class StatDetailAffectingNaturesJsonConverter : JsonConverter<StatDetailAffectingNatures>
     {
+        partial void OnCreated();
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="StatDetailAffectingNaturesJsonConverter" /> class.
+        /// </summary>
+        public StatDetailAffectingNaturesJsonConverter()
+        {
+            OnCreated();
+        }
+
         /// <summary>
         /// Deserializes json to <see cref="StatDetailAffectingNatures" />
         /// </summary>

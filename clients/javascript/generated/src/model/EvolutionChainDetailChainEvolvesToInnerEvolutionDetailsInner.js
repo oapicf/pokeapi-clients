@@ -18,7 +18,7 @@ import EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender from '
 /**
  * The EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner model module.
  * @module model/EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner
- * @version 1.2.1-pre.0
+ * @version 2.0.1-pre.0
  */
 class EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner {
     /**
@@ -27,8 +27,8 @@ class EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner {
      * @param gender {module:model/EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender} 
      * @param heldItem {module:model/EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender} 
      * @param item {module:model/EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender} 
-     * @param knownMove {Object} 
-     * @param knownMoveType {Object} 
+     * @param knownMove {module:model/EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender} 
+     * @param knownMoveType {module:model/EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender} 
      * @param location {module:model/EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender} 
      * @param minAffection {Number} 
      * @param minBeauty {Number} 
@@ -95,10 +95,10 @@ class EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner {
                 obj['item'] = EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender.constructFromObject(data['item']);
             }
             if (data.hasOwnProperty('known_move')) {
-                obj['known_move'] = ApiClient.convertToType(data['known_move'], Object);
+                obj['known_move'] = EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender.constructFromObject(data['known_move']);
             }
             if (data.hasOwnProperty('known_move_type')) {
-                obj['known_move_type'] = ApiClient.convertToType(data['known_move_type'], Object);
+                obj['known_move_type'] = EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender.constructFromObject(data['known_move_type']);
             }
             if (data.hasOwnProperty('location')) {
                 obj['location'] = EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender.constructFromObject(data['location']);
@@ -167,6 +167,14 @@ class EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner {
         if (data['item']) { // data not null
           EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender.validateJSON(data['item']);
         }
+        // validate the optional field `known_move`
+        if (data['known_move']) { // data not null
+          EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender.validateJSON(data['known_move']);
+        }
+        // validate the optional field `known_move_type`
+        if (data['known_move_type']) { // data not null
+          EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender.validateJSON(data['known_move_type']);
+        }
         // validate the optional field `location`
         if (data['location']) { // data not null
           EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender.validateJSON(data['location']);
@@ -220,12 +228,12 @@ EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner.prototype['held_ite
 EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner.prototype['item'] = undefined;
 
 /**
- * @member {Object} known_move
+ * @member {module:model/EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender} known_move
  */
 EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner.prototype['known_move'] = undefined;
 
 /**
- * @member {Object} known_move_type
+ * @member {module:model/EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender} known_move_type
  */
 EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner.prototype['known_move_type'] = undefined;
 

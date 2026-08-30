@@ -38,7 +38,7 @@ import javax.annotation.Generated;
   ItemCategoryDetail.JSON_PROPERTY_POCKET
 })
 @JsonTypeName("ItemCategoryDetail")
-@Generated(value="org.openapitools.codegen.languages.JavaMicronautClientCodegen", date="2026-02-07T15:22:54.857535619Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@Generated(value="org.openapitools.codegen.languages.JavaMicronautClientCodegen", date="2026-08-30T01:55:51.056116330Z[Etc/UTC]", comments = "Generator version: 7.24.0")
 @Introspected
 public class ItemCategoryDetail {
     public static final String JSON_PROPERTY_ID = "id";
@@ -98,16 +98,6 @@ public class ItemCategoryDetail {
         this.name = name;
     }
 
-    public ItemCategoryDetail items(List<@Valid ItemSummary> items) {
-        this.items = items;
-        return this;
-    }
-
-    public ItemCategoryDetail addItemsItem(ItemSummary itemsItem) {
-        this.items.add(itemsItem);
-        return this;
-    }
-
     /**
      * Get items
      * @return items
@@ -119,22 +109,6 @@ public class ItemCategoryDetail {
         return items;
     }
 
-    @JsonProperty(JSON_PROPERTY_ITEMS)
-    @JsonInclude(value = JsonInclude.Include.ALWAYS)
-    public void setItems(List<@Valid ItemSummary> items) {
-        this.items = items;
-    }
-
-    public ItemCategoryDetail names(List<@Valid ItemCategoryName> names) {
-        this.names = names;
-        return this;
-    }
-
-    public ItemCategoryDetail addNamesItem(ItemCategoryName namesItem) {
-        this.names.add(namesItem);
-        return this;
-    }
-
     /**
      * Get names
      * @return names
@@ -144,12 +118,6 @@ public class ItemCategoryDetail {
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public List<@Valid ItemCategoryName> getNames() {
         return names;
-    }
-
-    @JsonProperty(JSON_PROPERTY_NAMES)
-    @JsonInclude(value = JsonInclude.Include.ALWAYS)
-    public void setNames(List<@Valid ItemCategoryName> names) {
-        this.names = names;
     }
 
     public ItemCategoryDetail pocket(ItemPocketSummary pocket) {
@@ -214,10 +182,7 @@ public class ItemCategoryDetail {
      * (except the first line).
      */
     private String toIndentedString(Object o) {
-        if (o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
+        return o == null ? "null" : o.toString().replace("\n", "\n    ");
     }
 
 }

@@ -7,9 +7,9 @@
 | **id** | **kotlin.Int** |  |  [readonly] |
 | **name** | **kotlin.String** |  |  |
 | **region** | [**RegionSummary**](RegionSummary.md) |  |  |
-| **names** | [**kotlin.collections.List&lt;LocationName&gt;**](LocationName.md) |  |  |
-| **gameIndices** | [**kotlin.collections.List&lt;LocationGameIndex&gt;**](LocationGameIndex.md) |  |  |
-| **areas** | [**kotlin.collections.List&lt;LocationAreaSummary&gt;**](LocationAreaSummary.md) |  |  |
+| **names** | [**kotlin.collections.List&lt;LocationName&gt;**](LocationName.md) |  |  [readonly] |
+| **gameIndices** | [**kotlin.collections.List&lt;LocationGameIndex&gt;**](LocationGameIndex.md) |  |  [readonly] |
+| **areas** | [**kotlin.collections.List&lt;LocationAreaSummary&gt;**](LocationAreaSummary.md) |  |  [readonly] |
 
 
 

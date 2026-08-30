@@ -51,13 +51,13 @@ export interface MoveMetaAilmentDetail {
      * @type {Array<AbilityDetailPokemonInnerPokemon>}
      * @memberof MoveMetaAilmentDetail
      */
-    moves: Array<AbilityDetailPokemonInnerPokemon>;
+    readonly moves: Array<AbilityDetailPokemonInnerPokemon>;
     /**
      * 
      * @type {Array<MoveMetaAilmentName>}
      * @memberof MoveMetaAilmentDetail
      */
-    names: Array<MoveMetaAilmentName>;
+    readonly names: Array<MoveMetaAilmentName>;
 }
 
 /**
@@ -92,7 +92,7 @@ export function MoveMetaAilmentDetailToJSON(json: any): MoveMetaAilmentDetail {
     return MoveMetaAilmentDetailToJSONTyped(json, false);
 }
 
-export function MoveMetaAilmentDetailToJSONTyped(value?: Omit<MoveMetaAilmentDetail, 'id'> | null, ignoreDiscriminator: boolean = false): any {
+export function MoveMetaAilmentDetailToJSONTyped(value?: Omit<MoveMetaAilmentDetail, 'id'|'moves'|'names'> | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
@@ -100,8 +100,6 @@ export function MoveMetaAilmentDetailToJSONTyped(value?: Omit<MoveMetaAilmentDet
     return {
         
         'name': value['name'],
-        'moves': ((value['moves'] as Array<any>).map(AbilityDetailPokemonInnerPokemonToJSON)),
-        'names': ((value['names'] as Array<any>).map(MoveMetaAilmentNameToJSON)),
     };
 }
 

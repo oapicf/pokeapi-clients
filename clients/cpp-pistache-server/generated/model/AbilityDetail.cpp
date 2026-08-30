@@ -28,6 +28,8 @@ AbilityDetail::AbilityDetail()
     
 }
 
+AbilityDetail::~AbilityDetail() = default;
+
 void AbilityDetail::validate() const
 {
     std::stringstream msg;

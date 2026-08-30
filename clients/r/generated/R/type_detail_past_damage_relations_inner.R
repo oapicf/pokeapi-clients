@@ -68,13 +68,36 @@ TypeDetailPastDamageRelationsInner <- R6::R6Class(
       TypeDetailPastDamageRelationsInnerObject <- list()
       if (!is.null(self$`generation`)) {
         TypeDetailPastDamageRelationsInnerObject[["generation"]] <-
-          self$`generation`$toSimpleType()
+          self$extractSimpleType(self$`generation`)
       }
       if (!is.null(self$`damage_relations`)) {
         TypeDetailPastDamageRelationsInnerObject[["damage_relations"]] <-
-          self$`damage_relations`$toSimpleType()
+          self$extractSimpleType(self$`damage_relations`)
       }
       return(TypeDetailPastDamageRelationsInnerObject)
+    },
+
+    extractSimpleType = function(x) {
+      if (R6::is.R6(x)) {
+        return(x$toSimpleType())
+      } else if (!self$hasNestedR6(x)) {
+        return(x)
+      }
+      lapply(x, self$extractSimpleType)
+    },
+
+    hasNestedR6 = function(x) {
+      if (R6::is.R6(x)) {
+        return(TRUE)
+      }
+      if (is.list(x)) {
+        for (item in x) {
+          if (self$hasNestedR6(item)) {
+            return(TRUE)
+          }
+        }
+      }
+      FALSE
     },
 
     #' @description

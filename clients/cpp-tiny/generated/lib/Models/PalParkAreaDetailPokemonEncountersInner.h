@@ -52,21 +52,21 @@ public:
 
 	/*! \brief Set 
 	 */
-	void setBaseScore(int  base_score);
+	void setBaseScore(int base_score);
 	/*! \brief Get 
 	 */
 	AbilityDetail_pokemon_inner_pokemon getPokemonspecies();
 
 	/*! \brief Set 
 	 */
-	void setPokemonspecies(AbilityDetail_pokemon_inner_pokemon  pokemonspecies);
+	void setPokemonspecies(AbilityDetail_pokemon_inner_pokemon pokemonspecies);
 	/*! \brief Get 
 	 */
 	int getRate();
 
 	/*! \brief Set 
 	 */
-	void setRate(int  rate);
+	void setRate(int rate);
 
 
     private:

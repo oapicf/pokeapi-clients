@@ -58,19 +58,19 @@ export interface MoveTargetDetail {
      * @type {Array<MoveTargetDescription>}
      * @memberof MoveTargetDetail
      */
-    descriptions: Array<MoveTargetDescription>;
+    readonly descriptions: Array<MoveTargetDescription>;
     /**
      * 
      * @type {Array<MoveSummary>}
      * @memberof MoveTargetDetail
      */
-    moves: Array<MoveSummary>;
+    readonly moves: Array<MoveSummary>;
     /**
      * 
      * @type {Array<MoveTargetName>}
      * @memberof MoveTargetDetail
      */
-    names: Array<MoveTargetName>;
+    readonly names: Array<MoveTargetName>;
 }
 
 /**
@@ -107,7 +107,7 @@ export function MoveTargetDetailToJSON(json: any): MoveTargetDetail {
     return MoveTargetDetailToJSONTyped(json, false);
 }
 
-export function MoveTargetDetailToJSONTyped(value?: Omit<MoveTargetDetail, 'id'> | null, ignoreDiscriminator: boolean = false): any {
+export function MoveTargetDetailToJSONTyped(value?: Omit<MoveTargetDetail, 'id'|'descriptions'|'moves'|'names'> | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
@@ -115,9 +115,6 @@ export function MoveTargetDetailToJSONTyped(value?: Omit<MoveTargetDetail, 'id'>
     return {
         
         'name': value['name'],
-        'descriptions': ((value['descriptions'] as Array<any>).map(MoveTargetDescriptionToJSON)),
-        'moves': ((value['moves'] as Array<any>).map(MoveSummaryToJSON)),
-        'names': ((value['names'] as Array<any>).map(MoveTargetNameToJSON)),
     };
 }
 

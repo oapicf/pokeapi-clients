@@ -33,13 +33,13 @@ class OAILanguageSummary;
 class OAIItemPocketName : public OAIObject {
 public:
     OAIItemPocketName();
-    OAIItemPocketName(QString json);
+    OAIItemPocketName(const QString &json);
     ~OAIItemPocketName() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     QString getName() const;
     void setName(const QString &name);

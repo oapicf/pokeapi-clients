@@ -13,19 +13,19 @@ import org.openapitools.model.PokemonSpeciesSummary;
 import org.springframework.lang.Nullable;
 import org.openapitools.jackson.nullable.JsonNullable;
 import java.time.OffsetDateTime;
-import javax.validation.Valid;
-import javax.validation.constraints.*;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.*;
 import io.swagger.v3.oas.annotations.media.Schema;
 
 
 import java.util.*;
-import javax.annotation.Generated;
+import jakarta.annotation.Generated;
 
 /**
  * GrowthRateDetail
  */
 
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2026-02-07T15:29:13.146999890Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2026-08-30T02:00:43.960184425Z[Etc/UTC]", comments = "Generator version: 7.24.0")
 public class GrowthRateDetail {
 
   private Integer id;
@@ -34,13 +34,10 @@ public class GrowthRateDetail {
 
   private String formula;
 
-  @Valid
   private List<@Valid GrowthRateDescription> descriptions = new ArrayList<>();
 
-  @Valid
   private List<@Valid Experience> levels = new ArrayList<>();
 
-  @Valid
   private List<@Valid PokemonSpeciesSummary> pokemonSpecies = new ArrayList<>();
 
   public GrowthRateDetail() {
@@ -75,6 +72,7 @@ public class GrowthRateDetail {
     return id;
   }
 
+  @JsonProperty("id")
   public void setId(Integer id) {
     this.id = id;
   }
@@ -95,6 +93,7 @@ public class GrowthRateDetail {
     return name;
   }
 
+  @JsonProperty("name")
   public void setName(String name) {
     this.name = name;
   }
@@ -115,6 +114,7 @@ public class GrowthRateDetail {
     return formula;
   }
 
+  @JsonProperty("formula")
   public void setFormula(String formula) {
     this.formula = formula;
   }
@@ -136,13 +136,14 @@ public class GrowthRateDetail {
    * Get descriptions
    * @return descriptions
    */
-  @NotNull @Valid 
-  @Schema(name = "descriptions", requiredMode = Schema.RequiredMode.REQUIRED)
+  @Valid 
+  @Schema(name = "descriptions", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("descriptions")
   public List<@Valid GrowthRateDescription> getDescriptions() {
     return descriptions;
   }
 
+  @JsonProperty("descriptions")
   public void setDescriptions(List<@Valid GrowthRateDescription> descriptions) {
     this.descriptions = descriptions;
   }
@@ -164,13 +165,14 @@ public class GrowthRateDetail {
    * Get levels
    * @return levels
    */
-  @NotNull @Valid 
-  @Schema(name = "levels", requiredMode = Schema.RequiredMode.REQUIRED)
+  @Valid 
+  @Schema(name = "levels", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("levels")
   public List<@Valid Experience> getLevels() {
     return levels;
   }
 
+  @JsonProperty("levels")
   public void setLevels(List<@Valid Experience> levels) {
     this.levels = levels;
   }
@@ -192,13 +194,14 @@ public class GrowthRateDetail {
    * Get pokemonSpecies
    * @return pokemonSpecies
    */
-  @NotNull @Valid 
-  @Schema(name = "pokemon_species", requiredMode = Schema.RequiredMode.REQUIRED)
+  @Valid 
+  @Schema(name = "pokemon_species", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("pokemon_species")
   public List<@Valid PokemonSpeciesSummary> getPokemonSpecies() {
     return pokemonSpecies;
   }
 
+  @JsonProperty("pokemon_species")
   public void setPokemonSpecies(List<@Valid PokemonSpeciesSummary> pokemonSpecies) {
     this.pokemonSpecies = pokemonSpecies;
   }
@@ -243,11 +246,8 @@ public class GrowthRateDetail {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+  private String toIndentedString(@Nullable Object o) {
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 }
 

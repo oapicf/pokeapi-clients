@@ -22,9 +22,9 @@ export interface NatureDetail {
     increased_stat: StatSummary;
     likes_flavor: BerryFlavorSummary;
     hates_flavor: BerryFlavorSummary;
-    berries: Array<BerrySummary>;
-    pokeathlon_stat_changes: Array<NatureDetailPokeathlonStatChangesInner>;
-    move_battle_style_preferences: Array<NatureBattleStylePreference>;
-    names: Array<NatureName>;
+    readonly berries: Array<BerrySummary>;
+    readonly pokeathlon_stat_changes: Array<NatureDetailPokeathlonStatChangesInner>;
+    readonly move_battle_style_preferences: Array<NatureBattleStylePreference>;
+    readonly names: Array<NatureName>;
 }
 

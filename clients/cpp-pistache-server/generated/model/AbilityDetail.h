@@ -39,7 +39,7 @@ class  AbilityDetail
 {
 public:
     AbilityDetail();
-    virtual ~AbilityDetail() = default;
+    virtual ~AbilityDetail();
 
 
     /// <summary>

@@ -32,13 +32,13 @@ namespace OpenAPI {
 class OAIPokemonDetail_sprites : public OAIObject {
 public:
     OAIPokemonDetail_sprites();
-    OAIPokemonDetail_sprites(QString json);
+    OAIPokemonDetail_sprites(const QString &json);
     ~OAIPokemonDetail_sprites() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     QString getFrontDefault() const;
     void setFrontDefault(const QString &front_default);

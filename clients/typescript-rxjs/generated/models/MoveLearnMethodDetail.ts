@@ -36,15 +36,15 @@ export interface MoveLearnMethodDetail {
      * @type {Array<MoveLearnMethodName>}
      * @memberof MoveLearnMethodDetail
      */
-    names: Array<MoveLearnMethodName>;
+    readonly names: Array<MoveLearnMethodName>;
     /**
      * @type {Array<MoveLearnMethodDescription>}
      * @memberof MoveLearnMethodDetail
      */
-    descriptions: Array<MoveLearnMethodDescription>;
+    readonly descriptions: Array<MoveLearnMethodDescription>;
     /**
      * @type {Array<AbilityDetailPokemonInnerPokemon>}
      * @memberof MoveLearnMethodDetail
      */
-    version_groups: Array<AbilityDetailPokemonInnerPokemon>;
+    readonly version_groups: Array<AbilityDetailPokemonInnerPokemon>;
 }

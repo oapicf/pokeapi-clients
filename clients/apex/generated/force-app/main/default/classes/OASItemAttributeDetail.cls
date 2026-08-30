@@ -30,19 +30,19 @@ public class OASItemAttributeDetail {
      * Get descriptions
      * @return descriptions
      */
-    public List<OASItemAttributeDescription> descriptions { get; set; }
+    public List<OASItemAttributeDescription> descriptions { get; private set; }
 
     /**
      * Get items
      * @return items
      */
-    public List<OASAbilityDetailPokemonInnerPokemon> items { get; set; }
+    public List<OASAbilityDetailPokemonInnerPokemon> items { get; private set; }
 
     /**
      * Get names
      * @return names
      */
-    public List<OASItemAttributeName> names { get; set; }
+    public List<OASItemAttributeName> names { get; private set; }
 
     public OASItemAttributeDetail() {
         descriptions = new List<OASItemAttributeDescription>();

@@ -144,7 +144,7 @@ PaginatedCharacteristicSummaryList::getCount()
 }
 
 void
-PaginatedCharacteristicSummaryList::setCount(int  count)
+PaginatedCharacteristicSummaryList::setCount(int count)
 {
 	this->count = count;
 }
@@ -156,7 +156,7 @@ PaginatedCharacteristicSummaryList::getNext()
 }
 
 void
-PaginatedCharacteristicSummaryList::setNext(std::string  next)
+PaginatedCharacteristicSummaryList::setNext(std::string next)
 {
 	this->next = next;
 }
@@ -168,7 +168,7 @@ PaginatedCharacteristicSummaryList::getPrevious()
 }
 
 void
-PaginatedCharacteristicSummaryList::setPrevious(std::string  previous)
+PaginatedCharacteristicSummaryList::setPrevious(std::string previous)
 {
 	this->previous = previous;
 }
@@ -180,7 +180,7 @@ PaginatedCharacteristicSummaryList::getResults()
 }
 
 void
-PaginatedCharacteristicSummaryList::setResults(std::list <CharacteristicSummary> results)
+PaginatedCharacteristicSummaryList::setResults(std::list<CharacteristicSummary> results)
 {
 	this->results = results;
 }

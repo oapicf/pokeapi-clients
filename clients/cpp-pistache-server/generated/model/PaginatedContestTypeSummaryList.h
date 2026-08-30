@@ -34,7 +34,7 @@ class  PaginatedContestTypeSummaryList
 {
 public:
     PaginatedContestTypeSummaryList();
-    virtual ~PaginatedContestTypeSummaryList() = default;
+    virtual ~PaginatedContestTypeSummaryList();
 
 
     /// <summary>

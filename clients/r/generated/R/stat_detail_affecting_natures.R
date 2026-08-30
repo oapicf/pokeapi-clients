@@ -70,13 +70,36 @@ StatDetailAffectingNatures <- R6::R6Class(
       StatDetailAffectingNaturesObject <- list()
       if (!is.null(self$`increase`)) {
         StatDetailAffectingNaturesObject[["increase"]] <-
-          lapply(self$`increase`, function(x) x$toSimpleType())
+          self$extractSimpleType(self$`increase`)
       }
       if (!is.null(self$`decrease`)) {
         StatDetailAffectingNaturesObject[["decrease"]] <-
-          lapply(self$`decrease`, function(x) x$toSimpleType())
+          self$extractSimpleType(self$`decrease`)
       }
       return(StatDetailAffectingNaturesObject)
+    },
+
+    extractSimpleType = function(x) {
+      if (R6::is.R6(x)) {
+        return(x$toSimpleType())
+      } else if (!self$hasNestedR6(x)) {
+        return(x)
+      }
+      lapply(x, self$extractSimpleType)
+    },
+
+    hasNestedR6 = function(x) {
+      if (R6::is.R6(x)) {
+        return(TRUE)
+      }
+      if (is.list(x)) {
+        for (item in x) {
+          if (self$hasNestedR6(item)) {
+            return(TRUE)
+          }
+        }
+      }
+      FALSE
     },
 
     #' @description

@@ -58,9 +58,9 @@ function Initialize-PalParkAreaDetailPokemonEncountersInner {
 
 
         $PSO = [PSCustomObject]@{
-            "base_score" = ${BaseScore}
-            "pokemon-species" = ${PokemonSpecies}
-            "rate" = ${Rate}
+            'base_score' = ${BaseScore}
+            'pokemon-species' = ${PokemonSpecies}
+            'rate' = ${Rate}
         }
 
 
@@ -98,7 +98,7 @@ function ConvertFrom-JsonToPalParkAreaDetailPokemonEncountersInner {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in PalParkAreaDetailPokemonEncountersInner
-        $AllProperties = ("base_score", "pokemon-species", "rate")
+        $AllProperties = ('base_score', 'pokemon-species', 'rate')
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -109,28 +109,28 @@ function ConvertFrom-JsonToPalParkAreaDetailPokemonEncountersInner {
             throw "Error! Empty JSON cannot be serialized due to the required property 'base_score' missing."
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "base_score"))) {
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'base_score'))) {
             throw "Error! JSON cannot be serialized due to the required property 'base_score' missing."
         } else {
-            $BaseScore = $JsonParameters.PSobject.Properties["base_score"].value
+            $BaseScore = $JsonParameters.PSobject.Properties['base_score'].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "pokemon-species"))) {
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'pokemon-species'))) {
             throw "Error! JSON cannot be serialized due to the required property 'pokemon-species' missing."
         } else {
-            $PokemonSpecies = $JsonParameters.PSobject.Properties["pokemon-species"].value
+            $PokemonSpecies = $JsonParameters.PSobject.Properties['pokemon-species'].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "rate"))) {
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'rate'))) {
             throw "Error! JSON cannot be serialized due to the required property 'rate' missing."
         } else {
-            $Rate = $JsonParameters.PSobject.Properties["rate"].value
+            $Rate = $JsonParameters.PSobject.Properties['rate'].value
         }
 
         $PSO = [PSCustomObject]@{
-            "base_score" = ${BaseScore}
-            "pokemon-species" = ${PokemonSpecies}
-            "rate" = ${Rate}
+            'base_score' = ${BaseScore}
+            'pokemon-species' = ${PokemonSpecies}
+            'rate' = ${Rate}
         }
 
         return $PSO

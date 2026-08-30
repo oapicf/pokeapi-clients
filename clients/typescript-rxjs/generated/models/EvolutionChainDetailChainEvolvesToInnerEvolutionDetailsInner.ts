@@ -37,15 +37,15 @@ export interface EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner {
      */
     item: EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender;
     /**
-     * @type {object}
+     * @type {EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender}
      * @memberof EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner
      */
-    known_move: object;
+    known_move: EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender;
     /**
-     * @type {object}
+     * @type {EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender}
      * @memberof EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner
      */
-    known_move_type: object;
+    known_move_type: EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender;
     /**
      * @type {EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender}
      * @memberof EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner

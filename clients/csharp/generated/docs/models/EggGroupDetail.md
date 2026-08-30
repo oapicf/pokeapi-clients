@@ -6,8 +6,8 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **int** |  | [readonly] 
 **Name** | **string** |  | 
-**Names** | [**List&lt;EggGroupName&gt;**](EggGroupName.md) |  | 
-**PokemonSpecies** | [**List&lt;EggGroupDetailPokemonSpeciesInner&gt;**](EggGroupDetailPokemonSpeciesInner.md) |  | 
+**Names** | [**List&lt;EggGroupName&gt;**](EggGroupName.md) |  | [readonly] 
+**PokemonSpecies** | [**List&lt;EggGroupDetailPokemonSpeciesInner&gt;**](EggGroupDetailPokemonSpeciesInner.md) |  | [readonly] 
 
 [[Back to Model list]](../../README.md#documentation-for-models) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)
 

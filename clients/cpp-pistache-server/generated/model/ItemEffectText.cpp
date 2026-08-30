@@ -26,6 +26,8 @@ ItemEffectText::ItemEffectText()
     
 }
 
+ItemEffectText::~ItemEffectText() = default;
+
 void ItemEffectText::validate() const
 {
     std::stringstream msg;

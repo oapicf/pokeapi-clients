@@ -47,7 +47,7 @@ class LocationAreaDetail
      * @var int|null
      * @SerializedName("id")
      * @Type("int")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Type("int")]
     protected ?int $id = null;
@@ -56,7 +56,7 @@ class LocationAreaDetail
      * @var string|null
      * @SerializedName("name")
      * @Type("string")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Type("string")]
     #[Assert\Length(max: 100)]
@@ -66,7 +66,7 @@ class LocationAreaDetail
      * @var int|null
      * @SerializedName("game_index")
      * @Type("int")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Type("int")]
     protected ?int $gameIndex = null;
@@ -75,7 +75,7 @@ class LocationAreaDetail
      * @var LocationAreaDetailEncounterMethodRatesInner[]|null
      * @SerializedName("encounter_method_rates")
      * @Type("array<OpenAPI\Server\Model\LocationAreaDetailEncounterMethodRatesInner>")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Valid]
     #[Assert\All([
@@ -87,7 +87,7 @@ class LocationAreaDetail
      * @var LocationSummary|null
      * @SerializedName("location")
      * @Type("OpenAPI\Server\Model\LocationSummary")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Valid]
     #[Assert\Type("OpenAPI\Server\Model\LocationSummary")]
@@ -97,7 +97,7 @@ class LocationAreaDetail
      * @var LocationAreaName[]|null
      * @SerializedName("names")
      * @Type("array<OpenAPI\Server\Model\LocationAreaName>")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Valid]
     #[Assert\All([
@@ -109,7 +109,7 @@ class LocationAreaDetail
      * @var LocationAreaDetailPokemonEncountersInner[]|null
      * @SerializedName("pokemon_encounters")
      * @Type("array<OpenAPI\Server\Model\LocationAreaDetailPokemonEncountersInner>")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Valid]
     #[Assert\All([
@@ -145,12 +145,12 @@ class LocationAreaDetail
     }
 
     /**
-    * Sets id.
-    *
-    * @param int|null $id
-    *
-    * @return $this
-    */
+     * Sets id.
+     *
+     * @param int|null $id
+     *
+     * @return $this
+     */
     public function setId(?int $id): self
     {
         $this->id = $id;
@@ -172,12 +172,12 @@ class LocationAreaDetail
     }
 
     /**
-    * Sets name.
-    *
-    * @param string|null $name
-    *
-    * @return $this
-    */
+     * Sets name.
+     *
+     * @param string|null $name
+     *
+     * @return $this
+     */
     public function setName(?string $name): self
     {
         $this->name = $name;
@@ -199,12 +199,12 @@ class LocationAreaDetail
     }
 
     /**
-    * Sets gameIndex.
-    *
-    * @param int|null $gameIndex
-    *
-    * @return $this
-    */
+     * Sets gameIndex.
+     *
+     * @param int|null $gameIndex
+     *
+     * @return $this
+     */
     public function setGameIndex(?int $gameIndex): self
     {
         $this->gameIndex = $gameIndex;
@@ -226,12 +226,12 @@ class LocationAreaDetail
     }
 
     /**
-    * Sets encounterMethodRates.
-    *
-    * @param LocationAreaDetailEncounterMethodRatesInner[]|null $encounterMethodRates
-    *
-    * @return $this
-    */
+     * Sets encounterMethodRates.
+     *
+     * @param LocationAreaDetailEncounterMethodRatesInner[]|null $encounterMethodRates
+     *
+     * @return $this
+     */
     public function setEncounterMethodRates(?array $encounterMethodRates): self
     {
         $this->encounterMethodRates = $encounterMethodRates;
@@ -253,12 +253,12 @@ class LocationAreaDetail
     }
 
     /**
-    * Sets location.
-    *
-    * @param LocationSummary|null $location
-    *
-    * @return $this
-    */
+     * Sets location.
+     *
+     * @param LocationSummary|null $location
+     *
+     * @return $this
+     */
     public function setLocation(?LocationSummary $location): self
     {
         $this->location = $location;
@@ -280,12 +280,12 @@ class LocationAreaDetail
     }
 
     /**
-    * Sets names.
-    *
-    * @param LocationAreaName[]|null $names
-    *
-    * @return $this
-    */
+     * Sets names.
+     *
+     * @param LocationAreaName[]|null $names
+     *
+     * @return $this
+     */
     public function setNames(?array $names): self
     {
         $this->names = $names;
@@ -307,12 +307,12 @@ class LocationAreaDetail
     }
 
     /**
-    * Sets pokemonEncounters.
-    *
-    * @param LocationAreaDetailPokemonEncountersInner[]|null $pokemonEncounters
-    *
-    * @return $this
-    */
+     * Sets pokemonEncounters.
+     *
+     * @param LocationAreaDetailPokemonEncountersInner[]|null $pokemonEncounters
+     *
+     * @return $this
+     */
     public function setPokemonEncounters(?array $pokemonEncounters): self
     {
         $this->pokemonEncounters = $pokemonEncounters;

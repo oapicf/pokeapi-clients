@@ -12,18 +12,21 @@ static move_detail_machines_inner_machine_t *move_detail_machines_inner_machine_
     if (!move_detail_machines_inner_machine_local_var) {
         return NULL;
     }
-    move_detail_machines_inner_machine_local_var->url = url;
-
+    memset(move_detail_machines_inner_machine_local_var, 0, sizeof(move_detail_machines_inner_machine_t));
     move_detail_machines_inner_machine_local_var->_library_owned = 1;
+    move_detail_machines_inner_machine_local_var->url = url;
     return move_detail_machines_inner_machine_local_var;
 }
 
 __attribute__((deprecated)) move_detail_machines_inner_machine_t *move_detail_machines_inner_machine_create(
     char *url
     ) {
-    return move_detail_machines_inner_machine_create_internal (
+    move_detail_machines_inner_machine_t *result = move_detail_machines_inner_machine_create_internal (
         url
         );
+    if (!result) {
+    }
+    return result;
 }
 
 void move_detail_machines_inner_machine_free(move_detail_machines_inner_machine_t *move_detail_machines_inner_machine) {
@@ -65,6 +68,8 @@ move_detail_machines_inner_machine_t *move_detail_machines_inner_machine_parseFr
 
     move_detail_machines_inner_machine_t *move_detail_machines_inner_machine_local_var = NULL;
 
+    char *url_local_str = NULL;
+
     // move_detail_machines_inner_machine->url
     cJSON *url = cJSON_GetObjectItemCaseSensitive(move_detail_machines_inner_machineJSON, "url");
     if (cJSON_IsNull(url)) {
@@ -81,12 +86,22 @@ move_detail_machines_inner_machine_t *move_detail_machines_inner_machine_parseFr
     }
 
 
+    if (url && !cJSON_IsNull(url)) url_local_str = strdup(url->valuestring);
+
     move_detail_machines_inner_machine_local_var = move_detail_machines_inner_machine_create_internal (
-        strdup(url->valuestring)
+        url_local_str
         );
+
+    if (!move_detail_machines_inner_machine_local_var) {
+        goto end;
+    }
 
     return move_detail_machines_inner_machine_local_var;
 end:
+    if (url_local_str) {
+        free(url_local_str);
+        url_local_str = NULL;
+    }
     return NULL;
 
 }

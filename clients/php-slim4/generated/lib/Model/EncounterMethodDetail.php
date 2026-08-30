@@ -62,9 +62,11 @@ class EncounterMethodDetail extends BaseModel
     },
     "names" : {
       "type" : "array",
+      "readOnly" : true,
       "items" : {
         "$ref" : "#/components/schemas/EncounterMethodName"
-      }
+      },
+      "default" : null
     }
   }
 }

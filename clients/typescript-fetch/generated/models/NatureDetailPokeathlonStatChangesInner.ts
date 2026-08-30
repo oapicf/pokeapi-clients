@@ -45,8 +45,8 @@ export interface NatureDetailPokeathlonStatChangesInner {
  * Check if a given object implements the NatureDetailPokeathlonStatChangesInner interface.
  */
 export function instanceOfNatureDetailPokeathlonStatChangesInner(value: object): value is NatureDetailPokeathlonStatChangesInner {
-    if (!('maxChange' in value) || value['maxChange'] === undefined) return false;
-    if (!('pokeathlonStat' in value) || value['pokeathlonStat'] === undefined) return false;
+    if ((!('maxChange' in (value as Record<string, any>)) && !('max_change' in (value as Record<string, any>))) || ((value as Record<string, any>)['maxChange'] === undefined && (value as Record<string, any>)['max_change'] === undefined)) return false;
+    if ((!('pokeathlonStat' in (value as Record<string, any>)) && !('pokeathlon_stat' in (value as Record<string, any>))) || ((value as Record<string, any>)['pokeathlonStat'] === undefined && (value as Record<string, any>)['pokeathlon_stat'] === undefined)) return false;
     return true;
 }
 

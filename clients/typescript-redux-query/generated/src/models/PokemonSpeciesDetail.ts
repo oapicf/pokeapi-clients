@@ -149,13 +149,13 @@ export interface PokemonSpeciesDetail  {
      * @type {Array<PokemonDexEntry>}
      * @memberof PokemonSpeciesDetail
      */
-    pokedexNumbers: Array<PokemonDexEntry>;
+    readonly pokedexNumbers: Array<PokemonDexEntry>;
     /**
      * 
      * @type {Array<AbilityDetailPokemonInnerPokemon>}
      * @memberof PokemonSpeciesDetail
      */
-    eggGroups: Array<AbilityDetailPokemonInnerPokemon>;
+    readonly eggGroups: Array<AbilityDetailPokemonInnerPokemon>;
     /**
      * 
      * @type {PokemonColorSummary}
@@ -197,37 +197,37 @@ export interface PokemonSpeciesDetail  {
      * @type {Array<PokemonFormDetailFormNamesInner>}
      * @memberof PokemonSpeciesDetail
      */
-    names: Array<PokemonFormDetailFormNamesInner>;
+    readonly names: Array<PokemonFormDetailFormNamesInner>;
     /**
      * 
      * @type {Array<PokemonSpeciesDetailPalParkEncountersInner>}
      * @memberof PokemonSpeciesDetail
      */
-    palParkEncounters: Array<PokemonSpeciesDetailPalParkEncountersInner>;
+    readonly palParkEncounters: Array<PokemonSpeciesDetailPalParkEncountersInner>;
     /**
      * 
      * @type {Array<PokemonSpeciesDescription>}
      * @memberof PokemonSpeciesDetail
      */
-    formDescriptions: Array<PokemonSpeciesDescription>;
+    readonly formDescriptions: Array<PokemonSpeciesDescription>;
     /**
      * 
      * @type {Array<PokemonSpeciesFlavorText>}
      * @memberof PokemonSpeciesDetail
      */
-    flavorTextEntries: Array<PokemonSpeciesFlavorText>;
+    readonly flavorTextEntries: Array<PokemonSpeciesFlavorText>;
     /**
      * 
      * @type {Array<PokemonSpeciesDetailGeneraInner>}
      * @memberof PokemonSpeciesDetail
      */
-    genera: Array<PokemonSpeciesDetailGeneraInner>;
+    readonly genera: Array<PokemonSpeciesDetailGeneraInner>;
     /**
      * 
      * @type {Array<PokemonSpeciesDetailVarietiesInner>}
      * @memberof PokemonSpeciesDetail
      */
-    varieties: Array<PokemonSpeciesDetailVarietiesInner>;
+    readonly varieties: Array<PokemonSpeciesDetailVarietiesInner>;
 }
 
 export function PokemonSpeciesDetailFromJSON(json: any): PokemonSpeciesDetail {
@@ -279,20 +279,12 @@ export function PokemonSpeciesDetailToJSON(value?: PokemonSpeciesDetail): any {
         'has_gender_differences': value.hasGenderDifferences,
         'forms_switchable': value.formsSwitchable,
         'growth_rate': GrowthRateSummaryToJSON(value.growthRate),
-        'pokedex_numbers': (value.pokedexNumbers as Array<any>).map(PokemonDexEntryToJSON),
-        'egg_groups': (value.eggGroups as Array<any>).map(AbilityDetailPokemonInnerPokemonToJSON),
         'color': PokemonColorSummaryToJSON(value.color),
         'shape': PokemonShapeSummaryToJSON(value.shape),
         'evolves_from_species': PokemonSpeciesSummaryToJSON(value.evolvesFromSpecies),
         'evolution_chain': EvolutionChainSummaryToJSON(value.evolutionChain),
         'habitat': PokemonHabitatSummaryToJSON(value.habitat),
         'generation': GenerationSummaryToJSON(value.generation),
-        'names': (value.names as Array<any>).map(PokemonFormDetailFormNamesInnerToJSON),
-        'pal_park_encounters': (value.palParkEncounters as Array<any>).map(PokemonSpeciesDetailPalParkEncountersInnerToJSON),
-        'form_descriptions': (value.formDescriptions as Array<any>).map(PokemonSpeciesDescriptionToJSON),
-        'flavor_text_entries': (value.flavorTextEntries as Array<any>).map(PokemonSpeciesFlavorTextToJSON),
-        'genera': (value.genera as Array<any>).map(PokemonSpeciesDetailGeneraInnerToJSON),
-        'varieties': (value.varieties as Array<any>).map(PokemonSpeciesDetailVarietiesInnerToJSON),
     };
 }
 

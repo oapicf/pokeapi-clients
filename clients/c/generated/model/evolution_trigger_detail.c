@@ -6,7 +6,7 @@
 
 
 static evolution_trigger_detail_t *evolution_trigger_detail_create_internal(
-    int id,
+    int *id,
     char *name,
     list_t *names,
     list_t *pokemon_species
@@ -15,27 +15,36 @@ static evolution_trigger_detail_t *evolution_trigger_detail_create_internal(
     if (!evolution_trigger_detail_local_var) {
         return NULL;
     }
+    memset(evolution_trigger_detail_local_var, 0, sizeof(evolution_trigger_detail_t));
+    evolution_trigger_detail_local_var->_library_owned = 1;
     evolution_trigger_detail_local_var->id = id;
     evolution_trigger_detail_local_var->name = name;
     evolution_trigger_detail_local_var->names = names;
     evolution_trigger_detail_local_var->pokemon_species = pokemon_species;
-
-    evolution_trigger_detail_local_var->_library_owned = 1;
     return evolution_trigger_detail_local_var;
 }
 
 __attribute__((deprecated)) evolution_trigger_detail_t *evolution_trigger_detail_create(
-    int id,
+    int *id,
     char *name,
     list_t *names,
     list_t *pokemon_species
     ) {
-    return evolution_trigger_detail_create_internal (
-        id,
+    int *id_copy = NULL;
+    if (id) {
+        id_copy = malloc(sizeof(int));
+        if (id_copy) *id_copy = *id;
+    }
+    evolution_trigger_detail_t *result = evolution_trigger_detail_create_internal (
+        id_copy,
         name,
         names,
         pokemon_species
         );
+    if (!result) {
+        free(id_copy);
+    }
+    return result;
 }
 
 void evolution_trigger_detail_free(evolution_trigger_detail_t *evolution_trigger_detail) {
@@ -47,6 +56,10 @@ void evolution_trigger_detail_free(evolution_trigger_detail_t *evolution_trigger
         return ;
     }
     listEntry_t *listEntry;
+    if (evolution_trigger_detail->id) {
+        free(evolution_trigger_detail->id);
+        evolution_trigger_detail->id = NULL;
+    }
     if (evolution_trigger_detail->name) {
         free(evolution_trigger_detail->name);
         evolution_trigger_detail->name = NULL;
@@ -75,7 +88,7 @@ cJSON *evolution_trigger_detail_convertToJSON(evolution_trigger_detail_t *evolut
     if (!evolution_trigger_detail->id) {
         goto fail;
     }
-    if(cJSON_AddNumberToObject(item, "id", evolution_trigger_detail->id) == NULL) {
+    if(cJSON_AddNumberToObject(item, "id", *evolution_trigger_detail->id) == NULL) {
     goto fail; //Numeric
     }
 
@@ -142,6 +155,11 @@ evolution_trigger_detail_t *evolution_trigger_detail_parseFromJSON(cJSON *evolut
 
     evolution_trigger_detail_t *evolution_trigger_detail_local_var = NULL;
 
+    // define the local variable for evolution_trigger_detail->id
+    int *id_local_var = NULL;
+
+    char *name_local_str = NULL;
+
     // define the local list for evolution_trigger_detail->names
     list_t *namesList = NULL;
 
@@ -162,6 +180,12 @@ evolution_trigger_detail_t *evolution_trigger_detail_parseFromJSON(cJSON *evolut
     {
     goto end; //Numeric
     }
+    id_local_var = malloc(sizeof(int));
+    if(!id_local_var)
+    {
+        goto end;
+    }
+    *id_local_var = id->valuedouble;
 
     // evolution_trigger_detail->name
     cJSON *name = cJSON_GetObjectItemCaseSensitive(evolution_trigger_detailJSON, "name");
@@ -233,15 +257,29 @@ evolution_trigger_detail_t *evolution_trigger_detail_parseFromJSON(cJSON *evolut
     }
 
 
+    if (name && !cJSON_IsNull(name)) name_local_str = strdup(name->valuestring);
+
     evolution_trigger_detail_local_var = evolution_trigger_detail_create_internal (
-        id->valuedouble,
-        strdup(name->valuestring),
+        id_local_var,
+        name_local_str,
         namesList,
         pokemon_speciesList
         );
 
+    if (!evolution_trigger_detail_local_var) {
+        goto end;
+    }
+
     return evolution_trigger_detail_local_var;
 end:
+    if (id_local_var) {
+        free(id_local_var);
+        id_local_var = NULL;
+    }
+    if (name_local_str) {
+        free(name_local_str);
+        name_local_str = NULL;
+    }
     if (namesList) {
         listEntry_t *listEntry = NULL;
         list_ForEach(listEntry, namesList) {

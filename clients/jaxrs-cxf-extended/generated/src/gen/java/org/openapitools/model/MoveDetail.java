@@ -404,6 +404,7 @@ public class MoveDetail  {
 
   /**
    * Sets the <code>effectEntries</code> property.
+   * <br><em>N.B. <code>effectEntries</code> is <b>read only</b>; client code should not call this method</em>.
    */
  public void setEffectEntries(List<@Valid MoveChangeEffectEntriesInner> effectEntries) {
     this.effectEntries = effectEntries;
@@ -411,6 +412,7 @@ public class MoveDetail  {
 
   /**
    * Sets the <code>effectEntries</code> property.
+   * <br><em>N.B. <code>effectEntries</code> is <b>read only</b>; client code should not call this method</em>.
    */
   public MoveDetail effectEntries(List<@Valid MoveChangeEffectEntriesInner> effectEntries) {
     this.effectEntries = effectEntries;
@@ -419,6 +421,7 @@ public class MoveDetail  {
 
   /**
    * Adds a new item to the <code>effectEntries</code> list.
+   * <br><em>N.B. <code>effectEntries</code> is <b>read only</b>; client code should not call this method</em>.
    */
   public MoveDetail addEffectEntriesItem(MoveChangeEffectEntriesInner effectEntriesItem) {
     this.effectEntries.add(effectEntriesItem);
@@ -437,6 +440,7 @@ public class MoveDetail  {
 
   /**
    * Sets the <code>effectChanges</code> property.
+   * <br><em>N.B. <code>effectChanges</code> is <b>read only</b>; client code should not call this method</em>.
    */
  public void setEffectChanges(List<@Valid MoveDetailEffectChangesInner> effectChanges) {
     this.effectChanges = effectChanges;
@@ -444,6 +448,7 @@ public class MoveDetail  {
 
   /**
    * Sets the <code>effectChanges</code> property.
+   * <br><em>N.B. <code>effectChanges</code> is <b>read only</b>; client code should not call this method</em>.
    */
   public MoveDetail effectChanges(List<@Valid MoveDetailEffectChangesInner> effectChanges) {
     this.effectChanges = effectChanges;
@@ -452,6 +457,7 @@ public class MoveDetail  {
 
   /**
    * Adds a new item to the <code>effectChanges</code> list.
+   * <br><em>N.B. <code>effectChanges</code> is <b>read only</b>; client code should not call this method</em>.
    */
   public MoveDetail addEffectChangesItem(MoveDetailEffectChangesInner effectChangesItem) {
     this.effectChanges.add(effectChangesItem);
@@ -522,6 +528,7 @@ public class MoveDetail  {
 
   /**
    * Sets the <code>names</code> property.
+   * <br><em>N.B. <code>names</code> is <b>read only</b>; client code should not call this method</em>.
    */
  public void setNames(List<@Valid MoveName> names) {
     this.names = names;
@@ -529,6 +536,7 @@ public class MoveDetail  {
 
   /**
    * Sets the <code>names</code> property.
+   * <br><em>N.B. <code>names</code> is <b>read only</b>; client code should not call this method</em>.
    */
   public MoveDetail names(List<@Valid MoveName> names) {
     this.names = names;
@@ -537,6 +545,7 @@ public class MoveDetail  {
 
   /**
    * Adds a new item to the <code>names</code> list.
+   * <br><em>N.B. <code>names</code> is <b>read only</b>; client code should not call this method</em>.
    */
   public MoveDetail addNamesItem(MoveName namesItem) {
     this.names.add(namesItem);
@@ -555,6 +564,7 @@ public class MoveDetail  {
 
   /**
    * Sets the <code>pastValues</code> property.
+   * <br><em>N.B. <code>pastValues</code> is <b>read only</b>; client code should not call this method</em>.
    */
  public void setPastValues(List<@Valid MoveChange> pastValues) {
     this.pastValues = pastValues;
@@ -562,6 +572,7 @@ public class MoveDetail  {
 
   /**
    * Sets the <code>pastValues</code> property.
+   * <br><em>N.B. <code>pastValues</code> is <b>read only</b>; client code should not call this method</em>.
    */
   public MoveDetail pastValues(List<@Valid MoveChange> pastValues) {
     this.pastValues = pastValues;
@@ -570,6 +581,7 @@ public class MoveDetail  {
 
   /**
    * Adds a new item to the <code>pastValues</code> list.
+   * <br><em>N.B. <code>pastValues</code> is <b>read only</b>; client code should not call this method</em>.
    */
   public MoveDetail addPastValuesItem(MoveChange pastValuesItem) {
     this.pastValues.add(pastValuesItem);
@@ -588,6 +600,7 @@ public class MoveDetail  {
 
   /**
    * Sets the <code>statChanges</code> property.
+   * <br><em>N.B. <code>statChanges</code> is <b>read only</b>; client code should not call this method</em>.
    */
  public void setStatChanges(List<@Valid MoveDetailStatChangesInner> statChanges) {
     this.statChanges = statChanges;
@@ -595,6 +608,7 @@ public class MoveDetail  {
 
   /**
    * Sets the <code>statChanges</code> property.
+   * <br><em>N.B. <code>statChanges</code> is <b>read only</b>; client code should not call this method</em>.
    */
   public MoveDetail statChanges(List<@Valid MoveDetailStatChangesInner> statChanges) {
     this.statChanges = statChanges;
@@ -603,6 +617,7 @@ public class MoveDetail  {
 
   /**
    * Adds a new item to the <code>statChanges</code> list.
+   * <br><em>N.B. <code>statChanges</code> is <b>read only</b>; client code should not call this method</em>.
    */
   public MoveDetail addStatChangesItem(MoveDetailStatChangesInner statChangesItem) {
     this.statChanges.add(statChangesItem);
@@ -696,6 +711,7 @@ public class MoveDetail  {
 
   /**
    * Sets the <code>machines</code> property.
+   * <br><em>N.B. <code>machines</code> is <b>read only</b>; client code should not call this method</em>.
    */
  public void setMachines(List<@Valid MoveDetailMachinesInner> machines) {
     this.machines = machines;
@@ -703,6 +719,7 @@ public class MoveDetail  {
 
   /**
    * Sets the <code>machines</code> property.
+   * <br><em>N.B. <code>machines</code> is <b>read only</b>; client code should not call this method</em>.
    */
   public MoveDetail machines(List<@Valid MoveDetailMachinesInner> machines) {
     this.machines = machines;
@@ -711,6 +728,7 @@ public class MoveDetail  {
 
   /**
    * Adds a new item to the <code>machines</code> list.
+   * <br><em>N.B. <code>machines</code> is <b>read only</b>; client code should not call this method</em>.
    */
   public MoveDetail addMachinesItem(MoveDetailMachinesInner machinesItem) {
     this.machines.add(machinesItem);
@@ -729,6 +747,7 @@ public class MoveDetail  {
 
   /**
    * Sets the <code>flavorTextEntries</code> property.
+   * <br><em>N.B. <code>flavorTextEntries</code> is <b>read only</b>; client code should not call this method</em>.
    */
  public void setFlavorTextEntries(List<@Valid MoveFlavorText> flavorTextEntries) {
     this.flavorTextEntries = flavorTextEntries;
@@ -736,6 +755,7 @@ public class MoveDetail  {
 
   /**
    * Sets the <code>flavorTextEntries</code> property.
+   * <br><em>N.B. <code>flavorTextEntries</code> is <b>read only</b>; client code should not call this method</em>.
    */
   public MoveDetail flavorTextEntries(List<@Valid MoveFlavorText> flavorTextEntries) {
     this.flavorTextEntries = flavorTextEntries;
@@ -744,6 +764,7 @@ public class MoveDetail  {
 
   /**
    * Adds a new item to the <code>flavorTextEntries</code> list.
+   * <br><em>N.B. <code>flavorTextEntries</code> is <b>read only</b>; client code should not call this method</em>.
    */
   public MoveDetail addFlavorTextEntriesItem(MoveFlavorText flavorTextEntriesItem) {
     this.flavorTextEntries.add(flavorTextEntriesItem);
@@ -762,6 +783,7 @@ public class MoveDetail  {
 
   /**
    * Sets the <code>learnedByPokemon</code> property.
+   * <br><em>N.B. <code>learnedByPokemon</code> is <b>read only</b>; client code should not call this method</em>.
    */
  public void setLearnedByPokemon(List<@Valid AbilityDetailPokemonInnerPokemon> learnedByPokemon) {
     this.learnedByPokemon = learnedByPokemon;
@@ -769,6 +791,7 @@ public class MoveDetail  {
 
   /**
    * Sets the <code>learnedByPokemon</code> property.
+   * <br><em>N.B. <code>learnedByPokemon</code> is <b>read only</b>; client code should not call this method</em>.
    */
   public MoveDetail learnedByPokemon(List<@Valid AbilityDetailPokemonInnerPokemon> learnedByPokemon) {
     this.learnedByPokemon = learnedByPokemon;
@@ -777,6 +800,7 @@ public class MoveDetail  {
 
   /**
    * Adds a new item to the <code>learnedByPokemon</code> list.
+   * <br><em>N.B. <code>learnedByPokemon</code> is <b>read only</b>; client code should not call this method</em>.
    */
   public MoveDetail addLearnedByPokemonItem(AbilityDetailPokemonInnerPokemon learnedByPokemonItem) {
     this.learnedByPokemon.add(learnedByPokemonItem);
@@ -862,10 +886,7 @@ public class MoveDetail  {
    * (except the first line).
    */
   private static String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 }
 

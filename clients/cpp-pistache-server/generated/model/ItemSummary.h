@@ -32,7 +32,7 @@ class  ItemSummary
 {
 public:
     ItemSummary();
-    virtual ~ItemSummary() = default;
+    virtual ~ItemSummary();
 
 
     /// <summary>

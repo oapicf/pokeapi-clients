@@ -58,70 +58,70 @@ public:
 
 	/*! \brief Set 
 	 */
-	void setId(int  id);
+	void setId(int id);
 	/*! \brief Get 
 	 */
 	std::string getName();
 
 	/*! \brief Set 
 	 */
-	void setName(std::string  name);
+	void setName(std::string name);
 	/*! \brief Get 
 	 */
 	StatSummary getDecreasedStat();
 
 	/*! \brief Set 
 	 */
-	void setDecreasedStat(StatSummary  decreased_stat);
+	void setDecreasedStat(StatSummary decreased_stat);
 	/*! \brief Get 
 	 */
 	StatSummary getIncreasedStat();
 
 	/*! \brief Set 
 	 */
-	void setIncreasedStat(StatSummary  increased_stat);
+	void setIncreasedStat(StatSummary increased_stat);
 	/*! \brief Get 
 	 */
 	BerryFlavorSummary getLikesFlavor();
 
 	/*! \brief Set 
 	 */
-	void setLikesFlavor(BerryFlavorSummary  likes_flavor);
+	void setLikesFlavor(BerryFlavorSummary likes_flavor);
 	/*! \brief Get 
 	 */
 	BerryFlavorSummary getHatesFlavor();
 
 	/*! \brief Set 
 	 */
-	void setHatesFlavor(BerryFlavorSummary  hates_flavor);
+	void setHatesFlavor(BerryFlavorSummary hates_flavor);
 	/*! \brief Get 
 	 */
 	std::list<BerrySummary> getBerries();
 
 	/*! \brief Set 
 	 */
-	void setBerries(std::list <BerrySummary> berries);
+	void setBerries(std::list<BerrySummary> berries);
 	/*! \brief Get 
 	 */
 	std::list<NatureDetail_pokeathlon_stat_changes_inner> getPokeathlonStatChanges();
 
 	/*! \brief Set 
 	 */
-	void setPokeathlonStatChanges(std::list <NatureDetail_pokeathlon_stat_changes_inner> pokeathlon_stat_changes);
+	void setPokeathlonStatChanges(std::list<NatureDetail_pokeathlon_stat_changes_inner> pokeathlon_stat_changes);
 	/*! \brief Get 
 	 */
 	std::list<NatureBattleStylePreference> getMoveBattleStylePreferences();
 
 	/*! \brief Set 
 	 */
-	void setMoveBattleStylePreferences(std::list <NatureBattleStylePreference> move_battle_style_preferences);
+	void setMoveBattleStylePreferences(std::list<NatureBattleStylePreference> move_battle_style_preferences);
 	/*! \brief Get 
 	 */
 	std::list<NatureName> getNames();
 
 	/*! \brief Set 
 	 */
-	void setNames(std::list <NatureName> names);
+	void setNames(std::list<NatureName> names);
 
 
     private:

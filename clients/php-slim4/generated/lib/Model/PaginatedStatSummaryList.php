@@ -67,7 +67,8 @@ class PaginatedStatSummaryList extends BaseModel
       "type" : "array",
       "items" : {
         "$ref" : "#/components/schemas/StatSummary"
-      }
+      },
+      "default" : null
     }
   }
 }

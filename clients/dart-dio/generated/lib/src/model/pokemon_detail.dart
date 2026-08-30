@@ -295,8 +295,9 @@ class _$PokemonDetailSerializer implements PrimitiveSerializer<PokemonDetail> {
         case r'is_default':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(bool),
-          ) as bool;
+            specifiedType: const FullType.nullable(bool),
+          ) as bool?;
+          if (valueDes == null) continue;
           result.isDefault = valueDes;
           break;
         case r'order':

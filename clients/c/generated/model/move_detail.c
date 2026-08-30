@@ -6,13 +6,13 @@
 
 
 static move_detail_t *move_detail_create_internal(
-    int id,
+    int *id,
     char *name,
-    int accuracy,
-    int effect_chance,
-    int pp,
-    int priority,
-    int power,
+    int *accuracy,
+    int *effect_chance,
+    int *pp,
+    int *priority,
+    int *power,
     move_detail_contest_combos_t *contest_combos,
     contest_type_summary_t *contest_type,
     contest_effect_summary_t *contest_effect,
@@ -35,6 +35,8 @@ static move_detail_t *move_detail_create_internal(
     if (!move_detail_local_var) {
         return NULL;
     }
+    memset(move_detail_local_var, 0, sizeof(move_detail_t));
+    move_detail_local_var->_library_owned = 1;
     move_detail_local_var->id = id;
     move_detail_local_var->name = name;
     move_detail_local_var->accuracy = accuracy;
@@ -59,19 +61,17 @@ static move_detail_t *move_detail_create_internal(
     move_detail_local_var->machines = machines;
     move_detail_local_var->flavor_text_entries = flavor_text_entries;
     move_detail_local_var->learned_by_pokemon = learned_by_pokemon;
-
-    move_detail_local_var->_library_owned = 1;
     return move_detail_local_var;
 }
 
 __attribute__((deprecated)) move_detail_t *move_detail_create(
-    int id,
+    int *id,
     char *name,
-    int accuracy,
-    int effect_chance,
-    int pp,
-    int priority,
-    int power,
+    int *accuracy,
+    int *effect_chance,
+    int *pp,
+    int *priority,
+    int *power,
     move_detail_contest_combos_t *contest_combos,
     contest_type_summary_t *contest_type,
     contest_effect_summary_t *contest_effect,
@@ -90,14 +90,44 @@ __attribute__((deprecated)) move_detail_t *move_detail_create(
     list_t *flavor_text_entries,
     list_t *learned_by_pokemon
     ) {
-    return move_detail_create_internal (
-        id,
+    int *id_copy = NULL;
+    if (id) {
+        id_copy = malloc(sizeof(int));
+        if (id_copy) *id_copy = *id;
+    }
+    int *accuracy_copy = NULL;
+    if (accuracy) {
+        accuracy_copy = malloc(sizeof(int));
+        if (accuracy_copy) *accuracy_copy = *accuracy;
+    }
+    int *effect_chance_copy = NULL;
+    if (effect_chance) {
+        effect_chance_copy = malloc(sizeof(int));
+        if (effect_chance_copy) *effect_chance_copy = *effect_chance;
+    }
+    int *pp_copy = NULL;
+    if (pp) {
+        pp_copy = malloc(sizeof(int));
+        if (pp_copy) *pp_copy = *pp;
+    }
+    int *priority_copy = NULL;
+    if (priority) {
+        priority_copy = malloc(sizeof(int));
+        if (priority_copy) *priority_copy = *priority;
+    }
+    int *power_copy = NULL;
+    if (power) {
+        power_copy = malloc(sizeof(int));
+        if (power_copy) *power_copy = *power;
+    }
+    move_detail_t *result = move_detail_create_internal (
+        id_copy,
         name,
-        accuracy,
-        effect_chance,
-        pp,
-        priority,
-        power,
+        accuracy_copy,
+        effect_chance_copy,
+        pp_copy,
+        priority_copy,
+        power_copy,
         contest_combos,
         contest_type,
         contest_effect,
@@ -116,6 +146,15 @@ __attribute__((deprecated)) move_detail_t *move_detail_create(
         flavor_text_entries,
         learned_by_pokemon
         );
+    if (!result) {
+        free(id_copy);
+        free(accuracy_copy);
+        free(effect_chance_copy);
+        free(pp_copy);
+        free(priority_copy);
+        free(power_copy);
+    }
+    return result;
 }
 
 void move_detail_free(move_detail_t *move_detail) {
@@ -127,9 +166,33 @@ void move_detail_free(move_detail_t *move_detail) {
         return ;
     }
     listEntry_t *listEntry;
+    if (move_detail->id) {
+        free(move_detail->id);
+        move_detail->id = NULL;
+    }
     if (move_detail->name) {
         free(move_detail->name);
         move_detail->name = NULL;
+    }
+    if (move_detail->accuracy) {
+        free(move_detail->accuracy);
+        move_detail->accuracy = NULL;
+    }
+    if (move_detail->effect_chance) {
+        free(move_detail->effect_chance);
+        move_detail->effect_chance = NULL;
+    }
+    if (move_detail->pp) {
+        free(move_detail->pp);
+        move_detail->pp = NULL;
+    }
+    if (move_detail->priority) {
+        free(move_detail->priority);
+        move_detail->priority = NULL;
+    }
+    if (move_detail->power) {
+        free(move_detail->power);
+        move_detail->power = NULL;
     }
     if (move_detail->contest_combos) {
         move_detail_contest_combos_free(move_detail->contest_combos);
@@ -233,7 +296,7 @@ cJSON *move_detail_convertToJSON(move_detail_t *move_detail) {
     if (!move_detail->id) {
         goto fail;
     }
-    if(cJSON_AddNumberToObject(item, "id", move_detail->id) == NULL) {
+    if(cJSON_AddNumberToObject(item, "id", *move_detail->id) == NULL) {
     goto fail; //Numeric
     }
 
@@ -249,7 +312,7 @@ cJSON *move_detail_convertToJSON(move_detail_t *move_detail) {
 
     // move_detail->accuracy
     if(move_detail->accuracy) {
-    if(cJSON_AddNumberToObject(item, "accuracy", move_detail->accuracy) == NULL) {
+    if(cJSON_AddNumberToObject(item, "accuracy", *move_detail->accuracy) == NULL) {
     goto fail; //Numeric
     }
     }
@@ -259,14 +322,14 @@ cJSON *move_detail_convertToJSON(move_detail_t *move_detail) {
     if (!move_detail->effect_chance) {
         goto fail;
     }
-    if(cJSON_AddNumberToObject(item, "effect_chance", move_detail->effect_chance) == NULL) {
+    if(cJSON_AddNumberToObject(item, "effect_chance", *move_detail->effect_chance) == NULL) {
     goto fail; //Numeric
     }
 
 
     // move_detail->pp
     if(move_detail->pp) {
-    if(cJSON_AddNumberToObject(item, "pp", move_detail->pp) == NULL) {
+    if(cJSON_AddNumberToObject(item, "pp", *move_detail->pp) == NULL) {
     goto fail; //Numeric
     }
     }
@@ -274,7 +337,7 @@ cJSON *move_detail_convertToJSON(move_detail_t *move_detail) {
 
     // move_detail->priority
     if(move_detail->priority) {
-    if(cJSON_AddNumberToObject(item, "priority", move_detail->priority) == NULL) {
+    if(cJSON_AddNumberToObject(item, "priority", *move_detail->priority) == NULL) {
     goto fail; //Numeric
     }
     }
@@ -282,7 +345,7 @@ cJSON *move_detail_convertToJSON(move_detail_t *move_detail) {
 
     // move_detail->power
     if(move_detail->power) {
-    if(cJSON_AddNumberToObject(item, "power", move_detail->power) == NULL) {
+    if(cJSON_AddNumberToObject(item, "power", *move_detail->power) == NULL) {
     goto fail; //Numeric
     }
     }
@@ -593,6 +656,26 @@ move_detail_t *move_detail_parseFromJSON(cJSON *move_detailJSON){
 
     move_detail_t *move_detail_local_var = NULL;
 
+    // define the local variable for move_detail->id
+    int *id_local_var = NULL;
+
+    char *name_local_str = NULL;
+
+    // define the local variable for move_detail->accuracy
+    int *accuracy_local_var = NULL;
+
+    // define the local variable for move_detail->effect_chance
+    int *effect_chance_local_var = NULL;
+
+    // define the local variable for move_detail->pp
+    int *pp_local_var = NULL;
+
+    // define the local variable for move_detail->priority
+    int *priority_local_var = NULL;
+
+    // define the local variable for move_detail->power
+    int *power_local_var = NULL;
+
     // define the local variable for move_detail->contest_combos
     move_detail_contest_combos_t *contest_combos_local_nonprim = NULL;
 
@@ -658,6 +741,12 @@ move_detail_t *move_detail_parseFromJSON(cJSON *move_detailJSON){
     {
     goto end; //Numeric
     }
+    id_local_var = malloc(sizeof(int));
+    if(!id_local_var)
+    {
+        goto end;
+    }
+    *id_local_var = id->valuedouble;
 
     // move_detail->name
     cJSON *name = cJSON_GetObjectItemCaseSensitive(move_detailJSON, "name");
@@ -684,6 +773,12 @@ move_detail_t *move_detail_parseFromJSON(cJSON *move_detailJSON){
     {
     goto end; //Numeric
     }
+    accuracy_local_var = malloc(sizeof(int));
+    if(!accuracy_local_var)
+    {
+        goto end;
+    }
+    *accuracy_local_var = accuracy->valuedouble;
     }
 
     // move_detail->effect_chance
@@ -700,6 +795,12 @@ move_detail_t *move_detail_parseFromJSON(cJSON *move_detailJSON){
     {
     goto end; //Numeric
     }
+    effect_chance_local_var = malloc(sizeof(int));
+    if(!effect_chance_local_var)
+    {
+        goto end;
+    }
+    *effect_chance_local_var = effect_chance->valuedouble;
 
     // move_detail->pp
     cJSON *pp = cJSON_GetObjectItemCaseSensitive(move_detailJSON, "pp");
@@ -711,6 +812,12 @@ move_detail_t *move_detail_parseFromJSON(cJSON *move_detailJSON){
     {
     goto end; //Numeric
     }
+    pp_local_var = malloc(sizeof(int));
+    if(!pp_local_var)
+    {
+        goto end;
+    }
+    *pp_local_var = pp->valuedouble;
     }
 
     // move_detail->priority
@@ -723,6 +830,12 @@ move_detail_t *move_detail_parseFromJSON(cJSON *move_detailJSON){
     {
     goto end; //Numeric
     }
+    priority_local_var = malloc(sizeof(int));
+    if(!priority_local_var)
+    {
+        goto end;
+    }
+    *priority_local_var = priority->valuedouble;
     }
 
     // move_detail->power
@@ -735,6 +848,12 @@ move_detail_t *move_detail_parseFromJSON(cJSON *move_detailJSON){
     {
     goto end; //Numeric
     }
+    power_local_var = malloc(sizeof(int));
+    if(!power_local_var)
+    {
+        goto end;
+    }
+    *power_local_var = power->valuedouble;
     }
 
     // move_detail->contest_combos
@@ -1062,14 +1181,16 @@ move_detail_t *move_detail_parseFromJSON(cJSON *move_detailJSON){
     }
 
 
+    if (name && !cJSON_IsNull(name)) name_local_str = strdup(name->valuestring);
+
     move_detail_local_var = move_detail_create_internal (
-        id->valuedouble,
-        strdup(name->valuestring),
-        accuracy ? accuracy->valuedouble : 0,
-        effect_chance->valuedouble,
-        pp ? pp->valuedouble : 0,
-        priority ? priority->valuedouble : 0,
-        power ? power->valuedouble : 0,
+        id_local_var,
+        name_local_str,
+        accuracy_local_var,
+        effect_chance_local_var,
+        pp_local_var,
+        priority_local_var,
+        power_local_var,
         contest_combos_local_nonprim,
         contest_type_local_nonprim,
         contest_effect_local_nonprim,
@@ -1089,8 +1210,40 @@ move_detail_t *move_detail_parseFromJSON(cJSON *move_detailJSON){
         learned_by_pokemonList
         );
 
+    if (!move_detail_local_var) {
+        goto end;
+    }
+
     return move_detail_local_var;
 end:
+    if (id_local_var) {
+        free(id_local_var);
+        id_local_var = NULL;
+    }
+    if (name_local_str) {
+        free(name_local_str);
+        name_local_str = NULL;
+    }
+    if (accuracy_local_var) {
+        free(accuracy_local_var);
+        accuracy_local_var = NULL;
+    }
+    if (effect_chance_local_var) {
+        free(effect_chance_local_var);
+        effect_chance_local_var = NULL;
+    }
+    if (pp_local_var) {
+        free(pp_local_var);
+        pp_local_var = NULL;
+    }
+    if (priority_local_var) {
+        free(priority_local_var);
+        priority_local_var = NULL;
+    }
+    if (power_local_var) {
+        free(power_local_var);
+        power_local_var = NULL;
+    }
     if (contest_combos_local_nonprim) {
         move_detail_contest_combos_free(contest_combos_local_nonprim);
         contest_combos_local_nonprim = NULL;

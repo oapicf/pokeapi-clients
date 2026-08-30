@@ -5,8 +5,8 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **Int32** |  | [readonly] 
 **Name** | **String** |  | 
-**Names** | [**PokemonHabitatName[]**](PokemonHabitatName.md) |  | 
-**PokemonSpecies** | [**PokemonSpeciesSummary[]**](PokemonSpeciesSummary.md) |  | 
+**Names** | [**PokemonHabitatName[]**](PokemonHabitatName.md) |  | [readonly] 
+**PokemonSpecies** | [**PokemonSpeciesSummary[]**](PokemonSpeciesSummary.md) |  | [readonly] 
 
 ## Examples
 

@@ -44,13 +44,13 @@ class OAINatureName;
 class OAINatureDetail : public OAIObject {
 public:
     OAINatureDetail();
-    OAINatureDetail(QString json);
+    OAINatureDetail(const QString &json);
     ~OAINatureDetail() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     qint32 getId() const;
     void setId(const qint32 &id);

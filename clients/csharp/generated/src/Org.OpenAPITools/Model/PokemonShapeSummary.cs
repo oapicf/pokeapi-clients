@@ -92,8 +92,18 @@ namespace Org.OpenAPITools.Model
     /// <summary>
     /// A Json converter for type <see cref="PokemonShapeSummary" />
     /// </summary>
-    public class PokemonShapeSummaryJsonConverter : JsonConverter<PokemonShapeSummary>
+    public partial class PokemonShapeSummaryJsonConverter : JsonConverter<PokemonShapeSummary>
     {
+        partial void OnCreated();
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="PokemonShapeSummaryJsonConverter" /> class.
+        /// </summary>
+        public PokemonShapeSummaryJsonConverter()
+        {
+            OnCreated();
+        }
+
         /// <summary>
         /// Deserializes json to <see cref="PokemonShapeSummary" />
         /// </summary>

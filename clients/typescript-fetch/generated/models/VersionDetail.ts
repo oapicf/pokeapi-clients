@@ -53,7 +53,7 @@ export interface VersionDetail {
      * @type {Array<VersionName>}
      * @memberof VersionDetail
      */
-    names: Array<VersionName>;
+    readonly names: Array<VersionName>;
     /**
      * 
      * @type {VersionGroupSummary}
@@ -69,7 +69,7 @@ export function instanceOfVersionDetail(value: object): value is VersionDetail {
     if (!('id' in value) || value['id'] === undefined) return false;
     if (!('name' in value) || value['name'] === undefined) return false;
     if (!('names' in value) || value['names'] === undefined) return false;
-    if (!('versionGroup' in value) || value['versionGroup'] === undefined) return false;
+    if ((!('versionGroup' in (value as Record<string, any>)) && !('version_group' in (value as Record<string, any>))) || ((value as Record<string, any>)['versionGroup'] === undefined && (value as Record<string, any>)['version_group'] === undefined)) return false;
     return true;
 }
 
@@ -94,7 +94,7 @@ export function VersionDetailToJSON(json: any): VersionDetail {
     return VersionDetailToJSONTyped(json, false);
 }
 
-export function VersionDetailToJSONTyped(value?: Omit<VersionDetail, 'id'> | null, ignoreDiscriminator: boolean = false): any {
+export function VersionDetailToJSONTyped(value?: Omit<VersionDetail, 'id'|'names'> | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
@@ -102,7 +102,6 @@ export function VersionDetailToJSONTyped(value?: Omit<VersionDetail, 'id'> | nul
     return {
         
         'name': value['name'],
-        'names': ((value['names'] as Array<any>).map(VersionNameToJSON)),
         'version_group': VersionGroupSummaryToJSON(value['versionGroup']),
     };
 }

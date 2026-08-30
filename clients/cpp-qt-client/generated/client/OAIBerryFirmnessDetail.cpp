@@ -21,7 +21,7 @@
 
 namespace OpenAPI {
 
-OAIBerryFirmnessDetail::OAIBerryFirmnessDetail(QString json) {
+OAIBerryFirmnessDetail::OAIBerryFirmnessDetail(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -47,7 +47,7 @@ void OAIBerryFirmnessDetail::initializeModel() {
     m_names_isValid = false;
 }
 
-void OAIBerryFirmnessDetail::fromJson(QString jsonString) {
+void OAIBerryFirmnessDetail::fromJson(const QString &jsonString) {
     QByteArray array(jsonString.toStdString().c_str());
     QJsonDocument doc = QJsonDocument::fromJson(array);
     QJsonObject jsonObject = doc.object();

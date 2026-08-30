@@ -85,7 +85,7 @@ PalParkAreaSummary::getName()
 }
 
 void
-PalParkAreaSummary::setName(std::string  name)
+PalParkAreaSummary::setName(std::string name)
 {
 	this->name = name;
 }
@@ -97,7 +97,7 @@ PalParkAreaSummary::getUrl()
 }
 
 void
-PalParkAreaSummary::setUrl(std::string  url)
+PalParkAreaSummary::setUrl(std::string url)
 {
 	this->url = url;
 }

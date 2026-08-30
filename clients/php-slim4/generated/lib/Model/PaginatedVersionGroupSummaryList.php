@@ -67,7 +67,8 @@ class PaginatedVersionGroupSummaryList extends BaseModel
       "type" : "array",
       "items" : {
         "$ref" : "#/components/schemas/VersionGroupSummary"
-      }
+      },
+      "default" : null
     }
   }
 }

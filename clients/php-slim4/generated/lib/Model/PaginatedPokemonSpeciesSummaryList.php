@@ -67,7 +67,8 @@ class PaginatedPokemonSpeciesSummaryList extends BaseModel
       "type" : "array",
       "items" : {
         "$ref" : "#/components/schemas/PokemonSpeciesSummary"
-      }
+      },
+      "default" : null
     }
   }
 }

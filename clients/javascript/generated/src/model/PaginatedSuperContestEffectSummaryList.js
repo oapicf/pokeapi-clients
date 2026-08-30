@@ -17,7 +17,7 @@ import SuperContestEffectSummary from './SuperContestEffectSummary';
 /**
  * The PaginatedSuperContestEffectSummaryList model module.
  * @module model/PaginatedSuperContestEffectSummaryList
- * @version 1.2.1-pre.0
+ * @version 2.0.1-pre.0
  */
 class PaginatedSuperContestEffectSummaryList {
     /**

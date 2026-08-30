@@ -103,7 +103,7 @@ MoveDetail_effect_changes_inner::getEffectEntries()
 }
 
 void
-MoveDetail_effect_changes_inner::setEffectEntries(std::list <MoveDetail_effect_changes_inner_effect_entries_inner> effect_entries)
+MoveDetail_effect_changes_inner::setEffectEntries(std::list<MoveDetail_effect_changes_inner_effect_entries_inner> effect_entries)
 {
 	this->effect_entries = effect_entries;
 }
@@ -115,7 +115,7 @@ MoveDetail_effect_changes_inner::getVersionGroup()
 }
 
 void
-MoveDetail_effect_changes_inner::setVersionGroup(AbilityDetail_pokemon_inner_pokemon  version_group)
+MoveDetail_effect_changes_inner::setVersionGroup(AbilityDetail_pokemon_inner_pokemon version_group)
 {
 	this->version_group = version_group;
 }

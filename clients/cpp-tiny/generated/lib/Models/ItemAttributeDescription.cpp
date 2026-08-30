@@ -86,7 +86,7 @@ ItemAttributeDescription::getDescription()
 }
 
 void
-ItemAttributeDescription::setDescription(std::string  description)
+ItemAttributeDescription::setDescription(std::string description)
 {
 	this->description = description;
 }
@@ -98,7 +98,7 @@ ItemAttributeDescription::getLanguage()
 }
 
 void
-ItemAttributeDescription::setLanguage(LanguageSummary  language)
+ItemAttributeDescription::setLanguage(LanguageSummary language)
 {
 	this->language = language;
 }

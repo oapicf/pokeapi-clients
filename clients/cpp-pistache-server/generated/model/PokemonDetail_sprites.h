@@ -33,7 +33,7 @@ class  PokemonDetail_sprites
 {
 public:
     PokemonDetail_sprites();
-    virtual ~PokemonDetail_sprites() = default;
+    virtual ~PokemonDetail_sprites();
 
 
     /// <summary>

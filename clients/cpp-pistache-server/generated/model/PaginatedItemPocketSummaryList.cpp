@@ -31,6 +31,8 @@ PaginatedItemPocketSummaryList::PaginatedItemPocketSummaryList()
     
 }
 
+PaginatedItemPocketSummaryList::~PaginatedItemPocketSummaryList() = default;
+
 void PaginatedItemPocketSummaryList::validate() const
 {
     std::stringstream msg;

@@ -6,28 +6,37 @@
 
 
 static pokemon_dex_entry_t *pokemon_dex_entry_create_internal(
-    int entry_number,
+    int *entry_number,
     pokedex_summary_t *pokedex
     ) {
     pokemon_dex_entry_t *pokemon_dex_entry_local_var = malloc(sizeof(pokemon_dex_entry_t));
     if (!pokemon_dex_entry_local_var) {
         return NULL;
     }
+    memset(pokemon_dex_entry_local_var, 0, sizeof(pokemon_dex_entry_t));
+    pokemon_dex_entry_local_var->_library_owned = 1;
     pokemon_dex_entry_local_var->entry_number = entry_number;
     pokemon_dex_entry_local_var->pokedex = pokedex;
-
-    pokemon_dex_entry_local_var->_library_owned = 1;
     return pokemon_dex_entry_local_var;
 }
 
 __attribute__((deprecated)) pokemon_dex_entry_t *pokemon_dex_entry_create(
-    int entry_number,
+    int *entry_number,
     pokedex_summary_t *pokedex
     ) {
-    return pokemon_dex_entry_create_internal (
-        entry_number,
+    int *entry_number_copy = NULL;
+    if (entry_number) {
+        entry_number_copy = malloc(sizeof(int));
+        if (entry_number_copy) *entry_number_copy = *entry_number;
+    }
+    pokemon_dex_entry_t *result = pokemon_dex_entry_create_internal (
+        entry_number_copy,
         pokedex
         );
+    if (!result) {
+        free(entry_number_copy);
+    }
+    return result;
 }
 
 void pokemon_dex_entry_free(pokemon_dex_entry_t *pokemon_dex_entry) {
@@ -39,6 +48,10 @@ void pokemon_dex_entry_free(pokemon_dex_entry_t *pokemon_dex_entry) {
         return ;
     }
     listEntry_t *listEntry;
+    if (pokemon_dex_entry->entry_number) {
+        free(pokemon_dex_entry->entry_number);
+        pokemon_dex_entry->entry_number = NULL;
+    }
     if (pokemon_dex_entry->pokedex) {
         pokedex_summary_free(pokemon_dex_entry->pokedex);
         pokemon_dex_entry->pokedex = NULL;
@@ -53,7 +66,7 @@ cJSON *pokemon_dex_entry_convertToJSON(pokemon_dex_entry_t *pokemon_dex_entry) {
     if (!pokemon_dex_entry->entry_number) {
         goto fail;
     }
-    if(cJSON_AddNumberToObject(item, "entry_number", pokemon_dex_entry->entry_number) == NULL) {
+    if(cJSON_AddNumberToObject(item, "entry_number", *pokemon_dex_entry->entry_number) == NULL) {
     goto fail; //Numeric
     }
 
@@ -83,6 +96,9 @@ pokemon_dex_entry_t *pokemon_dex_entry_parseFromJSON(cJSON *pokemon_dex_entryJSO
 
     pokemon_dex_entry_t *pokemon_dex_entry_local_var = NULL;
 
+    // define the local variable for pokemon_dex_entry->entry_number
+    int *entry_number_local_var = NULL;
+
     // define the local variable for pokemon_dex_entry->pokedex
     pokedex_summary_t *pokedex_local_nonprim = NULL;
 
@@ -100,6 +116,12 @@ pokemon_dex_entry_t *pokemon_dex_entry_parseFromJSON(cJSON *pokemon_dex_entryJSO
     {
     goto end; //Numeric
     }
+    entry_number_local_var = malloc(sizeof(int));
+    if(!entry_number_local_var)
+    {
+        goto end;
+    }
+    *entry_number_local_var = entry_number->valuedouble;
 
     // pokemon_dex_entry->pokedex
     cJSON *pokedex = cJSON_GetObjectItemCaseSensitive(pokemon_dex_entryJSON, "pokedex");
@@ -114,13 +136,22 @@ pokemon_dex_entry_t *pokemon_dex_entry_parseFromJSON(cJSON *pokemon_dex_entryJSO
     pokedex_local_nonprim = pokedex_summary_parseFromJSON(pokedex); //nonprimitive
 
 
+
     pokemon_dex_entry_local_var = pokemon_dex_entry_create_internal (
-        entry_number->valuedouble,
+        entry_number_local_var,
         pokedex_local_nonprim
         );
 
+    if (!pokemon_dex_entry_local_var) {
+        goto end;
+    }
+
     return pokemon_dex_entry_local_var;
 end:
+    if (entry_number_local_var) {
+        free(entry_number_local_var);
+        entry_number_local_var = NULL;
+    }
     if (pokedex_local_nonprim) {
         pokedex_summary_free(pokedex_local_nonprim);
         pokedex_local_nonprim = NULL;

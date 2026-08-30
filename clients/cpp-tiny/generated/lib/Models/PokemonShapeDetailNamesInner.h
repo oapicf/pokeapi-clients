@@ -51,14 +51,14 @@ public:
 
 	/*! \brief Set 
 	 */
-	void setUrl(std::string  url);
+	void setUrl(std::string url);
 	/*! \brief Get 
 	 */
 	std::string getName();
 
 	/*! \brief Set 
 	 */
-	void setName(std::string  name);
+	void setName(std::string name);
 
 
     private:

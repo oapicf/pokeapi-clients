@@ -38,13 +38,13 @@ class OAIMoveTargetName;
 class OAIMoveTargetDetail : public OAIObject {
 public:
     OAIMoveTargetDetail();
-    OAIMoveTargetDetail(QString json);
+    OAIMoveTargetDetail(const QString &json);
     ~OAIMoveTargetDetail() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     qint32 getId() const;
     void setId(const qint32 &id);

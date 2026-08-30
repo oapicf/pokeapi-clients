@@ -23,11 +23,13 @@ import io.swagger.v3.oas.annotations.media.Schema
 data class ItemDetailHeldByPokemonInner(
 
     @field:Valid
-    @Schema(example = "null", required = true, description = "")
+    @Schema(required = true, description = "")
+    @param:JsonProperty("pokemon")
     @get:JsonProperty("pokemon", required = true) val pokemon: AbilityDetailPokemonInnerPokemon,
 
     @field:Valid
-    @Schema(example = "null", required = true, description = "")
+    @Schema(required = true, description = "")
+    @param:JsonProperty("version-details")
     @get:JsonProperty("version-details", required = true) val versionDetails: kotlin.collections.List<ItemDetailHeldByPokemonInnerVersionDetailsInner>
 ) {
 

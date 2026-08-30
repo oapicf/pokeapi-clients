@@ -36,13 +36,13 @@ class OAIItemSummary;
 class OAIItemFlingEffectDetail : public OAIObject {
 public:
     OAIItemFlingEffectDetail();
-    OAIItemFlingEffectDetail(QString json);
+    OAIItemFlingEffectDetail(const QString &json);
     ~OAIItemFlingEffectDetail() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     qint32 getId() const;
     void setId(const qint32 &id);

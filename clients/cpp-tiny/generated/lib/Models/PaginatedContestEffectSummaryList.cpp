@@ -144,7 +144,7 @@ PaginatedContestEffectSummaryList::getCount()
 }
 
 void
-PaginatedContestEffectSummaryList::setCount(int  count)
+PaginatedContestEffectSummaryList::setCount(int count)
 {
 	this->count = count;
 }
@@ -156,7 +156,7 @@ PaginatedContestEffectSummaryList::getNext()
 }
 
 void
-PaginatedContestEffectSummaryList::setNext(std::string  next)
+PaginatedContestEffectSummaryList::setNext(std::string next)
 {
 	this->next = next;
 }
@@ -168,7 +168,7 @@ PaginatedContestEffectSummaryList::getPrevious()
 }
 
 void
-PaginatedContestEffectSummaryList::setPrevious(std::string  previous)
+PaginatedContestEffectSummaryList::setPrevious(std::string previous)
 {
 	this->previous = previous;
 }
@@ -180,7 +180,7 @@ PaginatedContestEffectSummaryList::getResults()
 }
 
 void
-PaginatedContestEffectSummaryList::setResults(std::list <ContestEffectSummary> results)
+PaginatedContestEffectSummaryList::setResults(std::list<ContestEffectSummary> results)
 {
 	this->results = results;
 }

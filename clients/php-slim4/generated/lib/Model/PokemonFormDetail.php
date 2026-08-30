@@ -88,21 +88,27 @@ class PokemonFormDetail extends BaseModel
     },
     "form_names" : {
       "type" : "array",
+      "readOnly" : true,
       "items" : {
         "$ref" : "#/components/schemas/PokemonFormDetail_form_names_inner"
-      }
+      },
+      "default" : null
     },
     "names" : {
       "type" : "array",
+      "readOnly" : true,
       "items" : {
         "$ref" : "#/components/schemas/PokemonFormDetail_form_names_inner"
-      }
+      },
+      "default" : null
     },
     "types" : {
       "type" : "array",
+      "readOnly" : true,
       "items" : {
         "$ref" : "#/components/schemas/PokemonDetail_types_inner"
-      }
+      },
+      "default" : null
     }
   }
 }

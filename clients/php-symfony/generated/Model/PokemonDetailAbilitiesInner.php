@@ -47,7 +47,7 @@ class PokemonDetailAbilitiesInner
      * @var AbilityDetailPokemonInnerPokemon|null
      * @SerializedName("ability")
      * @Type("OpenAPI\Server\Model\AbilityDetailPokemonInnerPokemon")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Valid]
     #[Assert\Type("OpenAPI\Server\Model\AbilityDetailPokemonInnerPokemon")]
@@ -57,7 +57,7 @@ class PokemonDetailAbilitiesInner
      * @var bool|null
      * @SerializedName("is_hidden")
      * @Type("bool")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Type("bool")]
     protected ?bool $isHidden = null;
@@ -66,7 +66,7 @@ class PokemonDetailAbilitiesInner
      * @var int|null
      * @SerializedName("slot")
      * @Type("int")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Type("int")]
     protected ?int $slot = null;
@@ -95,12 +95,12 @@ class PokemonDetailAbilitiesInner
     }
 
     /**
-    * Sets ability.
-    *
-    * @param AbilityDetailPokemonInnerPokemon|null $ability
-    *
-    * @return $this
-    */
+     * Sets ability.
+     *
+     * @param AbilityDetailPokemonInnerPokemon|null $ability
+     *
+     * @return $this
+     */
     public function setAbility(?AbilityDetailPokemonInnerPokemon $ability): self
     {
         $this->ability = $ability;
@@ -122,12 +122,12 @@ class PokemonDetailAbilitiesInner
     }
 
     /**
-    * Sets isHidden.
-    *
-    * @param bool|null $isHidden
-    *
-    * @return $this
-    */
+     * Sets isHidden.
+     *
+     * @param bool|null $isHidden
+     *
+     * @return $this
+     */
     public function setIsHidden(?bool $isHidden): self
     {
         $this->isHidden = $isHidden;
@@ -149,12 +149,12 @@ class PokemonDetailAbilitiesInner
     }
 
     /**
-    * Sets slot.
-    *
-    * @param int|null $slot
-    *
-    * @return $this
-    */
+     * Sets slot.
+     *
+     * @param int|null $slot
+     *
+     * @return $this
+     */
     public function setSlot(?int $slot): self
     {
         $this->slot = $slot;

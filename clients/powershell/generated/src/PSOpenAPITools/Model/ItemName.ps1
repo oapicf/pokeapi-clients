@@ -53,8 +53,8 @@ function Initialize-ItemName {
 
 
         $PSO = [PSCustomObject]@{
-            "name" = ${Name}
-            "language" = ${Language}
+            'name' = ${Name}
+            'language' = ${Language}
         }
 
 
@@ -92,7 +92,7 @@ function ConvertFrom-JsonToItemName {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in ItemName
-        $AllProperties = ("name", "language")
+        $AllProperties = ('name', 'language')
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -103,21 +103,21 @@ function ConvertFrom-JsonToItemName {
             throw "Error! Empty JSON cannot be serialized due to the required property 'name' missing."
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "name"))) {
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'name'))) {
             throw "Error! JSON cannot be serialized due to the required property 'name' missing."
         } else {
-            $Name = $JsonParameters.PSobject.Properties["name"].value
+            $Name = $JsonParameters.PSobject.Properties['name'].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "language"))) {
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'language'))) {
             throw "Error! JSON cannot be serialized due to the required property 'language' missing."
         } else {
-            $Language = $JsonParameters.PSobject.Properties["language"].value
+            $Language = $JsonParameters.PSobject.Properties['language'].value
         }
 
         $PSO = [PSCustomObject]@{
-            "name" = ${Name}
-            "language" = ${Language}
+            'name' = ${Name}
+            'language' = ${Language}
         }
 
         return $PSO

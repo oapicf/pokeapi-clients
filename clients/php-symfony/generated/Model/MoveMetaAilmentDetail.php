@@ -47,7 +47,7 @@ class MoveMetaAilmentDetail
      * @var int|null
      * @SerializedName("id")
      * @Type("int")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Type("int")]
     protected ?int $id = null;
@@ -56,7 +56,7 @@ class MoveMetaAilmentDetail
      * @var string|null
      * @SerializedName("name")
      * @Type("string")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Type("string")]
     #[Assert\Length(max: 100)]
@@ -66,7 +66,7 @@ class MoveMetaAilmentDetail
      * @var AbilityDetailPokemonInnerPokemon[]|null
      * @SerializedName("moves")
      * @Type("array<OpenAPI\Server\Model\AbilityDetailPokemonInnerPokemon>")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Valid]
     #[Assert\All([
@@ -78,7 +78,7 @@ class MoveMetaAilmentDetail
      * @var MoveMetaAilmentName[]|null
      * @SerializedName("names")
      * @Type("array<OpenAPI\Server\Model\MoveMetaAilmentName>")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Valid]
     #[Assert\All([
@@ -111,12 +111,12 @@ class MoveMetaAilmentDetail
     }
 
     /**
-    * Sets id.
-    *
-    * @param int|null $id
-    *
-    * @return $this
-    */
+     * Sets id.
+     *
+     * @param int|null $id
+     *
+     * @return $this
+     */
     public function setId(?int $id): self
     {
         $this->id = $id;
@@ -138,12 +138,12 @@ class MoveMetaAilmentDetail
     }
 
     /**
-    * Sets name.
-    *
-    * @param string|null $name
-    *
-    * @return $this
-    */
+     * Sets name.
+     *
+     * @param string|null $name
+     *
+     * @return $this
+     */
     public function setName(?string $name): self
     {
         $this->name = $name;
@@ -165,12 +165,12 @@ class MoveMetaAilmentDetail
     }
 
     /**
-    * Sets moves.
-    *
-    * @param AbilityDetailPokemonInnerPokemon[]|null $moves
-    *
-    * @return $this
-    */
+     * Sets moves.
+     *
+     * @param AbilityDetailPokemonInnerPokemon[]|null $moves
+     *
+     * @return $this
+     */
     public function setMoves(?array $moves): self
     {
         $this->moves = $moves;
@@ -192,12 +192,12 @@ class MoveMetaAilmentDetail
     }
 
     /**
-    * Sets names.
-    *
-    * @param MoveMetaAilmentName[]|null $names
-    *
-    * @return $this
-    */
+     * Sets names.
+     *
+     * @param MoveMetaAilmentName[]|null $names
+     *
+     * @return $this
+     */
     public function setNames(?array $names): self
     {
         $this->names = $names;

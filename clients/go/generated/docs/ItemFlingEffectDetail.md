@@ -6,8 +6,8 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **int32** |  | [readonly] 
 **Name** | **string** |  | 
-**EffectEntries** | [**[]ItemFlingEffectEffectText**](ItemFlingEffectEffectText.md) |  | 
-**Items** | [**[]ItemSummary**](ItemSummary.md) |  | 
+**EffectEntries** | [**[]ItemFlingEffectEffectText**](ItemFlingEffectEffectText.md) |  | [readonly] 
+**Items** | [**[]ItemSummary**](ItemSummary.md) |  | [readonly] 
 
 ## Methods
 

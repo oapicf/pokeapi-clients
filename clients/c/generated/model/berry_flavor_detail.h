@@ -22,7 +22,7 @@ typedef struct berry_flavor_detail_t berry_flavor_detail_t;
 
 
 typedef struct berry_flavor_detail_t {
-    int id; //numeric
+    int *id; //numeric
     char *name; // string
     list_t *berries; //nonprimitive container
     struct contest_type_summary_t *contest_type; //model
@@ -32,7 +32,7 @@ typedef struct berry_flavor_detail_t {
 } berry_flavor_detail_t;
 
 __attribute__((deprecated)) berry_flavor_detail_t *berry_flavor_detail_create(
-    int id,
+    int *id,
     char *name,
     list_t *berries,
     contest_type_summary_t *contest_type,

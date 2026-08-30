@@ -92,8 +92,18 @@ namespace Org.OpenAPITools.Model
     /// <summary>
     /// A Json converter for type <see cref="EggGroupName" />
     /// </summary>
-    public class EggGroupNameJsonConverter : JsonConverter<EggGroupName>
+    public partial class EggGroupNameJsonConverter : JsonConverter<EggGroupName>
     {
+        partial void OnCreated();
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="EggGroupNameJsonConverter" /> class.
+        /// </summary>
+        public EggGroupNameJsonConverter()
+        {
+            OnCreated();
+        }
+
         /// <summary>
         /// Deserializes json to <see cref="EggGroupName" />
         /// </summary>

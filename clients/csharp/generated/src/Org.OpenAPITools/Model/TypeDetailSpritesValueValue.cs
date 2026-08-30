@@ -55,7 +55,7 @@ namespace Org.OpenAPITools.Model
         /// Gets or Sets NameIcon
         /// </summary>
         [JsonPropertyName("name-icon")]
-        public string? NameIcon { get { return this.NameIconOption; } set { this.NameIconOption = new(value); } }
+        public string? NameIcon { get { return this.NameIconOption.Value; } set { this.NameIconOption = new(value); } }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -84,8 +84,18 @@ namespace Org.OpenAPITools.Model
     /// <summary>
     /// A Json converter for type <see cref="TypeDetailSpritesValueValue" />
     /// </summary>
-    public class TypeDetailSpritesValueValueJsonConverter : JsonConverter<TypeDetailSpritesValueValue>
+    public partial class TypeDetailSpritesValueValueJsonConverter : JsonConverter<TypeDetailSpritesValueValue>
     {
+        partial void OnCreated();
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="TypeDetailSpritesValueValueJsonConverter" /> class.
+        /// </summary>
+        public TypeDetailSpritesValueValueJsonConverter()
+        {
+            OnCreated();
+        }
+
         /// <summary>
         /// Deserializes json to <see cref="TypeDetailSpritesValueValue" />
         /// </summary>

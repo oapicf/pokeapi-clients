@@ -21,7 +21,7 @@
 
 namespace OpenAPI {
 
-OAIMoveTargetName::OAIMoveTargetName(QString json) {
+OAIMoveTargetName::OAIMoveTargetName(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -41,7 +41,7 @@ void OAIMoveTargetName::initializeModel() {
     m_language_isValid = false;
 }
 
-void OAIMoveTargetName::fromJson(QString jsonString) {
+void OAIMoveTargetName::fromJson(const QString &jsonString) {
     QByteArray array(jsonString.toStdString().c_str());
     QJsonDocument doc = QJsonDocument::fromJson(array);
     QJsonObject jsonObject = doc.object();

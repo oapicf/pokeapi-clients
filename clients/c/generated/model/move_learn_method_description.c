@@ -13,10 +13,10 @@ static move_learn_method_description_t *move_learn_method_description_create_int
     if (!move_learn_method_description_local_var) {
         return NULL;
     }
+    memset(move_learn_method_description_local_var, 0, sizeof(move_learn_method_description_t));
+    move_learn_method_description_local_var->_library_owned = 1;
     move_learn_method_description_local_var->description = description;
     move_learn_method_description_local_var->language = language;
-
-    move_learn_method_description_local_var->_library_owned = 1;
     return move_learn_method_description_local_var;
 }
 
@@ -24,10 +24,13 @@ __attribute__((deprecated)) move_learn_method_description_t *move_learn_method_d
     char *description,
     language_summary_t *language
     ) {
-    return move_learn_method_description_create_internal (
+    move_learn_method_description_t *result = move_learn_method_description_create_internal (
         description,
         language
         );
+    if (!result) {
+    }
+    return result;
 }
 
 void move_learn_method_description_free(move_learn_method_description_t *move_learn_method_description) {
@@ -86,6 +89,8 @@ move_learn_method_description_t *move_learn_method_description_parseFromJSON(cJS
 
     move_learn_method_description_t *move_learn_method_description_local_var = NULL;
 
+    char *description_local_str = NULL;
+
     // define the local variable for move_learn_method_description->language
     language_summary_t *language_local_nonprim = NULL;
 
@@ -114,13 +119,23 @@ move_learn_method_description_t *move_learn_method_description_parseFromJSON(cJS
     language_local_nonprim = language_summary_parseFromJSON(language); //nonprimitive
 
 
+    if (description && !cJSON_IsNull(description)) description_local_str = strdup(description->valuestring);
+
     move_learn_method_description_local_var = move_learn_method_description_create_internal (
-        description && !cJSON_IsNull(description) ? strdup(description->valuestring) : NULL,
+        description_local_str,
         language_local_nonprim
         );
 
+    if (!move_learn_method_description_local_var) {
+        goto end;
+    }
+
     return move_learn_method_description_local_var;
 end:
+    if (description_local_str) {
+        free(description_local_str);
+        description_local_str = NULL;
+    }
     if (language_local_nonprim) {
         language_summary_free(language_local_nonprim);
         language_local_nonprim = NULL;

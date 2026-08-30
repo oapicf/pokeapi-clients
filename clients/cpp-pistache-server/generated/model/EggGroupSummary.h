@@ -32,7 +32,7 @@ class  EggGroupSummary
 {
 public:
     EggGroupSummary();
-    virtual ~EggGroupSummary() = default;
+    virtual ~EggGroupSummary();
 
 
     /// <summary>

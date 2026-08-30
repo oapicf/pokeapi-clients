@@ -135,19 +135,6 @@ public class VersionGroupDetail  {
     return moveLearnMethods;
   }
 
-  public void setMoveLearnMethods(List<@Valid AbilityDetailPokemonInnerPokemon> moveLearnMethods) {
-    this.moveLearnMethods = moveLearnMethods;
-  }
-
-  public VersionGroupDetail moveLearnMethods(List<@Valid AbilityDetailPokemonInnerPokemon> moveLearnMethods) {
-    this.moveLearnMethods = moveLearnMethods;
-    return this;
-  }
-
-  public VersionGroupDetail addMoveLearnMethodsItem(AbilityDetailPokemonInnerPokemon moveLearnMethodsItem) {
-    this.moveLearnMethods.add(moveLearnMethodsItem);
-    return this;
-  }
 
  /**
    * Get pokedexes
@@ -159,19 +146,6 @@ public class VersionGroupDetail  {
     return pokedexes;
   }
 
-  public void setPokedexes(List<@Valid AbilityDetailPokemonInnerPokemon> pokedexes) {
-    this.pokedexes = pokedexes;
-  }
-
-  public VersionGroupDetail pokedexes(List<@Valid AbilityDetailPokemonInnerPokemon> pokedexes) {
-    this.pokedexes = pokedexes;
-    return this;
-  }
-
-  public VersionGroupDetail addPokedexesItem(AbilityDetailPokemonInnerPokemon pokedexesItem) {
-    this.pokedexes.add(pokedexesItem);
-    return this;
-  }
 
  /**
    * Get regions
@@ -183,19 +157,6 @@ public class VersionGroupDetail  {
     return regions;
   }
 
-  public void setRegions(List<@Valid AbilityDetailPokemonInnerPokemon> regions) {
-    this.regions = regions;
-  }
-
-  public VersionGroupDetail regions(List<@Valid AbilityDetailPokemonInnerPokemon> regions) {
-    this.regions = regions;
-    return this;
-  }
-
-  public VersionGroupDetail addRegionsItem(AbilityDetailPokemonInnerPokemon regionsItem) {
-    this.regions.add(regionsItem);
-    return this;
-  }
 
  /**
    * Get versions
@@ -207,19 +168,6 @@ public class VersionGroupDetail  {
     return versions;
   }
 
-  public void setVersions(List<@Valid VersionSummary> versions) {
-    this.versions = versions;
-  }
-
-  public VersionGroupDetail versions(List<@Valid VersionSummary> versions) {
-    this.versions = versions;
-    return this;
-  }
-
-  public VersionGroupDetail addVersionsItem(VersionSummary versionsItem) {
-    this.versions.add(versionsItem);
-    return this;
-  }
 
   @Override
   public boolean equals(Object o) {
@@ -267,10 +215,7 @@ public class VersionGroupDetail  {
    * (except the first line).
    */
   private static String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 }
 

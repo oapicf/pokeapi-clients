@@ -34,13 +34,13 @@ class OAIMoveBattleStyleName;
 class OAIMoveBattleStyleDetail : public OAIObject {
 public:
     OAIMoveBattleStyleDetail();
-    OAIMoveBattleStyleDetail(QString json);
+    OAIMoveBattleStyleDetail(const QString &json);
     ~OAIMoveBattleStyleDetail() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     qint32 getId() const;
     void setId(const qint32 &id);

@@ -86,7 +86,7 @@ GenderDetail_pokemon_species_details_inner::getRate()
 }
 
 void
-GenderDetail_pokemon_species_details_inner::setRate(int  rate)
+GenderDetail_pokemon_species_details_inner::setRate(int rate)
 {
 	this->rate = rate;
 }
@@ -98,7 +98,7 @@ GenderDetail_pokemon_species_details_inner::getPokemonSpecies()
 }
 
 void
-GenderDetail_pokemon_species_details_inner::setPokemonSpecies(AbilityDetail_pokemon_inner_pokemon  pokemon_species)
+GenderDetail_pokemon_species_details_inner::setPokemonSpecies(AbilityDetail_pokemon_inner_pokemon pokemon_species)
 {
 	this->pokemon_species = pokemon_species;
 }

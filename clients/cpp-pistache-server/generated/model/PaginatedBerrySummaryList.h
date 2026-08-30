@@ -34,7 +34,7 @@ class  PaginatedBerrySummaryList
 {
 public:
     PaginatedBerrySummaryList();
-    virtual ~PaginatedBerrySummaryList() = default;
+    virtual ~PaginatedBerrySummaryList();
 
 
     /// <summary>

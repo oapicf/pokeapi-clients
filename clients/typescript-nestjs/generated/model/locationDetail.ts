@@ -19,8 +19,8 @@ export interface LocationDetail {
     readonly id: number;
     name: string;
     region: RegionSummary;
-    names: Array<LocationName>;
-    game_indices: Array<LocationGameIndex>;
-    areas: Array<LocationAreaSummary>;
+    readonly names: Array<LocationName>;
+    readonly game_indices: Array<LocationGameIndex>;
+    readonly areas: Array<LocationAreaSummary>;
 }
 

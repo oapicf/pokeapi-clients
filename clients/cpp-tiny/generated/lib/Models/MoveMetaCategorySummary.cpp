@@ -85,7 +85,7 @@ MoveMetaCategorySummary::getName()
 }
 
 void
-MoveMetaCategorySummary::setName(std::string  name)
+MoveMetaCategorySummary::setName(std::string name)
 {
 	this->name = name;
 }
@@ -97,7 +97,7 @@ MoveMetaCategorySummary::getUrl()
 }
 
 void
-MoveMetaCategorySummary::setUrl(std::string  url)
+MoveMetaCategorySummary::setUrl(std::string url)
 {
 	this->url = url;
 }

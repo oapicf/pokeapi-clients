@@ -6,8 +6,8 @@
 | ---- | ---- | ----------- | ----- |
 | **id** | **Integer** |  | [readonly] |
 | **name** | **String** |  |  |
-| **names** | [**Array&lt;PokemonHabitatName&gt;**](PokemonHabitatName.md) |  |  |
-| **pokemon_species** | [**Array&lt;PokemonSpeciesSummary&gt;**](PokemonSpeciesSummary.md) |  |  |
+| **names** | [**Array&lt;PokemonHabitatName&gt;**](PokemonHabitatName.md) |  | [readonly] |
+| **pokemon_species** | [**Array&lt;PokemonSpeciesSummary&gt;**](PokemonSpeciesSummary.md) |  | [readonly] |
 
 ## Example
 

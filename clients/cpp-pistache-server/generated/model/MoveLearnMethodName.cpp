@@ -25,6 +25,8 @@ MoveLearnMethodName::MoveLearnMethodName()
     
 }
 
+MoveLearnMethodName::~MoveLearnMethodName() = default;
+
 void MoveLearnMethodName::validate() const
 {
     std::stringstream msg;

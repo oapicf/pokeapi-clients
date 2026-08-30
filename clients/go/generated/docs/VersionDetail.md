@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **int32** |  | [readonly] 
 **Name** | **string** |  | 
-**Names** | [**[]VersionName**](VersionName.md) |  | 
+**Names** | [**[]VersionName**](VersionName.md) |  | [readonly] 
 **VersionGroup** | [**VersionGroupSummary**](VersionGroupSummary.md) |  | 
 
 ## Methods

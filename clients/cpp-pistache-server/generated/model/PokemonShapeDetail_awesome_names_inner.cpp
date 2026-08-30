@@ -25,6 +25,8 @@ PokemonShapeDetail_awesome_names_inner::PokemonShapeDetail_awesome_names_inner()
     
 }
 
+PokemonShapeDetail_awesome_names_inner::~PokemonShapeDetail_awesome_names_inner() = default;
+
 void PokemonShapeDetail_awesome_names_inner::validate() const
 {
     std::stringstream msg;

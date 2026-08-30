@@ -48,7 +48,7 @@ import javax.annotation.Generated;
   EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner.JSON_PROPERTY_TURN_UPSIDE_DOWN
 })
 @JsonTypeName("EvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner")
-@Generated(value="org.openapitools.codegen.languages.JavaMicronautClientCodegen", date="2026-02-07T15:22:54.857535619Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@Generated(value="org.openapitools.codegen.languages.JavaMicronautClientCodegen", date="2026-08-30T01:55:51.056116330Z[Etc/UTC]", comments = "Generator version: 7.24.0")
 @Introspected
 public class EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner {
     public static final String JSON_PROPERTY_GENDER = "gender";
@@ -61,10 +61,10 @@ public class EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner {
     private EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender item;
 
     public static final String JSON_PROPERTY_KNOWN_MOVE = "known_move";
-    private Object knownMove;
+    private EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender knownMove;
 
     public static final String JSON_PROPERTY_KNOWN_MOVE_TYPE = "known_move_type";
-    private Object knownMoveType;
+    private EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender knownMoveType;
 
     public static final String JSON_PROPERTY_LOCATION = "location";
     private EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender location;
@@ -105,7 +105,7 @@ public class EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner {
     public static final String JSON_PROPERTY_TURN_UPSIDE_DOWN = "turn_upside_down";
     private Boolean turnUpsideDown;
 
-    public EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner(EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender gender, EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender heldItem, EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender item, Object knownMove, Object knownMoveType, EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender location, Integer minAffection, Integer minBeauty, Integer minHappiness, Integer minLevel, Boolean needsOverworldRain, String partySpecies, String partyType, String relativePhysicalStats, String timeOfDay, String tradeSpecies, AbilityDetailPokemonInnerPokemon trigger, Boolean turnUpsideDown) {
+    public EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner(EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender gender, EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender heldItem, EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender item, EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender knownMove, EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender knownMoveType, EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender location, Integer minAffection, Integer minBeauty, Integer minHappiness, Integer minLevel, Boolean needsOverworldRain, String partySpecies, String partyType, String relativePhysicalStats, String timeOfDay, String tradeSpecies, AbilityDetailPokemonInnerPokemon trigger, Boolean turnUpsideDown) {
         this.gender = gender;
         this.heldItem = heldItem;
         this.item = item;
@@ -195,7 +195,7 @@ public class EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner {
         this.item = item;
     }
 
-    public EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner knownMove(Object knownMove) {
+    public EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner knownMove(EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender knownMove) {
         this.knownMove = knownMove;
         return this;
     }
@@ -204,20 +204,21 @@ public class EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner {
      * Get knownMove
      * @return knownMove
      */
+    @Valid
     @NotNull
     @JsonProperty(JSON_PROPERTY_KNOWN_MOVE)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
-    public Object getKnownMove() {
+    public EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender getKnownMove() {
         return knownMove;
     }
 
     @JsonProperty(JSON_PROPERTY_KNOWN_MOVE)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
-    public void setKnownMove(Object knownMove) {
+    public void setKnownMove(EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender knownMove) {
         this.knownMove = knownMove;
     }
 
-    public EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner knownMoveType(Object knownMoveType) {
+    public EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner knownMoveType(EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender knownMoveType) {
         this.knownMoveType = knownMoveType;
         return this;
     }
@@ -226,16 +227,17 @@ public class EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner {
      * Get knownMoveType
      * @return knownMoveType
      */
+    @Valid
     @NotNull
     @JsonProperty(JSON_PROPERTY_KNOWN_MOVE_TYPE)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
-    public Object getKnownMoveType() {
+    public EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender getKnownMoveType() {
         return knownMoveType;
     }
 
     @JsonProperty(JSON_PROPERTY_KNOWN_MOVE_TYPE)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
-    public void setKnownMoveType(Object knownMoveType) {
+    public void setKnownMoveType(EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender knownMoveType) {
         this.knownMoveType = knownMoveType;
     }
 
@@ -592,10 +594,7 @@ public class EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner {
      * (except the first line).
      */
     private String toIndentedString(Object o) {
-        if (o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
+        return o == null ? "null" : o.toString().replace("\n", "\n    ");
     }
 
 }

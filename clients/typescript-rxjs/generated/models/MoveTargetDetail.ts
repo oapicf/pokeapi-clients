@@ -36,15 +36,15 @@ export interface MoveTargetDetail {
      * @type {Array<MoveTargetDescription>}
      * @memberof MoveTargetDetail
      */
-    descriptions: Array<MoveTargetDescription>;
+    readonly descriptions: Array<MoveTargetDescription>;
     /**
      * @type {Array<MoveSummary>}
      * @memberof MoveTargetDetail
      */
-    moves: Array<MoveSummary>;
+    readonly moves: Array<MoveSummary>;
     /**
      * @type {Array<MoveTargetName>}
      * @memberof MoveTargetDetail
      */
-    names: Array<MoveTargetName>;
+    readonly names: Array<MoveTargetName>;
 }

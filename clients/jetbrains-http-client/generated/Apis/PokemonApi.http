@@ -1,0 +1,225 @@
+## PokemonApi
+
+### 
+## 
+GET https://pokeapi.co/api/v2/ability/?limit={{limit}}&offset={{offset}}&q={{q}}
+Accept: application/json
+Authorization: Basic: {{username-password}}
+Cookie: sessionid={{cookieKey}}
+
+### 
+## 
+GET https://pokeapi.co/api/v2/ability/{{id}}/
+Accept: application/json
+Authorization: Basic: {{username-password}}
+Cookie: sessionid={{cookieKey}}
+
+### List charecterictics
+## List charecterictics
+GET https://pokeapi.co/api/v2/characteristic/?limit={{limit}}&offset={{offset}}&q={{q}}
+Accept: application/json
+Authorization: Basic: {{username-password}}
+Cookie: sessionid={{cookieKey}}
+
+### Get characteristic
+## Get characteristic
+GET https://pokeapi.co/api/v2/characteristic/{{id}}/
+Accept: application/json
+Authorization: Basic: {{username-password}}
+Cookie: sessionid={{cookieKey}}
+
+### List egg groups
+## List egg groups
+GET https://pokeapi.co/api/v2/egg-group/?limit={{limit}}&offset={{offset}}&q={{q}}
+Accept: application/json
+Authorization: Basic: {{username-password}}
+Cookie: sessionid={{cookieKey}}
+
+### Get egg group
+## Get egg group
+GET https://pokeapi.co/api/v2/egg-group/{{id}}/
+Accept: application/json
+Authorization: Basic: {{username-password}}
+Cookie: sessionid={{cookieKey}}
+
+### List genders
+## List genders
+GET https://pokeapi.co/api/v2/gender/?limit={{limit}}&offset={{offset}}&q={{q}}
+Accept: application/json
+Authorization: Basic: {{username-password}}
+Cookie: sessionid={{cookieKey}}
+
+### Get gender
+## Get gender
+GET https://pokeapi.co/api/v2/gender/{{id}}/
+Accept: application/json
+Authorization: Basic: {{username-password}}
+Cookie: sessionid={{cookieKey}}
+
+### List growth rates
+## List growth rates
+GET https://pokeapi.co/api/v2/growth-rate/?limit={{limit}}&offset={{offset}}&q={{q}}
+Accept: application/json
+Authorization: Basic: {{username-password}}
+Cookie: sessionid={{cookieKey}}
+
+### Get growth rate
+## Get growth rate
+GET https://pokeapi.co/api/v2/growth-rate/{{id}}/
+Accept: application/json
+Authorization: Basic: {{username-password}}
+Cookie: sessionid={{cookieKey}}
+
+### List move damage classes
+## List move damage classes
+GET https://pokeapi.co/api/v2/move-damage-class/?limit={{limit}}&offset={{offset}}&q={{q}}
+Accept: application/json
+Authorization: Basic: {{username-password}}
+Cookie: sessionid={{cookieKey}}
+
+### Get move damage class
+## Get move damage class
+GET https://pokeapi.co/api/v2/move-damage-class/{{id}}/
+Accept: application/json
+Authorization: Basic: {{username-password}}
+Cookie: sessionid={{cookieKey}}
+
+### List natures
+## List natures
+GET https://pokeapi.co/api/v2/nature/?limit={{limit}}&offset={{offset}}&q={{q}}
+Accept: application/json
+Authorization: Basic: {{username-password}}
+Cookie: sessionid={{cookieKey}}
+
+### Get nature
+## Get nature
+GET https://pokeapi.co/api/v2/nature/{{id}}/
+Accept: application/json
+Authorization: Basic: {{username-password}}
+Cookie: sessionid={{cookieKey}}
+
+### List pokeathlon stats
+## List pokeathlon stats
+GET https://pokeapi.co/api/v2/pokeathlon-stat/?limit={{limit}}&offset={{offset}}&q={{q}}
+Accept: application/json
+Authorization: Basic: {{username-password}}
+Cookie: sessionid={{cookieKey}}
+
+### Get pokeathlon stat
+## Get pokeathlon stat
+GET https://pokeapi.co/api/v2/pokeathlon-stat/{{id}}/
+Accept: application/json
+Authorization: Basic: {{username-password}}
+Cookie: sessionid={{cookieKey}}
+
+### List pokemon colors
+## List pokemon colors
+GET https://pokeapi.co/api/v2/pokemon-color/?limit={{limit}}&offset={{offset}}&q={{q}}
+Accept: application/json
+Authorization: Basic: {{username-password}}
+Cookie: sessionid={{cookieKey}}
+
+### Get pokemon color
+## Get pokemon color
+GET https://pokeapi.co/api/v2/pokemon-color/{{id}}/
+Accept: application/json
+Authorization: Basic: {{username-password}}
+Cookie: sessionid={{cookieKey}}
+
+### List pokemon forms
+## List pokemon forms
+GET https://pokeapi.co/api/v2/pokemon-form/?limit={{limit}}&offset={{offset}}&q={{q}}
+Accept: application/json
+Authorization: Basic: {{username-password}}
+Cookie: sessionid={{cookieKey}}
+
+### Get pokemon form
+## Get pokemon form
+GET https://pokeapi.co/api/v2/pokemon-form/{{id}}/
+Accept: application/json
+Authorization: Basic: {{username-password}}
+Cookie: sessionid={{cookieKey}}
+
+### List pokemom habitas
+## List pokemom habitas
+GET https://pokeapi.co/api/v2/pokemon-habitat/?limit={{limit}}&offset={{offset}}&q={{q}}
+Accept: application/json
+Authorization: Basic: {{username-password}}
+Cookie: sessionid={{cookieKey}}
+
+### Get pokemom habita
+## Get pokemom habita
+GET https://pokeapi.co/api/v2/pokemon-habitat/{{id}}/
+Accept: application/json
+Authorization: Basic: {{username-password}}
+Cookie: sessionid={{cookieKey}}
+
+### List pokemon
+## List pokemon
+GET https://pokeapi.co/api/v2/pokemon/?limit={{limit}}&offset={{offset}}&q={{q}}
+Accept: application/json
+Authorization: Basic: {{username-password}}
+Cookie: sessionid={{cookieKey}}
+
+### Get pokemon
+## Get pokemon
+GET https://pokeapi.co/api/v2/pokemon/{{id}}/
+Accept: application/json
+Authorization: Basic: {{username-password}}
+Cookie: sessionid={{cookieKey}}
+
+### List pokemon shapes
+## List pokemon shapes
+GET https://pokeapi.co/api/v2/pokemon-shape/?limit={{limit}}&offset={{offset}}&q={{q}}
+Accept: application/json
+Authorization: Basic: {{username-password}}
+Cookie: sessionid={{cookieKey}}
+
+### Get pokemon shape
+## Get pokemon shape
+GET https://pokeapi.co/api/v2/pokemon-shape/{{id}}/
+Accept: application/json
+Authorization: Basic: {{username-password}}
+Cookie: sessionid={{cookieKey}}
+
+### List pokemon species
+## List pokemon species
+GET https://pokeapi.co/api/v2/pokemon-species/?limit={{limit}}&offset={{offset}}&q={{q}}
+Accept: application/json
+Authorization: Basic: {{username-password}}
+Cookie: sessionid={{cookieKey}}
+
+### Get pokemon species
+## Get pokemon species
+GET https://pokeapi.co/api/v2/pokemon-species/{{id}}/
+Accept: application/json
+Authorization: Basic: {{username-password}}
+Cookie: sessionid={{cookieKey}}
+
+### List stats
+## List stats
+GET https://pokeapi.co/api/v2/stat/?limit={{limit}}&offset={{offset}}&q={{q}}
+Accept: application/json
+Authorization: Basic: {{username-password}}
+Cookie: sessionid={{cookieKey}}
+
+### Get stat
+## Get stat
+GET https://pokeapi.co/api/v2/stat/{{id}}/
+Accept: application/json
+Authorization: Basic: {{username-password}}
+Cookie: sessionid={{cookieKey}}
+
+### List types
+## List types
+GET https://pokeapi.co/api/v2/type/?limit={{limit}}&offset={{offset}}&q={{q}}
+Accept: application/json
+Authorization: Basic: {{username-password}}
+Cookie: sessionid={{cookieKey}}
+
+### Get types
+## Get types
+GET https://pokeapi.co/api/v2/type/{{id}}/
+Accept: application/json
+Authorization: Basic: {{username-password}}
+Cookie: sessionid={{cookieKey}}

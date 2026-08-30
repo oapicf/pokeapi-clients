@@ -65,10 +65,14 @@ class GenderDetail {
       // Note 1: the values aren't checked for validity beyond being non-null.
       // Note 2: this code is stripped in release mode!
       assert(() {
-        requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "GenderDetail[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "GenderDetail[$key]" has a null value in JSON.');
-        });
+        assert(json.containsKey(r'id'), 'Required key "GenderDetail[id]" is missing from JSON.');
+        assert(json[r'id'] != null, 'Required key "GenderDetail[id]" has a null value in JSON.');
+        assert(json.containsKey(r'name'), 'Required key "GenderDetail[name]" is missing from JSON.');
+        assert(json[r'name'] != null, 'Required key "GenderDetail[name]" has a null value in JSON.');
+        assert(json.containsKey(r'pokemon_species_details'), 'Required key "GenderDetail[pokemon_species_details]" is missing from JSON.');
+        assert(json[r'pokemon_species_details'] != null, 'Required key "GenderDetail[pokemon_species_details]" has a null value in JSON.');
+        assert(json.containsKey(r'required_for_evolution'), 'Required key "GenderDetail[required_for_evolution]" is missing from JSON.');
+        assert(json[r'required_for_evolution'] != null, 'Required key "GenderDetail[required_for_evolution]" has a null value in JSON.');
         return true;
       }());
 

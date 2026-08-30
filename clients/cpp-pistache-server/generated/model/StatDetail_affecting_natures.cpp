@@ -24,6 +24,8 @@ StatDetail_affecting_natures::StatDetail_affecting_natures()
     
 }
 
+StatDetail_affecting_natures::~StatDetail_affecting_natures() = default;
+
 void StatDetail_affecting_natures::validate() const
 {
     std::stringstream msg;

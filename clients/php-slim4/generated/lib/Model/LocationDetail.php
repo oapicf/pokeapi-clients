@@ -61,21 +61,27 @@ class LocationDetail extends BaseModel
     },
     "names" : {
       "type" : "array",
+      "readOnly" : true,
       "items" : {
         "$ref" : "#/components/schemas/LocationName"
-      }
+      },
+      "default" : null
     },
     "game_indices" : {
       "type" : "array",
+      "readOnly" : true,
       "items" : {
         "$ref" : "#/components/schemas/LocationGameIndex"
-      }
+      },
+      "default" : null
     },
     "areas" : {
       "type" : "array",
+      "readOnly" : true,
       "items" : {
         "$ref" : "#/components/schemas/LocationAreaSummary"
-      }
+      },
+      "default" : null
     }
   }
 }

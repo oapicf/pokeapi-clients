@@ -144,7 +144,7 @@ PaginatedEncounterConditionValueSummaryList::getCount()
 }
 
 void
-PaginatedEncounterConditionValueSummaryList::setCount(int  count)
+PaginatedEncounterConditionValueSummaryList::setCount(int count)
 {
 	this->count = count;
 }
@@ -156,7 +156,7 @@ PaginatedEncounterConditionValueSummaryList::getNext()
 }
 
 void
-PaginatedEncounterConditionValueSummaryList::setNext(std::string  next)
+PaginatedEncounterConditionValueSummaryList::setNext(std::string next)
 {
 	this->next = next;
 }
@@ -168,7 +168,7 @@ PaginatedEncounterConditionValueSummaryList::getPrevious()
 }
 
 void
-PaginatedEncounterConditionValueSummaryList::setPrevious(std::string  previous)
+PaginatedEncounterConditionValueSummaryList::setPrevious(std::string previous)
 {
 	this->previous = previous;
 }
@@ -180,7 +180,7 @@ PaginatedEncounterConditionValueSummaryList::getResults()
 }
 
 void
-PaginatedEncounterConditionValueSummaryList::setResults(std::list <EncounterConditionValueSummary> results)
+PaginatedEncounterConditionValueSummaryList::setResults(std::list<EncounterConditionValueSummary> results)
 {
 	this->results = results;
 }

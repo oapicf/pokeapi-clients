@@ -73,7 +73,7 @@ export interface MachineDetail {
 export function instanceOfMachineDetail(value: object): value is MachineDetail {
     if (!('id' in value) || value['id'] === undefined) return false;
     if (!('item' in value) || value['item'] === undefined) return false;
-    if (!('versionGroup' in value) || value['versionGroup'] === undefined) return false;
+    if ((!('versionGroup' in (value as Record<string, any>)) && !('version_group' in (value as Record<string, any>))) || ((value as Record<string, any>)['versionGroup'] === undefined && (value as Record<string, any>)['version_group'] === undefined)) return false;
     if (!('move' in value) || value['move'] === undefined) return false;
     return true;
 }

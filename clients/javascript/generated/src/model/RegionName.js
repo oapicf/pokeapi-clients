@@ -17,7 +17,7 @@ import LanguageSummary from './LanguageSummary';
 /**
  * The RegionName model module.
  * @module model/RegionName
- * @version 1.2.1-pre.0
+ * @version 2.0.1-pre.0
  */
 class RegionName {
     /**

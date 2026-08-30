@@ -40,6 +40,7 @@ from pokeapiclient.models.super_contest_effect_summary import SuperContestEffect
 from pokeapiclient.models.type_summary import TypeSummary
 from typing import Optional, Set
 from typing_extensions import Self
+from pydantic_core import to_jsonable_python
 
 class MoveDetail(BaseModel):
     """
@@ -72,7 +73,8 @@ class MoveDetail(BaseModel):
     __properties: ClassVar[List[str]] = ["id", "name", "accuracy", "effect_chance", "pp", "priority", "power", "contest_combos", "contest_type", "contest_effect", "damage_class", "effect_entries", "effect_changes", "generation", "meta", "names", "past_values", "stat_changes", "super_contest_effect", "target", "type", "machines", "flavor_text_entries", "learned_by_pokemon"]
 
     model_config = ConfigDict(
-        populate_by_name=True,
+        validate_by_name=True,
+        validate_by_alias=True,
         validate_assignment=True,
         protected_namespaces=(),
     )
@@ -84,8 +86,7 @@ class MoveDetail(BaseModel):
 
     def to_json(self) -> str:
         """Returns the JSON representation of the model using alias"""
-        # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
-        return json.dumps(self.to_dict())
+        return json.dumps(to_jsonable_python(self.to_dict()))
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
@@ -103,10 +104,26 @@ class MoveDetail(BaseModel):
           are ignored.
         * OpenAPI `readOnly` fields are excluded.
         * OpenAPI `readOnly` fields are excluded.
+        * OpenAPI `readOnly` fields are excluded.
+        * OpenAPI `readOnly` fields are excluded.
+        * OpenAPI `readOnly` fields are excluded.
+        * OpenAPI `readOnly` fields are excluded.
+        * OpenAPI `readOnly` fields are excluded.
+        * OpenAPI `readOnly` fields are excluded.
+        * OpenAPI `readOnly` fields are excluded.
+        * OpenAPI `readOnly` fields are excluded.
         """
         excluded_fields: Set[str] = set([
             "id",
+            "effect_entries",
+            "effect_changes",
             "meta",
+            "names",
+            "past_values",
+            "stat_changes",
+            "machines",
+            "flavor_text_entries",
+            "learned_by_pokemon",
         ])
 
         _dict = self.model_dump(

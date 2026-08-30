@@ -125,16 +125,16 @@ function Initialize-NatureDetail {
 
 
         $PSO = [PSCustomObject]@{
-            "id" = ${Id}
-            "name" = ${Name}
-            "decreased_stat" = ${DecreasedStat}
-            "increased_stat" = ${IncreasedStat}
-            "likes_flavor" = ${LikesFlavor}
-            "hates_flavor" = ${HatesFlavor}
-            "berries" = ${Berries}
-            "pokeathlon_stat_changes" = ${PokeathlonStatChanges}
-            "move_battle_style_preferences" = ${MoveBattleStylePreferences}
-            "names" = ${Names}
+            'id' = ${Id}
+            'name' = ${Name}
+            'decreased_stat' = ${DecreasedStat}
+            'increased_stat' = ${IncreasedStat}
+            'likes_flavor' = ${LikesFlavor}
+            'hates_flavor' = ${HatesFlavor}
+            'berries' = ${Berries}
+            'pokeathlon_stat_changes' = ${PokeathlonStatChanges}
+            'move_battle_style_preferences' = ${MoveBattleStylePreferences}
+            'names' = ${Names}
         }
 
 
@@ -172,7 +172,7 @@ function ConvertFrom-JsonToNatureDetail {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in NatureDetail
-        $AllProperties = ("id", "name", "decreased_stat", "increased_stat", "likes_flavor", "hates_flavor", "berries", "pokeathlon_stat_changes", "move_battle_style_preferences", "names")
+        $AllProperties = ('id', 'name', 'decreased_stat', 'increased_stat', 'likes_flavor', 'hates_flavor', 'berries', 'pokeathlon_stat_changes', 'move_battle_style_preferences', 'names')
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -183,77 +183,77 @@ function ConvertFrom-JsonToNatureDetail {
             throw "Error! Empty JSON cannot be serialized due to the required property 'id' missing."
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "id"))) {
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'id'))) {
             throw "Error! JSON cannot be serialized due to the required property 'id' missing."
         } else {
-            $Id = $JsonParameters.PSobject.Properties["id"].value
+            $Id = $JsonParameters.PSobject.Properties['id'].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "name"))) {
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'name'))) {
             throw "Error! JSON cannot be serialized due to the required property 'name' missing."
         } else {
-            $Name = $JsonParameters.PSobject.Properties["name"].value
+            $Name = $JsonParameters.PSobject.Properties['name'].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "decreased_stat"))) {
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'decreased_stat'))) {
             throw "Error! JSON cannot be serialized due to the required property 'decreased_stat' missing."
         } else {
-            $DecreasedStat = $JsonParameters.PSobject.Properties["decreased_stat"].value
+            $DecreasedStat = $JsonParameters.PSobject.Properties['decreased_stat'].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "increased_stat"))) {
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'increased_stat'))) {
             throw "Error! JSON cannot be serialized due to the required property 'increased_stat' missing."
         } else {
-            $IncreasedStat = $JsonParameters.PSobject.Properties["increased_stat"].value
+            $IncreasedStat = $JsonParameters.PSobject.Properties['increased_stat'].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "likes_flavor"))) {
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'likes_flavor'))) {
             throw "Error! JSON cannot be serialized due to the required property 'likes_flavor' missing."
         } else {
-            $LikesFlavor = $JsonParameters.PSobject.Properties["likes_flavor"].value
+            $LikesFlavor = $JsonParameters.PSobject.Properties['likes_flavor'].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "hates_flavor"))) {
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'hates_flavor'))) {
             throw "Error! JSON cannot be serialized due to the required property 'hates_flavor' missing."
         } else {
-            $HatesFlavor = $JsonParameters.PSobject.Properties["hates_flavor"].value
+            $HatesFlavor = $JsonParameters.PSobject.Properties['hates_flavor'].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "berries"))) {
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'berries'))) {
             throw "Error! JSON cannot be serialized due to the required property 'berries' missing."
         } else {
-            $Berries = $JsonParameters.PSobject.Properties["berries"].value
+            $Berries = $JsonParameters.PSobject.Properties['berries'].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "pokeathlon_stat_changes"))) {
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'pokeathlon_stat_changes'))) {
             throw "Error! JSON cannot be serialized due to the required property 'pokeathlon_stat_changes' missing."
         } else {
-            $PokeathlonStatChanges = $JsonParameters.PSobject.Properties["pokeathlon_stat_changes"].value
+            $PokeathlonStatChanges = $JsonParameters.PSobject.Properties['pokeathlon_stat_changes'].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "move_battle_style_preferences"))) {
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'move_battle_style_preferences'))) {
             throw "Error! JSON cannot be serialized due to the required property 'move_battle_style_preferences' missing."
         } else {
-            $MoveBattleStylePreferences = $JsonParameters.PSobject.Properties["move_battle_style_preferences"].value
+            $MoveBattleStylePreferences = $JsonParameters.PSobject.Properties['move_battle_style_preferences'].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "names"))) {
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'names'))) {
             throw "Error! JSON cannot be serialized due to the required property 'names' missing."
         } else {
-            $Names = $JsonParameters.PSobject.Properties["names"].value
+            $Names = $JsonParameters.PSobject.Properties['names'].value
         }
 
         $PSO = [PSCustomObject]@{
-            "id" = ${Id}
-            "name" = ${Name}
-            "decreased_stat" = ${DecreasedStat}
-            "increased_stat" = ${IncreasedStat}
-            "likes_flavor" = ${LikesFlavor}
-            "hates_flavor" = ${HatesFlavor}
-            "berries" = ${Berries}
-            "pokeathlon_stat_changes" = ${PokeathlonStatChanges}
-            "move_battle_style_preferences" = ${MoveBattleStylePreferences}
-            "names" = ${Names}
+            'id' = ${Id}
+            'name' = ${Name}
+            'decreased_stat' = ${DecreasedStat}
+            'increased_stat' = ${IncreasedStat}
+            'likes_flavor' = ${LikesFlavor}
+            'hates_flavor' = ${HatesFlavor}
+            'berries' = ${Berries}
+            'pokeathlon_stat_changes' = ${PokeathlonStatChanges}
+            'move_battle_style_preferences' = ${MoveBattleStylePreferences}
+            'names' = ${Names}
         }
 
         return $PSO

@@ -12,6 +12,11 @@
 package openapi
 
 
+import (
+	"encoding/json"
+	"fmt"
+)
+
 
 
 type EvolutionChainDetailChain struct {
@@ -24,13 +29,89 @@ type EvolutionChainDetailChain struct {
 
 	Species AbilityDetailPokemonInnerPokemon `json:"species"`
 }
+// UnmarshalJSON validates required property keys then unmarshals into EvolutionChainDetailChain
+func (o *EvolutionChainDetailChain) UnmarshalJSON(data []byte) (err error) {
+	// Presence is checked against required fields that exist on this struct,
+	// including fields promoted from embedded allOf parents.
+	requiredProperties := []string{
+		"evolution_details",
+		"evolves_to",
+		"is_baby",
+		"species",
+	}
 
-// AssertEvolutionChainDetailChainRequired checks if the required fields are not zero-ed
+	requiredNullableProperties := map[string]bool{
+		"evolution_details": false,
+		"evolves_to": false,
+		"is_baby": false,
+		"species": false,
+	}
+
+	allowedJsonKeys := map[string]struct{}{
+		"evolution_details": {},
+		"evolves_to": {},
+		"is_baby": {},
+		"species": {},
+	}
+
+	allProperties := make(map[string]json.RawMessage)
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err
+	}
+
+	for _, requiredProperty := range requiredProperties {
+		value, exists := allProperties[requiredProperty]
+		if !exists {
+			return &RequiredError{Field: requiredProperty}
+		}
+		if string(value) == "null" && !requiredNullableProperties[requiredProperty] {
+			return &RequiredError{Field: requiredProperty}
+		}
+	}
+
+	for key := range allProperties {
+		if _, exists := allowedJsonKeys[key]; !exists {
+			return fmt.Errorf("json: unknown field %q", key)
+		}
+	}
+
+	var decoded EvolutionChainDetailChain
+
+	if value, exists := allProperties["evolution_details"]; exists {
+		if err = json.Unmarshal(value, &decoded.EvolutionDetails); err != nil {
+			return err
+		}
+	}
+	if value, exists := allProperties["evolves_to"]; exists {
+		if err = json.Unmarshal(value, &decoded.EvolvesTo); err != nil {
+			return err
+		}
+	}
+	if value, exists := allProperties["is_baby"]; exists {
+		if err = json.Unmarshal(value, &decoded.IsBaby); err != nil {
+			return err
+		}
+	}
+	if value, exists := allProperties["species"]; exists {
+		if err = json.Unmarshal(value, &decoded.Species); err != nil {
+			return err
+		}
+	}
+
+	*o = decoded
+
+	return nil
+}
+
+// AssertEvolutionChainDetailChainRequired checks complex required fields (models, arrays, maps) and embedded parents.
+// Primitive required fields are validated for JSON request bodies in UnmarshalJSON so zero values remain valid.
 func AssertEvolutionChainDetailChainRequired(obj EvolutionChainDetailChain) error {
 	elements := map[string]interface{}{
 		"evolution_details": obj.EvolutionDetails,
 		"evolves_to": obj.EvolvesTo,
-		"is_baby": obj.IsBaby,
 		"species": obj.Species,
 	}
 	for name, el := range elements {

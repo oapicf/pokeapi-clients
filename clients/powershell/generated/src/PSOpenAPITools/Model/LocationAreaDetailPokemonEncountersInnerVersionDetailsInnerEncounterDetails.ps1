@@ -72,11 +72,11 @@ function Initialize-LocationAreaDetailPokemonEncountersInnerVersionDetailsInnerE
 
 
         $PSO = [PSCustomObject]@{
-            "min_level" = ${MinLevel}
-            "max_level" = ${MaxLevel}
-            "condition_values" = ${ConditionValues}
-            "chance" = ${Chance}
-            "method" = ${Method}
+            'min_level' = ${MinLevel}
+            'max_level' = ${MaxLevel}
+            'condition_values' = ${ConditionValues}
+            'chance' = ${Chance}
+            'method' = ${Method}
         }
 
 
@@ -114,7 +114,7 @@ function ConvertFrom-JsonToLocationAreaDetailPokemonEncountersInnerVersionDetail
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in LocationAreaDetailPokemonEncountersInnerVersionDetailsInnerEncounterDetails
-        $AllProperties = ("min_level", "max_level", "condition_values", "chance", "method")
+        $AllProperties = ('min_level', 'max_level', 'condition_values', 'chance', 'method')
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -125,42 +125,42 @@ function ConvertFrom-JsonToLocationAreaDetailPokemonEncountersInnerVersionDetail
             throw "Error! Empty JSON cannot be serialized due to the required property 'min_level' missing."
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "min_level"))) {
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'min_level'))) {
             throw "Error! JSON cannot be serialized due to the required property 'min_level' missing."
         } else {
-            $MinLevel = $JsonParameters.PSobject.Properties["min_level"].value
+            $MinLevel = $JsonParameters.PSobject.Properties['min_level'].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "max_level"))) {
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'max_level'))) {
             throw "Error! JSON cannot be serialized due to the required property 'max_level' missing."
         } else {
-            $MaxLevel = $JsonParameters.PSobject.Properties["max_level"].value
+            $MaxLevel = $JsonParameters.PSobject.Properties['max_level'].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "chance"))) {
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'chance'))) {
             throw "Error! JSON cannot be serialized due to the required property 'chance' missing."
         } else {
-            $Chance = $JsonParameters.PSobject.Properties["chance"].value
+            $Chance = $JsonParameters.PSobject.Properties['chance'].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "method"))) {
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'method'))) {
             throw "Error! JSON cannot be serialized due to the required property 'method' missing."
         } else {
-            $Method = $JsonParameters.PSobject.Properties["method"].value
+            $Method = $JsonParameters.PSobject.Properties['method'].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "condition_values"))) { #optional property not found
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'condition_values'))) { #optional property not found
             $ConditionValues = $null
         } else {
-            $ConditionValues = $JsonParameters.PSobject.Properties["condition_values"].value
+            $ConditionValues = $JsonParameters.PSobject.Properties['condition_values'].value
         }
 
         $PSO = [PSCustomObject]@{
-            "min_level" = ${MinLevel}
-            "max_level" = ${MaxLevel}
-            "condition_values" = ${ConditionValues}
-            "chance" = ${Chance}
-            "method" = ${Method}
+            'min_level' = ${MinLevel}
+            'max_level' = ${MaxLevel}
+            'condition_values' = ${ConditionValues}
+            'chance' = ${Chance}
+            'method' = ${Method}
         }
 
         return $PSO

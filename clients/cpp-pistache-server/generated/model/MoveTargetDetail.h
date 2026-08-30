@@ -36,7 +36,7 @@ class  MoveTargetDetail
 {
 public:
     MoveTargetDetail();
-    virtual ~MoveTargetDetail() = default;
+    virtual ~MoveTargetDetail();
 
 
     /// <summary>

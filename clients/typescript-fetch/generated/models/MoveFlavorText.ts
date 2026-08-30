@@ -58,9 +58,9 @@ export interface MoveFlavorText {
  * Check if a given object implements the MoveFlavorText interface.
  */
 export function instanceOfMoveFlavorText(value: object): value is MoveFlavorText {
-    if (!('flavorText' in value) || value['flavorText'] === undefined) return false;
+    if ((!('flavorText' in (value as Record<string, any>)) && !('flavor_text' in (value as Record<string, any>))) || ((value as Record<string, any>)['flavorText'] === undefined && (value as Record<string, any>)['flavor_text'] === undefined)) return false;
     if (!('language' in value) || value['language'] === undefined) return false;
-    if (!('versionGroup' in value) || value['versionGroup'] === undefined) return false;
+    if ((!('versionGroup' in (value as Record<string, any>)) && !('version_group' in (value as Record<string, any>))) || ((value as Record<string, any>)['versionGroup'] === undefined && (value as Record<string, any>)['version_group'] === undefined)) return false;
     return true;
 }
 

@@ -51,9 +51,9 @@ void OAIContestsApi::initializeServerConfigs() {
 }
 
 /**
-* returns 0 on success and -1, -2 or -3 on failure.
-* -1 when the variable does not exist and -2 if the value is not defined in the enum and -3 if the operation or server index is not found
-*/
+ * returns 0 on success and -1, -2 or -3 on failure.
+ * -1 when the variable does not exist and -2 if the value is not defined in the enum and -3 if the operation or server index is not found
+ */
 int OAIContestsApi::setDefaultServerValue(int serverIndex, const QString &operation, const QString &variable, const QString &value) {
     auto it = _serverConfigs.find(operation);
     if (it != _serverConfigs.end() && serverIndex < it.value().size()) {
@@ -61,9 +61,21 @@ int OAIContestsApi::setDefaultServerValue(int serverIndex, const QString &operat
     }
     return -3;
 }
+
+/**
+ * Sets the server index.
+ * @param operation The id to the target operation.
+ * @param serverIndex The server index.
+ */
 void OAIContestsApi::setServerIndex(const QString &operation, int serverIndex) {
     if (_serverIndices.contains(operation) && serverIndex < _serverConfigs.find(operation).value().size()) {
         _serverIndices[operation] = serverIndex;
+    }
+}
+
+void OAIContestsApi::setServerIndex(int serverIndex) {
+    for (auto keyIt = _serverIndices.keyBegin(); keyIt != _serverIndices.keyEnd(); keyIt++) {
+        setServerIndex(*keyIt, serverIndex);
     }
 }
 
@@ -97,13 +109,13 @@ void OAIContestsApi::setNetworkAccessManager(QNetworkAccessManager* manager) {
 }
 
 /**
-    * Appends a new ServerConfiguration to the config map for a specific operation.
-    * @param operation The id to the target operation.
-    * @param url A string that contains the URL of the server
-    * @param description A String that describes the server
-    * @param variables A map between a variable name and its value. The value is used for substitution in the server's URL template.
-    * returns the index of the new server config on success and -1 if the operation is not found
-    */
+ * Appends a new ServerConfiguration to the config map for a specific operation.
+ * @param operation The id to the target operation.
+ * @param url A string that contains the URL of the server
+ * @param description A String that describes the server
+ * @param variables A map between a variable name and its value. The value is used for substitution in the server's URL template.
+ * returns the index of the new server config on success and -1 if the operation is not found
+ */
 int OAIContestsApi::addServerConfiguration(const QString &operation, const QUrl &url, const QString &description, const QMap<QString, OAIServerVariable> &variables) {
     if (_serverConfigs.contains(operation)) {
         _serverConfigs[operation].append(OAIServerConfiguration(
@@ -117,11 +129,11 @@ int OAIContestsApi::addServerConfiguration(const QString &operation, const QUrl 
 }
 
 /**
-    * Appends a new ServerConfiguration to the config map for a all operations and sets the index to that server.
-    * @param url A string that contains the URL of the server
-    * @param description A String that describes the server
-    * @param variables A map between a variable name and its value. The value is used for substitution in the server's URL template.
-    */
+ * Appends a new ServerConfiguration to the config map for a all operations and sets the index to that server.
+ * @param url A string that contains the URL of the server
+ * @param description A String that describes the server
+ * @param variables A map between a variable name and its value. The value is used for substitution in the server's URL template.
+ */
 void OAIContestsApi::setNewServerForAllOperations(const QUrl &url, const QString &description, const QMap<QString, OAIServerVariable> &variables) {
     for (auto keyIt = _serverIndices.keyBegin(); keyIt != _serverIndices.keyEnd(); keyIt++) {
         setServerIndex(*keyIt, addServerConfiguration(*keyIt, url, description, variables));
@@ -129,11 +141,11 @@ void OAIContestsApi::setNewServerForAllOperations(const QUrl &url, const QString
 }
 
 /**
-    * Appends a new ServerConfiguration to the config map for an operations and sets the index to that server.
-    * @param URL A string that contains the URL of the server
-    * @param description A String that describes the server
-    * @param variables A map between a variable name and its value. The value is used for substitution in the server's URL template.
-    */
+ * Appends a new ServerConfiguration to the config map for an operations and sets the index to that server.
+ * @param URL A string that contains the URL of the server
+ * @param description A String that describes the server
+ * @param variables A map between a variable name and its value. The value is used for substitution in the server's URL template.
+ */
 void OAIContestsApi::setNewServer(const QString &operation, const QUrl &url, const QString &description, const QMap<QString, OAIServerVariable> &variables) {
     setServerIndex(operation, addServerConfiguration(operation, url, description, variables));
 }
@@ -307,32 +319,6 @@ void OAIContestsApi::contestEffectListCallback(OAIHttpRequestWorker *worker) {
         Q_EMIT contestEffectListSignal(output);
         Q_EMIT contestEffectListSignalFull(worker, output);
     } else {
-
-#if defined(_MSC_VER)
-// For MSVC
-#pragma warning(push)
-#pragma warning(disable : 4996)
-#elif defined(__clang__)
-// For Clang
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
-#elif defined(__GNUC__)
-// For GCC
-#pragma GCC diagnostic push
-#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
-#endif
-
-        Q_EMIT contestEffectListSignalE(output, error_type, error_str);
-        Q_EMIT contestEffectListSignalEFull(worker, error_type, error_str);
-
-#if defined(_MSC_VER)
-#pragma warning(pop)
-#elif defined(__clang__)
-#pragma clang diagnostic pop
-#elif defined(__GNUC__)
-#pragma GCC diagnostic pop
-#endif
-
         Q_EMIT contestEffectListSignalError(output, error_type, error_str);
         Q_EMIT contestEffectListSignalErrorFull(worker, error_type, error_str);
     }
@@ -396,32 +382,6 @@ void OAIContestsApi::contestEffectRetrieveCallback(OAIHttpRequestWorker *worker)
         Q_EMIT contestEffectRetrieveSignal(output);
         Q_EMIT contestEffectRetrieveSignalFull(worker, output);
     } else {
-
-#if defined(_MSC_VER)
-// For MSVC
-#pragma warning(push)
-#pragma warning(disable : 4996)
-#elif defined(__clang__)
-// For Clang
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
-#elif defined(__GNUC__)
-// For GCC
-#pragma GCC diagnostic push
-#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
-#endif
-
-        Q_EMIT contestEffectRetrieveSignalE(output, error_type, error_str);
-        Q_EMIT contestEffectRetrieveSignalEFull(worker, error_type, error_str);
-
-#if defined(_MSC_VER)
-#pragma warning(pop)
-#elif defined(__clang__)
-#pragma clang diagnostic pop
-#elif defined(__GNUC__)
-#pragma GCC diagnostic pop
-#endif
-
         Q_EMIT contestEffectRetrieveSignalError(output, error_type, error_str);
         Q_EMIT contestEffectRetrieveSignalErrorFull(worker, error_type, error_str);
     }
@@ -517,32 +477,6 @@ void OAIContestsApi::contestTypeListCallback(OAIHttpRequestWorker *worker) {
         Q_EMIT contestTypeListSignal(output);
         Q_EMIT contestTypeListSignalFull(worker, output);
     } else {
-
-#if defined(_MSC_VER)
-// For MSVC
-#pragma warning(push)
-#pragma warning(disable : 4996)
-#elif defined(__clang__)
-// For Clang
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
-#elif defined(__GNUC__)
-// For GCC
-#pragma GCC diagnostic push
-#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
-#endif
-
-        Q_EMIT contestTypeListSignalE(output, error_type, error_str);
-        Q_EMIT contestTypeListSignalEFull(worker, error_type, error_str);
-
-#if defined(_MSC_VER)
-#pragma warning(pop)
-#elif defined(__clang__)
-#pragma clang diagnostic pop
-#elif defined(__GNUC__)
-#pragma GCC diagnostic pop
-#endif
-
         Q_EMIT contestTypeListSignalError(output, error_type, error_str);
         Q_EMIT contestTypeListSignalErrorFull(worker, error_type, error_str);
     }
@@ -606,32 +540,6 @@ void OAIContestsApi::contestTypeRetrieveCallback(OAIHttpRequestWorker *worker) {
         Q_EMIT contestTypeRetrieveSignal(output);
         Q_EMIT contestTypeRetrieveSignalFull(worker, output);
     } else {
-
-#if defined(_MSC_VER)
-// For MSVC
-#pragma warning(push)
-#pragma warning(disable : 4996)
-#elif defined(__clang__)
-// For Clang
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
-#elif defined(__GNUC__)
-// For GCC
-#pragma GCC diagnostic push
-#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
-#endif
-
-        Q_EMIT contestTypeRetrieveSignalE(output, error_type, error_str);
-        Q_EMIT contestTypeRetrieveSignalEFull(worker, error_type, error_str);
-
-#if defined(_MSC_VER)
-#pragma warning(pop)
-#elif defined(__clang__)
-#pragma clang diagnostic pop
-#elif defined(__GNUC__)
-#pragma GCC diagnostic pop
-#endif
-
         Q_EMIT contestTypeRetrieveSignalError(output, error_type, error_str);
         Q_EMIT contestTypeRetrieveSignalErrorFull(worker, error_type, error_str);
     }
@@ -727,32 +635,6 @@ void OAIContestsApi::superContestEffectListCallback(OAIHttpRequestWorker *worker
         Q_EMIT superContestEffectListSignal(output);
         Q_EMIT superContestEffectListSignalFull(worker, output);
     } else {
-
-#if defined(_MSC_VER)
-// For MSVC
-#pragma warning(push)
-#pragma warning(disable : 4996)
-#elif defined(__clang__)
-// For Clang
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
-#elif defined(__GNUC__)
-// For GCC
-#pragma GCC diagnostic push
-#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
-#endif
-
-        Q_EMIT superContestEffectListSignalE(output, error_type, error_str);
-        Q_EMIT superContestEffectListSignalEFull(worker, error_type, error_str);
-
-#if defined(_MSC_VER)
-#pragma warning(pop)
-#elif defined(__clang__)
-#pragma clang diagnostic pop
-#elif defined(__GNUC__)
-#pragma GCC diagnostic pop
-#endif
-
         Q_EMIT superContestEffectListSignalError(output, error_type, error_str);
         Q_EMIT superContestEffectListSignalErrorFull(worker, error_type, error_str);
     }
@@ -816,42 +698,16 @@ void OAIContestsApi::superContestEffectRetrieveCallback(OAIHttpRequestWorker *wo
         Q_EMIT superContestEffectRetrieveSignal(output);
         Q_EMIT superContestEffectRetrieveSignalFull(worker, output);
     } else {
-
-#if defined(_MSC_VER)
-// For MSVC
-#pragma warning(push)
-#pragma warning(disable : 4996)
-#elif defined(__clang__)
-// For Clang
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
-#elif defined(__GNUC__)
-// For GCC
-#pragma GCC diagnostic push
-#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
-#endif
-
-        Q_EMIT superContestEffectRetrieveSignalE(output, error_type, error_str);
-        Q_EMIT superContestEffectRetrieveSignalEFull(worker, error_type, error_str);
-
-#if defined(_MSC_VER)
-#pragma warning(pop)
-#elif defined(__clang__)
-#pragma clang diagnostic pop
-#elif defined(__GNUC__)
-#pragma GCC diagnostic pop
-#endif
-
         Q_EMIT superContestEffectRetrieveSignalError(output, error_type, error_str);
         Q_EMIT superContestEffectRetrieveSignalErrorFull(worker, error_type, error_str);
     }
 }
 
-void OAIContestsApi::tokenAvailable(){
+void OAIContestsApi::tokenAvailable() {
 
     oauthToken token;
     switch (_OauthMethod) {
-    case 1: //implicit flow
+    case OauthMethod::ImplicitFlow:
         token = _implicitFlow.getToken(_latestScope.join(" "));
         if(token.isValid()){
             _latestInput.headers.insert("Authorization", "Bearer " + token.getToken());
@@ -861,7 +717,7 @@ void OAIContestsApi::tokenAvailable(){
             qDebug() << "Could not retrieve a valid token";
         }
         break;
-    case 2: //authorization flow
+    case OauthMethod::AuthorizationFlow:
         token = _authFlow.getToken(_latestScope.join(" "));
         if(token.isValid()){
             _latestInput.headers.insert("Authorization", "Bearer " + token.getToken());
@@ -871,7 +727,7 @@ void OAIContestsApi::tokenAvailable(){
             qDebug() << "Could not retrieve a valid token";
         }
         break;
-    case 3: //client credentials flow
+    case OauthMethod::ClientCredentialsFlow:
         token = _credentialFlow.getToken(_latestScope.join(" "));
         if(token.isValid()){
             _latestInput.headers.insert("Authorization", "Bearer " + token.getToken());
@@ -881,7 +737,7 @@ void OAIContestsApi::tokenAvailable(){
             qDebug() << "Could not retrieve a valid token";
         }
         break;
-    case 4: //resource owner password flow
+    case OauthMethod::ResourceOwnerPasswordFlow:
         token = _passwordFlow.getToken(_latestScope.join(" "));
         if(token.isValid()){
             _latestInput.headers.insert("Authorization", "Bearer " + token.getToken());

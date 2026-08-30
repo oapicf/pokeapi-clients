@@ -10,7 +10,7 @@ import model.PaginatedBerrySummaryList
 /**
   * Provides a default implementation for [[BerriesApi]].
   */
-@javax.annotation.Generated(value = Array("org.openapitools.codegen.languages.ScalaPlayFrameworkServerCodegen"), date = "2026-02-07T15:28:57.811621661Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@javax.annotation.Generated(value = Array("org.openapitools.codegen.languages.ScalaPlayFrameworkServerCodegen"), date = "2026-08-30T02:00:26.523807909Z[Etc/UTC]", comments = "Generator version: 7.24.0")
 class BerriesApiImpl extends BerriesApi {
   /**
     * @inheritdoc

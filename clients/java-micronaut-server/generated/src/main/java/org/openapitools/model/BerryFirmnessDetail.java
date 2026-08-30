@@ -37,7 +37,7 @@ import io.swagger.v3.oas.annotations.media.Schema;
   BerryFirmnessDetail.JSON_PROPERTY_NAMES
 })
 @JsonTypeName("BerryFirmnessDetail")
-@Generated(value="org.openapitools.codegen.languages.JavaMicronautServerCodegen", date="2026-02-07T15:23:03.167972722Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@Generated(value="org.openapitools.codegen.languages.JavaMicronautServerCodegen", date="2026-08-30T01:55:54.631003115Z[Etc/UTC]", comments = "Generator version: 7.24.0")
 @Introspected
 public class BerryFirmnessDetail {
     public static final String JSON_PROPERTY_ID = "id";
@@ -95,42 +95,16 @@ public class BerryFirmnessDetail {
         this.name = name;
     }
 
-    public BerryFirmnessDetail berries(List<@Valid BerrySummary> berries) {
-        this.berries = berries;
-        return this;
-    }
-
-    public BerryFirmnessDetail addBerriesItem(BerrySummary berriesItem) {
-        this.berries.add(berriesItem);
-        return this;
-    }
-
     /**
      * Get berries
      * @return berries
      */
     @NotNull
-    @Schema(name = "berries", requiredMode = Schema.RequiredMode.REQUIRED)
+    @Schema(name = "berries", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
     @JsonProperty(JSON_PROPERTY_BERRIES)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public List<@Valid BerrySummary> getBerries() {
         return berries;
-    }
-
-    @JsonProperty(JSON_PROPERTY_BERRIES)
-    @JsonInclude(value = JsonInclude.Include.ALWAYS)
-    public void setBerries(List<@Valid BerrySummary> berries) {
-        this.berries = berries;
-    }
-
-    public BerryFirmnessDetail names(List<@Valid BerryFirmnessName> names) {
-        this.names = names;
-        return this;
-    }
-
-    public BerryFirmnessDetail addNamesItem(BerryFirmnessName namesItem) {
-        this.names.add(namesItem);
-        return this;
     }
 
     /**
@@ -138,17 +112,11 @@ public class BerryFirmnessDetail {
      * @return names
      */
     @NotNull
-    @Schema(name = "names", requiredMode = Schema.RequiredMode.REQUIRED)
+    @Schema(name = "names", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
     @JsonProperty(JSON_PROPERTY_NAMES)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public List<@Valid BerryFirmnessName> getNames() {
         return names;
-    }
-
-    @JsonProperty(JSON_PROPERTY_NAMES)
-    @JsonInclude(value = JsonInclude.Include.ALWAYS)
-    public void setNames(List<@Valid BerryFirmnessName> names) {
-        this.names = names;
     }
 
     @Override
@@ -188,10 +156,7 @@ public class BerryFirmnessDetail {
      * (except the first line).
      */
     private String toIndentedString(Object o) {
-        if (o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
+        return o == null ? "null" : o.toString().replace("\n", "\n    ");
     }
 
 }

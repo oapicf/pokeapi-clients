@@ -86,7 +86,7 @@ AbilityChangeEffectText::getEffect()
 }
 
 void
-AbilityChangeEffectText::setEffect(std::string  effect)
+AbilityChangeEffectText::setEffect(std::string effect)
 {
 	this->effect = effect;
 }
@@ -98,7 +98,7 @@ AbilityChangeEffectText::getLanguage()
 }
 
 void
-AbilityChangeEffectText::setLanguage(LanguageSummary  language)
+AbilityChangeEffectText::setLanguage(LanguageSummary language)
 {
 	this->language = language;
 }

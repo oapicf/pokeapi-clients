@@ -26,6 +26,8 @@ ContestTypeSummary::ContestTypeSummary()
     
 }
 
+ContestTypeSummary::~ContestTypeSummary() = default;
+
 void ContestTypeSummary::validate() const
 {
     std::stringstream msg;

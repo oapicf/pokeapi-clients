@@ -12,6 +12,11 @@
 package openapi
 
 
+import (
+	"encoding/json"
+	"fmt"
+)
+
 
 
 type PokemonFormDetail struct {
@@ -44,19 +49,151 @@ type PokemonFormDetail struct {
 
 	Types []PokemonDetailTypesInner `json:"types"`
 }
+// UnmarshalJSON validates required property keys then unmarshals into PokemonFormDetail
+func (o *PokemonFormDetail) UnmarshalJSON(data []byte) (err error) {
+	// Presence is checked against required fields that exist on this struct,
+	// including fields promoted from embedded allOf parents.
+	requiredProperties := []string{
+		"name",
+		"form_name",
+		"pokemon",
+		"sprites",
+		"version_group",
+	}
 
-// AssertPokemonFormDetailRequired checks if the required fields are not zero-ed
+	requiredNullableProperties := map[string]bool{
+		"name": false,
+		"form_name": false,
+		"pokemon": false,
+		"sprites": false,
+		"version_group": false,
+	}
+
+	allowedJsonKeys := map[string]struct{}{
+		"id": {},
+		"name": {},
+		"order": {},
+		"form_order": {},
+		"is_default": {},
+		"is_battle_only": {},
+		"is_mega": {},
+		"form_name": {},
+		"pokemon": {},
+		"sprites": {},
+		"version_group": {},
+		"form_names": {},
+		"names": {},
+		"types": {},
+	}
+
+	allProperties := make(map[string]json.RawMessage)
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err
+	}
+
+	for _, requiredProperty := range requiredProperties {
+		value, exists := allProperties[requiredProperty]
+		if !exists {
+			return &RequiredError{Field: requiredProperty}
+		}
+		if string(value) == "null" && !requiredNullableProperties[requiredProperty] {
+			return &RequiredError{Field: requiredProperty}
+		}
+	}
+
+	for key := range allProperties {
+		if _, exists := allowedJsonKeys[key]; !exists {
+			return fmt.Errorf("json: unknown field %q", key)
+		}
+	}
+
+	var decoded PokemonFormDetail
+
+	if value, exists := allProperties["id"]; exists {
+		if err = json.Unmarshal(value, &decoded.Id); err != nil {
+			return err
+		}
+	}
+	if value, exists := allProperties["name"]; exists {
+		if err = json.Unmarshal(value, &decoded.Name); err != nil {
+			return err
+		}
+	}
+	if value, exists := allProperties["order"]; exists {
+		if err = json.Unmarshal(value, &decoded.Order); err != nil {
+			return err
+		}
+	}
+	if value, exists := allProperties["form_order"]; exists {
+		if err = json.Unmarshal(value, &decoded.FormOrder); err != nil {
+			return err
+		}
+	}
+	if value, exists := allProperties["is_default"]; exists {
+		if err = json.Unmarshal(value, &decoded.IsDefault); err != nil {
+			return err
+		}
+	}
+	if value, exists := allProperties["is_battle_only"]; exists {
+		if err = json.Unmarshal(value, &decoded.IsBattleOnly); err != nil {
+			return err
+		}
+	}
+	if value, exists := allProperties["is_mega"]; exists {
+		if err = json.Unmarshal(value, &decoded.IsMega); err != nil {
+			return err
+		}
+	}
+	if value, exists := allProperties["form_name"]; exists {
+		if err = json.Unmarshal(value, &decoded.FormName); err != nil {
+			return err
+		}
+	}
+	if value, exists := allProperties["pokemon"]; exists {
+		if err = json.Unmarshal(value, &decoded.Pokemon); err != nil {
+			return err
+		}
+	}
+	if value, exists := allProperties["sprites"]; exists {
+		if err = json.Unmarshal(value, &decoded.Sprites); err != nil {
+			return err
+		}
+	}
+	if value, exists := allProperties["version_group"]; exists {
+		if err = json.Unmarshal(value, &decoded.VersionGroup); err != nil {
+			return err
+		}
+	}
+	if value, exists := allProperties["form_names"]; exists {
+		if err = json.Unmarshal(value, &decoded.FormNames); err != nil {
+			return err
+		}
+	}
+	if value, exists := allProperties["names"]; exists {
+		if err = json.Unmarshal(value, &decoded.Names); err != nil {
+			return err
+		}
+	}
+	if value, exists := allProperties["types"]; exists {
+		if err = json.Unmarshal(value, &decoded.Types); err != nil {
+			return err
+		}
+	}
+
+	*o = decoded
+
+	return nil
+}
+
+// AssertPokemonFormDetailRequired checks complex required fields (models, arrays, maps) and embedded parents.
+// Primitive required fields are validated for JSON request bodies in UnmarshalJSON so zero values remain valid.
 func AssertPokemonFormDetailRequired(obj PokemonFormDetail) error {
 	elements := map[string]interface{}{
-		"id": obj.Id,
-		"name": obj.Name,
-		"form_name": obj.FormName,
 		"pokemon": obj.Pokemon,
-		"sprites": obj.Sprites,
 		"version_group": obj.VersionGroup,
-		"form_names": obj.FormNames,
-		"names": obj.Names,
-		"types": obj.Types,
 	}
 	for name, el := range elements {
 		if isZero := IsZeroValue(el); isZero {
@@ -70,21 +207,6 @@ func AssertPokemonFormDetailRequired(obj PokemonFormDetail) error {
 	if err := AssertVersionGroupSummaryRequired(obj.VersionGroup); err != nil {
 		return err
 	}
-	for _, el := range obj.FormNames {
-		if err := AssertPokemonFormDetailFormNamesInnerRequired(el); err != nil {
-			return err
-		}
-	}
-	for _, el := range obj.Names {
-		if err := AssertPokemonFormDetailFormNamesInnerRequired(el); err != nil {
-			return err
-		}
-	}
-	for _, el := range obj.Types {
-		if err := AssertPokemonDetailTypesInnerRequired(el); err != nil {
-			return err
-		}
-	}
 	return nil
 }
 
@@ -95,21 +217,6 @@ func AssertPokemonFormDetailConstraints(obj PokemonFormDetail) error {
 	}
 	if err := AssertVersionGroupSummaryConstraints(obj.VersionGroup); err != nil {
 		return err
-	}
-	for _, el := range obj.FormNames {
-		if err := AssertPokemonFormDetailFormNamesInnerConstraints(el); err != nil {
-			return err
-		}
-	}
-	for _, el := range obj.Names {
-		if err := AssertPokemonFormDetailFormNamesInnerConstraints(el); err != nil {
-			return err
-		}
-	}
-	for _, el := range obj.Types {
-		if err := AssertPokemonDetailTypesInnerConstraints(el); err != nil {
-			return err
-		}
 	}
 	return nil
 }

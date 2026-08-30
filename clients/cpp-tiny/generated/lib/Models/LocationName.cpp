@@ -86,7 +86,7 @@ LocationName::getName()
 }
 
 void
-LocationName::setName(std::string  name)
+LocationName::setName(std::string name)
 {
 	this->name = name;
 }
@@ -98,7 +98,7 @@ LocationName::getLanguage()
 }
 
 void
-LocationName::setLanguage(LanguageSummary  language)
+LocationName::setLanguage(LanguageSummary language)
 {
 	this->language = language;
 }

@@ -106,13 +106,13 @@ export interface TypeDetail {
      * @type {Array<TypeDetailPastDamageRelationsInner>}
      * @memberof TypeDetail
      */
-    pastDamageRelations: Array<TypeDetailPastDamageRelationsInner>;
+    readonly pastDamageRelations: Array<TypeDetailPastDamageRelationsInner>;
     /**
      * 
      * @type {Array<TypeGameIndex>}
      * @memberof TypeDetail
      */
-    gameIndices: Array<TypeGameIndex>;
+    readonly gameIndices: Array<TypeGameIndex>;
     /**
      * 
      * @type {GenerationSummary}
@@ -130,19 +130,19 @@ export interface TypeDetail {
      * @type {Array<AbilityName>}
      * @memberof TypeDetail
      */
-    names: Array<AbilityName>;
+    readonly names: Array<AbilityName>;
     /**
      * 
      * @type {Array<TypeDetailPokemonInner>}
      * @memberof TypeDetail
      */
-    pokemon: Array<TypeDetailPokemonInner>;
+    readonly pokemon: Array<TypeDetailPokemonInner>;
     /**
      * 
      * @type {Array<MoveSummary>}
      * @memberof TypeDetail
      */
-    moves: Array<MoveSummary>;
+    readonly moves: Array<MoveSummary>;
     /**
      * 
      * @type {{ [key: string]: { [key: string]: TypeDetailSpritesValueValue; }; }}
@@ -157,11 +157,11 @@ export interface TypeDetail {
 export function instanceOfTypeDetail(value: object): value is TypeDetail {
     if (!('id' in value) || value['id'] === undefined) return false;
     if (!('name' in value) || value['name'] === undefined) return false;
-    if (!('damageRelations' in value) || value['damageRelations'] === undefined) return false;
-    if (!('pastDamageRelations' in value) || value['pastDamageRelations'] === undefined) return false;
-    if (!('gameIndices' in value) || value['gameIndices'] === undefined) return false;
+    if ((!('damageRelations' in (value as Record<string, any>)) && !('damage_relations' in (value as Record<string, any>))) || ((value as Record<string, any>)['damageRelations'] === undefined && (value as Record<string, any>)['damage_relations'] === undefined)) return false;
+    if ((!('pastDamageRelations' in (value as Record<string, any>)) && !('past_damage_relations' in (value as Record<string, any>))) || ((value as Record<string, any>)['pastDamageRelations'] === undefined && (value as Record<string, any>)['past_damage_relations'] === undefined)) return false;
+    if ((!('gameIndices' in (value as Record<string, any>)) && !('game_indices' in (value as Record<string, any>))) || ((value as Record<string, any>)['gameIndices'] === undefined && (value as Record<string, any>)['game_indices'] === undefined)) return false;
     if (!('generation' in value) || value['generation'] === undefined) return false;
-    if (!('moveDamageClass' in value) || value['moveDamageClass'] === undefined) return false;
+    if ((!('moveDamageClass' in (value as Record<string, any>)) && !('move_damage_class' in (value as Record<string, any>))) || ((value as Record<string, any>)['moveDamageClass'] === undefined && (value as Record<string, any>)['move_damage_class'] === undefined)) return false;
     if (!('names' in value) || value['names'] === undefined) return false;
     if (!('pokemon' in value) || value['pokemon'] === undefined) return false;
     if (!('moves' in value) || value['moves'] === undefined) return false;
@@ -197,7 +197,7 @@ export function TypeDetailToJSON(json: any): TypeDetail {
     return TypeDetailToJSONTyped(json, false);
 }
 
-export function TypeDetailToJSONTyped(value?: Omit<TypeDetail, 'id'|'sprites'> | null, ignoreDiscriminator: boolean = false): any {
+export function TypeDetailToJSONTyped(value?: Omit<TypeDetail, 'id'|'pastDamageRelations'|'gameIndices'|'names'|'pokemon'|'moves'|'sprites'> | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
@@ -206,13 +206,8 @@ export function TypeDetailToJSONTyped(value?: Omit<TypeDetail, 'id'|'sprites'> |
         
         'name': value['name'],
         'damage_relations': TypeDetailDamageRelationsToJSON(value['damageRelations']),
-        'past_damage_relations': ((value['pastDamageRelations'] as Array<any>).map(TypeDetailPastDamageRelationsInnerToJSON)),
-        'game_indices': ((value['gameIndices'] as Array<any>).map(TypeGameIndexToJSON)),
         'generation': GenerationSummaryToJSON(value['generation']),
         'move_damage_class': MoveDamageClassSummaryToJSON(value['moveDamageClass']),
-        'names': ((value['names'] as Array<any>).map(AbilityNameToJSON)),
-        'pokemon': ((value['pokemon'] as Array<any>).map(TypeDetailPokemonInnerToJSON)),
-        'moves': ((value['moves'] as Array<any>).map(MoveSummaryToJSON)),
     };
 }
 

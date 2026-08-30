@@ -12,36 +12,47 @@
  * Do not edit the class manually.
  */
 
-
 import * as runtime from '../runtime';
-import type {
-  GenerationDetail,
-  PaginatedGenerationSummaryList,
-  PaginatedPokedexSummaryList,
-  PaginatedVersionGroupSummaryList,
-  PaginatedVersionSummaryList,
-  PokedexDetail,
-  VersionDetail,
-  VersionGroupDetail,
-} from '../models/index';
 import {
+    type GenerationDetail,
     GenerationDetailFromJSON,
     GenerationDetailToJSON,
+} from '../models/GenerationDetail';
+import {
+    type PaginatedGenerationSummaryList,
     PaginatedGenerationSummaryListFromJSON,
     PaginatedGenerationSummaryListToJSON,
+} from '../models/PaginatedGenerationSummaryList';
+import {
+    type PaginatedPokedexSummaryList,
     PaginatedPokedexSummaryListFromJSON,
     PaginatedPokedexSummaryListToJSON,
+} from '../models/PaginatedPokedexSummaryList';
+import {
+    type PaginatedVersionGroupSummaryList,
     PaginatedVersionGroupSummaryListFromJSON,
     PaginatedVersionGroupSummaryListToJSON,
+} from '../models/PaginatedVersionGroupSummaryList';
+import {
+    type PaginatedVersionSummaryList,
     PaginatedVersionSummaryListFromJSON,
     PaginatedVersionSummaryListToJSON,
+} from '../models/PaginatedVersionSummaryList';
+import {
+    type PokedexDetail,
     PokedexDetailFromJSON,
     PokedexDetailToJSON,
+} from '../models/PokedexDetail';
+import {
+    type VersionDetail,
     VersionDetailFromJSON,
     VersionDetailToJSON,
+} from '../models/VersionDetail';
+import {
+    type VersionGroupDetail,
     VersionGroupDetailFromJSON,
     VersionGroupDetailToJSON,
-} from '../models/index';
+} from '../models/VersionGroupDetail';
 
 export interface GenerationListRequest {
     limit?: number;
@@ -89,10 +100,9 @@ export interface VersionRetrieveRequest {
 export class GamesApi extends runtime.BaseAPI {
 
     /**
-     * A generation is a grouping of the Pokémon games that separates them based on the Pokémon they include. In each generation, a new set of Pokémon, Moves, Abilities and Types that did not exist in the previous generation are released.
-     * List genrations
+     * Creates request options for generationList without sending the request
      */
-    async generationListRaw(requestParameters: GenerationListRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PaginatedGenerationSummaryList>> {
+    async generationListRequestOpts(requestParameters: GenerationListRequest): Promise<runtime.RequestOpts> {
         const queryParameters: any = {};
 
         if (requestParameters['limit'] != null) {
@@ -115,12 +125,21 @@ export class GamesApi extends runtime.BaseAPI {
 
         let urlPath = `/api/v2/generation/`;
 
-        const response = await this.request({
+        return {
             path: urlPath,
             method: 'GET',
             headers: headerParameters,
             query: queryParameters,
-        }, initOverrides);
+        };
+    }
+
+    /**
+     * A generation is a grouping of the Pokémon games that separates them based on the Pokémon they include. In each generation, a new set of Pokémon, Moves, Abilities and Types that did not exist in the previous generation are released.
+     * List genrations
+     */
+    async generationListRaw(requestParameters: GenerationListRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PaginatedGenerationSummaryList>> {
+        const requestOptions = await this.generationListRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => PaginatedGenerationSummaryListFromJSON(jsonValue));
     }
@@ -135,10 +154,9 @@ export class GamesApi extends runtime.BaseAPI {
     }
 
     /**
-     * A generation is a grouping of the Pokémon games that separates them based on the Pokémon they include. In each generation, a new set of Pokémon, Moves, Abilities and Types that did not exist in the previous generation are released.
-     * Get genration
+     * Creates request options for generationRetrieve without sending the request
      */
-    async generationRetrieveRaw(requestParameters: GenerationRetrieveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GenerationDetail>> {
+    async generationRetrieveRequestOpts(requestParameters: GenerationRetrieveRequest): Promise<runtime.RequestOpts> {
         if (requestParameters['id'] == null) {
             throw new runtime.RequiredError(
                 'id',
@@ -155,14 +173,23 @@ export class GamesApi extends runtime.BaseAPI {
         }
 
         let urlPath = `/api/v2/generation/{id}/`;
-        urlPath = urlPath.replace(`{${"id"}}`, encodeURIComponent(String(requestParameters['id'])));
+        urlPath = urlPath.replace('{id}', encodeURIComponent(String(requestParameters['id'])));
 
-        const response = await this.request({
+        return {
             path: urlPath,
             method: 'GET',
             headers: headerParameters,
             query: queryParameters,
-        }, initOverrides);
+        };
+    }
+
+    /**
+     * A generation is a grouping of the Pokémon games that separates them based on the Pokémon they include. In each generation, a new set of Pokémon, Moves, Abilities and Types that did not exist in the previous generation are released.
+     * Get genration
+     */
+    async generationRetrieveRaw(requestParameters: GenerationRetrieveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GenerationDetail>> {
+        const requestOptions = await this.generationRetrieveRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => GenerationDetailFromJSON(jsonValue));
     }
@@ -177,10 +204,9 @@ export class GamesApi extends runtime.BaseAPI {
     }
 
     /**
-     * A Pokédex is a handheld electronic encyclopedia device; one which is capable of recording and retaining information of the various Pokémon in a given region with the exception of the national dex and some smaller dexes related to portions of a region. See [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Pokedex) for greater detail.
-     * List pokedex
+     * Creates request options for pokedexList without sending the request
      */
-    async pokedexListRaw(requestParameters: PokedexListRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PaginatedPokedexSummaryList>> {
+    async pokedexListRequestOpts(requestParameters: PokedexListRequest): Promise<runtime.RequestOpts> {
         const queryParameters: any = {};
 
         if (requestParameters['limit'] != null) {
@@ -203,12 +229,21 @@ export class GamesApi extends runtime.BaseAPI {
 
         let urlPath = `/api/v2/pokedex/`;
 
-        const response = await this.request({
+        return {
             path: urlPath,
             method: 'GET',
             headers: headerParameters,
             query: queryParameters,
-        }, initOverrides);
+        };
+    }
+
+    /**
+     * A Pokédex is a handheld electronic encyclopedia device; one which is capable of recording and retaining information of the various Pokémon in a given region with the exception of the national dex and some smaller dexes related to portions of a region. See [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Pokedex) for greater detail.
+     * List pokedex
+     */
+    async pokedexListRaw(requestParameters: PokedexListRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PaginatedPokedexSummaryList>> {
+        const requestOptions = await this.pokedexListRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => PaginatedPokedexSummaryListFromJSON(jsonValue));
     }
@@ -223,10 +258,9 @@ export class GamesApi extends runtime.BaseAPI {
     }
 
     /**
-     * A Pokédex is a handheld electronic encyclopedia device; one which is capable of recording and retaining information of the various Pokémon in a given region with the exception of the national dex and some smaller dexes related to portions of a region. See [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Pokedex) for greater detail.
-     * Get pokedex
+     * Creates request options for pokedexRetrieve without sending the request
      */
-    async pokedexRetrieveRaw(requestParameters: PokedexRetrieveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PokedexDetail>> {
+    async pokedexRetrieveRequestOpts(requestParameters: PokedexRetrieveRequest): Promise<runtime.RequestOpts> {
         if (requestParameters['id'] == null) {
             throw new runtime.RequiredError(
                 'id',
@@ -243,14 +277,23 @@ export class GamesApi extends runtime.BaseAPI {
         }
 
         let urlPath = `/api/v2/pokedex/{id}/`;
-        urlPath = urlPath.replace(`{${"id"}}`, encodeURIComponent(String(requestParameters['id'])));
+        urlPath = urlPath.replace('{id}', encodeURIComponent(String(requestParameters['id'])));
 
-        const response = await this.request({
+        return {
             path: urlPath,
             method: 'GET',
             headers: headerParameters,
             query: queryParameters,
-        }, initOverrides);
+        };
+    }
+
+    /**
+     * A Pokédex is a handheld electronic encyclopedia device; one which is capable of recording and retaining information of the various Pokémon in a given region with the exception of the national dex and some smaller dexes related to portions of a region. See [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Pokedex) for greater detail.
+     * Get pokedex
+     */
+    async pokedexRetrieveRaw(requestParameters: PokedexRetrieveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PokedexDetail>> {
+        const requestOptions = await this.pokedexRetrieveRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => PokedexDetailFromJSON(jsonValue));
     }
@@ -265,10 +308,9 @@ export class GamesApi extends runtime.BaseAPI {
     }
 
     /**
-     * Version groups categorize highly similar versions of the games.
-     * List version groups
+     * Creates request options for versionGroupList without sending the request
      */
-    async versionGroupListRaw(requestParameters: VersionGroupListRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PaginatedVersionGroupSummaryList>> {
+    async versionGroupListRequestOpts(requestParameters: VersionGroupListRequest): Promise<runtime.RequestOpts> {
         const queryParameters: any = {};
 
         if (requestParameters['limit'] != null) {
@@ -291,12 +333,21 @@ export class GamesApi extends runtime.BaseAPI {
 
         let urlPath = `/api/v2/version-group/`;
 
-        const response = await this.request({
+        return {
             path: urlPath,
             method: 'GET',
             headers: headerParameters,
             query: queryParameters,
-        }, initOverrides);
+        };
+    }
+
+    /**
+     * Version groups categorize highly similar versions of the games.
+     * List version groups
+     */
+    async versionGroupListRaw(requestParameters: VersionGroupListRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PaginatedVersionGroupSummaryList>> {
+        const requestOptions = await this.versionGroupListRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => PaginatedVersionGroupSummaryListFromJSON(jsonValue));
     }
@@ -311,10 +362,9 @@ export class GamesApi extends runtime.BaseAPI {
     }
 
     /**
-     * Version groups categorize highly similar versions of the games.
-     * Get version group
+     * Creates request options for versionGroupRetrieve without sending the request
      */
-    async versionGroupRetrieveRaw(requestParameters: VersionGroupRetrieveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<VersionGroupDetail>> {
+    async versionGroupRetrieveRequestOpts(requestParameters: VersionGroupRetrieveRequest): Promise<runtime.RequestOpts> {
         if (requestParameters['id'] == null) {
             throw new runtime.RequiredError(
                 'id',
@@ -331,14 +381,23 @@ export class GamesApi extends runtime.BaseAPI {
         }
 
         let urlPath = `/api/v2/version-group/{id}/`;
-        urlPath = urlPath.replace(`{${"id"}}`, encodeURIComponent(String(requestParameters['id'])));
+        urlPath = urlPath.replace('{id}', encodeURIComponent(String(requestParameters['id'])));
 
-        const response = await this.request({
+        return {
             path: urlPath,
             method: 'GET',
             headers: headerParameters,
             query: queryParameters,
-        }, initOverrides);
+        };
+    }
+
+    /**
+     * Version groups categorize highly similar versions of the games.
+     * Get version group
+     */
+    async versionGroupRetrieveRaw(requestParameters: VersionGroupRetrieveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<VersionGroupDetail>> {
+        const requestOptions = await this.versionGroupRetrieveRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => VersionGroupDetailFromJSON(jsonValue));
     }
@@ -353,10 +412,9 @@ export class GamesApi extends runtime.BaseAPI {
     }
 
     /**
-     * Versions of the games, e.g., Red, Blue or Yellow.
-     * List versions
+     * Creates request options for versionList without sending the request
      */
-    async versionListRaw(requestParameters: VersionListRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PaginatedVersionSummaryList>> {
+    async versionListRequestOpts(requestParameters: VersionListRequest): Promise<runtime.RequestOpts> {
         const queryParameters: any = {};
 
         if (requestParameters['limit'] != null) {
@@ -379,12 +437,21 @@ export class GamesApi extends runtime.BaseAPI {
 
         let urlPath = `/api/v2/version/`;
 
-        const response = await this.request({
+        return {
             path: urlPath,
             method: 'GET',
             headers: headerParameters,
             query: queryParameters,
-        }, initOverrides);
+        };
+    }
+
+    /**
+     * Versions of the games, e.g., Red, Blue or Yellow.
+     * List versions
+     */
+    async versionListRaw(requestParameters: VersionListRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PaginatedVersionSummaryList>> {
+        const requestOptions = await this.versionListRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => PaginatedVersionSummaryListFromJSON(jsonValue));
     }
@@ -399,10 +466,9 @@ export class GamesApi extends runtime.BaseAPI {
     }
 
     /**
-     * Versions of the games, e.g., Red, Blue or Yellow.
-     * Get version
+     * Creates request options for versionRetrieve without sending the request
      */
-    async versionRetrieveRaw(requestParameters: VersionRetrieveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<VersionDetail>> {
+    async versionRetrieveRequestOpts(requestParameters: VersionRetrieveRequest): Promise<runtime.RequestOpts> {
         if (requestParameters['id'] == null) {
             throw new runtime.RequiredError(
                 'id',
@@ -419,14 +485,23 @@ export class GamesApi extends runtime.BaseAPI {
         }
 
         let urlPath = `/api/v2/version/{id}/`;
-        urlPath = urlPath.replace(`{${"id"}}`, encodeURIComponent(String(requestParameters['id'])));
+        urlPath = urlPath.replace('{id}', encodeURIComponent(String(requestParameters['id'])));
 
-        const response = await this.request({
+        return {
             path: urlPath,
             method: 'GET',
             headers: headerParameters,
             query: queryParameters,
-        }, initOverrides);
+        };
+    }
+
+    /**
+     * Versions of the games, e.g., Red, Blue or Yellow.
+     * Get version
+     */
+    async versionRetrieveRaw(requestParameters: VersionRetrieveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<VersionDetail>> {
+        const requestOptions = await this.versionRetrieveRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => VersionDetailFromJSON(jsonValue));
     }

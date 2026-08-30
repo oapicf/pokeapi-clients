@@ -47,7 +47,7 @@ class LanguageDetail
      * @var int|null
      * @SerializedName("id")
      * @Type("int")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Type("int")]
     protected ?int $id = null;
@@ -56,7 +56,7 @@ class LanguageDetail
      * @var string|null
      * @SerializedName("name")
      * @Type("string")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Type("string")]
     #[Assert\Length(max: 100)]
@@ -66,7 +66,7 @@ class LanguageDetail
      * @var bool|null
      * @SerializedName("official")
      * @Type("bool")
-    */
+     */
     #[Assert\Type("bool")]
     protected ?bool $official = null;
 
@@ -74,7 +74,7 @@ class LanguageDetail
      * @var string|null
      * @SerializedName("iso639")
      * @Type("string")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Type("string")]
     #[Assert\Length(max: 10)]
@@ -84,7 +84,7 @@ class LanguageDetail
      * @var string|null
      * @SerializedName("iso3166")
      * @Type("string")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Type("string")]
     #[Assert\Length(max: 2)]
@@ -94,7 +94,7 @@ class LanguageDetail
      * @var LanguageName[]|null
      * @SerializedName("names")
      * @Type("array<OpenAPI\Server\Model\LanguageName>")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Valid]
     #[Assert\All([
@@ -129,12 +129,12 @@ class LanguageDetail
     }
 
     /**
-    * Sets id.
-    *
-    * @param int|null $id
-    *
-    * @return $this
-    */
+     * Sets id.
+     *
+     * @param int|null $id
+     *
+     * @return $this
+     */
     public function setId(?int $id): self
     {
         $this->id = $id;
@@ -156,12 +156,12 @@ class LanguageDetail
     }
 
     /**
-    * Sets name.
-    *
-    * @param string|null $name
-    *
-    * @return $this
-    */
+     * Sets name.
+     *
+     * @param string|null $name
+     *
+     * @return $this
+     */
     public function setName(?string $name): self
     {
         $this->name = $name;
@@ -183,12 +183,12 @@ class LanguageDetail
     }
 
     /**
-    * Sets official.
-    *
-    * @param bool|null $official
-    *
-    * @return $this
-    */
+     * Sets official.
+     *
+     * @param bool|null $official
+     *
+     * @return $this
+     */
     public function setOfficial(?bool $official = null): self
     {
         $this->official = $official;
@@ -210,12 +210,12 @@ class LanguageDetail
     }
 
     /**
-    * Sets iso639.
-    *
-    * @param string|null $iso639
-    *
-    * @return $this
-    */
+     * Sets iso639.
+     *
+     * @param string|null $iso639
+     *
+     * @return $this
+     */
     public function setIso639(?string $iso639): self
     {
         $this->iso639 = $iso639;
@@ -237,12 +237,12 @@ class LanguageDetail
     }
 
     /**
-    * Sets iso3166.
-    *
-    * @param string|null $iso3166
-    *
-    * @return $this
-    */
+     * Sets iso3166.
+     *
+     * @param string|null $iso3166
+     *
+     * @return $this
+     */
     public function setIso3166(?string $iso3166): self
     {
         $this->iso3166 = $iso3166;
@@ -264,12 +264,12 @@ class LanguageDetail
     }
 
     /**
-    * Sets names.
-    *
-    * @param LanguageName[]|null $names
-    *
-    * @return $this
-    */
+     * Sets names.
+     *
+     * @param LanguageName[]|null $names
+     *
+     * @return $this
+     */
     public function setNames(?array $names): self
     {
         $this->names = $names;

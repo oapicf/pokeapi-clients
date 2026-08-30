@@ -144,7 +144,7 @@ PaginatedVersionGroupSummaryList::getCount()
 }
 
 void
-PaginatedVersionGroupSummaryList::setCount(int  count)
+PaginatedVersionGroupSummaryList::setCount(int count)
 {
 	this->count = count;
 }
@@ -156,7 +156,7 @@ PaginatedVersionGroupSummaryList::getNext()
 }
 
 void
-PaginatedVersionGroupSummaryList::setNext(std::string  next)
+PaginatedVersionGroupSummaryList::setNext(std::string next)
 {
 	this->next = next;
 }
@@ -168,7 +168,7 @@ PaginatedVersionGroupSummaryList::getPrevious()
 }
 
 void
-PaginatedVersionGroupSummaryList::setPrevious(std::string  previous)
+PaginatedVersionGroupSummaryList::setPrevious(std::string previous)
 {
 	this->previous = previous;
 }
@@ -180,7 +180,7 @@ PaginatedVersionGroupSummaryList::getResults()
 }
 
 void
-PaginatedVersionGroupSummaryList::setResults(std::list <VersionGroupSummary> results)
+PaginatedVersionGroupSummaryList::setResults(std::list<VersionGroupSummary> results)
 {
 	this->results = results;
 }

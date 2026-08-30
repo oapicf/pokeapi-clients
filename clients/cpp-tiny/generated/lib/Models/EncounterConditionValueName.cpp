@@ -86,7 +86,7 @@ EncounterConditionValueName::getName()
 }
 
 void
-EncounterConditionValueName::setName(std::string  name)
+EncounterConditionValueName::setName(std::string name)
 {
 	this->name = name;
 }
@@ -98,7 +98,7 @@ EncounterConditionValueName::getLanguage()
 }
 
 void
-EncounterConditionValueName::setLanguage(LanguageSummary  language)
+EncounterConditionValueName::setLanguage(LanguageSummary language)
 {
 	this->language = language;
 }

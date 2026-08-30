@@ -36,19 +36,19 @@ public class OASPokedexDetail implements OAS.MappedProperties {
      * Get descriptions
      * @return descriptions
      */
-    public List<OASPokedexDescription> descriptions { get; set; }
+    public List<OASPokedexDescription> descriptions { get; private set; }
 
     /**
      * Get names
      * @return names
      */
-    public List<OASPokedexName> names { get; set; }
+    public List<OASPokedexName> names { get; private set; }
 
     /**
      * Get pokemonEntries
      * @return pokemonEntries
      */
-    public List<OASPokedexDetailPokemonEntriesInner> pokemonEntries { get; set; }
+    public List<OASPokedexDetailPokemonEntriesInner> pokemonEntries { get; private set; }
 
     /**
      * Get region
@@ -60,7 +60,7 @@ public class OASPokedexDetail implements OAS.MappedProperties {
      * Get versionGroups
      * @return versionGroups
      */
-    public List<OASAbilityDetailPokemonInnerPokemon> versionGroups { get; set; }
+    public List<OASAbilityDetailPokemonInnerPokemon> versionGroups { get; private set; }
 
     private static final Map<String, String> propertyMappings = new Map<String, String>{
         'is_main_series' => 'isMainSeries',

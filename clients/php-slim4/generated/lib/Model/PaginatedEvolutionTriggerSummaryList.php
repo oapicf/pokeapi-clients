@@ -67,7 +67,8 @@ class PaginatedEvolutionTriggerSummaryList extends BaseModel
       "type" : "array",
       "items" : {
         "$ref" : "#/components/schemas/EvolutionTriggerSummary"
-      }
+      },
+      "default" : null
     }
   }
 }

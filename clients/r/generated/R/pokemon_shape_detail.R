@@ -104,17 +104,40 @@ PokemonShapeDetail <- R6::R6Class(
       }
       if (!is.null(self$`awesome_names`)) {
         PokemonShapeDetailObject[["awesome_names"]] <-
-          lapply(self$`awesome_names`, function(x) x$toSimpleType())
+          self$extractSimpleType(self$`awesome_names`)
       }
       if (!is.null(self$`names`)) {
         PokemonShapeDetailObject[["names"]] <-
-          lapply(self$`names`, function(x) x$toSimpleType())
+          self$extractSimpleType(self$`names`)
       }
       if (!is.null(self$`pokemon_species`)) {
         PokemonShapeDetailObject[["pokemon_species"]] <-
-          lapply(self$`pokemon_species`, function(x) x$toSimpleType())
+          self$extractSimpleType(self$`pokemon_species`)
       }
       return(PokemonShapeDetailObject)
+    },
+
+    extractSimpleType = function(x) {
+      if (R6::is.R6(x)) {
+        return(x$toSimpleType())
+      } else if (!self$hasNestedR6(x)) {
+        return(x)
+      }
+      lapply(x, self$extractSimpleType)
+    },
+
+    hasNestedR6 = function(x) {
+      if (R6::is.R6(x)) {
+        return(TRUE)
+      }
+      if (is.list(x)) {
+        for (item in x) {
+          if (self$hasNestedR6(item)) {
+            return(TRUE)
+          }
+        }
+      }
+      FALSE
     },
 
     #' @description

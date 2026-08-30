@@ -53,8 +53,8 @@ function Initialize-AbilityChangeEffectText {
 
 
         $PSO = [PSCustomObject]@{
-            "effect" = ${Effect}
-            "language" = ${Language}
+            'effect' = ${Effect}
+            'language' = ${Language}
         }
 
 
@@ -92,7 +92,7 @@ function ConvertFrom-JsonToAbilityChangeEffectText {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in AbilityChangeEffectText
-        $AllProperties = ("effect", "language")
+        $AllProperties = ('effect', 'language')
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -103,21 +103,21 @@ function ConvertFrom-JsonToAbilityChangeEffectText {
             throw "Error! Empty JSON cannot be serialized due to the required property 'effect' missing."
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "effect"))) {
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'effect'))) {
             throw "Error! JSON cannot be serialized due to the required property 'effect' missing."
         } else {
-            $Effect = $JsonParameters.PSobject.Properties["effect"].value
+            $Effect = $JsonParameters.PSobject.Properties['effect'].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "language"))) {
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'language'))) {
             throw "Error! JSON cannot be serialized due to the required property 'language' missing."
         } else {
-            $Language = $JsonParameters.PSobject.Properties["language"].value
+            $Language = $JsonParameters.PSobject.Properties['language'].value
         }
 
         $PSO = [PSCustomObject]@{
-            "effect" = ${Effect}
-            "language" = ${Language}
+            'effect' = ${Effect}
+            'language' = ${Language}
         }
 
         return $PSO

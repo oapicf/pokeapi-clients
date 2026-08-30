@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 **smoothness** | **int** |  | 
 **soilDryness** | **int** |  | 
 **firmness** | [**OpenAPI\Server\Model\BerryFirmnessSummary**](BerryFirmnessSummary.md) |  | 
-**flavors** | [**OpenAPI\Server\Model\BerryDetailFlavorsInner**](BerryDetailFlavorsInner.md) |  | 
+**flavors** | [**OpenAPI\Server\Model\BerryDetailFlavorsInner**](BerryDetailFlavorsInner.md) |  | [readonly] 
 **item** | [**OpenAPI\Server\Model\ItemSummary**](ItemSummary.md) |  | 
 **naturalGiftType** | [**OpenAPI\Server\Model\TypeSummary**](TypeSummary.md) |  | 
 

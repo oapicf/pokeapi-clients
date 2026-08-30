@@ -92,8 +92,18 @@ namespace Org.OpenAPITools.Model
     /// <summary>
     /// A Json converter for type <see cref="StatSummary" />
     /// </summary>
-    public class StatSummaryJsonConverter : JsonConverter<StatSummary>
+    public partial class StatSummaryJsonConverter : JsonConverter<StatSummary>
     {
+        partial void OnCreated();
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="StatSummaryJsonConverter" /> class.
+        /// </summary>
+        public StatSummaryJsonConverter()
+        {
+            OnCreated();
+        }
+
         /// <summary>
         /// Deserializes json to <see cref="StatSummary" />
         /// </summary>

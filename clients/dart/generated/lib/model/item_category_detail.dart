@@ -71,10 +71,16 @@ class ItemCategoryDetail {
       // Note 1: the values aren't checked for validity beyond being non-null.
       // Note 2: this code is stripped in release mode!
       assert(() {
-        requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "ItemCategoryDetail[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "ItemCategoryDetail[$key]" has a null value in JSON.');
-        });
+        assert(json.containsKey(r'id'), 'Required key "ItemCategoryDetail[id]" is missing from JSON.');
+        assert(json[r'id'] != null, 'Required key "ItemCategoryDetail[id]" has a null value in JSON.');
+        assert(json.containsKey(r'name'), 'Required key "ItemCategoryDetail[name]" is missing from JSON.');
+        assert(json[r'name'] != null, 'Required key "ItemCategoryDetail[name]" has a null value in JSON.');
+        assert(json.containsKey(r'items'), 'Required key "ItemCategoryDetail[items]" is missing from JSON.');
+        assert(json[r'items'] != null, 'Required key "ItemCategoryDetail[items]" has a null value in JSON.');
+        assert(json.containsKey(r'names'), 'Required key "ItemCategoryDetail[names]" is missing from JSON.');
+        assert(json[r'names'] != null, 'Required key "ItemCategoryDetail[names]" has a null value in JSON.');
+        assert(json.containsKey(r'pocket'), 'Required key "ItemCategoryDetail[pocket]" is missing from JSON.');
+        assert(json[r'pocket'] != null, 'Required key "ItemCategoryDetail[pocket]" has a null value in JSON.');
         return true;
       }());
 

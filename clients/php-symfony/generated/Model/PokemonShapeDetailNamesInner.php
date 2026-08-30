@@ -47,7 +47,7 @@ class PokemonShapeDetailNamesInner
      * @var string|null
      * @SerializedName("url")
      * @Type("string")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Type("string")]
     protected ?string $url = null;
@@ -56,7 +56,7 @@ class PokemonShapeDetailNamesInner
      * @var string|null
      * @SerializedName("name")
      * @Type("string")
-    */
+     */
     #[Assert\NotNull]
     #[Assert\Type("string")]
     protected ?string $name = null;
@@ -84,12 +84,12 @@ class PokemonShapeDetailNamesInner
     }
 
     /**
-    * Sets url.
-    *
-    * @param string|null $url
-    *
-    * @return $this
-    */
+     * Sets url.
+     *
+     * @param string|null $url
+     *
+     * @return $this
+     */
     public function setUrl(?string $url): self
     {
         $this->url = $url;
@@ -111,12 +111,12 @@ class PokemonShapeDetailNamesInner
     }
 
     /**
-    * Sets name.
-    *
-    * @param string|null $name
-    *
-    * @return $this
-    */
+     * Sets name.
+     *
+     * @param string|null $name
+     *
+     * @return $this
+     */
     public function setName(?string $name): self
     {
         $this->name = $name;

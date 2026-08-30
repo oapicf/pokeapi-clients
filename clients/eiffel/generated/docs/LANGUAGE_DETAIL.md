@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **official** | **BOOLEAN** |  | [optional] [default to null]
 **iso639** | [**STRING_32**](STRING_32.md) |  | [default to null]
 **iso3166** | [**STRING_32**](STRING_32.md) |  | [default to null]
-**names** | [**LIST [LANGUAGE_NAME]**](LanguageName.md) |  | [default to null]
+**names** | [**LIST [LANGUAGE_NAME]**](LanguageName.md) |  | [readonly] [default to null]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

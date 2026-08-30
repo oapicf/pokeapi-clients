@@ -21,7 +21,7 @@
 
 namespace OpenAPI {
 
-OAIBerryDetail::OAIBerryDetail(QString json) {
+OAIBerryDetail::OAIBerryDetail(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -71,7 +71,7 @@ void OAIBerryDetail::initializeModel() {
     m_natural_gift_type_isValid = false;
 }
 
-void OAIBerryDetail::fromJson(QString jsonString) {
+void OAIBerryDetail::fromJson(const QString &jsonString) {
     QByteArray array(jsonString.toStdString().c_str());
     QJsonDocument doc = QJsonDocument::fromJson(array);
     QJsonObject jsonObject = doc.object();

@@ -19,7 +19,7 @@ import ItemSummary from './ItemSummary';
 /**
  * The ItemCategoryDetail model module.
  * @module model/ItemCategoryDetail
- * @version 1.2.1-pre.0
+ * @version 2.0.1-pre.0
  */
 class ItemCategoryDetail {
     /**

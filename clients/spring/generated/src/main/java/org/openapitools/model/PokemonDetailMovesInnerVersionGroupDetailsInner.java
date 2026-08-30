@@ -9,20 +9,20 @@ import org.openapitools.model.AbilityDetailPokemonInnerPokemon;
 import org.springframework.lang.Nullable;
 import org.openapitools.jackson.nullable.JsonNullable;
 import java.time.OffsetDateTime;
-import javax.validation.Valid;
-import javax.validation.constraints.*;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.*;
 import io.swagger.v3.oas.annotations.media.Schema;
 
 
 import java.util.*;
-import javax.annotation.Generated;
+import jakarta.annotation.Generated;
 
 /**
  * PokemonDetailMovesInnerVersionGroupDetailsInner
  */
 
 @JsonTypeName("PokemonDetail_moves_inner_version_group_details_inner")
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2026-02-07T15:29:13.146999890Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2026-08-30T02:00:43.960184425Z[Etc/UTC]", comments = "Generator version: 7.24.0")
 public class PokemonDetailMovesInnerVersionGroupDetailsInner {
 
   private Integer levelLearnedAt;
@@ -60,6 +60,7 @@ public class PokemonDetailMovesInnerVersionGroupDetailsInner {
     return levelLearnedAt;
   }
 
+  @JsonProperty("level_learned_at")
   public void setLevelLearnedAt(Integer levelLearnedAt) {
     this.levelLearnedAt = levelLearnedAt;
   }
@@ -80,6 +81,7 @@ public class PokemonDetailMovesInnerVersionGroupDetailsInner {
     return moveLearnMethod;
   }
 
+  @JsonProperty("move_learn_method")
   public void setMoveLearnMethod(AbilityDetailPokemonInnerPokemon moveLearnMethod) {
     this.moveLearnMethod = moveLearnMethod;
   }
@@ -100,6 +102,7 @@ public class PokemonDetailMovesInnerVersionGroupDetailsInner {
     return versionGroup;
   }
 
+  @JsonProperty("version_group")
   public void setVersionGroup(AbilityDetailPokemonInnerPokemon versionGroup) {
     this.versionGroup = versionGroup;
   }
@@ -138,11 +141,8 @@ public class PokemonDetailMovesInnerVersionGroupDetailsInner {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+  private String toIndentedString(@Nullable Object o) {
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 }
 

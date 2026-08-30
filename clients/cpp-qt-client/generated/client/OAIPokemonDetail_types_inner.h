@@ -32,13 +32,13 @@ class OAIAbilityDetail_pokemon_inner_pokemon;
 class OAIPokemonDetail_types_inner : public OAIObject {
 public:
     OAIPokemonDetail_types_inner();
-    OAIPokemonDetail_types_inner(QString json);
+    OAIPokemonDetail_types_inner(const QString &json);
     ~OAIPokemonDetail_types_inner() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     qint32 getSlot() const;
     void setSlot(const qint32 &slot);

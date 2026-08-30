@@ -6,7 +6,7 @@
 
 
 static berry_flavor_detail_t *berry_flavor_detail_create_internal(
-    int id,
+    int *id,
     char *name,
     list_t *berries,
     contest_type_summary_t *contest_type,
@@ -16,30 +16,39 @@ static berry_flavor_detail_t *berry_flavor_detail_create_internal(
     if (!berry_flavor_detail_local_var) {
         return NULL;
     }
+    memset(berry_flavor_detail_local_var, 0, sizeof(berry_flavor_detail_t));
+    berry_flavor_detail_local_var->_library_owned = 1;
     berry_flavor_detail_local_var->id = id;
     berry_flavor_detail_local_var->name = name;
     berry_flavor_detail_local_var->berries = berries;
     berry_flavor_detail_local_var->contest_type = contest_type;
     berry_flavor_detail_local_var->names = names;
-
-    berry_flavor_detail_local_var->_library_owned = 1;
     return berry_flavor_detail_local_var;
 }
 
 __attribute__((deprecated)) berry_flavor_detail_t *berry_flavor_detail_create(
-    int id,
+    int *id,
     char *name,
     list_t *berries,
     contest_type_summary_t *contest_type,
     list_t *names
     ) {
-    return berry_flavor_detail_create_internal (
-        id,
+    int *id_copy = NULL;
+    if (id) {
+        id_copy = malloc(sizeof(int));
+        if (id_copy) *id_copy = *id;
+    }
+    berry_flavor_detail_t *result = berry_flavor_detail_create_internal (
+        id_copy,
         name,
         berries,
         contest_type,
         names
         );
+    if (!result) {
+        free(id_copy);
+    }
+    return result;
 }
 
 void berry_flavor_detail_free(berry_flavor_detail_t *berry_flavor_detail) {
@@ -51,6 +60,10 @@ void berry_flavor_detail_free(berry_flavor_detail_t *berry_flavor_detail) {
         return ;
     }
     listEntry_t *listEntry;
+    if (berry_flavor_detail->id) {
+        free(berry_flavor_detail->id);
+        berry_flavor_detail->id = NULL;
+    }
     if (berry_flavor_detail->name) {
         free(berry_flavor_detail->name);
         berry_flavor_detail->name = NULL;
@@ -83,7 +96,7 @@ cJSON *berry_flavor_detail_convertToJSON(berry_flavor_detail_t *berry_flavor_det
     if (!berry_flavor_detail->id) {
         goto fail;
     }
-    if(cJSON_AddNumberToObject(item, "id", berry_flavor_detail->id) == NULL) {
+    if(cJSON_AddNumberToObject(item, "id", *berry_flavor_detail->id) == NULL) {
     goto fail; //Numeric
     }
 
@@ -164,6 +177,11 @@ berry_flavor_detail_t *berry_flavor_detail_parseFromJSON(cJSON *berry_flavor_det
 
     berry_flavor_detail_t *berry_flavor_detail_local_var = NULL;
 
+    // define the local variable for berry_flavor_detail->id
+    int *id_local_var = NULL;
+
+    char *name_local_str = NULL;
+
     // define the local list for berry_flavor_detail->berries
     list_t *berriesList = NULL;
 
@@ -187,6 +205,12 @@ berry_flavor_detail_t *berry_flavor_detail_parseFromJSON(cJSON *berry_flavor_det
     {
     goto end; //Numeric
     }
+    id_local_var = malloc(sizeof(int));
+    if(!id_local_var)
+    {
+        goto end;
+    }
+    *id_local_var = id->valuedouble;
 
     // berry_flavor_detail->name
     cJSON *name = cJSON_GetObjectItemCaseSensitive(berry_flavor_detailJSON, "name");
@@ -270,16 +294,30 @@ berry_flavor_detail_t *berry_flavor_detail_parseFromJSON(cJSON *berry_flavor_det
     }
 
 
+    if (name && !cJSON_IsNull(name)) name_local_str = strdup(name->valuestring);
+
     berry_flavor_detail_local_var = berry_flavor_detail_create_internal (
-        id->valuedouble,
-        strdup(name->valuestring),
+        id_local_var,
+        name_local_str,
         berriesList,
         contest_type_local_nonprim,
         namesList
         );
 
+    if (!berry_flavor_detail_local_var) {
+        goto end;
+    }
+
     return berry_flavor_detail_local_var;
 end:
+    if (id_local_var) {
+        free(id_local_var);
+        id_local_var = NULL;
+    }
+    if (name_local_str) {
+        free(name_local_str);
+        name_local_str = NULL;
+    }
     if (berriesList) {
         listEntry_t *listEntry = NULL;
         list_ForEach(listEntry, berriesList) {

@@ -26,6 +26,8 @@ ItemSummary::ItemSummary()
     
 }
 
+ItemSummary::~ItemSummary() = default;
+
 void ItemSummary::validate() const
 {
     std::stringstream msg;

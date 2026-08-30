@@ -103,12 +103,12 @@ export interface PokemonSpeciesDetail {
      * @type {Array<PokemonDexEntry>}
      * @memberof PokemonSpeciesDetail
      */
-    pokedex_numbers: Array<PokemonDexEntry>;
+    readonly pokedex_numbers: Array<PokemonDexEntry>;
     /**
      * @type {Array<AbilityDetailPokemonInnerPokemon>}
      * @memberof PokemonSpeciesDetail
      */
-    egg_groups: Array<AbilityDetailPokemonInnerPokemon>;
+    readonly egg_groups: Array<AbilityDetailPokemonInnerPokemon>;
     /**
      * @type {PokemonColorSummary}
      * @memberof PokemonSpeciesDetail
@@ -143,30 +143,30 @@ export interface PokemonSpeciesDetail {
      * @type {Array<PokemonFormDetailFormNamesInner>}
      * @memberof PokemonSpeciesDetail
      */
-    names: Array<PokemonFormDetailFormNamesInner>;
+    readonly names: Array<PokemonFormDetailFormNamesInner>;
     /**
      * @type {Array<PokemonSpeciesDetailPalParkEncountersInner>}
      * @memberof PokemonSpeciesDetail
      */
-    pal_park_encounters: Array<PokemonSpeciesDetailPalParkEncountersInner>;
+    readonly pal_park_encounters: Array<PokemonSpeciesDetailPalParkEncountersInner>;
     /**
      * @type {Array<PokemonSpeciesDescription>}
      * @memberof PokemonSpeciesDetail
      */
-    form_descriptions: Array<PokemonSpeciesDescription>;
+    readonly form_descriptions: Array<PokemonSpeciesDescription>;
     /**
      * @type {Array<PokemonSpeciesFlavorText>}
      * @memberof PokemonSpeciesDetail
      */
-    flavor_text_entries: Array<PokemonSpeciesFlavorText>;
+    readonly flavor_text_entries: Array<PokemonSpeciesFlavorText>;
     /**
      * @type {Array<PokemonSpeciesDetailGeneraInner>}
      * @memberof PokemonSpeciesDetail
      */
-    genera: Array<PokemonSpeciesDetailGeneraInner>;
+    readonly genera: Array<PokemonSpeciesDetailGeneraInner>;
     /**
      * @type {Array<PokemonSpeciesDetailVarietiesInner>}
      * @memberof PokemonSpeciesDetail
      */
-    varieties: Array<PokemonSpeciesDetailVarietiesInner>;
+    readonly varieties: Array<PokemonSpeciesDetailVarietiesInner>;
 }

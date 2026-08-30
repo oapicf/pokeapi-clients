@@ -144,7 +144,7 @@ PaginatedAbilitySummaryList::getCount()
 }
 
 void
-PaginatedAbilitySummaryList::setCount(int  count)
+PaginatedAbilitySummaryList::setCount(int count)
 {
 	this->count = count;
 }
@@ -156,7 +156,7 @@ PaginatedAbilitySummaryList::getNext()
 }
 
 void
-PaginatedAbilitySummaryList::setNext(std::string  next)
+PaginatedAbilitySummaryList::setNext(std::string next)
 {
 	this->next = next;
 }
@@ -168,7 +168,7 @@ PaginatedAbilitySummaryList::getPrevious()
 }
 
 void
-PaginatedAbilitySummaryList::setPrevious(std::string  previous)
+PaginatedAbilitySummaryList::setPrevious(std::string previous)
 {
 	this->previous = previous;
 }
@@ -180,7 +180,7 @@ PaginatedAbilitySummaryList::getResults()
 }
 
 void
-PaginatedAbilitySummaryList::setResults(std::list <AbilitySummary> results)
+PaginatedAbilitySummaryList::setResults(std::list<AbilitySummary> results)
 {
 	this->results = results;
 }

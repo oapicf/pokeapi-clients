@@ -45,7 +45,7 @@ import javax.annotation.Generated;
   AbilityDetail.JSON_PROPERTY_POKEMON
 })
 @JsonTypeName("AbilityDetail")
-@Generated(value="org.openapitools.codegen.languages.JavaMicronautClientCodegen", date="2026-02-07T15:22:54.857535619Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@Generated(value="org.openapitools.codegen.languages.JavaMicronautClientCodegen", date="2026-08-30T01:55:51.056116330Z[Etc/UTC]", comments = "Generator version: 7.24.0")
 @Introspected
 public class AbilityDetail {
     public static final String JSON_PROPERTY_ID = "id";
@@ -165,16 +165,6 @@ public class AbilityDetail {
         this.generation = generation;
     }
 
-    public AbilityDetail names(List<@Valid AbilityName> names) {
-        this.names = names;
-        return this;
-    }
-
-    public AbilityDetail addNamesItem(AbilityName namesItem) {
-        this.names.add(namesItem);
-        return this;
-    }
-
     /**
      * Get names
      * @return names
@@ -184,22 +174,6 @@ public class AbilityDetail {
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public List<@Valid AbilityName> getNames() {
         return names;
-    }
-
-    @JsonProperty(JSON_PROPERTY_NAMES)
-    @JsonInclude(value = JsonInclude.Include.ALWAYS)
-    public void setNames(List<@Valid AbilityName> names) {
-        this.names = names;
-    }
-
-    public AbilityDetail effectEntries(List<@Valid AbilityEffectText> effectEntries) {
-        this.effectEntries = effectEntries;
-        return this;
-    }
-
-    public AbilityDetail addEffectEntriesItem(AbilityEffectText effectEntriesItem) {
-        this.effectEntries.add(effectEntriesItem);
-        return this;
     }
 
     /**
@@ -213,22 +187,6 @@ public class AbilityDetail {
         return effectEntries;
     }
 
-    @JsonProperty(JSON_PROPERTY_EFFECT_ENTRIES)
-    @JsonInclude(value = JsonInclude.Include.ALWAYS)
-    public void setEffectEntries(List<@Valid AbilityEffectText> effectEntries) {
-        this.effectEntries = effectEntries;
-    }
-
-    public AbilityDetail effectChanges(List<@Valid AbilityChange> effectChanges) {
-        this.effectChanges = effectChanges;
-        return this;
-    }
-
-    public AbilityDetail addEffectChangesItem(AbilityChange effectChangesItem) {
-        this.effectChanges.add(effectChangesItem);
-        return this;
-    }
-
     /**
      * Get effectChanges
      * @return effectChanges
@@ -238,22 +196,6 @@ public class AbilityDetail {
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public List<@Valid AbilityChange> getEffectChanges() {
         return effectChanges;
-    }
-
-    @JsonProperty(JSON_PROPERTY_EFFECT_CHANGES)
-    @JsonInclude(value = JsonInclude.Include.ALWAYS)
-    public void setEffectChanges(List<@Valid AbilityChange> effectChanges) {
-        this.effectChanges = effectChanges;
-    }
-
-    public AbilityDetail flavorTextEntries(List<@Valid AbilityFlavorText> flavorTextEntries) {
-        this.flavorTextEntries = flavorTextEntries;
-        return this;
-    }
-
-    public AbilityDetail addFlavorTextEntriesItem(AbilityFlavorText flavorTextEntriesItem) {
-        this.flavorTextEntries.add(flavorTextEntriesItem);
-        return this;
     }
 
     /**
@@ -267,22 +209,6 @@ public class AbilityDetail {
         return flavorTextEntries;
     }
 
-    @JsonProperty(JSON_PROPERTY_FLAVOR_TEXT_ENTRIES)
-    @JsonInclude(value = JsonInclude.Include.ALWAYS)
-    public void setFlavorTextEntries(List<@Valid AbilityFlavorText> flavorTextEntries) {
-        this.flavorTextEntries = flavorTextEntries;
-    }
-
-    public AbilityDetail pokemon(List<@Valid AbilityDetailPokemonInner> pokemon) {
-        this.pokemon = pokemon;
-        return this;
-    }
-
-    public AbilityDetail addPokemonItem(AbilityDetailPokemonInner pokemonItem) {
-        this.pokemon.add(pokemonItem);
-        return this;
-    }
-
     /**
      * Get pokemon
      * @return pokemon
@@ -292,12 +218,6 @@ public class AbilityDetail {
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public List<@Valid AbilityDetailPokemonInner> getPokemon() {
         return pokemon;
-    }
-
-    @JsonProperty(JSON_PROPERTY_POKEMON)
-    @JsonInclude(value = JsonInclude.Include.ALWAYS)
-    public void setPokemon(List<@Valid AbilityDetailPokemonInner> pokemon) {
-        this.pokemon = pokemon;
     }
 
     @Override
@@ -347,10 +267,7 @@ public class AbilityDetail {
      * (except the first line).
      */
     private String toIndentedString(Object o) {
-        if (o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
+        return o == null ? "null" : o.toString().replace("\n", "\n    ");
     }
 
 }

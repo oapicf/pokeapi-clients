@@ -6,28 +6,37 @@
 
 
 static pokedex_detail_pokemon_entries_inner_t *pokedex_detail_pokemon_entries_inner_create_internal(
-    int entry_number,
+    int *entry_number,
     ability_detail_pokemon_inner_pokemon_t *pokemon_species
     ) {
     pokedex_detail_pokemon_entries_inner_t *pokedex_detail_pokemon_entries_inner_local_var = malloc(sizeof(pokedex_detail_pokemon_entries_inner_t));
     if (!pokedex_detail_pokemon_entries_inner_local_var) {
         return NULL;
     }
+    memset(pokedex_detail_pokemon_entries_inner_local_var, 0, sizeof(pokedex_detail_pokemon_entries_inner_t));
+    pokedex_detail_pokemon_entries_inner_local_var->_library_owned = 1;
     pokedex_detail_pokemon_entries_inner_local_var->entry_number = entry_number;
     pokedex_detail_pokemon_entries_inner_local_var->pokemon_species = pokemon_species;
-
-    pokedex_detail_pokemon_entries_inner_local_var->_library_owned = 1;
     return pokedex_detail_pokemon_entries_inner_local_var;
 }
 
 __attribute__((deprecated)) pokedex_detail_pokemon_entries_inner_t *pokedex_detail_pokemon_entries_inner_create(
-    int entry_number,
+    int *entry_number,
     ability_detail_pokemon_inner_pokemon_t *pokemon_species
     ) {
-    return pokedex_detail_pokemon_entries_inner_create_internal (
-        entry_number,
+    int *entry_number_copy = NULL;
+    if (entry_number) {
+        entry_number_copy = malloc(sizeof(int));
+        if (entry_number_copy) *entry_number_copy = *entry_number;
+    }
+    pokedex_detail_pokemon_entries_inner_t *result = pokedex_detail_pokemon_entries_inner_create_internal (
+        entry_number_copy,
         pokemon_species
         );
+    if (!result) {
+        free(entry_number_copy);
+    }
+    return result;
 }
 
 void pokedex_detail_pokemon_entries_inner_free(pokedex_detail_pokemon_entries_inner_t *pokedex_detail_pokemon_entries_inner) {
@@ -39,6 +48,10 @@ void pokedex_detail_pokemon_entries_inner_free(pokedex_detail_pokemon_entries_in
         return ;
     }
     listEntry_t *listEntry;
+    if (pokedex_detail_pokemon_entries_inner->entry_number) {
+        free(pokedex_detail_pokemon_entries_inner->entry_number);
+        pokedex_detail_pokemon_entries_inner->entry_number = NULL;
+    }
     if (pokedex_detail_pokemon_entries_inner->pokemon_species) {
         ability_detail_pokemon_inner_pokemon_free(pokedex_detail_pokemon_entries_inner->pokemon_species);
         pokedex_detail_pokemon_entries_inner->pokemon_species = NULL;
@@ -53,7 +66,7 @@ cJSON *pokedex_detail_pokemon_entries_inner_convertToJSON(pokedex_detail_pokemon
     if (!pokedex_detail_pokemon_entries_inner->entry_number) {
         goto fail;
     }
-    if(cJSON_AddNumberToObject(item, "entry_number", pokedex_detail_pokemon_entries_inner->entry_number) == NULL) {
+    if(cJSON_AddNumberToObject(item, "entry_number", *pokedex_detail_pokemon_entries_inner->entry_number) == NULL) {
     goto fail; //Numeric
     }
 
@@ -83,6 +96,9 @@ pokedex_detail_pokemon_entries_inner_t *pokedex_detail_pokemon_entries_inner_par
 
     pokedex_detail_pokemon_entries_inner_t *pokedex_detail_pokemon_entries_inner_local_var = NULL;
 
+    // define the local variable for pokedex_detail_pokemon_entries_inner->entry_number
+    int *entry_number_local_var = NULL;
+
     // define the local variable for pokedex_detail_pokemon_entries_inner->pokemon_species
     ability_detail_pokemon_inner_pokemon_t *pokemon_species_local_nonprim = NULL;
 
@@ -100,6 +116,12 @@ pokedex_detail_pokemon_entries_inner_t *pokedex_detail_pokemon_entries_inner_par
     {
     goto end; //Numeric
     }
+    entry_number_local_var = malloc(sizeof(int));
+    if(!entry_number_local_var)
+    {
+        goto end;
+    }
+    *entry_number_local_var = entry_number->valuedouble;
 
     // pokedex_detail_pokemon_entries_inner->pokemon_species
     cJSON *pokemon_species = cJSON_GetObjectItemCaseSensitive(pokedex_detail_pokemon_entries_innerJSON, "pokemon_species");
@@ -114,13 +136,22 @@ pokedex_detail_pokemon_entries_inner_t *pokedex_detail_pokemon_entries_inner_par
     pokemon_species_local_nonprim = ability_detail_pokemon_inner_pokemon_parseFromJSON(pokemon_species); //nonprimitive
 
 
+
     pokedex_detail_pokemon_entries_inner_local_var = pokedex_detail_pokemon_entries_inner_create_internal (
-        entry_number->valuedouble,
+        entry_number_local_var,
         pokemon_species_local_nonprim
         );
 
+    if (!pokedex_detail_pokemon_entries_inner_local_var) {
+        goto end;
+    }
+
     return pokedex_detail_pokemon_entries_inner_local_var;
 end:
+    if (entry_number_local_var) {
+        free(entry_number_local_var);
+        entry_number_local_var = NULL;
+    }
     if (pokemon_species_local_nonprim) {
         ability_detail_pokemon_inner_pokemon_free(pokemon_species_local_nonprim);
         pokemon_species_local_nonprim = NULL;

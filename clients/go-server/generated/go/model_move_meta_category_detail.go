@@ -12,6 +12,11 @@
 package openapi
 
 
+import (
+	"encoding/json"
+	"fmt"
+)
+
 
 
 type MoveMetaCategoryDetail struct {
@@ -24,45 +29,84 @@ type MoveMetaCategoryDetail struct {
 
 	Moves []AbilityDetailPokemonInnerPokemon `json:"moves"`
 }
+// UnmarshalJSON validates required property keys then unmarshals into MoveMetaCategoryDetail
+func (o *MoveMetaCategoryDetail) UnmarshalJSON(data []byte) (err error) {
+	// Presence is checked against required fields that exist on this struct,
+	// including fields promoted from embedded allOf parents.
+	requiredProperties := []string{
+		"name",
+	}
 
-// AssertMoveMetaCategoryDetailRequired checks if the required fields are not zero-ed
+	requiredNullableProperties := map[string]bool{
+		"name": false,
+	}
+
+	allowedJsonKeys := map[string]struct{}{
+		"id": {},
+		"name": {},
+		"descriptions": {},
+		"moves": {},
+	}
+
+	allProperties := make(map[string]json.RawMessage)
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err
+	}
+
+	for _, requiredProperty := range requiredProperties {
+		value, exists := allProperties[requiredProperty]
+		if !exists {
+			return &RequiredError{Field: requiredProperty}
+		}
+		if string(value) == "null" && !requiredNullableProperties[requiredProperty] {
+			return &RequiredError{Field: requiredProperty}
+		}
+	}
+
+	for key := range allProperties {
+		if _, exists := allowedJsonKeys[key]; !exists {
+			return fmt.Errorf("json: unknown field %q", key)
+		}
+	}
+
+	var decoded MoveMetaCategoryDetail
+
+	if value, exists := allProperties["id"]; exists {
+		if err = json.Unmarshal(value, &decoded.Id); err != nil {
+			return err
+		}
+	}
+	if value, exists := allProperties["name"]; exists {
+		if err = json.Unmarshal(value, &decoded.Name); err != nil {
+			return err
+		}
+	}
+	if value, exists := allProperties["descriptions"]; exists {
+		if err = json.Unmarshal(value, &decoded.Descriptions); err != nil {
+			return err
+		}
+	}
+	if value, exists := allProperties["moves"]; exists {
+		if err = json.Unmarshal(value, &decoded.Moves); err != nil {
+			return err
+		}
+	}
+
+	*o = decoded
+
+	return nil
+}
+
+// AssertMoveMetaCategoryDetailRequired checks complex required fields (models, arrays, maps) and embedded parents.
+// Primitive required fields are validated for JSON request bodies in UnmarshalJSON so zero values remain valid.
 func AssertMoveMetaCategoryDetailRequired(obj MoveMetaCategoryDetail) error {
-	elements := map[string]interface{}{
-		"id": obj.Id,
-		"name": obj.Name,
-		"descriptions": obj.Descriptions,
-		"moves": obj.Moves,
-	}
-	for name, el := range elements {
-		if isZero := IsZeroValue(el); isZero {
-			return &RequiredError{Field: name}
-		}
-	}
-
-	for _, el := range obj.Descriptions {
-		if err := AssertMoveMetaCategoryDescriptionRequired(el); err != nil {
-			return err
-		}
-	}
-	for _, el := range obj.Moves {
-		if err := AssertAbilityDetailPokemonInnerPokemonRequired(el); err != nil {
-			return err
-		}
-	}
 	return nil
 }
 
 // AssertMoveMetaCategoryDetailConstraints checks if the values respects the defined constraints
 func AssertMoveMetaCategoryDetailConstraints(obj MoveMetaCategoryDetail) error {
-	for _, el := range obj.Descriptions {
-		if err := AssertMoveMetaCategoryDescriptionConstraints(el); err != nil {
-			return err
-		}
-	}
-	for _, el := range obj.Moves {
-		if err := AssertAbilityDetailPokemonInnerPokemonConstraints(el); err != nil {
-			return err
-		}
-	}
 	return nil
 }

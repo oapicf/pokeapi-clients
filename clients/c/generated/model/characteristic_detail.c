@@ -6,8 +6,8 @@
 
 
 static characteristic_detail_t *characteristic_detail_create_internal(
-    int id,
-    int gene_modulo,
+    int *id,
+    int *gene_modulo,
     list_t *possible_values,
     stat_summary_t *highest_stat,
     list_t *descriptions
@@ -16,30 +16,45 @@ static characteristic_detail_t *characteristic_detail_create_internal(
     if (!characteristic_detail_local_var) {
         return NULL;
     }
+    memset(characteristic_detail_local_var, 0, sizeof(characteristic_detail_t));
+    characteristic_detail_local_var->_library_owned = 1;
     characteristic_detail_local_var->id = id;
     characteristic_detail_local_var->gene_modulo = gene_modulo;
     characteristic_detail_local_var->possible_values = possible_values;
     characteristic_detail_local_var->highest_stat = highest_stat;
     characteristic_detail_local_var->descriptions = descriptions;
-
-    characteristic_detail_local_var->_library_owned = 1;
     return characteristic_detail_local_var;
 }
 
 __attribute__((deprecated)) characteristic_detail_t *characteristic_detail_create(
-    int id,
-    int gene_modulo,
+    int *id,
+    int *gene_modulo,
     list_t *possible_values,
     stat_summary_t *highest_stat,
     list_t *descriptions
     ) {
-    return characteristic_detail_create_internal (
-        id,
-        gene_modulo,
+    int *id_copy = NULL;
+    if (id) {
+        id_copy = malloc(sizeof(int));
+        if (id_copy) *id_copy = *id;
+    }
+    int *gene_modulo_copy = NULL;
+    if (gene_modulo) {
+        gene_modulo_copy = malloc(sizeof(int));
+        if (gene_modulo_copy) *gene_modulo_copy = *gene_modulo;
+    }
+    characteristic_detail_t *result = characteristic_detail_create_internal (
+        id_copy,
+        gene_modulo_copy,
         possible_values,
         highest_stat,
         descriptions
         );
+    if (!result) {
+        free(id_copy);
+        free(gene_modulo_copy);
+    }
+    return result;
 }
 
 void characteristic_detail_free(characteristic_detail_t *characteristic_detail) {
@@ -51,6 +66,14 @@ void characteristic_detail_free(characteristic_detail_t *characteristic_detail) 
         return ;
     }
     listEntry_t *listEntry;
+    if (characteristic_detail->id) {
+        free(characteristic_detail->id);
+        characteristic_detail->id = NULL;
+    }
+    if (characteristic_detail->gene_modulo) {
+        free(characteristic_detail->gene_modulo);
+        characteristic_detail->gene_modulo = NULL;
+    }
     if (characteristic_detail->possible_values) {
         list_ForEach(listEntry, characteristic_detail->possible_values) {
             free(listEntry->data);
@@ -79,7 +102,7 @@ cJSON *characteristic_detail_convertToJSON(characteristic_detail_t *characterist
     if (!characteristic_detail->id) {
         goto fail;
     }
-    if(cJSON_AddNumberToObject(item, "id", characteristic_detail->id) == NULL) {
+    if(cJSON_AddNumberToObject(item, "id", *characteristic_detail->id) == NULL) {
     goto fail; //Numeric
     }
 
@@ -88,7 +111,7 @@ cJSON *characteristic_detail_convertToJSON(characteristic_detail_t *characterist
     if (!characteristic_detail->gene_modulo) {
         goto fail;
     }
-    if(cJSON_AddNumberToObject(item, "gene_modulo", characteristic_detail->gene_modulo) == NULL) {
+    if(cJSON_AddNumberToObject(item, "gene_modulo", *characteristic_detail->gene_modulo) == NULL) {
     goto fail; //Numeric
     }
 
@@ -157,6 +180,12 @@ characteristic_detail_t *characteristic_detail_parseFromJSON(cJSON *characterist
 
     characteristic_detail_t *characteristic_detail_local_var = NULL;
 
+    // define the local variable for characteristic_detail->id
+    int *id_local_var = NULL;
+
+    // define the local variable for characteristic_detail->gene_modulo
+    int *gene_modulo_local_var = NULL;
+
     // define the local list for characteristic_detail->possible_values
     list_t *possible_valuesList = NULL;
 
@@ -180,6 +209,12 @@ characteristic_detail_t *characteristic_detail_parseFromJSON(cJSON *characterist
     {
     goto end; //Numeric
     }
+    id_local_var = malloc(sizeof(int));
+    if(!id_local_var)
+    {
+        goto end;
+    }
+    *id_local_var = id->valuedouble;
 
     // characteristic_detail->gene_modulo
     cJSON *gene_modulo = cJSON_GetObjectItemCaseSensitive(characteristic_detailJSON, "gene_modulo");
@@ -195,6 +230,12 @@ characteristic_detail_t *characteristic_detail_parseFromJSON(cJSON *characterist
     {
     goto end; //Numeric
     }
+    gene_modulo_local_var = malloc(sizeof(int));
+    if(!gene_modulo_local_var)
+    {
+        goto end;
+    }
+    *gene_modulo_local_var = gene_modulo->valuedouble;
 
     // characteristic_detail->possible_values
     cJSON *possible_values = cJSON_GetObjectItemCaseSensitive(characteristic_detailJSON, "possible_values");
@@ -267,16 +308,29 @@ characteristic_detail_t *characteristic_detail_parseFromJSON(cJSON *characterist
     }
 
 
+
     characteristic_detail_local_var = characteristic_detail_create_internal (
-        id->valuedouble,
-        gene_modulo->valuedouble,
+        id_local_var,
+        gene_modulo_local_var,
         possible_valuesList,
         highest_stat_local_nonprim,
         descriptionsList
         );
 
+    if (!characteristic_detail_local_var) {
+        goto end;
+    }
+
     return characteristic_detail_local_var;
 end:
+    if (id_local_var) {
+        free(id_local_var);
+        id_local_var = NULL;
+    }
+    if (gene_modulo_local_var) {
+        free(gene_modulo_local_var);
+        gene_modulo_local_var = NULL;
+    }
     if (possible_valuesList) {
         listEntry_t *listEntry = NULL;
         list_ForEach(listEntry, possible_valuesList) {

@@ -53,10 +53,10 @@ class LocationGameIndex {
       // Note 1: the values aren't checked for validity beyond being non-null.
       // Note 2: this code is stripped in release mode!
       assert(() {
-        requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "LocationGameIndex[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "LocationGameIndex[$key]" has a null value in JSON.');
-        });
+        assert(json.containsKey(r'game_index'), 'Required key "LocationGameIndex[game_index]" is missing from JSON.');
+        assert(json[r'game_index'] != null, 'Required key "LocationGameIndex[game_index]" has a null value in JSON.');
+        assert(json.containsKey(r'generation'), 'Required key "LocationGameIndex[generation]" is missing from JSON.');
+        assert(json[r'generation'] != null, 'Required key "LocationGameIndex[generation]" has a null value in JSON.');
         return true;
       }());
 

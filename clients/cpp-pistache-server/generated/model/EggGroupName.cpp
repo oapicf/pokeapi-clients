@@ -25,6 +25,8 @@ EggGroupName::EggGroupName()
     
 }
 
+EggGroupName::~EggGroupName() = default;
+
 void EggGroupName::validate() const
 {
     std::stringstream msg;

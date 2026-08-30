@@ -7,31 +7,40 @@
 
 static location_area_detail_pokemon_encounters_inner_version_details_inner_t *location_area_detail_pokemon_encounters_inner_version_details_inner_create_internal(
     ability_detail_pokemon_inner_pokemon_t *version,
-    int max_chance,
+    int *max_chance,
     location_area_detail_pokemon_encounters_inner_version_details_inner_encounter_details_t *encounter_details
     ) {
     location_area_detail_pokemon_encounters_inner_version_details_inner_t *location_area_detail_pokemon_encounters_inner_version_details_inner_local_var = malloc(sizeof(location_area_detail_pokemon_encounters_inner_version_details_inner_t));
     if (!location_area_detail_pokemon_encounters_inner_version_details_inner_local_var) {
         return NULL;
     }
+    memset(location_area_detail_pokemon_encounters_inner_version_details_inner_local_var, 0, sizeof(location_area_detail_pokemon_encounters_inner_version_details_inner_t));
+    location_area_detail_pokemon_encounters_inner_version_details_inner_local_var->_library_owned = 1;
     location_area_detail_pokemon_encounters_inner_version_details_inner_local_var->version = version;
     location_area_detail_pokemon_encounters_inner_version_details_inner_local_var->max_chance = max_chance;
     location_area_detail_pokemon_encounters_inner_version_details_inner_local_var->encounter_details = encounter_details;
-
-    location_area_detail_pokemon_encounters_inner_version_details_inner_local_var->_library_owned = 1;
     return location_area_detail_pokemon_encounters_inner_version_details_inner_local_var;
 }
 
 __attribute__((deprecated)) location_area_detail_pokemon_encounters_inner_version_details_inner_t *location_area_detail_pokemon_encounters_inner_version_details_inner_create(
     ability_detail_pokemon_inner_pokemon_t *version,
-    int max_chance,
+    int *max_chance,
     location_area_detail_pokemon_encounters_inner_version_details_inner_encounter_details_t *encounter_details
     ) {
-    return location_area_detail_pokemon_encounters_inner_version_details_inner_create_internal (
+    int *max_chance_copy = NULL;
+    if (max_chance) {
+        max_chance_copy = malloc(sizeof(int));
+        if (max_chance_copy) *max_chance_copy = *max_chance;
+    }
+    location_area_detail_pokemon_encounters_inner_version_details_inner_t *result = location_area_detail_pokemon_encounters_inner_version_details_inner_create_internal (
         version,
-        max_chance,
+        max_chance_copy,
         encounter_details
         );
+    if (!result) {
+        free(max_chance_copy);
+    }
+    return result;
 }
 
 void location_area_detail_pokemon_encounters_inner_version_details_inner_free(location_area_detail_pokemon_encounters_inner_version_details_inner_t *location_area_detail_pokemon_encounters_inner_version_details_inner) {
@@ -46,6 +55,10 @@ void location_area_detail_pokemon_encounters_inner_version_details_inner_free(lo
     if (location_area_detail_pokemon_encounters_inner_version_details_inner->version) {
         ability_detail_pokemon_inner_pokemon_free(location_area_detail_pokemon_encounters_inner_version_details_inner->version);
         location_area_detail_pokemon_encounters_inner_version_details_inner->version = NULL;
+    }
+    if (location_area_detail_pokemon_encounters_inner_version_details_inner->max_chance) {
+        free(location_area_detail_pokemon_encounters_inner_version_details_inner->max_chance);
+        location_area_detail_pokemon_encounters_inner_version_details_inner->max_chance = NULL;
     }
     if (location_area_detail_pokemon_encounters_inner_version_details_inner->encounter_details) {
         location_area_detail_pokemon_encounters_inner_version_details_inner_encounter_details_free(location_area_detail_pokemon_encounters_inner_version_details_inner->encounter_details);
@@ -75,7 +88,7 @@ cJSON *location_area_detail_pokemon_encounters_inner_version_details_inner_conve
     if (!location_area_detail_pokemon_encounters_inner_version_details_inner->max_chance) {
         goto fail;
     }
-    if(cJSON_AddNumberToObject(item, "max_chance", location_area_detail_pokemon_encounters_inner_version_details_inner->max_chance) == NULL) {
+    if(cJSON_AddNumberToObject(item, "max_chance", *location_area_detail_pokemon_encounters_inner_version_details_inner->max_chance) == NULL) {
     goto fail; //Numeric
     }
 
@@ -108,6 +121,9 @@ location_area_detail_pokemon_encounters_inner_version_details_inner_t *location_
     // define the local variable for location_area_detail_pokemon_encounters_inner_version_details_inner->version
     ability_detail_pokemon_inner_pokemon_t *version_local_nonprim = NULL;
 
+    // define the local variable for location_area_detail_pokemon_encounters_inner_version_details_inner->max_chance
+    int *max_chance_local_var = NULL;
+
     // define the local variable for location_area_detail_pokemon_encounters_inner_version_details_inner->encounter_details
     location_area_detail_pokemon_encounters_inner_version_details_inner_encounter_details_t *encounter_details_local_nonprim = NULL;
 
@@ -137,6 +153,12 @@ location_area_detail_pokemon_encounters_inner_version_details_inner_t *location_
     {
     goto end; //Numeric
     }
+    max_chance_local_var = malloc(sizeof(int));
+    if(!max_chance_local_var)
+    {
+        goto end;
+    }
+    *max_chance_local_var = max_chance->valuedouble;
 
     // location_area_detail_pokemon_encounters_inner_version_details_inner->encounter_details
     cJSON *encounter_details = cJSON_GetObjectItemCaseSensitive(location_area_detail_pokemon_encounters_inner_version_details_innerJSON, "encounter_details");
@@ -151,17 +173,26 @@ location_area_detail_pokemon_encounters_inner_version_details_inner_t *location_
     encounter_details_local_nonprim = location_area_detail_pokemon_encounters_inner_version_details_inner_encounter_details_parseFromJSON(encounter_details); //nonprimitive
 
 
+
     location_area_detail_pokemon_encounters_inner_version_details_inner_local_var = location_area_detail_pokemon_encounters_inner_version_details_inner_create_internal (
         version_local_nonprim,
-        max_chance->valuedouble,
+        max_chance_local_var,
         encounter_details_local_nonprim
         );
+
+    if (!location_area_detail_pokemon_encounters_inner_version_details_inner_local_var) {
+        goto end;
+    }
 
     return location_area_detail_pokemon_encounters_inner_version_details_inner_local_var;
 end:
     if (version_local_nonprim) {
         ability_detail_pokemon_inner_pokemon_free(version_local_nonprim);
         version_local_nonprim = NULL;
+    }
+    if (max_chance_local_var) {
+        free(max_chance_local_var);
+        max_chance_local_var = NULL;
     }
     if (encounter_details_local_nonprim) {
         location_area_detail_pokemon_encounters_inner_version_details_inner_encounter_details_free(encounter_details_local_nonprim);

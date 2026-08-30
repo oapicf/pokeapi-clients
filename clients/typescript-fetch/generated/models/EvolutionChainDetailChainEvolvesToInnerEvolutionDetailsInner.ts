@@ -54,16 +54,16 @@ export interface EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner {
     item: EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender;
     /**
      * 
-     * @type {object}
+     * @type {EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender}
      * @memberof EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner
      */
-    knownMove: object;
+    knownMove: EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender;
     /**
      * 
-     * @type {object}
+     * @type {EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender}
      * @memberof EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner
      */
-    knownMoveType: object;
+    knownMoveType: EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender;
     /**
      * 
      * @type {EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender}
@@ -149,23 +149,23 @@ export interface EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner {
  */
 export function instanceOfEvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner(value: object): value is EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner {
     if (!('gender' in value) || value['gender'] === undefined) return false;
-    if (!('heldItem' in value) || value['heldItem'] === undefined) return false;
+    if ((!('heldItem' in (value as Record<string, any>)) && !('held_item' in (value as Record<string, any>))) || ((value as Record<string, any>)['heldItem'] === undefined && (value as Record<string, any>)['held_item'] === undefined)) return false;
     if (!('item' in value) || value['item'] === undefined) return false;
-    if (!('knownMove' in value) || value['knownMove'] === undefined) return false;
-    if (!('knownMoveType' in value) || value['knownMoveType'] === undefined) return false;
+    if ((!('knownMove' in (value as Record<string, any>)) && !('known_move' in (value as Record<string, any>))) || ((value as Record<string, any>)['knownMove'] === undefined && (value as Record<string, any>)['known_move'] === undefined)) return false;
+    if ((!('knownMoveType' in (value as Record<string, any>)) && !('known_move_type' in (value as Record<string, any>))) || ((value as Record<string, any>)['knownMoveType'] === undefined && (value as Record<string, any>)['known_move_type'] === undefined)) return false;
     if (!('location' in value) || value['location'] === undefined) return false;
-    if (!('minAffection' in value) || value['minAffection'] === undefined) return false;
-    if (!('minBeauty' in value) || value['minBeauty'] === undefined) return false;
-    if (!('minHappiness' in value) || value['minHappiness'] === undefined) return false;
-    if (!('minLevel' in value) || value['minLevel'] === undefined) return false;
-    if (!('needsOverworldRain' in value) || value['needsOverworldRain'] === undefined) return false;
-    if (!('partySpecies' in value) || value['partySpecies'] === undefined) return false;
-    if (!('partyType' in value) || value['partyType'] === undefined) return false;
-    if (!('relativePhysicalStats' in value) || value['relativePhysicalStats'] === undefined) return false;
-    if (!('timeOfDay' in value) || value['timeOfDay'] === undefined) return false;
-    if (!('tradeSpecies' in value) || value['tradeSpecies'] === undefined) return false;
+    if ((!('minAffection' in (value as Record<string, any>)) && !('min_affection' in (value as Record<string, any>))) || ((value as Record<string, any>)['minAffection'] === undefined && (value as Record<string, any>)['min_affection'] === undefined)) return false;
+    if ((!('minBeauty' in (value as Record<string, any>)) && !('min_beauty' in (value as Record<string, any>))) || ((value as Record<string, any>)['minBeauty'] === undefined && (value as Record<string, any>)['min_beauty'] === undefined)) return false;
+    if ((!('minHappiness' in (value as Record<string, any>)) && !('min_happiness' in (value as Record<string, any>))) || ((value as Record<string, any>)['minHappiness'] === undefined && (value as Record<string, any>)['min_happiness'] === undefined)) return false;
+    if ((!('minLevel' in (value as Record<string, any>)) && !('min_level' in (value as Record<string, any>))) || ((value as Record<string, any>)['minLevel'] === undefined && (value as Record<string, any>)['min_level'] === undefined)) return false;
+    if ((!('needsOverworldRain' in (value as Record<string, any>)) && !('needs_overworld_rain' in (value as Record<string, any>))) || ((value as Record<string, any>)['needsOverworldRain'] === undefined && (value as Record<string, any>)['needs_overworld_rain'] === undefined)) return false;
+    if ((!('partySpecies' in (value as Record<string, any>)) && !('party_species' in (value as Record<string, any>))) || ((value as Record<string, any>)['partySpecies'] === undefined && (value as Record<string, any>)['party_species'] === undefined)) return false;
+    if ((!('partyType' in (value as Record<string, any>)) && !('party_type' in (value as Record<string, any>))) || ((value as Record<string, any>)['partyType'] === undefined && (value as Record<string, any>)['party_type'] === undefined)) return false;
+    if ((!('relativePhysicalStats' in (value as Record<string, any>)) && !('relative_physical_stats' in (value as Record<string, any>))) || ((value as Record<string, any>)['relativePhysicalStats'] === undefined && (value as Record<string, any>)['relative_physical_stats'] === undefined)) return false;
+    if ((!('timeOfDay' in (value as Record<string, any>)) && !('time_of_day' in (value as Record<string, any>))) || ((value as Record<string, any>)['timeOfDay'] === undefined && (value as Record<string, any>)['time_of_day'] === undefined)) return false;
+    if ((!('tradeSpecies' in (value as Record<string, any>)) && !('trade_species' in (value as Record<string, any>))) || ((value as Record<string, any>)['tradeSpecies'] === undefined && (value as Record<string, any>)['trade_species'] === undefined)) return false;
     if (!('trigger' in value) || value['trigger'] === undefined) return false;
-    if (!('turnUpsideDown' in value) || value['turnUpsideDown'] === undefined) return false;
+    if ((!('turnUpsideDown' in (value as Record<string, any>)) && !('turn_upside_down' in (value as Record<string, any>))) || ((value as Record<string, any>)['turnUpsideDown'] === undefined && (value as Record<string, any>)['turn_upside_down'] === undefined)) return false;
     return true;
 }
 
@@ -182,8 +182,8 @@ export function EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerFrom
         'gender': EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGenderFromJSON(json['gender']),
         'heldItem': EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGenderFromJSON(json['held_item']),
         'item': EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGenderFromJSON(json['item']),
-        'knownMove': json['known_move'],
-        'knownMoveType': json['known_move_type'],
+        'knownMove': EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGenderFromJSON(json['known_move']),
+        'knownMoveType': EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGenderFromJSON(json['known_move_type']),
         'location': EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGenderFromJSON(json['location']),
         'minAffection': json['min_affection'],
         'minBeauty': json['min_beauty'],
@@ -214,8 +214,8 @@ export function EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerToJS
         'gender': EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGenderToJSON(value['gender']),
         'held_item': EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGenderToJSON(value['heldItem']),
         'item': EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGenderToJSON(value['item']),
-        'known_move': value['knownMove'],
-        'known_move_type': value['knownMoveType'],
+        'known_move': EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGenderToJSON(value['knownMove']),
+        'known_move_type': EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGenderToJSON(value['knownMoveType']),
         'location': EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGenderToJSON(value['location']),
         'min_affection': value['minAffection'],
         'min_beauty': value['minBeauty'],

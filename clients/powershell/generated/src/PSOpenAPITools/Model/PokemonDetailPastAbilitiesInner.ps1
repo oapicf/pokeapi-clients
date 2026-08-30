@@ -49,8 +49,8 @@ function Initialize-PokemonDetailPastAbilitiesInner {
 
 
         $PSO = [PSCustomObject]@{
-            "abilities" = ${Abilities}
-            "generation" = ${Generation}
+            'abilities' = ${Abilities}
+            'generation' = ${Generation}
         }
 
 
@@ -88,7 +88,7 @@ function ConvertFrom-JsonToPokemonDetailPastAbilitiesInner {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in PokemonDetailPastAbilitiesInner
-        $AllProperties = ("abilities", "generation")
+        $AllProperties = ('abilities', 'generation')
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -99,21 +99,21 @@ function ConvertFrom-JsonToPokemonDetailPastAbilitiesInner {
             throw "Error! Empty JSON cannot be serialized due to the required property 'abilities' missing."
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "abilities"))) {
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'abilities'))) {
             throw "Error! JSON cannot be serialized due to the required property 'abilities' missing."
         } else {
-            $Abilities = $JsonParameters.PSobject.Properties["abilities"].value
+            $Abilities = $JsonParameters.PSobject.Properties['abilities'].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "generation"))) {
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'generation'))) {
             throw "Error! JSON cannot be serialized due to the required property 'generation' missing."
         } else {
-            $Generation = $JsonParameters.PSobject.Properties["generation"].value
+            $Generation = $JsonParameters.PSobject.Properties['generation'].value
         }
 
         $PSO = [PSCustomObject]@{
-            "abilities" = ${Abilities}
-            "generation" = ${Generation}
+            'abilities' = ${Abilities}
+            'generation' = ${Generation}
         }
 
         return $PSO

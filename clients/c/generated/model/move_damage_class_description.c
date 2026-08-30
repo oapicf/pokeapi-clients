@@ -13,10 +13,10 @@ static move_damage_class_description_t *move_damage_class_description_create_int
     if (!move_damage_class_description_local_var) {
         return NULL;
     }
+    memset(move_damage_class_description_local_var, 0, sizeof(move_damage_class_description_t));
+    move_damage_class_description_local_var->_library_owned = 1;
     move_damage_class_description_local_var->description = description;
     move_damage_class_description_local_var->language = language;
-
-    move_damage_class_description_local_var->_library_owned = 1;
     return move_damage_class_description_local_var;
 }
 
@@ -24,10 +24,13 @@ __attribute__((deprecated)) move_damage_class_description_t *move_damage_class_d
     char *description,
     language_summary_t *language
     ) {
-    return move_damage_class_description_create_internal (
+    move_damage_class_description_t *result = move_damage_class_description_create_internal (
         description,
         language
         );
+    if (!result) {
+    }
+    return result;
 }
 
 void move_damage_class_description_free(move_damage_class_description_t *move_damage_class_description) {
@@ -86,6 +89,8 @@ move_damage_class_description_t *move_damage_class_description_parseFromJSON(cJS
 
     move_damage_class_description_t *move_damage_class_description_local_var = NULL;
 
+    char *description_local_str = NULL;
+
     // define the local variable for move_damage_class_description->language
     language_summary_t *language_local_nonprim = NULL;
 
@@ -114,13 +119,23 @@ move_damage_class_description_t *move_damage_class_description_parseFromJSON(cJS
     language_local_nonprim = language_summary_parseFromJSON(language); //nonprimitive
 
 
+    if (description && !cJSON_IsNull(description)) description_local_str = strdup(description->valuestring);
+
     move_damage_class_description_local_var = move_damage_class_description_create_internal (
-        description && !cJSON_IsNull(description) ? strdup(description->valuestring) : NULL,
+        description_local_str,
         language_local_nonprim
         );
 
+    if (!move_damage_class_description_local_var) {
+        goto end;
+    }
+
     return move_damage_class_description_local_var;
 end:
+    if (description_local_str) {
+        free(description_local_str);
+        description_local_str = NULL;
+    }
     if (language_local_nonprim) {
         language_summary_free(language_local_nonprim);
         language_local_nonprim = NULL;
