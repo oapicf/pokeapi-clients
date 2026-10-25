@@ -36,26 +36,18 @@ import {
 export interface ItemPocketDetail {
     /**
      * 
-     * @type {number}
-     * @memberof ItemPocketDetail
      */
     readonly id: number;
     /**
      * 
-     * @type {string}
-     * @memberof ItemPocketDetail
      */
     name: string;
     /**
      * 
-     * @type {Array<ItemCategorySummary>}
-     * @memberof ItemPocketDetail
      */
     readonly categories: Array<ItemCategorySummary>;
     /**
      * 
-     * @type {Array<ItemPocketName>}
-     * @memberof ItemPocketDetail
      */
     readonly names: Array<ItemPocketName>;
 }

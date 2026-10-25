@@ -21,10 +21,10 @@ import org.openapitools.jackson.nullable.JsonNullable;
 
 
 @JsonTypeName("StatDetail_affecting_moves")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2026-08-30T01:56:42.280002256Z[Etc/UTC]", comments = "Generator version: 7.24.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2026-10-25T05:48:57.630723375Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 public class StatDetailAffectingMoves   {
-  private @Valid List<@Valid StatDetailAffectingMovesIncreaseInner> increase = new ArrayList<>();
-  private @Valid List<@Valid StatDetailAffectingMovesIncreaseInner> decrease = new ArrayList<>();
+  private List<@Valid StatDetailAffectingMovesIncreaseInner> increase = new ArrayList<>();
+  private List<@Valid StatDetailAffectingMovesIncreaseInner> decrease = new ArrayList<>();
 
   public StatDetailAffectingMoves() {
   }
@@ -48,7 +48,7 @@ public class StatDetailAffectingMoves   {
   
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(required = true, value = "increase")
-  @NotNull @Valid public List<@Valid StatDetailAffectingMovesIncreaseInner> getIncrease() {
+  @NotNull public List<@Valid StatDetailAffectingMovesIncreaseInner> getIncrease() {
     return increase;
   }
 
@@ -83,7 +83,7 @@ public class StatDetailAffectingMoves   {
   
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(required = true, value = "decrease")
-  @NotNull @Valid public List<@Valid StatDetailAffectingMovesIncreaseInner> getDecrease() {
+  @NotNull public List<@Valid StatDetailAffectingMovesIncreaseInner> getDecrease() {
     return decrease;
   }
 

@@ -178,28 +178,28 @@ namespace Org.OpenAPITools.Model
             }
 
             if (!id.IsSet)
-                throw new ArgumentException("Property is required for class MoveMetaAilmentDetail.", nameof(id));
+                throw new JsonException("Property is required for class MoveMetaAilmentDetail: id.");
 
             if (!name.IsSet)
-                throw new ArgumentException("Property is required for class MoveMetaAilmentDetail.", nameof(name));
+                throw new JsonException("Property is required for class MoveMetaAilmentDetail: name.");
 
             if (!moves.IsSet)
-                throw new ArgumentException("Property is required for class MoveMetaAilmentDetail.", nameof(moves));
+                throw new JsonException("Property is required for class MoveMetaAilmentDetail: moves.");
 
             if (!names.IsSet)
-                throw new ArgumentException("Property is required for class MoveMetaAilmentDetail.", nameof(names));
+                throw new JsonException("Property is required for class MoveMetaAilmentDetail: names.");
 
             if (id.IsSet && id.Value == null)
-                throw new ArgumentNullException(nameof(id), "Property is not nullable for class MoveMetaAilmentDetail.");
+                throw new JsonException("Property is not nullable for class MoveMetaAilmentDetail: id.");
 
             if (name.IsSet && name.Value == null)
-                throw new ArgumentNullException(nameof(name), "Property is not nullable for class MoveMetaAilmentDetail.");
+                throw new JsonException("Property is not nullable for class MoveMetaAilmentDetail: name.");
 
             if (moves.IsSet && moves.Value == null)
-                throw new ArgumentNullException(nameof(moves), "Property is not nullable for class MoveMetaAilmentDetail.");
+                throw new JsonException("Property is not nullable for class MoveMetaAilmentDetail: moves.");
 
             if (names.IsSet && names.Value == null)
-                throw new ArgumentNullException(nameof(names), "Property is not nullable for class MoveMetaAilmentDetail.");
+                throw new JsonException("Property is not nullable for class MoveMetaAilmentDetail: names.");
 
             return new MoveMetaAilmentDetail(id.Value!.Value!, name.Value!, moves.Value!, names.Value!);
         }
@@ -210,7 +210,6 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="moveMetaAilmentDetail"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public override void Write(Utf8JsonWriter writer, MoveMetaAilmentDetail moveMetaAilmentDetail, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteStartObject();
@@ -225,18 +224,8 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="moveMetaAilmentDetail"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, MoveMetaAilmentDetail moveMetaAilmentDetail, JsonSerializerOptions jsonSerializerOptions)
         {
-            if (moveMetaAilmentDetail.Name == null)
-                throw new ArgumentNullException(nameof(moveMetaAilmentDetail.Name), "Property is required for class MoveMetaAilmentDetail.");
-
-            if (moveMetaAilmentDetail.Moves == null)
-                throw new ArgumentNullException(nameof(moveMetaAilmentDetail.Moves), "Property is required for class MoveMetaAilmentDetail.");
-
-            if (moveMetaAilmentDetail.Names == null)
-                throw new ArgumentNullException(nameof(moveMetaAilmentDetail.Names), "Property is required for class MoveMetaAilmentDetail.");
-
             writer.WriteNumber("id", moveMetaAilmentDetail.Id);
 
             writer.WriteString("name", moveMetaAilmentDetail.Name);

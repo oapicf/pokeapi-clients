@@ -346,16 +346,16 @@ namespace Org.OpenAPITools.Model
             }
 
             if (!ailment.IsSet)
-                throw new ArgumentException("Property is required for class MoveMeta.", nameof(ailment));
+                throw new JsonException("Property is required for class MoveMeta: ailment.");
 
             if (!category.IsSet)
-                throw new ArgumentException("Property is required for class MoveMeta.", nameof(category));
+                throw new JsonException("Property is required for class MoveMeta: category.");
 
             if (ailment.IsSet && ailment.Value == null)
-                throw new ArgumentNullException(nameof(ailment), "Property is not nullable for class MoveMeta.");
+                throw new JsonException("Property is not nullable for class MoveMeta: ailment.");
 
             if (category.IsSet && category.Value == null)
-                throw new ArgumentNullException(nameof(category), "Property is not nullable for class MoveMeta.");
+                throw new JsonException("Property is not nullable for class MoveMeta: category.");
 
             return new MoveMeta(ailment.Value!, category.Value!, minHits, maxHits, minTurns, maxTurns, drain, healing, critRate, ailmentChance, flinchChance, statChance);
         }
@@ -366,7 +366,6 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="moveMeta"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public override void Write(Utf8JsonWriter writer, MoveMeta moveMeta, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteStartObject();
@@ -381,15 +380,8 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="moveMeta"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, MoveMeta moveMeta, JsonSerializerOptions jsonSerializerOptions)
         {
-            if (moveMeta.Ailment == null)
-                throw new ArgumentNullException(nameof(moveMeta.Ailment), "Property is required for class MoveMeta.");
-
-            if (moveMeta.Category == null)
-                throw new ArgumentNullException(nameof(moveMeta.Category), "Property is required for class MoveMeta.");
-
             writer.WritePropertyName("ailment");
             JsonSerializer.Serialize(writer, moveMeta.Ailment, jsonSerializerOptions);
             writer.WritePropertyName("category");

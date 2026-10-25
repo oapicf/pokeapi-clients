@@ -166,3 +166,4 @@ class _$PaginatedPokemonColorSummaryListSerializer implements PrimitiveSerialize
   }
 }
 
+

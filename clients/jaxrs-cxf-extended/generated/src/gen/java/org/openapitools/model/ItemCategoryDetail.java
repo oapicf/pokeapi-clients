@@ -23,11 +23,9 @@ public class ItemCategoryDetail  {
   private String name;
 
   @ApiModelProperty(required = true, value = "")
-  @Valid
   private List<@Valid ItemSummary> items = new ArrayList<>();
 
   @ApiModelProperty(required = true, value = "")
-  @Valid
   private List<@Valid ItemCategoryName> names = new ArrayList<>();
 
   @ApiModelProperty(required = true, value = "")

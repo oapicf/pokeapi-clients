@@ -23,12 +23,12 @@ data class PokeathlonStatDetailAffectingNaturesIncreaseInner(
 
     @get:Min(value=1)
     @Schema(required = true, description = "")
-    @param:JsonProperty("max_change")
+    @param:JsonProperty("max_change", required = true)
     @get:JsonProperty("max_change", required = true) val maxChange: kotlin.Int,
 
     @field:Valid
     @Schema(required = true, description = "")
-    @param:JsonProperty("nature")
+    @param:JsonProperty("nature", required = true)
     @get:JsonProperty("nature", required = true) val nature: AbilityDetailPokemonInnerPokemon
 ) {
 

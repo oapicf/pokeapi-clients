@@ -166,3 +166,4 @@ class _$PaginatedMoveTargetSummaryListSerializer implements PrimitiveSerializer<
   }
 }
 
+

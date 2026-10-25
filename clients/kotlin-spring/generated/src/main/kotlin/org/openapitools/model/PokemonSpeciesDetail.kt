@@ -1,10 +1,7 @@
 package org.openapitools.model
 
 import java.util.Objects
-import com.fasterxml.jackson.annotation.JsonInclude
 import com.fasterxml.jackson.annotation.JsonProperty
-import com.fasterxml.jackson.annotation.JsonSetter
-import com.fasterxml.jackson.annotation.Nulls
 import org.openapitools.model.AbilityDetailPokemonInnerPokemon
 import org.openapitools.model.EvolutionChainSummary
 import org.openapitools.model.GenerationSummary
@@ -64,87 +61,87 @@ import io.swagger.v3.oas.annotations.media.Schema
 data class PokemonSpeciesDetail(
 
     @Schema(required = true, readOnly = true, description = "")
-    @param:JsonProperty("id")
+    @param:JsonProperty("id", required = true)
     @get:JsonProperty("id", required = true) val id: kotlin.Int,
 
     @get:Size(max=100)
     @Schema(required = true, description = "")
-    @param:JsonProperty("name")
+    @param:JsonProperty("name", required = true)
     @get:JsonProperty("name", required = true) val name: kotlin.String,
 
     @field:Valid
     @Schema(required = true, description = "")
-    @param:JsonProperty("growth_rate")
+    @param:JsonProperty("growth_rate", required = true)
     @get:JsonProperty("growth_rate", required = true) val growthRate: GrowthRateSummary,
 
     @field:Valid
     @Schema(required = true, readOnly = true, description = "")
-    @param:JsonProperty("pokedex_numbers")
+    @param:JsonProperty("pokedex_numbers", required = true)
     @get:JsonProperty("pokedex_numbers", required = true) val pokedexNumbers: kotlin.collections.List<PokemonDexEntry>,
 
     @field:Valid
     @Schema(required = true, readOnly = true, description = "")
-    @param:JsonProperty("egg_groups")
+    @param:JsonProperty("egg_groups", required = true)
     @get:JsonProperty("egg_groups", required = true) val eggGroups: kotlin.collections.List<AbilityDetailPokemonInnerPokemon>,
 
     @field:Valid
     @Schema(required = true, description = "")
-    @param:JsonProperty("color")
+    @param:JsonProperty("color", required = true)
     @get:JsonProperty("color", required = true) val color: PokemonColorSummary,
 
     @field:Valid
     @Schema(required = true, description = "")
-    @param:JsonProperty("shape")
+    @param:JsonProperty("shape", required = true)
     @get:JsonProperty("shape", required = true) val shape: PokemonShapeSummary,
 
     @field:Valid
     @Schema(required = true, description = "")
-    @param:JsonProperty("evolves_from_species")
+    @param:JsonProperty("evolves_from_species", required = true)
     @get:JsonProperty("evolves_from_species", required = true) val evolvesFromSpecies: PokemonSpeciesSummary,
 
     @field:Valid
     @Schema(required = true, description = "")
-    @param:JsonProperty("evolution_chain")
+    @param:JsonProperty("evolution_chain", required = true)
     @get:JsonProperty("evolution_chain", required = true) val evolutionChain: EvolutionChainSummary,
 
     @field:Valid
     @Schema(required = true, description = "")
-    @param:JsonProperty("habitat")
+    @param:JsonProperty("habitat", required = true)
     @get:JsonProperty("habitat", required = true) val habitat: PokemonHabitatSummary,
 
     @field:Valid
     @Schema(required = true, description = "")
-    @param:JsonProperty("generation")
+    @param:JsonProperty("generation", required = true)
     @get:JsonProperty("generation", required = true) val generation: GenerationSummary,
 
     @field:Valid
     @Schema(required = true, readOnly = true, description = "")
-    @param:JsonProperty("names")
+    @param:JsonProperty("names", required = true)
     @get:JsonProperty("names", required = true) val names: kotlin.collections.List<PokemonFormDetailFormNamesInner>,
 
     @field:Valid
     @Schema(required = true, readOnly = true, description = "")
-    @param:JsonProperty("pal_park_encounters")
+    @param:JsonProperty("pal_park_encounters", required = true)
     @get:JsonProperty("pal_park_encounters", required = true) val palParkEncounters: kotlin.collections.List<PokemonSpeciesDetailPalParkEncountersInner>,
 
     @field:Valid
     @Schema(required = true, readOnly = true, description = "")
-    @param:JsonProperty("form_descriptions")
+    @param:JsonProperty("form_descriptions", required = true)
     @get:JsonProperty("form_descriptions", required = true) val formDescriptions: kotlin.collections.List<PokemonSpeciesDescription>,
 
     @field:Valid
     @Schema(required = true, readOnly = true, description = "")
-    @param:JsonProperty("flavor_text_entries")
+    @param:JsonProperty("flavor_text_entries", required = true)
     @get:JsonProperty("flavor_text_entries", required = true) val flavorTextEntries: kotlin.collections.List<PokemonSpeciesFlavorText>,
 
     @field:Valid
     @Schema(required = true, readOnly = true, description = "")
-    @param:JsonProperty("genera")
+    @param:JsonProperty("genera", required = true)
     @get:JsonProperty("genera", required = true) val genera: kotlin.collections.List<PokemonSpeciesDetailGeneraInner>,
 
     @field:Valid
     @Schema(required = true, readOnly = true, description = "")
-    @param:JsonProperty("varieties")
+    @param:JsonProperty("varieties", required = true)
     @get:JsonProperty("varieties", required = true) val varieties: kotlin.collections.List<PokemonSpeciesDetailVarietiesInner>,
 
     @Schema(description = "")
@@ -164,20 +161,14 @@ data class PokemonSpeciesDetail(
     @get:JsonProperty("base_happiness") val baseHappiness: kotlin.Int? = null,
 
     @Schema(description = "")
-    @field:JsonInclude(JsonInclude.Include.NON_NULL)
-    @field:JsonSetter(nulls = Nulls.SKIP)
     @param:JsonProperty("is_baby")
     @get:JsonProperty("is_baby") val isBaby: kotlin.Boolean? = null,
 
     @Schema(description = "")
-    @field:JsonInclude(JsonInclude.Include.NON_NULL)
-    @field:JsonSetter(nulls = Nulls.SKIP)
     @param:JsonProperty("is_legendary")
     @get:JsonProperty("is_legendary") val isLegendary: kotlin.Boolean? = null,
 
     @Schema(description = "")
-    @field:JsonInclude(JsonInclude.Include.NON_NULL)
-    @field:JsonSetter(nulls = Nulls.SKIP)
     @param:JsonProperty("is_mythical")
     @get:JsonProperty("is_mythical") val isMythical: kotlin.Boolean? = null,
 
@@ -186,14 +177,10 @@ data class PokemonSpeciesDetail(
     @get:JsonProperty("hatch_counter") val hatchCounter: kotlin.Int? = null,
 
     @Schema(description = "")
-    @field:JsonInclude(JsonInclude.Include.NON_NULL)
-    @field:JsonSetter(nulls = Nulls.SKIP)
     @param:JsonProperty("has_gender_differences")
     @get:JsonProperty("has_gender_differences") val hasGenderDifferences: kotlin.Boolean? = null,
 
     @Schema(description = "")
-    @field:JsonInclude(JsonInclude.Include.NON_NULL)
-    @field:JsonSetter(nulls = Nulls.SKIP)
     @param:JsonProperty("forms_switchable")
     @get:JsonProperty("forms_switchable") val formsSwitchable: kotlin.Boolean? = null
 ) {

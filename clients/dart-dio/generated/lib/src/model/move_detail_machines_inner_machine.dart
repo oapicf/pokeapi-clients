@@ -104,3 +104,4 @@ class _$MoveDetailMachinesInnerMachineSerializer implements PrimitiveSerializer<
   }
 }
 
+

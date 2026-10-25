@@ -26,7 +26,6 @@ public class PokeathlonStatDetail  {
   private PokeathlonStatDetailAffectingNatures affectingNatures;
 
   @ApiModelProperty(required = true, value = "")
-  @Valid
   private List<@Valid PokeathlonStatName> names = new ArrayList<>();
  /**
   * Get id

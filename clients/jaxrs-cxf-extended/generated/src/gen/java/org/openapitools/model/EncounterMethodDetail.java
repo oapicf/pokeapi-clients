@@ -25,7 +25,6 @@ public class EncounterMethodDetail  {
   private Integer order;
 
   @ApiModelProperty(required = true, value = "")
-  @Valid
   private List<@Valid EncounterMethodName> names = new ArrayList<>();
  /**
   * Get id

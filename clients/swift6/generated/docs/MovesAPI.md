@@ -20,7 +20,7 @@ Method | HTTP request | Description
 
 # **moveAilmentList**
 ```swift
-    open class func moveAilmentList(limit: Int? = nil, offset: Int? = nil, q: String? = nil, completion: @escaping (_ data: PaginatedMoveMetaAilmentSummaryList?, _ error: Error?) -> Void)
+    open class func moveAilmentList(limit: Int? = nil, offset: Int? = nil, q: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> PaginatedMoveMetaAilmentSummaryList
 ```
 
 List move meta ailments
@@ -37,15 +37,11 @@ let offset = 987 // Int | The initial index from which to return the results. (o
 let q = "q_example" // String | > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property.  (optional)
 
 // List move meta ailments
-MovesAPI.moveAilmentList(limit: limit, offset: offset, q: q) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await MovesAPI.moveAilmentList(limit: limit, offset: offset, q: q)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -74,7 +70,7 @@ Name | Type | Description  | Notes
 
 # **moveAilmentRetrieve**
 ```swift
-    open class func moveAilmentRetrieve(id: String, completion: @escaping (_ data: MoveMetaAilmentDetail?, _ error: Error?) -> Void)
+    open class func moveAilmentRetrieve(id: String, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> MoveMetaAilmentDetail
 ```
 
 Get move meta ailment
@@ -89,15 +85,11 @@ import OpenAPIClient
 let id = "id_example" // String | This parameter can be a string or an integer.
 
 // Get move meta ailment
-MovesAPI.moveAilmentRetrieve(id: id) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await MovesAPI.moveAilmentRetrieve(id: id)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -124,7 +116,7 @@ Name | Type | Description  | Notes
 
 # **moveBattleStyleList**
 ```swift
-    open class func moveBattleStyleList(limit: Int? = nil, offset: Int? = nil, q: String? = nil, completion: @escaping (_ data: PaginatedMoveBattleStyleSummaryList?, _ error: Error?) -> Void)
+    open class func moveBattleStyleList(limit: Int? = nil, offset: Int? = nil, q: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> PaginatedMoveBattleStyleSummaryList
 ```
 
 List move battle styles
@@ -141,15 +133,11 @@ let offset = 987 // Int | The initial index from which to return the results. (o
 let q = "q_example" // String | > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property.  (optional)
 
 // List move battle styles
-MovesAPI.moveBattleStyleList(limit: limit, offset: offset, q: q) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await MovesAPI.moveBattleStyleList(limit: limit, offset: offset, q: q)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -178,7 +166,7 @@ Name | Type | Description  | Notes
 
 # **moveBattleStyleRetrieve**
 ```swift
-    open class func moveBattleStyleRetrieve(id: String, completion: @escaping (_ data: MoveBattleStyleDetail?, _ error: Error?) -> Void)
+    open class func moveBattleStyleRetrieve(id: String, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> MoveBattleStyleDetail
 ```
 
 Get move battle style
@@ -193,15 +181,11 @@ import OpenAPIClient
 let id = "id_example" // String | This parameter can be a string or an integer.
 
 // Get move battle style
-MovesAPI.moveBattleStyleRetrieve(id: id) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await MovesAPI.moveBattleStyleRetrieve(id: id)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -228,7 +212,7 @@ Name | Type | Description  | Notes
 
 # **moveCategoryList**
 ```swift
-    open class func moveCategoryList(limit: Int? = nil, offset: Int? = nil, q: String? = nil, completion: @escaping (_ data: PaginatedMoveMetaCategorySummaryList?, _ error: Error?) -> Void)
+    open class func moveCategoryList(limit: Int? = nil, offset: Int? = nil, q: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> PaginatedMoveMetaCategorySummaryList
 ```
 
 List move meta categories
@@ -245,15 +229,11 @@ let offset = 987 // Int | The initial index from which to return the results. (o
 let q = "q_example" // String | > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property.  (optional)
 
 // List move meta categories
-MovesAPI.moveCategoryList(limit: limit, offset: offset, q: q) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await MovesAPI.moveCategoryList(limit: limit, offset: offset, q: q)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -282,7 +262,7 @@ Name | Type | Description  | Notes
 
 # **moveCategoryRetrieve**
 ```swift
-    open class func moveCategoryRetrieve(id: String, completion: @escaping (_ data: MoveMetaCategoryDetail?, _ error: Error?) -> Void)
+    open class func moveCategoryRetrieve(id: String, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> MoveMetaCategoryDetail
 ```
 
 Get move meta category
@@ -297,15 +277,11 @@ import OpenAPIClient
 let id = "id_example" // String | This parameter can be a string or an integer.
 
 // Get move meta category
-MovesAPI.moveCategoryRetrieve(id: id) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await MovesAPI.moveCategoryRetrieve(id: id)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -332,7 +308,7 @@ Name | Type | Description  | Notes
 
 # **moveLearnMethodList**
 ```swift
-    open class func moveLearnMethodList(limit: Int? = nil, offset: Int? = nil, q: String? = nil, completion: @escaping (_ data: PaginatedMoveLearnMethodSummaryList?, _ error: Error?) -> Void)
+    open class func moveLearnMethodList(limit: Int? = nil, offset: Int? = nil, q: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> PaginatedMoveLearnMethodSummaryList
 ```
 
 List move learn methods
@@ -349,15 +325,11 @@ let offset = 987 // Int | The initial index from which to return the results. (o
 let q = "q_example" // String | > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property.  (optional)
 
 // List move learn methods
-MovesAPI.moveLearnMethodList(limit: limit, offset: offset, q: q) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await MovesAPI.moveLearnMethodList(limit: limit, offset: offset, q: q)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -386,7 +358,7 @@ Name | Type | Description  | Notes
 
 # **moveLearnMethodRetrieve**
 ```swift
-    open class func moveLearnMethodRetrieve(id: String, completion: @escaping (_ data: MoveLearnMethodDetail?, _ error: Error?) -> Void)
+    open class func moveLearnMethodRetrieve(id: String, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> MoveLearnMethodDetail
 ```
 
 Get move learn method
@@ -401,15 +373,11 @@ import OpenAPIClient
 let id = "id_example" // String | This parameter can be a string or an integer.
 
 // Get move learn method
-MovesAPI.moveLearnMethodRetrieve(id: id) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await MovesAPI.moveLearnMethodRetrieve(id: id)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -436,7 +404,7 @@ Name | Type | Description  | Notes
 
 # **moveList**
 ```swift
-    open class func moveList(limit: Int? = nil, offset: Int? = nil, q: String? = nil, completion: @escaping (_ data: PaginatedMoveSummaryList?, _ error: Error?) -> Void)
+    open class func moveList(limit: Int? = nil, offset: Int? = nil, q: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> PaginatedMoveSummaryList
 ```
 
 List moves
@@ -453,15 +421,11 @@ let offset = 987 // Int | The initial index from which to return the results. (o
 let q = "q_example" // String | > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property.  (optional)
 
 // List moves
-MovesAPI.moveList(limit: limit, offset: offset, q: q) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await MovesAPI.moveList(limit: limit, offset: offset, q: q)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -490,7 +454,7 @@ Name | Type | Description  | Notes
 
 # **moveRetrieve**
 ```swift
-    open class func moveRetrieve(id: String, completion: @escaping (_ data: MoveDetail?, _ error: Error?) -> Void)
+    open class func moveRetrieve(id: String, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> MoveDetail
 ```
 
 Get move
@@ -505,15 +469,11 @@ import OpenAPIClient
 let id = "id_example" // String | This parameter can be a string or an integer.
 
 // Get move
-MovesAPI.moveRetrieve(id: id) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await MovesAPI.moveRetrieve(id: id)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -540,7 +500,7 @@ Name | Type | Description  | Notes
 
 # **moveTargetList**
 ```swift
-    open class func moveTargetList(limit: Int? = nil, offset: Int? = nil, q: String? = nil, completion: @escaping (_ data: PaginatedMoveTargetSummaryList?, _ error: Error?) -> Void)
+    open class func moveTargetList(limit: Int? = nil, offset: Int? = nil, q: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> PaginatedMoveTargetSummaryList
 ```
 
 List move targets
@@ -557,15 +517,11 @@ let offset = 987 // Int | The initial index from which to return the results. (o
 let q = "q_example" // String | > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property.  (optional)
 
 // List move targets
-MovesAPI.moveTargetList(limit: limit, offset: offset, q: q) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await MovesAPI.moveTargetList(limit: limit, offset: offset, q: q)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -594,7 +550,7 @@ Name | Type | Description  | Notes
 
 # **moveTargetRetrieve**
 ```swift
-    open class func moveTargetRetrieve(id: String, completion: @escaping (_ data: MoveTargetDetail?, _ error: Error?) -> Void)
+    open class func moveTargetRetrieve(id: String, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> MoveTargetDetail
 ```
 
 Get move target
@@ -609,15 +565,11 @@ import OpenAPIClient
 let id = "id_example" // String | This parameter can be a string or an integer.
 
 // Get move target
-MovesAPI.moveTargetRetrieve(id: id) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await MovesAPI.moveTargetRetrieve(id: id)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 

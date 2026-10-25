@@ -112,29 +112,25 @@ class NatureDetail(BaseModel):
         _items = []
         if self.berries:
             for _item_berries in self.berries:
-                if _item_berries:
-                    _items.append(_item_berries.to_dict())
+                _items.append(_item_berries.to_dict() if _item_berries is not None else None)
             _dict['berries'] = _items
         # override the default output from pydantic by calling `to_dict()` of each item in pokeathlon_stat_changes (list)
         _items = []
         if self.pokeathlon_stat_changes:
             for _item_pokeathlon_stat_changes in self.pokeathlon_stat_changes:
-                if _item_pokeathlon_stat_changes:
-                    _items.append(_item_pokeathlon_stat_changes.to_dict())
+                _items.append(_item_pokeathlon_stat_changes.to_dict() if _item_pokeathlon_stat_changes is not None else None)
             _dict['pokeathlon_stat_changes'] = _items
         # override the default output from pydantic by calling `to_dict()` of each item in move_battle_style_preferences (list)
         _items = []
         if self.move_battle_style_preferences:
             for _item_move_battle_style_preferences in self.move_battle_style_preferences:
-                if _item_move_battle_style_preferences:
-                    _items.append(_item_move_battle_style_preferences.to_dict())
+                _items.append(_item_move_battle_style_preferences.to_dict() if _item_move_battle_style_preferences is not None else None)
             _dict['move_battle_style_preferences'] = _items
         # override the default output from pydantic by calling `to_dict()` of each item in names (list)
         _items = []
         if self.names:
             for _item_names in self.names:
-                if _item_names:
-                    _items.append(_item_names.to_dict())
+                _items.append(_item_names.to_dict() if _item_names is not None else None)
             _dict['names'] = _items
         return _dict
 

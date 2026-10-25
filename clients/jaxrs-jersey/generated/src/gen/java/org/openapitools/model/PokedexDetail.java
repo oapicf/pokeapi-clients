@@ -43,7 +43,7 @@ import javax.validation.Valid;
   PokedexDetail.JSON_PROPERTY_REGION,
   PokedexDetail.JSON_PROPERTY_VERSION_GROUPS
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJerseyServerCodegen", date = "2026-08-30T01:56:28.710233113Z[Etc/UTC]", comments = "Generator version: 7.24.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJerseyServerCodegen", date = "2026-10-25T05:48:41.923212007Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 public class PokedexDetail   {
   public static final String JSON_PROPERTY_ID = "id";
   @JsonProperty(JSON_PROPERTY_ID)
@@ -156,7 +156,7 @@ public class PokedexDetail   {
    **/
   @JsonProperty(value = "descriptions", access = JsonProperty.Access.READ_ONLY)
   @ApiModelProperty(required = true, value = "")
-  @Valid 
+  
   public List<@Valid PokedexDescription> getDescriptions() {
     return descriptions;
   }
@@ -184,7 +184,7 @@ public class PokedexDetail   {
    **/
   @JsonProperty(value = "names", access = JsonProperty.Access.READ_ONLY)
   @ApiModelProperty(required = true, value = "")
-  @Valid 
+  
   public List<@Valid PokedexName> getNames() {
     return names;
   }
@@ -212,7 +212,7 @@ public class PokedexDetail   {
    **/
   @JsonProperty(value = "pokemon_entries", access = JsonProperty.Access.READ_ONLY)
   @ApiModelProperty(required = true, value = "")
-  @Valid 
+  
   public List<@Valid PokedexDetailPokemonEntriesInner> getPokemonEntries() {
     return pokemonEntries;
   }
@@ -260,7 +260,7 @@ public class PokedexDetail   {
    **/
   @JsonProperty(value = "version_groups", access = JsonProperty.Access.READ_ONLY)
   @ApiModelProperty(required = true, value = "")
-  @Valid 
+  
   public List<@Valid AbilityDetailPokemonInnerPokemon> getVersionGroups() {
     return versionGroups;
   }

@@ -21,8 +21,6 @@ import { mapValues } from '../runtime';
 export interface MachineSummary {
     /**
      * 
-     * @type {string}
-     * @memberof MachineSummary
      */
     readonly url: string;
 }

@@ -32,19 +32,19 @@ import org.openapitools.jackson.nullable.JsonNullable;
  **/
 @ApiModel(description = "Serializer for the Type resource")
 @JsonTypeName("TypeDetail")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2026-08-30T01:56:42.280002256Z[Etc/UTC]", comments = "Generator version: 7.24.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2026-10-25T05:48:57.630723375Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 public class TypeDetail   {
   private Integer id;
   private String name;
   private TypeDetailDamageRelations damageRelations;
-  private @Valid List<@Valid TypeDetailPastDamageRelationsInner> pastDamageRelations = new ArrayList<>();
-  private @Valid List<@Valid TypeGameIndex> gameIndices = new ArrayList<>();
+  private List<@Valid TypeDetailPastDamageRelationsInner> pastDamageRelations = new ArrayList<>();
+  private List<@Valid TypeGameIndex> gameIndices = new ArrayList<>();
   private GenerationSummary generation;
   private MoveDamageClassSummary moveDamageClass;
-  private @Valid List<@Valid AbilityName> names = new ArrayList<>();
-  private @Valid List<@Valid TypeDetailPokemonInner> pokemon = new ArrayList<>();
-  private @Valid List<@Valid MoveSummary> moves = new ArrayList<>();
-  private @Valid Map<String, Map<String, TypeDetailSpritesValueValue>> sprites = new HashMap<>();
+  private List<@Valid AbilityName> names = new ArrayList<>();
+  private List<@Valid TypeDetailPokemonInner> pokemon = new ArrayList<>();
+  private List<@Valid MoveSummary> moves = new ArrayList<>();
+  private Map<String, Map<String, @Valid TypeDetailSpritesValueValue>> sprites = new HashMap<>();
 
   public TypeDetail() {
   }
@@ -61,7 +61,7 @@ public class TypeDetail   {
     @JsonProperty(required = true, value = "names") List<@Valid AbilityName> names,
     @JsonProperty(required = true, value = "pokemon") List<@Valid TypeDetailPokemonInner> pokemon,
     @JsonProperty(required = true, value = "moves") List<@Valid MoveSummary> moves,
-    @JsonProperty(required = true, value = "sprites") Map<String, Map<String, TypeDetailSpritesValueValue>> sprites
+    @JsonProperty(required = true, value = "sprites") Map<String, Map<String, @Valid TypeDetailSpritesValueValue>> sprites
   ) {
     this.id = id;
     this.name = name;
@@ -143,7 +143,7 @@ public class TypeDetail   {
   
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(required = true, value = "past_damage_relations")
-  @Valid public List<@Valid TypeDetailPastDamageRelationsInner> getPastDamageRelations() {
+  public List<@Valid TypeDetailPastDamageRelationsInner> getPastDamageRelations() {
     return pastDamageRelations;
   }
 
@@ -178,7 +178,7 @@ public class TypeDetail   {
   
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(required = true, value = "game_indices")
-  @Valid public List<@Valid TypeGameIndex> getGameIndices() {
+  public List<@Valid TypeGameIndex> getGameIndices() {
     return gameIndices;
   }
 
@@ -251,7 +251,7 @@ public class TypeDetail   {
   
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(required = true, value = "names")
-  @Valid public List<@Valid AbilityName> getNames() {
+  public List<@Valid AbilityName> getNames() {
     return names;
   }
 
@@ -286,7 +286,7 @@ public class TypeDetail   {
   
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(required = true, value = "pokemon")
-  @Valid public List<@Valid TypeDetailPokemonInner> getPokemon() {
+  public List<@Valid TypeDetailPokemonInner> getPokemon() {
     return pokemon;
   }
 
@@ -321,7 +321,7 @@ public class TypeDetail   {
   
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(required = true, value = "moves")
-  @Valid public List<@Valid MoveSummary> getMoves() {
+  public List<@Valid MoveSummary> getMoves() {
     return moves;
   }
 
@@ -348,7 +348,7 @@ public class TypeDetail   {
   }
   /**
    **/
-  public TypeDetail sprites(Map<String, Map<String, TypeDetailSpritesValueValue>> sprites) {
+  public TypeDetail sprites(Map<String, Map<String, @Valid TypeDetailSpritesValueValue>> sprites) {
     this.sprites = sprites;
     return this;
   }
@@ -356,16 +356,16 @@ public class TypeDetail   {
   
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(required = true, value = "sprites")
-  @Valid public Map<String, Map<String, TypeDetailSpritesValueValue>> getSprites() {
+  public Map<String, Map<String, @Valid TypeDetailSpritesValueValue>> getSprites() {
     return sprites;
   }
 
   @JsonProperty(required = true, value = "sprites")
-  public void setSprites(Map<String, Map<String, TypeDetailSpritesValueValue>> sprites) {
+  public void setSprites(Map<String, Map<String, @Valid TypeDetailSpritesValueValue>> sprites) {
     this.sprites = sprites;
   }
 
-  public TypeDetail putSpritesItem(String key, Map<String, TypeDetailSpritesValueValue> spritesItem) {
+  public TypeDetail putSpritesItem(String key, Map<String, @Valid TypeDetailSpritesValueValue> spritesItem) {
     if (this.sprites == null) {
       this.sprites = new HashMap<>();
     }

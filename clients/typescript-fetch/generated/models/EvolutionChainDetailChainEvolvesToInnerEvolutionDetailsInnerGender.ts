@@ -21,14 +21,10 @@ import { mapValues } from '../runtime';
 export interface EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender {
     /**
      * 
-     * @type {string}
-     * @memberof EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender
      */
     name: string;
     /**
      * 
-     * @type {string}
-     * @memberof EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender
      */
     url: string;
 }

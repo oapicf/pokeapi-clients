@@ -138,3 +138,4 @@ class _$EvolutionChainDetailSerializer implements PrimitiveSerializer<EvolutionC
   }
 }
 
+

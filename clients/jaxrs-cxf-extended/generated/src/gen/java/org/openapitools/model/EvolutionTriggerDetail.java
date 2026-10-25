@@ -22,11 +22,9 @@ public class EvolutionTriggerDetail  {
   private String name;
 
   @ApiModelProperty(required = true, value = "")
-  @Valid
   private List<@Valid EvolutionTriggerName> names = new ArrayList<>();
 
   @ApiModelProperty(required = true, value = "")
-  @Valid
   private List<@Valid AbilityDetailPokemonInnerPokemon> pokemonSpecies = new ArrayList<>();
  /**
   * Get id

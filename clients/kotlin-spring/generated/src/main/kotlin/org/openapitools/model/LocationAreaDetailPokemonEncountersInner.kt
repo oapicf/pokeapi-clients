@@ -24,12 +24,12 @@ data class LocationAreaDetailPokemonEncountersInner(
 
     @field:Valid
     @Schema(required = true, description = "")
-    @param:JsonProperty("pokemon")
+    @param:JsonProperty("pokemon", required = true)
     @get:JsonProperty("pokemon", required = true) val pokemon: AbilityDetailPokemonInnerPokemon,
 
     @field:Valid
     @Schema(required = true, description = "")
-    @param:JsonProperty("version_details")
+    @param:JsonProperty("version_details", required = true)
     @get:JsonProperty("version_details", required = true) val versionDetails: kotlin.collections.List<LocationAreaDetailPokemonEncountersInnerVersionDetailsInner>
 ) {
 

@@ -166,3 +166,4 @@ class _$PaginatedBerrySummaryListSerializer implements PrimitiveSerializer<Pagin
   }
 }
 
+

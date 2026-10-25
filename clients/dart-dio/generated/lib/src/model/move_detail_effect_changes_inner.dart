@@ -123,3 +123,4 @@ class _$MoveDetailEffectChangesInnerSerializer implements PrimitiveSerializer<Mo
   }
 }
 
+

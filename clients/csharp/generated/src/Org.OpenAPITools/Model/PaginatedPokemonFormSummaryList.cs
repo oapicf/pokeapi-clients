@@ -203,16 +203,16 @@ namespace Org.OpenAPITools.Model
             }
 
             if (count.IsSet && count.Value == null)
-                throw new ArgumentNullException(nameof(count), "Property is not nullable for class PaginatedPokemonFormSummaryList.");
+                throw new JsonException("Property is not nullable for class PaginatedPokemonFormSummaryList: count.");
 
             if (next.IsSet && next.Value == null)
-                throw new ArgumentNullException(nameof(next), "Property is not nullable for class PaginatedPokemonFormSummaryList.");
+                throw new JsonException("Property is not nullable for class PaginatedPokemonFormSummaryList: next.");
 
             if (previous.IsSet && previous.Value == null)
-                throw new ArgumentNullException(nameof(previous), "Property is not nullable for class PaginatedPokemonFormSummaryList.");
+                throw new JsonException("Property is not nullable for class PaginatedPokemonFormSummaryList: previous.");
 
             if (results.IsSet && results.Value == null)
-                throw new ArgumentNullException(nameof(results), "Property is not nullable for class PaginatedPokemonFormSummaryList.");
+                throw new JsonException("Property is not nullable for class PaginatedPokemonFormSummaryList: results.");
 
             return new PaginatedPokemonFormSummaryList(count, next, previous, results);
         }
@@ -223,7 +223,6 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="paginatedPokemonFormSummaryList"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public override void Write(Utf8JsonWriter writer, PaginatedPokemonFormSummaryList paginatedPokemonFormSummaryList, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteStartObject();
@@ -238,17 +237,19 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="paginatedPokemonFormSummaryList"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, PaginatedPokemonFormSummaryList paginatedPokemonFormSummaryList, JsonSerializerOptions jsonSerializerOptions)
         {
+            if (paginatedPokemonFormSummaryList.CountOption.IsSet && paginatedPokemonFormSummaryList.Count == null)
+                throw new JsonException("Cannot write null property PaginatedPokemonFormSummaryList.Count to non-nullable JSON property 'count'.");
+
             if (paginatedPokemonFormSummaryList.NextOption.IsSet && paginatedPokemonFormSummaryList.Next == null)
-                throw new ArgumentNullException(nameof(paginatedPokemonFormSummaryList.Next), "Property is required for class PaginatedPokemonFormSummaryList.");
+                throw new JsonException("Cannot write null property PaginatedPokemonFormSummaryList.Next to non-nullable JSON property 'next'.");
 
             if (paginatedPokemonFormSummaryList.PreviousOption.IsSet && paginatedPokemonFormSummaryList.Previous == null)
-                throw new ArgumentNullException(nameof(paginatedPokemonFormSummaryList.Previous), "Property is required for class PaginatedPokemonFormSummaryList.");
+                throw new JsonException("Cannot write null property PaginatedPokemonFormSummaryList.Previous to non-nullable JSON property 'previous'.");
 
             if (paginatedPokemonFormSummaryList.ResultsOption.IsSet && paginatedPokemonFormSummaryList.Results == null)
-                throw new ArgumentNullException(nameof(paginatedPokemonFormSummaryList.Results), "Property is required for class PaginatedPokemonFormSummaryList.");
+                throw new JsonException("Cannot write null property PaginatedPokemonFormSummaryList.Results to non-nullable JSON property 'results'.");
 
             if (paginatedPokemonFormSummaryList.CountOption.IsSet)
                 writer.WriteNumber("count", paginatedPokemonFormSummaryList.CountOption.Value!.Value);

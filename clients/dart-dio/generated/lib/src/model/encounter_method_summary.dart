@@ -120,3 +120,4 @@ class _$EncounterMethodSummarySerializer implements PrimitiveSerializer<Encounte
   }
 }
 
+

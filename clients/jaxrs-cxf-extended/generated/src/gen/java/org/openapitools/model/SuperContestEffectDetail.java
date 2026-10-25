@@ -22,11 +22,9 @@ public class SuperContestEffectDetail  {
   private Integer appeal;
 
   @ApiModelProperty(required = true, value = "")
-  @Valid
   private List<@Valid SuperContestEffectFlavorText> flavorTextEntries = new ArrayList<>();
 
   @ApiModelProperty(required = true, value = "")
-  @Valid
   private List<@Valid MoveSummary> moves = new ArrayList<>();
  /**
   * Get id

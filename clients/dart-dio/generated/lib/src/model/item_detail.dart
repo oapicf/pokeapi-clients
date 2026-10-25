@@ -346,3 +346,4 @@ class _$ItemDetailSerializer implements PrimitiveSerializer<ItemDetail> {
   }
 }
 
+

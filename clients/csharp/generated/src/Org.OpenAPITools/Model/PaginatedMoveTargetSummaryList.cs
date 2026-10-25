@@ -203,16 +203,16 @@ namespace Org.OpenAPITools.Model
             }
 
             if (count.IsSet && count.Value == null)
-                throw new ArgumentNullException(nameof(count), "Property is not nullable for class PaginatedMoveTargetSummaryList.");
+                throw new JsonException("Property is not nullable for class PaginatedMoveTargetSummaryList: count.");
 
             if (next.IsSet && next.Value == null)
-                throw new ArgumentNullException(nameof(next), "Property is not nullable for class PaginatedMoveTargetSummaryList.");
+                throw new JsonException("Property is not nullable for class PaginatedMoveTargetSummaryList: next.");
 
             if (previous.IsSet && previous.Value == null)
-                throw new ArgumentNullException(nameof(previous), "Property is not nullable for class PaginatedMoveTargetSummaryList.");
+                throw new JsonException("Property is not nullable for class PaginatedMoveTargetSummaryList: previous.");
 
             if (results.IsSet && results.Value == null)
-                throw new ArgumentNullException(nameof(results), "Property is not nullable for class PaginatedMoveTargetSummaryList.");
+                throw new JsonException("Property is not nullable for class PaginatedMoveTargetSummaryList: results.");
 
             return new PaginatedMoveTargetSummaryList(count, next, previous, results);
         }
@@ -223,7 +223,6 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="paginatedMoveTargetSummaryList"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public override void Write(Utf8JsonWriter writer, PaginatedMoveTargetSummaryList paginatedMoveTargetSummaryList, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteStartObject();
@@ -238,17 +237,19 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="paginatedMoveTargetSummaryList"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, PaginatedMoveTargetSummaryList paginatedMoveTargetSummaryList, JsonSerializerOptions jsonSerializerOptions)
         {
+            if (paginatedMoveTargetSummaryList.CountOption.IsSet && paginatedMoveTargetSummaryList.Count == null)
+                throw new JsonException("Cannot write null property PaginatedMoveTargetSummaryList.Count to non-nullable JSON property 'count'.");
+
             if (paginatedMoveTargetSummaryList.NextOption.IsSet && paginatedMoveTargetSummaryList.Next == null)
-                throw new ArgumentNullException(nameof(paginatedMoveTargetSummaryList.Next), "Property is required for class PaginatedMoveTargetSummaryList.");
+                throw new JsonException("Cannot write null property PaginatedMoveTargetSummaryList.Next to non-nullable JSON property 'next'.");
 
             if (paginatedMoveTargetSummaryList.PreviousOption.IsSet && paginatedMoveTargetSummaryList.Previous == null)
-                throw new ArgumentNullException(nameof(paginatedMoveTargetSummaryList.Previous), "Property is required for class PaginatedMoveTargetSummaryList.");
+                throw new JsonException("Cannot write null property PaginatedMoveTargetSummaryList.Previous to non-nullable JSON property 'previous'.");
 
             if (paginatedMoveTargetSummaryList.ResultsOption.IsSet && paginatedMoveTargetSummaryList.Results == null)
-                throw new ArgumentNullException(nameof(paginatedMoveTargetSummaryList.Results), "Property is required for class PaginatedMoveTargetSummaryList.");
+                throw new JsonException("Cannot write null property PaginatedMoveTargetSummaryList.Results to non-nullable JSON property 'results'.");
 
             if (paginatedMoveTargetSummaryList.CountOption.IsSet)
                 writer.WriteNumber("count", paginatedMoveTargetSummaryList.CountOption.Value!.Value);

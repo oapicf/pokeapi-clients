@@ -29,26 +29,18 @@ import {
 export interface PaginatedRegionSummaryList {
     /**
      * 
-     * @type {number}
-     * @memberof PaginatedRegionSummaryList
      */
     count?: number;
     /**
      * 
-     * @type {string}
-     * @memberof PaginatedRegionSummaryList
      */
     next?: string;
     /**
      * 
-     * @type {string}
-     * @memberof PaginatedRegionSummaryList
      */
     previous?: string;
     /**
      * 
-     * @type {Array<RegionSummary>}
-     * @memberof PaginatedRegionSummaryList
      */
     results?: Array<RegionSummary>;
 }

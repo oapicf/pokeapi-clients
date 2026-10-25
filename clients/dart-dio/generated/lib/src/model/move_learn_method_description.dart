@@ -124,3 +124,4 @@ class _$MoveLearnMethodDescriptionSerializer implements PrimitiveSerializer<Move
   }
 }
 
+

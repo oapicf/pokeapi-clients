@@ -2,7 +2,7 @@
 
 from typing import ClassVar, Dict, List, Tuple  # noqa: F401
 
-from pydantic import Field, StrictInt, StrictStr
+from pydantic import Field
 from typing import Optional
 from typing_extensions import Annotated
 from openapi_server.models.generation_detail import GenerationDetail
@@ -23,9 +23,9 @@ class BaseGamesApi:
         BaseGamesApi.subclasses = BaseGamesApi.subclasses + (cls,)
     async def generation_list(
         self,
-        limit: Annotated[Optional[StrictInt], Field(description="Number of results to return per page.")],
-        offset: Annotated[Optional[StrictInt], Field(description="The initial index from which to return the results.")],
-        q: Annotated[Optional[StrictStr], Field(description="> Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. ")],
+        limit: Annotated[Optional[int], Field(description="Number of results to return per page.")],
+        offset: Annotated[Optional[int], Field(description="The initial index from which to return the results.")],
+        q: Annotated[Optional[str], Field(description="> Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. ")],
     ) -> PaginatedGenerationSummaryList:
         """A generation is a grouping of the Pokémon games that separates them based on the Pokémon they include. In each generation, a new set of Pokémon, Moves, Abilities and Types that did not exist in the previous generation are released."""
         ...
@@ -33,7 +33,7 @@ class BaseGamesApi:
 
     async def generation_retrieve(
         self,
-        id: Annotated[StrictStr, Field(description="This parameter can be a string or an integer.")],
+        id: Annotated[str, Field(description="This parameter can be a string or an integer.")],
     ) -> GenerationDetail:
         """A generation is a grouping of the Pokémon games that separates them based on the Pokémon they include. In each generation, a new set of Pokémon, Moves, Abilities and Types that did not exist in the previous generation are released."""
         ...
@@ -41,9 +41,9 @@ class BaseGamesApi:
 
     async def pokedex_list(
         self,
-        limit: Annotated[Optional[StrictInt], Field(description="Number of results to return per page.")],
-        offset: Annotated[Optional[StrictInt], Field(description="The initial index from which to return the results.")],
-        q: Annotated[Optional[StrictStr], Field(description="> Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. ")],
+        limit: Annotated[Optional[int], Field(description="Number of results to return per page.")],
+        offset: Annotated[Optional[int], Field(description="The initial index from which to return the results.")],
+        q: Annotated[Optional[str], Field(description="> Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. ")],
     ) -> PaginatedPokedexSummaryList:
         """A Pokédex is a handheld electronic encyclopedia device; one which is capable of recording and retaining information of the various Pokémon in a given region with the exception of the national dex and some smaller dexes related to portions of a region. See [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Pokedex) for greater detail."""
         ...
@@ -51,7 +51,7 @@ class BaseGamesApi:
 
     async def pokedex_retrieve(
         self,
-        id: Annotated[StrictStr, Field(description="This parameter can be a string or an integer.")],
+        id: Annotated[str, Field(description="This parameter can be a string or an integer.")],
     ) -> PokedexDetail:
         """A Pokédex is a handheld electronic encyclopedia device; one which is capable of recording and retaining information of the various Pokémon in a given region with the exception of the national dex and some smaller dexes related to portions of a region. See [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Pokedex) for greater detail."""
         ...
@@ -59,9 +59,9 @@ class BaseGamesApi:
 
     async def version_list(
         self,
-        limit: Annotated[Optional[StrictInt], Field(description="Number of results to return per page.")],
-        offset: Annotated[Optional[StrictInt], Field(description="The initial index from which to return the results.")],
-        q: Annotated[Optional[StrictStr], Field(description="> Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. ")],
+        limit: Annotated[Optional[int], Field(description="Number of results to return per page.")],
+        offset: Annotated[Optional[int], Field(description="The initial index from which to return the results.")],
+        q: Annotated[Optional[str], Field(description="> Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. ")],
     ) -> PaginatedVersionSummaryList:
         """Versions of the games, e.g., Red, Blue or Yellow."""
         ...
@@ -69,7 +69,7 @@ class BaseGamesApi:
 
     async def version_retrieve(
         self,
-        id: Annotated[StrictStr, Field(description="This parameter can be a string or an integer.")],
+        id: Annotated[str, Field(description="This parameter can be a string or an integer.")],
     ) -> VersionDetail:
         """Versions of the games, e.g., Red, Blue or Yellow."""
         ...
@@ -77,9 +77,9 @@ class BaseGamesApi:
 
     async def version_group_list(
         self,
-        limit: Annotated[Optional[StrictInt], Field(description="Number of results to return per page.")],
-        offset: Annotated[Optional[StrictInt], Field(description="The initial index from which to return the results.")],
-        q: Annotated[Optional[StrictStr], Field(description="> Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. ")],
+        limit: Annotated[Optional[int], Field(description="Number of results to return per page.")],
+        offset: Annotated[Optional[int], Field(description="The initial index from which to return the results.")],
+        q: Annotated[Optional[str], Field(description="> Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. ")],
     ) -> PaginatedVersionGroupSummaryList:
         """Version groups categorize highly similar versions of the games."""
         ...
@@ -87,7 +87,7 @@ class BaseGamesApi:
 
     async def version_group_retrieve(
         self,
-        id: Annotated[StrictStr, Field(description="This parameter can be a string or an integer.")],
+        id: Annotated[str, Field(description="This parameter can be a string or an integer.")],
     ) -> VersionGroupDetail:
         """Version groups categorize highly similar versions of the games."""
         ...

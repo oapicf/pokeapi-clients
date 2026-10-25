@@ -2,7 +2,6 @@ package org.openapitools.model;
 
 import java.net.URI;
 import java.util.Objects;
-import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import java.util.ArrayList;
@@ -29,14 +28,13 @@ import jakarta.annotation.Generated;
  * AbilityDetail
  */
 
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2026-08-30T02:00:43.960184425Z[Etc/UTC]", comments = "Generator version: 7.24.0")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2026-10-25T05:53:37.479908528Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 public class AbilityDetail {
 
   private Integer id;
 
   private String name;
 
-  @JsonInclude(JsonInclude.Include.NON_NULL)
   private @Nullable Boolean isMainSeries;
 
   private GenerationSummary generation;
@@ -170,7 +168,7 @@ public class AbilityDetail {
    * Get names
    * @return names
    */
-  @Valid 
+  
   @Schema(name = "names", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("names")
   public List<@Valid AbilityName> getNames() {
@@ -199,7 +197,7 @@ public class AbilityDetail {
    * Get effectEntries
    * @return effectEntries
    */
-  @Valid 
+  
   @Schema(name = "effect_entries", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("effect_entries")
   public List<@Valid AbilityEffectText> getEffectEntries() {
@@ -228,7 +226,7 @@ public class AbilityDetail {
    * Get effectChanges
    * @return effectChanges
    */
-  @Valid 
+  
   @Schema(name = "effect_changes", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("effect_changes")
   public List<@Valid AbilityChange> getEffectChanges() {
@@ -257,7 +255,7 @@ public class AbilityDetail {
    * Get flavorTextEntries
    * @return flavorTextEntries
    */
-  @Valid 
+  
   @Schema(name = "flavor_text_entries", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("flavor_text_entries")
   public List<@Valid AbilityFlavorText> getFlavorTextEntries() {
@@ -286,7 +284,7 @@ public class AbilityDetail {
    * Get pokemon
    * @return pokemon
    */
-  @Valid 
+  
   @Schema(name = "pokemon", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("pokemon")
   public List<@Valid AbilityDetailPokemonInner> getPokemon() {

@@ -25,13 +25,9 @@ public class GenderDetail  {
 
   @ApiModelProperty(required = true, value = "")
 
-  @Valid
-
   private List<@Valid GenderDetailPokemonSpeciesDetailsInner> pokemonSpeciesDetails = new ArrayList<>();
 
   @ApiModelProperty(required = true, value = "")
-
-  @Valid
 
   private List<@Valid AbilityDetailPokemonInnerPokemon> requiredForEvolution = new ArrayList<>();
  /**

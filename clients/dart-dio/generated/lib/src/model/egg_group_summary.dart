@@ -120,3 +120,4 @@ class _$EggGroupSummarySerializer implements PrimitiveSerializer<EggGroupSummary
   }
 }
 
+

@@ -23,16 +23,16 @@ import io.swagger.v3.oas.annotations.media.Schema
 data class NatureBattleStylePreference(
 
     @Schema(required = true, description = "")
-    @param:JsonProperty("low_hp_preference")
+    @param:JsonProperty("low_hp_preference", required = true)
     @get:JsonProperty("low_hp_preference", required = true) val lowHpPreference: kotlin.Int,
 
     @Schema(required = true, description = "")
-    @param:JsonProperty("high_hp_preference")
+    @param:JsonProperty("high_hp_preference", required = true)
     @get:JsonProperty("high_hp_preference", required = true) val highHpPreference: kotlin.Int,
 
     @field:Valid
     @Schema(required = true, description = "")
-    @param:JsonProperty("move_battle_style")
+    @param:JsonProperty("move_battle_style", required = true)
     @get:JsonProperty("move_battle_style", required = true) val moveBattleStyle: MoveBattleStyleSummary
 ) {
 

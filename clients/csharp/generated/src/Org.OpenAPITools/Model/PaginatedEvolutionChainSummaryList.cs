@@ -203,16 +203,16 @@ namespace Org.OpenAPITools.Model
             }
 
             if (count.IsSet && count.Value == null)
-                throw new ArgumentNullException(nameof(count), "Property is not nullable for class PaginatedEvolutionChainSummaryList.");
+                throw new JsonException("Property is not nullable for class PaginatedEvolutionChainSummaryList: count.");
 
             if (next.IsSet && next.Value == null)
-                throw new ArgumentNullException(nameof(next), "Property is not nullable for class PaginatedEvolutionChainSummaryList.");
+                throw new JsonException("Property is not nullable for class PaginatedEvolutionChainSummaryList: next.");
 
             if (previous.IsSet && previous.Value == null)
-                throw new ArgumentNullException(nameof(previous), "Property is not nullable for class PaginatedEvolutionChainSummaryList.");
+                throw new JsonException("Property is not nullable for class PaginatedEvolutionChainSummaryList: previous.");
 
             if (results.IsSet && results.Value == null)
-                throw new ArgumentNullException(nameof(results), "Property is not nullable for class PaginatedEvolutionChainSummaryList.");
+                throw new JsonException("Property is not nullable for class PaginatedEvolutionChainSummaryList: results.");
 
             return new PaginatedEvolutionChainSummaryList(count, next, previous, results);
         }
@@ -223,7 +223,6 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="paginatedEvolutionChainSummaryList"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public override void Write(Utf8JsonWriter writer, PaginatedEvolutionChainSummaryList paginatedEvolutionChainSummaryList, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteStartObject();
@@ -238,17 +237,19 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="paginatedEvolutionChainSummaryList"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, PaginatedEvolutionChainSummaryList paginatedEvolutionChainSummaryList, JsonSerializerOptions jsonSerializerOptions)
         {
+            if (paginatedEvolutionChainSummaryList.CountOption.IsSet && paginatedEvolutionChainSummaryList.Count == null)
+                throw new JsonException("Cannot write null property PaginatedEvolutionChainSummaryList.Count to non-nullable JSON property 'count'.");
+
             if (paginatedEvolutionChainSummaryList.NextOption.IsSet && paginatedEvolutionChainSummaryList.Next == null)
-                throw new ArgumentNullException(nameof(paginatedEvolutionChainSummaryList.Next), "Property is required for class PaginatedEvolutionChainSummaryList.");
+                throw new JsonException("Cannot write null property PaginatedEvolutionChainSummaryList.Next to non-nullable JSON property 'next'.");
 
             if (paginatedEvolutionChainSummaryList.PreviousOption.IsSet && paginatedEvolutionChainSummaryList.Previous == null)
-                throw new ArgumentNullException(nameof(paginatedEvolutionChainSummaryList.Previous), "Property is required for class PaginatedEvolutionChainSummaryList.");
+                throw new JsonException("Cannot write null property PaginatedEvolutionChainSummaryList.Previous to non-nullable JSON property 'previous'.");
 
             if (paginatedEvolutionChainSummaryList.ResultsOption.IsSet && paginatedEvolutionChainSummaryList.Results == null)
-                throw new ArgumentNullException(nameof(paginatedEvolutionChainSummaryList.Results), "Property is required for class PaginatedEvolutionChainSummaryList.");
+                throw new JsonException("Cannot write null property PaginatedEvolutionChainSummaryList.Results to non-nullable JSON property 'results'.");
 
             if (paginatedEvolutionChainSummaryList.CountOption.IsSet)
                 writer.WriteNumber("count", paginatedEvolutionChainSummaryList.CountOption.Value!.Value);

@@ -24,12 +24,12 @@ data class PokemonDetailMovesInner(
 
     @field:Valid
     @Schema(required = true, description = "")
-    @param:JsonProperty("move")
+    @param:JsonProperty("move", required = true)
     @get:JsonProperty("move", required = true) val move: AbilityDetailPokemonInnerPokemon,
 
     @field:Valid
     @Schema(required = true, description = "")
-    @param:JsonProperty("version_group_details")
+    @param:JsonProperty("version_group_details", required = true)
     @get:JsonProperty("version_group_details", required = true) val versionGroupDetails: kotlin.collections.List<PokemonDetailMovesInnerVersionGroupDetailsInner>
 ) {
 

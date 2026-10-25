@@ -104,3 +104,4 @@ class _$ContestEffectSummarySerializer implements PrimitiveSerializer<ContestEff
   }
 }
 
+

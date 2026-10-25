@@ -29,14 +29,10 @@ import {
 export interface ItemFlingEffectEffectText {
     /**
      * 
-     * @type {string}
-     * @memberof ItemFlingEffectEffectText
      */
     effect: string;
     /**
      * 
-     * @type {LanguageSummary}
-     * @memberof ItemFlingEffectEffectText
      */
     language: LanguageSummary;
 }

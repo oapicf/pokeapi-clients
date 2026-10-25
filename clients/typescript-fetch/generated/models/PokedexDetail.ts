@@ -57,50 +57,34 @@ import {
 export interface PokedexDetail {
     /**
      * 
-     * @type {number}
-     * @memberof PokedexDetail
      */
     readonly id: number;
     /**
      * 
-     * @type {string}
-     * @memberof PokedexDetail
      */
     name: string;
     /**
      * 
-     * @type {boolean}
-     * @memberof PokedexDetail
      */
     isMainSeries?: boolean;
     /**
      * 
-     * @type {Array<PokedexDescription>}
-     * @memberof PokedexDetail
      */
     readonly descriptions: Array<PokedexDescription>;
     /**
      * 
-     * @type {Array<PokedexName>}
-     * @memberof PokedexDetail
      */
     readonly names: Array<PokedexName>;
     /**
      * 
-     * @type {Array<PokedexDetailPokemonEntriesInner>}
-     * @memberof PokedexDetail
      */
     readonly pokemonEntries: Array<PokedexDetailPokemonEntriesInner>;
     /**
      * 
-     * @type {RegionSummary}
-     * @memberof PokedexDetail
      */
     region: RegionSummary;
     /**
      * 
-     * @type {Array<AbilityDetailPokemonInnerPokemon>}
-     * @memberof PokedexDetail
      */
     readonly versionGroups: Array<AbilityDetailPokemonInnerPokemon>;
 }

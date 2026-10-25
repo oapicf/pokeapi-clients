@@ -502,3 +502,4 @@ class _$MoveDetailSerializer implements PrimitiveSerializer<MoveDetail> {
   }
 }
 
+

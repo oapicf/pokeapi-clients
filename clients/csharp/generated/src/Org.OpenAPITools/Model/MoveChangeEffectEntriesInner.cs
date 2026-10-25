@@ -159,22 +159,22 @@ namespace Org.OpenAPITools.Model
             }
 
             if (!effect.IsSet)
-                throw new ArgumentException("Property is required for class MoveChangeEffectEntriesInner.", nameof(effect));
+                throw new JsonException("Property is required for class MoveChangeEffectEntriesInner: effect.");
 
             if (!shortEffect.IsSet)
-                throw new ArgumentException("Property is required for class MoveChangeEffectEntriesInner.", nameof(shortEffect));
+                throw new JsonException("Property is required for class MoveChangeEffectEntriesInner: short_effect.");
 
             if (!language.IsSet)
-                throw new ArgumentException("Property is required for class MoveChangeEffectEntriesInner.", nameof(language));
+                throw new JsonException("Property is required for class MoveChangeEffectEntriesInner: language.");
 
             if (effect.IsSet && effect.Value == null)
-                throw new ArgumentNullException(nameof(effect), "Property is not nullable for class MoveChangeEffectEntriesInner.");
+                throw new JsonException("Property is not nullable for class MoveChangeEffectEntriesInner: effect.");
 
             if (shortEffect.IsSet && shortEffect.Value == null)
-                throw new ArgumentNullException(nameof(shortEffect), "Property is not nullable for class MoveChangeEffectEntriesInner.");
+                throw new JsonException("Property is not nullable for class MoveChangeEffectEntriesInner: short_effect.");
 
             if (language.IsSet && language.Value == null)
-                throw new ArgumentNullException(nameof(language), "Property is not nullable for class MoveChangeEffectEntriesInner.");
+                throw new JsonException("Property is not nullable for class MoveChangeEffectEntriesInner: language.");
 
             return new MoveChangeEffectEntriesInner(effect.Value!, shortEffect.Value!, language.Value!);
         }
@@ -185,7 +185,6 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="moveChangeEffectEntriesInner"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public override void Write(Utf8JsonWriter writer, MoveChangeEffectEntriesInner moveChangeEffectEntriesInner, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteStartObject();
@@ -200,18 +199,8 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="moveChangeEffectEntriesInner"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, MoveChangeEffectEntriesInner moveChangeEffectEntriesInner, JsonSerializerOptions jsonSerializerOptions)
         {
-            if (moveChangeEffectEntriesInner.Effect == null)
-                throw new ArgumentNullException(nameof(moveChangeEffectEntriesInner.Effect), "Property is required for class MoveChangeEffectEntriesInner.");
-
-            if (moveChangeEffectEntriesInner.ShortEffect == null)
-                throw new ArgumentNullException(nameof(moveChangeEffectEntriesInner.ShortEffect), "Property is required for class MoveChangeEffectEntriesInner.");
-
-            if (moveChangeEffectEntriesInner.Language == null)
-                throw new ArgumentNullException(nameof(moveChangeEffectEntriesInner.Language), "Property is required for class MoveChangeEffectEntriesInner.");
-
             writer.WriteString("effect", moveChangeEffectEntriesInner.Effect);
 
             writer.WriteString("short_effect", moveChangeEffectEntriesInner.ShortEffect);

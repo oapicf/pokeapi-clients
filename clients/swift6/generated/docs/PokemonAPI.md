@@ -40,7 +40,7 @@ Method | HTTP request | Description
 
 # **abilityList**
 ```swift
-    open class func abilityList(limit: Int? = nil, offset: Int? = nil, q: String? = nil, completion: @escaping (_ data: PaginatedAbilitySummaryList?, _ error: Error?) -> Void)
+    open class func abilityList(limit: Int? = nil, offset: Int? = nil, q: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> PaginatedAbilitySummaryList
 ```
 
 
@@ -56,15 +56,11 @@ let limit = 987 // Int | Number of results to return per page. (optional)
 let offset = 987 // Int | The initial index from which to return the results. (optional)
 let q = "q_example" // String | > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property.  (optional)
 
-PokemonAPI.abilityList(limit: limit, offset: offset, q: q) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await PokemonAPI.abilityList(limit: limit, offset: offset, q: q)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -93,7 +89,7 @@ Name | Type | Description  | Notes
 
 # **abilityRetrieve**
 ```swift
-    open class func abilityRetrieve(id: String, completion: @escaping (_ data: AbilityDetail?, _ error: Error?) -> Void)
+    open class func abilityRetrieve(id: String, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> AbilityDetail
 ```
 
 
@@ -107,15 +103,11 @@ import OpenAPIClient
 
 let id = "id_example" // String | This parameter can be a string or an integer.
 
-PokemonAPI.abilityRetrieve(id: id) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await PokemonAPI.abilityRetrieve(id: id)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -142,7 +134,7 @@ Name | Type | Description  | Notes
 
 # **characteristicList**
 ```swift
-    open class func characteristicList(limit: Int? = nil, offset: Int? = nil, q: String? = nil, completion: @escaping (_ data: PaginatedCharacteristicSummaryList?, _ error: Error?) -> Void)
+    open class func characteristicList(limit: Int? = nil, offset: Int? = nil, q: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> PaginatedCharacteristicSummaryList
 ```
 
 List charecterictics
@@ -159,15 +151,11 @@ let offset = 987 // Int | The initial index from which to return the results. (o
 let q = "q_example" // String | > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property.  (optional)
 
 // List charecterictics
-PokemonAPI.characteristicList(limit: limit, offset: offset, q: q) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await PokemonAPI.characteristicList(limit: limit, offset: offset, q: q)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -196,7 +184,7 @@ Name | Type | Description  | Notes
 
 # **characteristicRetrieve**
 ```swift
-    open class func characteristicRetrieve(id: String, completion: @escaping (_ data: CharacteristicDetail?, _ error: Error?) -> Void)
+    open class func characteristicRetrieve(id: String, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> CharacteristicDetail
 ```
 
 Get characteristic
@@ -211,15 +199,11 @@ import OpenAPIClient
 let id = "id_example" // String | This parameter can be a string or an integer.
 
 // Get characteristic
-PokemonAPI.characteristicRetrieve(id: id) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await PokemonAPI.characteristicRetrieve(id: id)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -246,7 +230,7 @@ Name | Type | Description  | Notes
 
 # **eggGroupList**
 ```swift
-    open class func eggGroupList(limit: Int? = nil, offset: Int? = nil, q: String? = nil, completion: @escaping (_ data: PaginatedEggGroupSummaryList?, _ error: Error?) -> Void)
+    open class func eggGroupList(limit: Int? = nil, offset: Int? = nil, q: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> PaginatedEggGroupSummaryList
 ```
 
 List egg groups
@@ -263,15 +247,11 @@ let offset = 987 // Int | The initial index from which to return the results. (o
 let q = "q_example" // String | > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property.  (optional)
 
 // List egg groups
-PokemonAPI.eggGroupList(limit: limit, offset: offset, q: q) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await PokemonAPI.eggGroupList(limit: limit, offset: offset, q: q)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -300,7 +280,7 @@ Name | Type | Description  | Notes
 
 # **eggGroupRetrieve**
 ```swift
-    open class func eggGroupRetrieve(id: String, completion: @escaping (_ data: EggGroupDetail?, _ error: Error?) -> Void)
+    open class func eggGroupRetrieve(id: String, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> EggGroupDetail
 ```
 
 Get egg group
@@ -315,15 +295,11 @@ import OpenAPIClient
 let id = "id_example" // String | This parameter can be a string or an integer.
 
 // Get egg group
-PokemonAPI.eggGroupRetrieve(id: id) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await PokemonAPI.eggGroupRetrieve(id: id)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -350,7 +326,7 @@ Name | Type | Description  | Notes
 
 # **genderList**
 ```swift
-    open class func genderList(limit: Int? = nil, offset: Int? = nil, q: String? = nil, completion: @escaping (_ data: PaginatedGenderSummaryList?, _ error: Error?) -> Void)
+    open class func genderList(limit: Int? = nil, offset: Int? = nil, q: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> PaginatedGenderSummaryList
 ```
 
 List genders
@@ -367,15 +343,11 @@ let offset = 987 // Int | The initial index from which to return the results. (o
 let q = "q_example" // String | > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property.  (optional)
 
 // List genders
-PokemonAPI.genderList(limit: limit, offset: offset, q: q) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await PokemonAPI.genderList(limit: limit, offset: offset, q: q)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -404,7 +376,7 @@ Name | Type | Description  | Notes
 
 # **genderRetrieve**
 ```swift
-    open class func genderRetrieve(id: String, completion: @escaping (_ data: GenderDetail?, _ error: Error?) -> Void)
+    open class func genderRetrieve(id: String, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> GenderDetail
 ```
 
 Get gender
@@ -419,15 +391,11 @@ import OpenAPIClient
 let id = "id_example" // String | This parameter can be a string or an integer.
 
 // Get gender
-PokemonAPI.genderRetrieve(id: id) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await PokemonAPI.genderRetrieve(id: id)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -454,7 +422,7 @@ Name | Type | Description  | Notes
 
 # **growthRateList**
 ```swift
-    open class func growthRateList(limit: Int? = nil, offset: Int? = nil, q: String? = nil, completion: @escaping (_ data: PaginatedGrowthRateSummaryList?, _ error: Error?) -> Void)
+    open class func growthRateList(limit: Int? = nil, offset: Int? = nil, q: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> PaginatedGrowthRateSummaryList
 ```
 
 List growth rates
@@ -471,15 +439,11 @@ let offset = 987 // Int | The initial index from which to return the results. (o
 let q = "q_example" // String | > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property.  (optional)
 
 // List growth rates
-PokemonAPI.growthRateList(limit: limit, offset: offset, q: q) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await PokemonAPI.growthRateList(limit: limit, offset: offset, q: q)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -508,7 +472,7 @@ Name | Type | Description  | Notes
 
 # **growthRateRetrieve**
 ```swift
-    open class func growthRateRetrieve(id: String, completion: @escaping (_ data: GrowthRateDetail?, _ error: Error?) -> Void)
+    open class func growthRateRetrieve(id: String, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> GrowthRateDetail
 ```
 
 Get growth rate
@@ -523,15 +487,11 @@ import OpenAPIClient
 let id = "id_example" // String | This parameter can be a string or an integer.
 
 // Get growth rate
-PokemonAPI.growthRateRetrieve(id: id) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await PokemonAPI.growthRateRetrieve(id: id)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -558,7 +518,7 @@ Name | Type | Description  | Notes
 
 # **moveDamageClassList**
 ```swift
-    open class func moveDamageClassList(limit: Int? = nil, offset: Int? = nil, q: String? = nil, completion: @escaping (_ data: PaginatedMoveDamageClassSummaryList?, _ error: Error?) -> Void)
+    open class func moveDamageClassList(limit: Int? = nil, offset: Int? = nil, q: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> PaginatedMoveDamageClassSummaryList
 ```
 
 List move damage classes
@@ -575,15 +535,11 @@ let offset = 987 // Int | The initial index from which to return the results. (o
 let q = "q_example" // String | > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property.  (optional)
 
 // List move damage classes
-PokemonAPI.moveDamageClassList(limit: limit, offset: offset, q: q) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await PokemonAPI.moveDamageClassList(limit: limit, offset: offset, q: q)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -612,7 +568,7 @@ Name | Type | Description  | Notes
 
 # **moveDamageClassRetrieve**
 ```swift
-    open class func moveDamageClassRetrieve(id: String, completion: @escaping (_ data: MoveDamageClassDetail?, _ error: Error?) -> Void)
+    open class func moveDamageClassRetrieve(id: String, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> MoveDamageClassDetail
 ```
 
 Get move damage class
@@ -627,15 +583,11 @@ import OpenAPIClient
 let id = "id_example" // String | This parameter can be a string or an integer.
 
 // Get move damage class
-PokemonAPI.moveDamageClassRetrieve(id: id) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await PokemonAPI.moveDamageClassRetrieve(id: id)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -662,7 +614,7 @@ Name | Type | Description  | Notes
 
 # **natureList**
 ```swift
-    open class func natureList(limit: Int? = nil, offset: Int? = nil, q: String? = nil, completion: @escaping (_ data: PaginatedNatureSummaryList?, _ error: Error?) -> Void)
+    open class func natureList(limit: Int? = nil, offset: Int? = nil, q: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> PaginatedNatureSummaryList
 ```
 
 List natures
@@ -679,15 +631,11 @@ let offset = 987 // Int | The initial index from which to return the results. (o
 let q = "q_example" // String | > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property.  (optional)
 
 // List natures
-PokemonAPI.natureList(limit: limit, offset: offset, q: q) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await PokemonAPI.natureList(limit: limit, offset: offset, q: q)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -716,7 +664,7 @@ Name | Type | Description  | Notes
 
 # **natureRetrieve**
 ```swift
-    open class func natureRetrieve(id: String, completion: @escaping (_ data: NatureDetail?, _ error: Error?) -> Void)
+    open class func natureRetrieve(id: String, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> NatureDetail
 ```
 
 Get nature
@@ -731,15 +679,11 @@ import OpenAPIClient
 let id = "id_example" // String | This parameter can be a string or an integer.
 
 // Get nature
-PokemonAPI.natureRetrieve(id: id) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await PokemonAPI.natureRetrieve(id: id)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -766,7 +710,7 @@ Name | Type | Description  | Notes
 
 # **pokeathlonStatList**
 ```swift
-    open class func pokeathlonStatList(limit: Int? = nil, offset: Int? = nil, q: String? = nil, completion: @escaping (_ data: PaginatedPokeathlonStatSummaryList?, _ error: Error?) -> Void)
+    open class func pokeathlonStatList(limit: Int? = nil, offset: Int? = nil, q: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> PaginatedPokeathlonStatSummaryList
 ```
 
 List pokeathlon stats
@@ -783,15 +727,11 @@ let offset = 987 // Int | The initial index from which to return the results. (o
 let q = "q_example" // String | > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property.  (optional)
 
 // List pokeathlon stats
-PokemonAPI.pokeathlonStatList(limit: limit, offset: offset, q: q) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await PokemonAPI.pokeathlonStatList(limit: limit, offset: offset, q: q)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -820,7 +760,7 @@ Name | Type | Description  | Notes
 
 # **pokeathlonStatRetrieve**
 ```swift
-    open class func pokeathlonStatRetrieve(id: String, completion: @escaping (_ data: PokeathlonStatDetail?, _ error: Error?) -> Void)
+    open class func pokeathlonStatRetrieve(id: String, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> PokeathlonStatDetail
 ```
 
 Get pokeathlon stat
@@ -835,15 +775,11 @@ import OpenAPIClient
 let id = "id_example" // String | This parameter can be a string or an integer.
 
 // Get pokeathlon stat
-PokemonAPI.pokeathlonStatRetrieve(id: id) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await PokemonAPI.pokeathlonStatRetrieve(id: id)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -870,7 +806,7 @@ Name | Type | Description  | Notes
 
 # **pokemonColorList**
 ```swift
-    open class func pokemonColorList(limit: Int? = nil, offset: Int? = nil, q: String? = nil, completion: @escaping (_ data: PaginatedPokemonColorSummaryList?, _ error: Error?) -> Void)
+    open class func pokemonColorList(limit: Int? = nil, offset: Int? = nil, q: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> PaginatedPokemonColorSummaryList
 ```
 
 List pokemon colors
@@ -887,15 +823,11 @@ let offset = 987 // Int | The initial index from which to return the results. (o
 let q = "q_example" // String | > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property.  (optional)
 
 // List pokemon colors
-PokemonAPI.pokemonColorList(limit: limit, offset: offset, q: q) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await PokemonAPI.pokemonColorList(limit: limit, offset: offset, q: q)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -924,7 +856,7 @@ Name | Type | Description  | Notes
 
 # **pokemonColorRetrieve**
 ```swift
-    open class func pokemonColorRetrieve(id: String, completion: @escaping (_ data: PokemonColorDetail?, _ error: Error?) -> Void)
+    open class func pokemonColorRetrieve(id: String, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> PokemonColorDetail
 ```
 
 Get pokemon color
@@ -939,15 +871,11 @@ import OpenAPIClient
 let id = "id_example" // String | This parameter can be a string or an integer.
 
 // Get pokemon color
-PokemonAPI.pokemonColorRetrieve(id: id) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await PokemonAPI.pokemonColorRetrieve(id: id)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -974,7 +902,7 @@ Name | Type | Description  | Notes
 
 # **pokemonFormList**
 ```swift
-    open class func pokemonFormList(limit: Int? = nil, offset: Int? = nil, q: String? = nil, completion: @escaping (_ data: PaginatedPokemonFormSummaryList?, _ error: Error?) -> Void)
+    open class func pokemonFormList(limit: Int? = nil, offset: Int? = nil, q: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> PaginatedPokemonFormSummaryList
 ```
 
 List pokemon forms
@@ -991,15 +919,11 @@ let offset = 987 // Int | The initial index from which to return the results. (o
 let q = "q_example" // String | > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property.  (optional)
 
 // List pokemon forms
-PokemonAPI.pokemonFormList(limit: limit, offset: offset, q: q) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await PokemonAPI.pokemonFormList(limit: limit, offset: offset, q: q)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -1028,7 +952,7 @@ Name | Type | Description  | Notes
 
 # **pokemonFormRetrieve**
 ```swift
-    open class func pokemonFormRetrieve(id: String, completion: @escaping (_ data: PokemonFormDetail?, _ error: Error?) -> Void)
+    open class func pokemonFormRetrieve(id: String, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> PokemonFormDetail
 ```
 
 Get pokemon form
@@ -1043,15 +967,11 @@ import OpenAPIClient
 let id = "id_example" // String | This parameter can be a string or an integer.
 
 // Get pokemon form
-PokemonAPI.pokemonFormRetrieve(id: id) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await PokemonAPI.pokemonFormRetrieve(id: id)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -1078,7 +998,7 @@ Name | Type | Description  | Notes
 
 # **pokemonHabitatList**
 ```swift
-    open class func pokemonHabitatList(limit: Int? = nil, offset: Int? = nil, q: String? = nil, completion: @escaping (_ data: PaginatedPokemonHabitatSummaryList?, _ error: Error?) -> Void)
+    open class func pokemonHabitatList(limit: Int? = nil, offset: Int? = nil, q: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> PaginatedPokemonHabitatSummaryList
 ```
 
 List pokemom habitas
@@ -1095,15 +1015,11 @@ let offset = 987 // Int | The initial index from which to return the results. (o
 let q = "q_example" // String | > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property.  (optional)
 
 // List pokemom habitas
-PokemonAPI.pokemonHabitatList(limit: limit, offset: offset, q: q) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await PokemonAPI.pokemonHabitatList(limit: limit, offset: offset, q: q)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -1132,7 +1048,7 @@ Name | Type | Description  | Notes
 
 # **pokemonHabitatRetrieve**
 ```swift
-    open class func pokemonHabitatRetrieve(id: String, completion: @escaping (_ data: PokemonHabitatDetail?, _ error: Error?) -> Void)
+    open class func pokemonHabitatRetrieve(id: String, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> PokemonHabitatDetail
 ```
 
 Get pokemom habita
@@ -1147,15 +1063,11 @@ import OpenAPIClient
 let id = "id_example" // String | This parameter can be a string or an integer.
 
 // Get pokemom habita
-PokemonAPI.pokemonHabitatRetrieve(id: id) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await PokemonAPI.pokemonHabitatRetrieve(id: id)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -1182,7 +1094,7 @@ Name | Type | Description  | Notes
 
 # **pokemonList**
 ```swift
-    open class func pokemonList(limit: Int? = nil, offset: Int? = nil, q: String? = nil, completion: @escaping (_ data: PaginatedPokemonSummaryList?, _ error: Error?) -> Void)
+    open class func pokemonList(limit: Int? = nil, offset: Int? = nil, q: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> PaginatedPokemonSummaryList
 ```
 
 List pokemon
@@ -1199,15 +1111,11 @@ let offset = 987 // Int | The initial index from which to return the results. (o
 let q = "q_example" // String | > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property.  (optional)
 
 // List pokemon
-PokemonAPI.pokemonList(limit: limit, offset: offset, q: q) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await PokemonAPI.pokemonList(limit: limit, offset: offset, q: q)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -1236,7 +1144,7 @@ Name | Type | Description  | Notes
 
 # **pokemonRetrieve**
 ```swift
-    open class func pokemonRetrieve(id: String, completion: @escaping (_ data: PokemonDetail?, _ error: Error?) -> Void)
+    open class func pokemonRetrieve(id: String, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> PokemonDetail
 ```
 
 Get pokemon
@@ -1251,15 +1159,11 @@ import OpenAPIClient
 let id = "id_example" // String | This parameter can be a string or an integer.
 
 // Get pokemon
-PokemonAPI.pokemonRetrieve(id: id) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await PokemonAPI.pokemonRetrieve(id: id)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -1286,7 +1190,7 @@ Name | Type | Description  | Notes
 
 # **pokemonShapeList**
 ```swift
-    open class func pokemonShapeList(limit: Int? = nil, offset: Int? = nil, q: String? = nil, completion: @escaping (_ data: PaginatedPokemonShapeSummaryList?, _ error: Error?) -> Void)
+    open class func pokemonShapeList(limit: Int? = nil, offset: Int? = nil, q: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> PaginatedPokemonShapeSummaryList
 ```
 
 List pokemon shapes
@@ -1303,15 +1207,11 @@ let offset = 987 // Int | The initial index from which to return the results. (o
 let q = "q_example" // String | > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property.  (optional)
 
 // List pokemon shapes
-PokemonAPI.pokemonShapeList(limit: limit, offset: offset, q: q) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await PokemonAPI.pokemonShapeList(limit: limit, offset: offset, q: q)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -1340,7 +1240,7 @@ Name | Type | Description  | Notes
 
 # **pokemonShapeRetrieve**
 ```swift
-    open class func pokemonShapeRetrieve(id: String, completion: @escaping (_ data: PokemonShapeDetail?, _ error: Error?) -> Void)
+    open class func pokemonShapeRetrieve(id: String, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> PokemonShapeDetail
 ```
 
 Get pokemon shape
@@ -1355,15 +1255,11 @@ import OpenAPIClient
 let id = "id_example" // String | This parameter can be a string or an integer.
 
 // Get pokemon shape
-PokemonAPI.pokemonShapeRetrieve(id: id) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await PokemonAPI.pokemonShapeRetrieve(id: id)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -1390,7 +1286,7 @@ Name | Type | Description  | Notes
 
 # **pokemonSpeciesList**
 ```swift
-    open class func pokemonSpeciesList(limit: Int? = nil, offset: Int? = nil, q: String? = nil, completion: @escaping (_ data: PaginatedPokemonSpeciesSummaryList?, _ error: Error?) -> Void)
+    open class func pokemonSpeciesList(limit: Int? = nil, offset: Int? = nil, q: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> PaginatedPokemonSpeciesSummaryList
 ```
 
 List pokemon species
@@ -1407,15 +1303,11 @@ let offset = 987 // Int | The initial index from which to return the results. (o
 let q = "q_example" // String | > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property.  (optional)
 
 // List pokemon species
-PokemonAPI.pokemonSpeciesList(limit: limit, offset: offset, q: q) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await PokemonAPI.pokemonSpeciesList(limit: limit, offset: offset, q: q)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -1444,7 +1336,7 @@ Name | Type | Description  | Notes
 
 # **pokemonSpeciesRetrieve**
 ```swift
-    open class func pokemonSpeciesRetrieve(id: String, completion: @escaping (_ data: PokemonSpeciesDetail?, _ error: Error?) -> Void)
+    open class func pokemonSpeciesRetrieve(id: String, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> PokemonSpeciesDetail
 ```
 
 Get pokemon species
@@ -1459,15 +1351,11 @@ import OpenAPIClient
 let id = "id_example" // String | This parameter can be a string or an integer.
 
 // Get pokemon species
-PokemonAPI.pokemonSpeciesRetrieve(id: id) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await PokemonAPI.pokemonSpeciesRetrieve(id: id)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -1494,7 +1382,7 @@ Name | Type | Description  | Notes
 
 # **statList**
 ```swift
-    open class func statList(limit: Int? = nil, offset: Int? = nil, q: String? = nil, completion: @escaping (_ data: PaginatedStatSummaryList?, _ error: Error?) -> Void)
+    open class func statList(limit: Int? = nil, offset: Int? = nil, q: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> PaginatedStatSummaryList
 ```
 
 List stats
@@ -1511,15 +1399,11 @@ let offset = 987 // Int | The initial index from which to return the results. (o
 let q = "q_example" // String | > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property.  (optional)
 
 // List stats
-PokemonAPI.statList(limit: limit, offset: offset, q: q) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await PokemonAPI.statList(limit: limit, offset: offset, q: q)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -1548,7 +1432,7 @@ Name | Type | Description  | Notes
 
 # **statRetrieve**
 ```swift
-    open class func statRetrieve(id: String, completion: @escaping (_ data: StatDetail?, _ error: Error?) -> Void)
+    open class func statRetrieve(id: String, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> StatDetail
 ```
 
 Get stat
@@ -1563,15 +1447,11 @@ import OpenAPIClient
 let id = "id_example" // String | This parameter can be a string or an integer.
 
 // Get stat
-PokemonAPI.statRetrieve(id: id) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await PokemonAPI.statRetrieve(id: id)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -1598,7 +1478,7 @@ Name | Type | Description  | Notes
 
 # **typeList**
 ```swift
-    open class func typeList(limit: Int? = nil, offset: Int? = nil, q: String? = nil, completion: @escaping (_ data: PaginatedTypeSummaryList?, _ error: Error?) -> Void)
+    open class func typeList(limit: Int? = nil, offset: Int? = nil, q: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> PaginatedTypeSummaryList
 ```
 
 List types
@@ -1615,15 +1495,11 @@ let offset = 987 // Int | The initial index from which to return the results. (o
 let q = "q_example" // String | > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property.  (optional)
 
 // List types
-PokemonAPI.typeList(limit: limit, offset: offset, q: q) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await PokemonAPI.typeList(limit: limit, offset: offset, q: q)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -1652,7 +1528,7 @@ Name | Type | Description  | Notes
 
 # **typeRetrieve**
 ```swift
-    open class func typeRetrieve(id: String, completion: @escaping (_ data: TypeDetail?, _ error: Error?) -> Void)
+    open class func typeRetrieve(id: String, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> TypeDetail
 ```
 
 Get types
@@ -1667,15 +1543,11 @@ import OpenAPIClient
 let id = "id_example" // String | This parameter can be a string or an integer.
 
 // Get types
-PokemonAPI.typeRetrieve(id: id) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await PokemonAPI.typeRetrieve(id: id)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 

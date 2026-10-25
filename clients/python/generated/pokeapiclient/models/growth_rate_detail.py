@@ -91,22 +91,19 @@ class GrowthRateDetail(BaseModel):
         _items = []
         if self.descriptions:
             for _item_descriptions in self.descriptions:
-                if _item_descriptions:
-                    _items.append(_item_descriptions.to_dict())
+                _items.append(_item_descriptions.to_dict() if _item_descriptions is not None else None)
             _dict['descriptions'] = _items
         # override the default output from pydantic by calling `to_dict()` of each item in levels (list)
         _items = []
         if self.levels:
             for _item_levels in self.levels:
-                if _item_levels:
-                    _items.append(_item_levels.to_dict())
+                _items.append(_item_levels.to_dict() if _item_levels is not None else None)
             _dict['levels'] = _items
         # override the default output from pydantic by calling `to_dict()` of each item in pokemon_species (list)
         _items = []
         if self.pokemon_species:
             for _item_pokemon_species in self.pokemon_species:
-                if _item_pokemon_species:
-                    _items.append(_item_pokemon_species.to_dict())
+                _items.append(_item_pokemon_species.to_dict() if _item_pokemon_species is not None else None)
             _dict['pokemon_species'] = _items
         return _dict
 

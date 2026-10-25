@@ -223,37 +223,37 @@ namespace Org.OpenAPITools.Model
             }
 
             if (!id.IsSet)
-                throw new ArgumentException("Property is required for class LanguageDetail.", nameof(id));
+                throw new JsonException("Property is required for class LanguageDetail: id.");
 
             if (!name.IsSet)
-                throw new ArgumentException("Property is required for class LanguageDetail.", nameof(name));
+                throw new JsonException("Property is required for class LanguageDetail: name.");
 
             if (!iso639.IsSet)
-                throw new ArgumentException("Property is required for class LanguageDetail.", nameof(iso639));
+                throw new JsonException("Property is required for class LanguageDetail: iso639.");
 
             if (!iso3166.IsSet)
-                throw new ArgumentException("Property is required for class LanguageDetail.", nameof(iso3166));
+                throw new JsonException("Property is required for class LanguageDetail: iso3166.");
 
             if (!names.IsSet)
-                throw new ArgumentException("Property is required for class LanguageDetail.", nameof(names));
+                throw new JsonException("Property is required for class LanguageDetail: names.");
 
             if (id.IsSet && id.Value == null)
-                throw new ArgumentNullException(nameof(id), "Property is not nullable for class LanguageDetail.");
+                throw new JsonException("Property is not nullable for class LanguageDetail: id.");
 
             if (name.IsSet && name.Value == null)
-                throw new ArgumentNullException(nameof(name), "Property is not nullable for class LanguageDetail.");
+                throw new JsonException("Property is not nullable for class LanguageDetail: name.");
 
             if (iso639.IsSet && iso639.Value == null)
-                throw new ArgumentNullException(nameof(iso639), "Property is not nullable for class LanguageDetail.");
+                throw new JsonException("Property is not nullable for class LanguageDetail: iso639.");
 
             if (iso3166.IsSet && iso3166.Value == null)
-                throw new ArgumentNullException(nameof(iso3166), "Property is not nullable for class LanguageDetail.");
+                throw new JsonException("Property is not nullable for class LanguageDetail: iso3166.");
 
             if (names.IsSet && names.Value == null)
-                throw new ArgumentNullException(nameof(names), "Property is not nullable for class LanguageDetail.");
+                throw new JsonException("Property is not nullable for class LanguageDetail: names.");
 
             if (official.IsSet && official.Value == null)
-                throw new ArgumentNullException(nameof(official), "Property is not nullable for class LanguageDetail.");
+                throw new JsonException("Property is not nullable for class LanguageDetail: official.");
 
             return new LanguageDetail(id.Value!.Value!, name.Value!, iso639.Value!, iso3166.Value!, names.Value!, official);
         }
@@ -264,7 +264,6 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="languageDetail"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public override void Write(Utf8JsonWriter writer, LanguageDetail languageDetail, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteStartObject();
@@ -279,20 +278,10 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="languageDetail"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, LanguageDetail languageDetail, JsonSerializerOptions jsonSerializerOptions)
         {
-            if (languageDetail.Name == null)
-                throw new ArgumentNullException(nameof(languageDetail.Name), "Property is required for class LanguageDetail.");
-
-            if (languageDetail.Iso639 == null)
-                throw new ArgumentNullException(nameof(languageDetail.Iso639), "Property is required for class LanguageDetail.");
-
-            if (languageDetail.Iso3166 == null)
-                throw new ArgumentNullException(nameof(languageDetail.Iso3166), "Property is required for class LanguageDetail.");
-
-            if (languageDetail.Names == null)
-                throw new ArgumentNullException(nameof(languageDetail.Names), "Property is required for class LanguageDetail.");
+            if (languageDetail.OfficialOption.IsSet && languageDetail.Official == null)
+                throw new JsonException("Cannot write null property LanguageDetail.Official to non-nullable JSON property 'official'.");
 
             writer.WriteNumber("id", languageDetail.Id);
 

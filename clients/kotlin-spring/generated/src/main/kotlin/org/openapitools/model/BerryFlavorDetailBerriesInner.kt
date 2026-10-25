@@ -22,12 +22,12 @@ import io.swagger.v3.oas.annotations.media.Schema
 data class BerryFlavorDetailBerriesInner(
 
     @Schema(required = true, description = "")
-    @param:JsonProperty("potency")
+    @param:JsonProperty("potency", required = true)
     @get:JsonProperty("potency", required = true) val potency: kotlin.Int,
 
     @field:Valid
     @Schema(required = true, description = "")
-    @param:JsonProperty("berry")
+    @param:JsonProperty("berry", required = true)
     @get:JsonProperty("berry", required = true) val berry: BerryFlavorDetailBerriesInnerBerry
 ) {
 

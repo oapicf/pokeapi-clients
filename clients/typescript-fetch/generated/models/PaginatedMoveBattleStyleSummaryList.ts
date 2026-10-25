@@ -29,26 +29,18 @@ import {
 export interface PaginatedMoveBattleStyleSummaryList {
     /**
      * 
-     * @type {number}
-     * @memberof PaginatedMoveBattleStyleSummaryList
      */
     count?: number;
     /**
      * 
-     * @type {string}
-     * @memberof PaginatedMoveBattleStyleSummaryList
      */
     next?: string;
     /**
      * 
-     * @type {string}
-     * @memberof PaginatedMoveBattleStyleSummaryList
      */
     previous?: string;
     /**
      * 
-     * @type {Array<MoveBattleStyleSummary>}
-     * @memberof PaginatedMoveBattleStyleSummaryList
      */
     results?: Array<MoveBattleStyleSummary>;
 }

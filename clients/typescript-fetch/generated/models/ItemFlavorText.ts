@@ -36,20 +36,14 @@ import {
 export interface ItemFlavorText {
     /**
      * 
-     * @type {string}
-     * @memberof ItemFlavorText
      */
     text: string;
     /**
      * 
-     * @type {VersionGroupSummary}
-     * @memberof ItemFlavorText
      */
     versionGroup: VersionGroupSummary;
     /**
      * 
-     * @type {LanguageSummary}
-     * @memberof ItemFlavorText
      */
     language: LanguageSummary;
 }

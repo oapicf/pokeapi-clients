@@ -124,3 +124,4 @@ class _$CharacteristicDescriptionSerializer implements PrimitiveSerializer<Chara
   }
 }
 
+

@@ -178,28 +178,28 @@ namespace Org.OpenAPITools.Model
             }
 
             if (!id.IsSet)
-                throw new ArgumentException("Property is required for class BerryFirmnessDetail.", nameof(id));
+                throw new JsonException("Property is required for class BerryFirmnessDetail: id.");
 
             if (!name.IsSet)
-                throw new ArgumentException("Property is required for class BerryFirmnessDetail.", nameof(name));
+                throw new JsonException("Property is required for class BerryFirmnessDetail: name.");
 
             if (!berries.IsSet)
-                throw new ArgumentException("Property is required for class BerryFirmnessDetail.", nameof(berries));
+                throw new JsonException("Property is required for class BerryFirmnessDetail: berries.");
 
             if (!names.IsSet)
-                throw new ArgumentException("Property is required for class BerryFirmnessDetail.", nameof(names));
+                throw new JsonException("Property is required for class BerryFirmnessDetail: names.");
 
             if (id.IsSet && id.Value == null)
-                throw new ArgumentNullException(nameof(id), "Property is not nullable for class BerryFirmnessDetail.");
+                throw new JsonException("Property is not nullable for class BerryFirmnessDetail: id.");
 
             if (name.IsSet && name.Value == null)
-                throw new ArgumentNullException(nameof(name), "Property is not nullable for class BerryFirmnessDetail.");
+                throw new JsonException("Property is not nullable for class BerryFirmnessDetail: name.");
 
             if (berries.IsSet && berries.Value == null)
-                throw new ArgumentNullException(nameof(berries), "Property is not nullable for class BerryFirmnessDetail.");
+                throw new JsonException("Property is not nullable for class BerryFirmnessDetail: berries.");
 
             if (names.IsSet && names.Value == null)
-                throw new ArgumentNullException(nameof(names), "Property is not nullable for class BerryFirmnessDetail.");
+                throw new JsonException("Property is not nullable for class BerryFirmnessDetail: names.");
 
             return new BerryFirmnessDetail(id.Value!.Value!, name.Value!, berries.Value!, names.Value!);
         }
@@ -210,7 +210,6 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="berryFirmnessDetail"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public override void Write(Utf8JsonWriter writer, BerryFirmnessDetail berryFirmnessDetail, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteStartObject();
@@ -225,18 +224,8 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="berryFirmnessDetail"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, BerryFirmnessDetail berryFirmnessDetail, JsonSerializerOptions jsonSerializerOptions)
         {
-            if (berryFirmnessDetail.Name == null)
-                throw new ArgumentNullException(nameof(berryFirmnessDetail.Name), "Property is required for class BerryFirmnessDetail.");
-
-            if (berryFirmnessDetail.Berries == null)
-                throw new ArgumentNullException(nameof(berryFirmnessDetail.Berries), "Property is required for class BerryFirmnessDetail.");
-
-            if (berryFirmnessDetail.Names == null)
-                throw new ArgumentNullException(nameof(berryFirmnessDetail.Names), "Property is required for class BerryFirmnessDetail.");
-
             writer.WriteNumber("id", berryFirmnessDetail.Id);
 
             writer.WriteString("name", berryFirmnessDetail.Name);

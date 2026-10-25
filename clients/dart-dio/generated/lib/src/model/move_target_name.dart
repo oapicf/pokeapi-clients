@@ -121,3 +121,4 @@ class _$MoveTargetNameSerializer implements PrimitiveSerializer<MoveTargetName> 
   }
 }
 
+

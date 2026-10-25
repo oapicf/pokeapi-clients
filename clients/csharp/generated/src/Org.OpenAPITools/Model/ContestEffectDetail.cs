@@ -185,34 +185,34 @@ namespace Org.OpenAPITools.Model
             }
 
             if (!id.IsSet)
-                throw new ArgumentException("Property is required for class ContestEffectDetail.", nameof(id));
+                throw new JsonException("Property is required for class ContestEffectDetail: id.");
 
             if (!appeal.IsSet)
-                throw new ArgumentException("Property is required for class ContestEffectDetail.", nameof(appeal));
+                throw new JsonException("Property is required for class ContestEffectDetail: appeal.");
 
             if (!jam.IsSet)
-                throw new ArgumentException("Property is required for class ContestEffectDetail.", nameof(jam));
+                throw new JsonException("Property is required for class ContestEffectDetail: jam.");
 
             if (!effectEntries.IsSet)
-                throw new ArgumentException("Property is required for class ContestEffectDetail.", nameof(effectEntries));
+                throw new JsonException("Property is required for class ContestEffectDetail: effect_entries.");
 
             if (!flavorTextEntries.IsSet)
-                throw new ArgumentException("Property is required for class ContestEffectDetail.", nameof(flavorTextEntries));
+                throw new JsonException("Property is required for class ContestEffectDetail: flavor_text_entries.");
 
             if (id.IsSet && id.Value == null)
-                throw new ArgumentNullException(nameof(id), "Property is not nullable for class ContestEffectDetail.");
+                throw new JsonException("Property is not nullable for class ContestEffectDetail: id.");
 
             if (appeal.IsSet && appeal.Value == null)
-                throw new ArgumentNullException(nameof(appeal), "Property is not nullable for class ContestEffectDetail.");
+                throw new JsonException("Property is not nullable for class ContestEffectDetail: appeal.");
 
             if (jam.IsSet && jam.Value == null)
-                throw new ArgumentNullException(nameof(jam), "Property is not nullable for class ContestEffectDetail.");
+                throw new JsonException("Property is not nullable for class ContestEffectDetail: jam.");
 
             if (effectEntries.IsSet && effectEntries.Value == null)
-                throw new ArgumentNullException(nameof(effectEntries), "Property is not nullable for class ContestEffectDetail.");
+                throw new JsonException("Property is not nullable for class ContestEffectDetail: effect_entries.");
 
             if (flavorTextEntries.IsSet && flavorTextEntries.Value == null)
-                throw new ArgumentNullException(nameof(flavorTextEntries), "Property is not nullable for class ContestEffectDetail.");
+                throw new JsonException("Property is not nullable for class ContestEffectDetail: flavor_text_entries.");
 
             return new ContestEffectDetail(id.Value!.Value!, appeal.Value!.Value!, jam.Value!.Value!, effectEntries.Value!, flavorTextEntries.Value!);
         }
@@ -223,7 +223,6 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="contestEffectDetail"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public override void Write(Utf8JsonWriter writer, ContestEffectDetail contestEffectDetail, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteStartObject();
@@ -238,15 +237,8 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="contestEffectDetail"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, ContestEffectDetail contestEffectDetail, JsonSerializerOptions jsonSerializerOptions)
         {
-            if (contestEffectDetail.EffectEntries == null)
-                throw new ArgumentNullException(nameof(contestEffectDetail.EffectEntries), "Property is required for class ContestEffectDetail.");
-
-            if (contestEffectDetail.FlavorTextEntries == null)
-                throw new ArgumentNullException(nameof(contestEffectDetail.FlavorTextEntries), "Property is required for class ContestEffectDetail.");
-
             writer.WriteNumber("id", contestEffectDetail.Id);
 
             writer.WriteNumber("appeal", contestEffectDetail.Appeal);

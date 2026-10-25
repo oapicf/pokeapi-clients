@@ -283,7 +283,7 @@ impl<C> Api<C> for Server<C> where C: Has<XSpanIdString> + Send + Sync
         id: String,
         context: &C) -> Result<BerryFirmnessRetrieveResponse, ApiError>
     {
-        info!("berry_firmness_retrieve(\"{}\") - X-Span-ID: {:?}", id, context.get().0.clone());
+        info!("berry_firmness_retrieve({:?}) - X-Span-ID: {:?}", id, context.get().0.clone());
         Err(ApiError("Api-Error: Operation is NOT implemented".into()))
     }
 
@@ -293,7 +293,7 @@ impl<C> Api<C> for Server<C> where C: Has<XSpanIdString> + Send + Sync
         id: String,
         context: &C) -> Result<BerryFlavorRetrieveResponse, ApiError>
     {
-        info!("berry_flavor_retrieve(\"{}\") - X-Span-ID: {:?}", id, context.get().0.clone());
+        info!("berry_flavor_retrieve({:?}) - X-Span-ID: {:?}", id, context.get().0.clone());
         Err(ApiError("Api-Error: Operation is NOT implemented".into()))
     }
 
@@ -303,7 +303,7 @@ impl<C> Api<C> for Server<C> where C: Has<XSpanIdString> + Send + Sync
         id: String,
         context: &C) -> Result<BerryRetrieveResponse, ApiError>
     {
-        info!("berry_retrieve(\"{}\") - X-Span-ID: {:?}", id, context.get().0.clone());
+        info!("berry_retrieve({:?}) - X-Span-ID: {:?}", id, context.get().0.clone());
         Err(ApiError("Api-Error: Operation is NOT implemented".into()))
     }
 
@@ -349,7 +349,7 @@ impl<C> Api<C> for Server<C> where C: Has<XSpanIdString> + Send + Sync
         id: String,
         context: &C) -> Result<ContestEffectRetrieveResponse, ApiError>
     {
-        info!("contest_effect_retrieve(\"{}\") - X-Span-ID: {:?}", id, context.get().0.clone());
+        info!("contest_effect_retrieve({:?}) - X-Span-ID: {:?}", id, context.get().0.clone());
         Err(ApiError("Api-Error: Operation is NOT implemented".into()))
     }
 
@@ -359,7 +359,7 @@ impl<C> Api<C> for Server<C> where C: Has<XSpanIdString> + Send + Sync
         id: String,
         context: &C) -> Result<ContestTypeRetrieveResponse, ApiError>
     {
-        info!("contest_type_retrieve(\"{}\") - X-Span-ID: {:?}", id, context.get().0.clone());
+        info!("contest_type_retrieve({:?}) - X-Span-ID: {:?}", id, context.get().0.clone());
         Err(ApiError("Api-Error: Operation is NOT implemented".into()))
     }
 
@@ -369,7 +369,7 @@ impl<C> Api<C> for Server<C> where C: Has<XSpanIdString> + Send + Sync
         id: String,
         context: &C) -> Result<SuperContestEffectRetrieveResponse, ApiError>
     {
-        info!("super_contest_effect_retrieve(\"{}\") - X-Span-ID: {:?}", id, context.get().0.clone());
+        info!("super_contest_effect_retrieve({:?}) - X-Span-ID: {:?}", id, context.get().0.clone());
         Err(ApiError("Api-Error: Operation is NOT implemented".into()))
     }
 
@@ -415,7 +415,7 @@ impl<C> Api<C> for Server<C> where C: Has<XSpanIdString> + Send + Sync
         id: String,
         context: &C) -> Result<EncounterConditionRetrieveResponse, ApiError>
     {
-        info!("encounter_condition_retrieve(\"{}\") - X-Span-ID: {:?}", id, context.get().0.clone());
+        info!("encounter_condition_retrieve({:?}) - X-Span-ID: {:?}", id, context.get().0.clone());
         Err(ApiError("Api-Error: Operation is NOT implemented".into()))
     }
 
@@ -425,7 +425,7 @@ impl<C> Api<C> for Server<C> where C: Has<XSpanIdString> + Send + Sync
         id: String,
         context: &C) -> Result<EncounterConditionValueRetrieveResponse, ApiError>
     {
-        info!("encounter_condition_value_retrieve(\"{}\") - X-Span-ID: {:?}", id, context.get().0.clone());
+        info!("encounter_condition_value_retrieve({:?}) - X-Span-ID: {:?}", id, context.get().0.clone());
         Err(ApiError("Api-Error: Operation is NOT implemented".into()))
     }
 
@@ -435,7 +435,7 @@ impl<C> Api<C> for Server<C> where C: Has<XSpanIdString> + Send + Sync
         id: String,
         context: &C) -> Result<EncounterMethodRetrieveResponse, ApiError>
     {
-        info!("encounter_method_retrieve(\"{}\") - X-Span-ID: {:?}", id, context.get().0.clone());
+        info!("encounter_method_retrieve({:?}) - X-Span-ID: {:?}", id, context.get().0.clone());
         Err(ApiError("Api-Error: Operation is NOT implemented".into()))
     }
 
@@ -469,7 +469,7 @@ impl<C> Api<C> for Server<C> where C: Has<XSpanIdString> + Send + Sync
         id: String,
         context: &C) -> Result<EvolutionChainRetrieveResponse, ApiError>
     {
-        info!("evolution_chain_retrieve(\"{}\") - X-Span-ID: {:?}", id, context.get().0.clone());
+        info!("evolution_chain_retrieve({:?}) - X-Span-ID: {:?}", id, context.get().0.clone());
         Err(ApiError("Api-Error: Operation is NOT implemented".into()))
     }
 
@@ -479,7 +479,7 @@ impl<C> Api<C> for Server<C> where C: Has<XSpanIdString> + Send + Sync
         id: String,
         context: &C) -> Result<EvolutionTriggerRetrieveResponse, ApiError>
     {
-        info!("evolution_trigger_retrieve(\"{}\") - X-Span-ID: {:?}", id, context.get().0.clone());
+        info!("evolution_trigger_retrieve({:?}) - X-Span-ID: {:?}", id, context.get().0.clone());
         Err(ApiError("Api-Error: Operation is NOT implemented".into()))
     }
 
@@ -537,7 +537,7 @@ impl<C> Api<C> for Server<C> where C: Has<XSpanIdString> + Send + Sync
         id: String,
         context: &C) -> Result<GenerationRetrieveResponse, ApiError>
     {
-        info!("generation_retrieve(\"{}\") - X-Span-ID: {:?}", id, context.get().0.clone());
+        info!("generation_retrieve({:?}) - X-Span-ID: {:?}", id, context.get().0.clone());
         Err(ApiError("Api-Error: Operation is NOT implemented".into()))
     }
 
@@ -547,7 +547,7 @@ impl<C> Api<C> for Server<C> where C: Has<XSpanIdString> + Send + Sync
         id: String,
         context: &C) -> Result<PokedexRetrieveResponse, ApiError>
     {
-        info!("pokedex_retrieve(\"{}\") - X-Span-ID: {:?}", id, context.get().0.clone());
+        info!("pokedex_retrieve({:?}) - X-Span-ID: {:?}", id, context.get().0.clone());
         Err(ApiError("Api-Error: Operation is NOT implemented".into()))
     }
 
@@ -557,7 +557,7 @@ impl<C> Api<C> for Server<C> where C: Has<XSpanIdString> + Send + Sync
         id: String,
         context: &C) -> Result<VersionGroupRetrieveResponse, ApiError>
     {
-        info!("version_group_retrieve(\"{}\") - X-Span-ID: {:?}", id, context.get().0.clone());
+        info!("version_group_retrieve({:?}) - X-Span-ID: {:?}", id, context.get().0.clone());
         Err(ApiError("Api-Error: Operation is NOT implemented".into()))
     }
 
@@ -567,7 +567,7 @@ impl<C> Api<C> for Server<C> where C: Has<XSpanIdString> + Send + Sync
         id: String,
         context: &C) -> Result<VersionRetrieveResponse, ApiError>
     {
-        info!("version_retrieve(\"{}\") - X-Span-ID: {:?}", id, context.get().0.clone());
+        info!("version_retrieve({:?}) - X-Span-ID: {:?}", id, context.get().0.clone());
         Err(ApiError("Api-Error: Operation is NOT implemented".into()))
     }
 
@@ -637,7 +637,7 @@ impl<C> Api<C> for Server<C> where C: Has<XSpanIdString> + Send + Sync
         id: String,
         context: &C) -> Result<ItemAttributeRetrieveResponse, ApiError>
     {
-        info!("item_attribute_retrieve(\"{}\") - X-Span-ID: {:?}", id, context.get().0.clone());
+        info!("item_attribute_retrieve({:?}) - X-Span-ID: {:?}", id, context.get().0.clone());
         Err(ApiError("Api-Error: Operation is NOT implemented".into()))
     }
 
@@ -647,7 +647,7 @@ impl<C> Api<C> for Server<C> where C: Has<XSpanIdString> + Send + Sync
         id: String,
         context: &C) -> Result<ItemCategoryRetrieveResponse, ApiError>
     {
-        info!("item_category_retrieve(\"{}\") - X-Span-ID: {:?}", id, context.get().0.clone());
+        info!("item_category_retrieve({:?}) - X-Span-ID: {:?}", id, context.get().0.clone());
         Err(ApiError("Api-Error: Operation is NOT implemented".into()))
     }
 
@@ -657,7 +657,7 @@ impl<C> Api<C> for Server<C> where C: Has<XSpanIdString> + Send + Sync
         id: String,
         context: &C) -> Result<ItemFlingEffectRetrieveResponse, ApiError>
     {
-        info!("item_fling_effect_retrieve(\"{}\") - X-Span-ID: {:?}", id, context.get().0.clone());
+        info!("item_fling_effect_retrieve({:?}) - X-Span-ID: {:?}", id, context.get().0.clone());
         Err(ApiError("Api-Error: Operation is NOT implemented".into()))
     }
 
@@ -667,7 +667,7 @@ impl<C> Api<C> for Server<C> where C: Has<XSpanIdString> + Send + Sync
         id: String,
         context: &C) -> Result<ItemPocketRetrieveResponse, ApiError>
     {
-        info!("item_pocket_retrieve(\"{}\") - X-Span-ID: {:?}", id, context.get().0.clone());
+        info!("item_pocket_retrieve({:?}) - X-Span-ID: {:?}", id, context.get().0.clone());
         Err(ApiError("Api-Error: Operation is NOT implemented".into()))
     }
 
@@ -677,7 +677,7 @@ impl<C> Api<C> for Server<C> where C: Has<XSpanIdString> + Send + Sync
         id: String,
         context: &C) -> Result<ItemRetrieveResponse, ApiError>
     {
-        info!("item_retrieve(\"{}\") - X-Span-ID: {:?}", id, context.get().0.clone());
+        info!("item_retrieve({:?}) - X-Span-ID: {:?}", id, context.get().0.clone());
         Err(ApiError("Api-Error: Operation is NOT implemented".into()))
     }
 
@@ -734,7 +734,7 @@ impl<C> Api<C> for Server<C> where C: Has<XSpanIdString> + Send + Sync
         id: i32,
         context: &C) -> Result<LocationAreaRetrieveResponse, ApiError>
     {
-        info!("location_area_retrieve({}) - X-Span-ID: {:?}", id, context.get().0.clone());
+        info!("location_area_retrieve({:?}) - X-Span-ID: {:?}", id, context.get().0.clone());
         Err(ApiError("Api-Error: Operation is NOT implemented".into()))
     }
 
@@ -744,7 +744,7 @@ impl<C> Api<C> for Server<C> where C: Has<XSpanIdString> + Send + Sync
         id: String,
         context: &C) -> Result<LocationRetrieveResponse, ApiError>
     {
-        info!("location_retrieve(\"{}\") - X-Span-ID: {:?}", id, context.get().0.clone());
+        info!("location_retrieve({:?}) - X-Span-ID: {:?}", id, context.get().0.clone());
         Err(ApiError("Api-Error: Operation is NOT implemented".into()))
     }
 
@@ -754,7 +754,7 @@ impl<C> Api<C> for Server<C> where C: Has<XSpanIdString> + Send + Sync
         id: String,
         context: &C) -> Result<PalParkAreaRetrieveResponse, ApiError>
     {
-        info!("pal_park_area_retrieve(\"{}\") - X-Span-ID: {:?}", id, context.get().0.clone());
+        info!("pal_park_area_retrieve({:?}) - X-Span-ID: {:?}", id, context.get().0.clone());
         Err(ApiError("Api-Error: Operation is NOT implemented".into()))
     }
 
@@ -764,7 +764,7 @@ impl<C> Api<C> for Server<C> where C: Has<XSpanIdString> + Send + Sync
         id: String,
         context: &C) -> Result<RegionRetrieveResponse, ApiError>
     {
-        info!("region_retrieve(\"{}\") - X-Span-ID: {:?}", id, context.get().0.clone());
+        info!("region_retrieve({:?}) - X-Span-ID: {:?}", id, context.get().0.clone());
         Err(ApiError("Api-Error: Operation is NOT implemented".into()))
     }
 
@@ -786,7 +786,7 @@ impl<C> Api<C> for Server<C> where C: Has<XSpanIdString> + Send + Sync
         id: String,
         context: &C) -> Result<MachineRetrieveResponse, ApiError>
     {
-        info!("machine_retrieve(\"{}\") - X-Span-ID: {:?}", id, context.get().0.clone());
+        info!("machine_retrieve({:?}) - X-Span-ID: {:?}", id, context.get().0.clone());
         Err(ApiError("Api-Error: Operation is NOT implemented".into()))
     }
 
@@ -868,7 +868,7 @@ impl<C> Api<C> for Server<C> where C: Has<XSpanIdString> + Send + Sync
         id: String,
         context: &C) -> Result<MoveAilmentRetrieveResponse, ApiError>
     {
-        info!("move_ailment_retrieve(\"{}\") - X-Span-ID: {:?}", id, context.get().0.clone());
+        info!("move_ailment_retrieve({:?}) - X-Span-ID: {:?}", id, context.get().0.clone());
         Err(ApiError("Api-Error: Operation is NOT implemented".into()))
     }
 
@@ -878,7 +878,7 @@ impl<C> Api<C> for Server<C> where C: Has<XSpanIdString> + Send + Sync
         id: String,
         context: &C) -> Result<MoveBattleStyleRetrieveResponse, ApiError>
     {
-        info!("move_battle_style_retrieve(\"{}\") - X-Span-ID: {:?}", id, context.get().0.clone());
+        info!("move_battle_style_retrieve({:?}) - X-Span-ID: {:?}", id, context.get().0.clone());
         Err(ApiError("Api-Error: Operation is NOT implemented".into()))
     }
 
@@ -888,7 +888,7 @@ impl<C> Api<C> for Server<C> where C: Has<XSpanIdString> + Send + Sync
         id: String,
         context: &C) -> Result<MoveCategoryRetrieveResponse, ApiError>
     {
-        info!("move_category_retrieve(\"{}\") - X-Span-ID: {:?}", id, context.get().0.clone());
+        info!("move_category_retrieve({:?}) - X-Span-ID: {:?}", id, context.get().0.clone());
         Err(ApiError("Api-Error: Operation is NOT implemented".into()))
     }
 
@@ -898,7 +898,7 @@ impl<C> Api<C> for Server<C> where C: Has<XSpanIdString> + Send + Sync
         id: String,
         context: &C) -> Result<MoveLearnMethodRetrieveResponse, ApiError>
     {
-        info!("move_learn_method_retrieve(\"{}\") - X-Span-ID: {:?}", id, context.get().0.clone());
+        info!("move_learn_method_retrieve({:?}) - X-Span-ID: {:?}", id, context.get().0.clone());
         Err(ApiError("Api-Error: Operation is NOT implemented".into()))
     }
 
@@ -908,7 +908,7 @@ impl<C> Api<C> for Server<C> where C: Has<XSpanIdString> + Send + Sync
         id: String,
         context: &C) -> Result<MoveRetrieveResponse, ApiError>
     {
-        info!("move_retrieve(\"{}\") - X-Span-ID: {:?}", id, context.get().0.clone());
+        info!("move_retrieve({:?}) - X-Span-ID: {:?}", id, context.get().0.clone());
         Err(ApiError("Api-Error: Operation is NOT implemented".into()))
     }
 
@@ -918,7 +918,7 @@ impl<C> Api<C> for Server<C> where C: Has<XSpanIdString> + Send + Sync
         id: String,
         context: &C) -> Result<MoveTargetRetrieveResponse, ApiError>
     {
-        info!("move_target_retrieve(\"{}\") - X-Span-ID: {:?}", id, context.get().0.clone());
+        info!("move_target_retrieve({:?}) - X-Span-ID: {:?}", id, context.get().0.clone());
         Err(ApiError("Api-Error: Operation is NOT implemented".into()))
     }
 
@@ -1118,7 +1118,7 @@ impl<C> Api<C> for Server<C> where C: Has<XSpanIdString> + Send + Sync
         id: String,
         context: &C) -> Result<AbilityRetrieveResponse, ApiError>
     {
-        info!("ability_retrieve(\"{}\") - X-Span-ID: {:?}", id, context.get().0.clone());
+        info!("ability_retrieve({:?}) - X-Span-ID: {:?}", id, context.get().0.clone());
         Err(ApiError("Api-Error: Operation is NOT implemented".into()))
     }
 
@@ -1128,7 +1128,7 @@ impl<C> Api<C> for Server<C> where C: Has<XSpanIdString> + Send + Sync
         id: String,
         context: &C) -> Result<CharacteristicRetrieveResponse, ApiError>
     {
-        info!("characteristic_retrieve(\"{}\") - X-Span-ID: {:?}", id, context.get().0.clone());
+        info!("characteristic_retrieve({:?}) - X-Span-ID: {:?}", id, context.get().0.clone());
         Err(ApiError("Api-Error: Operation is NOT implemented".into()))
     }
 
@@ -1138,7 +1138,7 @@ impl<C> Api<C> for Server<C> where C: Has<XSpanIdString> + Send + Sync
         id: String,
         context: &C) -> Result<EggGroupRetrieveResponse, ApiError>
     {
-        info!("egg_group_retrieve(\"{}\") - X-Span-ID: {:?}", id, context.get().0.clone());
+        info!("egg_group_retrieve({:?}) - X-Span-ID: {:?}", id, context.get().0.clone());
         Err(ApiError("Api-Error: Operation is NOT implemented".into()))
     }
 
@@ -1148,7 +1148,7 @@ impl<C> Api<C> for Server<C> where C: Has<XSpanIdString> + Send + Sync
         id: String,
         context: &C) -> Result<GenderRetrieveResponse, ApiError>
     {
-        info!("gender_retrieve(\"{}\") - X-Span-ID: {:?}", id, context.get().0.clone());
+        info!("gender_retrieve({:?}) - X-Span-ID: {:?}", id, context.get().0.clone());
         Err(ApiError("Api-Error: Operation is NOT implemented".into()))
     }
 
@@ -1158,7 +1158,7 @@ impl<C> Api<C> for Server<C> where C: Has<XSpanIdString> + Send + Sync
         id: String,
         context: &C) -> Result<GrowthRateRetrieveResponse, ApiError>
     {
-        info!("growth_rate_retrieve(\"{}\") - X-Span-ID: {:?}", id, context.get().0.clone());
+        info!("growth_rate_retrieve({:?}) - X-Span-ID: {:?}", id, context.get().0.clone());
         Err(ApiError("Api-Error: Operation is NOT implemented".into()))
     }
 
@@ -1168,7 +1168,7 @@ impl<C> Api<C> for Server<C> where C: Has<XSpanIdString> + Send + Sync
         id: String,
         context: &C) -> Result<MoveDamageClassRetrieveResponse, ApiError>
     {
-        info!("move_damage_class_retrieve(\"{}\") - X-Span-ID: {:?}", id, context.get().0.clone());
+        info!("move_damage_class_retrieve({:?}) - X-Span-ID: {:?}", id, context.get().0.clone());
         Err(ApiError("Api-Error: Operation is NOT implemented".into()))
     }
 
@@ -1178,7 +1178,7 @@ impl<C> Api<C> for Server<C> where C: Has<XSpanIdString> + Send + Sync
         id: String,
         context: &C) -> Result<NatureRetrieveResponse, ApiError>
     {
-        info!("nature_retrieve(\"{}\") - X-Span-ID: {:?}", id, context.get().0.clone());
+        info!("nature_retrieve({:?}) - X-Span-ID: {:?}", id, context.get().0.clone());
         Err(ApiError("Api-Error: Operation is NOT implemented".into()))
     }
 
@@ -1188,7 +1188,7 @@ impl<C> Api<C> for Server<C> where C: Has<XSpanIdString> + Send + Sync
         id: String,
         context: &C) -> Result<PokeathlonStatRetrieveResponse, ApiError>
     {
-        info!("pokeathlon_stat_retrieve(\"{}\") - X-Span-ID: {:?}", id, context.get().0.clone());
+        info!("pokeathlon_stat_retrieve({:?}) - X-Span-ID: {:?}", id, context.get().0.clone());
         Err(ApiError("Api-Error: Operation is NOT implemented".into()))
     }
 
@@ -1198,7 +1198,7 @@ impl<C> Api<C> for Server<C> where C: Has<XSpanIdString> + Send + Sync
         id: String,
         context: &C) -> Result<PokemonColorRetrieveResponse, ApiError>
     {
-        info!("pokemon_color_retrieve(\"{}\") - X-Span-ID: {:?}", id, context.get().0.clone());
+        info!("pokemon_color_retrieve({:?}) - X-Span-ID: {:?}", id, context.get().0.clone());
         Err(ApiError("Api-Error: Operation is NOT implemented".into()))
     }
 
@@ -1208,7 +1208,7 @@ impl<C> Api<C> for Server<C> where C: Has<XSpanIdString> + Send + Sync
         id: String,
         context: &C) -> Result<PokemonFormRetrieveResponse, ApiError>
     {
-        info!("pokemon_form_retrieve(\"{}\") - X-Span-ID: {:?}", id, context.get().0.clone());
+        info!("pokemon_form_retrieve({:?}) - X-Span-ID: {:?}", id, context.get().0.clone());
         Err(ApiError("Api-Error: Operation is NOT implemented".into()))
     }
 
@@ -1218,7 +1218,7 @@ impl<C> Api<C> for Server<C> where C: Has<XSpanIdString> + Send + Sync
         id: String,
         context: &C) -> Result<PokemonHabitatRetrieveResponse, ApiError>
     {
-        info!("pokemon_habitat_retrieve(\"{}\") - X-Span-ID: {:?}", id, context.get().0.clone());
+        info!("pokemon_habitat_retrieve({:?}) - X-Span-ID: {:?}", id, context.get().0.clone());
         Err(ApiError("Api-Error: Operation is NOT implemented".into()))
     }
 
@@ -1228,7 +1228,7 @@ impl<C> Api<C> for Server<C> where C: Has<XSpanIdString> + Send + Sync
         id: String,
         context: &C) -> Result<PokemonRetrieveResponse, ApiError>
     {
-        info!("pokemon_retrieve(\"{}\") - X-Span-ID: {:?}", id, context.get().0.clone());
+        info!("pokemon_retrieve({:?}) - X-Span-ID: {:?}", id, context.get().0.clone());
         Err(ApiError("Api-Error: Operation is NOT implemented".into()))
     }
 
@@ -1238,7 +1238,7 @@ impl<C> Api<C> for Server<C> where C: Has<XSpanIdString> + Send + Sync
         id: String,
         context: &C) -> Result<PokemonShapeRetrieveResponse, ApiError>
     {
-        info!("pokemon_shape_retrieve(\"{}\") - X-Span-ID: {:?}", id, context.get().0.clone());
+        info!("pokemon_shape_retrieve({:?}) - X-Span-ID: {:?}", id, context.get().0.clone());
         Err(ApiError("Api-Error: Operation is NOT implemented".into()))
     }
 
@@ -1248,7 +1248,7 @@ impl<C> Api<C> for Server<C> where C: Has<XSpanIdString> + Send + Sync
         id: String,
         context: &C) -> Result<PokemonSpeciesRetrieveResponse, ApiError>
     {
-        info!("pokemon_species_retrieve(\"{}\") - X-Span-ID: {:?}", id, context.get().0.clone());
+        info!("pokemon_species_retrieve({:?}) - X-Span-ID: {:?}", id, context.get().0.clone());
         Err(ApiError("Api-Error: Operation is NOT implemented".into()))
     }
 
@@ -1258,7 +1258,7 @@ impl<C> Api<C> for Server<C> where C: Has<XSpanIdString> + Send + Sync
         id: String,
         context: &C) -> Result<StatRetrieveResponse, ApiError>
     {
-        info!("stat_retrieve(\"{}\") - X-Span-ID: {:?}", id, context.get().0.clone());
+        info!("stat_retrieve({:?}) - X-Span-ID: {:?}", id, context.get().0.clone());
         Err(ApiError("Api-Error: Operation is NOT implemented".into()))
     }
 
@@ -1268,7 +1268,7 @@ impl<C> Api<C> for Server<C> where C: Has<XSpanIdString> + Send + Sync
         id: String,
         context: &C) -> Result<TypeRetrieveResponse, ApiError>
     {
-        info!("type_retrieve(\"{}\") - X-Span-ID: {:?}", id, context.get().0.clone());
+        info!("type_retrieve({:?}) - X-Span-ID: {:?}", id, context.get().0.clone());
         Err(ApiError("Api-Error: Operation is NOT implemented".into()))
     }
 
@@ -1290,7 +1290,7 @@ impl<C> Api<C> for Server<C> where C: Has<XSpanIdString> + Send + Sync
         id: String,
         context: &C) -> Result<LanguageRetrieveResponse, ApiError>
     {
-        info!("language_retrieve(\"{}\") - X-Span-ID: {:?}", id, context.get().0.clone());
+        info!("language_retrieve({:?}) - X-Span-ID: {:?}", id, context.get().0.clone());
         Err(ApiError("Api-Error: Operation is NOT implemented".into()))
     }
 

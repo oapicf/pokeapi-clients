@@ -120,3 +120,4 @@ class _$LanguageSummarySerializer implements PrimitiveSerializer<LanguageSummary
   }
 }
 
+

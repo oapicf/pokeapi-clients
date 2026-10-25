@@ -137,3 +137,4 @@ class _$PokemonStatSerializer implements PrimitiveSerializer<PokemonStat> {
   }
 }
 
+

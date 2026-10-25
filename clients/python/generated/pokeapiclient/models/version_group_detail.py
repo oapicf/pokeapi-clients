@@ -98,29 +98,25 @@ class VersionGroupDetail(BaseModel):
         _items = []
         if self.move_learn_methods:
             for _item_move_learn_methods in self.move_learn_methods:
-                if _item_move_learn_methods:
-                    _items.append(_item_move_learn_methods.to_dict())
+                _items.append(_item_move_learn_methods.to_dict() if _item_move_learn_methods is not None else None)
             _dict['move_learn_methods'] = _items
         # override the default output from pydantic by calling `to_dict()` of each item in pokedexes (list)
         _items = []
         if self.pokedexes:
             for _item_pokedexes in self.pokedexes:
-                if _item_pokedexes:
-                    _items.append(_item_pokedexes.to_dict())
+                _items.append(_item_pokedexes.to_dict() if _item_pokedexes is not None else None)
             _dict['pokedexes'] = _items
         # override the default output from pydantic by calling `to_dict()` of each item in regions (list)
         _items = []
         if self.regions:
             for _item_regions in self.regions:
-                if _item_regions:
-                    _items.append(_item_regions.to_dict())
+                _items.append(_item_regions.to_dict() if _item_regions is not None else None)
             _dict['regions'] = _items
         # override the default output from pydantic by calling `to_dict()` of each item in versions (list)
         _items = []
         if self.versions:
             for _item_versions in self.versions:
-                if _item_versions:
-                    _items.append(_item_versions.to_dict())
+                _items.append(_item_versions.to_dict() if _item_versions is not None else None)
             _dict['versions'] = _items
         # set to None if order (nullable) is None
         # and model_fields_set contains the field

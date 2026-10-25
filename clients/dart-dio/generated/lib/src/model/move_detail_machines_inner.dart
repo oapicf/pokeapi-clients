@@ -122,3 +122,4 @@ class _$MoveDetailMachinesInnerSerializer implements PrimitiveSerializer<MoveDet
   }
 }
 
+

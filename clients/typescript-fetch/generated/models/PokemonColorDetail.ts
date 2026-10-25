@@ -36,26 +36,18 @@ import {
 export interface PokemonColorDetail {
     /**
      * 
-     * @type {number}
-     * @memberof PokemonColorDetail
      */
     readonly id: number;
     /**
      * 
-     * @type {string}
-     * @memberof PokemonColorDetail
      */
     name: string;
     /**
      * 
-     * @type {Array<PokemonColorName>}
-     * @memberof PokemonColorDetail
      */
     readonly names: Array<PokemonColorName>;
     /**
      * 
-     * @type {Array<PokemonSpeciesSummary>}
-     * @memberof PokemonColorDetail
      */
     readonly pokemonSpecies: Array<PokemonSpeciesSummary>;
 }

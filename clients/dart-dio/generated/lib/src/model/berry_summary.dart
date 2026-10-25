@@ -120,3 +120,4 @@ class _$BerrySummarySerializer implements PrimitiveSerializer<BerrySummary> {
   }
 }
 
+

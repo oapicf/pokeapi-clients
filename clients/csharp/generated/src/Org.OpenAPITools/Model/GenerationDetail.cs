@@ -243,58 +243,58 @@ namespace Org.OpenAPITools.Model
             }
 
             if (!id.IsSet)
-                throw new ArgumentException("Property is required for class GenerationDetail.", nameof(id));
+                throw new JsonException("Property is required for class GenerationDetail: id.");
 
             if (!name.IsSet)
-                throw new ArgumentException("Property is required for class GenerationDetail.", nameof(name));
+                throw new JsonException("Property is required for class GenerationDetail: name.");
 
             if (!abilities.IsSet)
-                throw new ArgumentException("Property is required for class GenerationDetail.", nameof(abilities));
+                throw new JsonException("Property is required for class GenerationDetail: abilities.");
 
             if (!mainRegion.IsSet)
-                throw new ArgumentException("Property is required for class GenerationDetail.", nameof(mainRegion));
+                throw new JsonException("Property is required for class GenerationDetail: main_region.");
 
             if (!moves.IsSet)
-                throw new ArgumentException("Property is required for class GenerationDetail.", nameof(moves));
+                throw new JsonException("Property is required for class GenerationDetail: moves.");
 
             if (!names.IsSet)
-                throw new ArgumentException("Property is required for class GenerationDetail.", nameof(names));
+                throw new JsonException("Property is required for class GenerationDetail: names.");
 
             if (!pokemonSpecies.IsSet)
-                throw new ArgumentException("Property is required for class GenerationDetail.", nameof(pokemonSpecies));
+                throw new JsonException("Property is required for class GenerationDetail: pokemon_species.");
 
             if (!types.IsSet)
-                throw new ArgumentException("Property is required for class GenerationDetail.", nameof(types));
+                throw new JsonException("Property is required for class GenerationDetail: types.");
 
             if (!versionGroups.IsSet)
-                throw new ArgumentException("Property is required for class GenerationDetail.", nameof(versionGroups));
+                throw new JsonException("Property is required for class GenerationDetail: version_groups.");
 
             if (id.IsSet && id.Value == null)
-                throw new ArgumentNullException(nameof(id), "Property is not nullable for class GenerationDetail.");
+                throw new JsonException("Property is not nullable for class GenerationDetail: id.");
 
             if (name.IsSet && name.Value == null)
-                throw new ArgumentNullException(nameof(name), "Property is not nullable for class GenerationDetail.");
+                throw new JsonException("Property is not nullable for class GenerationDetail: name.");
 
             if (abilities.IsSet && abilities.Value == null)
-                throw new ArgumentNullException(nameof(abilities), "Property is not nullable for class GenerationDetail.");
+                throw new JsonException("Property is not nullable for class GenerationDetail: abilities.");
 
             if (mainRegion.IsSet && mainRegion.Value == null)
-                throw new ArgumentNullException(nameof(mainRegion), "Property is not nullable for class GenerationDetail.");
+                throw new JsonException("Property is not nullable for class GenerationDetail: main_region.");
 
             if (moves.IsSet && moves.Value == null)
-                throw new ArgumentNullException(nameof(moves), "Property is not nullable for class GenerationDetail.");
+                throw new JsonException("Property is not nullable for class GenerationDetail: moves.");
 
             if (names.IsSet && names.Value == null)
-                throw new ArgumentNullException(nameof(names), "Property is not nullable for class GenerationDetail.");
+                throw new JsonException("Property is not nullable for class GenerationDetail: names.");
 
             if (pokemonSpecies.IsSet && pokemonSpecies.Value == null)
-                throw new ArgumentNullException(nameof(pokemonSpecies), "Property is not nullable for class GenerationDetail.");
+                throw new JsonException("Property is not nullable for class GenerationDetail: pokemon_species.");
 
             if (types.IsSet && types.Value == null)
-                throw new ArgumentNullException(nameof(types), "Property is not nullable for class GenerationDetail.");
+                throw new JsonException("Property is not nullable for class GenerationDetail: types.");
 
             if (versionGroups.IsSet && versionGroups.Value == null)
-                throw new ArgumentNullException(nameof(versionGroups), "Property is not nullable for class GenerationDetail.");
+                throw new JsonException("Property is not nullable for class GenerationDetail: version_groups.");
 
             return new GenerationDetail(id.Value!.Value!, name.Value!, abilities.Value!, mainRegion.Value!, moves.Value!, names.Value!, pokemonSpecies.Value!, types.Value!, versionGroups.Value!);
         }
@@ -305,7 +305,6 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="generationDetail"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public override void Write(Utf8JsonWriter writer, GenerationDetail generationDetail, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteStartObject();
@@ -320,33 +319,8 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="generationDetail"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, GenerationDetail generationDetail, JsonSerializerOptions jsonSerializerOptions)
         {
-            if (generationDetail.Name == null)
-                throw new ArgumentNullException(nameof(generationDetail.Name), "Property is required for class GenerationDetail.");
-
-            if (generationDetail.Abilities == null)
-                throw new ArgumentNullException(nameof(generationDetail.Abilities), "Property is required for class GenerationDetail.");
-
-            if (generationDetail.MainRegion == null)
-                throw new ArgumentNullException(nameof(generationDetail.MainRegion), "Property is required for class GenerationDetail.");
-
-            if (generationDetail.Moves == null)
-                throw new ArgumentNullException(nameof(generationDetail.Moves), "Property is required for class GenerationDetail.");
-
-            if (generationDetail.Names == null)
-                throw new ArgumentNullException(nameof(generationDetail.Names), "Property is required for class GenerationDetail.");
-
-            if (generationDetail.PokemonSpecies == null)
-                throw new ArgumentNullException(nameof(generationDetail.PokemonSpecies), "Property is required for class GenerationDetail.");
-
-            if (generationDetail.Types == null)
-                throw new ArgumentNullException(nameof(generationDetail.Types), "Property is required for class GenerationDetail.");
-
-            if (generationDetail.VersionGroups == null)
-                throw new ArgumentNullException(nameof(generationDetail.VersionGroups), "Property is required for class GenerationDetail.");
-
             writer.WriteNumber("id", generationDetail.Id);
 
             writer.WriteString("name", generationDetail.Name);

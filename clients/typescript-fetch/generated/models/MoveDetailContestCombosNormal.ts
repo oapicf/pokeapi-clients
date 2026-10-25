@@ -29,14 +29,10 @@ import {
 export interface MoveDetailContestCombosNormal {
     /**
      * 
-     * @type {Array<AbilityDetailPokemonInnerPokemon>}
-     * @memberof MoveDetailContestCombosNormal
      */
     useBefore: Array<AbilityDetailPokemonInnerPokemon>;
     /**
      * 
-     * @type {Array<AbilityDetailPokemonInnerPokemon>}
-     * @memberof MoveDetailContestCombosNormal
      */
     useAfter: Array<AbilityDetailPokemonInnerPokemon>;
 }

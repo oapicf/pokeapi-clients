@@ -29,38 +29,26 @@ import {
 export interface TypeDetailDamageRelations {
     /**
      * 
-     * @type {Array<AbilityDetailPokemonInnerPokemon>}
-     * @memberof TypeDetailDamageRelations
      */
     noDamageTo: Array<AbilityDetailPokemonInnerPokemon>;
     /**
      * 
-     * @type {Array<AbilityDetailPokemonInnerPokemon>}
-     * @memberof TypeDetailDamageRelations
      */
     halfDamageTo: Array<AbilityDetailPokemonInnerPokemon>;
     /**
      * 
-     * @type {Array<AbilityDetailPokemonInnerPokemon>}
-     * @memberof TypeDetailDamageRelations
      */
     doubleDamageTo: Array<AbilityDetailPokemonInnerPokemon>;
     /**
      * 
-     * @type {Array<AbilityDetailPokemonInnerPokemon>}
-     * @memberof TypeDetailDamageRelations
      */
     noDamageFrom: Array<AbilityDetailPokemonInnerPokemon>;
     /**
      * 
-     * @type {Array<AbilityDetailPokemonInnerPokemon>}
-     * @memberof TypeDetailDamageRelations
      */
     halfDamageFrom: Array<AbilityDetailPokemonInnerPokemon>;
     /**
      * 
-     * @type {Array<AbilityDetailPokemonInnerPokemon>}
-     * @memberof TypeDetailDamageRelations
      */
     doubleDamageFrom: Array<AbilityDetailPokemonInnerPokemon>;
 }

@@ -104,3 +104,4 @@ class _$ItemDetailSpritesSerializer implements PrimitiveSerializer<ItemDetailSpr
   }
 }
 
+

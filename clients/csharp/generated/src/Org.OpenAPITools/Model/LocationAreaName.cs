@@ -152,16 +152,16 @@ namespace Org.OpenAPITools.Model
             }
 
             if (!name.IsSet)
-                throw new ArgumentException("Property is required for class LocationAreaName.", nameof(name));
+                throw new JsonException("Property is required for class LocationAreaName: name.");
 
             if (!language.IsSet)
-                throw new ArgumentException("Property is required for class LocationAreaName.", nameof(language));
+                throw new JsonException("Property is required for class LocationAreaName: language.");
 
             if (name.IsSet && name.Value == null)
-                throw new ArgumentNullException(nameof(name), "Property is not nullable for class LocationAreaName.");
+                throw new JsonException("Property is not nullable for class LocationAreaName: name.");
 
             if (language.IsSet && language.Value == null)
-                throw new ArgumentNullException(nameof(language), "Property is not nullable for class LocationAreaName.");
+                throw new JsonException("Property is not nullable for class LocationAreaName: language.");
 
             return new LocationAreaName(name.Value!, language.Value!);
         }
@@ -172,7 +172,6 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="locationAreaName"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public override void Write(Utf8JsonWriter writer, LocationAreaName locationAreaName, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteStartObject();
@@ -187,15 +186,8 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="locationAreaName"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, LocationAreaName locationAreaName, JsonSerializerOptions jsonSerializerOptions)
         {
-            if (locationAreaName.Name == null)
-                throw new ArgumentNullException(nameof(locationAreaName.Name), "Property is required for class LocationAreaName.");
-
-            if (locationAreaName.Language == null)
-                throw new ArgumentNullException(nameof(locationAreaName.Language), "Property is required for class LocationAreaName.");
-
             writer.WriteString("name", locationAreaName.Name);
 
             writer.WritePropertyName("language");

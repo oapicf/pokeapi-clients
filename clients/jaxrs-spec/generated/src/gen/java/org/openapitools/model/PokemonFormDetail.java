@@ -25,7 +25,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
 
 
 @JsonTypeName("PokemonFormDetail")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2026-08-30T01:56:42.280002256Z[Etc/UTC]", comments = "Generator version: 7.24.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2026-10-25T05:48:57.630723375Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 public class PokemonFormDetail   {
   private Integer id;
   private String name;
@@ -38,9 +38,9 @@ public class PokemonFormDetail   {
   private PokemonSummary pokemon;
   private PokemonFormDetailSprites sprites;
   private VersionGroupSummary versionGroup;
-  private @Valid List<@Valid PokemonFormDetailFormNamesInner> formNames = new ArrayList<>();
-  private @Valid List<@Valid PokemonFormDetailFormNamesInner> names = new ArrayList<>();
-  private @Valid List<@Valid PokemonDetailTypesInner> types = new ArrayList<>();
+  private List<@Valid PokemonFormDetailFormNamesInner> formNames = new ArrayList<>();
+  private List<@Valid PokemonFormDetailFormNamesInner> names = new ArrayList<>();
+  private List<@Valid PokemonDetailTypesInner> types = new ArrayList<>();
 
   public PokemonFormDetail() {
   }
@@ -287,7 +287,7 @@ public class PokemonFormDetail   {
   
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(required = true, value = "form_names")
-  @Valid public List<@Valid PokemonFormDetailFormNamesInner> getFormNames() {
+  public List<@Valid PokemonFormDetailFormNamesInner> getFormNames() {
     return formNames;
   }
 
@@ -322,7 +322,7 @@ public class PokemonFormDetail   {
   
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(required = true, value = "names")
-  @Valid public List<@Valid PokemonFormDetailFormNamesInner> getNames() {
+  public List<@Valid PokemonFormDetailFormNamesInner> getNames() {
     return names;
   }
 
@@ -357,7 +357,7 @@ public class PokemonFormDetail   {
   
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(required = true, value = "types")
-  @Valid public List<@Valid PokemonDetailTypesInner> getTypes() {
+  public List<@Valid PokemonDetailTypesInner> getTypes() {
     return types;
   }
 

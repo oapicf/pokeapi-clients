@@ -17,13 +17,9 @@ public class StatDetailAffectingNatures  {
   
   @ApiModelProperty(required = true, value = "")
 
-  @Valid
-
   private List<@Valid AbilityDetailPokemonInnerPokemon> increase = new ArrayList<>();
 
   @ApiModelProperty(required = true, value = "")
-
-  @Valid
 
   private List<@Valid AbilityDetailPokemonInnerPokemon> decrease = new ArrayList<>();
  /**

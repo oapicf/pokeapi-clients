@@ -2,7 +2,6 @@ package org.openapitools.model;
 
 import java.net.URI;
 import java.util.Objects;
-import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import java.util.ArrayList;
@@ -27,7 +26,7 @@ import jakarta.annotation.Generated;
  * StatDetail
  */
 
-@Generated(value = "org.openapitools.codegen.languages.JavaCamelServerCodegen", date = "2026-08-30T01:56:15.309401083Z[Etc/UTC]", comments = "Generator version: 7.24.0")
+@Generated(value = "org.openapitools.codegen.languages.JavaCamelServerCodegen", date = "2026-10-25T05:48:25.711080506Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 public class StatDetail {
 
   private Integer id;
@@ -42,12 +41,10 @@ public class StatDetail {
 
   private StatDetailAffectingNatures affectingNatures;
 
-  @Valid
   private List<@Valid CharacteristicSummary> characteristics = new ArrayList<>();
 
   private MoveDamageClassSummary moveDamageClass;
 
-  @Valid
   private List<@Valid StatName> names = new ArrayList<>();
 
   public StatDetail() {
@@ -205,7 +202,7 @@ public class StatDetail {
    * Get characteristics
    * @return characteristics
    */
-  @Valid 
+  
   @Schema(name = "characteristics", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("characteristics")
   public List<@Valid CharacteristicSummary> getCharacteristics() {
@@ -253,7 +250,7 @@ public class StatDetail {
    * Get names
    * @return names
    */
-  @Valid 
+  
   @Schema(name = "names", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("names")
   public List<@Valid StatName> getNames() {

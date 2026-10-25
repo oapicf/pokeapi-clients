@@ -21,14 +21,10 @@ import { mapValues } from '../runtime';
 export interface MoveMetaCategorySummary {
     /**
      * 
-     * @type {string}
-     * @memberof MoveMetaCategorySummary
      */
     name: string;
     /**
      * 
-     * @type {string}
-     * @memberof MoveMetaCategorySummary
      */
     readonly url: string;
 }

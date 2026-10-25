@@ -17,7 +17,7 @@ import LanguageSummary from './LanguageSummary';
 /**
  * The AbilityChangeEffectText model module.
  * @module model/AbilityChangeEffectText
- * @version 2.0.1-pre.0
+ * @version 2.1.1-pre.0
  */
 class AbilityChangeEffectText {
     /**

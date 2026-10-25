@@ -123,3 +123,4 @@ class _$PokemonDetailHeldItemsSerializer implements PrimitiveSerializer<PokemonD
   }
 }
 
+

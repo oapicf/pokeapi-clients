@@ -2,8 +2,8 @@
 
 PokéAPI
 - API version: 2.7.0
-  - Build date: 2026-08-30T01:55:28.842792947Z[Etc/UTC]
-  - Generator version: 7.24.0
+  - Build date: 2026-10-25T05:47:30.483495887Z[Etc/UTC]
+  - Generator version: 7.26.0
 
 All the Pokémon data you'll ever need in one place, easily accessible through a modern free open-source RESTful API.
 
@@ -57,7 +57,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>com.github.oapicf</groupId>
   <artifactId>pokeapiclient</artifactId>
-  <version>0.9.0-pre.0</version>
+  <version>2.1.1-pre.0</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -73,7 +73,7 @@ Add this dependency to your project's build file:
   }
 
   dependencies {
-     implementation "com.github.oapicf:pokeapiclient:0.9.0-pre.0"
+     implementation "com.github.oapicf:pokeapiclient:2.1.1-pre.0"
   }
 ```
 
@@ -87,7 +87,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/pokeapiclient-0.9.0-pre.0.jar`
+* `target/pokeapiclient-2.1.1-pre.0.jar`
 * `target/lib/*.jar`
 
 ## Getting Started

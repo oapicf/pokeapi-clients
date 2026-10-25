@@ -146,16 +146,16 @@ namespace Org.OpenAPITools.Model
             }
 
             if (!name.IsSet)
-                throw new ArgumentException("Property is required for class AbilityDetailPokemonInnerPokemon.", nameof(name));
+                throw new JsonException("Property is required for class AbilityDetailPokemonInnerPokemon: name.");
 
             if (!url.IsSet)
-                throw new ArgumentException("Property is required for class AbilityDetailPokemonInnerPokemon.", nameof(url));
+                throw new JsonException("Property is required for class AbilityDetailPokemonInnerPokemon: url.");
 
             if (name.IsSet && name.Value == null)
-                throw new ArgumentNullException(nameof(name), "Property is not nullable for class AbilityDetailPokemonInnerPokemon.");
+                throw new JsonException("Property is not nullable for class AbilityDetailPokemonInnerPokemon: name.");
 
             if (url.IsSet && url.Value == null)
-                throw new ArgumentNullException(nameof(url), "Property is not nullable for class AbilityDetailPokemonInnerPokemon.");
+                throw new JsonException("Property is not nullable for class AbilityDetailPokemonInnerPokemon: url.");
 
             return new AbilityDetailPokemonInnerPokemon(name.Value!, url.Value!);
         }
@@ -166,7 +166,6 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="abilityDetailPokemonInnerPokemon"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public override void Write(Utf8JsonWriter writer, AbilityDetailPokemonInnerPokemon abilityDetailPokemonInnerPokemon, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteStartObject();
@@ -181,15 +180,8 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="abilityDetailPokemonInnerPokemon"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, AbilityDetailPokemonInnerPokemon abilityDetailPokemonInnerPokemon, JsonSerializerOptions jsonSerializerOptions)
         {
-            if (abilityDetailPokemonInnerPokemon.Name == null)
-                throw new ArgumentNullException(nameof(abilityDetailPokemonInnerPokemon.Name), "Property is required for class AbilityDetailPokemonInnerPokemon.");
-
-            if (abilityDetailPokemonInnerPokemon.Url == null)
-                throw new ArgumentNullException(nameof(abilityDetailPokemonInnerPokemon.Url), "Property is required for class AbilityDetailPokemonInnerPokemon.");
-
             writer.WriteString("name", abilityDetailPokemonInnerPokemon.Name);
 
             writer.WriteString("url", abilityDetailPokemonInnerPokemon.Url);

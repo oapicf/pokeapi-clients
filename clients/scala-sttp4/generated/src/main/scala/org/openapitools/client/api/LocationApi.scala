@@ -42,7 +42,7 @@ class LocationApi(baseUrl: String) {
    * @param limit Number of results to return per page.
    * @param offset The initial index from which to return the results.
    */
-  def locationAreaList(username: String, password: String, apiKeyCookie: String)(limit: Option[Int] = None, offset: Option[Int] = None): Request[Either[ResponseException[String], PaginatedLocationAreaSummaryList]] =
+  def locationAreaList(username: String, password: String, apiKeyCookie: String)(limit: Option[Int] = None, offset: Option[Int] = None): sttp.client4.Request[Either[ResponseException[String], PaginatedLocationAreaSummaryList]] =
     basicRequest
       .method(Method.GET, uri"$baseUrl/api/v2/location-area/?limit=${ limit }&offset=${ offset }")
       .contentType("application/json")
@@ -62,7 +62,7 @@ class LocationApi(baseUrl: String) {
    * 
    * @param id A unique integer value identifying this location area.
    */
-  def locationAreaRetrieve(username: String, password: String, apiKeyCookie: String)(id: Int): Request[Either[ResponseException[String], LocationAreaDetail]] =
+  def locationAreaRetrieve(username: String, password: String, apiKeyCookie: String)(id: Int): sttp.client4.Request[Either[ResponseException[String], LocationAreaDetail]] =
     basicRequest
       .method(Method.GET, uri"$baseUrl/api/v2/location-area/${id}/")
       .contentType("application/json")
@@ -84,7 +84,7 @@ class LocationApi(baseUrl: String) {
    * @param offset The initial index from which to return the results.
    * @param `q` > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. 
    */
-  def locationList(username: String, password: String, apiKeyCookie: String)(limit: Option[Int] = None, offset: Option[Int] = None, `q`: Option[String] = None): Request[Either[ResponseException[String], PaginatedLocationSummaryList]] =
+  def locationList(username: String, password: String, apiKeyCookie: String)(limit: Option[Int] = None, offset: Option[Int] = None, `q`: Option[String] = None): sttp.client4.Request[Either[ResponseException[String], PaginatedLocationSummaryList]] =
     basicRequest
       .method(Method.GET, uri"$baseUrl/api/v2/location/?limit=${ limit }&offset=${ offset }&q=${ `q` }")
       .contentType("application/json")
@@ -104,7 +104,7 @@ class LocationApi(baseUrl: String) {
    * 
    * @param id This parameter can be a string or an integer.
    */
-  def locationRetrieve(username: String, password: String, apiKeyCookie: String)(id: String): Request[Either[ResponseException[String], LocationDetail]] =
+  def locationRetrieve(username: String, password: String, apiKeyCookie: String)(id: String): sttp.client4.Request[Either[ResponseException[String], LocationDetail]] =
     basicRequest
       .method(Method.GET, uri"$baseUrl/api/v2/location/${id}/")
       .contentType("application/json")
@@ -126,7 +126,7 @@ class LocationApi(baseUrl: String) {
    * @param offset The initial index from which to return the results.
    * @param `q` > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. 
    */
-  def palParkAreaList(username: String, password: String, apiKeyCookie: String)(limit: Option[Int] = None, offset: Option[Int] = None, `q`: Option[String] = None): Request[Either[ResponseException[String], PaginatedPalParkAreaSummaryList]] =
+  def palParkAreaList(username: String, password: String, apiKeyCookie: String)(limit: Option[Int] = None, offset: Option[Int] = None, `q`: Option[String] = None): sttp.client4.Request[Either[ResponseException[String], PaginatedPalParkAreaSummaryList]] =
     basicRequest
       .method(Method.GET, uri"$baseUrl/api/v2/pal-park-area/?limit=${ limit }&offset=${ offset }&q=${ `q` }")
       .contentType("application/json")
@@ -146,7 +146,7 @@ class LocationApi(baseUrl: String) {
    * 
    * @param id This parameter can be a string or an integer.
    */
-  def palParkAreaRetrieve(username: String, password: String, apiKeyCookie: String)(id: String): Request[Either[ResponseException[String], PalParkAreaDetail]] =
+  def palParkAreaRetrieve(username: String, password: String, apiKeyCookie: String)(id: String): sttp.client4.Request[Either[ResponseException[String], PalParkAreaDetail]] =
     basicRequest
       .method(Method.GET, uri"$baseUrl/api/v2/pal-park-area/${id}/")
       .contentType("application/json")
@@ -168,7 +168,7 @@ class LocationApi(baseUrl: String) {
    * @param offset The initial index from which to return the results.
    * @param `q` > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. 
    */
-  def regionList(username: String, password: String, apiKeyCookie: String)(limit: Option[Int] = None, offset: Option[Int] = None, `q`: Option[String] = None): Request[Either[ResponseException[String], PaginatedRegionSummaryList]] =
+  def regionList(username: String, password: String, apiKeyCookie: String)(limit: Option[Int] = None, offset: Option[Int] = None, `q`: Option[String] = None): sttp.client4.Request[Either[ResponseException[String], PaginatedRegionSummaryList]] =
     basicRequest
       .method(Method.GET, uri"$baseUrl/api/v2/region/?limit=${ limit }&offset=${ offset }&q=${ `q` }")
       .contentType("application/json")
@@ -188,7 +188,7 @@ class LocationApi(baseUrl: String) {
    * 
    * @param id This parameter can be a string or an integer.
    */
-  def regionRetrieve(username: String, password: String, apiKeyCookie: String)(id: String): Request[Either[ResponseException[String], RegionDetail]] =
+  def regionRetrieve(username: String, password: String, apiKeyCookie: String)(id: String): sttp.client4.Request[Either[ResponseException[String], RegionDetail]] =
     basicRequest
       .method(Method.GET, uri"$baseUrl/api/v2/region/${id}/")
       .contentType("application/json")

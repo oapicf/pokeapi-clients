@@ -29,26 +29,18 @@ import {
 export interface PaginatedSuperContestEffectSummaryList {
     /**
      * 
-     * @type {number}
-     * @memberof PaginatedSuperContestEffectSummaryList
      */
     count?: number;
     /**
      * 
-     * @type {string}
-     * @memberof PaginatedSuperContestEffectSummaryList
      */
     next?: string;
     /**
      * 
-     * @type {string}
-     * @memberof PaginatedSuperContestEffectSummaryList
      */
     previous?: string;
     /**
      * 
-     * @type {Array<SuperContestEffectSummary>}
-     * @memberof PaginatedSuperContestEffectSummaryList
      */
     results?: Array<SuperContestEffectSummary>;
 }

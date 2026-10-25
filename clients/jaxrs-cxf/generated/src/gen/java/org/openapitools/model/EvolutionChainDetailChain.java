@@ -22,8 +22,6 @@ public class EvolutionChainDetailChain  {
 
   @ApiModelProperty(required = true, value = "")
 
-  @Valid
-
   private List<@Valid EvolutionChainDetailChainEvolvesToInner> evolvesTo = new ArrayList<>();
 
   @ApiModelProperty(required = true, value = "")

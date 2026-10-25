@@ -22,11 +22,11 @@ data class PokemonShapeDetailNamesInner(
 
     @field:Valid
     @Schema(required = true, description = "")
-    @param:JsonProperty("url")
+    @param:JsonProperty("url", required = true)
     @get:JsonProperty("url", required = true) val url: java.net.URI,
 
     @Schema(required = true, description = "")
-    @param:JsonProperty("name")
+    @param:JsonProperty("name", required = true)
     @get:JsonProperty("name", required = true) val name: kotlin.String
 ) {
 

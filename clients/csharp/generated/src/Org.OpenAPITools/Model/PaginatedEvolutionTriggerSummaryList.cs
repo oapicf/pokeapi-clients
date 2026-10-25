@@ -203,16 +203,16 @@ namespace Org.OpenAPITools.Model
             }
 
             if (count.IsSet && count.Value == null)
-                throw new ArgumentNullException(nameof(count), "Property is not nullable for class PaginatedEvolutionTriggerSummaryList.");
+                throw new JsonException("Property is not nullable for class PaginatedEvolutionTriggerSummaryList: count.");
 
             if (next.IsSet && next.Value == null)
-                throw new ArgumentNullException(nameof(next), "Property is not nullable for class PaginatedEvolutionTriggerSummaryList.");
+                throw new JsonException("Property is not nullable for class PaginatedEvolutionTriggerSummaryList: next.");
 
             if (previous.IsSet && previous.Value == null)
-                throw new ArgumentNullException(nameof(previous), "Property is not nullable for class PaginatedEvolutionTriggerSummaryList.");
+                throw new JsonException("Property is not nullable for class PaginatedEvolutionTriggerSummaryList: previous.");
 
             if (results.IsSet && results.Value == null)
-                throw new ArgumentNullException(nameof(results), "Property is not nullable for class PaginatedEvolutionTriggerSummaryList.");
+                throw new JsonException("Property is not nullable for class PaginatedEvolutionTriggerSummaryList: results.");
 
             return new PaginatedEvolutionTriggerSummaryList(count, next, previous, results);
         }
@@ -223,7 +223,6 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="paginatedEvolutionTriggerSummaryList"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public override void Write(Utf8JsonWriter writer, PaginatedEvolutionTriggerSummaryList paginatedEvolutionTriggerSummaryList, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteStartObject();
@@ -238,17 +237,19 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="paginatedEvolutionTriggerSummaryList"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, PaginatedEvolutionTriggerSummaryList paginatedEvolutionTriggerSummaryList, JsonSerializerOptions jsonSerializerOptions)
         {
+            if (paginatedEvolutionTriggerSummaryList.CountOption.IsSet && paginatedEvolutionTriggerSummaryList.Count == null)
+                throw new JsonException("Cannot write null property PaginatedEvolutionTriggerSummaryList.Count to non-nullable JSON property 'count'.");
+
             if (paginatedEvolutionTriggerSummaryList.NextOption.IsSet && paginatedEvolutionTriggerSummaryList.Next == null)
-                throw new ArgumentNullException(nameof(paginatedEvolutionTriggerSummaryList.Next), "Property is required for class PaginatedEvolutionTriggerSummaryList.");
+                throw new JsonException("Cannot write null property PaginatedEvolutionTriggerSummaryList.Next to non-nullable JSON property 'next'.");
 
             if (paginatedEvolutionTriggerSummaryList.PreviousOption.IsSet && paginatedEvolutionTriggerSummaryList.Previous == null)
-                throw new ArgumentNullException(nameof(paginatedEvolutionTriggerSummaryList.Previous), "Property is required for class PaginatedEvolutionTriggerSummaryList.");
+                throw new JsonException("Cannot write null property PaginatedEvolutionTriggerSummaryList.Previous to non-nullable JSON property 'previous'.");
 
             if (paginatedEvolutionTriggerSummaryList.ResultsOption.IsSet && paginatedEvolutionTriggerSummaryList.Results == null)
-                throw new ArgumentNullException(nameof(paginatedEvolutionTriggerSummaryList.Results), "Property is required for class PaginatedEvolutionTriggerSummaryList.");
+                throw new JsonException("Cannot write null property PaginatedEvolutionTriggerSummaryList.Results to non-nullable JSON property 'results'.");
 
             if (paginatedEvolutionTriggerSummaryList.CountOption.IsSet)
                 writer.WriteNumber("count", paginatedEvolutionTriggerSummaryList.CountOption.Value!.Value);

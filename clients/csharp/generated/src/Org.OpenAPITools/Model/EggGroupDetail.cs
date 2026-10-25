@@ -178,28 +178,28 @@ namespace Org.OpenAPITools.Model
             }
 
             if (!id.IsSet)
-                throw new ArgumentException("Property is required for class EggGroupDetail.", nameof(id));
+                throw new JsonException("Property is required for class EggGroupDetail: id.");
 
             if (!name.IsSet)
-                throw new ArgumentException("Property is required for class EggGroupDetail.", nameof(name));
+                throw new JsonException("Property is required for class EggGroupDetail: name.");
 
             if (!names.IsSet)
-                throw new ArgumentException("Property is required for class EggGroupDetail.", nameof(names));
+                throw new JsonException("Property is required for class EggGroupDetail: names.");
 
             if (!pokemonSpecies.IsSet)
-                throw new ArgumentException("Property is required for class EggGroupDetail.", nameof(pokemonSpecies));
+                throw new JsonException("Property is required for class EggGroupDetail: pokemon_species.");
 
             if (id.IsSet && id.Value == null)
-                throw new ArgumentNullException(nameof(id), "Property is not nullable for class EggGroupDetail.");
+                throw new JsonException("Property is not nullable for class EggGroupDetail: id.");
 
             if (name.IsSet && name.Value == null)
-                throw new ArgumentNullException(nameof(name), "Property is not nullable for class EggGroupDetail.");
+                throw new JsonException("Property is not nullable for class EggGroupDetail: name.");
 
             if (names.IsSet && names.Value == null)
-                throw new ArgumentNullException(nameof(names), "Property is not nullable for class EggGroupDetail.");
+                throw new JsonException("Property is not nullable for class EggGroupDetail: names.");
 
             if (pokemonSpecies.IsSet && pokemonSpecies.Value == null)
-                throw new ArgumentNullException(nameof(pokemonSpecies), "Property is not nullable for class EggGroupDetail.");
+                throw new JsonException("Property is not nullable for class EggGroupDetail: pokemon_species.");
 
             return new EggGroupDetail(id.Value!.Value!, name.Value!, names.Value!, pokemonSpecies.Value!);
         }
@@ -210,7 +210,6 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="eggGroupDetail"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public override void Write(Utf8JsonWriter writer, EggGroupDetail eggGroupDetail, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteStartObject();
@@ -225,18 +224,8 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="eggGroupDetail"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, EggGroupDetail eggGroupDetail, JsonSerializerOptions jsonSerializerOptions)
         {
-            if (eggGroupDetail.Name == null)
-                throw new ArgumentNullException(nameof(eggGroupDetail.Name), "Property is required for class EggGroupDetail.");
-
-            if (eggGroupDetail.Names == null)
-                throw new ArgumentNullException(nameof(eggGroupDetail.Names), "Property is required for class EggGroupDetail.");
-
-            if (eggGroupDetail.PokemonSpecies == null)
-                throw new ArgumentNullException(nameof(eggGroupDetail.PokemonSpecies), "Property is required for class EggGroupDetail.");
-
             writer.WriteNumber("id", eggGroupDetail.Id);
 
             writer.WriteString("name", eggGroupDetail.Name);

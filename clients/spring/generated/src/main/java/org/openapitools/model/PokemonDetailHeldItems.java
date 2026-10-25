@@ -26,7 +26,7 @@ import jakarta.annotation.Generated;
  */
 
 @JsonTypeName("PokemonDetail_held_items")
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2026-08-30T02:00:43.960184425Z[Etc/UTC]", comments = "Generator version: 7.24.0")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2026-10-25T05:53:37.479908528Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 public class PokemonDetailHeldItems {
 
   private AbilityDetailPokemonInnerPokemon item;
@@ -83,7 +83,7 @@ public class PokemonDetailHeldItems {
    * Get versionDetails
    * @return versionDetails
    */
-  @NotNull @Valid 
+  @NotNull 
   @Schema(name = "version_details", requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("version_details")
   public List<@Valid ItemDetailHeldByPokemonInnerVersionDetailsInner> getVersionDetails() {

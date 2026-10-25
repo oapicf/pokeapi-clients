@@ -166,3 +166,4 @@ class _$PaginatedEncounterMethodSummaryListSerializer implements PrimitiveSerial
   }
 }
 
+

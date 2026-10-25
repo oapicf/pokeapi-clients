@@ -157,3 +157,4 @@ class _$EncounterMethodDetailSerializer implements PrimitiveSerializer<Encounter
   }
 }
 
+

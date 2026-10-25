@@ -152,16 +152,16 @@ namespace Org.OpenAPITools.Model
             }
 
             if (!name.IsSet)
-                throw new ArgumentException("Property is required for class LocationAreaSummary.", nameof(name));
+                throw new JsonException("Property is required for class LocationAreaSummary: name.");
 
             if (!url.IsSet)
-                throw new ArgumentException("Property is required for class LocationAreaSummary.", nameof(url));
+                throw new JsonException("Property is required for class LocationAreaSummary: url.");
 
             if (name.IsSet && name.Value == null)
-                throw new ArgumentNullException(nameof(name), "Property is not nullable for class LocationAreaSummary.");
+                throw new JsonException("Property is not nullable for class LocationAreaSummary: name.");
 
             if (url.IsSet && url.Value == null)
-                throw new ArgumentNullException(nameof(url), "Property is not nullable for class LocationAreaSummary.");
+                throw new JsonException("Property is not nullable for class LocationAreaSummary: url.");
 
             return new LocationAreaSummary(name.Value!, url.Value!);
         }
@@ -172,7 +172,6 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="locationAreaSummary"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public override void Write(Utf8JsonWriter writer, LocationAreaSummary locationAreaSummary, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteStartObject();
@@ -187,15 +186,8 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="locationAreaSummary"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, LocationAreaSummary locationAreaSummary, JsonSerializerOptions jsonSerializerOptions)
         {
-            if (locationAreaSummary.Name == null)
-                throw new ArgumentNullException(nameof(locationAreaSummary.Name), "Property is required for class LocationAreaSummary.");
-
-            if (locationAreaSummary.Url == null)
-                throw new ArgumentNullException(nameof(locationAreaSummary.Url), "Property is required for class LocationAreaSummary.");
-
             writer.WriteString("name", locationAreaSummary.Name);
 
             writer.WriteString("url", locationAreaSummary.Url);

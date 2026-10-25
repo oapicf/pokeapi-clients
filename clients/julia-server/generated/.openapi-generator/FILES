@@ -1,4 +1,4 @@
-.openapi-generator-ignore
+Project.toml
 README.md
 docs/AbilityChange.md
 docs/AbilityChangeEffectText.md

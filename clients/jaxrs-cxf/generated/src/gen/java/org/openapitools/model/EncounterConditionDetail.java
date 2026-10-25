@@ -25,13 +25,9 @@ public class EncounterConditionDetail  {
 
   @ApiModelProperty(required = true, value = "")
 
-  @Valid
-
   private List<@Valid EncounterConditionValueSummary> values = new ArrayList<>();
 
   @ApiModelProperty(required = true, value = "")
-
-  @Valid
 
   private List<@Valid EncounterConditionName> names = new ArrayList<>();
  /**

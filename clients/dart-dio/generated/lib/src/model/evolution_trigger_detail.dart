@@ -155,3 +155,4 @@ class _$EvolutionTriggerDetailSerializer implements PrimitiveSerializer<Evolutio
   }
 }
 
+

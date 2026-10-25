@@ -138,3 +138,4 @@ class _$AbilityFlavorTextSerializer implements PrimitiveSerializer<AbilityFlavor
   }
 }
 
+

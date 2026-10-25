@@ -274,3 +274,4 @@ class _$TypeDetailSerializer implements PrimitiveSerializer<TypeDetail> {
   }
 }
 
+

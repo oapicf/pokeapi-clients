@@ -166,3 +166,4 @@ class _$PaginatedEggGroupSummaryListSerializer implements PrimitiveSerializer<Pa
   }
 }
 
+

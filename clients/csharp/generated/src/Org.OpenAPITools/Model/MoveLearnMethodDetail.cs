@@ -191,34 +191,34 @@ namespace Org.OpenAPITools.Model
             }
 
             if (!id.IsSet)
-                throw new ArgumentException("Property is required for class MoveLearnMethodDetail.", nameof(id));
+                throw new JsonException("Property is required for class MoveLearnMethodDetail: id.");
 
             if (!name.IsSet)
-                throw new ArgumentException("Property is required for class MoveLearnMethodDetail.", nameof(name));
+                throw new JsonException("Property is required for class MoveLearnMethodDetail: name.");
 
             if (!names.IsSet)
-                throw new ArgumentException("Property is required for class MoveLearnMethodDetail.", nameof(names));
+                throw new JsonException("Property is required for class MoveLearnMethodDetail: names.");
 
             if (!descriptions.IsSet)
-                throw new ArgumentException("Property is required for class MoveLearnMethodDetail.", nameof(descriptions));
+                throw new JsonException("Property is required for class MoveLearnMethodDetail: descriptions.");
 
             if (!versionGroups.IsSet)
-                throw new ArgumentException("Property is required for class MoveLearnMethodDetail.", nameof(versionGroups));
+                throw new JsonException("Property is required for class MoveLearnMethodDetail: version_groups.");
 
             if (id.IsSet && id.Value == null)
-                throw new ArgumentNullException(nameof(id), "Property is not nullable for class MoveLearnMethodDetail.");
+                throw new JsonException("Property is not nullable for class MoveLearnMethodDetail: id.");
 
             if (name.IsSet && name.Value == null)
-                throw new ArgumentNullException(nameof(name), "Property is not nullable for class MoveLearnMethodDetail.");
+                throw new JsonException("Property is not nullable for class MoveLearnMethodDetail: name.");
 
             if (names.IsSet && names.Value == null)
-                throw new ArgumentNullException(nameof(names), "Property is not nullable for class MoveLearnMethodDetail.");
+                throw new JsonException("Property is not nullable for class MoveLearnMethodDetail: names.");
 
             if (descriptions.IsSet && descriptions.Value == null)
-                throw new ArgumentNullException(nameof(descriptions), "Property is not nullable for class MoveLearnMethodDetail.");
+                throw new JsonException("Property is not nullable for class MoveLearnMethodDetail: descriptions.");
 
             if (versionGroups.IsSet && versionGroups.Value == null)
-                throw new ArgumentNullException(nameof(versionGroups), "Property is not nullable for class MoveLearnMethodDetail.");
+                throw new JsonException("Property is not nullable for class MoveLearnMethodDetail: version_groups.");
 
             return new MoveLearnMethodDetail(id.Value!.Value!, name.Value!, names.Value!, descriptions.Value!, versionGroups.Value!);
         }
@@ -229,7 +229,6 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="moveLearnMethodDetail"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public override void Write(Utf8JsonWriter writer, MoveLearnMethodDetail moveLearnMethodDetail, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteStartObject();
@@ -244,21 +243,8 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="moveLearnMethodDetail"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, MoveLearnMethodDetail moveLearnMethodDetail, JsonSerializerOptions jsonSerializerOptions)
         {
-            if (moveLearnMethodDetail.Name == null)
-                throw new ArgumentNullException(nameof(moveLearnMethodDetail.Name), "Property is required for class MoveLearnMethodDetail.");
-
-            if (moveLearnMethodDetail.Names == null)
-                throw new ArgumentNullException(nameof(moveLearnMethodDetail.Names), "Property is required for class MoveLearnMethodDetail.");
-
-            if (moveLearnMethodDetail.Descriptions == null)
-                throw new ArgumentNullException(nameof(moveLearnMethodDetail.Descriptions), "Property is required for class MoveLearnMethodDetail.");
-
-            if (moveLearnMethodDetail.VersionGroups == null)
-                throw new ArgumentNullException(nameof(moveLearnMethodDetail.VersionGroups), "Property is required for class MoveLearnMethodDetail.");
-
             writer.WriteNumber("id", moveLearnMethodDetail.Id);
 
             writer.WriteString("name", moveLearnMethodDetail.Name);

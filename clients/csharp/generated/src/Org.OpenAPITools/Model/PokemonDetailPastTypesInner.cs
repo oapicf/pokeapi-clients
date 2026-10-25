@@ -146,16 +146,16 @@ namespace Org.OpenAPITools.Model
             }
 
             if (!generation.IsSet)
-                throw new ArgumentException("Property is required for class PokemonDetailPastTypesInner.", nameof(generation));
+                throw new JsonException("Property is required for class PokemonDetailPastTypesInner: generation.");
 
             if (!types.IsSet)
-                throw new ArgumentException("Property is required for class PokemonDetailPastTypesInner.", nameof(types));
+                throw new JsonException("Property is required for class PokemonDetailPastTypesInner: types.");
 
             if (generation.IsSet && generation.Value == null)
-                throw new ArgumentNullException(nameof(generation), "Property is not nullable for class PokemonDetailPastTypesInner.");
+                throw new JsonException("Property is not nullable for class PokemonDetailPastTypesInner: generation.");
 
             if (types.IsSet && types.Value == null)
-                throw new ArgumentNullException(nameof(types), "Property is not nullable for class PokemonDetailPastTypesInner.");
+                throw new JsonException("Property is not nullable for class PokemonDetailPastTypesInner: types.");
 
             return new PokemonDetailPastTypesInner(generation.Value!, types.Value!);
         }
@@ -166,7 +166,6 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="pokemonDetailPastTypesInner"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public override void Write(Utf8JsonWriter writer, PokemonDetailPastTypesInner pokemonDetailPastTypesInner, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteStartObject();
@@ -181,15 +180,8 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="pokemonDetailPastTypesInner"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, PokemonDetailPastTypesInner pokemonDetailPastTypesInner, JsonSerializerOptions jsonSerializerOptions)
         {
-            if (pokemonDetailPastTypesInner.Generation == null)
-                throw new ArgumentNullException(nameof(pokemonDetailPastTypesInner.Generation), "Property is required for class PokemonDetailPastTypesInner.");
-
-            if (pokemonDetailPastTypesInner.Types == null)
-                throw new ArgumentNullException(nameof(pokemonDetailPastTypesInner.Types), "Property is required for class PokemonDetailPastTypesInner.");
-
             writer.WritePropertyName("generation");
             JsonSerializer.Serialize(writer, pokemonDetailPastTypesInner.Generation, jsonSerializerOptions);
             writer.WritePropertyName("types");

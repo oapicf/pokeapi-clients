@@ -29,20 +29,14 @@ import {
 export interface MoveBattleStyleDetail {
     /**
      * 
-     * @type {number}
-     * @memberof MoveBattleStyleDetail
      */
     readonly id: number;
     /**
      * 
-     * @type {string}
-     * @memberof MoveBattleStyleDetail
      */
     name: string;
     /**
      * 
-     * @type {Array<MoveBattleStyleName>}
-     * @memberof MoveBattleStyleDetail
      */
     readonly names: Array<MoveBattleStyleName>;
 }

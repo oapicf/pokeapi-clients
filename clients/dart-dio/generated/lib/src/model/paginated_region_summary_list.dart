@@ -166,3 +166,4 @@ class _$PaginatedRegionSummaryListSerializer implements PrimitiveSerializer<Pagi
   }
 }
 
+

@@ -146,16 +146,16 @@ namespace Org.OpenAPITools.Model
             }
 
             if (!gameIndex.IsSet)
-                throw new ArgumentException("Property is required for class ItemGameIndex.", nameof(gameIndex));
+                throw new JsonException("Property is required for class ItemGameIndex: game_index.");
 
             if (!generation.IsSet)
-                throw new ArgumentException("Property is required for class ItemGameIndex.", nameof(generation));
+                throw new JsonException("Property is required for class ItemGameIndex: generation.");
 
             if (gameIndex.IsSet && gameIndex.Value == null)
-                throw new ArgumentNullException(nameof(gameIndex), "Property is not nullable for class ItemGameIndex.");
+                throw new JsonException("Property is not nullable for class ItemGameIndex: game_index.");
 
             if (generation.IsSet && generation.Value == null)
-                throw new ArgumentNullException(nameof(generation), "Property is not nullable for class ItemGameIndex.");
+                throw new JsonException("Property is not nullable for class ItemGameIndex: generation.");
 
             return new ItemGameIndex(gameIndex.Value!.Value!, generation.Value!);
         }
@@ -166,7 +166,6 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="itemGameIndex"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public override void Write(Utf8JsonWriter writer, ItemGameIndex itemGameIndex, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteStartObject();
@@ -181,12 +180,8 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="itemGameIndex"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, ItemGameIndex itemGameIndex, JsonSerializerOptions jsonSerializerOptions)
         {
-            if (itemGameIndex.Generation == null)
-                throw new ArgumentNullException(nameof(itemGameIndex.Generation), "Property is required for class ItemGameIndex.");
-
             writer.WriteNumber("game_index", itemGameIndex.GameIndex);
 
             writer.WritePropertyName("generation");

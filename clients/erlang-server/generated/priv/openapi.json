@@ -13046,9 +13046,11 @@
             "additionalProperties" : {
               "additionalProperties" : {
                 "$ref" : "#/components/schemas/TypeDetail_sprites_value_value"
-              }
+              },
+              "type" : "object"
             },
-            "readOnly" : true
+            "readOnly" : true,
+            "type" : "object"
           }
         },
         "required" : [ "damage_relations", "game_indices", "generation", "id", "move_damage_class", "moves", "name", "names", "past_damage_relations", "pokemon", "sprites" ]

@@ -146,16 +146,16 @@ namespace Org.OpenAPITools.Model
             }
 
             if (!pokemon.IsSet)
-                throw new ArgumentException("Property is required for class LocationAreaDetailPokemonEncountersInner.", nameof(pokemon));
+                throw new JsonException("Property is required for class LocationAreaDetailPokemonEncountersInner: pokemon.");
 
             if (!versionDetails.IsSet)
-                throw new ArgumentException("Property is required for class LocationAreaDetailPokemonEncountersInner.", nameof(versionDetails));
+                throw new JsonException("Property is required for class LocationAreaDetailPokemonEncountersInner: version_details.");
 
             if (pokemon.IsSet && pokemon.Value == null)
-                throw new ArgumentNullException(nameof(pokemon), "Property is not nullable for class LocationAreaDetailPokemonEncountersInner.");
+                throw new JsonException("Property is not nullable for class LocationAreaDetailPokemonEncountersInner: pokemon.");
 
             if (versionDetails.IsSet && versionDetails.Value == null)
-                throw new ArgumentNullException(nameof(versionDetails), "Property is not nullable for class LocationAreaDetailPokemonEncountersInner.");
+                throw new JsonException("Property is not nullable for class LocationAreaDetailPokemonEncountersInner: version_details.");
 
             return new LocationAreaDetailPokemonEncountersInner(pokemon.Value!, versionDetails.Value!);
         }
@@ -166,7 +166,6 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="locationAreaDetailPokemonEncountersInner"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public override void Write(Utf8JsonWriter writer, LocationAreaDetailPokemonEncountersInner locationAreaDetailPokemonEncountersInner, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteStartObject();
@@ -181,15 +180,8 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="locationAreaDetailPokemonEncountersInner"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, LocationAreaDetailPokemonEncountersInner locationAreaDetailPokemonEncountersInner, JsonSerializerOptions jsonSerializerOptions)
         {
-            if (locationAreaDetailPokemonEncountersInner.Pokemon == null)
-                throw new ArgumentNullException(nameof(locationAreaDetailPokemonEncountersInner.Pokemon), "Property is required for class LocationAreaDetailPokemonEncountersInner.");
-
-            if (locationAreaDetailPokemonEncountersInner.VersionDetails == null)
-                throw new ArgumentNullException(nameof(locationAreaDetailPokemonEncountersInner.VersionDetails), "Property is required for class LocationAreaDetailPokemonEncountersInner.");
-
             writer.WritePropertyName("pokemon");
             JsonSerializer.Serialize(writer, locationAreaDetailPokemonEncountersInner.Pokemon, jsonSerializerOptions);
             writer.WritePropertyName("version_details");

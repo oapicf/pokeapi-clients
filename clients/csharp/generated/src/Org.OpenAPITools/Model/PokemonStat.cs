@@ -159,22 +159,22 @@ namespace Org.OpenAPITools.Model
             }
 
             if (!baseStat.IsSet)
-                throw new ArgumentException("Property is required for class PokemonStat.", nameof(baseStat));
+                throw new JsonException("Property is required for class PokemonStat: base_stat.");
 
             if (!effort.IsSet)
-                throw new ArgumentException("Property is required for class PokemonStat.", nameof(effort));
+                throw new JsonException("Property is required for class PokemonStat: effort.");
 
             if (!stat.IsSet)
-                throw new ArgumentException("Property is required for class PokemonStat.", nameof(stat));
+                throw new JsonException("Property is required for class PokemonStat: stat.");
 
             if (baseStat.IsSet && baseStat.Value == null)
-                throw new ArgumentNullException(nameof(baseStat), "Property is not nullable for class PokemonStat.");
+                throw new JsonException("Property is not nullable for class PokemonStat: base_stat.");
 
             if (effort.IsSet && effort.Value == null)
-                throw new ArgumentNullException(nameof(effort), "Property is not nullable for class PokemonStat.");
+                throw new JsonException("Property is not nullable for class PokemonStat: effort.");
 
             if (stat.IsSet && stat.Value == null)
-                throw new ArgumentNullException(nameof(stat), "Property is not nullable for class PokemonStat.");
+                throw new JsonException("Property is not nullable for class PokemonStat: stat.");
 
             return new PokemonStat(baseStat.Value!.Value!, effort.Value!.Value!, stat.Value!);
         }
@@ -185,7 +185,6 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="pokemonStat"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public override void Write(Utf8JsonWriter writer, PokemonStat pokemonStat, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteStartObject();
@@ -200,12 +199,8 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="pokemonStat"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, PokemonStat pokemonStat, JsonSerializerOptions jsonSerializerOptions)
         {
-            if (pokemonStat.Stat == null)
-                throw new ArgumentNullException(nameof(pokemonStat.Stat), "Property is required for class PokemonStat.");
-
             writer.WriteNumber("base_stat", pokemonStat.BaseStat);
 
             writer.WriteNumber("effort", pokemonStat.Effort);

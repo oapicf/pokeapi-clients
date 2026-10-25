@@ -29,8 +29,6 @@ public class PaginatedMoveMetaAilmentSummaryList  {
 
   @ApiModelProperty(value = "")
 
-  @Valid
-
   private List<@Valid MoveMetaAilmentSummary> results = new ArrayList<>();
  /**
    * Get count

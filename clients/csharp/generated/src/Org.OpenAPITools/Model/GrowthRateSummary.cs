@@ -152,16 +152,16 @@ namespace Org.OpenAPITools.Model
             }
 
             if (!name.IsSet)
-                throw new ArgumentException("Property is required for class GrowthRateSummary.", nameof(name));
+                throw new JsonException("Property is required for class GrowthRateSummary: name.");
 
             if (!url.IsSet)
-                throw new ArgumentException("Property is required for class GrowthRateSummary.", nameof(url));
+                throw new JsonException("Property is required for class GrowthRateSummary: url.");
 
             if (name.IsSet && name.Value == null)
-                throw new ArgumentNullException(nameof(name), "Property is not nullable for class GrowthRateSummary.");
+                throw new JsonException("Property is not nullable for class GrowthRateSummary: name.");
 
             if (url.IsSet && url.Value == null)
-                throw new ArgumentNullException(nameof(url), "Property is not nullable for class GrowthRateSummary.");
+                throw new JsonException("Property is not nullable for class GrowthRateSummary: url.");
 
             return new GrowthRateSummary(name.Value!, url.Value!);
         }
@@ -172,7 +172,6 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="growthRateSummary"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public override void Write(Utf8JsonWriter writer, GrowthRateSummary growthRateSummary, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteStartObject();
@@ -187,15 +186,8 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="growthRateSummary"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, GrowthRateSummary growthRateSummary, JsonSerializerOptions jsonSerializerOptions)
         {
-            if (growthRateSummary.Name == null)
-                throw new ArgumentNullException(nameof(growthRateSummary.Name), "Property is required for class GrowthRateSummary.");
-
-            if (growthRateSummary.Url == null)
-                throw new ArgumentNullException(nameof(growthRateSummary.Url), "Property is required for class GrowthRateSummary.");
-
             writer.WriteString("name", growthRateSummary.Name);
 
             writer.WriteString("url", growthRateSummary.Url);

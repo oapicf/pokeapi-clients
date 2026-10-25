@@ -121,3 +121,4 @@ class _$NatureDetailPokeathlonStatChangesInnerSerializer implements PrimitiveSer
   }
 }
 
+

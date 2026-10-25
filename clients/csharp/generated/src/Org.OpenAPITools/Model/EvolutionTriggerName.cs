@@ -152,16 +152,16 @@ namespace Org.OpenAPITools.Model
             }
 
             if (!name.IsSet)
-                throw new ArgumentException("Property is required for class EvolutionTriggerName.", nameof(name));
+                throw new JsonException("Property is required for class EvolutionTriggerName: name.");
 
             if (!language.IsSet)
-                throw new ArgumentException("Property is required for class EvolutionTriggerName.", nameof(language));
+                throw new JsonException("Property is required for class EvolutionTriggerName: language.");
 
             if (name.IsSet && name.Value == null)
-                throw new ArgumentNullException(nameof(name), "Property is not nullable for class EvolutionTriggerName.");
+                throw new JsonException("Property is not nullable for class EvolutionTriggerName: name.");
 
             if (language.IsSet && language.Value == null)
-                throw new ArgumentNullException(nameof(language), "Property is not nullable for class EvolutionTriggerName.");
+                throw new JsonException("Property is not nullable for class EvolutionTriggerName: language.");
 
             return new EvolutionTriggerName(name.Value!, language.Value!);
         }
@@ -172,7 +172,6 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="evolutionTriggerName"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public override void Write(Utf8JsonWriter writer, EvolutionTriggerName evolutionTriggerName, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteStartObject();
@@ -187,15 +186,8 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="evolutionTriggerName"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, EvolutionTriggerName evolutionTriggerName, JsonSerializerOptions jsonSerializerOptions)
         {
-            if (evolutionTriggerName.Name == null)
-                throw new ArgumentNullException(nameof(evolutionTriggerName.Name), "Property is required for class EvolutionTriggerName.");
-
-            if (evolutionTriggerName.Language == null)
-                throw new ArgumentNullException(nameof(evolutionTriggerName.Language), "Property is required for class EvolutionTriggerName.");
-
             writer.WriteString("name", evolutionTriggerName.Name);
 
             writer.WritePropertyName("language");

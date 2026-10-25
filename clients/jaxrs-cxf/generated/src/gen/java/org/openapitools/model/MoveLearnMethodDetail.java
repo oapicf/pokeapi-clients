@@ -26,19 +26,13 @@ public class MoveLearnMethodDetail  {
 
   @ApiModelProperty(required = true, value = "")
 
-  @Valid
-
   private List<@Valid MoveLearnMethodName> names = new ArrayList<>();
 
   @ApiModelProperty(required = true, value = "")
 
-  @Valid
-
   private List<@Valid MoveLearnMethodDescription> descriptions = new ArrayList<>();
 
   @ApiModelProperty(required = true, value = "")
-
-  @Valid
 
   private List<@Valid AbilityDetailPokemonInnerPokemon> versionGroups = new ArrayList<>();
  /**

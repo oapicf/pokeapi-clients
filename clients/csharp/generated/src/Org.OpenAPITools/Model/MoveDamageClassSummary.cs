@@ -152,16 +152,16 @@ namespace Org.OpenAPITools.Model
             }
 
             if (!name.IsSet)
-                throw new ArgumentException("Property is required for class MoveDamageClassSummary.", nameof(name));
+                throw new JsonException("Property is required for class MoveDamageClassSummary: name.");
 
             if (!url.IsSet)
-                throw new ArgumentException("Property is required for class MoveDamageClassSummary.", nameof(url));
+                throw new JsonException("Property is required for class MoveDamageClassSummary: url.");
 
             if (name.IsSet && name.Value == null)
-                throw new ArgumentNullException(nameof(name), "Property is not nullable for class MoveDamageClassSummary.");
+                throw new JsonException("Property is not nullable for class MoveDamageClassSummary: name.");
 
             if (url.IsSet && url.Value == null)
-                throw new ArgumentNullException(nameof(url), "Property is not nullable for class MoveDamageClassSummary.");
+                throw new JsonException("Property is not nullable for class MoveDamageClassSummary: url.");
 
             return new MoveDamageClassSummary(name.Value!, url.Value!);
         }
@@ -172,7 +172,6 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="moveDamageClassSummary"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public override void Write(Utf8JsonWriter writer, MoveDamageClassSummary moveDamageClassSummary, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteStartObject();
@@ -187,15 +186,8 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="moveDamageClassSummary"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, MoveDamageClassSummary moveDamageClassSummary, JsonSerializerOptions jsonSerializerOptions)
         {
-            if (moveDamageClassSummary.Name == null)
-                throw new ArgumentNullException(nameof(moveDamageClassSummary.Name), "Property is required for class MoveDamageClassSummary.");
-
-            if (moveDamageClassSummary.Url == null)
-                throw new ArgumentNullException(nameof(moveDamageClassSummary.Url), "Property is required for class MoveDamageClassSummary.");
-
             writer.WriteString("name", moveDamageClassSummary.Name);
 
             writer.WriteString("url", moveDamageClassSummary.Url);

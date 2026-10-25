@@ -76,15 +76,13 @@ class MoveDetailContestCombosNormal(BaseModel):
         _items = []
         if self.use_before:
             for _item_use_before in self.use_before:
-                if _item_use_before:
-                    _items.append(_item_use_before.to_dict())
+                _items.append(_item_use_before.to_dict() if _item_use_before is not None else None)
             _dict['use_before'] = _items
         # override the default output from pydantic by calling `to_dict()` of each item in use_after (list)
         _items = []
         if self.use_after:
             for _item_use_after in self.use_after:
-                if _item_use_after:
-                    _items.append(_item_use_after.to_dict())
+                _items.append(_item_use_after.to_dict() if _item_use_after is not None else None)
             _dict['use_after'] = _items
         return _dict
 

@@ -21,12 +21,12 @@ import org.openapitools.jackson.nullable.JsonNullable;
 
 
 @JsonTypeName("PokeathlonStatDetail")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2026-08-30T01:56:42.280002256Z[Etc/UTC]", comments = "Generator version: 7.24.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2026-10-25T05:48:57.630723375Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 public class PokeathlonStatDetail   {
   private Integer id;
   private String name;
   private PokeathlonStatDetailAffectingNatures affectingNatures;
-  private @Valid List<@Valid PokeathlonStatName> names = new ArrayList<>();
+  private List<@Valid PokeathlonStatName> names = new ArrayList<>();
 
   public PokeathlonStatDetail() {
   }
@@ -111,7 +111,7 @@ public class PokeathlonStatDetail   {
   
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(required = true, value = "names")
-  @Valid public List<@Valid PokeathlonStatName> getNames() {
+  public List<@Valid PokeathlonStatName> getNames() {
     return names;
   }
 

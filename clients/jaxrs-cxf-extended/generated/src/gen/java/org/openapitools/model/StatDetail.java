@@ -39,7 +39,6 @@ public class StatDetail  {
   private StatDetailAffectingNatures affectingNatures;
 
   @ApiModelProperty(required = true, value = "")
-  @Valid
   private List<@Valid CharacteristicSummary> characteristics = new ArrayList<>();
 
   @ApiModelProperty(required = true, value = "")
@@ -47,7 +46,6 @@ public class StatDetail  {
   private MoveDamageClassSummary moveDamageClass;
 
   @ApiModelProperty(required = true, value = "")
-  @Valid
   private List<@Valid StatName> names = new ArrayList<>();
  /**
   * Get id

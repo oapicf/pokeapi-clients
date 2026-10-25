@@ -25,7 +25,6 @@ public class PaginatedPokeathlonStatSummaryList  {
   private URI previous;
 
   @ApiModelProperty(value = "")
-  @Valid
   private List<@Valid PokeathlonStatSummary> results = new ArrayList<>();
  /**
   * Get count

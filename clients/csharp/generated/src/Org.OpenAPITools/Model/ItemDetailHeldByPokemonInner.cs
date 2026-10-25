@@ -146,16 +146,16 @@ namespace Org.OpenAPITools.Model
             }
 
             if (!pokemon.IsSet)
-                throw new ArgumentException("Property is required for class ItemDetailHeldByPokemonInner.", nameof(pokemon));
+                throw new JsonException("Property is required for class ItemDetailHeldByPokemonInner: pokemon.");
 
             if (!versionDetails.IsSet)
-                throw new ArgumentException("Property is required for class ItemDetailHeldByPokemonInner.", nameof(versionDetails));
+                throw new JsonException("Property is required for class ItemDetailHeldByPokemonInner: version-details.");
 
             if (pokemon.IsSet && pokemon.Value == null)
-                throw new ArgumentNullException(nameof(pokemon), "Property is not nullable for class ItemDetailHeldByPokemonInner.");
+                throw new JsonException("Property is not nullable for class ItemDetailHeldByPokemonInner: pokemon.");
 
             if (versionDetails.IsSet && versionDetails.Value == null)
-                throw new ArgumentNullException(nameof(versionDetails), "Property is not nullable for class ItemDetailHeldByPokemonInner.");
+                throw new JsonException("Property is not nullable for class ItemDetailHeldByPokemonInner: version-details.");
 
             return new ItemDetailHeldByPokemonInner(pokemon.Value!, versionDetails.Value!);
         }
@@ -166,7 +166,6 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="itemDetailHeldByPokemonInner"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public override void Write(Utf8JsonWriter writer, ItemDetailHeldByPokemonInner itemDetailHeldByPokemonInner, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteStartObject();
@@ -181,15 +180,8 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="itemDetailHeldByPokemonInner"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, ItemDetailHeldByPokemonInner itemDetailHeldByPokemonInner, JsonSerializerOptions jsonSerializerOptions)
         {
-            if (itemDetailHeldByPokemonInner.Pokemon == null)
-                throw new ArgumentNullException(nameof(itemDetailHeldByPokemonInner.Pokemon), "Property is required for class ItemDetailHeldByPokemonInner.");
-
-            if (itemDetailHeldByPokemonInner.VersionDetails == null)
-                throw new ArgumentNullException(nameof(itemDetailHeldByPokemonInner.VersionDetails), "Property is required for class ItemDetailHeldByPokemonInner.");
-
             writer.WritePropertyName("pokemon");
             JsonSerializer.Serialize(writer, itemDetailHeldByPokemonInner.Pokemon, jsonSerializerOptions);
             writer.WritePropertyName("version-details");

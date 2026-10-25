@@ -29,14 +29,10 @@ import {
 export interface ItemDetailMachinesInner {
     /**
      * 
-     * @type {string}
-     * @memberof ItemDetailMachinesInner
      */
     machine: string;
     /**
      * 
-     * @type {AbilityDetailPokemonInnerPokemon}
-     * @memberof ItemDetailMachinesInner
      */
     versionGroup: AbilityDetailPokemonInnerPokemon;
 }

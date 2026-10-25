@@ -2,7 +2,6 @@ package org.openapitools.model;
 
 import java.net.URI;
 import java.util.Objects;
-import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import java.util.Arrays;
@@ -25,41 +24,31 @@ import jakarta.annotation.Generated;
  * MoveMeta
  */
 
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2026-08-30T02:00:43.960184425Z[Etc/UTC]", comments = "Generator version: 7.24.0")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2026-10-25T05:53:37.479908528Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 public class MoveMeta {
 
   private MoveMetaAilmentSummary ailment;
 
   private MoveMetaCategorySummary category;
 
-  @JsonInclude(JsonInclude.Include.NON_ABSENT)
   private JsonNullable<Integer> minHits = JsonNullable.<Integer>undefined();
 
-  @JsonInclude(JsonInclude.Include.NON_ABSENT)
   private JsonNullable<Integer> maxHits = JsonNullable.<Integer>undefined();
 
-  @JsonInclude(JsonInclude.Include.NON_ABSENT)
   private JsonNullable<Integer> minTurns = JsonNullable.<Integer>undefined();
 
-  @JsonInclude(JsonInclude.Include.NON_ABSENT)
   private JsonNullable<Integer> maxTurns = JsonNullable.<Integer>undefined();
 
-  @JsonInclude(JsonInclude.Include.NON_ABSENT)
   private JsonNullable<Integer> drain = JsonNullable.<Integer>undefined();
 
-  @JsonInclude(JsonInclude.Include.NON_ABSENT)
   private JsonNullable<Integer> healing = JsonNullable.<Integer>undefined();
 
-  @JsonInclude(JsonInclude.Include.NON_ABSENT)
   private JsonNullable<Integer> critRate = JsonNullable.<Integer>undefined();
 
-  @JsonInclude(JsonInclude.Include.NON_ABSENT)
   private JsonNullable<Integer> ailmentChance = JsonNullable.<Integer>undefined();
 
-  @JsonInclude(JsonInclude.Include.NON_ABSENT)
   private JsonNullable<Integer> flinchChance = JsonNullable.<Integer>undefined();
 
-  @JsonInclude(JsonInclude.Include.NON_ABSENT)
   private JsonNullable<Integer> statChance = JsonNullable.<Integer>undefined();
 
   public MoveMeta() {
@@ -126,7 +115,7 @@ public class MoveMeta {
    * @return minHits
    */
   
-  @Schema(name = "min_hits", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @Schema(name = "min_hits", requiredMode = Schema.RequiredMode.NOT_REQUIRED, nullable = true)
   @JsonProperty("min_hits")
   public JsonNullable<Integer> getMinHits() {
     return minHits;
@@ -146,7 +135,7 @@ public class MoveMeta {
    * @return maxHits
    */
   
-  @Schema(name = "max_hits", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @Schema(name = "max_hits", requiredMode = Schema.RequiredMode.NOT_REQUIRED, nullable = true)
   @JsonProperty("max_hits")
   public JsonNullable<Integer> getMaxHits() {
     return maxHits;
@@ -166,7 +155,7 @@ public class MoveMeta {
    * @return minTurns
    */
   
-  @Schema(name = "min_turns", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @Schema(name = "min_turns", requiredMode = Schema.RequiredMode.NOT_REQUIRED, nullable = true)
   @JsonProperty("min_turns")
   public JsonNullable<Integer> getMinTurns() {
     return minTurns;
@@ -186,7 +175,7 @@ public class MoveMeta {
    * @return maxTurns
    */
   
-  @Schema(name = "max_turns", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @Schema(name = "max_turns", requiredMode = Schema.RequiredMode.NOT_REQUIRED, nullable = true)
   @JsonProperty("max_turns")
   public JsonNullable<Integer> getMaxTurns() {
     return maxTurns;
@@ -206,7 +195,7 @@ public class MoveMeta {
    * @return drain
    */
   
-  @Schema(name = "drain", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @Schema(name = "drain", requiredMode = Schema.RequiredMode.NOT_REQUIRED, nullable = true)
   @JsonProperty("drain")
   public JsonNullable<Integer> getDrain() {
     return drain;
@@ -226,7 +215,7 @@ public class MoveMeta {
    * @return healing
    */
   
-  @Schema(name = "healing", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @Schema(name = "healing", requiredMode = Schema.RequiredMode.NOT_REQUIRED, nullable = true)
   @JsonProperty("healing")
   public JsonNullable<Integer> getHealing() {
     return healing;
@@ -246,7 +235,7 @@ public class MoveMeta {
    * @return critRate
    */
   
-  @Schema(name = "crit_rate", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @Schema(name = "crit_rate", requiredMode = Schema.RequiredMode.NOT_REQUIRED, nullable = true)
   @JsonProperty("crit_rate")
   public JsonNullable<Integer> getCritRate() {
     return critRate;
@@ -266,7 +255,7 @@ public class MoveMeta {
    * @return ailmentChance
    */
   
-  @Schema(name = "ailment_chance", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @Schema(name = "ailment_chance", requiredMode = Schema.RequiredMode.NOT_REQUIRED, nullable = true)
   @JsonProperty("ailment_chance")
   public JsonNullable<Integer> getAilmentChance() {
     return ailmentChance;
@@ -286,7 +275,7 @@ public class MoveMeta {
    * @return flinchChance
    */
   
-  @Schema(name = "flinch_chance", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @Schema(name = "flinch_chance", requiredMode = Schema.RequiredMode.NOT_REQUIRED, nullable = true)
   @JsonProperty("flinch_chance")
   public JsonNullable<Integer> getFlinchChance() {
     return flinchChance;
@@ -306,7 +295,7 @@ public class MoveMeta {
    * @return statChance
    */
   
-  @Schema(name = "stat_chance", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @Schema(name = "stat_chance", requiredMode = Schema.RequiredMode.NOT_REQUIRED, nullable = true)
   @JsonProperty("stat_chance")
   public JsonNullable<Integer> getStatChance() {
     return statChance;

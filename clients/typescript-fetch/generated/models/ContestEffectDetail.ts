@@ -36,32 +36,22 @@ import {
 export interface ContestEffectDetail {
     /**
      * 
-     * @type {number}
-     * @memberof ContestEffectDetail
      */
     readonly id: number;
     /**
      * 
-     * @type {number}
-     * @memberof ContestEffectDetail
      */
     appeal: number;
     /**
      * 
-     * @type {number}
-     * @memberof ContestEffectDetail
      */
     jam: number;
     /**
      * 
-     * @type {Array<ContestEffectEffectText>}
-     * @memberof ContestEffectDetail
      */
     readonly effectEntries: Array<ContestEffectEffectText>;
     /**
      * 
-     * @type {Array<ContestEffectFlavorText>}
-     * @memberof ContestEffectDetail
      */
     readonly flavorTextEntries: Array<ContestEffectFlavorText>;
 }

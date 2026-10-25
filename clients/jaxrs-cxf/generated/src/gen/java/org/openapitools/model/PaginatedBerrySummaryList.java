@@ -29,8 +29,6 @@ public class PaginatedBerrySummaryList  {
 
   @ApiModelProperty(value = "")
 
-  @Valid
-
   private List<@Valid BerrySummary> results = new ArrayList<>();
  /**
    * Get count

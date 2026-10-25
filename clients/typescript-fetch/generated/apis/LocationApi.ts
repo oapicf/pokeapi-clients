@@ -55,41 +55,89 @@ import {
 } from '../models/RegionDetail';
 
 export interface LocationAreaListRequest {
+    /**
+     * Number of results to return per page.
+     */
     limit?: number;
+    /**
+     * The initial index from which to return the results.
+     */
     offset?: number;
 }
 
 export interface LocationAreaRetrieveRequest {
+    /**
+     * A unique integer value identifying this location area.
+     */
     id: number;
 }
 
 export interface LocationListRequest {
+    /**
+     * Number of results to return per page.
+     */
     limit?: number;
+    /**
+     * The initial index from which to return the results.
+     */
     offset?: number;
+    /**
+     * > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2)
+     * Case-insensitive query applied on the `name` property. 
+     */
     q?: string;
 }
 
 export interface LocationRetrieveRequest {
+    /**
+     * This parameter can be a string or an integer.
+     */
     id: string;
 }
 
 export interface PalParkAreaListRequest {
+    /**
+     * Number of results to return per page.
+     */
     limit?: number;
+    /**
+     * The initial index from which to return the results.
+     */
     offset?: number;
+    /**
+     * > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2)
+     * Case-insensitive query applied on the `name` property. 
+     */
     q?: string;
 }
 
 export interface PalParkAreaRetrieveRequest {
+    /**
+     * This parameter can be a string or an integer.
+     */
     id: string;
 }
 
 export interface RegionListRequest {
+    /**
+     * Number of results to return per page.
+     */
     limit?: number;
+    /**
+     * The initial index from which to return the results.
+     */
     offset?: number;
+    /**
+     * > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2)
+     * Case-insensitive query applied on the `name` property. 
+     */
     q?: string;
 }
 
 export interface RegionRetrieveRequest {
+    /**
+     * This parameter can be a string or an integer.
+     */
     id: string;
 }
 

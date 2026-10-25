@@ -17,7 +17,7 @@ import LanguageSummary from './LanguageSummary';
 /**
  * The GenerationName model module.
  * @module model/GenerationName
- * @version 2.0.1-pre.0
+ * @version 2.1.1-pre.0
  */
 class GenerationName {
     /**

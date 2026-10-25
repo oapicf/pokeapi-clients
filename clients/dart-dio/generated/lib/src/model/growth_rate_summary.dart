@@ -120,3 +120,4 @@ class _$GrowthRateSummarySerializer implements PrimitiveSerializer<GrowthRateSum
   }
 }
 
+

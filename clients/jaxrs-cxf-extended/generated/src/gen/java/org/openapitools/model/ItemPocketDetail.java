@@ -22,11 +22,9 @@ public class ItemPocketDetail  {
   private String name;
 
   @ApiModelProperty(required = true, value = "")
-  @Valid
   private List<@Valid ItemCategorySummary> categories = new ArrayList<>();
 
   @ApiModelProperty(required = true, value = "")
-  @Valid
   private List<@Valid ItemPocketName> names = new ArrayList<>();
  /**
   * Get id

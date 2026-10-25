@@ -25,12 +25,11 @@ import jakarta.annotation.Generated;
  */
 
 @JsonTypeName("PokemonDetail_moves_inner")
-@Generated(value = "org.openapitools.codegen.languages.JavaCamelServerCodegen", date = "2026-08-30T01:56:15.309401083Z[Etc/UTC]", comments = "Generator version: 7.24.0")
+@Generated(value = "org.openapitools.codegen.languages.JavaCamelServerCodegen", date = "2026-10-25T05:48:25.711080506Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 public class PokemonDetailMovesInner {
 
   private AbilityDetailPokemonInnerPokemon move;
 
-  @Valid
   private List<@Valid PokemonDetailMovesInnerVersionGroupDetailsInner> versionGroupDetails = new ArrayList<>();
 
   public PokemonDetailMovesInner() {
@@ -82,7 +81,7 @@ public class PokemonDetailMovesInner {
    * Get versionGroupDetails
    * @return versionGroupDetails
    */
-  @NotNull @Valid 
+  @NotNull 
   @Schema(name = "version_group_details", requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("version_group_details")
   public List<@Valid PokemonDetailMovesInnerVersionGroupDetailsInner> getVersionGroupDetails() {

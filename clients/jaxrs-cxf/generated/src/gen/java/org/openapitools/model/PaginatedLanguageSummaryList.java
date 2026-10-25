@@ -29,8 +29,6 @@ public class PaginatedLanguageSummaryList  {
 
   @ApiModelProperty(value = "")
 
-  @Valid
-
   private List<@Valid LanguageSummary> results = new ArrayList<>();
  /**
    * Get count

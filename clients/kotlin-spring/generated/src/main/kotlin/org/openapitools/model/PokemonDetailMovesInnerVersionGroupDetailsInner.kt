@@ -23,17 +23,17 @@ import io.swagger.v3.oas.annotations.media.Schema
 data class PokemonDetailMovesInnerVersionGroupDetailsInner(
 
     @Schema(required = true, description = "")
-    @param:JsonProperty("level_learned_at")
+    @param:JsonProperty("level_learned_at", required = true)
     @get:JsonProperty("level_learned_at", required = true) val levelLearnedAt: kotlin.Int,
 
     @field:Valid
     @Schema(required = true, description = "")
-    @param:JsonProperty("move_learn_method")
+    @param:JsonProperty("move_learn_method", required = true)
     @get:JsonProperty("move_learn_method", required = true) val moveLearnMethod: AbilityDetailPokemonInnerPokemon,
 
     @field:Valid
     @Schema(required = true, description = "")
-    @param:JsonProperty("version_group")
+    @param:JsonProperty("version_group", required = true)
     @get:JsonProperty("version_group", required = true) val versionGroup: AbilityDetailPokemonInnerPokemon
 ) {
 

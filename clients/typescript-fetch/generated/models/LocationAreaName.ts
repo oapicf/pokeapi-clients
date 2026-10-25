@@ -29,14 +29,10 @@ import {
 export interface LocationAreaName {
     /**
      * 
-     * @type {string}
-     * @memberof LocationAreaName
      */
     name: string;
     /**
      * 
-     * @type {LanguageSummary}
-     * @memberof LocationAreaName
      */
     language: LanguageSummary;
 }

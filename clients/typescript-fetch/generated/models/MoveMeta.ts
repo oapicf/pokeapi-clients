@@ -36,74 +36,50 @@ import {
 export interface MoveMeta {
     /**
      * 
-     * @type {MoveMetaAilmentSummary}
-     * @memberof MoveMeta
      */
     ailment: MoveMetaAilmentSummary;
     /**
      * 
-     * @type {MoveMetaCategorySummary}
-     * @memberof MoveMeta
      */
     category: MoveMetaCategorySummary;
     /**
      * 
-     * @type {number}
-     * @memberof MoveMeta
      */
     minHits?: number | null;
     /**
      * 
-     * @type {number}
-     * @memberof MoveMeta
      */
     maxHits?: number | null;
     /**
      * 
-     * @type {number}
-     * @memberof MoveMeta
      */
     minTurns?: number | null;
     /**
      * 
-     * @type {number}
-     * @memberof MoveMeta
      */
     maxTurns?: number | null;
     /**
      * 
-     * @type {number}
-     * @memberof MoveMeta
      */
     drain?: number | null;
     /**
      * 
-     * @type {number}
-     * @memberof MoveMeta
      */
     healing?: number | null;
     /**
      * 
-     * @type {number}
-     * @memberof MoveMeta
      */
     critRate?: number | null;
     /**
      * 
-     * @type {number}
-     * @memberof MoveMeta
      */
     ailmentChance?: number | null;
     /**
      * 
-     * @type {number}
-     * @memberof MoveMeta
      */
     flinchChance?: number | null;
     /**
      * 
-     * @type {number}
-     * @memberof MoveMeta
      */
     statChance?: number | null;
 }

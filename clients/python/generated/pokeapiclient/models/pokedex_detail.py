@@ -97,22 +97,19 @@ class PokedexDetail(BaseModel):
         _items = []
         if self.descriptions:
             for _item_descriptions in self.descriptions:
-                if _item_descriptions:
-                    _items.append(_item_descriptions.to_dict())
+                _items.append(_item_descriptions.to_dict() if _item_descriptions is not None else None)
             _dict['descriptions'] = _items
         # override the default output from pydantic by calling `to_dict()` of each item in names (list)
         _items = []
         if self.names:
             for _item_names in self.names:
-                if _item_names:
-                    _items.append(_item_names.to_dict())
+                _items.append(_item_names.to_dict() if _item_names is not None else None)
             _dict['names'] = _items
         # override the default output from pydantic by calling `to_dict()` of each item in pokemon_entries (list)
         _items = []
         if self.pokemon_entries:
             for _item_pokemon_entries in self.pokemon_entries:
-                if _item_pokemon_entries:
-                    _items.append(_item_pokemon_entries.to_dict())
+                _items.append(_item_pokemon_entries.to_dict() if _item_pokemon_entries is not None else None)
             _dict['pokemon_entries'] = _items
         # override the default output from pydantic by calling `to_dict()` of region
         if self.region:
@@ -121,8 +118,7 @@ class PokedexDetail(BaseModel):
         _items = []
         if self.version_groups:
             for _item_version_groups in self.version_groups:
-                if _item_version_groups:
-                    _items.append(_item_version_groups.to_dict())
+                _items.append(_item_version_groups.to_dict() if _item_version_groups is not None else None)
             _dict['version_groups'] = _items
         return _dict
 

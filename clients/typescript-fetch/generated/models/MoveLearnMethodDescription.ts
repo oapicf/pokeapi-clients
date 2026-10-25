@@ -29,14 +29,10 @@ import {
 export interface MoveLearnMethodDescription {
     /**
      * 
-     * @type {string}
-     * @memberof MoveLearnMethodDescription
      */
     description?: string;
     /**
      * 
-     * @type {LanguageSummary}
-     * @memberof MoveLearnMethodDescription
      */
     language: LanguageSummary;
 }

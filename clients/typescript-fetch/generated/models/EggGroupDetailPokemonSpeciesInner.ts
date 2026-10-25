@@ -21,14 +21,10 @@ import { mapValues } from '../runtime';
 export interface EggGroupDetailPokemonSpeciesInner {
     /**
      * Pokemon species name.
-     * @type {string}
-     * @memberof EggGroupDetailPokemonSpeciesInner
      */
     name?: string;
     /**
      * The URL to get more information about the species
-     * @type {string}
-     * @memberof EggGroupDetailPokemonSpeciesInner
      */
     url?: string;
 }

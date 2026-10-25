@@ -203,16 +203,16 @@ namespace Org.OpenAPITools.Model
             }
 
             if (count.IsSet && count.Value == null)
-                throw new ArgumentNullException(nameof(count), "Property is not nullable for class PaginatedEncounterMethodSummaryList.");
+                throw new JsonException("Property is not nullable for class PaginatedEncounterMethodSummaryList: count.");
 
             if (next.IsSet && next.Value == null)
-                throw new ArgumentNullException(nameof(next), "Property is not nullable for class PaginatedEncounterMethodSummaryList.");
+                throw new JsonException("Property is not nullable for class PaginatedEncounterMethodSummaryList: next.");
 
             if (previous.IsSet && previous.Value == null)
-                throw new ArgumentNullException(nameof(previous), "Property is not nullable for class PaginatedEncounterMethodSummaryList.");
+                throw new JsonException("Property is not nullable for class PaginatedEncounterMethodSummaryList: previous.");
 
             if (results.IsSet && results.Value == null)
-                throw new ArgumentNullException(nameof(results), "Property is not nullable for class PaginatedEncounterMethodSummaryList.");
+                throw new JsonException("Property is not nullable for class PaginatedEncounterMethodSummaryList: results.");
 
             return new PaginatedEncounterMethodSummaryList(count, next, previous, results);
         }
@@ -223,7 +223,6 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="paginatedEncounterMethodSummaryList"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public override void Write(Utf8JsonWriter writer, PaginatedEncounterMethodSummaryList paginatedEncounterMethodSummaryList, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteStartObject();
@@ -238,17 +237,19 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="paginatedEncounterMethodSummaryList"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, PaginatedEncounterMethodSummaryList paginatedEncounterMethodSummaryList, JsonSerializerOptions jsonSerializerOptions)
         {
+            if (paginatedEncounterMethodSummaryList.CountOption.IsSet && paginatedEncounterMethodSummaryList.Count == null)
+                throw new JsonException("Cannot write null property PaginatedEncounterMethodSummaryList.Count to non-nullable JSON property 'count'.");
+
             if (paginatedEncounterMethodSummaryList.NextOption.IsSet && paginatedEncounterMethodSummaryList.Next == null)
-                throw new ArgumentNullException(nameof(paginatedEncounterMethodSummaryList.Next), "Property is required for class PaginatedEncounterMethodSummaryList.");
+                throw new JsonException("Cannot write null property PaginatedEncounterMethodSummaryList.Next to non-nullable JSON property 'next'.");
 
             if (paginatedEncounterMethodSummaryList.PreviousOption.IsSet && paginatedEncounterMethodSummaryList.Previous == null)
-                throw new ArgumentNullException(nameof(paginatedEncounterMethodSummaryList.Previous), "Property is required for class PaginatedEncounterMethodSummaryList.");
+                throw new JsonException("Cannot write null property PaginatedEncounterMethodSummaryList.Previous to non-nullable JSON property 'previous'.");
 
             if (paginatedEncounterMethodSummaryList.ResultsOption.IsSet && paginatedEncounterMethodSummaryList.Results == null)
-                throw new ArgumentNullException(nameof(paginatedEncounterMethodSummaryList.Results), "Property is required for class PaginatedEncounterMethodSummaryList.");
+                throw new JsonException("Cannot write null property PaginatedEncounterMethodSummaryList.Results to non-nullable JSON property 'results'.");
 
             if (paginatedEncounterMethodSummaryList.CountOption.IsSet)
                 writer.WriteNumber("count", paginatedEncounterMethodSummaryList.CountOption.Value!.Value);

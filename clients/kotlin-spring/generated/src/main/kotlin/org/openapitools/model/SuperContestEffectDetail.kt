@@ -25,21 +25,21 @@ import io.swagger.v3.oas.annotations.media.Schema
 data class SuperContestEffectDetail(
 
     @Schema(required = true, readOnly = true, description = "")
-    @param:JsonProperty("id")
+    @param:JsonProperty("id", required = true)
     @get:JsonProperty("id", required = true) val id: kotlin.Int,
 
     @Schema(required = true, description = "")
-    @param:JsonProperty("appeal")
+    @param:JsonProperty("appeal", required = true)
     @get:JsonProperty("appeal", required = true) val appeal: kotlin.Int,
 
     @field:Valid
     @Schema(required = true, readOnly = true, description = "")
-    @param:JsonProperty("flavor_text_entries")
+    @param:JsonProperty("flavor_text_entries", required = true)
     @get:JsonProperty("flavor_text_entries", required = true) val flavorTextEntries: kotlin.collections.List<SuperContestEffectFlavorText>,
 
     @field:Valid
     @Schema(required = true, readOnly = true, description = "")
-    @param:JsonProperty("moves")
+    @param:JsonProperty("moves", required = true)
     @get:JsonProperty("moves", required = true) val moves: kotlin.collections.List<MoveSummary>
 ) {
 

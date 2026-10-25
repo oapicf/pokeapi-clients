@@ -108,3 +108,4 @@ class _$PokemonFormDetailSpritesSerializer implements PrimitiveSerializer<Pokemo
   }
 }
 
+

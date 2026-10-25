@@ -2,7 +2,6 @@ package org.openapitools.model;
 
 import java.net.URI;
 import java.util.Objects;
-import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import java.util.ArrayList;
@@ -42,25 +41,21 @@ import jakarta.annotation.Generated;
  * MoveDetail
  */
 
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2026-08-30T02:00:43.960184425Z[Etc/UTC]", comments = "Generator version: 7.24.0")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2026-10-25T05:53:37.479908528Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 public class MoveDetail {
 
   private Integer id;
 
   private String name;
 
-  @JsonInclude(JsonInclude.Include.NON_ABSENT)
   private JsonNullable<Integer> accuracy = JsonNullable.<Integer>undefined();
 
   private Integer effectChance;
 
-  @JsonInclude(JsonInclude.Include.NON_ABSENT)
   private JsonNullable<Integer> pp = JsonNullable.<Integer>undefined();
 
-  @JsonInclude(JsonInclude.Include.NON_ABSENT)
   private JsonNullable<Integer> priority = JsonNullable.<Integer>undefined();
 
-  @JsonInclude(JsonInclude.Include.NON_ABSENT)
   private JsonNullable<Integer> power = JsonNullable.<Integer>undefined();
 
   private MoveDetailContestCombos contestCombos;
@@ -179,7 +174,7 @@ public class MoveDetail {
    * @return accuracy
    */
   
-  @Schema(name = "accuracy", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @Schema(name = "accuracy", requiredMode = Schema.RequiredMode.NOT_REQUIRED, nullable = true)
   @JsonProperty("accuracy")
   public JsonNullable<Integer> getAccuracy() {
     return accuracy;
@@ -220,7 +215,7 @@ public class MoveDetail {
    * @return pp
    */
   
-  @Schema(name = "pp", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @Schema(name = "pp", requiredMode = Schema.RequiredMode.NOT_REQUIRED, nullable = true)
   @JsonProperty("pp")
   public JsonNullable<Integer> getPp() {
     return pp;
@@ -240,7 +235,7 @@ public class MoveDetail {
    * @return priority
    */
   
-  @Schema(name = "priority", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @Schema(name = "priority", requiredMode = Schema.RequiredMode.NOT_REQUIRED, nullable = true)
   @JsonProperty("priority")
   public JsonNullable<Integer> getPriority() {
     return priority;
@@ -260,7 +255,7 @@ public class MoveDetail {
    * @return power
    */
   
-  @Schema(name = "power", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @Schema(name = "power", requiredMode = Schema.RequiredMode.NOT_REQUIRED, nullable = true)
   @JsonProperty("power")
   public JsonNullable<Integer> getPower() {
     return power;
@@ -371,7 +366,7 @@ public class MoveDetail {
    * Get effectEntries
    * @return effectEntries
    */
-  @Valid 
+  
   @Schema(name = "effect_entries", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("effect_entries")
   public List<@Valid MoveChangeEffectEntriesInner> getEffectEntries() {
@@ -400,7 +395,7 @@ public class MoveDetail {
    * Get effectChanges
    * @return effectChanges
    */
-  @Valid 
+  
   @Schema(name = "effect_changes", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("effect_changes")
   public List<@Valid MoveDetailEffectChangesInner> getEffectChanges() {
@@ -471,7 +466,7 @@ public class MoveDetail {
    * Get names
    * @return names
    */
-  @Valid 
+  
   @Schema(name = "names", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("names")
   public List<@Valid MoveName> getNames() {
@@ -500,7 +495,7 @@ public class MoveDetail {
    * Get pastValues
    * @return pastValues
    */
-  @Valid 
+  
   @Schema(name = "past_values", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("past_values")
   public List<@Valid MoveChange> getPastValues() {
@@ -529,7 +524,7 @@ public class MoveDetail {
    * Get statChanges
    * @return statChanges
    */
-  @Valid 
+  
   @Schema(name = "stat_changes", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("stat_changes")
   public List<@Valid MoveDetailStatChangesInner> getStatChanges() {
@@ -621,7 +616,7 @@ public class MoveDetail {
    * Get machines
    * @return machines
    */
-  @Valid 
+  
   @Schema(name = "machines", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("machines")
   public List<@Valid MoveDetailMachinesInner> getMachines() {
@@ -650,7 +645,7 @@ public class MoveDetail {
    * Get flavorTextEntries
    * @return flavorTextEntries
    */
-  @Valid 
+  
   @Schema(name = "flavor_text_entries", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("flavor_text_entries")
   public List<@Valid MoveFlavorText> getFlavorTextEntries() {
@@ -679,7 +674,7 @@ public class MoveDetail {
    * Get learnedByPokemon
    * @return learnedByPokemon
    */
-  @Valid 
+  
   @Schema(name = "learned_by_pokemon", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("learned_by_pokemon")
   public List<@Valid AbilityDetailPokemonInnerPokemon> getLearnedByPokemon() {

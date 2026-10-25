@@ -146,16 +146,16 @@ namespace Org.OpenAPITools.Model
             }
 
             if (!useBefore.IsSet)
-                throw new ArgumentException("Property is required for class MoveDetailContestCombosNormal.", nameof(useBefore));
+                throw new JsonException("Property is required for class MoveDetailContestCombosNormal: use_before.");
 
             if (!useAfter.IsSet)
-                throw new ArgumentException("Property is required for class MoveDetailContestCombosNormal.", nameof(useAfter));
+                throw new JsonException("Property is required for class MoveDetailContestCombosNormal: use_after.");
 
             if (useBefore.IsSet && useBefore.Value == null)
-                throw new ArgumentNullException(nameof(useBefore), "Property is not nullable for class MoveDetailContestCombosNormal.");
+                throw new JsonException("Property is not nullable for class MoveDetailContestCombosNormal: use_before.");
 
             if (useAfter.IsSet && useAfter.Value == null)
-                throw new ArgumentNullException(nameof(useAfter), "Property is not nullable for class MoveDetailContestCombosNormal.");
+                throw new JsonException("Property is not nullable for class MoveDetailContestCombosNormal: use_after.");
 
             return new MoveDetailContestCombosNormal(useBefore.Value!, useAfter.Value!);
         }
@@ -166,7 +166,6 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="moveDetailContestCombosNormal"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public override void Write(Utf8JsonWriter writer, MoveDetailContestCombosNormal moveDetailContestCombosNormal, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteStartObject();
@@ -181,15 +180,8 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="moveDetailContestCombosNormal"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, MoveDetailContestCombosNormal moveDetailContestCombosNormal, JsonSerializerOptions jsonSerializerOptions)
         {
-            if (moveDetailContestCombosNormal.UseBefore == null)
-                throw new ArgumentNullException(nameof(moveDetailContestCombosNormal.UseBefore), "Property is required for class MoveDetailContestCombosNormal.");
-
-            if (moveDetailContestCombosNormal.UseAfter == null)
-                throw new ArgumentNullException(nameof(moveDetailContestCombosNormal.UseAfter), "Property is required for class MoveDetailContestCombosNormal.");
-
             writer.WritePropertyName("use_before");
             JsonSerializer.Serialize(writer, moveDetailContestCombosNormal.UseBefore, jsonSerializerOptions);
             writer.WritePropertyName("use_after");

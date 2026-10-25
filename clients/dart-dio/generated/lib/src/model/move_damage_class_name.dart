@@ -121,3 +121,4 @@ class _$MoveDamageClassNameSerializer implements PrimitiveSerializer<MoveDamageC
   }
 }
 
+

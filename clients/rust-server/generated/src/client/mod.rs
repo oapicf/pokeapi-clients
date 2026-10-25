@@ -598,7 +598,9 @@ impl<S, C, B> Api<C> for Client<S, C> where
         #[allow(clippy::collapsible_match)]
         if let Some(auth_data) = Has::<Option<AuthData>>::get(context).as_ref() {
             use headers::authorization::Credentials;
-            #[allow(clippy::single_match, clippy::match_single_binding)]
+            // The trailing `_` arm is unreachable when the spec declares every kind of
+            // scheme `AuthData` can represent, and the workspace denies warnings.
+            #[allow(unreachable_patterns, clippy::single_match, clippy::match_single_binding)]
             match auth_data {
                 AuthData::Basic(ref basic_user, ref basic_password) => {
                     let auth = headers::Authorization::basic(basic_user.as_str(), basic_password.as_str());
@@ -707,7 +709,9 @@ impl<S, C, B> Api<C> for Client<S, C> where
         #[allow(clippy::collapsible_match)]
         if let Some(auth_data) = Has::<Option<AuthData>>::get(context).as_ref() {
             use headers::authorization::Credentials;
-            #[allow(clippy::single_match, clippy::match_single_binding)]
+            // The trailing `_` arm is unreachable when the spec declares every kind of
+            // scheme `AuthData` can represent, and the workspace denies warnings.
+            #[allow(unreachable_patterns, clippy::single_match, clippy::match_single_binding)]
             match auth_data {
                 AuthData::Basic(ref basic_user, ref basic_password) => {
                     let auth = headers::Authorization::basic(basic_user.as_str(), basic_password.as_str());
@@ -816,7 +820,9 @@ impl<S, C, B> Api<C> for Client<S, C> where
         #[allow(clippy::collapsible_match)]
         if let Some(auth_data) = Has::<Option<AuthData>>::get(context).as_ref() {
             use headers::authorization::Credentials;
-            #[allow(clippy::single_match, clippy::match_single_binding)]
+            // The trailing `_` arm is unreachable when the spec declares every kind of
+            // scheme `AuthData` can represent, and the workspace denies warnings.
+            #[allow(unreachable_patterns, clippy::single_match, clippy::match_single_binding)]
             match auth_data {
                 AuthData::Basic(ref basic_user, ref basic_password) => {
                     let auth = headers::Authorization::basic(basic_user.as_str(), basic_password.as_str());
@@ -912,7 +918,9 @@ impl<S, C, B> Api<C> for Client<S, C> where
         #[allow(clippy::collapsible_match)]
         if let Some(auth_data) = Has::<Option<AuthData>>::get(context).as_ref() {
             use headers::authorization::Credentials;
-            #[allow(clippy::single_match, clippy::match_single_binding)]
+            // The trailing `_` arm is unreachable when the spec declares every kind of
+            // scheme `AuthData` can represent, and the workspace denies warnings.
+            #[allow(unreachable_patterns, clippy::single_match, clippy::match_single_binding)]
             match auth_data {
                 AuthData::Basic(ref basic_user, ref basic_password) => {
                     let auth = headers::Authorization::basic(basic_user.as_str(), basic_password.as_str());
@@ -1008,7 +1016,9 @@ impl<S, C, B> Api<C> for Client<S, C> where
         #[allow(clippy::collapsible_match)]
         if let Some(auth_data) = Has::<Option<AuthData>>::get(context).as_ref() {
             use headers::authorization::Credentials;
-            #[allow(clippy::single_match, clippy::match_single_binding)]
+            // The trailing `_` arm is unreachable when the spec declares every kind of
+            // scheme `AuthData` can represent, and the workspace denies warnings.
+            #[allow(unreachable_patterns, clippy::single_match, clippy::match_single_binding)]
             match auth_data {
                 AuthData::Basic(ref basic_user, ref basic_password) => {
                     let auth = headers::Authorization::basic(basic_user.as_str(), basic_password.as_str());
@@ -1104,7 +1114,9 @@ impl<S, C, B> Api<C> for Client<S, C> where
         #[allow(clippy::collapsible_match)]
         if let Some(auth_data) = Has::<Option<AuthData>>::get(context).as_ref() {
             use headers::authorization::Credentials;
-            #[allow(clippy::single_match, clippy::match_single_binding)]
+            // The trailing `_` arm is unreachable when the spec declares every kind of
+            // scheme `AuthData` can represent, and the workspace denies warnings.
+            #[allow(unreachable_patterns, clippy::single_match, clippy::match_single_binding)]
             match auth_data {
                 AuthData::Basic(ref basic_user, ref basic_password) => {
                     let auth = headers::Authorization::basic(basic_user.as_str(), basic_password.as_str());
@@ -1213,7 +1225,9 @@ impl<S, C, B> Api<C> for Client<S, C> where
         #[allow(clippy::collapsible_match)]
         if let Some(auth_data) = Has::<Option<AuthData>>::get(context).as_ref() {
             use headers::authorization::Credentials;
-            #[allow(clippy::single_match, clippy::match_single_binding)]
+            // The trailing `_` arm is unreachable when the spec declares every kind of
+            // scheme `AuthData` can represent, and the workspace denies warnings.
+            #[allow(unreachable_patterns, clippy::single_match, clippy::match_single_binding)]
             match auth_data {
                 AuthData::Basic(ref basic_user, ref basic_password) => {
                     let auth = headers::Authorization::basic(basic_user.as_str(), basic_password.as_str());
@@ -1322,7 +1336,9 @@ impl<S, C, B> Api<C> for Client<S, C> where
         #[allow(clippy::collapsible_match)]
         if let Some(auth_data) = Has::<Option<AuthData>>::get(context).as_ref() {
             use headers::authorization::Credentials;
-            #[allow(clippy::single_match, clippy::match_single_binding)]
+            // The trailing `_` arm is unreachable when the spec declares every kind of
+            // scheme `AuthData` can represent, and the workspace denies warnings.
+            #[allow(unreachable_patterns, clippy::single_match, clippy::match_single_binding)]
             match auth_data {
                 AuthData::Basic(ref basic_user, ref basic_password) => {
                     let auth = headers::Authorization::basic(basic_user.as_str(), basic_password.as_str());
@@ -1431,7 +1447,9 @@ impl<S, C, B> Api<C> for Client<S, C> where
         #[allow(clippy::collapsible_match)]
         if let Some(auth_data) = Has::<Option<AuthData>>::get(context).as_ref() {
             use headers::authorization::Credentials;
-            #[allow(clippy::single_match, clippy::match_single_binding)]
+            // The trailing `_` arm is unreachable when the spec declares every kind of
+            // scheme `AuthData` can represent, and the workspace denies warnings.
+            #[allow(unreachable_patterns, clippy::single_match, clippy::match_single_binding)]
             match auth_data {
                 AuthData::Basic(ref basic_user, ref basic_password) => {
                     let auth = headers::Authorization::basic(basic_user.as_str(), basic_password.as_str());
@@ -1527,7 +1545,9 @@ impl<S, C, B> Api<C> for Client<S, C> where
         #[allow(clippy::collapsible_match)]
         if let Some(auth_data) = Has::<Option<AuthData>>::get(context).as_ref() {
             use headers::authorization::Credentials;
-            #[allow(clippy::single_match, clippy::match_single_binding)]
+            // The trailing `_` arm is unreachable when the spec declares every kind of
+            // scheme `AuthData` can represent, and the workspace denies warnings.
+            #[allow(unreachable_patterns, clippy::single_match, clippy::match_single_binding)]
             match auth_data {
                 AuthData::Basic(ref basic_user, ref basic_password) => {
                     let auth = headers::Authorization::basic(basic_user.as_str(), basic_password.as_str());
@@ -1623,7 +1643,9 @@ impl<S, C, B> Api<C> for Client<S, C> where
         #[allow(clippy::collapsible_match)]
         if let Some(auth_data) = Has::<Option<AuthData>>::get(context).as_ref() {
             use headers::authorization::Credentials;
-            #[allow(clippy::single_match, clippy::match_single_binding)]
+            // The trailing `_` arm is unreachable when the spec declares every kind of
+            // scheme `AuthData` can represent, and the workspace denies warnings.
+            #[allow(unreachable_patterns, clippy::single_match, clippy::match_single_binding)]
             match auth_data {
                 AuthData::Basic(ref basic_user, ref basic_password) => {
                     let auth = headers::Authorization::basic(basic_user.as_str(), basic_password.as_str());
@@ -1719,7 +1741,9 @@ impl<S, C, B> Api<C> for Client<S, C> where
         #[allow(clippy::collapsible_match)]
         if let Some(auth_data) = Has::<Option<AuthData>>::get(context).as_ref() {
             use headers::authorization::Credentials;
-            #[allow(clippy::single_match, clippy::match_single_binding)]
+            // The trailing `_` arm is unreachable when the spec declares every kind of
+            // scheme `AuthData` can represent, and the workspace denies warnings.
+            #[allow(unreachable_patterns, clippy::single_match, clippy::match_single_binding)]
             match auth_data {
                 AuthData::Basic(ref basic_user, ref basic_password) => {
                     let auth = headers::Authorization::basic(basic_user.as_str(), basic_password.as_str());
@@ -1828,7 +1852,9 @@ impl<S, C, B> Api<C> for Client<S, C> where
         #[allow(clippy::collapsible_match)]
         if let Some(auth_data) = Has::<Option<AuthData>>::get(context).as_ref() {
             use headers::authorization::Credentials;
-            #[allow(clippy::single_match, clippy::match_single_binding)]
+            // The trailing `_` arm is unreachable when the spec declares every kind of
+            // scheme `AuthData` can represent, and the workspace denies warnings.
+            #[allow(unreachable_patterns, clippy::single_match, clippy::match_single_binding)]
             match auth_data {
                 AuthData::Basic(ref basic_user, ref basic_password) => {
                     let auth = headers::Authorization::basic(basic_user.as_str(), basic_password.as_str());
@@ -1937,7 +1963,9 @@ impl<S, C, B> Api<C> for Client<S, C> where
         #[allow(clippy::collapsible_match)]
         if let Some(auth_data) = Has::<Option<AuthData>>::get(context).as_ref() {
             use headers::authorization::Credentials;
-            #[allow(clippy::single_match, clippy::match_single_binding)]
+            // The trailing `_` arm is unreachable when the spec declares every kind of
+            // scheme `AuthData` can represent, and the workspace denies warnings.
+            #[allow(unreachable_patterns, clippy::single_match, clippy::match_single_binding)]
             match auth_data {
                 AuthData::Basic(ref basic_user, ref basic_password) => {
                     let auth = headers::Authorization::basic(basic_user.as_str(), basic_password.as_str());
@@ -2046,7 +2074,9 @@ impl<S, C, B> Api<C> for Client<S, C> where
         #[allow(clippy::collapsible_match)]
         if let Some(auth_data) = Has::<Option<AuthData>>::get(context).as_ref() {
             use headers::authorization::Credentials;
-            #[allow(clippy::single_match, clippy::match_single_binding)]
+            // The trailing `_` arm is unreachable when the spec declares every kind of
+            // scheme `AuthData` can represent, and the workspace denies warnings.
+            #[allow(unreachable_patterns, clippy::single_match, clippy::match_single_binding)]
             match auth_data {
                 AuthData::Basic(ref basic_user, ref basic_password) => {
                     let auth = headers::Authorization::basic(basic_user.as_str(), basic_password.as_str());
@@ -2142,7 +2172,9 @@ impl<S, C, B> Api<C> for Client<S, C> where
         #[allow(clippy::collapsible_match)]
         if let Some(auth_data) = Has::<Option<AuthData>>::get(context).as_ref() {
             use headers::authorization::Credentials;
-            #[allow(clippy::single_match, clippy::match_single_binding)]
+            // The trailing `_` arm is unreachable when the spec declares every kind of
+            // scheme `AuthData` can represent, and the workspace denies warnings.
+            #[allow(unreachable_patterns, clippy::single_match, clippy::match_single_binding)]
             match auth_data {
                 AuthData::Basic(ref basic_user, ref basic_password) => {
                     let auth = headers::Authorization::basic(basic_user.as_str(), basic_password.as_str());
@@ -2238,7 +2270,9 @@ impl<S, C, B> Api<C> for Client<S, C> where
         #[allow(clippy::collapsible_match)]
         if let Some(auth_data) = Has::<Option<AuthData>>::get(context).as_ref() {
             use headers::authorization::Credentials;
-            #[allow(clippy::single_match, clippy::match_single_binding)]
+            // The trailing `_` arm is unreachable when the spec declares every kind of
+            // scheme `AuthData` can represent, and the workspace denies warnings.
+            #[allow(unreachable_patterns, clippy::single_match, clippy::match_single_binding)]
             match auth_data {
                 AuthData::Basic(ref basic_user, ref basic_password) => {
                     let auth = headers::Authorization::basic(basic_user.as_str(), basic_password.as_str());
@@ -2334,7 +2368,9 @@ impl<S, C, B> Api<C> for Client<S, C> where
         #[allow(clippy::collapsible_match)]
         if let Some(auth_data) = Has::<Option<AuthData>>::get(context).as_ref() {
             use headers::authorization::Credentials;
-            #[allow(clippy::single_match, clippy::match_single_binding)]
+            // The trailing `_` arm is unreachable when the spec declares every kind of
+            // scheme `AuthData` can represent, and the workspace denies warnings.
+            #[allow(unreachable_patterns, clippy::single_match, clippy::match_single_binding)]
             match auth_data {
                 AuthData::Basic(ref basic_user, ref basic_password) => {
                     let auth = headers::Authorization::basic(basic_user.as_str(), basic_password.as_str());
@@ -2443,7 +2479,9 @@ impl<S, C, B> Api<C> for Client<S, C> where
         #[allow(clippy::collapsible_match)]
         if let Some(auth_data) = Has::<Option<AuthData>>::get(context).as_ref() {
             use headers::authorization::Credentials;
-            #[allow(clippy::single_match, clippy::match_single_binding)]
+            // The trailing `_` arm is unreachable when the spec declares every kind of
+            // scheme `AuthData` can represent, and the workspace denies warnings.
+            #[allow(unreachable_patterns, clippy::single_match, clippy::match_single_binding)]
             match auth_data {
                 AuthData::Basic(ref basic_user, ref basic_password) => {
                     let auth = headers::Authorization::basic(basic_user.as_str(), basic_password.as_str());
@@ -2552,7 +2590,9 @@ impl<S, C, B> Api<C> for Client<S, C> where
         #[allow(clippy::collapsible_match)]
         if let Some(auth_data) = Has::<Option<AuthData>>::get(context).as_ref() {
             use headers::authorization::Credentials;
-            #[allow(clippy::single_match, clippy::match_single_binding)]
+            // The trailing `_` arm is unreachable when the spec declares every kind of
+            // scheme `AuthData` can represent, and the workspace denies warnings.
+            #[allow(unreachable_patterns, clippy::single_match, clippy::match_single_binding)]
             match auth_data {
                 AuthData::Basic(ref basic_user, ref basic_password) => {
                     let auth = headers::Authorization::basic(basic_user.as_str(), basic_password.as_str());
@@ -2648,7 +2688,9 @@ impl<S, C, B> Api<C> for Client<S, C> where
         #[allow(clippy::collapsible_match)]
         if let Some(auth_data) = Has::<Option<AuthData>>::get(context).as_ref() {
             use headers::authorization::Credentials;
-            #[allow(clippy::single_match, clippy::match_single_binding)]
+            // The trailing `_` arm is unreachable when the spec declares every kind of
+            // scheme `AuthData` can represent, and the workspace denies warnings.
+            #[allow(unreachable_patterns, clippy::single_match, clippy::match_single_binding)]
             match auth_data {
                 AuthData::Basic(ref basic_user, ref basic_password) => {
                     let auth = headers::Authorization::basic(basic_user.as_str(), basic_password.as_str());
@@ -2744,7 +2786,9 @@ impl<S, C, B> Api<C> for Client<S, C> where
         #[allow(clippy::collapsible_match)]
         if let Some(auth_data) = Has::<Option<AuthData>>::get(context).as_ref() {
             use headers::authorization::Credentials;
-            #[allow(clippy::single_match, clippy::match_single_binding)]
+            // The trailing `_` arm is unreachable when the spec declares every kind of
+            // scheme `AuthData` can represent, and the workspace denies warnings.
+            #[allow(unreachable_patterns, clippy::single_match, clippy::match_single_binding)]
             match auth_data {
                 AuthData::Basic(ref basic_user, ref basic_password) => {
                     let auth = headers::Authorization::basic(basic_user.as_str(), basic_password.as_str());
@@ -2853,7 +2897,9 @@ impl<S, C, B> Api<C> for Client<S, C> where
         #[allow(clippy::collapsible_match)]
         if let Some(auth_data) = Has::<Option<AuthData>>::get(context).as_ref() {
             use headers::authorization::Credentials;
-            #[allow(clippy::single_match, clippy::match_single_binding)]
+            // The trailing `_` arm is unreachable when the spec declares every kind of
+            // scheme `AuthData` can represent, and the workspace denies warnings.
+            #[allow(unreachable_patterns, clippy::single_match, clippy::match_single_binding)]
             match auth_data {
                 AuthData::Basic(ref basic_user, ref basic_password) => {
                     let auth = headers::Authorization::basic(basic_user.as_str(), basic_password.as_str());
@@ -2962,7 +3008,9 @@ impl<S, C, B> Api<C> for Client<S, C> where
         #[allow(clippy::collapsible_match)]
         if let Some(auth_data) = Has::<Option<AuthData>>::get(context).as_ref() {
             use headers::authorization::Credentials;
-            #[allow(clippy::single_match, clippy::match_single_binding)]
+            // The trailing `_` arm is unreachable when the spec declares every kind of
+            // scheme `AuthData` can represent, and the workspace denies warnings.
+            #[allow(unreachable_patterns, clippy::single_match, clippy::match_single_binding)]
             match auth_data {
                 AuthData::Basic(ref basic_user, ref basic_password) => {
                     let auth = headers::Authorization::basic(basic_user.as_str(), basic_password.as_str());
@@ -3071,7 +3119,9 @@ impl<S, C, B> Api<C> for Client<S, C> where
         #[allow(clippy::collapsible_match)]
         if let Some(auth_data) = Has::<Option<AuthData>>::get(context).as_ref() {
             use headers::authorization::Credentials;
-            #[allow(clippy::single_match, clippy::match_single_binding)]
+            // The trailing `_` arm is unreachable when the spec declares every kind of
+            // scheme `AuthData` can represent, and the workspace denies warnings.
+            #[allow(unreachable_patterns, clippy::single_match, clippy::match_single_binding)]
             match auth_data {
                 AuthData::Basic(ref basic_user, ref basic_password) => {
                     let auth = headers::Authorization::basic(basic_user.as_str(), basic_password.as_str());
@@ -3180,7 +3230,9 @@ impl<S, C, B> Api<C> for Client<S, C> where
         #[allow(clippy::collapsible_match)]
         if let Some(auth_data) = Has::<Option<AuthData>>::get(context).as_ref() {
             use headers::authorization::Credentials;
-            #[allow(clippy::single_match, clippy::match_single_binding)]
+            // The trailing `_` arm is unreachable when the spec declares every kind of
+            // scheme `AuthData` can represent, and the workspace denies warnings.
+            #[allow(unreachable_patterns, clippy::single_match, clippy::match_single_binding)]
             match auth_data {
                 AuthData::Basic(ref basic_user, ref basic_password) => {
                     let auth = headers::Authorization::basic(basic_user.as_str(), basic_password.as_str());
@@ -3276,7 +3328,9 @@ impl<S, C, B> Api<C> for Client<S, C> where
         #[allow(clippy::collapsible_match)]
         if let Some(auth_data) = Has::<Option<AuthData>>::get(context).as_ref() {
             use headers::authorization::Credentials;
-            #[allow(clippy::single_match, clippy::match_single_binding)]
+            // The trailing `_` arm is unreachable when the spec declares every kind of
+            // scheme `AuthData` can represent, and the workspace denies warnings.
+            #[allow(unreachable_patterns, clippy::single_match, clippy::match_single_binding)]
             match auth_data {
                 AuthData::Basic(ref basic_user, ref basic_password) => {
                     let auth = headers::Authorization::basic(basic_user.as_str(), basic_password.as_str());
@@ -3372,7 +3426,9 @@ impl<S, C, B> Api<C> for Client<S, C> where
         #[allow(clippy::collapsible_match)]
         if let Some(auth_data) = Has::<Option<AuthData>>::get(context).as_ref() {
             use headers::authorization::Credentials;
-            #[allow(clippy::single_match, clippy::match_single_binding)]
+            // The trailing `_` arm is unreachable when the spec declares every kind of
+            // scheme `AuthData` can represent, and the workspace denies warnings.
+            #[allow(unreachable_patterns, clippy::single_match, clippy::match_single_binding)]
             match auth_data {
                 AuthData::Basic(ref basic_user, ref basic_password) => {
                     let auth = headers::Authorization::basic(basic_user.as_str(), basic_password.as_str());
@@ -3468,7 +3524,9 @@ impl<S, C, B> Api<C> for Client<S, C> where
         #[allow(clippy::collapsible_match)]
         if let Some(auth_data) = Has::<Option<AuthData>>::get(context).as_ref() {
             use headers::authorization::Credentials;
-            #[allow(clippy::single_match, clippy::match_single_binding)]
+            // The trailing `_` arm is unreachable when the spec declares every kind of
+            // scheme `AuthData` can represent, and the workspace denies warnings.
+            #[allow(unreachable_patterns, clippy::single_match, clippy::match_single_binding)]
             match auth_data {
                 AuthData::Basic(ref basic_user, ref basic_password) => {
                     let auth = headers::Authorization::basic(basic_user.as_str(), basic_password.as_str());
@@ -3564,7 +3622,9 @@ impl<S, C, B> Api<C> for Client<S, C> where
         #[allow(clippy::collapsible_match)]
         if let Some(auth_data) = Has::<Option<AuthData>>::get(context).as_ref() {
             use headers::authorization::Credentials;
-            #[allow(clippy::single_match, clippy::match_single_binding)]
+            // The trailing `_` arm is unreachable when the spec declares every kind of
+            // scheme `AuthData` can represent, and the workspace denies warnings.
+            #[allow(unreachable_patterns, clippy::single_match, clippy::match_single_binding)]
             match auth_data {
                 AuthData::Basic(ref basic_user, ref basic_password) => {
                     let auth = headers::Authorization::basic(basic_user.as_str(), basic_password.as_str());
@@ -3673,7 +3733,9 @@ impl<S, C, B> Api<C> for Client<S, C> where
         #[allow(clippy::collapsible_match)]
         if let Some(auth_data) = Has::<Option<AuthData>>::get(context).as_ref() {
             use headers::authorization::Credentials;
-            #[allow(clippy::single_match, clippy::match_single_binding)]
+            // The trailing `_` arm is unreachable when the spec declares every kind of
+            // scheme `AuthData` can represent, and the workspace denies warnings.
+            #[allow(unreachable_patterns, clippy::single_match, clippy::match_single_binding)]
             match auth_data {
                 AuthData::Basic(ref basic_user, ref basic_password) => {
                     let auth = headers::Authorization::basic(basic_user.as_str(), basic_password.as_str());
@@ -3782,7 +3844,9 @@ impl<S, C, B> Api<C> for Client<S, C> where
         #[allow(clippy::collapsible_match)]
         if let Some(auth_data) = Has::<Option<AuthData>>::get(context).as_ref() {
             use headers::authorization::Credentials;
-            #[allow(clippy::single_match, clippy::match_single_binding)]
+            // The trailing `_` arm is unreachable when the spec declares every kind of
+            // scheme `AuthData` can represent, and the workspace denies warnings.
+            #[allow(unreachable_patterns, clippy::single_match, clippy::match_single_binding)]
             match auth_data {
                 AuthData::Basic(ref basic_user, ref basic_password) => {
                     let auth = headers::Authorization::basic(basic_user.as_str(), basic_password.as_str());
@@ -3891,7 +3955,9 @@ impl<S, C, B> Api<C> for Client<S, C> where
         #[allow(clippy::collapsible_match)]
         if let Some(auth_data) = Has::<Option<AuthData>>::get(context).as_ref() {
             use headers::authorization::Credentials;
-            #[allow(clippy::single_match, clippy::match_single_binding)]
+            // The trailing `_` arm is unreachable when the spec declares every kind of
+            // scheme `AuthData` can represent, and the workspace denies warnings.
+            #[allow(unreachable_patterns, clippy::single_match, clippy::match_single_binding)]
             match auth_data {
                 AuthData::Basic(ref basic_user, ref basic_password) => {
                     let auth = headers::Authorization::basic(basic_user.as_str(), basic_password.as_str());
@@ -4000,7 +4066,9 @@ impl<S, C, B> Api<C> for Client<S, C> where
         #[allow(clippy::collapsible_match)]
         if let Some(auth_data) = Has::<Option<AuthData>>::get(context).as_ref() {
             use headers::authorization::Credentials;
-            #[allow(clippy::single_match, clippy::match_single_binding)]
+            // The trailing `_` arm is unreachable when the spec declares every kind of
+            // scheme `AuthData` can represent, and the workspace denies warnings.
+            #[allow(unreachable_patterns, clippy::single_match, clippy::match_single_binding)]
             match auth_data {
                 AuthData::Basic(ref basic_user, ref basic_password) => {
                     let auth = headers::Authorization::basic(basic_user.as_str(), basic_password.as_str());
@@ -4109,7 +4177,9 @@ impl<S, C, B> Api<C> for Client<S, C> where
         #[allow(clippy::collapsible_match)]
         if let Some(auth_data) = Has::<Option<AuthData>>::get(context).as_ref() {
             use headers::authorization::Credentials;
-            #[allow(clippy::single_match, clippy::match_single_binding)]
+            // The trailing `_` arm is unreachable when the spec declares every kind of
+            // scheme `AuthData` can represent, and the workspace denies warnings.
+            #[allow(unreachable_patterns, clippy::single_match, clippy::match_single_binding)]
             match auth_data {
                 AuthData::Basic(ref basic_user, ref basic_password) => {
                     let auth = headers::Authorization::basic(basic_user.as_str(), basic_password.as_str());
@@ -4205,7 +4275,9 @@ impl<S, C, B> Api<C> for Client<S, C> where
         #[allow(clippy::collapsible_match)]
         if let Some(auth_data) = Has::<Option<AuthData>>::get(context).as_ref() {
             use headers::authorization::Credentials;
-            #[allow(clippy::single_match, clippy::match_single_binding)]
+            // The trailing `_` arm is unreachable when the spec declares every kind of
+            // scheme `AuthData` can represent, and the workspace denies warnings.
+            #[allow(unreachable_patterns, clippy::single_match, clippy::match_single_binding)]
             match auth_data {
                 AuthData::Basic(ref basic_user, ref basic_password) => {
                     let auth = headers::Authorization::basic(basic_user.as_str(), basic_password.as_str());
@@ -4301,7 +4373,9 @@ impl<S, C, B> Api<C> for Client<S, C> where
         #[allow(clippy::collapsible_match)]
         if let Some(auth_data) = Has::<Option<AuthData>>::get(context).as_ref() {
             use headers::authorization::Credentials;
-            #[allow(clippy::single_match, clippy::match_single_binding)]
+            // The trailing `_` arm is unreachable when the spec declares every kind of
+            // scheme `AuthData` can represent, and the workspace denies warnings.
+            #[allow(unreachable_patterns, clippy::single_match, clippy::match_single_binding)]
             match auth_data {
                 AuthData::Basic(ref basic_user, ref basic_password) => {
                     let auth = headers::Authorization::basic(basic_user.as_str(), basic_password.as_str());
@@ -4397,7 +4471,9 @@ impl<S, C, B> Api<C> for Client<S, C> where
         #[allow(clippy::collapsible_match)]
         if let Some(auth_data) = Has::<Option<AuthData>>::get(context).as_ref() {
             use headers::authorization::Credentials;
-            #[allow(clippy::single_match, clippy::match_single_binding)]
+            // The trailing `_` arm is unreachable when the spec declares every kind of
+            // scheme `AuthData` can represent, and the workspace denies warnings.
+            #[allow(unreachable_patterns, clippy::single_match, clippy::match_single_binding)]
             match auth_data {
                 AuthData::Basic(ref basic_user, ref basic_password) => {
                     let auth = headers::Authorization::basic(basic_user.as_str(), basic_password.as_str());
@@ -4493,7 +4569,9 @@ impl<S, C, B> Api<C> for Client<S, C> where
         #[allow(clippy::collapsible_match)]
         if let Some(auth_data) = Has::<Option<AuthData>>::get(context).as_ref() {
             use headers::authorization::Credentials;
-            #[allow(clippy::single_match, clippy::match_single_binding)]
+            // The trailing `_` arm is unreachable when the spec declares every kind of
+            // scheme `AuthData` can represent, and the workspace denies warnings.
+            #[allow(unreachable_patterns, clippy::single_match, clippy::match_single_binding)]
             match auth_data {
                 AuthData::Basic(ref basic_user, ref basic_password) => {
                     let auth = headers::Authorization::basic(basic_user.as_str(), basic_password.as_str());
@@ -4589,7 +4667,9 @@ impl<S, C, B> Api<C> for Client<S, C> where
         #[allow(clippy::collapsible_match)]
         if let Some(auth_data) = Has::<Option<AuthData>>::get(context).as_ref() {
             use headers::authorization::Credentials;
-            #[allow(clippy::single_match, clippy::match_single_binding)]
+            // The trailing `_` arm is unreachable when the spec declares every kind of
+            // scheme `AuthData` can represent, and the workspace denies warnings.
+            #[allow(unreachable_patterns, clippy::single_match, clippy::match_single_binding)]
             match auth_data {
                 AuthData::Basic(ref basic_user, ref basic_password) => {
                     let auth = headers::Authorization::basic(basic_user.as_str(), basic_password.as_str());
@@ -4693,7 +4773,9 @@ impl<S, C, B> Api<C> for Client<S, C> where
         #[allow(clippy::collapsible_match)]
         if let Some(auth_data) = Has::<Option<AuthData>>::get(context).as_ref() {
             use headers::authorization::Credentials;
-            #[allow(clippy::single_match, clippy::match_single_binding)]
+            // The trailing `_` arm is unreachable when the spec declares every kind of
+            // scheme `AuthData` can represent, and the workspace denies warnings.
+            #[allow(unreachable_patterns, clippy::single_match, clippy::match_single_binding)]
             match auth_data {
                 AuthData::Basic(ref basic_user, ref basic_password) => {
                     let auth = headers::Authorization::basic(basic_user.as_str(), basic_password.as_str());
@@ -4802,7 +4884,9 @@ impl<S, C, B> Api<C> for Client<S, C> where
         #[allow(clippy::collapsible_match)]
         if let Some(auth_data) = Has::<Option<AuthData>>::get(context).as_ref() {
             use headers::authorization::Credentials;
-            #[allow(clippy::single_match, clippy::match_single_binding)]
+            // The trailing `_` arm is unreachable when the spec declares every kind of
+            // scheme `AuthData` can represent, and the workspace denies warnings.
+            #[allow(unreachable_patterns, clippy::single_match, clippy::match_single_binding)]
             match auth_data {
                 AuthData::Basic(ref basic_user, ref basic_password) => {
                     let auth = headers::Authorization::basic(basic_user.as_str(), basic_password.as_str());
@@ -4911,7 +4995,9 @@ impl<S, C, B> Api<C> for Client<S, C> where
         #[allow(clippy::collapsible_match)]
         if let Some(auth_data) = Has::<Option<AuthData>>::get(context).as_ref() {
             use headers::authorization::Credentials;
-            #[allow(clippy::single_match, clippy::match_single_binding)]
+            // The trailing `_` arm is unreachable when the spec declares every kind of
+            // scheme `AuthData` can represent, and the workspace denies warnings.
+            #[allow(unreachable_patterns, clippy::single_match, clippy::match_single_binding)]
             match auth_data {
                 AuthData::Basic(ref basic_user, ref basic_password) => {
                     let auth = headers::Authorization::basic(basic_user.as_str(), basic_password.as_str());
@@ -5020,7 +5106,9 @@ impl<S, C, B> Api<C> for Client<S, C> where
         #[allow(clippy::collapsible_match)]
         if let Some(auth_data) = Has::<Option<AuthData>>::get(context).as_ref() {
             use headers::authorization::Credentials;
-            #[allow(clippy::single_match, clippy::match_single_binding)]
+            // The trailing `_` arm is unreachable when the spec declares every kind of
+            // scheme `AuthData` can represent, and the workspace denies warnings.
+            #[allow(unreachable_patterns, clippy::single_match, clippy::match_single_binding)]
             match auth_data {
                 AuthData::Basic(ref basic_user, ref basic_password) => {
                     let auth = headers::Authorization::basic(basic_user.as_str(), basic_password.as_str());
@@ -5116,7 +5204,9 @@ impl<S, C, B> Api<C> for Client<S, C> where
         #[allow(clippy::collapsible_match)]
         if let Some(auth_data) = Has::<Option<AuthData>>::get(context).as_ref() {
             use headers::authorization::Credentials;
-            #[allow(clippy::single_match, clippy::match_single_binding)]
+            // The trailing `_` arm is unreachable when the spec declares every kind of
+            // scheme `AuthData` can represent, and the workspace denies warnings.
+            #[allow(unreachable_patterns, clippy::single_match, clippy::match_single_binding)]
             match auth_data {
                 AuthData::Basic(ref basic_user, ref basic_password) => {
                     let auth = headers::Authorization::basic(basic_user.as_str(), basic_password.as_str());
@@ -5212,7 +5302,9 @@ impl<S, C, B> Api<C> for Client<S, C> where
         #[allow(clippy::collapsible_match)]
         if let Some(auth_data) = Has::<Option<AuthData>>::get(context).as_ref() {
             use headers::authorization::Credentials;
-            #[allow(clippy::single_match, clippy::match_single_binding)]
+            // The trailing `_` arm is unreachable when the spec declares every kind of
+            // scheme `AuthData` can represent, and the workspace denies warnings.
+            #[allow(unreachable_patterns, clippy::single_match, clippy::match_single_binding)]
             match auth_data {
                 AuthData::Basic(ref basic_user, ref basic_password) => {
                     let auth = headers::Authorization::basic(basic_user.as_str(), basic_password.as_str());
@@ -5308,7 +5400,9 @@ impl<S, C, B> Api<C> for Client<S, C> where
         #[allow(clippy::collapsible_match)]
         if let Some(auth_data) = Has::<Option<AuthData>>::get(context).as_ref() {
             use headers::authorization::Credentials;
-            #[allow(clippy::single_match, clippy::match_single_binding)]
+            // The trailing `_` arm is unreachable when the spec declares every kind of
+            // scheme `AuthData` can represent, and the workspace denies warnings.
+            #[allow(unreachable_patterns, clippy::single_match, clippy::match_single_binding)]
             match auth_data {
                 AuthData::Basic(ref basic_user, ref basic_password) => {
                     let auth = headers::Authorization::basic(basic_user.as_str(), basic_password.as_str());
@@ -5404,7 +5498,9 @@ impl<S, C, B> Api<C> for Client<S, C> where
         #[allow(clippy::collapsible_match)]
         if let Some(auth_data) = Has::<Option<AuthData>>::get(context).as_ref() {
             use headers::authorization::Credentials;
-            #[allow(clippy::single_match, clippy::match_single_binding)]
+            // The trailing `_` arm is unreachable when the spec declares every kind of
+            // scheme `AuthData` can represent, and the workspace denies warnings.
+            #[allow(unreachable_patterns, clippy::single_match, clippy::match_single_binding)]
             match auth_data {
                 AuthData::Basic(ref basic_user, ref basic_password) => {
                     let auth = headers::Authorization::basic(basic_user.as_str(), basic_password.as_str());
@@ -5513,7 +5609,9 @@ impl<S, C, B> Api<C> for Client<S, C> where
         #[allow(clippy::collapsible_match)]
         if let Some(auth_data) = Has::<Option<AuthData>>::get(context).as_ref() {
             use headers::authorization::Credentials;
-            #[allow(clippy::single_match, clippy::match_single_binding)]
+            // The trailing `_` arm is unreachable when the spec declares every kind of
+            // scheme `AuthData` can represent, and the workspace denies warnings.
+            #[allow(unreachable_patterns, clippy::single_match, clippy::match_single_binding)]
             match auth_data {
                 AuthData::Basic(ref basic_user, ref basic_password) => {
                     let auth = headers::Authorization::basic(basic_user.as_str(), basic_password.as_str());
@@ -5609,7 +5707,9 @@ impl<S, C, B> Api<C> for Client<S, C> where
         #[allow(clippy::collapsible_match)]
         if let Some(auth_data) = Has::<Option<AuthData>>::get(context).as_ref() {
             use headers::authorization::Credentials;
-            #[allow(clippy::single_match, clippy::match_single_binding)]
+            // The trailing `_` arm is unreachable when the spec declares every kind of
+            // scheme `AuthData` can represent, and the workspace denies warnings.
+            #[allow(unreachable_patterns, clippy::single_match, clippy::match_single_binding)]
             match auth_data {
                 AuthData::Basic(ref basic_user, ref basic_password) => {
                     let auth = headers::Authorization::basic(basic_user.as_str(), basic_password.as_str());
@@ -5718,7 +5818,9 @@ impl<S, C, B> Api<C> for Client<S, C> where
         #[allow(clippy::collapsible_match)]
         if let Some(auth_data) = Has::<Option<AuthData>>::get(context).as_ref() {
             use headers::authorization::Credentials;
-            #[allow(clippy::single_match, clippy::match_single_binding)]
+            // The trailing `_` arm is unreachable when the spec declares every kind of
+            // scheme `AuthData` can represent, and the workspace denies warnings.
+            #[allow(unreachable_patterns, clippy::single_match, clippy::match_single_binding)]
             match auth_data {
                 AuthData::Basic(ref basic_user, ref basic_password) => {
                     let auth = headers::Authorization::basic(basic_user.as_str(), basic_password.as_str());
@@ -5827,7 +5929,9 @@ impl<S, C, B> Api<C> for Client<S, C> where
         #[allow(clippy::collapsible_match)]
         if let Some(auth_data) = Has::<Option<AuthData>>::get(context).as_ref() {
             use headers::authorization::Credentials;
-            #[allow(clippy::single_match, clippy::match_single_binding)]
+            // The trailing `_` arm is unreachable when the spec declares every kind of
+            // scheme `AuthData` can represent, and the workspace denies warnings.
+            #[allow(unreachable_patterns, clippy::single_match, clippy::match_single_binding)]
             match auth_data {
                 AuthData::Basic(ref basic_user, ref basic_password) => {
                     let auth = headers::Authorization::basic(basic_user.as_str(), basic_password.as_str());
@@ -5936,7 +6040,9 @@ impl<S, C, B> Api<C> for Client<S, C> where
         #[allow(clippy::collapsible_match)]
         if let Some(auth_data) = Has::<Option<AuthData>>::get(context).as_ref() {
             use headers::authorization::Credentials;
-            #[allow(clippy::single_match, clippy::match_single_binding)]
+            // The trailing `_` arm is unreachable when the spec declares every kind of
+            // scheme `AuthData` can represent, and the workspace denies warnings.
+            #[allow(unreachable_patterns, clippy::single_match, clippy::match_single_binding)]
             match auth_data {
                 AuthData::Basic(ref basic_user, ref basic_password) => {
                     let auth = headers::Authorization::basic(basic_user.as_str(), basic_password.as_str());
@@ -6045,7 +6151,9 @@ impl<S, C, B> Api<C> for Client<S, C> where
         #[allow(clippy::collapsible_match)]
         if let Some(auth_data) = Has::<Option<AuthData>>::get(context).as_ref() {
             use headers::authorization::Credentials;
-            #[allow(clippy::single_match, clippy::match_single_binding)]
+            // The trailing `_` arm is unreachable when the spec declares every kind of
+            // scheme `AuthData` can represent, and the workspace denies warnings.
+            #[allow(unreachable_patterns, clippy::single_match, clippy::match_single_binding)]
             match auth_data {
                 AuthData::Basic(ref basic_user, ref basic_password) => {
                     let auth = headers::Authorization::basic(basic_user.as_str(), basic_password.as_str());
@@ -6154,7 +6262,9 @@ impl<S, C, B> Api<C> for Client<S, C> where
         #[allow(clippy::collapsible_match)]
         if let Some(auth_data) = Has::<Option<AuthData>>::get(context).as_ref() {
             use headers::authorization::Credentials;
-            #[allow(clippy::single_match, clippy::match_single_binding)]
+            // The trailing `_` arm is unreachable when the spec declares every kind of
+            // scheme `AuthData` can represent, and the workspace denies warnings.
+            #[allow(unreachable_patterns, clippy::single_match, clippy::match_single_binding)]
             match auth_data {
                 AuthData::Basic(ref basic_user, ref basic_password) => {
                     let auth = headers::Authorization::basic(basic_user.as_str(), basic_password.as_str());
@@ -6263,7 +6373,9 @@ impl<S, C, B> Api<C> for Client<S, C> where
         #[allow(clippy::collapsible_match)]
         if let Some(auth_data) = Has::<Option<AuthData>>::get(context).as_ref() {
             use headers::authorization::Credentials;
-            #[allow(clippy::single_match, clippy::match_single_binding)]
+            // The trailing `_` arm is unreachable when the spec declares every kind of
+            // scheme `AuthData` can represent, and the workspace denies warnings.
+            #[allow(unreachable_patterns, clippy::single_match, clippy::match_single_binding)]
             match auth_data {
                 AuthData::Basic(ref basic_user, ref basic_password) => {
                     let auth = headers::Authorization::basic(basic_user.as_str(), basic_password.as_str());
@@ -6359,7 +6471,9 @@ impl<S, C, B> Api<C> for Client<S, C> where
         #[allow(clippy::collapsible_match)]
         if let Some(auth_data) = Has::<Option<AuthData>>::get(context).as_ref() {
             use headers::authorization::Credentials;
-            #[allow(clippy::single_match, clippy::match_single_binding)]
+            // The trailing `_` arm is unreachable when the spec declares every kind of
+            // scheme `AuthData` can represent, and the workspace denies warnings.
+            #[allow(unreachable_patterns, clippy::single_match, clippy::match_single_binding)]
             match auth_data {
                 AuthData::Basic(ref basic_user, ref basic_password) => {
                     let auth = headers::Authorization::basic(basic_user.as_str(), basic_password.as_str());
@@ -6455,7 +6569,9 @@ impl<S, C, B> Api<C> for Client<S, C> where
         #[allow(clippy::collapsible_match)]
         if let Some(auth_data) = Has::<Option<AuthData>>::get(context).as_ref() {
             use headers::authorization::Credentials;
-            #[allow(clippy::single_match, clippy::match_single_binding)]
+            // The trailing `_` arm is unreachable when the spec declares every kind of
+            // scheme `AuthData` can represent, and the workspace denies warnings.
+            #[allow(unreachable_patterns, clippy::single_match, clippy::match_single_binding)]
             match auth_data {
                 AuthData::Basic(ref basic_user, ref basic_password) => {
                     let auth = headers::Authorization::basic(basic_user.as_str(), basic_password.as_str());
@@ -6551,7 +6667,9 @@ impl<S, C, B> Api<C> for Client<S, C> where
         #[allow(clippy::collapsible_match)]
         if let Some(auth_data) = Has::<Option<AuthData>>::get(context).as_ref() {
             use headers::authorization::Credentials;
-            #[allow(clippy::single_match, clippy::match_single_binding)]
+            // The trailing `_` arm is unreachable when the spec declares every kind of
+            // scheme `AuthData` can represent, and the workspace denies warnings.
+            #[allow(unreachable_patterns, clippy::single_match, clippy::match_single_binding)]
             match auth_data {
                 AuthData::Basic(ref basic_user, ref basic_password) => {
                     let auth = headers::Authorization::basic(basic_user.as_str(), basic_password.as_str());
@@ -6647,7 +6765,9 @@ impl<S, C, B> Api<C> for Client<S, C> where
         #[allow(clippy::collapsible_match)]
         if let Some(auth_data) = Has::<Option<AuthData>>::get(context).as_ref() {
             use headers::authorization::Credentials;
-            #[allow(clippy::single_match, clippy::match_single_binding)]
+            // The trailing `_` arm is unreachable when the spec declares every kind of
+            // scheme `AuthData` can represent, and the workspace denies warnings.
+            #[allow(unreachable_patterns, clippy::single_match, clippy::match_single_binding)]
             match auth_data {
                 AuthData::Basic(ref basic_user, ref basic_password) => {
                     let auth = headers::Authorization::basic(basic_user.as_str(), basic_password.as_str());
@@ -6743,7 +6863,9 @@ impl<S, C, B> Api<C> for Client<S, C> where
         #[allow(clippy::collapsible_match)]
         if let Some(auth_data) = Has::<Option<AuthData>>::get(context).as_ref() {
             use headers::authorization::Credentials;
-            #[allow(clippy::single_match, clippy::match_single_binding)]
+            // The trailing `_` arm is unreachable when the spec declares every kind of
+            // scheme `AuthData` can represent, and the workspace denies warnings.
+            #[allow(unreachable_patterns, clippy::single_match, clippy::match_single_binding)]
             match auth_data {
                 AuthData::Basic(ref basic_user, ref basic_password) => {
                     let auth = headers::Authorization::basic(basic_user.as_str(), basic_password.as_str());
@@ -6839,7 +6961,9 @@ impl<S, C, B> Api<C> for Client<S, C> where
         #[allow(clippy::collapsible_match)]
         if let Some(auth_data) = Has::<Option<AuthData>>::get(context).as_ref() {
             use headers::authorization::Credentials;
-            #[allow(clippy::single_match, clippy::match_single_binding)]
+            // The trailing `_` arm is unreachable when the spec declares every kind of
+            // scheme `AuthData` can represent, and the workspace denies warnings.
+            #[allow(unreachable_patterns, clippy::single_match, clippy::match_single_binding)]
             match auth_data {
                 AuthData::Basic(ref basic_user, ref basic_password) => {
                     let auth = headers::Authorization::basic(basic_user.as_str(), basic_password.as_str());
@@ -6948,7 +7072,9 @@ impl<S, C, B> Api<C> for Client<S, C> where
         #[allow(clippy::collapsible_match)]
         if let Some(auth_data) = Has::<Option<AuthData>>::get(context).as_ref() {
             use headers::authorization::Credentials;
-            #[allow(clippy::single_match, clippy::match_single_binding)]
+            // The trailing `_` arm is unreachable when the spec declares every kind of
+            // scheme `AuthData` can represent, and the workspace denies warnings.
+            #[allow(unreachable_patterns, clippy::single_match, clippy::match_single_binding)]
             match auth_data {
                 AuthData::Basic(ref basic_user, ref basic_password) => {
                     let auth = headers::Authorization::basic(basic_user.as_str(), basic_password.as_str());
@@ -7057,7 +7183,9 @@ impl<S, C, B> Api<C> for Client<S, C> where
         #[allow(clippy::collapsible_match)]
         if let Some(auth_data) = Has::<Option<AuthData>>::get(context).as_ref() {
             use headers::authorization::Credentials;
-            #[allow(clippy::single_match, clippy::match_single_binding)]
+            // The trailing `_` arm is unreachable when the spec declares every kind of
+            // scheme `AuthData` can represent, and the workspace denies warnings.
+            #[allow(unreachable_patterns, clippy::single_match, clippy::match_single_binding)]
             match auth_data {
                 AuthData::Basic(ref basic_user, ref basic_password) => {
                     let auth = headers::Authorization::basic(basic_user.as_str(), basic_password.as_str());
@@ -7166,7 +7294,9 @@ impl<S, C, B> Api<C> for Client<S, C> where
         #[allow(clippy::collapsible_match)]
         if let Some(auth_data) = Has::<Option<AuthData>>::get(context).as_ref() {
             use headers::authorization::Credentials;
-            #[allow(clippy::single_match, clippy::match_single_binding)]
+            // The trailing `_` arm is unreachable when the spec declares every kind of
+            // scheme `AuthData` can represent, and the workspace denies warnings.
+            #[allow(unreachable_patterns, clippy::single_match, clippy::match_single_binding)]
             match auth_data {
                 AuthData::Basic(ref basic_user, ref basic_password) => {
                     let auth = headers::Authorization::basic(basic_user.as_str(), basic_password.as_str());
@@ -7275,7 +7405,9 @@ impl<S, C, B> Api<C> for Client<S, C> where
         #[allow(clippy::collapsible_match)]
         if let Some(auth_data) = Has::<Option<AuthData>>::get(context).as_ref() {
             use headers::authorization::Credentials;
-            #[allow(clippy::single_match, clippy::match_single_binding)]
+            // The trailing `_` arm is unreachable when the spec declares every kind of
+            // scheme `AuthData` can represent, and the workspace denies warnings.
+            #[allow(unreachable_patterns, clippy::single_match, clippy::match_single_binding)]
             match auth_data {
                 AuthData::Basic(ref basic_user, ref basic_password) => {
                     let auth = headers::Authorization::basic(basic_user.as_str(), basic_password.as_str());
@@ -7384,7 +7516,9 @@ impl<S, C, B> Api<C> for Client<S, C> where
         #[allow(clippy::collapsible_match)]
         if let Some(auth_data) = Has::<Option<AuthData>>::get(context).as_ref() {
             use headers::authorization::Credentials;
-            #[allow(clippy::single_match, clippy::match_single_binding)]
+            // The trailing `_` arm is unreachable when the spec declares every kind of
+            // scheme `AuthData` can represent, and the workspace denies warnings.
+            #[allow(unreachable_patterns, clippy::single_match, clippy::match_single_binding)]
             match auth_data {
                 AuthData::Basic(ref basic_user, ref basic_password) => {
                     let auth = headers::Authorization::basic(basic_user.as_str(), basic_password.as_str());
@@ -7493,7 +7627,9 @@ impl<S, C, B> Api<C> for Client<S, C> where
         #[allow(clippy::collapsible_match)]
         if let Some(auth_data) = Has::<Option<AuthData>>::get(context).as_ref() {
             use headers::authorization::Credentials;
-            #[allow(clippy::single_match, clippy::match_single_binding)]
+            // The trailing `_` arm is unreachable when the spec declares every kind of
+            // scheme `AuthData` can represent, and the workspace denies warnings.
+            #[allow(unreachable_patterns, clippy::single_match, clippy::match_single_binding)]
             match auth_data {
                 AuthData::Basic(ref basic_user, ref basic_password) => {
                     let auth = headers::Authorization::basic(basic_user.as_str(), basic_password.as_str());
@@ -7602,7 +7738,9 @@ impl<S, C, B> Api<C> for Client<S, C> where
         #[allow(clippy::collapsible_match)]
         if let Some(auth_data) = Has::<Option<AuthData>>::get(context).as_ref() {
             use headers::authorization::Credentials;
-            #[allow(clippy::single_match, clippy::match_single_binding)]
+            // The trailing `_` arm is unreachable when the spec declares every kind of
+            // scheme `AuthData` can represent, and the workspace denies warnings.
+            #[allow(unreachable_patterns, clippy::single_match, clippy::match_single_binding)]
             match auth_data {
                 AuthData::Basic(ref basic_user, ref basic_password) => {
                     let auth = headers::Authorization::basic(basic_user.as_str(), basic_password.as_str());
@@ -7711,7 +7849,9 @@ impl<S, C, B> Api<C> for Client<S, C> where
         #[allow(clippy::collapsible_match)]
         if let Some(auth_data) = Has::<Option<AuthData>>::get(context).as_ref() {
             use headers::authorization::Credentials;
-            #[allow(clippy::single_match, clippy::match_single_binding)]
+            // The trailing `_` arm is unreachable when the spec declares every kind of
+            // scheme `AuthData` can represent, and the workspace denies warnings.
+            #[allow(unreachable_patterns, clippy::single_match, clippy::match_single_binding)]
             match auth_data {
                 AuthData::Basic(ref basic_user, ref basic_password) => {
                     let auth = headers::Authorization::basic(basic_user.as_str(), basic_password.as_str());
@@ -7820,7 +7960,9 @@ impl<S, C, B> Api<C> for Client<S, C> where
         #[allow(clippy::collapsible_match)]
         if let Some(auth_data) = Has::<Option<AuthData>>::get(context).as_ref() {
             use headers::authorization::Credentials;
-            #[allow(clippy::single_match, clippy::match_single_binding)]
+            // The trailing `_` arm is unreachable when the spec declares every kind of
+            // scheme `AuthData` can represent, and the workspace denies warnings.
+            #[allow(unreachable_patterns, clippy::single_match, clippy::match_single_binding)]
             match auth_data {
                 AuthData::Basic(ref basic_user, ref basic_password) => {
                     let auth = headers::Authorization::basic(basic_user.as_str(), basic_password.as_str());
@@ -7929,7 +8071,9 @@ impl<S, C, B> Api<C> for Client<S, C> where
         #[allow(clippy::collapsible_match)]
         if let Some(auth_data) = Has::<Option<AuthData>>::get(context).as_ref() {
             use headers::authorization::Credentials;
-            #[allow(clippy::single_match, clippy::match_single_binding)]
+            // The trailing `_` arm is unreachable when the spec declares every kind of
+            // scheme `AuthData` can represent, and the workspace denies warnings.
+            #[allow(unreachable_patterns, clippy::single_match, clippy::match_single_binding)]
             match auth_data {
                 AuthData::Basic(ref basic_user, ref basic_password) => {
                     let auth = headers::Authorization::basic(basic_user.as_str(), basic_password.as_str());
@@ -8038,7 +8182,9 @@ impl<S, C, B> Api<C> for Client<S, C> where
         #[allow(clippy::collapsible_match)]
         if let Some(auth_data) = Has::<Option<AuthData>>::get(context).as_ref() {
             use headers::authorization::Credentials;
-            #[allow(clippy::single_match, clippy::match_single_binding)]
+            // The trailing `_` arm is unreachable when the spec declares every kind of
+            // scheme `AuthData` can represent, and the workspace denies warnings.
+            #[allow(unreachable_patterns, clippy::single_match, clippy::match_single_binding)]
             match auth_data {
                 AuthData::Basic(ref basic_user, ref basic_password) => {
                     let auth = headers::Authorization::basic(basic_user.as_str(), basic_password.as_str());
@@ -8147,7 +8293,9 @@ impl<S, C, B> Api<C> for Client<S, C> where
         #[allow(clippy::collapsible_match)]
         if let Some(auth_data) = Has::<Option<AuthData>>::get(context).as_ref() {
             use headers::authorization::Credentials;
-            #[allow(clippy::single_match, clippy::match_single_binding)]
+            // The trailing `_` arm is unreachable when the spec declares every kind of
+            // scheme `AuthData` can represent, and the workspace denies warnings.
+            #[allow(unreachable_patterns, clippy::single_match, clippy::match_single_binding)]
             match auth_data {
                 AuthData::Basic(ref basic_user, ref basic_password) => {
                     let auth = headers::Authorization::basic(basic_user.as_str(), basic_password.as_str());
@@ -8256,7 +8404,9 @@ impl<S, C, B> Api<C> for Client<S, C> where
         #[allow(clippy::collapsible_match)]
         if let Some(auth_data) = Has::<Option<AuthData>>::get(context).as_ref() {
             use headers::authorization::Credentials;
-            #[allow(clippy::single_match, clippy::match_single_binding)]
+            // The trailing `_` arm is unreachable when the spec declares every kind of
+            // scheme `AuthData` can represent, and the workspace denies warnings.
+            #[allow(unreachable_patterns, clippy::single_match, clippy::match_single_binding)]
             match auth_data {
                 AuthData::Basic(ref basic_user, ref basic_password) => {
                     let auth = headers::Authorization::basic(basic_user.as_str(), basic_password.as_str());
@@ -8365,7 +8515,9 @@ impl<S, C, B> Api<C> for Client<S, C> where
         #[allow(clippy::collapsible_match)]
         if let Some(auth_data) = Has::<Option<AuthData>>::get(context).as_ref() {
             use headers::authorization::Credentials;
-            #[allow(clippy::single_match, clippy::match_single_binding)]
+            // The trailing `_` arm is unreachable when the spec declares every kind of
+            // scheme `AuthData` can represent, and the workspace denies warnings.
+            #[allow(unreachable_patterns, clippy::single_match, clippy::match_single_binding)]
             match auth_data {
                 AuthData::Basic(ref basic_user, ref basic_password) => {
                     let auth = headers::Authorization::basic(basic_user.as_str(), basic_password.as_str());
@@ -8474,7 +8626,9 @@ impl<S, C, B> Api<C> for Client<S, C> where
         #[allow(clippy::collapsible_match)]
         if let Some(auth_data) = Has::<Option<AuthData>>::get(context).as_ref() {
             use headers::authorization::Credentials;
-            #[allow(clippy::single_match, clippy::match_single_binding)]
+            // The trailing `_` arm is unreachable when the spec declares every kind of
+            // scheme `AuthData` can represent, and the workspace denies warnings.
+            #[allow(unreachable_patterns, clippy::single_match, clippy::match_single_binding)]
             match auth_data {
                 AuthData::Basic(ref basic_user, ref basic_password) => {
                     let auth = headers::Authorization::basic(basic_user.as_str(), basic_password.as_str());
@@ -8583,7 +8737,9 @@ impl<S, C, B> Api<C> for Client<S, C> where
         #[allow(clippy::collapsible_match)]
         if let Some(auth_data) = Has::<Option<AuthData>>::get(context).as_ref() {
             use headers::authorization::Credentials;
-            #[allow(clippy::single_match, clippy::match_single_binding)]
+            // The trailing `_` arm is unreachable when the spec declares every kind of
+            // scheme `AuthData` can represent, and the workspace denies warnings.
+            #[allow(unreachable_patterns, clippy::single_match, clippy::match_single_binding)]
             match auth_data {
                 AuthData::Basic(ref basic_user, ref basic_password) => {
                     let auth = headers::Authorization::basic(basic_user.as_str(), basic_password.as_str());
@@ -8679,7 +8835,9 @@ impl<S, C, B> Api<C> for Client<S, C> where
         #[allow(clippy::collapsible_match)]
         if let Some(auth_data) = Has::<Option<AuthData>>::get(context).as_ref() {
             use headers::authorization::Credentials;
-            #[allow(clippy::single_match, clippy::match_single_binding)]
+            // The trailing `_` arm is unreachable when the spec declares every kind of
+            // scheme `AuthData` can represent, and the workspace denies warnings.
+            #[allow(unreachable_patterns, clippy::single_match, clippy::match_single_binding)]
             match auth_data {
                 AuthData::Basic(ref basic_user, ref basic_password) => {
                     let auth = headers::Authorization::basic(basic_user.as_str(), basic_password.as_str());
@@ -8775,7 +8933,9 @@ impl<S, C, B> Api<C> for Client<S, C> where
         #[allow(clippy::collapsible_match)]
         if let Some(auth_data) = Has::<Option<AuthData>>::get(context).as_ref() {
             use headers::authorization::Credentials;
-            #[allow(clippy::single_match, clippy::match_single_binding)]
+            // The trailing `_` arm is unreachable when the spec declares every kind of
+            // scheme `AuthData` can represent, and the workspace denies warnings.
+            #[allow(unreachable_patterns, clippy::single_match, clippy::match_single_binding)]
             match auth_data {
                 AuthData::Basic(ref basic_user, ref basic_password) => {
                     let auth = headers::Authorization::basic(basic_user.as_str(), basic_password.as_str());
@@ -8871,7 +9031,9 @@ impl<S, C, B> Api<C> for Client<S, C> where
         #[allow(clippy::collapsible_match)]
         if let Some(auth_data) = Has::<Option<AuthData>>::get(context).as_ref() {
             use headers::authorization::Credentials;
-            #[allow(clippy::single_match, clippy::match_single_binding)]
+            // The trailing `_` arm is unreachable when the spec declares every kind of
+            // scheme `AuthData` can represent, and the workspace denies warnings.
+            #[allow(unreachable_patterns, clippy::single_match, clippy::match_single_binding)]
             match auth_data {
                 AuthData::Basic(ref basic_user, ref basic_password) => {
                     let auth = headers::Authorization::basic(basic_user.as_str(), basic_password.as_str());
@@ -8967,7 +9129,9 @@ impl<S, C, B> Api<C> for Client<S, C> where
         #[allow(clippy::collapsible_match)]
         if let Some(auth_data) = Has::<Option<AuthData>>::get(context).as_ref() {
             use headers::authorization::Credentials;
-            #[allow(clippy::single_match, clippy::match_single_binding)]
+            // The trailing `_` arm is unreachable when the spec declares every kind of
+            // scheme `AuthData` can represent, and the workspace denies warnings.
+            #[allow(unreachable_patterns, clippy::single_match, clippy::match_single_binding)]
             match auth_data {
                 AuthData::Basic(ref basic_user, ref basic_password) => {
                     let auth = headers::Authorization::basic(basic_user.as_str(), basic_password.as_str());
@@ -9063,7 +9227,9 @@ impl<S, C, B> Api<C> for Client<S, C> where
         #[allow(clippy::collapsible_match)]
         if let Some(auth_data) = Has::<Option<AuthData>>::get(context).as_ref() {
             use headers::authorization::Credentials;
-            #[allow(clippy::single_match, clippy::match_single_binding)]
+            // The trailing `_` arm is unreachable when the spec declares every kind of
+            // scheme `AuthData` can represent, and the workspace denies warnings.
+            #[allow(unreachable_patterns, clippy::single_match, clippy::match_single_binding)]
             match auth_data {
                 AuthData::Basic(ref basic_user, ref basic_password) => {
                     let auth = headers::Authorization::basic(basic_user.as_str(), basic_password.as_str());
@@ -9159,7 +9325,9 @@ impl<S, C, B> Api<C> for Client<S, C> where
         #[allow(clippy::collapsible_match)]
         if let Some(auth_data) = Has::<Option<AuthData>>::get(context).as_ref() {
             use headers::authorization::Credentials;
-            #[allow(clippy::single_match, clippy::match_single_binding)]
+            // The trailing `_` arm is unreachable when the spec declares every kind of
+            // scheme `AuthData` can represent, and the workspace denies warnings.
+            #[allow(unreachable_patterns, clippy::single_match, clippy::match_single_binding)]
             match auth_data {
                 AuthData::Basic(ref basic_user, ref basic_password) => {
                     let auth = headers::Authorization::basic(basic_user.as_str(), basic_password.as_str());
@@ -9255,7 +9423,9 @@ impl<S, C, B> Api<C> for Client<S, C> where
         #[allow(clippy::collapsible_match)]
         if let Some(auth_data) = Has::<Option<AuthData>>::get(context).as_ref() {
             use headers::authorization::Credentials;
-            #[allow(clippy::single_match, clippy::match_single_binding)]
+            // The trailing `_` arm is unreachable when the spec declares every kind of
+            // scheme `AuthData` can represent, and the workspace denies warnings.
+            #[allow(unreachable_patterns, clippy::single_match, clippy::match_single_binding)]
             match auth_data {
                 AuthData::Basic(ref basic_user, ref basic_password) => {
                     let auth = headers::Authorization::basic(basic_user.as_str(), basic_password.as_str());
@@ -9351,7 +9521,9 @@ impl<S, C, B> Api<C> for Client<S, C> where
         #[allow(clippy::collapsible_match)]
         if let Some(auth_data) = Has::<Option<AuthData>>::get(context).as_ref() {
             use headers::authorization::Credentials;
-            #[allow(clippy::single_match, clippy::match_single_binding)]
+            // The trailing `_` arm is unreachable when the spec declares every kind of
+            // scheme `AuthData` can represent, and the workspace denies warnings.
+            #[allow(unreachable_patterns, clippy::single_match, clippy::match_single_binding)]
             match auth_data {
                 AuthData::Basic(ref basic_user, ref basic_password) => {
                     let auth = headers::Authorization::basic(basic_user.as_str(), basic_password.as_str());
@@ -9447,7 +9619,9 @@ impl<S, C, B> Api<C> for Client<S, C> where
         #[allow(clippy::collapsible_match)]
         if let Some(auth_data) = Has::<Option<AuthData>>::get(context).as_ref() {
             use headers::authorization::Credentials;
-            #[allow(clippy::single_match, clippy::match_single_binding)]
+            // The trailing `_` arm is unreachable when the spec declares every kind of
+            // scheme `AuthData` can represent, and the workspace denies warnings.
+            #[allow(unreachable_patterns, clippy::single_match, clippy::match_single_binding)]
             match auth_data {
                 AuthData::Basic(ref basic_user, ref basic_password) => {
                     let auth = headers::Authorization::basic(basic_user.as_str(), basic_password.as_str());
@@ -9543,7 +9717,9 @@ impl<S, C, B> Api<C> for Client<S, C> where
         #[allow(clippy::collapsible_match)]
         if let Some(auth_data) = Has::<Option<AuthData>>::get(context).as_ref() {
             use headers::authorization::Credentials;
-            #[allow(clippy::single_match, clippy::match_single_binding)]
+            // The trailing `_` arm is unreachable when the spec declares every kind of
+            // scheme `AuthData` can represent, and the workspace denies warnings.
+            #[allow(unreachable_patterns, clippy::single_match, clippy::match_single_binding)]
             match auth_data {
                 AuthData::Basic(ref basic_user, ref basic_password) => {
                     let auth = headers::Authorization::basic(basic_user.as_str(), basic_password.as_str());
@@ -9639,7 +9815,9 @@ impl<S, C, B> Api<C> for Client<S, C> where
         #[allow(clippy::collapsible_match)]
         if let Some(auth_data) = Has::<Option<AuthData>>::get(context).as_ref() {
             use headers::authorization::Credentials;
-            #[allow(clippy::single_match, clippy::match_single_binding)]
+            // The trailing `_` arm is unreachable when the spec declares every kind of
+            // scheme `AuthData` can represent, and the workspace denies warnings.
+            #[allow(unreachable_patterns, clippy::single_match, clippy::match_single_binding)]
             match auth_data {
                 AuthData::Basic(ref basic_user, ref basic_password) => {
                     let auth = headers::Authorization::basic(basic_user.as_str(), basic_password.as_str());
@@ -9735,7 +9913,9 @@ impl<S, C, B> Api<C> for Client<S, C> where
         #[allow(clippy::collapsible_match)]
         if let Some(auth_data) = Has::<Option<AuthData>>::get(context).as_ref() {
             use headers::authorization::Credentials;
-            #[allow(clippy::single_match, clippy::match_single_binding)]
+            // The trailing `_` arm is unreachable when the spec declares every kind of
+            // scheme `AuthData` can represent, and the workspace denies warnings.
+            #[allow(unreachable_patterns, clippy::single_match, clippy::match_single_binding)]
             match auth_data {
                 AuthData::Basic(ref basic_user, ref basic_password) => {
                     let auth = headers::Authorization::basic(basic_user.as_str(), basic_password.as_str());
@@ -9831,7 +10011,9 @@ impl<S, C, B> Api<C> for Client<S, C> where
         #[allow(clippy::collapsible_match)]
         if let Some(auth_data) = Has::<Option<AuthData>>::get(context).as_ref() {
             use headers::authorization::Credentials;
-            #[allow(clippy::single_match, clippy::match_single_binding)]
+            // The trailing `_` arm is unreachable when the spec declares every kind of
+            // scheme `AuthData` can represent, and the workspace denies warnings.
+            #[allow(unreachable_patterns, clippy::single_match, clippy::match_single_binding)]
             match auth_data {
                 AuthData::Basic(ref basic_user, ref basic_password) => {
                     let auth = headers::Authorization::basic(basic_user.as_str(), basic_password.as_str());
@@ -9927,7 +10109,9 @@ impl<S, C, B> Api<C> for Client<S, C> where
         #[allow(clippy::collapsible_match)]
         if let Some(auth_data) = Has::<Option<AuthData>>::get(context).as_ref() {
             use headers::authorization::Credentials;
-            #[allow(clippy::single_match, clippy::match_single_binding)]
+            // The trailing `_` arm is unreachable when the spec declares every kind of
+            // scheme `AuthData` can represent, and the workspace denies warnings.
+            #[allow(unreachable_patterns, clippy::single_match, clippy::match_single_binding)]
             match auth_data {
                 AuthData::Basic(ref basic_user, ref basic_password) => {
                     let auth = headers::Authorization::basic(basic_user.as_str(), basic_password.as_str());
@@ -10023,7 +10207,9 @@ impl<S, C, B> Api<C> for Client<S, C> where
         #[allow(clippy::collapsible_match)]
         if let Some(auth_data) = Has::<Option<AuthData>>::get(context).as_ref() {
             use headers::authorization::Credentials;
-            #[allow(clippy::single_match, clippy::match_single_binding)]
+            // The trailing `_` arm is unreachable when the spec declares every kind of
+            // scheme `AuthData` can represent, and the workspace denies warnings.
+            #[allow(unreachable_patterns, clippy::single_match, clippy::match_single_binding)]
             match auth_data {
                 AuthData::Basic(ref basic_user, ref basic_password) => {
                     let auth = headers::Authorization::basic(basic_user.as_str(), basic_password.as_str());
@@ -10119,7 +10305,9 @@ impl<S, C, B> Api<C> for Client<S, C> where
         #[allow(clippy::collapsible_match)]
         if let Some(auth_data) = Has::<Option<AuthData>>::get(context).as_ref() {
             use headers::authorization::Credentials;
-            #[allow(clippy::single_match, clippy::match_single_binding)]
+            // The trailing `_` arm is unreachable when the spec declares every kind of
+            // scheme `AuthData` can represent, and the workspace denies warnings.
+            #[allow(unreachable_patterns, clippy::single_match, clippy::match_single_binding)]
             match auth_data {
                 AuthData::Basic(ref basic_user, ref basic_password) => {
                     let auth = headers::Authorization::basic(basic_user.as_str(), basic_password.as_str());
@@ -10228,7 +10416,9 @@ impl<S, C, B> Api<C> for Client<S, C> where
         #[allow(clippy::collapsible_match)]
         if let Some(auth_data) = Has::<Option<AuthData>>::get(context).as_ref() {
             use headers::authorization::Credentials;
-            #[allow(clippy::single_match, clippy::match_single_binding)]
+            // The trailing `_` arm is unreachable when the spec declares every kind of
+            // scheme `AuthData` can represent, and the workspace denies warnings.
+            #[allow(unreachable_patterns, clippy::single_match, clippy::match_single_binding)]
             match auth_data {
                 AuthData::Basic(ref basic_user, ref basic_password) => {
                     let auth = headers::Authorization::basic(basic_user.as_str(), basic_password.as_str());
@@ -10324,7 +10514,9 @@ impl<S, C, B> Api<C> for Client<S, C> where
         #[allow(clippy::collapsible_match)]
         if let Some(auth_data) = Has::<Option<AuthData>>::get(context).as_ref() {
             use headers::authorization::Credentials;
-            #[allow(clippy::single_match, clippy::match_single_binding)]
+            // The trailing `_` arm is unreachable when the spec declares every kind of
+            // scheme `AuthData` can represent, and the workspace denies warnings.
+            #[allow(unreachable_patterns, clippy::single_match, clippy::match_single_binding)]
             match auth_data {
                 AuthData::Basic(ref basic_user, ref basic_password) => {
                     let auth = headers::Authorization::basic(basic_user.as_str(), basic_password.as_str());

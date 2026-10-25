@@ -35,7 +35,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
 
 
 @JsonTypeName("PokemonSpeciesDetail")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2026-08-30T01:56:42.280002256Z[Etc/UTC]", comments = "Generator version: 7.24.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2026-10-25T05:48:57.630723375Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 public class PokemonSpeciesDetail   {
   private Integer id;
   private String name;
@@ -50,20 +50,20 @@ public class PokemonSpeciesDetail   {
   private Boolean hasGenderDifferences;
   private Boolean formsSwitchable;
   private GrowthRateSummary growthRate;
-  private @Valid List<@Valid PokemonDexEntry> pokedexNumbers = new ArrayList<>();
-  private @Valid List<@Valid AbilityDetailPokemonInnerPokemon> eggGroups = new ArrayList<>();
+  private List<@Valid PokemonDexEntry> pokedexNumbers = new ArrayList<>();
+  private List<@Valid AbilityDetailPokemonInnerPokemon> eggGroups = new ArrayList<>();
   private PokemonColorSummary color;
   private PokemonShapeSummary shape;
   private PokemonSpeciesSummary evolvesFromSpecies;
   private EvolutionChainSummary evolutionChain;
   private PokemonHabitatSummary habitat;
   private GenerationSummary generation;
-  private @Valid List<@Valid PokemonFormDetailFormNamesInner> names = new ArrayList<>();
-  private @Valid List<@Valid PokemonSpeciesDetailPalParkEncountersInner> palParkEncounters = new ArrayList<>();
-  private @Valid List<@Valid PokemonSpeciesDescription> formDescriptions = new ArrayList<>();
-  private @Valid List<@Valid PokemonSpeciesFlavorText> flavorTextEntries = new ArrayList<>();
-  private @Valid List<@Valid PokemonSpeciesDetailGeneraInner> genera = new ArrayList<>();
-  private @Valid List<@Valid PokemonSpeciesDetailVarietiesInner> varieties = new ArrayList<>();
+  private List<@Valid PokemonFormDetailFormNamesInner> names = new ArrayList<>();
+  private List<@Valid PokemonSpeciesDetailPalParkEncountersInner> palParkEncounters = new ArrayList<>();
+  private List<@Valid PokemonSpeciesDescription> formDescriptions = new ArrayList<>();
+  private List<@Valid PokemonSpeciesFlavorText> flavorTextEntries = new ArrayList<>();
+  private List<@Valid PokemonSpeciesDetailGeneraInner> genera = new ArrayList<>();
+  private List<@Valid PokemonSpeciesDetailVarietiesInner> varieties = new ArrayList<>();
 
   public PokemonSpeciesDetail() {
   }
@@ -364,7 +364,7 @@ public class PokemonSpeciesDetail   {
   
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(required = true, value = "pokedex_numbers")
-  @Valid public List<@Valid PokemonDexEntry> getPokedexNumbers() {
+  public List<@Valid PokemonDexEntry> getPokedexNumbers() {
     return pokedexNumbers;
   }
 
@@ -399,7 +399,7 @@ public class PokemonSpeciesDetail   {
   
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(required = true, value = "egg_groups")
-  @Valid public List<@Valid AbilityDetailPokemonInnerPokemon> getEggGroups() {
+  public List<@Valid AbilityDetailPokemonInnerPokemon> getEggGroups() {
     return eggGroups;
   }
 
@@ -548,7 +548,7 @@ public class PokemonSpeciesDetail   {
   
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(required = true, value = "names")
-  @Valid public List<@Valid PokemonFormDetailFormNamesInner> getNames() {
+  public List<@Valid PokemonFormDetailFormNamesInner> getNames() {
     return names;
   }
 
@@ -583,7 +583,7 @@ public class PokemonSpeciesDetail   {
   
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(required = true, value = "pal_park_encounters")
-  @Valid public List<@Valid PokemonSpeciesDetailPalParkEncountersInner> getPalParkEncounters() {
+  public List<@Valid PokemonSpeciesDetailPalParkEncountersInner> getPalParkEncounters() {
     return palParkEncounters;
   }
 
@@ -618,7 +618,7 @@ public class PokemonSpeciesDetail   {
   
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(required = true, value = "form_descriptions")
-  @Valid public List<@Valid PokemonSpeciesDescription> getFormDescriptions() {
+  public List<@Valid PokemonSpeciesDescription> getFormDescriptions() {
     return formDescriptions;
   }
 
@@ -653,7 +653,7 @@ public class PokemonSpeciesDetail   {
   
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(required = true, value = "flavor_text_entries")
-  @Valid public List<@Valid PokemonSpeciesFlavorText> getFlavorTextEntries() {
+  public List<@Valid PokemonSpeciesFlavorText> getFlavorTextEntries() {
     return flavorTextEntries;
   }
 
@@ -688,7 +688,7 @@ public class PokemonSpeciesDetail   {
   
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(required = true, value = "genera")
-  @Valid public List<@Valid PokemonSpeciesDetailGeneraInner> getGenera() {
+  public List<@Valid PokemonSpeciesDetailGeneraInner> getGenera() {
     return genera;
   }
 
@@ -723,7 +723,7 @@ public class PokemonSpeciesDetail   {
   
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(required = true, value = "varieties")
-  @Valid public List<@Valid PokemonSpeciesDetailVarietiesInner> getVarieties() {
+  public List<@Valid PokemonSpeciesDetailVarietiesInner> getVarieties() {
     return varieties;
   }
 

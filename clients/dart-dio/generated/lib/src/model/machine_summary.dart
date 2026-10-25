@@ -104,3 +104,4 @@ class _$MachineSummarySerializer implements PrimitiveSerializer<MachineSummary> 
   }
 }
 
+

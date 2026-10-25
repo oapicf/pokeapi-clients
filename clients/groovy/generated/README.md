@@ -21,8 +21,8 @@ This Groovy package, using the [http-builder-ng library](https://http-builder-ng
 
 - API version: 2.7.0
 - Package version: 2.7.0
-- Build date: 2026-08-30T01:55:16.533866642Z[Etc/UTC]
-- Generator version: 7.24.0
+- Build date: 2026-10-25T05:47:15.944982196Z[Etc/UTC]
+- Generator version: 7.26.0
 - Build package: org.openapitools.codegen.languages.GroovyClientCodegen
 For more information, please visit [https://github.com/oapicf/pokeapi-clients](https://github.com/oapicf/pokeapi-clients)
 

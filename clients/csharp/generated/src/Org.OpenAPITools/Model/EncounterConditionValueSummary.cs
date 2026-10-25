@@ -152,16 +152,16 @@ namespace Org.OpenAPITools.Model
             }
 
             if (!name.IsSet)
-                throw new ArgumentException("Property is required for class EncounterConditionValueSummary.", nameof(name));
+                throw new JsonException("Property is required for class EncounterConditionValueSummary: name.");
 
             if (!url.IsSet)
-                throw new ArgumentException("Property is required for class EncounterConditionValueSummary.", nameof(url));
+                throw new JsonException("Property is required for class EncounterConditionValueSummary: url.");
 
             if (name.IsSet && name.Value == null)
-                throw new ArgumentNullException(nameof(name), "Property is not nullable for class EncounterConditionValueSummary.");
+                throw new JsonException("Property is not nullable for class EncounterConditionValueSummary: name.");
 
             if (url.IsSet && url.Value == null)
-                throw new ArgumentNullException(nameof(url), "Property is not nullable for class EncounterConditionValueSummary.");
+                throw new JsonException("Property is not nullable for class EncounterConditionValueSummary: url.");
 
             return new EncounterConditionValueSummary(name.Value!, url.Value!);
         }
@@ -172,7 +172,6 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="encounterConditionValueSummary"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public override void Write(Utf8JsonWriter writer, EncounterConditionValueSummary encounterConditionValueSummary, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteStartObject();
@@ -187,15 +186,8 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="encounterConditionValueSummary"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, EncounterConditionValueSummary encounterConditionValueSummary, JsonSerializerOptions jsonSerializerOptions)
         {
-            if (encounterConditionValueSummary.Name == null)
-                throw new ArgumentNullException(nameof(encounterConditionValueSummary.Name), "Property is required for class EncounterConditionValueSummary.");
-
-            if (encounterConditionValueSummary.Url == null)
-                throw new ArgumentNullException(nameof(encounterConditionValueSummary.Url), "Property is required for class EncounterConditionValueSummary.");
-
             writer.WriteString("name", encounterConditionValueSummary.Name);
 
             writer.WriteString("url", encounterConditionValueSummary.Url);

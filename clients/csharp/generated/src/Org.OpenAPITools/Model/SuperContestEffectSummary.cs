@@ -133,10 +133,10 @@ namespace Org.OpenAPITools.Model
             }
 
             if (!url.IsSet)
-                throw new ArgumentException("Property is required for class SuperContestEffectSummary.", nameof(url));
+                throw new JsonException("Property is required for class SuperContestEffectSummary: url.");
 
             if (url.IsSet && url.Value == null)
-                throw new ArgumentNullException(nameof(url), "Property is not nullable for class SuperContestEffectSummary.");
+                throw new JsonException("Property is not nullable for class SuperContestEffectSummary: url.");
 
             return new SuperContestEffectSummary(url.Value!);
         }
@@ -147,7 +147,6 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="superContestEffectSummary"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public override void Write(Utf8JsonWriter writer, SuperContestEffectSummary superContestEffectSummary, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteStartObject();
@@ -162,12 +161,8 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="superContestEffectSummary"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, SuperContestEffectSummary superContestEffectSummary, JsonSerializerOptions jsonSerializerOptions)
         {
-            if (superContestEffectSummary.Url == null)
-                throw new ArgumentNullException(nameof(superContestEffectSummary.Url), "Property is required for class SuperContestEffectSummary.");
-
             writer.WriteString("url", superContestEffectSummary.Url);
         }
     }

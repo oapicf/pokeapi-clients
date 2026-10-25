@@ -21,7 +21,7 @@ data class ItemDetailBabyTriggerFor(
 
     @field:Valid
     @Schema(required = true, description = "")
-    @param:JsonProperty("url")
+    @param:JsonProperty("url", required = true)
     @get:JsonProperty("url", required = true) val url: java.net.URI
 ) {
 

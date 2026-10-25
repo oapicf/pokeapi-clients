@@ -120,3 +120,4 @@ class _$AbilitySummarySerializer implements PrimitiveSerializer<AbilitySummary> 
   }
 }
 
+

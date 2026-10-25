@@ -43,26 +43,18 @@ import {
 export interface MachineDetail {
     /**
      * 
-     * @type {number}
-     * @memberof MachineDetail
      */
     readonly id: number;
     /**
      * 
-     * @type {ItemSummary}
-     * @memberof MachineDetail
      */
     item: ItemSummary;
     /**
      * 
-     * @type {VersionGroupSummary}
-     * @memberof MachineDetail
      */
     versionGroup: VersionGroupSummary;
     /**
      * 
-     * @type {MoveSummary}
-     * @memberof MachineDetail
      */
     move: MoveSummary;
 }

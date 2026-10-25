@@ -37,7 +37,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
 
 
 @JsonTypeName("MoveDetail")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2026-08-30T01:56:42.280002256Z[Etc/UTC]", comments = "Generator version: 7.24.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2026-10-25T05:48:57.630723375Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 public class MoveDetail   {
   private Integer id;
   private String name;
@@ -50,19 +50,19 @@ public class MoveDetail   {
   private ContestTypeSummary contestType;
   private ContestEffectSummary contestEffect;
   private MoveDamageClassSummary damageClass;
-  private @Valid List<@Valid MoveChangeEffectEntriesInner> effectEntries = new ArrayList<>();
-  private @Valid List<@Valid MoveDetailEffectChangesInner> effectChanges = new ArrayList<>();
+  private List<@Valid MoveChangeEffectEntriesInner> effectEntries = new ArrayList<>();
+  private List<@Valid MoveDetailEffectChangesInner> effectChanges = new ArrayList<>();
   private GenerationSummary generation;
   private MoveMeta meta;
-  private @Valid List<@Valid MoveName> names = new ArrayList<>();
-  private @Valid List<@Valid MoveChange> pastValues = new ArrayList<>();
-  private @Valid List<@Valid MoveDetailStatChangesInner> statChanges = new ArrayList<>();
+  private List<@Valid MoveName> names = new ArrayList<>();
+  private List<@Valid MoveChange> pastValues = new ArrayList<>();
+  private List<@Valid MoveDetailStatChangesInner> statChanges = new ArrayList<>();
   private SuperContestEffectSummary superContestEffect;
   private MoveTargetSummary target;
   private TypeSummary type;
-  private @Valid List<@Valid MoveDetailMachinesInner> machines = new ArrayList<>();
-  private @Valid List<@Valid MoveFlavorText> flavorTextEntries = new ArrayList<>();
-  private @Valid List<@Valid AbilityDetailPokemonInnerPokemon> learnedByPokemon = new ArrayList<>();
+  private List<@Valid MoveDetailMachinesInner> machines = new ArrayList<>();
+  private List<@Valid MoveFlavorText> flavorTextEntries = new ArrayList<>();
+  private List<@Valid AbilityDetailPokemonInnerPokemon> learnedByPokemon = new ArrayList<>();
 
   public MoveDetail() {
   }
@@ -331,7 +331,7 @@ public class MoveDetail   {
   
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(required = true, value = "effect_entries")
-  @Valid public List<@Valid MoveChangeEffectEntriesInner> getEffectEntries() {
+  public List<@Valid MoveChangeEffectEntriesInner> getEffectEntries() {
     return effectEntries;
   }
 
@@ -366,7 +366,7 @@ public class MoveDetail   {
   
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(required = true, value = "effect_changes")
-  @Valid public List<@Valid MoveDetailEffectChangesInner> getEffectChanges() {
+  public List<@Valid MoveDetailEffectChangesInner> getEffectChanges() {
     return effectChanges;
   }
 
@@ -439,7 +439,7 @@ public class MoveDetail   {
   
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(required = true, value = "names")
-  @Valid public List<@Valid MoveName> getNames() {
+  public List<@Valid MoveName> getNames() {
     return names;
   }
 
@@ -474,7 +474,7 @@ public class MoveDetail   {
   
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(required = true, value = "past_values")
-  @Valid public List<@Valid MoveChange> getPastValues() {
+  public List<@Valid MoveChange> getPastValues() {
     return pastValues;
   }
 
@@ -509,7 +509,7 @@ public class MoveDetail   {
   
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(required = true, value = "stat_changes")
-  @Valid public List<@Valid MoveDetailStatChangesInner> getStatChanges() {
+  public List<@Valid MoveDetailStatChangesInner> getStatChanges() {
     return statChanges;
   }
 
@@ -601,7 +601,7 @@ public class MoveDetail   {
   
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(required = true, value = "machines")
-  @Valid public List<@Valid MoveDetailMachinesInner> getMachines() {
+  public List<@Valid MoveDetailMachinesInner> getMachines() {
     return machines;
   }
 
@@ -636,7 +636,7 @@ public class MoveDetail   {
   
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(required = true, value = "flavor_text_entries")
-  @Valid public List<@Valid MoveFlavorText> getFlavorTextEntries() {
+  public List<@Valid MoveFlavorText> getFlavorTextEntries() {
     return flavorTextEntries;
   }
 
@@ -671,7 +671,7 @@ public class MoveDetail   {
   
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(required = true, value = "learned_by_pokemon")
-  @Valid public List<@Valid AbilityDetailPokemonInnerPokemon> getLearnedByPokemon() {
+  public List<@Valid AbilityDetailPokemonInnerPokemon> getLearnedByPokemon() {
     return learnedByPokemon;
   }
 

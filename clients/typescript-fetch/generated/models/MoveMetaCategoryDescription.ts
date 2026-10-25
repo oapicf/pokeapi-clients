@@ -29,14 +29,10 @@ import {
 export interface MoveMetaCategoryDescription {
     /**
      * 
-     * @type {string}
-     * @memberof MoveMetaCategoryDescription
      */
     description?: string;
     /**
      * 
-     * @type {LanguageSummary}
-     * @memberof MoveMetaCategoryDescription
      */
     language: LanguageSummary;
 }

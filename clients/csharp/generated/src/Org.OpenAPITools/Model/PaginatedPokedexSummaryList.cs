@@ -203,16 +203,16 @@ namespace Org.OpenAPITools.Model
             }
 
             if (count.IsSet && count.Value == null)
-                throw new ArgumentNullException(nameof(count), "Property is not nullable for class PaginatedPokedexSummaryList.");
+                throw new JsonException("Property is not nullable for class PaginatedPokedexSummaryList: count.");
 
             if (next.IsSet && next.Value == null)
-                throw new ArgumentNullException(nameof(next), "Property is not nullable for class PaginatedPokedexSummaryList.");
+                throw new JsonException("Property is not nullable for class PaginatedPokedexSummaryList: next.");
 
             if (previous.IsSet && previous.Value == null)
-                throw new ArgumentNullException(nameof(previous), "Property is not nullable for class PaginatedPokedexSummaryList.");
+                throw new JsonException("Property is not nullable for class PaginatedPokedexSummaryList: previous.");
 
             if (results.IsSet && results.Value == null)
-                throw new ArgumentNullException(nameof(results), "Property is not nullable for class PaginatedPokedexSummaryList.");
+                throw new JsonException("Property is not nullable for class PaginatedPokedexSummaryList: results.");
 
             return new PaginatedPokedexSummaryList(count, next, previous, results);
         }
@@ -223,7 +223,6 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="paginatedPokedexSummaryList"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public override void Write(Utf8JsonWriter writer, PaginatedPokedexSummaryList paginatedPokedexSummaryList, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteStartObject();
@@ -238,17 +237,19 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="paginatedPokedexSummaryList"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, PaginatedPokedexSummaryList paginatedPokedexSummaryList, JsonSerializerOptions jsonSerializerOptions)
         {
+            if (paginatedPokedexSummaryList.CountOption.IsSet && paginatedPokedexSummaryList.Count == null)
+                throw new JsonException("Cannot write null property PaginatedPokedexSummaryList.Count to non-nullable JSON property 'count'.");
+
             if (paginatedPokedexSummaryList.NextOption.IsSet && paginatedPokedexSummaryList.Next == null)
-                throw new ArgumentNullException(nameof(paginatedPokedexSummaryList.Next), "Property is required for class PaginatedPokedexSummaryList.");
+                throw new JsonException("Cannot write null property PaginatedPokedexSummaryList.Next to non-nullable JSON property 'next'.");
 
             if (paginatedPokedexSummaryList.PreviousOption.IsSet && paginatedPokedexSummaryList.Previous == null)
-                throw new ArgumentNullException(nameof(paginatedPokedexSummaryList.Previous), "Property is required for class PaginatedPokedexSummaryList.");
+                throw new JsonException("Cannot write null property PaginatedPokedexSummaryList.Previous to non-nullable JSON property 'previous'.");
 
             if (paginatedPokedexSummaryList.ResultsOption.IsSet && paginatedPokedexSummaryList.Results == null)
-                throw new ArgumentNullException(nameof(paginatedPokedexSummaryList.Results), "Property is required for class PaginatedPokedexSummaryList.");
+                throw new JsonException("Cannot write null property PaginatedPokedexSummaryList.Results to non-nullable JSON property 'results'.");
 
             if (paginatedPokedexSummaryList.CountOption.IsSet)
                 writer.WriteNumber("count", paginatedPokedexSummaryList.CountOption.Value!.Value);

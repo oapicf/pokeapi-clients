@@ -43,7 +43,7 @@ class GamesApi(baseUrl: String) {
    * @param offset The initial index from which to return the results.
    * @param `q` > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. 
    */
-  def generationList(username: String, password: String, apiKeyCookie: String)(limit: Option[Int] = None, offset: Option[Int] = None, `q`: Option[String] = None): Request[Either[ResponseException[String], PaginatedGenerationSummaryList]] =
+  def generationList(username: String, password: String, apiKeyCookie: String)(limit: Option[Int] = None, offset: Option[Int] = None, `q`: Option[String] = None): sttp.client4.Request[Either[ResponseException[String], PaginatedGenerationSummaryList]] =
     basicRequest
       .method(Method.GET, uri"$baseUrl/api/v2/generation/?limit=${ limit }&offset=${ offset }&q=${ `q` }")
       .contentType("application/json")
@@ -63,7 +63,7 @@ class GamesApi(baseUrl: String) {
    * 
    * @param id This parameter can be a string or an integer.
    */
-  def generationRetrieve(username: String, password: String, apiKeyCookie: String)(id: String): Request[Either[ResponseException[String], GenerationDetail]] =
+  def generationRetrieve(username: String, password: String, apiKeyCookie: String)(id: String): sttp.client4.Request[Either[ResponseException[String], GenerationDetail]] =
     basicRequest
       .method(Method.GET, uri"$baseUrl/api/v2/generation/${id}/")
       .contentType("application/json")
@@ -85,7 +85,7 @@ class GamesApi(baseUrl: String) {
    * @param offset The initial index from which to return the results.
    * @param `q` > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. 
    */
-  def pokedexList(username: String, password: String, apiKeyCookie: String)(limit: Option[Int] = None, offset: Option[Int] = None, `q`: Option[String] = None): Request[Either[ResponseException[String], PaginatedPokedexSummaryList]] =
+  def pokedexList(username: String, password: String, apiKeyCookie: String)(limit: Option[Int] = None, offset: Option[Int] = None, `q`: Option[String] = None): sttp.client4.Request[Either[ResponseException[String], PaginatedPokedexSummaryList]] =
     basicRequest
       .method(Method.GET, uri"$baseUrl/api/v2/pokedex/?limit=${ limit }&offset=${ offset }&q=${ `q` }")
       .contentType("application/json")
@@ -105,7 +105,7 @@ class GamesApi(baseUrl: String) {
    * 
    * @param id This parameter can be a string or an integer.
    */
-  def pokedexRetrieve(username: String, password: String, apiKeyCookie: String)(id: String): Request[Either[ResponseException[String], PokedexDetail]] =
+  def pokedexRetrieve(username: String, password: String, apiKeyCookie: String)(id: String): sttp.client4.Request[Either[ResponseException[String], PokedexDetail]] =
     basicRequest
       .method(Method.GET, uri"$baseUrl/api/v2/pokedex/${id}/")
       .contentType("application/json")
@@ -127,7 +127,7 @@ class GamesApi(baseUrl: String) {
    * @param offset The initial index from which to return the results.
    * @param `q` > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. 
    */
-  def versionGroupList(username: String, password: String, apiKeyCookie: String)(limit: Option[Int] = None, offset: Option[Int] = None, `q`: Option[String] = None): Request[Either[ResponseException[String], PaginatedVersionGroupSummaryList]] =
+  def versionGroupList(username: String, password: String, apiKeyCookie: String)(limit: Option[Int] = None, offset: Option[Int] = None, `q`: Option[String] = None): sttp.client4.Request[Either[ResponseException[String], PaginatedVersionGroupSummaryList]] =
     basicRequest
       .method(Method.GET, uri"$baseUrl/api/v2/version-group/?limit=${ limit }&offset=${ offset }&q=${ `q` }")
       .contentType("application/json")
@@ -147,7 +147,7 @@ class GamesApi(baseUrl: String) {
    * 
    * @param id This parameter can be a string or an integer.
    */
-  def versionGroupRetrieve(username: String, password: String, apiKeyCookie: String)(id: String): Request[Either[ResponseException[String], VersionGroupDetail]] =
+  def versionGroupRetrieve(username: String, password: String, apiKeyCookie: String)(id: String): sttp.client4.Request[Either[ResponseException[String], VersionGroupDetail]] =
     basicRequest
       .method(Method.GET, uri"$baseUrl/api/v2/version-group/${id}/")
       .contentType("application/json")
@@ -169,7 +169,7 @@ class GamesApi(baseUrl: String) {
    * @param offset The initial index from which to return the results.
    * @param `q` > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. 
    */
-  def versionList(username: String, password: String, apiKeyCookie: String)(limit: Option[Int] = None, offset: Option[Int] = None, `q`: Option[String] = None): Request[Either[ResponseException[String], PaginatedVersionSummaryList]] =
+  def versionList(username: String, password: String, apiKeyCookie: String)(limit: Option[Int] = None, offset: Option[Int] = None, `q`: Option[String] = None): sttp.client4.Request[Either[ResponseException[String], PaginatedVersionSummaryList]] =
     basicRequest
       .method(Method.GET, uri"$baseUrl/api/v2/version/?limit=${ limit }&offset=${ offset }&q=${ `q` }")
       .contentType("application/json")
@@ -189,7 +189,7 @@ class GamesApi(baseUrl: String) {
    * 
    * @param id This parameter can be a string or an integer.
    */
-  def versionRetrieve(username: String, password: String, apiKeyCookie: String)(id: String): Request[Either[ResponseException[String], VersionDetail]] =
+  def versionRetrieve(username: String, password: String, apiKeyCookie: String)(id: String): sttp.client4.Request[Either[ResponseException[String], VersionDetail]] =
     basicRequest
       .method(Method.GET, uri"$baseUrl/api/v2/version/${id}/")
       .contentType("application/json")

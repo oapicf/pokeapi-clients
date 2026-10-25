@@ -29,20 +29,14 @@ import {
 export interface AbilityDetailPokemonInner {
     /**
      * 
-     * @type {boolean}
-     * @memberof AbilityDetailPokemonInner
      */
     isHidden: boolean;
     /**
      * 
-     * @type {number}
-     * @memberof AbilityDetailPokemonInner
      */
     slot: number;
     /**
      * 
-     * @type {AbilityDetailPokemonInnerPokemon}
-     * @memberof AbilityDetailPokemonInner
      */
     pokemon: AbilityDetailPokemonInnerPokemon;
 }

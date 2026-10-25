@@ -120,3 +120,4 @@ class _$PokemonColorSummarySerializer implements PrimitiveSerializer<PokemonColo
   }
 }
 
+

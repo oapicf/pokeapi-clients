@@ -146,16 +146,16 @@ namespace Org.OpenAPITools.Model
             }
 
             if (!gameIndex.IsSet)
-                throw new ArgumentException("Property is required for class PokemonGameIndex.", nameof(gameIndex));
+                throw new JsonException("Property is required for class PokemonGameIndex: game_index.");
 
             if (!varVersion.IsSet)
-                throw new ArgumentException("Property is required for class PokemonGameIndex.", nameof(varVersion));
+                throw new JsonException("Property is required for class PokemonGameIndex: version.");
 
             if (gameIndex.IsSet && gameIndex.Value == null)
-                throw new ArgumentNullException(nameof(gameIndex), "Property is not nullable for class PokemonGameIndex.");
+                throw new JsonException("Property is not nullable for class PokemonGameIndex: game_index.");
 
             if (varVersion.IsSet && varVersion.Value == null)
-                throw new ArgumentNullException(nameof(varVersion), "Property is not nullable for class PokemonGameIndex.");
+                throw new JsonException("Property is not nullable for class PokemonGameIndex: version.");
 
             return new PokemonGameIndex(gameIndex.Value!.Value!, varVersion.Value!);
         }
@@ -166,7 +166,6 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="pokemonGameIndex"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public override void Write(Utf8JsonWriter writer, PokemonGameIndex pokemonGameIndex, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteStartObject();
@@ -181,12 +180,8 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="pokemonGameIndex"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, PokemonGameIndex pokemonGameIndex, JsonSerializerOptions jsonSerializerOptions)
         {
-            if (pokemonGameIndex.VarVersion == null)
-                throw new ArgumentNullException(nameof(pokemonGameIndex.VarVersion), "Property is required for class PokemonGameIndex.");
-
             writer.WriteNumber("game_index", pokemonGameIndex.GameIndex);
 
             writer.WritePropertyName("version");

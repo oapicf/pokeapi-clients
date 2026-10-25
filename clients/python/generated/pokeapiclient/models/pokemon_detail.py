@@ -126,29 +126,25 @@ class PokemonDetail(BaseModel):
         _items = []
         if self.abilities:
             for _item_abilities in self.abilities:
-                if _item_abilities:
-                    _items.append(_item_abilities.to_dict())
+                _items.append(_item_abilities.to_dict() if _item_abilities is not None else None)
             _dict['abilities'] = _items
         # override the default output from pydantic by calling `to_dict()` of each item in past_abilities (list)
         _items = []
         if self.past_abilities:
             for _item_past_abilities in self.past_abilities:
-                if _item_past_abilities:
-                    _items.append(_item_past_abilities.to_dict())
+                _items.append(_item_past_abilities.to_dict() if _item_past_abilities is not None else None)
             _dict['past_abilities'] = _items
         # override the default output from pydantic by calling `to_dict()` of each item in forms (list)
         _items = []
         if self.forms:
             for _item_forms in self.forms:
-                if _item_forms:
-                    _items.append(_item_forms.to_dict())
+                _items.append(_item_forms.to_dict() if _item_forms is not None else None)
             _dict['forms'] = _items
         # override the default output from pydantic by calling `to_dict()` of each item in game_indices (list)
         _items = []
         if self.game_indices:
             for _item_game_indices in self.game_indices:
-                if _item_game_indices:
-                    _items.append(_item_game_indices.to_dict())
+                _items.append(_item_game_indices.to_dict() if _item_game_indices is not None else None)
             _dict['game_indices'] = _items
         # override the default output from pydantic by calling `to_dict()` of held_items
         if self.held_items:
@@ -157,8 +153,7 @@ class PokemonDetail(BaseModel):
         _items = []
         if self.moves:
             for _item_moves in self.moves:
-                if _item_moves:
-                    _items.append(_item_moves.to_dict())
+                _items.append(_item_moves.to_dict() if _item_moves is not None else None)
             _dict['moves'] = _items
         # override the default output from pydantic by calling `to_dict()` of species
         if self.species:
@@ -173,22 +168,19 @@ class PokemonDetail(BaseModel):
         _items = []
         if self.stats:
             for _item_stats in self.stats:
-                if _item_stats:
-                    _items.append(_item_stats.to_dict())
+                _items.append(_item_stats.to_dict() if _item_stats is not None else None)
             _dict['stats'] = _items
         # override the default output from pydantic by calling `to_dict()` of each item in types (list)
         _items = []
         if self.types:
             for _item_types in self.types:
-                if _item_types:
-                    _items.append(_item_types.to_dict())
+                _items.append(_item_types.to_dict() if _item_types is not None else None)
             _dict['types'] = _items
         # override the default output from pydantic by calling `to_dict()` of each item in past_types (list)
         _items = []
         if self.past_types:
             for _item_past_types in self.past_types:
-                if _item_past_types:
-                    _items.append(_item_past_types.to_dict())
+                _items.append(_item_past_types.to_dict() if _item_past_types is not None else None)
             _dict['past_types'] = _items
         # set to None if base_experience (nullable) is None
         # and model_fields_set contains the field

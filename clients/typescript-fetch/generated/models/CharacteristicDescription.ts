@@ -29,14 +29,10 @@ import {
 export interface CharacteristicDescription {
     /**
      * 
-     * @type {string}
-     * @memberof CharacteristicDescription
      */
     description?: string;
     /**
      * 
-     * @type {LanguageSummary}
-     * @memberof CharacteristicDescription
      */
     language: LanguageSummary;
 }

@@ -185,34 +185,34 @@ namespace Org.OpenAPITools.Model
             }
 
             if (!id.IsSet)
-                throw new ArgumentException("Property is required for class CharacteristicDetail.", nameof(id));
+                throw new JsonException("Property is required for class CharacteristicDetail: id.");
 
             if (!geneModulo.IsSet)
-                throw new ArgumentException("Property is required for class CharacteristicDetail.", nameof(geneModulo));
+                throw new JsonException("Property is required for class CharacteristicDetail: gene_modulo.");
 
             if (!possibleValues.IsSet)
-                throw new ArgumentException("Property is required for class CharacteristicDetail.", nameof(possibleValues));
+                throw new JsonException("Property is required for class CharacteristicDetail: possible_values.");
 
             if (!highestStat.IsSet)
-                throw new ArgumentException("Property is required for class CharacteristicDetail.", nameof(highestStat));
+                throw new JsonException("Property is required for class CharacteristicDetail: highest_stat.");
 
             if (!descriptions.IsSet)
-                throw new ArgumentException("Property is required for class CharacteristicDetail.", nameof(descriptions));
+                throw new JsonException("Property is required for class CharacteristicDetail: descriptions.");
 
             if (id.IsSet && id.Value == null)
-                throw new ArgumentNullException(nameof(id), "Property is not nullable for class CharacteristicDetail.");
+                throw new JsonException("Property is not nullable for class CharacteristicDetail: id.");
 
             if (geneModulo.IsSet && geneModulo.Value == null)
-                throw new ArgumentNullException(nameof(geneModulo), "Property is not nullable for class CharacteristicDetail.");
+                throw new JsonException("Property is not nullable for class CharacteristicDetail: gene_modulo.");
 
             if (possibleValues.IsSet && possibleValues.Value == null)
-                throw new ArgumentNullException(nameof(possibleValues), "Property is not nullable for class CharacteristicDetail.");
+                throw new JsonException("Property is not nullable for class CharacteristicDetail: possible_values.");
 
             if (highestStat.IsSet && highestStat.Value == null)
-                throw new ArgumentNullException(nameof(highestStat), "Property is not nullable for class CharacteristicDetail.");
+                throw new JsonException("Property is not nullable for class CharacteristicDetail: highest_stat.");
 
             if (descriptions.IsSet && descriptions.Value == null)
-                throw new ArgumentNullException(nameof(descriptions), "Property is not nullable for class CharacteristicDetail.");
+                throw new JsonException("Property is not nullable for class CharacteristicDetail: descriptions.");
 
             return new CharacteristicDetail(id.Value!.Value!, geneModulo.Value!.Value!, possibleValues.Value!, highestStat.Value!, descriptions.Value!);
         }
@@ -223,7 +223,6 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="characteristicDetail"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public override void Write(Utf8JsonWriter writer, CharacteristicDetail characteristicDetail, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteStartObject();
@@ -238,18 +237,8 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="characteristicDetail"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, CharacteristicDetail characteristicDetail, JsonSerializerOptions jsonSerializerOptions)
         {
-            if (characteristicDetail.PossibleValues == null)
-                throw new ArgumentNullException(nameof(characteristicDetail.PossibleValues), "Property is required for class CharacteristicDetail.");
-
-            if (characteristicDetail.HighestStat == null)
-                throw new ArgumentNullException(nameof(characteristicDetail.HighestStat), "Property is required for class CharacteristicDetail.");
-
-            if (characteristicDetail.Descriptions == null)
-                throw new ArgumentNullException(nameof(characteristicDetail.Descriptions), "Property is required for class CharacteristicDetail.");
-
             writer.WriteNumber("id", characteristicDetail.Id);
 
             writer.WriteNumber("gene_modulo", characteristicDetail.GeneModulo);

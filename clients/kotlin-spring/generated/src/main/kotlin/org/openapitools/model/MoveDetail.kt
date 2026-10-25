@@ -60,101 +60,101 @@ import io.swagger.v3.oas.annotations.media.Schema
 data class MoveDetail(
 
     @Schema(required = true, readOnly = true, description = "")
-    @param:JsonProperty("id")
+    @param:JsonProperty("id", required = true)
     @get:JsonProperty("id", required = true) val id: kotlin.Int,
 
     @get:Size(max=100)
     @Schema(required = true, description = "")
-    @param:JsonProperty("name")
+    @param:JsonProperty("name", required = true)
     @get:JsonProperty("name", required = true) val name: kotlin.String,
 
     @Schema(required = true, description = "")
-    @param:JsonProperty("effect_chance")
+    @param:JsonProperty("effect_chance", required = true)
     @get:JsonProperty("effect_chance", required = true) val effectChance: kotlin.Int,
 
     @field:Valid
     @Schema(required = true, description = "")
-    @param:JsonProperty("contest_combos")
+    @param:JsonProperty("contest_combos", required = true)
     @get:JsonProperty("contest_combos", required = true) val contestCombos: MoveDetailContestCombos,
 
     @field:Valid
     @Schema(required = true, description = "")
-    @param:JsonProperty("contest_type")
+    @param:JsonProperty("contest_type", required = true)
     @get:JsonProperty("contest_type", required = true) val contestType: ContestTypeSummary,
 
     @field:Valid
     @Schema(required = true, description = "")
-    @param:JsonProperty("contest_effect")
+    @param:JsonProperty("contest_effect", required = true)
     @get:JsonProperty("contest_effect", required = true) val contestEffect: ContestEffectSummary,
 
     @field:Valid
     @Schema(required = true, description = "")
-    @param:JsonProperty("damage_class")
+    @param:JsonProperty("damage_class", required = true)
     @get:JsonProperty("damage_class", required = true) val damageClass: MoveDamageClassSummary,
 
     @field:Valid
     @Schema(required = true, readOnly = true, description = "")
-    @param:JsonProperty("effect_entries")
+    @param:JsonProperty("effect_entries", required = true)
     @get:JsonProperty("effect_entries", required = true) val effectEntries: kotlin.collections.List<MoveChangeEffectEntriesInner>,
 
     @field:Valid
     @Schema(required = true, readOnly = true, description = "")
-    @param:JsonProperty("effect_changes")
+    @param:JsonProperty("effect_changes", required = true)
     @get:JsonProperty("effect_changes", required = true) val effectChanges: kotlin.collections.List<MoveDetailEffectChangesInner>,
 
     @field:Valid
     @Schema(required = true, description = "")
-    @param:JsonProperty("generation")
+    @param:JsonProperty("generation", required = true)
     @get:JsonProperty("generation", required = true) val generation: GenerationSummary,
 
     @field:Valid
     @Schema(required = true, readOnly = true, description = "")
-    @param:JsonProperty("meta")
+    @param:JsonProperty("meta", required = true)
     @get:JsonProperty("meta", required = true) val meta: MoveMeta,
 
     @field:Valid
     @Schema(required = true, readOnly = true, description = "")
-    @param:JsonProperty("names")
+    @param:JsonProperty("names", required = true)
     @get:JsonProperty("names", required = true) val names: kotlin.collections.List<MoveName>,
 
     @field:Valid
     @Schema(required = true, readOnly = true, description = "")
-    @param:JsonProperty("past_values")
+    @param:JsonProperty("past_values", required = true)
     @get:JsonProperty("past_values", required = true) val pastValues: kotlin.collections.List<MoveChange>,
 
     @field:Valid
     @Schema(required = true, readOnly = true, description = "")
-    @param:JsonProperty("stat_changes")
+    @param:JsonProperty("stat_changes", required = true)
     @get:JsonProperty("stat_changes", required = true) val statChanges: kotlin.collections.List<MoveDetailStatChangesInner>,
 
     @field:Valid
     @Schema(required = true, description = "")
-    @param:JsonProperty("super_contest_effect")
+    @param:JsonProperty("super_contest_effect", required = true)
     @get:JsonProperty("super_contest_effect", required = true) val superContestEffect: SuperContestEffectSummary,
 
     @field:Valid
     @Schema(required = true, description = "")
-    @param:JsonProperty("target")
+    @param:JsonProperty("target", required = true)
     @get:JsonProperty("target", required = true) val target: MoveTargetSummary,
 
     @field:Valid
     @Schema(required = true, description = "")
-    @param:JsonProperty("type")
+    @param:JsonProperty("type", required = true)
     @get:JsonProperty("type", required = true) val type: TypeSummary,
 
     @field:Valid
     @Schema(required = true, readOnly = true, description = "")
-    @param:JsonProperty("machines")
+    @param:JsonProperty("machines", required = true)
     @get:JsonProperty("machines", required = true) val machines: kotlin.collections.List<MoveDetailMachinesInner>,
 
     @field:Valid
     @Schema(required = true, readOnly = true, description = "")
-    @param:JsonProperty("flavor_text_entries")
+    @param:JsonProperty("flavor_text_entries", required = true)
     @get:JsonProperty("flavor_text_entries", required = true) val flavorTextEntries: kotlin.collections.List<MoveFlavorText>,
 
     @field:Valid
     @Schema(required = true, readOnly = true, description = "")
-    @param:JsonProperty("learned_by_pokemon")
+    @param:JsonProperty("learned_by_pokemon", required = true)
     @get:JsonProperty("learned_by_pokemon", required = true) val learnedByPokemon: kotlin.collections.List<AbilityDetailPokemonInnerPokemon>,
 
     @Schema(description = "")

@@ -22,11 +22,9 @@ public class PalParkAreaDetail  {
   private String name;
 
   @ApiModelProperty(required = true, value = "")
-  @Valid
   private List<@Valid PalParkAreaName> names = new ArrayList<>();
 
   @ApiModelProperty(required = true, value = "")
-  @Valid
   private List<@Valid PalParkAreaDetailPokemonEncountersInner> pokemonEncounters = new ArrayList<>();
  /**
   * Get id

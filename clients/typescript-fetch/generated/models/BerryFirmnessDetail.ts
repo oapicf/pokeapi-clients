@@ -36,26 +36,18 @@ import {
 export interface BerryFirmnessDetail {
     /**
      * 
-     * @type {number}
-     * @memberof BerryFirmnessDetail
      */
     readonly id: number;
     /**
      * 
-     * @type {string}
-     * @memberof BerryFirmnessDetail
      */
     name: string;
     /**
      * 
-     * @type {Array<BerrySummary>}
-     * @memberof BerryFirmnessDetail
      */
     readonly berries: Array<BerrySummary>;
     /**
      * 
-     * @type {Array<BerryFirmnessName>}
-     * @memberof BerryFirmnessDetail
      */
     readonly names: Array<BerryFirmnessName>;
 }

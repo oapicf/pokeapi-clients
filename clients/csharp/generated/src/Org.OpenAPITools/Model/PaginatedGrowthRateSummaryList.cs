@@ -203,16 +203,16 @@ namespace Org.OpenAPITools.Model
             }
 
             if (count.IsSet && count.Value == null)
-                throw new ArgumentNullException(nameof(count), "Property is not nullable for class PaginatedGrowthRateSummaryList.");
+                throw new JsonException("Property is not nullable for class PaginatedGrowthRateSummaryList: count.");
 
             if (next.IsSet && next.Value == null)
-                throw new ArgumentNullException(nameof(next), "Property is not nullable for class PaginatedGrowthRateSummaryList.");
+                throw new JsonException("Property is not nullable for class PaginatedGrowthRateSummaryList: next.");
 
             if (previous.IsSet && previous.Value == null)
-                throw new ArgumentNullException(nameof(previous), "Property is not nullable for class PaginatedGrowthRateSummaryList.");
+                throw new JsonException("Property is not nullable for class PaginatedGrowthRateSummaryList: previous.");
 
             if (results.IsSet && results.Value == null)
-                throw new ArgumentNullException(nameof(results), "Property is not nullable for class PaginatedGrowthRateSummaryList.");
+                throw new JsonException("Property is not nullable for class PaginatedGrowthRateSummaryList: results.");
 
             return new PaginatedGrowthRateSummaryList(count, next, previous, results);
         }
@@ -223,7 +223,6 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="paginatedGrowthRateSummaryList"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public override void Write(Utf8JsonWriter writer, PaginatedGrowthRateSummaryList paginatedGrowthRateSummaryList, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteStartObject();
@@ -238,17 +237,19 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="paginatedGrowthRateSummaryList"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, PaginatedGrowthRateSummaryList paginatedGrowthRateSummaryList, JsonSerializerOptions jsonSerializerOptions)
         {
+            if (paginatedGrowthRateSummaryList.CountOption.IsSet && paginatedGrowthRateSummaryList.Count == null)
+                throw new JsonException("Cannot write null property PaginatedGrowthRateSummaryList.Count to non-nullable JSON property 'count'.");
+
             if (paginatedGrowthRateSummaryList.NextOption.IsSet && paginatedGrowthRateSummaryList.Next == null)
-                throw new ArgumentNullException(nameof(paginatedGrowthRateSummaryList.Next), "Property is required for class PaginatedGrowthRateSummaryList.");
+                throw new JsonException("Cannot write null property PaginatedGrowthRateSummaryList.Next to non-nullable JSON property 'next'.");
 
             if (paginatedGrowthRateSummaryList.PreviousOption.IsSet && paginatedGrowthRateSummaryList.Previous == null)
-                throw new ArgumentNullException(nameof(paginatedGrowthRateSummaryList.Previous), "Property is required for class PaginatedGrowthRateSummaryList.");
+                throw new JsonException("Cannot write null property PaginatedGrowthRateSummaryList.Previous to non-nullable JSON property 'previous'.");
 
             if (paginatedGrowthRateSummaryList.ResultsOption.IsSet && paginatedGrowthRateSummaryList.Results == null)
-                throw new ArgumentNullException(nameof(paginatedGrowthRateSummaryList.Results), "Property is required for class PaginatedGrowthRateSummaryList.");
+                throw new JsonException("Cannot write null property PaginatedGrowthRateSummaryList.Results to non-nullable JSON property 'results'.");
 
             if (paginatedGrowthRateSummaryList.CountOption.IsSet)
                 writer.WriteNumber("count", paginatedGrowthRateSummaryList.CountOption.Value!.Value);

@@ -22,12 +22,12 @@ import io.swagger.v3.oas.annotations.media.Schema
 data class PokemonDexEntry(
 
     @Schema(required = true, description = "")
-    @param:JsonProperty("entry_number")
+    @param:JsonProperty("entry_number", required = true)
     @get:JsonProperty("entry_number", required = true) val entryNumber: kotlin.Int,
 
     @field:Valid
     @Schema(required = true, description = "")
-    @param:JsonProperty("pokedex")
+    @param:JsonProperty("pokedex", required = true)
     @get:JsonProperty("pokedex", required = true) val pokedex: PokedexSummary
 ) {
 

@@ -1,10 +1,7 @@
 package org.openapitools.model
 
 import java.util.Objects
-import com.fasterxml.jackson.annotation.JsonInclude
 import com.fasterxml.jackson.annotation.JsonProperty
-import com.fasterxml.jackson.annotation.JsonSetter
-import com.fasterxml.jackson.annotation.Nulls
 import org.openapitools.model.PokemonDetailTypesInner
 import org.openapitools.model.PokemonFormDetailFormNamesInner
 import org.openapitools.model.PokemonFormDetailSprites
@@ -41,47 +38,47 @@ import io.swagger.v3.oas.annotations.media.Schema
 data class PokemonFormDetail(
 
     @Schema(required = true, readOnly = true, description = "")
-    @param:JsonProperty("id")
+    @param:JsonProperty("id", required = true)
     @get:JsonProperty("id", required = true) val id: kotlin.Int,
 
     @get:Size(max=100)
     @Schema(required = true, description = "")
-    @param:JsonProperty("name")
+    @param:JsonProperty("name", required = true)
     @get:JsonProperty("name", required = true) val name: kotlin.String,
 
     @get:Size(max=30)
     @Schema(required = true, description = "")
-    @param:JsonProperty("form_name")
+    @param:JsonProperty("form_name", required = true)
     @get:JsonProperty("form_name", required = true) val formName: kotlin.String,
 
     @field:Valid
     @Schema(required = true, description = "")
-    @param:JsonProperty("pokemon")
+    @param:JsonProperty("pokemon", required = true)
     @get:JsonProperty("pokemon", required = true) val pokemon: PokemonSummary,
 
     @field:Valid
     @Schema(required = true, description = "")
-    @param:JsonProperty("sprites")
+    @param:JsonProperty("sprites", required = true)
     @get:JsonProperty("sprites", required = true) val sprites: PokemonFormDetailSprites,
 
     @field:Valid
     @Schema(required = true, description = "")
-    @param:JsonProperty("version_group")
+    @param:JsonProperty("version_group", required = true)
     @get:JsonProperty("version_group", required = true) val versionGroup: VersionGroupSummary,
 
     @field:Valid
     @Schema(required = true, readOnly = true, description = "")
-    @param:JsonProperty("form_names")
+    @param:JsonProperty("form_names", required = true)
     @get:JsonProperty("form_names", required = true) val formNames: kotlin.collections.List<PokemonFormDetailFormNamesInner>,
 
     @field:Valid
     @Schema(required = true, readOnly = true, description = "")
-    @param:JsonProperty("names")
+    @param:JsonProperty("names", required = true)
     @get:JsonProperty("names", required = true) val names: kotlin.collections.List<PokemonFormDetailFormNamesInner>,
 
     @field:Valid
     @Schema(required = true, readOnly = true, description = "")
-    @param:JsonProperty("types")
+    @param:JsonProperty("types", required = true)
     @get:JsonProperty("types", required = true) val types: kotlin.collections.List<PokemonDetailTypesInner>,
 
     @Schema(description = "")
@@ -93,20 +90,14 @@ data class PokemonFormDetail(
     @get:JsonProperty("form_order") val formOrder: kotlin.Int? = null,
 
     @Schema(description = "")
-    @field:JsonInclude(JsonInclude.Include.NON_NULL)
-    @field:JsonSetter(nulls = Nulls.SKIP)
     @param:JsonProperty("is_default")
     @get:JsonProperty("is_default") val isDefault: kotlin.Boolean? = null,
 
     @Schema(description = "")
-    @field:JsonInclude(JsonInclude.Include.NON_NULL)
-    @field:JsonSetter(nulls = Nulls.SKIP)
     @param:JsonProperty("is_battle_only")
     @get:JsonProperty("is_battle_only") val isBattleOnly: kotlin.Boolean? = null,
 
     @Schema(description = "")
-    @field:JsonInclude(JsonInclude.Include.NON_NULL)
-    @field:JsonSetter(nulls = Nulls.SKIP)
     @param:JsonProperty("is_mega")
     @get:JsonProperty("is_mega") val isMega: kotlin.Boolean? = null
 ) {

@@ -49,10 +49,10 @@ try {
 ```
 
 ### Parameters
-| **limit** | **kotlin.Int**| Number of results to return per page. | [optional] |
-| **offset** | **kotlin.Int**| The initial index from which to return the results. | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
+| **limit** | **kotlin.Int**| Number of results to return per page. | [optional] |
+| **offset** | **kotlin.Int**| The initial index from which to return the results. | [optional] |
 | **q** | **kotlin.String**| &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property.  | [optional] |
 
 ### Return type
@@ -169,10 +169,10 @@ try {
 ```
 
 ### Parameters
-| **limit** | **kotlin.Int**| Number of results to return per page. | [optional] |
-| **offset** | **kotlin.Int**| The initial index from which to return the results. | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
+| **limit** | **kotlin.Int**| Number of results to return per page. | [optional] |
+| **offset** | **kotlin.Int**| The initial index from which to return the results. | [optional] |
 | **q** | **kotlin.String**| &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property.  | [optional] |
 
 ### Return type
@@ -289,10 +289,10 @@ try {
 ```
 
 ### Parameters
-| **limit** | **kotlin.Int**| Number of results to return per page. | [optional] |
-| **offset** | **kotlin.Int**| The initial index from which to return the results. | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
+| **limit** | **kotlin.Int**| Number of results to return per page. | [optional] |
+| **offset** | **kotlin.Int**| The initial index from which to return the results. | [optional] |
 | **q** | **kotlin.String**| &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property.  | [optional] |
 
 ### Return type
@@ -409,10 +409,10 @@ try {
 ```
 
 ### Parameters
-| **limit** | **kotlin.Int**| Number of results to return per page. | [optional] |
-| **offset** | **kotlin.Int**| The initial index from which to return the results. | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
+| **limit** | **kotlin.Int**| Number of results to return per page. | [optional] |
+| **offset** | **kotlin.Int**| The initial index from which to return the results. | [optional] |
 | **q** | **kotlin.String**| &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property.  | [optional] |
 
 ### Return type
@@ -529,10 +529,10 @@ try {
 ```
 
 ### Parameters
-| **limit** | **kotlin.Int**| Number of results to return per page. | [optional] |
-| **offset** | **kotlin.Int**| The initial index from which to return the results. | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
+| **limit** | **kotlin.Int**| Number of results to return per page. | [optional] |
+| **offset** | **kotlin.Int**| The initial index from which to return the results. | [optional] |
 | **q** | **kotlin.String**| &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property.  | [optional] |
 
 ### Return type
@@ -649,10 +649,10 @@ try {
 ```
 
 ### Parameters
-| **limit** | **kotlin.Int**| Number of results to return per page. | [optional] |
-| **offset** | **kotlin.Int**| The initial index from which to return the results. | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
+| **limit** | **kotlin.Int**| Number of results to return per page. | [optional] |
+| **offset** | **kotlin.Int**| The initial index from which to return the results. | [optional] |
 | **q** | **kotlin.String**| &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property.  | [optional] |
 
 ### Return type

@@ -23,17 +23,15 @@ import jakarta.annotation.Generated;
  * ItemPocketDetail
  */
 
-@Generated(value = "org.openapitools.codegen.languages.JavaCamelServerCodegen", date = "2026-08-30T01:56:15.309401083Z[Etc/UTC]", comments = "Generator version: 7.24.0")
+@Generated(value = "org.openapitools.codegen.languages.JavaCamelServerCodegen", date = "2026-10-25T05:48:25.711080506Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 public class ItemPocketDetail {
 
   private Integer id;
 
   private String name;
 
-  @Valid
   private List<@Valid ItemCategorySummary> categories = new ArrayList<>();
 
-  @Valid
   private List<@Valid ItemPocketName> names = new ArrayList<>();
 
   public ItemPocketDetail() {
@@ -107,7 +105,7 @@ public class ItemPocketDetail {
    * Get categories
    * @return categories
    */
-  @Valid 
+  
   @Schema(name = "categories", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("categories")
   public List<@Valid ItemCategorySummary> getCategories() {
@@ -135,7 +133,7 @@ public class ItemPocketDetail {
    * Get names
    * @return names
    */
-  @Valid 
+  
   @Schema(name = "names", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("names")
   public List<@Valid ItemPocketName> getNames() {

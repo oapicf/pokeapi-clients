@@ -121,3 +121,4 @@ class _$PokedexDetailPokemonEntriesInnerSerializer implements PrimitiveSerialize
   }
 }
 
+

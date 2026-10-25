@@ -25,7 +25,6 @@ public class PaginatedVersionSummaryList  {
   private URI previous;
 
   @ApiModelProperty(value = "")
-  @Valid
   private List<@Valid VersionSummary> results = new ArrayList<>();
  /**
   * Get count

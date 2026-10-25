@@ -167,7 +167,7 @@ function Invoke-GenerationRetrieve {
         if (!$Id) {
             throw "Error! The required parameter `Id` missing when calling generationRetrieve."
         }
-        $LocalVarUri = $LocalVarUri.replace('{id}', [System.Web.HTTPUtility]::UrlEncode($Id))
+        $LocalVarUri = $LocalVarUri.replace('{id}', [System.Uri]::EscapeDataString([string]$Id))
 
         if ($Configuration["Username"] -and $Configuration["Password"]) {
             $LocalVarBytes = [System.Text.Encoding]::UTF8.GetBytes($Configuration["Username"] + ":" + $Configuration["Password"])
@@ -367,7 +367,7 @@ function Invoke-PokedexRetrieve {
         if (!$Id) {
             throw "Error! The required parameter `Id` missing when calling pokedexRetrieve."
         }
-        $LocalVarUri = $LocalVarUri.replace('{id}', [System.Web.HTTPUtility]::UrlEncode($Id))
+        $LocalVarUri = $LocalVarUri.replace('{id}', [System.Uri]::EscapeDataString([string]$Id))
 
         if ($Configuration["Username"] -and $Configuration["Password"]) {
             $LocalVarBytes = [System.Text.Encoding]::UTF8.GetBytes($Configuration["Username"] + ":" + $Configuration["Password"])
@@ -567,7 +567,7 @@ function Invoke-VersionGroupRetrieve {
         if (!$Id) {
             throw "Error! The required parameter `Id` missing when calling versionGroupRetrieve."
         }
-        $LocalVarUri = $LocalVarUri.replace('{id}', [System.Web.HTTPUtility]::UrlEncode($Id))
+        $LocalVarUri = $LocalVarUri.replace('{id}', [System.Uri]::EscapeDataString([string]$Id))
 
         if ($Configuration["Username"] -and $Configuration["Password"]) {
             $LocalVarBytes = [System.Text.Encoding]::UTF8.GetBytes($Configuration["Username"] + ":" + $Configuration["Password"])
@@ -767,7 +767,7 @@ function Invoke-VersionRetrieve {
         if (!$Id) {
             throw "Error! The required parameter `Id` missing when calling versionRetrieve."
         }
-        $LocalVarUri = $LocalVarUri.replace('{id}', [System.Web.HTTPUtility]::UrlEncode($Id))
+        $LocalVarUri = $LocalVarUri.replace('{id}', [System.Uri]::EscapeDataString([string]$Id))
 
         if ($Configuration["Username"] -and $Configuration["Password"]) {
             $LocalVarBytes = [System.Text.Encoding]::UTF8.GetBytes($Configuration["Username"] + ":" + $Configuration["Password"])

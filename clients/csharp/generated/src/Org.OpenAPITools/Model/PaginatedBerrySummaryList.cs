@@ -203,16 +203,16 @@ namespace Org.OpenAPITools.Model
             }
 
             if (count.IsSet && count.Value == null)
-                throw new ArgumentNullException(nameof(count), "Property is not nullable for class PaginatedBerrySummaryList.");
+                throw new JsonException("Property is not nullable for class PaginatedBerrySummaryList: count.");
 
             if (next.IsSet && next.Value == null)
-                throw new ArgumentNullException(nameof(next), "Property is not nullable for class PaginatedBerrySummaryList.");
+                throw new JsonException("Property is not nullable for class PaginatedBerrySummaryList: next.");
 
             if (previous.IsSet && previous.Value == null)
-                throw new ArgumentNullException(nameof(previous), "Property is not nullable for class PaginatedBerrySummaryList.");
+                throw new JsonException("Property is not nullable for class PaginatedBerrySummaryList: previous.");
 
             if (results.IsSet && results.Value == null)
-                throw new ArgumentNullException(nameof(results), "Property is not nullable for class PaginatedBerrySummaryList.");
+                throw new JsonException("Property is not nullable for class PaginatedBerrySummaryList: results.");
 
             return new PaginatedBerrySummaryList(count, next, previous, results);
         }
@@ -223,7 +223,6 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="paginatedBerrySummaryList"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public override void Write(Utf8JsonWriter writer, PaginatedBerrySummaryList paginatedBerrySummaryList, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteStartObject();
@@ -238,17 +237,19 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="paginatedBerrySummaryList"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, PaginatedBerrySummaryList paginatedBerrySummaryList, JsonSerializerOptions jsonSerializerOptions)
         {
+            if (paginatedBerrySummaryList.CountOption.IsSet && paginatedBerrySummaryList.Count == null)
+                throw new JsonException("Cannot write null property PaginatedBerrySummaryList.Count to non-nullable JSON property 'count'.");
+
             if (paginatedBerrySummaryList.NextOption.IsSet && paginatedBerrySummaryList.Next == null)
-                throw new ArgumentNullException(nameof(paginatedBerrySummaryList.Next), "Property is required for class PaginatedBerrySummaryList.");
+                throw new JsonException("Cannot write null property PaginatedBerrySummaryList.Next to non-nullable JSON property 'next'.");
 
             if (paginatedBerrySummaryList.PreviousOption.IsSet && paginatedBerrySummaryList.Previous == null)
-                throw new ArgumentNullException(nameof(paginatedBerrySummaryList.Previous), "Property is required for class PaginatedBerrySummaryList.");
+                throw new JsonException("Cannot write null property PaginatedBerrySummaryList.Previous to non-nullable JSON property 'previous'.");
 
             if (paginatedBerrySummaryList.ResultsOption.IsSet && paginatedBerrySummaryList.Results == null)
-                throw new ArgumentNullException(nameof(paginatedBerrySummaryList.Results), "Property is required for class PaginatedBerrySummaryList.");
+                throw new JsonException("Cannot write null property PaginatedBerrySummaryList.Results to non-nullable JSON property 'results'.");
 
             if (paginatedBerrySummaryList.CountOption.IsSet)
                 writer.WriteNumber("count", paginatedBerrySummaryList.CountOption.Value!.Value);

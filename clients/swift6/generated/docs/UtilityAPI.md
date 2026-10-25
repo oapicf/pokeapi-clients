@@ -10,7 +10,7 @@ Method | HTTP request | Description
 
 # **languageList**
 ```swift
-    open class func languageList(limit: Int? = nil, offset: Int? = nil, q: String? = nil, completion: @escaping (_ data: PaginatedLanguageSummaryList?, _ error: Error?) -> Void)
+    open class func languageList(limit: Int? = nil, offset: Int? = nil, q: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> PaginatedLanguageSummaryList
 ```
 
 List languages
@@ -27,15 +27,11 @@ let offset = 987 // Int | The initial index from which to return the results. (o
 let q = "q_example" // String | > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property.  (optional)
 
 // List languages
-UtilityAPI.languageList(limit: limit, offset: offset, q: q) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await UtilityAPI.languageList(limit: limit, offset: offset, q: q)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -64,7 +60,7 @@ Name | Type | Description  | Notes
 
 # **languageRetrieve**
 ```swift
-    open class func languageRetrieve(id: String, completion: @escaping (_ data: LanguageDetail?, _ error: Error?) -> Void)
+    open class func languageRetrieve(id: String, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> LanguageDetail
 ```
 
 Get language
@@ -79,15 +75,11 @@ import OpenAPIClient
 let id = "id_example" // String | This parameter can be a string or an integer.
 
 // Get language
-UtilityAPI.languageRetrieve(id: id) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await UtilityAPI.languageRetrieve(id: id)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 

@@ -22,10 +22,10 @@ import org.openapitools.jackson.nullable.JsonNullable;
 
 
 @JsonTypeName("PokeathlonStatDetail_affecting_natures")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2026-08-30T01:56:42.280002256Z[Etc/UTC]", comments = "Generator version: 7.24.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2026-10-25T05:48:57.630723375Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 public class PokeathlonStatDetailAffectingNatures   {
-  private @Valid List<@Valid PokeathlonStatDetailAffectingNaturesDecreaseInner> decrease = new ArrayList<>();
-  private @Valid List<@Valid PokeathlonStatDetailAffectingNaturesIncreaseInner> increase = new ArrayList<>();
+  private List<@Valid PokeathlonStatDetailAffectingNaturesDecreaseInner> decrease = new ArrayList<>();
+  private List<@Valid PokeathlonStatDetailAffectingNaturesIncreaseInner> increase = new ArrayList<>();
 
   public PokeathlonStatDetailAffectingNatures() {
   }
@@ -49,7 +49,7 @@ public class PokeathlonStatDetailAffectingNatures   {
   
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(required = true, value = "decrease")
-  @NotNull @Valid public List<@Valid PokeathlonStatDetailAffectingNaturesDecreaseInner> getDecrease() {
+  @NotNull public List<@Valid PokeathlonStatDetailAffectingNaturesDecreaseInner> getDecrease() {
     return decrease;
   }
 
@@ -84,7 +84,7 @@ public class PokeathlonStatDetailAffectingNatures   {
   
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(required = true, value = "increase")
-  @NotNull @Valid public List<@Valid PokeathlonStatDetailAffectingNaturesIncreaseInner> getIncrease() {
+  @NotNull public List<@Valid PokeathlonStatDetailAffectingNaturesIncreaseInner> getIncrease() {
     return increase;
   }
 

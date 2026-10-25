@@ -21,14 +21,10 @@ import { mapValues } from '../runtime';
 export interface MoveDamageClassSummary {
     /**
      * 
-     * @type {string}
-     * @memberof MoveDamageClassSummary
      */
     name: string;
     /**
      * 
-     * @type {string}
-     * @memberof MoveDamageClassSummary
      */
     readonly url: string;
 }

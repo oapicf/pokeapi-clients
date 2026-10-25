@@ -166,3 +166,4 @@ class _$PaginatedMoveBattleStyleSummaryListSerializer implements PrimitiveSerial
   }
 }
 
+

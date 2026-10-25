@@ -137,3 +137,4 @@ class _$AbilityEffectTextSerializer implements PrimitiveSerializer<AbilityEffect
   }
 }
 
+

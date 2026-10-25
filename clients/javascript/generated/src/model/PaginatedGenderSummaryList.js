@@ -17,7 +17,7 @@ import GenderSummary from './GenderSummary';
 /**
  * The PaginatedGenderSummaryList model module.
  * @module model/PaginatedGenderSummaryList
- * @version 2.0.1-pre.0
+ * @version 2.1.1-pre.0
  */
 class PaginatedGenderSummaryList {
     /**

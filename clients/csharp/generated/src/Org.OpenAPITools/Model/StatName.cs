@@ -152,16 +152,16 @@ namespace Org.OpenAPITools.Model
             }
 
             if (!name.IsSet)
-                throw new ArgumentException("Property is required for class StatName.", nameof(name));
+                throw new JsonException("Property is required for class StatName: name.");
 
             if (!language.IsSet)
-                throw new ArgumentException("Property is required for class StatName.", nameof(language));
+                throw new JsonException("Property is required for class StatName: language.");
 
             if (name.IsSet && name.Value == null)
-                throw new ArgumentNullException(nameof(name), "Property is not nullable for class StatName.");
+                throw new JsonException("Property is not nullable for class StatName: name.");
 
             if (language.IsSet && language.Value == null)
-                throw new ArgumentNullException(nameof(language), "Property is not nullable for class StatName.");
+                throw new JsonException("Property is not nullable for class StatName: language.");
 
             return new StatName(name.Value!, language.Value!);
         }
@@ -172,7 +172,6 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="statName"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public override void Write(Utf8JsonWriter writer, StatName statName, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteStartObject();
@@ -187,15 +186,8 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="statName"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, StatName statName, JsonSerializerOptions jsonSerializerOptions)
         {
-            if (statName.Name == null)
-                throw new ArgumentNullException(nameof(statName.Name), "Property is required for class StatName.");
-
-            if (statName.Language == null)
-                throw new ArgumentNullException(nameof(statName.Language), "Property is required for class StatName.");
-
             writer.WriteString("name", statName.Name);
 
             writer.WritePropertyName("language");

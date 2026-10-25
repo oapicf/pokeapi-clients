@@ -152,16 +152,16 @@ namespace Org.OpenAPITools.Model
             }
 
             if (!name.IsSet)
-                throw new ArgumentException("Property is required for class MoveTargetSummary.", nameof(name));
+                throw new JsonException("Property is required for class MoveTargetSummary: name.");
 
             if (!url.IsSet)
-                throw new ArgumentException("Property is required for class MoveTargetSummary.", nameof(url));
+                throw new JsonException("Property is required for class MoveTargetSummary: url.");
 
             if (name.IsSet && name.Value == null)
-                throw new ArgumentNullException(nameof(name), "Property is not nullable for class MoveTargetSummary.");
+                throw new JsonException("Property is not nullable for class MoveTargetSummary: name.");
 
             if (url.IsSet && url.Value == null)
-                throw new ArgumentNullException(nameof(url), "Property is not nullable for class MoveTargetSummary.");
+                throw new JsonException("Property is not nullable for class MoveTargetSummary: url.");
 
             return new MoveTargetSummary(name.Value!, url.Value!);
         }
@@ -172,7 +172,6 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="moveTargetSummary"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public override void Write(Utf8JsonWriter writer, MoveTargetSummary moveTargetSummary, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteStartObject();
@@ -187,15 +186,8 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="moveTargetSummary"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, MoveTargetSummary moveTargetSummary, JsonSerializerOptions jsonSerializerOptions)
         {
-            if (moveTargetSummary.Name == null)
-                throw new ArgumentNullException(nameof(moveTargetSummary.Name), "Property is required for class MoveTargetSummary.");
-
-            if (moveTargetSummary.Url == null)
-                throw new ArgumentNullException(nameof(moveTargetSummary.Url), "Property is required for class MoveTargetSummary.");
-
             writer.WriteString("name", moveTargetSummary.Name);
 
             writer.WriteString("url", moveTargetSummary.Url);

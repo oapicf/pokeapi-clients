@@ -133,10 +133,10 @@ namespace Org.OpenAPITools.Model
             }
 
             if (!url.IsSet)
-                throw new ArgumentException("Property is required for class CharacteristicSummary.", nameof(url));
+                throw new JsonException("Property is required for class CharacteristicSummary: url.");
 
             if (url.IsSet && url.Value == null)
-                throw new ArgumentNullException(nameof(url), "Property is not nullable for class CharacteristicSummary.");
+                throw new JsonException("Property is not nullable for class CharacteristicSummary: url.");
 
             return new CharacteristicSummary(url.Value!);
         }
@@ -147,7 +147,6 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="characteristicSummary"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public override void Write(Utf8JsonWriter writer, CharacteristicSummary characteristicSummary, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteStartObject();
@@ -162,12 +161,8 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="characteristicSummary"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, CharacteristicSummary characteristicSummary, JsonSerializerOptions jsonSerializerOptions)
         {
-            if (characteristicSummary.Url == null)
-                throw new ArgumentNullException(nameof(characteristicSummary.Url), "Property is required for class CharacteristicSummary.");
-
             writer.WriteString("url", characteristicSummary.Url);
         }
     }

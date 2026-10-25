@@ -43,32 +43,22 @@ import {
 export interface PokemonShapeDetail {
     /**
      * 
-     * @type {number}
-     * @memberof PokemonShapeDetail
      */
     readonly id: number;
     /**
      * 
-     * @type {string}
-     * @memberof PokemonShapeDetail
      */
     name: string;
     /**
      * 
-     * @type {Array<PokemonShapeDetailAwesomeNamesInner>}
-     * @memberof PokemonShapeDetail
      */
     readonly awesomeNames: Array<PokemonShapeDetailAwesomeNamesInner>;
     /**
      * 
-     * @type {Array<PokemonShapeDetailNamesInner>}
-     * @memberof PokemonShapeDetail
      */
     readonly names: Array<PokemonShapeDetailNamesInner>;
     /**
      * 
-     * @type {Array<PokemonSpeciesSummary>}
-     * @memberof PokemonShapeDetail
      */
     readonly pokemonSpecies: Array<PokemonSpeciesSummary>;
 }

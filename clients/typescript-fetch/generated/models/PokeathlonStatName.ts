@@ -29,14 +29,10 @@ import {
 export interface PokeathlonStatName {
     /**
      * 
-     * @type {string}
-     * @memberof PokeathlonStatName
      */
     name: string;
     /**
      * 
-     * @type {LanguageSummary}
-     * @memberof PokeathlonStatName
      */
     language: LanguageSummary;
 }

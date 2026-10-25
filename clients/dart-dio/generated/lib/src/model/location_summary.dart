@@ -120,3 +120,4 @@ class _$LocationSummarySerializer implements PrimitiveSerializer<LocationSummary
   }
 }
 
+

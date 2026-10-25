@@ -17,7 +17,7 @@ import AbilityDetailPokemonInnerPokemon from './AbilityDetailPokemonInnerPokemon
 /**
  * The MoveDetailEffectChangesInnerEffectEntriesInner model module.
  * @module model/MoveDetailEffectChangesInnerEffectEntriesInner
- * @version 2.0.1-pre.0
+ * @version 2.1.1-pre.0
  */
 class MoveDetailEffectChangesInnerEffectEntriesInner {
     /**

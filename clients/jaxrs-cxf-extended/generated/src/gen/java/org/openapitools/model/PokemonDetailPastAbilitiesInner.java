@@ -17,7 +17,6 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class PokemonDetailPastAbilitiesInner  {
   
   @ApiModelProperty(required = true, value = "")
-  @Valid
   private List<@Valid PokemonDetailAbilitiesInner> abilities = new ArrayList<>();
 
   @ApiModelProperty(required = true, value = "")

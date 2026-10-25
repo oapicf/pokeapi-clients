@@ -50,38 +50,26 @@ import {
 export interface LocationDetail {
     /**
      * 
-     * @type {number}
-     * @memberof LocationDetail
      */
     readonly id: number;
     /**
      * 
-     * @type {string}
-     * @memberof LocationDetail
      */
     name: string;
     /**
      * 
-     * @type {RegionSummary}
-     * @memberof LocationDetail
      */
     region: RegionSummary;
     /**
      * 
-     * @type {Array<LocationName>}
-     * @memberof LocationDetail
      */
     readonly names: Array<LocationName>;
     /**
      * 
-     * @type {Array<LocationGameIndex>}
-     * @memberof LocationDetail
      */
     readonly gameIndices: Array<LocationGameIndex>;
     /**
      * 
-     * @type {Array<LocationAreaSummary>}
-     * @memberof LocationDetail
      */
     readonly areas: Array<LocationAreaSummary>;
 }

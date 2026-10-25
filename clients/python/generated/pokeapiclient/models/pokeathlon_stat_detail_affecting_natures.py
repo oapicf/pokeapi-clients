@@ -77,15 +77,13 @@ class PokeathlonStatDetailAffectingNatures(BaseModel):
         _items = []
         if self.decrease:
             for _item_decrease in self.decrease:
-                if _item_decrease:
-                    _items.append(_item_decrease.to_dict())
+                _items.append(_item_decrease.to_dict() if _item_decrease is not None else None)
             _dict['decrease'] = _items
         # override the default output from pydantic by calling `to_dict()` of each item in increase (list)
         _items = []
         if self.increase:
             for _item_increase in self.increase:
-                if _item_increase:
-                    _items.append(_item_increase.to_dict())
+                _items.append(_item_increase.to_dict() if _item_increase is not None else None)
             _dict['increase'] = _items
         return _dict
 

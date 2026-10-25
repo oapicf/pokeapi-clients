@@ -122,3 +122,4 @@ class _$TypeDetailPastDamageRelationsInnerSerializer implements PrimitiveSeriali
   }
 }
 
+

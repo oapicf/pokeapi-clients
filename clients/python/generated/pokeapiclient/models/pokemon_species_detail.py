@@ -137,15 +137,13 @@ class PokemonSpeciesDetail(BaseModel):
         _items = []
         if self.pokedex_numbers:
             for _item_pokedex_numbers in self.pokedex_numbers:
-                if _item_pokedex_numbers:
-                    _items.append(_item_pokedex_numbers.to_dict())
+                _items.append(_item_pokedex_numbers.to_dict() if _item_pokedex_numbers is not None else None)
             _dict['pokedex_numbers'] = _items
         # override the default output from pydantic by calling `to_dict()` of each item in egg_groups (list)
         _items = []
         if self.egg_groups:
             for _item_egg_groups in self.egg_groups:
-                if _item_egg_groups:
-                    _items.append(_item_egg_groups.to_dict())
+                _items.append(_item_egg_groups.to_dict() if _item_egg_groups is not None else None)
             _dict['egg_groups'] = _items
         # override the default output from pydantic by calling `to_dict()` of color
         if self.color:
@@ -169,43 +167,37 @@ class PokemonSpeciesDetail(BaseModel):
         _items = []
         if self.names:
             for _item_names in self.names:
-                if _item_names:
-                    _items.append(_item_names.to_dict())
+                _items.append(_item_names.to_dict() if _item_names is not None else None)
             _dict['names'] = _items
         # override the default output from pydantic by calling `to_dict()` of each item in pal_park_encounters (list)
         _items = []
         if self.pal_park_encounters:
             for _item_pal_park_encounters in self.pal_park_encounters:
-                if _item_pal_park_encounters:
-                    _items.append(_item_pal_park_encounters.to_dict())
+                _items.append(_item_pal_park_encounters.to_dict() if _item_pal_park_encounters is not None else None)
             _dict['pal_park_encounters'] = _items
         # override the default output from pydantic by calling `to_dict()` of each item in form_descriptions (list)
         _items = []
         if self.form_descriptions:
             for _item_form_descriptions in self.form_descriptions:
-                if _item_form_descriptions:
-                    _items.append(_item_form_descriptions.to_dict())
+                _items.append(_item_form_descriptions.to_dict() if _item_form_descriptions is not None else None)
             _dict['form_descriptions'] = _items
         # override the default output from pydantic by calling `to_dict()` of each item in flavor_text_entries (list)
         _items = []
         if self.flavor_text_entries:
             for _item_flavor_text_entries in self.flavor_text_entries:
-                if _item_flavor_text_entries:
-                    _items.append(_item_flavor_text_entries.to_dict())
+                _items.append(_item_flavor_text_entries.to_dict() if _item_flavor_text_entries is not None else None)
             _dict['flavor_text_entries'] = _items
         # override the default output from pydantic by calling `to_dict()` of each item in genera (list)
         _items = []
         if self.genera:
             for _item_genera in self.genera:
-                if _item_genera:
-                    _items.append(_item_genera.to_dict())
+                _items.append(_item_genera.to_dict() if _item_genera is not None else None)
             _dict['genera'] = _items
         # override the default output from pydantic by calling `to_dict()` of each item in varieties (list)
         _items = []
         if self.varieties:
             for _item_varieties in self.varieties:
-                if _item_varieties:
-                    _items.append(_item_varieties.to_dict())
+                _items.append(_item_varieties.to_dict() if _item_varieties is not None else None)
             _dict['varieties'] = _items
         # set to None if order (nullable) is None
         # and model_fields_set contains the field

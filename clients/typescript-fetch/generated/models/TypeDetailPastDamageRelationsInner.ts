@@ -36,14 +36,10 @@ import {
 export interface TypeDetailPastDamageRelationsInner {
     /**
      * 
-     * @type {AbilityDetailPokemonInnerPokemon}
-     * @memberof TypeDetailPastDamageRelationsInner
      */
     generation: AbilityDetailPokemonInnerPokemon;
     /**
      * 
-     * @type {TypeDetailPastDamageRelationsInnerDamageRelations}
-     * @memberof TypeDetailPastDamageRelationsInner
      */
     damageRelations: TypeDetailPastDamageRelationsInnerDamageRelations;
 }

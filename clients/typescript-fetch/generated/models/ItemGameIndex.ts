@@ -29,14 +29,10 @@ import {
 export interface ItemGameIndex {
     /**
      * 
-     * @type {number}
-     * @memberof ItemGameIndex
      */
     gameIndex: number;
     /**
      * 
-     * @type {GenerationSummary}
-     * @memberof ItemGameIndex
      */
     generation: GenerationSummary;
 }

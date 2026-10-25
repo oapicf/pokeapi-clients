@@ -146,16 +146,16 @@ namespace Org.OpenAPITools.Model
             }
 
             if (!effectEntries.IsSet)
-                throw new ArgumentException("Property is required for class MoveDetailEffectChangesInner.", nameof(effectEntries));
+                throw new JsonException("Property is required for class MoveDetailEffectChangesInner: effect_entries.");
 
             if (!versionGroup.IsSet)
-                throw new ArgumentException("Property is required for class MoveDetailEffectChangesInner.", nameof(versionGroup));
+                throw new JsonException("Property is required for class MoveDetailEffectChangesInner: version_group.");
 
             if (effectEntries.IsSet && effectEntries.Value == null)
-                throw new ArgumentNullException(nameof(effectEntries), "Property is not nullable for class MoveDetailEffectChangesInner.");
+                throw new JsonException("Property is not nullable for class MoveDetailEffectChangesInner: effect_entries.");
 
             if (versionGroup.IsSet && versionGroup.Value == null)
-                throw new ArgumentNullException(nameof(versionGroup), "Property is not nullable for class MoveDetailEffectChangesInner.");
+                throw new JsonException("Property is not nullable for class MoveDetailEffectChangesInner: version_group.");
 
             return new MoveDetailEffectChangesInner(effectEntries.Value!, versionGroup.Value!);
         }
@@ -166,7 +166,6 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="moveDetailEffectChangesInner"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public override void Write(Utf8JsonWriter writer, MoveDetailEffectChangesInner moveDetailEffectChangesInner, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteStartObject();
@@ -181,15 +180,8 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="moveDetailEffectChangesInner"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, MoveDetailEffectChangesInner moveDetailEffectChangesInner, JsonSerializerOptions jsonSerializerOptions)
         {
-            if (moveDetailEffectChangesInner.EffectEntries == null)
-                throw new ArgumentNullException(nameof(moveDetailEffectChangesInner.EffectEntries), "Property is required for class MoveDetailEffectChangesInner.");
-
-            if (moveDetailEffectChangesInner.VersionGroup == null)
-                throw new ArgumentNullException(nameof(moveDetailEffectChangesInner.VersionGroup), "Property is required for class MoveDetailEffectChangesInner.");
-
             writer.WritePropertyName("effect_entries");
             JsonSerializer.Serialize(writer, moveDetailEffectChangesInner.EffectEntries, jsonSerializerOptions);
             writer.WritePropertyName("version_group");

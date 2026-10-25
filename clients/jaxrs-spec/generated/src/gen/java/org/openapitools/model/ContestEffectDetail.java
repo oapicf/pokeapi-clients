@@ -21,13 +21,13 @@ import org.openapitools.jackson.nullable.JsonNullable;
 
 
 @JsonTypeName("ContestEffectDetail")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2026-08-30T01:56:42.280002256Z[Etc/UTC]", comments = "Generator version: 7.24.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2026-10-25T05:48:57.630723375Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 public class ContestEffectDetail   {
   private Integer id;
   private Integer appeal;
   private Integer jam;
-  private @Valid List<@Valid ContestEffectEffectText> effectEntries = new ArrayList<>();
-  private @Valid List<@Valid ContestEffectFlavorText> flavorTextEntries = new ArrayList<>();
+  private List<@Valid ContestEffectEffectText> effectEntries = new ArrayList<>();
+  private List<@Valid ContestEffectFlavorText> flavorTextEntries = new ArrayList<>();
 
   public ContestEffectDetail() {
   }
@@ -114,7 +114,7 @@ public class ContestEffectDetail   {
   
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(required = true, value = "effect_entries")
-  @Valid public List<@Valid ContestEffectEffectText> getEffectEntries() {
+  public List<@Valid ContestEffectEffectText> getEffectEntries() {
     return effectEntries;
   }
 
@@ -149,7 +149,7 @@ public class ContestEffectDetail   {
   
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(required = true, value = "flavor_text_entries")
-  @Valid public List<@Valid ContestEffectFlavorText> getFlavorTextEntries() {
+  public List<@Valid ContestEffectFlavorText> getFlavorTextEntries() {
     return flavorTextEntries;
   }
 

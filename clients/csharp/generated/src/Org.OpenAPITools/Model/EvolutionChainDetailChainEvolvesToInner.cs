@@ -159,22 +159,22 @@ namespace Org.OpenAPITools.Model
             }
 
             if (!evolutionDetails.IsSet)
-                throw new ArgumentException("Property is required for class EvolutionChainDetailChainEvolvesToInner.", nameof(evolutionDetails));
+                throw new JsonException("Property is required for class EvolutionChainDetailChainEvolvesToInner: evolution_details.");
 
             if (!isBaby.IsSet)
-                throw new ArgumentException("Property is required for class EvolutionChainDetailChainEvolvesToInner.", nameof(isBaby));
+                throw new JsonException("Property is required for class EvolutionChainDetailChainEvolvesToInner: is_baby.");
 
             if (!species.IsSet)
-                throw new ArgumentException("Property is required for class EvolutionChainDetailChainEvolvesToInner.", nameof(species));
+                throw new JsonException("Property is required for class EvolutionChainDetailChainEvolvesToInner: species.");
 
             if (evolutionDetails.IsSet && evolutionDetails.Value == null)
-                throw new ArgumentNullException(nameof(evolutionDetails), "Property is not nullable for class EvolutionChainDetailChainEvolvesToInner.");
+                throw new JsonException("Property is not nullable for class EvolutionChainDetailChainEvolvesToInner: evolution_details.");
 
             if (isBaby.IsSet && isBaby.Value == null)
-                throw new ArgumentNullException(nameof(isBaby), "Property is not nullable for class EvolutionChainDetailChainEvolvesToInner.");
+                throw new JsonException("Property is not nullable for class EvolutionChainDetailChainEvolvesToInner: is_baby.");
 
             if (species.IsSet && species.Value == null)
-                throw new ArgumentNullException(nameof(species), "Property is not nullable for class EvolutionChainDetailChainEvolvesToInner.");
+                throw new JsonException("Property is not nullable for class EvolutionChainDetailChainEvolvesToInner: species.");
 
             return new EvolutionChainDetailChainEvolvesToInner(evolutionDetails.Value!, isBaby.Value!.Value!, species.Value!);
         }
@@ -185,7 +185,6 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="evolutionChainDetailChainEvolvesToInner"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public override void Write(Utf8JsonWriter writer, EvolutionChainDetailChainEvolvesToInner evolutionChainDetailChainEvolvesToInner, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteStartObject();
@@ -200,15 +199,8 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="evolutionChainDetailChainEvolvesToInner"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, EvolutionChainDetailChainEvolvesToInner evolutionChainDetailChainEvolvesToInner, JsonSerializerOptions jsonSerializerOptions)
         {
-            if (evolutionChainDetailChainEvolvesToInner.EvolutionDetails == null)
-                throw new ArgumentNullException(nameof(evolutionChainDetailChainEvolvesToInner.EvolutionDetails), "Property is required for class EvolutionChainDetailChainEvolvesToInner.");
-
-            if (evolutionChainDetailChainEvolvesToInner.Species == null)
-                throw new ArgumentNullException(nameof(evolutionChainDetailChainEvolvesToInner.Species), "Property is required for class EvolutionChainDetailChainEvolvesToInner.");
-
             writer.WritePropertyName("evolution_details");
             JsonSerializer.Serialize(writer, evolutionChainDetailChainEvolvesToInner.EvolutionDetails, jsonSerializerOptions);
             writer.WriteBoolean("is_baby", evolutionChainDetailChainEvolvesToInner.IsBaby);

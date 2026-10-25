@@ -54,7 +54,7 @@ import io.swagger.v3.oas.annotations.media.Schema;
   TypeDetail.JSON_PROPERTY_SPRITES
 })
 @JsonTypeName("TypeDetail")
-@Generated(value="org.openapitools.codegen.languages.JavaMicronautServerCodegen", date="2026-08-30T01:55:54.631003115Z[Etc/UTC]", comments = "Generator version: 7.24.0")
+@Generated(value="org.openapitools.codegen.languages.JavaMicronautServerCodegen", date="2026-10-25T05:48:01.550797598Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 @Introspected
 public class TypeDetail {
     public static final String JSON_PROPERTY_ID = "id";

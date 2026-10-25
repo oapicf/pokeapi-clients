@@ -146,16 +146,16 @@ namespace Org.OpenAPITools.Model
             }
 
             if (!encounterMethod.IsSet)
-                throw new ArgumentException("Property is required for class LocationAreaDetailEncounterMethodRatesInner.", nameof(encounterMethod));
+                throw new JsonException("Property is required for class LocationAreaDetailEncounterMethodRatesInner: encounter_method.");
 
             if (!versionDetails.IsSet)
-                throw new ArgumentException("Property is required for class LocationAreaDetailEncounterMethodRatesInner.", nameof(versionDetails));
+                throw new JsonException("Property is required for class LocationAreaDetailEncounterMethodRatesInner: version_details.");
 
             if (encounterMethod.IsSet && encounterMethod.Value == null)
-                throw new ArgumentNullException(nameof(encounterMethod), "Property is not nullable for class LocationAreaDetailEncounterMethodRatesInner.");
+                throw new JsonException("Property is not nullable for class LocationAreaDetailEncounterMethodRatesInner: encounter_method.");
 
             if (versionDetails.IsSet && versionDetails.Value == null)
-                throw new ArgumentNullException(nameof(versionDetails), "Property is not nullable for class LocationAreaDetailEncounterMethodRatesInner.");
+                throw new JsonException("Property is not nullable for class LocationAreaDetailEncounterMethodRatesInner: version_details.");
 
             return new LocationAreaDetailEncounterMethodRatesInner(encounterMethod.Value!, versionDetails.Value!);
         }
@@ -166,7 +166,6 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="locationAreaDetailEncounterMethodRatesInner"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public override void Write(Utf8JsonWriter writer, LocationAreaDetailEncounterMethodRatesInner locationAreaDetailEncounterMethodRatesInner, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteStartObject();
@@ -181,15 +180,8 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="locationAreaDetailEncounterMethodRatesInner"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, LocationAreaDetailEncounterMethodRatesInner locationAreaDetailEncounterMethodRatesInner, JsonSerializerOptions jsonSerializerOptions)
         {
-            if (locationAreaDetailEncounterMethodRatesInner.EncounterMethod == null)
-                throw new ArgumentNullException(nameof(locationAreaDetailEncounterMethodRatesInner.EncounterMethod), "Property is required for class LocationAreaDetailEncounterMethodRatesInner.");
-
-            if (locationAreaDetailEncounterMethodRatesInner.VersionDetails == null)
-                throw new ArgumentNullException(nameof(locationAreaDetailEncounterMethodRatesInner.VersionDetails), "Property is required for class LocationAreaDetailEncounterMethodRatesInner.");
-
             writer.WritePropertyName("encounter_method");
             JsonSerializer.Serialize(writer, locationAreaDetailEncounterMethodRatesInner.EncounterMethod, jsonSerializerOptions);
             writer.WritePropertyName("version_details");

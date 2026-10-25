@@ -17,11 +17,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class PokeathlonStatDetailAffectingNatures  {
   
   @ApiModelProperty(required = true, value = "")
-  @Valid
   private List<@Valid PokeathlonStatDetailAffectingNaturesDecreaseInner> decrease = new ArrayList<>();
 
   @ApiModelProperty(required = true, value = "")
-  @Valid
   private List<@Valid PokeathlonStatDetailAffectingNaturesIncreaseInner> increase = new ArrayList<>();
  /**
   * Get decrease

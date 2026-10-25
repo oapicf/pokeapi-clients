@@ -547,121 +547,121 @@ namespace Org.OpenAPITools.Model
             }
 
             if (!id.IsSet)
-                throw new ArgumentException("Property is required for class PokemonSpeciesDetail.", nameof(id));
+                throw new JsonException("Property is required for class PokemonSpeciesDetail: id.");
 
             if (!name.IsSet)
-                throw new ArgumentException("Property is required for class PokemonSpeciesDetail.", nameof(name));
+                throw new JsonException("Property is required for class PokemonSpeciesDetail: name.");
 
             if (!growthRate.IsSet)
-                throw new ArgumentException("Property is required for class PokemonSpeciesDetail.", nameof(growthRate));
+                throw new JsonException("Property is required for class PokemonSpeciesDetail: growth_rate.");
 
             if (!pokedexNumbers.IsSet)
-                throw new ArgumentException("Property is required for class PokemonSpeciesDetail.", nameof(pokedexNumbers));
+                throw new JsonException("Property is required for class PokemonSpeciesDetail: pokedex_numbers.");
 
             if (!eggGroups.IsSet)
-                throw new ArgumentException("Property is required for class PokemonSpeciesDetail.", nameof(eggGroups));
+                throw new JsonException("Property is required for class PokemonSpeciesDetail: egg_groups.");
 
             if (!color.IsSet)
-                throw new ArgumentException("Property is required for class PokemonSpeciesDetail.", nameof(color));
+                throw new JsonException("Property is required for class PokemonSpeciesDetail: color.");
 
             if (!shape.IsSet)
-                throw new ArgumentException("Property is required for class PokemonSpeciesDetail.", nameof(shape));
+                throw new JsonException("Property is required for class PokemonSpeciesDetail: shape.");
 
             if (!evolvesFromSpecies.IsSet)
-                throw new ArgumentException("Property is required for class PokemonSpeciesDetail.", nameof(evolvesFromSpecies));
+                throw new JsonException("Property is required for class PokemonSpeciesDetail: evolves_from_species.");
 
             if (!evolutionChain.IsSet)
-                throw new ArgumentException("Property is required for class PokemonSpeciesDetail.", nameof(evolutionChain));
+                throw new JsonException("Property is required for class PokemonSpeciesDetail: evolution_chain.");
 
             if (!habitat.IsSet)
-                throw new ArgumentException("Property is required for class PokemonSpeciesDetail.", nameof(habitat));
+                throw new JsonException("Property is required for class PokemonSpeciesDetail: habitat.");
 
             if (!generation.IsSet)
-                throw new ArgumentException("Property is required for class PokemonSpeciesDetail.", nameof(generation));
+                throw new JsonException("Property is required for class PokemonSpeciesDetail: generation.");
 
             if (!names.IsSet)
-                throw new ArgumentException("Property is required for class PokemonSpeciesDetail.", nameof(names));
+                throw new JsonException("Property is required for class PokemonSpeciesDetail: names.");
 
             if (!palParkEncounters.IsSet)
-                throw new ArgumentException("Property is required for class PokemonSpeciesDetail.", nameof(palParkEncounters));
+                throw new JsonException("Property is required for class PokemonSpeciesDetail: pal_park_encounters.");
 
             if (!formDescriptions.IsSet)
-                throw new ArgumentException("Property is required for class PokemonSpeciesDetail.", nameof(formDescriptions));
+                throw new JsonException("Property is required for class PokemonSpeciesDetail: form_descriptions.");
 
             if (!flavorTextEntries.IsSet)
-                throw new ArgumentException("Property is required for class PokemonSpeciesDetail.", nameof(flavorTextEntries));
+                throw new JsonException("Property is required for class PokemonSpeciesDetail: flavor_text_entries.");
 
             if (!genera.IsSet)
-                throw new ArgumentException("Property is required for class PokemonSpeciesDetail.", nameof(genera));
+                throw new JsonException("Property is required for class PokemonSpeciesDetail: genera.");
 
             if (!varieties.IsSet)
-                throw new ArgumentException("Property is required for class PokemonSpeciesDetail.", nameof(varieties));
+                throw new JsonException("Property is required for class PokemonSpeciesDetail: varieties.");
 
             if (id.IsSet && id.Value == null)
-                throw new ArgumentNullException(nameof(id), "Property is not nullable for class PokemonSpeciesDetail.");
+                throw new JsonException("Property is not nullable for class PokemonSpeciesDetail: id.");
 
             if (name.IsSet && name.Value == null)
-                throw new ArgumentNullException(nameof(name), "Property is not nullable for class PokemonSpeciesDetail.");
+                throw new JsonException("Property is not nullable for class PokemonSpeciesDetail: name.");
 
             if (growthRate.IsSet && growthRate.Value == null)
-                throw new ArgumentNullException(nameof(growthRate), "Property is not nullable for class PokemonSpeciesDetail.");
+                throw new JsonException("Property is not nullable for class PokemonSpeciesDetail: growth_rate.");
 
             if (pokedexNumbers.IsSet && pokedexNumbers.Value == null)
-                throw new ArgumentNullException(nameof(pokedexNumbers), "Property is not nullable for class PokemonSpeciesDetail.");
+                throw new JsonException("Property is not nullable for class PokemonSpeciesDetail: pokedex_numbers.");
 
             if (eggGroups.IsSet && eggGroups.Value == null)
-                throw new ArgumentNullException(nameof(eggGroups), "Property is not nullable for class PokemonSpeciesDetail.");
+                throw new JsonException("Property is not nullable for class PokemonSpeciesDetail: egg_groups.");
 
             if (color.IsSet && color.Value == null)
-                throw new ArgumentNullException(nameof(color), "Property is not nullable for class PokemonSpeciesDetail.");
+                throw new JsonException("Property is not nullable for class PokemonSpeciesDetail: color.");
 
             if (shape.IsSet && shape.Value == null)
-                throw new ArgumentNullException(nameof(shape), "Property is not nullable for class PokemonSpeciesDetail.");
+                throw new JsonException("Property is not nullable for class PokemonSpeciesDetail: shape.");
 
             if (evolvesFromSpecies.IsSet && evolvesFromSpecies.Value == null)
-                throw new ArgumentNullException(nameof(evolvesFromSpecies), "Property is not nullable for class PokemonSpeciesDetail.");
+                throw new JsonException("Property is not nullable for class PokemonSpeciesDetail: evolves_from_species.");
 
             if (evolutionChain.IsSet && evolutionChain.Value == null)
-                throw new ArgumentNullException(nameof(evolutionChain), "Property is not nullable for class PokemonSpeciesDetail.");
+                throw new JsonException("Property is not nullable for class PokemonSpeciesDetail: evolution_chain.");
 
             if (habitat.IsSet && habitat.Value == null)
-                throw new ArgumentNullException(nameof(habitat), "Property is not nullable for class PokemonSpeciesDetail.");
+                throw new JsonException("Property is not nullable for class PokemonSpeciesDetail: habitat.");
 
             if (generation.IsSet && generation.Value == null)
-                throw new ArgumentNullException(nameof(generation), "Property is not nullable for class PokemonSpeciesDetail.");
+                throw new JsonException("Property is not nullable for class PokemonSpeciesDetail: generation.");
 
             if (names.IsSet && names.Value == null)
-                throw new ArgumentNullException(nameof(names), "Property is not nullable for class PokemonSpeciesDetail.");
+                throw new JsonException("Property is not nullable for class PokemonSpeciesDetail: names.");
 
             if (palParkEncounters.IsSet && palParkEncounters.Value == null)
-                throw new ArgumentNullException(nameof(palParkEncounters), "Property is not nullable for class PokemonSpeciesDetail.");
+                throw new JsonException("Property is not nullable for class PokemonSpeciesDetail: pal_park_encounters.");
 
             if (formDescriptions.IsSet && formDescriptions.Value == null)
-                throw new ArgumentNullException(nameof(formDescriptions), "Property is not nullable for class PokemonSpeciesDetail.");
+                throw new JsonException("Property is not nullable for class PokemonSpeciesDetail: form_descriptions.");
 
             if (flavorTextEntries.IsSet && flavorTextEntries.Value == null)
-                throw new ArgumentNullException(nameof(flavorTextEntries), "Property is not nullable for class PokemonSpeciesDetail.");
+                throw new JsonException("Property is not nullable for class PokemonSpeciesDetail: flavor_text_entries.");
 
             if (genera.IsSet && genera.Value == null)
-                throw new ArgumentNullException(nameof(genera), "Property is not nullable for class PokemonSpeciesDetail.");
+                throw new JsonException("Property is not nullable for class PokemonSpeciesDetail: genera.");
 
             if (varieties.IsSet && varieties.Value == null)
-                throw new ArgumentNullException(nameof(varieties), "Property is not nullable for class PokemonSpeciesDetail.");
+                throw new JsonException("Property is not nullable for class PokemonSpeciesDetail: varieties.");
 
             if (isBaby.IsSet && isBaby.Value == null)
-                throw new ArgumentNullException(nameof(isBaby), "Property is not nullable for class PokemonSpeciesDetail.");
+                throw new JsonException("Property is not nullable for class PokemonSpeciesDetail: is_baby.");
 
             if (isLegendary.IsSet && isLegendary.Value == null)
-                throw new ArgumentNullException(nameof(isLegendary), "Property is not nullable for class PokemonSpeciesDetail.");
+                throw new JsonException("Property is not nullable for class PokemonSpeciesDetail: is_legendary.");
 
             if (isMythical.IsSet && isMythical.Value == null)
-                throw new ArgumentNullException(nameof(isMythical), "Property is not nullable for class PokemonSpeciesDetail.");
+                throw new JsonException("Property is not nullable for class PokemonSpeciesDetail: is_mythical.");
 
             if (hasGenderDifferences.IsSet && hasGenderDifferences.Value == null)
-                throw new ArgumentNullException(nameof(hasGenderDifferences), "Property is not nullable for class PokemonSpeciesDetail.");
+                throw new JsonException("Property is not nullable for class PokemonSpeciesDetail: has_gender_differences.");
 
             if (formsSwitchable.IsSet && formsSwitchable.Value == null)
-                throw new ArgumentNullException(nameof(formsSwitchable), "Property is not nullable for class PokemonSpeciesDetail.");
+                throw new JsonException("Property is not nullable for class PokemonSpeciesDetail: forms_switchable.");
 
             return new PokemonSpeciesDetail(id.Value!.Value!, name.Value!, growthRate.Value!, pokedexNumbers.Value!, eggGroups.Value!, color.Value!, shape.Value!, evolvesFromSpecies.Value!, evolutionChain.Value!, habitat.Value!, generation.Value!, names.Value!, palParkEncounters.Value!, formDescriptions.Value!, flavorTextEntries.Value!, genera.Value!, varieties.Value!, order, genderRate, captureRate, baseHappiness, isBaby, isLegendary, isMythical, hatchCounter, hasGenderDifferences, formsSwitchable);
         }
@@ -672,7 +672,6 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="pokemonSpeciesDetail"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public override void Write(Utf8JsonWriter writer, PokemonSpeciesDetail pokemonSpeciesDetail, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteStartObject();
@@ -687,56 +686,22 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="pokemonSpeciesDetail"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, PokemonSpeciesDetail pokemonSpeciesDetail, JsonSerializerOptions jsonSerializerOptions)
         {
-            if (pokemonSpeciesDetail.Name == null)
-                throw new ArgumentNullException(nameof(pokemonSpeciesDetail.Name), "Property is required for class PokemonSpeciesDetail.");
+            if (pokemonSpeciesDetail.IsBabyOption.IsSet && pokemonSpeciesDetail.IsBaby == null)
+                throw new JsonException("Cannot write null property PokemonSpeciesDetail.IsBaby to non-nullable JSON property 'is_baby'.");
 
-            if (pokemonSpeciesDetail.GrowthRate == null)
-                throw new ArgumentNullException(nameof(pokemonSpeciesDetail.GrowthRate), "Property is required for class PokemonSpeciesDetail.");
+            if (pokemonSpeciesDetail.IsLegendaryOption.IsSet && pokemonSpeciesDetail.IsLegendary == null)
+                throw new JsonException("Cannot write null property PokemonSpeciesDetail.IsLegendary to non-nullable JSON property 'is_legendary'.");
 
-            if (pokemonSpeciesDetail.PokedexNumbers == null)
-                throw new ArgumentNullException(nameof(pokemonSpeciesDetail.PokedexNumbers), "Property is required for class PokemonSpeciesDetail.");
+            if (pokemonSpeciesDetail.IsMythicalOption.IsSet && pokemonSpeciesDetail.IsMythical == null)
+                throw new JsonException("Cannot write null property PokemonSpeciesDetail.IsMythical to non-nullable JSON property 'is_mythical'.");
 
-            if (pokemonSpeciesDetail.EggGroups == null)
-                throw new ArgumentNullException(nameof(pokemonSpeciesDetail.EggGroups), "Property is required for class PokemonSpeciesDetail.");
+            if (pokemonSpeciesDetail.HasGenderDifferencesOption.IsSet && pokemonSpeciesDetail.HasGenderDifferences == null)
+                throw new JsonException("Cannot write null property PokemonSpeciesDetail.HasGenderDifferences to non-nullable JSON property 'has_gender_differences'.");
 
-            if (pokemonSpeciesDetail.Color == null)
-                throw new ArgumentNullException(nameof(pokemonSpeciesDetail.Color), "Property is required for class PokemonSpeciesDetail.");
-
-            if (pokemonSpeciesDetail.Shape == null)
-                throw new ArgumentNullException(nameof(pokemonSpeciesDetail.Shape), "Property is required for class PokemonSpeciesDetail.");
-
-            if (pokemonSpeciesDetail.EvolvesFromSpecies == null)
-                throw new ArgumentNullException(nameof(pokemonSpeciesDetail.EvolvesFromSpecies), "Property is required for class PokemonSpeciesDetail.");
-
-            if (pokemonSpeciesDetail.EvolutionChain == null)
-                throw new ArgumentNullException(nameof(pokemonSpeciesDetail.EvolutionChain), "Property is required for class PokemonSpeciesDetail.");
-
-            if (pokemonSpeciesDetail.Habitat == null)
-                throw new ArgumentNullException(nameof(pokemonSpeciesDetail.Habitat), "Property is required for class PokemonSpeciesDetail.");
-
-            if (pokemonSpeciesDetail.Generation == null)
-                throw new ArgumentNullException(nameof(pokemonSpeciesDetail.Generation), "Property is required for class PokemonSpeciesDetail.");
-
-            if (pokemonSpeciesDetail.Names == null)
-                throw new ArgumentNullException(nameof(pokemonSpeciesDetail.Names), "Property is required for class PokemonSpeciesDetail.");
-
-            if (pokemonSpeciesDetail.PalParkEncounters == null)
-                throw new ArgumentNullException(nameof(pokemonSpeciesDetail.PalParkEncounters), "Property is required for class PokemonSpeciesDetail.");
-
-            if (pokemonSpeciesDetail.FormDescriptions == null)
-                throw new ArgumentNullException(nameof(pokemonSpeciesDetail.FormDescriptions), "Property is required for class PokemonSpeciesDetail.");
-
-            if (pokemonSpeciesDetail.FlavorTextEntries == null)
-                throw new ArgumentNullException(nameof(pokemonSpeciesDetail.FlavorTextEntries), "Property is required for class PokemonSpeciesDetail.");
-
-            if (pokemonSpeciesDetail.Genera == null)
-                throw new ArgumentNullException(nameof(pokemonSpeciesDetail.Genera), "Property is required for class PokemonSpeciesDetail.");
-
-            if (pokemonSpeciesDetail.Varieties == null)
-                throw new ArgumentNullException(nameof(pokemonSpeciesDetail.Varieties), "Property is required for class PokemonSpeciesDetail.");
+            if (pokemonSpeciesDetail.FormsSwitchableOption.IsSet && pokemonSpeciesDetail.FormsSwitchable == null)
+                throw new JsonException("Cannot write null property PokemonSpeciesDetail.FormsSwitchable to non-nullable JSON property 'forms_switchable'.");
 
             writer.WriteNumber("id", pokemonSpeciesDetail.Id);
 

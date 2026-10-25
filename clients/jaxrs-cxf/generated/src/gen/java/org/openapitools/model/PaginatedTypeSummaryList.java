@@ -29,8 +29,6 @@ public class PaginatedTypeSummaryList  {
 
   @ApiModelProperty(value = "")
 
-  @Valid
-
   private List<@Valid TypeSummary> results = new ArrayList<>();
  /**
    * Get count

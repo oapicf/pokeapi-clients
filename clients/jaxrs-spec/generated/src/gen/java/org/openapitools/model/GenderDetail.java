@@ -21,12 +21,12 @@ import org.openapitools.jackson.nullable.JsonNullable;
 
 
 @JsonTypeName("GenderDetail")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2026-08-30T01:56:42.280002256Z[Etc/UTC]", comments = "Generator version: 7.24.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2026-10-25T05:48:57.630723375Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 public class GenderDetail   {
   private Integer id;
   private String name;
-  private @Valid List<@Valid GenderDetailPokemonSpeciesDetailsInner> pokemonSpeciesDetails = new ArrayList<>();
-  private @Valid List<@Valid AbilityDetailPokemonInnerPokemon> requiredForEvolution = new ArrayList<>();
+  private List<@Valid GenderDetailPokemonSpeciesDetailsInner> pokemonSpeciesDetails = new ArrayList<>();
+  private List<@Valid AbilityDetailPokemonInnerPokemon> requiredForEvolution = new ArrayList<>();
 
   public GenderDetail() {
   }
@@ -92,7 +92,7 @@ public class GenderDetail   {
   
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(required = true, value = "pokemon_species_details")
-  @Valid public List<@Valid GenderDetailPokemonSpeciesDetailsInner> getPokemonSpeciesDetails() {
+  public List<@Valid GenderDetailPokemonSpeciesDetailsInner> getPokemonSpeciesDetails() {
     return pokemonSpeciesDetails;
   }
 
@@ -127,7 +127,7 @@ public class GenderDetail   {
   
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(required = true, value = "required_for_evolution")
-  @Valid public List<@Valid AbilityDetailPokemonInnerPokemon> getRequiredForEvolution() {
+  public List<@Valid AbilityDetailPokemonInnerPokemon> getRequiredForEvolution() {
     return requiredForEvolution;
   }
 

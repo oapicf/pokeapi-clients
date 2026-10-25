@@ -152,16 +152,16 @@ namespace Org.OpenAPITools.Model
             }
 
             if (!name.IsSet)
-                throw new ArgumentException("Property is required for class VersionSummary.", nameof(name));
+                throw new JsonException("Property is required for class VersionSummary: name.");
 
             if (!url.IsSet)
-                throw new ArgumentException("Property is required for class VersionSummary.", nameof(url));
+                throw new JsonException("Property is required for class VersionSummary: url.");
 
             if (name.IsSet && name.Value == null)
-                throw new ArgumentNullException(nameof(name), "Property is not nullable for class VersionSummary.");
+                throw new JsonException("Property is not nullable for class VersionSummary: name.");
 
             if (url.IsSet && url.Value == null)
-                throw new ArgumentNullException(nameof(url), "Property is not nullable for class VersionSummary.");
+                throw new JsonException("Property is not nullable for class VersionSummary: url.");
 
             return new VersionSummary(name.Value!, url.Value!);
         }
@@ -172,7 +172,6 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="versionSummary"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public override void Write(Utf8JsonWriter writer, VersionSummary versionSummary, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteStartObject();
@@ -187,15 +186,8 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="versionSummary"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, VersionSummary versionSummary, JsonSerializerOptions jsonSerializerOptions)
         {
-            if (versionSummary.Name == null)
-                throw new ArgumentNullException(nameof(versionSummary.Name), "Property is required for class VersionSummary.");
-
-            if (versionSummary.Url == null)
-                throw new ArgumentNullException(nameof(versionSummary.Url), "Property is required for class VersionSummary.");
-
             writer.WriteString("name", versionSummary.Name);
 
             writer.WriteString("url", versionSummary.Url);

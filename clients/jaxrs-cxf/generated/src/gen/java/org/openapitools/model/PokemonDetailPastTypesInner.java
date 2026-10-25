@@ -24,8 +24,6 @@ public class PokemonDetailPastTypesInner  {
 
   @ApiModelProperty(required = true, value = "")
 
-  @Valid
-
   private List<@Valid PokemonDetailTypesInner> types = new ArrayList<>();
  /**
    * Get generation

@@ -2,7 +2,6 @@ package org.openapitools.model;
 
 import java.net.URI;
 import java.util.Objects;
-import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import java.util.ArrayList;
@@ -35,7 +34,7 @@ import jakarta.annotation.Generated;
  * ItemDetail
  */
 
-@Generated(value = "org.openapitools.codegen.languages.JavaCamelServerCodegen", date = "2026-08-30T01:56:15.309401083Z[Etc/UTC]", comments = "Generator version: 7.24.0")
+@Generated(value = "org.openapitools.codegen.languages.JavaCamelServerCodegen", date = "2026-10-25T05:48:25.711080506Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 public class ItemDetail {
 
   private Integer id;
@@ -48,31 +47,24 @@ public class ItemDetail {
 
   private ItemFlingEffectSummary flingEffect;
 
-  @Valid
   private List<@Valid AbilityDetailPokemonInnerPokemon> attributes = new ArrayList<>();
 
   private ItemCategorySummary category;
 
-  @Valid
   private List<@Valid ItemEffectText> effectEntries = new ArrayList<>();
 
-  @Valid
   private List<@Valid ItemFlavorText> flavorTextEntries = new ArrayList<>();
 
-  @Valid
   private List<@Valid ItemGameIndex> gameIndices = new ArrayList<>();
 
-  @Valid
   private List<@Valid ItemName> names = new ArrayList<>();
 
-  @Valid
   private List<@Valid ItemDetailHeldByPokemonInner> heldByPokemon = new ArrayList<>();
 
   private ItemDetailSprites sprites;
 
   private ItemDetailBabyTriggerFor babyTriggerFor;
 
-  @Valid
   private List<@Valid ItemDetailMachinesInner> machines = new ArrayList<>();
 
   public ItemDetail() {
@@ -215,7 +207,7 @@ public class ItemDetail {
    * Get attributes
    * @return attributes
    */
-  @Valid 
+  
   @Schema(name = "attributes", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("attributes")
   public List<@Valid AbilityDetailPokemonInnerPokemon> getAttributes() {
@@ -263,7 +255,7 @@ public class ItemDetail {
    * Get effectEntries
    * @return effectEntries
    */
-  @Valid 
+  
   @Schema(name = "effect_entries", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("effect_entries")
   public List<@Valid ItemEffectText> getEffectEntries() {
@@ -291,7 +283,7 @@ public class ItemDetail {
    * Get flavorTextEntries
    * @return flavorTextEntries
    */
-  @Valid 
+  
   @Schema(name = "flavor_text_entries", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("flavor_text_entries")
   public List<@Valid ItemFlavorText> getFlavorTextEntries() {
@@ -319,7 +311,7 @@ public class ItemDetail {
    * Get gameIndices
    * @return gameIndices
    */
-  @Valid 
+  
   @Schema(name = "game_indices", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("game_indices")
   public List<@Valid ItemGameIndex> getGameIndices() {
@@ -347,7 +339,7 @@ public class ItemDetail {
    * Get names
    * @return names
    */
-  @Valid 
+  
   @Schema(name = "names", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("names")
   public List<@Valid ItemName> getNames() {
@@ -375,7 +367,7 @@ public class ItemDetail {
    * Get heldByPokemon
    * @return heldByPokemon
    */
-  @Valid 
+  
   @Schema(name = "held_by_pokemon", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("held_by_pokemon")
   public List<@Valid ItemDetailHeldByPokemonInner> getHeldByPokemon() {
@@ -443,7 +435,7 @@ public class ItemDetail {
    * Get machines
    * @return machines
    */
-  @Valid 
+  
   @Schema(name = "machines", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("machines")
   public List<@Valid ItemDetailMachinesInner> getMachines() {

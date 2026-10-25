@@ -29,8 +29,6 @@ public class PaginatedEggGroupSummaryList  {
 
   @ApiModelProperty(value = "")
 
-  @Valid
-
   private List<@Valid EggGroupSummary> results = new ArrayList<>();
  /**
    * Get count

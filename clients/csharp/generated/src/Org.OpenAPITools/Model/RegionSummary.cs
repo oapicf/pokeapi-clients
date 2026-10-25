@@ -152,16 +152,16 @@ namespace Org.OpenAPITools.Model
             }
 
             if (!name.IsSet)
-                throw new ArgumentException("Property is required for class RegionSummary.", nameof(name));
+                throw new JsonException("Property is required for class RegionSummary: name.");
 
             if (!url.IsSet)
-                throw new ArgumentException("Property is required for class RegionSummary.", nameof(url));
+                throw new JsonException("Property is required for class RegionSummary: url.");
 
             if (name.IsSet && name.Value == null)
-                throw new ArgumentNullException(nameof(name), "Property is not nullable for class RegionSummary.");
+                throw new JsonException("Property is not nullable for class RegionSummary: name.");
 
             if (url.IsSet && url.Value == null)
-                throw new ArgumentNullException(nameof(url), "Property is not nullable for class RegionSummary.");
+                throw new JsonException("Property is not nullable for class RegionSummary: url.");
 
             return new RegionSummary(name.Value!, url.Value!);
         }
@@ -172,7 +172,6 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="regionSummary"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public override void Write(Utf8JsonWriter writer, RegionSummary regionSummary, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteStartObject();
@@ -187,15 +186,8 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="regionSummary"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, RegionSummary regionSummary, JsonSerializerOptions jsonSerializerOptions)
         {
-            if (regionSummary.Name == null)
-                throw new ArgumentNullException(nameof(regionSummary.Name), "Property is required for class RegionSummary.");
-
-            if (regionSummary.Url == null)
-                throw new ArgumentNullException(nameof(regionSummary.Url), "Property is required for class RegionSummary.");
-
             writer.WriteString("name", regionSummary.Name);
 
             writer.WriteString("url", regionSummary.Url);

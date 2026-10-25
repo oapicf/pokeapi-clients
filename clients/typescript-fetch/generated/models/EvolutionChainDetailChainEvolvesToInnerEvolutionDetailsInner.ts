@@ -36,110 +36,74 @@ import {
 export interface EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner {
     /**
      * 
-     * @type {EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender}
-     * @memberof EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner
      */
     gender: EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender;
     /**
      * 
-     * @type {EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender}
-     * @memberof EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner
      */
     heldItem: EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender;
     /**
      * 
-     * @type {EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender}
-     * @memberof EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner
      */
     item: EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender;
     /**
      * 
-     * @type {EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender}
-     * @memberof EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner
      */
     knownMove: EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender;
     /**
      * 
-     * @type {EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender}
-     * @memberof EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner
      */
     knownMoveType: EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender;
     /**
      * 
-     * @type {EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender}
-     * @memberof EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner
      */
     location: EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender;
     /**
      * 
-     * @type {number}
-     * @memberof EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner
      */
     minAffection: number;
     /**
      * 
-     * @type {number}
-     * @memberof EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner
      */
     minBeauty: number;
     /**
      * 
-     * @type {number}
-     * @memberof EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner
      */
     minHappiness: number;
     /**
      * 
-     * @type {number}
-     * @memberof EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner
      */
     minLevel: number;
     /**
      * 
-     * @type {boolean}
-     * @memberof EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner
      */
     needsOverworldRain: boolean;
     /**
      * 
-     * @type {string}
-     * @memberof EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner
      */
     partySpecies: string;
     /**
      * 
-     * @type {string}
-     * @memberof EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner
      */
     partyType: string;
     /**
      * 
-     * @type {string}
-     * @memberof EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner
      */
     relativePhysicalStats: string;
     /**
      * 
-     * @type {string}
-     * @memberof EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner
      */
     timeOfDay: string;
     /**
      * 
-     * @type {string}
-     * @memberof EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner
      */
     tradeSpecies: string;
     /**
      * 
-     * @type {AbilityDetailPokemonInnerPokemon}
-     * @memberof EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner
      */
     trigger: AbilityDetailPokemonInnerPokemon;
     /**
      * 
-     * @type {boolean}
-     * @memberof EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner
      */
     turnUpsideDown: boolean;
 }

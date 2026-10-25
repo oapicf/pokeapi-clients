@@ -29,26 +29,18 @@ import {
 export interface PaginatedMachineSummaryList {
     /**
      * 
-     * @type {number}
-     * @memberof PaginatedMachineSummaryList
      */
     count?: number;
     /**
      * 
-     * @type {string}
-     * @memberof PaginatedMachineSummaryList
      */
     next?: string;
     /**
      * 
-     * @type {string}
-     * @memberof PaginatedMachineSummaryList
      */
     previous?: string;
     /**
      * 
-     * @type {Array<MachineSummary>}
-     * @memberof PaginatedMachineSummaryList
      */
     results?: Array<MachineSummary>;
 }

@@ -29,26 +29,18 @@ import {
 export interface PaginatedMoveTargetSummaryList {
     /**
      * 
-     * @type {number}
-     * @memberof PaginatedMoveTargetSummaryList
      */
     count?: number;
     /**
      * 
-     * @type {string}
-     * @memberof PaginatedMoveTargetSummaryList
      */
     next?: string;
     /**
      * 
-     * @type {string}
-     * @memberof PaginatedMoveTargetSummaryList
      */
     previous?: string;
     /**
      * 
-     * @type {Array<MoveTargetSummary>}
-     * @memberof PaginatedMoveTargetSummaryList
      */
     results?: Array<MoveTargetSummary>;
 }

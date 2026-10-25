@@ -21,8 +21,6 @@ import { mapValues } from '../runtime';
 export interface ItemDetailSprites {
     /**
      * 
-     * @type {string}
-     * @memberof ItemDetailSprites
      */
     _default: string;
 }

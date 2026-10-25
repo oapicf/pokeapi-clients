@@ -166,3 +166,4 @@ class _$PaginatedMoveMetaCategorySummaryListSerializer implements PrimitiveSeria
   }
 }
 
+

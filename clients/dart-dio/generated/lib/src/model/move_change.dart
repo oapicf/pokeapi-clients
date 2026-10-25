@@ -213,3 +213,4 @@ class _$MoveChangeSerializer implements PrimitiveSerializer<MoveChange> {
   }
 }
 
+

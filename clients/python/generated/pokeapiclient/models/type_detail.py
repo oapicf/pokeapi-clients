@@ -111,15 +111,13 @@ class TypeDetail(BaseModel):
         _items = []
         if self.past_damage_relations:
             for _item_past_damage_relations in self.past_damage_relations:
-                if _item_past_damage_relations:
-                    _items.append(_item_past_damage_relations.to_dict())
+                _items.append(_item_past_damage_relations.to_dict() if _item_past_damage_relations is not None else None)
             _dict['past_damage_relations'] = _items
         # override the default output from pydantic by calling `to_dict()` of each item in game_indices (list)
         _items = []
         if self.game_indices:
             for _item_game_indices in self.game_indices:
-                if _item_game_indices:
-                    _items.append(_item_game_indices.to_dict())
+                _items.append(_item_game_indices.to_dict() if _item_game_indices is not None else None)
             _dict['game_indices'] = _items
         # override the default output from pydantic by calling `to_dict()` of generation
         if self.generation:
@@ -131,31 +129,27 @@ class TypeDetail(BaseModel):
         _items = []
         if self.names:
             for _item_names in self.names:
-                if _item_names:
-                    _items.append(_item_names.to_dict())
+                _items.append(_item_names.to_dict() if _item_names is not None else None)
             _dict['names'] = _items
         # override the default output from pydantic by calling `to_dict()` of each item in pokemon (list)
         _items = []
         if self.pokemon:
             for _item_pokemon in self.pokemon:
-                if _item_pokemon:
-                    _items.append(_item_pokemon.to_dict())
+                _items.append(_item_pokemon.to_dict() if _item_pokemon is not None else None)
             _dict['pokemon'] = _items
         # override the default output from pydantic by calling `to_dict()` of each item in moves (list)
         _items = []
         if self.moves:
             for _item_moves in self.moves:
-                if _item_moves:
-                    _items.append(_item_moves.to_dict())
+                _items.append(_item_moves.to_dict() if _item_moves is not None else None)
             _dict['moves'] = _items
         # override the default output from pydantic by calling `to_dict()` of each value in sprites (dict of dict)
         _field_dict_of_dict = {}
         if self.sprites:
             for _key_sprites, _value_sprites in self.sprites.items():
-                if _value_sprites is not None:
-                    _field_dict_of_dict[_key_sprites] = {
-                        _key: _value.to_dict() for _key, _value in _value_sprites.items()
-                    }
+                _field_dict_of_dict[_key_sprites] = {
+                    _key: _value.to_dict() if _value is not None else None for _key, _value in _value_sprites.items()
+                } if _value_sprites is not None else None
             _dict['sprites'] = _field_dict_of_dict
         return _dict
 

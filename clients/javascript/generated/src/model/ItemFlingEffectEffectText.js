@@ -17,7 +17,7 @@ import LanguageSummary from './LanguageSummary';
 /**
  * The ItemFlingEffectEffectText model module.
  * @module model/ItemFlingEffectEffectText
- * @version 2.0.1-pre.0
+ * @version 2.1.1-pre.0
  */
 class ItemFlingEffectEffectText {
     /**

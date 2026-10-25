@@ -203,16 +203,16 @@ namespace Org.OpenAPITools.Model
             }
 
             if (count.IsSet && count.Value == null)
-                throw new ArgumentNullException(nameof(count), "Property is not nullable for class PaginatedPokemonColorSummaryList.");
+                throw new JsonException("Property is not nullable for class PaginatedPokemonColorSummaryList: count.");
 
             if (next.IsSet && next.Value == null)
-                throw new ArgumentNullException(nameof(next), "Property is not nullable for class PaginatedPokemonColorSummaryList.");
+                throw new JsonException("Property is not nullable for class PaginatedPokemonColorSummaryList: next.");
 
             if (previous.IsSet && previous.Value == null)
-                throw new ArgumentNullException(nameof(previous), "Property is not nullable for class PaginatedPokemonColorSummaryList.");
+                throw new JsonException("Property is not nullable for class PaginatedPokemonColorSummaryList: previous.");
 
             if (results.IsSet && results.Value == null)
-                throw new ArgumentNullException(nameof(results), "Property is not nullable for class PaginatedPokemonColorSummaryList.");
+                throw new JsonException("Property is not nullable for class PaginatedPokemonColorSummaryList: results.");
 
             return new PaginatedPokemonColorSummaryList(count, next, previous, results);
         }
@@ -223,7 +223,6 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="paginatedPokemonColorSummaryList"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public override void Write(Utf8JsonWriter writer, PaginatedPokemonColorSummaryList paginatedPokemonColorSummaryList, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteStartObject();
@@ -238,17 +237,19 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="paginatedPokemonColorSummaryList"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, PaginatedPokemonColorSummaryList paginatedPokemonColorSummaryList, JsonSerializerOptions jsonSerializerOptions)
         {
+            if (paginatedPokemonColorSummaryList.CountOption.IsSet && paginatedPokemonColorSummaryList.Count == null)
+                throw new JsonException("Cannot write null property PaginatedPokemonColorSummaryList.Count to non-nullable JSON property 'count'.");
+
             if (paginatedPokemonColorSummaryList.NextOption.IsSet && paginatedPokemonColorSummaryList.Next == null)
-                throw new ArgumentNullException(nameof(paginatedPokemonColorSummaryList.Next), "Property is required for class PaginatedPokemonColorSummaryList.");
+                throw new JsonException("Cannot write null property PaginatedPokemonColorSummaryList.Next to non-nullable JSON property 'next'.");
 
             if (paginatedPokemonColorSummaryList.PreviousOption.IsSet && paginatedPokemonColorSummaryList.Previous == null)
-                throw new ArgumentNullException(nameof(paginatedPokemonColorSummaryList.Previous), "Property is required for class PaginatedPokemonColorSummaryList.");
+                throw new JsonException("Cannot write null property PaginatedPokemonColorSummaryList.Previous to non-nullable JSON property 'previous'.");
 
             if (paginatedPokemonColorSummaryList.ResultsOption.IsSet && paginatedPokemonColorSummaryList.Results == null)
-                throw new ArgumentNullException(nameof(paginatedPokemonColorSummaryList.Results), "Property is required for class PaginatedPokemonColorSummaryList.");
+                throw new JsonException("Cannot write null property PaginatedPokemonColorSummaryList.Results to non-nullable JSON property 'results'.");
 
             if (paginatedPokemonColorSummaryList.CountOption.IsSet)
                 writer.WriteNumber("count", paginatedPokemonColorSummaryList.CountOption.Value!.Value);

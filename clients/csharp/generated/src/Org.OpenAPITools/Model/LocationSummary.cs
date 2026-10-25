@@ -152,16 +152,16 @@ namespace Org.OpenAPITools.Model
             }
 
             if (!name.IsSet)
-                throw new ArgumentException("Property is required for class LocationSummary.", nameof(name));
+                throw new JsonException("Property is required for class LocationSummary: name.");
 
             if (!url.IsSet)
-                throw new ArgumentException("Property is required for class LocationSummary.", nameof(url));
+                throw new JsonException("Property is required for class LocationSummary: url.");
 
             if (name.IsSet && name.Value == null)
-                throw new ArgumentNullException(nameof(name), "Property is not nullable for class LocationSummary.");
+                throw new JsonException("Property is not nullable for class LocationSummary: name.");
 
             if (url.IsSet && url.Value == null)
-                throw new ArgumentNullException(nameof(url), "Property is not nullable for class LocationSummary.");
+                throw new JsonException("Property is not nullable for class LocationSummary: url.");
 
             return new LocationSummary(name.Value!, url.Value!);
         }
@@ -172,7 +172,6 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="locationSummary"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public override void Write(Utf8JsonWriter writer, LocationSummary locationSummary, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteStartObject();
@@ -187,15 +186,8 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="locationSummary"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, LocationSummary locationSummary, JsonSerializerOptions jsonSerializerOptions)
         {
-            if (locationSummary.Name == null)
-                throw new ArgumentNullException(nameof(locationSummary.Name), "Property is required for class LocationSummary.");
-
-            if (locationSummary.Url == null)
-                throw new ArgumentNullException(nameof(locationSummary.Url), "Property is required for class LocationSummary.");
-
             writer.WriteString("name", locationSummary.Name);
 
             writer.WriteString("url", locationSummary.Url);

@@ -22,11 +22,9 @@ public class PokemonHabitatDetail  {
   private String name;
 
   @ApiModelProperty(required = true, value = "")
-  @Valid
   private List<@Valid PokemonHabitatName> names = new ArrayList<>();
 
   @ApiModelProperty(required = true, value = "")
-  @Valid
   private List<@Valid PokemonSpeciesSummary> pokemonSpecies = new ArrayList<>();
  /**
   * Get id

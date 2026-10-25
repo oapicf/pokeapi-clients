@@ -29,26 +29,18 @@ import {
 export interface PaginatedMoveDamageClassSummaryList {
     /**
      * 
-     * @type {number}
-     * @memberof PaginatedMoveDamageClassSummaryList
      */
     count?: number;
     /**
      * 
-     * @type {string}
-     * @memberof PaginatedMoveDamageClassSummaryList
      */
     next?: string;
     /**
      * 
-     * @type {string}
-     * @memberof PaginatedMoveDamageClassSummaryList
      */
     previous?: string;
     /**
      * 
-     * @type {Array<MoveDamageClassSummary>}
-     * @memberof PaginatedMoveDamageClassSummaryList
      */
     results?: Array<MoveDamageClassSummary>;
 }

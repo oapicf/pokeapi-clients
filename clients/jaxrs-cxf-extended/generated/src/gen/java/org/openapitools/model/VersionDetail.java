@@ -27,7 +27,6 @@ public class VersionDetail  {
   private String name;
 
   @ApiModelProperty(required = true, value = "")
-  @Valid
   private List<@Valid VersionName> names = new ArrayList<>();
 
   @ApiModelProperty(required = true, value = "")

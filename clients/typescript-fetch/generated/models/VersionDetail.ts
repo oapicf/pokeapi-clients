@@ -38,26 +38,18 @@ import {
 export interface VersionDetail {
     /**
      * 
-     * @type {number}
-     * @memberof VersionDetail
      */
     readonly id: number;
     /**
      * 
-     * @type {string}
-     * @memberof VersionDetail
      */
     name: string;
     /**
      * 
-     * @type {Array<VersionName>}
-     * @memberof VersionDetail
      */
     readonly names: Array<VersionName>;
     /**
      * 
-     * @type {VersionGroupSummary}
-     * @memberof VersionDetail
      */
     versionGroup: VersionGroupSummary;
 }

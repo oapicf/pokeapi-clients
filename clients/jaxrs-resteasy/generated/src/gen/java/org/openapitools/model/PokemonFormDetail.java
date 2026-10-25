@@ -19,7 +19,7 @@ import javax.validation.constraints.*;
 import javax.validation.Valid;
 import io.swagger.annotations.*;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaResteasyServerCodegen", date = "2026-08-30T01:56:35.721624822Z[Etc/UTC]", comments = "Generator version: 7.24.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaResteasyServerCodegen", date = "2026-10-25T05:48:49.952264473Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 public class PokemonFormDetail   {
   
   private Integer id;
@@ -184,7 +184,6 @@ public class PokemonFormDetail   {
   @ApiModelProperty(required = true, value = "")
   @JsonProperty("form_names")
   @NotNull
-  @Valid
   public List<@Valid PokemonFormDetailFormNamesInner> getFormNames() {
     return formNames;
   }
@@ -198,7 +197,6 @@ public class PokemonFormDetail   {
   @ApiModelProperty(required = true, value = "")
   @JsonProperty("names")
   @NotNull
-  @Valid
   public List<@Valid PokemonFormDetailFormNamesInner> getNames() {
     return names;
   }
@@ -212,7 +210,6 @@ public class PokemonFormDetail   {
   @ApiModelProperty(required = true, value = "")
   @JsonProperty("types")
   @NotNull
-  @Valid
   public List<@Valid PokemonDetailTypesInner> getTypes() {
     return types;
   }

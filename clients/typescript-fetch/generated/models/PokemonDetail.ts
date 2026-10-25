@@ -106,122 +106,82 @@ import {
 export interface PokemonDetail {
     /**
      * 
-     * @type {number}
-     * @memberof PokemonDetail
      */
     readonly id: number;
     /**
      * 
-     * @type {string}
-     * @memberof PokemonDetail
      */
     name: string;
     /**
      * 
-     * @type {number}
-     * @memberof PokemonDetail
      */
     baseExperience?: number | null;
     /**
      * 
-     * @type {number}
-     * @memberof PokemonDetail
      */
     height?: number | null;
     /**
      * 
-     * @type {boolean}
-     * @memberof PokemonDetail
      */
     isDefault?: boolean;
     /**
      * 
-     * @type {number}
-     * @memberof PokemonDetail
      */
     order?: number | null;
     /**
      * 
-     * @type {number}
-     * @memberof PokemonDetail
      */
     weight?: number | null;
     /**
      * 
-     * @type {Array<PokemonDetailAbilitiesInner>}
-     * @memberof PokemonDetail
      */
     readonly abilities: Array<PokemonDetailAbilitiesInner>;
     /**
      * 
-     * @type {Array<PokemonDetailPastAbilitiesInner>}
-     * @memberof PokemonDetail
      */
     readonly pastAbilities: Array<PokemonDetailPastAbilitiesInner>;
     /**
      * 
-     * @type {Array<PokemonFormSummary>}
-     * @memberof PokemonDetail
      */
     readonly forms: Array<PokemonFormSummary>;
     /**
      * 
-     * @type {Array<PokemonGameIndex>}
-     * @memberof PokemonDetail
      */
     readonly gameIndices: Array<PokemonGameIndex>;
     /**
      * 
-     * @type {PokemonDetailHeldItems}
-     * @memberof PokemonDetail
      */
     heldItems: PokemonDetailHeldItems;
     /**
      * 
-     * @type {string}
-     * @memberof PokemonDetail
      */
     readonly locationAreaEncounters: string;
     /**
      * 
-     * @type {Array<PokemonDetailMovesInner>}
-     * @memberof PokemonDetail
      */
     readonly moves: Array<PokemonDetailMovesInner>;
     /**
      * 
-     * @type {PokemonSpeciesSummary}
-     * @memberof PokemonDetail
      */
     species: PokemonSpeciesSummary;
     /**
      * 
-     * @type {PokemonDetailSprites}
-     * @memberof PokemonDetail
      */
     sprites: PokemonDetailSprites;
     /**
      * 
-     * @type {PokemonDetailCries}
-     * @memberof PokemonDetail
      */
     cries: PokemonDetailCries;
     /**
      * 
-     * @type {Array<PokemonStat>}
-     * @memberof PokemonDetail
      */
     readonly stats: Array<PokemonStat>;
     /**
      * 
-     * @type {Array<PokemonDetailTypesInner>}
-     * @memberof PokemonDetail
      */
     readonly types: Array<PokemonDetailTypesInner>;
     /**
      * 
-     * @type {Array<PokemonDetailPastTypesInner>}
-     * @memberof PokemonDetail
      */
     readonly pastTypes: Array<PokemonDetailPastTypesInner>;
 }

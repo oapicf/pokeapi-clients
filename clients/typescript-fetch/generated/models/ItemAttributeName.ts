@@ -29,14 +29,10 @@ import {
 export interface ItemAttributeName {
     /**
      * 
-     * @type {string}
-     * @memberof ItemAttributeName
      */
     name: string;
     /**
      * 
-     * @type {LanguageSummary}
-     * @memberof ItemAttributeName
      */
     language: LanguageSummary;
 }

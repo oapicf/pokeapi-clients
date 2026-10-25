@@ -29,14 +29,10 @@ import {
 export interface PokemonGameIndex {
     /**
      * 
-     * @type {number}
-     * @memberof PokemonGameIndex
      */
     gameIndex: number;
     /**
      * 
-     * @type {VersionSummary}
-     * @memberof PokemonGameIndex
      */
     version: VersionSummary;
 }

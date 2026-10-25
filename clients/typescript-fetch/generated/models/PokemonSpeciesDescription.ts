@@ -29,14 +29,10 @@ import {
 export interface PokemonSpeciesDescription {
     /**
      * 
-     * @type {string}
-     * @memberof PokemonSpeciesDescription
      */
     description?: string;
     /**
      * 
-     * @type {LanguageSummary}
-     * @memberof PokemonSpeciesDescription
      */
     language: LanguageSummary;
 }

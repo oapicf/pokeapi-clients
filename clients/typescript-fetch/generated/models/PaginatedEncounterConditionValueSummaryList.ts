@@ -29,26 +29,18 @@ import {
 export interface PaginatedEncounterConditionValueSummaryList {
     /**
      * 
-     * @type {number}
-     * @memberof PaginatedEncounterConditionValueSummaryList
      */
     count?: number;
     /**
      * 
-     * @type {string}
-     * @memberof PaginatedEncounterConditionValueSummaryList
      */
     next?: string;
     /**
      * 
-     * @type {string}
-     * @memberof PaginatedEncounterConditionValueSummaryList
      */
     previous?: string;
     /**
      * 
-     * @type {Array<EncounterConditionValueSummary>}
-     * @memberof PaginatedEncounterConditionValueSummaryList
      */
     results?: Array<EncounterConditionValueSummary>;
 }

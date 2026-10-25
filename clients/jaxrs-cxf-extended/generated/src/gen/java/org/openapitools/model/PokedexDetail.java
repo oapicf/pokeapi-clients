@@ -28,15 +28,12 @@ public class PokedexDetail  {
   private Boolean isMainSeries;
 
   @ApiModelProperty(required = true, value = "")
-  @Valid
   private List<@Valid PokedexDescription> descriptions = new ArrayList<>();
 
   @ApiModelProperty(required = true, value = "")
-  @Valid
   private List<@Valid PokedexName> names = new ArrayList<>();
 
   @ApiModelProperty(required = true, value = "")
-  @Valid
   private List<@Valid PokedexDetailPokemonEntriesInner> pokemonEntries = new ArrayList<>();
 
   @ApiModelProperty(required = true, value = "")
@@ -44,7 +41,6 @@ public class PokedexDetail  {
   private RegionSummary region;
 
   @ApiModelProperty(required = true, value = "")
-  @Valid
   private List<@Valid AbilityDetailPokemonInnerPokemon> versionGroups = new ArrayList<>();
  /**
   * Get id

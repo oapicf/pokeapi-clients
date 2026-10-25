@@ -120,3 +120,4 @@ class _$MoveBattleStyleSummarySerializer implements PrimitiveSerializer<MoveBatt
   }
 }
 
+

@@ -159,13 +159,13 @@ namespace Org.OpenAPITools.Model
             }
 
             if (!language.IsSet)
-                throw new ArgumentException("Property is required for class PokemonSpeciesDescription.", nameof(language));
+                throw new JsonException("Property is required for class PokemonSpeciesDescription: language.");
 
             if (language.IsSet && language.Value == null)
-                throw new ArgumentNullException(nameof(language), "Property is not nullable for class PokemonSpeciesDescription.");
+                throw new JsonException("Property is not nullable for class PokemonSpeciesDescription: language.");
 
             if (description.IsSet && description.Value == null)
-                throw new ArgumentNullException(nameof(description), "Property is not nullable for class PokemonSpeciesDescription.");
+                throw new JsonException("Property is not nullable for class PokemonSpeciesDescription: description.");
 
             return new PokemonSpeciesDescription(language.Value!, description);
         }
@@ -176,7 +176,6 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="pokemonSpeciesDescription"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public override void Write(Utf8JsonWriter writer, PokemonSpeciesDescription pokemonSpeciesDescription, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteStartObject();
@@ -191,14 +190,10 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="pokemonSpeciesDescription"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, PokemonSpeciesDescription pokemonSpeciesDescription, JsonSerializerOptions jsonSerializerOptions)
         {
-            if (pokemonSpeciesDescription.Language == null)
-                throw new ArgumentNullException(nameof(pokemonSpeciesDescription.Language), "Property is required for class PokemonSpeciesDescription.");
-
             if (pokemonSpeciesDescription.DescriptionOption.IsSet && pokemonSpeciesDescription.Description == null)
-                throw new ArgumentNullException(nameof(pokemonSpeciesDescription.Description), "Property is required for class PokemonSpeciesDescription.");
+                throw new JsonException("Cannot write null property PokemonSpeciesDescription.Description to non-nullable JSON property 'description'.");
 
             writer.WritePropertyName("language");
             JsonSerializer.Serialize(writer, pokemonSpeciesDescription.Language, jsonSerializerOptions);

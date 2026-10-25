@@ -29,20 +29,14 @@ import {
 export interface MoveChangeEffectEntriesInner {
     /**
      * 
-     * @type {string}
-     * @memberof MoveChangeEffectEntriesInner
      */
     effect: string;
     /**
      * 
-     * @type {string}
-     * @memberof MoveChangeEffectEntriesInner
      */
     shortEffect: string;
     /**
      * 
-     * @type {AbilityDetailPokemonInnerPokemon}
-     * @memberof MoveChangeEffectEntriesInner
      */
     language: AbilityDetailPokemonInnerPokemon;
 }

@@ -203,16 +203,16 @@ namespace Org.OpenAPITools.Model
             }
 
             if (count.IsSet && count.Value == null)
-                throw new ArgumentNullException(nameof(count), "Property is not nullable for class PaginatedBerryFirmnessSummaryList.");
+                throw new JsonException("Property is not nullable for class PaginatedBerryFirmnessSummaryList: count.");
 
             if (next.IsSet && next.Value == null)
-                throw new ArgumentNullException(nameof(next), "Property is not nullable for class PaginatedBerryFirmnessSummaryList.");
+                throw new JsonException("Property is not nullable for class PaginatedBerryFirmnessSummaryList: next.");
 
             if (previous.IsSet && previous.Value == null)
-                throw new ArgumentNullException(nameof(previous), "Property is not nullable for class PaginatedBerryFirmnessSummaryList.");
+                throw new JsonException("Property is not nullable for class PaginatedBerryFirmnessSummaryList: previous.");
 
             if (results.IsSet && results.Value == null)
-                throw new ArgumentNullException(nameof(results), "Property is not nullable for class PaginatedBerryFirmnessSummaryList.");
+                throw new JsonException("Property is not nullable for class PaginatedBerryFirmnessSummaryList: results.");
 
             return new PaginatedBerryFirmnessSummaryList(count, next, previous, results);
         }
@@ -223,7 +223,6 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="paginatedBerryFirmnessSummaryList"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public override void Write(Utf8JsonWriter writer, PaginatedBerryFirmnessSummaryList paginatedBerryFirmnessSummaryList, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteStartObject();
@@ -238,17 +237,19 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="paginatedBerryFirmnessSummaryList"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, PaginatedBerryFirmnessSummaryList paginatedBerryFirmnessSummaryList, JsonSerializerOptions jsonSerializerOptions)
         {
+            if (paginatedBerryFirmnessSummaryList.CountOption.IsSet && paginatedBerryFirmnessSummaryList.Count == null)
+                throw new JsonException("Cannot write null property PaginatedBerryFirmnessSummaryList.Count to non-nullable JSON property 'count'.");
+
             if (paginatedBerryFirmnessSummaryList.NextOption.IsSet && paginatedBerryFirmnessSummaryList.Next == null)
-                throw new ArgumentNullException(nameof(paginatedBerryFirmnessSummaryList.Next), "Property is required for class PaginatedBerryFirmnessSummaryList.");
+                throw new JsonException("Cannot write null property PaginatedBerryFirmnessSummaryList.Next to non-nullable JSON property 'next'.");
 
             if (paginatedBerryFirmnessSummaryList.PreviousOption.IsSet && paginatedBerryFirmnessSummaryList.Previous == null)
-                throw new ArgumentNullException(nameof(paginatedBerryFirmnessSummaryList.Previous), "Property is required for class PaginatedBerryFirmnessSummaryList.");
+                throw new JsonException("Cannot write null property PaginatedBerryFirmnessSummaryList.Previous to non-nullable JSON property 'previous'.");
 
             if (paginatedBerryFirmnessSummaryList.ResultsOption.IsSet && paginatedBerryFirmnessSummaryList.Results == null)
-                throw new ArgumentNullException(nameof(paginatedBerryFirmnessSummaryList.Results), "Property is required for class PaginatedBerryFirmnessSummaryList.");
+                throw new JsonException("Cannot write null property PaginatedBerryFirmnessSummaryList.Results to non-nullable JSON property 'results'.");
 
             if (paginatedBerryFirmnessSummaryList.CountOption.IsSet)
                 writer.WriteNumber("count", paginatedBerryFirmnessSummaryList.CountOption.Value!.Value);

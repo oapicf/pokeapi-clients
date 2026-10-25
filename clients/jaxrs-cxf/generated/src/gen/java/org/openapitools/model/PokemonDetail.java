@@ -56,25 +56,17 @@ public class PokemonDetail  {
 
   @ApiModelProperty(required = true, value = "")
 
-  @Valid
-
   private List<@Valid PokemonDetailAbilitiesInner> abilities = new ArrayList<>();
 
   @ApiModelProperty(required = true, value = "")
-
-  @Valid
 
   private List<@Valid PokemonDetailPastAbilitiesInner> pastAbilities = new ArrayList<>();
 
   @ApiModelProperty(required = true, value = "")
 
-  @Valid
-
   private List<@Valid PokemonFormSummary> forms = new ArrayList<>();
 
   @ApiModelProperty(required = true, value = "")
-
-  @Valid
 
   private List<@Valid PokemonGameIndex> gameIndices = new ArrayList<>();
 
@@ -89,8 +81,6 @@ public class PokemonDetail  {
   private String locationAreaEncounters;
 
   @ApiModelProperty(required = true, value = "")
-
-  @Valid
 
   private List<@Valid PokemonDetailMovesInner> moves = new ArrayList<>();
 
@@ -114,19 +104,13 @@ public class PokemonDetail  {
 
   @ApiModelProperty(required = true, value = "")
 
-  @Valid
-
   private List<@Valid PokemonStat> stats = new ArrayList<>();
 
   @ApiModelProperty(required = true, value = "")
 
-  @Valid
-
   private List<@Valid PokemonDetailTypesInner> types = new ArrayList<>();
 
   @ApiModelProperty(required = true, value = "")
-
-  @Valid
 
   private List<@Valid PokemonDetailPastTypesInner> pastTypes = new ArrayList<>();
  /**

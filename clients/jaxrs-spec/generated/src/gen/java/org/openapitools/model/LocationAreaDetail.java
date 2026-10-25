@@ -23,15 +23,15 @@ import org.openapitools.jackson.nullable.JsonNullable;
 
 
 @JsonTypeName("LocationAreaDetail")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2026-08-30T01:56:42.280002256Z[Etc/UTC]", comments = "Generator version: 7.24.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2026-10-25T05:48:57.630723375Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 public class LocationAreaDetail   {
   private Integer id;
   private String name;
   private Integer gameIndex;
-  private @Valid List<@Valid LocationAreaDetailEncounterMethodRatesInner> encounterMethodRates = new ArrayList<>();
+  private List<@Valid LocationAreaDetailEncounterMethodRatesInner> encounterMethodRates = new ArrayList<>();
   private LocationSummary location;
-  private @Valid List<@Valid LocationAreaName> names = new ArrayList<>();
-  private @Valid List<@Valid LocationAreaDetailPokemonEncountersInner> pokemonEncounters = new ArrayList<>();
+  private List<@Valid LocationAreaName> names = new ArrayList<>();
+  private List<@Valid LocationAreaDetailPokemonEncountersInner> pokemonEncounters = new ArrayList<>();
 
   public LocationAreaDetail() {
   }
@@ -122,7 +122,7 @@ public class LocationAreaDetail   {
   
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(required = true, value = "encounter_method_rates")
-  @Valid public List<@Valid LocationAreaDetailEncounterMethodRatesInner> getEncounterMethodRates() {
+  public List<@Valid LocationAreaDetailEncounterMethodRatesInner> getEncounterMethodRates() {
     return encounterMethodRates;
   }
 
@@ -176,7 +176,7 @@ public class LocationAreaDetail   {
   
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(required = true, value = "names")
-  @Valid public List<@Valid LocationAreaName> getNames() {
+  public List<@Valid LocationAreaName> getNames() {
     return names;
   }
 
@@ -211,7 +211,7 @@ public class LocationAreaDetail   {
   
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(required = true, value = "pokemon_encounters")
-  @Valid public List<@Valid LocationAreaDetailPokemonEncountersInner> getPokemonEncounters() {
+  public List<@Valid LocationAreaDetailPokemonEncountersInner> getPokemonEncounters() {
     return pokemonEncounters;
   }
 

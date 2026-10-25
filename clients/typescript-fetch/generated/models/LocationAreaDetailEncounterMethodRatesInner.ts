@@ -36,14 +36,10 @@ import {
 export interface LocationAreaDetailEncounterMethodRatesInner {
     /**
      * 
-     * @type {AbilityDetailPokemonInnerPokemon}
-     * @memberof LocationAreaDetailEncounterMethodRatesInner
      */
     encounterMethod: AbilityDetailPokemonInnerPokemon;
     /**
      * 
-     * @type {Array<LocationAreaDetailEncounterMethodRatesInnerVersionDetailsInner>}
-     * @memberof LocationAreaDetailEncounterMethodRatesInner
      */
     versionDetails: Array<LocationAreaDetailEncounterMethodRatesInnerVersionDetailsInner>;
 }

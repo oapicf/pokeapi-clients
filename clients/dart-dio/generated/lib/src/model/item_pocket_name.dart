@@ -121,3 +121,4 @@ class _$ItemPocketNameSerializer implements PrimitiveSerializer<ItemPocketName> 
   }
 }
 
+

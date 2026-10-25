@@ -27,32 +27,32 @@ data class TypeDetailDamageRelations(
 
     @field:Valid
     @Schema(required = true, description = "")
-    @param:JsonProperty("no_damage_to")
+    @param:JsonProperty("no_damage_to", required = true)
     @get:JsonProperty("no_damage_to", required = true) val noDamageTo: kotlin.collections.List<AbilityDetailPokemonInnerPokemon>,
 
     @field:Valid
     @Schema(required = true, description = "")
-    @param:JsonProperty("half_damage_to")
+    @param:JsonProperty("half_damage_to", required = true)
     @get:JsonProperty("half_damage_to", required = true) val halfDamageTo: kotlin.collections.List<AbilityDetailPokemonInnerPokemon>,
 
     @field:Valid
     @Schema(required = true, description = "")
-    @param:JsonProperty("double_damage_to")
+    @param:JsonProperty("double_damage_to", required = true)
     @get:JsonProperty("double_damage_to", required = true) val doubleDamageTo: kotlin.collections.List<AbilityDetailPokemonInnerPokemon>,
 
     @field:Valid
     @Schema(required = true, description = "")
-    @param:JsonProperty("no_damage_from")
+    @param:JsonProperty("no_damage_from", required = true)
     @get:JsonProperty("no_damage_from", required = true) val noDamageFrom: kotlin.collections.List<AbilityDetailPokemonInnerPokemon>,
 
     @field:Valid
     @Schema(required = true, description = "")
-    @param:JsonProperty("half_damage_from")
+    @param:JsonProperty("half_damage_from", required = true)
     @get:JsonProperty("half_damage_from", required = true) val halfDamageFrom: kotlin.collections.List<AbilityDetailPokemonInnerPokemon>,
 
     @field:Valid
     @Schema(required = true, description = "")
-    @param:JsonProperty("double_damage_from")
+    @param:JsonProperty("double_damage_from", required = true)
     @get:JsonProperty("double_damage_from", required = true) val doubleDamageFrom: kotlin.collections.List<AbilityDetailPokemonInnerPokemon>
 ) {
 

@@ -121,3 +121,4 @@ class _$MoveDetailEffectChangesInnerEffectEntriesInnerSerializer implements Prim
   }
 }
 
+

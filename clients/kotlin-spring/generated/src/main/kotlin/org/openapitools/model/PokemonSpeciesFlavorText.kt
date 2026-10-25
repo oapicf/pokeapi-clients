@@ -24,17 +24,17 @@ import io.swagger.v3.oas.annotations.media.Schema
 data class PokemonSpeciesFlavorText(
 
     @Schema(required = true, description = "")
-    @param:JsonProperty("flavor_text")
+    @param:JsonProperty("flavor_text", required = true)
     @get:JsonProperty("flavor_text", required = true) val flavorText: kotlin.String,
 
     @field:Valid
     @Schema(required = true, description = "")
-    @param:JsonProperty("language")
+    @param:JsonProperty("language", required = true)
     @get:JsonProperty("language", required = true) val language: LanguageSummary,
 
     @field:Valid
     @Schema(required = true, description = "")
-    @param:JsonProperty("version")
+    @param:JsonProperty("version", required = true)
     @get:JsonProperty("version", required = true) val version: VersionSummary
 ) {
 

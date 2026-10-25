@@ -120,3 +120,4 @@ class _$PokemonDetailCriesSerializer implements PrimitiveSerializer<PokemonDetai
   }
 }
 
+

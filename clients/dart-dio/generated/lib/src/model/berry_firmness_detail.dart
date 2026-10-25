@@ -155,3 +155,4 @@ class _$BerryFirmnessDetailSerializer implements PrimitiveSerializer<BerryFirmne
   }
 }
 
+

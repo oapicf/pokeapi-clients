@@ -2,7 +2,6 @@ package org.openapitools.model;
 
 import java.net.URI;
 import java.util.Objects;
-import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import java.util.ArrayList;
@@ -40,41 +39,31 @@ import jakarta.annotation.Generated;
  * PokemonSpeciesDetail
  */
 
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2026-08-30T02:00:43.960184425Z[Etc/UTC]", comments = "Generator version: 7.24.0")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2026-10-25T05:53:37.479908528Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 public class PokemonSpeciesDetail {
 
   private Integer id;
 
   private String name;
 
-  @JsonInclude(JsonInclude.Include.NON_ABSENT)
   private JsonNullable<Integer> order = JsonNullable.<Integer>undefined();
 
-  @JsonInclude(JsonInclude.Include.NON_ABSENT)
   private JsonNullable<Integer> genderRate = JsonNullable.<Integer>undefined();
 
-  @JsonInclude(JsonInclude.Include.NON_ABSENT)
   private JsonNullable<Integer> captureRate = JsonNullable.<Integer>undefined();
 
-  @JsonInclude(JsonInclude.Include.NON_ABSENT)
   private JsonNullable<Integer> baseHappiness = JsonNullable.<Integer>undefined();
 
-  @JsonInclude(JsonInclude.Include.NON_NULL)
   private @Nullable Boolean isBaby;
 
-  @JsonInclude(JsonInclude.Include.NON_NULL)
   private @Nullable Boolean isLegendary;
 
-  @JsonInclude(JsonInclude.Include.NON_NULL)
   private @Nullable Boolean isMythical;
 
-  @JsonInclude(JsonInclude.Include.NON_ABSENT)
   private JsonNullable<Integer> hatchCounter = JsonNullable.<Integer>undefined();
 
-  @JsonInclude(JsonInclude.Include.NON_NULL)
   private @Nullable Boolean hasGenderDifferences;
 
-  @JsonInclude(JsonInclude.Include.NON_NULL)
   private @Nullable Boolean formsSwitchable;
 
   private GrowthRateSummary growthRate;
@@ -186,7 +175,7 @@ public class PokemonSpeciesDetail {
    * @return order
    */
   
-  @Schema(name = "order", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @Schema(name = "order", requiredMode = Schema.RequiredMode.NOT_REQUIRED, nullable = true)
   @JsonProperty("order")
   public JsonNullable<Integer> getOrder() {
     return order;
@@ -206,7 +195,7 @@ public class PokemonSpeciesDetail {
    * @return genderRate
    */
   
-  @Schema(name = "gender_rate", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @Schema(name = "gender_rate", requiredMode = Schema.RequiredMode.NOT_REQUIRED, nullable = true)
   @JsonProperty("gender_rate")
   public JsonNullable<Integer> getGenderRate() {
     return genderRate;
@@ -226,7 +215,7 @@ public class PokemonSpeciesDetail {
    * @return captureRate
    */
   
-  @Schema(name = "capture_rate", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @Schema(name = "capture_rate", requiredMode = Schema.RequiredMode.NOT_REQUIRED, nullable = true)
   @JsonProperty("capture_rate")
   public JsonNullable<Integer> getCaptureRate() {
     return captureRate;
@@ -246,7 +235,7 @@ public class PokemonSpeciesDetail {
    * @return baseHappiness
    */
   
-  @Schema(name = "base_happiness", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @Schema(name = "base_happiness", requiredMode = Schema.RequiredMode.NOT_REQUIRED, nullable = true)
   @JsonProperty("base_happiness")
   public JsonNullable<Integer> getBaseHappiness() {
     return baseHappiness;
@@ -329,7 +318,7 @@ public class PokemonSpeciesDetail {
    * @return hatchCounter
    */
   
-  @Schema(name = "hatch_counter", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @Schema(name = "hatch_counter", requiredMode = Schema.RequiredMode.NOT_REQUIRED, nullable = true)
   @JsonProperty("hatch_counter")
   public JsonNullable<Integer> getHatchCounter() {
     return hatchCounter;
@@ -419,7 +408,7 @@ public class PokemonSpeciesDetail {
    * Get pokedexNumbers
    * @return pokedexNumbers
    */
-  @Valid 
+  
   @Schema(name = "pokedex_numbers", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("pokedex_numbers")
   public List<@Valid PokemonDexEntry> getPokedexNumbers() {
@@ -448,7 +437,7 @@ public class PokemonSpeciesDetail {
    * Get eggGroups
    * @return eggGroups
    */
-  @Valid 
+  
   @Schema(name = "egg_groups", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("egg_groups")
   public List<@Valid AbilityDetailPokemonInnerPokemon> getEggGroups() {
@@ -603,7 +592,7 @@ public class PokemonSpeciesDetail {
    * Get names
    * @return names
    */
-  @Valid 
+  
   @Schema(name = "names", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("names")
   public List<@Valid PokemonFormDetailFormNamesInner> getNames() {
@@ -632,7 +621,7 @@ public class PokemonSpeciesDetail {
    * Get palParkEncounters
    * @return palParkEncounters
    */
-  @Valid 
+  
   @Schema(name = "pal_park_encounters", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("pal_park_encounters")
   public List<@Valid PokemonSpeciesDetailPalParkEncountersInner> getPalParkEncounters() {
@@ -661,7 +650,7 @@ public class PokemonSpeciesDetail {
    * Get formDescriptions
    * @return formDescriptions
    */
-  @Valid 
+  
   @Schema(name = "form_descriptions", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("form_descriptions")
   public List<@Valid PokemonSpeciesDescription> getFormDescriptions() {
@@ -690,7 +679,7 @@ public class PokemonSpeciesDetail {
    * Get flavorTextEntries
    * @return flavorTextEntries
    */
-  @Valid 
+  
   @Schema(name = "flavor_text_entries", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("flavor_text_entries")
   public List<@Valid PokemonSpeciesFlavorText> getFlavorTextEntries() {
@@ -719,7 +708,7 @@ public class PokemonSpeciesDetail {
    * Get genera
    * @return genera
    */
-  @Valid 
+  
   @Schema(name = "genera", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("genera")
   public List<@Valid PokemonSpeciesDetailGeneraInner> getGenera() {
@@ -748,7 +737,7 @@ public class PokemonSpeciesDetail {
    * Get varieties
    * @return varieties
    */
-  @Valid 
+  
   @Schema(name = "varieties", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("varieties")
   public List<@Valid PokemonSpeciesDetailVarietiesInner> getVarieties() {

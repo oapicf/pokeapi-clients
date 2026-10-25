@@ -29,14 +29,10 @@ import {
 export interface PokeathlonStatDetailAffectingNaturesDecreaseInner {
     /**
      * 
-     * @type {number}
-     * @memberof PokeathlonStatDetailAffectingNaturesDecreaseInner
      */
     maxChange: number;
     /**
      * 
-     * @type {AbilityDetailPokemonInnerPokemon}
-     * @memberof PokeathlonStatDetailAffectingNaturesDecreaseInner
      */
     nature: AbilityDetailPokemonInnerPokemon;
 }

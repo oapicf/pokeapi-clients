@@ -36,14 +36,10 @@ import {
 export interface AbilityChange {
     /**
      * 
-     * @type {VersionGroupSummary}
-     * @memberof AbilityChange
      */
     versionGroup: VersionGroupSummary;
     /**
      * 
-     * @type {Array<AbilityChangeEffectText>}
-     * @memberof AbilityChange
      */
     readonly effectEntries: Array<AbilityChangeEffectText>;
 }

@@ -167,7 +167,7 @@ function Invoke-AbilityRetrieve {
         if (!$Id) {
             throw "Error! The required parameter `Id` missing when calling abilityRetrieve."
         }
-        $LocalVarUri = $LocalVarUri.replace('{id}', [System.Web.HTTPUtility]::UrlEncode($Id))
+        $LocalVarUri = $LocalVarUri.replace('{id}', [System.Uri]::EscapeDataString([string]$Id))
 
         if ($Configuration["Username"] -and $Configuration["Password"]) {
             $LocalVarBytes = [System.Text.Encoding]::UTF8.GetBytes($Configuration["Username"] + ":" + $Configuration["Password"])
@@ -367,7 +367,7 @@ function Invoke-CharacteristicRetrieve {
         if (!$Id) {
             throw "Error! The required parameter `Id` missing when calling characteristicRetrieve."
         }
-        $LocalVarUri = $LocalVarUri.replace('{id}', [System.Web.HTTPUtility]::UrlEncode($Id))
+        $LocalVarUri = $LocalVarUri.replace('{id}', [System.Uri]::EscapeDataString([string]$Id))
 
         if ($Configuration["Username"] -and $Configuration["Password"]) {
             $LocalVarBytes = [System.Text.Encoding]::UTF8.GetBytes($Configuration["Username"] + ":" + $Configuration["Password"])
@@ -567,7 +567,7 @@ function Invoke-EggGroupRetrieve {
         if (!$Id) {
             throw "Error! The required parameter `Id` missing when calling eggGroupRetrieve."
         }
-        $LocalVarUri = $LocalVarUri.replace('{id}', [System.Web.HTTPUtility]::UrlEncode($Id))
+        $LocalVarUri = $LocalVarUri.replace('{id}', [System.Uri]::EscapeDataString([string]$Id))
 
         if ($Configuration["Username"] -and $Configuration["Password"]) {
             $LocalVarBytes = [System.Text.Encoding]::UTF8.GetBytes($Configuration["Username"] + ":" + $Configuration["Password"])
@@ -767,7 +767,7 @@ function Invoke-GenderRetrieve {
         if (!$Id) {
             throw "Error! The required parameter `Id` missing when calling genderRetrieve."
         }
-        $LocalVarUri = $LocalVarUri.replace('{id}', [System.Web.HTTPUtility]::UrlEncode($Id))
+        $LocalVarUri = $LocalVarUri.replace('{id}', [System.Uri]::EscapeDataString([string]$Id))
 
         if ($Configuration["Username"] -and $Configuration["Password"]) {
             $LocalVarBytes = [System.Text.Encoding]::UTF8.GetBytes($Configuration["Username"] + ":" + $Configuration["Password"])
@@ -967,7 +967,7 @@ function Invoke-GrowthRateRetrieve {
         if (!$Id) {
             throw "Error! The required parameter `Id` missing when calling growthRateRetrieve."
         }
-        $LocalVarUri = $LocalVarUri.replace('{id}', [System.Web.HTTPUtility]::UrlEncode($Id))
+        $LocalVarUri = $LocalVarUri.replace('{id}', [System.Uri]::EscapeDataString([string]$Id))
 
         if ($Configuration["Username"] -and $Configuration["Password"]) {
             $LocalVarBytes = [System.Text.Encoding]::UTF8.GetBytes($Configuration["Username"] + ":" + $Configuration["Password"])
@@ -1167,7 +1167,7 @@ function Move-DamageClassRetrieve {
         if (!$Id) {
             throw "Error! The required parameter `Id` missing when calling moveDamageClassRetrieve."
         }
-        $LocalVarUri = $LocalVarUri.replace('{id}', [System.Web.HTTPUtility]::UrlEncode($Id))
+        $LocalVarUri = $LocalVarUri.replace('{id}', [System.Uri]::EscapeDataString([string]$Id))
 
         if ($Configuration["Username"] -and $Configuration["Password"]) {
             $LocalVarBytes = [System.Text.Encoding]::UTF8.GetBytes($Configuration["Username"] + ":" + $Configuration["Password"])
@@ -1367,7 +1367,7 @@ function Invoke-NatureRetrieve {
         if (!$Id) {
             throw "Error! The required parameter `Id` missing when calling natureRetrieve."
         }
-        $LocalVarUri = $LocalVarUri.replace('{id}', [System.Web.HTTPUtility]::UrlEncode($Id))
+        $LocalVarUri = $LocalVarUri.replace('{id}', [System.Uri]::EscapeDataString([string]$Id))
 
         if ($Configuration["Username"] -and $Configuration["Password"]) {
             $LocalVarBytes = [System.Text.Encoding]::UTF8.GetBytes($Configuration["Username"] + ":" + $Configuration["Password"])
@@ -1567,7 +1567,7 @@ function Invoke-PokeathlonStatRetrieve {
         if (!$Id) {
             throw "Error! The required parameter `Id` missing when calling pokeathlonStatRetrieve."
         }
-        $LocalVarUri = $LocalVarUri.replace('{id}', [System.Web.HTTPUtility]::UrlEncode($Id))
+        $LocalVarUri = $LocalVarUri.replace('{id}', [System.Uri]::EscapeDataString([string]$Id))
 
         if ($Configuration["Username"] -and $Configuration["Password"]) {
             $LocalVarBytes = [System.Text.Encoding]::UTF8.GetBytes($Configuration["Username"] + ":" + $Configuration["Password"])
@@ -1767,7 +1767,7 @@ function Invoke-PokemonColorRetrieve {
         if (!$Id) {
             throw "Error! The required parameter `Id` missing when calling pokemonColorRetrieve."
         }
-        $LocalVarUri = $LocalVarUri.replace('{id}', [System.Web.HTTPUtility]::UrlEncode($Id))
+        $LocalVarUri = $LocalVarUri.replace('{id}', [System.Uri]::EscapeDataString([string]$Id))
 
         if ($Configuration["Username"] -and $Configuration["Password"]) {
             $LocalVarBytes = [System.Text.Encoding]::UTF8.GetBytes($Configuration["Username"] + ":" + $Configuration["Password"])
@@ -1967,7 +1967,7 @@ function Invoke-PokemonFormRetrieve {
         if (!$Id) {
             throw "Error! The required parameter `Id` missing when calling pokemonFormRetrieve."
         }
-        $LocalVarUri = $LocalVarUri.replace('{id}', [System.Web.HTTPUtility]::UrlEncode($Id))
+        $LocalVarUri = $LocalVarUri.replace('{id}', [System.Uri]::EscapeDataString([string]$Id))
 
         if ($Configuration["Username"] -and $Configuration["Password"]) {
             $LocalVarBytes = [System.Text.Encoding]::UTF8.GetBytes($Configuration["Username"] + ":" + $Configuration["Password"])
@@ -2167,7 +2167,7 @@ function Invoke-PokemonHabitatRetrieve {
         if (!$Id) {
             throw "Error! The required parameter `Id` missing when calling pokemonHabitatRetrieve."
         }
-        $LocalVarUri = $LocalVarUri.replace('{id}', [System.Web.HTTPUtility]::UrlEncode($Id))
+        $LocalVarUri = $LocalVarUri.replace('{id}', [System.Uri]::EscapeDataString([string]$Id))
 
         if ($Configuration["Username"] -and $Configuration["Password"]) {
             $LocalVarBytes = [System.Text.Encoding]::UTF8.GetBytes($Configuration["Username"] + ":" + $Configuration["Password"])
@@ -2367,7 +2367,7 @@ function Invoke-PokemonRetrieve {
         if (!$Id) {
             throw "Error! The required parameter `Id` missing when calling pokemonRetrieve."
         }
-        $LocalVarUri = $LocalVarUri.replace('{id}', [System.Web.HTTPUtility]::UrlEncode($Id))
+        $LocalVarUri = $LocalVarUri.replace('{id}', [System.Uri]::EscapeDataString([string]$Id))
 
         if ($Configuration["Username"] -and $Configuration["Password"]) {
             $LocalVarBytes = [System.Text.Encoding]::UTF8.GetBytes($Configuration["Username"] + ":" + $Configuration["Password"])
@@ -2567,7 +2567,7 @@ function Invoke-PokemonShapeRetrieve {
         if (!$Id) {
             throw "Error! The required parameter `Id` missing when calling pokemonShapeRetrieve."
         }
-        $LocalVarUri = $LocalVarUri.replace('{id}', [System.Web.HTTPUtility]::UrlEncode($Id))
+        $LocalVarUri = $LocalVarUri.replace('{id}', [System.Uri]::EscapeDataString([string]$Id))
 
         if ($Configuration["Username"] -and $Configuration["Password"]) {
             $LocalVarBytes = [System.Text.Encoding]::UTF8.GetBytes($Configuration["Username"] + ":" + $Configuration["Password"])
@@ -2767,7 +2767,7 @@ function Invoke-PokemonSpeciesRetrieve {
         if (!$Id) {
             throw "Error! The required parameter `Id` missing when calling pokemonSpeciesRetrieve."
         }
-        $LocalVarUri = $LocalVarUri.replace('{id}', [System.Web.HTTPUtility]::UrlEncode($Id))
+        $LocalVarUri = $LocalVarUri.replace('{id}', [System.Uri]::EscapeDataString([string]$Id))
 
         if ($Configuration["Username"] -and $Configuration["Password"]) {
             $LocalVarBytes = [System.Text.Encoding]::UTF8.GetBytes($Configuration["Username"] + ":" + $Configuration["Password"])
@@ -2967,7 +2967,7 @@ function Invoke-StatRetrieve {
         if (!$Id) {
             throw "Error! The required parameter `Id` missing when calling statRetrieve."
         }
-        $LocalVarUri = $LocalVarUri.replace('{id}', [System.Web.HTTPUtility]::UrlEncode($Id))
+        $LocalVarUri = $LocalVarUri.replace('{id}', [System.Uri]::EscapeDataString([string]$Id))
 
         if ($Configuration["Username"] -and $Configuration["Password"]) {
             $LocalVarBytes = [System.Text.Encoding]::UTF8.GetBytes($Configuration["Username"] + ":" + $Configuration["Password"])
@@ -3167,7 +3167,7 @@ function Get-Retrieve {
         if (!$Id) {
             throw "Error! The required parameter `Id` missing when calling typeRetrieve."
         }
-        $LocalVarUri = $LocalVarUri.replace('{id}', [System.Web.HTTPUtility]::UrlEncode($Id))
+        $LocalVarUri = $LocalVarUri.replace('{id}', [System.Uri]::EscapeDataString([string]$Id))
 
         if ($Configuration["Username"] -and $Configuration["Password"]) {
             $LocalVarBytes = [System.Text.Encoding]::UTF8.GetBytes($Configuration["Username"] + ":" + $Configuration["Password"])

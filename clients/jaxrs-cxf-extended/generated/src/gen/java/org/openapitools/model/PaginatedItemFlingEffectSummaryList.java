@@ -25,7 +25,6 @@ public class PaginatedItemFlingEffectSummaryList  {
   private URI previous;
 
   @ApiModelProperty(value = "")
-  @Valid
   private List<@Valid ItemFlingEffectSummary> results = new ArrayList<>();
  /**
   * Get count

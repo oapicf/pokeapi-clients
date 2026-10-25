@@ -21,14 +21,10 @@ import { mapValues } from '../runtime';
 export interface GenerationSummary {
     /**
      * 
-     * @type {string}
-     * @memberof GenerationSummary
      */
     name: string;
     /**
      * 
-     * @type {string}
-     * @memberof GenerationSummary
      */
     readonly url: string;
 }

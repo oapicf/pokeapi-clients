@@ -146,16 +146,16 @@ namespace Org.OpenAPITools.Model
             }
 
             if (!latest.IsSet)
-                throw new ArgumentException("Property is required for class PokemonDetailCries.", nameof(latest));
+                throw new JsonException("Property is required for class PokemonDetailCries: latest.");
 
             if (!legacy.IsSet)
-                throw new ArgumentException("Property is required for class PokemonDetailCries.", nameof(legacy));
+                throw new JsonException("Property is required for class PokemonDetailCries: legacy.");
 
             if (latest.IsSet && latest.Value == null)
-                throw new ArgumentNullException(nameof(latest), "Property is not nullable for class PokemonDetailCries.");
+                throw new JsonException("Property is not nullable for class PokemonDetailCries: latest.");
 
             if (legacy.IsSet && legacy.Value == null)
-                throw new ArgumentNullException(nameof(legacy), "Property is not nullable for class PokemonDetailCries.");
+                throw new JsonException("Property is not nullable for class PokemonDetailCries: legacy.");
 
             return new PokemonDetailCries(latest.Value!, legacy.Value!);
         }
@@ -166,7 +166,6 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="pokemonDetailCries"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public override void Write(Utf8JsonWriter writer, PokemonDetailCries pokemonDetailCries, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteStartObject();
@@ -181,15 +180,8 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="pokemonDetailCries"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, PokemonDetailCries pokemonDetailCries, JsonSerializerOptions jsonSerializerOptions)
         {
-            if (pokemonDetailCries.Latest == null)
-                throw new ArgumentNullException(nameof(pokemonDetailCries.Latest), "Property is required for class PokemonDetailCries.");
-
-            if (pokemonDetailCries.Legacy == null)
-                throw new ArgumentNullException(nameof(pokemonDetailCries.Legacy), "Property is required for class PokemonDetailCries.");
-
             writer.WriteString("latest", pokemonDetailCries.Latest);
 
             writer.WriteString("legacy", pokemonDetailCries.Legacy);

@@ -13,7 +13,7 @@ import java.util.Map;
 /**
  * PokemonFormDetailSprites
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaMSF4JServerCodegen", date = "2026-08-30T01:55:58.248058654Z[Etc/UTC]", comments = "Generator version: 7.24.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaMSF4JServerCodegen", date = "2026-10-25T05:48:05.787850114Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 public class PokemonFormDetailSprites extends HashMap<String, URI>  {
   @JsonProperty("default")
   private URI _default;

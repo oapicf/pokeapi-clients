@@ -121,3 +121,4 @@ class _$MoveNameSerializer implements PrimitiveSerializer<MoveName> {
   }
 }
 
+

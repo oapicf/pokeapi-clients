@@ -121,3 +121,4 @@ class _$PokemonSpeciesDetailVarietiesInnerSerializer implements PrimitiveSeriali
   }
 }
 
+

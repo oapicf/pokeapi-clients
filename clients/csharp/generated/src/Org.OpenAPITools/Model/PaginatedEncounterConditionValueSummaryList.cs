@@ -203,16 +203,16 @@ namespace Org.OpenAPITools.Model
             }
 
             if (count.IsSet && count.Value == null)
-                throw new ArgumentNullException(nameof(count), "Property is not nullable for class PaginatedEncounterConditionValueSummaryList.");
+                throw new JsonException("Property is not nullable for class PaginatedEncounterConditionValueSummaryList: count.");
 
             if (next.IsSet && next.Value == null)
-                throw new ArgumentNullException(nameof(next), "Property is not nullable for class PaginatedEncounterConditionValueSummaryList.");
+                throw new JsonException("Property is not nullable for class PaginatedEncounterConditionValueSummaryList: next.");
 
             if (previous.IsSet && previous.Value == null)
-                throw new ArgumentNullException(nameof(previous), "Property is not nullable for class PaginatedEncounterConditionValueSummaryList.");
+                throw new JsonException("Property is not nullable for class PaginatedEncounterConditionValueSummaryList: previous.");
 
             if (results.IsSet && results.Value == null)
-                throw new ArgumentNullException(nameof(results), "Property is not nullable for class PaginatedEncounterConditionValueSummaryList.");
+                throw new JsonException("Property is not nullable for class PaginatedEncounterConditionValueSummaryList: results.");
 
             return new PaginatedEncounterConditionValueSummaryList(count, next, previous, results);
         }
@@ -223,7 +223,6 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="paginatedEncounterConditionValueSummaryList"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public override void Write(Utf8JsonWriter writer, PaginatedEncounterConditionValueSummaryList paginatedEncounterConditionValueSummaryList, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteStartObject();
@@ -238,17 +237,19 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="paginatedEncounterConditionValueSummaryList"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, PaginatedEncounterConditionValueSummaryList paginatedEncounterConditionValueSummaryList, JsonSerializerOptions jsonSerializerOptions)
         {
+            if (paginatedEncounterConditionValueSummaryList.CountOption.IsSet && paginatedEncounterConditionValueSummaryList.Count == null)
+                throw new JsonException("Cannot write null property PaginatedEncounterConditionValueSummaryList.Count to non-nullable JSON property 'count'.");
+
             if (paginatedEncounterConditionValueSummaryList.NextOption.IsSet && paginatedEncounterConditionValueSummaryList.Next == null)
-                throw new ArgumentNullException(nameof(paginatedEncounterConditionValueSummaryList.Next), "Property is required for class PaginatedEncounterConditionValueSummaryList.");
+                throw new JsonException("Cannot write null property PaginatedEncounterConditionValueSummaryList.Next to non-nullable JSON property 'next'.");
 
             if (paginatedEncounterConditionValueSummaryList.PreviousOption.IsSet && paginatedEncounterConditionValueSummaryList.Previous == null)
-                throw new ArgumentNullException(nameof(paginatedEncounterConditionValueSummaryList.Previous), "Property is required for class PaginatedEncounterConditionValueSummaryList.");
+                throw new JsonException("Cannot write null property PaginatedEncounterConditionValueSummaryList.Previous to non-nullable JSON property 'previous'.");
 
             if (paginatedEncounterConditionValueSummaryList.ResultsOption.IsSet && paginatedEncounterConditionValueSummaryList.Results == null)
-                throw new ArgumentNullException(nameof(paginatedEncounterConditionValueSummaryList.Results), "Property is required for class PaginatedEncounterConditionValueSummaryList.");
+                throw new JsonException("Cannot write null property PaginatedEncounterConditionValueSummaryList.Results to non-nullable JSON property 'results'.");
 
             if (paginatedEncounterConditionValueSummaryList.CountOption.IsSet)
                 writer.WriteNumber("count", paginatedEncounterConditionValueSummaryList.CountOption.Value!.Value);

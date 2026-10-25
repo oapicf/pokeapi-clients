@@ -24,17 +24,17 @@ import io.swagger.v3.oas.annotations.media.Schema
 data class AbilityFlavorText(
 
     @Schema(required = true, description = "")
-    @param:JsonProperty("flavor_text")
+    @param:JsonProperty("flavor_text", required = true)
     @get:JsonProperty("flavor_text", required = true) val flavorText: kotlin.String,
 
     @field:Valid
     @Schema(required = true, description = "")
-    @param:JsonProperty("language")
+    @param:JsonProperty("language", required = true)
     @get:JsonProperty("language", required = true) val language: LanguageSummary,
 
     @field:Valid
     @Schema(required = true, description = "")
-    @param:JsonProperty("version_group")
+    @param:JsonProperty("version_group", required = true)
     @get:JsonProperty("version_group", required = true) val versionGroup: VersionGroupSummary
 ) {
 

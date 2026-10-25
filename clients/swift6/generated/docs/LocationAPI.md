@@ -16,7 +16,7 @@ Method | HTTP request | Description
 
 # **locationAreaList**
 ```swift
-    open class func locationAreaList(limit: Int? = nil, offset: Int? = nil, completion: @escaping (_ data: PaginatedLocationAreaSummaryList?, _ error: Error?) -> Void)
+    open class func locationAreaList(limit: Int? = nil, offset: Int? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> PaginatedLocationAreaSummaryList
 ```
 
 List location areas
@@ -32,15 +32,11 @@ let limit = 987 // Int | Number of results to return per page. (optional)
 let offset = 987 // Int | The initial index from which to return the results. (optional)
 
 // List location areas
-LocationAPI.locationAreaList(limit: limit, offset: offset) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await LocationAPI.locationAreaList(limit: limit, offset: offset)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -68,7 +64,7 @@ Name | Type | Description  | Notes
 
 # **locationAreaRetrieve**
 ```swift
-    open class func locationAreaRetrieve(id: Int, completion: @escaping (_ data: LocationAreaDetail?, _ error: Error?) -> Void)
+    open class func locationAreaRetrieve(id: Int, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> LocationAreaDetail
 ```
 
 Get location area
@@ -83,15 +79,11 @@ import OpenAPIClient
 let id = 987 // Int | A unique integer value identifying this location area.
 
 // Get location area
-LocationAPI.locationAreaRetrieve(id: id) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await LocationAPI.locationAreaRetrieve(id: id)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -118,7 +110,7 @@ Name | Type | Description  | Notes
 
 # **locationList**
 ```swift
-    open class func locationList(limit: Int? = nil, offset: Int? = nil, q: String? = nil, completion: @escaping (_ data: PaginatedLocationSummaryList?, _ error: Error?) -> Void)
+    open class func locationList(limit: Int? = nil, offset: Int? = nil, q: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> PaginatedLocationSummaryList
 ```
 
 List locations
@@ -135,15 +127,11 @@ let offset = 987 // Int | The initial index from which to return the results. (o
 let q = "q_example" // String | > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property.  (optional)
 
 // List locations
-LocationAPI.locationList(limit: limit, offset: offset, q: q) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await LocationAPI.locationList(limit: limit, offset: offset, q: q)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -172,7 +160,7 @@ Name | Type | Description  | Notes
 
 # **locationRetrieve**
 ```swift
-    open class func locationRetrieve(id: String, completion: @escaping (_ data: LocationDetail?, _ error: Error?) -> Void)
+    open class func locationRetrieve(id: String, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> LocationDetail
 ```
 
 Get location
@@ -187,15 +175,11 @@ import OpenAPIClient
 let id = "id_example" // String | This parameter can be a string or an integer.
 
 // Get location
-LocationAPI.locationRetrieve(id: id) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await LocationAPI.locationRetrieve(id: id)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -222,7 +206,7 @@ Name | Type | Description  | Notes
 
 # **palParkAreaList**
 ```swift
-    open class func palParkAreaList(limit: Int? = nil, offset: Int? = nil, q: String? = nil, completion: @escaping (_ data: PaginatedPalParkAreaSummaryList?, _ error: Error?) -> Void)
+    open class func palParkAreaList(limit: Int? = nil, offset: Int? = nil, q: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> PaginatedPalParkAreaSummaryList
 ```
 
 List pal park areas
@@ -239,15 +223,11 @@ let offset = 987 // Int | The initial index from which to return the results. (o
 let q = "q_example" // String | > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property.  (optional)
 
 // List pal park areas
-LocationAPI.palParkAreaList(limit: limit, offset: offset, q: q) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await LocationAPI.palParkAreaList(limit: limit, offset: offset, q: q)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -276,7 +256,7 @@ Name | Type | Description  | Notes
 
 # **palParkAreaRetrieve**
 ```swift
-    open class func palParkAreaRetrieve(id: String, completion: @escaping (_ data: PalParkAreaDetail?, _ error: Error?) -> Void)
+    open class func palParkAreaRetrieve(id: String, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> PalParkAreaDetail
 ```
 
 Get pal park area
@@ -291,15 +271,11 @@ import OpenAPIClient
 let id = "id_example" // String | This parameter can be a string or an integer.
 
 // Get pal park area
-LocationAPI.palParkAreaRetrieve(id: id) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await LocationAPI.palParkAreaRetrieve(id: id)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -326,7 +302,7 @@ Name | Type | Description  | Notes
 
 # **regionList**
 ```swift
-    open class func regionList(limit: Int? = nil, offset: Int? = nil, q: String? = nil, completion: @escaping (_ data: PaginatedRegionSummaryList?, _ error: Error?) -> Void)
+    open class func regionList(limit: Int? = nil, offset: Int? = nil, q: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> PaginatedRegionSummaryList
 ```
 
 List regions
@@ -343,15 +319,11 @@ let offset = 987 // Int | The initial index from which to return the results. (o
 let q = "q_example" // String | > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property.  (optional)
 
 // List regions
-LocationAPI.regionList(limit: limit, offset: offset, q: q) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await LocationAPI.regionList(limit: limit, offset: offset, q: q)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -380,7 +352,7 @@ Name | Type | Description  | Notes
 
 # **regionRetrieve**
 ```swift
-    open class func regionRetrieve(id: String, completion: @escaping (_ data: RegionDetail?, _ error: Error?) -> Void)
+    open class func regionRetrieve(id: String, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> RegionDetail
 ```
 
 Get region
@@ -395,15 +367,11 @@ import OpenAPIClient
 let id = "id_example" // String | This parameter can be a string or an integer.
 
 // Get region
-LocationAPI.regionRetrieve(id: id) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await LocationAPI.regionRetrieve(id: id)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 

@@ -155,3 +155,4 @@ class _$GenderDetailSerializer implements PrimitiveSerializer<GenderDetail> {
   }
 }
 
+

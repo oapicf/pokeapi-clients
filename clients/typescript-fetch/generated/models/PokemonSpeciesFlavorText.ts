@@ -36,20 +36,14 @@ import {
 export interface PokemonSpeciesFlavorText {
     /**
      * 
-     * @type {string}
-     * @memberof PokemonSpeciesFlavorText
      */
     flavorText: string;
     /**
      * 
-     * @type {LanguageSummary}
-     * @memberof PokemonSpeciesFlavorText
      */
     language: LanguageSummary;
     /**
      * 
-     * @type {VersionSummary}
-     * @memberof PokemonSpeciesFlavorText
      */
     version: VersionSummary;
 }

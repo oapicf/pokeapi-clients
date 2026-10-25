@@ -232,28 +232,28 @@ namespace Org.OpenAPITools.Model
             }
 
             if (!effectChance.IsSet)
-                throw new ArgumentException("Property is required for class MoveChange.", nameof(effectChance));
+                throw new JsonException("Property is required for class MoveChange: effect_chance.");
 
             if (!effectEntries.IsSet)
-                throw new ArgumentException("Property is required for class MoveChange.", nameof(effectEntries));
+                throw new JsonException("Property is required for class MoveChange: effect_entries.");
 
             if (!type.IsSet)
-                throw new ArgumentException("Property is required for class MoveChange.", nameof(type));
+                throw new JsonException("Property is required for class MoveChange: type.");
 
             if (!versionGroup.IsSet)
-                throw new ArgumentException("Property is required for class MoveChange.", nameof(versionGroup));
+                throw new JsonException("Property is required for class MoveChange: version_group.");
 
             if (effectChance.IsSet && effectChance.Value == null)
-                throw new ArgumentNullException(nameof(effectChance), "Property is not nullable for class MoveChange.");
+                throw new JsonException("Property is not nullable for class MoveChange: effect_chance.");
 
             if (effectEntries.IsSet && effectEntries.Value == null)
-                throw new ArgumentNullException(nameof(effectEntries), "Property is not nullable for class MoveChange.");
+                throw new JsonException("Property is not nullable for class MoveChange: effect_entries.");
 
             if (type.IsSet && type.Value == null)
-                throw new ArgumentNullException(nameof(type), "Property is not nullable for class MoveChange.");
+                throw new JsonException("Property is not nullable for class MoveChange: type.");
 
             if (versionGroup.IsSet && versionGroup.Value == null)
-                throw new ArgumentNullException(nameof(versionGroup), "Property is not nullable for class MoveChange.");
+                throw new JsonException("Property is not nullable for class MoveChange: version_group.");
 
             return new MoveChange(effectChance.Value!.Value!, effectEntries.Value!, type.Value!, versionGroup.Value!, accuracy, power, pp);
         }
@@ -264,7 +264,6 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="moveChange"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public override void Write(Utf8JsonWriter writer, MoveChange moveChange, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteStartObject();
@@ -279,18 +278,8 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="moveChange"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, MoveChange moveChange, JsonSerializerOptions jsonSerializerOptions)
         {
-            if (moveChange.EffectEntries == null)
-                throw new ArgumentNullException(nameof(moveChange.EffectEntries), "Property is required for class MoveChange.");
-
-            if (moveChange.Type == null)
-                throw new ArgumentNullException(nameof(moveChange.Type), "Property is required for class MoveChange.");
-
-            if (moveChange.VersionGroup == null)
-                throw new ArgumentNullException(nameof(moveChange.VersionGroup), "Property is required for class MoveChange.");
-
             writer.WriteNumber("effect_chance", moveChange.EffectChance);
 
             writer.WritePropertyName("effect_entries");

@@ -175,162 +175,370 @@ import {
 } from '../models/TypeDetail';
 
 export interface AbilityListRequest {
+    /**
+     * Number of results to return per page.
+     */
     limit?: number;
+    /**
+     * The initial index from which to return the results.
+     */
     offset?: number;
+    /**
+     * > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2)
+     * Case-insensitive query applied on the `name` property. 
+     */
     q?: string;
 }
 
 export interface AbilityRetrieveRequest {
+    /**
+     * This parameter can be a string or an integer.
+     */
     id: string;
 }
 
 export interface CharacteristicListRequest {
+    /**
+     * Number of results to return per page.
+     */
     limit?: number;
+    /**
+     * The initial index from which to return the results.
+     */
     offset?: number;
+    /**
+     * > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2)
+     * Case-insensitive query applied on the `name` property. 
+     */
     q?: string;
 }
 
 export interface CharacteristicRetrieveRequest {
+    /**
+     * This parameter can be a string or an integer.
+     */
     id: string;
 }
 
 export interface EggGroupListRequest {
+    /**
+     * Number of results to return per page.
+     */
     limit?: number;
+    /**
+     * The initial index from which to return the results.
+     */
     offset?: number;
+    /**
+     * > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2)
+     * Case-insensitive query applied on the `name` property. 
+     */
     q?: string;
 }
 
 export interface EggGroupRetrieveRequest {
+    /**
+     * This parameter can be a string or an integer.
+     */
     id: string;
 }
 
 export interface GenderListRequest {
+    /**
+     * Number of results to return per page.
+     */
     limit?: number;
+    /**
+     * The initial index from which to return the results.
+     */
     offset?: number;
+    /**
+     * > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2)
+     * Case-insensitive query applied on the `name` property. 
+     */
     q?: string;
 }
 
 export interface GenderRetrieveRequest {
+    /**
+     * This parameter can be a string or an integer.
+     */
     id: string;
 }
 
 export interface GrowthRateListRequest {
+    /**
+     * Number of results to return per page.
+     */
     limit?: number;
+    /**
+     * The initial index from which to return the results.
+     */
     offset?: number;
+    /**
+     * > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2)
+     * Case-insensitive query applied on the `name` property. 
+     */
     q?: string;
 }
 
 export interface GrowthRateRetrieveRequest {
+    /**
+     * This parameter can be a string or an integer.
+     */
     id: string;
 }
 
 export interface MoveDamageClassListRequest {
+    /**
+     * Number of results to return per page.
+     */
     limit?: number;
+    /**
+     * The initial index from which to return the results.
+     */
     offset?: number;
+    /**
+     * > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2)
+     * Case-insensitive query applied on the `name` property. 
+     */
     q?: string;
 }
 
 export interface MoveDamageClassRetrieveRequest {
+    /**
+     * This parameter can be a string or an integer.
+     */
     id: string;
 }
 
 export interface NatureListRequest {
+    /**
+     * Number of results to return per page.
+     */
     limit?: number;
+    /**
+     * The initial index from which to return the results.
+     */
     offset?: number;
+    /**
+     * > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2)
+     * Case-insensitive query applied on the `name` property. 
+     */
     q?: string;
 }
 
 export interface NatureRetrieveRequest {
+    /**
+     * This parameter can be a string or an integer.
+     */
     id: string;
 }
 
 export interface PokeathlonStatListRequest {
+    /**
+     * Number of results to return per page.
+     */
     limit?: number;
+    /**
+     * The initial index from which to return the results.
+     */
     offset?: number;
+    /**
+     * > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2)
+     * Case-insensitive query applied on the `name` property. 
+     */
     q?: string;
 }
 
 export interface PokeathlonStatRetrieveRequest {
+    /**
+     * This parameter can be a string or an integer.
+     */
     id: string;
 }
 
 export interface PokemonColorListRequest {
+    /**
+     * Number of results to return per page.
+     */
     limit?: number;
+    /**
+     * The initial index from which to return the results.
+     */
     offset?: number;
+    /**
+     * > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2)
+     * Case-insensitive query applied on the `name` property. 
+     */
     q?: string;
 }
 
 export interface PokemonColorRetrieveRequest {
+    /**
+     * This parameter can be a string or an integer.
+     */
     id: string;
 }
 
 export interface PokemonFormListRequest {
+    /**
+     * Number of results to return per page.
+     */
     limit?: number;
+    /**
+     * The initial index from which to return the results.
+     */
     offset?: number;
+    /**
+     * > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2)
+     * Case-insensitive query applied on the `name` property. 
+     */
     q?: string;
 }
 
 export interface PokemonFormRetrieveRequest {
+    /**
+     * This parameter can be a string or an integer.
+     */
     id: string;
 }
 
 export interface PokemonHabitatListRequest {
+    /**
+     * Number of results to return per page.
+     */
     limit?: number;
+    /**
+     * The initial index from which to return the results.
+     */
     offset?: number;
+    /**
+     * > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2)
+     * Case-insensitive query applied on the `name` property. 
+     */
     q?: string;
 }
 
 export interface PokemonHabitatRetrieveRequest {
+    /**
+     * This parameter can be a string or an integer.
+     */
     id: string;
 }
 
 export interface PokemonListRequest {
+    /**
+     * Number of results to return per page.
+     */
     limit?: number;
+    /**
+     * The initial index from which to return the results.
+     */
     offset?: number;
+    /**
+     * > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2)
+     * Case-insensitive query applied on the `name` property. 
+     */
     q?: string;
 }
 
 export interface PokemonRetrieveRequest {
+    /**
+     * This parameter can be a string or an integer.
+     */
     id: string;
 }
 
 export interface PokemonShapeListRequest {
+    /**
+     * Number of results to return per page.
+     */
     limit?: number;
+    /**
+     * The initial index from which to return the results.
+     */
     offset?: number;
+    /**
+     * > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2)
+     * Case-insensitive query applied on the `name` property. 
+     */
     q?: string;
 }
 
 export interface PokemonShapeRetrieveRequest {
+    /**
+     * This parameter can be a string or an integer.
+     */
     id: string;
 }
 
 export interface PokemonSpeciesListRequest {
+    /**
+     * Number of results to return per page.
+     */
     limit?: number;
+    /**
+     * The initial index from which to return the results.
+     */
     offset?: number;
+    /**
+     * > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2)
+     * Case-insensitive query applied on the `name` property. 
+     */
     q?: string;
 }
 
 export interface PokemonSpeciesRetrieveRequest {
+    /**
+     * This parameter can be a string or an integer.
+     */
     id: string;
 }
 
 export interface StatListRequest {
+    /**
+     * Number of results to return per page.
+     */
     limit?: number;
+    /**
+     * The initial index from which to return the results.
+     */
     offset?: number;
+    /**
+     * > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2)
+     * Case-insensitive query applied on the `name` property. 
+     */
     q?: string;
 }
 
 export interface StatRetrieveRequest {
+    /**
+     * This parameter can be a string or an integer.
+     */
     id: string;
 }
 
 export interface TypeListRequest {
+    /**
+     * Number of results to return per page.
+     */
     limit?: number;
+    /**
+     * The initial index from which to return the results.
+     */
     offset?: number;
+    /**
+     * > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2)
+     * Case-insensitive query applied on the `name` property. 
+     */
     q?: string;
 }
 
 export interface TypeRetrieveRequest {
+    /**
+     * This parameter can be a string or an integer.
+     */
     id: string;
 }
 

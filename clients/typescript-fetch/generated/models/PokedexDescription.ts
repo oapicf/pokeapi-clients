@@ -29,14 +29,10 @@ import {
 export interface PokedexDescription {
     /**
      * 
-     * @type {string}
-     * @memberof PokedexDescription
      */
     description?: string;
     /**
      * 
-     * @type {LanguageSummary}
-     * @memberof PokedexDescription
      */
     language: LanguageSummary;
 }

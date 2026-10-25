@@ -85,13 +85,9 @@ public class MoveDetail  {
 
   @ApiModelProperty(required = true, value = "")
 
-  @Valid
-
   private List<@Valid MoveChangeEffectEntriesInner> effectEntries = new ArrayList<>();
 
   @ApiModelProperty(required = true, value = "")
-
-  @Valid
 
   private List<@Valid MoveDetailEffectChangesInner> effectChanges = new ArrayList<>();
 
@@ -109,19 +105,13 @@ public class MoveDetail  {
 
   @ApiModelProperty(required = true, value = "")
 
-  @Valid
-
   private List<@Valid MoveName> names = new ArrayList<>();
 
   @ApiModelProperty(required = true, value = "")
 
-  @Valid
-
   private List<@Valid MoveChange> pastValues = new ArrayList<>();
 
   @ApiModelProperty(required = true, value = "")
-
-  @Valid
 
   private List<@Valid MoveDetailStatChangesInner> statChanges = new ArrayList<>();
 
@@ -145,19 +135,13 @@ public class MoveDetail  {
 
   @ApiModelProperty(required = true, value = "")
 
-  @Valid
-
   private List<@Valid MoveDetailMachinesInner> machines = new ArrayList<>();
 
   @ApiModelProperty(required = true, value = "")
 
-  @Valid
-
   private List<@Valid MoveFlavorText> flavorTextEntries = new ArrayList<>();
 
   @ApiModelProperty(required = true, value = "")
-
-  @Valid
 
   private List<@Valid AbilityDetailPokemonInnerPokemon> learnedByPokemon = new ArrayList<>();
  /**

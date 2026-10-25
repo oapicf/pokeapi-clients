@@ -120,3 +120,4 @@ class _$MoveSummarySerializer implements PrimitiveSerializer<MoveSummary> {
   }
 }
 
+

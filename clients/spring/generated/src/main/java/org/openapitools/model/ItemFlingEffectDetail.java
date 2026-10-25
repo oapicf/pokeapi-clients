@@ -24,7 +24,7 @@ import jakarta.annotation.Generated;
  * ItemFlingEffectDetail
  */
 
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2026-08-30T02:00:43.960184425Z[Etc/UTC]", comments = "Generator version: 7.24.0")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2026-10-25T05:53:37.479908528Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 public class ItemFlingEffectDetail {
 
   private Integer id;
@@ -108,7 +108,7 @@ public class ItemFlingEffectDetail {
    * Get effectEntries
    * @return effectEntries
    */
-  @Valid 
+  
   @Schema(name = "effect_entries", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("effect_entries")
   public List<@Valid ItemFlingEffectEffectText> getEffectEntries() {
@@ -137,7 +137,7 @@ public class ItemFlingEffectDetail {
    * Get items
    * @return items
    */
-  @Valid 
+  
   @Schema(name = "items", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("items")
   public List<@Valid ItemSummary> getItems() {

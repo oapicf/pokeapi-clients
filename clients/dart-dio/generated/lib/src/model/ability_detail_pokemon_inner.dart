@@ -137,3 +137,4 @@ class _$AbilityDetailPokemonInnerSerializer implements PrimitiveSerializer<Abili
   }
 }
 
+

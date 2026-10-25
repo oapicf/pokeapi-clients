@@ -166,3 +166,4 @@ class _$PaginatedCharacteristicSummaryListSerializer implements PrimitiveSeriali
   }
 }
 
+

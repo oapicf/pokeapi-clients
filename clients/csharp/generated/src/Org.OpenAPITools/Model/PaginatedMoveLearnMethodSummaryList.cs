@@ -203,16 +203,16 @@ namespace Org.OpenAPITools.Model
             }
 
             if (count.IsSet && count.Value == null)
-                throw new ArgumentNullException(nameof(count), "Property is not nullable for class PaginatedMoveLearnMethodSummaryList.");
+                throw new JsonException("Property is not nullable for class PaginatedMoveLearnMethodSummaryList: count.");
 
             if (next.IsSet && next.Value == null)
-                throw new ArgumentNullException(nameof(next), "Property is not nullable for class PaginatedMoveLearnMethodSummaryList.");
+                throw new JsonException("Property is not nullable for class PaginatedMoveLearnMethodSummaryList: next.");
 
             if (previous.IsSet && previous.Value == null)
-                throw new ArgumentNullException(nameof(previous), "Property is not nullable for class PaginatedMoveLearnMethodSummaryList.");
+                throw new JsonException("Property is not nullable for class PaginatedMoveLearnMethodSummaryList: previous.");
 
             if (results.IsSet && results.Value == null)
-                throw new ArgumentNullException(nameof(results), "Property is not nullable for class PaginatedMoveLearnMethodSummaryList.");
+                throw new JsonException("Property is not nullable for class PaginatedMoveLearnMethodSummaryList: results.");
 
             return new PaginatedMoveLearnMethodSummaryList(count, next, previous, results);
         }
@@ -223,7 +223,6 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="paginatedMoveLearnMethodSummaryList"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public override void Write(Utf8JsonWriter writer, PaginatedMoveLearnMethodSummaryList paginatedMoveLearnMethodSummaryList, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteStartObject();
@@ -238,17 +237,19 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="paginatedMoveLearnMethodSummaryList"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, PaginatedMoveLearnMethodSummaryList paginatedMoveLearnMethodSummaryList, JsonSerializerOptions jsonSerializerOptions)
         {
+            if (paginatedMoveLearnMethodSummaryList.CountOption.IsSet && paginatedMoveLearnMethodSummaryList.Count == null)
+                throw new JsonException("Cannot write null property PaginatedMoveLearnMethodSummaryList.Count to non-nullable JSON property 'count'.");
+
             if (paginatedMoveLearnMethodSummaryList.NextOption.IsSet && paginatedMoveLearnMethodSummaryList.Next == null)
-                throw new ArgumentNullException(nameof(paginatedMoveLearnMethodSummaryList.Next), "Property is required for class PaginatedMoveLearnMethodSummaryList.");
+                throw new JsonException("Cannot write null property PaginatedMoveLearnMethodSummaryList.Next to non-nullable JSON property 'next'.");
 
             if (paginatedMoveLearnMethodSummaryList.PreviousOption.IsSet && paginatedMoveLearnMethodSummaryList.Previous == null)
-                throw new ArgumentNullException(nameof(paginatedMoveLearnMethodSummaryList.Previous), "Property is required for class PaginatedMoveLearnMethodSummaryList.");
+                throw new JsonException("Cannot write null property PaginatedMoveLearnMethodSummaryList.Previous to non-nullable JSON property 'previous'.");
 
             if (paginatedMoveLearnMethodSummaryList.ResultsOption.IsSet && paginatedMoveLearnMethodSummaryList.Results == null)
-                throw new ArgumentNullException(nameof(paginatedMoveLearnMethodSummaryList.Results), "Property is required for class PaginatedMoveLearnMethodSummaryList.");
+                throw new JsonException("Cannot write null property PaginatedMoveLearnMethodSummaryList.Results to non-nullable JSON property 'results'.");
 
             if (paginatedMoveLearnMethodSummaryList.CountOption.IsSet)
                 writer.WriteNumber("count", paginatedMoveLearnMethodSummaryList.CountOption.Value!.Value);

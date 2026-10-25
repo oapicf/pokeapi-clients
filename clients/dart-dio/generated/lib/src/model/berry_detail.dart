@@ -285,3 +285,4 @@ class _$BerryDetailSerializer implements PrimitiveSerializer<BerryDetail> {
   }
 }
 
+

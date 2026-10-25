@@ -32,7 +32,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
 
 
 @JsonTypeName("PokemonDetail")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2026-08-30T01:56:42.280002256Z[Etc/UTC]", comments = "Generator version: 7.24.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2026-10-25T05:48:57.630723375Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 public class PokemonDetail   {
   private Integer id;
   private String name;
@@ -41,19 +41,19 @@ public class PokemonDetail   {
   private Boolean isDefault;
   private Integer order;
   private Integer weight;
-  private @Valid List<@Valid PokemonDetailAbilitiesInner> abilities = new ArrayList<>();
-  private @Valid List<@Valid PokemonDetailPastAbilitiesInner> pastAbilities = new ArrayList<>();
-  private @Valid List<@Valid PokemonFormSummary> forms = new ArrayList<>();
-  private @Valid List<@Valid PokemonGameIndex> gameIndices = new ArrayList<>();
+  private List<@Valid PokemonDetailAbilitiesInner> abilities = new ArrayList<>();
+  private List<@Valid PokemonDetailPastAbilitiesInner> pastAbilities = new ArrayList<>();
+  private List<@Valid PokemonFormSummary> forms = new ArrayList<>();
+  private List<@Valid PokemonGameIndex> gameIndices = new ArrayList<>();
   private PokemonDetailHeldItems heldItems;
   private String locationAreaEncounters;
-  private @Valid List<@Valid PokemonDetailMovesInner> moves = new ArrayList<>();
+  private List<@Valid PokemonDetailMovesInner> moves = new ArrayList<>();
   private PokemonSpeciesSummary species;
   private PokemonDetailSprites sprites;
   private PokemonDetailCries cries;
-  private @Valid List<@Valid PokemonStat> stats = new ArrayList<>();
-  private @Valid List<@Valid PokemonDetailTypesInner> types = new ArrayList<>();
-  private @Valid List<@Valid PokemonDetailPastTypesInner> pastTypes = new ArrayList<>();
+  private List<@Valid PokemonStat> stats = new ArrayList<>();
+  private List<@Valid PokemonDetailTypesInner> types = new ArrayList<>();
+  private List<@Valid PokemonDetailPastTypesInner> pastTypes = new ArrayList<>();
 
   public PokemonDetail() {
   }
@@ -236,7 +236,7 @@ public class PokemonDetail   {
   
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(required = true, value = "abilities")
-  @Valid public List<@Valid PokemonDetailAbilitiesInner> getAbilities() {
+  public List<@Valid PokemonDetailAbilitiesInner> getAbilities() {
     return abilities;
   }
 
@@ -271,7 +271,7 @@ public class PokemonDetail   {
   
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(required = true, value = "past_abilities")
-  @Valid public List<@Valid PokemonDetailPastAbilitiesInner> getPastAbilities() {
+  public List<@Valid PokemonDetailPastAbilitiesInner> getPastAbilities() {
     return pastAbilities;
   }
 
@@ -306,7 +306,7 @@ public class PokemonDetail   {
   
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(required = true, value = "forms")
-  @Valid public List<@Valid PokemonFormSummary> getForms() {
+  public List<@Valid PokemonFormSummary> getForms() {
     return forms;
   }
 
@@ -341,7 +341,7 @@ public class PokemonDetail   {
   
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(required = true, value = "game_indices")
-  @Valid public List<@Valid PokemonGameIndex> getGameIndices() {
+  public List<@Valid PokemonGameIndex> getGameIndices() {
     return gameIndices;
   }
 
@@ -414,7 +414,7 @@ public class PokemonDetail   {
   
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(required = true, value = "moves")
-  @Valid public List<@Valid PokemonDetailMovesInner> getMoves() {
+  public List<@Valid PokemonDetailMovesInner> getMoves() {
     return moves;
   }
 
@@ -506,7 +506,7 @@ public class PokemonDetail   {
   
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(required = true, value = "stats")
-  @Valid public List<@Valid PokemonStat> getStats() {
+  public List<@Valid PokemonStat> getStats() {
     return stats;
   }
 
@@ -541,7 +541,7 @@ public class PokemonDetail   {
   
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(required = true, value = "types")
-  @Valid public List<@Valid PokemonDetailTypesInner> getTypes() {
+  public List<@Valid PokemonDetailTypesInner> getTypes() {
     return types;
   }
 
@@ -576,7 +576,7 @@ public class PokemonDetail   {
   
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(required = true, value = "past_types")
-  @Valid public List<@Valid PokemonDetailPastTypesInner> getPastTypes() {
+  public List<@Valid PokemonDetailPastTypesInner> getPastTypes() {
     return pastTypes;
   }
 

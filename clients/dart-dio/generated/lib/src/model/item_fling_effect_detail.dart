@@ -155,3 +155,4 @@ class _$ItemFlingEffectDetailSerializer implements PrimitiveSerializer<ItemFling
   }
 }
 
+

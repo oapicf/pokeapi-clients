@@ -152,16 +152,16 @@ namespace Org.OpenAPITools.Model
             }
 
             if (!name.IsSet)
-                throw new ArgumentException("Property is required for class PokemonFormSummary.", nameof(name));
+                throw new JsonException("Property is required for class PokemonFormSummary: name.");
 
             if (!url.IsSet)
-                throw new ArgumentException("Property is required for class PokemonFormSummary.", nameof(url));
+                throw new JsonException("Property is required for class PokemonFormSummary: url.");
 
             if (name.IsSet && name.Value == null)
-                throw new ArgumentNullException(nameof(name), "Property is not nullable for class PokemonFormSummary.");
+                throw new JsonException("Property is not nullable for class PokemonFormSummary: name.");
 
             if (url.IsSet && url.Value == null)
-                throw new ArgumentNullException(nameof(url), "Property is not nullable for class PokemonFormSummary.");
+                throw new JsonException("Property is not nullable for class PokemonFormSummary: url.");
 
             return new PokemonFormSummary(name.Value!, url.Value!);
         }
@@ -172,7 +172,6 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="pokemonFormSummary"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public override void Write(Utf8JsonWriter writer, PokemonFormSummary pokemonFormSummary, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteStartObject();
@@ -187,15 +186,8 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="pokemonFormSummary"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, PokemonFormSummary pokemonFormSummary, JsonSerializerOptions jsonSerializerOptions)
         {
-            if (pokemonFormSummary.Name == null)
-                throw new ArgumentNullException(nameof(pokemonFormSummary.Name), "Property is required for class PokemonFormSummary.");
-
-            if (pokemonFormSummary.Url == null)
-                throw new ArgumentNullException(nameof(pokemonFormSummary.Url), "Property is required for class PokemonFormSummary.");
-
             writer.WriteString("name", pokemonFormSummary.Name);
 
             writer.WriteString("url", pokemonFormSummary.Url);

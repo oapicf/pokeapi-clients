@@ -24,7 +24,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
 
 
 @JsonTypeName("StatDetail")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2026-08-30T01:56:42.280002256Z[Etc/UTC]", comments = "Generator version: 7.24.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2026-10-25T05:48:57.630723375Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 public class StatDetail   {
   private Integer id;
   private String name;
@@ -32,9 +32,9 @@ public class StatDetail   {
   private Boolean isBattleOnly;
   private StatDetailAffectingMoves affectingMoves;
   private StatDetailAffectingNatures affectingNatures;
-  private @Valid List<@Valid CharacteristicSummary> characteristics = new ArrayList<>();
+  private List<@Valid CharacteristicSummary> characteristics = new ArrayList<>();
   private MoveDamageClassSummary moveDamageClass;
-  private @Valid List<@Valid StatName> names = new ArrayList<>();
+  private List<@Valid StatName> names = new ArrayList<>();
 
   public StatDetail() {
   }
@@ -184,7 +184,7 @@ public class StatDetail   {
   
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(required = true, value = "characteristics")
-  @Valid public List<@Valid CharacteristicSummary> getCharacteristics() {
+  public List<@Valid CharacteristicSummary> getCharacteristics() {
     return characteristics;
   }
 
@@ -238,7 +238,7 @@ public class StatDetail   {
   
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(required = true, value = "names")
-  @Valid public List<@Valid StatName> getNames() {
+  public List<@Valid StatName> getNames() {
     return names;
   }
 

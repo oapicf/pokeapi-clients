@@ -24,20 +24,17 @@ import jakarta.annotation.Generated;
  * MoveTargetDetail
  */
 
-@Generated(value = "org.openapitools.codegen.languages.JavaCamelServerCodegen", date = "2026-08-30T01:56:15.309401083Z[Etc/UTC]", comments = "Generator version: 7.24.0")
+@Generated(value = "org.openapitools.codegen.languages.JavaCamelServerCodegen", date = "2026-10-25T05:48:25.711080506Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 public class MoveTargetDetail {
 
   private Integer id;
 
   private String name;
 
-  @Valid
   private List<@Valid MoveTargetDescription> descriptions = new ArrayList<>();
 
-  @Valid
   private List<@Valid MoveSummary> moves = new ArrayList<>();
 
-  @Valid
   private List<@Valid MoveTargetName> names = new ArrayList<>();
 
   public MoveTargetDetail() {
@@ -112,7 +109,7 @@ public class MoveTargetDetail {
    * Get descriptions
    * @return descriptions
    */
-  @Valid 
+  
   @Schema(name = "descriptions", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("descriptions")
   public List<@Valid MoveTargetDescription> getDescriptions() {
@@ -140,7 +137,7 @@ public class MoveTargetDetail {
    * Get moves
    * @return moves
    */
-  @Valid 
+  
   @Schema(name = "moves", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("moves")
   public List<@Valid MoveSummary> getMoves() {
@@ -168,7 +165,7 @@ public class MoveTargetDetail {
    * Get names
    * @return names
    */
-  @Valid 
+  
   @Schema(name = "names", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("names")
   public List<@Valid MoveTargetName> getNames() {

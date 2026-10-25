@@ -152,16 +152,16 @@ namespace Org.OpenAPITools.Model
             }
 
             if (!name.IsSet)
-                throw new ArgumentException("Property is required for class MoveName.", nameof(name));
+                throw new JsonException("Property is required for class MoveName: name.");
 
             if (!language.IsSet)
-                throw new ArgumentException("Property is required for class MoveName.", nameof(language));
+                throw new JsonException("Property is required for class MoveName: language.");
 
             if (name.IsSet && name.Value == null)
-                throw new ArgumentNullException(nameof(name), "Property is not nullable for class MoveName.");
+                throw new JsonException("Property is not nullable for class MoveName: name.");
 
             if (language.IsSet && language.Value == null)
-                throw new ArgumentNullException(nameof(language), "Property is not nullable for class MoveName.");
+                throw new JsonException("Property is not nullable for class MoveName: language.");
 
             return new MoveName(name.Value!, language.Value!);
         }
@@ -172,7 +172,6 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="moveName"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public override void Write(Utf8JsonWriter writer, MoveName moveName, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteStartObject();
@@ -187,15 +186,8 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="moveName"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, MoveName moveName, JsonSerializerOptions jsonSerializerOptions)
         {
-            if (moveName.Name == null)
-                throw new ArgumentNullException(nameof(moveName.Name), "Property is required for class MoveName.");
-
-            if (moveName.Language == null)
-                throw new ArgumentNullException(nameof(moveName.Language), "Property is required for class MoveName.");
-
             writer.WriteString("name", moveName.Name);
 
             writer.WritePropertyName("language");

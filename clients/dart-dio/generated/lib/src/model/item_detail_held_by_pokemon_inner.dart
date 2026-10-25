@@ -123,3 +123,4 @@ class _$ItemDetailHeldByPokemonInnerSerializer implements PrimitiveSerializer<It
   }
 }
 
+

@@ -41,7 +41,7 @@ class ContestsApi(baseUrl: String) {
    * @param offset The initial index from which to return the results.
    * @param `q` > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. 
    */
-  def contestEffectList(username: String, password: String, apiKeyCookie: String)(limit: Option[Int] = None, offset: Option[Int] = None, `q`: Option[String] = None): Request[Either[ResponseException[String], PaginatedContestEffectSummaryList]] =
+  def contestEffectList(username: String, password: String, apiKeyCookie: String)(limit: Option[Int] = None, offset: Option[Int] = None, `q`: Option[String] = None): sttp.client4.Request[Either[ResponseException[String], PaginatedContestEffectSummaryList]] =
     basicRequest
       .method(Method.GET, uri"$baseUrl/api/v2/contest-effect/?limit=${ limit }&offset=${ offset }&q=${ `q` }")
       .contentType("application/json")
@@ -61,7 +61,7 @@ class ContestsApi(baseUrl: String) {
    * 
    * @param id This parameter can be a string or an integer.
    */
-  def contestEffectRetrieve(username: String, password: String, apiKeyCookie: String)(id: String): Request[Either[ResponseException[String], ContestEffectDetail]] =
+  def contestEffectRetrieve(username: String, password: String, apiKeyCookie: String)(id: String): sttp.client4.Request[Either[ResponseException[String], ContestEffectDetail]] =
     basicRequest
       .method(Method.GET, uri"$baseUrl/api/v2/contest-effect/${id}/")
       .contentType("application/json")
@@ -83,7 +83,7 @@ class ContestsApi(baseUrl: String) {
    * @param offset The initial index from which to return the results.
    * @param `q` > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. 
    */
-  def contestTypeList(username: String, password: String, apiKeyCookie: String)(limit: Option[Int] = None, offset: Option[Int] = None, `q`: Option[String] = None): Request[Either[ResponseException[String], PaginatedContestTypeSummaryList]] =
+  def contestTypeList(username: String, password: String, apiKeyCookie: String)(limit: Option[Int] = None, offset: Option[Int] = None, `q`: Option[String] = None): sttp.client4.Request[Either[ResponseException[String], PaginatedContestTypeSummaryList]] =
     basicRequest
       .method(Method.GET, uri"$baseUrl/api/v2/contest-type/?limit=${ limit }&offset=${ offset }&q=${ `q` }")
       .contentType("application/json")
@@ -103,7 +103,7 @@ class ContestsApi(baseUrl: String) {
    * 
    * @param id This parameter can be a string or an integer.
    */
-  def contestTypeRetrieve(username: String, password: String, apiKeyCookie: String)(id: String): Request[Either[ResponseException[String], ContestTypeDetail]] =
+  def contestTypeRetrieve(username: String, password: String, apiKeyCookie: String)(id: String): sttp.client4.Request[Either[ResponseException[String], ContestTypeDetail]] =
     basicRequest
       .method(Method.GET, uri"$baseUrl/api/v2/contest-type/${id}/")
       .contentType("application/json")
@@ -125,7 +125,7 @@ class ContestsApi(baseUrl: String) {
    * @param offset The initial index from which to return the results.
    * @param `q` > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. 
    */
-  def superContestEffectList(username: String, password: String, apiKeyCookie: String)(limit: Option[Int] = None, offset: Option[Int] = None, `q`: Option[String] = None): Request[Either[ResponseException[String], PaginatedSuperContestEffectSummaryList]] =
+  def superContestEffectList(username: String, password: String, apiKeyCookie: String)(limit: Option[Int] = None, offset: Option[Int] = None, `q`: Option[String] = None): sttp.client4.Request[Either[ResponseException[String], PaginatedSuperContestEffectSummaryList]] =
     basicRequest
       .method(Method.GET, uri"$baseUrl/api/v2/super-contest-effect/?limit=${ limit }&offset=${ offset }&q=${ `q` }")
       .contentType("application/json")
@@ -145,7 +145,7 @@ class ContestsApi(baseUrl: String) {
    * 
    * @param id This parameter can be a string or an integer.
    */
-  def superContestEffectRetrieve(username: String, password: String, apiKeyCookie: String)(id: String): Request[Either[ResponseException[String], SuperContestEffectDetail]] =
+  def superContestEffectRetrieve(username: String, password: String, apiKeyCookie: String)(id: String): sttp.client4.Request[Either[ResponseException[String], SuperContestEffectDetail]] =
     basicRequest
       .method(Method.GET, uri"$baseUrl/api/v2/super-contest-effect/${id}/")
       .contentType("application/json")

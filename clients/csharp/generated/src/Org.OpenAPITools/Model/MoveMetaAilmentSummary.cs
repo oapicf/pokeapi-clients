@@ -152,16 +152,16 @@ namespace Org.OpenAPITools.Model
             }
 
             if (!name.IsSet)
-                throw new ArgumentException("Property is required for class MoveMetaAilmentSummary.", nameof(name));
+                throw new JsonException("Property is required for class MoveMetaAilmentSummary: name.");
 
             if (!url.IsSet)
-                throw new ArgumentException("Property is required for class MoveMetaAilmentSummary.", nameof(url));
+                throw new JsonException("Property is required for class MoveMetaAilmentSummary: url.");
 
             if (name.IsSet && name.Value == null)
-                throw new ArgumentNullException(nameof(name), "Property is not nullable for class MoveMetaAilmentSummary.");
+                throw new JsonException("Property is not nullable for class MoveMetaAilmentSummary: name.");
 
             if (url.IsSet && url.Value == null)
-                throw new ArgumentNullException(nameof(url), "Property is not nullable for class MoveMetaAilmentSummary.");
+                throw new JsonException("Property is not nullable for class MoveMetaAilmentSummary: url.");
 
             return new MoveMetaAilmentSummary(name.Value!, url.Value!);
         }
@@ -172,7 +172,6 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="moveMetaAilmentSummary"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public override void Write(Utf8JsonWriter writer, MoveMetaAilmentSummary moveMetaAilmentSummary, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteStartObject();
@@ -187,15 +186,8 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="moveMetaAilmentSummary"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, MoveMetaAilmentSummary moveMetaAilmentSummary, JsonSerializerOptions jsonSerializerOptions)
         {
-            if (moveMetaAilmentSummary.Name == null)
-                throw new ArgumentNullException(nameof(moveMetaAilmentSummary.Name), "Property is required for class MoveMetaAilmentSummary.");
-
-            if (moveMetaAilmentSummary.Url == null)
-                throw new ArgumentNullException(nameof(moveMetaAilmentSummary.Url), "Property is required for class MoveMetaAilmentSummary.");
-
             writer.WriteString("name", moveMetaAilmentSummary.Name);
 
             writer.WriteString("url", moveMetaAilmentSummary.Url);

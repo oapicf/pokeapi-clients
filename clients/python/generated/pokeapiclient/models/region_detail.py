@@ -98,8 +98,7 @@ class RegionDetail(BaseModel):
         _items = []
         if self.locations:
             for _item_locations in self.locations:
-                if _item_locations:
-                    _items.append(_item_locations.to_dict())
+                _items.append(_item_locations.to_dict() if _item_locations is not None else None)
             _dict['locations'] = _items
         # override the default output from pydantic by calling `to_dict()` of main_generation
         if self.main_generation:
@@ -108,22 +107,19 @@ class RegionDetail(BaseModel):
         _items = []
         if self.names:
             for _item_names in self.names:
-                if _item_names:
-                    _items.append(_item_names.to_dict())
+                _items.append(_item_names.to_dict() if _item_names is not None else None)
             _dict['names'] = _items
         # override the default output from pydantic by calling `to_dict()` of each item in pokedexes (list)
         _items = []
         if self.pokedexes:
             for _item_pokedexes in self.pokedexes:
-                if _item_pokedexes:
-                    _items.append(_item_pokedexes.to_dict())
+                _items.append(_item_pokedexes.to_dict() if _item_pokedexes is not None else None)
             _dict['pokedexes'] = _items
         # override the default output from pydantic by calling `to_dict()` of each item in version_groups (list)
         _items = []
         if self.version_groups:
             for _item_version_groups in self.version_groups:
-                if _item_version_groups:
-                    _items.append(_item_version_groups.to_dict())
+                _items.append(_item_version_groups.to_dict() if _item_version_groups is not None else None)
             _dict['version_groups'] = _items
         return _dict
 

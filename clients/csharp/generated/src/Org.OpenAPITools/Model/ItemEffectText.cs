@@ -171,22 +171,22 @@ namespace Org.OpenAPITools.Model
             }
 
             if (!effect.IsSet)
-                throw new ArgumentException("Property is required for class ItemEffectText.", nameof(effect));
+                throw new JsonException("Property is required for class ItemEffectText: effect.");
 
             if (!shortEffect.IsSet)
-                throw new ArgumentException("Property is required for class ItemEffectText.", nameof(shortEffect));
+                throw new JsonException("Property is required for class ItemEffectText: short_effect.");
 
             if (!language.IsSet)
-                throw new ArgumentException("Property is required for class ItemEffectText.", nameof(language));
+                throw new JsonException("Property is required for class ItemEffectText: language.");
 
             if (effect.IsSet && effect.Value == null)
-                throw new ArgumentNullException(nameof(effect), "Property is not nullable for class ItemEffectText.");
+                throw new JsonException("Property is not nullable for class ItemEffectText: effect.");
 
             if (shortEffect.IsSet && shortEffect.Value == null)
-                throw new ArgumentNullException(nameof(shortEffect), "Property is not nullable for class ItemEffectText.");
+                throw new JsonException("Property is not nullable for class ItemEffectText: short_effect.");
 
             if (language.IsSet && language.Value == null)
-                throw new ArgumentNullException(nameof(language), "Property is not nullable for class ItemEffectText.");
+                throw new JsonException("Property is not nullable for class ItemEffectText: language.");
 
             return new ItemEffectText(effect.Value!, shortEffect.Value!, language.Value!);
         }
@@ -197,7 +197,6 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="itemEffectText"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public override void Write(Utf8JsonWriter writer, ItemEffectText itemEffectText, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteStartObject();
@@ -212,18 +211,8 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="itemEffectText"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, ItemEffectText itemEffectText, JsonSerializerOptions jsonSerializerOptions)
         {
-            if (itemEffectText.Effect == null)
-                throw new ArgumentNullException(nameof(itemEffectText.Effect), "Property is required for class ItemEffectText.");
-
-            if (itemEffectText.ShortEffect == null)
-                throw new ArgumentNullException(nameof(itemEffectText.ShortEffect), "Property is required for class ItemEffectText.");
-
-            if (itemEffectText.Language == null)
-                throw new ArgumentNullException(nameof(itemEffectText.Language), "Property is required for class ItemEffectText.");
-
             writer.WriteString("effect", itemEffectText.Effect);
 
             writer.WriteString("short_effect", itemEffectText.ShortEffect);

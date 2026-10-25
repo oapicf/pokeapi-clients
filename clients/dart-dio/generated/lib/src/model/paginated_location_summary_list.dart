@@ -166,3 +166,4 @@ class _$PaginatedLocationSummaryListSerializer implements PrimitiveSerializer<Pa
   }
 }
 
+

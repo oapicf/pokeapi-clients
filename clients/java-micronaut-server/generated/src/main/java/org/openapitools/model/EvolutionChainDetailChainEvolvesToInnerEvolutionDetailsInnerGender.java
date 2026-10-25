@@ -32,7 +32,7 @@ import io.swagger.v3.oas.annotations.media.Schema;
   EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender.JSON_PROPERTY_URL
 })
 @JsonTypeName("EvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner_gender")
-@Generated(value="org.openapitools.codegen.languages.JavaMicronautServerCodegen", date="2026-08-30T01:55:54.631003115Z[Etc/UTC]", comments = "Generator version: 7.24.0")
+@Generated(value="org.openapitools.codegen.languages.JavaMicronautServerCodegen", date="2026-10-25T05:48:01.550797598Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 @Introspected
 public class EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender {
     public static final String JSON_PROPERTY_NAME = "name";

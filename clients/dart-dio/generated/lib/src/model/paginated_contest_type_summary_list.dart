@@ -166,3 +166,4 @@ class _$PaginatedContestTypeSummaryListSerializer implements PrimitiveSerializer
   }
 }
 
+

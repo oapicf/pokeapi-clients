@@ -178,28 +178,28 @@ namespace Org.OpenAPITools.Model
             }
 
             if (!id.IsSet)
-                throw new ArgumentException("Property is required for class ItemPocketDetail.", nameof(id));
+                throw new JsonException("Property is required for class ItemPocketDetail: id.");
 
             if (!name.IsSet)
-                throw new ArgumentException("Property is required for class ItemPocketDetail.", nameof(name));
+                throw new JsonException("Property is required for class ItemPocketDetail: name.");
 
             if (!categories.IsSet)
-                throw new ArgumentException("Property is required for class ItemPocketDetail.", nameof(categories));
+                throw new JsonException("Property is required for class ItemPocketDetail: categories.");
 
             if (!names.IsSet)
-                throw new ArgumentException("Property is required for class ItemPocketDetail.", nameof(names));
+                throw new JsonException("Property is required for class ItemPocketDetail: names.");
 
             if (id.IsSet && id.Value == null)
-                throw new ArgumentNullException(nameof(id), "Property is not nullable for class ItemPocketDetail.");
+                throw new JsonException("Property is not nullable for class ItemPocketDetail: id.");
 
             if (name.IsSet && name.Value == null)
-                throw new ArgumentNullException(nameof(name), "Property is not nullable for class ItemPocketDetail.");
+                throw new JsonException("Property is not nullable for class ItemPocketDetail: name.");
 
             if (categories.IsSet && categories.Value == null)
-                throw new ArgumentNullException(nameof(categories), "Property is not nullable for class ItemPocketDetail.");
+                throw new JsonException("Property is not nullable for class ItemPocketDetail: categories.");
 
             if (names.IsSet && names.Value == null)
-                throw new ArgumentNullException(nameof(names), "Property is not nullable for class ItemPocketDetail.");
+                throw new JsonException("Property is not nullable for class ItemPocketDetail: names.");
 
             return new ItemPocketDetail(id.Value!.Value!, name.Value!, categories.Value!, names.Value!);
         }
@@ -210,7 +210,6 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="itemPocketDetail"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public override void Write(Utf8JsonWriter writer, ItemPocketDetail itemPocketDetail, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteStartObject();
@@ -225,18 +224,8 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="itemPocketDetail"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, ItemPocketDetail itemPocketDetail, JsonSerializerOptions jsonSerializerOptions)
         {
-            if (itemPocketDetail.Name == null)
-                throw new ArgumentNullException(nameof(itemPocketDetail.Name), "Property is required for class ItemPocketDetail.");
-
-            if (itemPocketDetail.Categories == null)
-                throw new ArgumentNullException(nameof(itemPocketDetail.Categories), "Property is required for class ItemPocketDetail.");
-
-            if (itemPocketDetail.Names == null)
-                throw new ArgumentNullException(nameof(itemPocketDetail.Names), "Property is required for class ItemPocketDetail.");
-
             writer.WriteNumber("id", itemPocketDetail.Id);
 
             writer.WriteString("name", itemPocketDetail.Name);

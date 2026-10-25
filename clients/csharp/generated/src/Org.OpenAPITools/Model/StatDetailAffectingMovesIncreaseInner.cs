@@ -146,16 +146,16 @@ namespace Org.OpenAPITools.Model
             }
 
             if (!change.IsSet)
-                throw new ArgumentException("Property is required for class StatDetailAffectingMovesIncreaseInner.", nameof(change));
+                throw new JsonException("Property is required for class StatDetailAffectingMovesIncreaseInner: change.");
 
             if (!move.IsSet)
-                throw new ArgumentException("Property is required for class StatDetailAffectingMovesIncreaseInner.", nameof(move));
+                throw new JsonException("Property is required for class StatDetailAffectingMovesIncreaseInner: move.");
 
             if (change.IsSet && change.Value == null)
-                throw new ArgumentNullException(nameof(change), "Property is not nullable for class StatDetailAffectingMovesIncreaseInner.");
+                throw new JsonException("Property is not nullable for class StatDetailAffectingMovesIncreaseInner: change.");
 
             if (move.IsSet && move.Value == null)
-                throw new ArgumentNullException(nameof(move), "Property is not nullable for class StatDetailAffectingMovesIncreaseInner.");
+                throw new JsonException("Property is not nullable for class StatDetailAffectingMovesIncreaseInner: move.");
 
             return new StatDetailAffectingMovesIncreaseInner(change.Value!.Value!, move.Value!);
         }
@@ -166,7 +166,6 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="statDetailAffectingMovesIncreaseInner"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public override void Write(Utf8JsonWriter writer, StatDetailAffectingMovesIncreaseInner statDetailAffectingMovesIncreaseInner, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteStartObject();
@@ -181,12 +180,8 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="statDetailAffectingMovesIncreaseInner"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, StatDetailAffectingMovesIncreaseInner statDetailAffectingMovesIncreaseInner, JsonSerializerOptions jsonSerializerOptions)
         {
-            if (statDetailAffectingMovesIncreaseInner.Move == null)
-                throw new ArgumentNullException(nameof(statDetailAffectingMovesIncreaseInner.Move), "Property is required for class StatDetailAffectingMovesIncreaseInner.");
-
             writer.WriteNumber("change", statDetailAffectingMovesIncreaseInner.Change);
 
             writer.WritePropertyName("move");

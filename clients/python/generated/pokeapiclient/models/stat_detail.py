@@ -100,8 +100,7 @@ class StatDetail(BaseModel):
         _items = []
         if self.characteristics:
             for _item_characteristics in self.characteristics:
-                if _item_characteristics:
-                    _items.append(_item_characteristics.to_dict())
+                _items.append(_item_characteristics.to_dict() if _item_characteristics is not None else None)
             _dict['characteristics'] = _items
         # override the default output from pydantic by calling `to_dict()` of move_damage_class
         if self.move_damage_class:
@@ -110,8 +109,7 @@ class StatDetail(BaseModel):
         _items = []
         if self.names:
             for _item_names in self.names:
-                if _item_names:
-                    _items.append(_item_names.to_dict())
+                _items.append(_item_names.to_dict() if _item_names is not None else None)
             _dict['names'] = _items
         return _dict
 

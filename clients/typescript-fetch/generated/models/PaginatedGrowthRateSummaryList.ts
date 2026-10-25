@@ -29,26 +29,18 @@ import {
 export interface PaginatedGrowthRateSummaryList {
     /**
      * 
-     * @type {number}
-     * @memberof PaginatedGrowthRateSummaryList
      */
     count?: number;
     /**
      * 
-     * @type {string}
-     * @memberof PaginatedGrowthRateSummaryList
      */
     next?: string;
     /**
      * 
-     * @type {string}
-     * @memberof PaginatedGrowthRateSummaryList
      */
     previous?: string;
     /**
      * 
-     * @type {Array<GrowthRateSummary>}
-     * @memberof PaginatedGrowthRateSummaryList
      */
     results?: Array<GrowthRateSummary>;
 }

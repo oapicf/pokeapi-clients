@@ -120,3 +120,4 @@ class _$RegionSummarySerializer implements PrimitiveSerializer<RegionSummary> {
   }
 }
 
+

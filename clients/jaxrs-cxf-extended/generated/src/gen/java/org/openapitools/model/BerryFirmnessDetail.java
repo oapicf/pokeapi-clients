@@ -22,11 +22,9 @@ public class BerryFirmnessDetail  {
   private String name;
 
   @ApiModelProperty(required = true, value = "")
-  @Valid
   private List<@Valid BerrySummary> berries = new ArrayList<>();
 
   @ApiModelProperty(required = true, value = "")
-  @Valid
   private List<@Valid BerryFirmnessName> names = new ArrayList<>();
  /**
   * Get id

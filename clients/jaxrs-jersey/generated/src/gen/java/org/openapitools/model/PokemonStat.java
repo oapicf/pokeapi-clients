@@ -31,7 +31,7 @@ import javax.validation.Valid;
   PokemonStat.JSON_PROPERTY_EFFORT,
   PokemonStat.JSON_PROPERTY_STAT
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJerseyServerCodegen", date = "2026-08-30T01:56:28.710233113Z[Etc/UTC]", comments = "Generator version: 7.24.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJerseyServerCodegen", date = "2026-10-25T05:48:41.923212007Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 public class PokemonStat   {
   public static final String JSON_PROPERTY_BASE_STAT = "base_stat";
   @JsonProperty(JSON_PROPERTY_BASE_STAT)

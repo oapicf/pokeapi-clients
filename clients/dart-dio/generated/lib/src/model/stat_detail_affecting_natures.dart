@@ -122,3 +122,4 @@ class _$StatDetailAffectingNaturesSerializer implements PrimitiveSerializer<Stat
   }
 }
 
+

@@ -166,3 +166,4 @@ class _$PaginatedPokeathlonStatSummaryListSerializer implements PrimitiveSeriali
   }
 }
 
+

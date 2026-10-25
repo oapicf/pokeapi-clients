@@ -22,8 +22,6 @@ export interface PokemonDetailSprites {
     [key: string]: string | any;
     /**
      * 
-     * @type {string}
-     * @memberof PokemonDetailSprites
      */
     frontDefault?: string;
 }

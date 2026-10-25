@@ -57,44 +57,30 @@ import {
 export interface RegionDetail {
     /**
      * 
-     * @type {number}
-     * @memberof RegionDetail
      */
     readonly id: number;
     /**
      * 
-     * @type {string}
-     * @memberof RegionDetail
      */
     name: string;
     /**
      * 
-     * @type {Array<LocationSummary>}
-     * @memberof RegionDetail
      */
     readonly locations: Array<LocationSummary>;
     /**
      * 
-     * @type {GenerationSummary}
-     * @memberof RegionDetail
      */
     readonly mainGeneration: GenerationSummary;
     /**
      * 
-     * @type {Array<RegionName>}
-     * @memberof RegionDetail
      */
     readonly names: Array<RegionName>;
     /**
      * 
-     * @type {Array<PokedexSummary>}
-     * @memberof RegionDetail
      */
     readonly pokedexes: Array<PokedexSummary>;
     /**
      * 
-     * @type {Array<AbilityDetailPokemonInnerPokemon>}
-     * @memberof RegionDetail
      */
     readonly versionGroups: Array<AbilityDetailPokemonInnerPokemon>;
 }

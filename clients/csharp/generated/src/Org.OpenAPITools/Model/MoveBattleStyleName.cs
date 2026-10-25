@@ -152,16 +152,16 @@ namespace Org.OpenAPITools.Model
             }
 
             if (!name.IsSet)
-                throw new ArgumentException("Property is required for class MoveBattleStyleName.", nameof(name));
+                throw new JsonException("Property is required for class MoveBattleStyleName: name.");
 
             if (!language.IsSet)
-                throw new ArgumentException("Property is required for class MoveBattleStyleName.", nameof(language));
+                throw new JsonException("Property is required for class MoveBattleStyleName: language.");
 
             if (name.IsSet && name.Value == null)
-                throw new ArgumentNullException(nameof(name), "Property is not nullable for class MoveBattleStyleName.");
+                throw new JsonException("Property is not nullable for class MoveBattleStyleName: name.");
 
             if (language.IsSet && language.Value == null)
-                throw new ArgumentNullException(nameof(language), "Property is not nullable for class MoveBattleStyleName.");
+                throw new JsonException("Property is not nullable for class MoveBattleStyleName: language.");
 
             return new MoveBattleStyleName(name.Value!, language.Value!);
         }
@@ -172,7 +172,6 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="moveBattleStyleName"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public override void Write(Utf8JsonWriter writer, MoveBattleStyleName moveBattleStyleName, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteStartObject();
@@ -187,15 +186,8 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="moveBattleStyleName"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, MoveBattleStyleName moveBattleStyleName, JsonSerializerOptions jsonSerializerOptions)
         {
-            if (moveBattleStyleName.Name == null)
-                throw new ArgumentNullException(nameof(moveBattleStyleName.Name), "Property is required for class MoveBattleStyleName.");
-
-            if (moveBattleStyleName.Language == null)
-                throw new ArgumentNullException(nameof(moveBattleStyleName.Language), "Property is required for class MoveBattleStyleName.");
-
             writer.WriteString("name", moveBattleStyleName.Name);
 
             writer.WritePropertyName("language");

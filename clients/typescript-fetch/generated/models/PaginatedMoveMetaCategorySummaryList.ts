@@ -29,26 +29,18 @@ import {
 export interface PaginatedMoveMetaCategorySummaryList {
     /**
      * 
-     * @type {number}
-     * @memberof PaginatedMoveMetaCategorySummaryList
      */
     count?: number;
     /**
      * 
-     * @type {string}
-     * @memberof PaginatedMoveMetaCategorySummaryList
      */
     next?: string;
     /**
      * 
-     * @type {string}
-     * @memberof PaginatedMoveMetaCategorySummaryList
      */
     previous?: string;
     /**
      * 
-     * @type {Array<MoveMetaCategorySummary>}
-     * @memberof PaginatedMoveMetaCategorySummaryList
      */
     results?: Array<MoveMetaCategorySummary>;
 }

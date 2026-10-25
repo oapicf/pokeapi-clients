@@ -159,22 +159,22 @@ namespace Org.OpenAPITools.Model
             }
 
             if (!baseScore.IsSet)
-                throw new ArgumentException("Property is required for class PalParkAreaDetailPokemonEncountersInner.", nameof(baseScore));
+                throw new JsonException("Property is required for class PalParkAreaDetailPokemonEncountersInner: base_score.");
 
             if (!pokemonSpecies.IsSet)
-                throw new ArgumentException("Property is required for class PalParkAreaDetailPokemonEncountersInner.", nameof(pokemonSpecies));
+                throw new JsonException("Property is required for class PalParkAreaDetailPokemonEncountersInner: pokemon-species.");
 
             if (!rate.IsSet)
-                throw new ArgumentException("Property is required for class PalParkAreaDetailPokemonEncountersInner.", nameof(rate));
+                throw new JsonException("Property is required for class PalParkAreaDetailPokemonEncountersInner: rate.");
 
             if (baseScore.IsSet && baseScore.Value == null)
-                throw new ArgumentNullException(nameof(baseScore), "Property is not nullable for class PalParkAreaDetailPokemonEncountersInner.");
+                throw new JsonException("Property is not nullable for class PalParkAreaDetailPokemonEncountersInner: base_score.");
 
             if (pokemonSpecies.IsSet && pokemonSpecies.Value == null)
-                throw new ArgumentNullException(nameof(pokemonSpecies), "Property is not nullable for class PalParkAreaDetailPokemonEncountersInner.");
+                throw new JsonException("Property is not nullable for class PalParkAreaDetailPokemonEncountersInner: pokemon-species.");
 
             if (rate.IsSet && rate.Value == null)
-                throw new ArgumentNullException(nameof(rate), "Property is not nullable for class PalParkAreaDetailPokemonEncountersInner.");
+                throw new JsonException("Property is not nullable for class PalParkAreaDetailPokemonEncountersInner: rate.");
 
             return new PalParkAreaDetailPokemonEncountersInner(baseScore.Value!.Value!, pokemonSpecies.Value!, rate.Value!.Value!);
         }
@@ -185,7 +185,6 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="palParkAreaDetailPokemonEncountersInner"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public override void Write(Utf8JsonWriter writer, PalParkAreaDetailPokemonEncountersInner palParkAreaDetailPokemonEncountersInner, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteStartObject();
@@ -200,12 +199,8 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="palParkAreaDetailPokemonEncountersInner"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, PalParkAreaDetailPokemonEncountersInner palParkAreaDetailPokemonEncountersInner, JsonSerializerOptions jsonSerializerOptions)
         {
-            if (palParkAreaDetailPokemonEncountersInner.PokemonSpecies == null)
-                throw new ArgumentNullException(nameof(palParkAreaDetailPokemonEncountersInner.PokemonSpecies), "Property is required for class PalParkAreaDetailPokemonEncountersInner.");
-
             writer.WriteNumber("base_score", palParkAreaDetailPokemonEncountersInner.BaseScore);
 
             writer.WritePropertyName("pokemon-species");

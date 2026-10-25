@@ -152,16 +152,16 @@ namespace Org.OpenAPITools.Model
             }
 
             if (!name.IsSet)
-                throw new ArgumentException("Property is required for class PokemonHabitatSummary.", nameof(name));
+                throw new JsonException("Property is required for class PokemonHabitatSummary: name.");
 
             if (!url.IsSet)
-                throw new ArgumentException("Property is required for class PokemonHabitatSummary.", nameof(url));
+                throw new JsonException("Property is required for class PokemonHabitatSummary: url.");
 
             if (name.IsSet && name.Value == null)
-                throw new ArgumentNullException(nameof(name), "Property is not nullable for class PokemonHabitatSummary.");
+                throw new JsonException("Property is not nullable for class PokemonHabitatSummary: name.");
 
             if (url.IsSet && url.Value == null)
-                throw new ArgumentNullException(nameof(url), "Property is not nullable for class PokemonHabitatSummary.");
+                throw new JsonException("Property is not nullable for class PokemonHabitatSummary: url.");
 
             return new PokemonHabitatSummary(name.Value!, url.Value!);
         }
@@ -172,7 +172,6 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="pokemonHabitatSummary"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public override void Write(Utf8JsonWriter writer, PokemonHabitatSummary pokemonHabitatSummary, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteStartObject();
@@ -187,15 +186,8 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="pokemonHabitatSummary"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, PokemonHabitatSummary pokemonHabitatSummary, JsonSerializerOptions jsonSerializerOptions)
         {
-            if (pokemonHabitatSummary.Name == null)
-                throw new ArgumentNullException(nameof(pokemonHabitatSummary.Name), "Property is required for class PokemonHabitatSummary.");
-
-            if (pokemonHabitatSummary.Url == null)
-                throw new ArgumentNullException(nameof(pokemonHabitatSummary.Url), "Property is required for class PokemonHabitatSummary.");
-
             writer.WriteString("name", pokemonHabitatSummary.Name);
 
             writer.WriteString("url", pokemonHabitatSummary.Url);

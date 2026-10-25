@@ -30,37 +30,37 @@ import io.swagger.v3.oas.annotations.media.Schema
 data class VersionGroupDetail(
 
     @Schema(required = true, readOnly = true, description = "")
-    @param:JsonProperty("id")
+    @param:JsonProperty("id", required = true)
     @get:JsonProperty("id", required = true) val id: kotlin.Int,
 
     @get:Size(max=100)
     @Schema(required = true, description = "")
-    @param:JsonProperty("name")
+    @param:JsonProperty("name", required = true)
     @get:JsonProperty("name", required = true) val name: kotlin.String,
 
     @field:Valid
     @Schema(required = true, description = "")
-    @param:JsonProperty("generation")
+    @param:JsonProperty("generation", required = true)
     @get:JsonProperty("generation", required = true) val generation: GenerationSummary,
 
     @field:Valid
     @Schema(required = true, readOnly = true, description = "")
-    @param:JsonProperty("move_learn_methods")
+    @param:JsonProperty("move_learn_methods", required = true)
     @get:JsonProperty("move_learn_methods", required = true) val moveLearnMethods: kotlin.collections.List<AbilityDetailPokemonInnerPokemon>,
 
     @field:Valid
     @Schema(required = true, readOnly = true, description = "")
-    @param:JsonProperty("pokedexes")
+    @param:JsonProperty("pokedexes", required = true)
     @get:JsonProperty("pokedexes", required = true) val pokedexes: kotlin.collections.List<AbilityDetailPokemonInnerPokemon>,
 
     @field:Valid
     @Schema(required = true, readOnly = true, description = "")
-    @param:JsonProperty("regions")
+    @param:JsonProperty("regions", required = true)
     @get:JsonProperty("regions", required = true) val regions: kotlin.collections.List<AbilityDetailPokemonInnerPokemon>,
 
     @field:Valid
     @Schema(required = true, readOnly = true, description = "")
-    @param:JsonProperty("versions")
+    @param:JsonProperty("versions", required = true)
     @get:JsonProperty("versions", required = true) val versions: kotlin.collections.List<VersionSummary>,
 
     @Schema(description = "")

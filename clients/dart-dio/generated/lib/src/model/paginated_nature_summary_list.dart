@@ -166,3 +166,4 @@ class _$PaginatedNatureSummaryListSerializer implements PrimitiveSerializer<Pagi
   }
 }
 
+

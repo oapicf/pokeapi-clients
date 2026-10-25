@@ -24,8 +24,6 @@ public class PokemonDetailHeldItems  {
 
   @ApiModelProperty(required = true, value = "")
 
-  @Valid
-
   private List<@Valid ItemDetailHeldByPokemonInnerVersionDetailsInner> versionDetails = new ArrayList<>();
  /**
    * Get item

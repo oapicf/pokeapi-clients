@@ -466,124 +466,124 @@ namespace Org.OpenAPITools.Model
             }
 
             if (!id.IsSet)
-                throw new ArgumentException("Property is required for class MoveDetail.", nameof(id));
+                throw new JsonException("Property is required for class MoveDetail: id.");
 
             if (!name.IsSet)
-                throw new ArgumentException("Property is required for class MoveDetail.", nameof(name));
+                throw new JsonException("Property is required for class MoveDetail: name.");
 
             if (!effectChance.IsSet)
-                throw new ArgumentException("Property is required for class MoveDetail.", nameof(effectChance));
+                throw new JsonException("Property is required for class MoveDetail: effect_chance.");
 
             if (!contestCombos.IsSet)
-                throw new ArgumentException("Property is required for class MoveDetail.", nameof(contestCombos));
+                throw new JsonException("Property is required for class MoveDetail: contest_combos.");
 
             if (!contestType.IsSet)
-                throw new ArgumentException("Property is required for class MoveDetail.", nameof(contestType));
+                throw new JsonException("Property is required for class MoveDetail: contest_type.");
 
             if (!contestEffect.IsSet)
-                throw new ArgumentException("Property is required for class MoveDetail.", nameof(contestEffect));
+                throw new JsonException("Property is required for class MoveDetail: contest_effect.");
 
             if (!damageClass.IsSet)
-                throw new ArgumentException("Property is required for class MoveDetail.", nameof(damageClass));
+                throw new JsonException("Property is required for class MoveDetail: damage_class.");
 
             if (!effectEntries.IsSet)
-                throw new ArgumentException("Property is required for class MoveDetail.", nameof(effectEntries));
+                throw new JsonException("Property is required for class MoveDetail: effect_entries.");
 
             if (!effectChanges.IsSet)
-                throw new ArgumentException("Property is required for class MoveDetail.", nameof(effectChanges));
+                throw new JsonException("Property is required for class MoveDetail: effect_changes.");
 
             if (!generation.IsSet)
-                throw new ArgumentException("Property is required for class MoveDetail.", nameof(generation));
+                throw new JsonException("Property is required for class MoveDetail: generation.");
 
             if (!meta.IsSet)
-                throw new ArgumentException("Property is required for class MoveDetail.", nameof(meta));
+                throw new JsonException("Property is required for class MoveDetail: meta.");
 
             if (!names.IsSet)
-                throw new ArgumentException("Property is required for class MoveDetail.", nameof(names));
+                throw new JsonException("Property is required for class MoveDetail: names.");
 
             if (!pastValues.IsSet)
-                throw new ArgumentException("Property is required for class MoveDetail.", nameof(pastValues));
+                throw new JsonException("Property is required for class MoveDetail: past_values.");
 
             if (!statChanges.IsSet)
-                throw new ArgumentException("Property is required for class MoveDetail.", nameof(statChanges));
+                throw new JsonException("Property is required for class MoveDetail: stat_changes.");
 
             if (!superContestEffect.IsSet)
-                throw new ArgumentException("Property is required for class MoveDetail.", nameof(superContestEffect));
+                throw new JsonException("Property is required for class MoveDetail: super_contest_effect.");
 
             if (!target.IsSet)
-                throw new ArgumentException("Property is required for class MoveDetail.", nameof(target));
+                throw new JsonException("Property is required for class MoveDetail: target.");
 
             if (!type.IsSet)
-                throw new ArgumentException("Property is required for class MoveDetail.", nameof(type));
+                throw new JsonException("Property is required for class MoveDetail: type.");
 
             if (!machines.IsSet)
-                throw new ArgumentException("Property is required for class MoveDetail.", nameof(machines));
+                throw new JsonException("Property is required for class MoveDetail: machines.");
 
             if (!flavorTextEntries.IsSet)
-                throw new ArgumentException("Property is required for class MoveDetail.", nameof(flavorTextEntries));
+                throw new JsonException("Property is required for class MoveDetail: flavor_text_entries.");
 
             if (!learnedByPokemon.IsSet)
-                throw new ArgumentException("Property is required for class MoveDetail.", nameof(learnedByPokemon));
+                throw new JsonException("Property is required for class MoveDetail: learned_by_pokemon.");
 
             if (id.IsSet && id.Value == null)
-                throw new ArgumentNullException(nameof(id), "Property is not nullable for class MoveDetail.");
+                throw new JsonException("Property is not nullable for class MoveDetail: id.");
 
             if (name.IsSet && name.Value == null)
-                throw new ArgumentNullException(nameof(name), "Property is not nullable for class MoveDetail.");
+                throw new JsonException("Property is not nullable for class MoveDetail: name.");
 
             if (effectChance.IsSet && effectChance.Value == null)
-                throw new ArgumentNullException(nameof(effectChance), "Property is not nullable for class MoveDetail.");
+                throw new JsonException("Property is not nullable for class MoveDetail: effect_chance.");
 
             if (contestCombos.IsSet && contestCombos.Value == null)
-                throw new ArgumentNullException(nameof(contestCombos), "Property is not nullable for class MoveDetail.");
+                throw new JsonException("Property is not nullable for class MoveDetail: contest_combos.");
 
             if (contestType.IsSet && contestType.Value == null)
-                throw new ArgumentNullException(nameof(contestType), "Property is not nullable for class MoveDetail.");
+                throw new JsonException("Property is not nullable for class MoveDetail: contest_type.");
 
             if (contestEffect.IsSet && contestEffect.Value == null)
-                throw new ArgumentNullException(nameof(contestEffect), "Property is not nullable for class MoveDetail.");
+                throw new JsonException("Property is not nullable for class MoveDetail: contest_effect.");
 
             if (damageClass.IsSet && damageClass.Value == null)
-                throw new ArgumentNullException(nameof(damageClass), "Property is not nullable for class MoveDetail.");
+                throw new JsonException("Property is not nullable for class MoveDetail: damage_class.");
 
             if (effectEntries.IsSet && effectEntries.Value == null)
-                throw new ArgumentNullException(nameof(effectEntries), "Property is not nullable for class MoveDetail.");
+                throw new JsonException("Property is not nullable for class MoveDetail: effect_entries.");
 
             if (effectChanges.IsSet && effectChanges.Value == null)
-                throw new ArgumentNullException(nameof(effectChanges), "Property is not nullable for class MoveDetail.");
+                throw new JsonException("Property is not nullable for class MoveDetail: effect_changes.");
 
             if (generation.IsSet && generation.Value == null)
-                throw new ArgumentNullException(nameof(generation), "Property is not nullable for class MoveDetail.");
+                throw new JsonException("Property is not nullable for class MoveDetail: generation.");
 
             if (meta.IsSet && meta.Value == null)
-                throw new ArgumentNullException(nameof(meta), "Property is not nullable for class MoveDetail.");
+                throw new JsonException("Property is not nullable for class MoveDetail: meta.");
 
             if (names.IsSet && names.Value == null)
-                throw new ArgumentNullException(nameof(names), "Property is not nullable for class MoveDetail.");
+                throw new JsonException("Property is not nullable for class MoveDetail: names.");
 
             if (pastValues.IsSet && pastValues.Value == null)
-                throw new ArgumentNullException(nameof(pastValues), "Property is not nullable for class MoveDetail.");
+                throw new JsonException("Property is not nullable for class MoveDetail: past_values.");
 
             if (statChanges.IsSet && statChanges.Value == null)
-                throw new ArgumentNullException(nameof(statChanges), "Property is not nullable for class MoveDetail.");
+                throw new JsonException("Property is not nullable for class MoveDetail: stat_changes.");
 
             if (superContestEffect.IsSet && superContestEffect.Value == null)
-                throw new ArgumentNullException(nameof(superContestEffect), "Property is not nullable for class MoveDetail.");
+                throw new JsonException("Property is not nullable for class MoveDetail: super_contest_effect.");
 
             if (target.IsSet && target.Value == null)
-                throw new ArgumentNullException(nameof(target), "Property is not nullable for class MoveDetail.");
+                throw new JsonException("Property is not nullable for class MoveDetail: target.");
 
             if (type.IsSet && type.Value == null)
-                throw new ArgumentNullException(nameof(type), "Property is not nullable for class MoveDetail.");
+                throw new JsonException("Property is not nullable for class MoveDetail: type.");
 
             if (machines.IsSet && machines.Value == null)
-                throw new ArgumentNullException(nameof(machines), "Property is not nullable for class MoveDetail.");
+                throw new JsonException("Property is not nullable for class MoveDetail: machines.");
 
             if (flavorTextEntries.IsSet && flavorTextEntries.Value == null)
-                throw new ArgumentNullException(nameof(flavorTextEntries), "Property is not nullable for class MoveDetail.");
+                throw new JsonException("Property is not nullable for class MoveDetail: flavor_text_entries.");
 
             if (learnedByPokemon.IsSet && learnedByPokemon.Value == null)
-                throw new ArgumentNullException(nameof(learnedByPokemon), "Property is not nullable for class MoveDetail.");
+                throw new JsonException("Property is not nullable for class MoveDetail: learned_by_pokemon.");
 
             return new MoveDetail(id.Value!.Value!, name.Value!, effectChance.Value!.Value!, contestCombos.Value!, contestType.Value!, contestEffect.Value!, damageClass.Value!, effectEntries.Value!, effectChanges.Value!, generation.Value!, meta.Value!, names.Value!, pastValues.Value!, statChanges.Value!, superContestEffect.Value!, target.Value!, type.Value!, machines.Value!, flavorTextEntries.Value!, learnedByPokemon.Value!, accuracy, pp, priority, power);
         }
@@ -594,7 +594,6 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="moveDetail"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public override void Write(Utf8JsonWriter writer, MoveDetail moveDetail, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteStartObject();
@@ -609,63 +608,8 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="moveDetail"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, MoveDetail moveDetail, JsonSerializerOptions jsonSerializerOptions)
         {
-            if (moveDetail.Name == null)
-                throw new ArgumentNullException(nameof(moveDetail.Name), "Property is required for class MoveDetail.");
-
-            if (moveDetail.ContestCombos == null)
-                throw new ArgumentNullException(nameof(moveDetail.ContestCombos), "Property is required for class MoveDetail.");
-
-            if (moveDetail.ContestType == null)
-                throw new ArgumentNullException(nameof(moveDetail.ContestType), "Property is required for class MoveDetail.");
-
-            if (moveDetail.ContestEffect == null)
-                throw new ArgumentNullException(nameof(moveDetail.ContestEffect), "Property is required for class MoveDetail.");
-
-            if (moveDetail.DamageClass == null)
-                throw new ArgumentNullException(nameof(moveDetail.DamageClass), "Property is required for class MoveDetail.");
-
-            if (moveDetail.EffectEntries == null)
-                throw new ArgumentNullException(nameof(moveDetail.EffectEntries), "Property is required for class MoveDetail.");
-
-            if (moveDetail.EffectChanges == null)
-                throw new ArgumentNullException(nameof(moveDetail.EffectChanges), "Property is required for class MoveDetail.");
-
-            if (moveDetail.Generation == null)
-                throw new ArgumentNullException(nameof(moveDetail.Generation), "Property is required for class MoveDetail.");
-
-            if (moveDetail.Meta == null)
-                throw new ArgumentNullException(nameof(moveDetail.Meta), "Property is required for class MoveDetail.");
-
-            if (moveDetail.Names == null)
-                throw new ArgumentNullException(nameof(moveDetail.Names), "Property is required for class MoveDetail.");
-
-            if (moveDetail.PastValues == null)
-                throw new ArgumentNullException(nameof(moveDetail.PastValues), "Property is required for class MoveDetail.");
-
-            if (moveDetail.StatChanges == null)
-                throw new ArgumentNullException(nameof(moveDetail.StatChanges), "Property is required for class MoveDetail.");
-
-            if (moveDetail.SuperContestEffect == null)
-                throw new ArgumentNullException(nameof(moveDetail.SuperContestEffect), "Property is required for class MoveDetail.");
-
-            if (moveDetail.Target == null)
-                throw new ArgumentNullException(nameof(moveDetail.Target), "Property is required for class MoveDetail.");
-
-            if (moveDetail.Type == null)
-                throw new ArgumentNullException(nameof(moveDetail.Type), "Property is required for class MoveDetail.");
-
-            if (moveDetail.Machines == null)
-                throw new ArgumentNullException(nameof(moveDetail.Machines), "Property is required for class MoveDetail.");
-
-            if (moveDetail.FlavorTextEntries == null)
-                throw new ArgumentNullException(nameof(moveDetail.FlavorTextEntries), "Property is required for class MoveDetail.");
-
-            if (moveDetail.LearnedByPokemon == null)
-                throw new ArgumentNullException(nameof(moveDetail.LearnedByPokemon), "Property is required for class MoveDetail.");
-
             writer.WriteNumber("id", moveDetail.Id);
 
             writer.WriteString("name", moveDetail.Name);

@@ -39,7 +39,7 @@ class EvolutionApi(baseUrl: String) {
    * @param offset The initial index from which to return the results.
    * @param `q` > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. 
    */
-  def evolutionChainList(username: String, password: String, apiKeyCookie: String)(limit: Option[Int] = None, offset: Option[Int] = None, `q`: Option[String] = None): Request[Either[ResponseException[String], PaginatedEvolutionChainSummaryList]] =
+  def evolutionChainList(username: String, password: String, apiKeyCookie: String)(limit: Option[Int] = None, offset: Option[Int] = None, `q`: Option[String] = None): sttp.client4.Request[Either[ResponseException[String], PaginatedEvolutionChainSummaryList]] =
     basicRequest
       .method(Method.GET, uri"$baseUrl/api/v2/evolution-chain/?limit=${ limit }&offset=${ offset }&q=${ `q` }")
       .contentType("application/json")
@@ -59,7 +59,7 @@ class EvolutionApi(baseUrl: String) {
    * 
    * @param id This parameter can be a string or an integer.
    */
-  def evolutionChainRetrieve(username: String, password: String, apiKeyCookie: String)(id: String): Request[Either[ResponseException[String], EvolutionChainDetail]] =
+  def evolutionChainRetrieve(username: String, password: String, apiKeyCookie: String)(id: String): sttp.client4.Request[Either[ResponseException[String], EvolutionChainDetail]] =
     basicRequest
       .method(Method.GET, uri"$baseUrl/api/v2/evolution-chain/${id}/")
       .contentType("application/json")
@@ -81,7 +81,7 @@ class EvolutionApi(baseUrl: String) {
    * @param offset The initial index from which to return the results.
    * @param `q` > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. 
    */
-  def evolutionTriggerList(username: String, password: String, apiKeyCookie: String)(limit: Option[Int] = None, offset: Option[Int] = None, `q`: Option[String] = None): Request[Either[ResponseException[String], PaginatedEvolutionTriggerSummaryList]] =
+  def evolutionTriggerList(username: String, password: String, apiKeyCookie: String)(limit: Option[Int] = None, offset: Option[Int] = None, `q`: Option[String] = None): sttp.client4.Request[Either[ResponseException[String], PaginatedEvolutionTriggerSummaryList]] =
     basicRequest
       .method(Method.GET, uri"$baseUrl/api/v2/evolution-trigger/?limit=${ limit }&offset=${ offset }&q=${ `q` }")
       .contentType("application/json")
@@ -101,7 +101,7 @@ class EvolutionApi(baseUrl: String) {
    * 
    * @param id This parameter can be a string or an integer.
    */
-  def evolutionTriggerRetrieve(username: String, password: String, apiKeyCookie: String)(id: String): Request[Either[ResponseException[String], EvolutionTriggerDetail]] =
+  def evolutionTriggerRetrieve(username: String, password: String, apiKeyCookie: String)(id: String): sttp.client4.Request[Either[ResponseException[String], EvolutionTriggerDetail]] =
     basicRequest
       .method(Method.GET, uri"$baseUrl/api/v2/evolution-trigger/${id}/")
       .contentType("application/json")

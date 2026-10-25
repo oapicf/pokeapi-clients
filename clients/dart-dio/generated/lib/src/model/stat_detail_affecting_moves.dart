@@ -122,3 +122,4 @@ class _$StatDetailAffectingMovesSerializer implements PrimitiveSerializer<StatDe
   }
 }
 
+

@@ -152,16 +152,16 @@ namespace Org.OpenAPITools.Model
             }
 
             if (!name.IsSet)
-                throw new ArgumentException("Property is required for class MoveSummary.", nameof(name));
+                throw new JsonException("Property is required for class MoveSummary: name.");
 
             if (!url.IsSet)
-                throw new ArgumentException("Property is required for class MoveSummary.", nameof(url));
+                throw new JsonException("Property is required for class MoveSummary: url.");
 
             if (name.IsSet && name.Value == null)
-                throw new ArgumentNullException(nameof(name), "Property is not nullable for class MoveSummary.");
+                throw new JsonException("Property is not nullable for class MoveSummary: name.");
 
             if (url.IsSet && url.Value == null)
-                throw new ArgumentNullException(nameof(url), "Property is not nullable for class MoveSummary.");
+                throw new JsonException("Property is not nullable for class MoveSummary: url.");
 
             return new MoveSummary(name.Value!, url.Value!);
         }
@@ -172,7 +172,6 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="moveSummary"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public override void Write(Utf8JsonWriter writer, MoveSummary moveSummary, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteStartObject();
@@ -187,15 +186,8 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="moveSummary"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, MoveSummary moveSummary, JsonSerializerOptions jsonSerializerOptions)
         {
-            if (moveSummary.Name == null)
-                throw new ArgumentNullException(nameof(moveSummary.Name), "Property is required for class MoveSummary.");
-
-            if (moveSummary.Url == null)
-                throw new ArgumentNullException(nameof(moveSummary.Url), "Property is required for class MoveSummary.");
-
             writer.WriteString("name", moveSummary.Name);
 
             writer.WriteString("url", moveSummary.Url);

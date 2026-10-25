@@ -25,7 +25,6 @@ public class PaginatedPokemonHabitatSummaryList  {
   private URI previous;
 
   @ApiModelProperty(value = "")
-  @Valid
   private List<@Valid PokemonHabitatSummary> results = new ArrayList<>();
  /**
   * Get count

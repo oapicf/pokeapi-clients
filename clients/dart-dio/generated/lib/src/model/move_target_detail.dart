@@ -172,3 +172,4 @@ class _$MoveTargetDetailSerializer implements PrimitiveSerializer<MoveTargetDeta
   }
 }
 
+

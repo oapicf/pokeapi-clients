@@ -203,16 +203,16 @@ namespace Org.OpenAPITools.Model
             }
 
             if (count.IsSet && count.Value == null)
-                throw new ArgumentNullException(nameof(count), "Property is not nullable for class PaginatedItemFlingEffectSummaryList.");
+                throw new JsonException("Property is not nullable for class PaginatedItemFlingEffectSummaryList: count.");
 
             if (next.IsSet && next.Value == null)
-                throw new ArgumentNullException(nameof(next), "Property is not nullable for class PaginatedItemFlingEffectSummaryList.");
+                throw new JsonException("Property is not nullable for class PaginatedItemFlingEffectSummaryList: next.");
 
             if (previous.IsSet && previous.Value == null)
-                throw new ArgumentNullException(nameof(previous), "Property is not nullable for class PaginatedItemFlingEffectSummaryList.");
+                throw new JsonException("Property is not nullable for class PaginatedItemFlingEffectSummaryList: previous.");
 
             if (results.IsSet && results.Value == null)
-                throw new ArgumentNullException(nameof(results), "Property is not nullable for class PaginatedItemFlingEffectSummaryList.");
+                throw new JsonException("Property is not nullable for class PaginatedItemFlingEffectSummaryList: results.");
 
             return new PaginatedItemFlingEffectSummaryList(count, next, previous, results);
         }
@@ -223,7 +223,6 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="paginatedItemFlingEffectSummaryList"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public override void Write(Utf8JsonWriter writer, PaginatedItemFlingEffectSummaryList paginatedItemFlingEffectSummaryList, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteStartObject();
@@ -238,17 +237,19 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="paginatedItemFlingEffectSummaryList"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, PaginatedItemFlingEffectSummaryList paginatedItemFlingEffectSummaryList, JsonSerializerOptions jsonSerializerOptions)
         {
+            if (paginatedItemFlingEffectSummaryList.CountOption.IsSet && paginatedItemFlingEffectSummaryList.Count == null)
+                throw new JsonException("Cannot write null property PaginatedItemFlingEffectSummaryList.Count to non-nullable JSON property 'count'.");
+
             if (paginatedItemFlingEffectSummaryList.NextOption.IsSet && paginatedItemFlingEffectSummaryList.Next == null)
-                throw new ArgumentNullException(nameof(paginatedItemFlingEffectSummaryList.Next), "Property is required for class PaginatedItemFlingEffectSummaryList.");
+                throw new JsonException("Cannot write null property PaginatedItemFlingEffectSummaryList.Next to non-nullable JSON property 'next'.");
 
             if (paginatedItemFlingEffectSummaryList.PreviousOption.IsSet && paginatedItemFlingEffectSummaryList.Previous == null)
-                throw new ArgumentNullException(nameof(paginatedItemFlingEffectSummaryList.Previous), "Property is required for class PaginatedItemFlingEffectSummaryList.");
+                throw new JsonException("Cannot write null property PaginatedItemFlingEffectSummaryList.Previous to non-nullable JSON property 'previous'.");
 
             if (paginatedItemFlingEffectSummaryList.ResultsOption.IsSet && paginatedItemFlingEffectSummaryList.Results == null)
-                throw new ArgumentNullException(nameof(paginatedItemFlingEffectSummaryList.Results), "Property is required for class PaginatedItemFlingEffectSummaryList.");
+                throw new JsonException("Cannot write null property PaginatedItemFlingEffectSummaryList.Results to non-nullable JSON property 'results'.");
 
             if (paginatedItemFlingEffectSummaryList.CountOption.IsSet)
                 writer.WriteNumber("count", paginatedItemFlingEffectSummaryList.CountOption.Value!.Value);

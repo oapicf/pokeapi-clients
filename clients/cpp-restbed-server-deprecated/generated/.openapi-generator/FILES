@@ -1,5 +1,4 @@
 .gitignore
-.openapi-generator-ignore
 README.md
 api/BerriesApi.cpp
 api/BerriesApi.h

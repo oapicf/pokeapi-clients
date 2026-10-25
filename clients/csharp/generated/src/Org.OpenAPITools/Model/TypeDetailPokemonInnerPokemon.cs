@@ -162,10 +162,10 @@ namespace Org.OpenAPITools.Model
             }
 
             if (name.IsSet && name.Value == null)
-                throw new ArgumentNullException(nameof(name), "Property is not nullable for class TypeDetailPokemonInnerPokemon.");
+                throw new JsonException("Property is not nullable for class TypeDetailPokemonInnerPokemon: name.");
 
             if (url.IsSet && url.Value == null)
-                throw new ArgumentNullException(nameof(url), "Property is not nullable for class TypeDetailPokemonInnerPokemon.");
+                throw new JsonException("Property is not nullable for class TypeDetailPokemonInnerPokemon: url.");
 
             return new TypeDetailPokemonInnerPokemon(name, url);
         }
@@ -176,7 +176,6 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="typeDetailPokemonInnerPokemon"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public override void Write(Utf8JsonWriter writer, TypeDetailPokemonInnerPokemon typeDetailPokemonInnerPokemon, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteStartObject();
@@ -191,14 +190,13 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="typeDetailPokemonInnerPokemon"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, TypeDetailPokemonInnerPokemon typeDetailPokemonInnerPokemon, JsonSerializerOptions jsonSerializerOptions)
         {
             if (typeDetailPokemonInnerPokemon.NameOption.IsSet && typeDetailPokemonInnerPokemon.Name == null)
-                throw new ArgumentNullException(nameof(typeDetailPokemonInnerPokemon.Name), "Property is required for class TypeDetailPokemonInnerPokemon.");
+                throw new JsonException("Cannot write null property TypeDetailPokemonInnerPokemon.Name to non-nullable JSON property 'name'.");
 
             if (typeDetailPokemonInnerPokemon.UrlOption.IsSet && typeDetailPokemonInnerPokemon.Url == null)
-                throw new ArgumentNullException(nameof(typeDetailPokemonInnerPokemon.Url), "Property is required for class TypeDetailPokemonInnerPokemon.");
+                throw new JsonException("Cannot write null property TypeDetailPokemonInnerPokemon.Url to non-nullable JSON property 'url'.");
 
             if (typeDetailPokemonInnerPokemon.NameOption.IsSet)
                 writer.WriteString("name", typeDetailPokemonInnerPokemon.Name);

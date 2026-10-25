@@ -2,7 +2,6 @@ package org.openapitools.model;
 
 import java.net.URI;
 import java.util.Objects;
-import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import java.util.ArrayList;
@@ -28,16 +27,13 @@ import jakarta.annotation.Generated;
  * MoveChange
  */
 
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2026-08-30T02:00:43.960184425Z[Etc/UTC]", comments = "Generator version: 7.24.0")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2026-10-25T05:53:37.479908528Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 public class MoveChange {
 
-  @JsonInclude(JsonInclude.Include.NON_ABSENT)
   private JsonNullable<Integer> accuracy = JsonNullable.<Integer>undefined();
 
-  @JsonInclude(JsonInclude.Include.NON_ABSENT)
   private JsonNullable<Integer> power = JsonNullable.<Integer>undefined();
 
-  @JsonInclude(JsonInclude.Include.NON_ABSENT)
   private JsonNullable<Integer> pp = JsonNullable.<Integer>undefined();
 
   private Integer effectChance;
@@ -72,7 +68,7 @@ public class MoveChange {
    * @return accuracy
    */
   
-  @Schema(name = "accuracy", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @Schema(name = "accuracy", requiredMode = Schema.RequiredMode.NOT_REQUIRED, nullable = true)
   @JsonProperty("accuracy")
   public JsonNullable<Integer> getAccuracy() {
     return accuracy;
@@ -92,7 +88,7 @@ public class MoveChange {
    * @return power
    */
   
-  @Schema(name = "power", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @Schema(name = "power", requiredMode = Schema.RequiredMode.NOT_REQUIRED, nullable = true)
   @JsonProperty("power")
   public JsonNullable<Integer> getPower() {
     return power;
@@ -112,7 +108,7 @@ public class MoveChange {
    * @return pp
    */
   
-  @Schema(name = "pp", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @Schema(name = "pp", requiredMode = Schema.RequiredMode.NOT_REQUIRED, nullable = true)
   @JsonProperty("pp")
   public JsonNullable<Integer> getPp() {
     return pp;
@@ -160,7 +156,7 @@ public class MoveChange {
    * Get effectEntries
    * @return effectEntries
    */
-  @Valid 
+  
   @Schema(name = "effect_entries", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("effect_entries")
   public List<@Valid MoveChangeEffectEntriesInner> getEffectEntries() {

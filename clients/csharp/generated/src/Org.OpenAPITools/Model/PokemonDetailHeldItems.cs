@@ -146,16 +146,16 @@ namespace Org.OpenAPITools.Model
             }
 
             if (!item.IsSet)
-                throw new ArgumentException("Property is required for class PokemonDetailHeldItems.", nameof(item));
+                throw new JsonException("Property is required for class PokemonDetailHeldItems: item.");
 
             if (!versionDetails.IsSet)
-                throw new ArgumentException("Property is required for class PokemonDetailHeldItems.", nameof(versionDetails));
+                throw new JsonException("Property is required for class PokemonDetailHeldItems: version_details.");
 
             if (item.IsSet && item.Value == null)
-                throw new ArgumentNullException(nameof(item), "Property is not nullable for class PokemonDetailHeldItems.");
+                throw new JsonException("Property is not nullable for class PokemonDetailHeldItems: item.");
 
             if (versionDetails.IsSet && versionDetails.Value == null)
-                throw new ArgumentNullException(nameof(versionDetails), "Property is not nullable for class PokemonDetailHeldItems.");
+                throw new JsonException("Property is not nullable for class PokemonDetailHeldItems: version_details.");
 
             return new PokemonDetailHeldItems(item.Value!, versionDetails.Value!);
         }
@@ -166,7 +166,6 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="pokemonDetailHeldItems"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public override void Write(Utf8JsonWriter writer, PokemonDetailHeldItems pokemonDetailHeldItems, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteStartObject();
@@ -181,15 +180,8 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="pokemonDetailHeldItems"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, PokemonDetailHeldItems pokemonDetailHeldItems, JsonSerializerOptions jsonSerializerOptions)
         {
-            if (pokemonDetailHeldItems.Item == null)
-                throw new ArgumentNullException(nameof(pokemonDetailHeldItems.Item), "Property is required for class PokemonDetailHeldItems.");
-
-            if (pokemonDetailHeldItems.VersionDetails == null)
-                throw new ArgumentNullException(nameof(pokemonDetailHeldItems.VersionDetails), "Property is required for class PokemonDetailHeldItems.");
-
             writer.WritePropertyName("item");
             JsonSerializer.Serialize(writer, pokemonDetailHeldItems.Item, jsonSerializerOptions);
             writer.WritePropertyName("version_details");

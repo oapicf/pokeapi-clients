@@ -191,34 +191,34 @@ namespace Org.OpenAPITools.Model
             }
 
             if (!id.IsSet)
-                throw new ArgumentException("Property is required for class MoveDamageClassDetail.", nameof(id));
+                throw new JsonException("Property is required for class MoveDamageClassDetail: id.");
 
             if (!name.IsSet)
-                throw new ArgumentException("Property is required for class MoveDamageClassDetail.", nameof(name));
+                throw new JsonException("Property is required for class MoveDamageClassDetail: name.");
 
             if (!descriptions.IsSet)
-                throw new ArgumentException("Property is required for class MoveDamageClassDetail.", nameof(descriptions));
+                throw new JsonException("Property is required for class MoveDamageClassDetail: descriptions.");
 
             if (!moves.IsSet)
-                throw new ArgumentException("Property is required for class MoveDamageClassDetail.", nameof(moves));
+                throw new JsonException("Property is required for class MoveDamageClassDetail: moves.");
 
             if (!names.IsSet)
-                throw new ArgumentException("Property is required for class MoveDamageClassDetail.", nameof(names));
+                throw new JsonException("Property is required for class MoveDamageClassDetail: names.");
 
             if (id.IsSet && id.Value == null)
-                throw new ArgumentNullException(nameof(id), "Property is not nullable for class MoveDamageClassDetail.");
+                throw new JsonException("Property is not nullable for class MoveDamageClassDetail: id.");
 
             if (name.IsSet && name.Value == null)
-                throw new ArgumentNullException(nameof(name), "Property is not nullable for class MoveDamageClassDetail.");
+                throw new JsonException("Property is not nullable for class MoveDamageClassDetail: name.");
 
             if (descriptions.IsSet && descriptions.Value == null)
-                throw new ArgumentNullException(nameof(descriptions), "Property is not nullable for class MoveDamageClassDetail.");
+                throw new JsonException("Property is not nullable for class MoveDamageClassDetail: descriptions.");
 
             if (moves.IsSet && moves.Value == null)
-                throw new ArgumentNullException(nameof(moves), "Property is not nullable for class MoveDamageClassDetail.");
+                throw new JsonException("Property is not nullable for class MoveDamageClassDetail: moves.");
 
             if (names.IsSet && names.Value == null)
-                throw new ArgumentNullException(nameof(names), "Property is not nullable for class MoveDamageClassDetail.");
+                throw new JsonException("Property is not nullable for class MoveDamageClassDetail: names.");
 
             return new MoveDamageClassDetail(id.Value!.Value!, name.Value!, descriptions.Value!, moves.Value!, names.Value!);
         }
@@ -229,7 +229,6 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="moveDamageClassDetail"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public override void Write(Utf8JsonWriter writer, MoveDamageClassDetail moveDamageClassDetail, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteStartObject();
@@ -244,21 +243,8 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="moveDamageClassDetail"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, MoveDamageClassDetail moveDamageClassDetail, JsonSerializerOptions jsonSerializerOptions)
         {
-            if (moveDamageClassDetail.Name == null)
-                throw new ArgumentNullException(nameof(moveDamageClassDetail.Name), "Property is required for class MoveDamageClassDetail.");
-
-            if (moveDamageClassDetail.Descriptions == null)
-                throw new ArgumentNullException(nameof(moveDamageClassDetail.Descriptions), "Property is required for class MoveDamageClassDetail.");
-
-            if (moveDamageClassDetail.Moves == null)
-                throw new ArgumentNullException(nameof(moveDamageClassDetail.Moves), "Property is required for class MoveDamageClassDetail.");
-
-            if (moveDamageClassDetail.Names == null)
-                throw new ArgumentNullException(nameof(moveDamageClassDetail.Names), "Property is required for class MoveDamageClassDetail.");
-
             writer.WriteNumber("id", moveDamageClassDetail.Id);
 
             writer.WriteString("name", moveDamageClassDetail.Name);

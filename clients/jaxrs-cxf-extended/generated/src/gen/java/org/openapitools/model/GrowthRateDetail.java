@@ -26,15 +26,12 @@ public class GrowthRateDetail  {
   private String formula;
 
   @ApiModelProperty(required = true, value = "")
-  @Valid
   private List<@Valid GrowthRateDescription> descriptions = new ArrayList<>();
 
   @ApiModelProperty(required = true, value = "")
-  @Valid
   private List<@Valid Experience> levels = new ArrayList<>();
 
   @ApiModelProperty(required = true, value = "")
-  @Valid
   private List<@Valid PokemonSpeciesSummary> pokemonSpecies = new ArrayList<>();
  /**
   * Get id

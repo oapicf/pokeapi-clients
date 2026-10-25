@@ -17,7 +17,7 @@ import EvolutionChainSummary from './EvolutionChainSummary';
 /**
  * The PaginatedEvolutionChainSummaryList model module.
  * @module model/PaginatedEvolutionChainSummaryList
- * @version 2.0.1-pre.0
+ * @version 2.1.1-pre.0
  */
 class PaginatedEvolutionChainSummaryList {
     /**

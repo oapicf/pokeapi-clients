@@ -146,16 +146,16 @@ namespace Org.OpenAPITools.Model
             }
 
             if (!awesomeName.IsSet)
-                throw new ArgumentException("Property is required for class PokemonShapeDetailAwesomeNamesInner.", nameof(awesomeName));
+                throw new JsonException("Property is required for class PokemonShapeDetailAwesomeNamesInner: awesome_name.");
 
             if (!language.IsSet)
-                throw new ArgumentException("Property is required for class PokemonShapeDetailAwesomeNamesInner.", nameof(language));
+                throw new JsonException("Property is required for class PokemonShapeDetailAwesomeNamesInner: language.");
 
             if (awesomeName.IsSet && awesomeName.Value == null)
-                throw new ArgumentNullException(nameof(awesomeName), "Property is not nullable for class PokemonShapeDetailAwesomeNamesInner.");
+                throw new JsonException("Property is not nullable for class PokemonShapeDetailAwesomeNamesInner: awesome_name.");
 
             if (language.IsSet && language.Value == null)
-                throw new ArgumentNullException(nameof(language), "Property is not nullable for class PokemonShapeDetailAwesomeNamesInner.");
+                throw new JsonException("Property is not nullable for class PokemonShapeDetailAwesomeNamesInner: language.");
 
             return new PokemonShapeDetailAwesomeNamesInner(awesomeName.Value!, language.Value!);
         }
@@ -166,7 +166,6 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="pokemonShapeDetailAwesomeNamesInner"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public override void Write(Utf8JsonWriter writer, PokemonShapeDetailAwesomeNamesInner pokemonShapeDetailAwesomeNamesInner, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteStartObject();
@@ -181,15 +180,8 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="pokemonShapeDetailAwesomeNamesInner"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, PokemonShapeDetailAwesomeNamesInner pokemonShapeDetailAwesomeNamesInner, JsonSerializerOptions jsonSerializerOptions)
         {
-            if (pokemonShapeDetailAwesomeNamesInner.AwesomeName == null)
-                throw new ArgumentNullException(nameof(pokemonShapeDetailAwesomeNamesInner.AwesomeName), "Property is required for class PokemonShapeDetailAwesomeNamesInner.");
-
-            if (pokemonShapeDetailAwesomeNamesInner.Language == null)
-                throw new ArgumentNullException(nameof(pokemonShapeDetailAwesomeNamesInner.Language), "Property is required for class PokemonShapeDetailAwesomeNamesInner.");
-
             writer.WriteString("awesome_name", pokemonShapeDetailAwesomeNamesInner.AwesomeName);
 
             writer.WritePropertyName("language");

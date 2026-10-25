@@ -29,26 +29,18 @@ import {
 export interface PaginatedEvolutionTriggerSummaryList {
     /**
      * 
-     * @type {number}
-     * @memberof PaginatedEvolutionTriggerSummaryList
      */
     count?: number;
     /**
      * 
-     * @type {string}
-     * @memberof PaginatedEvolutionTriggerSummaryList
      */
     next?: string;
     /**
      * 
-     * @type {string}
-     * @memberof PaginatedEvolutionTriggerSummaryList
      */
     previous?: string;
     /**
      * 
-     * @type {Array<EvolutionTriggerSummary>}
-     * @memberof PaginatedEvolutionTriggerSummaryList
      */
     results?: Array<EvolutionTriggerSummary>;
 }

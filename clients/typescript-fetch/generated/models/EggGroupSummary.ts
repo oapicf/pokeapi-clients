@@ -21,14 +21,10 @@ import { mapValues } from '../runtime';
 export interface EggGroupSummary {
     /**
      * 
-     * @type {string}
-     * @memberof EggGroupSummary
      */
     name: string;
     /**
      * 
-     * @type {string}
-     * @memberof EggGroupSummary
      */
     readonly url: string;
 }

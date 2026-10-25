@@ -29,14 +29,10 @@ import {
 export interface VersionName {
     /**
      * 
-     * @type {string}
-     * @memberof VersionName
      */
     name: string;
     /**
      * 
-     * @type {LanguageSummary}
-     * @memberof VersionName
      */
     language: LanguageSummary;
 }

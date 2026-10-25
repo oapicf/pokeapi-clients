@@ -29,26 +29,18 @@ import {
 export interface PaginatedLocationSummaryList {
     /**
      * 
-     * @type {number}
-     * @memberof PaginatedLocationSummaryList
      */
     count?: number;
     /**
      * 
-     * @type {string}
-     * @memberof PaginatedLocationSummaryList
      */
     next?: string;
     /**
      * 
-     * @type {string}
-     * @memberof PaginatedLocationSummaryList
      */
     previous?: string;
     /**
      * 
-     * @type {Array<LocationSummary>}
-     * @memberof PaginatedLocationSummaryList
      */
     results?: Array<LocationSummary>;
 }

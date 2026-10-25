@@ -178,28 +178,28 @@ namespace Org.OpenAPITools.Model
             }
 
             if (!id.IsSet)
-                throw new ArgumentException("Property is required for class GenderDetail.", nameof(id));
+                throw new JsonException("Property is required for class GenderDetail: id.");
 
             if (!name.IsSet)
-                throw new ArgumentException("Property is required for class GenderDetail.", nameof(name));
+                throw new JsonException("Property is required for class GenderDetail: name.");
 
             if (!pokemonSpeciesDetails.IsSet)
-                throw new ArgumentException("Property is required for class GenderDetail.", nameof(pokemonSpeciesDetails));
+                throw new JsonException("Property is required for class GenderDetail: pokemon_species_details.");
 
             if (!requiredForEvolution.IsSet)
-                throw new ArgumentException("Property is required for class GenderDetail.", nameof(requiredForEvolution));
+                throw new JsonException("Property is required for class GenderDetail: required_for_evolution.");
 
             if (id.IsSet && id.Value == null)
-                throw new ArgumentNullException(nameof(id), "Property is not nullable for class GenderDetail.");
+                throw new JsonException("Property is not nullable for class GenderDetail: id.");
 
             if (name.IsSet && name.Value == null)
-                throw new ArgumentNullException(nameof(name), "Property is not nullable for class GenderDetail.");
+                throw new JsonException("Property is not nullable for class GenderDetail: name.");
 
             if (pokemonSpeciesDetails.IsSet && pokemonSpeciesDetails.Value == null)
-                throw new ArgumentNullException(nameof(pokemonSpeciesDetails), "Property is not nullable for class GenderDetail.");
+                throw new JsonException("Property is not nullable for class GenderDetail: pokemon_species_details.");
 
             if (requiredForEvolution.IsSet && requiredForEvolution.Value == null)
-                throw new ArgumentNullException(nameof(requiredForEvolution), "Property is not nullable for class GenderDetail.");
+                throw new JsonException("Property is not nullable for class GenderDetail: required_for_evolution.");
 
             return new GenderDetail(id.Value!.Value!, name.Value!, pokemonSpeciesDetails.Value!, requiredForEvolution.Value!);
         }
@@ -210,7 +210,6 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="genderDetail"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public override void Write(Utf8JsonWriter writer, GenderDetail genderDetail, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteStartObject();
@@ -225,18 +224,8 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="genderDetail"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, GenderDetail genderDetail, JsonSerializerOptions jsonSerializerOptions)
         {
-            if (genderDetail.Name == null)
-                throw new ArgumentNullException(nameof(genderDetail.Name), "Property is required for class GenderDetail.");
-
-            if (genderDetail.PokemonSpeciesDetails == null)
-                throw new ArgumentNullException(nameof(genderDetail.PokemonSpeciesDetails), "Property is required for class GenderDetail.");
-
-            if (genderDetail.RequiredForEvolution == null)
-                throw new ArgumentNullException(nameof(genderDetail.RequiredForEvolution), "Property is required for class GenderDetail.");
-
             writer.WriteNumber("id", genderDetail.Id);
 
             writer.WriteString("name", genderDetail.Name);

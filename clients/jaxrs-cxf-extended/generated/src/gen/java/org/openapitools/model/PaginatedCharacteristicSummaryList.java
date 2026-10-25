@@ -25,7 +25,6 @@ public class PaginatedCharacteristicSummaryList  {
   private URI previous;
 
   @ApiModelProperty(value = "")
-  @Valid
   private List<@Valid CharacteristicSummary> results = new ArrayList<>();
  /**
   * Get count

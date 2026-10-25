@@ -25,7 +25,6 @@ public class PaginatedEncounterMethodSummaryList  {
   private URI previous;
 
   @ApiModelProperty(value = "")
-  @Valid
   private List<@Valid EncounterMethodSummary> results = new ArrayList<>();
  /**
   * Get count

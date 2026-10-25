@@ -436,3 +436,4 @@ class _$PokemonDetailSerializer implements PrimitiveSerializer<PokemonDetail> {
   }
 }
 
+

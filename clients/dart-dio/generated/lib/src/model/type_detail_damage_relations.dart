@@ -186,3 +186,4 @@ class _$TypeDetailDamageRelationsSerializer implements PrimitiveSerializer<TypeD
   }
 }
 
+

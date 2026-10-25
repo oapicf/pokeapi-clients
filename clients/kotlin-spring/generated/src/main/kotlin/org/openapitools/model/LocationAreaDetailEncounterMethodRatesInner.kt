@@ -24,12 +24,12 @@ data class LocationAreaDetailEncounterMethodRatesInner(
 
     @field:Valid
     @Schema(required = true, description = "")
-    @param:JsonProperty("encounter_method")
+    @param:JsonProperty("encounter_method", required = true)
     @get:JsonProperty("encounter_method", required = true) val encounterMethod: AbilityDetailPokemonInnerPokemon,
 
     @field:Valid
     @Schema(required = true, description = "")
-    @param:JsonProperty("version_details")
+    @param:JsonProperty("version_details", required = true)
     @get:JsonProperty("version_details", required = true) val versionDetails: kotlin.collections.List<LocationAreaDetailEncounterMethodRatesInnerVersionDetailsInner>
 ) {
 

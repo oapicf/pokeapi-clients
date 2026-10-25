@@ -104,3 +104,4 @@ class _$EvolutionChainSummarySerializer implements PrimitiveSerializer<Evolution
   }
 }
 
+

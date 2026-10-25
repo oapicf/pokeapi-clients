@@ -159,13 +159,13 @@ namespace Org.OpenAPITools.Model
             }
 
             if (!language.IsSet)
-                throw new ArgumentException("Property is required for class MoveLearnMethodDescription.", nameof(language));
+                throw new JsonException("Property is required for class MoveLearnMethodDescription: language.");
 
             if (language.IsSet && language.Value == null)
-                throw new ArgumentNullException(nameof(language), "Property is not nullable for class MoveLearnMethodDescription.");
+                throw new JsonException("Property is not nullable for class MoveLearnMethodDescription: language.");
 
             if (description.IsSet && description.Value == null)
-                throw new ArgumentNullException(nameof(description), "Property is not nullable for class MoveLearnMethodDescription.");
+                throw new JsonException("Property is not nullable for class MoveLearnMethodDescription: description.");
 
             return new MoveLearnMethodDescription(language.Value!, description);
         }
@@ -176,7 +176,6 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="moveLearnMethodDescription"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public override void Write(Utf8JsonWriter writer, MoveLearnMethodDescription moveLearnMethodDescription, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteStartObject();
@@ -191,14 +190,10 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="moveLearnMethodDescription"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, MoveLearnMethodDescription moveLearnMethodDescription, JsonSerializerOptions jsonSerializerOptions)
         {
-            if (moveLearnMethodDescription.Language == null)
-                throw new ArgumentNullException(nameof(moveLearnMethodDescription.Language), "Property is required for class MoveLearnMethodDescription.");
-
             if (moveLearnMethodDescription.DescriptionOption.IsSet && moveLearnMethodDescription.Description == null)
-                throw new ArgumentNullException(nameof(moveLearnMethodDescription.Description), "Property is required for class MoveLearnMethodDescription.");
+                throw new JsonException("Cannot write null property MoveLearnMethodDescription.Description to non-nullable JSON property 'description'.");
 
             writer.WritePropertyName("language");
             JsonSerializer.Serialize(writer, moveLearnMethodDescription.Language, jsonSerializerOptions);

@@ -18,7 +18,7 @@ import javax.validation.constraints.*;
 import javax.validation.Valid;
 import io.swagger.annotations.*;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaResteasyServerCodegen", date = "2026-08-30T01:56:35.721624822Z[Etc/UTC]", comments = "Generator version: 7.24.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaResteasyServerCodegen", date = "2026-10-25T05:48:49.952264473Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 public class PokedexDetail   {
   
   private Integer id;
@@ -74,7 +74,6 @@ public class PokedexDetail   {
   @ApiModelProperty(required = true, value = "")
   @JsonProperty("descriptions")
   @NotNull
-  @Valid
   public List<@Valid PokedexDescription> getDescriptions() {
     return descriptions;
   }
@@ -88,7 +87,6 @@ public class PokedexDetail   {
   @ApiModelProperty(required = true, value = "")
   @JsonProperty("names")
   @NotNull
-  @Valid
   public List<@Valid PokedexName> getNames() {
     return names;
   }
@@ -102,7 +100,6 @@ public class PokedexDetail   {
   @ApiModelProperty(required = true, value = "")
   @JsonProperty("pokemon_entries")
   @NotNull
-  @Valid
   public List<@Valid PokedexDetailPokemonEntriesInner> getPokemonEntries() {
     return pokemonEntries;
   }
@@ -130,7 +127,6 @@ public class PokedexDetail   {
   @ApiModelProperty(required = true, value = "")
   @JsonProperty("version_groups")
   @NotNull
-  @Valid
   public List<@Valid AbilityDetailPokemonInnerPokemon> getVersionGroups() {
     return versionGroups;
   }

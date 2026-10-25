@@ -28,15 +28,12 @@ public class LocationDetail  {
   private RegionSummary region;
 
   @ApiModelProperty(required = true, value = "")
-  @Valid
   private List<@Valid LocationName> names = new ArrayList<>();
 
   @ApiModelProperty(required = true, value = "")
-  @Valid
   private List<@Valid LocationGameIndex> gameIndices = new ArrayList<>();
 
   @ApiModelProperty(required = true, value = "")
-  @Valid
   private List<@Valid LocationAreaSummary> areas = new ArrayList<>();
  /**
   * Get id

@@ -20,7 +20,6 @@ public class AbilityChange  {
   private VersionGroupSummary versionGroup;
 
   @ApiModelProperty(required = true, value = "")
-  @Valid
   private List<@Valid AbilityChangeEffectText> effectEntries = new ArrayList<>();
  /**
   * Get versionGroup

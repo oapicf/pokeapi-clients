@@ -21,14 +21,10 @@ import { mapValues } from '../runtime';
 export interface PokemonFormSummary {
     /**
      * 
-     * @type {string}
-     * @memberof PokemonFormSummary
      */
     name: string;
     /**
      * 
-     * @type {string}
-     * @memberof PokemonFormSummary
      */
     readonly url: string;
 }

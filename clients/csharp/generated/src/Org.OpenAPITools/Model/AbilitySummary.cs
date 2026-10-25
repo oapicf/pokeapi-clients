@@ -152,16 +152,16 @@ namespace Org.OpenAPITools.Model
             }
 
             if (!name.IsSet)
-                throw new ArgumentException("Property is required for class AbilitySummary.", nameof(name));
+                throw new JsonException("Property is required for class AbilitySummary: name.");
 
             if (!url.IsSet)
-                throw new ArgumentException("Property is required for class AbilitySummary.", nameof(url));
+                throw new JsonException("Property is required for class AbilitySummary: url.");
 
             if (name.IsSet && name.Value == null)
-                throw new ArgumentNullException(nameof(name), "Property is not nullable for class AbilitySummary.");
+                throw new JsonException("Property is not nullable for class AbilitySummary: name.");
 
             if (url.IsSet && url.Value == null)
-                throw new ArgumentNullException(nameof(url), "Property is not nullable for class AbilitySummary.");
+                throw new JsonException("Property is not nullable for class AbilitySummary: url.");
 
             return new AbilitySummary(name.Value!, url.Value!);
         }
@@ -172,7 +172,6 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="abilitySummary"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public override void Write(Utf8JsonWriter writer, AbilitySummary abilitySummary, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteStartObject();
@@ -187,15 +186,8 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="abilitySummary"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, AbilitySummary abilitySummary, JsonSerializerOptions jsonSerializerOptions)
         {
-            if (abilitySummary.Name == null)
-                throw new ArgumentNullException(nameof(abilitySummary.Name), "Property is required for class AbilitySummary.");
-
-            if (abilitySummary.Url == null)
-                throw new ArgumentNullException(nameof(abilitySummary.Url), "Property is required for class AbilitySummary.");
-
             writer.WriteString("name", abilitySummary.Name);
 
             writer.WriteString("url", abilitySummary.Url);

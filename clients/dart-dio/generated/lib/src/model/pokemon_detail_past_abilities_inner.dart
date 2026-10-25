@@ -123,3 +123,4 @@ class _$PokemonDetailPastAbilitiesInnerSerializer implements PrimitiveSerializer
   }
 }
 
+

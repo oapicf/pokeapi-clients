@@ -122,3 +122,4 @@ class _$MoveDetailContestCombosNormalSerializer implements PrimitiveSerializer<M
   }
 }
 
+

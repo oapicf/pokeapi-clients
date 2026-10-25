@@ -31,8 +31,6 @@ public class EncounterConditionValueDetail  {
 
   @ApiModelProperty(required = true, value = "")
 
-  @Valid
-
   private List<@Valid EncounterConditionValueName> names = new ArrayList<>();
  /**
    * Get id

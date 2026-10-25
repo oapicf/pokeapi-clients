@@ -121,3 +121,4 @@ class _$EncounterMethodNameSerializer implements PrimitiveSerializer<EncounterMe
   }
 }
 
+

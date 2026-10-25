@@ -124,3 +124,4 @@ class _$MoveDamageClassDescriptionSerializer implements PrimitiveSerializer<Move
   }
 }
 
+

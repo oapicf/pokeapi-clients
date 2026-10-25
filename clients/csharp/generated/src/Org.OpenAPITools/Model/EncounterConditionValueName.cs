@@ -152,16 +152,16 @@ namespace Org.OpenAPITools.Model
             }
 
             if (!name.IsSet)
-                throw new ArgumentException("Property is required for class EncounterConditionValueName.", nameof(name));
+                throw new JsonException("Property is required for class EncounterConditionValueName: name.");
 
             if (!language.IsSet)
-                throw new ArgumentException("Property is required for class EncounterConditionValueName.", nameof(language));
+                throw new JsonException("Property is required for class EncounterConditionValueName: language.");
 
             if (name.IsSet && name.Value == null)
-                throw new ArgumentNullException(nameof(name), "Property is not nullable for class EncounterConditionValueName.");
+                throw new JsonException("Property is not nullable for class EncounterConditionValueName: name.");
 
             if (language.IsSet && language.Value == null)
-                throw new ArgumentNullException(nameof(language), "Property is not nullable for class EncounterConditionValueName.");
+                throw new JsonException("Property is not nullable for class EncounterConditionValueName: language.");
 
             return new EncounterConditionValueName(name.Value!, language.Value!);
         }
@@ -172,7 +172,6 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="encounterConditionValueName"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public override void Write(Utf8JsonWriter writer, EncounterConditionValueName encounterConditionValueName, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteStartObject();
@@ -187,15 +186,8 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="encounterConditionValueName"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, EncounterConditionValueName encounterConditionValueName, JsonSerializerOptions jsonSerializerOptions)
         {
-            if (encounterConditionValueName.Name == null)
-                throw new ArgumentNullException(nameof(encounterConditionValueName.Name), "Property is required for class EncounterConditionValueName.");
-
-            if (encounterConditionValueName.Language == null)
-                throw new ArgumentNullException(nameof(encounterConditionValueName.Language), "Property is required for class EncounterConditionValueName.");
-
             writer.WriteString("name", encounterConditionValueName.Name);
 
             writer.WritePropertyName("language");

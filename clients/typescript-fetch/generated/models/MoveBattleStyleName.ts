@@ -29,14 +29,10 @@ import {
 export interface MoveBattleStyleName {
     /**
      * 
-     * @type {string}
-     * @memberof MoveBattleStyleName
      */
     name: string;
     /**
      * 
-     * @type {LanguageSummary}
-     * @memberof MoveBattleStyleName
      */
     language: LanguageSummary;
 }

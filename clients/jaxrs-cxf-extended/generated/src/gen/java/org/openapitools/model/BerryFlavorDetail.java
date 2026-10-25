@@ -23,7 +23,6 @@ public class BerryFlavorDetail  {
   private String name;
 
   @ApiModelProperty(required = true, value = "")
-  @Valid
   private List<@Valid BerryFlavorDetailBerriesInner> berries = new ArrayList<>();
 
   @ApiModelProperty(required = true, value = "")
@@ -31,7 +30,6 @@ public class BerryFlavorDetail  {
   private ContestTypeSummary contestType;
 
   @ApiModelProperty(required = true, value = "")
-  @Valid
   private List<@Valid BerryFlavorName> names = new ArrayList<>();
  /**
   * Get id

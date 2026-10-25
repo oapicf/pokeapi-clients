@@ -186,3 +186,4 @@ class _$TypeDetailPastDamageRelationsInnerDamageRelationsSerializer implements P
   }
 }
 
+

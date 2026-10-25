@@ -43,32 +43,22 @@ import {
 export interface ItemCategoryDetail {
     /**
      * 
-     * @type {number}
-     * @memberof ItemCategoryDetail
      */
     readonly id: number;
     /**
      * 
-     * @type {string}
-     * @memberof ItemCategoryDetail
      */
     name: string;
     /**
      * 
-     * @type {Array<ItemSummary>}
-     * @memberof ItemCategoryDetail
      */
     readonly items: Array<ItemSummary>;
     /**
      * 
-     * @type {Array<ItemCategoryName>}
-     * @memberof ItemCategoryDetail
      */
     readonly names: Array<ItemCategoryName>;
     /**
      * 
-     * @type {ItemPocketSummary}
-     * @memberof ItemCategoryDetail
      */
     pocket: ItemPocketSummary;
 }

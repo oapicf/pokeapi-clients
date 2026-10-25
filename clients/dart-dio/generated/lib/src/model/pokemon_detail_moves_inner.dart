@@ -123,3 +123,4 @@ class _$PokemonDetailMovesInnerSerializer implements PrimitiveSerializer<Pokemon
   }
 }
 
+

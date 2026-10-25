@@ -34,7 +34,7 @@ import javax.annotation.Generated;
   StatDetailAffectingNatures.JSON_PROPERTY_DECREASE
 })
 @JsonTypeName("StatDetail_affecting_natures")
-@Generated(value="org.openapitools.codegen.languages.JavaMicronautClientCodegen", date="2026-08-30T01:55:51.056116330Z[Etc/UTC]", comments = "Generator version: 7.24.0")
+@Generated(value="org.openapitools.codegen.languages.JavaMicronautClientCodegen", date="2026-10-25T05:47:57.304170126Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 @Introspected
 public class StatDetailAffectingNatures {
     public static final String JSON_PROPERTY_INCREASE = "increase";

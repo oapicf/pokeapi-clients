@@ -35,7 +35,7 @@ import javax.validation.Valid;
   PokemonDetailMovesInner.JSON_PROPERTY_MOVE,
   PokemonDetailMovesInner.JSON_PROPERTY_VERSION_GROUP_DETAILS
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJerseyServerCodegen", date = "2026-08-30T01:56:28.710233113Z[Etc/UTC]", comments = "Generator version: 7.24.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJerseyServerCodegen", date = "2026-10-25T05:48:41.923212007Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 public class PokemonDetailMovesInner   {
   public static final String JSON_PROPERTY_MOVE = "move";
   @JsonProperty(JSON_PROPERTY_MOVE)
@@ -84,7 +84,7 @@ public class PokemonDetailMovesInner   {
    **/
   @JsonProperty(value = "version_group_details")
   @ApiModelProperty(required = true, value = "")
-  @NotNull @Valid 
+  @NotNull 
   public List<@Valid PokemonDetailMovesInnerVersionGroupDetailsInner> getVersionGroupDetails() {
     return versionGroupDetails;
   }

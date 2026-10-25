@@ -36,26 +36,18 @@ import {
 export interface EvolutionChainDetailChain {
     /**
      * 
-     * @type {Array<any>}
-     * @memberof EvolutionChainDetailChain
      */
     evolutionDetails: Array<any>;
     /**
      * 
-     * @type {Array<EvolutionChainDetailChainEvolvesToInner>}
-     * @memberof EvolutionChainDetailChain
      */
     evolvesTo: Array<EvolutionChainDetailChainEvolvesToInner>;
     /**
      * 
-     * @type {boolean}
-     * @memberof EvolutionChainDetailChain
      */
     isBaby: boolean;
     /**
      * 
-     * @type {AbilityDetailPokemonInnerPokemon}
-     * @memberof EvolutionChainDetailChain
      */
     species: AbilityDetailPokemonInnerPokemon;
 }

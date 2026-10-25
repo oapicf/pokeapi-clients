@@ -155,3 +155,4 @@ class _$MachineDetailSerializer implements PrimitiveSerializer<MachineDetail> {
   }
 }
 
+

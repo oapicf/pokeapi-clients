@@ -21,14 +21,10 @@ import { mapValues } from '../runtime';
 export interface ContestTypeSummary {
     /**
      * 
-     * @type {string}
-     * @memberof ContestTypeSummary
      */
     name: string;
     /**
      * 
-     * @type {string}
-     * @memberof ContestTypeSummary
      */
     readonly url: string;
 }

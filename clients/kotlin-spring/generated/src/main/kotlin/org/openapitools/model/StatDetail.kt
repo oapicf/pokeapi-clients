@@ -1,10 +1,7 @@
 package org.openapitools.model
 
 import java.util.Objects
-import com.fasterxml.jackson.annotation.JsonInclude
 import com.fasterxml.jackson.annotation.JsonProperty
-import com.fasterxml.jackson.annotation.JsonSetter
-import com.fasterxml.jackson.annotation.Nulls
 import org.openapitools.model.CharacteristicSummary
 import org.openapitools.model.MoveDamageClassSummary
 import org.openapitools.model.StatDetailAffectingMoves
@@ -36,46 +33,44 @@ import io.swagger.v3.oas.annotations.media.Schema
 data class StatDetail(
 
     @Schema(required = true, readOnly = true, description = "")
-    @param:JsonProperty("id")
+    @param:JsonProperty("id", required = true)
     @get:JsonProperty("id", required = true) val id: kotlin.Int,
 
     @get:Size(max=100)
     @Schema(required = true, description = "")
-    @param:JsonProperty("name")
+    @param:JsonProperty("name", required = true)
     @get:JsonProperty("name", required = true) val name: kotlin.String,
 
     @Schema(required = true, description = "")
-    @param:JsonProperty("game_index")
+    @param:JsonProperty("game_index", required = true)
     @get:JsonProperty("game_index", required = true) val gameIndex: kotlin.Int,
 
     @field:Valid
     @Schema(required = true, description = "")
-    @param:JsonProperty("affecting_moves")
+    @param:JsonProperty("affecting_moves", required = true)
     @get:JsonProperty("affecting_moves", required = true) val affectingMoves: StatDetailAffectingMoves,
 
     @field:Valid
     @Schema(required = true, description = "")
-    @param:JsonProperty("affecting_natures")
+    @param:JsonProperty("affecting_natures", required = true)
     @get:JsonProperty("affecting_natures", required = true) val affectingNatures: StatDetailAffectingNatures,
 
     @field:Valid
     @Schema(required = true, readOnly = true, description = "")
-    @param:JsonProperty("characteristics")
+    @param:JsonProperty("characteristics", required = true)
     @get:JsonProperty("characteristics", required = true) val characteristics: kotlin.collections.List<CharacteristicSummary>,
 
     @field:Valid
     @Schema(required = true, description = "")
-    @param:JsonProperty("move_damage_class")
+    @param:JsonProperty("move_damage_class", required = true)
     @get:JsonProperty("move_damage_class", required = true) val moveDamageClass: MoveDamageClassSummary,
 
     @field:Valid
     @Schema(required = true, readOnly = true, description = "")
-    @param:JsonProperty("names")
+    @param:JsonProperty("names", required = true)
     @get:JsonProperty("names", required = true) val names: kotlin.collections.List<StatName>,
 
     @Schema(description = "")
-    @field:JsonInclude(JsonInclude.Include.NON_NULL)
-    @field:JsonSetter(nulls = Nulls.SKIP)
     @param:JsonProperty("is_battle_only")
     @get:JsonProperty("is_battle_only") val isBattleOnly: kotlin.Boolean? = null
 ) {

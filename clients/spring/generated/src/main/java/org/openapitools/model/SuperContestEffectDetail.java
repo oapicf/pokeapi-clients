@@ -24,7 +24,7 @@ import jakarta.annotation.Generated;
  * SuperContestEffectDetail
  */
 
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2026-08-30T02:00:43.960184425Z[Etc/UTC]", comments = "Generator version: 7.24.0")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2026-10-25T05:53:37.479908528Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 public class SuperContestEffectDetail {
 
   private Integer id;
@@ -108,7 +108,7 @@ public class SuperContestEffectDetail {
    * Get flavorTextEntries
    * @return flavorTextEntries
    */
-  @Valid 
+  
   @Schema(name = "flavor_text_entries", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("flavor_text_entries")
   public List<@Valid SuperContestEffectFlavorText> getFlavorTextEntries() {
@@ -137,7 +137,7 @@ public class SuperContestEffectDetail {
    * Get moves
    * @return moves
    */
-  @Valid 
+  
   @Schema(name = "moves", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("moves")
   public List<@Valid MoveSummary> getMoves() {

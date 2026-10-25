@@ -27,27 +27,27 @@ import io.swagger.v3.oas.annotations.media.Schema
 data class BerryFlavorDetail(
 
     @Schema(required = true, readOnly = true, description = "")
-    @param:JsonProperty("id")
+    @param:JsonProperty("id", required = true)
     @get:JsonProperty("id", required = true) val id: kotlin.Int,
 
     @get:Size(max=100)
     @Schema(required = true, description = "")
-    @param:JsonProperty("name")
+    @param:JsonProperty("name", required = true)
     @get:JsonProperty("name", required = true) val name: kotlin.String,
 
     @field:Valid
     @Schema(required = true, readOnly = true, description = "")
-    @param:JsonProperty("berries")
+    @param:JsonProperty("berries", required = true)
     @get:JsonProperty("berries", required = true) val berries: kotlin.collections.List<BerryFlavorDetailBerriesInner>,
 
     @field:Valid
     @Schema(required = true, description = "")
-    @param:JsonProperty("contest_type")
+    @param:JsonProperty("contest_type", required = true)
     @get:JsonProperty("contest_type", required = true) val contestType: ContestTypeSummary,
 
     @field:Valid
     @Schema(required = true, readOnly = true, description = "")
-    @param:JsonProperty("names")
+    @param:JsonProperty("names", required = true)
     @get:JsonProperty("names", required = true) val names: kotlin.collections.List<BerryFlavorName>
 ) {
 

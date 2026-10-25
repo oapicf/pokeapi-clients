@@ -127,3 +127,4 @@ class _$TypeDetailPokemonInnerSerializer implements PrimitiveSerializer<TypeDeta
   }
 }
 
+

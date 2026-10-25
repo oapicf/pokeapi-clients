@@ -203,16 +203,16 @@ namespace Org.OpenAPITools.Model
             }
 
             if (count.IsSet && count.Value == null)
-                throw new ArgumentNullException(nameof(count), "Property is not nullable for class PaginatedLocationAreaSummaryList.");
+                throw new JsonException("Property is not nullable for class PaginatedLocationAreaSummaryList: count.");
 
             if (next.IsSet && next.Value == null)
-                throw new ArgumentNullException(nameof(next), "Property is not nullable for class PaginatedLocationAreaSummaryList.");
+                throw new JsonException("Property is not nullable for class PaginatedLocationAreaSummaryList: next.");
 
             if (previous.IsSet && previous.Value == null)
-                throw new ArgumentNullException(nameof(previous), "Property is not nullable for class PaginatedLocationAreaSummaryList.");
+                throw new JsonException("Property is not nullable for class PaginatedLocationAreaSummaryList: previous.");
 
             if (results.IsSet && results.Value == null)
-                throw new ArgumentNullException(nameof(results), "Property is not nullable for class PaginatedLocationAreaSummaryList.");
+                throw new JsonException("Property is not nullable for class PaginatedLocationAreaSummaryList: results.");
 
             return new PaginatedLocationAreaSummaryList(count, next, previous, results);
         }
@@ -223,7 +223,6 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="paginatedLocationAreaSummaryList"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public override void Write(Utf8JsonWriter writer, PaginatedLocationAreaSummaryList paginatedLocationAreaSummaryList, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteStartObject();
@@ -238,17 +237,19 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="paginatedLocationAreaSummaryList"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, PaginatedLocationAreaSummaryList paginatedLocationAreaSummaryList, JsonSerializerOptions jsonSerializerOptions)
         {
+            if (paginatedLocationAreaSummaryList.CountOption.IsSet && paginatedLocationAreaSummaryList.Count == null)
+                throw new JsonException("Cannot write null property PaginatedLocationAreaSummaryList.Count to non-nullable JSON property 'count'.");
+
             if (paginatedLocationAreaSummaryList.NextOption.IsSet && paginatedLocationAreaSummaryList.Next == null)
-                throw new ArgumentNullException(nameof(paginatedLocationAreaSummaryList.Next), "Property is required for class PaginatedLocationAreaSummaryList.");
+                throw new JsonException("Cannot write null property PaginatedLocationAreaSummaryList.Next to non-nullable JSON property 'next'.");
 
             if (paginatedLocationAreaSummaryList.PreviousOption.IsSet && paginatedLocationAreaSummaryList.Previous == null)
-                throw new ArgumentNullException(nameof(paginatedLocationAreaSummaryList.Previous), "Property is required for class PaginatedLocationAreaSummaryList.");
+                throw new JsonException("Cannot write null property PaginatedLocationAreaSummaryList.Previous to non-nullable JSON property 'previous'.");
 
             if (paginatedLocationAreaSummaryList.ResultsOption.IsSet && paginatedLocationAreaSummaryList.Results == null)
-                throw new ArgumentNullException(nameof(paginatedLocationAreaSummaryList.Results), "Property is required for class PaginatedLocationAreaSummaryList.");
+                throw new JsonException("Cannot write null property PaginatedLocationAreaSummaryList.Results to non-nullable JSON property 'results'.");
 
             if (paginatedLocationAreaSummaryList.CountOption.IsSet)
                 writer.WriteNumber("count", paginatedLocationAreaSummaryList.CountOption.Value!.Value);

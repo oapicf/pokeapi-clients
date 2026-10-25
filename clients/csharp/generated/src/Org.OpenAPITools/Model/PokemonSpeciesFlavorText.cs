@@ -159,22 +159,22 @@ namespace Org.OpenAPITools.Model
             }
 
             if (!flavorText.IsSet)
-                throw new ArgumentException("Property is required for class PokemonSpeciesFlavorText.", nameof(flavorText));
+                throw new JsonException("Property is required for class PokemonSpeciesFlavorText: flavor_text.");
 
             if (!language.IsSet)
-                throw new ArgumentException("Property is required for class PokemonSpeciesFlavorText.", nameof(language));
+                throw new JsonException("Property is required for class PokemonSpeciesFlavorText: language.");
 
             if (!varVersion.IsSet)
-                throw new ArgumentException("Property is required for class PokemonSpeciesFlavorText.", nameof(varVersion));
+                throw new JsonException("Property is required for class PokemonSpeciesFlavorText: version.");
 
             if (flavorText.IsSet && flavorText.Value == null)
-                throw new ArgumentNullException(nameof(flavorText), "Property is not nullable for class PokemonSpeciesFlavorText.");
+                throw new JsonException("Property is not nullable for class PokemonSpeciesFlavorText: flavor_text.");
 
             if (language.IsSet && language.Value == null)
-                throw new ArgumentNullException(nameof(language), "Property is not nullable for class PokemonSpeciesFlavorText.");
+                throw new JsonException("Property is not nullable for class PokemonSpeciesFlavorText: language.");
 
             if (varVersion.IsSet && varVersion.Value == null)
-                throw new ArgumentNullException(nameof(varVersion), "Property is not nullable for class PokemonSpeciesFlavorText.");
+                throw new JsonException("Property is not nullable for class PokemonSpeciesFlavorText: version.");
 
             return new PokemonSpeciesFlavorText(flavorText.Value!, language.Value!, varVersion.Value!);
         }
@@ -185,7 +185,6 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="pokemonSpeciesFlavorText"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public override void Write(Utf8JsonWriter writer, PokemonSpeciesFlavorText pokemonSpeciesFlavorText, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteStartObject();
@@ -200,18 +199,8 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="pokemonSpeciesFlavorText"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, PokemonSpeciesFlavorText pokemonSpeciesFlavorText, JsonSerializerOptions jsonSerializerOptions)
         {
-            if (pokemonSpeciesFlavorText.FlavorText == null)
-                throw new ArgumentNullException(nameof(pokemonSpeciesFlavorText.FlavorText), "Property is required for class PokemonSpeciesFlavorText.");
-
-            if (pokemonSpeciesFlavorText.Language == null)
-                throw new ArgumentNullException(nameof(pokemonSpeciesFlavorText.Language), "Property is required for class PokemonSpeciesFlavorText.");
-
-            if (pokemonSpeciesFlavorText.VarVersion == null)
-                throw new ArgumentNullException(nameof(pokemonSpeciesFlavorText.VarVersion), "Property is required for class PokemonSpeciesFlavorText.");
-
             writer.WriteString("flavor_text", pokemonSpeciesFlavorText.FlavorText);
 
             writer.WritePropertyName("language");

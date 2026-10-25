@@ -36,26 +36,18 @@ import {
 export interface PalParkAreaDetail {
     /**
      * 
-     * @type {number}
-     * @memberof PalParkAreaDetail
      */
     readonly id: number;
     /**
      * 
-     * @type {string}
-     * @memberof PalParkAreaDetail
      */
     name: string;
     /**
      * 
-     * @type {Array<PalParkAreaName>}
-     * @memberof PalParkAreaDetail
      */
     readonly names: Array<PalParkAreaName>;
     /**
      * 
-     * @type {Array<PalParkAreaDetailPokemonEncountersInner>}
-     * @memberof PalParkAreaDetail
      */
     readonly pokemonEncounters: Array<PalParkAreaDetailPokemonEncountersInner>;
 }

@@ -57,56 +57,38 @@ import {
 export interface StatDetail {
     /**
      * 
-     * @type {number}
-     * @memberof StatDetail
      */
     readonly id: number;
     /**
      * 
-     * @type {string}
-     * @memberof StatDetail
      */
     name: string;
     /**
      * 
-     * @type {number}
-     * @memberof StatDetail
      */
     gameIndex: number;
     /**
      * 
-     * @type {boolean}
-     * @memberof StatDetail
      */
     isBattleOnly?: boolean;
     /**
      * 
-     * @type {StatDetailAffectingMoves}
-     * @memberof StatDetail
      */
     affectingMoves: StatDetailAffectingMoves;
     /**
      * 
-     * @type {StatDetailAffectingNatures}
-     * @memberof StatDetail
      */
     affectingNatures: StatDetailAffectingNatures;
     /**
      * 
-     * @type {Array<CharacteristicSummary>}
-     * @memberof StatDetail
      */
     readonly characteristics: Array<CharacteristicSummary>;
     /**
      * 
-     * @type {MoveDamageClassSummary}
-     * @memberof StatDetail
      */
     moveDamageClass: MoveDamageClassSummary;
     /**
      * 
-     * @type {Array<StatName>}
-     * @memberof StatDetail
      */
     readonly names: Array<StatName>;
 }

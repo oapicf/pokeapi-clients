@@ -80,43 +80,37 @@ class TypeDetailDamageRelations(BaseModel):
         _items = []
         if self.no_damage_to:
             for _item_no_damage_to in self.no_damage_to:
-                if _item_no_damage_to:
-                    _items.append(_item_no_damage_to.to_dict())
+                _items.append(_item_no_damage_to.to_dict() if _item_no_damage_to is not None else None)
             _dict['no_damage_to'] = _items
         # override the default output from pydantic by calling `to_dict()` of each item in half_damage_to (list)
         _items = []
         if self.half_damage_to:
             for _item_half_damage_to in self.half_damage_to:
-                if _item_half_damage_to:
-                    _items.append(_item_half_damage_to.to_dict())
+                _items.append(_item_half_damage_to.to_dict() if _item_half_damage_to is not None else None)
             _dict['half_damage_to'] = _items
         # override the default output from pydantic by calling `to_dict()` of each item in double_damage_to (list)
         _items = []
         if self.double_damage_to:
             for _item_double_damage_to in self.double_damage_to:
-                if _item_double_damage_to:
-                    _items.append(_item_double_damage_to.to_dict())
+                _items.append(_item_double_damage_to.to_dict() if _item_double_damage_to is not None else None)
             _dict['double_damage_to'] = _items
         # override the default output from pydantic by calling `to_dict()` of each item in no_damage_from (list)
         _items = []
         if self.no_damage_from:
             for _item_no_damage_from in self.no_damage_from:
-                if _item_no_damage_from:
-                    _items.append(_item_no_damage_from.to_dict())
+                _items.append(_item_no_damage_from.to_dict() if _item_no_damage_from is not None else None)
             _dict['no_damage_from'] = _items
         # override the default output from pydantic by calling `to_dict()` of each item in half_damage_from (list)
         _items = []
         if self.half_damage_from:
             for _item_half_damage_from in self.half_damage_from:
-                if _item_half_damage_from:
-                    _items.append(_item_half_damage_from.to_dict())
+                _items.append(_item_half_damage_from.to_dict() if _item_half_damage_from is not None else None)
             _dict['half_damage_from'] = _items
         # override the default output from pydantic by calling `to_dict()` of each item in double_damage_from (list)
         _items = []
         if self.double_damage_from:
             for _item_double_damage_from in self.double_damage_from:
-                if _item_double_damage_from:
-                    _items.append(_item_double_damage_from.to_dict())
+                _items.append(_item_double_damage_from.to_dict() if _item_double_damage_from is not None else None)
             _dict['double_damage_from'] = _items
         return _dict
 

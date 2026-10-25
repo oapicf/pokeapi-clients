@@ -19,7 +19,7 @@ import javax.validation.constraints.*;
 import javax.validation.Valid;
 import io.swagger.annotations.*;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaResteasyServerCodegen", date = "2026-08-30T01:56:35.721624822Z[Etc/UTC]", comments = "Generator version: 7.24.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaResteasyServerCodegen", date = "2026-10-25T05:48:49.952264473Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 public class NatureDetail   {
   
   private Integer id;
@@ -121,7 +121,6 @@ public class NatureDetail   {
   @ApiModelProperty(required = true, value = "")
   @JsonProperty("berries")
   @NotNull
-  @Valid
   public List<@Valid BerrySummary> getBerries() {
     return berries;
   }
@@ -135,7 +134,6 @@ public class NatureDetail   {
   @ApiModelProperty(required = true, value = "")
   @JsonProperty("pokeathlon_stat_changes")
   @NotNull
-  @Valid
   public List<@Valid NatureDetailPokeathlonStatChangesInner> getPokeathlonStatChanges() {
     return pokeathlonStatChanges;
   }
@@ -149,7 +147,6 @@ public class NatureDetail   {
   @ApiModelProperty(required = true, value = "")
   @JsonProperty("move_battle_style_preferences")
   @NotNull
-  @Valid
   public List<@Valid NatureBattleStylePreference> getMoveBattleStylePreferences() {
     return moveBattleStylePreferences;
   }
@@ -163,7 +160,6 @@ public class NatureDetail   {
   @ApiModelProperty(required = true, value = "")
   @JsonProperty("names")
   @NotNull
-  @Valid
   public List<@Valid NatureName> getNames() {
     return names;
   }

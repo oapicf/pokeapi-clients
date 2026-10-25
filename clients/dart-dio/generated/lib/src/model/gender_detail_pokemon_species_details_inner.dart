@@ -121,3 +121,4 @@ class _$GenderDetailPokemonSpeciesDetailsInnerSerializer implements PrimitiveSer
   }
 }
 
+

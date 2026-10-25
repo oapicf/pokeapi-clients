@@ -124,3 +124,4 @@ class _$ItemAttributeDescriptionSerializer implements PrimitiveSerializer<ItemAt
   }
 }
 
+

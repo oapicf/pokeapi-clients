@@ -120,3 +120,4 @@ class _$ItemFlingEffectSummarySerializer implements PrimitiveSerializer<ItemFlin
   }
 }
 
+

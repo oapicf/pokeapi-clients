@@ -203,16 +203,16 @@ namespace Org.OpenAPITools.Model
             }
 
             if (count.IsSet && count.Value == null)
-                throw new ArgumentNullException(nameof(count), "Property is not nullable for class PaginatedBerryFlavorSummaryList.");
+                throw new JsonException("Property is not nullable for class PaginatedBerryFlavorSummaryList: count.");
 
             if (next.IsSet && next.Value == null)
-                throw new ArgumentNullException(nameof(next), "Property is not nullable for class PaginatedBerryFlavorSummaryList.");
+                throw new JsonException("Property is not nullable for class PaginatedBerryFlavorSummaryList: next.");
 
             if (previous.IsSet && previous.Value == null)
-                throw new ArgumentNullException(nameof(previous), "Property is not nullable for class PaginatedBerryFlavorSummaryList.");
+                throw new JsonException("Property is not nullable for class PaginatedBerryFlavorSummaryList: previous.");
 
             if (results.IsSet && results.Value == null)
-                throw new ArgumentNullException(nameof(results), "Property is not nullable for class PaginatedBerryFlavorSummaryList.");
+                throw new JsonException("Property is not nullable for class PaginatedBerryFlavorSummaryList: results.");
 
             return new PaginatedBerryFlavorSummaryList(count, next, previous, results);
         }
@@ -223,7 +223,6 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="paginatedBerryFlavorSummaryList"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public override void Write(Utf8JsonWriter writer, PaginatedBerryFlavorSummaryList paginatedBerryFlavorSummaryList, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteStartObject();
@@ -238,17 +237,19 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="paginatedBerryFlavorSummaryList"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, PaginatedBerryFlavorSummaryList paginatedBerryFlavorSummaryList, JsonSerializerOptions jsonSerializerOptions)
         {
+            if (paginatedBerryFlavorSummaryList.CountOption.IsSet && paginatedBerryFlavorSummaryList.Count == null)
+                throw new JsonException("Cannot write null property PaginatedBerryFlavorSummaryList.Count to non-nullable JSON property 'count'.");
+
             if (paginatedBerryFlavorSummaryList.NextOption.IsSet && paginatedBerryFlavorSummaryList.Next == null)
-                throw new ArgumentNullException(nameof(paginatedBerryFlavorSummaryList.Next), "Property is required for class PaginatedBerryFlavorSummaryList.");
+                throw new JsonException("Cannot write null property PaginatedBerryFlavorSummaryList.Next to non-nullable JSON property 'next'.");
 
             if (paginatedBerryFlavorSummaryList.PreviousOption.IsSet && paginatedBerryFlavorSummaryList.Previous == null)
-                throw new ArgumentNullException(nameof(paginatedBerryFlavorSummaryList.Previous), "Property is required for class PaginatedBerryFlavorSummaryList.");
+                throw new JsonException("Cannot write null property PaginatedBerryFlavorSummaryList.Previous to non-nullable JSON property 'previous'.");
 
             if (paginatedBerryFlavorSummaryList.ResultsOption.IsSet && paginatedBerryFlavorSummaryList.Results == null)
-                throw new ArgumentNullException(nameof(paginatedBerryFlavorSummaryList.Results), "Property is required for class PaginatedBerryFlavorSummaryList.");
+                throw new JsonException("Cannot write null property PaginatedBerryFlavorSummaryList.Results to non-nullable JSON property 'results'.");
 
             if (paginatedBerryFlavorSummaryList.CountOption.IsSet)
                 writer.WriteNumber("count", paginatedBerryFlavorSummaryList.CountOption.Value!.Value);

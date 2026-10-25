@@ -18,7 +18,7 @@ import EncounterConditionValueName from './EncounterConditionValueName';
 /**
  * The EncounterConditionValueDetail model module.
  * @module model/EncounterConditionValueDetail
- * @version 2.0.1-pre.0
+ * @version 2.1.1-pre.0
  */
 class EncounterConditionValueDetail {
     /**

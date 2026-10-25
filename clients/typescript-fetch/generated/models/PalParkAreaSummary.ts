@@ -21,14 +21,10 @@ import { mapValues } from '../runtime';
 export interface PalParkAreaSummary {
     /**
      * 
-     * @type {string}
-     * @memberof PalParkAreaSummary
      */
     name: string;
     /**
      * 
-     * @type {string}
-     * @memberof PalParkAreaSummary
      */
     readonly url: string;
 }

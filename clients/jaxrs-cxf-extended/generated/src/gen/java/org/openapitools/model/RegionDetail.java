@@ -25,7 +25,6 @@ public class RegionDetail  {
   private String name;
 
   @ApiModelProperty(required = true, value = "")
-  @Valid
   private List<@Valid LocationSummary> locations = new ArrayList<>();
 
   @ApiModelProperty(required = true, value = "")
@@ -33,15 +32,12 @@ public class RegionDetail  {
   private GenerationSummary mainGeneration;
 
   @ApiModelProperty(required = true, value = "")
-  @Valid
   private List<@Valid RegionName> names = new ArrayList<>();
 
   @ApiModelProperty(required = true, value = "")
-  @Valid
   private List<@Valid PokedexSummary> pokedexes = new ArrayList<>();
 
   @ApiModelProperty(required = true, value = "")
-  @Valid
   private List<@Valid AbilityDetailPokemonInnerPokemon> versionGroups = new ArrayList<>();
  /**
   * Get id

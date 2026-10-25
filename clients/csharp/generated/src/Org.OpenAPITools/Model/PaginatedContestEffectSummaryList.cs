@@ -203,16 +203,16 @@ namespace Org.OpenAPITools.Model
             }
 
             if (count.IsSet && count.Value == null)
-                throw new ArgumentNullException(nameof(count), "Property is not nullable for class PaginatedContestEffectSummaryList.");
+                throw new JsonException("Property is not nullable for class PaginatedContestEffectSummaryList: count.");
 
             if (next.IsSet && next.Value == null)
-                throw new ArgumentNullException(nameof(next), "Property is not nullable for class PaginatedContestEffectSummaryList.");
+                throw new JsonException("Property is not nullable for class PaginatedContestEffectSummaryList: next.");
 
             if (previous.IsSet && previous.Value == null)
-                throw new ArgumentNullException(nameof(previous), "Property is not nullable for class PaginatedContestEffectSummaryList.");
+                throw new JsonException("Property is not nullable for class PaginatedContestEffectSummaryList: previous.");
 
             if (results.IsSet && results.Value == null)
-                throw new ArgumentNullException(nameof(results), "Property is not nullable for class PaginatedContestEffectSummaryList.");
+                throw new JsonException("Property is not nullable for class PaginatedContestEffectSummaryList: results.");
 
             return new PaginatedContestEffectSummaryList(count, next, previous, results);
         }
@@ -223,7 +223,6 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="paginatedContestEffectSummaryList"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public override void Write(Utf8JsonWriter writer, PaginatedContestEffectSummaryList paginatedContestEffectSummaryList, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteStartObject();
@@ -238,17 +237,19 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="paginatedContestEffectSummaryList"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, PaginatedContestEffectSummaryList paginatedContestEffectSummaryList, JsonSerializerOptions jsonSerializerOptions)
         {
+            if (paginatedContestEffectSummaryList.CountOption.IsSet && paginatedContestEffectSummaryList.Count == null)
+                throw new JsonException("Cannot write null property PaginatedContestEffectSummaryList.Count to non-nullable JSON property 'count'.");
+
             if (paginatedContestEffectSummaryList.NextOption.IsSet && paginatedContestEffectSummaryList.Next == null)
-                throw new ArgumentNullException(nameof(paginatedContestEffectSummaryList.Next), "Property is required for class PaginatedContestEffectSummaryList.");
+                throw new JsonException("Cannot write null property PaginatedContestEffectSummaryList.Next to non-nullable JSON property 'next'.");
 
             if (paginatedContestEffectSummaryList.PreviousOption.IsSet && paginatedContestEffectSummaryList.Previous == null)
-                throw new ArgumentNullException(nameof(paginatedContestEffectSummaryList.Previous), "Property is required for class PaginatedContestEffectSummaryList.");
+                throw new JsonException("Cannot write null property PaginatedContestEffectSummaryList.Previous to non-nullable JSON property 'previous'.");
 
             if (paginatedContestEffectSummaryList.ResultsOption.IsSet && paginatedContestEffectSummaryList.Results == null)
-                throw new ArgumentNullException(nameof(paginatedContestEffectSummaryList.Results), "Property is required for class PaginatedContestEffectSummaryList.");
+                throw new JsonException("Cannot write null property PaginatedContestEffectSummaryList.Results to non-nullable JSON property 'results'.");
 
             if (paginatedContestEffectSummaryList.CountOption.IsSet)
                 writer.WriteNumber("count", paginatedContestEffectSummaryList.CountOption.Value!.Value);

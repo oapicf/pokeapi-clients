@@ -22,12 +22,12 @@ import io.swagger.v3.oas.annotations.media.Schema
 data class PokemonGameIndex(
 
     @Schema(required = true, description = "")
-    @param:JsonProperty("game_index")
+    @param:JsonProperty("game_index", required = true)
     @get:JsonProperty("game_index", required = true) val gameIndex: kotlin.Int,
 
     @field:Valid
     @Schema(required = true, description = "")
-    @param:JsonProperty("version")
+    @param:JsonProperty("version", required = true)
     @get:JsonProperty("version", required = true) val version: VersionSummary
 ) {
 

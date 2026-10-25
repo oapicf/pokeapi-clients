@@ -29,26 +29,18 @@ import {
 export interface EncounterMethodDetail {
     /**
      * 
-     * @type {number}
-     * @memberof EncounterMethodDetail
      */
     readonly id: number;
     /**
      * 
-     * @type {string}
-     * @memberof EncounterMethodDetail
      */
     name: string;
     /**
      * 
-     * @type {number}
-     * @memberof EncounterMethodDetail
      */
     order?: number | null;
     /**
      * 
-     * @type {Array<EncounterMethodName>}
-     * @memberof EncounterMethodDetail
      */
     readonly names: Array<EncounterMethodName>;
 }

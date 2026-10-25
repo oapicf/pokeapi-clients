@@ -25,7 +25,6 @@ public class PaginatedPokemonColorSummaryList  {
   private URI previous;
 
   @ApiModelProperty(value = "")
-  @Valid
   private List<@Valid PokemonColorSummary> results = new ArrayList<>();
  /**
   * Get count

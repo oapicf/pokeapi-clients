@@ -42,7 +42,6 @@ public class ItemDetail  {
   private ItemFlingEffectSummary flingEffect;
 
   @ApiModelProperty(required = true, value = "")
-  @Valid
   private List<@Valid AbilityDetailPokemonInnerPokemon> attributes = new ArrayList<>();
 
   @ApiModelProperty(required = true, value = "")
@@ -50,23 +49,18 @@ public class ItemDetail  {
   private ItemCategorySummary category;
 
   @ApiModelProperty(required = true, value = "")
-  @Valid
   private List<@Valid ItemEffectText> effectEntries = new ArrayList<>();
 
   @ApiModelProperty(required = true, value = "")
-  @Valid
   private List<@Valid ItemFlavorText> flavorTextEntries = new ArrayList<>();
 
   @ApiModelProperty(required = true, value = "")
-  @Valid
   private List<@Valid ItemGameIndex> gameIndices = new ArrayList<>();
 
   @ApiModelProperty(required = true, value = "")
-  @Valid
   private List<@Valid ItemName> names = new ArrayList<>();
 
   @ApiModelProperty(required = true, value = "")
-  @Valid
   private List<@Valid ItemDetailHeldByPokemonInner> heldByPokemon = new ArrayList<>();
 
   @ApiModelProperty(required = true, value = "")
@@ -78,7 +72,6 @@ public class ItemDetail  {
   private ItemDetailBabyTriggerFor babyTriggerFor;
 
   @ApiModelProperty(required = true, value = "")
-  @Valid
   private List<@Valid ItemDetailMachinesInner> machines = new ArrayList<>();
  /**
   * Get id

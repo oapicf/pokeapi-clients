@@ -44,7 +44,7 @@ import javax.validation.Valid;
   StatDetail.JSON_PROPERTY_MOVE_DAMAGE_CLASS,
   StatDetail.JSON_PROPERTY_NAMES
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJerseyServerCodegen", date = "2026-08-30T01:56:28.710233113Z[Etc/UTC]", comments = "Generator version: 7.24.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJerseyServerCodegen", date = "2026-10-25T05:48:41.923212007Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 public class StatDetail   {
   public static final String JSON_PROPERTY_ID = "id";
   @JsonProperty(JSON_PROPERTY_ID)
@@ -221,7 +221,7 @@ public class StatDetail   {
    **/
   @JsonProperty(value = "characteristics", access = JsonProperty.Access.READ_ONLY)
   @ApiModelProperty(required = true, value = "")
-  @Valid 
+  
   public List<@Valid CharacteristicSummary> getCharacteristics() {
     return characteristics;
   }
@@ -269,7 +269,7 @@ public class StatDetail   {
    **/
   @JsonProperty(value = "names", access = JsonProperty.Access.READ_ONLY)
   @ApiModelProperty(required = true, value = "")
-  @Valid 
+  
   public List<@Valid StatName> getNames() {
     return names;
   }

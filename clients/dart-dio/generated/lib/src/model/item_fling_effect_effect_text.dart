@@ -121,3 +121,4 @@ class _$ItemFlingEffectEffectTextSerializer implements PrimitiveSerializer<ItemF
   }
 }
 
+

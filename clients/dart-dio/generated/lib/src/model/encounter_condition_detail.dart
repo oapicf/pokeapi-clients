@@ -155,3 +155,4 @@ class _$EncounterConditionDetailSerializer implements PrimitiveSerializer<Encoun
   }
 }
 
+

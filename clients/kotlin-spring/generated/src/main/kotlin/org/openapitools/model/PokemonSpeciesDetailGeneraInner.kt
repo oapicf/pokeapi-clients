@@ -22,12 +22,12 @@ import io.swagger.v3.oas.annotations.media.Schema
 data class PokemonSpeciesDetailGeneraInner(
 
     @Schema(required = true, description = "")
-    @param:JsonProperty("genus")
+    @param:JsonProperty("genus", required = true)
     @get:JsonProperty("genus", required = true) val genus: kotlin.String,
 
     @field:Valid
     @Schema(required = true, description = "")
-    @param:JsonProperty("language")
+    @param:JsonProperty("language", required = true)
     @get:JsonProperty("language", required = true) val language: AbilityDetailPokemonInnerPokemon
 ) {
 

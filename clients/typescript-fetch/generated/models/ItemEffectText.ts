@@ -29,20 +29,14 @@ import {
 export interface ItemEffectText {
     /**
      * 
-     * @type {string}
-     * @memberof ItemEffectText
      */
     effect: string;
     /**
      * 
-     * @type {string}
-     * @memberof ItemEffectText
      */
     shortEffect: string;
     /**
      * 
-     * @type {LanguageSummary}
-     * @memberof ItemEffectText
      */
     language: LanguageSummary;
 }

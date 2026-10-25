@@ -21,12 +21,12 @@ import org.openapitools.jackson.nullable.JsonNullable;
 
 
 @JsonTypeName("PokemonColorDetail")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2026-08-30T01:56:42.280002256Z[Etc/UTC]", comments = "Generator version: 7.24.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2026-10-25T05:48:57.630723375Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 public class PokemonColorDetail   {
   private Integer id;
   private String name;
-  private @Valid List<@Valid PokemonColorName> names = new ArrayList<>();
-  private @Valid List<@Valid PokemonSpeciesSummary> pokemonSpecies = new ArrayList<>();
+  private List<@Valid PokemonColorName> names = new ArrayList<>();
+  private List<@Valid PokemonSpeciesSummary> pokemonSpecies = new ArrayList<>();
 
   public PokemonColorDetail() {
   }
@@ -92,7 +92,7 @@ public class PokemonColorDetail   {
   
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(required = true, value = "names")
-  @Valid public List<@Valid PokemonColorName> getNames() {
+  public List<@Valid PokemonColorName> getNames() {
     return names;
   }
 
@@ -127,7 +127,7 @@ public class PokemonColorDetail   {
   
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(required = true, value = "pokemon_species")
-  @Valid public List<@Valid PokemonSpeciesSummary> getPokemonSpecies() {
+  public List<@Valid PokemonSpeciesSummary> getPokemonSpecies() {
     return pokemonSpecies;
   }
 

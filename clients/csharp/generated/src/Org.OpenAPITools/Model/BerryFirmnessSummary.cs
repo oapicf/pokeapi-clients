@@ -152,16 +152,16 @@ namespace Org.OpenAPITools.Model
             }
 
             if (!name.IsSet)
-                throw new ArgumentException("Property is required for class BerryFirmnessSummary.", nameof(name));
+                throw new JsonException("Property is required for class BerryFirmnessSummary: name.");
 
             if (!url.IsSet)
-                throw new ArgumentException("Property is required for class BerryFirmnessSummary.", nameof(url));
+                throw new JsonException("Property is required for class BerryFirmnessSummary: url.");
 
             if (name.IsSet && name.Value == null)
-                throw new ArgumentNullException(nameof(name), "Property is not nullable for class BerryFirmnessSummary.");
+                throw new JsonException("Property is not nullable for class BerryFirmnessSummary: name.");
 
             if (url.IsSet && url.Value == null)
-                throw new ArgumentNullException(nameof(url), "Property is not nullable for class BerryFirmnessSummary.");
+                throw new JsonException("Property is not nullable for class BerryFirmnessSummary: url.");
 
             return new BerryFirmnessSummary(name.Value!, url.Value!);
         }
@@ -172,7 +172,6 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="berryFirmnessSummary"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public override void Write(Utf8JsonWriter writer, BerryFirmnessSummary berryFirmnessSummary, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteStartObject();
@@ -187,15 +186,8 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="berryFirmnessSummary"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, BerryFirmnessSummary berryFirmnessSummary, JsonSerializerOptions jsonSerializerOptions)
         {
-            if (berryFirmnessSummary.Name == null)
-                throw new ArgumentNullException(nameof(berryFirmnessSummary.Name), "Property is required for class BerryFirmnessSummary.");
-
-            if (berryFirmnessSummary.Url == null)
-                throw new ArgumentNullException(nameof(berryFirmnessSummary.Url), "Property is required for class BerryFirmnessSummary.");
-
             writer.WriteString("name", berryFirmnessSummary.Name);
 
             writer.WriteString("url", berryFirmnessSummary.Url);

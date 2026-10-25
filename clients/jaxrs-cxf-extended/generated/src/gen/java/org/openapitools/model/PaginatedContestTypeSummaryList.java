@@ -25,7 +25,6 @@ public class PaginatedContestTypeSummaryList  {
   private URI previous;
 
   @ApiModelProperty(value = "")
-  @Valid
   private List<@Valid ContestTypeSummary> results = new ArrayList<>();
  /**
   * Get count

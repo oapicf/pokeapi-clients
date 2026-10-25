@@ -137,3 +137,4 @@ class _$NatureBattleStylePreferenceSerializer implements PrimitiveSerializer<Nat
   }
 }
 
+

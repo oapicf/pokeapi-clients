@@ -29,14 +29,10 @@ import {
 export interface MoveTargetName {
     /**
      * 
-     * @type {string}
-     * @memberof MoveTargetName
      */
     name: string;
     /**
      * 
-     * @type {LanguageSummary}
-     * @memberof MoveTargetName
      */
     language: LanguageSummary;
 }

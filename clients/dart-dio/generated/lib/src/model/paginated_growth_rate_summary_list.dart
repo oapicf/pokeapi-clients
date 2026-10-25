@@ -166,3 +166,4 @@ class _$PaginatedGrowthRateSummaryListSerializer implements PrimitiveSerializer<
   }
 }
 
+

@@ -137,3 +137,4 @@ class _$ItemEffectTextSerializer implements PrimitiveSerializer<ItemEffectText> 
   }
 }
 
+

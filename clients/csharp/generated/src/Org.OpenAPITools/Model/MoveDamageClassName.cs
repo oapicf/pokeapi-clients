@@ -152,16 +152,16 @@ namespace Org.OpenAPITools.Model
             }
 
             if (!name.IsSet)
-                throw new ArgumentException("Property is required for class MoveDamageClassName.", nameof(name));
+                throw new JsonException("Property is required for class MoveDamageClassName: name.");
 
             if (!language.IsSet)
-                throw new ArgumentException("Property is required for class MoveDamageClassName.", nameof(language));
+                throw new JsonException("Property is required for class MoveDamageClassName: language.");
 
             if (name.IsSet && name.Value == null)
-                throw new ArgumentNullException(nameof(name), "Property is not nullable for class MoveDamageClassName.");
+                throw new JsonException("Property is not nullable for class MoveDamageClassName: name.");
 
             if (language.IsSet && language.Value == null)
-                throw new ArgumentNullException(nameof(language), "Property is not nullable for class MoveDamageClassName.");
+                throw new JsonException("Property is not nullable for class MoveDamageClassName: language.");
 
             return new MoveDamageClassName(name.Value!, language.Value!);
         }
@@ -172,7 +172,6 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="moveDamageClassName"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public override void Write(Utf8JsonWriter writer, MoveDamageClassName moveDamageClassName, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteStartObject();
@@ -187,15 +186,8 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="moveDamageClassName"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, MoveDamageClassName moveDamageClassName, JsonSerializerOptions jsonSerializerOptions)
         {
-            if (moveDamageClassName.Name == null)
-                throw new ArgumentNullException(nameof(moveDamageClassName.Name), "Property is required for class MoveDamageClassName.");
-
-            if (moveDamageClassName.Language == null)
-                throw new ArgumentNullException(nameof(moveDamageClassName.Language), "Property is required for class MoveDamageClassName.");
-
             writer.WriteString("name", moveDamageClassName.Name);
 
             writer.WritePropertyName("language");

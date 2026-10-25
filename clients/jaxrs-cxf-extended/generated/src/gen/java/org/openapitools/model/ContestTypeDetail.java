@@ -26,7 +26,6 @@ public class ContestTypeDetail  {
   private BerryFlavorSummary berryFlavor;
 
   @ApiModelProperty(required = true, value = "")
-  @Valid
   private List<@Valid ContestTypeName> names = new ArrayList<>();
  /**
   * Get id

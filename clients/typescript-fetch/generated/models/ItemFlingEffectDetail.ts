@@ -36,26 +36,18 @@ import {
 export interface ItemFlingEffectDetail {
     /**
      * 
-     * @type {number}
-     * @memberof ItemFlingEffectDetail
      */
     readonly id: number;
     /**
      * 
-     * @type {string}
-     * @memberof ItemFlingEffectDetail
      */
     name: string;
     /**
      * 
-     * @type {Array<ItemFlingEffectEffectText>}
-     * @memberof ItemFlingEffectDetail
      */
     readonly effectEntries: Array<ItemFlingEffectEffectText>;
     /**
      * 
-     * @type {Array<ItemSummary>}
-     * @memberof ItemFlingEffectDetail
      */
     readonly items: Array<ItemSummary>;
 }

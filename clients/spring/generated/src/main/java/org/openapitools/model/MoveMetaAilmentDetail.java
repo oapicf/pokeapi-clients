@@ -24,7 +24,7 @@ import jakarta.annotation.Generated;
  * MoveMetaAilmentDetail
  */
 
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2026-08-30T02:00:43.960184425Z[Etc/UTC]", comments = "Generator version: 7.24.0")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2026-10-25T05:53:37.479908528Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 public class MoveMetaAilmentDetail {
 
   private Integer id;
@@ -108,7 +108,7 @@ public class MoveMetaAilmentDetail {
    * Get moves
    * @return moves
    */
-  @Valid 
+  
   @Schema(name = "moves", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("moves")
   public List<@Valid AbilityDetailPokemonInnerPokemon> getMoves() {
@@ -137,7 +137,7 @@ public class MoveMetaAilmentDetail {
    * Get names
    * @return names
    */
-  @Valid 
+  
   @Schema(name = "names", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("names")
   public List<@Valid MoveMetaAilmentName> getNames() {

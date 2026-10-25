@@ -152,16 +152,16 @@ namespace Org.OpenAPITools.Model
             }
 
             if (!name.IsSet)
-                throw new ArgumentException("Property is required for class GenerationName.", nameof(name));
+                throw new JsonException("Property is required for class GenerationName: name.");
 
             if (!language.IsSet)
-                throw new ArgumentException("Property is required for class GenerationName.", nameof(language));
+                throw new JsonException("Property is required for class GenerationName: language.");
 
             if (name.IsSet && name.Value == null)
-                throw new ArgumentNullException(nameof(name), "Property is not nullable for class GenerationName.");
+                throw new JsonException("Property is not nullable for class GenerationName: name.");
 
             if (language.IsSet && language.Value == null)
-                throw new ArgumentNullException(nameof(language), "Property is not nullable for class GenerationName.");
+                throw new JsonException("Property is not nullable for class GenerationName: language.");
 
             return new GenerationName(name.Value!, language.Value!);
         }
@@ -172,7 +172,6 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="generationName"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public override void Write(Utf8JsonWriter writer, GenerationName generationName, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteStartObject();
@@ -187,15 +186,8 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="generationName"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, GenerationName generationName, JsonSerializerOptions jsonSerializerOptions)
         {
-            if (generationName.Name == null)
-                throw new ArgumentNullException(nameof(generationName.Name), "Property is required for class GenerationName.");
-
-            if (generationName.Language == null)
-                throw new ArgumentNullException(nameof(generationName.Language), "Property is required for class GenerationName.");
-
             writer.WriteString("name", generationName.Name);
 
             writer.WritePropertyName("language");

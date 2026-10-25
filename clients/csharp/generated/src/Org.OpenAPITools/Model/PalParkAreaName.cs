@@ -152,16 +152,16 @@ namespace Org.OpenAPITools.Model
             }
 
             if (!name.IsSet)
-                throw new ArgumentException("Property is required for class PalParkAreaName.", nameof(name));
+                throw new JsonException("Property is required for class PalParkAreaName: name.");
 
             if (!language.IsSet)
-                throw new ArgumentException("Property is required for class PalParkAreaName.", nameof(language));
+                throw new JsonException("Property is required for class PalParkAreaName: language.");
 
             if (name.IsSet && name.Value == null)
-                throw new ArgumentNullException(nameof(name), "Property is not nullable for class PalParkAreaName.");
+                throw new JsonException("Property is not nullable for class PalParkAreaName: name.");
 
             if (language.IsSet && language.Value == null)
-                throw new ArgumentNullException(nameof(language), "Property is not nullable for class PalParkAreaName.");
+                throw new JsonException("Property is not nullable for class PalParkAreaName: language.");
 
             return new PalParkAreaName(name.Value!, language.Value!);
         }
@@ -172,7 +172,6 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="palParkAreaName"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public override void Write(Utf8JsonWriter writer, PalParkAreaName palParkAreaName, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteStartObject();
@@ -187,15 +186,8 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="palParkAreaName"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, PalParkAreaName palParkAreaName, JsonSerializerOptions jsonSerializerOptions)
         {
-            if (palParkAreaName.Name == null)
-                throw new ArgumentNullException(nameof(palParkAreaName.Name), "Property is required for class PalParkAreaName.");
-
-            if (palParkAreaName.Language == null)
-                throw new ArgumentNullException(nameof(palParkAreaName.Language), "Property is required for class PalParkAreaName.");
-
             writer.WriteString("name", palParkAreaName.Name);
 
             writer.WritePropertyName("language");

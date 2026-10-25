@@ -106,7 +106,9 @@ class TypeDetail extends BaseModel
       "default" : null
     },
     "sprites" : {
+      "type" : "object",
       "additionalProperties" : {
+        "type" : "object",
         "additionalProperties" : {
           "$ref" : "#/components/schemas/TypeDetail_sprites_value_value"
         }

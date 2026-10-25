@@ -21,14 +21,10 @@ import { mapValues } from '../runtime';
 export interface AbilitySummary {
     /**
      * 
-     * @type {string}
-     * @memberof AbilitySummary
      */
     name: string;
     /**
      * 
-     * @type {string}
-     * @memberof AbilitySummary
      */
     readonly url: string;
 }

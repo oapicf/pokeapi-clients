@@ -29,14 +29,10 @@ import {
 export interface ItemPocketName {
     /**
      * 
-     * @type {string}
-     * @memberof ItemPocketName
      */
     name: string;
     /**
      * 
-     * @type {LanguageSummary}
-     * @memberof ItemPocketName
      */
     language: LanguageSummary;
 }

@@ -152,16 +152,16 @@ namespace Org.OpenAPITools.Model
             }
 
             if (!name.IsSet)
-                throw new ArgumentException("Property is required for class MoveMetaCategorySummary.", nameof(name));
+                throw new JsonException("Property is required for class MoveMetaCategorySummary: name.");
 
             if (!url.IsSet)
-                throw new ArgumentException("Property is required for class MoveMetaCategorySummary.", nameof(url));
+                throw new JsonException("Property is required for class MoveMetaCategorySummary: url.");
 
             if (name.IsSet && name.Value == null)
-                throw new ArgumentNullException(nameof(name), "Property is not nullable for class MoveMetaCategorySummary.");
+                throw new JsonException("Property is not nullable for class MoveMetaCategorySummary: name.");
 
             if (url.IsSet && url.Value == null)
-                throw new ArgumentNullException(nameof(url), "Property is not nullable for class MoveMetaCategorySummary.");
+                throw new JsonException("Property is not nullable for class MoveMetaCategorySummary: url.");
 
             return new MoveMetaCategorySummary(name.Value!, url.Value!);
         }
@@ -172,7 +172,6 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="moveMetaCategorySummary"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public override void Write(Utf8JsonWriter writer, MoveMetaCategorySummary moveMetaCategorySummary, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteStartObject();
@@ -187,15 +186,8 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="moveMetaCategorySummary"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, MoveMetaCategorySummary moveMetaCategorySummary, JsonSerializerOptions jsonSerializerOptions)
         {
-            if (moveMetaCategorySummary.Name == null)
-                throw new ArgumentNullException(nameof(moveMetaCategorySummary.Name), "Property is required for class MoveMetaCategorySummary.");
-
-            if (moveMetaCategorySummary.Url == null)
-                throw new ArgumentNullException(nameof(moveMetaCategorySummary.Url), "Property is required for class MoveMetaCategorySummary.");
-
             writer.WriteString("name", moveMetaCategorySummary.Name);
 
             writer.WriteString("url", moveMetaCategorySummary.Url);

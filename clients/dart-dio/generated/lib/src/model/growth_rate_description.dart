@@ -124,3 +124,4 @@ class _$GrowthRateDescriptionSerializer implements PrimitiveSerializer<GrowthRat
   }
 }
 
+

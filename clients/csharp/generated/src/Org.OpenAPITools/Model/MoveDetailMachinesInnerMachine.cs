@@ -133,10 +133,10 @@ namespace Org.OpenAPITools.Model
             }
 
             if (!url.IsSet)
-                throw new ArgumentException("Property is required for class MoveDetailMachinesInnerMachine.", nameof(url));
+                throw new JsonException("Property is required for class MoveDetailMachinesInnerMachine: url.");
 
             if (url.IsSet && url.Value == null)
-                throw new ArgumentNullException(nameof(url), "Property is not nullable for class MoveDetailMachinesInnerMachine.");
+                throw new JsonException("Property is not nullable for class MoveDetailMachinesInnerMachine: url.");
 
             return new MoveDetailMachinesInnerMachine(url.Value!);
         }
@@ -147,7 +147,6 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="moveDetailMachinesInnerMachine"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public override void Write(Utf8JsonWriter writer, MoveDetailMachinesInnerMachine moveDetailMachinesInnerMachine, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteStartObject();
@@ -162,12 +161,8 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="moveDetailMachinesInnerMachine"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, MoveDetailMachinesInnerMachine moveDetailMachinesInnerMachine, JsonSerializerOptions jsonSerializerOptions)
         {
-            if (moveDetailMachinesInnerMachine.Url == null)
-                throw new ArgumentNullException(nameof(moveDetailMachinesInnerMachine.Url), "Property is required for class MoveDetailMachinesInnerMachine.");
-
             writer.WriteString("url", moveDetailMachinesInnerMachine.Url);
         }
     }

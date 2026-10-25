@@ -29,8 +29,6 @@ public class PaginatedPokedexSummaryList  {
 
   @ApiModelProperty(value = "")
 
-  @Valid
-
   private List<@Valid PokedexSummary> results = new ArrayList<>();
  /**
    * Get count

@@ -156,3 +156,4 @@ class _$EvolutionChainDetailChainSerializer implements PrimitiveSerializer<Evolu
   }
 }
 
+

@@ -45,7 +45,7 @@ import javax.validation.Valid;
   AbilityDetail.JSON_PROPERTY_FLAVOR_TEXT_ENTRIES,
   AbilityDetail.JSON_PROPERTY_POKEMON
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJerseyServerCodegen", date = "2026-08-30T01:56:28.710233113Z[Etc/UTC]", comments = "Generator version: 7.24.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJerseyServerCodegen", date = "2026-10-25T05:48:41.923212007Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 public class AbilityDetail   {
   public static final String JSON_PROPERTY_ID = "id";
   @JsonProperty(JSON_PROPERTY_ID)
@@ -182,7 +182,7 @@ public class AbilityDetail   {
    **/
   @JsonProperty(value = "names", access = JsonProperty.Access.READ_ONLY)
   @ApiModelProperty(required = true, value = "")
-  @Valid 
+  
   public List<@Valid AbilityName> getNames() {
     return names;
   }
@@ -210,7 +210,7 @@ public class AbilityDetail   {
    **/
   @JsonProperty(value = "effect_entries", access = JsonProperty.Access.READ_ONLY)
   @ApiModelProperty(required = true, value = "")
-  @Valid 
+  
   public List<@Valid AbilityEffectText> getEffectEntries() {
     return effectEntries;
   }
@@ -238,7 +238,7 @@ public class AbilityDetail   {
    **/
   @JsonProperty(value = "effect_changes", access = JsonProperty.Access.READ_ONLY)
   @ApiModelProperty(required = true, value = "")
-  @Valid 
+  
   public List<@Valid AbilityChange> getEffectChanges() {
     return effectChanges;
   }
@@ -266,7 +266,7 @@ public class AbilityDetail   {
    **/
   @JsonProperty(value = "flavor_text_entries", access = JsonProperty.Access.READ_ONLY)
   @ApiModelProperty(required = true, value = "")
-  @Valid 
+  
   public List<@Valid AbilityFlavorText> getFlavorTextEntries() {
     return flavorTextEntries;
   }
@@ -294,7 +294,7 @@ public class AbilityDetail   {
    **/
   @JsonProperty(value = "pokemon", access = JsonProperty.Access.READ_ONLY)
   @ApiModelProperty(required = true, value = "")
-  @Valid 
+  
   public List<@Valid AbilityDetailPokemonInner> getPokemon() {
     return pokemon;
   }

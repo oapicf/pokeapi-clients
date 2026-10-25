@@ -22,13 +22,13 @@ import org.openapitools.jackson.nullable.JsonNullable;
 
 
 @JsonTypeName("BerryFlavorDetail")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2026-08-30T01:56:42.280002256Z[Etc/UTC]", comments = "Generator version: 7.24.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2026-10-25T05:48:57.630723375Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 public class BerryFlavorDetail   {
   private Integer id;
   private String name;
-  private @Valid List<@Valid BerryFlavorDetailBerriesInner> berries = new ArrayList<>();
+  private List<@Valid BerryFlavorDetailBerriesInner> berries = new ArrayList<>();
   private ContestTypeSummary contestType;
-  private @Valid List<@Valid BerryFlavorName> names = new ArrayList<>();
+  private List<@Valid BerryFlavorName> names = new ArrayList<>();
 
   public BerryFlavorDetail() {
   }
@@ -96,7 +96,7 @@ public class BerryFlavorDetail   {
   
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(required = true, value = "berries")
-  @Valid public List<@Valid BerryFlavorDetailBerriesInner> getBerries() {
+  public List<@Valid BerryFlavorDetailBerriesInner> getBerries() {
     return berries;
   }
 
@@ -150,7 +150,7 @@ public class BerryFlavorDetail   {
   
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(required = true, value = "names")
-  @Valid public List<@Valid BerryFlavorName> getNames() {
+  public List<@Valid BerryFlavorName> getNames() {
     return names;
   }
 

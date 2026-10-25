@@ -121,3 +121,4 @@ class _$StatNameSerializer implements PrimitiveSerializer<StatName> {
   }
 }
 
+

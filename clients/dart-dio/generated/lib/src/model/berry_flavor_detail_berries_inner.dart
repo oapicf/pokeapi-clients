@@ -121,3 +121,4 @@ class _$BerryFlavorDetailBerriesInnerSerializer implements PrimitiveSerializer<B
   }
 }
 
+

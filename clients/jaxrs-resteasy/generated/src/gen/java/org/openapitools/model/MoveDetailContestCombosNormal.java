@@ -15,7 +15,7 @@ import javax.validation.constraints.*;
 import javax.validation.Valid;
 import io.swagger.annotations.*;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaResteasyServerCodegen", date = "2026-08-30T01:56:35.721624822Z[Etc/UTC]", comments = "Generator version: 7.24.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaResteasyServerCodegen", date = "2026-10-25T05:48:49.952264473Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 public class MoveDetailContestCombosNormal   {
   
   private List<@Valid AbilityDetailPokemonInnerPokemon> useBefore = new ArrayList<>();
@@ -27,7 +27,6 @@ public class MoveDetailContestCombosNormal   {
   @ApiModelProperty(required = true, value = "")
   @JsonProperty("use_before")
   @NotNull
-  @Valid
   public List<@Valid AbilityDetailPokemonInnerPokemon> getUseBefore() {
     return useBefore;
   }
@@ -41,7 +40,6 @@ public class MoveDetailContestCombosNormal   {
   @ApiModelProperty(required = true, value = "")
   @JsonProperty("use_after")
   @NotNull
-  @Valid
   public List<@Valid AbilityDetailPokemonInnerPokemon> getUseAfter() {
     return useAfter;
   }

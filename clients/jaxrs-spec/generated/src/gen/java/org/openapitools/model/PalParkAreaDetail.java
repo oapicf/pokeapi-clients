@@ -21,12 +21,12 @@ import org.openapitools.jackson.nullable.JsonNullable;
 
 
 @JsonTypeName("PalParkAreaDetail")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2026-08-30T01:56:42.280002256Z[Etc/UTC]", comments = "Generator version: 7.24.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2026-10-25T05:48:57.630723375Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 public class PalParkAreaDetail   {
   private Integer id;
   private String name;
-  private @Valid List<@Valid PalParkAreaName> names = new ArrayList<>();
-  private @Valid List<@Valid PalParkAreaDetailPokemonEncountersInner> pokemonEncounters = new ArrayList<>();
+  private List<@Valid PalParkAreaName> names = new ArrayList<>();
+  private List<@Valid PalParkAreaDetailPokemonEncountersInner> pokemonEncounters = new ArrayList<>();
 
   public PalParkAreaDetail() {
   }
@@ -92,7 +92,7 @@ public class PalParkAreaDetail   {
   
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(required = true, value = "names")
-  @Valid public List<@Valid PalParkAreaName> getNames() {
+  public List<@Valid PalParkAreaName> getNames() {
     return names;
   }
 
@@ -127,7 +127,7 @@ public class PalParkAreaDetail   {
   
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(required = true, value = "pokemon_encounters")
-  @Valid public List<@Valid PalParkAreaDetailPokemonEncountersInner> getPokemonEncounters() {
+  public List<@Valid PalParkAreaDetailPokemonEncountersInner> getPokemonEncounters() {
     return pokemonEncounters;
   }
 

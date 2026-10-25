@@ -34,7 +34,7 @@ import jakarta.annotation.Generated;
  */
 
 @Schema(name = "TypeDetail", description = "Serializer for the Type resource")
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2026-08-30T02:00:43.960184425Z[Etc/UTC]", comments = "Generator version: 7.24.0")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2026-10-25T05:53:37.479908528Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 public class TypeDetail {
 
   private Integer id;
@@ -57,7 +57,7 @@ public class TypeDetail {
 
   private List<@Valid MoveSummary> moves = new ArrayList<>();
 
-  private Map<String, Map<String, TypeDetailSpritesValueValue>> sprites = new HashMap<>();
+  private Map<String, Map<String, @Valid TypeDetailSpritesValueValue>> sprites = new HashMap<>();
 
   public TypeDetail() {
     super();
@@ -66,7 +66,7 @@ public class TypeDetail {
   /**
    * Constructor with only required parameters
    */
-  public TypeDetail(Integer id, String name, TypeDetailDamageRelations damageRelations, List<@Valid TypeDetailPastDamageRelationsInner> pastDamageRelations, List<@Valid TypeGameIndex> gameIndices, GenerationSummary generation, MoveDamageClassSummary moveDamageClass, List<@Valid AbilityName> names, List<@Valid TypeDetailPokemonInner> pokemon, List<@Valid MoveSummary> moves, Map<String, Map<String, TypeDetailSpritesValueValue>> sprites) {
+  public TypeDetail(Integer id, String name, TypeDetailDamageRelations damageRelations, List<@Valid TypeDetailPastDamageRelationsInner> pastDamageRelations, List<@Valid TypeGameIndex> gameIndices, GenerationSummary generation, MoveDamageClassSummary moveDamageClass, List<@Valid AbilityName> names, List<@Valid TypeDetailPokemonInner> pokemon, List<@Valid MoveSummary> moves, Map<String, Map<String, @Valid TypeDetailSpritesValueValue>> sprites) {
     this.id = id;
     this.name = name;
     this.damageRelations = damageRelations;
@@ -160,7 +160,7 @@ public class TypeDetail {
    * Get pastDamageRelations
    * @return pastDamageRelations
    */
-  @Valid 
+  
   @Schema(name = "past_damage_relations", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("past_damage_relations")
   public List<@Valid TypeDetailPastDamageRelationsInner> getPastDamageRelations() {
@@ -189,7 +189,7 @@ public class TypeDetail {
    * Get gameIndices
    * @return gameIndices
    */
-  @Valid 
+  
   @Schema(name = "game_indices", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("game_indices")
   public List<@Valid TypeGameIndex> getGameIndices() {
@@ -260,7 +260,7 @@ public class TypeDetail {
    * Get names
    * @return names
    */
-  @Valid 
+  
   @Schema(name = "names", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("names")
   public List<@Valid AbilityName> getNames() {
@@ -289,7 +289,7 @@ public class TypeDetail {
    * Get pokemon
    * @return pokemon
    */
-  @Valid 
+  
   @Schema(name = "pokemon", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("pokemon")
   public List<@Valid TypeDetailPokemonInner> getPokemon() {
@@ -318,7 +318,7 @@ public class TypeDetail {
    * Get moves
    * @return moves
    */
-  @Valid 
+  
   @Schema(name = "moves", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("moves")
   public List<@Valid MoveSummary> getMoves() {
@@ -330,12 +330,12 @@ public class TypeDetail {
     this.moves = moves;
   }
 
-  public TypeDetail sprites(Map<String, Map<String, TypeDetailSpritesValueValue>> sprites) {
+  public TypeDetail sprites(Map<String, Map<String, @Valid TypeDetailSpritesValueValue>> sprites) {
     this.sprites = sprites;
     return this;
   }
 
-  public TypeDetail putSpritesItem(String key, Map<String, TypeDetailSpritesValueValue> spritesItem) {
+  public TypeDetail putSpritesItem(String key, Map<String, @Valid TypeDetailSpritesValueValue> spritesItem) {
     if (this.sprites == null) {
       this.sprites = new HashMap<>();
     }
@@ -347,15 +347,15 @@ public class TypeDetail {
    * Get sprites
    * @return sprites
    */
-  @Valid 
+  
   @Schema(name = "sprites", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("sprites")
-  public Map<String, Map<String, TypeDetailSpritesValueValue>> getSprites() {
+  public Map<String, Map<String, @Valid TypeDetailSpritesValueValue>> getSprites() {
     return sprites;
   }
 
   @JsonProperty("sprites")
-  public void setSprites(Map<String, Map<String, TypeDetailSpritesValueValue>> sprites) {
+  public void setSprites(Map<String, Map<String, @Valid TypeDetailSpritesValueValue>> sprites) {
     this.sprites = sprites;
   }
 

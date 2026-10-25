@@ -21,14 +21,10 @@ import { mapValues } from '../runtime';
 export interface EncounterMethodSummary {
     /**
      * 
-     * @type {string}
-     * @memberof EncounterMethodSummary
      */
     name: string;
     /**
      * 
-     * @type {string}
-     * @memberof EncounterMethodSummary
      */
     readonly url: string;
 }

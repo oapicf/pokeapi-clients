@@ -152,16 +152,16 @@ namespace Org.OpenAPITools.Model
             }
 
             if (!name.IsSet)
-                throw new ArgumentException("Property is required for class EncounterMethodName.", nameof(name));
+                throw new JsonException("Property is required for class EncounterMethodName: name.");
 
             if (!language.IsSet)
-                throw new ArgumentException("Property is required for class EncounterMethodName.", nameof(language));
+                throw new JsonException("Property is required for class EncounterMethodName: language.");
 
             if (name.IsSet && name.Value == null)
-                throw new ArgumentNullException(nameof(name), "Property is not nullable for class EncounterMethodName.");
+                throw new JsonException("Property is not nullable for class EncounterMethodName: name.");
 
             if (language.IsSet && language.Value == null)
-                throw new ArgumentNullException(nameof(language), "Property is not nullable for class EncounterMethodName.");
+                throw new JsonException("Property is not nullable for class EncounterMethodName: language.");
 
             return new EncounterMethodName(name.Value!, language.Value!);
         }
@@ -172,7 +172,6 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="encounterMethodName"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public override void Write(Utf8JsonWriter writer, EncounterMethodName encounterMethodName, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteStartObject();
@@ -187,15 +186,8 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="encounterMethodName"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, EncounterMethodName encounterMethodName, JsonSerializerOptions jsonSerializerOptions)
         {
-            if (encounterMethodName.Name == null)
-                throw new ArgumentNullException(nameof(encounterMethodName.Name), "Property is required for class EncounterMethodName.");
-
-            if (encounterMethodName.Language == null)
-                throw new ArgumentNullException(nameof(encounterMethodName.Language), "Property is required for class EncounterMethodName.");
-
             writer.WriteString("name", encounterMethodName.Name);
 
             writer.WritePropertyName("language");

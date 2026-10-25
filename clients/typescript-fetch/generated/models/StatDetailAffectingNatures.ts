@@ -29,14 +29,10 @@ import {
 export interface StatDetailAffectingNatures {
     /**
      * 
-     * @type {Array<AbilityDetailPokemonInnerPokemon>}
-     * @memberof StatDetailAffectingNatures
      */
     increase: Array<AbilityDetailPokemonInnerPokemon>;
     /**
      * 
-     * @type {Array<AbilityDetailPokemonInnerPokemon>}
-     * @memberof StatDetailAffectingNatures
      */
     decrease: Array<AbilityDetailPokemonInnerPokemon>;
 }

@@ -155,3 +155,4 @@ class _$PokeathlonStatDetailSerializer implements PrimitiveSerializer<Pokeathlon
   }
 }
 
+

@@ -21,8 +21,6 @@ import { mapValues } from '../runtime';
 export interface CharacteristicSummary {
     /**
      * 
-     * @type {string}
-     * @memberof CharacteristicSummary
      */
     readonly url: string;
 }

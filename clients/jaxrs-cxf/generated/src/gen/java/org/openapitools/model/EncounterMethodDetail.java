@@ -29,8 +29,6 @@ public class EncounterMethodDetail  {
 
   @ApiModelProperty(required = true, value = "")
 
-  @Valid
-
   private List<@Valid EncounterMethodName> names = new ArrayList<>();
  /**
    * Get id

@@ -128,3 +128,4 @@ class _$EggGroupDetailPokemonSpeciesInnerSerializer implements PrimitiveSerializ
   }
 }
 
+

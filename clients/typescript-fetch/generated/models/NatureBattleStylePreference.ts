@@ -29,20 +29,14 @@ import {
 export interface NatureBattleStylePreference {
     /**
      * 
-     * @type {number}
-     * @memberof NatureBattleStylePreference
      */
     lowHpPreference: number;
     /**
      * 
-     * @type {number}
-     * @memberof NatureBattleStylePreference
      */
     highHpPreference: number;
     /**
      * 
-     * @type {MoveBattleStyleSummary}
-     * @memberof NatureBattleStylePreference
      */
     moveBattleStyle: MoveBattleStyleSummary;
 }

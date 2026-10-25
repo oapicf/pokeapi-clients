@@ -24,16 +24,16 @@ import org.openapitools.jackson.nullable.JsonNullable;
 
 
 @JsonTypeName("PokedexDetail")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2026-08-30T01:56:42.280002256Z[Etc/UTC]", comments = "Generator version: 7.24.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2026-10-25T05:48:57.630723375Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 public class PokedexDetail   {
   private Integer id;
   private String name;
   private Boolean isMainSeries;
-  private @Valid List<@Valid PokedexDescription> descriptions = new ArrayList<>();
-  private @Valid List<@Valid PokedexName> names = new ArrayList<>();
-  private @Valid List<@Valid PokedexDetailPokemonEntriesInner> pokemonEntries = new ArrayList<>();
+  private List<@Valid PokedexDescription> descriptions = new ArrayList<>();
+  private List<@Valid PokedexName> names = new ArrayList<>();
+  private List<@Valid PokedexDetailPokemonEntriesInner> pokemonEntries = new ArrayList<>();
   private RegionSummary region;
-  private @Valid List<@Valid AbilityDetailPokemonInnerPokemon> versionGroups = new ArrayList<>();
+  private List<@Valid AbilityDetailPokemonInnerPokemon> versionGroups = new ArrayList<>();
 
   public PokedexDetail() {
   }
@@ -124,7 +124,7 @@ public class PokedexDetail   {
   
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(required = true, value = "descriptions")
-  @Valid public List<@Valid PokedexDescription> getDescriptions() {
+  public List<@Valid PokedexDescription> getDescriptions() {
     return descriptions;
   }
 
@@ -159,7 +159,7 @@ public class PokedexDetail   {
   
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(required = true, value = "names")
-  @Valid public List<@Valid PokedexName> getNames() {
+  public List<@Valid PokedexName> getNames() {
     return names;
   }
 
@@ -194,7 +194,7 @@ public class PokedexDetail   {
   
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(required = true, value = "pokemon_entries")
-  @Valid public List<@Valid PokedexDetailPokemonEntriesInner> getPokemonEntries() {
+  public List<@Valid PokedexDetailPokemonEntriesInner> getPokemonEntries() {
     return pokemonEntries;
   }
 
@@ -248,7 +248,7 @@ public class PokedexDetail   {
   
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(required = true, value = "version_groups")
-  @Valid public List<@Valid AbilityDetailPokemonInnerPokemon> getVersionGroups() {
+  public List<@Valid AbilityDetailPokemonInnerPokemon> getVersionGroups() {
     return versionGroups;
   }
 

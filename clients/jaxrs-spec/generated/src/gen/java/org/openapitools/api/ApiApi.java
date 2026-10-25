@@ -113,7 +113,7 @@ import javax.validation.Valid;
 */
 @Path("/api/v2")
 @Api(description = "the api API")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2026-08-30T01:56:42.280002256Z[Etc/UTC]", comments = "Generator version: 7.24.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2026-10-25T05:48:57.630723375Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 public class ApiApi {
 
     @GET
@@ -128,7 +128,10 @@ public class ApiApi {
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "", response = PaginatedAbilitySummaryList.class)
     })
-    public Response abilityList(@QueryParam("limit")  @ApiParam("Number of results to return per page.")  Integer limit,@QueryParam("offset")  @ApiParam("The initial index from which to return the results.")  Integer offset,@QueryParam("q")  @ApiParam("&gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property. ")  String q) {
+    public Response abilityList(@QueryParam("limit")  @ApiParam("Number of results to return per page.")  Integer limit
+,@QueryParam("offset")  @ApiParam("The initial index from which to return the results.")  Integer offset
+,@QueryParam("q")  @ApiParam("&gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property. ")  String q
+) {
         return Response.ok().entity("magic!").build();
     }
 
@@ -144,7 +147,8 @@ public class ApiApi {
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "", response = AbilityDetail.class)
     })
-    public Response abilityRetrieve(@PathParam("id") @ApiParam("This parameter can be a string or an integer.") String id) {
+    public Response abilityRetrieve(@PathParam("id") @ApiParam("This parameter can be a string or an integer.") String id
+) {
         return Response.ok().entity("magic!").build();
     }
 
@@ -160,7 +164,10 @@ public class ApiApi {
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "", response = PaginatedBerryFirmnessSummaryList.class)
     })
-    public Response berryFirmnessList(@QueryParam("limit")  @ApiParam("Number of results to return per page.")  Integer limit,@QueryParam("offset")  @ApiParam("The initial index from which to return the results.")  Integer offset,@QueryParam("q")  @ApiParam("&gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property. ")  String q) {
+    public Response berryFirmnessList(@QueryParam("limit")  @ApiParam("Number of results to return per page.")  Integer limit
+,@QueryParam("offset")  @ApiParam("The initial index from which to return the results.")  Integer offset
+,@QueryParam("q")  @ApiParam("&gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property. ")  String q
+) {
         return Response.ok().entity("magic!").build();
     }
 
@@ -176,7 +183,8 @@ public class ApiApi {
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "", response = BerryFirmnessDetail.class)
     })
-    public Response berryFirmnessRetrieve(@PathParam("id") @ApiParam("This parameter can be a string or an integer.") String id) {
+    public Response berryFirmnessRetrieve(@PathParam("id") @ApiParam("This parameter can be a string or an integer.") String id
+) {
         return Response.ok().entity("magic!").build();
     }
 
@@ -192,7 +200,10 @@ public class ApiApi {
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "", response = PaginatedBerryFlavorSummaryList.class)
     })
-    public Response berryFlavorList(@QueryParam("limit")  @ApiParam("Number of results to return per page.")  Integer limit,@QueryParam("offset")  @ApiParam("The initial index from which to return the results.")  Integer offset,@QueryParam("q")  @ApiParam("&gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property. ")  String q) {
+    public Response berryFlavorList(@QueryParam("limit")  @ApiParam("Number of results to return per page.")  Integer limit
+,@QueryParam("offset")  @ApiParam("The initial index from which to return the results.")  Integer offset
+,@QueryParam("q")  @ApiParam("&gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property. ")  String q
+) {
         return Response.ok().entity("magic!").build();
     }
 
@@ -208,7 +219,8 @@ public class ApiApi {
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "", response = BerryFlavorDetail.class)
     })
-    public Response berryFlavorRetrieve(@PathParam("id") @ApiParam("This parameter can be a string or an integer.") String id) {
+    public Response berryFlavorRetrieve(@PathParam("id") @ApiParam("This parameter can be a string or an integer.") String id
+) {
         return Response.ok().entity("magic!").build();
     }
 
@@ -224,7 +236,10 @@ public class ApiApi {
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "", response = PaginatedBerrySummaryList.class)
     })
-    public Response berryList(@QueryParam("limit")  @ApiParam("Number of results to return per page.")  Integer limit,@QueryParam("offset")  @ApiParam("The initial index from which to return the results.")  Integer offset,@QueryParam("q")  @ApiParam("&gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property. ")  String q) {
+    public Response berryList(@QueryParam("limit")  @ApiParam("Number of results to return per page.")  Integer limit
+,@QueryParam("offset")  @ApiParam("The initial index from which to return the results.")  Integer offset
+,@QueryParam("q")  @ApiParam("&gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property. ")  String q
+) {
         return Response.ok().entity("magic!").build();
     }
 
@@ -240,7 +255,8 @@ public class ApiApi {
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "", response = BerryDetail.class)
     })
-    public Response berryRetrieve(@PathParam("id") @ApiParam("This parameter can be a string or an integer.") String id) {
+    public Response berryRetrieve(@PathParam("id") @ApiParam("This parameter can be a string or an integer.") String id
+) {
         return Response.ok().entity("magic!").build();
     }
 
@@ -256,7 +272,10 @@ public class ApiApi {
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "", response = PaginatedCharacteristicSummaryList.class)
     })
-    public Response characteristicList(@QueryParam("limit")  @ApiParam("Number of results to return per page.")  Integer limit,@QueryParam("offset")  @ApiParam("The initial index from which to return the results.")  Integer offset,@QueryParam("q")  @ApiParam("&gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property. ")  String q) {
+    public Response characteristicList(@QueryParam("limit")  @ApiParam("Number of results to return per page.")  Integer limit
+,@QueryParam("offset")  @ApiParam("The initial index from which to return the results.")  Integer offset
+,@QueryParam("q")  @ApiParam("&gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property. ")  String q
+) {
         return Response.ok().entity("magic!").build();
     }
 
@@ -272,7 +291,8 @@ public class ApiApi {
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "", response = CharacteristicDetail.class)
     })
-    public Response characteristicRetrieve(@PathParam("id") @ApiParam("This parameter can be a string or an integer.") String id) {
+    public Response characteristicRetrieve(@PathParam("id") @ApiParam("This parameter can be a string or an integer.") String id
+) {
         return Response.ok().entity("magic!").build();
     }
 
@@ -288,7 +308,10 @@ public class ApiApi {
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "", response = PaginatedContestEffectSummaryList.class)
     })
-    public Response contestEffectList(@QueryParam("limit")  @ApiParam("Number of results to return per page.")  Integer limit,@QueryParam("offset")  @ApiParam("The initial index from which to return the results.")  Integer offset,@QueryParam("q")  @ApiParam("&gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property. ")  String q) {
+    public Response contestEffectList(@QueryParam("limit")  @ApiParam("Number of results to return per page.")  Integer limit
+,@QueryParam("offset")  @ApiParam("The initial index from which to return the results.")  Integer offset
+,@QueryParam("q")  @ApiParam("&gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property. ")  String q
+) {
         return Response.ok().entity("magic!").build();
     }
 
@@ -304,7 +327,8 @@ public class ApiApi {
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "", response = ContestEffectDetail.class)
     })
-    public Response contestEffectRetrieve(@PathParam("id") @ApiParam("This parameter can be a string or an integer.") String id) {
+    public Response contestEffectRetrieve(@PathParam("id") @ApiParam("This parameter can be a string or an integer.") String id
+) {
         return Response.ok().entity("magic!").build();
     }
 
@@ -320,7 +344,10 @@ public class ApiApi {
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "", response = PaginatedContestTypeSummaryList.class)
     })
-    public Response contestTypeList(@QueryParam("limit")  @ApiParam("Number of results to return per page.")  Integer limit,@QueryParam("offset")  @ApiParam("The initial index from which to return the results.")  Integer offset,@QueryParam("q")  @ApiParam("&gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property. ")  String q) {
+    public Response contestTypeList(@QueryParam("limit")  @ApiParam("Number of results to return per page.")  Integer limit
+,@QueryParam("offset")  @ApiParam("The initial index from which to return the results.")  Integer offset
+,@QueryParam("q")  @ApiParam("&gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property. ")  String q
+) {
         return Response.ok().entity("magic!").build();
     }
 
@@ -336,7 +363,8 @@ public class ApiApi {
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "", response = ContestTypeDetail.class)
     })
-    public Response contestTypeRetrieve(@PathParam("id") @ApiParam("This parameter can be a string or an integer.") String id) {
+    public Response contestTypeRetrieve(@PathParam("id") @ApiParam("This parameter can be a string or an integer.") String id
+) {
         return Response.ok().entity("magic!").build();
     }
 
@@ -352,7 +380,10 @@ public class ApiApi {
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "", response = PaginatedEggGroupSummaryList.class)
     })
-    public Response eggGroupList(@QueryParam("limit")  @ApiParam("Number of results to return per page.")  Integer limit,@QueryParam("offset")  @ApiParam("The initial index from which to return the results.")  Integer offset,@QueryParam("q")  @ApiParam("&gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property. ")  String q) {
+    public Response eggGroupList(@QueryParam("limit")  @ApiParam("Number of results to return per page.")  Integer limit
+,@QueryParam("offset")  @ApiParam("The initial index from which to return the results.")  Integer offset
+,@QueryParam("q")  @ApiParam("&gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property. ")  String q
+) {
         return Response.ok().entity("magic!").build();
     }
 
@@ -368,7 +399,8 @@ public class ApiApi {
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "", response = EggGroupDetail.class)
     })
-    public Response eggGroupRetrieve(@PathParam("id") @ApiParam("This parameter can be a string or an integer.") String id) {
+    public Response eggGroupRetrieve(@PathParam("id") @ApiParam("This parameter can be a string or an integer.") String id
+) {
         return Response.ok().entity("magic!").build();
     }
 
@@ -384,7 +416,10 @@ public class ApiApi {
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "", response = PaginatedEncounterConditionSummaryList.class)
     })
-    public Response encounterConditionList(@QueryParam("limit")  @ApiParam("Number of results to return per page.")  Integer limit,@QueryParam("offset")  @ApiParam("The initial index from which to return the results.")  Integer offset,@QueryParam("q")  @ApiParam("&gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property. ")  String q) {
+    public Response encounterConditionList(@QueryParam("limit")  @ApiParam("Number of results to return per page.")  Integer limit
+,@QueryParam("offset")  @ApiParam("The initial index from which to return the results.")  Integer offset
+,@QueryParam("q")  @ApiParam("&gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property. ")  String q
+) {
         return Response.ok().entity("magic!").build();
     }
 
@@ -400,7 +435,8 @@ public class ApiApi {
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "", response = EncounterConditionDetail.class)
     })
-    public Response encounterConditionRetrieve(@PathParam("id") @ApiParam("This parameter can be a string or an integer.") String id) {
+    public Response encounterConditionRetrieve(@PathParam("id") @ApiParam("This parameter can be a string or an integer.") String id
+) {
         return Response.ok().entity("magic!").build();
     }
 
@@ -416,7 +452,10 @@ public class ApiApi {
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "", response = PaginatedEncounterConditionValueSummaryList.class)
     })
-    public Response encounterConditionValueList(@QueryParam("limit")  @ApiParam("Number of results to return per page.")  Integer limit,@QueryParam("offset")  @ApiParam("The initial index from which to return the results.")  Integer offset,@QueryParam("q")  @ApiParam("&gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property. ")  String q) {
+    public Response encounterConditionValueList(@QueryParam("limit")  @ApiParam("Number of results to return per page.")  Integer limit
+,@QueryParam("offset")  @ApiParam("The initial index from which to return the results.")  Integer offset
+,@QueryParam("q")  @ApiParam("&gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property. ")  String q
+) {
         return Response.ok().entity("magic!").build();
     }
 
@@ -432,7 +471,8 @@ public class ApiApi {
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "", response = EncounterConditionValueDetail.class)
     })
-    public Response encounterConditionValueRetrieve(@PathParam("id") @ApiParam("This parameter can be a string or an integer.") String id) {
+    public Response encounterConditionValueRetrieve(@PathParam("id") @ApiParam("This parameter can be a string or an integer.") String id
+) {
         return Response.ok().entity("magic!").build();
     }
 
@@ -448,7 +488,10 @@ public class ApiApi {
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "", response = PaginatedEncounterMethodSummaryList.class)
     })
-    public Response encounterMethodList(@QueryParam("limit")  @ApiParam("Number of results to return per page.")  Integer limit,@QueryParam("offset")  @ApiParam("The initial index from which to return the results.")  Integer offset,@QueryParam("q")  @ApiParam("&gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property. ")  String q) {
+    public Response encounterMethodList(@QueryParam("limit")  @ApiParam("Number of results to return per page.")  Integer limit
+,@QueryParam("offset")  @ApiParam("The initial index from which to return the results.")  Integer offset
+,@QueryParam("q")  @ApiParam("&gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property. ")  String q
+) {
         return Response.ok().entity("magic!").build();
     }
 
@@ -464,7 +507,8 @@ public class ApiApi {
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "", response = EncounterMethodDetail.class)
     })
-    public Response encounterMethodRetrieve(@PathParam("id") @ApiParam("This parameter can be a string or an integer.") String id) {
+    public Response encounterMethodRetrieve(@PathParam("id") @ApiParam("This parameter can be a string or an integer.") String id
+) {
         return Response.ok().entity("magic!").build();
     }
 
@@ -480,7 +524,10 @@ public class ApiApi {
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "", response = PaginatedEvolutionChainSummaryList.class)
     })
-    public Response evolutionChainList(@QueryParam("limit")  @ApiParam("Number of results to return per page.")  Integer limit,@QueryParam("offset")  @ApiParam("The initial index from which to return the results.")  Integer offset,@QueryParam("q")  @ApiParam("&gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property. ")  String q) {
+    public Response evolutionChainList(@QueryParam("limit")  @ApiParam("Number of results to return per page.")  Integer limit
+,@QueryParam("offset")  @ApiParam("The initial index from which to return the results.")  Integer offset
+,@QueryParam("q")  @ApiParam("&gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property. ")  String q
+) {
         return Response.ok().entity("magic!").build();
     }
 
@@ -496,7 +543,8 @@ public class ApiApi {
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "", response = EvolutionChainDetail.class)
     })
-    public Response evolutionChainRetrieve(@PathParam("id") @ApiParam("This parameter can be a string or an integer.") String id) {
+    public Response evolutionChainRetrieve(@PathParam("id") @ApiParam("This parameter can be a string or an integer.") String id
+) {
         return Response.ok().entity("magic!").build();
     }
 
@@ -512,7 +560,10 @@ public class ApiApi {
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "", response = PaginatedEvolutionTriggerSummaryList.class)
     })
-    public Response evolutionTriggerList(@QueryParam("limit")  @ApiParam("Number of results to return per page.")  Integer limit,@QueryParam("offset")  @ApiParam("The initial index from which to return the results.")  Integer offset,@QueryParam("q")  @ApiParam("&gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property. ")  String q) {
+    public Response evolutionTriggerList(@QueryParam("limit")  @ApiParam("Number of results to return per page.")  Integer limit
+,@QueryParam("offset")  @ApiParam("The initial index from which to return the results.")  Integer offset
+,@QueryParam("q")  @ApiParam("&gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property. ")  String q
+) {
         return Response.ok().entity("magic!").build();
     }
 
@@ -528,7 +579,8 @@ public class ApiApi {
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "", response = EvolutionTriggerDetail.class)
     })
-    public Response evolutionTriggerRetrieve(@PathParam("id") @ApiParam("This parameter can be a string or an integer.") String id) {
+    public Response evolutionTriggerRetrieve(@PathParam("id") @ApiParam("This parameter can be a string or an integer.") String id
+) {
         return Response.ok().entity("magic!").build();
     }
 
@@ -544,7 +596,10 @@ public class ApiApi {
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "", response = PaginatedGenderSummaryList.class)
     })
-    public Response genderList(@QueryParam("limit")  @ApiParam("Number of results to return per page.")  Integer limit,@QueryParam("offset")  @ApiParam("The initial index from which to return the results.")  Integer offset,@QueryParam("q")  @ApiParam("&gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property. ")  String q) {
+    public Response genderList(@QueryParam("limit")  @ApiParam("Number of results to return per page.")  Integer limit
+,@QueryParam("offset")  @ApiParam("The initial index from which to return the results.")  Integer offset
+,@QueryParam("q")  @ApiParam("&gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property. ")  String q
+) {
         return Response.ok().entity("magic!").build();
     }
 
@@ -560,7 +615,8 @@ public class ApiApi {
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "", response = GenderDetail.class)
     })
-    public Response genderRetrieve(@PathParam("id") @ApiParam("This parameter can be a string or an integer.") String id) {
+    public Response genderRetrieve(@PathParam("id") @ApiParam("This parameter can be a string or an integer.") String id
+) {
         return Response.ok().entity("magic!").build();
     }
 
@@ -576,7 +632,10 @@ public class ApiApi {
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "", response = PaginatedGenerationSummaryList.class)
     })
-    public Response generationList(@QueryParam("limit")  @ApiParam("Number of results to return per page.")  Integer limit,@QueryParam("offset")  @ApiParam("The initial index from which to return the results.")  Integer offset,@QueryParam("q")  @ApiParam("&gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property. ")  String q) {
+    public Response generationList(@QueryParam("limit")  @ApiParam("Number of results to return per page.")  Integer limit
+,@QueryParam("offset")  @ApiParam("The initial index from which to return the results.")  Integer offset
+,@QueryParam("q")  @ApiParam("&gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property. ")  String q
+) {
         return Response.ok().entity("magic!").build();
     }
 
@@ -592,7 +651,8 @@ public class ApiApi {
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "", response = GenerationDetail.class)
     })
-    public Response generationRetrieve(@PathParam("id") @ApiParam("This parameter can be a string or an integer.") String id) {
+    public Response generationRetrieve(@PathParam("id") @ApiParam("This parameter can be a string or an integer.") String id
+) {
         return Response.ok().entity("magic!").build();
     }
 
@@ -608,7 +668,10 @@ public class ApiApi {
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "", response = PaginatedGrowthRateSummaryList.class)
     })
-    public Response growthRateList(@QueryParam("limit")  @ApiParam("Number of results to return per page.")  Integer limit,@QueryParam("offset")  @ApiParam("The initial index from which to return the results.")  Integer offset,@QueryParam("q")  @ApiParam("&gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property. ")  String q) {
+    public Response growthRateList(@QueryParam("limit")  @ApiParam("Number of results to return per page.")  Integer limit
+,@QueryParam("offset")  @ApiParam("The initial index from which to return the results.")  Integer offset
+,@QueryParam("q")  @ApiParam("&gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property. ")  String q
+) {
         return Response.ok().entity("magic!").build();
     }
 
@@ -624,7 +687,8 @@ public class ApiApi {
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "", response = GrowthRateDetail.class)
     })
-    public Response growthRateRetrieve(@PathParam("id") @ApiParam("This parameter can be a string or an integer.") String id) {
+    public Response growthRateRetrieve(@PathParam("id") @ApiParam("This parameter can be a string or an integer.") String id
+) {
         return Response.ok().entity("magic!").build();
     }
 
@@ -640,7 +704,10 @@ public class ApiApi {
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "", response = PaginatedItemAttributeSummaryList.class)
     })
-    public Response itemAttributeList(@QueryParam("limit")  @ApiParam("Number of results to return per page.")  Integer limit,@QueryParam("offset")  @ApiParam("The initial index from which to return the results.")  Integer offset,@QueryParam("q")  @ApiParam("&gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property. ")  String q) {
+    public Response itemAttributeList(@QueryParam("limit")  @ApiParam("Number of results to return per page.")  Integer limit
+,@QueryParam("offset")  @ApiParam("The initial index from which to return the results.")  Integer offset
+,@QueryParam("q")  @ApiParam("&gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property. ")  String q
+) {
         return Response.ok().entity("magic!").build();
     }
 
@@ -656,7 +723,8 @@ public class ApiApi {
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "", response = ItemAttributeDetail.class)
     })
-    public Response itemAttributeRetrieve(@PathParam("id") @ApiParam("This parameter can be a string or an integer.") String id) {
+    public Response itemAttributeRetrieve(@PathParam("id") @ApiParam("This parameter can be a string or an integer.") String id
+) {
         return Response.ok().entity("magic!").build();
     }
 
@@ -672,7 +740,10 @@ public class ApiApi {
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "", response = PaginatedItemCategorySummaryList.class)
     })
-    public Response itemCategoryList(@QueryParam("limit")  @ApiParam("Number of results to return per page.")  Integer limit,@QueryParam("offset")  @ApiParam("The initial index from which to return the results.")  Integer offset,@QueryParam("q")  @ApiParam("&gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property. ")  String q) {
+    public Response itemCategoryList(@QueryParam("limit")  @ApiParam("Number of results to return per page.")  Integer limit
+,@QueryParam("offset")  @ApiParam("The initial index from which to return the results.")  Integer offset
+,@QueryParam("q")  @ApiParam("&gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property. ")  String q
+) {
         return Response.ok().entity("magic!").build();
     }
 
@@ -688,7 +759,8 @@ public class ApiApi {
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "", response = ItemCategoryDetail.class)
     })
-    public Response itemCategoryRetrieve(@PathParam("id") @ApiParam("This parameter can be a string or an integer.") String id) {
+    public Response itemCategoryRetrieve(@PathParam("id") @ApiParam("This parameter can be a string or an integer.") String id
+) {
         return Response.ok().entity("magic!").build();
     }
 
@@ -704,7 +776,10 @@ public class ApiApi {
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "", response = PaginatedItemFlingEffectSummaryList.class)
     })
-    public Response itemFlingEffectList(@QueryParam("limit")  @ApiParam("Number of results to return per page.")  Integer limit,@QueryParam("offset")  @ApiParam("The initial index from which to return the results.")  Integer offset,@QueryParam("q")  @ApiParam("&gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property. ")  String q) {
+    public Response itemFlingEffectList(@QueryParam("limit")  @ApiParam("Number of results to return per page.")  Integer limit
+,@QueryParam("offset")  @ApiParam("The initial index from which to return the results.")  Integer offset
+,@QueryParam("q")  @ApiParam("&gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property. ")  String q
+) {
         return Response.ok().entity("magic!").build();
     }
 
@@ -720,7 +795,8 @@ public class ApiApi {
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "", response = ItemFlingEffectDetail.class)
     })
-    public Response itemFlingEffectRetrieve(@PathParam("id") @ApiParam("This parameter can be a string or an integer.") String id) {
+    public Response itemFlingEffectRetrieve(@PathParam("id") @ApiParam("This parameter can be a string or an integer.") String id
+) {
         return Response.ok().entity("magic!").build();
     }
 
@@ -736,7 +812,10 @@ public class ApiApi {
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "", response = PaginatedItemSummaryList.class)
     })
-    public Response itemList(@QueryParam("limit")  @ApiParam("Number of results to return per page.")  Integer limit,@QueryParam("offset")  @ApiParam("The initial index from which to return the results.")  Integer offset,@QueryParam("q")  @ApiParam("&gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property. ")  String q) {
+    public Response itemList(@QueryParam("limit")  @ApiParam("Number of results to return per page.")  Integer limit
+,@QueryParam("offset")  @ApiParam("The initial index from which to return the results.")  Integer offset
+,@QueryParam("q")  @ApiParam("&gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property. ")  String q
+) {
         return Response.ok().entity("magic!").build();
     }
 
@@ -752,7 +831,10 @@ public class ApiApi {
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "", response = PaginatedItemPocketSummaryList.class)
     })
-    public Response itemPocketList(@QueryParam("limit")  @ApiParam("Number of results to return per page.")  Integer limit,@QueryParam("offset")  @ApiParam("The initial index from which to return the results.")  Integer offset,@QueryParam("q")  @ApiParam("&gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property. ")  String q) {
+    public Response itemPocketList(@QueryParam("limit")  @ApiParam("Number of results to return per page.")  Integer limit
+,@QueryParam("offset")  @ApiParam("The initial index from which to return the results.")  Integer offset
+,@QueryParam("q")  @ApiParam("&gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property. ")  String q
+) {
         return Response.ok().entity("magic!").build();
     }
 
@@ -768,7 +850,8 @@ public class ApiApi {
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "", response = ItemPocketDetail.class)
     })
-    public Response itemPocketRetrieve(@PathParam("id") @ApiParam("This parameter can be a string or an integer.") String id) {
+    public Response itemPocketRetrieve(@PathParam("id") @ApiParam("This parameter can be a string or an integer.") String id
+) {
         return Response.ok().entity("magic!").build();
     }
 
@@ -784,7 +867,8 @@ public class ApiApi {
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "", response = ItemDetail.class)
     })
-    public Response itemRetrieve(@PathParam("id") @ApiParam("This parameter can be a string or an integer.") String id) {
+    public Response itemRetrieve(@PathParam("id") @ApiParam("This parameter can be a string or an integer.") String id
+) {
         return Response.ok().entity("magic!").build();
     }
 
@@ -800,7 +884,10 @@ public class ApiApi {
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "", response = PaginatedLanguageSummaryList.class)
     })
-    public Response languageList(@QueryParam("limit")  @ApiParam("Number of results to return per page.")  Integer limit,@QueryParam("offset")  @ApiParam("The initial index from which to return the results.")  Integer offset,@QueryParam("q")  @ApiParam("&gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property. ")  String q) {
+    public Response languageList(@QueryParam("limit")  @ApiParam("Number of results to return per page.")  Integer limit
+,@QueryParam("offset")  @ApiParam("The initial index from which to return the results.")  Integer offset
+,@QueryParam("q")  @ApiParam("&gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property. ")  String q
+) {
         return Response.ok().entity("magic!").build();
     }
 
@@ -816,7 +903,8 @@ public class ApiApi {
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "", response = LanguageDetail.class)
     })
-    public Response languageRetrieve(@PathParam("id") @ApiParam("This parameter can be a string or an integer.") String id) {
+    public Response languageRetrieve(@PathParam("id") @ApiParam("This parameter can be a string or an integer.") String id
+) {
         return Response.ok().entity("magic!").build();
     }
 
@@ -832,7 +920,9 @@ public class ApiApi {
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "", response = PaginatedLocationAreaSummaryList.class)
     })
-    public Response locationAreaList(@QueryParam("limit")  @ApiParam("Number of results to return per page.")  Integer limit,@QueryParam("offset")  @ApiParam("The initial index from which to return the results.")  Integer offset) {
+    public Response locationAreaList(@QueryParam("limit")  @ApiParam("Number of results to return per page.")  Integer limit
+,@QueryParam("offset")  @ApiParam("The initial index from which to return the results.")  Integer offset
+) {
         return Response.ok().entity("magic!").build();
     }
 
@@ -848,7 +938,8 @@ public class ApiApi {
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "", response = LocationAreaDetail.class)
     })
-    public Response locationAreaRetrieve(@PathParam("id") @ApiParam("A unique integer value identifying this location area.") Integer id) {
+    public Response locationAreaRetrieve(@PathParam("id") @ApiParam("A unique integer value identifying this location area.") Integer id
+) {
         return Response.ok().entity("magic!").build();
     }
 
@@ -864,7 +955,10 @@ public class ApiApi {
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "", response = PaginatedLocationSummaryList.class)
     })
-    public Response locationList(@QueryParam("limit")  @ApiParam("Number of results to return per page.")  Integer limit,@QueryParam("offset")  @ApiParam("The initial index from which to return the results.")  Integer offset,@QueryParam("q")  @ApiParam("&gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property. ")  String q) {
+    public Response locationList(@QueryParam("limit")  @ApiParam("Number of results to return per page.")  Integer limit
+,@QueryParam("offset")  @ApiParam("The initial index from which to return the results.")  Integer offset
+,@QueryParam("q")  @ApiParam("&gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property. ")  String q
+) {
         return Response.ok().entity("magic!").build();
     }
 
@@ -880,7 +974,8 @@ public class ApiApi {
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "", response = LocationDetail.class)
     })
-    public Response locationRetrieve(@PathParam("id") @ApiParam("This parameter can be a string or an integer.") String id) {
+    public Response locationRetrieve(@PathParam("id") @ApiParam("This parameter can be a string or an integer.") String id
+) {
         return Response.ok().entity("magic!").build();
     }
 
@@ -896,7 +991,10 @@ public class ApiApi {
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "", response = PaginatedMachineSummaryList.class)
     })
-    public Response machineList(@QueryParam("limit")  @ApiParam("Number of results to return per page.")  Integer limit,@QueryParam("offset")  @ApiParam("The initial index from which to return the results.")  Integer offset,@QueryParam("q")  @ApiParam("&gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property. ")  String q) {
+    public Response machineList(@QueryParam("limit")  @ApiParam("Number of results to return per page.")  Integer limit
+,@QueryParam("offset")  @ApiParam("The initial index from which to return the results.")  Integer offset
+,@QueryParam("q")  @ApiParam("&gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property. ")  String q
+) {
         return Response.ok().entity("magic!").build();
     }
 
@@ -912,7 +1010,8 @@ public class ApiApi {
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "", response = MachineDetail.class)
     })
-    public Response machineRetrieve(@PathParam("id") @ApiParam("This parameter can be a string or an integer.") String id) {
+    public Response machineRetrieve(@PathParam("id") @ApiParam("This parameter can be a string or an integer.") String id
+) {
         return Response.ok().entity("magic!").build();
     }
 
@@ -928,7 +1027,10 @@ public class ApiApi {
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "", response = PaginatedMoveMetaAilmentSummaryList.class)
     })
-    public Response moveAilmentList(@QueryParam("limit")  @ApiParam("Number of results to return per page.")  Integer limit,@QueryParam("offset")  @ApiParam("The initial index from which to return the results.")  Integer offset,@QueryParam("q")  @ApiParam("&gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property. ")  String q) {
+    public Response moveAilmentList(@QueryParam("limit")  @ApiParam("Number of results to return per page.")  Integer limit
+,@QueryParam("offset")  @ApiParam("The initial index from which to return the results.")  Integer offset
+,@QueryParam("q")  @ApiParam("&gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property. ")  String q
+) {
         return Response.ok().entity("magic!").build();
     }
 
@@ -944,7 +1046,8 @@ public class ApiApi {
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "", response = MoveMetaAilmentDetail.class)
     })
-    public Response moveAilmentRetrieve(@PathParam("id") @ApiParam("This parameter can be a string or an integer.") String id) {
+    public Response moveAilmentRetrieve(@PathParam("id") @ApiParam("This parameter can be a string or an integer.") String id
+) {
         return Response.ok().entity("magic!").build();
     }
 
@@ -960,7 +1063,10 @@ public class ApiApi {
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "", response = PaginatedMoveBattleStyleSummaryList.class)
     })
-    public Response moveBattleStyleList(@QueryParam("limit")  @ApiParam("Number of results to return per page.")  Integer limit,@QueryParam("offset")  @ApiParam("The initial index from which to return the results.")  Integer offset,@QueryParam("q")  @ApiParam("&gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property. ")  String q) {
+    public Response moveBattleStyleList(@QueryParam("limit")  @ApiParam("Number of results to return per page.")  Integer limit
+,@QueryParam("offset")  @ApiParam("The initial index from which to return the results.")  Integer offset
+,@QueryParam("q")  @ApiParam("&gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property. ")  String q
+) {
         return Response.ok().entity("magic!").build();
     }
 
@@ -976,7 +1082,8 @@ public class ApiApi {
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "", response = MoveBattleStyleDetail.class)
     })
-    public Response moveBattleStyleRetrieve(@PathParam("id") @ApiParam("This parameter can be a string or an integer.") String id) {
+    public Response moveBattleStyleRetrieve(@PathParam("id") @ApiParam("This parameter can be a string or an integer.") String id
+) {
         return Response.ok().entity("magic!").build();
     }
 
@@ -992,7 +1099,10 @@ public class ApiApi {
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "", response = PaginatedMoveMetaCategorySummaryList.class)
     })
-    public Response moveCategoryList(@QueryParam("limit")  @ApiParam("Number of results to return per page.")  Integer limit,@QueryParam("offset")  @ApiParam("The initial index from which to return the results.")  Integer offset,@QueryParam("q")  @ApiParam("&gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property. ")  String q) {
+    public Response moveCategoryList(@QueryParam("limit")  @ApiParam("Number of results to return per page.")  Integer limit
+,@QueryParam("offset")  @ApiParam("The initial index from which to return the results.")  Integer offset
+,@QueryParam("q")  @ApiParam("&gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property. ")  String q
+) {
         return Response.ok().entity("magic!").build();
     }
 
@@ -1008,7 +1118,8 @@ public class ApiApi {
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "", response = MoveMetaCategoryDetail.class)
     })
-    public Response moveCategoryRetrieve(@PathParam("id") @ApiParam("This parameter can be a string or an integer.") String id) {
+    public Response moveCategoryRetrieve(@PathParam("id") @ApiParam("This parameter can be a string or an integer.") String id
+) {
         return Response.ok().entity("magic!").build();
     }
 
@@ -1024,7 +1135,10 @@ public class ApiApi {
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "", response = PaginatedMoveDamageClassSummaryList.class)
     })
-    public Response moveDamageClassList(@QueryParam("limit")  @ApiParam("Number of results to return per page.")  Integer limit,@QueryParam("offset")  @ApiParam("The initial index from which to return the results.")  Integer offset,@QueryParam("q")  @ApiParam("&gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property. ")  String q) {
+    public Response moveDamageClassList(@QueryParam("limit")  @ApiParam("Number of results to return per page.")  Integer limit
+,@QueryParam("offset")  @ApiParam("The initial index from which to return the results.")  Integer offset
+,@QueryParam("q")  @ApiParam("&gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property. ")  String q
+) {
         return Response.ok().entity("magic!").build();
     }
 
@@ -1040,7 +1154,8 @@ public class ApiApi {
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "", response = MoveDamageClassDetail.class)
     })
-    public Response moveDamageClassRetrieve(@PathParam("id") @ApiParam("This parameter can be a string or an integer.") String id) {
+    public Response moveDamageClassRetrieve(@PathParam("id") @ApiParam("This parameter can be a string or an integer.") String id
+) {
         return Response.ok().entity("magic!").build();
     }
 
@@ -1056,7 +1171,10 @@ public class ApiApi {
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "", response = PaginatedMoveLearnMethodSummaryList.class)
     })
-    public Response moveLearnMethodList(@QueryParam("limit")  @ApiParam("Number of results to return per page.")  Integer limit,@QueryParam("offset")  @ApiParam("The initial index from which to return the results.")  Integer offset,@QueryParam("q")  @ApiParam("&gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property. ")  String q) {
+    public Response moveLearnMethodList(@QueryParam("limit")  @ApiParam("Number of results to return per page.")  Integer limit
+,@QueryParam("offset")  @ApiParam("The initial index from which to return the results.")  Integer offset
+,@QueryParam("q")  @ApiParam("&gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property. ")  String q
+) {
         return Response.ok().entity("magic!").build();
     }
 
@@ -1072,7 +1190,8 @@ public class ApiApi {
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "", response = MoveLearnMethodDetail.class)
     })
-    public Response moveLearnMethodRetrieve(@PathParam("id") @ApiParam("This parameter can be a string or an integer.") String id) {
+    public Response moveLearnMethodRetrieve(@PathParam("id") @ApiParam("This parameter can be a string or an integer.") String id
+) {
         return Response.ok().entity("magic!").build();
     }
 
@@ -1088,7 +1207,10 @@ public class ApiApi {
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "", response = PaginatedMoveSummaryList.class)
     })
-    public Response moveList(@QueryParam("limit")  @ApiParam("Number of results to return per page.")  Integer limit,@QueryParam("offset")  @ApiParam("The initial index from which to return the results.")  Integer offset,@QueryParam("q")  @ApiParam("&gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property. ")  String q) {
+    public Response moveList(@QueryParam("limit")  @ApiParam("Number of results to return per page.")  Integer limit
+,@QueryParam("offset")  @ApiParam("The initial index from which to return the results.")  Integer offset
+,@QueryParam("q")  @ApiParam("&gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property. ")  String q
+) {
         return Response.ok().entity("magic!").build();
     }
 
@@ -1104,7 +1226,8 @@ public class ApiApi {
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "", response = MoveDetail.class)
     })
-    public Response moveRetrieve(@PathParam("id") @ApiParam("This parameter can be a string or an integer.") String id) {
+    public Response moveRetrieve(@PathParam("id") @ApiParam("This parameter can be a string or an integer.") String id
+) {
         return Response.ok().entity("magic!").build();
     }
 
@@ -1120,7 +1243,10 @@ public class ApiApi {
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "", response = PaginatedMoveTargetSummaryList.class)
     })
-    public Response moveTargetList(@QueryParam("limit")  @ApiParam("Number of results to return per page.")  Integer limit,@QueryParam("offset")  @ApiParam("The initial index from which to return the results.")  Integer offset,@QueryParam("q")  @ApiParam("&gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property. ")  String q) {
+    public Response moveTargetList(@QueryParam("limit")  @ApiParam("Number of results to return per page.")  Integer limit
+,@QueryParam("offset")  @ApiParam("The initial index from which to return the results.")  Integer offset
+,@QueryParam("q")  @ApiParam("&gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property. ")  String q
+) {
         return Response.ok().entity("magic!").build();
     }
 
@@ -1136,7 +1262,8 @@ public class ApiApi {
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "", response = MoveTargetDetail.class)
     })
-    public Response moveTargetRetrieve(@PathParam("id") @ApiParam("This parameter can be a string or an integer.") String id) {
+    public Response moveTargetRetrieve(@PathParam("id") @ApiParam("This parameter can be a string or an integer.") String id
+) {
         return Response.ok().entity("magic!").build();
     }
 
@@ -1152,7 +1279,10 @@ public class ApiApi {
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "", response = PaginatedNatureSummaryList.class)
     })
-    public Response natureList(@QueryParam("limit")  @ApiParam("Number of results to return per page.")  Integer limit,@QueryParam("offset")  @ApiParam("The initial index from which to return the results.")  Integer offset,@QueryParam("q")  @ApiParam("&gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property. ")  String q) {
+    public Response natureList(@QueryParam("limit")  @ApiParam("Number of results to return per page.")  Integer limit
+,@QueryParam("offset")  @ApiParam("The initial index from which to return the results.")  Integer offset
+,@QueryParam("q")  @ApiParam("&gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property. ")  String q
+) {
         return Response.ok().entity("magic!").build();
     }
 
@@ -1168,7 +1298,8 @@ public class ApiApi {
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "", response = NatureDetail.class)
     })
-    public Response natureRetrieve(@PathParam("id") @ApiParam("This parameter can be a string or an integer.") String id) {
+    public Response natureRetrieve(@PathParam("id") @ApiParam("This parameter can be a string or an integer.") String id
+) {
         return Response.ok().entity("magic!").build();
     }
 
@@ -1184,7 +1315,10 @@ public class ApiApi {
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "", response = PaginatedPalParkAreaSummaryList.class)
     })
-    public Response palParkAreaList(@QueryParam("limit")  @ApiParam("Number of results to return per page.")  Integer limit,@QueryParam("offset")  @ApiParam("The initial index from which to return the results.")  Integer offset,@QueryParam("q")  @ApiParam("&gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property. ")  String q) {
+    public Response palParkAreaList(@QueryParam("limit")  @ApiParam("Number of results to return per page.")  Integer limit
+,@QueryParam("offset")  @ApiParam("The initial index from which to return the results.")  Integer offset
+,@QueryParam("q")  @ApiParam("&gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property. ")  String q
+) {
         return Response.ok().entity("magic!").build();
     }
 
@@ -1200,7 +1334,8 @@ public class ApiApi {
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "", response = PalParkAreaDetail.class)
     })
-    public Response palParkAreaRetrieve(@PathParam("id") @ApiParam("This parameter can be a string or an integer.") String id) {
+    public Response palParkAreaRetrieve(@PathParam("id") @ApiParam("This parameter can be a string or an integer.") String id
+) {
         return Response.ok().entity("magic!").build();
     }
 
@@ -1216,7 +1351,10 @@ public class ApiApi {
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "", response = PaginatedPokeathlonStatSummaryList.class)
     })
-    public Response pokeathlonStatList(@QueryParam("limit")  @ApiParam("Number of results to return per page.")  Integer limit,@QueryParam("offset")  @ApiParam("The initial index from which to return the results.")  Integer offset,@QueryParam("q")  @ApiParam("&gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property. ")  String q) {
+    public Response pokeathlonStatList(@QueryParam("limit")  @ApiParam("Number of results to return per page.")  Integer limit
+,@QueryParam("offset")  @ApiParam("The initial index from which to return the results.")  Integer offset
+,@QueryParam("q")  @ApiParam("&gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property. ")  String q
+) {
         return Response.ok().entity("magic!").build();
     }
 
@@ -1232,7 +1370,8 @@ public class ApiApi {
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "", response = PokeathlonStatDetail.class)
     })
-    public Response pokeathlonStatRetrieve(@PathParam("id") @ApiParam("This parameter can be a string or an integer.") String id) {
+    public Response pokeathlonStatRetrieve(@PathParam("id") @ApiParam("This parameter can be a string or an integer.") String id
+) {
         return Response.ok().entity("magic!").build();
     }
 
@@ -1248,7 +1387,10 @@ public class ApiApi {
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "", response = PaginatedPokedexSummaryList.class)
     })
-    public Response pokedexList(@QueryParam("limit")  @ApiParam("Number of results to return per page.")  Integer limit,@QueryParam("offset")  @ApiParam("The initial index from which to return the results.")  Integer offset,@QueryParam("q")  @ApiParam("&gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property. ")  String q) {
+    public Response pokedexList(@QueryParam("limit")  @ApiParam("Number of results to return per page.")  Integer limit
+,@QueryParam("offset")  @ApiParam("The initial index from which to return the results.")  Integer offset
+,@QueryParam("q")  @ApiParam("&gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property. ")  String q
+) {
         return Response.ok().entity("magic!").build();
     }
 
@@ -1264,7 +1406,8 @@ public class ApiApi {
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "", response = PokedexDetail.class)
     })
-    public Response pokedexRetrieve(@PathParam("id") @ApiParam("This parameter can be a string or an integer.") String id) {
+    public Response pokedexRetrieve(@PathParam("id") @ApiParam("This parameter can be a string or an integer.") String id
+) {
         return Response.ok().entity("magic!").build();
     }
 
@@ -1280,7 +1423,10 @@ public class ApiApi {
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "", response = PaginatedPokemonColorSummaryList.class)
     })
-    public Response pokemonColorList(@QueryParam("limit")  @ApiParam("Number of results to return per page.")  Integer limit,@QueryParam("offset")  @ApiParam("The initial index from which to return the results.")  Integer offset,@QueryParam("q")  @ApiParam("&gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property. ")  String q) {
+    public Response pokemonColorList(@QueryParam("limit")  @ApiParam("Number of results to return per page.")  Integer limit
+,@QueryParam("offset")  @ApiParam("The initial index from which to return the results.")  Integer offset
+,@QueryParam("q")  @ApiParam("&gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property. ")  String q
+) {
         return Response.ok().entity("magic!").build();
     }
 
@@ -1296,7 +1442,8 @@ public class ApiApi {
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "", response = PokemonColorDetail.class)
     })
-    public Response pokemonColorRetrieve(@PathParam("id") @ApiParam("This parameter can be a string or an integer.") String id) {
+    public Response pokemonColorRetrieve(@PathParam("id") @ApiParam("This parameter can be a string or an integer.") String id
+) {
         return Response.ok().entity("magic!").build();
     }
 
@@ -1312,7 +1459,10 @@ public class ApiApi {
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "", response = PaginatedPokemonFormSummaryList.class)
     })
-    public Response pokemonFormList(@QueryParam("limit")  @ApiParam("Number of results to return per page.")  Integer limit,@QueryParam("offset")  @ApiParam("The initial index from which to return the results.")  Integer offset,@QueryParam("q")  @ApiParam("&gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property. ")  String q) {
+    public Response pokemonFormList(@QueryParam("limit")  @ApiParam("Number of results to return per page.")  Integer limit
+,@QueryParam("offset")  @ApiParam("The initial index from which to return the results.")  Integer offset
+,@QueryParam("q")  @ApiParam("&gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property. ")  String q
+) {
         return Response.ok().entity("magic!").build();
     }
 
@@ -1328,7 +1478,8 @@ public class ApiApi {
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "", response = PokemonFormDetail.class)
     })
-    public Response pokemonFormRetrieve(@PathParam("id") @ApiParam("This parameter can be a string or an integer.") String id) {
+    public Response pokemonFormRetrieve(@PathParam("id") @ApiParam("This parameter can be a string or an integer.") String id
+) {
         return Response.ok().entity("magic!").build();
     }
 
@@ -1344,7 +1495,10 @@ public class ApiApi {
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "", response = PaginatedPokemonHabitatSummaryList.class)
     })
-    public Response pokemonHabitatList(@QueryParam("limit")  @ApiParam("Number of results to return per page.")  Integer limit,@QueryParam("offset")  @ApiParam("The initial index from which to return the results.")  Integer offset,@QueryParam("q")  @ApiParam("&gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property. ")  String q) {
+    public Response pokemonHabitatList(@QueryParam("limit")  @ApiParam("Number of results to return per page.")  Integer limit
+,@QueryParam("offset")  @ApiParam("The initial index from which to return the results.")  Integer offset
+,@QueryParam("q")  @ApiParam("&gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property. ")  String q
+) {
         return Response.ok().entity("magic!").build();
     }
 
@@ -1360,7 +1514,8 @@ public class ApiApi {
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "", response = PokemonHabitatDetail.class)
     })
-    public Response pokemonHabitatRetrieve(@PathParam("id") @ApiParam("This parameter can be a string or an integer.") String id) {
+    public Response pokemonHabitatRetrieve(@PathParam("id") @ApiParam("This parameter can be a string or an integer.") String id
+) {
         return Response.ok().entity("magic!").build();
     }
 
@@ -1376,7 +1531,10 @@ public class ApiApi {
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "", response = PaginatedPokemonSummaryList.class)
     })
-    public Response pokemonList(@QueryParam("limit")  @ApiParam("Number of results to return per page.")  Integer limit,@QueryParam("offset")  @ApiParam("The initial index from which to return the results.")  Integer offset,@QueryParam("q")  @ApiParam("&gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property. ")  String q) {
+    public Response pokemonList(@QueryParam("limit")  @ApiParam("Number of results to return per page.")  Integer limit
+,@QueryParam("offset")  @ApiParam("The initial index from which to return the results.")  Integer offset
+,@QueryParam("q")  @ApiParam("&gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property. ")  String q
+) {
         return Response.ok().entity("magic!").build();
     }
 
@@ -1392,7 +1550,8 @@ public class ApiApi {
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "", response = PokemonDetail.class)
     })
-    public Response pokemonRetrieve(@PathParam("id") @ApiParam("This parameter can be a string or an integer.") String id) {
+    public Response pokemonRetrieve(@PathParam("id") @ApiParam("This parameter can be a string or an integer.") String id
+) {
         return Response.ok().entity("magic!").build();
     }
 
@@ -1408,7 +1567,10 @@ public class ApiApi {
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "", response = PaginatedPokemonShapeSummaryList.class)
     })
-    public Response pokemonShapeList(@QueryParam("limit")  @ApiParam("Number of results to return per page.")  Integer limit,@QueryParam("offset")  @ApiParam("The initial index from which to return the results.")  Integer offset,@QueryParam("q")  @ApiParam("&gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property. ")  String q) {
+    public Response pokemonShapeList(@QueryParam("limit")  @ApiParam("Number of results to return per page.")  Integer limit
+,@QueryParam("offset")  @ApiParam("The initial index from which to return the results.")  Integer offset
+,@QueryParam("q")  @ApiParam("&gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property. ")  String q
+) {
         return Response.ok().entity("magic!").build();
     }
 
@@ -1424,7 +1586,8 @@ public class ApiApi {
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "", response = PokemonShapeDetail.class)
     })
-    public Response pokemonShapeRetrieve(@PathParam("id") @ApiParam("This parameter can be a string or an integer.") String id) {
+    public Response pokemonShapeRetrieve(@PathParam("id") @ApiParam("This parameter can be a string or an integer.") String id
+) {
         return Response.ok().entity("magic!").build();
     }
 
@@ -1440,7 +1603,10 @@ public class ApiApi {
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "", response = PaginatedPokemonSpeciesSummaryList.class)
     })
-    public Response pokemonSpeciesList(@QueryParam("limit")  @ApiParam("Number of results to return per page.")  Integer limit,@QueryParam("offset")  @ApiParam("The initial index from which to return the results.")  Integer offset,@QueryParam("q")  @ApiParam("&gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property. ")  String q) {
+    public Response pokemonSpeciesList(@QueryParam("limit")  @ApiParam("Number of results to return per page.")  Integer limit
+,@QueryParam("offset")  @ApiParam("The initial index from which to return the results.")  Integer offset
+,@QueryParam("q")  @ApiParam("&gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property. ")  String q
+) {
         return Response.ok().entity("magic!").build();
     }
 
@@ -1456,7 +1622,8 @@ public class ApiApi {
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "", response = PokemonSpeciesDetail.class)
     })
-    public Response pokemonSpeciesRetrieve(@PathParam("id") @ApiParam("This parameter can be a string or an integer.") String id) {
+    public Response pokemonSpeciesRetrieve(@PathParam("id") @ApiParam("This parameter can be a string or an integer.") String id
+) {
         return Response.ok().entity("magic!").build();
     }
 
@@ -1472,7 +1639,10 @@ public class ApiApi {
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "", response = PaginatedRegionSummaryList.class)
     })
-    public Response regionList(@QueryParam("limit")  @ApiParam("Number of results to return per page.")  Integer limit,@QueryParam("offset")  @ApiParam("The initial index from which to return the results.")  Integer offset,@QueryParam("q")  @ApiParam("&gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property. ")  String q) {
+    public Response regionList(@QueryParam("limit")  @ApiParam("Number of results to return per page.")  Integer limit
+,@QueryParam("offset")  @ApiParam("The initial index from which to return the results.")  Integer offset
+,@QueryParam("q")  @ApiParam("&gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property. ")  String q
+) {
         return Response.ok().entity("magic!").build();
     }
 
@@ -1488,7 +1658,8 @@ public class ApiApi {
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "", response = RegionDetail.class)
     })
-    public Response regionRetrieve(@PathParam("id") @ApiParam("This parameter can be a string or an integer.") String id) {
+    public Response regionRetrieve(@PathParam("id") @ApiParam("This parameter can be a string or an integer.") String id
+) {
         return Response.ok().entity("magic!").build();
     }
 
@@ -1504,7 +1675,10 @@ public class ApiApi {
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "", response = PaginatedStatSummaryList.class)
     })
-    public Response statList(@QueryParam("limit")  @ApiParam("Number of results to return per page.")  Integer limit,@QueryParam("offset")  @ApiParam("The initial index from which to return the results.")  Integer offset,@QueryParam("q")  @ApiParam("&gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property. ")  String q) {
+    public Response statList(@QueryParam("limit")  @ApiParam("Number of results to return per page.")  Integer limit
+,@QueryParam("offset")  @ApiParam("The initial index from which to return the results.")  Integer offset
+,@QueryParam("q")  @ApiParam("&gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property. ")  String q
+) {
         return Response.ok().entity("magic!").build();
     }
 
@@ -1520,7 +1694,8 @@ public class ApiApi {
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "", response = StatDetail.class)
     })
-    public Response statRetrieve(@PathParam("id") @ApiParam("This parameter can be a string or an integer.") String id) {
+    public Response statRetrieve(@PathParam("id") @ApiParam("This parameter can be a string or an integer.") String id
+) {
         return Response.ok().entity("magic!").build();
     }
 
@@ -1536,7 +1711,10 @@ public class ApiApi {
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "", response = PaginatedSuperContestEffectSummaryList.class)
     })
-    public Response superContestEffectList(@QueryParam("limit")  @ApiParam("Number of results to return per page.")  Integer limit,@QueryParam("offset")  @ApiParam("The initial index from which to return the results.")  Integer offset,@QueryParam("q")  @ApiParam("&gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property. ")  String q) {
+    public Response superContestEffectList(@QueryParam("limit")  @ApiParam("Number of results to return per page.")  Integer limit
+,@QueryParam("offset")  @ApiParam("The initial index from which to return the results.")  Integer offset
+,@QueryParam("q")  @ApiParam("&gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property. ")  String q
+) {
         return Response.ok().entity("magic!").build();
     }
 
@@ -1552,7 +1730,8 @@ public class ApiApi {
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "", response = SuperContestEffectDetail.class)
     })
-    public Response superContestEffectRetrieve(@PathParam("id") @ApiParam("This parameter can be a string or an integer.") String id) {
+    public Response superContestEffectRetrieve(@PathParam("id") @ApiParam("This parameter can be a string or an integer.") String id
+) {
         return Response.ok().entity("magic!").build();
     }
 
@@ -1568,7 +1747,10 @@ public class ApiApi {
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "", response = PaginatedTypeSummaryList.class)
     })
-    public Response typeList(@QueryParam("limit")  @ApiParam("Number of results to return per page.")  Integer limit,@QueryParam("offset")  @ApiParam("The initial index from which to return the results.")  Integer offset,@QueryParam("q")  @ApiParam("&gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property. ")  String q) {
+    public Response typeList(@QueryParam("limit")  @ApiParam("Number of results to return per page.")  Integer limit
+,@QueryParam("offset")  @ApiParam("The initial index from which to return the results.")  Integer offset
+,@QueryParam("q")  @ApiParam("&gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property. ")  String q
+) {
         return Response.ok().entity("magic!").build();
     }
 
@@ -1584,7 +1766,8 @@ public class ApiApi {
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "", response = TypeDetail.class)
     })
-    public Response typeRetrieve(@PathParam("id") @ApiParam("This parameter can be a string or an integer.") String id) {
+    public Response typeRetrieve(@PathParam("id") @ApiParam("This parameter can be a string or an integer.") String id
+) {
         return Response.ok().entity("magic!").build();
     }
 
@@ -1600,7 +1783,10 @@ public class ApiApi {
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "", response = PaginatedVersionGroupSummaryList.class)
     })
-    public Response versionGroupList(@QueryParam("limit")  @ApiParam("Number of results to return per page.")  Integer limit,@QueryParam("offset")  @ApiParam("The initial index from which to return the results.")  Integer offset,@QueryParam("q")  @ApiParam("&gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property. ")  String q) {
+    public Response versionGroupList(@QueryParam("limit")  @ApiParam("Number of results to return per page.")  Integer limit
+,@QueryParam("offset")  @ApiParam("The initial index from which to return the results.")  Integer offset
+,@QueryParam("q")  @ApiParam("&gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property. ")  String q
+) {
         return Response.ok().entity("magic!").build();
     }
 
@@ -1616,7 +1802,8 @@ public class ApiApi {
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "", response = VersionGroupDetail.class)
     })
-    public Response versionGroupRetrieve(@PathParam("id") @ApiParam("This parameter can be a string or an integer.") String id) {
+    public Response versionGroupRetrieve(@PathParam("id") @ApiParam("This parameter can be a string or an integer.") String id
+) {
         return Response.ok().entity("magic!").build();
     }
 
@@ -1632,7 +1819,10 @@ public class ApiApi {
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "", response = PaginatedVersionSummaryList.class)
     })
-    public Response versionList(@QueryParam("limit")  @ApiParam("Number of results to return per page.")  Integer limit,@QueryParam("offset")  @ApiParam("The initial index from which to return the results.")  Integer offset,@QueryParam("q")  @ApiParam("&gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property. ")  String q) {
+    public Response versionList(@QueryParam("limit")  @ApiParam("Number of results to return per page.")  Integer limit
+,@QueryParam("offset")  @ApiParam("The initial index from which to return the results.")  Integer offset
+,@QueryParam("q")  @ApiParam("&gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property. ")  String q
+) {
         return Response.ok().entity("magic!").build();
     }
 
@@ -1648,7 +1838,8 @@ public class ApiApi {
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "", response = VersionDetail.class)
     })
-    public Response versionRetrieve(@PathParam("id") @ApiParam("This parameter can be a string or an integer.") String id) {
+    public Response versionRetrieve(@PathParam("id") @ApiParam("This parameter can be a string or an integer.") String id
+) {
         return Response.ok().entity("magic!").build();
     }
 }

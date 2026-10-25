@@ -29,26 +29,18 @@ import {
 export interface PaginatedBerrySummaryList {
     /**
      * 
-     * @type {number}
-     * @memberof PaginatedBerrySummaryList
      */
     count?: number;
     /**
      * 
-     * @type {string}
-     * @memberof PaginatedBerrySummaryList
      */
     next?: string;
     /**
      * 
-     * @type {string}
-     * @memberof PaginatedBerrySummaryList
      */
     previous?: string;
     /**
      * 
-     * @type {Array<BerrySummary>}
-     * @memberof PaginatedBerrySummaryList
      */
     results?: Array<BerrySummary>;
 }

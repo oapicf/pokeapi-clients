@@ -22,13 +22,13 @@ import org.openapitools.jackson.nullable.JsonNullable;
 
 
 @JsonTypeName("MoveLearnMethodDetail")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2026-08-30T01:56:42.280002256Z[Etc/UTC]", comments = "Generator version: 7.24.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2026-10-25T05:48:57.630723375Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 public class MoveLearnMethodDetail   {
   private Integer id;
   private String name;
-  private @Valid List<@Valid MoveLearnMethodName> names = new ArrayList<>();
-  private @Valid List<@Valid MoveLearnMethodDescription> descriptions = new ArrayList<>();
-  private @Valid List<@Valid AbilityDetailPokemonInnerPokemon> versionGroups = new ArrayList<>();
+  private List<@Valid MoveLearnMethodName> names = new ArrayList<>();
+  private List<@Valid MoveLearnMethodDescription> descriptions = new ArrayList<>();
+  private List<@Valid AbilityDetailPokemonInnerPokemon> versionGroups = new ArrayList<>();
 
   public MoveLearnMethodDetail() {
   }
@@ -96,7 +96,7 @@ public class MoveLearnMethodDetail   {
   
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(required = true, value = "names")
-  @Valid public List<@Valid MoveLearnMethodName> getNames() {
+  public List<@Valid MoveLearnMethodName> getNames() {
     return names;
   }
 
@@ -131,7 +131,7 @@ public class MoveLearnMethodDetail   {
   
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(required = true, value = "descriptions")
-  @Valid public List<@Valid MoveLearnMethodDescription> getDescriptions() {
+  public List<@Valid MoveLearnMethodDescription> getDescriptions() {
     return descriptions;
   }
 
@@ -166,7 +166,7 @@ public class MoveLearnMethodDetail   {
   
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(required = true, value = "version_groups")
-  @Valid public List<@Valid AbilityDetailPokemonInnerPokemon> getVersionGroups() {
+  public List<@Valid AbilityDetailPokemonInnerPokemon> getVersionGroups() {
     return versionGroups;
   }
 

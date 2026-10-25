@@ -191,34 +191,34 @@ namespace Org.OpenAPITools.Model
             }
 
             if (!id.IsSet)
-                throw new ArgumentException("Property is required for class ItemAttributeDetail.", nameof(id));
+                throw new JsonException("Property is required for class ItemAttributeDetail: id.");
 
             if (!name.IsSet)
-                throw new ArgumentException("Property is required for class ItemAttributeDetail.", nameof(name));
+                throw new JsonException("Property is required for class ItemAttributeDetail: name.");
 
             if (!descriptions.IsSet)
-                throw new ArgumentException("Property is required for class ItemAttributeDetail.", nameof(descriptions));
+                throw new JsonException("Property is required for class ItemAttributeDetail: descriptions.");
 
             if (!items.IsSet)
-                throw new ArgumentException("Property is required for class ItemAttributeDetail.", nameof(items));
+                throw new JsonException("Property is required for class ItemAttributeDetail: items.");
 
             if (!names.IsSet)
-                throw new ArgumentException("Property is required for class ItemAttributeDetail.", nameof(names));
+                throw new JsonException("Property is required for class ItemAttributeDetail: names.");
 
             if (id.IsSet && id.Value == null)
-                throw new ArgumentNullException(nameof(id), "Property is not nullable for class ItemAttributeDetail.");
+                throw new JsonException("Property is not nullable for class ItemAttributeDetail: id.");
 
             if (name.IsSet && name.Value == null)
-                throw new ArgumentNullException(nameof(name), "Property is not nullable for class ItemAttributeDetail.");
+                throw new JsonException("Property is not nullable for class ItemAttributeDetail: name.");
 
             if (descriptions.IsSet && descriptions.Value == null)
-                throw new ArgumentNullException(nameof(descriptions), "Property is not nullable for class ItemAttributeDetail.");
+                throw new JsonException("Property is not nullable for class ItemAttributeDetail: descriptions.");
 
             if (items.IsSet && items.Value == null)
-                throw new ArgumentNullException(nameof(items), "Property is not nullable for class ItemAttributeDetail.");
+                throw new JsonException("Property is not nullable for class ItemAttributeDetail: items.");
 
             if (names.IsSet && names.Value == null)
-                throw new ArgumentNullException(nameof(names), "Property is not nullable for class ItemAttributeDetail.");
+                throw new JsonException("Property is not nullable for class ItemAttributeDetail: names.");
 
             return new ItemAttributeDetail(id.Value!.Value!, name.Value!, descriptions.Value!, items.Value!, names.Value!);
         }
@@ -229,7 +229,6 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="itemAttributeDetail"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public override void Write(Utf8JsonWriter writer, ItemAttributeDetail itemAttributeDetail, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteStartObject();
@@ -244,21 +243,8 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="itemAttributeDetail"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, ItemAttributeDetail itemAttributeDetail, JsonSerializerOptions jsonSerializerOptions)
         {
-            if (itemAttributeDetail.Name == null)
-                throw new ArgumentNullException(nameof(itemAttributeDetail.Name), "Property is required for class ItemAttributeDetail.");
-
-            if (itemAttributeDetail.Descriptions == null)
-                throw new ArgumentNullException(nameof(itemAttributeDetail.Descriptions), "Property is required for class ItemAttributeDetail.");
-
-            if (itemAttributeDetail.Items == null)
-                throw new ArgumentNullException(nameof(itemAttributeDetail.Items), "Property is required for class ItemAttributeDetail.");
-
-            if (itemAttributeDetail.Names == null)
-                throw new ArgumentNullException(nameof(itemAttributeDetail.Names), "Property is required for class ItemAttributeDetail.");
-
             writer.WriteNumber("id", itemAttributeDetail.Id);
 
             writer.WriteString("name", itemAttributeDetail.Name);

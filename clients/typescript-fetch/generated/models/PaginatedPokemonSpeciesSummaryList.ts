@@ -29,26 +29,18 @@ import {
 export interface PaginatedPokemonSpeciesSummaryList {
     /**
      * 
-     * @type {number}
-     * @memberof PaginatedPokemonSpeciesSummaryList
      */
     count?: number;
     /**
      * 
-     * @type {string}
-     * @memberof PaginatedPokemonSpeciesSummaryList
      */
     next?: string;
     /**
      * 
-     * @type {string}
-     * @memberof PaginatedPokemonSpeciesSummaryList
      */
     previous?: string;
     /**
      * 
-     * @type {Array<PokemonSpeciesSummary>}
-     * @memberof PaginatedPokemonSpeciesSummaryList
      */
     results?: Array<PokemonSpeciesSummary>;
 }

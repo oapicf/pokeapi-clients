@@ -191,34 +191,34 @@ namespace Org.OpenAPITools.Model
             }
 
             if (!id.IsSet)
-                throw new ArgumentException("Property is required for class PokemonShapeDetail.", nameof(id));
+                throw new JsonException("Property is required for class PokemonShapeDetail: id.");
 
             if (!name.IsSet)
-                throw new ArgumentException("Property is required for class PokemonShapeDetail.", nameof(name));
+                throw new JsonException("Property is required for class PokemonShapeDetail: name.");
 
             if (!awesomeNames.IsSet)
-                throw new ArgumentException("Property is required for class PokemonShapeDetail.", nameof(awesomeNames));
+                throw new JsonException("Property is required for class PokemonShapeDetail: awesome_names.");
 
             if (!names.IsSet)
-                throw new ArgumentException("Property is required for class PokemonShapeDetail.", nameof(names));
+                throw new JsonException("Property is required for class PokemonShapeDetail: names.");
 
             if (!pokemonSpecies.IsSet)
-                throw new ArgumentException("Property is required for class PokemonShapeDetail.", nameof(pokemonSpecies));
+                throw new JsonException("Property is required for class PokemonShapeDetail: pokemon_species.");
 
             if (id.IsSet && id.Value == null)
-                throw new ArgumentNullException(nameof(id), "Property is not nullable for class PokemonShapeDetail.");
+                throw new JsonException("Property is not nullable for class PokemonShapeDetail: id.");
 
             if (name.IsSet && name.Value == null)
-                throw new ArgumentNullException(nameof(name), "Property is not nullable for class PokemonShapeDetail.");
+                throw new JsonException("Property is not nullable for class PokemonShapeDetail: name.");
 
             if (awesomeNames.IsSet && awesomeNames.Value == null)
-                throw new ArgumentNullException(nameof(awesomeNames), "Property is not nullable for class PokemonShapeDetail.");
+                throw new JsonException("Property is not nullable for class PokemonShapeDetail: awesome_names.");
 
             if (names.IsSet && names.Value == null)
-                throw new ArgumentNullException(nameof(names), "Property is not nullable for class PokemonShapeDetail.");
+                throw new JsonException("Property is not nullable for class PokemonShapeDetail: names.");
 
             if (pokemonSpecies.IsSet && pokemonSpecies.Value == null)
-                throw new ArgumentNullException(nameof(pokemonSpecies), "Property is not nullable for class PokemonShapeDetail.");
+                throw new JsonException("Property is not nullable for class PokemonShapeDetail: pokemon_species.");
 
             return new PokemonShapeDetail(id.Value!.Value!, name.Value!, awesomeNames.Value!, names.Value!, pokemonSpecies.Value!);
         }
@@ -229,7 +229,6 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="pokemonShapeDetail"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public override void Write(Utf8JsonWriter writer, PokemonShapeDetail pokemonShapeDetail, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteStartObject();
@@ -244,21 +243,8 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="pokemonShapeDetail"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, PokemonShapeDetail pokemonShapeDetail, JsonSerializerOptions jsonSerializerOptions)
         {
-            if (pokemonShapeDetail.Name == null)
-                throw new ArgumentNullException(nameof(pokemonShapeDetail.Name), "Property is required for class PokemonShapeDetail.");
-
-            if (pokemonShapeDetail.AwesomeNames == null)
-                throw new ArgumentNullException(nameof(pokemonShapeDetail.AwesomeNames), "Property is required for class PokemonShapeDetail.");
-
-            if (pokemonShapeDetail.Names == null)
-                throw new ArgumentNullException(nameof(pokemonShapeDetail.Names), "Property is required for class PokemonShapeDetail.");
-
-            if (pokemonShapeDetail.PokemonSpecies == null)
-                throw new ArgumentNullException(nameof(pokemonShapeDetail.PokemonSpecies), "Property is required for class PokemonShapeDetail.");
-
             writer.WriteNumber("id", pokemonShapeDetail.Id);
 
             writer.WriteString("name", pokemonShapeDetail.Name);

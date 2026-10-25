@@ -25,7 +25,6 @@ public class PaginatedMachineSummaryList  {
   private URI previous;
 
   @ApiModelProperty(value = "")
-  @Valid
   private List<@Valid MachineSummary> results = new ArrayList<>();
  /**
   * Get count

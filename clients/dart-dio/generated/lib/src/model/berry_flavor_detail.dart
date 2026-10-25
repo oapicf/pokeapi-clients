@@ -172,3 +172,4 @@ class _$BerryFlavorDetailSerializer implements PrimitiveSerializer<BerryFlavorDe
   }
 }
 
+

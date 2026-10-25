@@ -36,26 +36,18 @@ import {
 export interface MoveMetaAilmentDetail {
     /**
      * 
-     * @type {number}
-     * @memberof MoveMetaAilmentDetail
      */
     readonly id: number;
     /**
      * 
-     * @type {string}
-     * @memberof MoveMetaAilmentDetail
      */
     name: string;
     /**
      * 
-     * @type {Array<AbilityDetailPokemonInnerPokemon>}
-     * @memberof MoveMetaAilmentDetail
      */
     readonly moves: Array<AbilityDetailPokemonInnerPokemon>;
     /**
      * 
-     * @type {Array<MoveMetaAilmentName>}
-     * @memberof MoveMetaAilmentDetail
      */
     readonly names: Array<MoveMetaAilmentName>;
 }

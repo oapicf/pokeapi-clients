@@ -86,15 +86,13 @@ class MoveMetaCategoryDetail(BaseModel):
         _items = []
         if self.descriptions:
             for _item_descriptions in self.descriptions:
-                if _item_descriptions:
-                    _items.append(_item_descriptions.to_dict())
+                _items.append(_item_descriptions.to_dict() if _item_descriptions is not None else None)
             _dict['descriptions'] = _items
         # override the default output from pydantic by calling `to_dict()` of each item in moves (list)
         _items = []
         if self.moves:
             for _item_moves in self.moves:
-                if _item_moves:
-                    _items.append(_item_moves.to_dict())
+                _items.append(_item_moves.to_dict() if _item_moves is not None else None)
             _dict['moves'] = _items
         return _dict
 

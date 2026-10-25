@@ -29,8 +29,6 @@ public class PaginatedSuperContestEffectSummaryList  {
 
   @ApiModelProperty(value = "")
 
-  @Valid
-
   private List<@Valid SuperContestEffectSummary> results = new ArrayList<>();
  /**
    * Get count

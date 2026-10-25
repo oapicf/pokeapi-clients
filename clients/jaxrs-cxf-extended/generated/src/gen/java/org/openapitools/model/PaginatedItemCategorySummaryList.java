@@ -25,7 +25,6 @@ public class PaginatedItemCategorySummaryList  {
   private URI previous;
 
   @ApiModelProperty(value = "")
-  @Valid
   private List<@Valid ItemCategorySummary> results = new ArrayList<>();
  /**
   * Get count

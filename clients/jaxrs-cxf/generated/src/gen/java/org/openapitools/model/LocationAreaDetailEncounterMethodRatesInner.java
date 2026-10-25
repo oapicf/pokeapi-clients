@@ -24,8 +24,6 @@ public class LocationAreaDetailEncounterMethodRatesInner  {
 
   @ApiModelProperty(required = true, value = "")
 
-  @Valid
-
   private List<@Valid LocationAreaDetailEncounterMethodRatesInnerVersionDetailsInner> versionDetails = new ArrayList<>();
  /**
    * Get encounterMethod

@@ -78,8 +78,7 @@ class EvolutionChainDetailChainEvolvesToInner(BaseModel):
         _items = []
         if self.evolution_details:
             for _item_evolution_details in self.evolution_details:
-                if _item_evolution_details:
-                    _items.append(_item_evolution_details.to_dict())
+                _items.append(_item_evolution_details.to_dict() if _item_evolution_details is not None else None)
             _dict['evolution_details'] = _items
         # override the default output from pydantic by calling `to_dict()` of species
         if self.species:

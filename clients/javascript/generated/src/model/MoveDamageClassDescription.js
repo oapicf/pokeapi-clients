@@ -17,7 +17,7 @@ import LanguageSummary from './LanguageSummary';
 /**
  * The MoveDamageClassDescription model module.
  * @module model/MoveDamageClassDescription
- * @version 2.0.1-pre.0
+ * @version 2.1.1-pre.0
  */
 class MoveDamageClassDescription {
     /**

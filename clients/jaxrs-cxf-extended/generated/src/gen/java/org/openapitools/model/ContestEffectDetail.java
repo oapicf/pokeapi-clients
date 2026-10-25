@@ -25,11 +25,9 @@ public class ContestEffectDetail  {
   private Integer jam;
 
   @ApiModelProperty(required = true, value = "")
-  @Valid
   private List<@Valid ContestEffectEffectText> effectEntries = new ArrayList<>();
 
   @ApiModelProperty(required = true, value = "")
-  @Valid
   private List<@Valid ContestEffectFlavorText> flavorTextEntries = new ArrayList<>();
  /**
   * Get id

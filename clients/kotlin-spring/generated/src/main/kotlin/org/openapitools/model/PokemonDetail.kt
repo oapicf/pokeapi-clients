@@ -1,10 +1,7 @@
 package org.openapitools.model
 
 import java.util.Objects
-import com.fasterxml.jackson.annotation.JsonInclude
 import com.fasterxml.jackson.annotation.JsonProperty
-import com.fasterxml.jackson.annotation.JsonSetter
-import com.fasterxml.jackson.annotation.Nulls
 import org.openapitools.model.PokemonDetailAbilitiesInner
 import org.openapitools.model.PokemonDetailCries
 import org.openapitools.model.PokemonDetailHeldItems
@@ -54,76 +51,76 @@ import io.swagger.v3.oas.annotations.media.Schema
 data class PokemonDetail(
 
     @Schema(required = true, readOnly = true, description = "")
-    @param:JsonProperty("id")
+    @param:JsonProperty("id", required = true)
     @get:JsonProperty("id", required = true) val id: kotlin.Int,
 
     @get:Size(max=100)
     @Schema(required = true, description = "")
-    @param:JsonProperty("name")
+    @param:JsonProperty("name", required = true)
     @get:JsonProperty("name", required = true) val name: kotlin.String,
 
     @field:Valid
     @Schema(required = true, readOnly = true, description = "")
-    @param:JsonProperty("abilities")
+    @param:JsonProperty("abilities", required = true)
     @get:JsonProperty("abilities", required = true) val abilities: kotlin.collections.List<PokemonDetailAbilitiesInner>,
 
     @field:Valid
     @Schema(required = true, readOnly = true, description = "")
-    @param:JsonProperty("past_abilities")
+    @param:JsonProperty("past_abilities", required = true)
     @get:JsonProperty("past_abilities", required = true) val pastAbilities: kotlin.collections.List<PokemonDetailPastAbilitiesInner>,
 
     @field:Valid
     @Schema(required = true, readOnly = true, description = "")
-    @param:JsonProperty("forms")
+    @param:JsonProperty("forms", required = true)
     @get:JsonProperty("forms", required = true) val forms: kotlin.collections.List<PokemonFormSummary>,
 
     @field:Valid
     @Schema(required = true, readOnly = true, description = "")
-    @param:JsonProperty("game_indices")
+    @param:JsonProperty("game_indices", required = true)
     @get:JsonProperty("game_indices", required = true) val gameIndices: kotlin.collections.List<PokemonGameIndex>,
 
     @field:Valid
     @Schema(required = true, description = "")
-    @param:JsonProperty("held_items")
+    @param:JsonProperty("held_items", required = true)
     @get:JsonProperty("held_items", required = true) val heldItems: PokemonDetailHeldItems,
 
     @Schema(required = true, readOnly = true, description = "")
-    @param:JsonProperty("location_area_encounters")
+    @param:JsonProperty("location_area_encounters", required = true)
     @get:JsonProperty("location_area_encounters", required = true) val locationAreaEncounters: kotlin.String,
 
     @field:Valid
     @Schema(required = true, readOnly = true, description = "")
-    @param:JsonProperty("moves")
+    @param:JsonProperty("moves", required = true)
     @get:JsonProperty("moves", required = true) val moves: kotlin.collections.List<PokemonDetailMovesInner>,
 
     @field:Valid
     @Schema(required = true, description = "")
-    @param:JsonProperty("species")
+    @param:JsonProperty("species", required = true)
     @get:JsonProperty("species", required = true) val species: PokemonSpeciesSummary,
 
     @field:Valid
     @Schema(required = true, description = "")
-    @param:JsonProperty("sprites")
+    @param:JsonProperty("sprites", required = true)
     @get:JsonProperty("sprites", required = true) val sprites: PokemonDetailSprites,
 
     @field:Valid
     @Schema(required = true, description = "")
-    @param:JsonProperty("cries")
+    @param:JsonProperty("cries", required = true)
     @get:JsonProperty("cries", required = true) val cries: PokemonDetailCries,
 
     @field:Valid
     @Schema(required = true, readOnly = true, description = "")
-    @param:JsonProperty("stats")
+    @param:JsonProperty("stats", required = true)
     @get:JsonProperty("stats", required = true) val stats: kotlin.collections.List<PokemonStat>,
 
     @field:Valid
     @Schema(required = true, readOnly = true, description = "")
-    @param:JsonProperty("types")
+    @param:JsonProperty("types", required = true)
     @get:JsonProperty("types", required = true) val types: kotlin.collections.List<PokemonDetailTypesInner>,
 
     @field:Valid
     @Schema(required = true, readOnly = true, description = "")
-    @param:JsonProperty("past_types")
+    @param:JsonProperty("past_types", required = true)
     @get:JsonProperty("past_types", required = true) val pastTypes: kotlin.collections.List<PokemonDetailPastTypesInner>,
 
     @Schema(description = "")
@@ -135,8 +132,6 @@ data class PokemonDetail(
     @get:JsonProperty("height") val height: kotlin.Int? = null,
 
     @Schema(description = "")
-    @field:JsonInclude(JsonInclude.Include.NON_NULL)
-    @field:JsonSetter(nulls = Nulls.SKIP)
     @param:JsonProperty("is_default")
     @get:JsonProperty("is_default") val isDefault: kotlin.Boolean? = null,
 

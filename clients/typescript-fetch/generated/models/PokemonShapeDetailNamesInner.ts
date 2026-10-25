@@ -21,14 +21,10 @@ import { mapValues } from '../runtime';
 export interface PokemonShapeDetailNamesInner {
     /**
      * 
-     * @type {string}
-     * @memberof PokemonShapeDetailNamesInner
      */
     url: string;
     /**
      * 
-     * @type {string}
-     * @memberof PokemonShapeDetailNamesInner
      */
     name: string;
 }

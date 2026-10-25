@@ -166,3 +166,4 @@ class _$PaginatedPalParkAreaSummaryListSerializer implements PrimitiveSerializer
   }
 }
 
+

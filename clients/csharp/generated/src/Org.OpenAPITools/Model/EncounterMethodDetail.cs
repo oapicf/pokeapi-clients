@@ -185,22 +185,22 @@ namespace Org.OpenAPITools.Model
             }
 
             if (!id.IsSet)
-                throw new ArgumentException("Property is required for class EncounterMethodDetail.", nameof(id));
+                throw new JsonException("Property is required for class EncounterMethodDetail: id.");
 
             if (!name.IsSet)
-                throw new ArgumentException("Property is required for class EncounterMethodDetail.", nameof(name));
+                throw new JsonException("Property is required for class EncounterMethodDetail: name.");
 
             if (!names.IsSet)
-                throw new ArgumentException("Property is required for class EncounterMethodDetail.", nameof(names));
+                throw new JsonException("Property is required for class EncounterMethodDetail: names.");
 
             if (id.IsSet && id.Value == null)
-                throw new ArgumentNullException(nameof(id), "Property is not nullable for class EncounterMethodDetail.");
+                throw new JsonException("Property is not nullable for class EncounterMethodDetail: id.");
 
             if (name.IsSet && name.Value == null)
-                throw new ArgumentNullException(nameof(name), "Property is not nullable for class EncounterMethodDetail.");
+                throw new JsonException("Property is not nullable for class EncounterMethodDetail: name.");
 
             if (names.IsSet && names.Value == null)
-                throw new ArgumentNullException(nameof(names), "Property is not nullable for class EncounterMethodDetail.");
+                throw new JsonException("Property is not nullable for class EncounterMethodDetail: names.");
 
             return new EncounterMethodDetail(id.Value!.Value!, name.Value!, names.Value!, order);
         }
@@ -211,7 +211,6 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="encounterMethodDetail"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public override void Write(Utf8JsonWriter writer, EncounterMethodDetail encounterMethodDetail, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteStartObject();
@@ -226,15 +225,8 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="encounterMethodDetail"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, EncounterMethodDetail encounterMethodDetail, JsonSerializerOptions jsonSerializerOptions)
         {
-            if (encounterMethodDetail.Name == null)
-                throw new ArgumentNullException(nameof(encounterMethodDetail.Name), "Property is required for class EncounterMethodDetail.");
-
-            if (encounterMethodDetail.Names == null)
-                throw new ArgumentNullException(nameof(encounterMethodDetail.Names), "Property is required for class EncounterMethodDetail.");
-
             writer.WriteNumber("id", encounterMethodDetail.Id);
 
             writer.WriteString("name", encounterMethodDetail.Name);

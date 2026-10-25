@@ -152,16 +152,16 @@ namespace Org.OpenAPITools.Model
             }
 
             if (!name.IsSet)
-                throw new ArgumentException("Property is required for class NatureName.", nameof(name));
+                throw new JsonException("Property is required for class NatureName: name.");
 
             if (!language.IsSet)
-                throw new ArgumentException("Property is required for class NatureName.", nameof(language));
+                throw new JsonException("Property is required for class NatureName: language.");
 
             if (name.IsSet && name.Value == null)
-                throw new ArgumentNullException(nameof(name), "Property is not nullable for class NatureName.");
+                throw new JsonException("Property is not nullable for class NatureName: name.");
 
             if (language.IsSet && language.Value == null)
-                throw new ArgumentNullException(nameof(language), "Property is not nullable for class NatureName.");
+                throw new JsonException("Property is not nullable for class NatureName: language.");
 
             return new NatureName(name.Value!, language.Value!);
         }
@@ -172,7 +172,6 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="natureName"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public override void Write(Utf8JsonWriter writer, NatureName natureName, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteStartObject();
@@ -187,15 +186,8 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="natureName"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, NatureName natureName, JsonSerializerOptions jsonSerializerOptions)
         {
-            if (natureName.Name == null)
-                throw new ArgumentNullException(nameof(natureName.Name), "Property is required for class NatureName.");
-
-            if (natureName.Language == null)
-                throw new ArgumentNullException(nameof(natureName.Language), "Property is required for class NatureName.");
-
             writer.WriteString("name", natureName.Name);
 
             writer.WritePropertyName("language");

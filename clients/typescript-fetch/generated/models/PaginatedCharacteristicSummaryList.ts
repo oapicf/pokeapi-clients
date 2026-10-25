@@ -29,26 +29,18 @@ import {
 export interface PaginatedCharacteristicSummaryList {
     /**
      * 
-     * @type {number}
-     * @memberof PaginatedCharacteristicSummaryList
      */
     count?: number;
     /**
      * 
-     * @type {string}
-     * @memberof PaginatedCharacteristicSummaryList
      */
     next?: string;
     /**
      * 
-     * @type {string}
-     * @memberof PaginatedCharacteristicSummaryList
      */
     previous?: string;
     /**
      * 
-     * @type {Array<CharacteristicSummary>}
-     * @memberof PaginatedCharacteristicSummaryList
      */
     results?: Array<CharacteristicSummary>;
 }

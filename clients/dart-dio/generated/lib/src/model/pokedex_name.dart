@@ -121,3 +121,4 @@ class _$PokedexNameSerializer implements PrimitiveSerializer<PokedexName> {
   }
 }
 
+

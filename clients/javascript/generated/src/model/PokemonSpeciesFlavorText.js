@@ -18,7 +18,7 @@ import VersionSummary from './VersionSummary';
 /**
  * The PokemonSpeciesFlavorText model module.
  * @module model/PokemonSpeciesFlavorText
- * @version 2.0.1-pre.0
+ * @version 2.1.1-pre.0
  */
 class PokemonSpeciesFlavorText {
     /**

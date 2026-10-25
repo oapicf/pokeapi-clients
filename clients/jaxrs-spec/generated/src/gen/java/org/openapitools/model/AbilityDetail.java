@@ -25,17 +25,17 @@ import org.openapitools.jackson.nullable.JsonNullable;
 
 
 @JsonTypeName("AbilityDetail")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2026-08-30T01:56:42.280002256Z[Etc/UTC]", comments = "Generator version: 7.24.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2026-10-25T05:48:57.630723375Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 public class AbilityDetail   {
   private Integer id;
   private String name;
   private Boolean isMainSeries;
   private GenerationSummary generation;
-  private @Valid List<@Valid AbilityName> names = new ArrayList<>();
-  private @Valid List<@Valid AbilityEffectText> effectEntries = new ArrayList<>();
-  private @Valid List<@Valid AbilityChange> effectChanges = new ArrayList<>();
-  private @Valid List<@Valid AbilityFlavorText> flavorTextEntries = new ArrayList<>();
-  private @Valid List<@Valid AbilityDetailPokemonInner> pokemon = new ArrayList<>();
+  private List<@Valid AbilityName> names = new ArrayList<>();
+  private List<@Valid AbilityEffectText> effectEntries = new ArrayList<>();
+  private List<@Valid AbilityChange> effectChanges = new ArrayList<>();
+  private List<@Valid AbilityFlavorText> flavorTextEntries = new ArrayList<>();
+  private List<@Valid AbilityDetailPokemonInner> pokemon = new ArrayList<>();
 
   public AbilityDetail() {
   }
@@ -147,7 +147,7 @@ public class AbilityDetail   {
   
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(required = true, value = "names")
-  @Valid public List<@Valid AbilityName> getNames() {
+  public List<@Valid AbilityName> getNames() {
     return names;
   }
 
@@ -182,7 +182,7 @@ public class AbilityDetail   {
   
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(required = true, value = "effect_entries")
-  @Valid public List<@Valid AbilityEffectText> getEffectEntries() {
+  public List<@Valid AbilityEffectText> getEffectEntries() {
     return effectEntries;
   }
 
@@ -217,7 +217,7 @@ public class AbilityDetail   {
   
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(required = true, value = "effect_changes")
-  @Valid public List<@Valid AbilityChange> getEffectChanges() {
+  public List<@Valid AbilityChange> getEffectChanges() {
     return effectChanges;
   }
 
@@ -252,7 +252,7 @@ public class AbilityDetail   {
   
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(required = true, value = "flavor_text_entries")
-  @Valid public List<@Valid AbilityFlavorText> getFlavorTextEntries() {
+  public List<@Valid AbilityFlavorText> getFlavorTextEntries() {
     return flavorTextEntries;
   }
 
@@ -287,7 +287,7 @@ public class AbilityDetail   {
   
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(required = true, value = "pokemon")
-  @Valid public List<@Valid AbilityDetailPokemonInner> getPokemon() {
+  public List<@Valid AbilityDetailPokemonInner> getPokemon() {
     return pokemon;
   }
 

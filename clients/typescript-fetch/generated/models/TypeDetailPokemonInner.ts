@@ -29,14 +29,10 @@ import {
 export interface TypeDetailPokemonInner {
     /**
      * 
-     * @type {number}
-     * @memberof TypeDetailPokemonInner
      */
     slot?: number;
     /**
      * 
-     * @type {TypeDetailPokemonInnerPokemon}
-     * @memberof TypeDetailPokemonInner
      */
     pokemon?: TypeDetailPokemonInnerPokemon;
 }

@@ -36,26 +36,18 @@ import {
 export interface EggGroupDetail {
     /**
      * 
-     * @type {number}
-     * @memberof EggGroupDetail
      */
     readonly id: number;
     /**
      * 
-     * @type {string}
-     * @memberof EggGroupDetail
      */
     name: string;
     /**
      * 
-     * @type {Array<EggGroupName>}
-     * @memberof EggGroupDetail
      */
     readonly names: Array<EggGroupName>;
     /**
      * 
-     * @type {Array<EggGroupDetailPokemonSpeciesInner>}
-     * @memberof EggGroupDetail
      */
     readonly pokemonSpecies: Array<EggGroupDetailPokemonSpeciesInner>;
 }

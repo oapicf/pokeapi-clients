@@ -21,8 +21,6 @@ import { mapValues } from '../runtime';
 export interface SuperContestEffectSummary {
     /**
      * 
-     * @type {string}
-     * @memberof SuperContestEffectSummary
      */
     readonly url: string;
 }

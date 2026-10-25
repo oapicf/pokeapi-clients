@@ -25,7 +25,6 @@ public class PaginatedMoveTargetSummaryList  {
   private URI previous;
 
   @ApiModelProperty(value = "")
-  @Valid
   private List<@Valid MoveTargetSummary> results = new ArrayList<>();
  /**
   * Get count

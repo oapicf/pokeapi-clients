@@ -80,8 +80,7 @@ class LocationAreaDetailPokemonEncountersInner(BaseModel):
         _items = []
         if self.version_details:
             for _item_version_details in self.version_details:
-                if _item_version_details:
-                    _items.append(_item_version_details.to_dict())
+                _items.append(_item_version_details.to_dict() if _item_version_details is not None else None)
             _dict['version_details'] = _items
         return _dict
 

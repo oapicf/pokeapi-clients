@@ -120,3 +120,4 @@ class _$PokemonShapeDetailNamesInnerSerializer implements PrimitiveSerializer<Po
   }
 }
 
+

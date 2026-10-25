@@ -29,8 +29,6 @@ public class PaginatedMoveDamageClassSummaryList  {
 
   @ApiModelProperty(value = "")
 
-  @Valid
-
   private List<@Valid MoveDamageClassSummary> results = new ArrayList<>();
  /**
    * Get count

@@ -121,3 +121,4 @@ class _$PokemonGameIndexSerializer implements PrimitiveSerializer<PokemonGameInd
   }
 }
 
+

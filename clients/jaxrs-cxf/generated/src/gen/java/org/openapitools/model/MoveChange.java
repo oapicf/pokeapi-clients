@@ -35,8 +35,6 @@ public class MoveChange  {
 
   @ApiModelProperty(required = true, value = "")
 
-  @Valid
-
   private List<@Valid MoveChangeEffectEntriesInner> effectEntries = new ArrayList<>();
 
   @ApiModelProperty(required = true, value = "")

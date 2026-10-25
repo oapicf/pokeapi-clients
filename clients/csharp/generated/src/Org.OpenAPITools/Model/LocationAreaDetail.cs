@@ -217,46 +217,46 @@ namespace Org.OpenAPITools.Model
             }
 
             if (!id.IsSet)
-                throw new ArgumentException("Property is required for class LocationAreaDetail.", nameof(id));
+                throw new JsonException("Property is required for class LocationAreaDetail: id.");
 
             if (!name.IsSet)
-                throw new ArgumentException("Property is required for class LocationAreaDetail.", nameof(name));
+                throw new JsonException("Property is required for class LocationAreaDetail: name.");
 
             if (!gameIndex.IsSet)
-                throw new ArgumentException("Property is required for class LocationAreaDetail.", nameof(gameIndex));
+                throw new JsonException("Property is required for class LocationAreaDetail: game_index.");
 
             if (!encounterMethodRates.IsSet)
-                throw new ArgumentException("Property is required for class LocationAreaDetail.", nameof(encounterMethodRates));
+                throw new JsonException("Property is required for class LocationAreaDetail: encounter_method_rates.");
 
             if (!location.IsSet)
-                throw new ArgumentException("Property is required for class LocationAreaDetail.", nameof(location));
+                throw new JsonException("Property is required for class LocationAreaDetail: location.");
 
             if (!names.IsSet)
-                throw new ArgumentException("Property is required for class LocationAreaDetail.", nameof(names));
+                throw new JsonException("Property is required for class LocationAreaDetail: names.");
 
             if (!pokemonEncounters.IsSet)
-                throw new ArgumentException("Property is required for class LocationAreaDetail.", nameof(pokemonEncounters));
+                throw new JsonException("Property is required for class LocationAreaDetail: pokemon_encounters.");
 
             if (id.IsSet && id.Value == null)
-                throw new ArgumentNullException(nameof(id), "Property is not nullable for class LocationAreaDetail.");
+                throw new JsonException("Property is not nullable for class LocationAreaDetail: id.");
 
             if (name.IsSet && name.Value == null)
-                throw new ArgumentNullException(nameof(name), "Property is not nullable for class LocationAreaDetail.");
+                throw new JsonException("Property is not nullable for class LocationAreaDetail: name.");
 
             if (gameIndex.IsSet && gameIndex.Value == null)
-                throw new ArgumentNullException(nameof(gameIndex), "Property is not nullable for class LocationAreaDetail.");
+                throw new JsonException("Property is not nullable for class LocationAreaDetail: game_index.");
 
             if (encounterMethodRates.IsSet && encounterMethodRates.Value == null)
-                throw new ArgumentNullException(nameof(encounterMethodRates), "Property is not nullable for class LocationAreaDetail.");
+                throw new JsonException("Property is not nullable for class LocationAreaDetail: encounter_method_rates.");
 
             if (location.IsSet && location.Value == null)
-                throw new ArgumentNullException(nameof(location), "Property is not nullable for class LocationAreaDetail.");
+                throw new JsonException("Property is not nullable for class LocationAreaDetail: location.");
 
             if (names.IsSet && names.Value == null)
-                throw new ArgumentNullException(nameof(names), "Property is not nullable for class LocationAreaDetail.");
+                throw new JsonException("Property is not nullable for class LocationAreaDetail: names.");
 
             if (pokemonEncounters.IsSet && pokemonEncounters.Value == null)
-                throw new ArgumentNullException(nameof(pokemonEncounters), "Property is not nullable for class LocationAreaDetail.");
+                throw new JsonException("Property is not nullable for class LocationAreaDetail: pokemon_encounters.");
 
             return new LocationAreaDetail(id.Value!.Value!, name.Value!, gameIndex.Value!.Value!, encounterMethodRates.Value!, location.Value!, names.Value!, pokemonEncounters.Value!);
         }
@@ -267,7 +267,6 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="locationAreaDetail"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public override void Write(Utf8JsonWriter writer, LocationAreaDetail locationAreaDetail, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteStartObject();
@@ -282,24 +281,8 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="locationAreaDetail"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, LocationAreaDetail locationAreaDetail, JsonSerializerOptions jsonSerializerOptions)
         {
-            if (locationAreaDetail.Name == null)
-                throw new ArgumentNullException(nameof(locationAreaDetail.Name), "Property is required for class LocationAreaDetail.");
-
-            if (locationAreaDetail.EncounterMethodRates == null)
-                throw new ArgumentNullException(nameof(locationAreaDetail.EncounterMethodRates), "Property is required for class LocationAreaDetail.");
-
-            if (locationAreaDetail.Location == null)
-                throw new ArgumentNullException(nameof(locationAreaDetail.Location), "Property is required for class LocationAreaDetail.");
-
-            if (locationAreaDetail.Names == null)
-                throw new ArgumentNullException(nameof(locationAreaDetail.Names), "Property is required for class LocationAreaDetail.");
-
-            if (locationAreaDetail.PokemonEncounters == null)
-                throw new ArgumentNullException(nameof(locationAreaDetail.PokemonEncounters), "Property is required for class LocationAreaDetail.");
-
             writer.WriteNumber("id", locationAreaDetail.Id);
 
             writer.WriteString("name", locationAreaDetail.Name);

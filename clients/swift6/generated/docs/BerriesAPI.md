@@ -14,7 +14,7 @@ Method | HTTP request | Description
 
 # **berryFirmnessList**
 ```swift
-    open class func berryFirmnessList(limit: Int? = nil, offset: Int? = nil, q: String? = nil, completion: @escaping (_ data: PaginatedBerryFirmnessSummaryList?, _ error: Error?) -> Void)
+    open class func berryFirmnessList(limit: Int? = nil, offset: Int? = nil, q: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> PaginatedBerryFirmnessSummaryList
 ```
 
 List berry firmness
@@ -31,15 +31,11 @@ let offset = 987 // Int | The initial index from which to return the results. (o
 let q = "q_example" // String | > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property.  (optional)
 
 // List berry firmness
-BerriesAPI.berryFirmnessList(limit: limit, offset: offset, q: q) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await BerriesAPI.berryFirmnessList(limit: limit, offset: offset, q: q)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -68,7 +64,7 @@ Name | Type | Description  | Notes
 
 # **berryFirmnessRetrieve**
 ```swift
-    open class func berryFirmnessRetrieve(id: String, completion: @escaping (_ data: BerryFirmnessDetail?, _ error: Error?) -> Void)
+    open class func berryFirmnessRetrieve(id: String, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> BerryFirmnessDetail
 ```
 
 Get berry by firmness
@@ -83,15 +79,11 @@ import OpenAPIClient
 let id = "id_example" // String | This parameter can be a string or an integer.
 
 // Get berry by firmness
-BerriesAPI.berryFirmnessRetrieve(id: id) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await BerriesAPI.berryFirmnessRetrieve(id: id)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -118,7 +110,7 @@ Name | Type | Description  | Notes
 
 # **berryFlavorList**
 ```swift
-    open class func berryFlavorList(limit: Int? = nil, offset: Int? = nil, q: String? = nil, completion: @escaping (_ data: PaginatedBerryFlavorSummaryList?, _ error: Error?) -> Void)
+    open class func berryFlavorList(limit: Int? = nil, offset: Int? = nil, q: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> PaginatedBerryFlavorSummaryList
 ```
 
 List berry flavors
@@ -135,15 +127,11 @@ let offset = 987 // Int | The initial index from which to return the results. (o
 let q = "q_example" // String | > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property.  (optional)
 
 // List berry flavors
-BerriesAPI.berryFlavorList(limit: limit, offset: offset, q: q) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await BerriesAPI.berryFlavorList(limit: limit, offset: offset, q: q)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -172,7 +160,7 @@ Name | Type | Description  | Notes
 
 # **berryFlavorRetrieve**
 ```swift
-    open class func berryFlavorRetrieve(id: String, completion: @escaping (_ data: BerryFlavorDetail?, _ error: Error?) -> Void)
+    open class func berryFlavorRetrieve(id: String, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> BerryFlavorDetail
 ```
 
 Get berries by flavor
@@ -187,15 +175,11 @@ import OpenAPIClient
 let id = "id_example" // String | This parameter can be a string or an integer.
 
 // Get berries by flavor
-BerriesAPI.berryFlavorRetrieve(id: id) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await BerriesAPI.berryFlavorRetrieve(id: id)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -222,7 +206,7 @@ Name | Type | Description  | Notes
 
 # **berryList**
 ```swift
-    open class func berryList(limit: Int? = nil, offset: Int? = nil, q: String? = nil, completion: @escaping (_ data: PaginatedBerrySummaryList?, _ error: Error?) -> Void)
+    open class func berryList(limit: Int? = nil, offset: Int? = nil, q: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> PaginatedBerrySummaryList
 ```
 
 List berries
@@ -239,15 +223,11 @@ let offset = 987 // Int | The initial index from which to return the results. (o
 let q = "q_example" // String | > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property.  (optional)
 
 // List berries
-BerriesAPI.berryList(limit: limit, offset: offset, q: q) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await BerriesAPI.berryList(limit: limit, offset: offset, q: q)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -276,7 +256,7 @@ Name | Type | Description  | Notes
 
 # **berryRetrieve**
 ```swift
-    open class func berryRetrieve(id: String, completion: @escaping (_ data: BerryDetail?, _ error: Error?) -> Void)
+    open class func berryRetrieve(id: String, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> BerryDetail
 ```
 
 Get a berry
@@ -291,15 +271,11 @@ import OpenAPIClient
 let id = "id_example" // String | This parameter can be a string or an integer.
 
 // Get a berry
-BerriesAPI.berryRetrieve(id: id) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await BerriesAPI.berryRetrieve(id: id)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 

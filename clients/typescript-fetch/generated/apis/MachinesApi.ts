@@ -25,12 +25,25 @@ import {
 } from '../models/PaginatedMachineSummaryList';
 
 export interface MachineListRequest {
+    /**
+     * Number of results to return per page.
+     */
     limit?: number;
+    /**
+     * The initial index from which to return the results.
+     */
     offset?: number;
+    /**
+     * > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2)
+     * Case-insensitive query applied on the `name` property. 
+     */
     q?: string;
 }
 
 export interface MachineRetrieveRequest {
+    /**
+     * This parameter can be a string or an integer.
+     */
     id: string;
 }
 

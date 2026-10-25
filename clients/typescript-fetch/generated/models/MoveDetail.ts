@@ -141,146 +141,98 @@ import {
 export interface MoveDetail {
     /**
      * 
-     * @type {number}
-     * @memberof MoveDetail
      */
     readonly id: number;
     /**
      * 
-     * @type {string}
-     * @memberof MoveDetail
      */
     name: string;
     /**
      * 
-     * @type {number}
-     * @memberof MoveDetail
      */
     accuracy?: number | null;
     /**
      * 
-     * @type {number}
-     * @memberof MoveDetail
      */
     effectChance: number;
     /**
      * 
-     * @type {number}
-     * @memberof MoveDetail
      */
     pp?: number | null;
     /**
      * 
-     * @type {number}
-     * @memberof MoveDetail
      */
     priority?: number | null;
     /**
      * 
-     * @type {number}
-     * @memberof MoveDetail
      */
     power?: number | null;
     /**
      * 
-     * @type {MoveDetailContestCombos}
-     * @memberof MoveDetail
      */
     contestCombos: MoveDetailContestCombos;
     /**
      * 
-     * @type {ContestTypeSummary}
-     * @memberof MoveDetail
      */
     contestType: ContestTypeSummary;
     /**
      * 
-     * @type {ContestEffectSummary}
-     * @memberof MoveDetail
      */
     contestEffect: ContestEffectSummary;
     /**
      * 
-     * @type {MoveDamageClassSummary}
-     * @memberof MoveDetail
      */
     damageClass: MoveDamageClassSummary;
     /**
      * 
-     * @type {Array<MoveChangeEffectEntriesInner>}
-     * @memberof MoveDetail
      */
     readonly effectEntries: Array<MoveChangeEffectEntriesInner>;
     /**
      * 
-     * @type {Array<MoveDetailEffectChangesInner>}
-     * @memberof MoveDetail
      */
     readonly effectChanges: Array<MoveDetailEffectChangesInner>;
     /**
      * 
-     * @type {GenerationSummary}
-     * @memberof MoveDetail
      */
     generation: GenerationSummary;
     /**
      * 
-     * @type {MoveMeta}
-     * @memberof MoveDetail
      */
     readonly meta: MoveMeta;
     /**
      * 
-     * @type {Array<MoveName>}
-     * @memberof MoveDetail
      */
     readonly names: Array<MoveName>;
     /**
      * 
-     * @type {Array<MoveChange>}
-     * @memberof MoveDetail
      */
     readonly pastValues: Array<MoveChange>;
     /**
      * 
-     * @type {Array<MoveDetailStatChangesInner>}
-     * @memberof MoveDetail
      */
     readonly statChanges: Array<MoveDetailStatChangesInner>;
     /**
      * 
-     * @type {SuperContestEffectSummary}
-     * @memberof MoveDetail
      */
     superContestEffect: SuperContestEffectSummary;
     /**
      * 
-     * @type {MoveTargetSummary}
-     * @memberof MoveDetail
      */
     target: MoveTargetSummary;
     /**
      * 
-     * @type {TypeSummary}
-     * @memberof MoveDetail
      */
     type: TypeSummary;
     /**
      * 
-     * @type {Array<MoveDetailMachinesInner>}
-     * @memberof MoveDetail
      */
     readonly machines: Array<MoveDetailMachinesInner>;
     /**
      * 
-     * @type {Array<MoveFlavorText>}
-     * @memberof MoveDetail
      */
     readonly flavorTextEntries: Array<MoveFlavorText>;
     /**
      * 
-     * @type {Array<AbilityDetailPokemonInnerPokemon>}
-     * @memberof MoveDetail
      */
     readonly learnedByPokemon: Array<AbilityDetailPokemonInnerPokemon>;
 }

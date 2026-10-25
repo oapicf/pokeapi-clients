@@ -24,7 +24,7 @@ import jakarta.annotation.Generated;
  * GrowthRateDetail
  */
 
-@Generated(value = "org.openapitools.codegen.languages.JavaCamelServerCodegen", date = "2026-08-30T01:56:15.309401083Z[Etc/UTC]", comments = "Generator version: 7.24.0")
+@Generated(value = "org.openapitools.codegen.languages.JavaCamelServerCodegen", date = "2026-10-25T05:48:25.711080506Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 public class GrowthRateDetail {
 
   private Integer id;
@@ -33,13 +33,10 @@ public class GrowthRateDetail {
 
   private String formula;
 
-  @Valid
   private List<@Valid GrowthRateDescription> descriptions = new ArrayList<>();
 
-  @Valid
   private List<@Valid Experience> levels = new ArrayList<>();
 
-  @Valid
   private List<@Valid PokemonSpeciesSummary> pokemonSpecies = new ArrayList<>();
 
   public GrowthRateDetail() {
@@ -135,7 +132,7 @@ public class GrowthRateDetail {
    * Get descriptions
    * @return descriptions
    */
-  @Valid 
+  
   @Schema(name = "descriptions", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("descriptions")
   public List<@Valid GrowthRateDescription> getDescriptions() {
@@ -163,7 +160,7 @@ public class GrowthRateDetail {
    * Get levels
    * @return levels
    */
-  @Valid 
+  
   @Schema(name = "levels", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("levels")
   public List<@Valid Experience> getLevels() {
@@ -191,7 +188,7 @@ public class GrowthRateDetail {
    * Get pokemonSpecies
    * @return pokemonSpecies
    */
-  @Valid 
+  
   @Schema(name = "pokemon_species", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("pokemon_species")
   public List<@Valid PokemonSpeciesSummary> getPokemonSpecies() {

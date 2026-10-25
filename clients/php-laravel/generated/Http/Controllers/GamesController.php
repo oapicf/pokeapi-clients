@@ -51,10 +51,10 @@ class GamesController extends Controller
     {
         $validator = Validator::make(
             array_merge(
+                $request->all(),
                 [
                     
                 ],
-                $request->all(),
             ),
             [
                 'limit' => [
@@ -100,10 +100,10 @@ class GamesController extends Controller
     {
         $validator = Validator::make(
             array_merge(
+                $request->all(),
                 [
                     'id' => $id,
                 ],
-                $request->all(),
             ),
             [
                 'id' => [
@@ -139,10 +139,10 @@ class GamesController extends Controller
     {
         $validator = Validator::make(
             array_merge(
+                $request->all(),
                 [
                     
                 ],
-                $request->all(),
             ),
             [
                 'limit' => [
@@ -188,10 +188,10 @@ class GamesController extends Controller
     {
         $validator = Validator::make(
             array_merge(
+                $request->all(),
                 [
                     'id' => $id,
                 ],
-                $request->all(),
             ),
             [
                 'id' => [
@@ -227,10 +227,10 @@ class GamesController extends Controller
     {
         $validator = Validator::make(
             array_merge(
+                $request->all(),
                 [
                     
                 ],
-                $request->all(),
             ),
             [
                 'limit' => [
@@ -276,10 +276,10 @@ class GamesController extends Controller
     {
         $validator = Validator::make(
             array_merge(
+                $request->all(),
                 [
                     'id' => $id,
                 ],
-                $request->all(),
             ),
             [
                 'id' => [
@@ -315,10 +315,10 @@ class GamesController extends Controller
     {
         $validator = Validator::make(
             array_merge(
+                $request->all(),
                 [
                     
                 ],
-                $request->all(),
             ),
             [
                 'limit' => [
@@ -364,10 +364,10 @@ class GamesController extends Controller
     {
         $validator = Validator::make(
             array_merge(
+                $request->all(),
                 [
                     'id' => $id,
                 ],
-                $request->all(),
             ),
             [
                 'id' => [

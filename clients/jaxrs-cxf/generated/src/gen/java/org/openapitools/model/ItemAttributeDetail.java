@@ -26,19 +26,13 @@ public class ItemAttributeDetail  {
 
   @ApiModelProperty(required = true, value = "")
 
-  @Valid
-
   private List<@Valid ItemAttributeDescription> descriptions = new ArrayList<>();
 
   @ApiModelProperty(required = true, value = "")
 
-  @Valid
-
   private List<@Valid AbilityDetailPokemonInnerPokemon> items = new ArrayList<>();
 
   @ApiModelProperty(required = true, value = "")
-
-  @Valid
 
   private List<@Valid ItemAttributeName> names = new ArrayList<>();
  /**

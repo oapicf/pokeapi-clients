@@ -26,19 +26,13 @@ public class PokemonShapeDetail  {
 
   @ApiModelProperty(required = true, value = "")
 
-  @Valid
-
   private List<@Valid PokemonShapeDetailAwesomeNamesInner> awesomeNames = new ArrayList<>();
 
   @ApiModelProperty(required = true, value = "")
 
-  @Valid
-
   private List<@Valid PokemonShapeDetailNamesInner> names = new ArrayList<>();
 
   @ApiModelProperty(required = true, value = "")
-
-  @Valid
 
   private List<@Valid PokemonSpeciesSummary> pokemonSpecies = new ArrayList<>();
  /**

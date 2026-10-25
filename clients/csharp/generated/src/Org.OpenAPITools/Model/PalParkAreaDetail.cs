@@ -178,28 +178,28 @@ namespace Org.OpenAPITools.Model
             }
 
             if (!id.IsSet)
-                throw new ArgumentException("Property is required for class PalParkAreaDetail.", nameof(id));
+                throw new JsonException("Property is required for class PalParkAreaDetail: id.");
 
             if (!name.IsSet)
-                throw new ArgumentException("Property is required for class PalParkAreaDetail.", nameof(name));
+                throw new JsonException("Property is required for class PalParkAreaDetail: name.");
 
             if (!names.IsSet)
-                throw new ArgumentException("Property is required for class PalParkAreaDetail.", nameof(names));
+                throw new JsonException("Property is required for class PalParkAreaDetail: names.");
 
             if (!pokemonEncounters.IsSet)
-                throw new ArgumentException("Property is required for class PalParkAreaDetail.", nameof(pokemonEncounters));
+                throw new JsonException("Property is required for class PalParkAreaDetail: pokemon_encounters.");
 
             if (id.IsSet && id.Value == null)
-                throw new ArgumentNullException(nameof(id), "Property is not nullable for class PalParkAreaDetail.");
+                throw new JsonException("Property is not nullable for class PalParkAreaDetail: id.");
 
             if (name.IsSet && name.Value == null)
-                throw new ArgumentNullException(nameof(name), "Property is not nullable for class PalParkAreaDetail.");
+                throw new JsonException("Property is not nullable for class PalParkAreaDetail: name.");
 
             if (names.IsSet && names.Value == null)
-                throw new ArgumentNullException(nameof(names), "Property is not nullable for class PalParkAreaDetail.");
+                throw new JsonException("Property is not nullable for class PalParkAreaDetail: names.");
 
             if (pokemonEncounters.IsSet && pokemonEncounters.Value == null)
-                throw new ArgumentNullException(nameof(pokemonEncounters), "Property is not nullable for class PalParkAreaDetail.");
+                throw new JsonException("Property is not nullable for class PalParkAreaDetail: pokemon_encounters.");
 
             return new PalParkAreaDetail(id.Value!.Value!, name.Value!, names.Value!, pokemonEncounters.Value!);
         }
@@ -210,7 +210,6 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="palParkAreaDetail"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public override void Write(Utf8JsonWriter writer, PalParkAreaDetail palParkAreaDetail, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteStartObject();
@@ -225,18 +224,8 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="palParkAreaDetail"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, PalParkAreaDetail palParkAreaDetail, JsonSerializerOptions jsonSerializerOptions)
         {
-            if (palParkAreaDetail.Name == null)
-                throw new ArgumentNullException(nameof(palParkAreaDetail.Name), "Property is required for class PalParkAreaDetail.");
-
-            if (palParkAreaDetail.Names == null)
-                throw new ArgumentNullException(nameof(palParkAreaDetail.Names), "Property is required for class PalParkAreaDetail.");
-
-            if (palParkAreaDetail.PokemonEncounters == null)
-                throw new ArgumentNullException(nameof(palParkAreaDetail.PokemonEncounters), "Property is required for class PalParkAreaDetail.");
-
             writer.WriteNumber("id", palParkAreaDetail.Id);
 
             writer.WriteString("name", palParkAreaDetail.Name);

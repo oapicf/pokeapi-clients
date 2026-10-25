@@ -40,11 +40,9 @@ public class TypeDetail  {
   private TypeDetailDamageRelations damageRelations;
 
   @ApiModelProperty(required = true, value = "")
-  @Valid
   private List<@Valid TypeDetailPastDamageRelationsInner> pastDamageRelations = new ArrayList<>();
 
   @ApiModelProperty(required = true, value = "")
-  @Valid
   private List<@Valid TypeGameIndex> gameIndices = new ArrayList<>();
 
   @ApiModelProperty(required = true, value = "")
@@ -56,20 +54,16 @@ public class TypeDetail  {
   private MoveDamageClassSummary moveDamageClass;
 
   @ApiModelProperty(required = true, value = "")
-  @Valid
   private List<@Valid AbilityName> names = new ArrayList<>();
 
   @ApiModelProperty(required = true, value = "")
-  @Valid
   private List<@Valid TypeDetailPokemonInner> pokemon = new ArrayList<>();
 
   @ApiModelProperty(required = true, value = "")
-  @Valid
   private List<@Valid MoveSummary> moves = new ArrayList<>();
 
   @ApiModelProperty(required = true, value = "")
-  @Valid
-  private Map<String, Map<String, TypeDetailSpritesValueValue>> sprites = new HashMap<>();
+  private Map<String, Map<String, @Valid TypeDetailSpritesValueValue>> sprites = new HashMap<>();
  /**
   * Get id
   * @return id
@@ -383,7 +377,7 @@ public class TypeDetail  {
   */
   @JsonProperty("sprites")
   @NotNull
-  public Map<String, Map<String, TypeDetailSpritesValueValue>> getSprites() {
+  public Map<String, Map<String, @Valid TypeDetailSpritesValueValue>> getSprites() {
     return sprites;
   }
 
@@ -391,7 +385,7 @@ public class TypeDetail  {
    * Sets the <code>sprites</code> property.
    * <br><em>N.B. <code>sprites</code> is <b>read only</b>; client code should not call this method</em>.
    */
- public void setSprites(Map<String, Map<String, TypeDetailSpritesValueValue>> sprites) {
+ public void setSprites(Map<String, Map<String, @Valid TypeDetailSpritesValueValue>> sprites) {
     this.sprites = sprites;
   }
 
@@ -399,7 +393,7 @@ public class TypeDetail  {
    * Sets the <code>sprites</code> property.
    * <br><em>N.B. <code>sprites</code> is <b>read only</b>; client code should not call this method</em>.
    */
-  public TypeDetail sprites(Map<String, Map<String, TypeDetailSpritesValueValue>> sprites) {
+  public TypeDetail sprites(Map<String, Map<String, @Valid TypeDetailSpritesValueValue>> sprites) {
     this.sprites = sprites;
     return this;
   }
@@ -408,7 +402,7 @@ public class TypeDetail  {
    * Puts a new item into the <code>sprites</code> map.
    * <br><em>N.B. <code>sprites</code> is <b>read only</b>; client code should not call this method</em>.
    */
-  public TypeDetail putSpritesItem(String key, Map<String, TypeDetailSpritesValueValue> spritesItem) {
+  public TypeDetail putSpritesItem(String key, Map<String, @Valid TypeDetailSpritesValueValue> spritesItem) {
     this.sprites.put(key, spritesItem);
     return this;
   }

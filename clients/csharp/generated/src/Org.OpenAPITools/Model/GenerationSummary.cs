@@ -152,16 +152,16 @@ namespace Org.OpenAPITools.Model
             }
 
             if (!name.IsSet)
-                throw new ArgumentException("Property is required for class GenerationSummary.", nameof(name));
+                throw new JsonException("Property is required for class GenerationSummary: name.");
 
             if (!url.IsSet)
-                throw new ArgumentException("Property is required for class GenerationSummary.", nameof(url));
+                throw new JsonException("Property is required for class GenerationSummary: url.");
 
             if (name.IsSet && name.Value == null)
-                throw new ArgumentNullException(nameof(name), "Property is not nullable for class GenerationSummary.");
+                throw new JsonException("Property is not nullable for class GenerationSummary: name.");
 
             if (url.IsSet && url.Value == null)
-                throw new ArgumentNullException(nameof(url), "Property is not nullable for class GenerationSummary.");
+                throw new JsonException("Property is not nullable for class GenerationSummary: url.");
 
             return new GenerationSummary(name.Value!, url.Value!);
         }
@@ -172,7 +172,6 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="generationSummary"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public override void Write(Utf8JsonWriter writer, GenerationSummary generationSummary, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteStartObject();
@@ -187,15 +186,8 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="generationSummary"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, GenerationSummary generationSummary, JsonSerializerOptions jsonSerializerOptions)
         {
-            if (generationSummary.Name == null)
-                throw new ArgumentNullException(nameof(generationSummary.Name), "Property is required for class GenerationSummary.");
-
-            if (generationSummary.Url == null)
-                throw new ArgumentNullException(nameof(generationSummary.Url), "Property is required for class GenerationSummary.");
-
             writer.WriteString("name", generationSummary.Name);
 
             writer.WriteString("url", generationSummary.Url);

@@ -120,3 +120,4 @@ class _$MoveLearnMethodSummarySerializer implements PrimitiveSerializer<MoveLear
   }
 }
 
+

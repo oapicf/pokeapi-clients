@@ -21,12 +21,12 @@ import org.openapitools.jackson.nullable.JsonNullable;
 
 
 @JsonTypeName("MoveMetaCategoryDetail")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2026-08-30T01:56:42.280002256Z[Etc/UTC]", comments = "Generator version: 7.24.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2026-10-25T05:48:57.630723375Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 public class MoveMetaCategoryDetail   {
   private Integer id;
   private String name;
-  private @Valid List<@Valid MoveMetaCategoryDescription> descriptions = new ArrayList<>();
-  private @Valid List<@Valid AbilityDetailPokemonInnerPokemon> moves = new ArrayList<>();
+  private List<@Valid MoveMetaCategoryDescription> descriptions = new ArrayList<>();
+  private List<@Valid AbilityDetailPokemonInnerPokemon> moves = new ArrayList<>();
 
   public MoveMetaCategoryDetail() {
   }
@@ -92,7 +92,7 @@ public class MoveMetaCategoryDetail   {
   
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(required = true, value = "descriptions")
-  @Valid public List<@Valid MoveMetaCategoryDescription> getDescriptions() {
+  public List<@Valid MoveMetaCategoryDescription> getDescriptions() {
     return descriptions;
   }
 
@@ -127,7 +127,7 @@ public class MoveMetaCategoryDetail   {
   
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(required = true, value = "moves")
-  @Valid public List<@Valid AbilityDetailPokemonInnerPokemon> getMoves() {
+  public List<@Valid AbilityDetailPokemonInnerPokemon> getMoves() {
     return moves;
   }
 

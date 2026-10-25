@@ -29,14 +29,10 @@ import {
 export interface PokemonDexEntry {
     /**
      * 
-     * @type {number}
-     * @memberof PokemonDexEntry
      */
     entryNumber: number;
     /**
      * 
-     * @type {PokedexSummary}
-     * @memberof PokemonDexEntry
      */
     pokedex: PokedexSummary;
 }

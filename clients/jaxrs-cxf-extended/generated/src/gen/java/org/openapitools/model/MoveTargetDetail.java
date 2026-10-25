@@ -23,15 +23,12 @@ public class MoveTargetDetail  {
   private String name;
 
   @ApiModelProperty(required = true, value = "")
-  @Valid
   private List<@Valid MoveTargetDescription> descriptions = new ArrayList<>();
 
   @ApiModelProperty(required = true, value = "")
-  @Valid
   private List<@Valid MoveSummary> moves = new ArrayList<>();
 
   @ApiModelProperty(required = true, value = "")
-  @Valid
   private List<@Valid MoveTargetName> names = new ArrayList<>();
  /**
   * Get id

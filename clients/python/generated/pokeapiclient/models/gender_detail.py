@@ -86,15 +86,13 @@ class GenderDetail(BaseModel):
         _items = []
         if self.pokemon_species_details:
             for _item_pokemon_species_details in self.pokemon_species_details:
-                if _item_pokemon_species_details:
-                    _items.append(_item_pokemon_species_details.to_dict())
+                _items.append(_item_pokemon_species_details.to_dict() if _item_pokemon_species_details is not None else None)
             _dict['pokemon_species_details'] = _items
         # override the default output from pydantic by calling `to_dict()` of each item in required_for_evolution (list)
         _items = []
         if self.required_for_evolution:
             for _item_required_for_evolution in self.required_for_evolution:
-                if _item_required_for_evolution:
-                    _items.append(_item_required_for_evolution.to_dict())
+                _items.append(_item_required_for_evolution.to_dict() if _item_required_for_evolution is not None else None)
             _dict['required_for_evolution'] = _items
         return _dict
 

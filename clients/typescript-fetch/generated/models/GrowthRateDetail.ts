@@ -43,38 +43,26 @@ import {
 export interface GrowthRateDetail {
     /**
      * 
-     * @type {number}
-     * @memberof GrowthRateDetail
      */
     readonly id: number;
     /**
      * 
-     * @type {string}
-     * @memberof GrowthRateDetail
      */
     name: string;
     /**
      * 
-     * @type {string}
-     * @memberof GrowthRateDetail
      */
     formula: string;
     /**
      * 
-     * @type {Array<GrowthRateDescription>}
-     * @memberof GrowthRateDetail
      */
     readonly descriptions: Array<GrowthRateDescription>;
     /**
      * 
-     * @type {Array<Experience>}
-     * @memberof GrowthRateDetail
      */
     readonly levels: Array<Experience>;
     /**
      * 
-     * @type {Array<PokemonSpeciesSummary>}
-     * @memberof GrowthRateDetail
      */
     readonly pokemonSpecies: Array<PokemonSpeciesSummary>;
 }

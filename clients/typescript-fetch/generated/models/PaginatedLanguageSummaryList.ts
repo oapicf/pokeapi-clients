@@ -29,26 +29,18 @@ import {
 export interface PaginatedLanguageSummaryList {
     /**
      * 
-     * @type {number}
-     * @memberof PaginatedLanguageSummaryList
      */
     count?: number;
     /**
      * 
-     * @type {string}
-     * @memberof PaginatedLanguageSummaryList
      */
     next?: string;
     /**
      * 
-     * @type {string}
-     * @memberof PaginatedLanguageSummaryList
      */
     previous?: string;
     /**
      * 
-     * @type {Array<LanguageSummary>}
-     * @memberof PaginatedLanguageSummaryList
      */
     results?: Array<LanguageSummary>;
 }

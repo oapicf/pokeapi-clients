@@ -121,3 +121,4 @@ class _$ContestEffectEffectTextSerializer implements PrimitiveSerializer<Contest
   }
 }
 
+

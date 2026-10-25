@@ -23,17 +23,15 @@ import jakarta.annotation.Generated;
  * BerryFirmnessDetail
  */
 
-@Generated(value = "org.openapitools.codegen.languages.JavaCamelServerCodegen", date = "2026-08-30T01:56:15.309401083Z[Etc/UTC]", comments = "Generator version: 7.24.0")
+@Generated(value = "org.openapitools.codegen.languages.JavaCamelServerCodegen", date = "2026-10-25T05:48:25.711080506Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 public class BerryFirmnessDetail {
 
   private Integer id;
 
   private String name;
 
-  @Valid
   private List<@Valid BerrySummary> berries = new ArrayList<>();
 
-  @Valid
   private List<@Valid BerryFirmnessName> names = new ArrayList<>();
 
   public BerryFirmnessDetail() {
@@ -107,7 +105,7 @@ public class BerryFirmnessDetail {
    * Get berries
    * @return berries
    */
-  @Valid 
+  
   @Schema(name = "berries", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("berries")
   public List<@Valid BerrySummary> getBerries() {
@@ -135,7 +133,7 @@ public class BerryFirmnessDetail {
    * Get names
    * @return names
    */
-  @Valid 
+  
   @Schema(name = "names", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("names")
   public List<@Valid BerryFirmnessName> getNames() {

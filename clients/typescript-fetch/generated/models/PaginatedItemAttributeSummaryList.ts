@@ -29,26 +29,18 @@ import {
 export interface PaginatedItemAttributeSummaryList {
     /**
      * 
-     * @type {number}
-     * @memberof PaginatedItemAttributeSummaryList
      */
     count?: number;
     /**
      * 
-     * @type {string}
-     * @memberof PaginatedItemAttributeSummaryList
      */
     next?: string;
     /**
      * 
-     * @type {string}
-     * @memberof PaginatedItemAttributeSummaryList
      */
     previous?: string;
     /**
      * 
-     * @type {Array<ItemAttributeSummary>}
-     * @memberof PaginatedItemAttributeSummaryList
      */
     results?: Array<ItemAttributeSummary>;
 }

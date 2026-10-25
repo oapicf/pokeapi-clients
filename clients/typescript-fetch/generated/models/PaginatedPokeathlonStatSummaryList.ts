@@ -29,26 +29,18 @@ import {
 export interface PaginatedPokeathlonStatSummaryList {
     /**
      * 
-     * @type {number}
-     * @memberof PaginatedPokeathlonStatSummaryList
      */
     count?: number;
     /**
      * 
-     * @type {string}
-     * @memberof PaginatedPokeathlonStatSummaryList
      */
     next?: string;
     /**
      * 
-     * @type {string}
-     * @memberof PaginatedPokeathlonStatSummaryList
      */
     previous?: string;
     /**
      * 
-     * @type {Array<PokeathlonStatSummary>}
-     * @memberof PaginatedPokeathlonStatSummaryList
      */
     results?: Array<PokeathlonStatSummary>;
 }

@@ -172,3 +172,4 @@ class _$ItemCategoryDetailSerializer implements PrimitiveSerializer<ItemCategory
   }
 }
 
+

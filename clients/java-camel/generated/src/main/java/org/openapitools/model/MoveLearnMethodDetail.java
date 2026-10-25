@@ -24,20 +24,17 @@ import jakarta.annotation.Generated;
  * MoveLearnMethodDetail
  */
 
-@Generated(value = "org.openapitools.codegen.languages.JavaCamelServerCodegen", date = "2026-08-30T01:56:15.309401083Z[Etc/UTC]", comments = "Generator version: 7.24.0")
+@Generated(value = "org.openapitools.codegen.languages.JavaCamelServerCodegen", date = "2026-10-25T05:48:25.711080506Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 public class MoveLearnMethodDetail {
 
   private Integer id;
 
   private String name;
 
-  @Valid
   private List<@Valid MoveLearnMethodName> names = new ArrayList<>();
 
-  @Valid
   private List<@Valid MoveLearnMethodDescription> descriptions = new ArrayList<>();
 
-  @Valid
   private List<@Valid AbilityDetailPokemonInnerPokemon> versionGroups = new ArrayList<>();
 
   public MoveLearnMethodDetail() {
@@ -112,7 +109,7 @@ public class MoveLearnMethodDetail {
    * Get names
    * @return names
    */
-  @Valid 
+  
   @Schema(name = "names", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("names")
   public List<@Valid MoveLearnMethodName> getNames() {
@@ -140,7 +137,7 @@ public class MoveLearnMethodDetail {
    * Get descriptions
    * @return descriptions
    */
-  @Valid 
+  
   @Schema(name = "descriptions", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("descriptions")
   public List<@Valid MoveLearnMethodDescription> getDescriptions() {
@@ -168,7 +165,7 @@ public class MoveLearnMethodDetail {
    * Get versionGroups
    * @return versionGroups
    */
-  @Valid 
+  
   @Schema(name = "version_groups", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("version_groups")
   public List<@Valid AbilityDetailPokemonInnerPokemon> getVersionGroups() {

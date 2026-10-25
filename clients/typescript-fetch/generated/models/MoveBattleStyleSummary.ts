@@ -21,14 +21,10 @@ import { mapValues } from '../runtime';
 export interface MoveBattleStyleSummary {
     /**
      * 
-     * @type {string}
-     * @memberof MoveBattleStyleSummary
      */
     name: string;
     /**
      * 
-     * @type {string}
-     * @memberof MoveBattleStyleSummary
      */
     readonly url: string;
 }

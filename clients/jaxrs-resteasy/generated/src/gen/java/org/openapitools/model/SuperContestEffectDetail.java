@@ -15,7 +15,7 @@ import javax.validation.constraints.*;
 import javax.validation.Valid;
 import io.swagger.annotations.*;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaResteasyServerCodegen", date = "2026-08-30T01:56:35.721624822Z[Etc/UTC]", comments = "Generator version: 7.24.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaResteasyServerCodegen", date = "2026-10-25T05:48:49.952264473Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 public class SuperContestEffectDetail   {
   
   private Integer id;
@@ -55,7 +55,6 @@ public class SuperContestEffectDetail   {
   @ApiModelProperty(required = true, value = "")
   @JsonProperty("flavor_text_entries")
   @NotNull
-  @Valid
   public List<@Valid SuperContestEffectFlavorText> getFlavorTextEntries() {
     return flavorTextEntries;
   }
@@ -69,7 +68,6 @@ public class SuperContestEffectDetail   {
   @ApiModelProperty(required = true, value = "")
   @JsonProperty("moves")
   @NotNull
-  @Valid
   public List<@Valid MoveSummary> getMoves() {
     return moves;
   }

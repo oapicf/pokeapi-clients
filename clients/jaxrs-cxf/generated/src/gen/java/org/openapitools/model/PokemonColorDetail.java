@@ -25,13 +25,9 @@ public class PokemonColorDetail  {
 
   @ApiModelProperty(required = true, value = "")
 
-  @Valid
-
   private List<@Valid PokemonColorName> names = new ArrayList<>();
 
   @ApiModelProperty(required = true, value = "")
-
-  @Valid
 
   private List<@Valid PokemonSpeciesSummary> pokemonSpecies = new ArrayList<>();
  /**

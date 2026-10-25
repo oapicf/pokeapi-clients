@@ -64,62 +64,42 @@ import {
 export interface NatureDetail {
     /**
      * 
-     * @type {number}
-     * @memberof NatureDetail
      */
     readonly id: number;
     /**
      * 
-     * @type {string}
-     * @memberof NatureDetail
      */
     name: string;
     /**
      * 
-     * @type {StatSummary}
-     * @memberof NatureDetail
      */
     decreasedStat: StatSummary;
     /**
      * 
-     * @type {StatSummary}
-     * @memberof NatureDetail
      */
     increasedStat: StatSummary;
     /**
      * 
-     * @type {BerryFlavorSummary}
-     * @memberof NatureDetail
      */
     likesFlavor: BerryFlavorSummary;
     /**
      * 
-     * @type {BerryFlavorSummary}
-     * @memberof NatureDetail
      */
     hatesFlavor: BerryFlavorSummary;
     /**
      * 
-     * @type {Array<BerrySummary>}
-     * @memberof NatureDetail
      */
     readonly berries: Array<BerrySummary>;
     /**
      * 
-     * @type {Array<NatureDetailPokeathlonStatChangesInner>}
-     * @memberof NatureDetail
      */
     readonly pokeathlonStatChanges: Array<NatureDetailPokeathlonStatChangesInner>;
     /**
      * 
-     * @type {Array<NatureBattleStylePreference>}
-     * @memberof NatureDetail
      */
     readonly moveBattleStylePreferences: Array<NatureBattleStylePreference>;
     /**
      * 
-     * @type {Array<NatureName>}
-     * @memberof NatureDetail
      */
     readonly names: Array<NatureName>;
 }

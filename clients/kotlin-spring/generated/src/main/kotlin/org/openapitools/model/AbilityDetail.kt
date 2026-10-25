@@ -1,10 +1,7 @@
 package org.openapitools.model
 
 import java.util.Objects
-import com.fasterxml.jackson.annotation.JsonInclude
 import com.fasterxml.jackson.annotation.JsonProperty
-import com.fasterxml.jackson.annotation.JsonSetter
-import com.fasterxml.jackson.annotation.Nulls
 import org.openapitools.model.AbilityChange
 import org.openapitools.model.AbilityDetailPokemonInner
 import org.openapitools.model.AbilityEffectText
@@ -37,47 +34,45 @@ import io.swagger.v3.oas.annotations.media.Schema
 data class AbilityDetail(
 
     @Schema(required = true, readOnly = true, description = "")
-    @param:JsonProperty("id")
+    @param:JsonProperty("id", required = true)
     @get:JsonProperty("id", required = true) val id: kotlin.Int,
 
     @get:Size(max=100)
     @Schema(required = true, description = "")
-    @param:JsonProperty("name")
+    @param:JsonProperty("name", required = true)
     @get:JsonProperty("name", required = true) val name: kotlin.String,
 
     @field:Valid
     @Schema(required = true, description = "")
-    @param:JsonProperty("generation")
+    @param:JsonProperty("generation", required = true)
     @get:JsonProperty("generation", required = true) val generation: GenerationSummary,
 
     @field:Valid
     @Schema(required = true, readOnly = true, description = "")
-    @param:JsonProperty("names")
+    @param:JsonProperty("names", required = true)
     @get:JsonProperty("names", required = true) val names: kotlin.collections.List<AbilityName>,
 
     @field:Valid
     @Schema(required = true, readOnly = true, description = "")
-    @param:JsonProperty("effect_entries")
+    @param:JsonProperty("effect_entries", required = true)
     @get:JsonProperty("effect_entries", required = true) val effectEntries: kotlin.collections.List<AbilityEffectText>,
 
     @field:Valid
     @Schema(required = true, readOnly = true, description = "")
-    @param:JsonProperty("effect_changes")
+    @param:JsonProperty("effect_changes", required = true)
     @get:JsonProperty("effect_changes", required = true) val effectChanges: kotlin.collections.List<AbilityChange>,
 
     @field:Valid
     @Schema(required = true, readOnly = true, description = "")
-    @param:JsonProperty("flavor_text_entries")
+    @param:JsonProperty("flavor_text_entries", required = true)
     @get:JsonProperty("flavor_text_entries", required = true) val flavorTextEntries: kotlin.collections.List<AbilityFlavorText>,
 
     @field:Valid
     @Schema(required = true, readOnly = true, description = "")
-    @param:JsonProperty("pokemon")
+    @param:JsonProperty("pokemon", required = true)
     @get:JsonProperty("pokemon", required = true) val pokemon: kotlin.collections.List<AbilityDetailPokemonInner>,
 
     @Schema(description = "")
-    @field:JsonInclude(JsonInclude.Include.NON_NULL)
-    @field:JsonSetter(nulls = Nulls.SKIP)
     @param:JsonProperty("is_main_series")
     @get:JsonProperty("is_main_series") val isMainSeries: kotlin.Boolean? = null
 ) {

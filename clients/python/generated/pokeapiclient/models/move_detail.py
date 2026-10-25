@@ -147,15 +147,13 @@ class MoveDetail(BaseModel):
         _items = []
         if self.effect_entries:
             for _item_effect_entries in self.effect_entries:
-                if _item_effect_entries:
-                    _items.append(_item_effect_entries.to_dict())
+                _items.append(_item_effect_entries.to_dict() if _item_effect_entries is not None else None)
             _dict['effect_entries'] = _items
         # override the default output from pydantic by calling `to_dict()` of each item in effect_changes (list)
         _items = []
         if self.effect_changes:
             for _item_effect_changes in self.effect_changes:
-                if _item_effect_changes:
-                    _items.append(_item_effect_changes.to_dict())
+                _items.append(_item_effect_changes.to_dict() if _item_effect_changes is not None else None)
             _dict['effect_changes'] = _items
         # override the default output from pydantic by calling `to_dict()` of generation
         if self.generation:
@@ -167,22 +165,19 @@ class MoveDetail(BaseModel):
         _items = []
         if self.names:
             for _item_names in self.names:
-                if _item_names:
-                    _items.append(_item_names.to_dict())
+                _items.append(_item_names.to_dict() if _item_names is not None else None)
             _dict['names'] = _items
         # override the default output from pydantic by calling `to_dict()` of each item in past_values (list)
         _items = []
         if self.past_values:
             for _item_past_values in self.past_values:
-                if _item_past_values:
-                    _items.append(_item_past_values.to_dict())
+                _items.append(_item_past_values.to_dict() if _item_past_values is not None else None)
             _dict['past_values'] = _items
         # override the default output from pydantic by calling `to_dict()` of each item in stat_changes (list)
         _items = []
         if self.stat_changes:
             for _item_stat_changes in self.stat_changes:
-                if _item_stat_changes:
-                    _items.append(_item_stat_changes.to_dict())
+                _items.append(_item_stat_changes.to_dict() if _item_stat_changes is not None else None)
             _dict['stat_changes'] = _items
         # override the default output from pydantic by calling `to_dict()` of super_contest_effect
         if self.super_contest_effect:
@@ -197,22 +192,19 @@ class MoveDetail(BaseModel):
         _items = []
         if self.machines:
             for _item_machines in self.machines:
-                if _item_machines:
-                    _items.append(_item_machines.to_dict())
+                _items.append(_item_machines.to_dict() if _item_machines is not None else None)
             _dict['machines'] = _items
         # override the default output from pydantic by calling `to_dict()` of each item in flavor_text_entries (list)
         _items = []
         if self.flavor_text_entries:
             for _item_flavor_text_entries in self.flavor_text_entries:
-                if _item_flavor_text_entries:
-                    _items.append(_item_flavor_text_entries.to_dict())
+                _items.append(_item_flavor_text_entries.to_dict() if _item_flavor_text_entries is not None else None)
             _dict['flavor_text_entries'] = _items
         # override the default output from pydantic by calling `to_dict()` of each item in learned_by_pokemon (list)
         _items = []
         if self.learned_by_pokemon:
             for _item_learned_by_pokemon in self.learned_by_pokemon:
-                if _item_learned_by_pokemon:
-                    _items.append(_item_learned_by_pokemon.to_dict())
+                _items.append(_item_learned_by_pokemon.to_dict() if _item_learned_by_pokemon is not None else None)
             _dict['learned_by_pokemon'] = _items
         # set to None if accuracy (nullable) is None
         # and model_fields_set contains the field

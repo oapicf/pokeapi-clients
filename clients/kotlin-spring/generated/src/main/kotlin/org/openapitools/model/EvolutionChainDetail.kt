@@ -24,17 +24,17 @@ import io.swagger.v3.oas.annotations.media.Schema
 data class EvolutionChainDetail(
 
     @Schema(required = true, readOnly = true, description = "")
-    @param:JsonProperty("id")
+    @param:JsonProperty("id", required = true)
     @get:JsonProperty("id", required = true) val id: kotlin.Int,
 
     @field:Valid
     @Schema(required = true, description = "")
-    @param:JsonProperty("baby_trigger_item")
+    @param:JsonProperty("baby_trigger_item", required = true)
     @get:JsonProperty("baby_trigger_item", required = true) val babyTriggerItem: ItemSummary,
 
     @field:Valid
     @Schema(required = true, description = "")
-    @param:JsonProperty("chain")
+    @param:JsonProperty("chain", required = true)
     @get:JsonProperty("chain", required = true) val chain: EvolutionChainDetailChain
 ) {
 

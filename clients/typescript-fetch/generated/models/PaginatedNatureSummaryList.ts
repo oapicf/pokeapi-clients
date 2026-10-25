@@ -29,26 +29,18 @@ import {
 export interface PaginatedNatureSummaryList {
     /**
      * 
-     * @type {number}
-     * @memberof PaginatedNatureSummaryList
      */
     count?: number;
     /**
      * 
-     * @type {string}
-     * @memberof PaginatedNatureSummaryList
      */
     next?: string;
     /**
      * 
-     * @type {string}
-     * @memberof PaginatedNatureSummaryList
      */
     previous?: string;
     /**
      * 
-     * @type {Array<NatureSummary>}
-     * @memberof PaginatedNatureSummaryList
      */
     results?: Array<NatureSummary>;
 }

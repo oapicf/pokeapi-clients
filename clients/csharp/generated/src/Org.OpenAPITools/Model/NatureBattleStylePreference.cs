@@ -159,22 +159,22 @@ namespace Org.OpenAPITools.Model
             }
 
             if (!lowHpPreference.IsSet)
-                throw new ArgumentException("Property is required for class NatureBattleStylePreference.", nameof(lowHpPreference));
+                throw new JsonException("Property is required for class NatureBattleStylePreference: low_hp_preference.");
 
             if (!highHpPreference.IsSet)
-                throw new ArgumentException("Property is required for class NatureBattleStylePreference.", nameof(highHpPreference));
+                throw new JsonException("Property is required for class NatureBattleStylePreference: high_hp_preference.");
 
             if (!moveBattleStyle.IsSet)
-                throw new ArgumentException("Property is required for class NatureBattleStylePreference.", nameof(moveBattleStyle));
+                throw new JsonException("Property is required for class NatureBattleStylePreference: move_battle_style.");
 
             if (lowHpPreference.IsSet && lowHpPreference.Value == null)
-                throw new ArgumentNullException(nameof(lowHpPreference), "Property is not nullable for class NatureBattleStylePreference.");
+                throw new JsonException("Property is not nullable for class NatureBattleStylePreference: low_hp_preference.");
 
             if (highHpPreference.IsSet && highHpPreference.Value == null)
-                throw new ArgumentNullException(nameof(highHpPreference), "Property is not nullable for class NatureBattleStylePreference.");
+                throw new JsonException("Property is not nullable for class NatureBattleStylePreference: high_hp_preference.");
 
             if (moveBattleStyle.IsSet && moveBattleStyle.Value == null)
-                throw new ArgumentNullException(nameof(moveBattleStyle), "Property is not nullable for class NatureBattleStylePreference.");
+                throw new JsonException("Property is not nullable for class NatureBattleStylePreference: move_battle_style.");
 
             return new NatureBattleStylePreference(lowHpPreference.Value!.Value!, highHpPreference.Value!.Value!, moveBattleStyle.Value!);
         }
@@ -185,7 +185,6 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="natureBattleStylePreference"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public override void Write(Utf8JsonWriter writer, NatureBattleStylePreference natureBattleStylePreference, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteStartObject();
@@ -200,12 +199,8 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="natureBattleStylePreference"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, NatureBattleStylePreference natureBattleStylePreference, JsonSerializerOptions jsonSerializerOptions)
         {
-            if (natureBattleStylePreference.MoveBattleStyle == null)
-                throw new ArgumentNullException(nameof(natureBattleStylePreference.MoveBattleStyle), "Property is required for class NatureBattleStylePreference.");
-
             writer.WriteNumber("low_hp_preference", natureBattleStylePreference.LowHpPreference);
 
             writer.WriteNumber("high_hp_preference", natureBattleStylePreference.HighHpPreference);

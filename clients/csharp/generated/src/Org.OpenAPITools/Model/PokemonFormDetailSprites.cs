@@ -147,7 +147,7 @@ namespace Org.OpenAPITools.Model
             }
 
             if (varDefault.IsSet && varDefault.Value == null)
-                throw new ArgumentNullException(nameof(varDefault), "Property is not nullable for class PokemonFormDetailSprites.");
+                throw new JsonException("Property is not nullable for class PokemonFormDetailSprites: default.");
 
             return new PokemonFormDetailSprites(varDefault);
         }
@@ -158,7 +158,6 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="pokemonFormDetailSprites"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public override void Write(Utf8JsonWriter writer, PokemonFormDetailSprites pokemonFormDetailSprites, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteStartObject();
@@ -173,11 +172,10 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="pokemonFormDetailSprites"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, PokemonFormDetailSprites pokemonFormDetailSprites, JsonSerializerOptions jsonSerializerOptions)
         {
             if (pokemonFormDetailSprites.DefaultOption.IsSet && pokemonFormDetailSprites.Default == null)
-                throw new ArgumentNullException(nameof(pokemonFormDetailSprites.Default), "Property is required for class PokemonFormDetailSprites.");
+                throw new JsonException("Cannot write null property PokemonFormDetailSprites.Default to non-nullable JSON property 'default'.");
 
             if (pokemonFormDetailSprites.DefaultOption.IsSet)
                 writer.WriteString("default", pokemonFormDetailSprites.Default);

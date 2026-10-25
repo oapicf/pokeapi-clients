@@ -29,14 +29,10 @@ import {
 export interface ContestEffectFlavorText {
     /**
      * 
-     * @type {string}
-     * @memberof ContestEffectFlavorText
      */
     flavorText: string;
     /**
      * 
-     * @type {LanguageSummary}
-     * @memberof ContestEffectFlavorText
      */
     language: LanguageSummary;
 }

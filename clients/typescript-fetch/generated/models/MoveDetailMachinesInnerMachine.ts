@@ -21,8 +21,6 @@ import { mapValues } from '../runtime';
 export interface MoveDetailMachinesInnerMachine {
     /**
      * 
-     * @type {string}
-     * @memberof MoveDetailMachinesInnerMachine
      */
     url: string;
 }

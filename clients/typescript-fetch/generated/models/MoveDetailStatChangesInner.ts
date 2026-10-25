@@ -29,14 +29,10 @@ import {
 export interface MoveDetailStatChangesInner {
     /**
      * 
-     * @type {number}
-     * @memberof MoveDetailStatChangesInner
      */
     change: number;
     /**
      * 
-     * @type {AbilityDetailPokemonInnerPokemon}
-     * @memberof MoveDetailStatChangesInner
      */
     stat: AbilityDetailPokemonInnerPokemon;
 }

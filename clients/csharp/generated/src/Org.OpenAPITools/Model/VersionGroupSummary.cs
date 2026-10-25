@@ -152,16 +152,16 @@ namespace Org.OpenAPITools.Model
             }
 
             if (!name.IsSet)
-                throw new ArgumentException("Property is required for class VersionGroupSummary.", nameof(name));
+                throw new JsonException("Property is required for class VersionGroupSummary: name.");
 
             if (!url.IsSet)
-                throw new ArgumentException("Property is required for class VersionGroupSummary.", nameof(url));
+                throw new JsonException("Property is required for class VersionGroupSummary: url.");
 
             if (name.IsSet && name.Value == null)
-                throw new ArgumentNullException(nameof(name), "Property is not nullable for class VersionGroupSummary.");
+                throw new JsonException("Property is not nullable for class VersionGroupSummary: name.");
 
             if (url.IsSet && url.Value == null)
-                throw new ArgumentNullException(nameof(url), "Property is not nullable for class VersionGroupSummary.");
+                throw new JsonException("Property is not nullable for class VersionGroupSummary: url.");
 
             return new VersionGroupSummary(name.Value!, url.Value!);
         }
@@ -172,7 +172,6 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="versionGroupSummary"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public override void Write(Utf8JsonWriter writer, VersionGroupSummary versionGroupSummary, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteStartObject();
@@ -187,15 +186,8 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="versionGroupSummary"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, VersionGroupSummary versionGroupSummary, JsonSerializerOptions jsonSerializerOptions)
         {
-            if (versionGroupSummary.Name == null)
-                throw new ArgumentNullException(nameof(versionGroupSummary.Name), "Property is required for class VersionGroupSummary.");
-
-            if (versionGroupSummary.Url == null)
-                throw new ArgumentNullException(nameof(versionGroupSummary.Url), "Property is required for class VersionGroupSummary.");
-
             writer.WriteString("name", versionGroupSummary.Name);
 
             writer.WriteString("url", versionGroupSummary.Url);

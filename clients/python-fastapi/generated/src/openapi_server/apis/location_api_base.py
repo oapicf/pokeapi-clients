@@ -2,7 +2,7 @@
 
 from typing import ClassVar, Dict, List, Tuple  # noqa: F401
 
-from pydantic import Field, StrictInt, StrictStr
+from pydantic import Field
 from typing import Optional
 from typing_extensions import Annotated
 from openapi_server.models.location_area_detail import LocationAreaDetail
@@ -23,9 +23,9 @@ class BaseLocationApi:
         BaseLocationApi.subclasses = BaseLocationApi.subclasses + (cls,)
     async def location_list(
         self,
-        limit: Annotated[Optional[StrictInt], Field(description="Number of results to return per page.")],
-        offset: Annotated[Optional[StrictInt], Field(description="The initial index from which to return the results.")],
-        q: Annotated[Optional[StrictStr], Field(description="> Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. ")],
+        limit: Annotated[Optional[int], Field(description="Number of results to return per page.")],
+        offset: Annotated[Optional[int], Field(description="The initial index from which to return the results.")],
+        q: Annotated[Optional[str], Field(description="> Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. ")],
     ) -> PaginatedLocationSummaryList:
         """Locations that can be visited within the games. Locations make up sizable portions of regions, like cities or routes."""
         ...
@@ -33,7 +33,7 @@ class BaseLocationApi:
 
     async def location_retrieve(
         self,
-        id: Annotated[StrictStr, Field(description="This parameter can be a string or an integer.")],
+        id: Annotated[str, Field(description="This parameter can be a string or an integer.")],
     ) -> LocationDetail:
         """Locations that can be visited within the games. Locations make up sizable portions of regions, like cities or routes."""
         ...
@@ -41,8 +41,8 @@ class BaseLocationApi:
 
     async def location_area_list(
         self,
-        limit: Annotated[Optional[StrictInt], Field(description="Number of results to return per page.")],
-        offset: Annotated[Optional[StrictInt], Field(description="The initial index from which to return the results.")],
+        limit: Annotated[Optional[int], Field(description="Number of results to return per page.")],
+        offset: Annotated[Optional[int], Field(description="The initial index from which to return the results.")],
     ) -> PaginatedLocationAreaSummaryList:
         """Location areas are sections of areas, such as floors in a building or cave. Each area has its own set of possible Pokémon encounters."""
         ...
@@ -50,7 +50,7 @@ class BaseLocationApi:
 
     async def location_area_retrieve(
         self,
-        id: Annotated[StrictInt, Field(description="A unique integer value identifying this location area.")],
+        id: Annotated[int, Field(description="A unique integer value identifying this location area.")],
     ) -> LocationAreaDetail:
         """Location areas are sections of areas, such as floors in a building or cave. Each area has its own set of possible Pokémon encounters."""
         ...
@@ -58,9 +58,9 @@ class BaseLocationApi:
 
     async def pal_park_area_list(
         self,
-        limit: Annotated[Optional[StrictInt], Field(description="Number of results to return per page.")],
-        offset: Annotated[Optional[StrictInt], Field(description="The initial index from which to return the results.")],
-        q: Annotated[Optional[StrictStr], Field(description="> Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. ")],
+        limit: Annotated[Optional[int], Field(description="Number of results to return per page.")],
+        offset: Annotated[Optional[int], Field(description="The initial index from which to return the results.")],
+        q: Annotated[Optional[str], Field(description="> Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. ")],
     ) -> PaginatedPalParkAreaSummaryList:
         """Areas used for grouping Pokémon encounters in Pal Park. They&#39;re like habitats that are specific to Pal Park."""
         ...
@@ -68,7 +68,7 @@ class BaseLocationApi:
 
     async def pal_park_area_retrieve(
         self,
-        id: Annotated[StrictStr, Field(description="This parameter can be a string or an integer.")],
+        id: Annotated[str, Field(description="This parameter can be a string or an integer.")],
     ) -> PalParkAreaDetail:
         """Areas used for grouping Pokémon encounters in Pal Park. They&#39;re like habitats that are specific to Pal Park."""
         ...
@@ -76,9 +76,9 @@ class BaseLocationApi:
 
     async def region_list(
         self,
-        limit: Annotated[Optional[StrictInt], Field(description="Number of results to return per page.")],
-        offset: Annotated[Optional[StrictInt], Field(description="The initial index from which to return the results.")],
-        q: Annotated[Optional[StrictStr], Field(description="> Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. ")],
+        limit: Annotated[Optional[int], Field(description="Number of results to return per page.")],
+        offset: Annotated[Optional[int], Field(description="The initial index from which to return the results.")],
+        q: Annotated[Optional[str], Field(description="> Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. ")],
     ) -> PaginatedRegionSummaryList:
         """A region is an organized area of the Pokémon world. Most often, the main difference between regions is the species of Pokémon that can be encountered within them."""
         ...
@@ -86,7 +86,7 @@ class BaseLocationApi:
 
     async def region_retrieve(
         self,
-        id: Annotated[StrictStr, Field(description="This parameter can be a string or an integer.")],
+        id: Annotated[str, Field(description="This parameter can be a string or an integer.")],
     ) -> RegionDetail:
         """A region is an organized area of the Pokémon world. Most often, the main difference between regions is the species of Pokémon that can be encountered within them."""
         ...

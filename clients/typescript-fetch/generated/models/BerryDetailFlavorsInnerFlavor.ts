@@ -21,14 +21,10 @@ import { mapValues } from '../runtime';
 export interface BerryDetailFlavorsInnerFlavor {
     /**
      * The name of the flavor
-     * @type {string}
-     * @memberof BerryDetailFlavorsInnerFlavor
      */
     name?: string;
     /**
      * The URL to get more information about the flavor
-     * @type {string}
-     * @memberof BerryDetailFlavorsInnerFlavor
      */
     url?: string;
 }

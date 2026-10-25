@@ -155,3 +155,4 @@ class _$ContestTypeDetailSerializer implements PrimitiveSerializer<ContestTypeDe
   }
 }
 
+

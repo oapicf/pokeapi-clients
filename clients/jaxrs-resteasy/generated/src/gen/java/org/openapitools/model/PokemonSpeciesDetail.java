@@ -29,7 +29,7 @@ import javax.validation.constraints.*;
 import javax.validation.Valid;
 import io.swagger.annotations.*;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaResteasyServerCodegen", date = "2026-08-30T01:56:35.721624822Z[Etc/UTC]", comments = "Generator version: 7.24.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaResteasyServerCodegen", date = "2026-10-25T05:48:49.952264473Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 public class PokemonSpeciesDetail   {
   
   private Integer id;
@@ -226,7 +226,6 @@ public class PokemonSpeciesDetail   {
   @ApiModelProperty(required = true, value = "")
   @JsonProperty("pokedex_numbers")
   @NotNull
-  @Valid
   public List<@Valid PokemonDexEntry> getPokedexNumbers() {
     return pokedexNumbers;
   }
@@ -240,7 +239,6 @@ public class PokemonSpeciesDetail   {
   @ApiModelProperty(required = true, value = "")
   @JsonProperty("egg_groups")
   @NotNull
-  @Valid
   public List<@Valid AbilityDetailPokemonInnerPokemon> getEggGroups() {
     return eggGroups;
   }
@@ -338,7 +336,6 @@ public class PokemonSpeciesDetail   {
   @ApiModelProperty(required = true, value = "")
   @JsonProperty("names")
   @NotNull
-  @Valid
   public List<@Valid PokemonFormDetailFormNamesInner> getNames() {
     return names;
   }
@@ -352,7 +349,6 @@ public class PokemonSpeciesDetail   {
   @ApiModelProperty(required = true, value = "")
   @JsonProperty("pal_park_encounters")
   @NotNull
-  @Valid
   public List<@Valid PokemonSpeciesDetailPalParkEncountersInner> getPalParkEncounters() {
     return palParkEncounters;
   }
@@ -366,7 +362,6 @@ public class PokemonSpeciesDetail   {
   @ApiModelProperty(required = true, value = "")
   @JsonProperty("form_descriptions")
   @NotNull
-  @Valid
   public List<@Valid PokemonSpeciesDescription> getFormDescriptions() {
     return formDescriptions;
   }
@@ -380,7 +375,6 @@ public class PokemonSpeciesDetail   {
   @ApiModelProperty(required = true, value = "")
   @JsonProperty("flavor_text_entries")
   @NotNull
-  @Valid
   public List<@Valid PokemonSpeciesFlavorText> getFlavorTextEntries() {
     return flavorTextEntries;
   }
@@ -394,7 +388,6 @@ public class PokemonSpeciesDetail   {
   @ApiModelProperty(required = true, value = "")
   @JsonProperty("genera")
   @NotNull
-  @Valid
   public List<@Valid PokemonSpeciesDetailGeneraInner> getGenera() {
     return genera;
   }
@@ -408,7 +401,6 @@ public class PokemonSpeciesDetail   {
   @ApiModelProperty(required = true, value = "")
   @JsonProperty("varieties")
   @NotNull
-  @Valid
   public List<@Valid PokemonSpeciesDetailVarietiesInner> getVarieties() {
     return varieties;
   }

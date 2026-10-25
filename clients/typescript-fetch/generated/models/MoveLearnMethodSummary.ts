@@ -21,14 +21,10 @@ import { mapValues } from '../runtime';
 export interface MoveLearnMethodSummary {
     /**
      * 
-     * @type {string}
-     * @memberof MoveLearnMethodSummary
      */
     name: string;
     /**
      * 
-     * @type {string}
-     * @memberof MoveLearnMethodSummary
      */
     readonly url: string;
 }

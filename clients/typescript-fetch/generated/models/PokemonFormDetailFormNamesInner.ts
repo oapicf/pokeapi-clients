@@ -29,14 +29,10 @@ import {
 export interface PokemonFormDetailFormNamesInner {
     /**
      * 
-     * @type {AbilityDetailPokemonInnerPokemon}
-     * @memberof PokemonFormDetailFormNamesInner
      */
     language: AbilityDetailPokemonInnerPokemon;
     /**
      * 
-     * @type {string}
-     * @memberof PokemonFormDetailFormNamesInner
      */
     name: string;
 }

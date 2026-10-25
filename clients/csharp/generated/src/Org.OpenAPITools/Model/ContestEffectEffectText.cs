@@ -152,16 +152,16 @@ namespace Org.OpenAPITools.Model
             }
 
             if (!effect.IsSet)
-                throw new ArgumentException("Property is required for class ContestEffectEffectText.", nameof(effect));
+                throw new JsonException("Property is required for class ContestEffectEffectText: effect.");
 
             if (!language.IsSet)
-                throw new ArgumentException("Property is required for class ContestEffectEffectText.", nameof(language));
+                throw new JsonException("Property is required for class ContestEffectEffectText: language.");
 
             if (effect.IsSet && effect.Value == null)
-                throw new ArgumentNullException(nameof(effect), "Property is not nullable for class ContestEffectEffectText.");
+                throw new JsonException("Property is not nullable for class ContestEffectEffectText: effect.");
 
             if (language.IsSet && language.Value == null)
-                throw new ArgumentNullException(nameof(language), "Property is not nullable for class ContestEffectEffectText.");
+                throw new JsonException("Property is not nullable for class ContestEffectEffectText: language.");
 
             return new ContestEffectEffectText(effect.Value!, language.Value!);
         }
@@ -172,7 +172,6 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="contestEffectEffectText"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public override void Write(Utf8JsonWriter writer, ContestEffectEffectText contestEffectEffectText, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteStartObject();
@@ -187,15 +186,8 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="contestEffectEffectText"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, ContestEffectEffectText contestEffectEffectText, JsonSerializerOptions jsonSerializerOptions)
         {
-            if (contestEffectEffectText.Effect == null)
-                throw new ArgumentNullException(nameof(contestEffectEffectText.Effect), "Property is required for class ContestEffectEffectText.");
-
-            if (contestEffectEffectText.Language == null)
-                throw new ArgumentNullException(nameof(contestEffectEffectText.Language), "Property is required for class ContestEffectEffectText.");
-
             writer.WriteString("effect", contestEffectEffectText.Effect);
 
             writer.WritePropertyName("language");

@@ -29,26 +29,18 @@ import {
 export interface PaginatedItemFlingEffectSummaryList {
     /**
      * 
-     * @type {number}
-     * @memberof PaginatedItemFlingEffectSummaryList
      */
     count?: number;
     /**
      * 
-     * @type {string}
-     * @memberof PaginatedItemFlingEffectSummaryList
      */
     next?: string;
     /**
      * 
-     * @type {string}
-     * @memberof PaginatedItemFlingEffectSummaryList
      */
     previous?: string;
     /**
      * 
-     * @type {Array<ItemFlingEffectSummary>}
-     * @memberof PaginatedItemFlingEffectSummaryList
      */
     results?: Array<ItemFlingEffectSummary>;
 }

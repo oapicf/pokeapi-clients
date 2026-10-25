@@ -133,10 +133,10 @@ namespace Org.OpenAPITools.Model
             }
 
             if (!url.IsSet)
-                throw new ArgumentException("Property is required for class ItemDetailBabyTriggerFor.", nameof(url));
+                throw new JsonException("Property is required for class ItemDetailBabyTriggerFor: url.");
 
             if (url.IsSet && url.Value == null)
-                throw new ArgumentNullException(nameof(url), "Property is not nullable for class ItemDetailBabyTriggerFor.");
+                throw new JsonException("Property is not nullable for class ItemDetailBabyTriggerFor: url.");
 
             return new ItemDetailBabyTriggerFor(url.Value!);
         }
@@ -147,7 +147,6 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="itemDetailBabyTriggerFor"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public override void Write(Utf8JsonWriter writer, ItemDetailBabyTriggerFor itemDetailBabyTriggerFor, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteStartObject();
@@ -162,12 +161,8 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="itemDetailBabyTriggerFor"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, ItemDetailBabyTriggerFor itemDetailBabyTriggerFor, JsonSerializerOptions jsonSerializerOptions)
         {
-            if (itemDetailBabyTriggerFor.Url == null)
-                throw new ArgumentNullException(nameof(itemDetailBabyTriggerFor.Url), "Property is required for class ItemDetailBabyTriggerFor.");
-
             writer.WriteString("url", itemDetailBabyTriggerFor.Url);
         }
     }

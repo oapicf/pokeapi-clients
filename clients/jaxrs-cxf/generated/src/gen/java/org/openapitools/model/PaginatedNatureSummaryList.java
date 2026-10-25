@@ -29,8 +29,6 @@ public class PaginatedNatureSummaryList  {
 
   @ApiModelProperty(value = "")
 
-  @Valid
-
   private List<@Valid NatureSummary> results = new ArrayList<>();
  /**
    * Get count

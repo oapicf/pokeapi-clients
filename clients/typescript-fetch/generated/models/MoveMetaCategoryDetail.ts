@@ -36,26 +36,18 @@ import {
 export interface MoveMetaCategoryDetail {
     /**
      * 
-     * @type {number}
-     * @memberof MoveMetaCategoryDetail
      */
     readonly id: number;
     /**
      * 
-     * @type {string}
-     * @memberof MoveMetaCategoryDetail
      */
     name: string;
     /**
      * 
-     * @type {Array<MoveMetaCategoryDescription>}
-     * @memberof MoveMetaCategoryDetail
      */
     readonly descriptions: Array<MoveMetaCategoryDescription>;
     /**
      * 
-     * @type {Array<AbilityDetailPokemonInnerPokemon>}
-     * @memberof MoveMetaCategoryDetail
      */
     readonly moves: Array<AbilityDetailPokemonInnerPokemon>;
 }

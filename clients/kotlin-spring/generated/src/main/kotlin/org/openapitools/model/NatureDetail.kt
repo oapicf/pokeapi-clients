@@ -35,52 +35,52 @@ import io.swagger.v3.oas.annotations.media.Schema
 data class NatureDetail(
 
     @Schema(required = true, readOnly = true, description = "")
-    @param:JsonProperty("id")
+    @param:JsonProperty("id", required = true)
     @get:JsonProperty("id", required = true) val id: kotlin.Int,
 
     @get:Size(max=100)
     @Schema(required = true, description = "")
-    @param:JsonProperty("name")
+    @param:JsonProperty("name", required = true)
     @get:JsonProperty("name", required = true) val name: kotlin.String,
 
     @field:Valid
     @Schema(required = true, description = "")
-    @param:JsonProperty("decreased_stat")
+    @param:JsonProperty("decreased_stat", required = true)
     @get:JsonProperty("decreased_stat", required = true) val decreasedStat: StatSummary,
 
     @field:Valid
     @Schema(required = true, description = "")
-    @param:JsonProperty("increased_stat")
+    @param:JsonProperty("increased_stat", required = true)
     @get:JsonProperty("increased_stat", required = true) val increasedStat: StatSummary,
 
     @field:Valid
     @Schema(required = true, description = "")
-    @param:JsonProperty("likes_flavor")
+    @param:JsonProperty("likes_flavor", required = true)
     @get:JsonProperty("likes_flavor", required = true) val likesFlavor: BerryFlavorSummary,
 
     @field:Valid
     @Schema(required = true, description = "")
-    @param:JsonProperty("hates_flavor")
+    @param:JsonProperty("hates_flavor", required = true)
     @get:JsonProperty("hates_flavor", required = true) val hatesFlavor: BerryFlavorSummary,
 
     @field:Valid
     @Schema(required = true, readOnly = true, description = "")
-    @param:JsonProperty("berries")
+    @param:JsonProperty("berries", required = true)
     @get:JsonProperty("berries", required = true) val berries: kotlin.collections.List<BerrySummary>,
 
     @field:Valid
     @Schema(required = true, readOnly = true, description = "")
-    @param:JsonProperty("pokeathlon_stat_changes")
+    @param:JsonProperty("pokeathlon_stat_changes", required = true)
     @get:JsonProperty("pokeathlon_stat_changes", required = true) val pokeathlonStatChanges: kotlin.collections.List<NatureDetailPokeathlonStatChangesInner>,
 
     @field:Valid
     @Schema(required = true, readOnly = true, description = "")
-    @param:JsonProperty("move_battle_style_preferences")
+    @param:JsonProperty("move_battle_style_preferences", required = true)
     @get:JsonProperty("move_battle_style_preferences", required = true) val moveBattleStylePreferences: kotlin.collections.List<NatureBattleStylePreference>,
 
     @field:Valid
     @Schema(required = true, readOnly = true, description = "")
-    @param:JsonProperty("names")
+    @param:JsonProperty("names", required = true)
     @get:JsonProperty("names", required = true) val names: kotlin.collections.List<NatureName>
 ) {
 

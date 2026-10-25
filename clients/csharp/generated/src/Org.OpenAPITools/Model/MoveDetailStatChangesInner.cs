@@ -146,16 +146,16 @@ namespace Org.OpenAPITools.Model
             }
 
             if (!change.IsSet)
-                throw new ArgumentException("Property is required for class MoveDetailStatChangesInner.", nameof(change));
+                throw new JsonException("Property is required for class MoveDetailStatChangesInner: change.");
 
             if (!stat.IsSet)
-                throw new ArgumentException("Property is required for class MoveDetailStatChangesInner.", nameof(stat));
+                throw new JsonException("Property is required for class MoveDetailStatChangesInner: stat.");
 
             if (change.IsSet && change.Value == null)
-                throw new ArgumentNullException(nameof(change), "Property is not nullable for class MoveDetailStatChangesInner.");
+                throw new JsonException("Property is not nullable for class MoveDetailStatChangesInner: change.");
 
             if (stat.IsSet && stat.Value == null)
-                throw new ArgumentNullException(nameof(stat), "Property is not nullable for class MoveDetailStatChangesInner.");
+                throw new JsonException("Property is not nullable for class MoveDetailStatChangesInner: stat.");
 
             return new MoveDetailStatChangesInner(change.Value!.Value!, stat.Value!);
         }
@@ -166,7 +166,6 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="moveDetailStatChangesInner"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public override void Write(Utf8JsonWriter writer, MoveDetailStatChangesInner moveDetailStatChangesInner, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteStartObject();
@@ -181,12 +180,8 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="moveDetailStatChangesInner"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, MoveDetailStatChangesInner moveDetailStatChangesInner, JsonSerializerOptions jsonSerializerOptions)
         {
-            if (moveDetailStatChangesInner.Stat == null)
-                throw new ArgumentNullException(nameof(moveDetailStatChangesInner.Stat), "Property is required for class MoveDetailStatChangesInner.");
-
             writer.WriteNumber("change", moveDetailStatChangesInner.Change);
 
             writer.WritePropertyName("stat");

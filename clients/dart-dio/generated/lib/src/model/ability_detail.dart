@@ -242,3 +242,4 @@ class _$AbilityDetailSerializer implements PrimitiveSerializer<AbilityDetail> {
   }
 }
 
+

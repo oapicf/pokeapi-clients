@@ -127,164 +127,110 @@ import {
 export interface PokemonSpeciesDetail {
     /**
      * 
-     * @type {number}
-     * @memberof PokemonSpeciesDetail
      */
     readonly id: number;
     /**
      * 
-     * @type {string}
-     * @memberof PokemonSpeciesDetail
      */
     name: string;
     /**
      * 
-     * @type {number}
-     * @memberof PokemonSpeciesDetail
      */
     order?: number | null;
     /**
      * 
-     * @type {number}
-     * @memberof PokemonSpeciesDetail
      */
     genderRate?: number | null;
     /**
      * 
-     * @type {number}
-     * @memberof PokemonSpeciesDetail
      */
     captureRate?: number | null;
     /**
      * 
-     * @type {number}
-     * @memberof PokemonSpeciesDetail
      */
     baseHappiness?: number | null;
     /**
      * 
-     * @type {boolean}
-     * @memberof PokemonSpeciesDetail
      */
     isBaby?: boolean;
     /**
      * 
-     * @type {boolean}
-     * @memberof PokemonSpeciesDetail
      */
     isLegendary?: boolean;
     /**
      * 
-     * @type {boolean}
-     * @memberof PokemonSpeciesDetail
      */
     isMythical?: boolean;
     /**
      * 
-     * @type {number}
-     * @memberof PokemonSpeciesDetail
      */
     hatchCounter?: number | null;
     /**
      * 
-     * @type {boolean}
-     * @memberof PokemonSpeciesDetail
      */
     hasGenderDifferences?: boolean;
     /**
      * 
-     * @type {boolean}
-     * @memberof PokemonSpeciesDetail
      */
     formsSwitchable?: boolean;
     /**
      * 
-     * @type {GrowthRateSummary}
-     * @memberof PokemonSpeciesDetail
      */
     growthRate: GrowthRateSummary;
     /**
      * 
-     * @type {Array<PokemonDexEntry>}
-     * @memberof PokemonSpeciesDetail
      */
     readonly pokedexNumbers: Array<PokemonDexEntry>;
     /**
      * 
-     * @type {Array<AbilityDetailPokemonInnerPokemon>}
-     * @memberof PokemonSpeciesDetail
      */
     readonly eggGroups: Array<AbilityDetailPokemonInnerPokemon>;
     /**
      * 
-     * @type {PokemonColorSummary}
-     * @memberof PokemonSpeciesDetail
      */
     color: PokemonColorSummary;
     /**
      * 
-     * @type {PokemonShapeSummary}
-     * @memberof PokemonSpeciesDetail
      */
     shape: PokemonShapeSummary;
     /**
      * 
-     * @type {PokemonSpeciesSummary}
-     * @memberof PokemonSpeciesDetail
      */
     evolvesFromSpecies: PokemonSpeciesSummary;
     /**
      * 
-     * @type {EvolutionChainSummary}
-     * @memberof PokemonSpeciesDetail
      */
     evolutionChain: EvolutionChainSummary;
     /**
      * 
-     * @type {PokemonHabitatSummary}
-     * @memberof PokemonSpeciesDetail
      */
     habitat: PokemonHabitatSummary;
     /**
      * 
-     * @type {GenerationSummary}
-     * @memberof PokemonSpeciesDetail
      */
     generation: GenerationSummary;
     /**
      * 
-     * @type {Array<PokemonFormDetailFormNamesInner>}
-     * @memberof PokemonSpeciesDetail
      */
     readonly names: Array<PokemonFormDetailFormNamesInner>;
     /**
      * 
-     * @type {Array<PokemonSpeciesDetailPalParkEncountersInner>}
-     * @memberof PokemonSpeciesDetail
      */
     readonly palParkEncounters: Array<PokemonSpeciesDetailPalParkEncountersInner>;
     /**
      * 
-     * @type {Array<PokemonSpeciesDescription>}
-     * @memberof PokemonSpeciesDetail
      */
     readonly formDescriptions: Array<PokemonSpeciesDescription>;
     /**
      * 
-     * @type {Array<PokemonSpeciesFlavorText>}
-     * @memberof PokemonSpeciesDetail
      */
     readonly flavorTextEntries: Array<PokemonSpeciesFlavorText>;
     /**
      * 
-     * @type {Array<PokemonSpeciesDetailGeneraInner>}
-     * @memberof PokemonSpeciesDetail
      */
     readonly genera: Array<PokemonSpeciesDetailGeneraInner>;
     /**
      * 
-     * @type {Array<PokemonSpeciesDetailVarietiesInner>}
-     * @memberof PokemonSpeciesDetail
      */
     readonly varieties: Array<PokemonSpeciesDetailVarietiesInner>;
 }

@@ -34,12 +34,12 @@ data class MoveMeta(
 
     @field:Valid
     @Schema(required = true, description = "")
-    @param:JsonProperty("ailment")
+    @param:JsonProperty("ailment", required = true)
     @get:JsonProperty("ailment", required = true) val ailment: MoveMetaAilmentSummary,
 
     @field:Valid
     @Schema(required = true, description = "")
-    @param:JsonProperty("category")
+    @param:JsonProperty("category", required = true)
     @get:JsonProperty("category", required = true) val category: MoveMetaCategorySummary,
 
     @Schema(description = "")

@@ -22,12 +22,12 @@ data class PokemonDetailCries(
 
     @field:Valid
     @Schema(required = true, description = "")
-    @param:JsonProperty("latest")
+    @param:JsonProperty("latest", required = true)
     @get:JsonProperty("latest", required = true) val latest: java.net.URI,
 
     @field:Valid
     @Schema(required = true, description = "")
-    @param:JsonProperty("legacy")
+    @param:JsonProperty("legacy", required = true)
     @get:JsonProperty("legacy", required = true) val legacy: java.net.URI
 ) {
 

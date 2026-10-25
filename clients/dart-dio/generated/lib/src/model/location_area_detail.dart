@@ -205,3 +205,4 @@ class _$LocationAreaDetailSerializer implements PrimitiveSerializer<LocationArea
   }
 }
 
+

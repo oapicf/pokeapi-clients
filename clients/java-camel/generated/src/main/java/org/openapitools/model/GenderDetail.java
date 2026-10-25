@@ -23,17 +23,15 @@ import jakarta.annotation.Generated;
  * GenderDetail
  */
 
-@Generated(value = "org.openapitools.codegen.languages.JavaCamelServerCodegen", date = "2026-08-30T01:56:15.309401083Z[Etc/UTC]", comments = "Generator version: 7.24.0")
+@Generated(value = "org.openapitools.codegen.languages.JavaCamelServerCodegen", date = "2026-10-25T05:48:25.711080506Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 public class GenderDetail {
 
   private Integer id;
 
   private String name;
 
-  @Valid
   private List<@Valid GenderDetailPokemonSpeciesDetailsInner> pokemonSpeciesDetails = new ArrayList<>();
 
-  @Valid
   private List<@Valid AbilityDetailPokemonInnerPokemon> requiredForEvolution = new ArrayList<>();
 
   public GenderDetail() {
@@ -107,7 +105,7 @@ public class GenderDetail {
    * Get pokemonSpeciesDetails
    * @return pokemonSpeciesDetails
    */
-  @Valid 
+  
   @Schema(name = "pokemon_species_details", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("pokemon_species_details")
   public List<@Valid GenderDetailPokemonSpeciesDetailsInner> getPokemonSpeciesDetails() {
@@ -135,7 +133,7 @@ public class GenderDetail {
    * Get requiredForEvolution
    * @return requiredForEvolution
    */
-  @Valid 
+  
   @Schema(name = "required_for_evolution", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("required_for_evolution")
   public List<@Valid AbilityDetailPokemonInnerPokemon> getRequiredForEvolution() {

@@ -23,17 +23,15 @@ import jakarta.annotation.Generated;
  * SuperContestEffectDetail
  */
 
-@Generated(value = "org.openapitools.codegen.languages.JavaCamelServerCodegen", date = "2026-08-30T01:56:15.309401083Z[Etc/UTC]", comments = "Generator version: 7.24.0")
+@Generated(value = "org.openapitools.codegen.languages.JavaCamelServerCodegen", date = "2026-10-25T05:48:25.711080506Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 public class SuperContestEffectDetail {
 
   private Integer id;
 
   private Integer appeal;
 
-  @Valid
   private List<@Valid SuperContestEffectFlavorText> flavorTextEntries = new ArrayList<>();
 
-  @Valid
   private List<@Valid MoveSummary> moves = new ArrayList<>();
 
   public SuperContestEffectDetail() {
@@ -107,7 +105,7 @@ public class SuperContestEffectDetail {
    * Get flavorTextEntries
    * @return flavorTextEntries
    */
-  @Valid 
+  
   @Schema(name = "flavor_text_entries", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("flavor_text_entries")
   public List<@Valid SuperContestEffectFlavorText> getFlavorTextEntries() {
@@ -135,7 +133,7 @@ public class SuperContestEffectDetail {
    * Get moves
    * @return moves
    */
-  @Valid 
+  
   @Schema(name = "moves", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("moves")
   public List<@Valid MoveSummary> getMoves() {

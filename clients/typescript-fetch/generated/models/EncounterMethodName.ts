@@ -29,14 +29,10 @@ import {
 export interface EncounterMethodName {
     /**
      * 
-     * @type {string}
-     * @memberof EncounterMethodName
      */
     name: string;
     /**
      * 
-     * @type {LanguageSummary}
-     * @memberof EncounterMethodName
      */
     language: LanguageSummary;
 }

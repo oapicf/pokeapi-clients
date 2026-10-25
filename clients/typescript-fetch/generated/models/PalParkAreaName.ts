@@ -29,14 +29,10 @@ import {
 export interface PalParkAreaName {
     /**
      * 
-     * @type {string}
-     * @memberof PalParkAreaName
      */
     name: string;
     /**
      * 
-     * @type {LanguageSummary}
-     * @memberof PalParkAreaName
      */
     language: LanguageSummary;
 }

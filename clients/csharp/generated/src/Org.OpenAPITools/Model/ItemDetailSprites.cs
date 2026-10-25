@@ -133,10 +133,10 @@ namespace Org.OpenAPITools.Model
             }
 
             if (!varDefault.IsSet)
-                throw new ArgumentException("Property is required for class ItemDetailSprites.", nameof(varDefault));
+                throw new JsonException("Property is required for class ItemDetailSprites: default.");
 
             if (varDefault.IsSet && varDefault.Value == null)
-                throw new ArgumentNullException(nameof(varDefault), "Property is not nullable for class ItemDetailSprites.");
+                throw new JsonException("Property is not nullable for class ItemDetailSprites: default.");
 
             return new ItemDetailSprites(varDefault.Value!);
         }
@@ -147,7 +147,6 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="itemDetailSprites"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public override void Write(Utf8JsonWriter writer, ItemDetailSprites itemDetailSprites, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteStartObject();
@@ -162,12 +161,8 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="itemDetailSprites"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, ItemDetailSprites itemDetailSprites, JsonSerializerOptions jsonSerializerOptions)
         {
-            if (itemDetailSprites.Default == null)
-                throw new ArgumentNullException(nameof(itemDetailSprites.Default), "Property is required for class ItemDetailSprites.");
-
             writer.WriteString("default", itemDetailSprites.Default);
         }
     }

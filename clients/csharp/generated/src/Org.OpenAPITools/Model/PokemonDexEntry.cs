@@ -146,16 +146,16 @@ namespace Org.OpenAPITools.Model
             }
 
             if (!entryNumber.IsSet)
-                throw new ArgumentException("Property is required for class PokemonDexEntry.", nameof(entryNumber));
+                throw new JsonException("Property is required for class PokemonDexEntry: entry_number.");
 
             if (!pokedex.IsSet)
-                throw new ArgumentException("Property is required for class PokemonDexEntry.", nameof(pokedex));
+                throw new JsonException("Property is required for class PokemonDexEntry: pokedex.");
 
             if (entryNumber.IsSet && entryNumber.Value == null)
-                throw new ArgumentNullException(nameof(entryNumber), "Property is not nullable for class PokemonDexEntry.");
+                throw new JsonException("Property is not nullable for class PokemonDexEntry: entry_number.");
 
             if (pokedex.IsSet && pokedex.Value == null)
-                throw new ArgumentNullException(nameof(pokedex), "Property is not nullable for class PokemonDexEntry.");
+                throw new JsonException("Property is not nullable for class PokemonDexEntry: pokedex.");
 
             return new PokemonDexEntry(entryNumber.Value!.Value!, pokedex.Value!);
         }
@@ -166,7 +166,6 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="pokemonDexEntry"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public override void Write(Utf8JsonWriter writer, PokemonDexEntry pokemonDexEntry, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteStartObject();
@@ -181,12 +180,8 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="pokemonDexEntry"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, PokemonDexEntry pokemonDexEntry, JsonSerializerOptions jsonSerializerOptions)
         {
-            if (pokemonDexEntry.Pokedex == null)
-                throw new ArgumentNullException(nameof(pokemonDexEntry.Pokedex), "Property is required for class PokemonDexEntry.");
-
             writer.WriteNumber("entry_number", pokemonDexEntry.EntryNumber);
 
             writer.WritePropertyName("pokedex");

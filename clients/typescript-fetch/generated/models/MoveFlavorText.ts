@@ -36,20 +36,14 @@ import {
 export interface MoveFlavorText {
     /**
      * 
-     * @type {string}
-     * @memberof MoveFlavorText
      */
     flavorText: string;
     /**
      * 
-     * @type {LanguageSummary}
-     * @memberof MoveFlavorText
      */
     language: LanguageSummary;
     /**
      * 
-     * @type {VersionGroupSummary}
-     * @memberof MoveFlavorText
      */
     versionGroup: VersionGroupSummary;
 }

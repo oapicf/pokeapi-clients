@@ -29,14 +29,10 @@ import {
 export interface GenerationName {
     /**
      * 
-     * @type {string}
-     * @memberof GenerationName
      */
     name: string;
     /**
      * 
-     * @type {LanguageSummary}
-     * @memberof GenerationName
      */
     language: LanguageSummary;
 }

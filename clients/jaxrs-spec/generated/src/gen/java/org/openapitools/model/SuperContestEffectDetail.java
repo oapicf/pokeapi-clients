@@ -21,12 +21,12 @@ import org.openapitools.jackson.nullable.JsonNullable;
 
 
 @JsonTypeName("SuperContestEffectDetail")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2026-08-30T01:56:42.280002256Z[Etc/UTC]", comments = "Generator version: 7.24.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2026-10-25T05:48:57.630723375Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 public class SuperContestEffectDetail   {
   private Integer id;
   private Integer appeal;
-  private @Valid List<@Valid SuperContestEffectFlavorText> flavorTextEntries = new ArrayList<>();
-  private @Valid List<@Valid MoveSummary> moves = new ArrayList<>();
+  private List<@Valid SuperContestEffectFlavorText> flavorTextEntries = new ArrayList<>();
+  private List<@Valid MoveSummary> moves = new ArrayList<>();
 
   public SuperContestEffectDetail() {
   }
@@ -92,7 +92,7 @@ public class SuperContestEffectDetail   {
   
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(required = true, value = "flavor_text_entries")
-  @Valid public List<@Valid SuperContestEffectFlavorText> getFlavorTextEntries() {
+  public List<@Valid SuperContestEffectFlavorText> getFlavorTextEntries() {
     return flavorTextEntries;
   }
 
@@ -127,7 +127,7 @@ public class SuperContestEffectDetail   {
   
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(required = true, value = "moves")
-  @Valid public List<@Valid MoveSummary> getMoves() {
+  public List<@Valid MoveSummary> getMoves() {
     return moves;
   }
 

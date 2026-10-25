@@ -172,3 +172,4 @@ class _$ItemAttributeDetailSerializer implements PrimitiveSerializer<ItemAttribu
   }
 }
 
+

@@ -21,10 +21,10 @@ import org.openapitools.jackson.nullable.JsonNullable;
 
 
 @JsonTypeName("MoveDetail_contest_combos_normal")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2026-08-30T01:56:42.280002256Z[Etc/UTC]", comments = "Generator version: 7.24.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2026-10-25T05:48:57.630723375Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 public class MoveDetailContestCombosNormal   {
-  private @Valid List<@Valid AbilityDetailPokemonInnerPokemon> useBefore = new ArrayList<>();
-  private @Valid List<@Valid AbilityDetailPokemonInnerPokemon> useAfter = new ArrayList<>();
+  private List<@Valid AbilityDetailPokemonInnerPokemon> useBefore = new ArrayList<>();
+  private List<@Valid AbilityDetailPokemonInnerPokemon> useAfter = new ArrayList<>();
 
   public MoveDetailContestCombosNormal() {
   }
@@ -48,7 +48,7 @@ public class MoveDetailContestCombosNormal   {
   
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(required = true, value = "use_before")
-  @NotNull @Valid public List<@Valid AbilityDetailPokemonInnerPokemon> getUseBefore() {
+  @NotNull public List<@Valid AbilityDetailPokemonInnerPokemon> getUseBefore() {
     return useBefore;
   }
 
@@ -83,7 +83,7 @@ public class MoveDetailContestCombosNormal   {
   
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(required = true, value = "use_after")
-  @NotNull @Valid public List<@Valid AbilityDetailPokemonInnerPokemon> getUseAfter() {
+  @NotNull public List<@Valid AbilityDetailPokemonInnerPokemon> getUseAfter() {
     return useAfter;
   }
 

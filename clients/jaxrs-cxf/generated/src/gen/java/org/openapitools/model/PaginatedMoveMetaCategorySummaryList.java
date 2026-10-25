@@ -29,8 +29,6 @@ public class PaginatedMoveMetaCategorySummaryList  {
 
   @ApiModelProperty(value = "")
 
-  @Valid
-
   private List<@Valid MoveMetaCategorySummary> results = new ArrayList<>();
  /**
    * Get count

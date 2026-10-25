@@ -29,26 +29,18 @@ import {
 export interface PaginatedTypeSummaryList {
     /**
      * 
-     * @type {number}
-     * @memberof PaginatedTypeSummaryList
      */
     count?: number;
     /**
      * 
-     * @type {string}
-     * @memberof PaginatedTypeSummaryList
      */
     next?: string;
     /**
      * 
-     * @type {string}
-     * @memberof PaginatedTypeSummaryList
      */
     previous?: string;
     /**
      * 
-     * @type {Array<TypeSummary>}
-     * @memberof PaginatedTypeSummaryList
      */
     results?: Array<TypeSummary>;
 }

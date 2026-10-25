@@ -204,40 +204,40 @@ namespace Org.OpenAPITools.Model
             }
 
             if (!id.IsSet)
-                throw new ArgumentException("Property is required for class LocationDetail.", nameof(id));
+                throw new JsonException("Property is required for class LocationDetail: id.");
 
             if (!name.IsSet)
-                throw new ArgumentException("Property is required for class LocationDetail.", nameof(name));
+                throw new JsonException("Property is required for class LocationDetail: name.");
 
             if (!region.IsSet)
-                throw new ArgumentException("Property is required for class LocationDetail.", nameof(region));
+                throw new JsonException("Property is required for class LocationDetail: region.");
 
             if (!names.IsSet)
-                throw new ArgumentException("Property is required for class LocationDetail.", nameof(names));
+                throw new JsonException("Property is required for class LocationDetail: names.");
 
             if (!gameIndices.IsSet)
-                throw new ArgumentException("Property is required for class LocationDetail.", nameof(gameIndices));
+                throw new JsonException("Property is required for class LocationDetail: game_indices.");
 
             if (!areas.IsSet)
-                throw new ArgumentException("Property is required for class LocationDetail.", nameof(areas));
+                throw new JsonException("Property is required for class LocationDetail: areas.");
 
             if (id.IsSet && id.Value == null)
-                throw new ArgumentNullException(nameof(id), "Property is not nullable for class LocationDetail.");
+                throw new JsonException("Property is not nullable for class LocationDetail: id.");
 
             if (name.IsSet && name.Value == null)
-                throw new ArgumentNullException(nameof(name), "Property is not nullable for class LocationDetail.");
+                throw new JsonException("Property is not nullable for class LocationDetail: name.");
 
             if (region.IsSet && region.Value == null)
-                throw new ArgumentNullException(nameof(region), "Property is not nullable for class LocationDetail.");
+                throw new JsonException("Property is not nullable for class LocationDetail: region.");
 
             if (names.IsSet && names.Value == null)
-                throw new ArgumentNullException(nameof(names), "Property is not nullable for class LocationDetail.");
+                throw new JsonException("Property is not nullable for class LocationDetail: names.");
 
             if (gameIndices.IsSet && gameIndices.Value == null)
-                throw new ArgumentNullException(nameof(gameIndices), "Property is not nullable for class LocationDetail.");
+                throw new JsonException("Property is not nullable for class LocationDetail: game_indices.");
 
             if (areas.IsSet && areas.Value == null)
-                throw new ArgumentNullException(nameof(areas), "Property is not nullable for class LocationDetail.");
+                throw new JsonException("Property is not nullable for class LocationDetail: areas.");
 
             return new LocationDetail(id.Value!.Value!, name.Value!, region.Value!, names.Value!, gameIndices.Value!, areas.Value!);
         }
@@ -248,7 +248,6 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="locationDetail"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public override void Write(Utf8JsonWriter writer, LocationDetail locationDetail, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteStartObject();
@@ -263,24 +262,8 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="locationDetail"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, LocationDetail locationDetail, JsonSerializerOptions jsonSerializerOptions)
         {
-            if (locationDetail.Name == null)
-                throw new ArgumentNullException(nameof(locationDetail.Name), "Property is required for class LocationDetail.");
-
-            if (locationDetail.Region == null)
-                throw new ArgumentNullException(nameof(locationDetail.Region), "Property is required for class LocationDetail.");
-
-            if (locationDetail.Names == null)
-                throw new ArgumentNullException(nameof(locationDetail.Names), "Property is required for class LocationDetail.");
-
-            if (locationDetail.GameIndices == null)
-                throw new ArgumentNullException(nameof(locationDetail.GameIndices), "Property is required for class LocationDetail.");
-
-            if (locationDetail.Areas == null)
-                throw new ArgumentNullException(nameof(locationDetail.Areas), "Property is required for class LocationDetail.");
-
             writer.WriteNumber("id", locationDetail.Id);
 
             writer.WriteString("name", locationDetail.Name);

@@ -121,3 +121,4 @@ class _$EncounterConditionValueNameSerializer implements PrimitiveSerializer<Enc
   }
 }
 
+

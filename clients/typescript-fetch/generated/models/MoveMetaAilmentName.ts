@@ -29,14 +29,10 @@ import {
 export interface MoveMetaAilmentName {
     /**
      * 
-     * @type {string}
-     * @memberof MoveMetaAilmentName
      */
     name: string;
     /**
      * 
-     * @type {LanguageSummary}
-     * @memberof MoveMetaAilmentName
      */
     language: LanguageSummary;
 }

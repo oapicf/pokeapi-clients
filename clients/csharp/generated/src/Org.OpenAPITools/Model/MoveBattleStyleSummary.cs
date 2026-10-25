@@ -152,16 +152,16 @@ namespace Org.OpenAPITools.Model
             }
 
             if (!name.IsSet)
-                throw new ArgumentException("Property is required for class MoveBattleStyleSummary.", nameof(name));
+                throw new JsonException("Property is required for class MoveBattleStyleSummary: name.");
 
             if (!url.IsSet)
-                throw new ArgumentException("Property is required for class MoveBattleStyleSummary.", nameof(url));
+                throw new JsonException("Property is required for class MoveBattleStyleSummary: url.");
 
             if (name.IsSet && name.Value == null)
-                throw new ArgumentNullException(nameof(name), "Property is not nullable for class MoveBattleStyleSummary.");
+                throw new JsonException("Property is not nullable for class MoveBattleStyleSummary: name.");
 
             if (url.IsSet && url.Value == null)
-                throw new ArgumentNullException(nameof(url), "Property is not nullable for class MoveBattleStyleSummary.");
+                throw new JsonException("Property is not nullable for class MoveBattleStyleSummary: url.");
 
             return new MoveBattleStyleSummary(name.Value!, url.Value!);
         }
@@ -172,7 +172,6 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="moveBattleStyleSummary"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public override void Write(Utf8JsonWriter writer, MoveBattleStyleSummary moveBattleStyleSummary, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteStartObject();
@@ -187,15 +186,8 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="moveBattleStyleSummary"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, MoveBattleStyleSummary moveBattleStyleSummary, JsonSerializerOptions jsonSerializerOptions)
         {
-            if (moveBattleStyleSummary.Name == null)
-                throw new ArgumentNullException(nameof(moveBattleStyleSummary.Name), "Property is required for class MoveBattleStyleSummary.");
-
-            if (moveBattleStyleSummary.Url == null)
-                throw new ArgumentNullException(nameof(moveBattleStyleSummary.Url), "Property is required for class MoveBattleStyleSummary.");
-
             writer.WriteString("name", moveBattleStyleSummary.Name);
 
             writer.WriteString("url", moveBattleStyleSummary.Url);

@@ -46,7 +46,7 @@ import javax.validation.Valid;
   GenerationDetail.JSON_PROPERTY_TYPES,
   GenerationDetail.JSON_PROPERTY_VERSION_GROUPS
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJerseyServerCodegen", date = "2026-08-30T01:56:28.710233113Z[Etc/UTC]", comments = "Generator version: 7.24.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJerseyServerCodegen", date = "2026-10-25T05:48:41.923212007Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 public class GenerationDetail   {
   public static final String JSON_PROPERTY_ID = "id";
   @JsonProperty(JSON_PROPERTY_ID)
@@ -143,7 +143,7 @@ public class GenerationDetail   {
    **/
   @JsonProperty(value = "abilities", access = JsonProperty.Access.READ_ONLY)
   @ApiModelProperty(required = true, value = "")
-  @Valid 
+  
   public List<@Valid AbilitySummary> getAbilities() {
     return abilities;
   }
@@ -191,7 +191,7 @@ public class GenerationDetail   {
    **/
   @JsonProperty(value = "moves", access = JsonProperty.Access.READ_ONLY)
   @ApiModelProperty(required = true, value = "")
-  @Valid 
+  
   public List<@Valid MoveSummary> getMoves() {
     return moves;
   }
@@ -219,7 +219,7 @@ public class GenerationDetail   {
    **/
   @JsonProperty(value = "names", access = JsonProperty.Access.READ_ONLY)
   @ApiModelProperty(required = true, value = "")
-  @Valid 
+  
   public List<@Valid GenerationName> getNames() {
     return names;
   }
@@ -247,7 +247,7 @@ public class GenerationDetail   {
    **/
   @JsonProperty(value = "pokemon_species", access = JsonProperty.Access.READ_ONLY)
   @ApiModelProperty(required = true, value = "")
-  @Valid 
+  
   public List<@Valid PokemonSpeciesSummary> getPokemonSpecies() {
     return pokemonSpecies;
   }
@@ -275,7 +275,7 @@ public class GenerationDetail   {
    **/
   @JsonProperty(value = "types", access = JsonProperty.Access.READ_ONLY)
   @ApiModelProperty(required = true, value = "")
-  @Valid 
+  
   public List<@Valid TypeSummary> getTypes() {
     return types;
   }
@@ -303,7 +303,7 @@ public class GenerationDetail   {
    **/
   @JsonProperty(value = "version_groups", access = JsonProperty.Access.READ_ONLY)
   @ApiModelProperty(required = true, value = "")
-  @Valid 
+  
   public List<@Valid VersionGroupSummary> getVersionGroups() {
     return versionGroups;
   }

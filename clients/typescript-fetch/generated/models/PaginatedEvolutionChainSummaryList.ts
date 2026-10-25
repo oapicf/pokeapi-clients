@@ -29,26 +29,18 @@ import {
 export interface PaginatedEvolutionChainSummaryList {
     /**
      * 
-     * @type {number}
-     * @memberof PaginatedEvolutionChainSummaryList
      */
     count?: number;
     /**
      * 
-     * @type {string}
-     * @memberof PaginatedEvolutionChainSummaryList
      */
     next?: string;
     /**
      * 
-     * @type {string}
-     * @memberof PaginatedEvolutionChainSummaryList
      */
     previous?: string;
     /**
      * 
-     * @type {Array<EvolutionChainSummary>}
-     * @memberof PaginatedEvolutionChainSummaryList
      */
     results?: Array<EvolutionChainSummary>;
 }

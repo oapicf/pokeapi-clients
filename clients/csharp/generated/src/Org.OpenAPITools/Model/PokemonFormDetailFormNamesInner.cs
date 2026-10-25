@@ -146,16 +146,16 @@ namespace Org.OpenAPITools.Model
             }
 
             if (!language.IsSet)
-                throw new ArgumentException("Property is required for class PokemonFormDetailFormNamesInner.", nameof(language));
+                throw new JsonException("Property is required for class PokemonFormDetailFormNamesInner: language.");
 
             if (!name.IsSet)
-                throw new ArgumentException("Property is required for class PokemonFormDetailFormNamesInner.", nameof(name));
+                throw new JsonException("Property is required for class PokemonFormDetailFormNamesInner: name.");
 
             if (language.IsSet && language.Value == null)
-                throw new ArgumentNullException(nameof(language), "Property is not nullable for class PokemonFormDetailFormNamesInner.");
+                throw new JsonException("Property is not nullable for class PokemonFormDetailFormNamesInner: language.");
 
             if (name.IsSet && name.Value == null)
-                throw new ArgumentNullException(nameof(name), "Property is not nullable for class PokemonFormDetailFormNamesInner.");
+                throw new JsonException("Property is not nullable for class PokemonFormDetailFormNamesInner: name.");
 
             return new PokemonFormDetailFormNamesInner(language.Value!, name.Value!);
         }
@@ -166,7 +166,6 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="pokemonFormDetailFormNamesInner"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public override void Write(Utf8JsonWriter writer, PokemonFormDetailFormNamesInner pokemonFormDetailFormNamesInner, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteStartObject();
@@ -181,15 +180,8 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="pokemonFormDetailFormNamesInner"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, PokemonFormDetailFormNamesInner pokemonFormDetailFormNamesInner, JsonSerializerOptions jsonSerializerOptions)
         {
-            if (pokemonFormDetailFormNamesInner.Language == null)
-                throw new ArgumentNullException(nameof(pokemonFormDetailFormNamesInner.Language), "Property is required for class PokemonFormDetailFormNamesInner.");
-
-            if (pokemonFormDetailFormNamesInner.Name == null)
-                throw new ArgumentNullException(nameof(pokemonFormDetailFormNamesInner.Name), "Property is required for class PokemonFormDetailFormNamesInner.");
-
             writer.WritePropertyName("language");
             JsonSerializer.Serialize(writer, pokemonFormDetailFormNamesInner.Language, jsonSerializerOptions);
             writer.WriteString("name", pokemonFormDetailFormNamesInner.Name);

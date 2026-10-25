@@ -27,7 +27,7 @@ import jakarta.annotation.Generated;
  * NatureDetail
  */
 
-@Generated(value = "org.openapitools.codegen.languages.JavaCamelServerCodegen", date = "2026-08-30T01:56:15.309401083Z[Etc/UTC]", comments = "Generator version: 7.24.0")
+@Generated(value = "org.openapitools.codegen.languages.JavaCamelServerCodegen", date = "2026-10-25T05:48:25.711080506Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 public class NatureDetail {
 
   private Integer id;
@@ -42,16 +42,12 @@ public class NatureDetail {
 
   private BerryFlavorSummary hatesFlavor;
 
-  @Valid
   private List<@Valid BerrySummary> berries = new ArrayList<>();
 
-  @Valid
   private List<@Valid NatureDetailPokeathlonStatChangesInner> pokeathlonStatChanges = new ArrayList<>();
 
-  @Valid
   private List<@Valid NatureBattleStylePreference> moveBattleStylePreferences = new ArrayList<>();
 
-  @Valid
   private List<@Valid NatureName> names = new ArrayList<>();
 
   public NatureDetail() {
@@ -211,7 +207,7 @@ public class NatureDetail {
    * Get berries
    * @return berries
    */
-  @Valid 
+  
   @Schema(name = "berries", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("berries")
   public List<@Valid BerrySummary> getBerries() {
@@ -239,7 +235,7 @@ public class NatureDetail {
    * Get pokeathlonStatChanges
    * @return pokeathlonStatChanges
    */
-  @Valid 
+  
   @Schema(name = "pokeathlon_stat_changes", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("pokeathlon_stat_changes")
   public List<@Valid NatureDetailPokeathlonStatChangesInner> getPokeathlonStatChanges() {
@@ -267,7 +263,7 @@ public class NatureDetail {
    * Get moveBattleStylePreferences
    * @return moveBattleStylePreferences
    */
-  @Valid 
+  
   @Schema(name = "move_battle_style_preferences", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("move_battle_style_preferences")
   public List<@Valid NatureBattleStylePreference> getMoveBattleStylePreferences() {
@@ -295,7 +291,7 @@ public class NatureDetail {
    * Get names
    * @return names
    */
-  @Valid 
+  
   @Schema(name = "names", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("names")
   public List<@Valid NatureName> getNames() {

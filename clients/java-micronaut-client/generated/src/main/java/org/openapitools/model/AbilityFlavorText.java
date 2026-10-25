@@ -32,7 +32,7 @@ import javax.annotation.Generated;
   AbilityFlavorText.JSON_PROPERTY_VERSION_GROUP
 })
 @JsonTypeName("AbilityFlavorText")
-@Generated(value="org.openapitools.codegen.languages.JavaMicronautClientCodegen", date="2026-08-30T01:55:51.056116330Z[Etc/UTC]", comments = "Generator version: 7.24.0")
+@Generated(value="org.openapitools.codegen.languages.JavaMicronautClientCodegen", date="2026-10-25T05:47:57.304170126Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 @Introspected
 public class AbilityFlavorText {
     public static final String JSON_PROPERTY_FLAVOR_TEXT = "flavor_text";

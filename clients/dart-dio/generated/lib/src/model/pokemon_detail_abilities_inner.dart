@@ -137,3 +137,4 @@ class _$PokemonDetailAbilitiesInnerSerializer implements PrimitiveSerializer<Pok
   }
 }
 
+

@@ -24,17 +24,17 @@ data class AbilityEffectText(
 
     @get:Size(max=6000)
     @Schema(required = true, description = "")
-    @param:JsonProperty("effect")
+    @param:JsonProperty("effect", required = true)
     @get:JsonProperty("effect", required = true) val effect: kotlin.String,
 
     @get:Size(max=300)
     @Schema(required = true, description = "")
-    @param:JsonProperty("short_effect")
+    @param:JsonProperty("short_effect", required = true)
     @get:JsonProperty("short_effect", required = true) val shortEffect: kotlin.String,
 
     @field:Valid
     @Schema(required = true, description = "")
-    @param:JsonProperty("language")
+    @param:JsonProperty("language", required = true)
     @get:JsonProperty("language", required = true) val language: LanguageSummary
 ) {
 

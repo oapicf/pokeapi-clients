@@ -172,28 +172,28 @@ namespace Org.OpenAPITools.Model
             }
 
             if (!evolutionDetails.IsSet)
-                throw new ArgumentException("Property is required for class EvolutionChainDetailChain.", nameof(evolutionDetails));
+                throw new JsonException("Property is required for class EvolutionChainDetailChain: evolution_details.");
 
             if (!evolvesTo.IsSet)
-                throw new ArgumentException("Property is required for class EvolutionChainDetailChain.", nameof(evolvesTo));
+                throw new JsonException("Property is required for class EvolutionChainDetailChain: evolves_to.");
 
             if (!isBaby.IsSet)
-                throw new ArgumentException("Property is required for class EvolutionChainDetailChain.", nameof(isBaby));
+                throw new JsonException("Property is required for class EvolutionChainDetailChain: is_baby.");
 
             if (!species.IsSet)
-                throw new ArgumentException("Property is required for class EvolutionChainDetailChain.", nameof(species));
+                throw new JsonException("Property is required for class EvolutionChainDetailChain: species.");
 
             if (evolutionDetails.IsSet && evolutionDetails.Value == null)
-                throw new ArgumentNullException(nameof(evolutionDetails), "Property is not nullable for class EvolutionChainDetailChain.");
+                throw new JsonException("Property is not nullable for class EvolutionChainDetailChain: evolution_details.");
 
             if (evolvesTo.IsSet && evolvesTo.Value == null)
-                throw new ArgumentNullException(nameof(evolvesTo), "Property is not nullable for class EvolutionChainDetailChain.");
+                throw new JsonException("Property is not nullable for class EvolutionChainDetailChain: evolves_to.");
 
             if (isBaby.IsSet && isBaby.Value == null)
-                throw new ArgumentNullException(nameof(isBaby), "Property is not nullable for class EvolutionChainDetailChain.");
+                throw new JsonException("Property is not nullable for class EvolutionChainDetailChain: is_baby.");
 
             if (species.IsSet && species.Value == null)
-                throw new ArgumentNullException(nameof(species), "Property is not nullable for class EvolutionChainDetailChain.");
+                throw new JsonException("Property is not nullable for class EvolutionChainDetailChain: species.");
 
             return new EvolutionChainDetailChain(evolutionDetails.Value!, evolvesTo.Value!, isBaby.Value!.Value!, species.Value!);
         }
@@ -204,7 +204,6 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="evolutionChainDetailChain"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public override void Write(Utf8JsonWriter writer, EvolutionChainDetailChain evolutionChainDetailChain, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteStartObject();
@@ -219,18 +218,8 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="evolutionChainDetailChain"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, EvolutionChainDetailChain evolutionChainDetailChain, JsonSerializerOptions jsonSerializerOptions)
         {
-            if (evolutionChainDetailChain.EvolutionDetails == null)
-                throw new ArgumentNullException(nameof(evolutionChainDetailChain.EvolutionDetails), "Property is required for class EvolutionChainDetailChain.");
-
-            if (evolutionChainDetailChain.EvolvesTo == null)
-                throw new ArgumentNullException(nameof(evolutionChainDetailChain.EvolvesTo), "Property is required for class EvolutionChainDetailChain.");
-
-            if (evolutionChainDetailChain.Species == null)
-                throw new ArgumentNullException(nameof(evolutionChainDetailChain.Species), "Property is required for class EvolutionChainDetailChain.");
-
             writer.WritePropertyName("evolution_details");
             JsonSerializer.Serialize(writer, evolutionChainDetailChain.EvolutionDetails, jsonSerializerOptions);
             writer.WritePropertyName("evolves_to");

@@ -24,12 +24,12 @@ data class PokeathlonStatDetailAffectingNatures(
 
     @field:Valid
     @Schema(required = true, description = "")
-    @param:JsonProperty("decrease")
+    @param:JsonProperty("decrease", required = true)
     @get:JsonProperty("decrease", required = true) val decrease: kotlin.collections.List<PokeathlonStatDetailAffectingNaturesDecreaseInner>,
 
     @field:Valid
     @Schema(required = true, description = "")
-    @param:JsonProperty("increase")
+    @param:JsonProperty("increase", required = true)
     @get:JsonProperty("increase", required = true) val increase: kotlin.collections.List<PokeathlonStatDetailAffectingNaturesIncreaseInner>
 ) {
 

@@ -146,16 +146,16 @@ namespace Org.OpenAPITools.Model
             }
 
             if (!effect.IsSet)
-                throw new ArgumentException("Property is required for class MoveDetailEffectChangesInnerEffectEntriesInner.", nameof(effect));
+                throw new JsonException("Property is required for class MoveDetailEffectChangesInnerEffectEntriesInner: effect.");
 
             if (!language.IsSet)
-                throw new ArgumentException("Property is required for class MoveDetailEffectChangesInnerEffectEntriesInner.", nameof(language));
+                throw new JsonException("Property is required for class MoveDetailEffectChangesInnerEffectEntriesInner: language.");
 
             if (effect.IsSet && effect.Value == null)
-                throw new ArgumentNullException(nameof(effect), "Property is not nullable for class MoveDetailEffectChangesInnerEffectEntriesInner.");
+                throw new JsonException("Property is not nullable for class MoveDetailEffectChangesInnerEffectEntriesInner: effect.");
 
             if (language.IsSet && language.Value == null)
-                throw new ArgumentNullException(nameof(language), "Property is not nullable for class MoveDetailEffectChangesInnerEffectEntriesInner.");
+                throw new JsonException("Property is not nullable for class MoveDetailEffectChangesInnerEffectEntriesInner: language.");
 
             return new MoveDetailEffectChangesInnerEffectEntriesInner(effect.Value!, language.Value!);
         }
@@ -166,7 +166,6 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="moveDetailEffectChangesInnerEffectEntriesInner"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public override void Write(Utf8JsonWriter writer, MoveDetailEffectChangesInnerEffectEntriesInner moveDetailEffectChangesInnerEffectEntriesInner, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteStartObject();
@@ -181,15 +180,8 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="moveDetailEffectChangesInnerEffectEntriesInner"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, MoveDetailEffectChangesInnerEffectEntriesInner moveDetailEffectChangesInnerEffectEntriesInner, JsonSerializerOptions jsonSerializerOptions)
         {
-            if (moveDetailEffectChangesInnerEffectEntriesInner.Effect == null)
-                throw new ArgumentNullException(nameof(moveDetailEffectChangesInnerEffectEntriesInner.Effect), "Property is required for class MoveDetailEffectChangesInnerEffectEntriesInner.");
-
-            if (moveDetailEffectChangesInnerEffectEntriesInner.Language == null)
-                throw new ArgumentNullException(nameof(moveDetailEffectChangesInnerEffectEntriesInner.Language), "Property is required for class MoveDetailEffectChangesInnerEffectEntriesInner.");
-
             writer.WriteString("effect", moveDetailEffectChangesInnerEffectEntriesInner.Effect);
 
             writer.WritePropertyName("language");

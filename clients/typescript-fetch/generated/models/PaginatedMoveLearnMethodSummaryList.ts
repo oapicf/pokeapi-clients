@@ -29,26 +29,18 @@ import {
 export interface PaginatedMoveLearnMethodSummaryList {
     /**
      * 
-     * @type {number}
-     * @memberof PaginatedMoveLearnMethodSummaryList
      */
     count?: number;
     /**
      * 
-     * @type {string}
-     * @memberof PaginatedMoveLearnMethodSummaryList
      */
     next?: string;
     /**
      * 
-     * @type {string}
-     * @memberof PaginatedMoveLearnMethodSummaryList
      */
     previous?: string;
     /**
      * 
-     * @type {Array<MoveLearnMethodSummary>}
-     * @memberof PaginatedMoveLearnMethodSummaryList
      */
     results?: Array<MoveLearnMethodSummary>;
 }

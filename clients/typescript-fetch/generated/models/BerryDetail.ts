@@ -50,74 +50,50 @@ import {
 export interface BerryDetail {
     /**
      * 
-     * @type {number}
-     * @memberof BerryDetail
      */
     readonly id: number;
     /**
      * 
-     * @type {string}
-     * @memberof BerryDetail
      */
     name: string;
     /**
      * 
-     * @type {number}
-     * @memberof BerryDetail
      */
     growthTime: number;
     /**
      * 
-     * @type {number}
-     * @memberof BerryDetail
      */
     maxHarvest: number;
     /**
      * 
-     * @type {number}
-     * @memberof BerryDetail
      */
     naturalGiftPower: number;
     /**
      * 
-     * @type {number}
-     * @memberof BerryDetail
      */
     size: number;
     /**
      * 
-     * @type {number}
-     * @memberof BerryDetail
      */
     smoothness: number;
     /**
      * 
-     * @type {number}
-     * @memberof BerryDetail
      */
     soilDryness: number;
     /**
      * 
-     * @type {BerryFirmnessSummary}
-     * @memberof BerryDetail
      */
     firmness: BerryFirmnessSummary;
     /**
      * 
-     * @type {Array<BerryDetailFlavorsInner>}
-     * @memberof BerryDetail
      */
     readonly flavors: Array<BerryDetailFlavorsInner>;
     /**
      * 
-     * @type {ItemSummary}
-     * @memberof BerryDetail
      */
     item: ItemSummary;
     /**
      * 
-     * @type {TypeSummary}
-     * @memberof BerryDetail
      */
     naturalGiftType: TypeSummary;
 }

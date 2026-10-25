@@ -189,3 +189,4 @@ class _$LanguageDetailSerializer implements PrimitiveSerializer<LanguageDetail> 
   }
 }
 
+

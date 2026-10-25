@@ -162,10 +162,10 @@ namespace Org.OpenAPITools.Model
             }
 
             if (name.IsSet && name.Value == null)
-                throw new ArgumentNullException(nameof(name), "Property is not nullable for class BerryFlavorDetailBerriesInnerBerry.");
+                throw new JsonException("Property is not nullable for class BerryFlavorDetailBerriesInnerBerry: name.");
 
             if (url.IsSet && url.Value == null)
-                throw new ArgumentNullException(nameof(url), "Property is not nullable for class BerryFlavorDetailBerriesInnerBerry.");
+                throw new JsonException("Property is not nullable for class BerryFlavorDetailBerriesInnerBerry: url.");
 
             return new BerryFlavorDetailBerriesInnerBerry(name, url);
         }
@@ -176,7 +176,6 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="berryFlavorDetailBerriesInnerBerry"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public override void Write(Utf8JsonWriter writer, BerryFlavorDetailBerriesInnerBerry berryFlavorDetailBerriesInnerBerry, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteStartObject();
@@ -191,14 +190,13 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="berryFlavorDetailBerriesInnerBerry"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, BerryFlavorDetailBerriesInnerBerry berryFlavorDetailBerriesInnerBerry, JsonSerializerOptions jsonSerializerOptions)
         {
             if (berryFlavorDetailBerriesInnerBerry.NameOption.IsSet && berryFlavorDetailBerriesInnerBerry.Name == null)
-                throw new ArgumentNullException(nameof(berryFlavorDetailBerriesInnerBerry.Name), "Property is required for class BerryFlavorDetailBerriesInnerBerry.");
+                throw new JsonException("Cannot write null property BerryFlavorDetailBerriesInnerBerry.Name to non-nullable JSON property 'name'.");
 
             if (berryFlavorDetailBerriesInnerBerry.UrlOption.IsSet && berryFlavorDetailBerriesInnerBerry.Url == null)
-                throw new ArgumentNullException(nameof(berryFlavorDetailBerriesInnerBerry.Url), "Property is required for class BerryFlavorDetailBerriesInnerBerry.");
+                throw new JsonException("Cannot write null property BerryFlavorDetailBerriesInnerBerry.Url to non-nullable JSON property 'url'.");
 
             if (berryFlavorDetailBerriesInnerBerry.NameOption.IsSet)
                 writer.WriteString("name", berryFlavorDetailBerriesInnerBerry.Name);

@@ -152,16 +152,16 @@ namespace Org.OpenAPITools.Model
             }
 
             if (!maxChange.IsSet)
-                throw new ArgumentException("Property is required for class PokeathlonStatDetailAffectingNaturesDecreaseInner.", nameof(maxChange));
+                throw new JsonException("Property is required for class PokeathlonStatDetailAffectingNaturesDecreaseInner: max_change.");
 
             if (!nature.IsSet)
-                throw new ArgumentException("Property is required for class PokeathlonStatDetailAffectingNaturesDecreaseInner.", nameof(nature));
+                throw new JsonException("Property is required for class PokeathlonStatDetailAffectingNaturesDecreaseInner: nature.");
 
             if (maxChange.IsSet && maxChange.Value == null)
-                throw new ArgumentNullException(nameof(maxChange), "Property is not nullable for class PokeathlonStatDetailAffectingNaturesDecreaseInner.");
+                throw new JsonException("Property is not nullable for class PokeathlonStatDetailAffectingNaturesDecreaseInner: max_change.");
 
             if (nature.IsSet && nature.Value == null)
-                throw new ArgumentNullException(nameof(nature), "Property is not nullable for class PokeathlonStatDetailAffectingNaturesDecreaseInner.");
+                throw new JsonException("Property is not nullable for class PokeathlonStatDetailAffectingNaturesDecreaseInner: nature.");
 
             return new PokeathlonStatDetailAffectingNaturesDecreaseInner(maxChange.Value!.Value!, nature.Value!);
         }
@@ -172,7 +172,6 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="pokeathlonStatDetailAffectingNaturesDecreaseInner"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public override void Write(Utf8JsonWriter writer, PokeathlonStatDetailAffectingNaturesDecreaseInner pokeathlonStatDetailAffectingNaturesDecreaseInner, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteStartObject();
@@ -187,12 +186,8 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="pokeathlonStatDetailAffectingNaturesDecreaseInner"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, PokeathlonStatDetailAffectingNaturesDecreaseInner pokeathlonStatDetailAffectingNaturesDecreaseInner, JsonSerializerOptions jsonSerializerOptions)
         {
-            if (pokeathlonStatDetailAffectingNaturesDecreaseInner.Nature == null)
-                throw new ArgumentNullException(nameof(pokeathlonStatDetailAffectingNaturesDecreaseInner.Nature), "Property is required for class PokeathlonStatDetailAffectingNaturesDecreaseInner.");
-
             writer.WriteNumber("max_change", pokeathlonStatDetailAffectingNaturesDecreaseInner.MaxChange);
 
             writer.WritePropertyName("nature");

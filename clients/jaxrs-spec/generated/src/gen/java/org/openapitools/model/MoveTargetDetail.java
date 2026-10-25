@@ -22,13 +22,13 @@ import org.openapitools.jackson.nullable.JsonNullable;
 
 
 @JsonTypeName("MoveTargetDetail")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2026-08-30T01:56:42.280002256Z[Etc/UTC]", comments = "Generator version: 7.24.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2026-10-25T05:48:57.630723375Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 public class MoveTargetDetail   {
   private Integer id;
   private String name;
-  private @Valid List<@Valid MoveTargetDescription> descriptions = new ArrayList<>();
-  private @Valid List<@Valid MoveSummary> moves = new ArrayList<>();
-  private @Valid List<@Valid MoveTargetName> names = new ArrayList<>();
+  private List<@Valid MoveTargetDescription> descriptions = new ArrayList<>();
+  private List<@Valid MoveSummary> moves = new ArrayList<>();
+  private List<@Valid MoveTargetName> names = new ArrayList<>();
 
   public MoveTargetDetail() {
   }
@@ -96,7 +96,7 @@ public class MoveTargetDetail   {
   
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(required = true, value = "descriptions")
-  @Valid public List<@Valid MoveTargetDescription> getDescriptions() {
+  public List<@Valid MoveTargetDescription> getDescriptions() {
     return descriptions;
   }
 
@@ -131,7 +131,7 @@ public class MoveTargetDetail   {
   
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(required = true, value = "moves")
-  @Valid public List<@Valid MoveSummary> getMoves() {
+  public List<@Valid MoveSummary> getMoves() {
     return moves;
   }
 
@@ -166,7 +166,7 @@ public class MoveTargetDetail   {
   
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(required = true, value = "names")
-  @Valid public List<@Valid MoveTargetName> getNames() {
+  public List<@Valid MoveTargetName> getNames() {
     return names;
   }
 

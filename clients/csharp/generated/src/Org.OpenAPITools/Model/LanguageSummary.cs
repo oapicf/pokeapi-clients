@@ -152,16 +152,16 @@ namespace Org.OpenAPITools.Model
             }
 
             if (!name.IsSet)
-                throw new ArgumentException("Property is required for class LanguageSummary.", nameof(name));
+                throw new JsonException("Property is required for class LanguageSummary: name.");
 
             if (!url.IsSet)
-                throw new ArgumentException("Property is required for class LanguageSummary.", nameof(url));
+                throw new JsonException("Property is required for class LanguageSummary: url.");
 
             if (name.IsSet && name.Value == null)
-                throw new ArgumentNullException(nameof(name), "Property is not nullable for class LanguageSummary.");
+                throw new JsonException("Property is not nullable for class LanguageSummary: name.");
 
             if (url.IsSet && url.Value == null)
-                throw new ArgumentNullException(nameof(url), "Property is not nullable for class LanguageSummary.");
+                throw new JsonException("Property is not nullable for class LanguageSummary: url.");
 
             return new LanguageSummary(name.Value!, url.Value!);
         }
@@ -172,7 +172,6 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="languageSummary"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public override void Write(Utf8JsonWriter writer, LanguageSummary languageSummary, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteStartObject();
@@ -187,15 +186,8 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="languageSummary"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, LanguageSummary languageSummary, JsonSerializerOptions jsonSerializerOptions)
         {
-            if (languageSummary.Name == null)
-                throw new ArgumentNullException(nameof(languageSummary.Name), "Property is required for class LanguageSummary.");
-
-            if (languageSummary.Url == null)
-                throw new ArgumentNullException(nameof(languageSummary.Url), "Property is required for class LanguageSummary.");
-
             writer.WriteString("name", languageSummary.Name);
 
             writer.WriteString("url", languageSummary.Url);

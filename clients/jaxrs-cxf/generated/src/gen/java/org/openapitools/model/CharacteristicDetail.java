@@ -35,8 +35,6 @@ public class CharacteristicDetail  {
 
   @ApiModelProperty(required = true, value = "")
 
-  @Valid
-
   private List<@Valid CharacteristicDescription> descriptions = new ArrayList<>();
  /**
    * Get id

@@ -21,14 +21,10 @@ import { mapValues } from '../runtime';
 export interface ItemCategorySummary {
     /**
      * 
-     * @type {string}
-     * @memberof ItemCategorySummary
      */
     name: string;
     /**
      * 
-     * @type {string}
-     * @memberof ItemCategorySummary
      */
     readonly url: string;
 }

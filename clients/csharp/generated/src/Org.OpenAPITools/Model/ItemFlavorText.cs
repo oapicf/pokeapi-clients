@@ -159,22 +159,22 @@ namespace Org.OpenAPITools.Model
             }
 
             if (!text.IsSet)
-                throw new ArgumentException("Property is required for class ItemFlavorText.", nameof(text));
+                throw new JsonException("Property is required for class ItemFlavorText: text.");
 
             if (!versionGroup.IsSet)
-                throw new ArgumentException("Property is required for class ItemFlavorText.", nameof(versionGroup));
+                throw new JsonException("Property is required for class ItemFlavorText: version_group.");
 
             if (!language.IsSet)
-                throw new ArgumentException("Property is required for class ItemFlavorText.", nameof(language));
+                throw new JsonException("Property is required for class ItemFlavorText: language.");
 
             if (text.IsSet && text.Value == null)
-                throw new ArgumentNullException(nameof(text), "Property is not nullable for class ItemFlavorText.");
+                throw new JsonException("Property is not nullable for class ItemFlavorText: text.");
 
             if (versionGroup.IsSet && versionGroup.Value == null)
-                throw new ArgumentNullException(nameof(versionGroup), "Property is not nullable for class ItemFlavorText.");
+                throw new JsonException("Property is not nullable for class ItemFlavorText: version_group.");
 
             if (language.IsSet && language.Value == null)
-                throw new ArgumentNullException(nameof(language), "Property is not nullable for class ItemFlavorText.");
+                throw new JsonException("Property is not nullable for class ItemFlavorText: language.");
 
             return new ItemFlavorText(text.Value!, versionGroup.Value!, language.Value!);
         }
@@ -185,7 +185,6 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="itemFlavorText"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public override void Write(Utf8JsonWriter writer, ItemFlavorText itemFlavorText, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteStartObject();
@@ -200,18 +199,8 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="itemFlavorText"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, ItemFlavorText itemFlavorText, JsonSerializerOptions jsonSerializerOptions)
         {
-            if (itemFlavorText.Text == null)
-                throw new ArgumentNullException(nameof(itemFlavorText.Text), "Property is required for class ItemFlavorText.");
-
-            if (itemFlavorText.VersionGroup == null)
-                throw new ArgumentNullException(nameof(itemFlavorText.VersionGroup), "Property is required for class ItemFlavorText.");
-
-            if (itemFlavorText.Language == null)
-                throw new ArgumentNullException(nameof(itemFlavorText.Language), "Property is required for class ItemFlavorText.");
-
             writer.WriteString("text", itemFlavorText.Text);
 
             writer.WritePropertyName("version_group");

@@ -120,3 +120,4 @@ class _$GenderSummarySerializer implements PrimitiveSerializer<GenderSummary> {
   }
 }
 
+

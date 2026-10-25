@@ -146,16 +146,16 @@ namespace Org.OpenAPITools.Model
             }
 
             if (!gameIndex.IsSet)
-                throw new ArgumentException("Property is required for class LocationGameIndex.", nameof(gameIndex));
+                throw new JsonException("Property is required for class LocationGameIndex: game_index.");
 
             if (!generation.IsSet)
-                throw new ArgumentException("Property is required for class LocationGameIndex.", nameof(generation));
+                throw new JsonException("Property is required for class LocationGameIndex: generation.");
 
             if (gameIndex.IsSet && gameIndex.Value == null)
-                throw new ArgumentNullException(nameof(gameIndex), "Property is not nullable for class LocationGameIndex.");
+                throw new JsonException("Property is not nullable for class LocationGameIndex: game_index.");
 
             if (generation.IsSet && generation.Value == null)
-                throw new ArgumentNullException(nameof(generation), "Property is not nullable for class LocationGameIndex.");
+                throw new JsonException("Property is not nullable for class LocationGameIndex: generation.");
 
             return new LocationGameIndex(gameIndex.Value!.Value!, generation.Value!);
         }
@@ -166,7 +166,6 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="locationGameIndex"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public override void Write(Utf8JsonWriter writer, LocationGameIndex locationGameIndex, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteStartObject();
@@ -181,12 +180,8 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="locationGameIndex"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, LocationGameIndex locationGameIndex, JsonSerializerOptions jsonSerializerOptions)
         {
-            if (locationGameIndex.Generation == null)
-                throw new ArgumentNullException(nameof(locationGameIndex.Generation), "Property is required for class LocationGameIndex.");
-
             writer.WriteNumber("game_index", locationGameIndex.GameIndex);
 
             writer.WritePropertyName("generation");

@@ -22,10 +22,10 @@ import org.openapitools.jackson.nullable.JsonNullable;
 
 
 @JsonTypeName("PokemonDetail_moves_inner")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2026-08-30T01:56:42.280002256Z[Etc/UTC]", comments = "Generator version: 7.24.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2026-10-25T05:48:57.630723375Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 public class PokemonDetailMovesInner   {
   private AbilityDetailPokemonInnerPokemon move;
-  private @Valid List<@Valid PokemonDetailMovesInnerVersionGroupDetailsInner> versionGroupDetails = new ArrayList<>();
+  private List<@Valid PokemonDetailMovesInnerVersionGroupDetailsInner> versionGroupDetails = new ArrayList<>();
 
   public PokemonDetailMovesInner() {
   }
@@ -68,7 +68,7 @@ public class PokemonDetailMovesInner   {
   
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(required = true, value = "version_group_details")
-  @NotNull @Valid public List<@Valid PokemonDetailMovesInnerVersionGroupDetailsInner> getVersionGroupDetails() {
+  @NotNull public List<@Valid PokemonDetailMovesInnerVersionGroupDetailsInner> getVersionGroupDetails() {
     return versionGroupDetails;
   }
 

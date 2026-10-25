@@ -28,31 +28,25 @@ import jakarta.annotation.Generated;
  * GenerationDetail
  */
 
-@Generated(value = "org.openapitools.codegen.languages.JavaCamelServerCodegen", date = "2026-08-30T01:56:15.309401083Z[Etc/UTC]", comments = "Generator version: 7.24.0")
+@Generated(value = "org.openapitools.codegen.languages.JavaCamelServerCodegen", date = "2026-10-25T05:48:25.711080506Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 public class GenerationDetail {
 
   private Integer id;
 
   private String name;
 
-  @Valid
   private List<@Valid AbilitySummary> abilities = new ArrayList<>();
 
   private RegionSummary mainRegion;
 
-  @Valid
   private List<@Valid MoveSummary> moves = new ArrayList<>();
 
-  @Valid
   private List<@Valid GenerationName> names = new ArrayList<>();
 
-  @Valid
   private List<@Valid PokemonSpeciesSummary> pokemonSpecies = new ArrayList<>();
 
-  @Valid
   private List<@Valid TypeSummary> types = new ArrayList<>();
 
-  @Valid
   private List<@Valid VersionGroupSummary> versionGroups = new ArrayList<>();
 
   public GenerationDetail() {
@@ -131,7 +125,7 @@ public class GenerationDetail {
    * Get abilities
    * @return abilities
    */
-  @Valid 
+  
   @Schema(name = "abilities", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("abilities")
   public List<@Valid AbilitySummary> getAbilities() {
@@ -179,7 +173,7 @@ public class GenerationDetail {
    * Get moves
    * @return moves
    */
-  @Valid 
+  
   @Schema(name = "moves", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("moves")
   public List<@Valid MoveSummary> getMoves() {
@@ -207,7 +201,7 @@ public class GenerationDetail {
    * Get names
    * @return names
    */
-  @Valid 
+  
   @Schema(name = "names", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("names")
   public List<@Valid GenerationName> getNames() {
@@ -235,7 +229,7 @@ public class GenerationDetail {
    * Get pokemonSpecies
    * @return pokemonSpecies
    */
-  @Valid 
+  
   @Schema(name = "pokemon_species", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("pokemon_species")
   public List<@Valid PokemonSpeciesSummary> getPokemonSpecies() {
@@ -263,7 +257,7 @@ public class GenerationDetail {
    * Get types
    * @return types
    */
-  @Valid 
+  
   @Schema(name = "types", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("types")
   public List<@Valid TypeSummary> getTypes() {
@@ -291,7 +285,7 @@ public class GenerationDetail {
    * Get versionGroups
    * @return versionGroups
    */
-  @Valid 
+  
   @Schema(name = "version_groups", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("version_groups")
   public List<@Valid VersionGroupSummary> getVersionGroups() {

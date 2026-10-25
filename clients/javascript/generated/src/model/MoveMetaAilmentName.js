@@ -17,7 +17,7 @@ import LanguageSummary from './LanguageSummary';
 /**
  * The MoveMetaAilmentName model module.
  * @module model/MoveMetaAilmentName
- * @version 2.0.1-pre.0
+ * @version 2.1.1-pre.0
  */
 class MoveMetaAilmentName {
     /**

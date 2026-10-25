@@ -29,32 +29,32 @@ import io.swagger.v3.oas.annotations.media.Schema
 data class LocationDetail(
 
     @Schema(required = true, readOnly = true, description = "")
-    @param:JsonProperty("id")
+    @param:JsonProperty("id", required = true)
     @get:JsonProperty("id", required = true) val id: kotlin.Int,
 
     @get:Size(max=100)
     @Schema(required = true, description = "")
-    @param:JsonProperty("name")
+    @param:JsonProperty("name", required = true)
     @get:JsonProperty("name", required = true) val name: kotlin.String,
 
     @field:Valid
     @Schema(required = true, description = "")
-    @param:JsonProperty("region")
+    @param:JsonProperty("region", required = true)
     @get:JsonProperty("region", required = true) val region: RegionSummary,
 
     @field:Valid
     @Schema(required = true, readOnly = true, description = "")
-    @param:JsonProperty("names")
+    @param:JsonProperty("names", required = true)
     @get:JsonProperty("names", required = true) val names: kotlin.collections.List<LocationName>,
 
     @field:Valid
     @Schema(required = true, readOnly = true, description = "")
-    @param:JsonProperty("game_indices")
+    @param:JsonProperty("game_indices", required = true)
     @get:JsonProperty("game_indices", required = true) val gameIndices: kotlin.collections.List<LocationGameIndex>,
 
     @field:Valid
     @Schema(required = true, readOnly = true, description = "")
-    @param:JsonProperty("areas")
+    @param:JsonProperty("areas", required = true)
     @get:JsonProperty("areas", required = true) val areas: kotlin.collections.List<LocationAreaSummary>
 ) {
 

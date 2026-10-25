@@ -86,15 +86,13 @@ class ItemPocketDetail(BaseModel):
         _items = []
         if self.categories:
             for _item_categories in self.categories:
-                if _item_categories:
-                    _items.append(_item_categories.to_dict())
+                _items.append(_item_categories.to_dict() if _item_categories is not None else None)
             _dict['categories'] = _items
         # override the default output from pydantic by calling `to_dict()` of each item in names (list)
         _items = []
         if self.names:
             for _item_names in self.names:
-                if _item_names:
-                    _items.append(_item_names.to_dict())
+                _items.append(_item_names.to_dict() if _item_names is not None else None)
             _dict['names'] = _items
         return _dict
 

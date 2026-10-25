@@ -21,14 +21,10 @@ import { mapValues } from '../runtime';
 export interface MoveMetaAilmentSummary {
     /**
      * 
-     * @type {string}
-     * @memberof MoveMetaAilmentSummary
      */
     name: string;
     /**
      * 
-     * @type {string}
-     * @memberof MoveMetaAilmentSummary
      */
     readonly url: string;
 }

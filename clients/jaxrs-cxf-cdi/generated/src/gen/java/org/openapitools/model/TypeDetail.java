@@ -52,7 +52,7 @@ public class TypeDetail   {
 
   private List<@Valid MoveSummary> moves = new ArrayList<>();
 
-  private Map<String, Map<String, TypeDetailSpritesValueValue>> sprites = new HashMap<>();
+  private Map<String, Map<String, @Valid TypeDetailSpritesValueValue>> sprites = new HashMap<>();
 
   /**
    **/
@@ -286,7 +286,7 @@ public class TypeDetail   {
 
   /**
    **/
-  public TypeDetail sprites(Map<String, Map<String, TypeDetailSpritesValueValue>> sprites) {
+  public TypeDetail sprites(Map<String, Map<String, @Valid TypeDetailSpritesValueValue>> sprites) {
     this.sprites = sprites;
     return this;
   }
@@ -295,15 +295,15 @@ public class TypeDetail   {
   @ApiModelProperty(required = true, value = "")
   @JsonProperty("sprites")
   @NotNull
-  public Map<String, Map<String, TypeDetailSpritesValueValue>> getSprites() {
+  public Map<String, Map<String, @Valid TypeDetailSpritesValueValue>> getSprites() {
     return sprites;
   }
-  public void setSprites(Map<String, Map<String, TypeDetailSpritesValueValue>> sprites) {
+  public void setSprites(Map<String, Map<String, @Valid TypeDetailSpritesValueValue>> sprites) {
     this.sprites = sprites;
   }
 
 
-  public TypeDetail putSpritesItem(String key, Map<String, TypeDetailSpritesValueValue> spritesItem) {
+  public TypeDetail putSpritesItem(String key, Map<String, @Valid TypeDetailSpritesValueValue> spritesItem) {
     if (this.sprites == null) {
       this.sprites = new HashMap<>();
     }

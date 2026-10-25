@@ -20,7 +20,7 @@ import javax.validation.constraints.*;
 import javax.validation.Valid;
 import io.swagger.annotations.*;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaResteasyServerCodegen", date = "2026-08-30T01:56:35.721624822Z[Etc/UTC]", comments = "Generator version: 7.24.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaResteasyServerCodegen", date = "2026-10-25T05:48:49.952264473Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 public class GenerationDetail   {
   
   private Integer id;
@@ -65,7 +65,6 @@ public class GenerationDetail   {
   @ApiModelProperty(required = true, value = "")
   @JsonProperty("abilities")
   @NotNull
-  @Valid
   public List<@Valid AbilitySummary> getAbilities() {
     return abilities;
   }
@@ -93,7 +92,6 @@ public class GenerationDetail   {
   @ApiModelProperty(required = true, value = "")
   @JsonProperty("moves")
   @NotNull
-  @Valid
   public List<@Valid MoveSummary> getMoves() {
     return moves;
   }
@@ -107,7 +105,6 @@ public class GenerationDetail   {
   @ApiModelProperty(required = true, value = "")
   @JsonProperty("names")
   @NotNull
-  @Valid
   public List<@Valid GenerationName> getNames() {
     return names;
   }
@@ -121,7 +118,6 @@ public class GenerationDetail   {
   @ApiModelProperty(required = true, value = "")
   @JsonProperty("pokemon_species")
   @NotNull
-  @Valid
   public List<@Valid PokemonSpeciesSummary> getPokemonSpecies() {
     return pokemonSpecies;
   }
@@ -135,7 +131,6 @@ public class GenerationDetail   {
   @ApiModelProperty(required = true, value = "")
   @JsonProperty("types")
   @NotNull
-  @Valid
   public List<@Valid TypeSummary> getTypes() {
     return types;
   }
@@ -149,7 +144,6 @@ public class GenerationDetail   {
   @ApiModelProperty(required = true, value = "")
   @JsonProperty("version_groups")
   @NotNull
-  @Valid
   public List<@Valid VersionGroupSummary> getVersionGroups() {
     return versionGroups;
   }

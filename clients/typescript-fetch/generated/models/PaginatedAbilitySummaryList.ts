@@ -29,26 +29,18 @@ import {
 export interface PaginatedAbilitySummaryList {
     /**
      * 
-     * @type {number}
-     * @memberof PaginatedAbilitySummaryList
      */
     count?: number;
     /**
      * 
-     * @type {string}
-     * @memberof PaginatedAbilitySummaryList
      */
     next?: string;
     /**
      * 
-     * @type {string}
-     * @memberof PaginatedAbilitySummaryList
      */
     previous?: string;
     /**
      * 
-     * @type {Array<AbilitySummary>}
-     * @memberof PaginatedAbilitySummaryList
      */
     results?: Array<AbilitySummary>;
 }

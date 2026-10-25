@@ -1,10 +1,7 @@
 package org.openapitools.model
 
 import java.util.Objects
-import com.fasterxml.jackson.annotation.JsonInclude
 import com.fasterxml.jackson.annotation.JsonProperty
-import com.fasterxml.jackson.annotation.JsonSetter
-import com.fasterxml.jackson.annotation.Nulls
 import org.openapitools.model.AbilityDetailPokemonInnerPokemon
 import javax.validation.constraints.DecimalMax
 import javax.validation.constraints.DecimalMin
@@ -28,26 +25,24 @@ import io.swagger.v3.oas.annotations.media.Schema
 data class LocationAreaDetailPokemonEncountersInnerVersionDetailsInnerEncounterDetails(
 
     @Schema(required = true, description = "")
-    @param:JsonProperty("min_level")
+    @param:JsonProperty("min_level", required = true)
     @get:JsonProperty("min_level", required = true) val minLevel: kotlin.Int,
 
     @Schema(required = true, description = "")
-    @param:JsonProperty("max_level")
+    @param:JsonProperty("max_level", required = true)
     @get:JsonProperty("max_level", required = true) val maxLevel: kotlin.Int,
 
     @Schema(required = true, description = "")
-    @param:JsonProperty("chance")
+    @param:JsonProperty("chance", required = true)
     @get:JsonProperty("chance", required = true) val chance: kotlin.Int,
 
     @field:Valid
     @Schema(required = true, description = "")
-    @param:JsonProperty("method")
+    @param:JsonProperty("method", required = true)
     @get:JsonProperty("method", required = true) val method: AbilityDetailPokemonInnerPokemon,
 
     @field:Valid
     @Schema(description = "")
-    @field:JsonInclude(JsonInclude.Include.NON_NULL)
-    @field:JsonSetter(nulls = Nulls.SKIP)
     @param:JsonProperty("condition_values")
     @get:JsonProperty("condition_values") val conditionValues: AbilityDetailPokemonInnerPokemon? = null
 ) {

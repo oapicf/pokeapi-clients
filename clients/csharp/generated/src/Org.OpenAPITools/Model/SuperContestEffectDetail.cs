@@ -172,28 +172,28 @@ namespace Org.OpenAPITools.Model
             }
 
             if (!id.IsSet)
-                throw new ArgumentException("Property is required for class SuperContestEffectDetail.", nameof(id));
+                throw new JsonException("Property is required for class SuperContestEffectDetail: id.");
 
             if (!appeal.IsSet)
-                throw new ArgumentException("Property is required for class SuperContestEffectDetail.", nameof(appeal));
+                throw new JsonException("Property is required for class SuperContestEffectDetail: appeal.");
 
             if (!flavorTextEntries.IsSet)
-                throw new ArgumentException("Property is required for class SuperContestEffectDetail.", nameof(flavorTextEntries));
+                throw new JsonException("Property is required for class SuperContestEffectDetail: flavor_text_entries.");
 
             if (!moves.IsSet)
-                throw new ArgumentException("Property is required for class SuperContestEffectDetail.", nameof(moves));
+                throw new JsonException("Property is required for class SuperContestEffectDetail: moves.");
 
             if (id.IsSet && id.Value == null)
-                throw new ArgumentNullException(nameof(id), "Property is not nullable for class SuperContestEffectDetail.");
+                throw new JsonException("Property is not nullable for class SuperContestEffectDetail: id.");
 
             if (appeal.IsSet && appeal.Value == null)
-                throw new ArgumentNullException(nameof(appeal), "Property is not nullable for class SuperContestEffectDetail.");
+                throw new JsonException("Property is not nullable for class SuperContestEffectDetail: appeal.");
 
             if (flavorTextEntries.IsSet && flavorTextEntries.Value == null)
-                throw new ArgumentNullException(nameof(flavorTextEntries), "Property is not nullable for class SuperContestEffectDetail.");
+                throw new JsonException("Property is not nullable for class SuperContestEffectDetail: flavor_text_entries.");
 
             if (moves.IsSet && moves.Value == null)
-                throw new ArgumentNullException(nameof(moves), "Property is not nullable for class SuperContestEffectDetail.");
+                throw new JsonException("Property is not nullable for class SuperContestEffectDetail: moves.");
 
             return new SuperContestEffectDetail(id.Value!.Value!, appeal.Value!.Value!, flavorTextEntries.Value!, moves.Value!);
         }
@@ -204,7 +204,6 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="superContestEffectDetail"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public override void Write(Utf8JsonWriter writer, SuperContestEffectDetail superContestEffectDetail, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteStartObject();
@@ -219,15 +218,8 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="superContestEffectDetail"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, SuperContestEffectDetail superContestEffectDetail, JsonSerializerOptions jsonSerializerOptions)
         {
-            if (superContestEffectDetail.FlavorTextEntries == null)
-                throw new ArgumentNullException(nameof(superContestEffectDetail.FlavorTextEntries), "Property is required for class SuperContestEffectDetail.");
-
-            if (superContestEffectDetail.Moves == null)
-                throw new ArgumentNullException(nameof(superContestEffectDetail.Moves), "Property is required for class SuperContestEffectDetail.");
-
             writer.WriteNumber("id", superContestEffectDetail.Id);
 
             writer.WriteNumber("appeal", superContestEffectDetail.Appeal);

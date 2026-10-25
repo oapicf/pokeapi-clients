@@ -140,7 +140,7 @@ namespace Org.OpenAPITools.Model
             }
 
             if (nameIcon.IsSet && nameIcon.Value == null)
-                throw new ArgumentNullException(nameof(nameIcon), "Property is not nullable for class TypeDetailSpritesValueValue.");
+                throw new JsonException("Property is not nullable for class TypeDetailSpritesValueValue: name-icon.");
 
             return new TypeDetailSpritesValueValue(nameIcon);
         }
@@ -151,7 +151,6 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="typeDetailSpritesValueValue"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public override void Write(Utf8JsonWriter writer, TypeDetailSpritesValueValue typeDetailSpritesValueValue, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteStartObject();
@@ -166,11 +165,10 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="typeDetailSpritesValueValue"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, TypeDetailSpritesValueValue typeDetailSpritesValueValue, JsonSerializerOptions jsonSerializerOptions)
         {
             if (typeDetailSpritesValueValue.NameIconOption.IsSet && typeDetailSpritesValueValue.NameIcon == null)
-                throw new ArgumentNullException(nameof(typeDetailSpritesValueValue.NameIcon), "Property is required for class TypeDetailSpritesValueValue.");
+                throw new JsonException("Cannot write null property TypeDetailSpritesValueValue.NameIcon to non-nullable JSON property 'name-icon'.");
 
             if (typeDetailSpritesValueValue.NameIconOption.IsSet)
                 writer.WriteString("name-icon", typeDetailSpritesValueValue.NameIcon);

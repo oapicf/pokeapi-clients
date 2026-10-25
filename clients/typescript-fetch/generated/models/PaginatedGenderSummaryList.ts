@@ -29,26 +29,18 @@ import {
 export interface PaginatedGenderSummaryList {
     /**
      * 
-     * @type {number}
-     * @memberof PaginatedGenderSummaryList
      */
     count?: number;
     /**
      * 
-     * @type {string}
-     * @memberof PaginatedGenderSummaryList
      */
     next?: string;
     /**
      * 
-     * @type {string}
-     * @memberof PaginatedGenderSummaryList
      */
     previous?: string;
     /**
      * 
-     * @type {Array<GenderSummary>}
-     * @memberof PaginatedGenderSummaryList
      */
     results?: Array<GenderSummary>;
 }

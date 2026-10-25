@@ -121,3 +121,4 @@ class _$PokeathlonStatDetailAffectingNaturesDecreaseInnerSerializer implements P
   }
 }
 
+

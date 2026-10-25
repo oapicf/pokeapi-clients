@@ -34,7 +34,7 @@ import javax.validation.Valid;
   MoveDetailContestCombosNormal.JSON_PROPERTY_USE_BEFORE,
   MoveDetailContestCombosNormal.JSON_PROPERTY_USE_AFTER
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJerseyServerCodegen", date = "2026-08-30T01:56:28.710233113Z[Etc/UTC]", comments = "Generator version: 7.24.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJerseyServerCodegen", date = "2026-10-25T05:48:41.923212007Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 public class MoveDetailContestCombosNormal   {
   public static final String JSON_PROPERTY_USE_BEFORE = "use_before";
   @JsonProperty(JSON_PROPERTY_USE_BEFORE)
@@ -63,7 +63,7 @@ public class MoveDetailContestCombosNormal   {
    **/
   @JsonProperty(value = "use_before")
   @ApiModelProperty(required = true, value = "")
-  @NotNull @Valid 
+  @NotNull 
   public List<@Valid AbilityDetailPokemonInnerPokemon> getUseBefore() {
     return useBefore;
   }
@@ -91,7 +91,7 @@ public class MoveDetailContestCombosNormal   {
    **/
   @JsonProperty(value = "use_after")
   @ApiModelProperty(required = true, value = "")
-  @NotNull @Valid 
+  @NotNull 
   public List<@Valid AbilityDetailPokemonInnerPokemon> getUseAfter() {
     return useAfter;
   }

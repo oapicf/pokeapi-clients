@@ -29,14 +29,10 @@ import {
 export interface MoveTargetDescription {
     /**
      * 
-     * @type {string}
-     * @memberof MoveTargetDescription
      */
     description?: string;
     /**
      * 
-     * @type {LanguageSummary}
-     * @memberof MoveTargetDescription
      */
     language: LanguageSummary;
 }

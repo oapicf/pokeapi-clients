@@ -349,67 +349,67 @@ namespace Org.OpenAPITools.Model
             }
 
             if (!id.IsSet)
-                throw new ArgumentException("Property is required for class PokemonFormDetail.", nameof(id));
+                throw new JsonException("Property is required for class PokemonFormDetail: id.");
 
             if (!name.IsSet)
-                throw new ArgumentException("Property is required for class PokemonFormDetail.", nameof(name));
+                throw new JsonException("Property is required for class PokemonFormDetail: name.");
 
             if (!formName.IsSet)
-                throw new ArgumentException("Property is required for class PokemonFormDetail.", nameof(formName));
+                throw new JsonException("Property is required for class PokemonFormDetail: form_name.");
 
             if (!pokemon.IsSet)
-                throw new ArgumentException("Property is required for class PokemonFormDetail.", nameof(pokemon));
+                throw new JsonException("Property is required for class PokemonFormDetail: pokemon.");
 
             if (!sprites.IsSet)
-                throw new ArgumentException("Property is required for class PokemonFormDetail.", nameof(sprites));
+                throw new JsonException("Property is required for class PokemonFormDetail: sprites.");
 
             if (!versionGroup.IsSet)
-                throw new ArgumentException("Property is required for class PokemonFormDetail.", nameof(versionGroup));
+                throw new JsonException("Property is required for class PokemonFormDetail: version_group.");
 
             if (!formNames.IsSet)
-                throw new ArgumentException("Property is required for class PokemonFormDetail.", nameof(formNames));
+                throw new JsonException("Property is required for class PokemonFormDetail: form_names.");
 
             if (!names.IsSet)
-                throw new ArgumentException("Property is required for class PokemonFormDetail.", nameof(names));
+                throw new JsonException("Property is required for class PokemonFormDetail: names.");
 
             if (!types.IsSet)
-                throw new ArgumentException("Property is required for class PokemonFormDetail.", nameof(types));
+                throw new JsonException("Property is required for class PokemonFormDetail: types.");
 
             if (id.IsSet && id.Value == null)
-                throw new ArgumentNullException(nameof(id), "Property is not nullable for class PokemonFormDetail.");
+                throw new JsonException("Property is not nullable for class PokemonFormDetail: id.");
 
             if (name.IsSet && name.Value == null)
-                throw new ArgumentNullException(nameof(name), "Property is not nullable for class PokemonFormDetail.");
+                throw new JsonException("Property is not nullable for class PokemonFormDetail: name.");
 
             if (formName.IsSet && formName.Value == null)
-                throw new ArgumentNullException(nameof(formName), "Property is not nullable for class PokemonFormDetail.");
+                throw new JsonException("Property is not nullable for class PokemonFormDetail: form_name.");
 
             if (pokemon.IsSet && pokemon.Value == null)
-                throw new ArgumentNullException(nameof(pokemon), "Property is not nullable for class PokemonFormDetail.");
+                throw new JsonException("Property is not nullable for class PokemonFormDetail: pokemon.");
 
             if (sprites.IsSet && sprites.Value == null)
-                throw new ArgumentNullException(nameof(sprites), "Property is not nullable for class PokemonFormDetail.");
+                throw new JsonException("Property is not nullable for class PokemonFormDetail: sprites.");
 
             if (versionGroup.IsSet && versionGroup.Value == null)
-                throw new ArgumentNullException(nameof(versionGroup), "Property is not nullable for class PokemonFormDetail.");
+                throw new JsonException("Property is not nullable for class PokemonFormDetail: version_group.");
 
             if (formNames.IsSet && formNames.Value == null)
-                throw new ArgumentNullException(nameof(formNames), "Property is not nullable for class PokemonFormDetail.");
+                throw new JsonException("Property is not nullable for class PokemonFormDetail: form_names.");
 
             if (names.IsSet && names.Value == null)
-                throw new ArgumentNullException(nameof(names), "Property is not nullable for class PokemonFormDetail.");
+                throw new JsonException("Property is not nullable for class PokemonFormDetail: names.");
 
             if (types.IsSet && types.Value == null)
-                throw new ArgumentNullException(nameof(types), "Property is not nullable for class PokemonFormDetail.");
+                throw new JsonException("Property is not nullable for class PokemonFormDetail: types.");
 
             if (isDefault.IsSet && isDefault.Value == null)
-                throw new ArgumentNullException(nameof(isDefault), "Property is not nullable for class PokemonFormDetail.");
+                throw new JsonException("Property is not nullable for class PokemonFormDetail: is_default.");
 
             if (isBattleOnly.IsSet && isBattleOnly.Value == null)
-                throw new ArgumentNullException(nameof(isBattleOnly), "Property is not nullable for class PokemonFormDetail.");
+                throw new JsonException("Property is not nullable for class PokemonFormDetail: is_battle_only.");
 
             if (isMega.IsSet && isMega.Value == null)
-                throw new ArgumentNullException(nameof(isMega), "Property is not nullable for class PokemonFormDetail.");
+                throw new JsonException("Property is not nullable for class PokemonFormDetail: is_mega.");
 
             return new PokemonFormDetail(id.Value!.Value!, name.Value!, formName.Value!, pokemon.Value!, sprites.Value!, versionGroup.Value!, formNames.Value!, names.Value!, types.Value!, order, formOrder, isDefault, isBattleOnly, isMega);
         }
@@ -420,7 +420,6 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="pokemonFormDetail"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public override void Write(Utf8JsonWriter writer, PokemonFormDetail pokemonFormDetail, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteStartObject();
@@ -435,32 +434,16 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="pokemonFormDetail"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, PokemonFormDetail pokemonFormDetail, JsonSerializerOptions jsonSerializerOptions)
         {
-            if (pokemonFormDetail.Name == null)
-                throw new ArgumentNullException(nameof(pokemonFormDetail.Name), "Property is required for class PokemonFormDetail.");
+            if (pokemonFormDetail.IsDefaultOption.IsSet && pokemonFormDetail.IsDefault == null)
+                throw new JsonException("Cannot write null property PokemonFormDetail.IsDefault to non-nullable JSON property 'is_default'.");
 
-            if (pokemonFormDetail.FormName == null)
-                throw new ArgumentNullException(nameof(pokemonFormDetail.FormName), "Property is required for class PokemonFormDetail.");
+            if (pokemonFormDetail.IsBattleOnlyOption.IsSet && pokemonFormDetail.IsBattleOnly == null)
+                throw new JsonException("Cannot write null property PokemonFormDetail.IsBattleOnly to non-nullable JSON property 'is_battle_only'.");
 
-            if (pokemonFormDetail.Pokemon == null)
-                throw new ArgumentNullException(nameof(pokemonFormDetail.Pokemon), "Property is required for class PokemonFormDetail.");
-
-            if (pokemonFormDetail.Sprites == null)
-                throw new ArgumentNullException(nameof(pokemonFormDetail.Sprites), "Property is required for class PokemonFormDetail.");
-
-            if (pokemonFormDetail.VersionGroup == null)
-                throw new ArgumentNullException(nameof(pokemonFormDetail.VersionGroup), "Property is required for class PokemonFormDetail.");
-
-            if (pokemonFormDetail.FormNames == null)
-                throw new ArgumentNullException(nameof(pokemonFormDetail.FormNames), "Property is required for class PokemonFormDetail.");
-
-            if (pokemonFormDetail.Names == null)
-                throw new ArgumentNullException(nameof(pokemonFormDetail.Names), "Property is required for class PokemonFormDetail.");
-
-            if (pokemonFormDetail.Types == null)
-                throw new ArgumentNullException(nameof(pokemonFormDetail.Types), "Property is required for class PokemonFormDetail.");
+            if (pokemonFormDetail.IsMegaOption.IsSet && pokemonFormDetail.IsMega == null)
+                throw new JsonException("Cannot write null property PokemonFormDetail.IsMega to non-nullable JSON property 'is_mega'.");
 
             writer.WriteNumber("id", pokemonFormDetail.Id);
 

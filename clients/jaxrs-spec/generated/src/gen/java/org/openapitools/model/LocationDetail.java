@@ -23,14 +23,14 @@ import org.openapitools.jackson.nullable.JsonNullable;
 
 
 @JsonTypeName("LocationDetail")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2026-08-30T01:56:42.280002256Z[Etc/UTC]", comments = "Generator version: 7.24.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2026-10-25T05:48:57.630723375Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 public class LocationDetail   {
   private Integer id;
   private String name;
   private RegionSummary region;
-  private @Valid List<@Valid LocationName> names = new ArrayList<>();
-  private @Valid List<@Valid LocationGameIndex> gameIndices = new ArrayList<>();
-  private @Valid List<@Valid LocationAreaSummary> areas = new ArrayList<>();
+  private List<@Valid LocationName> names = new ArrayList<>();
+  private List<@Valid LocationGameIndex> gameIndices = new ArrayList<>();
+  private List<@Valid LocationAreaSummary> areas = new ArrayList<>();
 
   public LocationDetail() {
   }
@@ -119,7 +119,7 @@ public class LocationDetail   {
   
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(required = true, value = "names")
-  @Valid public List<@Valid LocationName> getNames() {
+  public List<@Valid LocationName> getNames() {
     return names;
   }
 
@@ -154,7 +154,7 @@ public class LocationDetail   {
   
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(required = true, value = "game_indices")
-  @Valid public List<@Valid LocationGameIndex> getGameIndices() {
+  public List<@Valid LocationGameIndex> getGameIndices() {
     return gameIndices;
   }
 
@@ -189,7 +189,7 @@ public class LocationDetail   {
   
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(required = true, value = "areas")
-  @Valid public List<@Valid LocationAreaSummary> getAreas() {
+  public List<@Valid LocationAreaSummary> getAreas() {
     return areas;
   }
 

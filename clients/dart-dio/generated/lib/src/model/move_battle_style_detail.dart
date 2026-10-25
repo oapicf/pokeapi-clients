@@ -138,3 +138,4 @@ class _$MoveBattleStyleDetailSerializer implements PrimitiveSerializer<MoveBattl
   }
 }
 
+

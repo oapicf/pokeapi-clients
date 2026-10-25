@@ -36,20 +36,14 @@ import {
 export interface AbilityFlavorText {
     /**
      * 
-     * @type {string}
-     * @memberof AbilityFlavorText
      */
     flavorText: string;
     /**
      * 
-     * @type {LanguageSummary}
-     * @memberof AbilityFlavorText
      */
     language: LanguageSummary;
     /**
      * 
-     * @type {VersionGroupSummary}
-     * @memberof AbilityFlavorText
      */
     versionGroup: VersionGroupSummary;
 }

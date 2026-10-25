@@ -123,3 +123,4 @@ class _$AbilityChangeSerializer implements PrimitiveSerializer<AbilityChange> {
   }
 }
 
+

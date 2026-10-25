@@ -36,32 +36,22 @@ import {
 export interface CharacteristicDetail {
     /**
      * 
-     * @type {number}
-     * @memberof CharacteristicDetail
      */
     readonly id: number;
     /**
      * 
-     * @type {number}
-     * @memberof CharacteristicDetail
      */
     geneModulo: number;
     /**
      * 
-     * @type {Array<number>}
-     * @memberof CharacteristicDetail
      */
     readonly possibleValues: Array<number>;
     /**
      * 
-     * @type {StatSummary}
-     * @memberof CharacteristicDetail
      */
     highestStat: StatSummary;
     /**
      * 
-     * @type {Array<CharacteristicDescription>}
-     * @memberof CharacteristicDetail
      */
     readonly descriptions: Array<CharacteristicDescription>;
 }

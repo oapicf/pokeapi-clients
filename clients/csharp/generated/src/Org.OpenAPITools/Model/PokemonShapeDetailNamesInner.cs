@@ -146,16 +146,16 @@ namespace Org.OpenAPITools.Model
             }
 
             if (!url.IsSet)
-                throw new ArgumentException("Property is required for class PokemonShapeDetailNamesInner.", nameof(url));
+                throw new JsonException("Property is required for class PokemonShapeDetailNamesInner: url.");
 
             if (!name.IsSet)
-                throw new ArgumentException("Property is required for class PokemonShapeDetailNamesInner.", nameof(name));
+                throw new JsonException("Property is required for class PokemonShapeDetailNamesInner: name.");
 
             if (url.IsSet && url.Value == null)
-                throw new ArgumentNullException(nameof(url), "Property is not nullable for class PokemonShapeDetailNamesInner.");
+                throw new JsonException("Property is not nullable for class PokemonShapeDetailNamesInner: url.");
 
             if (name.IsSet && name.Value == null)
-                throw new ArgumentNullException(nameof(name), "Property is not nullable for class PokemonShapeDetailNamesInner.");
+                throw new JsonException("Property is not nullable for class PokemonShapeDetailNamesInner: name.");
 
             return new PokemonShapeDetailNamesInner(url.Value!, name.Value!);
         }
@@ -166,7 +166,6 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="pokemonShapeDetailNamesInner"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public override void Write(Utf8JsonWriter writer, PokemonShapeDetailNamesInner pokemonShapeDetailNamesInner, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteStartObject();
@@ -181,15 +180,8 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="pokemonShapeDetailNamesInner"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, PokemonShapeDetailNamesInner pokemonShapeDetailNamesInner, JsonSerializerOptions jsonSerializerOptions)
         {
-            if (pokemonShapeDetailNamesInner.Url == null)
-                throw new ArgumentNullException(nameof(pokemonShapeDetailNamesInner.Url), "Property is required for class PokemonShapeDetailNamesInner.");
-
-            if (pokemonShapeDetailNamesInner.Name == null)
-                throw new ArgumentNullException(nameof(pokemonShapeDetailNamesInner.Name), "Property is required for class PokemonShapeDetailNamesInner.");
-
             writer.WriteString("url", pokemonShapeDetailNamesInner.Url);
 
             writer.WriteString("name", pokemonShapeDetailNamesInner.Name);

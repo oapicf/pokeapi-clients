@@ -50,44 +50,30 @@ import {
 export interface LocationAreaDetail {
     /**
      * 
-     * @type {number}
-     * @memberof LocationAreaDetail
      */
     readonly id: number;
     /**
      * 
-     * @type {string}
-     * @memberof LocationAreaDetail
      */
     name: string;
     /**
      * 
-     * @type {number}
-     * @memberof LocationAreaDetail
      */
     gameIndex: number;
     /**
      * 
-     * @type {Array<LocationAreaDetailEncounterMethodRatesInner>}
-     * @memberof LocationAreaDetail
      */
     readonly encounterMethodRates: Array<LocationAreaDetailEncounterMethodRatesInner>;
     /**
      * 
-     * @type {LocationSummary}
-     * @memberof LocationAreaDetail
      */
     location: LocationSummary;
     /**
      * 
-     * @type {Array<LocationAreaName>}
-     * @memberof LocationAreaDetail
      */
     readonly names: Array<LocationAreaName>;
     /**
      * 
-     * @type {Array<LocationAreaDetailPokemonEncountersInner>}
-     * @memberof LocationAreaDetail
      */
     readonly pokemonEncounters: Array<LocationAreaDetailPokemonEncountersInner>;
 }

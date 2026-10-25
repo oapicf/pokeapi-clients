@@ -166,3 +166,4 @@ class _$PaginatedLocationAreaSummaryListSerializer implements PrimitiveSerialize
   }
 }
 
+

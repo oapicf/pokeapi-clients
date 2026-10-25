@@ -166,3 +166,4 @@ class _$PaginatedMoveMetaAilmentSummaryListSerializer implements PrimitiveSerial
   }
 }
 
+

@@ -146,16 +146,16 @@ namespace Org.OpenAPITools.Model
             }
 
             if (!increase.IsSet)
-                throw new ArgumentException("Property is required for class StatDetailAffectingNatures.", nameof(increase));
+                throw new JsonException("Property is required for class StatDetailAffectingNatures: increase.");
 
             if (!decrease.IsSet)
-                throw new ArgumentException("Property is required for class StatDetailAffectingNatures.", nameof(decrease));
+                throw new JsonException("Property is required for class StatDetailAffectingNatures: decrease.");
 
             if (increase.IsSet && increase.Value == null)
-                throw new ArgumentNullException(nameof(increase), "Property is not nullable for class StatDetailAffectingNatures.");
+                throw new JsonException("Property is not nullable for class StatDetailAffectingNatures: increase.");
 
             if (decrease.IsSet && decrease.Value == null)
-                throw new ArgumentNullException(nameof(decrease), "Property is not nullable for class StatDetailAffectingNatures.");
+                throw new JsonException("Property is not nullable for class StatDetailAffectingNatures: decrease.");
 
             return new StatDetailAffectingNatures(increase.Value!, decrease.Value!);
         }
@@ -166,7 +166,6 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="statDetailAffectingNatures"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public override void Write(Utf8JsonWriter writer, StatDetailAffectingNatures statDetailAffectingNatures, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteStartObject();
@@ -181,15 +180,8 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="statDetailAffectingNatures"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, StatDetailAffectingNatures statDetailAffectingNatures, JsonSerializerOptions jsonSerializerOptions)
         {
-            if (statDetailAffectingNatures.Increase == null)
-                throw new ArgumentNullException(nameof(statDetailAffectingNatures.Increase), "Property is required for class StatDetailAffectingNatures.");
-
-            if (statDetailAffectingNatures.Decrease == null)
-                throw new ArgumentNullException(nameof(statDetailAffectingNatures.Decrease), "Property is required for class StatDetailAffectingNatures.");
-
             writer.WritePropertyName("increase");
             JsonSerializer.Serialize(writer, statDetailAffectingNatures.Increase, jsonSerializerOptions);
             writer.WritePropertyName("decrease");

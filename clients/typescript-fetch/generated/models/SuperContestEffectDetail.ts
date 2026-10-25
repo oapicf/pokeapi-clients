@@ -36,26 +36,18 @@ import {
 export interface SuperContestEffectDetail {
     /**
      * 
-     * @type {number}
-     * @memberof SuperContestEffectDetail
      */
     readonly id: number;
     /**
      * 
-     * @type {number}
-     * @memberof SuperContestEffectDetail
      */
     appeal: number;
     /**
      * 
-     * @type {Array<SuperContestEffectFlavorText>}
-     * @memberof SuperContestEffectDetail
      */
     readonly flavorTextEntries: Array<SuperContestEffectFlavorText>;
     /**
      * 
-     * @type {Array<MoveSummary>}
-     * @memberof SuperContestEffectDetail
      */
     readonly moves: Array<MoveSummary>;
 }

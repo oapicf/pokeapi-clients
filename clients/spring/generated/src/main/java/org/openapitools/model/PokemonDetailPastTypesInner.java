@@ -26,7 +26,7 @@ import jakarta.annotation.Generated;
  */
 
 @JsonTypeName("PokemonDetail_past_types_inner")
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2026-08-30T02:00:43.960184425Z[Etc/UTC]", comments = "Generator version: 7.24.0")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2026-10-25T05:53:37.479908528Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 public class PokemonDetailPastTypesInner {
 
   private AbilityDetailPokemonInnerPokemon generation;
@@ -83,7 +83,7 @@ public class PokemonDetailPastTypesInner {
    * Get types
    * @return types
    */
-  @NotNull @Valid 
+  @NotNull 
   @Schema(name = "types", requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("types")
   public List<@Valid PokemonDetailTypesInner> getTypes() {

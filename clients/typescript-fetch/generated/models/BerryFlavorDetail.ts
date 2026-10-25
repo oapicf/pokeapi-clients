@@ -43,32 +43,22 @@ import {
 export interface BerryFlavorDetail {
     /**
      * 
-     * @type {number}
-     * @memberof BerryFlavorDetail
      */
     readonly id: number;
     /**
      * 
-     * @type {string}
-     * @memberof BerryFlavorDetail
      */
     name: string;
     /**
      * 
-     * @type {Array<BerryFlavorDetailBerriesInner>}
-     * @memberof BerryFlavorDetail
      */
     readonly berries: Array<BerryFlavorDetailBerriesInner>;
     /**
      * 
-     * @type {ContestTypeSummary}
-     * @memberof BerryFlavorDetail
      */
     contestType: ContestTypeSummary;
     /**
      * 
-     * @type {Array<BerryFlavorName>}
-     * @memberof BerryFlavorDetail
      */
     readonly names: Array<BerryFlavorName>;
 }

@@ -203,16 +203,16 @@ namespace Org.OpenAPITools.Model
             }
 
             if (count.IsSet && count.Value == null)
-                throw new ArgumentNullException(nameof(count), "Property is not nullable for class PaginatedPokeathlonStatSummaryList.");
+                throw new JsonException("Property is not nullable for class PaginatedPokeathlonStatSummaryList: count.");
 
             if (next.IsSet && next.Value == null)
-                throw new ArgumentNullException(nameof(next), "Property is not nullable for class PaginatedPokeathlonStatSummaryList.");
+                throw new JsonException("Property is not nullable for class PaginatedPokeathlonStatSummaryList: next.");
 
             if (previous.IsSet && previous.Value == null)
-                throw new ArgumentNullException(nameof(previous), "Property is not nullable for class PaginatedPokeathlonStatSummaryList.");
+                throw new JsonException("Property is not nullable for class PaginatedPokeathlonStatSummaryList: previous.");
 
             if (results.IsSet && results.Value == null)
-                throw new ArgumentNullException(nameof(results), "Property is not nullable for class PaginatedPokeathlonStatSummaryList.");
+                throw new JsonException("Property is not nullable for class PaginatedPokeathlonStatSummaryList: results.");
 
             return new PaginatedPokeathlonStatSummaryList(count, next, previous, results);
         }
@@ -223,7 +223,6 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="paginatedPokeathlonStatSummaryList"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public override void Write(Utf8JsonWriter writer, PaginatedPokeathlonStatSummaryList paginatedPokeathlonStatSummaryList, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteStartObject();
@@ -238,17 +237,19 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="paginatedPokeathlonStatSummaryList"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, PaginatedPokeathlonStatSummaryList paginatedPokeathlonStatSummaryList, JsonSerializerOptions jsonSerializerOptions)
         {
+            if (paginatedPokeathlonStatSummaryList.CountOption.IsSet && paginatedPokeathlonStatSummaryList.Count == null)
+                throw new JsonException("Cannot write null property PaginatedPokeathlonStatSummaryList.Count to non-nullable JSON property 'count'.");
+
             if (paginatedPokeathlonStatSummaryList.NextOption.IsSet && paginatedPokeathlonStatSummaryList.Next == null)
-                throw new ArgumentNullException(nameof(paginatedPokeathlonStatSummaryList.Next), "Property is required for class PaginatedPokeathlonStatSummaryList.");
+                throw new JsonException("Cannot write null property PaginatedPokeathlonStatSummaryList.Next to non-nullable JSON property 'next'.");
 
             if (paginatedPokeathlonStatSummaryList.PreviousOption.IsSet && paginatedPokeathlonStatSummaryList.Previous == null)
-                throw new ArgumentNullException(nameof(paginatedPokeathlonStatSummaryList.Previous), "Property is required for class PaginatedPokeathlonStatSummaryList.");
+                throw new JsonException("Cannot write null property PaginatedPokeathlonStatSummaryList.Previous to non-nullable JSON property 'previous'.");
 
             if (paginatedPokeathlonStatSummaryList.ResultsOption.IsSet && paginatedPokeathlonStatSummaryList.Results == null)
-                throw new ArgumentNullException(nameof(paginatedPokeathlonStatSummaryList.Results), "Property is required for class PaginatedPokeathlonStatSummaryList.");
+                throw new JsonException("Cannot write null property PaginatedPokeathlonStatSummaryList.Results to non-nullable JSON property 'results'.");
 
             if (paginatedPokeathlonStatSummaryList.CountOption.IsSet)
                 writer.WriteNumber("count", paginatedPokeathlonStatSummaryList.CountOption.Value!.Value);

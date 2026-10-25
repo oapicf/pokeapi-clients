@@ -155,3 +155,4 @@ class _$ItemPocketDetailSerializer implements PrimitiveSerializer<ItemPocketDeta
   }
 }
 
+

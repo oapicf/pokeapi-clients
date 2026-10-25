@@ -2,7 +2,6 @@ package org.openapitools.model;
 
 import java.net.URI;
 import java.util.Objects;
-import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import java.net.URI;
@@ -25,19 +24,15 @@ import jakarta.annotation.Generated;
  * PaginatedLocationAreaSummaryList
  */
 
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2026-08-30T02:00:43.960184425Z[Etc/UTC]", comments = "Generator version: 7.24.0")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2026-10-25T05:53:37.479908528Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 public class PaginatedLocationAreaSummaryList {
 
-  @JsonInclude(JsonInclude.Include.NON_NULL)
   private @Nullable Integer count;
 
-  @JsonInclude(JsonInclude.Include.NON_NULL)
   private @Nullable URI next;
 
-  @JsonInclude(JsonInclude.Include.NON_NULL)
   private @Nullable URI previous;
 
-  @JsonInclude(JsonInclude.Include.NON_NULL)
   private List<@Valid LocationAreaSummary> results = new ArrayList<>();
 
   public PaginatedLocationAreaSummaryList count(@Nullable Integer count) {
@@ -120,7 +115,7 @@ public class PaginatedLocationAreaSummaryList {
    * Get results
    * @return results
    */
-  @Valid 
+  
   @Schema(name = "results", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
   @JsonProperty("results")
   public List<@Valid LocationAreaSummary> getResults() {

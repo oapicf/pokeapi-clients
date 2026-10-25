@@ -29,14 +29,10 @@ import {
 export interface MoveDetailContestCombos {
     /**
      * 
-     * @type {MoveDetailContestCombosNormal}
-     * @memberof MoveDetailContestCombos
      */
     normal: MoveDetailContestCombosNormal;
     /**
      * 
-     * @type {MoveDetailContestCombosNormal}
-     * @memberof MoveDetailContestCombos
      */
     _super: MoveDetailContestCombosNormal;
 }

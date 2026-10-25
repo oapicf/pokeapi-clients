@@ -29,20 +29,14 @@ import {
 export interface PokemonStat {
     /**
      * 
-     * @type {number}
-     * @memberof PokemonStat
      */
     baseStat: number;
     /**
      * 
-     * @type {number}
-     * @memberof PokemonStat
      */
     effort: number;
     /**
      * 
-     * @type {StatSummary}
-     * @memberof PokemonStat
      */
     stat: StatSummary;
 }

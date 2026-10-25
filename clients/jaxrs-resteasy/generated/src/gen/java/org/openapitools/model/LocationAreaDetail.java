@@ -17,7 +17,7 @@ import javax.validation.constraints.*;
 import javax.validation.Valid;
 import io.swagger.annotations.*;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaResteasyServerCodegen", date = "2026-08-30T01:56:35.721624822Z[Etc/UTC]", comments = "Generator version: 7.24.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaResteasyServerCodegen", date = "2026-10-25T05:48:49.952264473Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 public class LocationAreaDetail   {
   
   private Integer id;
@@ -73,7 +73,6 @@ public class LocationAreaDetail   {
   @ApiModelProperty(required = true, value = "")
   @JsonProperty("encounter_method_rates")
   @NotNull
-  @Valid
   public List<@Valid LocationAreaDetailEncounterMethodRatesInner> getEncounterMethodRates() {
     return encounterMethodRates;
   }
@@ -101,7 +100,6 @@ public class LocationAreaDetail   {
   @ApiModelProperty(required = true, value = "")
   @JsonProperty("names")
   @NotNull
-  @Valid
   public List<@Valid LocationAreaName> getNames() {
     return names;
   }
@@ -115,7 +113,6 @@ public class LocationAreaDetail   {
   @ApiModelProperty(required = true, value = "")
   @JsonProperty("pokemon_encounters")
   @NotNull
-  @Valid
   public List<@Valid LocationAreaDetailPokemonEncountersInner> getPokemonEncounters() {
     return pokemonEncounters;
   }

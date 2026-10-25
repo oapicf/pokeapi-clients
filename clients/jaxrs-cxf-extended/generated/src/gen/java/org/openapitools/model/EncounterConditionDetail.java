@@ -22,11 +22,9 @@ public class EncounterConditionDetail  {
   private String name;
 
   @ApiModelProperty(required = true, value = "")
-  @Valid
   private List<@Valid EncounterConditionValueSummary> values = new ArrayList<>();
 
   @ApiModelProperty(required = true, value = "")
-  @Valid
   private List<@Valid EncounterConditionName> names = new ArrayList<>();
  /**
   * Get id

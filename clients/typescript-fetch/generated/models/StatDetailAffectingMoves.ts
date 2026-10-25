@@ -29,14 +29,10 @@ import {
 export interface StatDetailAffectingMoves {
     /**
      * 
-     * @type {Array<StatDetailAffectingMovesIncreaseInner>}
-     * @memberof StatDetailAffectingMoves
      */
     increase: Array<StatDetailAffectingMovesIncreaseInner>;
     /**
      * 
-     * @type {Array<StatDetailAffectingMovesIncreaseInner>}
-     * @memberof StatDetailAffectingMoves
      */
     decrease: Array<StatDetailAffectingMovesIncreaseInner>;
 }

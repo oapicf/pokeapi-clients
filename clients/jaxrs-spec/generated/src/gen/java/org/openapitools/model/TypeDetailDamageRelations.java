@@ -21,14 +21,14 @@ import org.openapitools.jackson.nullable.JsonNullable;
 
 
 @JsonTypeName("TypeDetail_damage_relations")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2026-08-30T01:56:42.280002256Z[Etc/UTC]", comments = "Generator version: 7.24.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2026-10-25T05:48:57.630723375Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 public class TypeDetailDamageRelations   {
-  private @Valid List<@Valid AbilityDetailPokemonInnerPokemon> noDamageTo = new ArrayList<>();
-  private @Valid List<@Valid AbilityDetailPokemonInnerPokemon> halfDamageTo = new ArrayList<>();
-  private @Valid List<@Valid AbilityDetailPokemonInnerPokemon> doubleDamageTo = new ArrayList<>();
-  private @Valid List<@Valid AbilityDetailPokemonInnerPokemon> noDamageFrom = new ArrayList<>();
-  private @Valid List<@Valid AbilityDetailPokemonInnerPokemon> halfDamageFrom = new ArrayList<>();
-  private @Valid List<@Valid AbilityDetailPokemonInnerPokemon> doubleDamageFrom = new ArrayList<>();
+  private List<@Valid AbilityDetailPokemonInnerPokemon> noDamageTo = new ArrayList<>();
+  private List<@Valid AbilityDetailPokemonInnerPokemon> halfDamageTo = new ArrayList<>();
+  private List<@Valid AbilityDetailPokemonInnerPokemon> doubleDamageTo = new ArrayList<>();
+  private List<@Valid AbilityDetailPokemonInnerPokemon> noDamageFrom = new ArrayList<>();
+  private List<@Valid AbilityDetailPokemonInnerPokemon> halfDamageFrom = new ArrayList<>();
+  private List<@Valid AbilityDetailPokemonInnerPokemon> doubleDamageFrom = new ArrayList<>();
 
   public TypeDetailDamageRelations() {
   }
@@ -60,7 +60,7 @@ public class TypeDetailDamageRelations   {
   
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(required = true, value = "no_damage_to")
-  @NotNull @Valid public List<@Valid AbilityDetailPokemonInnerPokemon> getNoDamageTo() {
+  @NotNull public List<@Valid AbilityDetailPokemonInnerPokemon> getNoDamageTo() {
     return noDamageTo;
   }
 
@@ -95,7 +95,7 @@ public class TypeDetailDamageRelations   {
   
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(required = true, value = "half_damage_to")
-  @NotNull @Valid public List<@Valid AbilityDetailPokemonInnerPokemon> getHalfDamageTo() {
+  @NotNull public List<@Valid AbilityDetailPokemonInnerPokemon> getHalfDamageTo() {
     return halfDamageTo;
   }
 
@@ -130,7 +130,7 @@ public class TypeDetailDamageRelations   {
   
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(required = true, value = "double_damage_to")
-  @NotNull @Valid public List<@Valid AbilityDetailPokemonInnerPokemon> getDoubleDamageTo() {
+  @NotNull public List<@Valid AbilityDetailPokemonInnerPokemon> getDoubleDamageTo() {
     return doubleDamageTo;
   }
 
@@ -165,7 +165,7 @@ public class TypeDetailDamageRelations   {
   
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(required = true, value = "no_damage_from")
-  @NotNull @Valid public List<@Valid AbilityDetailPokemonInnerPokemon> getNoDamageFrom() {
+  @NotNull public List<@Valid AbilityDetailPokemonInnerPokemon> getNoDamageFrom() {
     return noDamageFrom;
   }
 
@@ -200,7 +200,7 @@ public class TypeDetailDamageRelations   {
   
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(required = true, value = "half_damage_from")
-  @NotNull @Valid public List<@Valid AbilityDetailPokemonInnerPokemon> getHalfDamageFrom() {
+  @NotNull public List<@Valid AbilityDetailPokemonInnerPokemon> getHalfDamageFrom() {
     return halfDamageFrom;
   }
 
@@ -235,7 +235,7 @@ public class TypeDetailDamageRelations   {
   
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(required = true, value = "double_damage_from")
-  @NotNull @Valid public List<@Valid AbilityDetailPokemonInnerPokemon> getDoubleDamageFrom() {
+  @NotNull public List<@Valid AbilityDetailPokemonInnerPokemon> getDoubleDamageFrom() {
     return doubleDamageFrom;
   }
 

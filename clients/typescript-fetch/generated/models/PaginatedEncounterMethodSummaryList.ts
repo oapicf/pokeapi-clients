@@ -29,26 +29,18 @@ import {
 export interface PaginatedEncounterMethodSummaryList {
     /**
      * 
-     * @type {number}
-     * @memberof PaginatedEncounterMethodSummaryList
      */
     count?: number;
     /**
      * 
-     * @type {string}
-     * @memberof PaginatedEncounterMethodSummaryList
      */
     next?: string;
     /**
      * 
-     * @type {string}
-     * @memberof PaginatedEncounterMethodSummaryList
      */
     previous?: string;
     /**
      * 
-     * @type {Array<EncounterMethodSummary>}
-     * @memberof PaginatedEncounterMethodSummaryList
      */
     results?: Array<EncounterMethodSummary>;
 }

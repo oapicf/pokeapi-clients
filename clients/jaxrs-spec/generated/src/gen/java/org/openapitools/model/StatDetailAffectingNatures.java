@@ -21,10 +21,10 @@ import org.openapitools.jackson.nullable.JsonNullable;
 
 
 @JsonTypeName("StatDetail_affecting_natures")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2026-08-30T01:56:42.280002256Z[Etc/UTC]", comments = "Generator version: 7.24.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2026-10-25T05:48:57.630723375Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 public class StatDetailAffectingNatures   {
-  private @Valid List<@Valid AbilityDetailPokemonInnerPokemon> increase = new ArrayList<>();
-  private @Valid List<@Valid AbilityDetailPokemonInnerPokemon> decrease = new ArrayList<>();
+  private List<@Valid AbilityDetailPokemonInnerPokemon> increase = new ArrayList<>();
+  private List<@Valid AbilityDetailPokemonInnerPokemon> decrease = new ArrayList<>();
 
   public StatDetailAffectingNatures() {
   }
@@ -48,7 +48,7 @@ public class StatDetailAffectingNatures   {
   
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(required = true, value = "increase")
-  @NotNull @Valid public List<@Valid AbilityDetailPokemonInnerPokemon> getIncrease() {
+  @NotNull public List<@Valid AbilityDetailPokemonInnerPokemon> getIncrease() {
     return increase;
   }
 
@@ -83,7 +83,7 @@ public class StatDetailAffectingNatures   {
   
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(required = true, value = "decrease")
-  @NotNull @Valid public List<@Valid AbilityDetailPokemonInnerPokemon> getDecrease() {
+  @NotNull public List<@Valid AbilityDetailPokemonInnerPokemon> getDecrease() {
     return decrease;
   }
 

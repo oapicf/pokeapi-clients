@@ -25,7 +25,7 @@ import TypeGameIndex from './TypeGameIndex';
 /**
  * The TypeDetail model module.
  * @module model/TypeDetail
- * @version 2.0.1-pre.0
+ * @version 2.1.1-pre.0
  */
 class TypeDetail {
     /**

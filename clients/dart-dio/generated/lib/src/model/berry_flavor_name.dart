@@ -121,3 +121,4 @@ class _$BerryFlavorNameSerializer implements PrimitiveSerializer<BerryFlavorName
   }
 }
 
+

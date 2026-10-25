@@ -57,86 +57,58 @@ import {
 export interface PokemonFormDetail {
     /**
      * 
-     * @type {number}
-     * @memberof PokemonFormDetail
      */
     readonly id: number;
     /**
      * 
-     * @type {string}
-     * @memberof PokemonFormDetail
      */
     name: string;
     /**
      * 
-     * @type {number}
-     * @memberof PokemonFormDetail
      */
     order?: number | null;
     /**
      * 
-     * @type {number}
-     * @memberof PokemonFormDetail
      */
     formOrder?: number | null;
     /**
      * 
-     * @type {boolean}
-     * @memberof PokemonFormDetail
      */
     isDefault?: boolean;
     /**
      * 
-     * @type {boolean}
-     * @memberof PokemonFormDetail
      */
     isBattleOnly?: boolean;
     /**
      * 
-     * @type {boolean}
-     * @memberof PokemonFormDetail
      */
     isMega?: boolean;
     /**
      * 
-     * @type {string}
-     * @memberof PokemonFormDetail
      */
     formName: string;
     /**
      * 
-     * @type {PokemonSummary}
-     * @memberof PokemonFormDetail
      */
     pokemon: PokemonSummary;
     /**
      * 
-     * @type {PokemonFormDetailSprites}
-     * @memberof PokemonFormDetail
      */
     sprites: PokemonFormDetailSprites;
     /**
      * 
-     * @type {VersionGroupSummary}
-     * @memberof PokemonFormDetail
      */
     versionGroup: VersionGroupSummary;
     /**
      * 
-     * @type {Array<PokemonFormDetailFormNamesInner>}
-     * @memberof PokemonFormDetail
      */
     readonly formNames: Array<PokemonFormDetailFormNamesInner>;
     /**
      * 
-     * @type {Array<PokemonFormDetailFormNamesInner>}
-     * @memberof PokemonFormDetail
      */
     readonly names: Array<PokemonFormDetailFormNamesInner>;
     /**
      * 
-     * @type {Array<PokemonDetailTypesInner>}
-     * @memberof PokemonFormDetail
      */
     readonly types: Array<PokemonDetailTypesInner>;
 }

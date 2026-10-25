@@ -146,16 +146,16 @@ namespace Org.OpenAPITools.Model
             }
 
             if (!machine.IsSet)
-                throw new ArgumentException("Property is required for class ItemDetailMachinesInner.", nameof(machine));
+                throw new JsonException("Property is required for class ItemDetailMachinesInner: machine.");
 
             if (!versionGroup.IsSet)
-                throw new ArgumentException("Property is required for class ItemDetailMachinesInner.", nameof(versionGroup));
+                throw new JsonException("Property is required for class ItemDetailMachinesInner: version_group.");
 
             if (machine.IsSet && machine.Value == null)
-                throw new ArgumentNullException(nameof(machine), "Property is not nullable for class ItemDetailMachinesInner.");
+                throw new JsonException("Property is not nullable for class ItemDetailMachinesInner: machine.");
 
             if (versionGroup.IsSet && versionGroup.Value == null)
-                throw new ArgumentNullException(nameof(versionGroup), "Property is not nullable for class ItemDetailMachinesInner.");
+                throw new JsonException("Property is not nullable for class ItemDetailMachinesInner: version_group.");
 
             return new ItemDetailMachinesInner(machine.Value!, versionGroup.Value!);
         }
@@ -166,7 +166,6 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="itemDetailMachinesInner"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public override void Write(Utf8JsonWriter writer, ItemDetailMachinesInner itemDetailMachinesInner, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteStartObject();
@@ -181,15 +180,8 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="itemDetailMachinesInner"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, ItemDetailMachinesInner itemDetailMachinesInner, JsonSerializerOptions jsonSerializerOptions)
         {
-            if (itemDetailMachinesInner.Machine == null)
-                throw new ArgumentNullException(nameof(itemDetailMachinesInner.Machine), "Property is required for class ItemDetailMachinesInner.");
-
-            if (itemDetailMachinesInner.VersionGroup == null)
-                throw new ArgumentNullException(nameof(itemDetailMachinesInner.VersionGroup), "Property is required for class ItemDetailMachinesInner.");
-
             writer.WriteString("machine", itemDetailMachinesInner.Machine);
 
             writer.WritePropertyName("version_group");

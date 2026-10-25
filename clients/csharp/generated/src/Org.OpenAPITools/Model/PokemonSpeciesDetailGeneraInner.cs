@@ -146,16 +146,16 @@ namespace Org.OpenAPITools.Model
             }
 
             if (!genus.IsSet)
-                throw new ArgumentException("Property is required for class PokemonSpeciesDetailGeneraInner.", nameof(genus));
+                throw new JsonException("Property is required for class PokemonSpeciesDetailGeneraInner: genus.");
 
             if (!language.IsSet)
-                throw new ArgumentException("Property is required for class PokemonSpeciesDetailGeneraInner.", nameof(language));
+                throw new JsonException("Property is required for class PokemonSpeciesDetailGeneraInner: language.");
 
             if (genus.IsSet && genus.Value == null)
-                throw new ArgumentNullException(nameof(genus), "Property is not nullable for class PokemonSpeciesDetailGeneraInner.");
+                throw new JsonException("Property is not nullable for class PokemonSpeciesDetailGeneraInner: genus.");
 
             if (language.IsSet && language.Value == null)
-                throw new ArgumentNullException(nameof(language), "Property is not nullable for class PokemonSpeciesDetailGeneraInner.");
+                throw new JsonException("Property is not nullable for class PokemonSpeciesDetailGeneraInner: language.");
 
             return new PokemonSpeciesDetailGeneraInner(genus.Value!, language.Value!);
         }
@@ -166,7 +166,6 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="pokemonSpeciesDetailGeneraInner"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public override void Write(Utf8JsonWriter writer, PokemonSpeciesDetailGeneraInner pokemonSpeciesDetailGeneraInner, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteStartObject();
@@ -181,15 +180,8 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="pokemonSpeciesDetailGeneraInner"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, PokemonSpeciesDetailGeneraInner pokemonSpeciesDetailGeneraInner, JsonSerializerOptions jsonSerializerOptions)
         {
-            if (pokemonSpeciesDetailGeneraInner.Genus == null)
-                throw new ArgumentNullException(nameof(pokemonSpeciesDetailGeneraInner.Genus), "Property is required for class PokemonSpeciesDetailGeneraInner.");
-
-            if (pokemonSpeciesDetailGeneraInner.Language == null)
-                throw new ArgumentNullException(nameof(pokemonSpeciesDetailGeneraInner.Language), "Property is required for class PokemonSpeciesDetailGeneraInner.");
-
             writer.WriteString("genus", pokemonSpeciesDetailGeneraInner.Genus);
 
             writer.WritePropertyName("language");

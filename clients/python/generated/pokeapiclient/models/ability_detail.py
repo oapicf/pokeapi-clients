@@ -104,36 +104,31 @@ class AbilityDetail(BaseModel):
         _items = []
         if self.names:
             for _item_names in self.names:
-                if _item_names:
-                    _items.append(_item_names.to_dict())
+                _items.append(_item_names.to_dict() if _item_names is not None else None)
             _dict['names'] = _items
         # override the default output from pydantic by calling `to_dict()` of each item in effect_entries (list)
         _items = []
         if self.effect_entries:
             for _item_effect_entries in self.effect_entries:
-                if _item_effect_entries:
-                    _items.append(_item_effect_entries.to_dict())
+                _items.append(_item_effect_entries.to_dict() if _item_effect_entries is not None else None)
             _dict['effect_entries'] = _items
         # override the default output from pydantic by calling `to_dict()` of each item in effect_changes (list)
         _items = []
         if self.effect_changes:
             for _item_effect_changes in self.effect_changes:
-                if _item_effect_changes:
-                    _items.append(_item_effect_changes.to_dict())
+                _items.append(_item_effect_changes.to_dict() if _item_effect_changes is not None else None)
             _dict['effect_changes'] = _items
         # override the default output from pydantic by calling `to_dict()` of each item in flavor_text_entries (list)
         _items = []
         if self.flavor_text_entries:
             for _item_flavor_text_entries in self.flavor_text_entries:
-                if _item_flavor_text_entries:
-                    _items.append(_item_flavor_text_entries.to_dict())
+                _items.append(_item_flavor_text_entries.to_dict() if _item_flavor_text_entries is not None else None)
             _dict['flavor_text_entries'] = _items
         # override the default output from pydantic by calling `to_dict()` of each item in pokemon (list)
         _items = []
         if self.pokemon:
             for _item_pokemon in self.pokemon:
-                if _item_pokemon:
-                    _items.append(_item_pokemon.to_dict())
+                _items.append(_item_pokemon.to_dict() if _item_pokemon is not None else None)
             _dict['pokemon'] = _items
         return _dict
 

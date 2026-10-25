@@ -146,16 +146,16 @@ namespace Org.OpenAPITools.Model
             }
 
             if (!versionGroup.IsSet)
-                throw new ArgumentException("Property is required for class AbilityChange.", nameof(versionGroup));
+                throw new JsonException("Property is required for class AbilityChange: version_group.");
 
             if (!effectEntries.IsSet)
-                throw new ArgumentException("Property is required for class AbilityChange.", nameof(effectEntries));
+                throw new JsonException("Property is required for class AbilityChange: effect_entries.");
 
             if (versionGroup.IsSet && versionGroup.Value == null)
-                throw new ArgumentNullException(nameof(versionGroup), "Property is not nullable for class AbilityChange.");
+                throw new JsonException("Property is not nullable for class AbilityChange: version_group.");
 
             if (effectEntries.IsSet && effectEntries.Value == null)
-                throw new ArgumentNullException(nameof(effectEntries), "Property is not nullable for class AbilityChange.");
+                throw new JsonException("Property is not nullable for class AbilityChange: effect_entries.");
 
             return new AbilityChange(versionGroup.Value!, effectEntries.Value!);
         }
@@ -166,7 +166,6 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="abilityChange"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public override void Write(Utf8JsonWriter writer, AbilityChange abilityChange, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteStartObject();
@@ -181,15 +180,8 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="abilityChange"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, AbilityChange abilityChange, JsonSerializerOptions jsonSerializerOptions)
         {
-            if (abilityChange.VersionGroup == null)
-                throw new ArgumentNullException(nameof(abilityChange.VersionGroup), "Property is required for class AbilityChange.");
-
-            if (abilityChange.EffectEntries == null)
-                throw new ArgumentNullException(nameof(abilityChange.EffectEntries), "Property is required for class AbilityChange.");
-
             writer.WritePropertyName("version_group");
             JsonSerializer.Serialize(writer, abilityChange.VersionGroup, jsonSerializerOptions);
             writer.WritePropertyName("effect_entries");

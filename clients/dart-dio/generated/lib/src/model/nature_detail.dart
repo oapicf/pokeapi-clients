@@ -255,3 +255,4 @@ class _$NatureDetailSerializer implements PrimitiveSerializer<NatureDetail> {
   }
 }
 
+

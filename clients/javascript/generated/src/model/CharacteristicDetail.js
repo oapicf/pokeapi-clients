@@ -18,7 +18,7 @@ import StatSummary from './StatSummary';
 /**
  * The CharacteristicDetail model module.
  * @module model/CharacteristicDetail
- * @version 2.0.1-pre.0
+ * @version 2.1.1-pre.0
  */
 class CharacteristicDetail {
     /**

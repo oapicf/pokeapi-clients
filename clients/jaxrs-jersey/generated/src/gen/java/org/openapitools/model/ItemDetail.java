@@ -56,7 +56,7 @@ import javax.validation.Valid;
   ItemDetail.JSON_PROPERTY_BABY_TRIGGER_FOR,
   ItemDetail.JSON_PROPERTY_MACHINES
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJerseyServerCodegen", date = "2026-08-30T01:56:28.710233113Z[Etc/UTC]", comments = "Generator version: 7.24.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJerseyServerCodegen", date = "2026-10-25T05:48:41.923212007Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 public class ItemDetail   {
   public static final String JSON_PROPERTY_ID = "id";
   @JsonProperty(JSON_PROPERTY_ID)
@@ -237,7 +237,7 @@ public class ItemDetail   {
    **/
   @JsonProperty(value = "attributes", access = JsonProperty.Access.READ_ONLY)
   @ApiModelProperty(required = true, value = "")
-  @Valid 
+  
   public List<@Valid AbilityDetailPokemonInnerPokemon> getAttributes() {
     return attributes;
   }
@@ -285,7 +285,7 @@ public class ItemDetail   {
    **/
   @JsonProperty(value = "effect_entries", access = JsonProperty.Access.READ_ONLY)
   @ApiModelProperty(required = true, value = "")
-  @Valid 
+  
   public List<@Valid ItemEffectText> getEffectEntries() {
     return effectEntries;
   }
@@ -313,7 +313,7 @@ public class ItemDetail   {
    **/
   @JsonProperty(value = "flavor_text_entries", access = JsonProperty.Access.READ_ONLY)
   @ApiModelProperty(required = true, value = "")
-  @Valid 
+  
   public List<@Valid ItemFlavorText> getFlavorTextEntries() {
     return flavorTextEntries;
   }
@@ -341,7 +341,7 @@ public class ItemDetail   {
    **/
   @JsonProperty(value = "game_indices", access = JsonProperty.Access.READ_ONLY)
   @ApiModelProperty(required = true, value = "")
-  @Valid 
+  
   public List<@Valid ItemGameIndex> getGameIndices() {
     return gameIndices;
   }
@@ -369,7 +369,7 @@ public class ItemDetail   {
    **/
   @JsonProperty(value = "names", access = JsonProperty.Access.READ_ONLY)
   @ApiModelProperty(required = true, value = "")
-  @Valid 
+  
   public List<@Valid ItemName> getNames() {
     return names;
   }
@@ -397,7 +397,7 @@ public class ItemDetail   {
    **/
   @JsonProperty(value = "held_by_pokemon", access = JsonProperty.Access.READ_ONLY)
   @ApiModelProperty(required = true, value = "")
-  @Valid 
+  
   public List<@Valid ItemDetailHeldByPokemonInner> getHeldByPokemon() {
     return heldByPokemon;
   }
@@ -465,7 +465,7 @@ public class ItemDetail   {
    **/
   @JsonProperty(value = "machines", access = JsonProperty.Access.READ_ONLY)
   @ApiModelProperty(required = true, value = "")
-  @Valid 
+  
   public List<@Valid ItemDetailMachinesInner> getMachines() {
     return machines;
   }

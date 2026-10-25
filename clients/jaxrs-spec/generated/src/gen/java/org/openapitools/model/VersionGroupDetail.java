@@ -23,16 +23,16 @@ import org.openapitools.jackson.nullable.JsonNullable;
 
 
 @JsonTypeName("VersionGroupDetail")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2026-08-30T01:56:42.280002256Z[Etc/UTC]", comments = "Generator version: 7.24.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2026-10-25T05:48:57.630723375Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 public class VersionGroupDetail   {
   private Integer id;
   private String name;
   private Integer order;
   private GenerationSummary generation;
-  private @Valid List<@Valid AbilityDetailPokemonInnerPokemon> moveLearnMethods = new ArrayList<>();
-  private @Valid List<@Valid AbilityDetailPokemonInnerPokemon> pokedexes = new ArrayList<>();
-  private @Valid List<@Valid AbilityDetailPokemonInnerPokemon> regions = new ArrayList<>();
-  private @Valid List<@Valid VersionSummary> versions = new ArrayList<>();
+  private List<@Valid AbilityDetailPokemonInnerPokemon> moveLearnMethods = new ArrayList<>();
+  private List<@Valid AbilityDetailPokemonInnerPokemon> pokedexes = new ArrayList<>();
+  private List<@Valid AbilityDetailPokemonInnerPokemon> regions = new ArrayList<>();
+  private List<@Valid VersionSummary> versions = new ArrayList<>();
 
   public VersionGroupDetail() {
   }
@@ -142,7 +142,7 @@ public class VersionGroupDetail   {
   
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(required = true, value = "move_learn_methods")
-  @Valid public List<@Valid AbilityDetailPokemonInnerPokemon> getMoveLearnMethods() {
+  public List<@Valid AbilityDetailPokemonInnerPokemon> getMoveLearnMethods() {
     return moveLearnMethods;
   }
 
@@ -177,7 +177,7 @@ public class VersionGroupDetail   {
   
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(required = true, value = "pokedexes")
-  @Valid public List<@Valid AbilityDetailPokemonInnerPokemon> getPokedexes() {
+  public List<@Valid AbilityDetailPokemonInnerPokemon> getPokedexes() {
     return pokedexes;
   }
 
@@ -212,7 +212,7 @@ public class VersionGroupDetail   {
   
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(required = true, value = "regions")
-  @Valid public List<@Valid AbilityDetailPokemonInnerPokemon> getRegions() {
+  public List<@Valid AbilityDetailPokemonInnerPokemon> getRegions() {
     return regions;
   }
 
@@ -247,7 +247,7 @@ public class VersionGroupDetail   {
   
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(required = true, value = "versions")
-  @Valid public List<@Valid VersionSummary> getVersions() {
+  public List<@Valid VersionSummary> getVersions() {
     return versions;
   }
 

@@ -93,8 +93,7 @@ class LocationAreaDetail(BaseModel):
         _items = []
         if self.encounter_method_rates:
             for _item_encounter_method_rates in self.encounter_method_rates:
-                if _item_encounter_method_rates:
-                    _items.append(_item_encounter_method_rates.to_dict())
+                _items.append(_item_encounter_method_rates.to_dict() if _item_encounter_method_rates is not None else None)
             _dict['encounter_method_rates'] = _items
         # override the default output from pydantic by calling `to_dict()` of location
         if self.location:
@@ -103,15 +102,13 @@ class LocationAreaDetail(BaseModel):
         _items = []
         if self.names:
             for _item_names in self.names:
-                if _item_names:
-                    _items.append(_item_names.to_dict())
+                _items.append(_item_names.to_dict() if _item_names is not None else None)
             _dict['names'] = _items
         # override the default output from pydantic by calling `to_dict()` of each item in pokemon_encounters (list)
         _items = []
         if self.pokemon_encounters:
             for _item_pokemon_encounters in self.pokemon_encounters:
-                if _item_pokemon_encounters:
-                    _items.append(_item_pokemon_encounters.to_dict())
+                _items.append(_item_pokemon_encounters.to_dict() if _item_pokemon_encounters is not None else None)
             _dict['pokemon_encounters'] = _items
         return _dict
 

@@ -45,7 +45,7 @@ class ItemsApi(baseUrl: String) {
    * @param offset The initial index from which to return the results.
    * @param `q` > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. 
    */
-  def itemAttributeList(username: String, password: String, apiKeyCookie: String)(limit: Option[Int] = None, offset: Option[Int] = None, `q`: Option[String] = None): Request[Either[ResponseException[String], PaginatedItemAttributeSummaryList]] =
+  def itemAttributeList(username: String, password: String, apiKeyCookie: String)(limit: Option[Int] = None, offset: Option[Int] = None, `q`: Option[String] = None): sttp.client4.Request[Either[ResponseException[String], PaginatedItemAttributeSummaryList]] =
     basicRequest
       .method(Method.GET, uri"$baseUrl/api/v2/item-attribute/?limit=${ limit }&offset=${ offset }&q=${ `q` }")
       .contentType("application/json")
@@ -65,7 +65,7 @@ class ItemsApi(baseUrl: String) {
    * 
    * @param id This parameter can be a string or an integer.
    */
-  def itemAttributeRetrieve(username: String, password: String, apiKeyCookie: String)(id: String): Request[Either[ResponseException[String], ItemAttributeDetail]] =
+  def itemAttributeRetrieve(username: String, password: String, apiKeyCookie: String)(id: String): sttp.client4.Request[Either[ResponseException[String], ItemAttributeDetail]] =
     basicRequest
       .method(Method.GET, uri"$baseUrl/api/v2/item-attribute/${id}/")
       .contentType("application/json")
@@ -87,7 +87,7 @@ class ItemsApi(baseUrl: String) {
    * @param offset The initial index from which to return the results.
    * @param `q` > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. 
    */
-  def itemCategoryList(username: String, password: String, apiKeyCookie: String)(limit: Option[Int] = None, offset: Option[Int] = None, `q`: Option[String] = None): Request[Either[ResponseException[String], PaginatedItemCategorySummaryList]] =
+  def itemCategoryList(username: String, password: String, apiKeyCookie: String)(limit: Option[Int] = None, offset: Option[Int] = None, `q`: Option[String] = None): sttp.client4.Request[Either[ResponseException[String], PaginatedItemCategorySummaryList]] =
     basicRequest
       .method(Method.GET, uri"$baseUrl/api/v2/item-category/?limit=${ limit }&offset=${ offset }&q=${ `q` }")
       .contentType("application/json")
@@ -107,7 +107,7 @@ class ItemsApi(baseUrl: String) {
    * 
    * @param id This parameter can be a string or an integer.
    */
-  def itemCategoryRetrieve(username: String, password: String, apiKeyCookie: String)(id: String): Request[Either[ResponseException[String], ItemCategoryDetail]] =
+  def itemCategoryRetrieve(username: String, password: String, apiKeyCookie: String)(id: String): sttp.client4.Request[Either[ResponseException[String], ItemCategoryDetail]] =
     basicRequest
       .method(Method.GET, uri"$baseUrl/api/v2/item-category/${id}/")
       .contentType("application/json")
@@ -129,7 +129,7 @@ class ItemsApi(baseUrl: String) {
    * @param offset The initial index from which to return the results.
    * @param `q` > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. 
    */
-  def itemFlingEffectList(username: String, password: String, apiKeyCookie: String)(limit: Option[Int] = None, offset: Option[Int] = None, `q`: Option[String] = None): Request[Either[ResponseException[String], PaginatedItemFlingEffectSummaryList]] =
+  def itemFlingEffectList(username: String, password: String, apiKeyCookie: String)(limit: Option[Int] = None, offset: Option[Int] = None, `q`: Option[String] = None): sttp.client4.Request[Either[ResponseException[String], PaginatedItemFlingEffectSummaryList]] =
     basicRequest
       .method(Method.GET, uri"$baseUrl/api/v2/item-fling-effect/?limit=${ limit }&offset=${ offset }&q=${ `q` }")
       .contentType("application/json")
@@ -149,7 +149,7 @@ class ItemsApi(baseUrl: String) {
    * 
    * @param id This parameter can be a string or an integer.
    */
-  def itemFlingEffectRetrieve(username: String, password: String, apiKeyCookie: String)(id: String): Request[Either[ResponseException[String], ItemFlingEffectDetail]] =
+  def itemFlingEffectRetrieve(username: String, password: String, apiKeyCookie: String)(id: String): sttp.client4.Request[Either[ResponseException[String], ItemFlingEffectDetail]] =
     basicRequest
       .method(Method.GET, uri"$baseUrl/api/v2/item-fling-effect/${id}/")
       .contentType("application/json")
@@ -171,7 +171,7 @@ class ItemsApi(baseUrl: String) {
    * @param offset The initial index from which to return the results.
    * @param `q` > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. 
    */
-  def itemList(username: String, password: String, apiKeyCookie: String)(limit: Option[Int] = None, offset: Option[Int] = None, `q`: Option[String] = None): Request[Either[ResponseException[String], PaginatedItemSummaryList]] =
+  def itemList(username: String, password: String, apiKeyCookie: String)(limit: Option[Int] = None, offset: Option[Int] = None, `q`: Option[String] = None): sttp.client4.Request[Either[ResponseException[String], PaginatedItemSummaryList]] =
     basicRequest
       .method(Method.GET, uri"$baseUrl/api/v2/item/?limit=${ limit }&offset=${ offset }&q=${ `q` }")
       .contentType("application/json")
@@ -193,7 +193,7 @@ class ItemsApi(baseUrl: String) {
    * @param offset The initial index from which to return the results.
    * @param `q` > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. 
    */
-  def itemPocketList(username: String, password: String, apiKeyCookie: String)(limit: Option[Int] = None, offset: Option[Int] = None, `q`: Option[String] = None): Request[Either[ResponseException[String], PaginatedItemPocketSummaryList]] =
+  def itemPocketList(username: String, password: String, apiKeyCookie: String)(limit: Option[Int] = None, offset: Option[Int] = None, `q`: Option[String] = None): sttp.client4.Request[Either[ResponseException[String], PaginatedItemPocketSummaryList]] =
     basicRequest
       .method(Method.GET, uri"$baseUrl/api/v2/item-pocket/?limit=${ limit }&offset=${ offset }&q=${ `q` }")
       .contentType("application/json")
@@ -213,7 +213,7 @@ class ItemsApi(baseUrl: String) {
    * 
    * @param id This parameter can be a string or an integer.
    */
-  def itemPocketRetrieve(username: String, password: String, apiKeyCookie: String)(id: String): Request[Either[ResponseException[String], ItemPocketDetail]] =
+  def itemPocketRetrieve(username: String, password: String, apiKeyCookie: String)(id: String): sttp.client4.Request[Either[ResponseException[String], ItemPocketDetail]] =
     basicRequest
       .method(Method.GET, uri"$baseUrl/api/v2/item-pocket/${id}/")
       .contentType("application/json")
@@ -233,7 +233,7 @@ class ItemsApi(baseUrl: String) {
    * 
    * @param id This parameter can be a string or an integer.
    */
-  def itemRetrieve(username: String, password: String, apiKeyCookie: String)(id: String): Request[Either[ResponseException[String], ItemDetail]] =
+  def itemRetrieve(username: String, password: String, apiKeyCookie: String)(id: String): sttp.client4.Request[Either[ResponseException[String], ItemDetail]] =
     basicRequest
       .method(Method.GET, uri"$baseUrl/api/v2/item/${id}/")
       .contentType("application/json")

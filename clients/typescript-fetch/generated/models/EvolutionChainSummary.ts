@@ -21,8 +21,6 @@ import { mapValues } from '../runtime';
 export interface EvolutionChainSummary {
     /**
      * 
-     * @type {string}
-     * @memberof EvolutionChainSummary
      */
     readonly url: string;
 }

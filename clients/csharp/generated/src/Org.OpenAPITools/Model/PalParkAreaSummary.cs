@@ -152,16 +152,16 @@ namespace Org.OpenAPITools.Model
             }
 
             if (!name.IsSet)
-                throw new ArgumentException("Property is required for class PalParkAreaSummary.", nameof(name));
+                throw new JsonException("Property is required for class PalParkAreaSummary: name.");
 
             if (!url.IsSet)
-                throw new ArgumentException("Property is required for class PalParkAreaSummary.", nameof(url));
+                throw new JsonException("Property is required for class PalParkAreaSummary: url.");
 
             if (name.IsSet && name.Value == null)
-                throw new ArgumentNullException(nameof(name), "Property is not nullable for class PalParkAreaSummary.");
+                throw new JsonException("Property is not nullable for class PalParkAreaSummary: name.");
 
             if (url.IsSet && url.Value == null)
-                throw new ArgumentNullException(nameof(url), "Property is not nullable for class PalParkAreaSummary.");
+                throw new JsonException("Property is not nullable for class PalParkAreaSummary: url.");
 
             return new PalParkAreaSummary(name.Value!, url.Value!);
         }
@@ -172,7 +172,6 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="palParkAreaSummary"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public override void Write(Utf8JsonWriter writer, PalParkAreaSummary palParkAreaSummary, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteStartObject();
@@ -187,15 +186,8 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="palParkAreaSummary"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, PalParkAreaSummary palParkAreaSummary, JsonSerializerOptions jsonSerializerOptions)
         {
-            if (palParkAreaSummary.Name == null)
-                throw new ArgumentNullException(nameof(palParkAreaSummary.Name), "Property is required for class PalParkAreaSummary.");
-
-            if (palParkAreaSummary.Url == null)
-                throw new ArgumentNullException(nameof(palParkAreaSummary.Url), "Property is required for class PalParkAreaSummary.");
-
             writer.WriteString("name", palParkAreaSummary.Name);
 
             writer.WriteString("url", palParkAreaSummary.Url);

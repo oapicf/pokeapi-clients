@@ -20,11 +20,11 @@ import org.openapitools.jackson.nullable.JsonNullable;
 
 
 @JsonTypeName("MoveBattleStyleDetail")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2026-08-30T01:56:42.280002256Z[Etc/UTC]", comments = "Generator version: 7.24.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2026-10-25T05:48:57.630723375Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 public class MoveBattleStyleDetail   {
   private Integer id;
   private String name;
-  private @Valid List<@Valid MoveBattleStyleName> names = new ArrayList<>();
+  private List<@Valid MoveBattleStyleName> names = new ArrayList<>();
 
   public MoveBattleStyleDetail() {
   }
@@ -88,7 +88,7 @@ public class MoveBattleStyleDetail   {
   
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(required = true, value = "names")
-  @Valid public List<@Valid MoveBattleStyleName> getNames() {
+  public List<@Valid MoveBattleStyleName> getNames() {
     return names;
   }
 

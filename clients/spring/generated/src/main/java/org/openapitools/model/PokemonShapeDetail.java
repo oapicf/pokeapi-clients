@@ -25,7 +25,7 @@ import jakarta.annotation.Generated;
  * PokemonShapeDetail
  */
 
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2026-08-30T02:00:43.960184425Z[Etc/UTC]", comments = "Generator version: 7.24.0")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2026-10-25T05:53:37.479908528Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 public class PokemonShapeDetail {
 
   private Integer id;
@@ -112,7 +112,7 @@ public class PokemonShapeDetail {
    * Get awesomeNames
    * @return awesomeNames
    */
-  @Valid 
+  
   @Schema(name = "awesome_names", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("awesome_names")
   public List<@Valid PokemonShapeDetailAwesomeNamesInner> getAwesomeNames() {
@@ -141,7 +141,7 @@ public class PokemonShapeDetail {
    * Get names
    * @return names
    */
-  @Valid 
+  
   @Schema(name = "names", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("names")
   public List<@Valid PokemonShapeDetailNamesInner> getNames() {
@@ -170,7 +170,7 @@ public class PokemonShapeDetail {
    * Get pokemonSpecies
    * @return pokemonSpecies
    */
-  @Valid 
+  
   @Schema(name = "pokemon_species", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("pokemon_species")
   public List<@Valid PokemonSpeciesSummary> getPokemonSpecies() {

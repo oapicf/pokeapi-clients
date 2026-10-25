@@ -97,8 +97,7 @@ class BerryDetail(BaseModel):
         _items = []
         if self.flavors:
             for _item_flavors in self.flavors:
-                if _item_flavors:
-                    _items.append(_item_flavors.to_dict())
+                _items.append(_item_flavors.to_dict() if _item_flavors is not None else None)
             _dict['flavors'] = _items
         # override the default output from pydantic by calling `to_dict()` of item
         if self.item:

@@ -25,7 +25,6 @@ public class PaginatedBerryFlavorSummaryList  {
   private URI previous;
 
   @ApiModelProperty(value = "")
-  @Valid
   private List<@Valid BerryFlavorSummary> results = new ArrayList<>();
  /**
   * Get count

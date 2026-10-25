@@ -29,14 +29,10 @@ import {
 export interface EvolutionTriggerName {
     /**
      * 
-     * @type {string}
-     * @memberof EvolutionTriggerName
      */
     name: string;
     /**
      * 
-     * @type {LanguageSummary}
-     * @memberof EvolutionTriggerName
      */
     language: LanguageSummary;
 }

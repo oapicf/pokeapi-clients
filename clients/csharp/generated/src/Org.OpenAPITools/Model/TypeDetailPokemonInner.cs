@@ -160,10 +160,10 @@ namespace Org.OpenAPITools.Model
             }
 
             if (slot.IsSet && slot.Value == null)
-                throw new ArgumentNullException(nameof(slot), "Property is not nullable for class TypeDetailPokemonInner.");
+                throw new JsonException("Property is not nullable for class TypeDetailPokemonInner: slot.");
 
             if (pokemon.IsSet && pokemon.Value == null)
-                throw new ArgumentNullException(nameof(pokemon), "Property is not nullable for class TypeDetailPokemonInner.");
+                throw new JsonException("Property is not nullable for class TypeDetailPokemonInner: pokemon.");
 
             return new TypeDetailPokemonInner(slot, pokemon);
         }
@@ -174,7 +174,6 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="typeDetailPokemonInner"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public override void Write(Utf8JsonWriter writer, TypeDetailPokemonInner typeDetailPokemonInner, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteStartObject();
@@ -189,11 +188,13 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="typeDetailPokemonInner"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, TypeDetailPokemonInner typeDetailPokemonInner, JsonSerializerOptions jsonSerializerOptions)
         {
+            if (typeDetailPokemonInner.SlotOption.IsSet && typeDetailPokemonInner.Slot == null)
+                throw new JsonException("Cannot write null property TypeDetailPokemonInner.Slot to non-nullable JSON property 'slot'.");
+
             if (typeDetailPokemonInner.PokemonOption.IsSet && typeDetailPokemonInner.Pokemon == null)
-                throw new ArgumentNullException(nameof(typeDetailPokemonInner.Pokemon), "Property is required for class TypeDetailPokemonInner.");
+                throw new JsonException("Cannot write null property TypeDetailPokemonInner.Pokemon to non-nullable JSON property 'pokemon'.");
 
             if (typeDetailPokemonInner.SlotOption.IsSet)
                 writer.WriteNumber("slot", typeDetailPokemonInner.SlotOption.Value!.Value);

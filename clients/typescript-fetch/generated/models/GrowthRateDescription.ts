@@ -29,14 +29,10 @@ import {
 export interface GrowthRateDescription {
     /**
      * 
-     * @type {string}
-     * @memberof GrowthRateDescription
      */
     description?: string;
     /**
      * 
-     * @type {LanguageSummary}
-     * @memberof GrowthRateDescription
      */
     language: LanguageSummary;
 }

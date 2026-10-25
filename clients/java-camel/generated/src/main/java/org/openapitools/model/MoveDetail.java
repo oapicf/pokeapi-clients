@@ -2,7 +2,6 @@ package org.openapitools.model;
 
 import java.net.URI;
 import java.util.Objects;
-import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import java.util.ArrayList;
@@ -41,7 +40,7 @@ import jakarta.annotation.Generated;
  * MoveDetail
  */
 
-@Generated(value = "org.openapitools.codegen.languages.JavaCamelServerCodegen", date = "2026-08-30T01:56:15.309401083Z[Etc/UTC]", comments = "Generator version: 7.24.0")
+@Generated(value = "org.openapitools.codegen.languages.JavaCamelServerCodegen", date = "2026-10-25T05:48:25.711080506Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 public class MoveDetail {
 
   private Integer id;
@@ -66,23 +65,18 @@ public class MoveDetail {
 
   private MoveDamageClassSummary damageClass;
 
-  @Valid
   private List<@Valid MoveChangeEffectEntriesInner> effectEntries = new ArrayList<>();
 
-  @Valid
   private List<@Valid MoveDetailEffectChangesInner> effectChanges = new ArrayList<>();
 
   private GenerationSummary generation;
 
   private MoveMeta meta;
 
-  @Valid
   private List<@Valid MoveName> names = new ArrayList<>();
 
-  @Valid
   private List<@Valid MoveChange> pastValues = new ArrayList<>();
 
-  @Valid
   private List<@Valid MoveDetailStatChangesInner> statChanges = new ArrayList<>();
 
   private SuperContestEffectSummary superContestEffect;
@@ -91,13 +85,10 @@ public class MoveDetail {
 
   private TypeSummary type;
 
-  @Valid
   private List<@Valid MoveDetailMachinesInner> machines = new ArrayList<>();
 
-  @Valid
   private List<@Valid MoveFlavorText> flavorTextEntries = new ArrayList<>();
 
-  @Valid
   private List<@Valid AbilityDetailPokemonInnerPokemon> learnedByPokemon = new ArrayList<>();
 
   public MoveDetail() {
@@ -367,7 +358,7 @@ public class MoveDetail {
    * Get effectEntries
    * @return effectEntries
    */
-  @Valid 
+  
   @Schema(name = "effect_entries", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("effect_entries")
   public List<@Valid MoveChangeEffectEntriesInner> getEffectEntries() {
@@ -395,7 +386,7 @@ public class MoveDetail {
    * Get effectChanges
    * @return effectChanges
    */
-  @Valid 
+  
   @Schema(name = "effect_changes", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("effect_changes")
   public List<@Valid MoveDetailEffectChangesInner> getEffectChanges() {
@@ -463,7 +454,7 @@ public class MoveDetail {
    * Get names
    * @return names
    */
-  @Valid 
+  
   @Schema(name = "names", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("names")
   public List<@Valid MoveName> getNames() {
@@ -491,7 +482,7 @@ public class MoveDetail {
    * Get pastValues
    * @return pastValues
    */
-  @Valid 
+  
   @Schema(name = "past_values", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("past_values")
   public List<@Valid MoveChange> getPastValues() {
@@ -519,7 +510,7 @@ public class MoveDetail {
    * Get statChanges
    * @return statChanges
    */
-  @Valid 
+  
   @Schema(name = "stat_changes", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("stat_changes")
   public List<@Valid MoveDetailStatChangesInner> getStatChanges() {
@@ -607,7 +598,7 @@ public class MoveDetail {
    * Get machines
    * @return machines
    */
-  @Valid 
+  
   @Schema(name = "machines", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("machines")
   public List<@Valid MoveDetailMachinesInner> getMachines() {
@@ -635,7 +626,7 @@ public class MoveDetail {
    * Get flavorTextEntries
    * @return flavorTextEntries
    */
-  @Valid 
+  
   @Schema(name = "flavor_text_entries", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("flavor_text_entries")
   public List<@Valid MoveFlavorText> getFlavorTextEntries() {
@@ -663,7 +654,7 @@ public class MoveDetail {
    * Get learnedByPokemon
    * @return learnedByPokemon
    */
-  @Valid 
+  
   @Schema(name = "learned_by_pokemon", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("learned_by_pokemon")
   public List<@Valid AbilityDetailPokemonInnerPokemon> getLearnedByPokemon() {

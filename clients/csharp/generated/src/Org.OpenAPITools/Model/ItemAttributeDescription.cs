@@ -159,13 +159,13 @@ namespace Org.OpenAPITools.Model
             }
 
             if (!language.IsSet)
-                throw new ArgumentException("Property is required for class ItemAttributeDescription.", nameof(language));
+                throw new JsonException("Property is required for class ItemAttributeDescription: language.");
 
             if (language.IsSet && language.Value == null)
-                throw new ArgumentNullException(nameof(language), "Property is not nullable for class ItemAttributeDescription.");
+                throw new JsonException("Property is not nullable for class ItemAttributeDescription: language.");
 
             if (description.IsSet && description.Value == null)
-                throw new ArgumentNullException(nameof(description), "Property is not nullable for class ItemAttributeDescription.");
+                throw new JsonException("Property is not nullable for class ItemAttributeDescription: description.");
 
             return new ItemAttributeDescription(language.Value!, description);
         }
@@ -176,7 +176,6 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="itemAttributeDescription"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public override void Write(Utf8JsonWriter writer, ItemAttributeDescription itemAttributeDescription, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteStartObject();
@@ -191,14 +190,10 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="itemAttributeDescription"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, ItemAttributeDescription itemAttributeDescription, JsonSerializerOptions jsonSerializerOptions)
         {
-            if (itemAttributeDescription.Language == null)
-                throw new ArgumentNullException(nameof(itemAttributeDescription.Language), "Property is required for class ItemAttributeDescription.");
-
             if (itemAttributeDescription.DescriptionOption.IsSet && itemAttributeDescription.Description == null)
-                throw new ArgumentNullException(nameof(itemAttributeDescription.Description), "Property is required for class ItemAttributeDescription.");
+                throw new JsonException("Cannot write null property ItemAttributeDescription.Description to non-nullable JSON property 'description'.");
 
             writer.WritePropertyName("language");
             JsonSerializer.Serialize(writer, itemAttributeDescription.Language, jsonSerializerOptions);

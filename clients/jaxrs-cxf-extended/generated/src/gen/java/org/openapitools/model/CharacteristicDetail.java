@@ -29,7 +29,6 @@ public class CharacteristicDetail  {
   private StatSummary highestStat;
 
   @ApiModelProperty(required = true, value = "")
-  @Valid
   private List<@Valid CharacteristicDescription> descriptions = new ArrayList<>();
  /**
   * Get id

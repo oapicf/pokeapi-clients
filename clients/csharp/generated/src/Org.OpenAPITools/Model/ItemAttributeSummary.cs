@@ -152,16 +152,16 @@ namespace Org.OpenAPITools.Model
             }
 
             if (!name.IsSet)
-                throw new ArgumentException("Property is required for class ItemAttributeSummary.", nameof(name));
+                throw new JsonException("Property is required for class ItemAttributeSummary: name.");
 
             if (!url.IsSet)
-                throw new ArgumentException("Property is required for class ItemAttributeSummary.", nameof(url));
+                throw new JsonException("Property is required for class ItemAttributeSummary: url.");
 
             if (name.IsSet && name.Value == null)
-                throw new ArgumentNullException(nameof(name), "Property is not nullable for class ItemAttributeSummary.");
+                throw new JsonException("Property is not nullable for class ItemAttributeSummary: name.");
 
             if (url.IsSet && url.Value == null)
-                throw new ArgumentNullException(nameof(url), "Property is not nullable for class ItemAttributeSummary.");
+                throw new JsonException("Property is not nullable for class ItemAttributeSummary: url.");
 
             return new ItemAttributeSummary(name.Value!, url.Value!);
         }
@@ -172,7 +172,6 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="itemAttributeSummary"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public override void Write(Utf8JsonWriter writer, ItemAttributeSummary itemAttributeSummary, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteStartObject();
@@ -187,15 +186,8 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="itemAttributeSummary"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, ItemAttributeSummary itemAttributeSummary, JsonSerializerOptions jsonSerializerOptions)
         {
-            if (itemAttributeSummary.Name == null)
-                throw new ArgumentNullException(nameof(itemAttributeSummary.Name), "Property is required for class ItemAttributeSummary.");
-
-            if (itemAttributeSummary.Url == null)
-                throw new ArgumentNullException(nameof(itemAttributeSummary.Url), "Property is required for class ItemAttributeSummary.");
-
             writer.WriteString("name", itemAttributeSummary.Name);
 
             writer.WriteString("url", itemAttributeSummary.Url);

@@ -159,22 +159,22 @@ namespace Org.OpenAPITools.Model
             }
 
             if (!ability.IsSet)
-                throw new ArgumentException("Property is required for class PokemonDetailAbilitiesInner.", nameof(ability));
+                throw new JsonException("Property is required for class PokemonDetailAbilitiesInner: ability.");
 
             if (!isHidden.IsSet)
-                throw new ArgumentException("Property is required for class PokemonDetailAbilitiesInner.", nameof(isHidden));
+                throw new JsonException("Property is required for class PokemonDetailAbilitiesInner: is_hidden.");
 
             if (!slot.IsSet)
-                throw new ArgumentException("Property is required for class PokemonDetailAbilitiesInner.", nameof(slot));
+                throw new JsonException("Property is required for class PokemonDetailAbilitiesInner: slot.");
 
             if (ability.IsSet && ability.Value == null)
-                throw new ArgumentNullException(nameof(ability), "Property is not nullable for class PokemonDetailAbilitiesInner.");
+                throw new JsonException("Property is not nullable for class PokemonDetailAbilitiesInner: ability.");
 
             if (isHidden.IsSet && isHidden.Value == null)
-                throw new ArgumentNullException(nameof(isHidden), "Property is not nullable for class PokemonDetailAbilitiesInner.");
+                throw new JsonException("Property is not nullable for class PokemonDetailAbilitiesInner: is_hidden.");
 
             if (slot.IsSet && slot.Value == null)
-                throw new ArgumentNullException(nameof(slot), "Property is not nullable for class PokemonDetailAbilitiesInner.");
+                throw new JsonException("Property is not nullable for class PokemonDetailAbilitiesInner: slot.");
 
             return new PokemonDetailAbilitiesInner(ability.Value!, isHidden.Value!.Value!, slot.Value!.Value!);
         }
@@ -185,7 +185,6 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="pokemonDetailAbilitiesInner"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public override void Write(Utf8JsonWriter writer, PokemonDetailAbilitiesInner pokemonDetailAbilitiesInner, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteStartObject();
@@ -200,12 +199,8 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="pokemonDetailAbilitiesInner"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, PokemonDetailAbilitiesInner pokemonDetailAbilitiesInner, JsonSerializerOptions jsonSerializerOptions)
         {
-            if (pokemonDetailAbilitiesInner.Ability == null)
-                throw new ArgumentNullException(nameof(pokemonDetailAbilitiesInner.Ability), "Property is required for class PokemonDetailAbilitiesInner.");
-
             writer.WritePropertyName("ability");
             JsonSerializer.Serialize(writer, pokemonDetailAbilitiesInner.Ability, jsonSerializerOptions);
             writer.WriteBoolean("is_hidden", pokemonDetailAbilitiesInner.IsHidden);

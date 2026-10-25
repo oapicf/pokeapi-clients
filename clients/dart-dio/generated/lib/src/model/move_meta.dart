@@ -312,3 +312,4 @@ class _$MoveMetaSerializer implements PrimitiveSerializer<MoveMeta> {
   }
 }
 
+

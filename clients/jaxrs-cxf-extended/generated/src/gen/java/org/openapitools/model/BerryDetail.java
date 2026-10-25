@@ -46,7 +46,6 @@ public class BerryDetail  {
   private BerryFirmnessSummary firmness;
 
   @ApiModelProperty(required = true, value = "")
-  @Valid
   private List<@Valid BerryDetailFlavorsInner> flavors = new ArrayList<>();
 
   @ApiModelProperty(required = true, value = "")

@@ -1,4 +1,4 @@
-# Org.OpenAPITools - ASP.NET Core 8.0 Server
+# Org.OpenAPITools - ASP.NET Core 10.0 Server
 
 All the Pokémon data you'll ever need in one place, easily accessible through a modern free open-source RESTful API.
 

@@ -15,7 +15,7 @@ import javax.validation.constraints.*;
 import javax.validation.Valid;
 import io.swagger.annotations.*;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaResteasyServerCodegen", date = "2026-08-30T01:56:35.721624822Z[Etc/UTC]", comments = "Generator version: 7.24.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaResteasyServerCodegen", date = "2026-10-25T05:48:49.952264473Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 public class ItemPocketDetail   {
   
   private Integer id;
@@ -55,7 +55,6 @@ public class ItemPocketDetail   {
   @ApiModelProperty(required = true, value = "")
   @JsonProperty("categories")
   @NotNull
-  @Valid
   public List<@Valid ItemCategorySummary> getCategories() {
     return categories;
   }
@@ -69,7 +68,6 @@ public class ItemPocketDetail   {
   @ApiModelProperty(required = true, value = "")
   @JsonProperty("names")
   @NotNull
-  @Valid
   public List<@Valid ItemPocketName> getNames() {
     return names;
   }

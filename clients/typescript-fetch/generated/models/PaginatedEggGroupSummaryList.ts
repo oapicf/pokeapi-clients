@@ -29,26 +29,18 @@ import {
 export interface PaginatedEggGroupSummaryList {
     /**
      * 
-     * @type {number}
-     * @memberof PaginatedEggGroupSummaryList
      */
     count?: number;
     /**
      * 
-     * @type {string}
-     * @memberof PaginatedEggGroupSummaryList
      */
     next?: string;
     /**
      * 
-     * @type {string}
-     * @memberof PaginatedEggGroupSummaryList
      */
     previous?: string;
     /**
      * 
-     * @type {Array<EggGroupSummary>}
-     * @memberof PaginatedEggGroupSummaryList
      */
     results?: Array<EggGroupSummary>;
 }

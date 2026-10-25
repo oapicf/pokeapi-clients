@@ -24,15 +24,15 @@ data class PokemonSpeciesDetailPalParkEncountersInner(
 
     @field:Valid
     @Schema(required = true, description = "")
-    @param:JsonProperty("area")
+    @param:JsonProperty("area", required = true)
     @get:JsonProperty("area", required = true) val area: AbilityDetailPokemonInnerPokemon,
 
     @Schema(required = true, description = "")
-    @param:JsonProperty("base_score")
+    @param:JsonProperty("base_score", required = true)
     @get:JsonProperty("base_score", required = true) val baseScore: kotlin.Int,
 
     @Schema(required = true, description = "")
-    @param:JsonProperty("rate")
+    @param:JsonProperty("rate", required = true)
     @get:JsonProperty("rate", required = true) val rate: kotlin.Int
 ) {
 

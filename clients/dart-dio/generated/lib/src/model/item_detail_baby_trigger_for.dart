@@ -104,3 +104,4 @@ class _$ItemDetailBabyTriggerForSerializer implements PrimitiveSerializer<ItemDe
   }
 }
 
+

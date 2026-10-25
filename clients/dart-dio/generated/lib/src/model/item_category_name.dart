@@ -121,3 +121,4 @@ class _$ItemCategoryNameSerializer implements PrimitiveSerializer<ItemCategoryNa
   }
 }
 
+

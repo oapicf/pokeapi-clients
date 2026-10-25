@@ -35,56 +35,56 @@ import io.swagger.v3.oas.annotations.media.Schema
 data class BerryDetail(
 
     @Schema(required = true, readOnly = true, description = "")
-    @param:JsonProperty("id")
+    @param:JsonProperty("id", required = true)
     @get:JsonProperty("id", required = true) val id: kotlin.Int,
 
     @get:Size(max=100)
     @Schema(required = true, description = "")
-    @param:JsonProperty("name")
+    @param:JsonProperty("name", required = true)
     @get:JsonProperty("name", required = true) val name: kotlin.String,
 
     @Schema(required = true, description = "")
-    @param:JsonProperty("growth_time")
+    @param:JsonProperty("growth_time", required = true)
     @get:JsonProperty("growth_time", required = true) val growthTime: kotlin.Int,
 
     @Schema(required = true, description = "")
-    @param:JsonProperty("max_harvest")
+    @param:JsonProperty("max_harvest", required = true)
     @get:JsonProperty("max_harvest", required = true) val maxHarvest: kotlin.Int,
 
     @Schema(required = true, description = "")
-    @param:JsonProperty("natural_gift_power")
+    @param:JsonProperty("natural_gift_power", required = true)
     @get:JsonProperty("natural_gift_power", required = true) val naturalGiftPower: kotlin.Int,
 
     @Schema(required = true, description = "")
-    @param:JsonProperty("size")
+    @param:JsonProperty("size", required = true)
     @get:JsonProperty("size", required = true) val propertySize: kotlin.Int,
 
     @Schema(required = true, description = "")
-    @param:JsonProperty("smoothness")
+    @param:JsonProperty("smoothness", required = true)
     @get:JsonProperty("smoothness", required = true) val smoothness: kotlin.Int,
 
     @Schema(required = true, description = "")
-    @param:JsonProperty("soil_dryness")
+    @param:JsonProperty("soil_dryness", required = true)
     @get:JsonProperty("soil_dryness", required = true) val soilDryness: kotlin.Int,
 
     @field:Valid
     @Schema(required = true, description = "")
-    @param:JsonProperty("firmness")
+    @param:JsonProperty("firmness", required = true)
     @get:JsonProperty("firmness", required = true) val firmness: BerryFirmnessSummary,
 
     @field:Valid
     @Schema(required = true, readOnly = true, description = "")
-    @param:JsonProperty("flavors")
+    @param:JsonProperty("flavors", required = true)
     @get:JsonProperty("flavors", required = true) val flavors: kotlin.collections.List<BerryDetailFlavorsInner>,
 
     @field:Valid
     @Schema(required = true, description = "")
-    @param:JsonProperty("item")
+    @param:JsonProperty("item", required = true)
     @get:JsonProperty("item", required = true) val item: ItemSummary,
 
     @field:Valid
     @Schema(required = true, description = "")
-    @param:JsonProperty("natural_gift_type")
+    @param:JsonProperty("natural_gift_type", required = true)
     @get:JsonProperty("natural_gift_type", required = true) val naturalGiftType: TypeSummary
 ) {
 

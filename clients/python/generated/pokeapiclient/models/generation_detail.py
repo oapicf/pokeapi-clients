@@ -104,8 +104,7 @@ class GenerationDetail(BaseModel):
         _items = []
         if self.abilities:
             for _item_abilities in self.abilities:
-                if _item_abilities:
-                    _items.append(_item_abilities.to_dict())
+                _items.append(_item_abilities.to_dict() if _item_abilities is not None else None)
             _dict['abilities'] = _items
         # override the default output from pydantic by calling `to_dict()` of main_region
         if self.main_region:
@@ -114,36 +113,31 @@ class GenerationDetail(BaseModel):
         _items = []
         if self.moves:
             for _item_moves in self.moves:
-                if _item_moves:
-                    _items.append(_item_moves.to_dict())
+                _items.append(_item_moves.to_dict() if _item_moves is not None else None)
             _dict['moves'] = _items
         # override the default output from pydantic by calling `to_dict()` of each item in names (list)
         _items = []
         if self.names:
             for _item_names in self.names:
-                if _item_names:
-                    _items.append(_item_names.to_dict())
+                _items.append(_item_names.to_dict() if _item_names is not None else None)
             _dict['names'] = _items
         # override the default output from pydantic by calling `to_dict()` of each item in pokemon_species (list)
         _items = []
         if self.pokemon_species:
             for _item_pokemon_species in self.pokemon_species:
-                if _item_pokemon_species:
-                    _items.append(_item_pokemon_species.to_dict())
+                _items.append(_item_pokemon_species.to_dict() if _item_pokemon_species is not None else None)
             _dict['pokemon_species'] = _items
         # override the default output from pydantic by calling `to_dict()` of each item in types (list)
         _items = []
         if self.types:
             for _item_types in self.types:
-                if _item_types:
-                    _items.append(_item_types.to_dict())
+                _items.append(_item_types.to_dict() if _item_types is not None else None)
             _dict['types'] = _items
         # override the default output from pydantic by calling `to_dict()` of each item in version_groups (list)
         _items = []
         if self.version_groups:
             for _item_version_groups in self.version_groups:
-                if _item_version_groups:
-                    _items.append(_item_version_groups.to_dict())
+                _items.append(_item_version_groups.to_dict() if _item_version_groups is not None else None)
             _dict['version_groups'] = _items
         return _dict
 

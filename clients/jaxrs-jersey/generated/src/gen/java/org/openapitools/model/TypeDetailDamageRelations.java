@@ -38,7 +38,7 @@ import javax.validation.Valid;
   TypeDetailDamageRelations.JSON_PROPERTY_HALF_DAMAGE_FROM,
   TypeDetailDamageRelations.JSON_PROPERTY_DOUBLE_DAMAGE_FROM
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJerseyServerCodegen", date = "2026-08-30T01:56:28.710233113Z[Etc/UTC]", comments = "Generator version: 7.24.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJerseyServerCodegen", date = "2026-10-25T05:48:41.923212007Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 public class TypeDetailDamageRelations   {
   public static final String JSON_PROPERTY_NO_DAMAGE_TO = "no_damage_to";
   @JsonProperty(JSON_PROPERTY_NO_DAMAGE_TO)
@@ -83,7 +83,7 @@ public class TypeDetailDamageRelations   {
    **/
   @JsonProperty(value = "no_damage_to")
   @ApiModelProperty(required = true, value = "")
-  @NotNull @Valid 
+  @NotNull 
   public List<@Valid AbilityDetailPokemonInnerPokemon> getNoDamageTo() {
     return noDamageTo;
   }
@@ -111,7 +111,7 @@ public class TypeDetailDamageRelations   {
    **/
   @JsonProperty(value = "half_damage_to")
   @ApiModelProperty(required = true, value = "")
-  @NotNull @Valid 
+  @NotNull 
   public List<@Valid AbilityDetailPokemonInnerPokemon> getHalfDamageTo() {
     return halfDamageTo;
   }
@@ -139,7 +139,7 @@ public class TypeDetailDamageRelations   {
    **/
   @JsonProperty(value = "double_damage_to")
   @ApiModelProperty(required = true, value = "")
-  @NotNull @Valid 
+  @NotNull 
   public List<@Valid AbilityDetailPokemonInnerPokemon> getDoubleDamageTo() {
     return doubleDamageTo;
   }
@@ -167,7 +167,7 @@ public class TypeDetailDamageRelations   {
    **/
   @JsonProperty(value = "no_damage_from")
   @ApiModelProperty(required = true, value = "")
-  @NotNull @Valid 
+  @NotNull 
   public List<@Valid AbilityDetailPokemonInnerPokemon> getNoDamageFrom() {
     return noDamageFrom;
   }
@@ -195,7 +195,7 @@ public class TypeDetailDamageRelations   {
    **/
   @JsonProperty(value = "half_damage_from")
   @ApiModelProperty(required = true, value = "")
-  @NotNull @Valid 
+  @NotNull 
   public List<@Valid AbilityDetailPokemonInnerPokemon> getHalfDamageFrom() {
     return halfDamageFrom;
   }
@@ -223,7 +223,7 @@ public class TypeDetailDamageRelations   {
    **/
   @JsonProperty(value = "double_damage_from")
   @ApiModelProperty(required = true, value = "")
-  @NotNull @Valid 
+  @NotNull 
   public List<@Valid AbilityDetailPokemonInnerPokemon> getDoubleDamageFrom() {
     return doubleDamageFrom;
   }

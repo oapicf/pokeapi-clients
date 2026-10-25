@@ -26,7 +26,7 @@ import jakarta.annotation.Generated;
  */
 
 @JsonTypeName("EvolutionChainDetail_chain_evolves_to_inner")
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2026-08-30T02:00:43.960184425Z[Etc/UTC]", comments = "Generator version: 7.24.0")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2026-10-25T05:53:37.479908528Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 public class EvolutionChainDetailChainEvolvesToInner {
 
   private List<@Valid EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner> evolutionDetails = new ArrayList<>();
@@ -65,7 +65,7 @@ public class EvolutionChainDetailChainEvolvesToInner {
    * Get evolutionDetails
    * @return evolutionDetails
    */
-  @NotNull @Valid 
+  @NotNull 
   @Schema(name = "evolution_details", requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("evolution_details")
   public List<@Valid EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner> getEvolutionDetails() {

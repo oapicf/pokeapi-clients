@@ -29,26 +29,18 @@ import {
 export interface PaginatedItemCategorySummaryList {
     /**
      * 
-     * @type {number}
-     * @memberof PaginatedItemCategorySummaryList
      */
     count?: number;
     /**
      * 
-     * @type {string}
-     * @memberof PaginatedItemCategorySummaryList
      */
     next?: string;
     /**
      * 
-     * @type {string}
-     * @memberof PaginatedItemCategorySummaryList
      */
     previous?: string;
     /**
      * 
-     * @type {Array<ItemCategorySummary>}
-     * @memberof PaginatedItemCategorySummaryList
      */
     results?: Array<ItemCategorySummary>;
 }

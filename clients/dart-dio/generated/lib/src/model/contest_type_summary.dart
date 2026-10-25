@@ -120,3 +120,4 @@ class _$ContestTypeSummarySerializer implements PrimitiveSerializer<ContestTypeS
   }
 }
 
+

@@ -21,14 +21,10 @@ import { mapValues } from '../runtime';
 export interface GrowthRateSummary {
     /**
      * 
-     * @type {string}
-     * @memberof GrowthRateSummary
      */
     name: string;
     /**
      * 
-     * @type {string}
-     * @memberof GrowthRateSummary
      */
     readonly url: string;
 }

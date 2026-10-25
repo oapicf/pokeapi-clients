@@ -23,17 +23,15 @@ import jakarta.annotation.Generated;
  * MoveMetaCategoryDetail
  */
 
-@Generated(value = "org.openapitools.codegen.languages.JavaCamelServerCodegen", date = "2026-08-30T01:56:15.309401083Z[Etc/UTC]", comments = "Generator version: 7.24.0")
+@Generated(value = "org.openapitools.codegen.languages.JavaCamelServerCodegen", date = "2026-10-25T05:48:25.711080506Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 public class MoveMetaCategoryDetail {
 
   private Integer id;
 
   private String name;
 
-  @Valid
   private List<@Valid MoveMetaCategoryDescription> descriptions = new ArrayList<>();
 
-  @Valid
   private List<@Valid AbilityDetailPokemonInnerPokemon> moves = new ArrayList<>();
 
   public MoveMetaCategoryDetail() {
@@ -107,7 +105,7 @@ public class MoveMetaCategoryDetail {
    * Get descriptions
    * @return descriptions
    */
-  @Valid 
+  
   @Schema(name = "descriptions", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("descriptions")
   public List<@Valid MoveMetaCategoryDescription> getDescriptions() {
@@ -135,7 +133,7 @@ public class MoveMetaCategoryDetail {
    * Get moves
    * @return moves
    */
-  @Valid 
+  
   @Schema(name = "moves", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("moves")
   public List<@Valid AbilityDetailPokemonInnerPokemon> getMoves() {

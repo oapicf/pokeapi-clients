@@ -24,7 +24,7 @@ import jakarta.annotation.Generated;
  * GenderDetail
  */
 
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2026-08-30T02:00:43.960184425Z[Etc/UTC]", comments = "Generator version: 7.24.0")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2026-10-25T05:53:37.479908528Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 public class GenderDetail {
 
   private Integer id;
@@ -108,7 +108,7 @@ public class GenderDetail {
    * Get pokemonSpeciesDetails
    * @return pokemonSpeciesDetails
    */
-  @Valid 
+  
   @Schema(name = "pokemon_species_details", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("pokemon_species_details")
   public List<@Valid GenderDetailPokemonSpeciesDetailsInner> getPokemonSpeciesDetails() {
@@ -137,7 +137,7 @@ public class GenderDetail {
    * Get requiredForEvolution
    * @return requiredForEvolution
    */
-  @Valid 
+  
   @Schema(name = "required_for_evolution", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("required_for_evolution")
   public List<@Valid AbilityDetailPokemonInnerPokemon> getRequiredForEvolution() {

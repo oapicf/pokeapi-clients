@@ -146,16 +146,16 @@ namespace Org.OpenAPITools.Model
             }
 
             if (!name.IsSet)
-                throw new ArgumentException("Property is required for class EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender.", nameof(name));
+                throw new JsonException("Property is required for class EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender: name.");
 
             if (!url.IsSet)
-                throw new ArgumentException("Property is required for class EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender.", nameof(url));
+                throw new JsonException("Property is required for class EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender: url.");
 
             if (name.IsSet && name.Value == null)
-                throw new ArgumentNullException(nameof(name), "Property is not nullable for class EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender.");
+                throw new JsonException("Property is not nullable for class EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender: name.");
 
             if (url.IsSet && url.Value == null)
-                throw new ArgumentNullException(nameof(url), "Property is not nullable for class EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender.");
+                throw new JsonException("Property is not nullable for class EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender: url.");
 
             return new EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender(name.Value!, url.Value!);
         }
@@ -166,7 +166,6 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="evolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public override void Write(Utf8JsonWriter writer, EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender evolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteStartObject();
@@ -181,15 +180,8 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="evolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender evolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender, JsonSerializerOptions jsonSerializerOptions)
         {
-            if (evolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender.Name == null)
-                throw new ArgumentNullException(nameof(evolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender.Name), "Property is required for class EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender.");
-
-            if (evolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender.Url == null)
-                throw new ArgumentNullException(nameof(evolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender.Url), "Property is required for class EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender.");
-
             writer.WriteString("name", evolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender.Name);
 
             writer.WriteString("url", evolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender.Url);

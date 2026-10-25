@@ -120,3 +120,4 @@ class _$BerryFirmnessSummarySerializer implements PrimitiveSerializer<BerryFirmn
   }
 }
 
+

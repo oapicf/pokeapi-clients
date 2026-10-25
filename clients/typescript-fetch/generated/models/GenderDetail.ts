@@ -36,26 +36,18 @@ import {
 export interface GenderDetail {
     /**
      * 
-     * @type {number}
-     * @memberof GenderDetail
      */
     readonly id: number;
     /**
      * 
-     * @type {string}
-     * @memberof GenderDetail
      */
     name: string;
     /**
      * 
-     * @type {Array<GenderDetailPokemonSpeciesDetailsInner>}
-     * @memberof GenderDetail
      */
     readonly pokemonSpeciesDetails: Array<GenderDetailPokemonSpeciesDetailsInner>;
     /**
      * 
-     * @type {Array<AbilityDetailPokemonInnerPokemon>}
-     * @memberof GenderDetail
      */
     readonly requiredForEvolution: Array<AbilityDetailPokemonInnerPokemon>;
 }

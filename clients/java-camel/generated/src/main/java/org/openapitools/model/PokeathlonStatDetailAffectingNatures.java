@@ -25,13 +25,11 @@ import jakarta.annotation.Generated;
  */
 
 @JsonTypeName("PokeathlonStatDetail_affecting_natures")
-@Generated(value = "org.openapitools.codegen.languages.JavaCamelServerCodegen", date = "2026-08-30T01:56:15.309401083Z[Etc/UTC]", comments = "Generator version: 7.24.0")
+@Generated(value = "org.openapitools.codegen.languages.JavaCamelServerCodegen", date = "2026-10-25T05:48:25.711080506Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 public class PokeathlonStatDetailAffectingNatures {
 
-  @Valid
   private List<@Valid PokeathlonStatDetailAffectingNaturesDecreaseInner> decrease = new ArrayList<>();
 
-  @Valid
   private List<@Valid PokeathlonStatDetailAffectingNaturesIncreaseInner> increase = new ArrayList<>();
 
   public PokeathlonStatDetailAffectingNatures() {
@@ -63,7 +61,7 @@ public class PokeathlonStatDetailAffectingNatures {
    * Get decrease
    * @return decrease
    */
-  @NotNull @Valid 
+  @NotNull 
   @Schema(name = "decrease", requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("decrease")
   public List<@Valid PokeathlonStatDetailAffectingNaturesDecreaseInner> getDecrease() {
@@ -91,7 +89,7 @@ public class PokeathlonStatDetailAffectingNatures {
    * Get increase
    * @return increase
    */
-  @NotNull @Valid 
+  @NotNull 
   @Schema(name = "increase", requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("increase")
   public List<@Valid PokeathlonStatDetailAffectingNaturesIncreaseInner> getIncrease() {

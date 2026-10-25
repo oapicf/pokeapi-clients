@@ -203,16 +203,16 @@ namespace Org.OpenAPITools.Model
             }
 
             if (count.IsSet && count.Value == null)
-                throw new ArgumentNullException(nameof(count), "Property is not nullable for class PaginatedPokemonHabitatSummaryList.");
+                throw new JsonException("Property is not nullable for class PaginatedPokemonHabitatSummaryList: count.");
 
             if (next.IsSet && next.Value == null)
-                throw new ArgumentNullException(nameof(next), "Property is not nullable for class PaginatedPokemonHabitatSummaryList.");
+                throw new JsonException("Property is not nullable for class PaginatedPokemonHabitatSummaryList: next.");
 
             if (previous.IsSet && previous.Value == null)
-                throw new ArgumentNullException(nameof(previous), "Property is not nullable for class PaginatedPokemonHabitatSummaryList.");
+                throw new JsonException("Property is not nullable for class PaginatedPokemonHabitatSummaryList: previous.");
 
             if (results.IsSet && results.Value == null)
-                throw new ArgumentNullException(nameof(results), "Property is not nullable for class PaginatedPokemonHabitatSummaryList.");
+                throw new JsonException("Property is not nullable for class PaginatedPokemonHabitatSummaryList: results.");
 
             return new PaginatedPokemonHabitatSummaryList(count, next, previous, results);
         }
@@ -223,7 +223,6 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="paginatedPokemonHabitatSummaryList"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public override void Write(Utf8JsonWriter writer, PaginatedPokemonHabitatSummaryList paginatedPokemonHabitatSummaryList, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteStartObject();
@@ -238,17 +237,19 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="paginatedPokemonHabitatSummaryList"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, PaginatedPokemonHabitatSummaryList paginatedPokemonHabitatSummaryList, JsonSerializerOptions jsonSerializerOptions)
         {
+            if (paginatedPokemonHabitatSummaryList.CountOption.IsSet && paginatedPokemonHabitatSummaryList.Count == null)
+                throw new JsonException("Cannot write null property PaginatedPokemonHabitatSummaryList.Count to non-nullable JSON property 'count'.");
+
             if (paginatedPokemonHabitatSummaryList.NextOption.IsSet && paginatedPokemonHabitatSummaryList.Next == null)
-                throw new ArgumentNullException(nameof(paginatedPokemonHabitatSummaryList.Next), "Property is required for class PaginatedPokemonHabitatSummaryList.");
+                throw new JsonException("Cannot write null property PaginatedPokemonHabitatSummaryList.Next to non-nullable JSON property 'next'.");
 
             if (paginatedPokemonHabitatSummaryList.PreviousOption.IsSet && paginatedPokemonHabitatSummaryList.Previous == null)
-                throw new ArgumentNullException(nameof(paginatedPokemonHabitatSummaryList.Previous), "Property is required for class PaginatedPokemonHabitatSummaryList.");
+                throw new JsonException("Cannot write null property PaginatedPokemonHabitatSummaryList.Previous to non-nullable JSON property 'previous'.");
 
             if (paginatedPokemonHabitatSummaryList.ResultsOption.IsSet && paginatedPokemonHabitatSummaryList.Results == null)
-                throw new ArgumentNullException(nameof(paginatedPokemonHabitatSummaryList.Results), "Property is required for class PaginatedPokemonHabitatSummaryList.");
+                throw new JsonException("Cannot write null property PaginatedPokemonHabitatSummaryList.Results to non-nullable JSON property 'results'.");
 
             if (paginatedPokemonHabitatSummaryList.CountOption.IsSet)
                 writer.WriteNumber("count", paginatedPokemonHabitatSummaryList.CountOption.Value!.Value);

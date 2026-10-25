@@ -77,8 +77,7 @@ class PokemonDetailPastAbilitiesInner(BaseModel):
         _items = []
         if self.abilities:
             for _item_abilities in self.abilities:
-                if _item_abilities:
-                    _items.append(_item_abilities.to_dict())
+                _items.append(_item_abilities.to_dict() if _item_abilities is not None else None)
             _dict['abilities'] = _items
         # override the default output from pydantic by calling `to_dict()` of generation
         if self.generation:

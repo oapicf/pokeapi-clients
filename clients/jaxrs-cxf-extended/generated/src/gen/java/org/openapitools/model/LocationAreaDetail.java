@@ -27,7 +27,6 @@ public class LocationAreaDetail  {
   private Integer gameIndex;
 
   @ApiModelProperty(required = true, value = "")
-  @Valid
   private List<@Valid LocationAreaDetailEncounterMethodRatesInner> encounterMethodRates = new ArrayList<>();
 
   @ApiModelProperty(required = true, value = "")
@@ -35,11 +34,9 @@ public class LocationAreaDetail  {
   private LocationSummary location;
 
   @ApiModelProperty(required = true, value = "")
-  @Valid
   private List<@Valid LocationAreaName> names = new ArrayList<>();
 
   @ApiModelProperty(required = true, value = "")
-  @Valid
   private List<@Valid LocationAreaDetailPokemonEncountersInner> pokemonEncounters = new ArrayList<>();
  /**
   * Get id

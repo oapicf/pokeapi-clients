@@ -43,50 +43,34 @@ import {
 export interface VersionGroupDetail {
     /**
      * 
-     * @type {number}
-     * @memberof VersionGroupDetail
      */
     readonly id: number;
     /**
      * 
-     * @type {string}
-     * @memberof VersionGroupDetail
      */
     name: string;
     /**
      * 
-     * @type {number}
-     * @memberof VersionGroupDetail
      */
     order?: number | null;
     /**
      * 
-     * @type {GenerationSummary}
-     * @memberof VersionGroupDetail
      */
     generation: GenerationSummary;
     /**
      * 
-     * @type {Array<AbilityDetailPokemonInnerPokemon>}
-     * @memberof VersionGroupDetail
      */
     readonly moveLearnMethods: Array<AbilityDetailPokemonInnerPokemon>;
     /**
      * 
-     * @type {Array<AbilityDetailPokemonInnerPokemon>}
-     * @memberof VersionGroupDetail
      */
     readonly pokedexes: Array<AbilityDetailPokemonInnerPokemon>;
     /**
      * 
-     * @type {Array<AbilityDetailPokemonInnerPokemon>}
-     * @memberof VersionGroupDetail
      */
     readonly regions: Array<AbilityDetailPokemonInnerPokemon>;
     /**
      * 
-     * @type {Array<VersionSummary>}
-     * @memberof VersionGroupDetail
      */
     readonly versions: Array<VersionSummary>;
 }

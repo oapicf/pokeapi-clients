@@ -29,14 +29,10 @@ import {
 export interface PokemonHabitatName {
     /**
      * 
-     * @type {string}
-     * @memberof PokemonHabitatName
      */
     name: string;
     /**
      * 
-     * @type {LanguageSummary}
-     * @memberof PokemonHabitatName
      */
     language: LanguageSummary;
 }

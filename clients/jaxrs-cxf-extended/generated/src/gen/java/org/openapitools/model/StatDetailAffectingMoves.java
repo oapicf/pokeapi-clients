@@ -16,11 +16,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class StatDetailAffectingMoves  {
   
   @ApiModelProperty(required = true, value = "")
-  @Valid
   private List<@Valid StatDetailAffectingMovesIncreaseInner> increase = new ArrayList<>();
 
   @ApiModelProperty(required = true, value = "")
-  @Valid
   private List<@Valid StatDetailAffectingMovesIncreaseInner> decrease = new ArrayList<>();
  /**
   * Get increase

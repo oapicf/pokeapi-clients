@@ -22,11 +22,9 @@ public class MoveMetaAilmentDetail  {
   private String name;
 
   @ApiModelProperty(required = true, value = "")
-  @Valid
   private List<@Valid AbilityDetailPokemonInnerPokemon> moves = new ArrayList<>();
 
   @ApiModelProperty(required = true, value = "")
-  @Valid
   private List<@Valid MoveMetaAilmentName> names = new ArrayList<>();
  /**
   * Get id

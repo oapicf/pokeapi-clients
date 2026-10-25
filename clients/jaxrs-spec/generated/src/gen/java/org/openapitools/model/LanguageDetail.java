@@ -20,14 +20,14 @@ import org.openapitools.jackson.nullable.JsonNullable;
 
 
 @JsonTypeName("LanguageDetail")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2026-08-30T01:56:42.280002256Z[Etc/UTC]", comments = "Generator version: 7.24.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2026-10-25T05:48:57.630723375Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 public class LanguageDetail   {
   private Integer id;
   private String name;
   private Boolean official;
   private String iso639;
   private String iso3166;
-  private @Valid List<@Valid LanguageName> names = new ArrayList<>();
+  private List<@Valid LanguageName> names = new ArrayList<>();
 
   public LanguageDetail() {
   }
@@ -152,7 +152,7 @@ public class LanguageDetail   {
   
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(required = true, value = "names")
-  @Valid public List<@Valid LanguageName> getNames() {
+  public List<@Valid LanguageName> getNames() {
     return names;
   }
 

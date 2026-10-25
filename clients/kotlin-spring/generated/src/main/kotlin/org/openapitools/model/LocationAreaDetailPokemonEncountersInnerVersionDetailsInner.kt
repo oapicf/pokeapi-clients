@@ -25,16 +25,16 @@ data class LocationAreaDetailPokemonEncountersInnerVersionDetailsInner(
 
     @field:Valid
     @Schema(required = true, description = "")
-    @param:JsonProperty("version")
+    @param:JsonProperty("version", required = true)
     @get:JsonProperty("version", required = true) val version: AbilityDetailPokemonInnerPokemon,
 
     @Schema(required = true, description = "")
-    @param:JsonProperty("max_chance")
+    @param:JsonProperty("max_chance", required = true)
     @get:JsonProperty("max_chance", required = true) val maxChance: kotlin.Int,
 
     @field:Valid
     @Schema(required = true, description = "")
-    @param:JsonProperty("encounter_details")
+    @param:JsonProperty("encounter_details", required = true)
     @get:JsonProperty("encounter_details", required = true) val encounterDetails: LocationAreaDetailPokemonEncountersInnerVersionDetailsInnerEncounterDetails
 ) {
 

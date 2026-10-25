@@ -166,3 +166,4 @@ class _$PaginatedMoveDamageClassSummaryListSerializer implements PrimitiveSerial
   }
 }
 
+

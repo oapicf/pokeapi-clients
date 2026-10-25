@@ -152,16 +152,16 @@ namespace Org.OpenAPITools.Model
             }
 
             if (!name.IsSet)
-                throw new ArgumentException("Property is required for class ItemCategorySummary.", nameof(name));
+                throw new JsonException("Property is required for class ItemCategorySummary: name.");
 
             if (!url.IsSet)
-                throw new ArgumentException("Property is required for class ItemCategorySummary.", nameof(url));
+                throw new JsonException("Property is required for class ItemCategorySummary: url.");
 
             if (name.IsSet && name.Value == null)
-                throw new ArgumentNullException(nameof(name), "Property is not nullable for class ItemCategorySummary.");
+                throw new JsonException("Property is not nullable for class ItemCategorySummary: name.");
 
             if (url.IsSet && url.Value == null)
-                throw new ArgumentNullException(nameof(url), "Property is not nullable for class ItemCategorySummary.");
+                throw new JsonException("Property is not nullable for class ItemCategorySummary: url.");
 
             return new ItemCategorySummary(name.Value!, url.Value!);
         }
@@ -172,7 +172,6 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="itemCategorySummary"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public override void Write(Utf8JsonWriter writer, ItemCategorySummary itemCategorySummary, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteStartObject();
@@ -187,15 +186,8 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="itemCategorySummary"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, ItemCategorySummary itemCategorySummary, JsonSerializerOptions jsonSerializerOptions)
         {
-            if (itemCategorySummary.Name == null)
-                throw new ArgumentNullException(nameof(itemCategorySummary.Name), "Property is required for class ItemCategorySummary.");
-
-            if (itemCategorySummary.Url == null)
-                throw new ArgumentNullException(nameof(itemCategorySummary.Url), "Property is required for class ItemCategorySummary.");
-
             writer.WriteString("name", itemCategorySummary.Name);
 
             writer.WriteString("url", itemCategorySummary.Url);

@@ -171,22 +171,22 @@ namespace Org.OpenAPITools.Model
             }
 
             if (!name.IsSet)
-                throw new ArgumentException("Property is required for class ContestTypeName.", nameof(name));
+                throw new JsonException("Property is required for class ContestTypeName: name.");
 
             if (!color.IsSet)
-                throw new ArgumentException("Property is required for class ContestTypeName.", nameof(color));
+                throw new JsonException("Property is required for class ContestTypeName: color.");
 
             if (!language.IsSet)
-                throw new ArgumentException("Property is required for class ContestTypeName.", nameof(language));
+                throw new JsonException("Property is required for class ContestTypeName: language.");
 
             if (name.IsSet && name.Value == null)
-                throw new ArgumentNullException(nameof(name), "Property is not nullable for class ContestTypeName.");
+                throw new JsonException("Property is not nullable for class ContestTypeName: name.");
 
             if (color.IsSet && color.Value == null)
-                throw new ArgumentNullException(nameof(color), "Property is not nullable for class ContestTypeName.");
+                throw new JsonException("Property is not nullable for class ContestTypeName: color.");
 
             if (language.IsSet && language.Value == null)
-                throw new ArgumentNullException(nameof(language), "Property is not nullable for class ContestTypeName.");
+                throw new JsonException("Property is not nullable for class ContestTypeName: language.");
 
             return new ContestTypeName(name.Value!, color.Value!, language.Value!);
         }
@@ -197,7 +197,6 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="contestTypeName"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public override void Write(Utf8JsonWriter writer, ContestTypeName contestTypeName, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteStartObject();
@@ -212,18 +211,8 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="contestTypeName"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, ContestTypeName contestTypeName, JsonSerializerOptions jsonSerializerOptions)
         {
-            if (contestTypeName.Name == null)
-                throw new ArgumentNullException(nameof(contestTypeName.Name), "Property is required for class ContestTypeName.");
-
-            if (contestTypeName.Color == null)
-                throw new ArgumentNullException(nameof(contestTypeName.Color), "Property is required for class ContestTypeName.");
-
-            if (contestTypeName.Language == null)
-                throw new ArgumentNullException(nameof(contestTypeName.Language), "Property is required for class ContestTypeName.");
-
             writer.WriteString("name", contestTypeName.Name);
 
             writer.WriteString("color", contestTypeName.Color);

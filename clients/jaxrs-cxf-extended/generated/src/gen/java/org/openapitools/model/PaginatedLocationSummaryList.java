@@ -25,7 +25,6 @@ public class PaginatedLocationSummaryList  {
   private URI previous;
 
   @ApiModelProperty(value = "")
-  @Valid
   private List<@Valid LocationSummary> results = new ArrayList<>();
  /**
   * Get count

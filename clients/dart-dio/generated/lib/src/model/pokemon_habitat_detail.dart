@@ -155,3 +155,4 @@ class _$PokemonHabitatDetailSerializer implements PrimitiveSerializer<PokemonHab
   }
 }
 
+

@@ -25,7 +25,6 @@ public class PaginatedEvolutionTriggerSummaryList  {
   private URI previous;
 
   @ApiModelProperty(value = "")
-  @Valid
   private List<@Valid EvolutionTriggerSummary> results = new ArrayList<>();
  /**
   * Get count

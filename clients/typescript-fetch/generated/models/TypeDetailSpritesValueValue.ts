@@ -21,8 +21,6 @@ import { mapValues } from '../runtime';
 export interface TypeDetailSpritesValueValue {
     /**
      * 
-     * @type {string}
-     * @memberof TypeDetailSpritesValueValue
      */
     nameIcon?: string;
 }

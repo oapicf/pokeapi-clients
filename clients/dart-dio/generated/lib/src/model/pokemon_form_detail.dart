@@ -333,3 +333,4 @@ class _$PokemonFormDetailSerializer implements PrimitiveSerializer<PokemonFormDe
   }
 }
 
+

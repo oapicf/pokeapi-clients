@@ -41,7 +41,7 @@ class EncountersApi(baseUrl: String) {
    * @param offset The initial index from which to return the results.
    * @param `q` > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. 
    */
-  def encounterConditionList(username: String, password: String, apiKeyCookie: String)(limit: Option[Int] = None, offset: Option[Int] = None, `q`: Option[String] = None): Request[Either[ResponseException[String], PaginatedEncounterConditionSummaryList]] =
+  def encounterConditionList(username: String, password: String, apiKeyCookie: String)(limit: Option[Int] = None, offset: Option[Int] = None, `q`: Option[String] = None): sttp.client4.Request[Either[ResponseException[String], PaginatedEncounterConditionSummaryList]] =
     basicRequest
       .method(Method.GET, uri"$baseUrl/api/v2/encounter-condition/?limit=${ limit }&offset=${ offset }&q=${ `q` }")
       .contentType("application/json")
@@ -61,7 +61,7 @@ class EncountersApi(baseUrl: String) {
    * 
    * @param id This parameter can be a string or an integer.
    */
-  def encounterConditionRetrieve(username: String, password: String, apiKeyCookie: String)(id: String): Request[Either[ResponseException[String], EncounterConditionDetail]] =
+  def encounterConditionRetrieve(username: String, password: String, apiKeyCookie: String)(id: String): sttp.client4.Request[Either[ResponseException[String], EncounterConditionDetail]] =
     basicRequest
       .method(Method.GET, uri"$baseUrl/api/v2/encounter-condition/${id}/")
       .contentType("application/json")
@@ -83,7 +83,7 @@ class EncountersApi(baseUrl: String) {
    * @param offset The initial index from which to return the results.
    * @param `q` > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. 
    */
-  def encounterConditionValueList(username: String, password: String, apiKeyCookie: String)(limit: Option[Int] = None, offset: Option[Int] = None, `q`: Option[String] = None): Request[Either[ResponseException[String], PaginatedEncounterConditionValueSummaryList]] =
+  def encounterConditionValueList(username: String, password: String, apiKeyCookie: String)(limit: Option[Int] = None, offset: Option[Int] = None, `q`: Option[String] = None): sttp.client4.Request[Either[ResponseException[String], PaginatedEncounterConditionValueSummaryList]] =
     basicRequest
       .method(Method.GET, uri"$baseUrl/api/v2/encounter-condition-value/?limit=${ limit }&offset=${ offset }&q=${ `q` }")
       .contentType("application/json")
@@ -103,7 +103,7 @@ class EncountersApi(baseUrl: String) {
    * 
    * @param id This parameter can be a string or an integer.
    */
-  def encounterConditionValueRetrieve(username: String, password: String, apiKeyCookie: String)(id: String): Request[Either[ResponseException[String], EncounterConditionValueDetail]] =
+  def encounterConditionValueRetrieve(username: String, password: String, apiKeyCookie: String)(id: String): sttp.client4.Request[Either[ResponseException[String], EncounterConditionValueDetail]] =
     basicRequest
       .method(Method.GET, uri"$baseUrl/api/v2/encounter-condition-value/${id}/")
       .contentType("application/json")
@@ -125,7 +125,7 @@ class EncountersApi(baseUrl: String) {
    * @param offset The initial index from which to return the results.
    * @param `q` > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. 
    */
-  def encounterMethodList(username: String, password: String, apiKeyCookie: String)(limit: Option[Int] = None, offset: Option[Int] = None, `q`: Option[String] = None): Request[Either[ResponseException[String], PaginatedEncounterMethodSummaryList]] =
+  def encounterMethodList(username: String, password: String, apiKeyCookie: String)(limit: Option[Int] = None, offset: Option[Int] = None, `q`: Option[String] = None): sttp.client4.Request[Either[ResponseException[String], PaginatedEncounterMethodSummaryList]] =
     basicRequest
       .method(Method.GET, uri"$baseUrl/api/v2/encounter-method/?limit=${ limit }&offset=${ offset }&q=${ `q` }")
       .contentType("application/json")
@@ -145,7 +145,7 @@ class EncountersApi(baseUrl: String) {
    * 
    * @param id This parameter can be a string or an integer.
    */
-  def encounterMethodRetrieve(username: String, password: String, apiKeyCookie: String)(id: String): Request[Either[ResponseException[String], EncounterMethodDetail]] =
+  def encounterMethodRetrieve(username: String, password: String, apiKeyCookie: String)(id: String): sttp.client4.Request[Either[ResponseException[String], EncounterMethodDetail]] =
     basicRequest
       .method(Method.GET, uri"$baseUrl/api/v2/encounter-method/${id}/")
       .contentType("application/json")

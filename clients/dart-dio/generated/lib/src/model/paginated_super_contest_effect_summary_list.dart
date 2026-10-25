@@ -166,3 +166,4 @@ class _$PaginatedSuperContestEffectSummaryListSerializer implements PrimitiveSer
   }
 }
 
+

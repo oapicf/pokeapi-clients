@@ -29,8 +29,6 @@ public class PaginatedEvolutionChainSummaryList  {
 
   @ApiModelProperty(value = "")
 
-  @Valid
-
   private List<@Valid EvolutionChainSummary> results = new ArrayList<>();
  /**
    * Get count

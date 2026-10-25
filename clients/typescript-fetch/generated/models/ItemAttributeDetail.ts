@@ -43,32 +43,22 @@ import {
 export interface ItemAttributeDetail {
     /**
      * 
-     * @type {number}
-     * @memberof ItemAttributeDetail
      */
     readonly id: number;
     /**
      * 
-     * @type {string}
-     * @memberof ItemAttributeDetail
      */
     name: string;
     /**
      * 
-     * @type {Array<ItemAttributeDescription>}
-     * @memberof ItemAttributeDetail
      */
     readonly descriptions: Array<ItemAttributeDescription>;
     /**
      * 
-     * @type {Array<AbilityDetailPokemonInnerPokemon>}
-     * @memberof ItemAttributeDetail
      */
     readonly items: Array<AbilityDetailPokemonInnerPokemon>;
     /**
      * 
-     * @type {Array<ItemAttributeName>}
-     * @memberof ItemAttributeDetail
      */
     readonly names: Array<ItemAttributeName>;
 }

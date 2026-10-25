@@ -178,28 +178,28 @@ namespace Org.OpenAPITools.Model
             }
 
             if (!id.IsSet)
-                throw new ArgumentException("Property is required for class VersionDetail.", nameof(id));
+                throw new JsonException("Property is required for class VersionDetail: id.");
 
             if (!name.IsSet)
-                throw new ArgumentException("Property is required for class VersionDetail.", nameof(name));
+                throw new JsonException("Property is required for class VersionDetail: name.");
 
             if (!names.IsSet)
-                throw new ArgumentException("Property is required for class VersionDetail.", nameof(names));
+                throw new JsonException("Property is required for class VersionDetail: names.");
 
             if (!versionGroup.IsSet)
-                throw new ArgumentException("Property is required for class VersionDetail.", nameof(versionGroup));
+                throw new JsonException("Property is required for class VersionDetail: version_group.");
 
             if (id.IsSet && id.Value == null)
-                throw new ArgumentNullException(nameof(id), "Property is not nullable for class VersionDetail.");
+                throw new JsonException("Property is not nullable for class VersionDetail: id.");
 
             if (name.IsSet && name.Value == null)
-                throw new ArgumentNullException(nameof(name), "Property is not nullable for class VersionDetail.");
+                throw new JsonException("Property is not nullable for class VersionDetail: name.");
 
             if (names.IsSet && names.Value == null)
-                throw new ArgumentNullException(nameof(names), "Property is not nullable for class VersionDetail.");
+                throw new JsonException("Property is not nullable for class VersionDetail: names.");
 
             if (versionGroup.IsSet && versionGroup.Value == null)
-                throw new ArgumentNullException(nameof(versionGroup), "Property is not nullable for class VersionDetail.");
+                throw new JsonException("Property is not nullable for class VersionDetail: version_group.");
 
             return new VersionDetail(id.Value!.Value!, name.Value!, names.Value!, versionGroup.Value!);
         }
@@ -210,7 +210,6 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="versionDetail"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public override void Write(Utf8JsonWriter writer, VersionDetail versionDetail, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteStartObject();
@@ -225,18 +224,8 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="versionDetail"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, VersionDetail versionDetail, JsonSerializerOptions jsonSerializerOptions)
         {
-            if (versionDetail.Name == null)
-                throw new ArgumentNullException(nameof(versionDetail.Name), "Property is required for class VersionDetail.");
-
-            if (versionDetail.Names == null)
-                throw new ArgumentNullException(nameof(versionDetail.Names), "Property is required for class VersionDetail.");
-
-            if (versionDetail.VersionGroup == null)
-                throw new ArgumentNullException(nameof(versionDetail.VersionGroup), "Property is required for class VersionDetail.");
-
             writer.WriteNumber("id", versionDetail.Id);
 
             writer.WriteString("name", versionDetail.Name);

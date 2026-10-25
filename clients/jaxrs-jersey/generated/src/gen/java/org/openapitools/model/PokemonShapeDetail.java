@@ -38,7 +38,7 @@ import javax.validation.Valid;
   PokemonShapeDetail.JSON_PROPERTY_NAMES,
   PokemonShapeDetail.JSON_PROPERTY_POKEMON_SPECIES
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJerseyServerCodegen", date = "2026-08-30T01:56:28.710233113Z[Etc/UTC]", comments = "Generator version: 7.24.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJerseyServerCodegen", date = "2026-10-25T05:48:41.923212007Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 public class PokemonShapeDetail   {
   public static final String JSON_PROPERTY_ID = "id";
   @JsonProperty(JSON_PROPERTY_ID)
@@ -119,7 +119,7 @@ public class PokemonShapeDetail   {
    **/
   @JsonProperty(value = "awesome_names", access = JsonProperty.Access.READ_ONLY)
   @ApiModelProperty(required = true, value = "")
-  @Valid 
+  
   public List<@Valid PokemonShapeDetailAwesomeNamesInner> getAwesomeNames() {
     return awesomeNames;
   }
@@ -147,7 +147,7 @@ public class PokemonShapeDetail   {
    **/
   @JsonProperty(value = "names", access = JsonProperty.Access.READ_ONLY)
   @ApiModelProperty(required = true, value = "")
-  @Valid 
+  
   public List<@Valid PokemonShapeDetailNamesInner> getNames() {
     return names;
   }
@@ -175,7 +175,7 @@ public class PokemonShapeDetail   {
    **/
   @JsonProperty(value = "pokemon_species", access = JsonProperty.Access.READ_ONLY)
   @ApiModelProperty(required = true, value = "")
-  @Valid 
+  
   public List<@Valid PokemonSpeciesSummary> getPokemonSpecies() {
     return pokemonSpecies;
   }

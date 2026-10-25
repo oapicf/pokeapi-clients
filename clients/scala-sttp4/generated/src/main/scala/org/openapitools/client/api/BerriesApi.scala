@@ -41,7 +41,7 @@ class BerriesApi(baseUrl: String) {
    * @param offset The initial index from which to return the results.
    * @param `q` > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. 
    */
-  def berryFirmnessList(username: String, password: String, apiKeyCookie: String)(limit: Option[Int] = None, offset: Option[Int] = None, `q`: Option[String] = None): Request[Either[ResponseException[String], PaginatedBerryFirmnessSummaryList]] =
+  def berryFirmnessList(username: String, password: String, apiKeyCookie: String)(limit: Option[Int] = None, offset: Option[Int] = None, `q`: Option[String] = None): sttp.client4.Request[Either[ResponseException[String], PaginatedBerryFirmnessSummaryList]] =
     basicRequest
       .method(Method.GET, uri"$baseUrl/api/v2/berry-firmness/?limit=${ limit }&offset=${ offset }&q=${ `q` }")
       .contentType("application/json")
@@ -61,7 +61,7 @@ class BerriesApi(baseUrl: String) {
    * 
    * @param id This parameter can be a string or an integer.
    */
-  def berryFirmnessRetrieve(username: String, password: String, apiKeyCookie: String)(id: String): Request[Either[ResponseException[String], BerryFirmnessDetail]] =
+  def berryFirmnessRetrieve(username: String, password: String, apiKeyCookie: String)(id: String): sttp.client4.Request[Either[ResponseException[String], BerryFirmnessDetail]] =
     basicRequest
       .method(Method.GET, uri"$baseUrl/api/v2/berry-firmness/${id}/")
       .contentType("application/json")
@@ -83,7 +83,7 @@ class BerriesApi(baseUrl: String) {
    * @param offset The initial index from which to return the results.
    * @param `q` > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. 
    */
-  def berryFlavorList(username: String, password: String, apiKeyCookie: String)(limit: Option[Int] = None, offset: Option[Int] = None, `q`: Option[String] = None): Request[Either[ResponseException[String], PaginatedBerryFlavorSummaryList]] =
+  def berryFlavorList(username: String, password: String, apiKeyCookie: String)(limit: Option[Int] = None, offset: Option[Int] = None, `q`: Option[String] = None): sttp.client4.Request[Either[ResponseException[String], PaginatedBerryFlavorSummaryList]] =
     basicRequest
       .method(Method.GET, uri"$baseUrl/api/v2/berry-flavor/?limit=${ limit }&offset=${ offset }&q=${ `q` }")
       .contentType("application/json")
@@ -103,7 +103,7 @@ class BerriesApi(baseUrl: String) {
    * 
    * @param id This parameter can be a string or an integer.
    */
-  def berryFlavorRetrieve(username: String, password: String, apiKeyCookie: String)(id: String): Request[Either[ResponseException[String], BerryFlavorDetail]] =
+  def berryFlavorRetrieve(username: String, password: String, apiKeyCookie: String)(id: String): sttp.client4.Request[Either[ResponseException[String], BerryFlavorDetail]] =
     basicRequest
       .method(Method.GET, uri"$baseUrl/api/v2/berry-flavor/${id}/")
       .contentType("application/json")
@@ -125,7 +125,7 @@ class BerriesApi(baseUrl: String) {
    * @param offset The initial index from which to return the results.
    * @param `q` > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. 
    */
-  def berryList(username: String, password: String, apiKeyCookie: String)(limit: Option[Int] = None, offset: Option[Int] = None, `q`: Option[String] = None): Request[Either[ResponseException[String], PaginatedBerrySummaryList]] =
+  def berryList(username: String, password: String, apiKeyCookie: String)(limit: Option[Int] = None, offset: Option[Int] = None, `q`: Option[String] = None): sttp.client4.Request[Either[ResponseException[String], PaginatedBerrySummaryList]] =
     basicRequest
       .method(Method.GET, uri"$baseUrl/api/v2/berry/?limit=${ limit }&offset=${ offset }&q=${ `q` }")
       .contentType("application/json")
@@ -145,7 +145,7 @@ class BerriesApi(baseUrl: String) {
    * 
    * @param id This parameter can be a string or an integer.
    */
-  def berryRetrieve(username: String, password: String, apiKeyCookie: String)(id: String): Request[Either[ResponseException[String], BerryDetail]] =
+  def berryRetrieve(username: String, password: String, apiKeyCookie: String)(id: String): sttp.client4.Request[Either[ResponseException[String], BerryDetail]] =
     basicRequest
       .method(Method.GET, uri"$baseUrl/api/v2/berry/${id}/")
       .contentType("application/json")

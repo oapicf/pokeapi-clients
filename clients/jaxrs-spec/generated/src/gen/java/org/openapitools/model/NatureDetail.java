@@ -25,7 +25,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
 
 
 @JsonTypeName("NatureDetail")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2026-08-30T01:56:42.280002256Z[Etc/UTC]", comments = "Generator version: 7.24.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2026-10-25T05:48:57.630723375Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 public class NatureDetail   {
   private Integer id;
   private String name;
@@ -33,10 +33,10 @@ public class NatureDetail   {
   private StatSummary increasedStat;
   private BerryFlavorSummary likesFlavor;
   private BerryFlavorSummary hatesFlavor;
-  private @Valid List<@Valid BerrySummary> berries = new ArrayList<>();
-  private @Valid List<@Valid NatureDetailPokeathlonStatChangesInner> pokeathlonStatChanges = new ArrayList<>();
-  private @Valid List<@Valid NatureBattleStylePreference> moveBattleStylePreferences = new ArrayList<>();
-  private @Valid List<@Valid NatureName> names = new ArrayList<>();
+  private List<@Valid BerrySummary> berries = new ArrayList<>();
+  private List<@Valid NatureDetailPokeathlonStatChangesInner> pokeathlonStatChanges = new ArrayList<>();
+  private List<@Valid NatureBattleStylePreference> moveBattleStylePreferences = new ArrayList<>();
+  private List<@Valid NatureName> names = new ArrayList<>();
 
   public NatureDetail() {
   }
@@ -190,7 +190,7 @@ public class NatureDetail   {
   
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(required = true, value = "berries")
-  @Valid public List<@Valid BerrySummary> getBerries() {
+  public List<@Valid BerrySummary> getBerries() {
     return berries;
   }
 
@@ -225,7 +225,7 @@ public class NatureDetail   {
   
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(required = true, value = "pokeathlon_stat_changes")
-  @Valid public List<@Valid NatureDetailPokeathlonStatChangesInner> getPokeathlonStatChanges() {
+  public List<@Valid NatureDetailPokeathlonStatChangesInner> getPokeathlonStatChanges() {
     return pokeathlonStatChanges;
   }
 
@@ -260,7 +260,7 @@ public class NatureDetail   {
   
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(required = true, value = "move_battle_style_preferences")
-  @Valid public List<@Valid NatureBattleStylePreference> getMoveBattleStylePreferences() {
+  public List<@Valid NatureBattleStylePreference> getMoveBattleStylePreferences() {
     return moveBattleStylePreferences;
   }
 
@@ -295,7 +295,7 @@ public class NatureDetail   {
   
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(required = true, value = "names")
-  @Valid public List<@Valid NatureName> getNames() {
+  public List<@Valid NatureName> getNames() {
     return names;
   }
 

@@ -21,12 +21,12 @@ import org.openapitools.jackson.nullable.JsonNullable;
 
 
 @JsonTypeName("ItemPocketDetail")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2026-08-30T01:56:42.280002256Z[Etc/UTC]", comments = "Generator version: 7.24.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2026-10-25T05:48:57.630723375Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 public class ItemPocketDetail   {
   private Integer id;
   private String name;
-  private @Valid List<@Valid ItemCategorySummary> categories = new ArrayList<>();
-  private @Valid List<@Valid ItemPocketName> names = new ArrayList<>();
+  private List<@Valid ItemCategorySummary> categories = new ArrayList<>();
+  private List<@Valid ItemPocketName> names = new ArrayList<>();
 
   public ItemPocketDetail() {
   }
@@ -92,7 +92,7 @@ public class ItemPocketDetail   {
   
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(required = true, value = "categories")
-  @Valid public List<@Valid ItemCategorySummary> getCategories() {
+  public List<@Valid ItemCategorySummary> getCategories() {
     return categories;
   }
 
@@ -127,7 +127,7 @@ public class ItemPocketDetail   {
   
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(required = true, value = "names")
-  @Valid public List<@Valid ItemPocketName> getNames() {
+  public List<@Valid ItemPocketName> getNames() {
     return names;
   }
 

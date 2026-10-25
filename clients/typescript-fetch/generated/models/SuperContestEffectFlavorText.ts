@@ -29,14 +29,10 @@ import {
 export interface SuperContestEffectFlavorText {
     /**
      * 
-     * @type {string}
-     * @memberof SuperContestEffectFlavorText
      */
     flavorText: string;
     /**
      * 
-     * @type {LanguageSummary}
-     * @memberof SuperContestEffectFlavorText
      */
     language: LanguageSummary;
 }

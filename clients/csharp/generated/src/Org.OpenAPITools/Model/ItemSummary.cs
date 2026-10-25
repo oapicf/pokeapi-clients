@@ -152,16 +152,16 @@ namespace Org.OpenAPITools.Model
             }
 
             if (!name.IsSet)
-                throw new ArgumentException("Property is required for class ItemSummary.", nameof(name));
+                throw new JsonException("Property is required for class ItemSummary: name.");
 
             if (!url.IsSet)
-                throw new ArgumentException("Property is required for class ItemSummary.", nameof(url));
+                throw new JsonException("Property is required for class ItemSummary: url.");
 
             if (name.IsSet && name.Value == null)
-                throw new ArgumentNullException(nameof(name), "Property is not nullable for class ItemSummary.");
+                throw new JsonException("Property is not nullable for class ItemSummary: name.");
 
             if (url.IsSet && url.Value == null)
-                throw new ArgumentNullException(nameof(url), "Property is not nullable for class ItemSummary.");
+                throw new JsonException("Property is not nullable for class ItemSummary: url.");
 
             return new ItemSummary(name.Value!, url.Value!);
         }
@@ -172,7 +172,6 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="itemSummary"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public override void Write(Utf8JsonWriter writer, ItemSummary itemSummary, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteStartObject();
@@ -187,15 +186,8 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="itemSummary"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, ItemSummary itemSummary, JsonSerializerOptions jsonSerializerOptions)
         {
-            if (itemSummary.Name == null)
-                throw new ArgumentNullException(nameof(itemSummary.Name), "Property is required for class ItemSummary.");
-
-            if (itemSummary.Url == null)
-                throw new ArgumentNullException(nameof(itemSummary.Url), "Property is required for class ItemSummary.");
-
             writer.WriteString("name", itemSummary.Name);
 
             writer.WriteString("url", itemSummary.Url);

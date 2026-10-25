@@ -25,7 +25,6 @@ public class PaginatedAbilitySummaryList  {
   private URI previous;
 
   @ApiModelProperty(value = "")
-  @Valid
   private List<@Valid AbilitySummary> results = new ArrayList<>();
  /**
   * Get count

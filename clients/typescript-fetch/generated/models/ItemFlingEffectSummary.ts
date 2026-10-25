@@ -21,14 +21,10 @@ import { mapValues } from '../runtime';
 export interface ItemFlingEffectSummary {
     /**
      * 
-     * @type {string}
-     * @memberof ItemFlingEffectSummary
      */
     name: string;
     /**
      * 
-     * @type {string}
-     * @memberof ItemFlingEffectSummary
      */
     readonly url: string;
 }

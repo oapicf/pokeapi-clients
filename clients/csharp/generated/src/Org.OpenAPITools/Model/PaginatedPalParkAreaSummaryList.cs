@@ -203,16 +203,16 @@ namespace Org.OpenAPITools.Model
             }
 
             if (count.IsSet && count.Value == null)
-                throw new ArgumentNullException(nameof(count), "Property is not nullable for class PaginatedPalParkAreaSummaryList.");
+                throw new JsonException("Property is not nullable for class PaginatedPalParkAreaSummaryList: count.");
 
             if (next.IsSet && next.Value == null)
-                throw new ArgumentNullException(nameof(next), "Property is not nullable for class PaginatedPalParkAreaSummaryList.");
+                throw new JsonException("Property is not nullable for class PaginatedPalParkAreaSummaryList: next.");
 
             if (previous.IsSet && previous.Value == null)
-                throw new ArgumentNullException(nameof(previous), "Property is not nullable for class PaginatedPalParkAreaSummaryList.");
+                throw new JsonException("Property is not nullable for class PaginatedPalParkAreaSummaryList: previous.");
 
             if (results.IsSet && results.Value == null)
-                throw new ArgumentNullException(nameof(results), "Property is not nullable for class PaginatedPalParkAreaSummaryList.");
+                throw new JsonException("Property is not nullable for class PaginatedPalParkAreaSummaryList: results.");
 
             return new PaginatedPalParkAreaSummaryList(count, next, previous, results);
         }
@@ -223,7 +223,6 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="paginatedPalParkAreaSummaryList"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public override void Write(Utf8JsonWriter writer, PaginatedPalParkAreaSummaryList paginatedPalParkAreaSummaryList, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteStartObject();
@@ -238,17 +237,19 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="paginatedPalParkAreaSummaryList"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, PaginatedPalParkAreaSummaryList paginatedPalParkAreaSummaryList, JsonSerializerOptions jsonSerializerOptions)
         {
+            if (paginatedPalParkAreaSummaryList.CountOption.IsSet && paginatedPalParkAreaSummaryList.Count == null)
+                throw new JsonException("Cannot write null property PaginatedPalParkAreaSummaryList.Count to non-nullable JSON property 'count'.");
+
             if (paginatedPalParkAreaSummaryList.NextOption.IsSet && paginatedPalParkAreaSummaryList.Next == null)
-                throw new ArgumentNullException(nameof(paginatedPalParkAreaSummaryList.Next), "Property is required for class PaginatedPalParkAreaSummaryList.");
+                throw new JsonException("Cannot write null property PaginatedPalParkAreaSummaryList.Next to non-nullable JSON property 'next'.");
 
             if (paginatedPalParkAreaSummaryList.PreviousOption.IsSet && paginatedPalParkAreaSummaryList.Previous == null)
-                throw new ArgumentNullException(nameof(paginatedPalParkAreaSummaryList.Previous), "Property is required for class PaginatedPalParkAreaSummaryList.");
+                throw new JsonException("Cannot write null property PaginatedPalParkAreaSummaryList.Previous to non-nullable JSON property 'previous'.");
 
             if (paginatedPalParkAreaSummaryList.ResultsOption.IsSet && paginatedPalParkAreaSummaryList.Results == null)
-                throw new ArgumentNullException(nameof(paginatedPalParkAreaSummaryList.Results), "Property is required for class PaginatedPalParkAreaSummaryList.");
+                throw new JsonException("Cannot write null property PaginatedPalParkAreaSummaryList.Results to non-nullable JSON property 'results'.");
 
             if (paginatedPalParkAreaSummaryList.CountOption.IsSet)
                 writer.WriteNumber("count", paginatedPalParkAreaSummaryList.CountOption.Value!.Value);

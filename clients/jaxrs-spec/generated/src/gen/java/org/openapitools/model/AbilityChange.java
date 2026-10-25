@@ -21,10 +21,10 @@ import org.openapitools.jackson.nullable.JsonNullable;
 
 
 @JsonTypeName("AbilityChange")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2026-08-30T01:56:42.280002256Z[Etc/UTC]", comments = "Generator version: 7.24.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2026-10-25T05:48:57.630723375Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 public class AbilityChange   {
   private VersionGroupSummary versionGroup;
-  private @Valid List<@Valid AbilityChangeEffectText> effectEntries = new ArrayList<>();
+  private List<@Valid AbilityChangeEffectText> effectEntries = new ArrayList<>();
 
   public AbilityChange() {
   }
@@ -67,7 +67,7 @@ public class AbilityChange   {
   
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(required = true, value = "effect_entries")
-  @Valid public List<@Valid AbilityChangeEffectText> getEffectEntries() {
+  public List<@Valid AbilityChangeEffectText> getEffectEntries() {
     return effectEntries;
   }
 

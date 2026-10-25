@@ -210,40 +210,40 @@ namespace Org.OpenAPITools.Model
             }
 
             if (!id.IsSet)
-                throw new ArgumentException("Property is required for class GrowthRateDetail.", nameof(id));
+                throw new JsonException("Property is required for class GrowthRateDetail: id.");
 
             if (!name.IsSet)
-                throw new ArgumentException("Property is required for class GrowthRateDetail.", nameof(name));
+                throw new JsonException("Property is required for class GrowthRateDetail: name.");
 
             if (!formula.IsSet)
-                throw new ArgumentException("Property is required for class GrowthRateDetail.", nameof(formula));
+                throw new JsonException("Property is required for class GrowthRateDetail: formula.");
 
             if (!descriptions.IsSet)
-                throw new ArgumentException("Property is required for class GrowthRateDetail.", nameof(descriptions));
+                throw new JsonException("Property is required for class GrowthRateDetail: descriptions.");
 
             if (!levels.IsSet)
-                throw new ArgumentException("Property is required for class GrowthRateDetail.", nameof(levels));
+                throw new JsonException("Property is required for class GrowthRateDetail: levels.");
 
             if (!pokemonSpecies.IsSet)
-                throw new ArgumentException("Property is required for class GrowthRateDetail.", nameof(pokemonSpecies));
+                throw new JsonException("Property is required for class GrowthRateDetail: pokemon_species.");
 
             if (id.IsSet && id.Value == null)
-                throw new ArgumentNullException(nameof(id), "Property is not nullable for class GrowthRateDetail.");
+                throw new JsonException("Property is not nullable for class GrowthRateDetail: id.");
 
             if (name.IsSet && name.Value == null)
-                throw new ArgumentNullException(nameof(name), "Property is not nullable for class GrowthRateDetail.");
+                throw new JsonException("Property is not nullable for class GrowthRateDetail: name.");
 
             if (formula.IsSet && formula.Value == null)
-                throw new ArgumentNullException(nameof(formula), "Property is not nullable for class GrowthRateDetail.");
+                throw new JsonException("Property is not nullable for class GrowthRateDetail: formula.");
 
             if (descriptions.IsSet && descriptions.Value == null)
-                throw new ArgumentNullException(nameof(descriptions), "Property is not nullable for class GrowthRateDetail.");
+                throw new JsonException("Property is not nullable for class GrowthRateDetail: descriptions.");
 
             if (levels.IsSet && levels.Value == null)
-                throw new ArgumentNullException(nameof(levels), "Property is not nullable for class GrowthRateDetail.");
+                throw new JsonException("Property is not nullable for class GrowthRateDetail: levels.");
 
             if (pokemonSpecies.IsSet && pokemonSpecies.Value == null)
-                throw new ArgumentNullException(nameof(pokemonSpecies), "Property is not nullable for class GrowthRateDetail.");
+                throw new JsonException("Property is not nullable for class GrowthRateDetail: pokemon_species.");
 
             return new GrowthRateDetail(id.Value!.Value!, name.Value!, formula.Value!, descriptions.Value!, levels.Value!, pokemonSpecies.Value!);
         }
@@ -254,7 +254,6 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="growthRateDetail"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public override void Write(Utf8JsonWriter writer, GrowthRateDetail growthRateDetail, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteStartObject();
@@ -269,24 +268,8 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="growthRateDetail"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, GrowthRateDetail growthRateDetail, JsonSerializerOptions jsonSerializerOptions)
         {
-            if (growthRateDetail.Name == null)
-                throw new ArgumentNullException(nameof(growthRateDetail.Name), "Property is required for class GrowthRateDetail.");
-
-            if (growthRateDetail.Formula == null)
-                throw new ArgumentNullException(nameof(growthRateDetail.Formula), "Property is required for class GrowthRateDetail.");
-
-            if (growthRateDetail.Descriptions == null)
-                throw new ArgumentNullException(nameof(growthRateDetail.Descriptions), "Property is required for class GrowthRateDetail.");
-
-            if (growthRateDetail.Levels == null)
-                throw new ArgumentNullException(nameof(growthRateDetail.Levels), "Property is required for class GrowthRateDetail.");
-
-            if (growthRateDetail.PokemonSpecies == null)
-                throw new ArgumentNullException(nameof(growthRateDetail.PokemonSpecies), "Property is required for class GrowthRateDetail.");
-
             writer.WriteNumber("id", growthRateDetail.Id);
 
             writer.WriteString("name", growthRateDetail.Name);

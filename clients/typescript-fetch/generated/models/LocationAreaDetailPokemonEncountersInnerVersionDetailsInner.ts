@@ -36,20 +36,14 @@ import {
 export interface LocationAreaDetailPokemonEncountersInnerVersionDetailsInner {
     /**
      * 
-     * @type {AbilityDetailPokemonInnerPokemon}
-     * @memberof LocationAreaDetailPokemonEncountersInnerVersionDetailsInner
      */
     version: AbilityDetailPokemonInnerPokemon;
     /**
      * 
-     * @type {number}
-     * @memberof LocationAreaDetailPokemonEncountersInnerVersionDetailsInner
      */
     maxChance: number;
     /**
      * 
-     * @type {LocationAreaDetailPokemonEncountersInnerVersionDetailsInnerEncounterDetails}
-     * @memberof LocationAreaDetailPokemonEncountersInnerVersionDetailsInner
      */
     encounterDetails: LocationAreaDetailPokemonEncountersInnerVersionDetailsInnerEncounterDetails;
 }

@@ -29,38 +29,26 @@ import {
 export interface LanguageDetail {
     /**
      * 
-     * @type {number}
-     * @memberof LanguageDetail
      */
     readonly id: number;
     /**
      * 
-     * @type {string}
-     * @memberof LanguageDetail
      */
     name: string;
     /**
      * 
-     * @type {boolean}
-     * @memberof LanguageDetail
      */
     official?: boolean;
     /**
      * 
-     * @type {string}
-     * @memberof LanguageDetail
      */
     iso639: string;
     /**
      * 
-     * @type {string}
-     * @memberof LanguageDetail
      */
     iso3166: string;
     /**
      * 
-     * @type {Array<LanguageName>}
-     * @memberof LanguageDetail
      */
     readonly names: Array<LanguageName>;
 }

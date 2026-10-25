@@ -19,7 +19,7 @@ import javax.validation.constraints.*;
 import javax.validation.Valid;
 import io.swagger.annotations.*;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaResteasyServerCodegen", date = "2026-08-30T01:56:35.721624822Z[Etc/UTC]", comments = "Generator version: 7.24.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaResteasyServerCodegen", date = "2026-10-25T05:48:49.952264473Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 public class AbilityDetail   {
   
   private Integer id;
@@ -90,7 +90,6 @@ public class AbilityDetail   {
   @ApiModelProperty(required = true, value = "")
   @JsonProperty("names")
   @NotNull
-  @Valid
   public List<@Valid AbilityName> getNames() {
     return names;
   }
@@ -104,7 +103,6 @@ public class AbilityDetail   {
   @ApiModelProperty(required = true, value = "")
   @JsonProperty("effect_entries")
   @NotNull
-  @Valid
   public List<@Valid AbilityEffectText> getEffectEntries() {
     return effectEntries;
   }
@@ -118,7 +116,6 @@ public class AbilityDetail   {
   @ApiModelProperty(required = true, value = "")
   @JsonProperty("effect_changes")
   @NotNull
-  @Valid
   public List<@Valid AbilityChange> getEffectChanges() {
     return effectChanges;
   }
@@ -132,7 +129,6 @@ public class AbilityDetail   {
   @ApiModelProperty(required = true, value = "")
   @JsonProperty("flavor_text_entries")
   @NotNull
-  @Valid
   public List<@Valid AbilityFlavorText> getFlavorTextEntries() {
     return flavorTextEntries;
   }
@@ -146,7 +142,6 @@ public class AbilityDetail   {
   @ApiModelProperty(required = true, value = "")
   @JsonProperty("pokemon")
   @NotNull
-  @Valid
   public List<@Valid AbilityDetailPokemonInner> getPokemon() {
     return pokemon;
   }

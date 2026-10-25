@@ -86,15 +86,13 @@ class MoveMetaAilmentDetail(BaseModel):
         _items = []
         if self.moves:
             for _item_moves in self.moves:
-                if _item_moves:
-                    _items.append(_item_moves.to_dict())
+                _items.append(_item_moves.to_dict() if _item_moves is not None else None)
             _dict['moves'] = _items
         # override the default output from pydantic by calling `to_dict()` of each item in names (list)
         _items = []
         if self.names:
             for _item_names in self.names:
-                if _item_names:
-                    _items.append(_item_names.to_dict())
+                _items.append(_item_names.to_dict() if _item_names is not None else None)
             _dict['names'] = _items
         return _dict
 

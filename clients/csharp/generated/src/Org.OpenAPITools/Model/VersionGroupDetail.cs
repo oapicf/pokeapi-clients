@@ -237,46 +237,46 @@ namespace Org.OpenAPITools.Model
             }
 
             if (!id.IsSet)
-                throw new ArgumentException("Property is required for class VersionGroupDetail.", nameof(id));
+                throw new JsonException("Property is required for class VersionGroupDetail: id.");
 
             if (!name.IsSet)
-                throw new ArgumentException("Property is required for class VersionGroupDetail.", nameof(name));
+                throw new JsonException("Property is required for class VersionGroupDetail: name.");
 
             if (!generation.IsSet)
-                throw new ArgumentException("Property is required for class VersionGroupDetail.", nameof(generation));
+                throw new JsonException("Property is required for class VersionGroupDetail: generation.");
 
             if (!moveLearnMethods.IsSet)
-                throw new ArgumentException("Property is required for class VersionGroupDetail.", nameof(moveLearnMethods));
+                throw new JsonException("Property is required for class VersionGroupDetail: move_learn_methods.");
 
             if (!pokedexes.IsSet)
-                throw new ArgumentException("Property is required for class VersionGroupDetail.", nameof(pokedexes));
+                throw new JsonException("Property is required for class VersionGroupDetail: pokedexes.");
 
             if (!regions.IsSet)
-                throw new ArgumentException("Property is required for class VersionGroupDetail.", nameof(regions));
+                throw new JsonException("Property is required for class VersionGroupDetail: regions.");
 
             if (!versions.IsSet)
-                throw new ArgumentException("Property is required for class VersionGroupDetail.", nameof(versions));
+                throw new JsonException("Property is required for class VersionGroupDetail: versions.");
 
             if (id.IsSet && id.Value == null)
-                throw new ArgumentNullException(nameof(id), "Property is not nullable for class VersionGroupDetail.");
+                throw new JsonException("Property is not nullable for class VersionGroupDetail: id.");
 
             if (name.IsSet && name.Value == null)
-                throw new ArgumentNullException(nameof(name), "Property is not nullable for class VersionGroupDetail.");
+                throw new JsonException("Property is not nullable for class VersionGroupDetail: name.");
 
             if (generation.IsSet && generation.Value == null)
-                throw new ArgumentNullException(nameof(generation), "Property is not nullable for class VersionGroupDetail.");
+                throw new JsonException("Property is not nullable for class VersionGroupDetail: generation.");
 
             if (moveLearnMethods.IsSet && moveLearnMethods.Value == null)
-                throw new ArgumentNullException(nameof(moveLearnMethods), "Property is not nullable for class VersionGroupDetail.");
+                throw new JsonException("Property is not nullable for class VersionGroupDetail: move_learn_methods.");
 
             if (pokedexes.IsSet && pokedexes.Value == null)
-                throw new ArgumentNullException(nameof(pokedexes), "Property is not nullable for class VersionGroupDetail.");
+                throw new JsonException("Property is not nullable for class VersionGroupDetail: pokedexes.");
 
             if (regions.IsSet && regions.Value == null)
-                throw new ArgumentNullException(nameof(regions), "Property is not nullable for class VersionGroupDetail.");
+                throw new JsonException("Property is not nullable for class VersionGroupDetail: regions.");
 
             if (versions.IsSet && versions.Value == null)
-                throw new ArgumentNullException(nameof(versions), "Property is not nullable for class VersionGroupDetail.");
+                throw new JsonException("Property is not nullable for class VersionGroupDetail: versions.");
 
             return new VersionGroupDetail(id.Value!.Value!, name.Value!, generation.Value!, moveLearnMethods.Value!, pokedexes.Value!, regions.Value!, versions.Value!, order);
         }
@@ -287,7 +287,6 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="versionGroupDetail"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public override void Write(Utf8JsonWriter writer, VersionGroupDetail versionGroupDetail, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteStartObject();
@@ -302,27 +301,8 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="versionGroupDetail"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, VersionGroupDetail versionGroupDetail, JsonSerializerOptions jsonSerializerOptions)
         {
-            if (versionGroupDetail.Name == null)
-                throw new ArgumentNullException(nameof(versionGroupDetail.Name), "Property is required for class VersionGroupDetail.");
-
-            if (versionGroupDetail.Generation == null)
-                throw new ArgumentNullException(nameof(versionGroupDetail.Generation), "Property is required for class VersionGroupDetail.");
-
-            if (versionGroupDetail.MoveLearnMethods == null)
-                throw new ArgumentNullException(nameof(versionGroupDetail.MoveLearnMethods), "Property is required for class VersionGroupDetail.");
-
-            if (versionGroupDetail.Pokedexes == null)
-                throw new ArgumentNullException(nameof(versionGroupDetail.Pokedexes), "Property is required for class VersionGroupDetail.");
-
-            if (versionGroupDetail.Regions == null)
-                throw new ArgumentNullException(nameof(versionGroupDetail.Regions), "Property is required for class VersionGroupDetail.");
-
-            if (versionGroupDetail.Versions == null)
-                throw new ArgumentNullException(nameof(versionGroupDetail.Versions), "Property is required for class VersionGroupDetail.");
-
             writer.WriteNumber("id", versionGroupDetail.Id);
 
             writer.WriteString("name", versionGroupDetail.Name);

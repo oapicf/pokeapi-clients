@@ -29,8 +29,6 @@ public class PaginatedPalParkAreaSummaryList  {
 
   @ApiModelProperty(value = "")
 
-  @Valid
-
   private List<@Valid PalParkAreaSummary> results = new ArrayList<>();
  /**
    * Get count

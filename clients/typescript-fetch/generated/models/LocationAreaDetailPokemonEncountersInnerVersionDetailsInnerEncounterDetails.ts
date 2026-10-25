@@ -29,32 +29,22 @@ import {
 export interface LocationAreaDetailPokemonEncountersInnerVersionDetailsInnerEncounterDetails {
     /**
      * 
-     * @type {number}
-     * @memberof LocationAreaDetailPokemonEncountersInnerVersionDetailsInnerEncounterDetails
      */
     minLevel: number;
     /**
      * 
-     * @type {number}
-     * @memberof LocationAreaDetailPokemonEncountersInnerVersionDetailsInnerEncounterDetails
      */
     maxLevel: number;
     /**
      * 
-     * @type {AbilityDetailPokemonInnerPokemon}
-     * @memberof LocationAreaDetailPokemonEncountersInnerVersionDetailsInnerEncounterDetails
      */
     conditionValues?: AbilityDetailPokemonInnerPokemon;
     /**
      * 
-     * @type {number}
-     * @memberof LocationAreaDetailPokemonEncountersInnerVersionDetailsInnerEncounterDetails
      */
     chance: number;
     /**
      * 
-     * @type {AbilityDetailPokemonInnerPokemon}
-     * @memberof LocationAreaDetailPokemonEncountersInnerVersionDetailsInnerEncounterDetails
      */
     method: AbilityDetailPokemonInnerPokemon;
 }

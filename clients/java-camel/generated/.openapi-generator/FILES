@@ -274,4 +274,3 @@ src/main/java/org/openapitools/model/VersionGroupSummary.java
 src/main/java/org/openapitools/model/VersionName.java
 src/main/java/org/openapitools/model/VersionSummary.java
 src/main/resources/application.properties
-src/test/java/org/openapitools/api/ApiApiTest.java

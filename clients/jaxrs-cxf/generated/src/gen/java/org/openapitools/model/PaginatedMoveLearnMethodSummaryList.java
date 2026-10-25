@@ -29,8 +29,6 @@ public class PaginatedMoveLearnMethodSummaryList  {
 
   @ApiModelProperty(value = "")
 
-  @Valid
-
   private List<@Valid MoveLearnMethodSummary> results = new ArrayList<>();
  /**
    * Get count

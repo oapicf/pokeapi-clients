@@ -240,3 +240,4 @@ class _$GenerationDetailSerializer implements PrimitiveSerializer<GenerationDeta
   }
 }
 
+

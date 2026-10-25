@@ -188,3 +188,4 @@ class _$GrowthRateDetailSerializer implements PrimitiveSerializer<GrowthRateDeta
   }
 }
 
+

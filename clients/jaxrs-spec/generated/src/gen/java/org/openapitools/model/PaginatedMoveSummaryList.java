@@ -21,12 +21,12 @@ import org.openapitools.jackson.nullable.JsonNullable;
 
 
 @JsonTypeName("PaginatedMoveSummaryList")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2026-08-30T01:56:42.280002256Z[Etc/UTC]", comments = "Generator version: 7.24.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2026-10-25T05:48:57.630723375Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 public class PaginatedMoveSummaryList   {
   private Integer count;
   private URI next;
   private URI previous;
-  private @Valid List<@Valid MoveSummary> results = new ArrayList<>();
+  private List<@Valid MoveSummary> results = new ArrayList<>();
 
   public PaginatedMoveSummaryList() {
   }
@@ -98,7 +98,7 @@ public class PaginatedMoveSummaryList   {
   
   @ApiModelProperty(value = "")
   @JsonProperty("results")
-  @Valid public List<@Valid MoveSummary> getResults() {
+  public List<@Valid MoveSummary> getResults() {
     return results;
   }
 

@@ -29,14 +29,10 @@ import {
 export interface PokemonSpeciesDetailVarietiesInner {
     /**
      * 
-     * @type {boolean}
-     * @memberof PokemonSpeciesDetailVarietiesInner
      */
     isDefault: boolean;
     /**
      * 
-     * @type {AbilityDetailPokemonInnerPokemon}
-     * @memberof PokemonSpeciesDetailVarietiesInner
      */
     pokemon: AbilityDetailPokemonInnerPokemon;
 }

@@ -31,23 +31,23 @@ import org.openapitools.jackson.nullable.JsonNullable;
 
 
 @JsonTypeName("ItemDetail")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2026-08-30T01:56:42.280002256Z[Etc/UTC]", comments = "Generator version: 7.24.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2026-10-25T05:48:57.630723375Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 public class ItemDetail   {
   private Integer id;
   private String name;
   private Integer cost;
   private Integer flingPower;
   private ItemFlingEffectSummary flingEffect;
-  private @Valid List<@Valid AbilityDetailPokemonInnerPokemon> attributes = new ArrayList<>();
+  private List<@Valid AbilityDetailPokemonInnerPokemon> attributes = new ArrayList<>();
   private ItemCategorySummary category;
-  private @Valid List<@Valid ItemEffectText> effectEntries = new ArrayList<>();
-  private @Valid List<@Valid ItemFlavorText> flavorTextEntries = new ArrayList<>();
-  private @Valid List<@Valid ItemGameIndex> gameIndices = new ArrayList<>();
-  private @Valid List<@Valid ItemName> names = new ArrayList<>();
-  private @Valid List<@Valid ItemDetailHeldByPokemonInner> heldByPokemon = new ArrayList<>();
+  private List<@Valid ItemEffectText> effectEntries = new ArrayList<>();
+  private List<@Valid ItemFlavorText> flavorTextEntries = new ArrayList<>();
+  private List<@Valid ItemGameIndex> gameIndices = new ArrayList<>();
+  private List<@Valid ItemName> names = new ArrayList<>();
+  private List<@Valid ItemDetailHeldByPokemonInner> heldByPokemon = new ArrayList<>();
   private ItemDetailSprites sprites;
   private ItemDetailBabyTriggerFor babyTriggerFor;
-  private @Valid List<@Valid ItemDetailMachinesInner> machines = new ArrayList<>();
+  private List<@Valid ItemDetailMachinesInner> machines = new ArrayList<>();
 
   public ItemDetail() {
   }
@@ -188,7 +188,7 @@ public class ItemDetail   {
   
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(required = true, value = "attributes")
-  @Valid public List<@Valid AbilityDetailPokemonInnerPokemon> getAttributes() {
+  public List<@Valid AbilityDetailPokemonInnerPokemon> getAttributes() {
     return attributes;
   }
 
@@ -242,7 +242,7 @@ public class ItemDetail   {
   
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(required = true, value = "effect_entries")
-  @Valid public List<@Valid ItemEffectText> getEffectEntries() {
+  public List<@Valid ItemEffectText> getEffectEntries() {
     return effectEntries;
   }
 
@@ -277,7 +277,7 @@ public class ItemDetail   {
   
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(required = true, value = "flavor_text_entries")
-  @Valid public List<@Valid ItemFlavorText> getFlavorTextEntries() {
+  public List<@Valid ItemFlavorText> getFlavorTextEntries() {
     return flavorTextEntries;
   }
 
@@ -312,7 +312,7 @@ public class ItemDetail   {
   
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(required = true, value = "game_indices")
-  @Valid public List<@Valid ItemGameIndex> getGameIndices() {
+  public List<@Valid ItemGameIndex> getGameIndices() {
     return gameIndices;
   }
 
@@ -347,7 +347,7 @@ public class ItemDetail   {
   
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(required = true, value = "names")
-  @Valid public List<@Valid ItemName> getNames() {
+  public List<@Valid ItemName> getNames() {
     return names;
   }
 
@@ -382,7 +382,7 @@ public class ItemDetail   {
   
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(required = true, value = "held_by_pokemon")
-  @Valid public List<@Valid ItemDetailHeldByPokemonInner> getHeldByPokemon() {
+  public List<@Valid ItemDetailHeldByPokemonInner> getHeldByPokemon() {
     return heldByPokemon;
   }
 
@@ -455,7 +455,7 @@ public class ItemDetail   {
   
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(required = true, value = "machines")
-  @Valid public List<@Valid ItemDetailMachinesInner> getMachines() {
+  public List<@Valid ItemDetailMachinesInner> getMachines() {
     return machines;
   }
 

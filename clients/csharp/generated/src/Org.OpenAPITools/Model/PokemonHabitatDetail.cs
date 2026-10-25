@@ -178,28 +178,28 @@ namespace Org.OpenAPITools.Model
             }
 
             if (!id.IsSet)
-                throw new ArgumentException("Property is required for class PokemonHabitatDetail.", nameof(id));
+                throw new JsonException("Property is required for class PokemonHabitatDetail: id.");
 
             if (!name.IsSet)
-                throw new ArgumentException("Property is required for class PokemonHabitatDetail.", nameof(name));
+                throw new JsonException("Property is required for class PokemonHabitatDetail: name.");
 
             if (!names.IsSet)
-                throw new ArgumentException("Property is required for class PokemonHabitatDetail.", nameof(names));
+                throw new JsonException("Property is required for class PokemonHabitatDetail: names.");
 
             if (!pokemonSpecies.IsSet)
-                throw new ArgumentException("Property is required for class PokemonHabitatDetail.", nameof(pokemonSpecies));
+                throw new JsonException("Property is required for class PokemonHabitatDetail: pokemon_species.");
 
             if (id.IsSet && id.Value == null)
-                throw new ArgumentNullException(nameof(id), "Property is not nullable for class PokemonHabitatDetail.");
+                throw new JsonException("Property is not nullable for class PokemonHabitatDetail: id.");
 
             if (name.IsSet && name.Value == null)
-                throw new ArgumentNullException(nameof(name), "Property is not nullable for class PokemonHabitatDetail.");
+                throw new JsonException("Property is not nullable for class PokemonHabitatDetail: name.");
 
             if (names.IsSet && names.Value == null)
-                throw new ArgumentNullException(nameof(names), "Property is not nullable for class PokemonHabitatDetail.");
+                throw new JsonException("Property is not nullable for class PokemonHabitatDetail: names.");
 
             if (pokemonSpecies.IsSet && pokemonSpecies.Value == null)
-                throw new ArgumentNullException(nameof(pokemonSpecies), "Property is not nullable for class PokemonHabitatDetail.");
+                throw new JsonException("Property is not nullable for class PokemonHabitatDetail: pokemon_species.");
 
             return new PokemonHabitatDetail(id.Value!.Value!, name.Value!, names.Value!, pokemonSpecies.Value!);
         }
@@ -210,7 +210,6 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="pokemonHabitatDetail"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public override void Write(Utf8JsonWriter writer, PokemonHabitatDetail pokemonHabitatDetail, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteStartObject();
@@ -225,18 +224,8 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="pokemonHabitatDetail"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, PokemonHabitatDetail pokemonHabitatDetail, JsonSerializerOptions jsonSerializerOptions)
         {
-            if (pokemonHabitatDetail.Name == null)
-                throw new ArgumentNullException(nameof(pokemonHabitatDetail.Name), "Property is required for class PokemonHabitatDetail.");
-
-            if (pokemonHabitatDetail.Names == null)
-                throw new ArgumentNullException(nameof(pokemonHabitatDetail.Names), "Property is required for class PokemonHabitatDetail.");
-
-            if (pokemonHabitatDetail.PokemonSpecies == null)
-                throw new ArgumentNullException(nameof(pokemonHabitatDetail.PokemonSpecies), "Property is required for class PokemonHabitatDetail.");
-
             writer.WriteNumber("id", pokemonHabitatDetail.Id);
 
             writer.WriteString("name", pokemonHabitatDetail.Name);

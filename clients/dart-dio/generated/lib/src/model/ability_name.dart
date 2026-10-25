@@ -121,3 +121,4 @@ class _$AbilityNameSerializer implements PrimitiveSerializer<AbilityName> {
   }
 }
 
+

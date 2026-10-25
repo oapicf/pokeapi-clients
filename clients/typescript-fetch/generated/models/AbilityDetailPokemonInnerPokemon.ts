@@ -21,14 +21,10 @@ import { mapValues } from '../runtime';
 export interface AbilityDetailPokemonInnerPokemon {
     /**
      * 
-     * @type {string}
-     * @memberof AbilityDetailPokemonInnerPokemon
      */
     name: string;
     /**
      * 
-     * @type {string}
-     * @memberof AbilityDetailPokemonInnerPokemon
      */
     url: string;
 }

@@ -256,64 +256,64 @@ namespace Org.OpenAPITools.Model
             }
 
             if (!id.IsSet)
-                throw new ArgumentException("Property is required for class NatureDetail.", nameof(id));
+                throw new JsonException("Property is required for class NatureDetail: id.");
 
             if (!name.IsSet)
-                throw new ArgumentException("Property is required for class NatureDetail.", nameof(name));
+                throw new JsonException("Property is required for class NatureDetail: name.");
 
             if (!decreasedStat.IsSet)
-                throw new ArgumentException("Property is required for class NatureDetail.", nameof(decreasedStat));
+                throw new JsonException("Property is required for class NatureDetail: decreased_stat.");
 
             if (!increasedStat.IsSet)
-                throw new ArgumentException("Property is required for class NatureDetail.", nameof(increasedStat));
+                throw new JsonException("Property is required for class NatureDetail: increased_stat.");
 
             if (!likesFlavor.IsSet)
-                throw new ArgumentException("Property is required for class NatureDetail.", nameof(likesFlavor));
+                throw new JsonException("Property is required for class NatureDetail: likes_flavor.");
 
             if (!hatesFlavor.IsSet)
-                throw new ArgumentException("Property is required for class NatureDetail.", nameof(hatesFlavor));
+                throw new JsonException("Property is required for class NatureDetail: hates_flavor.");
 
             if (!berries.IsSet)
-                throw new ArgumentException("Property is required for class NatureDetail.", nameof(berries));
+                throw new JsonException("Property is required for class NatureDetail: berries.");
 
             if (!pokeathlonStatChanges.IsSet)
-                throw new ArgumentException("Property is required for class NatureDetail.", nameof(pokeathlonStatChanges));
+                throw new JsonException("Property is required for class NatureDetail: pokeathlon_stat_changes.");
 
             if (!moveBattleStylePreferences.IsSet)
-                throw new ArgumentException("Property is required for class NatureDetail.", nameof(moveBattleStylePreferences));
+                throw new JsonException("Property is required for class NatureDetail: move_battle_style_preferences.");
 
             if (!names.IsSet)
-                throw new ArgumentException("Property is required for class NatureDetail.", nameof(names));
+                throw new JsonException("Property is required for class NatureDetail: names.");
 
             if (id.IsSet && id.Value == null)
-                throw new ArgumentNullException(nameof(id), "Property is not nullable for class NatureDetail.");
+                throw new JsonException("Property is not nullable for class NatureDetail: id.");
 
             if (name.IsSet && name.Value == null)
-                throw new ArgumentNullException(nameof(name), "Property is not nullable for class NatureDetail.");
+                throw new JsonException("Property is not nullable for class NatureDetail: name.");
 
             if (decreasedStat.IsSet && decreasedStat.Value == null)
-                throw new ArgumentNullException(nameof(decreasedStat), "Property is not nullable for class NatureDetail.");
+                throw new JsonException("Property is not nullable for class NatureDetail: decreased_stat.");
 
             if (increasedStat.IsSet && increasedStat.Value == null)
-                throw new ArgumentNullException(nameof(increasedStat), "Property is not nullable for class NatureDetail.");
+                throw new JsonException("Property is not nullable for class NatureDetail: increased_stat.");
 
             if (likesFlavor.IsSet && likesFlavor.Value == null)
-                throw new ArgumentNullException(nameof(likesFlavor), "Property is not nullable for class NatureDetail.");
+                throw new JsonException("Property is not nullable for class NatureDetail: likes_flavor.");
 
             if (hatesFlavor.IsSet && hatesFlavor.Value == null)
-                throw new ArgumentNullException(nameof(hatesFlavor), "Property is not nullable for class NatureDetail.");
+                throw new JsonException("Property is not nullable for class NatureDetail: hates_flavor.");
 
             if (berries.IsSet && berries.Value == null)
-                throw new ArgumentNullException(nameof(berries), "Property is not nullable for class NatureDetail.");
+                throw new JsonException("Property is not nullable for class NatureDetail: berries.");
 
             if (pokeathlonStatChanges.IsSet && pokeathlonStatChanges.Value == null)
-                throw new ArgumentNullException(nameof(pokeathlonStatChanges), "Property is not nullable for class NatureDetail.");
+                throw new JsonException("Property is not nullable for class NatureDetail: pokeathlon_stat_changes.");
 
             if (moveBattleStylePreferences.IsSet && moveBattleStylePreferences.Value == null)
-                throw new ArgumentNullException(nameof(moveBattleStylePreferences), "Property is not nullable for class NatureDetail.");
+                throw new JsonException("Property is not nullable for class NatureDetail: move_battle_style_preferences.");
 
             if (names.IsSet && names.Value == null)
-                throw new ArgumentNullException(nameof(names), "Property is not nullable for class NatureDetail.");
+                throw new JsonException("Property is not nullable for class NatureDetail: names.");
 
             return new NatureDetail(id.Value!.Value!, name.Value!, decreasedStat.Value!, increasedStat.Value!, likesFlavor.Value!, hatesFlavor.Value!, berries.Value!, pokeathlonStatChanges.Value!, moveBattleStylePreferences.Value!, names.Value!);
         }
@@ -324,7 +324,6 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="natureDetail"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public override void Write(Utf8JsonWriter writer, NatureDetail natureDetail, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteStartObject();
@@ -339,36 +338,8 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="natureDetail"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, NatureDetail natureDetail, JsonSerializerOptions jsonSerializerOptions)
         {
-            if (natureDetail.Name == null)
-                throw new ArgumentNullException(nameof(natureDetail.Name), "Property is required for class NatureDetail.");
-
-            if (natureDetail.DecreasedStat == null)
-                throw new ArgumentNullException(nameof(natureDetail.DecreasedStat), "Property is required for class NatureDetail.");
-
-            if (natureDetail.IncreasedStat == null)
-                throw new ArgumentNullException(nameof(natureDetail.IncreasedStat), "Property is required for class NatureDetail.");
-
-            if (natureDetail.LikesFlavor == null)
-                throw new ArgumentNullException(nameof(natureDetail.LikesFlavor), "Property is required for class NatureDetail.");
-
-            if (natureDetail.HatesFlavor == null)
-                throw new ArgumentNullException(nameof(natureDetail.HatesFlavor), "Property is required for class NatureDetail.");
-
-            if (natureDetail.Berries == null)
-                throw new ArgumentNullException(nameof(natureDetail.Berries), "Property is required for class NatureDetail.");
-
-            if (natureDetail.PokeathlonStatChanges == null)
-                throw new ArgumentNullException(nameof(natureDetail.PokeathlonStatChanges), "Property is required for class NatureDetail.");
-
-            if (natureDetail.MoveBattleStylePreferences == null)
-                throw new ArgumentNullException(nameof(natureDetail.MoveBattleStylePreferences), "Property is required for class NatureDetail.");
-
-            if (natureDetail.Names == null)
-                throw new ArgumentNullException(nameof(natureDetail.Names), "Property is required for class NatureDetail.");
-
             writer.WriteNumber("id", natureDetail.Id);
 
             writer.WriteString("name", natureDetail.Name);

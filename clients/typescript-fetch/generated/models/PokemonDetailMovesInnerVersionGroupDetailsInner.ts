@@ -29,20 +29,14 @@ import {
 export interface PokemonDetailMovesInnerVersionGroupDetailsInner {
     /**
      * 
-     * @type {number}
-     * @memberof PokemonDetailMovesInnerVersionGroupDetailsInner
      */
     levelLearnedAt: number;
     /**
      * 
-     * @type {AbilityDetailPokemonInnerPokemon}
-     * @memberof PokemonDetailMovesInnerVersionGroupDetailsInner
      */
     moveLearnMethod: AbilityDetailPokemonInnerPokemon;
     /**
      * 
-     * @type {AbilityDetailPokemonInnerPokemon}
-     * @memberof PokemonDetailMovesInnerVersionGroupDetailsInner
      */
     versionGroup: AbilityDetailPokemonInnerPokemon;
 }

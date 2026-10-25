@@ -21,14 +21,10 @@ import { mapValues } from '../runtime';
 export interface BerryFirmnessSummary {
     /**
      * 
-     * @type {string}
-     * @memberof BerryFirmnessSummary
      */
     name: string;
     /**
      * 
-     * @type {string}
-     * @memberof BerryFirmnessSummary
      */
     readonly url: string;
 }

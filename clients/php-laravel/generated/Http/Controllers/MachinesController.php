@@ -51,10 +51,10 @@ class MachinesController extends Controller
     {
         $validator = Validator::make(
             array_merge(
+                $request->all(),
                 [
                     
                 ],
-                $request->all(),
             ),
             [
                 'limit' => [
@@ -100,10 +100,10 @@ class MachinesController extends Controller
     {
         $validator = Validator::make(
             array_merge(
+                $request->all(),
                 [
                     'id' => $id,
                 ],
-                $request->all(),
             ),
             [
                 'id' => [

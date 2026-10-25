@@ -138,3 +138,4 @@ class _$ItemFlavorTextSerializer implements PrimitiveSerializer<ItemFlavorText> 
   }
 }
 
+

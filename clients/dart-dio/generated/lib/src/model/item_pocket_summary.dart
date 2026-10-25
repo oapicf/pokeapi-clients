@@ -120,3 +120,4 @@ class _$ItemPocketSummarySerializer implements PrimitiveSerializer<ItemPocketSum
   }
 }
 
+

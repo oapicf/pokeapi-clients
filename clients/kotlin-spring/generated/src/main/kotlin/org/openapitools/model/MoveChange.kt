@@ -29,22 +29,22 @@ import io.swagger.v3.oas.annotations.media.Schema
 data class MoveChange(
 
     @Schema(required = true, description = "")
-    @param:JsonProperty("effect_chance")
+    @param:JsonProperty("effect_chance", required = true)
     @get:JsonProperty("effect_chance", required = true) val effectChance: kotlin.Int,
 
     @field:Valid
     @Schema(required = true, readOnly = true, description = "")
-    @param:JsonProperty("effect_entries")
+    @param:JsonProperty("effect_entries", required = true)
     @get:JsonProperty("effect_entries", required = true) val effectEntries: kotlin.collections.List<MoveChangeEffectEntriesInner>,
 
     @field:Valid
     @Schema(required = true, description = "")
-    @param:JsonProperty("type")
+    @param:JsonProperty("type", required = true)
     @get:JsonProperty("type", required = true) val type: TypeSummary,
 
     @field:Valid
     @Schema(required = true, description = "")
-    @param:JsonProperty("version_group")
+    @param:JsonProperty("version_group", required = true)
     @get:JsonProperty("version_group", required = true) val versionGroup: VersionGroupSummary,
 
     @Schema(description = "")

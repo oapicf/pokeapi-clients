@@ -29,20 +29,14 @@ import {
 export interface ContestTypeName {
     /**
      * 
-     * @type {string}
-     * @memberof ContestTypeName
      */
     name: string;
     /**
      * 
-     * @type {string}
-     * @memberof ContestTypeName
      */
     color: string;
     /**
      * 
-     * @type {LanguageSummary}
-     * @memberof ContestTypeName
      */
     language: LanguageSummary;
 }

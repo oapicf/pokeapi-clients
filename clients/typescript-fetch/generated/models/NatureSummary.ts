@@ -21,14 +21,10 @@ import { mapValues } from '../runtime';
 export interface NatureSummary {
     /**
      * 
-     * @type {string}
-     * @memberof NatureSummary
      */
     name: string;
     /**
      * 
-     * @type {string}
-     * @memberof NatureSummary
      */
     readonly url: string;
 }

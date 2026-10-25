@@ -21,14 +21,10 @@ import { mapValues } from '../runtime';
 export interface GenderSummary {
     /**
      * 
-     * @type {string}
-     * @memberof GenderSummary
      */
     name: string;
     /**
      * 
-     * @type {string}
-     * @memberof GenderSummary
      */
     readonly url: string;
 }

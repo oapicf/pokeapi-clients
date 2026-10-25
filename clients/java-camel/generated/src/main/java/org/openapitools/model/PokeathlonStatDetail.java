@@ -23,7 +23,7 @@ import jakarta.annotation.Generated;
  * PokeathlonStatDetail
  */
 
-@Generated(value = "org.openapitools.codegen.languages.JavaCamelServerCodegen", date = "2026-08-30T01:56:15.309401083Z[Etc/UTC]", comments = "Generator version: 7.24.0")
+@Generated(value = "org.openapitools.codegen.languages.JavaCamelServerCodegen", date = "2026-10-25T05:48:25.711080506Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 public class PokeathlonStatDetail {
 
   private Integer id;
@@ -32,7 +32,6 @@ public class PokeathlonStatDetail {
 
   private PokeathlonStatDetailAffectingNatures affectingNatures;
 
-  @Valid
   private List<@Valid PokeathlonStatName> names = new ArrayList<>();
 
   public PokeathlonStatDetail() {
@@ -126,7 +125,7 @@ public class PokeathlonStatDetail {
    * Get names
    * @return names
    */
-  @Valid 
+  
   @Schema(name = "names", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("names")
   public List<@Valid PokeathlonStatName> getNames() {

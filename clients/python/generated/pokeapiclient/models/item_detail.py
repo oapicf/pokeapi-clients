@@ -119,8 +119,7 @@ class ItemDetail(BaseModel):
         _items = []
         if self.attributes:
             for _item_attributes in self.attributes:
-                if _item_attributes:
-                    _items.append(_item_attributes.to_dict())
+                _items.append(_item_attributes.to_dict() if _item_attributes is not None else None)
             _dict['attributes'] = _items
         # override the default output from pydantic by calling `to_dict()` of category
         if self.category:
@@ -129,36 +128,31 @@ class ItemDetail(BaseModel):
         _items = []
         if self.effect_entries:
             for _item_effect_entries in self.effect_entries:
-                if _item_effect_entries:
-                    _items.append(_item_effect_entries.to_dict())
+                _items.append(_item_effect_entries.to_dict() if _item_effect_entries is not None else None)
             _dict['effect_entries'] = _items
         # override the default output from pydantic by calling `to_dict()` of each item in flavor_text_entries (list)
         _items = []
         if self.flavor_text_entries:
             for _item_flavor_text_entries in self.flavor_text_entries:
-                if _item_flavor_text_entries:
-                    _items.append(_item_flavor_text_entries.to_dict())
+                _items.append(_item_flavor_text_entries.to_dict() if _item_flavor_text_entries is not None else None)
             _dict['flavor_text_entries'] = _items
         # override the default output from pydantic by calling `to_dict()` of each item in game_indices (list)
         _items = []
         if self.game_indices:
             for _item_game_indices in self.game_indices:
-                if _item_game_indices:
-                    _items.append(_item_game_indices.to_dict())
+                _items.append(_item_game_indices.to_dict() if _item_game_indices is not None else None)
             _dict['game_indices'] = _items
         # override the default output from pydantic by calling `to_dict()` of each item in names (list)
         _items = []
         if self.names:
             for _item_names in self.names:
-                if _item_names:
-                    _items.append(_item_names.to_dict())
+                _items.append(_item_names.to_dict() if _item_names is not None else None)
             _dict['names'] = _items
         # override the default output from pydantic by calling `to_dict()` of each item in held_by_pokemon (list)
         _items = []
         if self.held_by_pokemon:
             for _item_held_by_pokemon in self.held_by_pokemon:
-                if _item_held_by_pokemon:
-                    _items.append(_item_held_by_pokemon.to_dict())
+                _items.append(_item_held_by_pokemon.to_dict() if _item_held_by_pokemon is not None else None)
             _dict['held_by_pokemon'] = _items
         # override the default output from pydantic by calling `to_dict()` of sprites
         if self.sprites:
@@ -170,8 +164,7 @@ class ItemDetail(BaseModel):
         _items = []
         if self.machines:
             for _item_machines in self.machines:
-                if _item_machines:
-                    _items.append(_item_machines.to_dict())
+                _items.append(_item_machines.to_dict() if _item_machines is not None else None)
             _dict['machines'] = _items
         # set to None if cost (nullable) is None
         # and model_fields_set contains the field

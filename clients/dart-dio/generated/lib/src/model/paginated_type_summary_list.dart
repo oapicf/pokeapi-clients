@@ -166,3 +166,4 @@ class _$PaginatedTypeSummaryListSerializer implements PrimitiveSerializer<Pagina
   }
 }
 
+

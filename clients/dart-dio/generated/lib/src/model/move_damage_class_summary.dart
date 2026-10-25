@@ -120,3 +120,4 @@ class _$MoveDamageClassSummarySerializer implements PrimitiveSerializer<MoveDama
   }
 }
 
+

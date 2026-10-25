@@ -155,3 +155,4 @@ class _$MoveMetaCategoryDetailSerializer implements PrimitiveSerializer<MoveMeta
   }
 }
 
+

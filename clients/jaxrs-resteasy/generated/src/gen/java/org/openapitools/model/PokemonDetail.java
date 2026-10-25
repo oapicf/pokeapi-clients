@@ -26,7 +26,7 @@ import javax.validation.constraints.*;
 import javax.validation.Valid;
 import io.swagger.annotations.*;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaResteasyServerCodegen", date = "2026-08-30T01:56:35.721624822Z[Etc/UTC]", comments = "Generator version: 7.24.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaResteasyServerCodegen", date = "2026-10-25T05:48:49.952264473Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 public class PokemonDetail   {
   
   private Integer id;
@@ -142,7 +142,6 @@ public class PokemonDetail   {
   @ApiModelProperty(required = true, value = "")
   @JsonProperty("abilities")
   @NotNull
-  @Valid
   public List<@Valid PokemonDetailAbilitiesInner> getAbilities() {
     return abilities;
   }
@@ -156,7 +155,6 @@ public class PokemonDetail   {
   @ApiModelProperty(required = true, value = "")
   @JsonProperty("past_abilities")
   @NotNull
-  @Valid
   public List<@Valid PokemonDetailPastAbilitiesInner> getPastAbilities() {
     return pastAbilities;
   }
@@ -170,7 +168,6 @@ public class PokemonDetail   {
   @ApiModelProperty(required = true, value = "")
   @JsonProperty("forms")
   @NotNull
-  @Valid
   public List<@Valid PokemonFormSummary> getForms() {
     return forms;
   }
@@ -184,7 +181,6 @@ public class PokemonDetail   {
   @ApiModelProperty(required = true, value = "")
   @JsonProperty("game_indices")
   @NotNull
-  @Valid
   public List<@Valid PokemonGameIndex> getGameIndices() {
     return gameIndices;
   }
@@ -225,7 +221,6 @@ public class PokemonDetail   {
   @ApiModelProperty(required = true, value = "")
   @JsonProperty("moves")
   @NotNull
-  @Valid
   public List<@Valid PokemonDetailMovesInner> getMoves() {
     return moves;
   }
@@ -281,7 +276,6 @@ public class PokemonDetail   {
   @ApiModelProperty(required = true, value = "")
   @JsonProperty("stats")
   @NotNull
-  @Valid
   public List<@Valid PokemonStat> getStats() {
     return stats;
   }
@@ -295,7 +289,6 @@ public class PokemonDetail   {
   @ApiModelProperty(required = true, value = "")
   @JsonProperty("types")
   @NotNull
-  @Valid
   public List<@Valid PokemonDetailTypesInner> getTypes() {
     return types;
   }
@@ -309,7 +302,6 @@ public class PokemonDetail   {
   @ApiModelProperty(required = true, value = "")
   @JsonProperty("past_types")
   @NotNull
-  @Valid
   public List<@Valid PokemonDetailPastTypesInner> getPastTypes() {
     return pastTypes;
   }

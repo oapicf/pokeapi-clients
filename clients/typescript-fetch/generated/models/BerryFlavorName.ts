@@ -29,14 +29,10 @@ import {
 export interface BerryFlavorName {
     /**
      * 
-     * @type {string}
-     * @memberof BerryFlavorName
      */
     name: string;
     /**
      * 
-     * @type {LanguageSummary}
-     * @memberof BerryFlavorName
      */
     language: LanguageSummary;
 }

@@ -32,7 +32,7 @@ import javax.validation.Valid;
   AbilityDetailPokemonInner.JSON_PROPERTY_SLOT,
   AbilityDetailPokemonInner.JSON_PROPERTY_POKEMON
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJerseyServerCodegen", date = "2026-08-30T01:56:28.710233113Z[Etc/UTC]", comments = "Generator version: 7.24.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJerseyServerCodegen", date = "2026-10-25T05:48:41.923212007Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 public class AbilityDetailPokemonInner   {
   public static final String JSON_PROPERTY_IS_HIDDEN = "is_hidden";
   @JsonProperty(JSON_PROPERTY_IS_HIDDEN)

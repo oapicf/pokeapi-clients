@@ -21,14 +21,10 @@ import { mapValues } from '../runtime';
 export interface Experience {
     /**
      * 
-     * @type {number}
-     * @memberof Experience
      */
     level: number;
     /**
      * 
-     * @type {number}
-     * @memberof Experience
      */
     experience: number;
 }

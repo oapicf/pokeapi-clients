@@ -21,14 +21,10 @@ import { mapValues } from '../runtime';
 export interface EncounterConditionSummary {
     /**
      * 
-     * @type {string}
-     * @memberof EncounterConditionSummary
      */
     name: string;
     /**
      * 
-     * @type {string}
-     * @memberof EncounterConditionSummary
      */
     readonly url: string;
 }

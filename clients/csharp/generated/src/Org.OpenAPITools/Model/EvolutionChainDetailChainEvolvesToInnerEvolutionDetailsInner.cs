@@ -354,112 +354,112 @@ namespace Org.OpenAPITools.Model
             }
 
             if (!gender.IsSet)
-                throw new ArgumentException("Property is required for class EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner.", nameof(gender));
+                throw new JsonException("Property is required for class EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner: gender.");
 
             if (!heldItem.IsSet)
-                throw new ArgumentException("Property is required for class EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner.", nameof(heldItem));
+                throw new JsonException("Property is required for class EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner: held_item.");
 
             if (!item.IsSet)
-                throw new ArgumentException("Property is required for class EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner.", nameof(item));
+                throw new JsonException("Property is required for class EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner: item.");
 
             if (!knownMove.IsSet)
-                throw new ArgumentException("Property is required for class EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner.", nameof(knownMove));
+                throw new JsonException("Property is required for class EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner: known_move.");
 
             if (!knownMoveType.IsSet)
-                throw new ArgumentException("Property is required for class EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner.", nameof(knownMoveType));
+                throw new JsonException("Property is required for class EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner: known_move_type.");
 
             if (!location.IsSet)
-                throw new ArgumentException("Property is required for class EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner.", nameof(location));
+                throw new JsonException("Property is required for class EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner: location.");
 
             if (!minAffection.IsSet)
-                throw new ArgumentException("Property is required for class EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner.", nameof(minAffection));
+                throw new JsonException("Property is required for class EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner: min_affection.");
 
             if (!minBeauty.IsSet)
-                throw new ArgumentException("Property is required for class EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner.", nameof(minBeauty));
+                throw new JsonException("Property is required for class EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner: min_beauty.");
 
             if (!minHappiness.IsSet)
-                throw new ArgumentException("Property is required for class EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner.", nameof(minHappiness));
+                throw new JsonException("Property is required for class EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner: min_happiness.");
 
             if (!minLevel.IsSet)
-                throw new ArgumentException("Property is required for class EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner.", nameof(minLevel));
+                throw new JsonException("Property is required for class EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner: min_level.");
 
             if (!needsOverworldRain.IsSet)
-                throw new ArgumentException("Property is required for class EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner.", nameof(needsOverworldRain));
+                throw new JsonException("Property is required for class EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner: needs_overworld_rain.");
 
             if (!partySpecies.IsSet)
-                throw new ArgumentException("Property is required for class EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner.", nameof(partySpecies));
+                throw new JsonException("Property is required for class EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner: party_species.");
 
             if (!partyType.IsSet)
-                throw new ArgumentException("Property is required for class EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner.", nameof(partyType));
+                throw new JsonException("Property is required for class EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner: party_type.");
 
             if (!relativePhysicalStats.IsSet)
-                throw new ArgumentException("Property is required for class EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner.", nameof(relativePhysicalStats));
+                throw new JsonException("Property is required for class EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner: relative_physical_stats.");
 
             if (!timeOfDay.IsSet)
-                throw new ArgumentException("Property is required for class EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner.", nameof(timeOfDay));
+                throw new JsonException("Property is required for class EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner: time_of_day.");
 
             if (!tradeSpecies.IsSet)
-                throw new ArgumentException("Property is required for class EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner.", nameof(tradeSpecies));
+                throw new JsonException("Property is required for class EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner: trade_species.");
 
             if (!trigger.IsSet)
-                throw new ArgumentException("Property is required for class EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner.", nameof(trigger));
+                throw new JsonException("Property is required for class EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner: trigger.");
 
             if (!turnUpsideDown.IsSet)
-                throw new ArgumentException("Property is required for class EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner.", nameof(turnUpsideDown));
+                throw new JsonException("Property is required for class EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner: turn_upside_down.");
 
             if (gender.IsSet && gender.Value == null)
-                throw new ArgumentNullException(nameof(gender), "Property is not nullable for class EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner.");
+                throw new JsonException("Property is not nullable for class EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner: gender.");
 
             if (heldItem.IsSet && heldItem.Value == null)
-                throw new ArgumentNullException(nameof(heldItem), "Property is not nullable for class EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner.");
+                throw new JsonException("Property is not nullable for class EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner: held_item.");
 
             if (item.IsSet && item.Value == null)
-                throw new ArgumentNullException(nameof(item), "Property is not nullable for class EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner.");
+                throw new JsonException("Property is not nullable for class EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner: item.");
 
             if (knownMove.IsSet && knownMove.Value == null)
-                throw new ArgumentNullException(nameof(knownMove), "Property is not nullable for class EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner.");
+                throw new JsonException("Property is not nullable for class EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner: known_move.");
 
             if (knownMoveType.IsSet && knownMoveType.Value == null)
-                throw new ArgumentNullException(nameof(knownMoveType), "Property is not nullable for class EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner.");
+                throw new JsonException("Property is not nullable for class EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner: known_move_type.");
 
             if (location.IsSet && location.Value == null)
-                throw new ArgumentNullException(nameof(location), "Property is not nullable for class EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner.");
+                throw new JsonException("Property is not nullable for class EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner: location.");
 
             if (minAffection.IsSet && minAffection.Value == null)
-                throw new ArgumentNullException(nameof(minAffection), "Property is not nullable for class EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner.");
+                throw new JsonException("Property is not nullable for class EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner: min_affection.");
 
             if (minBeauty.IsSet && minBeauty.Value == null)
-                throw new ArgumentNullException(nameof(minBeauty), "Property is not nullable for class EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner.");
+                throw new JsonException("Property is not nullable for class EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner: min_beauty.");
 
             if (minHappiness.IsSet && minHappiness.Value == null)
-                throw new ArgumentNullException(nameof(minHappiness), "Property is not nullable for class EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner.");
+                throw new JsonException("Property is not nullable for class EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner: min_happiness.");
 
             if (minLevel.IsSet && minLevel.Value == null)
-                throw new ArgumentNullException(nameof(minLevel), "Property is not nullable for class EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner.");
+                throw new JsonException("Property is not nullable for class EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner: min_level.");
 
             if (needsOverworldRain.IsSet && needsOverworldRain.Value == null)
-                throw new ArgumentNullException(nameof(needsOverworldRain), "Property is not nullable for class EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner.");
+                throw new JsonException("Property is not nullable for class EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner: needs_overworld_rain.");
 
             if (partySpecies.IsSet && partySpecies.Value == null)
-                throw new ArgumentNullException(nameof(partySpecies), "Property is not nullable for class EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner.");
+                throw new JsonException("Property is not nullable for class EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner: party_species.");
 
             if (partyType.IsSet && partyType.Value == null)
-                throw new ArgumentNullException(nameof(partyType), "Property is not nullable for class EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner.");
+                throw new JsonException("Property is not nullable for class EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner: party_type.");
 
             if (relativePhysicalStats.IsSet && relativePhysicalStats.Value == null)
-                throw new ArgumentNullException(nameof(relativePhysicalStats), "Property is not nullable for class EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner.");
+                throw new JsonException("Property is not nullable for class EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner: relative_physical_stats.");
 
             if (timeOfDay.IsSet && timeOfDay.Value == null)
-                throw new ArgumentNullException(nameof(timeOfDay), "Property is not nullable for class EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner.");
+                throw new JsonException("Property is not nullable for class EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner: time_of_day.");
 
             if (tradeSpecies.IsSet && tradeSpecies.Value == null)
-                throw new ArgumentNullException(nameof(tradeSpecies), "Property is not nullable for class EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner.");
+                throw new JsonException("Property is not nullable for class EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner: trade_species.");
 
             if (trigger.IsSet && trigger.Value == null)
-                throw new ArgumentNullException(nameof(trigger), "Property is not nullable for class EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner.");
+                throw new JsonException("Property is not nullable for class EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner: trigger.");
 
             if (turnUpsideDown.IsSet && turnUpsideDown.Value == null)
-                throw new ArgumentNullException(nameof(turnUpsideDown), "Property is not nullable for class EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner.");
+                throw new JsonException("Property is not nullable for class EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner: turn_upside_down.");
 
             return new EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner(gender.Value!, heldItem.Value!, item.Value!, knownMove.Value!, knownMoveType.Value!, location.Value!, minAffection.Value!.Value!, minBeauty.Value!.Value!, minHappiness.Value!.Value!, minLevel.Value!.Value!, needsOverworldRain.Value!.Value!, partySpecies.Value!, partyType.Value!, relativePhysicalStats.Value!, timeOfDay.Value!, tradeSpecies.Value!, trigger.Value!, turnUpsideDown.Value!.Value!);
         }
@@ -470,7 +470,6 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="evolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public override void Write(Utf8JsonWriter writer, EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner evolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteStartObject();
@@ -485,45 +484,8 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="evolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner evolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner, JsonSerializerOptions jsonSerializerOptions)
         {
-            if (evolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner.Gender == null)
-                throw new ArgumentNullException(nameof(evolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner.Gender), "Property is required for class EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner.");
-
-            if (evolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner.HeldItem == null)
-                throw new ArgumentNullException(nameof(evolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner.HeldItem), "Property is required for class EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner.");
-
-            if (evolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner.Item == null)
-                throw new ArgumentNullException(nameof(evolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner.Item), "Property is required for class EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner.");
-
-            if (evolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner.KnownMove == null)
-                throw new ArgumentNullException(nameof(evolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner.KnownMove), "Property is required for class EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner.");
-
-            if (evolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner.KnownMoveType == null)
-                throw new ArgumentNullException(nameof(evolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner.KnownMoveType), "Property is required for class EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner.");
-
-            if (evolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner.Location == null)
-                throw new ArgumentNullException(nameof(evolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner.Location), "Property is required for class EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner.");
-
-            if (evolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner.PartySpecies == null)
-                throw new ArgumentNullException(nameof(evolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner.PartySpecies), "Property is required for class EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner.");
-
-            if (evolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner.PartyType == null)
-                throw new ArgumentNullException(nameof(evolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner.PartyType), "Property is required for class EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner.");
-
-            if (evolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner.RelativePhysicalStats == null)
-                throw new ArgumentNullException(nameof(evolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner.RelativePhysicalStats), "Property is required for class EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner.");
-
-            if (evolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner.TimeOfDay == null)
-                throw new ArgumentNullException(nameof(evolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner.TimeOfDay), "Property is required for class EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner.");
-
-            if (evolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner.TradeSpecies == null)
-                throw new ArgumentNullException(nameof(evolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner.TradeSpecies), "Property is required for class EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner.");
-
-            if (evolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner.Trigger == null)
-                throw new ArgumentNullException(nameof(evolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner.Trigger), "Property is required for class EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner.");
-
             writer.WritePropertyName("gender");
             JsonSerializer.Serialize(writer, evolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner.Gender, jsonSerializerOptions);
             writer.WritePropertyName("held_item");

@@ -137,3 +137,4 @@ class _$PalParkAreaDetailPokemonEncountersInnerSerializer implements PrimitiveSe
   }
 }
 
+

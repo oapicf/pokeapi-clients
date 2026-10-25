@@ -25,7 +25,6 @@ public class PaginatedGenderSummaryList  {
   private URI previous;
 
   @ApiModelProperty(value = "")
-  @Valid
   private List<@Valid GenderSummary> results = new ArrayList<>();
  /**
   * Get count

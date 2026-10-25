@@ -36,26 +36,18 @@ import {
 export interface PokemonHabitatDetail {
     /**
      * 
-     * @type {number}
-     * @memberof PokemonHabitatDetail
      */
     readonly id: number;
     /**
      * 
-     * @type {string}
-     * @memberof PokemonHabitatDetail
      */
     name: string;
     /**
      * 
-     * @type {Array<PokemonHabitatName>}
-     * @memberof PokemonHabitatDetail
      */
     readonly names: Array<PokemonHabitatName>;
     /**
      * 
-     * @type {Array<PokemonSpeciesSummary>}
-     * @memberof PokemonHabitatDetail
      */
     readonly pokemonSpecies: Array<PokemonSpeciesSummary>;
 }

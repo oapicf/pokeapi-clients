@@ -121,3 +121,4 @@ class _$LocationAreaNameSerializer implements PrimitiveSerializer<LocationAreaNa
   }
 }
 
+

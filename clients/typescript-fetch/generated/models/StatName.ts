@@ -29,14 +29,10 @@ import {
 export interface StatName {
     /**
      * 
-     * @type {string}
-     * @memberof StatName
      */
     name: string;
     /**
      * 
-     * @type {LanguageSummary}
-     * @memberof StatName
      */
     language: LanguageSummary;
 }

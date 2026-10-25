@@ -25,10 +25,9 @@ import jakarta.annotation.Generated;
  */
 
 @JsonTypeName("EvolutionChainDetail_chain_evolves_to_inner")
-@Generated(value = "org.openapitools.codegen.languages.JavaCamelServerCodegen", date = "2026-08-30T01:56:15.309401083Z[Etc/UTC]", comments = "Generator version: 7.24.0")
+@Generated(value = "org.openapitools.codegen.languages.JavaCamelServerCodegen", date = "2026-10-25T05:48:25.711080506Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 public class EvolutionChainDetailChainEvolvesToInner {
 
-  @Valid
   private List<@Valid EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner> evolutionDetails = new ArrayList<>();
 
   private Boolean isBaby;
@@ -65,7 +64,7 @@ public class EvolutionChainDetailChainEvolvesToInner {
    * Get evolutionDetails
    * @return evolutionDetails
    */
-  @NotNull @Valid 
+  @NotNull 
   @Schema(name = "evolution_details", requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("evolution_details")
   public List<@Valid EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner> getEvolutionDetails() {

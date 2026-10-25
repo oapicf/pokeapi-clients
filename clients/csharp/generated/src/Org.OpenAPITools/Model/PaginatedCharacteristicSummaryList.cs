@@ -203,16 +203,16 @@ namespace Org.OpenAPITools.Model
             }
 
             if (count.IsSet && count.Value == null)
-                throw new ArgumentNullException(nameof(count), "Property is not nullable for class PaginatedCharacteristicSummaryList.");
+                throw new JsonException("Property is not nullable for class PaginatedCharacteristicSummaryList: count.");
 
             if (next.IsSet && next.Value == null)
-                throw new ArgumentNullException(nameof(next), "Property is not nullable for class PaginatedCharacteristicSummaryList.");
+                throw new JsonException("Property is not nullable for class PaginatedCharacteristicSummaryList: next.");
 
             if (previous.IsSet && previous.Value == null)
-                throw new ArgumentNullException(nameof(previous), "Property is not nullable for class PaginatedCharacteristicSummaryList.");
+                throw new JsonException("Property is not nullable for class PaginatedCharacteristicSummaryList: previous.");
 
             if (results.IsSet && results.Value == null)
-                throw new ArgumentNullException(nameof(results), "Property is not nullable for class PaginatedCharacteristicSummaryList.");
+                throw new JsonException("Property is not nullable for class PaginatedCharacteristicSummaryList: results.");
 
             return new PaginatedCharacteristicSummaryList(count, next, previous, results);
         }
@@ -223,7 +223,6 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="paginatedCharacteristicSummaryList"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public override void Write(Utf8JsonWriter writer, PaginatedCharacteristicSummaryList paginatedCharacteristicSummaryList, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteStartObject();
@@ -238,17 +237,19 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="paginatedCharacteristicSummaryList"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, PaginatedCharacteristicSummaryList paginatedCharacteristicSummaryList, JsonSerializerOptions jsonSerializerOptions)
         {
+            if (paginatedCharacteristicSummaryList.CountOption.IsSet && paginatedCharacteristicSummaryList.Count == null)
+                throw new JsonException("Cannot write null property PaginatedCharacteristicSummaryList.Count to non-nullable JSON property 'count'.");
+
             if (paginatedCharacteristicSummaryList.NextOption.IsSet && paginatedCharacteristicSummaryList.Next == null)
-                throw new ArgumentNullException(nameof(paginatedCharacteristicSummaryList.Next), "Property is required for class PaginatedCharacteristicSummaryList.");
+                throw new JsonException("Cannot write null property PaginatedCharacteristicSummaryList.Next to non-nullable JSON property 'next'.");
 
             if (paginatedCharacteristicSummaryList.PreviousOption.IsSet && paginatedCharacteristicSummaryList.Previous == null)
-                throw new ArgumentNullException(nameof(paginatedCharacteristicSummaryList.Previous), "Property is required for class PaginatedCharacteristicSummaryList.");
+                throw new JsonException("Cannot write null property PaginatedCharacteristicSummaryList.Previous to non-nullable JSON property 'previous'.");
 
             if (paginatedCharacteristicSummaryList.ResultsOption.IsSet && paginatedCharacteristicSummaryList.Results == null)
-                throw new ArgumentNullException(nameof(paginatedCharacteristicSummaryList.Results), "Property is required for class PaginatedCharacteristicSummaryList.");
+                throw new JsonException("Cannot write null property PaginatedCharacteristicSummaryList.Results to non-nullable JSON property 'results'.");
 
             if (paginatedCharacteristicSummaryList.CountOption.IsSet)
                 writer.WriteNumber("count", paginatedCharacteristicSummaryList.CountOption.Value!.Value);

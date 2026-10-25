@@ -223,3 +223,4 @@ class _$VersionGroupDetailSerializer implements PrimitiveSerializer<VersionGroup
   }
 }
 
+

@@ -107,3 +107,4 @@ class _$TypeDetailSpritesValueValueSerializer implements PrimitiveSerializer<Typ
   }
 }
 
+

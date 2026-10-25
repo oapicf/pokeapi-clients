@@ -86,15 +86,13 @@ class ItemFlingEffectDetail(BaseModel):
         _items = []
         if self.effect_entries:
             for _item_effect_entries in self.effect_entries:
-                if _item_effect_entries:
-                    _items.append(_item_effect_entries.to_dict())
+                _items.append(_item_effect_entries.to_dict() if _item_effect_entries is not None else None)
             _dict['effect_entries'] = _items
         # override the default output from pydantic by calling `to_dict()` of each item in items (list)
         _items = []
         if self.items:
             for _item_items in self.items:
-                if _item_items:
-                    _items.append(_item_items.to_dict())
+                _items.append(_item_items.to_dict() if _item_items is not None else None)
             _dict['items'] = _items
         return _dict
 

@@ -171,3 +171,4 @@ class _$ContestEffectDetailSerializer implements PrimitiveSerializer<ContestEffe
   }
 }
 
+

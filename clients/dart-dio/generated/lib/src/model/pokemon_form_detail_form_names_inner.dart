@@ -121,3 +121,4 @@ class _$PokemonFormDetailFormNamesInnerSerializer implements PrimitiveSerializer
   }
 }
 
+

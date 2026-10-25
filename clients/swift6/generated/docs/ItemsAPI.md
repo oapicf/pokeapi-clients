@@ -18,7 +18,7 @@ Method | HTTP request | Description
 
 # **itemAttributeList**
 ```swift
-    open class func itemAttributeList(limit: Int? = nil, offset: Int? = nil, q: String? = nil, completion: @escaping (_ data: PaginatedItemAttributeSummaryList?, _ error: Error?) -> Void)
+    open class func itemAttributeList(limit: Int? = nil, offset: Int? = nil, q: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> PaginatedItemAttributeSummaryList
 ```
 
 List item attributes
@@ -35,15 +35,11 @@ let offset = 987 // Int | The initial index from which to return the results. (o
 let q = "q_example" // String | > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property.  (optional)
 
 // List item attributes
-ItemsAPI.itemAttributeList(limit: limit, offset: offset, q: q) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ItemsAPI.itemAttributeList(limit: limit, offset: offset, q: q)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -72,7 +68,7 @@ Name | Type | Description  | Notes
 
 # **itemAttributeRetrieve**
 ```swift
-    open class func itemAttributeRetrieve(id: String, completion: @escaping (_ data: ItemAttributeDetail?, _ error: Error?) -> Void)
+    open class func itemAttributeRetrieve(id: String, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> ItemAttributeDetail
 ```
 
 Get item attribute
@@ -87,15 +83,11 @@ import OpenAPIClient
 let id = "id_example" // String | This parameter can be a string or an integer.
 
 // Get item attribute
-ItemsAPI.itemAttributeRetrieve(id: id) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ItemsAPI.itemAttributeRetrieve(id: id)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -122,7 +114,7 @@ Name | Type | Description  | Notes
 
 # **itemCategoryList**
 ```swift
-    open class func itemCategoryList(limit: Int? = nil, offset: Int? = nil, q: String? = nil, completion: @escaping (_ data: PaginatedItemCategorySummaryList?, _ error: Error?) -> Void)
+    open class func itemCategoryList(limit: Int? = nil, offset: Int? = nil, q: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> PaginatedItemCategorySummaryList
 ```
 
 List item categories
@@ -139,15 +131,11 @@ let offset = 987 // Int | The initial index from which to return the results. (o
 let q = "q_example" // String | > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property.  (optional)
 
 // List item categories
-ItemsAPI.itemCategoryList(limit: limit, offset: offset, q: q) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ItemsAPI.itemCategoryList(limit: limit, offset: offset, q: q)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -176,7 +164,7 @@ Name | Type | Description  | Notes
 
 # **itemCategoryRetrieve**
 ```swift
-    open class func itemCategoryRetrieve(id: String, completion: @escaping (_ data: ItemCategoryDetail?, _ error: Error?) -> Void)
+    open class func itemCategoryRetrieve(id: String, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> ItemCategoryDetail
 ```
 
 Get item category
@@ -191,15 +179,11 @@ import OpenAPIClient
 let id = "id_example" // String | This parameter can be a string or an integer.
 
 // Get item category
-ItemsAPI.itemCategoryRetrieve(id: id) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ItemsAPI.itemCategoryRetrieve(id: id)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -226,7 +210,7 @@ Name | Type | Description  | Notes
 
 # **itemFlingEffectList**
 ```swift
-    open class func itemFlingEffectList(limit: Int? = nil, offset: Int? = nil, q: String? = nil, completion: @escaping (_ data: PaginatedItemFlingEffectSummaryList?, _ error: Error?) -> Void)
+    open class func itemFlingEffectList(limit: Int? = nil, offset: Int? = nil, q: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> PaginatedItemFlingEffectSummaryList
 ```
 
 List item fling effects
@@ -243,15 +227,11 @@ let offset = 987 // Int | The initial index from which to return the results. (o
 let q = "q_example" // String | > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property.  (optional)
 
 // List item fling effects
-ItemsAPI.itemFlingEffectList(limit: limit, offset: offset, q: q) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ItemsAPI.itemFlingEffectList(limit: limit, offset: offset, q: q)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -280,7 +260,7 @@ Name | Type | Description  | Notes
 
 # **itemFlingEffectRetrieve**
 ```swift
-    open class func itemFlingEffectRetrieve(id: String, completion: @escaping (_ data: ItemFlingEffectDetail?, _ error: Error?) -> Void)
+    open class func itemFlingEffectRetrieve(id: String, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> ItemFlingEffectDetail
 ```
 
 Get item fling effect
@@ -295,15 +275,11 @@ import OpenAPIClient
 let id = "id_example" // String | This parameter can be a string or an integer.
 
 // Get item fling effect
-ItemsAPI.itemFlingEffectRetrieve(id: id) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ItemsAPI.itemFlingEffectRetrieve(id: id)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -330,7 +306,7 @@ Name | Type | Description  | Notes
 
 # **itemList**
 ```swift
-    open class func itemList(limit: Int? = nil, offset: Int? = nil, q: String? = nil, completion: @escaping (_ data: PaginatedItemSummaryList?, _ error: Error?) -> Void)
+    open class func itemList(limit: Int? = nil, offset: Int? = nil, q: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> PaginatedItemSummaryList
 ```
 
 List items
@@ -347,15 +323,11 @@ let offset = 987 // Int | The initial index from which to return the results. (o
 let q = "q_example" // String | > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property.  (optional)
 
 // List items
-ItemsAPI.itemList(limit: limit, offset: offset, q: q) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ItemsAPI.itemList(limit: limit, offset: offset, q: q)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -384,7 +356,7 @@ Name | Type | Description  | Notes
 
 # **itemPocketList**
 ```swift
-    open class func itemPocketList(limit: Int? = nil, offset: Int? = nil, q: String? = nil, completion: @escaping (_ data: PaginatedItemPocketSummaryList?, _ error: Error?) -> Void)
+    open class func itemPocketList(limit: Int? = nil, offset: Int? = nil, q: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> PaginatedItemPocketSummaryList
 ```
 
 List item pockets
@@ -401,15 +373,11 @@ let offset = 987 // Int | The initial index from which to return the results. (o
 let q = "q_example" // String | > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property.  (optional)
 
 // List item pockets
-ItemsAPI.itemPocketList(limit: limit, offset: offset, q: q) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ItemsAPI.itemPocketList(limit: limit, offset: offset, q: q)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -438,7 +406,7 @@ Name | Type | Description  | Notes
 
 # **itemPocketRetrieve**
 ```swift
-    open class func itemPocketRetrieve(id: String, completion: @escaping (_ data: ItemPocketDetail?, _ error: Error?) -> Void)
+    open class func itemPocketRetrieve(id: String, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> ItemPocketDetail
 ```
 
 Get item pocket
@@ -453,15 +421,11 @@ import OpenAPIClient
 let id = "id_example" // String | This parameter can be a string or an integer.
 
 // Get item pocket
-ItemsAPI.itemPocketRetrieve(id: id) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ItemsAPI.itemPocketRetrieve(id: id)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -488,7 +452,7 @@ Name | Type | Description  | Notes
 
 # **itemRetrieve**
 ```swift
-    open class func itemRetrieve(id: String, completion: @escaping (_ data: ItemDetail?, _ error: Error?) -> Void)
+    open class func itemRetrieve(id: String, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> ItemDetail
 ```
 
 Get item
@@ -503,15 +467,11 @@ import OpenAPIClient
 let id = "id_example" // String | This parameter can be a string or an integer.
 
 // Get item
-ItemsAPI.itemRetrieve(id: id) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ItemsAPI.itemRetrieve(id: id)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 

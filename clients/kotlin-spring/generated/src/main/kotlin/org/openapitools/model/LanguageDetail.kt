@@ -1,10 +1,7 @@
 package org.openapitools.model
 
 import java.util.Objects
-import com.fasterxml.jackson.annotation.JsonInclude
 import com.fasterxml.jackson.annotation.JsonProperty
-import com.fasterxml.jackson.annotation.JsonSetter
-import com.fasterxml.jackson.annotation.Nulls
 import org.openapitools.model.LanguageName
 import javax.validation.constraints.DecimalMax
 import javax.validation.constraints.DecimalMin
@@ -29,32 +26,30 @@ import io.swagger.v3.oas.annotations.media.Schema
 data class LanguageDetail(
 
     @Schema(required = true, readOnly = true, description = "")
-    @param:JsonProperty("id")
+    @param:JsonProperty("id", required = true)
     @get:JsonProperty("id", required = true) val id: kotlin.Int,
 
     @get:Size(max=100)
     @Schema(required = true, description = "")
-    @param:JsonProperty("name")
+    @param:JsonProperty("name", required = true)
     @get:JsonProperty("name", required = true) val name: kotlin.String,
 
     @get:Size(max=10)
     @Schema(required = true, description = "")
-    @param:JsonProperty("iso639")
+    @param:JsonProperty("iso639", required = true)
     @get:JsonProperty("iso639", required = true) val iso639: kotlin.String,
 
     @get:Size(max=2)
     @Schema(required = true, description = "")
-    @param:JsonProperty("iso3166")
+    @param:JsonProperty("iso3166", required = true)
     @get:JsonProperty("iso3166", required = true) val iso3166: kotlin.String,
 
     @field:Valid
     @Schema(required = true, readOnly = true, description = "")
-    @param:JsonProperty("names")
+    @param:JsonProperty("names", required = true)
     @get:JsonProperty("names", required = true) val names: kotlin.collections.List<LanguageName>,
 
     @Schema(description = "")
-    @field:JsonInclude(JsonInclude.Include.NON_NULL)
-    @field:JsonSetter(nulls = Nulls.SKIP)
     @param:JsonProperty("official")
     @get:JsonProperty("official") val official: kotlin.Boolean? = null
 ) {

@@ -29,26 +29,18 @@ import {
 export interface PaginatedPalParkAreaSummaryList {
     /**
      * 
-     * @type {number}
-     * @memberof PaginatedPalParkAreaSummaryList
      */
     count?: number;
     /**
      * 
-     * @type {string}
-     * @memberof PaginatedPalParkAreaSummaryList
      */
     next?: string;
     /**
      * 
-     * @type {string}
-     * @memberof PaginatedPalParkAreaSummaryList
      */
     previous?: string;
     /**
      * 
-     * @type {Array<PalParkAreaSummary>}
-     * @memberof PaginatedPalParkAreaSummaryList
      */
     results?: Array<PalParkAreaSummary>;
 }

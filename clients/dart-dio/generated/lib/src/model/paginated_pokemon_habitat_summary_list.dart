@@ -166,3 +166,4 @@ class _$PaginatedPokemonHabitatSummaryListSerializer implements PrimitiveSeriali
   }
 }
 
+

@@ -120,3 +120,4 @@ class _$EncounterConditionSummarySerializer implements PrimitiveSerializer<Encou
   }
 }
 
+

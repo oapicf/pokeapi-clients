@@ -152,16 +152,16 @@ namespace Org.OpenAPITools.Model
             }
 
             if (!name.IsSet)
-                throw new ArgumentException("Property is required for class EvolutionTriggerSummary.", nameof(name));
+                throw new JsonException("Property is required for class EvolutionTriggerSummary: name.");
 
             if (!url.IsSet)
-                throw new ArgumentException("Property is required for class EvolutionTriggerSummary.", nameof(url));
+                throw new JsonException("Property is required for class EvolutionTriggerSummary: url.");
 
             if (name.IsSet && name.Value == null)
-                throw new ArgumentNullException(nameof(name), "Property is not nullable for class EvolutionTriggerSummary.");
+                throw new JsonException("Property is not nullable for class EvolutionTriggerSummary: name.");
 
             if (url.IsSet && url.Value == null)
-                throw new ArgumentNullException(nameof(url), "Property is not nullable for class EvolutionTriggerSummary.");
+                throw new JsonException("Property is not nullable for class EvolutionTriggerSummary: url.");
 
             return new EvolutionTriggerSummary(name.Value!, url.Value!);
         }
@@ -172,7 +172,6 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="evolutionTriggerSummary"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public override void Write(Utf8JsonWriter writer, EvolutionTriggerSummary evolutionTriggerSummary, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteStartObject();
@@ -187,15 +186,8 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="evolutionTriggerSummary"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, EvolutionTriggerSummary evolutionTriggerSummary, JsonSerializerOptions jsonSerializerOptions)
         {
-            if (evolutionTriggerSummary.Name == null)
-                throw new ArgumentNullException(nameof(evolutionTriggerSummary.Name), "Property is required for class EvolutionTriggerSummary.");
-
-            if (evolutionTriggerSummary.Url == null)
-                throw new ArgumentNullException(nameof(evolutionTriggerSummary.Url), "Property is required for class EvolutionTriggerSummary.");
-
             writer.WriteString("name", evolutionTriggerSummary.Name);
 
             writer.WriteString("url", evolutionTriggerSummary.Url);

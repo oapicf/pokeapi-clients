@@ -25,12 +25,11 @@ import jakarta.annotation.Generated;
  */
 
 @JsonTypeName("LocationAreaDetail_encounter_method_rates_inner")
-@Generated(value = "org.openapitools.codegen.languages.JavaCamelServerCodegen", date = "2026-08-30T01:56:15.309401083Z[Etc/UTC]", comments = "Generator version: 7.24.0")
+@Generated(value = "org.openapitools.codegen.languages.JavaCamelServerCodegen", date = "2026-10-25T05:48:25.711080506Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 public class LocationAreaDetailEncounterMethodRatesInner {
 
   private AbilityDetailPokemonInnerPokemon encounterMethod;
 
-  @Valid
   private List<@Valid LocationAreaDetailEncounterMethodRatesInnerVersionDetailsInner> versionDetails = new ArrayList<>();
 
   public LocationAreaDetailEncounterMethodRatesInner() {
@@ -82,7 +81,7 @@ public class LocationAreaDetailEncounterMethodRatesInner {
    * Get versionDetails
    * @return versionDetails
    */
-  @NotNull @Valid 
+  @NotNull 
   @Schema(name = "version_details", requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("version_details")
   public List<@Valid LocationAreaDetailEncounterMethodRatesInnerVersionDetailsInner> getVersionDetails() {

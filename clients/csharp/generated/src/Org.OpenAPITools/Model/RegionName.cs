@@ -152,16 +152,16 @@ namespace Org.OpenAPITools.Model
             }
 
             if (!name.IsSet)
-                throw new ArgumentException("Property is required for class RegionName.", nameof(name));
+                throw new JsonException("Property is required for class RegionName: name.");
 
             if (!language.IsSet)
-                throw new ArgumentException("Property is required for class RegionName.", nameof(language));
+                throw new JsonException("Property is required for class RegionName: language.");
 
             if (name.IsSet && name.Value == null)
-                throw new ArgumentNullException(nameof(name), "Property is not nullable for class RegionName.");
+                throw new JsonException("Property is not nullable for class RegionName: name.");
 
             if (language.IsSet && language.Value == null)
-                throw new ArgumentNullException(nameof(language), "Property is not nullable for class RegionName.");
+                throw new JsonException("Property is not nullable for class RegionName: language.");
 
             return new RegionName(name.Value!, language.Value!);
         }
@@ -172,7 +172,6 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="regionName"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public override void Write(Utf8JsonWriter writer, RegionName regionName, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteStartObject();
@@ -187,15 +186,8 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="regionName"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, RegionName regionName, JsonSerializerOptions jsonSerializerOptions)
         {
-            if (regionName.Name == null)
-                throw new ArgumentNullException(nameof(regionName.Name), "Property is required for class RegionName.");
-
-            if (regionName.Language == null)
-                throw new ArgumentNullException(nameof(regionName.Language), "Property is required for class RegionName.");
-
             writer.WriteString("name", regionName.Name);
 
             writer.WritePropertyName("language");

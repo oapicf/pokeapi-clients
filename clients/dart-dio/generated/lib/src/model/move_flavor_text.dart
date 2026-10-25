@@ -138,3 +138,4 @@ class _$MoveFlavorTextSerializer implements PrimitiveSerializer<MoveFlavorText> 
   }
 }
 
+

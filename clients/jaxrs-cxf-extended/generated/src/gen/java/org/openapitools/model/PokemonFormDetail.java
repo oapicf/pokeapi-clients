@@ -56,15 +56,12 @@ public class PokemonFormDetail  {
   private VersionGroupSummary versionGroup;
 
   @ApiModelProperty(required = true, value = "")
-  @Valid
   private List<@Valid PokemonFormDetailFormNamesInner> formNames = new ArrayList<>();
 
   @ApiModelProperty(required = true, value = "")
-  @Valid
   private List<@Valid PokemonFormDetailFormNamesInner> names = new ArrayList<>();
 
   @ApiModelProperty(required = true, value = "")
-  @Valid
   private List<@Valid PokemonDetailTypesInner> types = new ArrayList<>();
  /**
   * Get id

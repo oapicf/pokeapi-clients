@@ -23,11 +23,11 @@ import org.openapitools.jackson.nullable.JsonNullable;
  **/
 @ApiModel(description = "Should have a link to Version Group info but the Circular dependency and compilation order fight eachother and I'm not sure how to add anything other than a hyperlink")
 @JsonTypeName("VersionDetail")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2026-08-30T01:56:42.280002256Z[Etc/UTC]", comments = "Generator version: 7.24.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2026-10-25T05:48:57.630723375Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 public class VersionDetail   {
   private Integer id;
   private String name;
-  private @Valid List<@Valid VersionName> names = new ArrayList<>();
+  private List<@Valid VersionName> names = new ArrayList<>();
   private VersionGroupSummary versionGroup;
 
   public VersionDetail() {
@@ -94,7 +94,7 @@ public class VersionDetail   {
   
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(required = true, value = "names")
-  @Valid public List<@Valid VersionName> getNames() {
+  public List<@Valid VersionName> getNames() {
     return names;
   }
 

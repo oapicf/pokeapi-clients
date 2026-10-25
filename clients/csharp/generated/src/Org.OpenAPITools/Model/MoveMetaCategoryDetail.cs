@@ -178,28 +178,28 @@ namespace Org.OpenAPITools.Model
             }
 
             if (!id.IsSet)
-                throw new ArgumentException("Property is required for class MoveMetaCategoryDetail.", nameof(id));
+                throw new JsonException("Property is required for class MoveMetaCategoryDetail: id.");
 
             if (!name.IsSet)
-                throw new ArgumentException("Property is required for class MoveMetaCategoryDetail.", nameof(name));
+                throw new JsonException("Property is required for class MoveMetaCategoryDetail: name.");
 
             if (!descriptions.IsSet)
-                throw new ArgumentException("Property is required for class MoveMetaCategoryDetail.", nameof(descriptions));
+                throw new JsonException("Property is required for class MoveMetaCategoryDetail: descriptions.");
 
             if (!moves.IsSet)
-                throw new ArgumentException("Property is required for class MoveMetaCategoryDetail.", nameof(moves));
+                throw new JsonException("Property is required for class MoveMetaCategoryDetail: moves.");
 
             if (id.IsSet && id.Value == null)
-                throw new ArgumentNullException(nameof(id), "Property is not nullable for class MoveMetaCategoryDetail.");
+                throw new JsonException("Property is not nullable for class MoveMetaCategoryDetail: id.");
 
             if (name.IsSet && name.Value == null)
-                throw new ArgumentNullException(nameof(name), "Property is not nullable for class MoveMetaCategoryDetail.");
+                throw new JsonException("Property is not nullable for class MoveMetaCategoryDetail: name.");
 
             if (descriptions.IsSet && descriptions.Value == null)
-                throw new ArgumentNullException(nameof(descriptions), "Property is not nullable for class MoveMetaCategoryDetail.");
+                throw new JsonException("Property is not nullable for class MoveMetaCategoryDetail: descriptions.");
 
             if (moves.IsSet && moves.Value == null)
-                throw new ArgumentNullException(nameof(moves), "Property is not nullable for class MoveMetaCategoryDetail.");
+                throw new JsonException("Property is not nullable for class MoveMetaCategoryDetail: moves.");
 
             return new MoveMetaCategoryDetail(id.Value!.Value!, name.Value!, descriptions.Value!, moves.Value!);
         }
@@ -210,7 +210,6 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="moveMetaCategoryDetail"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public override void Write(Utf8JsonWriter writer, MoveMetaCategoryDetail moveMetaCategoryDetail, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteStartObject();
@@ -225,18 +224,8 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="moveMetaCategoryDetail"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, MoveMetaCategoryDetail moveMetaCategoryDetail, JsonSerializerOptions jsonSerializerOptions)
         {
-            if (moveMetaCategoryDetail.Name == null)
-                throw new ArgumentNullException(nameof(moveMetaCategoryDetail.Name), "Property is required for class MoveMetaCategoryDetail.");
-
-            if (moveMetaCategoryDetail.Descriptions == null)
-                throw new ArgumentNullException(nameof(moveMetaCategoryDetail.Descriptions), "Property is required for class MoveMetaCategoryDetail.");
-
-            if (moveMetaCategoryDetail.Moves == null)
-                throw new ArgumentNullException(nameof(moveMetaCategoryDetail.Moves), "Property is required for class MoveMetaCategoryDetail.");
-
             writer.WriteNumber("id", moveMetaCategoryDetail.Id);
 
             writer.WriteString("name", moveMetaCategoryDetail.Name);

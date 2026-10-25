@@ -282,76 +282,76 @@ namespace Org.OpenAPITools.Model
             }
 
             if (!id.IsSet)
-                throw new ArgumentException("Property is required for class BerryDetail.", nameof(id));
+                throw new JsonException("Property is required for class BerryDetail: id.");
 
             if (!name.IsSet)
-                throw new ArgumentException("Property is required for class BerryDetail.", nameof(name));
+                throw new JsonException("Property is required for class BerryDetail: name.");
 
             if (!growthTime.IsSet)
-                throw new ArgumentException("Property is required for class BerryDetail.", nameof(growthTime));
+                throw new JsonException("Property is required for class BerryDetail: growth_time.");
 
             if (!maxHarvest.IsSet)
-                throw new ArgumentException("Property is required for class BerryDetail.", nameof(maxHarvest));
+                throw new JsonException("Property is required for class BerryDetail: max_harvest.");
 
             if (!naturalGiftPower.IsSet)
-                throw new ArgumentException("Property is required for class BerryDetail.", nameof(naturalGiftPower));
+                throw new JsonException("Property is required for class BerryDetail: natural_gift_power.");
 
             if (!size.IsSet)
-                throw new ArgumentException("Property is required for class BerryDetail.", nameof(size));
+                throw new JsonException("Property is required for class BerryDetail: size.");
 
             if (!smoothness.IsSet)
-                throw new ArgumentException("Property is required for class BerryDetail.", nameof(smoothness));
+                throw new JsonException("Property is required for class BerryDetail: smoothness.");
 
             if (!soilDryness.IsSet)
-                throw new ArgumentException("Property is required for class BerryDetail.", nameof(soilDryness));
+                throw new JsonException("Property is required for class BerryDetail: soil_dryness.");
 
             if (!firmness.IsSet)
-                throw new ArgumentException("Property is required for class BerryDetail.", nameof(firmness));
+                throw new JsonException("Property is required for class BerryDetail: firmness.");
 
             if (!flavors.IsSet)
-                throw new ArgumentException("Property is required for class BerryDetail.", nameof(flavors));
+                throw new JsonException("Property is required for class BerryDetail: flavors.");
 
             if (!item.IsSet)
-                throw new ArgumentException("Property is required for class BerryDetail.", nameof(item));
+                throw new JsonException("Property is required for class BerryDetail: item.");
 
             if (!naturalGiftType.IsSet)
-                throw new ArgumentException("Property is required for class BerryDetail.", nameof(naturalGiftType));
+                throw new JsonException("Property is required for class BerryDetail: natural_gift_type.");
 
             if (id.IsSet && id.Value == null)
-                throw new ArgumentNullException(nameof(id), "Property is not nullable for class BerryDetail.");
+                throw new JsonException("Property is not nullable for class BerryDetail: id.");
 
             if (name.IsSet && name.Value == null)
-                throw new ArgumentNullException(nameof(name), "Property is not nullable for class BerryDetail.");
+                throw new JsonException("Property is not nullable for class BerryDetail: name.");
 
             if (growthTime.IsSet && growthTime.Value == null)
-                throw new ArgumentNullException(nameof(growthTime), "Property is not nullable for class BerryDetail.");
+                throw new JsonException("Property is not nullable for class BerryDetail: growth_time.");
 
             if (maxHarvest.IsSet && maxHarvest.Value == null)
-                throw new ArgumentNullException(nameof(maxHarvest), "Property is not nullable for class BerryDetail.");
+                throw new JsonException("Property is not nullable for class BerryDetail: max_harvest.");
 
             if (naturalGiftPower.IsSet && naturalGiftPower.Value == null)
-                throw new ArgumentNullException(nameof(naturalGiftPower), "Property is not nullable for class BerryDetail.");
+                throw new JsonException("Property is not nullable for class BerryDetail: natural_gift_power.");
 
             if (size.IsSet && size.Value == null)
-                throw new ArgumentNullException(nameof(size), "Property is not nullable for class BerryDetail.");
+                throw new JsonException("Property is not nullable for class BerryDetail: size.");
 
             if (smoothness.IsSet && smoothness.Value == null)
-                throw new ArgumentNullException(nameof(smoothness), "Property is not nullable for class BerryDetail.");
+                throw new JsonException("Property is not nullable for class BerryDetail: smoothness.");
 
             if (soilDryness.IsSet && soilDryness.Value == null)
-                throw new ArgumentNullException(nameof(soilDryness), "Property is not nullable for class BerryDetail.");
+                throw new JsonException("Property is not nullable for class BerryDetail: soil_dryness.");
 
             if (firmness.IsSet && firmness.Value == null)
-                throw new ArgumentNullException(nameof(firmness), "Property is not nullable for class BerryDetail.");
+                throw new JsonException("Property is not nullable for class BerryDetail: firmness.");
 
             if (flavors.IsSet && flavors.Value == null)
-                throw new ArgumentNullException(nameof(flavors), "Property is not nullable for class BerryDetail.");
+                throw new JsonException("Property is not nullable for class BerryDetail: flavors.");
 
             if (item.IsSet && item.Value == null)
-                throw new ArgumentNullException(nameof(item), "Property is not nullable for class BerryDetail.");
+                throw new JsonException("Property is not nullable for class BerryDetail: item.");
 
             if (naturalGiftType.IsSet && naturalGiftType.Value == null)
-                throw new ArgumentNullException(nameof(naturalGiftType), "Property is not nullable for class BerryDetail.");
+                throw new JsonException("Property is not nullable for class BerryDetail: natural_gift_type.");
 
             return new BerryDetail(id.Value!.Value!, name.Value!, growthTime.Value!.Value!, maxHarvest.Value!.Value!, naturalGiftPower.Value!.Value!, size.Value!.Value!, smoothness.Value!.Value!, soilDryness.Value!.Value!, firmness.Value!, flavors.Value!, item.Value!, naturalGiftType.Value!);
         }
@@ -362,7 +362,6 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="berryDetail"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public override void Write(Utf8JsonWriter writer, BerryDetail berryDetail, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteStartObject();
@@ -377,24 +376,8 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="berryDetail"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, BerryDetail berryDetail, JsonSerializerOptions jsonSerializerOptions)
         {
-            if (berryDetail.Name == null)
-                throw new ArgumentNullException(nameof(berryDetail.Name), "Property is required for class BerryDetail.");
-
-            if (berryDetail.Firmness == null)
-                throw new ArgumentNullException(nameof(berryDetail.Firmness), "Property is required for class BerryDetail.");
-
-            if (berryDetail.Flavors == null)
-                throw new ArgumentNullException(nameof(berryDetail.Flavors), "Property is required for class BerryDetail.");
-
-            if (berryDetail.Item == null)
-                throw new ArgumentNullException(nameof(berryDetail.Item), "Property is required for class BerryDetail.");
-
-            if (berryDetail.NaturalGiftType == null)
-                throw new ArgumentNullException(nameof(berryDetail.NaturalGiftType), "Property is required for class BerryDetail.");
-
             writer.WriteNumber("id", berryDetail.Id);
 
             writer.WriteString("name", berryDetail.Name);

@@ -2,7 +2,6 @@ package org.openapitools.model;
 
 import java.net.URI;
 import java.util.Objects;
-import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import java.util.ArrayList;
@@ -27,7 +26,7 @@ import jakarta.annotation.Generated;
  * VersionGroupDetail
  */
 
-@Generated(value = "org.openapitools.codegen.languages.JavaCamelServerCodegen", date = "2026-08-30T01:56:15.309401083Z[Etc/UTC]", comments = "Generator version: 7.24.0")
+@Generated(value = "org.openapitools.codegen.languages.JavaCamelServerCodegen", date = "2026-10-25T05:48:25.711080506Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 public class VersionGroupDetail {
 
   private Integer id;
@@ -38,16 +37,12 @@ public class VersionGroupDetail {
 
   private GenerationSummary generation;
 
-  @Valid
   private List<@Valid AbilityDetailPokemonInnerPokemon> moveLearnMethods = new ArrayList<>();
 
-  @Valid
   private List<@Valid AbilityDetailPokemonInnerPokemon> pokedexes = new ArrayList<>();
 
-  @Valid
   private List<@Valid AbilityDetailPokemonInnerPokemon> regions = new ArrayList<>();
 
-  @Valid
   private List<@Valid VersionSummary> versions = new ArrayList<>();
 
   public VersionGroupDetail() {
@@ -164,7 +159,7 @@ public class VersionGroupDetail {
    * Get moveLearnMethods
    * @return moveLearnMethods
    */
-  @Valid 
+  
   @Schema(name = "move_learn_methods", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("move_learn_methods")
   public List<@Valid AbilityDetailPokemonInnerPokemon> getMoveLearnMethods() {
@@ -192,7 +187,7 @@ public class VersionGroupDetail {
    * Get pokedexes
    * @return pokedexes
    */
-  @Valid 
+  
   @Schema(name = "pokedexes", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("pokedexes")
   public List<@Valid AbilityDetailPokemonInnerPokemon> getPokedexes() {
@@ -220,7 +215,7 @@ public class VersionGroupDetail {
    * Get regions
    * @return regions
    */
-  @Valid 
+  
   @Schema(name = "regions", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("regions")
   public List<@Valid AbilityDetailPokemonInnerPokemon> getRegions() {
@@ -248,7 +243,7 @@ public class VersionGroupDetail {
    * Get versions
    * @return versions
    */
-  @Valid 
+  
   @Schema(name = "versions", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("versions")
   public List<@Valid VersionSummary> getVersions() {

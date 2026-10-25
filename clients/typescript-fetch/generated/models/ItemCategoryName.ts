@@ -29,14 +29,10 @@ import {
 export interface ItemCategoryName {
     /**
      * 
-     * @type {string}
-     * @memberof ItemCategoryName
      */
     name: string;
     /**
      * 
-     * @type {LanguageSummary}
-     * @memberof ItemCategoryName
      */
     language: LanguageSummary;
 }

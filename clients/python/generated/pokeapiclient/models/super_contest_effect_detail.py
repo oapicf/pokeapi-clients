@@ -85,15 +85,13 @@ class SuperContestEffectDetail(BaseModel):
         _items = []
         if self.flavor_text_entries:
             for _item_flavor_text_entries in self.flavor_text_entries:
-                if _item_flavor_text_entries:
-                    _items.append(_item_flavor_text_entries.to_dict())
+                _items.append(_item_flavor_text_entries.to_dict() if _item_flavor_text_entries is not None else None)
             _dict['flavor_text_entries'] = _items
         # override the default output from pydantic by calling `to_dict()` of each item in moves (list)
         _items = []
         if self.moves:
             for _item_moves in self.moves:
-                if _item_moves:
-                    _items.append(_item_moves.to_dict())
+                _items.append(_item_moves.to_dict() if _item_moves is not None else None)
             _dict['moves'] = _items
         return _dict
 

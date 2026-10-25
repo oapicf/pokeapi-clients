@@ -25,13 +25,9 @@ public class ItemFlingEffectDetail  {
 
   @ApiModelProperty(required = true, value = "")
 
-  @Valid
-
   private List<@Valid ItemFlingEffectEffectText> effectEntries = new ArrayList<>();
 
   @ApiModelProperty(required = true, value = "")
-
-  @Valid
 
   private List<@Valid ItemSummary> items = new ArrayList<>();
  /**

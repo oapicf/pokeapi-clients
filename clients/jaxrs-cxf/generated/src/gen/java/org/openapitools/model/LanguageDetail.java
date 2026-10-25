@@ -36,8 +36,6 @@ public class LanguageDetail  {
 
   @ApiModelProperty(required = true, value = "")
 
-  @Valid
-
   private List<@Valid LanguageName> names = new ArrayList<>();
  /**
    * Get id

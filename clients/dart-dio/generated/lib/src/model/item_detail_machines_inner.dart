@@ -121,3 +121,4 @@ class _$ItemDetailMachinesInnerSerializer implements PrimitiveSerializer<ItemDet
   }
 }
 
+

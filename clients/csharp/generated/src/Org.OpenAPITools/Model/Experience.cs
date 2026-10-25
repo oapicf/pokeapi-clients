@@ -146,16 +146,16 @@ namespace Org.OpenAPITools.Model
             }
 
             if (!level.IsSet)
-                throw new ArgumentException("Property is required for class Experience.", nameof(level));
+                throw new JsonException("Property is required for class Experience: level.");
 
             if (!varExperience.IsSet)
-                throw new ArgumentException("Property is required for class Experience.", nameof(varExperience));
+                throw new JsonException("Property is required for class Experience: experience.");
 
             if (level.IsSet && level.Value == null)
-                throw new ArgumentNullException(nameof(level), "Property is not nullable for class Experience.");
+                throw new JsonException("Property is not nullable for class Experience: level.");
 
             if (varExperience.IsSet && varExperience.Value == null)
-                throw new ArgumentNullException(nameof(varExperience), "Property is not nullable for class Experience.");
+                throw new JsonException("Property is not nullable for class Experience: experience.");
 
             return new Experience(level.Value!.Value!, varExperience.Value!.Value!);
         }
@@ -166,7 +166,6 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="experience"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public override void Write(Utf8JsonWriter writer, Experience experience, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteStartObject();
@@ -181,7 +180,6 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="experience"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, Experience experience, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteNumber("level", experience.Level);

@@ -21,14 +21,10 @@ import { mapValues } from '../runtime';
 export interface PokemonDetailCries {
     /**
      * 
-     * @type {string}
-     * @memberof PokemonDetailCries
      */
     latest: string;
     /**
      * 
-     * @type {string}
-     * @memberof PokemonDetailCries
      */
     legacy: string;
 }

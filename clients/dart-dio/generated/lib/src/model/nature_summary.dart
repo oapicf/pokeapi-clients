@@ -120,3 +120,4 @@ class _$NatureSummarySerializer implements PrimitiveSerializer<NatureSummary> {
   }
 }
 
+

@@ -29,14 +29,10 @@ import {
 export interface PokemonSpeciesDetailGeneraInner {
     /**
      * 
-     * @type {string}
-     * @memberof PokemonSpeciesDetailGeneraInner
      */
     genus: string;
     /**
      * 
-     * @type {AbilityDetailPokemonInnerPokemon}
-     * @memberof PokemonSpeciesDetailGeneraInner
      */
     language: AbilityDetailPokemonInnerPokemon;
 }

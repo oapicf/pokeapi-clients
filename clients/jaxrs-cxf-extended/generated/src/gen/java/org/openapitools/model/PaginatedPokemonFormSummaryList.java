@@ -25,7 +25,6 @@ public class PaginatedPokemonFormSummaryList  {
   private URI previous;
 
   @ApiModelProperty(value = "")
-  @Valid
   private List<@Valid PokemonFormSummary> results = new ArrayList<>();
  /**
   * Get count

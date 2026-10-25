@@ -8,7 +8,7 @@ import model.PaginatedEncounterConditionSummaryList
 import model.PaginatedEncounterConditionValueSummaryList
 import model.PaginatedEncounterMethodSummaryList
 
-@javax.annotation.Generated(value = Array("org.openapitools.codegen.languages.ScalaPlayFrameworkServerCodegen"), date = "2026-08-30T02:00:26.523807909Z[Etc/UTC]", comments = "Generator version: 7.24.0")
+@javax.annotation.Generated(value = Array("org.openapitools.codegen.languages.ScalaPlayFrameworkServerCodegen"), date = "2026-10-25T05:53:17.467323765Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 trait EncountersApi {
   /**
     * List encounter conditions

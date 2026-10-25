@@ -24,25 +24,19 @@ import jakarta.annotation.Generated;
  */
 
 @JsonTypeName("TypeDetail_damage_relations")
-@Generated(value = "org.openapitools.codegen.languages.JavaCamelServerCodegen", date = "2026-08-30T01:56:15.309401083Z[Etc/UTC]", comments = "Generator version: 7.24.0")
+@Generated(value = "org.openapitools.codegen.languages.JavaCamelServerCodegen", date = "2026-10-25T05:48:25.711080506Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 public class TypeDetailDamageRelations {
 
-  @Valid
   private List<@Valid AbilityDetailPokemonInnerPokemon> noDamageTo = new ArrayList<>();
 
-  @Valid
   private List<@Valid AbilityDetailPokemonInnerPokemon> halfDamageTo = new ArrayList<>();
 
-  @Valid
   private List<@Valid AbilityDetailPokemonInnerPokemon> doubleDamageTo = new ArrayList<>();
 
-  @Valid
   private List<@Valid AbilityDetailPokemonInnerPokemon> noDamageFrom = new ArrayList<>();
 
-  @Valid
   private List<@Valid AbilityDetailPokemonInnerPokemon> halfDamageFrom = new ArrayList<>();
 
-  @Valid
   private List<@Valid AbilityDetailPokemonInnerPokemon> doubleDamageFrom = new ArrayList<>();
 
   public TypeDetailDamageRelations() {
@@ -78,7 +72,7 @@ public class TypeDetailDamageRelations {
    * Get noDamageTo
    * @return noDamageTo
    */
-  @NotNull @Valid 
+  @NotNull 
   @Schema(name = "no_damage_to", requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("no_damage_to")
   public List<@Valid AbilityDetailPokemonInnerPokemon> getNoDamageTo() {
@@ -106,7 +100,7 @@ public class TypeDetailDamageRelations {
    * Get halfDamageTo
    * @return halfDamageTo
    */
-  @NotNull @Valid 
+  @NotNull 
   @Schema(name = "half_damage_to", requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("half_damage_to")
   public List<@Valid AbilityDetailPokemonInnerPokemon> getHalfDamageTo() {
@@ -134,7 +128,7 @@ public class TypeDetailDamageRelations {
    * Get doubleDamageTo
    * @return doubleDamageTo
    */
-  @NotNull @Valid 
+  @NotNull 
   @Schema(name = "double_damage_to", requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("double_damage_to")
   public List<@Valid AbilityDetailPokemonInnerPokemon> getDoubleDamageTo() {
@@ -162,7 +156,7 @@ public class TypeDetailDamageRelations {
    * Get noDamageFrom
    * @return noDamageFrom
    */
-  @NotNull @Valid 
+  @NotNull 
   @Schema(name = "no_damage_from", requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("no_damage_from")
   public List<@Valid AbilityDetailPokemonInnerPokemon> getNoDamageFrom() {
@@ -190,7 +184,7 @@ public class TypeDetailDamageRelations {
    * Get halfDamageFrom
    * @return halfDamageFrom
    */
-  @NotNull @Valid 
+  @NotNull 
   @Schema(name = "half_damage_from", requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("half_damage_from")
   public List<@Valid AbilityDetailPokemonInnerPokemon> getHalfDamageFrom() {
@@ -218,7 +212,7 @@ public class TypeDetailDamageRelations {
    * Get doubleDamageFrom
    * @return doubleDamageFrom
    */
-  @NotNull @Valid 
+  @NotNull 
   @Schema(name = "double_damage_from", requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("double_damage_from")
   public List<@Valid AbilityDetailPokemonInnerPokemon> getDoubleDamageFrom() {

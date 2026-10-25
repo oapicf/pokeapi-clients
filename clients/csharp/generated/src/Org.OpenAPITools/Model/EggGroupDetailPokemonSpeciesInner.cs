@@ -162,10 +162,10 @@ namespace Org.OpenAPITools.Model
             }
 
             if (name.IsSet && name.Value == null)
-                throw new ArgumentNullException(nameof(name), "Property is not nullable for class EggGroupDetailPokemonSpeciesInner.");
+                throw new JsonException("Property is not nullable for class EggGroupDetailPokemonSpeciesInner: name.");
 
             if (url.IsSet && url.Value == null)
-                throw new ArgumentNullException(nameof(url), "Property is not nullable for class EggGroupDetailPokemonSpeciesInner.");
+                throw new JsonException("Property is not nullable for class EggGroupDetailPokemonSpeciesInner: url.");
 
             return new EggGroupDetailPokemonSpeciesInner(name, url);
         }
@@ -176,7 +176,6 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="eggGroupDetailPokemonSpeciesInner"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public override void Write(Utf8JsonWriter writer, EggGroupDetailPokemonSpeciesInner eggGroupDetailPokemonSpeciesInner, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteStartObject();
@@ -191,14 +190,13 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="eggGroupDetailPokemonSpeciesInner"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, EggGroupDetailPokemonSpeciesInner eggGroupDetailPokemonSpeciesInner, JsonSerializerOptions jsonSerializerOptions)
         {
             if (eggGroupDetailPokemonSpeciesInner.NameOption.IsSet && eggGroupDetailPokemonSpeciesInner.Name == null)
-                throw new ArgumentNullException(nameof(eggGroupDetailPokemonSpeciesInner.Name), "Property is required for class EggGroupDetailPokemonSpeciesInner.");
+                throw new JsonException("Cannot write null property EggGroupDetailPokemonSpeciesInner.Name to non-nullable JSON property 'name'.");
 
             if (eggGroupDetailPokemonSpeciesInner.UrlOption.IsSet && eggGroupDetailPokemonSpeciesInner.Url == null)
-                throw new ArgumentNullException(nameof(eggGroupDetailPokemonSpeciesInner.Url), "Property is required for class EggGroupDetailPokemonSpeciesInner.");
+                throw new JsonException("Cannot write null property EggGroupDetailPokemonSpeciesInner.Url to non-nullable JSON property 'url'.");
 
             if (eggGroupDetailPokemonSpeciesInner.NameOption.IsSet)
                 writer.WriteString("name", eggGroupDetailPokemonSpeciesInner.Name);

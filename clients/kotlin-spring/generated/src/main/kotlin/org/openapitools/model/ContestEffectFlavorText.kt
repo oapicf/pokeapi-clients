@@ -23,12 +23,12 @@ data class ContestEffectFlavorText(
 
     @get:Size(max=500)
     @Schema(required = true, description = "")
-    @param:JsonProperty("flavor_text")
+    @param:JsonProperty("flavor_text", required = true)
     @get:JsonProperty("flavor_text", required = true) val flavorText: kotlin.String,
 
     @field:Valid
     @Schema(required = true, description = "")
-    @param:JsonProperty("language")
+    @param:JsonProperty("language", required = true)
     @get:JsonProperty("language", required = true) val language: LanguageSummary
 ) {
 

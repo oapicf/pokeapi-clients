@@ -23,7 +23,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
 
 
 @JsonTypeName("BerryDetail")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2026-08-30T01:56:42.280002256Z[Etc/UTC]", comments = "Generator version: 7.24.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2026-10-25T05:48:57.630723375Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 public class BerryDetail   {
   private Integer id;
   private String name;
@@ -34,7 +34,7 @@ public class BerryDetail   {
   private Integer smoothness;
   private Integer soilDryness;
   private BerryFirmnessSummary firmness;
-  private @Valid List<@Valid BerryDetailFlavorsInner> flavors = new ArrayList<>();
+  private List<@Valid BerryDetailFlavorsInner> flavors = new ArrayList<>();
   private ItemSummary item;
   private TypeSummary naturalGiftType;
 
@@ -251,7 +251,7 @@ public class BerryDetail   {
   
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(required = true, value = "flavors")
-  @Valid public List<@Valid BerryDetailFlavorsInner> getFlavors() {
+  public List<@Valid BerryDetailFlavorsInner> getFlavors() {
     return flavors;
   }
 

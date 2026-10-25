@@ -12,7 +12,7 @@ Method | HTTP request | Description
 
 # **evolutionChainList**
 ```swift
-    open class func evolutionChainList(limit: Int? = nil, offset: Int? = nil, q: String? = nil, completion: @escaping (_ data: PaginatedEvolutionChainSummaryList?, _ error: Error?) -> Void)
+    open class func evolutionChainList(limit: Int? = nil, offset: Int? = nil, q: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> PaginatedEvolutionChainSummaryList
 ```
 
 List evolution chains
@@ -29,15 +29,11 @@ let offset = 987 // Int | The initial index from which to return the results. (o
 let q = "q_example" // String | > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property.  (optional)
 
 // List evolution chains
-EvolutionAPI.evolutionChainList(limit: limit, offset: offset, q: q) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await EvolutionAPI.evolutionChainList(limit: limit, offset: offset, q: q)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -66,7 +62,7 @@ Name | Type | Description  | Notes
 
 # **evolutionChainRetrieve**
 ```swift
-    open class func evolutionChainRetrieve(id: String, completion: @escaping (_ data: EvolutionChainDetail?, _ error: Error?) -> Void)
+    open class func evolutionChainRetrieve(id: String, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> EvolutionChainDetail
 ```
 
 Get evolution chain
@@ -81,15 +77,11 @@ import OpenAPIClient
 let id = "id_example" // String | This parameter can be a string or an integer.
 
 // Get evolution chain
-EvolutionAPI.evolutionChainRetrieve(id: id) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await EvolutionAPI.evolutionChainRetrieve(id: id)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -116,7 +108,7 @@ Name | Type | Description  | Notes
 
 # **evolutionTriggerList**
 ```swift
-    open class func evolutionTriggerList(limit: Int? = nil, offset: Int? = nil, q: String? = nil, completion: @escaping (_ data: PaginatedEvolutionTriggerSummaryList?, _ error: Error?) -> Void)
+    open class func evolutionTriggerList(limit: Int? = nil, offset: Int? = nil, q: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> PaginatedEvolutionTriggerSummaryList
 ```
 
 List evolution triggers
@@ -133,15 +125,11 @@ let offset = 987 // Int | The initial index from which to return the results. (o
 let q = "q_example" // String | > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property.  (optional)
 
 // List evolution triggers
-EvolutionAPI.evolutionTriggerList(limit: limit, offset: offset, q: q) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await EvolutionAPI.evolutionTriggerList(limit: limit, offset: offset, q: q)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -170,7 +158,7 @@ Name | Type | Description  | Notes
 
 # **evolutionTriggerRetrieve**
 ```swift
-    open class func evolutionTriggerRetrieve(id: String, completion: @escaping (_ data: EvolutionTriggerDetail?, _ error: Error?) -> Void)
+    open class func evolutionTriggerRetrieve(id: String, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> EvolutionTriggerDetail
 ```
 
 Get evolution trigger
@@ -185,15 +173,11 @@ import OpenAPIClient
 let id = "id_example" // String | This parameter can be a string or an integer.
 
 // Get evolution trigger
-EvolutionAPI.evolutionTriggerRetrieve(id: id) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await EvolutionAPI.evolutionTriggerRetrieve(id: id)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 

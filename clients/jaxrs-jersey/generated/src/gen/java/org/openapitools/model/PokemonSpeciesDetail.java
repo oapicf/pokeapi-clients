@@ -72,7 +72,7 @@ import javax.validation.Valid;
   PokemonSpeciesDetail.JSON_PROPERTY_GENERA,
   PokemonSpeciesDetail.JSON_PROPERTY_VARIETIES
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJerseyServerCodegen", date = "2026-08-30T01:56:28.710233113Z[Etc/UTC]", comments = "Generator version: 7.24.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJerseyServerCodegen", date = "2026-10-25T05:48:41.923212007Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 public class PokemonSpeciesDetail   {
   public static final String JSON_PROPERTY_ID = "id";
   @JsonProperty(JSON_PROPERTY_ID)
@@ -461,7 +461,7 @@ public class PokemonSpeciesDetail   {
    **/
   @JsonProperty(value = "pokedex_numbers", access = JsonProperty.Access.READ_ONLY)
   @ApiModelProperty(required = true, value = "")
-  @Valid 
+  
   public List<@Valid PokemonDexEntry> getPokedexNumbers() {
     return pokedexNumbers;
   }
@@ -489,7 +489,7 @@ public class PokemonSpeciesDetail   {
    **/
   @JsonProperty(value = "egg_groups", access = JsonProperty.Access.READ_ONLY)
   @ApiModelProperty(required = true, value = "")
-  @Valid 
+  
   public List<@Valid AbilityDetailPokemonInnerPokemon> getEggGroups() {
     return eggGroups;
   }
@@ -637,7 +637,7 @@ public class PokemonSpeciesDetail   {
    **/
   @JsonProperty(value = "names", access = JsonProperty.Access.READ_ONLY)
   @ApiModelProperty(required = true, value = "")
-  @Valid 
+  
   public List<@Valid PokemonFormDetailFormNamesInner> getNames() {
     return names;
   }
@@ -665,7 +665,7 @@ public class PokemonSpeciesDetail   {
    **/
   @JsonProperty(value = "pal_park_encounters", access = JsonProperty.Access.READ_ONLY)
   @ApiModelProperty(required = true, value = "")
-  @Valid 
+  
   public List<@Valid PokemonSpeciesDetailPalParkEncountersInner> getPalParkEncounters() {
     return palParkEncounters;
   }
@@ -693,7 +693,7 @@ public class PokemonSpeciesDetail   {
    **/
   @JsonProperty(value = "form_descriptions", access = JsonProperty.Access.READ_ONLY)
   @ApiModelProperty(required = true, value = "")
-  @Valid 
+  
   public List<@Valid PokemonSpeciesDescription> getFormDescriptions() {
     return formDescriptions;
   }
@@ -721,7 +721,7 @@ public class PokemonSpeciesDetail   {
    **/
   @JsonProperty(value = "flavor_text_entries", access = JsonProperty.Access.READ_ONLY)
   @ApiModelProperty(required = true, value = "")
-  @Valid 
+  
   public List<@Valid PokemonSpeciesFlavorText> getFlavorTextEntries() {
     return flavorTextEntries;
   }
@@ -749,7 +749,7 @@ public class PokemonSpeciesDetail   {
    **/
   @JsonProperty(value = "genera", access = JsonProperty.Access.READ_ONLY)
   @ApiModelProperty(required = true, value = "")
-  @Valid 
+  
   public List<@Valid PokemonSpeciesDetailGeneraInner> getGenera() {
     return genera;
   }
@@ -777,7 +777,7 @@ public class PokemonSpeciesDetail   {
    **/
   @JsonProperty(value = "varieties", access = JsonProperty.Access.READ_ONLY)
   @ApiModelProperty(required = true, value = "")
-  @Valid 
+  
   public List<@Valid PokemonSpeciesDetailVarietiesInner> getVarieties() {
     return varieties;
   }

@@ -51,10 +51,10 @@ class LocationController extends Controller
     {
         $validator = Validator::make(
             array_merge(
+                $request->all(),
                 [
                     
                 ],
-                $request->all(),
             ),
             [
                 'limit' => [
@@ -95,10 +95,10 @@ class LocationController extends Controller
     {
         $validator = Validator::make(
             array_merge(
+                $request->all(),
                 [
                     'id' => $id,
                 ],
-                $request->all(),
             ),
             [
                 'id' => [
@@ -134,10 +134,10 @@ class LocationController extends Controller
     {
         $validator = Validator::make(
             array_merge(
+                $request->all(),
                 [
                     
                 ],
-                $request->all(),
             ),
             [
                 'limit' => [
@@ -183,10 +183,10 @@ class LocationController extends Controller
     {
         $validator = Validator::make(
             array_merge(
+                $request->all(),
                 [
                     'id' => $id,
                 ],
-                $request->all(),
             ),
             [
                 'id' => [
@@ -222,10 +222,10 @@ class LocationController extends Controller
     {
         $validator = Validator::make(
             array_merge(
+                $request->all(),
                 [
                     
                 ],
-                $request->all(),
             ),
             [
                 'limit' => [
@@ -271,10 +271,10 @@ class LocationController extends Controller
     {
         $validator = Validator::make(
             array_merge(
+                $request->all(),
                 [
                     'id' => $id,
                 ],
-                $request->all(),
             ),
             [
                 'id' => [
@@ -310,10 +310,10 @@ class LocationController extends Controller
     {
         $validator = Validator::make(
             array_merge(
+                $request->all(),
                 [
                     
                 ],
-                $request->all(),
             ),
             [
                 'limit' => [
@@ -359,10 +359,10 @@ class LocationController extends Controller
     {
         $validator = Validator::make(
             array_merge(
+                $request->all(),
                 [
                     'id' => $id,
                 ],
-                $request->all(),
             ),
             [
                 'id' => [

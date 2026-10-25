@@ -29,14 +29,10 @@ import {
 export interface PokemonShapeDetailAwesomeNamesInner {
     /**
      * 
-     * @type {string}
-     * @memberof PokemonShapeDetailAwesomeNamesInner
      */
     awesomeName: string;
     /**
      * 
-     * @type {AbilityDetailPokemonInnerPokemon}
-     * @memberof PokemonShapeDetailAwesomeNamesInner
      */
     language: AbilityDetailPokemonInnerPokemon;
 }

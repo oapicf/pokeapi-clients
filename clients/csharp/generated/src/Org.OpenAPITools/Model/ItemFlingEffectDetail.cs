@@ -178,28 +178,28 @@ namespace Org.OpenAPITools.Model
             }
 
             if (!id.IsSet)
-                throw new ArgumentException("Property is required for class ItemFlingEffectDetail.", nameof(id));
+                throw new JsonException("Property is required for class ItemFlingEffectDetail: id.");
 
             if (!name.IsSet)
-                throw new ArgumentException("Property is required for class ItemFlingEffectDetail.", nameof(name));
+                throw new JsonException("Property is required for class ItemFlingEffectDetail: name.");
 
             if (!effectEntries.IsSet)
-                throw new ArgumentException("Property is required for class ItemFlingEffectDetail.", nameof(effectEntries));
+                throw new JsonException("Property is required for class ItemFlingEffectDetail: effect_entries.");
 
             if (!items.IsSet)
-                throw new ArgumentException("Property is required for class ItemFlingEffectDetail.", nameof(items));
+                throw new JsonException("Property is required for class ItemFlingEffectDetail: items.");
 
             if (id.IsSet && id.Value == null)
-                throw new ArgumentNullException(nameof(id), "Property is not nullable for class ItemFlingEffectDetail.");
+                throw new JsonException("Property is not nullable for class ItemFlingEffectDetail: id.");
 
             if (name.IsSet && name.Value == null)
-                throw new ArgumentNullException(nameof(name), "Property is not nullable for class ItemFlingEffectDetail.");
+                throw new JsonException("Property is not nullable for class ItemFlingEffectDetail: name.");
 
             if (effectEntries.IsSet && effectEntries.Value == null)
-                throw new ArgumentNullException(nameof(effectEntries), "Property is not nullable for class ItemFlingEffectDetail.");
+                throw new JsonException("Property is not nullable for class ItemFlingEffectDetail: effect_entries.");
 
             if (items.IsSet && items.Value == null)
-                throw new ArgumentNullException(nameof(items), "Property is not nullable for class ItemFlingEffectDetail.");
+                throw new JsonException("Property is not nullable for class ItemFlingEffectDetail: items.");
 
             return new ItemFlingEffectDetail(id.Value!.Value!, name.Value!, effectEntries.Value!, items.Value!);
         }
@@ -210,7 +210,6 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="itemFlingEffectDetail"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public override void Write(Utf8JsonWriter writer, ItemFlingEffectDetail itemFlingEffectDetail, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteStartObject();
@@ -225,18 +224,8 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="itemFlingEffectDetail"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, ItemFlingEffectDetail itemFlingEffectDetail, JsonSerializerOptions jsonSerializerOptions)
         {
-            if (itemFlingEffectDetail.Name == null)
-                throw new ArgumentNullException(nameof(itemFlingEffectDetail.Name), "Property is required for class ItemFlingEffectDetail.");
-
-            if (itemFlingEffectDetail.EffectEntries == null)
-                throw new ArgumentNullException(nameof(itemFlingEffectDetail.EffectEntries), "Property is required for class ItemFlingEffectDetail.");
-
-            if (itemFlingEffectDetail.Items == null)
-                throw new ArgumentNullException(nameof(itemFlingEffectDetail.Items), "Property is required for class ItemFlingEffectDetail.");
-
             writer.WriteNumber("id", itemFlingEffectDetail.Id);
 
             writer.WriteString("name", itemFlingEffectDetail.Name);

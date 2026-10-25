@@ -26,7 +26,7 @@ import jakarta.annotation.Generated;
  * LocationAreaDetail
  */
 
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2026-08-30T02:00:43.960184425Z[Etc/UTC]", comments = "Generator version: 7.24.0")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2026-10-25T05:53:37.479908528Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 public class LocationAreaDetail {
 
   private Integer id;
@@ -140,7 +140,7 @@ public class LocationAreaDetail {
    * Get encounterMethodRates
    * @return encounterMethodRates
    */
-  @Valid 
+  
   @Schema(name = "encounter_method_rates", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("encounter_method_rates")
   public List<@Valid LocationAreaDetailEncounterMethodRatesInner> getEncounterMethodRates() {
@@ -190,7 +190,7 @@ public class LocationAreaDetail {
    * Get names
    * @return names
    */
-  @Valid 
+  
   @Schema(name = "names", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("names")
   public List<@Valid LocationAreaName> getNames() {
@@ -219,7 +219,7 @@ public class LocationAreaDetail {
    * Get pokemonEncounters
    * @return pokemonEncounters
    */
-  @Valid 
+  
   @Schema(name = "pokemon_encounters", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("pokemon_encounters")
   public List<@Valid LocationAreaDetailPokemonEncountersInner> getPokemonEncounters() {

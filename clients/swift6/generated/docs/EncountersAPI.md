@@ -14,7 +14,7 @@ Method | HTTP request | Description
 
 # **encounterConditionList**
 ```swift
-    open class func encounterConditionList(limit: Int? = nil, offset: Int? = nil, q: String? = nil, completion: @escaping (_ data: PaginatedEncounterConditionSummaryList?, _ error: Error?) -> Void)
+    open class func encounterConditionList(limit: Int? = nil, offset: Int? = nil, q: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> PaginatedEncounterConditionSummaryList
 ```
 
 List encounter conditions
@@ -31,15 +31,11 @@ let offset = 987 // Int | The initial index from which to return the results. (o
 let q = "q_example" // String | > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property.  (optional)
 
 // List encounter conditions
-EncountersAPI.encounterConditionList(limit: limit, offset: offset, q: q) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await EncountersAPI.encounterConditionList(limit: limit, offset: offset, q: q)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -68,7 +64,7 @@ Name | Type | Description  | Notes
 
 # **encounterConditionRetrieve**
 ```swift
-    open class func encounterConditionRetrieve(id: String, completion: @escaping (_ data: EncounterConditionDetail?, _ error: Error?) -> Void)
+    open class func encounterConditionRetrieve(id: String, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> EncounterConditionDetail
 ```
 
 Get encounter condition
@@ -83,15 +79,11 @@ import OpenAPIClient
 let id = "id_example" // String | This parameter can be a string or an integer.
 
 // Get encounter condition
-EncountersAPI.encounterConditionRetrieve(id: id) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await EncountersAPI.encounterConditionRetrieve(id: id)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -118,7 +110,7 @@ Name | Type | Description  | Notes
 
 # **encounterConditionValueList**
 ```swift
-    open class func encounterConditionValueList(limit: Int? = nil, offset: Int? = nil, q: String? = nil, completion: @escaping (_ data: PaginatedEncounterConditionValueSummaryList?, _ error: Error?) -> Void)
+    open class func encounterConditionValueList(limit: Int? = nil, offset: Int? = nil, q: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> PaginatedEncounterConditionValueSummaryList
 ```
 
 List encounter condition values
@@ -135,15 +127,11 @@ let offset = 987 // Int | The initial index from which to return the results. (o
 let q = "q_example" // String | > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property.  (optional)
 
 // List encounter condition values
-EncountersAPI.encounterConditionValueList(limit: limit, offset: offset, q: q) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await EncountersAPI.encounterConditionValueList(limit: limit, offset: offset, q: q)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -172,7 +160,7 @@ Name | Type | Description  | Notes
 
 # **encounterConditionValueRetrieve**
 ```swift
-    open class func encounterConditionValueRetrieve(id: String, completion: @escaping (_ data: EncounterConditionValueDetail?, _ error: Error?) -> Void)
+    open class func encounterConditionValueRetrieve(id: String, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> EncounterConditionValueDetail
 ```
 
 Get encounter condition value
@@ -187,15 +175,11 @@ import OpenAPIClient
 let id = "id_example" // String | This parameter can be a string or an integer.
 
 // Get encounter condition value
-EncountersAPI.encounterConditionValueRetrieve(id: id) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await EncountersAPI.encounterConditionValueRetrieve(id: id)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -222,7 +206,7 @@ Name | Type | Description  | Notes
 
 # **encounterMethodList**
 ```swift
-    open class func encounterMethodList(limit: Int? = nil, offset: Int? = nil, q: String? = nil, completion: @escaping (_ data: PaginatedEncounterMethodSummaryList?, _ error: Error?) -> Void)
+    open class func encounterMethodList(limit: Int? = nil, offset: Int? = nil, q: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> PaginatedEncounterMethodSummaryList
 ```
 
 List encounter methods
@@ -239,15 +223,11 @@ let offset = 987 // Int | The initial index from which to return the results. (o
 let q = "q_example" // String | > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property.  (optional)
 
 // List encounter methods
-EncountersAPI.encounterMethodList(limit: limit, offset: offset, q: q) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await EncountersAPI.encounterMethodList(limit: limit, offset: offset, q: q)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -276,7 +256,7 @@ Name | Type | Description  | Notes
 
 # **encounterMethodRetrieve**
 ```swift
-    open class func encounterMethodRetrieve(id: String, completion: @escaping (_ data: EncounterMethodDetail?, _ error: Error?) -> Void)
+    open class func encounterMethodRetrieve(id: String, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> EncounterMethodDetail
 ```
 
 Get encounter method
@@ -291,15 +271,11 @@ import OpenAPIClient
 let id = "id_example" // String | This parameter can be a string or an integer.
 
 // Get encounter method
-EncountersAPI.encounterMethodRetrieve(id: id) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await EncountersAPI.encounterMethodRetrieve(id: id)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 

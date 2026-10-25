@@ -24,15 +24,15 @@ data class PokemonDetailAbilitiesInner(
 
     @field:Valid
     @Schema(required = true, description = "")
-    @param:JsonProperty("ability")
+    @param:JsonProperty("ability", required = true)
     @get:JsonProperty("ability", required = true) val ability: AbilityDetailPokemonInnerPokemon,
 
     @Schema(required = true, description = "")
-    @param:JsonProperty("is_hidden")
+    @param:JsonProperty("is_hidden", required = true)
     @get:JsonProperty("is_hidden", required = true) val isHidden: kotlin.Boolean,
 
     @Schema(required = true, description = "")
-    @param:JsonProperty("slot")
+    @param:JsonProperty("slot", required = true)
     @get:JsonProperty("slot", required = true) val slot: kotlin.Int
 ) {
 

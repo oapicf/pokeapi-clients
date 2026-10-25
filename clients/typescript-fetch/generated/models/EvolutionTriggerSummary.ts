@@ -21,14 +21,10 @@ import { mapValues } from '../runtime';
 export interface EvolutionTriggerSummary {
     /**
      * 
-     * @type {string}
-     * @memberof EvolutionTriggerSummary
      */
     name: string;
     /**
      * 
-     * @type {string}
-     * @memberof EvolutionTriggerSummary
      */
     readonly url: string;
 }

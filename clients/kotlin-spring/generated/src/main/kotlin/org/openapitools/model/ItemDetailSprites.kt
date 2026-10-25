@@ -21,7 +21,7 @@ data class ItemDetailSprites(
 
     @field:Valid
     @Schema(required = true, description = "")
-    @param:JsonProperty("default")
+    @param:JsonProperty("default", required = true)
     @get:JsonProperty("default", required = true) val default: java.net.URI
 ) {
 

@@ -26,7 +26,7 @@ import jakarta.annotation.Generated;
  * LocationDetail
  */
 
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2026-08-30T02:00:43.960184425Z[Etc/UTC]", comments = "Generator version: 7.24.0")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2026-10-25T05:53:37.479908528Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 public class LocationDetail {
 
   private Integer id;
@@ -137,7 +137,7 @@ public class LocationDetail {
    * Get names
    * @return names
    */
-  @Valid 
+  
   @Schema(name = "names", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("names")
   public List<@Valid LocationName> getNames() {
@@ -166,7 +166,7 @@ public class LocationDetail {
    * Get gameIndices
    * @return gameIndices
    */
-  @Valid 
+  
   @Schema(name = "game_indices", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("game_indices")
   public List<@Valid LocationGameIndex> getGameIndices() {
@@ -195,7 +195,7 @@ public class LocationDetail {
    * Get areas
    * @return areas
    */
-  @Valid 
+  
   @Schema(name = "areas", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("areas")
   public List<@Valid LocationAreaSummary> getAreas() {

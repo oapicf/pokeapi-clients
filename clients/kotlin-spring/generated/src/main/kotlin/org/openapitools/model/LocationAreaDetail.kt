@@ -30,36 +30,36 @@ import io.swagger.v3.oas.annotations.media.Schema
 data class LocationAreaDetail(
 
     @Schema(required = true, readOnly = true, description = "")
-    @param:JsonProperty("id")
+    @param:JsonProperty("id", required = true)
     @get:JsonProperty("id", required = true) val id: kotlin.Int,
 
     @get:Size(max=100)
     @Schema(required = true, description = "")
-    @param:JsonProperty("name")
+    @param:JsonProperty("name", required = true)
     @get:JsonProperty("name", required = true) val name: kotlin.String,
 
     @Schema(required = true, description = "")
-    @param:JsonProperty("game_index")
+    @param:JsonProperty("game_index", required = true)
     @get:JsonProperty("game_index", required = true) val gameIndex: kotlin.Int,
 
     @field:Valid
     @Schema(required = true, readOnly = true, description = "")
-    @param:JsonProperty("encounter_method_rates")
+    @param:JsonProperty("encounter_method_rates", required = true)
     @get:JsonProperty("encounter_method_rates", required = true) val encounterMethodRates: kotlin.collections.List<LocationAreaDetailEncounterMethodRatesInner>,
 
     @field:Valid
     @Schema(required = true, description = "")
-    @param:JsonProperty("location")
+    @param:JsonProperty("location", required = true)
     @get:JsonProperty("location", required = true) val location: LocationSummary,
 
     @field:Valid
     @Schema(required = true, readOnly = true, description = "")
-    @param:JsonProperty("names")
+    @param:JsonProperty("names", required = true)
     @get:JsonProperty("names", required = true) val names: kotlin.collections.List<LocationAreaName>,
 
     @field:Valid
     @Schema(required = true, readOnly = true, description = "")
-    @param:JsonProperty("pokemon_encounters")
+    @param:JsonProperty("pokemon_encounters", required = true)
     @get:JsonProperty("pokemon_encounters", required = true) val pokemonEncounters: kotlin.collections.List<LocationAreaDetailPokemonEncountersInner>
 ) {
 

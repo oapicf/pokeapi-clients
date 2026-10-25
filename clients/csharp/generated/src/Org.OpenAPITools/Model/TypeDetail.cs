@@ -269,70 +269,70 @@ namespace Org.OpenAPITools.Model
             }
 
             if (!id.IsSet)
-                throw new ArgumentException("Property is required for class TypeDetail.", nameof(id));
+                throw new JsonException("Property is required for class TypeDetail: id.");
 
             if (!name.IsSet)
-                throw new ArgumentException("Property is required for class TypeDetail.", nameof(name));
+                throw new JsonException("Property is required for class TypeDetail: name.");
 
             if (!damageRelations.IsSet)
-                throw new ArgumentException("Property is required for class TypeDetail.", nameof(damageRelations));
+                throw new JsonException("Property is required for class TypeDetail: damage_relations.");
 
             if (!pastDamageRelations.IsSet)
-                throw new ArgumentException("Property is required for class TypeDetail.", nameof(pastDamageRelations));
+                throw new JsonException("Property is required for class TypeDetail: past_damage_relations.");
 
             if (!gameIndices.IsSet)
-                throw new ArgumentException("Property is required for class TypeDetail.", nameof(gameIndices));
+                throw new JsonException("Property is required for class TypeDetail: game_indices.");
 
             if (!generation.IsSet)
-                throw new ArgumentException("Property is required for class TypeDetail.", nameof(generation));
+                throw new JsonException("Property is required for class TypeDetail: generation.");
 
             if (!moveDamageClass.IsSet)
-                throw new ArgumentException("Property is required for class TypeDetail.", nameof(moveDamageClass));
+                throw new JsonException("Property is required for class TypeDetail: move_damage_class.");
 
             if (!names.IsSet)
-                throw new ArgumentException("Property is required for class TypeDetail.", nameof(names));
+                throw new JsonException("Property is required for class TypeDetail: names.");
 
             if (!pokemon.IsSet)
-                throw new ArgumentException("Property is required for class TypeDetail.", nameof(pokemon));
+                throw new JsonException("Property is required for class TypeDetail: pokemon.");
 
             if (!moves.IsSet)
-                throw new ArgumentException("Property is required for class TypeDetail.", nameof(moves));
+                throw new JsonException("Property is required for class TypeDetail: moves.");
 
             if (!sprites.IsSet)
-                throw new ArgumentException("Property is required for class TypeDetail.", nameof(sprites));
+                throw new JsonException("Property is required for class TypeDetail: sprites.");
 
             if (id.IsSet && id.Value == null)
-                throw new ArgumentNullException(nameof(id), "Property is not nullable for class TypeDetail.");
+                throw new JsonException("Property is not nullable for class TypeDetail: id.");
 
             if (name.IsSet && name.Value == null)
-                throw new ArgumentNullException(nameof(name), "Property is not nullable for class TypeDetail.");
+                throw new JsonException("Property is not nullable for class TypeDetail: name.");
 
             if (damageRelations.IsSet && damageRelations.Value == null)
-                throw new ArgumentNullException(nameof(damageRelations), "Property is not nullable for class TypeDetail.");
+                throw new JsonException("Property is not nullable for class TypeDetail: damage_relations.");
 
             if (pastDamageRelations.IsSet && pastDamageRelations.Value == null)
-                throw new ArgumentNullException(nameof(pastDamageRelations), "Property is not nullable for class TypeDetail.");
+                throw new JsonException("Property is not nullable for class TypeDetail: past_damage_relations.");
 
             if (gameIndices.IsSet && gameIndices.Value == null)
-                throw new ArgumentNullException(nameof(gameIndices), "Property is not nullable for class TypeDetail.");
+                throw new JsonException("Property is not nullable for class TypeDetail: game_indices.");
 
             if (generation.IsSet && generation.Value == null)
-                throw new ArgumentNullException(nameof(generation), "Property is not nullable for class TypeDetail.");
+                throw new JsonException("Property is not nullable for class TypeDetail: generation.");
 
             if (moveDamageClass.IsSet && moveDamageClass.Value == null)
-                throw new ArgumentNullException(nameof(moveDamageClass), "Property is not nullable for class TypeDetail.");
+                throw new JsonException("Property is not nullable for class TypeDetail: move_damage_class.");
 
             if (names.IsSet && names.Value == null)
-                throw new ArgumentNullException(nameof(names), "Property is not nullable for class TypeDetail.");
+                throw new JsonException("Property is not nullable for class TypeDetail: names.");
 
             if (pokemon.IsSet && pokemon.Value == null)
-                throw new ArgumentNullException(nameof(pokemon), "Property is not nullable for class TypeDetail.");
+                throw new JsonException("Property is not nullable for class TypeDetail: pokemon.");
 
             if (moves.IsSet && moves.Value == null)
-                throw new ArgumentNullException(nameof(moves), "Property is not nullable for class TypeDetail.");
+                throw new JsonException("Property is not nullable for class TypeDetail: moves.");
 
             if (sprites.IsSet && sprites.Value == null)
-                throw new ArgumentNullException(nameof(sprites), "Property is not nullable for class TypeDetail.");
+                throw new JsonException("Property is not nullable for class TypeDetail: sprites.");
 
             return new TypeDetail(id.Value!.Value!, name.Value!, damageRelations.Value!, pastDamageRelations.Value!, gameIndices.Value!, generation.Value!, moveDamageClass.Value!, names.Value!, pokemon.Value!, moves.Value!, sprites.Value!);
         }
@@ -343,7 +343,6 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="typeDetail"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public override void Write(Utf8JsonWriter writer, TypeDetail typeDetail, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteStartObject();
@@ -358,39 +357,8 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="typeDetail"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, TypeDetail typeDetail, JsonSerializerOptions jsonSerializerOptions)
         {
-            if (typeDetail.Name == null)
-                throw new ArgumentNullException(nameof(typeDetail.Name), "Property is required for class TypeDetail.");
-
-            if (typeDetail.DamageRelations == null)
-                throw new ArgumentNullException(nameof(typeDetail.DamageRelations), "Property is required for class TypeDetail.");
-
-            if (typeDetail.PastDamageRelations == null)
-                throw new ArgumentNullException(nameof(typeDetail.PastDamageRelations), "Property is required for class TypeDetail.");
-
-            if (typeDetail.GameIndices == null)
-                throw new ArgumentNullException(nameof(typeDetail.GameIndices), "Property is required for class TypeDetail.");
-
-            if (typeDetail.Generation == null)
-                throw new ArgumentNullException(nameof(typeDetail.Generation), "Property is required for class TypeDetail.");
-
-            if (typeDetail.MoveDamageClass == null)
-                throw new ArgumentNullException(nameof(typeDetail.MoveDamageClass), "Property is required for class TypeDetail.");
-
-            if (typeDetail.Names == null)
-                throw new ArgumentNullException(nameof(typeDetail.Names), "Property is required for class TypeDetail.");
-
-            if (typeDetail.Pokemon == null)
-                throw new ArgumentNullException(nameof(typeDetail.Pokemon), "Property is required for class TypeDetail.");
-
-            if (typeDetail.Moves == null)
-                throw new ArgumentNullException(nameof(typeDetail.Moves), "Property is required for class TypeDetail.");
-
-            if (typeDetail.Sprites == null)
-                throw new ArgumentNullException(nameof(typeDetail.Sprites), "Property is required for class TypeDetail.");
-
             writer.WriteNumber("id", typeDetail.Id);
 
             writer.WriteString("name", typeDetail.Name);

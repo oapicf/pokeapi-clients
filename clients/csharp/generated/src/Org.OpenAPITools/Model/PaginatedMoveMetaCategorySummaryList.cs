@@ -203,16 +203,16 @@ namespace Org.OpenAPITools.Model
             }
 
             if (count.IsSet && count.Value == null)
-                throw new ArgumentNullException(nameof(count), "Property is not nullable for class PaginatedMoveMetaCategorySummaryList.");
+                throw new JsonException("Property is not nullable for class PaginatedMoveMetaCategorySummaryList: count.");
 
             if (next.IsSet && next.Value == null)
-                throw new ArgumentNullException(nameof(next), "Property is not nullable for class PaginatedMoveMetaCategorySummaryList.");
+                throw new JsonException("Property is not nullable for class PaginatedMoveMetaCategorySummaryList: next.");
 
             if (previous.IsSet && previous.Value == null)
-                throw new ArgumentNullException(nameof(previous), "Property is not nullable for class PaginatedMoveMetaCategorySummaryList.");
+                throw new JsonException("Property is not nullable for class PaginatedMoveMetaCategorySummaryList: previous.");
 
             if (results.IsSet && results.Value == null)
-                throw new ArgumentNullException(nameof(results), "Property is not nullable for class PaginatedMoveMetaCategorySummaryList.");
+                throw new JsonException("Property is not nullable for class PaginatedMoveMetaCategorySummaryList: results.");
 
             return new PaginatedMoveMetaCategorySummaryList(count, next, previous, results);
         }
@@ -223,7 +223,6 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="paginatedMoveMetaCategorySummaryList"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public override void Write(Utf8JsonWriter writer, PaginatedMoveMetaCategorySummaryList paginatedMoveMetaCategorySummaryList, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteStartObject();
@@ -238,17 +237,19 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="paginatedMoveMetaCategorySummaryList"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, PaginatedMoveMetaCategorySummaryList paginatedMoveMetaCategorySummaryList, JsonSerializerOptions jsonSerializerOptions)
         {
+            if (paginatedMoveMetaCategorySummaryList.CountOption.IsSet && paginatedMoveMetaCategorySummaryList.Count == null)
+                throw new JsonException("Cannot write null property PaginatedMoveMetaCategorySummaryList.Count to non-nullable JSON property 'count'.");
+
             if (paginatedMoveMetaCategorySummaryList.NextOption.IsSet && paginatedMoveMetaCategorySummaryList.Next == null)
-                throw new ArgumentNullException(nameof(paginatedMoveMetaCategorySummaryList.Next), "Property is required for class PaginatedMoveMetaCategorySummaryList.");
+                throw new JsonException("Cannot write null property PaginatedMoveMetaCategorySummaryList.Next to non-nullable JSON property 'next'.");
 
             if (paginatedMoveMetaCategorySummaryList.PreviousOption.IsSet && paginatedMoveMetaCategorySummaryList.Previous == null)
-                throw new ArgumentNullException(nameof(paginatedMoveMetaCategorySummaryList.Previous), "Property is required for class PaginatedMoveMetaCategorySummaryList.");
+                throw new JsonException("Cannot write null property PaginatedMoveMetaCategorySummaryList.Previous to non-nullable JSON property 'previous'.");
 
             if (paginatedMoveMetaCategorySummaryList.ResultsOption.IsSet && paginatedMoveMetaCategorySummaryList.Results == null)
-                throw new ArgumentNullException(nameof(paginatedMoveMetaCategorySummaryList.Results), "Property is required for class PaginatedMoveMetaCategorySummaryList.");
+                throw new JsonException("Cannot write null property PaginatedMoveMetaCategorySummaryList.Results to non-nullable JSON property 'results'.");
 
             if (paginatedMoveMetaCategorySummaryList.CountOption.IsSet)
                 writer.WriteNumber("count", paginatedMoveMetaCategorySummaryList.CountOption.Value!.Value);

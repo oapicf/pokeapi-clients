@@ -16,7 +16,7 @@ Method | HTTP request | Description
 
 # **generationList**
 ```swift
-    open class func generationList(limit: Int? = nil, offset: Int? = nil, q: String? = nil, completion: @escaping (_ data: PaginatedGenerationSummaryList?, _ error: Error?) -> Void)
+    open class func generationList(limit: Int? = nil, offset: Int? = nil, q: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> PaginatedGenerationSummaryList
 ```
 
 List genrations
@@ -33,15 +33,11 @@ let offset = 987 // Int | The initial index from which to return the results. (o
 let q = "q_example" // String | > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property.  (optional)
 
 // List genrations
-GamesAPI.generationList(limit: limit, offset: offset, q: q) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await GamesAPI.generationList(limit: limit, offset: offset, q: q)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -70,7 +66,7 @@ Name | Type | Description  | Notes
 
 # **generationRetrieve**
 ```swift
-    open class func generationRetrieve(id: String, completion: @escaping (_ data: GenerationDetail?, _ error: Error?) -> Void)
+    open class func generationRetrieve(id: String, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> GenerationDetail
 ```
 
 Get genration
@@ -85,15 +81,11 @@ import OpenAPIClient
 let id = "id_example" // String | This parameter can be a string or an integer.
 
 // Get genration
-GamesAPI.generationRetrieve(id: id) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await GamesAPI.generationRetrieve(id: id)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -120,7 +112,7 @@ Name | Type | Description  | Notes
 
 # **pokedexList**
 ```swift
-    open class func pokedexList(limit: Int? = nil, offset: Int? = nil, q: String? = nil, completion: @escaping (_ data: PaginatedPokedexSummaryList?, _ error: Error?) -> Void)
+    open class func pokedexList(limit: Int? = nil, offset: Int? = nil, q: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> PaginatedPokedexSummaryList
 ```
 
 List pokedex
@@ -137,15 +129,11 @@ let offset = 987 // Int | The initial index from which to return the results. (o
 let q = "q_example" // String | > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property.  (optional)
 
 // List pokedex
-GamesAPI.pokedexList(limit: limit, offset: offset, q: q) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await GamesAPI.pokedexList(limit: limit, offset: offset, q: q)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -174,7 +162,7 @@ Name | Type | Description  | Notes
 
 # **pokedexRetrieve**
 ```swift
-    open class func pokedexRetrieve(id: String, completion: @escaping (_ data: PokedexDetail?, _ error: Error?) -> Void)
+    open class func pokedexRetrieve(id: String, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> PokedexDetail
 ```
 
 Get pokedex
@@ -189,15 +177,11 @@ import OpenAPIClient
 let id = "id_example" // String | This parameter can be a string or an integer.
 
 // Get pokedex
-GamesAPI.pokedexRetrieve(id: id) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await GamesAPI.pokedexRetrieve(id: id)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -224,7 +208,7 @@ Name | Type | Description  | Notes
 
 # **versionGroupList**
 ```swift
-    open class func versionGroupList(limit: Int? = nil, offset: Int? = nil, q: String? = nil, completion: @escaping (_ data: PaginatedVersionGroupSummaryList?, _ error: Error?) -> Void)
+    open class func versionGroupList(limit: Int? = nil, offset: Int? = nil, q: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> PaginatedVersionGroupSummaryList
 ```
 
 List version groups
@@ -241,15 +225,11 @@ let offset = 987 // Int | The initial index from which to return the results. (o
 let q = "q_example" // String | > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property.  (optional)
 
 // List version groups
-GamesAPI.versionGroupList(limit: limit, offset: offset, q: q) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await GamesAPI.versionGroupList(limit: limit, offset: offset, q: q)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -278,7 +258,7 @@ Name | Type | Description  | Notes
 
 # **versionGroupRetrieve**
 ```swift
-    open class func versionGroupRetrieve(id: String, completion: @escaping (_ data: VersionGroupDetail?, _ error: Error?) -> Void)
+    open class func versionGroupRetrieve(id: String, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> VersionGroupDetail
 ```
 
 Get version group
@@ -293,15 +273,11 @@ import OpenAPIClient
 let id = "id_example" // String | This parameter can be a string or an integer.
 
 // Get version group
-GamesAPI.versionGroupRetrieve(id: id) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await GamesAPI.versionGroupRetrieve(id: id)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -328,7 +304,7 @@ Name | Type | Description  | Notes
 
 # **versionList**
 ```swift
-    open class func versionList(limit: Int? = nil, offset: Int? = nil, q: String? = nil, completion: @escaping (_ data: PaginatedVersionSummaryList?, _ error: Error?) -> Void)
+    open class func versionList(limit: Int? = nil, offset: Int? = nil, q: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> PaginatedVersionSummaryList
 ```
 
 List versions
@@ -345,15 +321,11 @@ let offset = 987 // Int | The initial index from which to return the results. (o
 let q = "q_example" // String | > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property.  (optional)
 
 // List versions
-GamesAPI.versionList(limit: limit, offset: offset, q: q) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await GamesAPI.versionList(limit: limit, offset: offset, q: q)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -382,7 +354,7 @@ Name | Type | Description  | Notes
 
 # **versionRetrieve**
 ```swift
-    open class func versionRetrieve(id: String, completion: @escaping (_ data: VersionDetail?, _ error: Error?) -> Void)
+    open class func versionRetrieve(id: String, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> VersionDetail
 ```
 
 Get version
@@ -397,15 +369,11 @@ import OpenAPIClient
 let id = "id_example" // String | This parameter can be a string or an integer.
 
 // Get version
-GamesAPI.versionRetrieve(id: id) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await GamesAPI.versionRetrieve(id: id)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 

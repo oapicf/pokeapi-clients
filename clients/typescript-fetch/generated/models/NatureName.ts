@@ -29,14 +29,10 @@ import {
 export interface NatureName {
     /**
      * 
-     * @type {string}
-     * @memberof NatureName
      */
     name: string;
     /**
      * 
-     * @type {LanguageSummary}
-     * @memberof NatureName
      */
     language: LanguageSummary;
 }

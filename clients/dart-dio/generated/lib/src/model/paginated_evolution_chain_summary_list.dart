@@ -166,3 +166,4 @@ class _$PaginatedEvolutionChainSummaryListSerializer implements PrimitiveSeriali
   }
 }
 
+

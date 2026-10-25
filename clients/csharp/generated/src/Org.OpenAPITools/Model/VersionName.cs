@@ -152,16 +152,16 @@ namespace Org.OpenAPITools.Model
             }
 
             if (!name.IsSet)
-                throw new ArgumentException("Property is required for class VersionName.", nameof(name));
+                throw new JsonException("Property is required for class VersionName: name.");
 
             if (!language.IsSet)
-                throw new ArgumentException("Property is required for class VersionName.", nameof(language));
+                throw new JsonException("Property is required for class VersionName: language.");
 
             if (name.IsSet && name.Value == null)
-                throw new ArgumentNullException(nameof(name), "Property is not nullable for class VersionName.");
+                throw new JsonException("Property is not nullable for class VersionName: name.");
 
             if (language.IsSet && language.Value == null)
-                throw new ArgumentNullException(nameof(language), "Property is not nullable for class VersionName.");
+                throw new JsonException("Property is not nullable for class VersionName: language.");
 
             return new VersionName(name.Value!, language.Value!);
         }
@@ -172,7 +172,6 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="versionName"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public override void Write(Utf8JsonWriter writer, VersionName versionName, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteStartObject();
@@ -187,15 +186,8 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="versionName"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, VersionName versionName, JsonSerializerOptions jsonSerializerOptions)
         {
-            if (versionName.Name == null)
-                throw new ArgumentNullException(nameof(versionName.Name), "Property is required for class VersionName.");
-
-            if (versionName.Language == null)
-                throw new ArgumentNullException(nameof(versionName.Language), "Property is required for class VersionName.");
-
             writer.WriteString("name", versionName.Name);
 
             writer.WritePropertyName("language");

@@ -27,27 +27,27 @@ import io.swagger.v3.oas.annotations.media.Schema
 data class ItemAttributeDetail(
 
     @Schema(required = true, readOnly = true, description = "")
-    @param:JsonProperty("id")
+    @param:JsonProperty("id", required = true)
     @get:JsonProperty("id", required = true) val id: kotlin.Int,
 
     @get:Size(max=100)
     @Schema(required = true, description = "")
-    @param:JsonProperty("name")
+    @param:JsonProperty("name", required = true)
     @get:JsonProperty("name", required = true) val name: kotlin.String,
 
     @field:Valid
     @Schema(required = true, readOnly = true, description = "")
-    @param:JsonProperty("descriptions")
+    @param:JsonProperty("descriptions", required = true)
     @get:JsonProperty("descriptions", required = true) val descriptions: kotlin.collections.List<ItemAttributeDescription>,
 
     @field:Valid
     @Schema(required = true, readOnly = true, description = "")
-    @param:JsonProperty("items")
+    @param:JsonProperty("items", required = true)
     @get:JsonProperty("items", required = true) val items: kotlin.collections.List<AbilityDetailPokemonInnerPokemon>,
 
     @field:Valid
     @Schema(required = true, readOnly = true, description = "")
-    @param:JsonProperty("names")
+    @param:JsonProperty("names", required = true)
     @get:JsonProperty("names", required = true) val names: kotlin.collections.List<ItemAttributeName>
 ) {
 

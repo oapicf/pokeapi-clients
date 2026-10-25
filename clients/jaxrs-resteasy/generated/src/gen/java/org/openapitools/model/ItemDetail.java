@@ -25,7 +25,7 @@ import javax.validation.constraints.*;
 import javax.validation.Valid;
 import io.swagger.annotations.*;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaResteasyServerCodegen", date = "2026-08-30T01:56:35.721624822Z[Etc/UTC]", comments = "Generator version: 7.24.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaResteasyServerCodegen", date = "2026-10-25T05:48:49.952264473Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 public class ItemDetail   {
   
   private Integer id;
@@ -114,7 +114,6 @@ public class ItemDetail   {
   @ApiModelProperty(required = true, value = "")
   @JsonProperty("attributes")
   @NotNull
-  @Valid
   public List<@Valid AbilityDetailPokemonInnerPokemon> getAttributes() {
     return attributes;
   }
@@ -142,7 +141,6 @@ public class ItemDetail   {
   @ApiModelProperty(required = true, value = "")
   @JsonProperty("effect_entries")
   @NotNull
-  @Valid
   public List<@Valid ItemEffectText> getEffectEntries() {
     return effectEntries;
   }
@@ -156,7 +154,6 @@ public class ItemDetail   {
   @ApiModelProperty(required = true, value = "")
   @JsonProperty("flavor_text_entries")
   @NotNull
-  @Valid
   public List<@Valid ItemFlavorText> getFlavorTextEntries() {
     return flavorTextEntries;
   }
@@ -170,7 +167,6 @@ public class ItemDetail   {
   @ApiModelProperty(required = true, value = "")
   @JsonProperty("game_indices")
   @NotNull
-  @Valid
   public List<@Valid ItemGameIndex> getGameIndices() {
     return gameIndices;
   }
@@ -184,7 +180,6 @@ public class ItemDetail   {
   @ApiModelProperty(required = true, value = "")
   @JsonProperty("names")
   @NotNull
-  @Valid
   public List<@Valid ItemName> getNames() {
     return names;
   }
@@ -198,7 +193,6 @@ public class ItemDetail   {
   @ApiModelProperty(required = true, value = "")
   @JsonProperty("held_by_pokemon")
   @NotNull
-  @Valid
   public List<@Valid ItemDetailHeldByPokemonInner> getHeldByPokemon() {
     return heldByPokemon;
   }
@@ -240,7 +234,6 @@ public class ItemDetail   {
   @ApiModelProperty(required = true, value = "")
   @JsonProperty("machines")
   @NotNull
-  @Valid
   public List<@Valid ItemDetailMachinesInner> getMachines() {
     return machines;
   }

@@ -166,3 +166,4 @@ class _$PaginatedMoveLearnMethodSummaryListSerializer implements PrimitiveSerial
   }
 }
 
+

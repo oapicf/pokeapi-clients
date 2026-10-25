@@ -121,3 +121,4 @@ class _$ItemGameIndexSerializer implements PrimitiveSerializer<ItemGameIndex> {
   }
 }
 
+

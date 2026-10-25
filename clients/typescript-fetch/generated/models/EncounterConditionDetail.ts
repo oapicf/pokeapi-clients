@@ -36,26 +36,18 @@ import {
 export interface EncounterConditionDetail {
     /**
      * 
-     * @type {number}
-     * @memberof EncounterConditionDetail
      */
     readonly id: number;
     /**
      * 
-     * @type {string}
-     * @memberof EncounterConditionDetail
      */
     name: string;
     /**
      * 
-     * @type {Array<EncounterConditionValueSummary>}
-     * @memberof EncounterConditionDetail
      */
     readonly values: Array<EncounterConditionValueSummary>;
     /**
      * 
-     * @type {Array<EncounterConditionName>}
-     * @memberof EncounterConditionDetail
      */
     readonly names: Array<EncounterConditionName>;
 }

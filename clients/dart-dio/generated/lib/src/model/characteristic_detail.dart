@@ -171,3 +171,4 @@ class _$CharacteristicDetailSerializer implements PrimitiveSerializer<Characteri
   }
 }
 
+

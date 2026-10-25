@@ -152,16 +152,16 @@ namespace Org.OpenAPITools.Model
             }
 
             if (!name.IsSet)
-                throw new ArgumentException("Property is required for class BerrySummary.", nameof(name));
+                throw new JsonException("Property is required for class BerrySummary: name.");
 
             if (!url.IsSet)
-                throw new ArgumentException("Property is required for class BerrySummary.", nameof(url));
+                throw new JsonException("Property is required for class BerrySummary: url.");
 
             if (name.IsSet && name.Value == null)
-                throw new ArgumentNullException(nameof(name), "Property is not nullable for class BerrySummary.");
+                throw new JsonException("Property is not nullable for class BerrySummary: name.");
 
             if (url.IsSet && url.Value == null)
-                throw new ArgumentNullException(nameof(url), "Property is not nullable for class BerrySummary.");
+                throw new JsonException("Property is not nullable for class BerrySummary: url.");
 
             return new BerrySummary(name.Value!, url.Value!);
         }
@@ -172,7 +172,6 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="berrySummary"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public override void Write(Utf8JsonWriter writer, BerrySummary berrySummary, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteStartObject();
@@ -187,15 +186,8 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="berrySummary"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, BerrySummary berrySummary, JsonSerializerOptions jsonSerializerOptions)
         {
-            if (berrySummary.Name == null)
-                throw new ArgumentNullException(nameof(berrySummary.Name), "Property is required for class BerrySummary.");
-
-            if (berrySummary.Url == null)
-                throw new ArgumentNullException(nameof(berrySummary.Url), "Property is required for class BerrySummary.");
-
             writer.WriteString("name", berrySummary.Name);
 
             writer.WriteString("url", berrySummary.Url);

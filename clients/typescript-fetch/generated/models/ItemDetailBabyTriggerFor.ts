@@ -21,8 +21,6 @@ import { mapValues } from '../runtime';
 export interface ItemDetailBabyTriggerFor {
     /**
      * 
-     * @type {string}
-     * @memberof ItemDetailBabyTriggerFor
      */
     url: string;
 }

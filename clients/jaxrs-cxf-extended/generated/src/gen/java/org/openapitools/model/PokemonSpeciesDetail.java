@@ -70,11 +70,9 @@ public class PokemonSpeciesDetail  {
   private GrowthRateSummary growthRate;
 
   @ApiModelProperty(required = true, value = "")
-  @Valid
   private List<@Valid PokemonDexEntry> pokedexNumbers = new ArrayList<>();
 
   @ApiModelProperty(required = true, value = "")
-  @Valid
   private List<@Valid AbilityDetailPokemonInnerPokemon> eggGroups = new ArrayList<>();
 
   @ApiModelProperty(required = true, value = "")
@@ -102,27 +100,21 @@ public class PokemonSpeciesDetail  {
   private GenerationSummary generation;
 
   @ApiModelProperty(required = true, value = "")
-  @Valid
   private List<@Valid PokemonFormDetailFormNamesInner> names = new ArrayList<>();
 
   @ApiModelProperty(required = true, value = "")
-  @Valid
   private List<@Valid PokemonSpeciesDetailPalParkEncountersInner> palParkEncounters = new ArrayList<>();
 
   @ApiModelProperty(required = true, value = "")
-  @Valid
   private List<@Valid PokemonSpeciesDescription> formDescriptions = new ArrayList<>();
 
   @ApiModelProperty(required = true, value = "")
-  @Valid
   private List<@Valid PokemonSpeciesFlavorText> flavorTextEntries = new ArrayList<>();
 
   @ApiModelProperty(required = true, value = "")
-  @Valid
   private List<@Valid PokemonSpeciesDetailGeneraInner> genera = new ArrayList<>();
 
   @ApiModelProperty(required = true, value = "")
-  @Valid
   private List<@Valid PokemonSpeciesDetailVarietiesInner> varieties = new ArrayList<>();
  /**
   * Get id

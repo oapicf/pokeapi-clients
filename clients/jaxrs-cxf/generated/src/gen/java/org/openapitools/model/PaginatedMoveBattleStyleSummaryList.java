@@ -29,8 +29,6 @@ public class PaginatedMoveBattleStyleSummaryList  {
 
   @ApiModelProperty(value = "")
 
-  @Valid
-
   private List<@Valid MoveBattleStyleSummary> results = new ArrayList<>();
  /**
    * Get count

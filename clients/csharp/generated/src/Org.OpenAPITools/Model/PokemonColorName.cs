@@ -152,16 +152,16 @@ namespace Org.OpenAPITools.Model
             }
 
             if (!name.IsSet)
-                throw new ArgumentException("Property is required for class PokemonColorName.", nameof(name));
+                throw new JsonException("Property is required for class PokemonColorName: name.");
 
             if (!language.IsSet)
-                throw new ArgumentException("Property is required for class PokemonColorName.", nameof(language));
+                throw new JsonException("Property is required for class PokemonColorName: language.");
 
             if (name.IsSet && name.Value == null)
-                throw new ArgumentNullException(nameof(name), "Property is not nullable for class PokemonColorName.");
+                throw new JsonException("Property is not nullable for class PokemonColorName: name.");
 
             if (language.IsSet && language.Value == null)
-                throw new ArgumentNullException(nameof(language), "Property is not nullable for class PokemonColorName.");
+                throw new JsonException("Property is not nullable for class PokemonColorName: language.");
 
             return new PokemonColorName(name.Value!, language.Value!);
         }
@@ -172,7 +172,6 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="pokemonColorName"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public override void Write(Utf8JsonWriter writer, PokemonColorName pokemonColorName, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteStartObject();
@@ -187,15 +186,8 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="pokemonColorName"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, PokemonColorName pokemonColorName, JsonSerializerOptions jsonSerializerOptions)
         {
-            if (pokemonColorName.Name == null)
-                throw new ArgumentNullException(nameof(pokemonColorName.Name), "Property is required for class PokemonColorName.");
-
-            if (pokemonColorName.Language == null)
-                throw new ArgumentNullException(nameof(pokemonColorName.Language), "Property is required for class PokemonColorName.");
-
             writer.WriteString("name", pokemonColorName.Name);
 
             writer.WritePropertyName("language");

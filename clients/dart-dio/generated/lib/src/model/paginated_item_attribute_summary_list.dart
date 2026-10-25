@@ -166,3 +166,4 @@ class _$PaginatedItemAttributeSummaryListSerializer implements PrimitiveSerializ
   }
 }
 
+

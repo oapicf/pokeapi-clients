@@ -17,7 +17,7 @@ import MoveDamageClassSummary from './MoveDamageClassSummary';
 /**
  * The PaginatedMoveDamageClassSummaryList model module.
  * @module model/PaginatedMoveDamageClassSummaryList
- * @version 2.0.1-pre.0
+ * @version 2.1.1-pre.0
  */
 class PaginatedMoveDamageClassSummaryList {
     /**

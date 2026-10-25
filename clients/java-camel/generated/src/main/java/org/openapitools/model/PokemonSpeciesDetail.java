@@ -2,7 +2,6 @@ package org.openapitools.model;
 
 import java.net.URI;
 import java.util.Objects;
-import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import java.util.ArrayList;
@@ -39,7 +38,7 @@ import jakarta.annotation.Generated;
  * PokemonSpeciesDetail
  */
 
-@Generated(value = "org.openapitools.codegen.languages.JavaCamelServerCodegen", date = "2026-08-30T01:56:15.309401083Z[Etc/UTC]", comments = "Generator version: 7.24.0")
+@Generated(value = "org.openapitools.codegen.languages.JavaCamelServerCodegen", date = "2026-10-25T05:48:25.711080506Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 public class PokemonSpeciesDetail {
 
   private Integer id;
@@ -68,10 +67,8 @@ public class PokemonSpeciesDetail {
 
   private GrowthRateSummary growthRate;
 
-  @Valid
   private List<@Valid PokemonDexEntry> pokedexNumbers = new ArrayList<>();
 
-  @Valid
   private List<@Valid AbilityDetailPokemonInnerPokemon> eggGroups = new ArrayList<>();
 
   private PokemonColorSummary color;
@@ -86,22 +83,16 @@ public class PokemonSpeciesDetail {
 
   private GenerationSummary generation;
 
-  @Valid
   private List<@Valid PokemonFormDetailFormNamesInner> names = new ArrayList<>();
 
-  @Valid
   private List<@Valid PokemonSpeciesDetailPalParkEncountersInner> palParkEncounters = new ArrayList<>();
 
-  @Valid
   private List<@Valid PokemonSpeciesDescription> formDescriptions = new ArrayList<>();
 
-  @Valid
   private List<@Valid PokemonSpeciesFlavorText> flavorTextEntries = new ArrayList<>();
 
-  @Valid
   private List<@Valid PokemonSpeciesDetailGeneraInner> genera = new ArrayList<>();
 
-  @Valid
   private List<@Valid PokemonSpeciesDetailVarietiesInner> varieties = new ArrayList<>();
 
   public PokemonSpeciesDetail() {
@@ -408,7 +399,7 @@ public class PokemonSpeciesDetail {
    * Get pokedexNumbers
    * @return pokedexNumbers
    */
-  @Valid 
+  
   @Schema(name = "pokedex_numbers", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("pokedex_numbers")
   public List<@Valid PokemonDexEntry> getPokedexNumbers() {
@@ -436,7 +427,7 @@ public class PokemonSpeciesDetail {
    * Get eggGroups
    * @return eggGroups
    */
-  @Valid 
+  
   @Schema(name = "egg_groups", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("egg_groups")
   public List<@Valid AbilityDetailPokemonInnerPokemon> getEggGroups() {
@@ -584,7 +575,7 @@ public class PokemonSpeciesDetail {
    * Get names
    * @return names
    */
-  @Valid 
+  
   @Schema(name = "names", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("names")
   public List<@Valid PokemonFormDetailFormNamesInner> getNames() {
@@ -612,7 +603,7 @@ public class PokemonSpeciesDetail {
    * Get palParkEncounters
    * @return palParkEncounters
    */
-  @Valid 
+  
   @Schema(name = "pal_park_encounters", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("pal_park_encounters")
   public List<@Valid PokemonSpeciesDetailPalParkEncountersInner> getPalParkEncounters() {
@@ -640,7 +631,7 @@ public class PokemonSpeciesDetail {
    * Get formDescriptions
    * @return formDescriptions
    */
-  @Valid 
+  
   @Schema(name = "form_descriptions", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("form_descriptions")
   public List<@Valid PokemonSpeciesDescription> getFormDescriptions() {
@@ -668,7 +659,7 @@ public class PokemonSpeciesDetail {
    * Get flavorTextEntries
    * @return flavorTextEntries
    */
-  @Valid 
+  
   @Schema(name = "flavor_text_entries", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("flavor_text_entries")
   public List<@Valid PokemonSpeciesFlavorText> getFlavorTextEntries() {
@@ -696,7 +687,7 @@ public class PokemonSpeciesDetail {
    * Get genera
    * @return genera
    */
-  @Valid 
+  
   @Schema(name = "genera", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("genera")
   public List<@Valid PokemonSpeciesDetailGeneraInner> getGenera() {
@@ -724,7 +715,7 @@ public class PokemonSpeciesDetail {
    * Get varieties
    * @return varieties
    */
-  @Valid 
+  
   @Schema(name = "varieties", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("varieties")
   public List<@Valid PokemonSpeciesDetailVarietiesInner> getVarieties() {

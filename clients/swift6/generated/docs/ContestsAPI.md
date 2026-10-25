@@ -14,7 +14,7 @@ Method | HTTP request | Description
 
 # **contestEffectList**
 ```swift
-    open class func contestEffectList(limit: Int? = nil, offset: Int? = nil, q: String? = nil, completion: @escaping (_ data: PaginatedContestEffectSummaryList?, _ error: Error?) -> Void)
+    open class func contestEffectList(limit: Int? = nil, offset: Int? = nil, q: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> PaginatedContestEffectSummaryList
 ```
 
 List contest effects
@@ -31,15 +31,11 @@ let offset = 987 // Int | The initial index from which to return the results. (o
 let q = "q_example" // String | > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property.  (optional)
 
 // List contest effects
-ContestsAPI.contestEffectList(limit: limit, offset: offset, q: q) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ContestsAPI.contestEffectList(limit: limit, offset: offset, q: q)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -68,7 +64,7 @@ Name | Type | Description  | Notes
 
 # **contestEffectRetrieve**
 ```swift
-    open class func contestEffectRetrieve(id: String, completion: @escaping (_ data: ContestEffectDetail?, _ error: Error?) -> Void)
+    open class func contestEffectRetrieve(id: String, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> ContestEffectDetail
 ```
 
 Get contest effect
@@ -83,15 +79,11 @@ import OpenAPIClient
 let id = "id_example" // String | This parameter can be a string or an integer.
 
 // Get contest effect
-ContestsAPI.contestEffectRetrieve(id: id) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ContestsAPI.contestEffectRetrieve(id: id)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -118,7 +110,7 @@ Name | Type | Description  | Notes
 
 # **contestTypeList**
 ```swift
-    open class func contestTypeList(limit: Int? = nil, offset: Int? = nil, q: String? = nil, completion: @escaping (_ data: PaginatedContestTypeSummaryList?, _ error: Error?) -> Void)
+    open class func contestTypeList(limit: Int? = nil, offset: Int? = nil, q: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> PaginatedContestTypeSummaryList
 ```
 
 List contest types
@@ -135,15 +127,11 @@ let offset = 987 // Int | The initial index from which to return the results. (o
 let q = "q_example" // String | > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property.  (optional)
 
 // List contest types
-ContestsAPI.contestTypeList(limit: limit, offset: offset, q: q) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ContestsAPI.contestTypeList(limit: limit, offset: offset, q: q)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -172,7 +160,7 @@ Name | Type | Description  | Notes
 
 # **contestTypeRetrieve**
 ```swift
-    open class func contestTypeRetrieve(id: String, completion: @escaping (_ data: ContestTypeDetail?, _ error: Error?) -> Void)
+    open class func contestTypeRetrieve(id: String, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> ContestTypeDetail
 ```
 
 Get contest type
@@ -187,15 +175,11 @@ import OpenAPIClient
 let id = "id_example" // String | This parameter can be a string or an integer.
 
 // Get contest type
-ContestsAPI.contestTypeRetrieve(id: id) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ContestsAPI.contestTypeRetrieve(id: id)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -222,7 +206,7 @@ Name | Type | Description  | Notes
 
 # **superContestEffectList**
 ```swift
-    open class func superContestEffectList(limit: Int? = nil, offset: Int? = nil, q: String? = nil, completion: @escaping (_ data: PaginatedSuperContestEffectSummaryList?, _ error: Error?) -> Void)
+    open class func superContestEffectList(limit: Int? = nil, offset: Int? = nil, q: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> PaginatedSuperContestEffectSummaryList
 ```
 
 List super contest effects
@@ -239,15 +223,11 @@ let offset = 987 // Int | The initial index from which to return the results. (o
 let q = "q_example" // String | > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property.  (optional)
 
 // List super contest effects
-ContestsAPI.superContestEffectList(limit: limit, offset: offset, q: q) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ContestsAPI.superContestEffectList(limit: limit, offset: offset, q: q)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -276,7 +256,7 @@ Name | Type | Description  | Notes
 
 # **superContestEffectRetrieve**
 ```swift
-    open class func superContestEffectRetrieve(id: String, completion: @escaping (_ data: SuperContestEffectDetail?, _ error: Error?) -> Void)
+    open class func superContestEffectRetrieve(id: String, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> SuperContestEffectDetail
 ```
 
 Get super contest effect
@@ -291,15 +271,11 @@ import OpenAPIClient
 let id = "id_example" // String | This parameter can be a string or an integer.
 
 // Get super contest effect
-ContestsAPI.superContestEffectRetrieve(id: id) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ContestsAPI.superContestEffectRetrieve(id: id)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 

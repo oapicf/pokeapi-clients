@@ -22,12 +22,12 @@ import io.swagger.v3.oas.annotations.media.Schema
 data class PokemonShapeDetailAwesomeNamesInner(
 
     @Schema(required = true, description = "")
-    @param:JsonProperty("awesome_name")
+    @param:JsonProperty("awesome_name", required = true)
     @get:JsonProperty("awesome_name", required = true) val awesomeName: kotlin.String,
 
     @field:Valid
     @Schema(required = true, description = "")
-    @param:JsonProperty("language")
+    @param:JsonProperty("language", required = true)
     @get:JsonProperty("language", required = true) val language: AbilityDetailPokemonInnerPokemon
 ) {
 

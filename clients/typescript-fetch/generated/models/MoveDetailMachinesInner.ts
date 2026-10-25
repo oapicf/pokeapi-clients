@@ -36,14 +36,10 @@ import {
 export interface MoveDetailMachinesInner {
     /**
      * 
-     * @type {MoveDetailMachinesInnerMachine}
-     * @memberof MoveDetailMachinesInner
      */
     machine: MoveDetailMachinesInnerMachine;
     /**
      * 
-     * @type {AbilityDetailPokemonInnerPokemon}
-     * @memberof MoveDetailMachinesInner
      */
     versionGroup: AbilityDetailPokemonInnerPokemon;
 }

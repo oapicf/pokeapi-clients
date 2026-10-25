@@ -120,3 +120,4 @@ class _$MoveTargetSummarySerializer implements PrimitiveSerializer<MoveTargetSum
   }
 }
 
+

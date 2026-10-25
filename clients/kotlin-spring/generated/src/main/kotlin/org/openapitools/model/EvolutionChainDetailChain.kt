@@ -26,21 +26,21 @@ data class EvolutionChainDetailChain(
 
     @field:Valid
     @Schema(required = true, description = "")
-    @param:JsonProperty("evolution_details")
+    @param:JsonProperty("evolution_details", required = true)
     @get:JsonProperty("evolution_details", required = true) val evolutionDetails: kotlin.collections.List<kotlin.Any>,
 
     @field:Valid
     @Schema(required = true, description = "")
-    @param:JsonProperty("evolves_to")
+    @param:JsonProperty("evolves_to", required = true)
     @get:JsonProperty("evolves_to", required = true) val evolvesTo: kotlin.collections.List<EvolutionChainDetailChainEvolvesToInner>,
 
     @Schema(required = true, description = "")
-    @param:JsonProperty("is_baby")
+    @param:JsonProperty("is_baby", required = true)
     @get:JsonProperty("is_baby", required = true) val isBaby: kotlin.Boolean,
 
     @field:Valid
     @Schema(required = true, description = "")
-    @param:JsonProperty("species")
+    @param:JsonProperty("species", required = true)
     @get:JsonProperty("species", required = true) val species: AbilityDetailPokemonInnerPokemon
 ) {
 

@@ -29,14 +29,10 @@ import {
 export interface MoveLearnMethodName {
     /**
      * 
-     * @type {string}
-     * @memberof MoveLearnMethodName
      */
     name: string;
     /**
      * 
-     * @type {LanguageSummary}
-     * @memberof MoveLearnMethodName
      */
     language: LanguageSummary;
 }

@@ -22,12 +22,12 @@ import io.swagger.v3.oas.annotations.media.Schema
 data class NatureDetailPokeathlonStatChangesInner(
 
     @Schema(required = true, description = "")
-    @param:JsonProperty("max_change")
+    @param:JsonProperty("max_change", required = true)
     @get:JsonProperty("max_change", required = true) val maxChange: kotlin.Int,
 
     @field:Valid
     @Schema(required = true, description = "")
-    @param:JsonProperty("pokeathlon_stat")
+    @param:JsonProperty("pokeathlon_stat", required = true)
     @get:JsonProperty("pokeathlon_stat", required = true) val pokeathlonStat: AbilityDetailPokemonInnerPokemon
 ) {
 

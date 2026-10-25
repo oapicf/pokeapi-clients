@@ -120,3 +120,4 @@ class _$MoveMetaAilmentSummarySerializer implements PrimitiveSerializer<MoveMeta
   }
 }
 
+

@@ -203,16 +203,16 @@ namespace Org.OpenAPITools.Model
             }
 
             if (count.IsSet && count.Value == null)
-                throw new ArgumentNullException(nameof(count), "Property is not nullable for class PaginatedMoveDamageClassSummaryList.");
+                throw new JsonException("Property is not nullable for class PaginatedMoveDamageClassSummaryList: count.");
 
             if (next.IsSet && next.Value == null)
-                throw new ArgumentNullException(nameof(next), "Property is not nullable for class PaginatedMoveDamageClassSummaryList.");
+                throw new JsonException("Property is not nullable for class PaginatedMoveDamageClassSummaryList: next.");
 
             if (previous.IsSet && previous.Value == null)
-                throw new ArgumentNullException(nameof(previous), "Property is not nullable for class PaginatedMoveDamageClassSummaryList.");
+                throw new JsonException("Property is not nullable for class PaginatedMoveDamageClassSummaryList: previous.");
 
             if (results.IsSet && results.Value == null)
-                throw new ArgumentNullException(nameof(results), "Property is not nullable for class PaginatedMoveDamageClassSummaryList.");
+                throw new JsonException("Property is not nullable for class PaginatedMoveDamageClassSummaryList: results.");
 
             return new PaginatedMoveDamageClassSummaryList(count, next, previous, results);
         }
@@ -223,7 +223,6 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="paginatedMoveDamageClassSummaryList"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public override void Write(Utf8JsonWriter writer, PaginatedMoveDamageClassSummaryList paginatedMoveDamageClassSummaryList, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteStartObject();
@@ -238,17 +237,19 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="paginatedMoveDamageClassSummaryList"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, PaginatedMoveDamageClassSummaryList paginatedMoveDamageClassSummaryList, JsonSerializerOptions jsonSerializerOptions)
         {
+            if (paginatedMoveDamageClassSummaryList.CountOption.IsSet && paginatedMoveDamageClassSummaryList.Count == null)
+                throw new JsonException("Cannot write null property PaginatedMoveDamageClassSummaryList.Count to non-nullable JSON property 'count'.");
+
             if (paginatedMoveDamageClassSummaryList.NextOption.IsSet && paginatedMoveDamageClassSummaryList.Next == null)
-                throw new ArgumentNullException(nameof(paginatedMoveDamageClassSummaryList.Next), "Property is required for class PaginatedMoveDamageClassSummaryList.");
+                throw new JsonException("Cannot write null property PaginatedMoveDamageClassSummaryList.Next to non-nullable JSON property 'next'.");
 
             if (paginatedMoveDamageClassSummaryList.PreviousOption.IsSet && paginatedMoveDamageClassSummaryList.Previous == null)
-                throw new ArgumentNullException(nameof(paginatedMoveDamageClassSummaryList.Previous), "Property is required for class PaginatedMoveDamageClassSummaryList.");
+                throw new JsonException("Cannot write null property PaginatedMoveDamageClassSummaryList.Previous to non-nullable JSON property 'previous'.");
 
             if (paginatedMoveDamageClassSummaryList.ResultsOption.IsSet && paginatedMoveDamageClassSummaryList.Results == null)
-                throw new ArgumentNullException(nameof(paginatedMoveDamageClassSummaryList.Results), "Property is required for class PaginatedMoveDamageClassSummaryList.");
+                throw new JsonException("Cannot write null property PaginatedMoveDamageClassSummaryList.Results to non-nullable JSON property 'results'.");
 
             if (paginatedMoveDamageClassSummaryList.CountOption.IsSet)
                 writer.WriteNumber("count", paginatedMoveDamageClassSummaryList.CountOption.Value!.Value);

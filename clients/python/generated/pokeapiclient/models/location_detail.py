@@ -95,22 +95,19 @@ class LocationDetail(BaseModel):
         _items = []
         if self.names:
             for _item_names in self.names:
-                if _item_names:
-                    _items.append(_item_names.to_dict())
+                _items.append(_item_names.to_dict() if _item_names is not None else None)
             _dict['names'] = _items
         # override the default output from pydantic by calling `to_dict()` of each item in game_indices (list)
         _items = []
         if self.game_indices:
             for _item_game_indices in self.game_indices:
-                if _item_game_indices:
-                    _items.append(_item_game_indices.to_dict())
+                _items.append(_item_game_indices.to_dict() if _item_game_indices is not None else None)
             _dict['game_indices'] = _items
         # override the default output from pydantic by calling `to_dict()` of each item in areas (list)
         _items = []
         if self.areas:
             for _item_areas in self.areas:
-                if _item_areas:
-                    _items.append(_item_areas.to_dict())
+                _items.append(_item_areas.to_dict() if _item_areas is not None else None)
             _dict['areas'] = _items
         return _dict
 

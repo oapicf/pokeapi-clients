@@ -18,7 +18,7 @@ import PokemonDetailAbilitiesInner from './PokemonDetailAbilitiesInner';
 /**
  * The PokemonDetailPastAbilitiesInner model module.
  * @module model/PokemonDetailPastAbilitiesInner
- * @version 2.0.1-pre.0
+ * @version 2.1.1-pre.0
  */
 class PokemonDetailPastAbilitiesInner {
     /**

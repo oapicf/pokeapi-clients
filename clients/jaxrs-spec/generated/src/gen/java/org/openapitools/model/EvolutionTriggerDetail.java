@@ -21,12 +21,12 @@ import org.openapitools.jackson.nullable.JsonNullable;
 
 
 @JsonTypeName("EvolutionTriggerDetail")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2026-08-30T01:56:42.280002256Z[Etc/UTC]", comments = "Generator version: 7.24.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2026-10-25T05:48:57.630723375Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 public class EvolutionTriggerDetail   {
   private Integer id;
   private String name;
-  private @Valid List<@Valid EvolutionTriggerName> names = new ArrayList<>();
-  private @Valid List<@Valid AbilityDetailPokemonInnerPokemon> pokemonSpecies = new ArrayList<>();
+  private List<@Valid EvolutionTriggerName> names = new ArrayList<>();
+  private List<@Valid AbilityDetailPokemonInnerPokemon> pokemonSpecies = new ArrayList<>();
 
   public EvolutionTriggerDetail() {
   }
@@ -92,7 +92,7 @@ public class EvolutionTriggerDetail   {
   
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(required = true, value = "names")
-  @Valid public List<@Valid EvolutionTriggerName> getNames() {
+  public List<@Valid EvolutionTriggerName> getNames() {
     return names;
   }
 
@@ -127,7 +127,7 @@ public class EvolutionTriggerDetail   {
   
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(required = true, value = "pokemon_species")
-  @Valid public List<@Valid AbilityDetailPokemonInnerPokemon> getPokemonSpecies() {
+  public List<@Valid AbilityDetailPokemonInnerPokemon> getPokemonSpecies() {
     return pokemonSpecies;
   }
 

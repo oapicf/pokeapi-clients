@@ -206,3 +206,4 @@ class _$RegionDetailSerializer implements PrimitiveSerializer<RegionDetail> {
   }
 }
 
+

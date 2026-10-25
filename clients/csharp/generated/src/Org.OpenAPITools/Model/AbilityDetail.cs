@@ -250,55 +250,55 @@ namespace Org.OpenAPITools.Model
             }
 
             if (!id.IsSet)
-                throw new ArgumentException("Property is required for class AbilityDetail.", nameof(id));
+                throw new JsonException("Property is required for class AbilityDetail: id.");
 
             if (!name.IsSet)
-                throw new ArgumentException("Property is required for class AbilityDetail.", nameof(name));
+                throw new JsonException("Property is required for class AbilityDetail: name.");
 
             if (!generation.IsSet)
-                throw new ArgumentException("Property is required for class AbilityDetail.", nameof(generation));
+                throw new JsonException("Property is required for class AbilityDetail: generation.");
 
             if (!names.IsSet)
-                throw new ArgumentException("Property is required for class AbilityDetail.", nameof(names));
+                throw new JsonException("Property is required for class AbilityDetail: names.");
 
             if (!effectEntries.IsSet)
-                throw new ArgumentException("Property is required for class AbilityDetail.", nameof(effectEntries));
+                throw new JsonException("Property is required for class AbilityDetail: effect_entries.");
 
             if (!effectChanges.IsSet)
-                throw new ArgumentException("Property is required for class AbilityDetail.", nameof(effectChanges));
+                throw new JsonException("Property is required for class AbilityDetail: effect_changes.");
 
             if (!flavorTextEntries.IsSet)
-                throw new ArgumentException("Property is required for class AbilityDetail.", nameof(flavorTextEntries));
+                throw new JsonException("Property is required for class AbilityDetail: flavor_text_entries.");
 
             if (!pokemon.IsSet)
-                throw new ArgumentException("Property is required for class AbilityDetail.", nameof(pokemon));
+                throw new JsonException("Property is required for class AbilityDetail: pokemon.");
 
             if (id.IsSet && id.Value == null)
-                throw new ArgumentNullException(nameof(id), "Property is not nullable for class AbilityDetail.");
+                throw new JsonException("Property is not nullable for class AbilityDetail: id.");
 
             if (name.IsSet && name.Value == null)
-                throw new ArgumentNullException(nameof(name), "Property is not nullable for class AbilityDetail.");
+                throw new JsonException("Property is not nullable for class AbilityDetail: name.");
 
             if (generation.IsSet && generation.Value == null)
-                throw new ArgumentNullException(nameof(generation), "Property is not nullable for class AbilityDetail.");
+                throw new JsonException("Property is not nullable for class AbilityDetail: generation.");
 
             if (names.IsSet && names.Value == null)
-                throw new ArgumentNullException(nameof(names), "Property is not nullable for class AbilityDetail.");
+                throw new JsonException("Property is not nullable for class AbilityDetail: names.");
 
             if (effectEntries.IsSet && effectEntries.Value == null)
-                throw new ArgumentNullException(nameof(effectEntries), "Property is not nullable for class AbilityDetail.");
+                throw new JsonException("Property is not nullable for class AbilityDetail: effect_entries.");
 
             if (effectChanges.IsSet && effectChanges.Value == null)
-                throw new ArgumentNullException(nameof(effectChanges), "Property is not nullable for class AbilityDetail.");
+                throw new JsonException("Property is not nullable for class AbilityDetail: effect_changes.");
 
             if (flavorTextEntries.IsSet && flavorTextEntries.Value == null)
-                throw new ArgumentNullException(nameof(flavorTextEntries), "Property is not nullable for class AbilityDetail.");
+                throw new JsonException("Property is not nullable for class AbilityDetail: flavor_text_entries.");
 
             if (pokemon.IsSet && pokemon.Value == null)
-                throw new ArgumentNullException(nameof(pokemon), "Property is not nullable for class AbilityDetail.");
+                throw new JsonException("Property is not nullable for class AbilityDetail: pokemon.");
 
             if (isMainSeries.IsSet && isMainSeries.Value == null)
-                throw new ArgumentNullException(nameof(isMainSeries), "Property is not nullable for class AbilityDetail.");
+                throw new JsonException("Property is not nullable for class AbilityDetail: is_main_series.");
 
             return new AbilityDetail(id.Value!.Value!, name.Value!, generation.Value!, names.Value!, effectEntries.Value!, effectChanges.Value!, flavorTextEntries.Value!, pokemon.Value!, isMainSeries);
         }
@@ -309,7 +309,6 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="abilityDetail"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public override void Write(Utf8JsonWriter writer, AbilityDetail abilityDetail, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteStartObject();
@@ -324,29 +323,10 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="abilityDetail"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, AbilityDetail abilityDetail, JsonSerializerOptions jsonSerializerOptions)
         {
-            if (abilityDetail.Name == null)
-                throw new ArgumentNullException(nameof(abilityDetail.Name), "Property is required for class AbilityDetail.");
-
-            if (abilityDetail.Generation == null)
-                throw new ArgumentNullException(nameof(abilityDetail.Generation), "Property is required for class AbilityDetail.");
-
-            if (abilityDetail.Names == null)
-                throw new ArgumentNullException(nameof(abilityDetail.Names), "Property is required for class AbilityDetail.");
-
-            if (abilityDetail.EffectEntries == null)
-                throw new ArgumentNullException(nameof(abilityDetail.EffectEntries), "Property is required for class AbilityDetail.");
-
-            if (abilityDetail.EffectChanges == null)
-                throw new ArgumentNullException(nameof(abilityDetail.EffectChanges), "Property is required for class AbilityDetail.");
-
-            if (abilityDetail.FlavorTextEntries == null)
-                throw new ArgumentNullException(nameof(abilityDetail.FlavorTextEntries), "Property is required for class AbilityDetail.");
-
-            if (abilityDetail.Pokemon == null)
-                throw new ArgumentNullException(nameof(abilityDetail.Pokemon), "Property is required for class AbilityDetail.");
+            if (abilityDetail.IsMainSeriesOption.IsSet && abilityDetail.IsMainSeries == null)
+                throw new JsonException("Cannot write null property AbilityDetail.IsMainSeries to non-nullable JSON property 'is_main_series'.");
 
             writer.WriteNumber("id", abilityDetail.Id);
 

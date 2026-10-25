@@ -159,22 +159,22 @@ namespace Org.OpenAPITools.Model
             }
 
             if (!id.IsSet)
-                throw new ArgumentException("Property is required for class EvolutionChainDetail.", nameof(id));
+                throw new JsonException("Property is required for class EvolutionChainDetail: id.");
 
             if (!babyTriggerItem.IsSet)
-                throw new ArgumentException("Property is required for class EvolutionChainDetail.", nameof(babyTriggerItem));
+                throw new JsonException("Property is required for class EvolutionChainDetail: baby_trigger_item.");
 
             if (!chain.IsSet)
-                throw new ArgumentException("Property is required for class EvolutionChainDetail.", nameof(chain));
+                throw new JsonException("Property is required for class EvolutionChainDetail: chain.");
 
             if (id.IsSet && id.Value == null)
-                throw new ArgumentNullException(nameof(id), "Property is not nullable for class EvolutionChainDetail.");
+                throw new JsonException("Property is not nullable for class EvolutionChainDetail: id.");
 
             if (babyTriggerItem.IsSet && babyTriggerItem.Value == null)
-                throw new ArgumentNullException(nameof(babyTriggerItem), "Property is not nullable for class EvolutionChainDetail.");
+                throw new JsonException("Property is not nullable for class EvolutionChainDetail: baby_trigger_item.");
 
             if (chain.IsSet && chain.Value == null)
-                throw new ArgumentNullException(nameof(chain), "Property is not nullable for class EvolutionChainDetail.");
+                throw new JsonException("Property is not nullable for class EvolutionChainDetail: chain.");
 
             return new EvolutionChainDetail(id.Value!.Value!, babyTriggerItem.Value!, chain.Value!);
         }
@@ -185,7 +185,6 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="evolutionChainDetail"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public override void Write(Utf8JsonWriter writer, EvolutionChainDetail evolutionChainDetail, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteStartObject();
@@ -200,15 +199,8 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="evolutionChainDetail"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, EvolutionChainDetail evolutionChainDetail, JsonSerializerOptions jsonSerializerOptions)
         {
-            if (evolutionChainDetail.BabyTriggerItem == null)
-                throw new ArgumentNullException(nameof(evolutionChainDetail.BabyTriggerItem), "Property is required for class EvolutionChainDetail.");
-
-            if (evolutionChainDetail.Chain == null)
-                throw new ArgumentNullException(nameof(evolutionChainDetail.Chain), "Property is required for class EvolutionChainDetail.");
-
             writer.WriteNumber("id", evolutionChainDetail.Id);
 
             writer.WritePropertyName("baby_trigger_item");

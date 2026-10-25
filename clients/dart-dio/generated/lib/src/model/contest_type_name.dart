@@ -137,3 +137,4 @@ class _$ContestTypeNameSerializer implements PrimitiveSerializer<ContestTypeName
   }
 }
 
+

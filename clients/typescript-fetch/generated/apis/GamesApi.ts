@@ -55,42 +55,94 @@ import {
 } from '../models/VersionGroupDetail';
 
 export interface GenerationListRequest {
+    /**
+     * Number of results to return per page.
+     */
     limit?: number;
+    /**
+     * The initial index from which to return the results.
+     */
     offset?: number;
+    /**
+     * > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2)
+     * Case-insensitive query applied on the `name` property. 
+     */
     q?: string;
 }
 
 export interface GenerationRetrieveRequest {
+    /**
+     * This parameter can be a string or an integer.
+     */
     id: string;
 }
 
 export interface PokedexListRequest {
+    /**
+     * Number of results to return per page.
+     */
     limit?: number;
+    /**
+     * The initial index from which to return the results.
+     */
     offset?: number;
+    /**
+     * > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2)
+     * Case-insensitive query applied on the `name` property. 
+     */
     q?: string;
 }
 
 export interface PokedexRetrieveRequest {
+    /**
+     * This parameter can be a string or an integer.
+     */
     id: string;
 }
 
 export interface VersionGroupListRequest {
+    /**
+     * Number of results to return per page.
+     */
     limit?: number;
+    /**
+     * The initial index from which to return the results.
+     */
     offset?: number;
+    /**
+     * > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2)
+     * Case-insensitive query applied on the `name` property. 
+     */
     q?: string;
 }
 
 export interface VersionGroupRetrieveRequest {
+    /**
+     * This parameter can be a string or an integer.
+     */
     id: string;
 }
 
 export interface VersionListRequest {
+    /**
+     * Number of results to return per page.
+     */
     limit?: number;
+    /**
+     * The initial index from which to return the results.
+     */
     offset?: number;
+    /**
+     * > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2)
+     * Case-insensitive query applied on the `name` property. 
+     */
     q?: string;
 }
 
 export interface VersionRetrieveRequest {
+    /**
+     * This parameter can be a string or an integer.
+     */
     id: string;
 }
 

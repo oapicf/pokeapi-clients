@@ -237,49 +237,49 @@ namespace Org.OpenAPITools.Model
             }
 
             if (!id.IsSet)
-                throw new ArgumentException("Property is required for class PokedexDetail.", nameof(id));
+                throw new JsonException("Property is required for class PokedexDetail: id.");
 
             if (!name.IsSet)
-                throw new ArgumentException("Property is required for class PokedexDetail.", nameof(name));
+                throw new JsonException("Property is required for class PokedexDetail: name.");
 
             if (!descriptions.IsSet)
-                throw new ArgumentException("Property is required for class PokedexDetail.", nameof(descriptions));
+                throw new JsonException("Property is required for class PokedexDetail: descriptions.");
 
             if (!names.IsSet)
-                throw new ArgumentException("Property is required for class PokedexDetail.", nameof(names));
+                throw new JsonException("Property is required for class PokedexDetail: names.");
 
             if (!pokemonEntries.IsSet)
-                throw new ArgumentException("Property is required for class PokedexDetail.", nameof(pokemonEntries));
+                throw new JsonException("Property is required for class PokedexDetail: pokemon_entries.");
 
             if (!region.IsSet)
-                throw new ArgumentException("Property is required for class PokedexDetail.", nameof(region));
+                throw new JsonException("Property is required for class PokedexDetail: region.");
 
             if (!versionGroups.IsSet)
-                throw new ArgumentException("Property is required for class PokedexDetail.", nameof(versionGroups));
+                throw new JsonException("Property is required for class PokedexDetail: version_groups.");
 
             if (id.IsSet && id.Value == null)
-                throw new ArgumentNullException(nameof(id), "Property is not nullable for class PokedexDetail.");
+                throw new JsonException("Property is not nullable for class PokedexDetail: id.");
 
             if (name.IsSet && name.Value == null)
-                throw new ArgumentNullException(nameof(name), "Property is not nullable for class PokedexDetail.");
+                throw new JsonException("Property is not nullable for class PokedexDetail: name.");
 
             if (descriptions.IsSet && descriptions.Value == null)
-                throw new ArgumentNullException(nameof(descriptions), "Property is not nullable for class PokedexDetail.");
+                throw new JsonException("Property is not nullable for class PokedexDetail: descriptions.");
 
             if (names.IsSet && names.Value == null)
-                throw new ArgumentNullException(nameof(names), "Property is not nullable for class PokedexDetail.");
+                throw new JsonException("Property is not nullable for class PokedexDetail: names.");
 
             if (pokemonEntries.IsSet && pokemonEntries.Value == null)
-                throw new ArgumentNullException(nameof(pokemonEntries), "Property is not nullable for class PokedexDetail.");
+                throw new JsonException("Property is not nullable for class PokedexDetail: pokemon_entries.");
 
             if (region.IsSet && region.Value == null)
-                throw new ArgumentNullException(nameof(region), "Property is not nullable for class PokedexDetail.");
+                throw new JsonException("Property is not nullable for class PokedexDetail: region.");
 
             if (versionGroups.IsSet && versionGroups.Value == null)
-                throw new ArgumentNullException(nameof(versionGroups), "Property is not nullable for class PokedexDetail.");
+                throw new JsonException("Property is not nullable for class PokedexDetail: version_groups.");
 
             if (isMainSeries.IsSet && isMainSeries.Value == null)
-                throw new ArgumentNullException(nameof(isMainSeries), "Property is not nullable for class PokedexDetail.");
+                throw new JsonException("Property is not nullable for class PokedexDetail: is_main_series.");
 
             return new PokedexDetail(id.Value!.Value!, name.Value!, descriptions.Value!, names.Value!, pokemonEntries.Value!, region.Value!, versionGroups.Value!, isMainSeries);
         }
@@ -290,7 +290,6 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="pokedexDetail"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public override void Write(Utf8JsonWriter writer, PokedexDetail pokedexDetail, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteStartObject();
@@ -305,26 +304,10 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="pokedexDetail"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, PokedexDetail pokedexDetail, JsonSerializerOptions jsonSerializerOptions)
         {
-            if (pokedexDetail.Name == null)
-                throw new ArgumentNullException(nameof(pokedexDetail.Name), "Property is required for class PokedexDetail.");
-
-            if (pokedexDetail.Descriptions == null)
-                throw new ArgumentNullException(nameof(pokedexDetail.Descriptions), "Property is required for class PokedexDetail.");
-
-            if (pokedexDetail.Names == null)
-                throw new ArgumentNullException(nameof(pokedexDetail.Names), "Property is required for class PokedexDetail.");
-
-            if (pokedexDetail.PokemonEntries == null)
-                throw new ArgumentNullException(nameof(pokedexDetail.PokemonEntries), "Property is required for class PokedexDetail.");
-
-            if (pokedexDetail.Region == null)
-                throw new ArgumentNullException(nameof(pokedexDetail.Region), "Property is required for class PokedexDetail.");
-
-            if (pokedexDetail.VersionGroups == null)
-                throw new ArgumentNullException(nameof(pokedexDetail.VersionGroups), "Property is required for class PokedexDetail.");
+            if (pokedexDetail.IsMainSeriesOption.IsSet && pokedexDetail.IsMainSeries == null)
+                throw new JsonException("Cannot write null property PokedexDetail.IsMainSeries to non-nullable JSON property 'is_main_series'.");
 
             writer.WriteNumber("id", pokedexDetail.Id);
 

@@ -53,7 +53,7 @@ import javax.validation.Valid;
   TypeDetail.JSON_PROPERTY_MOVES,
   TypeDetail.JSON_PROPERTY_SPRITES
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJerseyServerCodegen", date = "2026-08-30T01:56:28.710233113Z[Etc/UTC]", comments = "Generator version: 7.24.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJerseyServerCodegen", date = "2026-10-25T05:48:41.923212007Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 public class TypeDetail   {
   public static final String JSON_PROPERTY_ID = "id";
   @JsonProperty(JSON_PROPERTY_ID)
@@ -97,7 +97,7 @@ public class TypeDetail   {
 
   public static final String JSON_PROPERTY_SPRITES = "sprites";
   @JsonProperty(JSON_PROPERTY_SPRITES)
-  private Map<String, Map<String, TypeDetailSpritesValueValue>> sprites = new HashMap<>();
+  private Map<String, Map<String, @Valid TypeDetailSpritesValueValue>> sprites = new HashMap<>();
 
   public TypeDetail id(Integer id) {
     this.id = id;
@@ -178,7 +178,7 @@ public class TypeDetail   {
    **/
   @JsonProperty(value = "past_damage_relations", access = JsonProperty.Access.READ_ONLY)
   @ApiModelProperty(required = true, value = "")
-  @Valid 
+  
   public List<@Valid TypeDetailPastDamageRelationsInner> getPastDamageRelations() {
     return pastDamageRelations;
   }
@@ -206,7 +206,7 @@ public class TypeDetail   {
    **/
   @JsonProperty(value = "game_indices", access = JsonProperty.Access.READ_ONLY)
   @ApiModelProperty(required = true, value = "")
-  @Valid 
+  
   public List<@Valid TypeGameIndex> getGameIndices() {
     return gameIndices;
   }
@@ -274,7 +274,7 @@ public class TypeDetail   {
    **/
   @JsonProperty(value = "names", access = JsonProperty.Access.READ_ONLY)
   @ApiModelProperty(required = true, value = "")
-  @Valid 
+  
   public List<@Valid AbilityName> getNames() {
     return names;
   }
@@ -302,7 +302,7 @@ public class TypeDetail   {
    **/
   @JsonProperty(value = "pokemon", access = JsonProperty.Access.READ_ONLY)
   @ApiModelProperty(required = true, value = "")
-  @Valid 
+  
   public List<@Valid TypeDetailPokemonInner> getPokemon() {
     return pokemon;
   }
@@ -330,7 +330,7 @@ public class TypeDetail   {
    **/
   @JsonProperty(value = "moves", access = JsonProperty.Access.READ_ONLY)
   @ApiModelProperty(required = true, value = "")
-  @Valid 
+  
   public List<@Valid MoveSummary> getMoves() {
     return moves;
   }
@@ -339,12 +339,12 @@ public class TypeDetail   {
     this.moves = moves;
   }
 
-  public TypeDetail sprites(Map<String, Map<String, TypeDetailSpritesValueValue>> sprites) {
+  public TypeDetail sprites(Map<String, Map<String, @Valid TypeDetailSpritesValueValue>> sprites) {
     this.sprites = sprites;
     return this;
   }
 
-  public TypeDetail putSpritesItem(String key, Map<String, TypeDetailSpritesValueValue> spritesItem) {
+  public TypeDetail putSpritesItem(String key, Map<String, @Valid TypeDetailSpritesValueValue> spritesItem) {
     if (this.sprites == null) {
       this.sprites = new HashMap<>();
     }
@@ -358,12 +358,12 @@ public class TypeDetail   {
    **/
   @JsonProperty(value = "sprites", access = JsonProperty.Access.READ_ONLY)
   @ApiModelProperty(required = true, value = "")
-  @Valid 
-  public Map<String, Map<String, TypeDetailSpritesValueValue>> getSprites() {
+  
+  public Map<String, Map<String, @Valid TypeDetailSpritesValueValue>> getSprites() {
     return sprites;
   }
 
-  public void setSprites(Map<String, Map<String, TypeDetailSpritesValueValue>> sprites) {
+  public void setSprites(Map<String, Map<String, @Valid TypeDetailSpritesValueValue>> sprites) {
     this.sprites = sprites;
   }
 

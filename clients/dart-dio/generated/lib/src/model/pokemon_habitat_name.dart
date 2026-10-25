@@ -121,3 +121,4 @@ class _$PokemonHabitatNameSerializer implements PrimitiveSerializer<PokemonHabit
   }
 }
 
+

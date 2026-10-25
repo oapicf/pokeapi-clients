@@ -24,17 +24,17 @@ data class ContestTypeName(
 
     @get:Size(max=100)
     @Schema(required = true, description = "")
-    @param:JsonProperty("name")
+    @param:JsonProperty("name", required = true)
     @get:JsonProperty("name", required = true) val name: kotlin.String,
 
     @get:Size(max=10)
     @Schema(required = true, description = "")
-    @param:JsonProperty("color")
+    @param:JsonProperty("color", required = true)
     @get:JsonProperty("color", required = true) val color: kotlin.String,
 
     @field:Valid
     @Schema(required = true, description = "")
-    @param:JsonProperty("language")
+    @param:JsonProperty("language", required = true)
     @get:JsonProperty("language", required = true) val language: LanguageSummary
 ) {
 

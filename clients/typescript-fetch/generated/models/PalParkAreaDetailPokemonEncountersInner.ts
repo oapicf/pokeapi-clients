@@ -29,20 +29,14 @@ import {
 export interface PalParkAreaDetailPokemonEncountersInner {
     /**
      * 
-     * @type {number}
-     * @memberof PalParkAreaDetailPokemonEncountersInner
      */
     baseScore: number;
     /**
      * 
-     * @type {AbilityDetailPokemonInnerPokemon}
-     * @memberof PalParkAreaDetailPokemonEncountersInner
      */
     pokemonSpecies: AbilityDetailPokemonInnerPokemon;
     /**
      * 
-     * @type {number}
-     * @memberof PalParkAreaDetailPokemonEncountersInner
      */
     rate: number;
 }

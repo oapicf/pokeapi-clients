@@ -178,28 +178,28 @@ namespace Org.OpenAPITools.Model
             }
 
             if (!id.IsSet)
-                throw new ArgumentException("Property is required for class EncounterConditionValueDetail.", nameof(id));
+                throw new JsonException("Property is required for class EncounterConditionValueDetail: id.");
 
             if (!name.IsSet)
-                throw new ArgumentException("Property is required for class EncounterConditionValueDetail.", nameof(name));
+                throw new JsonException("Property is required for class EncounterConditionValueDetail: name.");
 
             if (!condition.IsSet)
-                throw new ArgumentException("Property is required for class EncounterConditionValueDetail.", nameof(condition));
+                throw new JsonException("Property is required for class EncounterConditionValueDetail: condition.");
 
             if (!names.IsSet)
-                throw new ArgumentException("Property is required for class EncounterConditionValueDetail.", nameof(names));
+                throw new JsonException("Property is required for class EncounterConditionValueDetail: names.");
 
             if (id.IsSet && id.Value == null)
-                throw new ArgumentNullException(nameof(id), "Property is not nullable for class EncounterConditionValueDetail.");
+                throw new JsonException("Property is not nullable for class EncounterConditionValueDetail: id.");
 
             if (name.IsSet && name.Value == null)
-                throw new ArgumentNullException(nameof(name), "Property is not nullable for class EncounterConditionValueDetail.");
+                throw new JsonException("Property is not nullable for class EncounterConditionValueDetail: name.");
 
             if (condition.IsSet && condition.Value == null)
-                throw new ArgumentNullException(nameof(condition), "Property is not nullable for class EncounterConditionValueDetail.");
+                throw new JsonException("Property is not nullable for class EncounterConditionValueDetail: condition.");
 
             if (names.IsSet && names.Value == null)
-                throw new ArgumentNullException(nameof(names), "Property is not nullable for class EncounterConditionValueDetail.");
+                throw new JsonException("Property is not nullable for class EncounterConditionValueDetail: names.");
 
             return new EncounterConditionValueDetail(id.Value!.Value!, name.Value!, condition.Value!, names.Value!);
         }
@@ -210,7 +210,6 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="encounterConditionValueDetail"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public override void Write(Utf8JsonWriter writer, EncounterConditionValueDetail encounterConditionValueDetail, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteStartObject();
@@ -225,18 +224,8 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="encounterConditionValueDetail"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, EncounterConditionValueDetail encounterConditionValueDetail, JsonSerializerOptions jsonSerializerOptions)
         {
-            if (encounterConditionValueDetail.Name == null)
-                throw new ArgumentNullException(nameof(encounterConditionValueDetail.Name), "Property is required for class EncounterConditionValueDetail.");
-
-            if (encounterConditionValueDetail.Condition == null)
-                throw new ArgumentNullException(nameof(encounterConditionValueDetail.Condition), "Property is required for class EncounterConditionValueDetail.");
-
-            if (encounterConditionValueDetail.Names == null)
-                throw new ArgumentNullException(nameof(encounterConditionValueDetail.Names), "Property is required for class EncounterConditionValueDetail.");
-
             writer.WriteNumber("id", encounterConditionValueDetail.Id);
 
             writer.WriteString("name", encounterConditionValueDetail.Name);

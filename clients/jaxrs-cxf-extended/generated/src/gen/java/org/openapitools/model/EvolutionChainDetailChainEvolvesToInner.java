@@ -17,7 +17,6 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class EvolutionChainDetailChainEvolvesToInner  {
   
   @ApiModelProperty(required = true, value = "")
-  @Valid
   private List<@Valid EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner> evolutionDetails = new ArrayList<>();
 
   @ApiModelProperty(required = true, value = "")

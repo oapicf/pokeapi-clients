@@ -159,13 +159,13 @@ namespace Org.OpenAPITools.Model
             }
 
             if (!language.IsSet)
-                throw new ArgumentException("Property is required for class PokedexDescription.", nameof(language));
+                throw new JsonException("Property is required for class PokedexDescription: language.");
 
             if (language.IsSet && language.Value == null)
-                throw new ArgumentNullException(nameof(language), "Property is not nullable for class PokedexDescription.");
+                throw new JsonException("Property is not nullable for class PokedexDescription: language.");
 
             if (description.IsSet && description.Value == null)
-                throw new ArgumentNullException(nameof(description), "Property is not nullable for class PokedexDescription.");
+                throw new JsonException("Property is not nullable for class PokedexDescription: description.");
 
             return new PokedexDescription(language.Value!, description);
         }
@@ -176,7 +176,6 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="pokedexDescription"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public override void Write(Utf8JsonWriter writer, PokedexDescription pokedexDescription, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteStartObject();
@@ -191,14 +190,10 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="pokedexDescription"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, PokedexDescription pokedexDescription, JsonSerializerOptions jsonSerializerOptions)
         {
-            if (pokedexDescription.Language == null)
-                throw new ArgumentNullException(nameof(pokedexDescription.Language), "Property is required for class PokedexDescription.");
-
             if (pokedexDescription.DescriptionOption.IsSet && pokedexDescription.Description == null)
-                throw new ArgumentNullException(nameof(pokedexDescription.Description), "Property is required for class PokedexDescription.");
+                throw new JsonException("Cannot write null property PokedexDescription.Description to non-nullable JSON property 'description'.");
 
             writer.WritePropertyName("language");
             JsonSerializer.Serialize(writer, pokedexDescription.Language, jsonSerializerOptions);

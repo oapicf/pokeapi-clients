@@ -155,3 +155,4 @@ class _$SuperContestEffectDetailSerializer implements PrimitiveSerializer<SuperC
   }
 }
 
+

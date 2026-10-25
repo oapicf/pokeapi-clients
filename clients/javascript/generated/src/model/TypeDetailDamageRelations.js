@@ -17,7 +17,7 @@ import AbilityDetailPokemonInnerPokemon from './AbilityDetailPokemonInnerPokemon
 /**
  * The TypeDetailDamageRelations model module.
  * @module model/TypeDetailDamageRelations
- * @version 2.0.1-pre.0
+ * @version 2.1.1-pre.0
  */
 class TypeDetailDamageRelations {
     /**

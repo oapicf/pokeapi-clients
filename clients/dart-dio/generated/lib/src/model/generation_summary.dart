@@ -120,3 +120,4 @@ class _$GenerationSummarySerializer implements PrimitiveSerializer<GenerationSum
   }
 }
 
+

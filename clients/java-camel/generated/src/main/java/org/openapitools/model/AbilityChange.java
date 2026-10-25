@@ -23,12 +23,11 @@ import jakarta.annotation.Generated;
  * AbilityChange
  */
 
-@Generated(value = "org.openapitools.codegen.languages.JavaCamelServerCodegen", date = "2026-08-30T01:56:15.309401083Z[Etc/UTC]", comments = "Generator version: 7.24.0")
+@Generated(value = "org.openapitools.codegen.languages.JavaCamelServerCodegen", date = "2026-10-25T05:48:25.711080506Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 public class AbilityChange {
 
   private VersionGroupSummary versionGroup;
 
-  @Valid
   private List<@Valid AbilityChangeEffectText> effectEntries = new ArrayList<>();
 
   public AbilityChange() {
@@ -80,7 +79,7 @@ public class AbilityChange {
    * Get effectEntries
    * @return effectEntries
    */
-  @Valid 
+  
   @Schema(name = "effect_entries", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("effect_entries")
   public List<@Valid AbilityChangeEffectText> getEffectEntries() {

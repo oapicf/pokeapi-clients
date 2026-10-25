@@ -124,3 +124,4 @@ class _$MoveMetaCategoryDescriptionSerializer implements PrimitiveSerializer<Mov
   }
 }
 
+

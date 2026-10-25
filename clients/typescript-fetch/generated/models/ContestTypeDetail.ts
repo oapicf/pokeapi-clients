@@ -36,26 +36,18 @@ import {
 export interface ContestTypeDetail {
     /**
      * 
-     * @type {number}
-     * @memberof ContestTypeDetail
      */
     readonly id: number;
     /**
      * 
-     * @type {string}
-     * @memberof ContestTypeDetail
      */
     name: string;
     /**
      * 
-     * @type {BerryFlavorSummary}
-     * @memberof ContestTypeDetail
      */
     readonly berryFlavor: BerryFlavorSummary;
     /**
      * 
-     * @type {Array<ContestTypeName>}
-     * @memberof ContestTypeDetail
      */
     readonly names: Array<ContestTypeName>;
 }

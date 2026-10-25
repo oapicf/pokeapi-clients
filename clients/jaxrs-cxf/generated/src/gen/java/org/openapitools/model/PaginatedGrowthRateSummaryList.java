@@ -29,8 +29,6 @@ public class PaginatedGrowthRateSummaryList  {
 
   @ApiModelProperty(value = "")
 
-  @Valid
-
   private List<@Valid GrowthRateSummary> results = new ArrayList<>();
  /**
    * Get count

@@ -203,16 +203,16 @@ namespace Org.OpenAPITools.Model
             }
 
             if (count.IsSet && count.Value == null)
-                throw new ArgumentNullException(nameof(count), "Property is not nullable for class PaginatedItemCategorySummaryList.");
+                throw new JsonException("Property is not nullable for class PaginatedItemCategorySummaryList: count.");
 
             if (next.IsSet && next.Value == null)
-                throw new ArgumentNullException(nameof(next), "Property is not nullable for class PaginatedItemCategorySummaryList.");
+                throw new JsonException("Property is not nullable for class PaginatedItemCategorySummaryList: next.");
 
             if (previous.IsSet && previous.Value == null)
-                throw new ArgumentNullException(nameof(previous), "Property is not nullable for class PaginatedItemCategorySummaryList.");
+                throw new JsonException("Property is not nullable for class PaginatedItemCategorySummaryList: previous.");
 
             if (results.IsSet && results.Value == null)
-                throw new ArgumentNullException(nameof(results), "Property is not nullable for class PaginatedItemCategorySummaryList.");
+                throw new JsonException("Property is not nullable for class PaginatedItemCategorySummaryList: results.");
 
             return new PaginatedItemCategorySummaryList(count, next, previous, results);
         }
@@ -223,7 +223,6 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="paginatedItemCategorySummaryList"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public override void Write(Utf8JsonWriter writer, PaginatedItemCategorySummaryList paginatedItemCategorySummaryList, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteStartObject();
@@ -238,17 +237,19 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="paginatedItemCategorySummaryList"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, PaginatedItemCategorySummaryList paginatedItemCategorySummaryList, JsonSerializerOptions jsonSerializerOptions)
         {
+            if (paginatedItemCategorySummaryList.CountOption.IsSet && paginatedItemCategorySummaryList.Count == null)
+                throw new JsonException("Cannot write null property PaginatedItemCategorySummaryList.Count to non-nullable JSON property 'count'.");
+
             if (paginatedItemCategorySummaryList.NextOption.IsSet && paginatedItemCategorySummaryList.Next == null)
-                throw new ArgumentNullException(nameof(paginatedItemCategorySummaryList.Next), "Property is required for class PaginatedItemCategorySummaryList.");
+                throw new JsonException("Cannot write null property PaginatedItemCategorySummaryList.Next to non-nullable JSON property 'next'.");
 
             if (paginatedItemCategorySummaryList.PreviousOption.IsSet && paginatedItemCategorySummaryList.Previous == null)
-                throw new ArgumentNullException(nameof(paginatedItemCategorySummaryList.Previous), "Property is required for class PaginatedItemCategorySummaryList.");
+                throw new JsonException("Cannot write null property PaginatedItemCategorySummaryList.Previous to non-nullable JSON property 'previous'.");
 
             if (paginatedItemCategorySummaryList.ResultsOption.IsSet && paginatedItemCategorySummaryList.Results == null)
-                throw new ArgumentNullException(nameof(paginatedItemCategorySummaryList.Results), "Property is required for class PaginatedItemCategorySummaryList.");
+                throw new JsonException("Cannot write null property PaginatedItemCategorySummaryList.Results to non-nullable JSON property 'results'.");
 
             if (paginatedItemCategorySummaryList.CountOption.IsSet)
                 writer.WriteNumber("count", paginatedItemCategorySummaryList.CountOption.Value!.Value);

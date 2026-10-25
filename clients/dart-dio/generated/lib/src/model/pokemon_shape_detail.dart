@@ -172,3 +172,4 @@ class _$PokemonShapeDetailSerializer implements PrimitiveSerializer<PokemonShape
   }
 }
 
+

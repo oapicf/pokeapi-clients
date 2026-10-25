@@ -28,32 +28,32 @@ import io.swagger.v3.oas.annotations.media.Schema
 data class GrowthRateDetail(
 
     @Schema(required = true, readOnly = true, description = "")
-    @param:JsonProperty("id")
+    @param:JsonProperty("id", required = true)
     @get:JsonProperty("id", required = true) val id: kotlin.Int,
 
     @get:Size(max=100)
     @Schema(required = true, description = "")
-    @param:JsonProperty("name")
+    @param:JsonProperty("name", required = true)
     @get:JsonProperty("name", required = true) val name: kotlin.String,
 
     @get:Size(max=500)
     @Schema(required = true, description = "")
-    @param:JsonProperty("formula")
+    @param:JsonProperty("formula", required = true)
     @get:JsonProperty("formula", required = true) val formula: kotlin.String,
 
     @field:Valid
     @Schema(required = true, readOnly = true, description = "")
-    @param:JsonProperty("descriptions")
+    @param:JsonProperty("descriptions", required = true)
     @get:JsonProperty("descriptions", required = true) val descriptions: kotlin.collections.List<GrowthRateDescription>,
 
     @field:Valid
     @Schema(required = true, readOnly = true, description = "")
-    @param:JsonProperty("levels")
+    @param:JsonProperty("levels", required = true)
     @get:JsonProperty("levels", required = true) val levels: kotlin.collections.List<Experience>,
 
     @field:Valid
     @Schema(required = true, readOnly = true, description = "")
-    @param:JsonProperty("pokemon_species")
+    @param:JsonProperty("pokemon_species", required = true)
     @get:JsonProperty("pokemon_species", required = true) val pokemonSpecies: kotlin.collections.List<PokemonSpeciesSummary>
 ) {
 

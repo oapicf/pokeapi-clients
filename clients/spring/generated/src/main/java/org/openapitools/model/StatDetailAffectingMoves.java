@@ -25,7 +25,7 @@ import jakarta.annotation.Generated;
  */
 
 @JsonTypeName("StatDetail_affecting_moves")
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2026-08-30T02:00:43.960184425Z[Etc/UTC]", comments = "Generator version: 7.24.0")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2026-10-25T05:53:37.479908528Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 public class StatDetailAffectingMoves {
 
   private List<@Valid StatDetailAffectingMovesIncreaseInner> increase = new ArrayList<>();
@@ -61,7 +61,7 @@ public class StatDetailAffectingMoves {
    * Get increase
    * @return increase
    */
-  @NotNull @Valid 
+  @NotNull 
   @Schema(name = "increase", requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("increase")
   public List<@Valid StatDetailAffectingMovesIncreaseInner> getIncrease() {
@@ -90,7 +90,7 @@ public class StatDetailAffectingMoves {
    * Get decrease
    * @return decrease
    */
-  @NotNull @Valid 
+  @NotNull 
   @Schema(name = "decrease", requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("decrease")
   public List<@Valid StatDetailAffectingMovesIncreaseInner> getDecrease() {

@@ -64,56 +64,38 @@ import {
 export interface AbilityDetail {
     /**
      * 
-     * @type {number}
-     * @memberof AbilityDetail
      */
     readonly id: number;
     /**
      * 
-     * @type {string}
-     * @memberof AbilityDetail
      */
     name: string;
     /**
      * 
-     * @type {boolean}
-     * @memberof AbilityDetail
      */
     isMainSeries?: boolean;
     /**
      * 
-     * @type {GenerationSummary}
-     * @memberof AbilityDetail
      */
     generation: GenerationSummary;
     /**
      * 
-     * @type {Array<AbilityName>}
-     * @memberof AbilityDetail
      */
     readonly names: Array<AbilityName>;
     /**
      * 
-     * @type {Array<AbilityEffectText>}
-     * @memberof AbilityDetail
      */
     readonly effectEntries: Array<AbilityEffectText>;
     /**
      * 
-     * @type {Array<AbilityChange>}
-     * @memberof AbilityDetail
      */
     readonly effectChanges: Array<AbilityChange>;
     /**
      * 
-     * @type {Array<AbilityFlavorText>}
-     * @memberof AbilityDetail
      */
     readonly flavorTextEntries: Array<AbilityFlavorText>;
     /**
      * 
-     * @type {Array<AbilityDetailPokemonInner>}
-     * @memberof AbilityDetail
      */
     readonly pokemon: Array<AbilityDetailPokemonInner>;
 }

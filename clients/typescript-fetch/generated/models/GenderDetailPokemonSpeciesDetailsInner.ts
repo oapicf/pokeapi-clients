@@ -29,14 +29,10 @@ import {
 export interface GenderDetailPokemonSpeciesDetailsInner {
     /**
      * 
-     * @type {number}
-     * @memberof GenderDetailPokemonSpeciesDetailsInner
      */
     rate: number;
     /**
      * 
-     * @type {AbilityDetailPokemonInnerPokemon}
-     * @memberof GenderDetailPokemonSpeciesDetailsInner
      */
     pokemonSpecies: AbilityDetailPokemonInnerPokemon;
 }

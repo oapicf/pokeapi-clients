@@ -335,82 +335,82 @@ namespace Org.OpenAPITools.Model
             }
 
             if (!id.IsSet)
-                throw new ArgumentException("Property is required for class ItemDetail.", nameof(id));
+                throw new JsonException("Property is required for class ItemDetail: id.");
 
             if (!name.IsSet)
-                throw new ArgumentException("Property is required for class ItemDetail.", nameof(name));
+                throw new JsonException("Property is required for class ItemDetail: name.");
 
             if (!flingEffect.IsSet)
-                throw new ArgumentException("Property is required for class ItemDetail.", nameof(flingEffect));
+                throw new JsonException("Property is required for class ItemDetail: fling_effect.");
 
             if (!attributes.IsSet)
-                throw new ArgumentException("Property is required for class ItemDetail.", nameof(attributes));
+                throw new JsonException("Property is required for class ItemDetail: attributes.");
 
             if (!category.IsSet)
-                throw new ArgumentException("Property is required for class ItemDetail.", nameof(category));
+                throw new JsonException("Property is required for class ItemDetail: category.");
 
             if (!effectEntries.IsSet)
-                throw new ArgumentException("Property is required for class ItemDetail.", nameof(effectEntries));
+                throw new JsonException("Property is required for class ItemDetail: effect_entries.");
 
             if (!flavorTextEntries.IsSet)
-                throw new ArgumentException("Property is required for class ItemDetail.", nameof(flavorTextEntries));
+                throw new JsonException("Property is required for class ItemDetail: flavor_text_entries.");
 
             if (!gameIndices.IsSet)
-                throw new ArgumentException("Property is required for class ItemDetail.", nameof(gameIndices));
+                throw new JsonException("Property is required for class ItemDetail: game_indices.");
 
             if (!names.IsSet)
-                throw new ArgumentException("Property is required for class ItemDetail.", nameof(names));
+                throw new JsonException("Property is required for class ItemDetail: names.");
 
             if (!heldByPokemon.IsSet)
-                throw new ArgumentException("Property is required for class ItemDetail.", nameof(heldByPokemon));
+                throw new JsonException("Property is required for class ItemDetail: held_by_pokemon.");
 
             if (!sprites.IsSet)
-                throw new ArgumentException("Property is required for class ItemDetail.", nameof(sprites));
+                throw new JsonException("Property is required for class ItemDetail: sprites.");
 
             if (!babyTriggerFor.IsSet)
-                throw new ArgumentException("Property is required for class ItemDetail.", nameof(babyTriggerFor));
+                throw new JsonException("Property is required for class ItemDetail: baby_trigger_for.");
 
             if (!machines.IsSet)
-                throw new ArgumentException("Property is required for class ItemDetail.", nameof(machines));
+                throw new JsonException("Property is required for class ItemDetail: machines.");
 
             if (id.IsSet && id.Value == null)
-                throw new ArgumentNullException(nameof(id), "Property is not nullable for class ItemDetail.");
+                throw new JsonException("Property is not nullable for class ItemDetail: id.");
 
             if (name.IsSet && name.Value == null)
-                throw new ArgumentNullException(nameof(name), "Property is not nullable for class ItemDetail.");
+                throw new JsonException("Property is not nullable for class ItemDetail: name.");
 
             if (flingEffect.IsSet && flingEffect.Value == null)
-                throw new ArgumentNullException(nameof(flingEffect), "Property is not nullable for class ItemDetail.");
+                throw new JsonException("Property is not nullable for class ItemDetail: fling_effect.");
 
             if (attributes.IsSet && attributes.Value == null)
-                throw new ArgumentNullException(nameof(attributes), "Property is not nullable for class ItemDetail.");
+                throw new JsonException("Property is not nullable for class ItemDetail: attributes.");
 
             if (category.IsSet && category.Value == null)
-                throw new ArgumentNullException(nameof(category), "Property is not nullable for class ItemDetail.");
+                throw new JsonException("Property is not nullable for class ItemDetail: category.");
 
             if (effectEntries.IsSet && effectEntries.Value == null)
-                throw new ArgumentNullException(nameof(effectEntries), "Property is not nullable for class ItemDetail.");
+                throw new JsonException("Property is not nullable for class ItemDetail: effect_entries.");
 
             if (flavorTextEntries.IsSet && flavorTextEntries.Value == null)
-                throw new ArgumentNullException(nameof(flavorTextEntries), "Property is not nullable for class ItemDetail.");
+                throw new JsonException("Property is not nullable for class ItemDetail: flavor_text_entries.");
 
             if (gameIndices.IsSet && gameIndices.Value == null)
-                throw new ArgumentNullException(nameof(gameIndices), "Property is not nullable for class ItemDetail.");
+                throw new JsonException("Property is not nullable for class ItemDetail: game_indices.");
 
             if (names.IsSet && names.Value == null)
-                throw new ArgumentNullException(nameof(names), "Property is not nullable for class ItemDetail.");
+                throw new JsonException("Property is not nullable for class ItemDetail: names.");
 
             if (heldByPokemon.IsSet && heldByPokemon.Value == null)
-                throw new ArgumentNullException(nameof(heldByPokemon), "Property is not nullable for class ItemDetail.");
+                throw new JsonException("Property is not nullable for class ItemDetail: held_by_pokemon.");
 
             if (sprites.IsSet && sprites.Value == null)
-                throw new ArgumentNullException(nameof(sprites), "Property is not nullable for class ItemDetail.");
+                throw new JsonException("Property is not nullable for class ItemDetail: sprites.");
 
             if (babyTriggerFor.IsSet && babyTriggerFor.Value == null)
-                throw new ArgumentNullException(nameof(babyTriggerFor), "Property is not nullable for class ItemDetail.");
+                throw new JsonException("Property is not nullable for class ItemDetail: baby_trigger_for.");
 
             if (machines.IsSet && machines.Value == null)
-                throw new ArgumentNullException(nameof(machines), "Property is not nullable for class ItemDetail.");
+                throw new JsonException("Property is not nullable for class ItemDetail: machines.");
 
             return new ItemDetail(id.Value!.Value!, name.Value!, flingEffect.Value!, attributes.Value!, category.Value!, effectEntries.Value!, flavorTextEntries.Value!, gameIndices.Value!, names.Value!, heldByPokemon.Value!, sprites.Value!, babyTriggerFor.Value!, machines.Value!, cost, flingPower);
         }
@@ -421,7 +421,6 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="itemDetail"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public override void Write(Utf8JsonWriter writer, ItemDetail itemDetail, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteStartObject();
@@ -436,45 +435,8 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="itemDetail"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, ItemDetail itemDetail, JsonSerializerOptions jsonSerializerOptions)
         {
-            if (itemDetail.Name == null)
-                throw new ArgumentNullException(nameof(itemDetail.Name), "Property is required for class ItemDetail.");
-
-            if (itemDetail.FlingEffect == null)
-                throw new ArgumentNullException(nameof(itemDetail.FlingEffect), "Property is required for class ItemDetail.");
-
-            if (itemDetail.Attributes == null)
-                throw new ArgumentNullException(nameof(itemDetail.Attributes), "Property is required for class ItemDetail.");
-
-            if (itemDetail.Category == null)
-                throw new ArgumentNullException(nameof(itemDetail.Category), "Property is required for class ItemDetail.");
-
-            if (itemDetail.EffectEntries == null)
-                throw new ArgumentNullException(nameof(itemDetail.EffectEntries), "Property is required for class ItemDetail.");
-
-            if (itemDetail.FlavorTextEntries == null)
-                throw new ArgumentNullException(nameof(itemDetail.FlavorTextEntries), "Property is required for class ItemDetail.");
-
-            if (itemDetail.GameIndices == null)
-                throw new ArgumentNullException(nameof(itemDetail.GameIndices), "Property is required for class ItemDetail.");
-
-            if (itemDetail.Names == null)
-                throw new ArgumentNullException(nameof(itemDetail.Names), "Property is required for class ItemDetail.");
-
-            if (itemDetail.HeldByPokemon == null)
-                throw new ArgumentNullException(nameof(itemDetail.HeldByPokemon), "Property is required for class ItemDetail.");
-
-            if (itemDetail.Sprites == null)
-                throw new ArgumentNullException(nameof(itemDetail.Sprites), "Property is required for class ItemDetail.");
-
-            if (itemDetail.BabyTriggerFor == null)
-                throw new ArgumentNullException(nameof(itemDetail.BabyTriggerFor), "Property is required for class ItemDetail.");
-
-            if (itemDetail.Machines == null)
-                throw new ArgumentNullException(nameof(itemDetail.Machines), "Property is required for class ItemDetail.");
-
             writer.WriteNumber("id", itemDetail.Id);
 
             writer.WriteString("name", itemDetail.Name);

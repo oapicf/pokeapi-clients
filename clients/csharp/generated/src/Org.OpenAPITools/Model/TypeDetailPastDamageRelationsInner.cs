@@ -146,16 +146,16 @@ namespace Org.OpenAPITools.Model
             }
 
             if (!generation.IsSet)
-                throw new ArgumentException("Property is required for class TypeDetailPastDamageRelationsInner.", nameof(generation));
+                throw new JsonException("Property is required for class TypeDetailPastDamageRelationsInner: generation.");
 
             if (!damageRelations.IsSet)
-                throw new ArgumentException("Property is required for class TypeDetailPastDamageRelationsInner.", nameof(damageRelations));
+                throw new JsonException("Property is required for class TypeDetailPastDamageRelationsInner: damage_relations.");
 
             if (generation.IsSet && generation.Value == null)
-                throw new ArgumentNullException(nameof(generation), "Property is not nullable for class TypeDetailPastDamageRelationsInner.");
+                throw new JsonException("Property is not nullable for class TypeDetailPastDamageRelationsInner: generation.");
 
             if (damageRelations.IsSet && damageRelations.Value == null)
-                throw new ArgumentNullException(nameof(damageRelations), "Property is not nullable for class TypeDetailPastDamageRelationsInner.");
+                throw new JsonException("Property is not nullable for class TypeDetailPastDamageRelationsInner: damage_relations.");
 
             return new TypeDetailPastDamageRelationsInner(generation.Value!, damageRelations.Value!);
         }
@@ -166,7 +166,6 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="typeDetailPastDamageRelationsInner"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public override void Write(Utf8JsonWriter writer, TypeDetailPastDamageRelationsInner typeDetailPastDamageRelationsInner, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteStartObject();
@@ -181,15 +180,8 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="typeDetailPastDamageRelationsInner"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, TypeDetailPastDamageRelationsInner typeDetailPastDamageRelationsInner, JsonSerializerOptions jsonSerializerOptions)
         {
-            if (typeDetailPastDamageRelationsInner.Generation == null)
-                throw new ArgumentNullException(nameof(typeDetailPastDamageRelationsInner.Generation), "Property is required for class TypeDetailPastDamageRelationsInner.");
-
-            if (typeDetailPastDamageRelationsInner.DamageRelations == null)
-                throw new ArgumentNullException(nameof(typeDetailPastDamageRelationsInner.DamageRelations), "Property is required for class TypeDetailPastDamageRelationsInner.");
-
             writer.WritePropertyName("generation");
             JsonSerializer.Serialize(writer, typeDetailPastDamageRelationsInner.Generation, jsonSerializerOptions);
             writer.WritePropertyName("damage_relations");

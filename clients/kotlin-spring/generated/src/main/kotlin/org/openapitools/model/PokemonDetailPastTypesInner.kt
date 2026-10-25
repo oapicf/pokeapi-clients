@@ -24,12 +24,12 @@ data class PokemonDetailPastTypesInner(
 
     @field:Valid
     @Schema(required = true, description = "")
-    @param:JsonProperty("generation")
+    @param:JsonProperty("generation", required = true)
     @get:JsonProperty("generation", required = true) val generation: AbilityDetailPokemonInnerPokemon,
 
     @field:Valid
     @Schema(required = true, description = "")
-    @param:JsonProperty("types")
+    @param:JsonProperty("types", required = true)
     @get:JsonProperty("types", required = true) val types: kotlin.collections.List<PokemonDetailTypesInner>
 ) {
 

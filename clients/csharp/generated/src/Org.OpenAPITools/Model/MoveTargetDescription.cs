@@ -159,13 +159,13 @@ namespace Org.OpenAPITools.Model
             }
 
             if (!language.IsSet)
-                throw new ArgumentException("Property is required for class MoveTargetDescription.", nameof(language));
+                throw new JsonException("Property is required for class MoveTargetDescription: language.");
 
             if (language.IsSet && language.Value == null)
-                throw new ArgumentNullException(nameof(language), "Property is not nullable for class MoveTargetDescription.");
+                throw new JsonException("Property is not nullable for class MoveTargetDescription: language.");
 
             if (description.IsSet && description.Value == null)
-                throw new ArgumentNullException(nameof(description), "Property is not nullable for class MoveTargetDescription.");
+                throw new JsonException("Property is not nullable for class MoveTargetDescription: description.");
 
             return new MoveTargetDescription(language.Value!, description);
         }
@@ -176,7 +176,6 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="moveTargetDescription"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public override void Write(Utf8JsonWriter writer, MoveTargetDescription moveTargetDescription, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteStartObject();
@@ -191,14 +190,10 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="moveTargetDescription"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, MoveTargetDescription moveTargetDescription, JsonSerializerOptions jsonSerializerOptions)
         {
-            if (moveTargetDescription.Language == null)
-                throw new ArgumentNullException(nameof(moveTargetDescription.Language), "Property is required for class MoveTargetDescription.");
-
             if (moveTargetDescription.DescriptionOption.IsSet && moveTargetDescription.Description == null)
-                throw new ArgumentNullException(nameof(moveTargetDescription.Description), "Property is required for class MoveTargetDescription.");
+                throw new JsonException("Cannot write null property MoveTargetDescription.Description to non-nullable JSON property 'description'.");
 
             writer.WritePropertyName("language");
             JsonSerializer.Serialize(writer, moveTargetDescription.Language, jsonSerializerOptions);

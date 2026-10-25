@@ -146,16 +146,16 @@ namespace Org.OpenAPITools.Model
             }
 
             if (!potency.IsSet)
-                throw new ArgumentException("Property is required for class BerryFlavorDetailBerriesInner.", nameof(potency));
+                throw new JsonException("Property is required for class BerryFlavorDetailBerriesInner: potency.");
 
             if (!berry.IsSet)
-                throw new ArgumentException("Property is required for class BerryFlavorDetailBerriesInner.", nameof(berry));
+                throw new JsonException("Property is required for class BerryFlavorDetailBerriesInner: berry.");
 
             if (potency.IsSet && potency.Value == null)
-                throw new ArgumentNullException(nameof(potency), "Property is not nullable for class BerryFlavorDetailBerriesInner.");
+                throw new JsonException("Property is not nullable for class BerryFlavorDetailBerriesInner: potency.");
 
             if (berry.IsSet && berry.Value == null)
-                throw new ArgumentNullException(nameof(berry), "Property is not nullable for class BerryFlavorDetailBerriesInner.");
+                throw new JsonException("Property is not nullable for class BerryFlavorDetailBerriesInner: berry.");
 
             return new BerryFlavorDetailBerriesInner(potency.Value!.Value!, berry.Value!);
         }
@@ -166,7 +166,6 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="berryFlavorDetailBerriesInner"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public override void Write(Utf8JsonWriter writer, BerryFlavorDetailBerriesInner berryFlavorDetailBerriesInner, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteStartObject();
@@ -181,12 +180,8 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="berryFlavorDetailBerriesInner"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, BerryFlavorDetailBerriesInner berryFlavorDetailBerriesInner, JsonSerializerOptions jsonSerializerOptions)
         {
-            if (berryFlavorDetailBerriesInner.Berry == null)
-                throw new ArgumentNullException(nameof(berryFlavorDetailBerriesInner.Berry), "Property is required for class BerryFlavorDetailBerriesInner.");
-
             writer.WriteNumber("potency", berryFlavorDetailBerriesInner.Potency);
 
             writer.WritePropertyName("berry");

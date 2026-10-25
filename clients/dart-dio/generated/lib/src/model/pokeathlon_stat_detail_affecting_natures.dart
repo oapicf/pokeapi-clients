@@ -123,3 +123,4 @@ class _$PokeathlonStatDetailAffectingNaturesSerializer implements PrimitiveSeria
   }
 }
 
+

@@ -45,32 +45,71 @@ import {
 } from '../models/SuperContestEffectDetail';
 
 export interface ContestEffectListRequest {
+    /**
+     * Number of results to return per page.
+     */
     limit?: number;
+    /**
+     * The initial index from which to return the results.
+     */
     offset?: number;
+    /**
+     * > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2)
+     * Case-insensitive query applied on the `name` property. 
+     */
     q?: string;
 }
 
 export interface ContestEffectRetrieveRequest {
+    /**
+     * This parameter can be a string or an integer.
+     */
     id: string;
 }
 
 export interface ContestTypeListRequest {
+    /**
+     * Number of results to return per page.
+     */
     limit?: number;
+    /**
+     * The initial index from which to return the results.
+     */
     offset?: number;
+    /**
+     * > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2)
+     * Case-insensitive query applied on the `name` property. 
+     */
     q?: string;
 }
 
 export interface ContestTypeRetrieveRequest {
+    /**
+     * This parameter can be a string or an integer.
+     */
     id: string;
 }
 
 export interface SuperContestEffectListRequest {
+    /**
+     * Number of results to return per page.
+     */
     limit?: number;
+    /**
+     * The initial index from which to return the results.
+     */
     offset?: number;
+    /**
+     * > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2)
+     * Case-insensitive query applied on the `name` property. 
+     */
     q?: string;
 }
 
 export interface SuperContestEffectRetrieveRequest {
+    /**
+     * This parameter can be a string or an integer.
+     */
     id: string;
 }
 

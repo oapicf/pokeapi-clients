@@ -31,7 +31,7 @@ import javax.validation.constraints.*;
 import javax.validation.Valid;
 import io.swagger.annotations.*;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaResteasyServerCodegen", date = "2026-08-30T01:56:35.721624822Z[Etc/UTC]", comments = "Generator version: 7.24.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaResteasyServerCodegen", date = "2026-10-25T05:48:49.952264473Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 public class MoveDetail   {
   
   private Integer id;
@@ -208,7 +208,6 @@ public class MoveDetail   {
   @ApiModelProperty(required = true, value = "")
   @JsonProperty("effect_entries")
   @NotNull
-  @Valid
   public List<@Valid MoveChangeEffectEntriesInner> getEffectEntries() {
     return effectEntries;
   }
@@ -222,7 +221,6 @@ public class MoveDetail   {
   @ApiModelProperty(required = true, value = "")
   @JsonProperty("effect_changes")
   @NotNull
-  @Valid
   public List<@Valid MoveDetailEffectChangesInner> getEffectChanges() {
     return effectChanges;
   }
@@ -264,7 +262,6 @@ public class MoveDetail   {
   @ApiModelProperty(required = true, value = "")
   @JsonProperty("names")
   @NotNull
-  @Valid
   public List<@Valid MoveName> getNames() {
     return names;
   }
@@ -278,7 +275,6 @@ public class MoveDetail   {
   @ApiModelProperty(required = true, value = "")
   @JsonProperty("past_values")
   @NotNull
-  @Valid
   public List<@Valid MoveChange> getPastValues() {
     return pastValues;
   }
@@ -292,7 +288,6 @@ public class MoveDetail   {
   @ApiModelProperty(required = true, value = "")
   @JsonProperty("stat_changes")
   @NotNull
-  @Valid
   public List<@Valid MoveDetailStatChangesInner> getStatChanges() {
     return statChanges;
   }
@@ -348,7 +343,6 @@ public class MoveDetail   {
   @ApiModelProperty(required = true, value = "")
   @JsonProperty("machines")
   @NotNull
-  @Valid
   public List<@Valid MoveDetailMachinesInner> getMachines() {
     return machines;
   }
@@ -362,7 +356,6 @@ public class MoveDetail   {
   @ApiModelProperty(required = true, value = "")
   @JsonProperty("flavor_text_entries")
   @NotNull
-  @Valid
   public List<@Valid MoveFlavorText> getFlavorTextEntries() {
     return flavorTextEntries;
   }
@@ -376,7 +369,6 @@ public class MoveDetail   {
   @ApiModelProperty(required = true, value = "")
   @JsonProperty("learned_by_pokemon")
   @NotNull
-  @Valid
   public List<@Valid AbilityDetailPokemonInnerPokemon> getLearnedByPokemon() {
     return learnedByPokemon;
   }

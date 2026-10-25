@@ -120,3 +120,4 @@ class _$PokemonSummarySerializer implements PrimitiveSerializer<PokemonSummary> 
   }
 }
 
+

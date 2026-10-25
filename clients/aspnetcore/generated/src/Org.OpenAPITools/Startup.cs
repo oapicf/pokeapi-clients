@@ -84,7 +84,7 @@ namespace Org.OpenAPITools
                     c.SwaggerDoc("2.7.0", new OpenApiInfo
                     {
                         Title = "PokéAPI",
-                        Description = "PokéAPI (ASP.NET Core 8.0)",
+                        Description = "PokéAPI (ASP.NET Core 10.0)",
                         TermsOfService = new Uri("https://github.com/openapitools/openapi-generator"),
                         Contact = new OpenApiContact
                         {

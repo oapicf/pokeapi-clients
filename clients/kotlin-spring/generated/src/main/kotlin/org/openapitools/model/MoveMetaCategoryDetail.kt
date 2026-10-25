@@ -25,22 +25,22 @@ import io.swagger.v3.oas.annotations.media.Schema
 data class MoveMetaCategoryDetail(
 
     @Schema(required = true, readOnly = true, description = "")
-    @param:JsonProperty("id")
+    @param:JsonProperty("id", required = true)
     @get:JsonProperty("id", required = true) val id: kotlin.Int,
 
     @get:Size(max=100)
     @Schema(required = true, description = "")
-    @param:JsonProperty("name")
+    @param:JsonProperty("name", required = true)
     @get:JsonProperty("name", required = true) val name: kotlin.String,
 
     @field:Valid
     @Schema(required = true, readOnly = true, description = "")
-    @param:JsonProperty("descriptions")
+    @param:JsonProperty("descriptions", required = true)
     @get:JsonProperty("descriptions", required = true) val descriptions: kotlin.collections.List<MoveMetaCategoryDescription>,
 
     @field:Valid
     @Schema(required = true, readOnly = true, description = "")
-    @param:JsonProperty("moves")
+    @param:JsonProperty("moves", required = true)
     @get:JsonProperty("moves", required = true) val moves: kotlin.collections.List<AbilityDetailPokemonInnerPokemon>
 ) {
 

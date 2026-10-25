@@ -25,13 +25,11 @@ import jakarta.annotation.Generated;
  */
 
 @JsonTypeName("EvolutionChainDetail_chain")
-@Generated(value = "org.openapitools.codegen.languages.JavaCamelServerCodegen", date = "2026-08-30T01:56:15.309401083Z[Etc/UTC]", comments = "Generator version: 7.24.0")
+@Generated(value = "org.openapitools.codegen.languages.JavaCamelServerCodegen", date = "2026-10-25T05:48:25.711080506Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 public class EvolutionChainDetailChain {
 
-  @Valid
   private List<Object> evolutionDetails = new ArrayList<>();
 
-  @Valid
   private List<@Valid EvolutionChainDetailChainEvolvesToInner> evolvesTo = new ArrayList<>();
 
   private Boolean isBaby;
@@ -97,7 +95,7 @@ public class EvolutionChainDetailChain {
    * Get evolvesTo
    * @return evolvesTo
    */
-  @NotNull @Valid 
+  @NotNull 
   @Schema(name = "evolves_to", requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("evolves_to")
   public List<@Valid EvolutionChainDetailChainEvolvesToInner> getEvolvesTo() {

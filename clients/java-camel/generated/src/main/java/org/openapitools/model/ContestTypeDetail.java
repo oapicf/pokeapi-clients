@@ -23,7 +23,7 @@ import jakarta.annotation.Generated;
  * ContestTypeDetail
  */
 
-@Generated(value = "org.openapitools.codegen.languages.JavaCamelServerCodegen", date = "2026-08-30T01:56:15.309401083Z[Etc/UTC]", comments = "Generator version: 7.24.0")
+@Generated(value = "org.openapitools.codegen.languages.JavaCamelServerCodegen", date = "2026-10-25T05:48:25.711080506Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 public class ContestTypeDetail {
 
   private Integer id;
@@ -32,7 +32,6 @@ public class ContestTypeDetail {
 
   private BerryFlavorSummary berryFlavor;
 
-  @Valid
   private List<@Valid ContestTypeName> names = new ArrayList<>();
 
   public ContestTypeDetail() {
@@ -126,7 +125,7 @@ public class ContestTypeDetail {
    * Get names
    * @return names
    */
-  @Valid 
+  
   @Schema(name = "names", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("names")
   public List<@Valid ContestTypeName> getNames() {

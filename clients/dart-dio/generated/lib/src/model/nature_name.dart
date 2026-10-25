@@ -121,3 +121,4 @@ class _$NatureNameSerializer implements PrimitiveSerializer<NatureName> {
   }
 }
 
+

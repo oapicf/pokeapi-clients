@@ -36,14 +36,10 @@ import {
 export interface PokemonDetailHeldItems {
     /**
      * 
-     * @type {AbilityDetailPokemonInnerPokemon}
-     * @memberof PokemonDetailHeldItems
      */
     item: AbilityDetailPokemonInnerPokemon;
     /**
      * 
-     * @type {Array<ItemDetailHeldByPokemonInnerVersionDetailsInner>}
-     * @memberof PokemonDetailHeldItems
      */
     versionDetails: Array<ItemDetailHeldByPokemonInnerVersionDetailsInner>;
 }

@@ -152,16 +152,16 @@ namespace Org.OpenAPITools.Model
             }
 
             if (!name.IsSet)
-                throw new ArgumentException("Property is required for class NatureSummary.", nameof(name));
+                throw new JsonException("Property is required for class NatureSummary: name.");
 
             if (!url.IsSet)
-                throw new ArgumentException("Property is required for class NatureSummary.", nameof(url));
+                throw new JsonException("Property is required for class NatureSummary: url.");
 
             if (name.IsSet && name.Value == null)
-                throw new ArgumentNullException(nameof(name), "Property is not nullable for class NatureSummary.");
+                throw new JsonException("Property is not nullable for class NatureSummary: name.");
 
             if (url.IsSet && url.Value == null)
-                throw new ArgumentNullException(nameof(url), "Property is not nullable for class NatureSummary.");
+                throw new JsonException("Property is not nullable for class NatureSummary: url.");
 
             return new NatureSummary(name.Value!, url.Value!);
         }
@@ -172,7 +172,6 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="natureSummary"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public override void Write(Utf8JsonWriter writer, NatureSummary natureSummary, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteStartObject();
@@ -187,15 +186,8 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="natureSummary"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, NatureSummary natureSummary, JsonSerializerOptions jsonSerializerOptions)
         {
-            if (natureSummary.Name == null)
-                throw new ArgumentNullException(nameof(natureSummary.Name), "Property is required for class NatureSummary.");
-
-            if (natureSummary.Url == null)
-                throw new ArgumentNullException(nameof(natureSummary.Url), "Property is required for class NatureSummary.");
-
             writer.WriteString("name", natureSummary.Name);
 
             writer.WriteString("url", natureSummary.Url);

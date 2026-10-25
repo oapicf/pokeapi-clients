@@ -29,14 +29,10 @@ import {
 export interface ItemDetailHeldByPokemonInnerVersionDetailsInner {
     /**
      * 
-     * @type {number}
-     * @memberof ItemDetailHeldByPokemonInnerVersionDetailsInner
      */
     rarity: number;
     /**
      * 
-     * @type {AbilityDetailPokemonInnerPokemon}
-     * @memberof ItemDetailHeldByPokemonInnerVersionDetailsInner
      */
     version: AbilityDetailPokemonInnerPokemon;
 }

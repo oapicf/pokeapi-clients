@@ -24,8 +24,6 @@ public class LocationAreaDetailPokemonEncountersInner  {
 
   @ApiModelProperty(required = true, value = "")
 
-  @Valid
-
   private List<@Valid LocationAreaDetailPokemonEncountersInnerVersionDetailsInner> versionDetails = new ArrayList<>();
  /**
    * Get pokemon

@@ -24,7 +24,7 @@ import org.openapitools.model.TypeGameIndex;
  * Serializer for the Type resource
  */
 @ApiModel(description = "Serializer for the Type resource")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaMSF4JServerCodegen", date = "2026-08-30T01:55:58.248058654Z[Etc/UTC]", comments = "Generator version: 7.24.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaMSF4JServerCodegen", date = "2026-10-25T05:48:05.787850114Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 public class TypeDetail   {
   @JsonProperty("id")
   private Integer id;
@@ -57,7 +57,7 @@ public class TypeDetail   {
   private List<@Valid MoveSummary> moves = new ArrayList<>();
 
   @JsonProperty("sprites")
-  private Map<String, Map<String, TypeDetailSpritesValueValue>> sprites = new HashMap<>();
+  private Map<String, Map<String, @Valid TypeDetailSpritesValueValue>> sprites = new HashMap<>();
 
    /**
    * Get id
@@ -190,7 +190,7 @@ public class TypeDetail   {
    * @return sprites
   **/
   @ApiModelProperty(required = true, value = "")
-  public Map<String, Map<String, TypeDetailSpritesValueValue>> getSprites() {
+  public Map<String, Map<String, @Valid TypeDetailSpritesValueValue>> getSprites() {
     return sprites;
   }
 

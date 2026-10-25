@@ -152,16 +152,16 @@ namespace Org.OpenAPITools.Model
             }
 
             if (!name.IsSet)
-                throw new ArgumentException("Property is required for class MoveLearnMethodSummary.", nameof(name));
+                throw new JsonException("Property is required for class MoveLearnMethodSummary: name.");
 
             if (!url.IsSet)
-                throw new ArgumentException("Property is required for class MoveLearnMethodSummary.", nameof(url));
+                throw new JsonException("Property is required for class MoveLearnMethodSummary: url.");
 
             if (name.IsSet && name.Value == null)
-                throw new ArgumentNullException(nameof(name), "Property is not nullable for class MoveLearnMethodSummary.");
+                throw new JsonException("Property is not nullable for class MoveLearnMethodSummary: name.");
 
             if (url.IsSet && url.Value == null)
-                throw new ArgumentNullException(nameof(url), "Property is not nullable for class MoveLearnMethodSummary.");
+                throw new JsonException("Property is not nullable for class MoveLearnMethodSummary: url.");
 
             return new MoveLearnMethodSummary(name.Value!, url.Value!);
         }
@@ -172,7 +172,6 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="moveLearnMethodSummary"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public override void Write(Utf8JsonWriter writer, MoveLearnMethodSummary moveLearnMethodSummary, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteStartObject();
@@ -187,15 +186,8 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="moveLearnMethodSummary"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, MoveLearnMethodSummary moveLearnMethodSummary, JsonSerializerOptions jsonSerializerOptions)
         {
-            if (moveLearnMethodSummary.Name == null)
-                throw new ArgumentNullException(nameof(moveLearnMethodSummary.Name), "Property is required for class MoveLearnMethodSummary.");
-
-            if (moveLearnMethodSummary.Url == null)
-                throw new ArgumentNullException(nameof(moveLearnMethodSummary.Url), "Property is required for class MoveLearnMethodSummary.");
-
             writer.WriteString("name", moveLearnMethodSummary.Name);
 
             writer.WriteString("url", moveLearnMethodSummary.Url);

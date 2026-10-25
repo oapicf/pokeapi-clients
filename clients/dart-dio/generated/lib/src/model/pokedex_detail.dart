@@ -225,3 +225,4 @@ class _$PokedexDetailSerializer implements PrimitiveSerializer<PokedexDetail> {
   }
 }
 
+

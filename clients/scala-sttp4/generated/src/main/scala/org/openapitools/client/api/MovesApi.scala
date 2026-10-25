@@ -47,7 +47,7 @@ class MovesApi(baseUrl: String) {
    * @param offset The initial index from which to return the results.
    * @param `q` > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. 
    */
-  def moveAilmentList(username: String, password: String, apiKeyCookie: String)(limit: Option[Int] = None, offset: Option[Int] = None, `q`: Option[String] = None): Request[Either[ResponseException[String], PaginatedMoveMetaAilmentSummaryList]] =
+  def moveAilmentList(username: String, password: String, apiKeyCookie: String)(limit: Option[Int] = None, offset: Option[Int] = None, `q`: Option[String] = None): sttp.client4.Request[Either[ResponseException[String], PaginatedMoveMetaAilmentSummaryList]] =
     basicRequest
       .method(Method.GET, uri"$baseUrl/api/v2/move-ailment/?limit=${ limit }&offset=${ offset }&q=${ `q` }")
       .contentType("application/json")
@@ -67,7 +67,7 @@ class MovesApi(baseUrl: String) {
    * 
    * @param id This parameter can be a string or an integer.
    */
-  def moveAilmentRetrieve(username: String, password: String, apiKeyCookie: String)(id: String): Request[Either[ResponseException[String], MoveMetaAilmentDetail]] =
+  def moveAilmentRetrieve(username: String, password: String, apiKeyCookie: String)(id: String): sttp.client4.Request[Either[ResponseException[String], MoveMetaAilmentDetail]] =
     basicRequest
       .method(Method.GET, uri"$baseUrl/api/v2/move-ailment/${id}/")
       .contentType("application/json")
@@ -89,7 +89,7 @@ class MovesApi(baseUrl: String) {
    * @param offset The initial index from which to return the results.
    * @param `q` > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. 
    */
-  def moveBattleStyleList(username: String, password: String, apiKeyCookie: String)(limit: Option[Int] = None, offset: Option[Int] = None, `q`: Option[String] = None): Request[Either[ResponseException[String], PaginatedMoveBattleStyleSummaryList]] =
+  def moveBattleStyleList(username: String, password: String, apiKeyCookie: String)(limit: Option[Int] = None, offset: Option[Int] = None, `q`: Option[String] = None): sttp.client4.Request[Either[ResponseException[String], PaginatedMoveBattleStyleSummaryList]] =
     basicRequest
       .method(Method.GET, uri"$baseUrl/api/v2/move-battle-style/?limit=${ limit }&offset=${ offset }&q=${ `q` }")
       .contentType("application/json")
@@ -109,7 +109,7 @@ class MovesApi(baseUrl: String) {
    * 
    * @param id This parameter can be a string or an integer.
    */
-  def moveBattleStyleRetrieve(username: String, password: String, apiKeyCookie: String)(id: String): Request[Either[ResponseException[String], MoveBattleStyleDetail]] =
+  def moveBattleStyleRetrieve(username: String, password: String, apiKeyCookie: String)(id: String): sttp.client4.Request[Either[ResponseException[String], MoveBattleStyleDetail]] =
     basicRequest
       .method(Method.GET, uri"$baseUrl/api/v2/move-battle-style/${id}/")
       .contentType("application/json")
@@ -131,7 +131,7 @@ class MovesApi(baseUrl: String) {
    * @param offset The initial index from which to return the results.
    * @param `q` > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. 
    */
-  def moveCategoryList(username: String, password: String, apiKeyCookie: String)(limit: Option[Int] = None, offset: Option[Int] = None, `q`: Option[String] = None): Request[Either[ResponseException[String], PaginatedMoveMetaCategorySummaryList]] =
+  def moveCategoryList(username: String, password: String, apiKeyCookie: String)(limit: Option[Int] = None, offset: Option[Int] = None, `q`: Option[String] = None): sttp.client4.Request[Either[ResponseException[String], PaginatedMoveMetaCategorySummaryList]] =
     basicRequest
       .method(Method.GET, uri"$baseUrl/api/v2/move-category/?limit=${ limit }&offset=${ offset }&q=${ `q` }")
       .contentType("application/json")
@@ -151,7 +151,7 @@ class MovesApi(baseUrl: String) {
    * 
    * @param id This parameter can be a string or an integer.
    */
-  def moveCategoryRetrieve(username: String, password: String, apiKeyCookie: String)(id: String): Request[Either[ResponseException[String], MoveMetaCategoryDetail]] =
+  def moveCategoryRetrieve(username: String, password: String, apiKeyCookie: String)(id: String): sttp.client4.Request[Either[ResponseException[String], MoveMetaCategoryDetail]] =
     basicRequest
       .method(Method.GET, uri"$baseUrl/api/v2/move-category/${id}/")
       .contentType("application/json")
@@ -173,7 +173,7 @@ class MovesApi(baseUrl: String) {
    * @param offset The initial index from which to return the results.
    * @param `q` > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. 
    */
-  def moveLearnMethodList(username: String, password: String, apiKeyCookie: String)(limit: Option[Int] = None, offset: Option[Int] = None, `q`: Option[String] = None): Request[Either[ResponseException[String], PaginatedMoveLearnMethodSummaryList]] =
+  def moveLearnMethodList(username: String, password: String, apiKeyCookie: String)(limit: Option[Int] = None, offset: Option[Int] = None, `q`: Option[String] = None): sttp.client4.Request[Either[ResponseException[String], PaginatedMoveLearnMethodSummaryList]] =
     basicRequest
       .method(Method.GET, uri"$baseUrl/api/v2/move-learn-method/?limit=${ limit }&offset=${ offset }&q=${ `q` }")
       .contentType("application/json")
@@ -193,7 +193,7 @@ class MovesApi(baseUrl: String) {
    * 
    * @param id This parameter can be a string or an integer.
    */
-  def moveLearnMethodRetrieve(username: String, password: String, apiKeyCookie: String)(id: String): Request[Either[ResponseException[String], MoveLearnMethodDetail]] =
+  def moveLearnMethodRetrieve(username: String, password: String, apiKeyCookie: String)(id: String): sttp.client4.Request[Either[ResponseException[String], MoveLearnMethodDetail]] =
     basicRequest
       .method(Method.GET, uri"$baseUrl/api/v2/move-learn-method/${id}/")
       .contentType("application/json")
@@ -215,7 +215,7 @@ class MovesApi(baseUrl: String) {
    * @param offset The initial index from which to return the results.
    * @param `q` > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. 
    */
-  def moveList(username: String, password: String, apiKeyCookie: String)(limit: Option[Int] = None, offset: Option[Int] = None, `q`: Option[String] = None): Request[Either[ResponseException[String], PaginatedMoveSummaryList]] =
+  def moveList(username: String, password: String, apiKeyCookie: String)(limit: Option[Int] = None, offset: Option[Int] = None, `q`: Option[String] = None): sttp.client4.Request[Either[ResponseException[String], PaginatedMoveSummaryList]] =
     basicRequest
       .method(Method.GET, uri"$baseUrl/api/v2/move/?limit=${ limit }&offset=${ offset }&q=${ `q` }")
       .contentType("application/json")
@@ -235,7 +235,7 @@ class MovesApi(baseUrl: String) {
    * 
    * @param id This parameter can be a string or an integer.
    */
-  def moveRetrieve(username: String, password: String, apiKeyCookie: String)(id: String): Request[Either[ResponseException[String], MoveDetail]] =
+  def moveRetrieve(username: String, password: String, apiKeyCookie: String)(id: String): sttp.client4.Request[Either[ResponseException[String], MoveDetail]] =
     basicRequest
       .method(Method.GET, uri"$baseUrl/api/v2/move/${id}/")
       .contentType("application/json")
@@ -257,7 +257,7 @@ class MovesApi(baseUrl: String) {
    * @param offset The initial index from which to return the results.
    * @param `q` > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. 
    */
-  def moveTargetList(username: String, password: String, apiKeyCookie: String)(limit: Option[Int] = None, offset: Option[Int] = None, `q`: Option[String] = None): Request[Either[ResponseException[String], PaginatedMoveTargetSummaryList]] =
+  def moveTargetList(username: String, password: String, apiKeyCookie: String)(limit: Option[Int] = None, offset: Option[Int] = None, `q`: Option[String] = None): sttp.client4.Request[Either[ResponseException[String], PaginatedMoveTargetSummaryList]] =
     basicRequest
       .method(Method.GET, uri"$baseUrl/api/v2/move-target/?limit=${ limit }&offset=${ offset }&q=${ `q` }")
       .contentType("application/json")
@@ -277,7 +277,7 @@ class MovesApi(baseUrl: String) {
    * 
    * @param id This parameter can be a string or an integer.
    */
-  def moveTargetRetrieve(username: String, password: String, apiKeyCookie: String)(id: String): Request[Either[ResponseException[String], MoveTargetDetail]] =
+  def moveTargetRetrieve(username: String, password: String, apiKeyCookie: String)(id: String): sttp.client4.Request[Either[ResponseException[String], MoveTargetDetail]] =
     basicRequest
       .method(Method.GET, uri"$baseUrl/api/v2/move-target/${id}/")
       .contentType("application/json")

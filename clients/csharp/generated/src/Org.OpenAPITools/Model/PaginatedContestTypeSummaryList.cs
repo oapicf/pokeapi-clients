@@ -203,16 +203,16 @@ namespace Org.OpenAPITools.Model
             }
 
             if (count.IsSet && count.Value == null)
-                throw new ArgumentNullException(nameof(count), "Property is not nullable for class PaginatedContestTypeSummaryList.");
+                throw new JsonException("Property is not nullable for class PaginatedContestTypeSummaryList: count.");
 
             if (next.IsSet && next.Value == null)
-                throw new ArgumentNullException(nameof(next), "Property is not nullable for class PaginatedContestTypeSummaryList.");
+                throw new JsonException("Property is not nullable for class PaginatedContestTypeSummaryList: next.");
 
             if (previous.IsSet && previous.Value == null)
-                throw new ArgumentNullException(nameof(previous), "Property is not nullable for class PaginatedContestTypeSummaryList.");
+                throw new JsonException("Property is not nullable for class PaginatedContestTypeSummaryList: previous.");
 
             if (results.IsSet && results.Value == null)
-                throw new ArgumentNullException(nameof(results), "Property is not nullable for class PaginatedContestTypeSummaryList.");
+                throw new JsonException("Property is not nullable for class PaginatedContestTypeSummaryList: results.");
 
             return new PaginatedContestTypeSummaryList(count, next, previous, results);
         }
@@ -223,7 +223,6 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="paginatedContestTypeSummaryList"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public override void Write(Utf8JsonWriter writer, PaginatedContestTypeSummaryList paginatedContestTypeSummaryList, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteStartObject();
@@ -238,17 +237,19 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="paginatedContestTypeSummaryList"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, PaginatedContestTypeSummaryList paginatedContestTypeSummaryList, JsonSerializerOptions jsonSerializerOptions)
         {
+            if (paginatedContestTypeSummaryList.CountOption.IsSet && paginatedContestTypeSummaryList.Count == null)
+                throw new JsonException("Cannot write null property PaginatedContestTypeSummaryList.Count to non-nullable JSON property 'count'.");
+
             if (paginatedContestTypeSummaryList.NextOption.IsSet && paginatedContestTypeSummaryList.Next == null)
-                throw new ArgumentNullException(nameof(paginatedContestTypeSummaryList.Next), "Property is required for class PaginatedContestTypeSummaryList.");
+                throw new JsonException("Cannot write null property PaginatedContestTypeSummaryList.Next to non-nullable JSON property 'next'.");
 
             if (paginatedContestTypeSummaryList.PreviousOption.IsSet && paginatedContestTypeSummaryList.Previous == null)
-                throw new ArgumentNullException(nameof(paginatedContestTypeSummaryList.Previous), "Property is required for class PaginatedContestTypeSummaryList.");
+                throw new JsonException("Cannot write null property PaginatedContestTypeSummaryList.Previous to non-nullable JSON property 'previous'.");
 
             if (paginatedContestTypeSummaryList.ResultsOption.IsSet && paginatedContestTypeSummaryList.Results == null)
-                throw new ArgumentNullException(nameof(paginatedContestTypeSummaryList.Results), "Property is required for class PaginatedContestTypeSummaryList.");
+                throw new JsonException("Cannot write null property PaginatedContestTypeSummaryList.Results to non-nullable JSON property 'results'.");
 
             if (paginatedContestTypeSummaryList.CountOption.IsSet)
                 writer.WriteNumber("count", paginatedContestTypeSummaryList.CountOption.Value!.Value);

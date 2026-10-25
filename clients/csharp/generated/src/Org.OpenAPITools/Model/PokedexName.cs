@@ -152,16 +152,16 @@ namespace Org.OpenAPITools.Model
             }
 
             if (!name.IsSet)
-                throw new ArgumentException("Property is required for class PokedexName.", nameof(name));
+                throw new JsonException("Property is required for class PokedexName: name.");
 
             if (!language.IsSet)
-                throw new ArgumentException("Property is required for class PokedexName.", nameof(language));
+                throw new JsonException("Property is required for class PokedexName: language.");
 
             if (name.IsSet && name.Value == null)
-                throw new ArgumentNullException(nameof(name), "Property is not nullable for class PokedexName.");
+                throw new JsonException("Property is not nullable for class PokedexName: name.");
 
             if (language.IsSet && language.Value == null)
-                throw new ArgumentNullException(nameof(language), "Property is not nullable for class PokedexName.");
+                throw new JsonException("Property is not nullable for class PokedexName: language.");
 
             return new PokedexName(name.Value!, language.Value!);
         }
@@ -172,7 +172,6 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="pokedexName"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public override void Write(Utf8JsonWriter writer, PokedexName pokedexName, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteStartObject();
@@ -187,15 +186,8 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="pokedexName"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, PokedexName pokedexName, JsonSerializerOptions jsonSerializerOptions)
         {
-            if (pokedexName.Name == null)
-                throw new ArgumentNullException(nameof(pokedexName.Name), "Property is required for class PokedexName.");
-
-            if (pokedexName.Language == null)
-                throw new ArgumentNullException(nameof(pokedexName.Language), "Property is required for class PokedexName.");
-
             writer.WriteString("name", pokedexName.Name);
 
             writer.WritePropertyName("language");

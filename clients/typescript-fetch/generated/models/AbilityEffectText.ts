@@ -29,20 +29,14 @@ import {
 export interface AbilityEffectText {
     /**
      * 
-     * @type {string}
-     * @memberof AbilityEffectText
      */
     effect: string;
     /**
      * 
-     * @type {string}
-     * @memberof AbilityEffectText
      */
     shortEffect: string;
     /**
      * 
-     * @type {LanguageSummary}
-     * @memberof AbilityEffectText
      */
     language: LanguageSummary;
 }

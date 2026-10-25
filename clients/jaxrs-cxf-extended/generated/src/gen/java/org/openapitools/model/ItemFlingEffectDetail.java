@@ -22,11 +22,9 @@ public class ItemFlingEffectDetail  {
   private String name;
 
   @ApiModelProperty(required = true, value = "")
-  @Valid
   private List<@Valid ItemFlingEffectEffectText> effectEntries = new ArrayList<>();
 
   @ApiModelProperty(required = true, value = "")
-  @Valid
   private List<@Valid ItemSummary> items = new ArrayList<>();
  /**
   * Get id

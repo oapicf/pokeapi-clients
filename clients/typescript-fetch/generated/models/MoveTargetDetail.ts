@@ -43,32 +43,22 @@ import {
 export interface MoveTargetDetail {
     /**
      * 
-     * @type {number}
-     * @memberof MoveTargetDetail
      */
     readonly id: number;
     /**
      * 
-     * @type {string}
-     * @memberof MoveTargetDetail
      */
     name: string;
     /**
      * 
-     * @type {Array<MoveTargetDescription>}
-     * @memberof MoveTargetDetail
      */
     readonly descriptions: Array<MoveTargetDescription>;
     /**
      * 
-     * @type {Array<MoveSummary>}
-     * @memberof MoveTargetDetail
      */
     readonly moves: Array<MoveSummary>;
     /**
      * 
-     * @type {Array<MoveTargetName>}
-     * @memberof MoveTargetDetail
      */
     readonly names: Array<MoveTargetName>;
 }

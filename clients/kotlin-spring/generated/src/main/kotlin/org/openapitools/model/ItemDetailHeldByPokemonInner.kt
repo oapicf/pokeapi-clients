@@ -24,12 +24,12 @@ data class ItemDetailHeldByPokemonInner(
 
     @field:Valid
     @Schema(required = true, description = "")
-    @param:JsonProperty("pokemon")
+    @param:JsonProperty("pokemon", required = true)
     @get:JsonProperty("pokemon", required = true) val pokemon: AbilityDetailPokemonInnerPokemon,
 
     @field:Valid
     @Schema(required = true, description = "")
-    @param:JsonProperty("version-details")
+    @param:JsonProperty("version-details", required = true)
     @get:JsonProperty("version-details", required = true) val versionDetails: kotlin.collections.List<ItemDetailHeldByPokemonInnerVersionDetailsInner>
 ) {
 

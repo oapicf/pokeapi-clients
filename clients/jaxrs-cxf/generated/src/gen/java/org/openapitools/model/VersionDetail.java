@@ -30,8 +30,6 @@ public class VersionDetail  {
 
   @ApiModelProperty(required = true, value = "")
 
-  @Valid
-
   private List<@Valid VersionName> names = new ArrayList<>();
 
   @ApiModelProperty(required = true, value = "")

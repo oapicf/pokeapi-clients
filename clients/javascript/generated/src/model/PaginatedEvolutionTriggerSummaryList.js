@@ -17,7 +17,7 @@ import EvolutionTriggerSummary from './EvolutionTriggerSummary';
 /**
  * The PaginatedEvolutionTriggerSummaryList model module.
  * @module model/PaginatedEvolutionTriggerSummaryList
- * @version 2.0.1-pre.0
+ * @version 2.1.1-pre.0
  */
 class PaginatedEvolutionTriggerSummaryList {
     /**

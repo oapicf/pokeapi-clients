@@ -18,7 +18,7 @@ import MoveMetaCategorySummary from './MoveMetaCategorySummary';
 /**
  * The MoveMeta model module.
  * @module model/MoveMeta
- * @version 2.0.1-pre.0
+ * @version 2.1.1-pre.0
  */
 class MoveMeta {
     /**

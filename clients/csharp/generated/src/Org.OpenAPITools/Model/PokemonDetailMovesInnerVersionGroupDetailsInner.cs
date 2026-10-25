@@ -159,22 +159,22 @@ namespace Org.OpenAPITools.Model
             }
 
             if (!levelLearnedAt.IsSet)
-                throw new ArgumentException("Property is required for class PokemonDetailMovesInnerVersionGroupDetailsInner.", nameof(levelLearnedAt));
+                throw new JsonException("Property is required for class PokemonDetailMovesInnerVersionGroupDetailsInner: level_learned_at.");
 
             if (!moveLearnMethod.IsSet)
-                throw new ArgumentException("Property is required for class PokemonDetailMovesInnerVersionGroupDetailsInner.", nameof(moveLearnMethod));
+                throw new JsonException("Property is required for class PokemonDetailMovesInnerVersionGroupDetailsInner: move_learn_method.");
 
             if (!versionGroup.IsSet)
-                throw new ArgumentException("Property is required for class PokemonDetailMovesInnerVersionGroupDetailsInner.", nameof(versionGroup));
+                throw new JsonException("Property is required for class PokemonDetailMovesInnerVersionGroupDetailsInner: version_group.");
 
             if (levelLearnedAt.IsSet && levelLearnedAt.Value == null)
-                throw new ArgumentNullException(nameof(levelLearnedAt), "Property is not nullable for class PokemonDetailMovesInnerVersionGroupDetailsInner.");
+                throw new JsonException("Property is not nullable for class PokemonDetailMovesInnerVersionGroupDetailsInner: level_learned_at.");
 
             if (moveLearnMethod.IsSet && moveLearnMethod.Value == null)
-                throw new ArgumentNullException(nameof(moveLearnMethod), "Property is not nullable for class PokemonDetailMovesInnerVersionGroupDetailsInner.");
+                throw new JsonException("Property is not nullable for class PokemonDetailMovesInnerVersionGroupDetailsInner: move_learn_method.");
 
             if (versionGroup.IsSet && versionGroup.Value == null)
-                throw new ArgumentNullException(nameof(versionGroup), "Property is not nullable for class PokemonDetailMovesInnerVersionGroupDetailsInner.");
+                throw new JsonException("Property is not nullable for class PokemonDetailMovesInnerVersionGroupDetailsInner: version_group.");
 
             return new PokemonDetailMovesInnerVersionGroupDetailsInner(levelLearnedAt.Value!.Value!, moveLearnMethod.Value!, versionGroup.Value!);
         }
@@ -185,7 +185,6 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="pokemonDetailMovesInnerVersionGroupDetailsInner"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public override void Write(Utf8JsonWriter writer, PokemonDetailMovesInnerVersionGroupDetailsInner pokemonDetailMovesInnerVersionGroupDetailsInner, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteStartObject();
@@ -200,15 +199,8 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="pokemonDetailMovesInnerVersionGroupDetailsInner"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, PokemonDetailMovesInnerVersionGroupDetailsInner pokemonDetailMovesInnerVersionGroupDetailsInner, JsonSerializerOptions jsonSerializerOptions)
         {
-            if (pokemonDetailMovesInnerVersionGroupDetailsInner.MoveLearnMethod == null)
-                throw new ArgumentNullException(nameof(pokemonDetailMovesInnerVersionGroupDetailsInner.MoveLearnMethod), "Property is required for class PokemonDetailMovesInnerVersionGroupDetailsInner.");
-
-            if (pokemonDetailMovesInnerVersionGroupDetailsInner.VersionGroup == null)
-                throw new ArgumentNullException(nameof(pokemonDetailMovesInnerVersionGroupDetailsInner.VersionGroup), "Property is required for class PokemonDetailMovesInnerVersionGroupDetailsInner.");
-
             writer.WriteNumber("level_learned_at", pokemonDetailMovesInnerVersionGroupDetailsInner.LevelLearnedAt);
 
             writer.WritePropertyName("move_learn_method");

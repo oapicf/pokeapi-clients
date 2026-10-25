@@ -172,28 +172,28 @@ namespace Org.OpenAPITools.Model
             }
 
             if (!id.IsSet)
-                throw new ArgumentException("Property is required for class MachineDetail.", nameof(id));
+                throw new JsonException("Property is required for class MachineDetail: id.");
 
             if (!item.IsSet)
-                throw new ArgumentException("Property is required for class MachineDetail.", nameof(item));
+                throw new JsonException("Property is required for class MachineDetail: item.");
 
             if (!versionGroup.IsSet)
-                throw new ArgumentException("Property is required for class MachineDetail.", nameof(versionGroup));
+                throw new JsonException("Property is required for class MachineDetail: version_group.");
 
             if (!move.IsSet)
-                throw new ArgumentException("Property is required for class MachineDetail.", nameof(move));
+                throw new JsonException("Property is required for class MachineDetail: move.");
 
             if (id.IsSet && id.Value == null)
-                throw new ArgumentNullException(nameof(id), "Property is not nullable for class MachineDetail.");
+                throw new JsonException("Property is not nullable for class MachineDetail: id.");
 
             if (item.IsSet && item.Value == null)
-                throw new ArgumentNullException(nameof(item), "Property is not nullable for class MachineDetail.");
+                throw new JsonException("Property is not nullable for class MachineDetail: item.");
 
             if (versionGroup.IsSet && versionGroup.Value == null)
-                throw new ArgumentNullException(nameof(versionGroup), "Property is not nullable for class MachineDetail.");
+                throw new JsonException("Property is not nullable for class MachineDetail: version_group.");
 
             if (move.IsSet && move.Value == null)
-                throw new ArgumentNullException(nameof(move), "Property is not nullable for class MachineDetail.");
+                throw new JsonException("Property is not nullable for class MachineDetail: move.");
 
             return new MachineDetail(id.Value!.Value!, item.Value!, versionGroup.Value!, move.Value!);
         }
@@ -204,7 +204,6 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="machineDetail"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public override void Write(Utf8JsonWriter writer, MachineDetail machineDetail, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteStartObject();
@@ -219,18 +218,8 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="machineDetail"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, MachineDetail machineDetail, JsonSerializerOptions jsonSerializerOptions)
         {
-            if (machineDetail.Item == null)
-                throw new ArgumentNullException(nameof(machineDetail.Item), "Property is required for class MachineDetail.");
-
-            if (machineDetail.VersionGroup == null)
-                throw new ArgumentNullException(nameof(machineDetail.VersionGroup), "Property is required for class MachineDetail.");
-
-            if (machineDetail.Move == null)
-                throw new ArgumentNullException(nameof(machineDetail.Move), "Property is required for class MachineDetail.");
-
             writer.WriteNumber("id", machineDetail.Id);
 
             writer.WritePropertyName("item");

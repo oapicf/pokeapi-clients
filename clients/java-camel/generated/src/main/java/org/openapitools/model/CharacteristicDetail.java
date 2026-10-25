@@ -23,19 +23,17 @@ import jakarta.annotation.Generated;
  * CharacteristicDetail
  */
 
-@Generated(value = "org.openapitools.codegen.languages.JavaCamelServerCodegen", date = "2026-08-30T01:56:15.309401083Z[Etc/UTC]", comments = "Generator version: 7.24.0")
+@Generated(value = "org.openapitools.codegen.languages.JavaCamelServerCodegen", date = "2026-10-25T05:48:25.711080506Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 public class CharacteristicDetail {
 
   private Integer id;
 
   private Integer geneModulo;
 
-  @Valid
   private List<Integer> possibleValues = new ArrayList<>();
 
   private StatSummary highestStat;
 
-  @Valid
   private List<@Valid CharacteristicDescription> descriptions = new ArrayList<>();
 
   public CharacteristicDetail() {
@@ -158,7 +156,7 @@ public class CharacteristicDetail {
    * Get descriptions
    * @return descriptions
    */
-  @Valid 
+  
   @Schema(name = "descriptions", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("descriptions")
   public List<@Valid CharacteristicDescription> getDescriptions() {

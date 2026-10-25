@@ -36,14 +36,10 @@ import {
 export interface PokeathlonStatDetailAffectingNatures {
     /**
      * 
-     * @type {Array<PokeathlonStatDetailAffectingNaturesDecreaseInner>}
-     * @memberof PokeathlonStatDetailAffectingNatures
      */
     decrease: Array<PokeathlonStatDetailAffectingNaturesDecreaseInner>;
     /**
      * 
-     * @type {Array<PokeathlonStatDetailAffectingNaturesIncreaseInner>}
-     * @memberof PokeathlonStatDetailAffectingNatures
      */
     increase: Array<PokeathlonStatDetailAffectingNaturesIncreaseInner>;
 }

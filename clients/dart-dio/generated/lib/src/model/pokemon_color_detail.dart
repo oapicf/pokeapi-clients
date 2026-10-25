@@ -155,3 +155,4 @@ class _$PokemonColorDetailSerializer implements PrimitiveSerializer<PokemonColor
   }
 }
 
+

@@ -27,7 +27,6 @@ public class GenerationDetail  {
   private String name;
 
   @ApiModelProperty(required = true, value = "")
-  @Valid
   private List<@Valid AbilitySummary> abilities = new ArrayList<>();
 
   @ApiModelProperty(required = true, value = "")
@@ -35,23 +34,18 @@ public class GenerationDetail  {
   private RegionSummary mainRegion;
 
   @ApiModelProperty(required = true, value = "")
-  @Valid
   private List<@Valid MoveSummary> moves = new ArrayList<>();
 
   @ApiModelProperty(required = true, value = "")
-  @Valid
   private List<@Valid GenerationName> names = new ArrayList<>();
 
   @ApiModelProperty(required = true, value = "")
-  @Valid
   private List<@Valid PokemonSpeciesSummary> pokemonSpecies = new ArrayList<>();
 
   @ApiModelProperty(required = true, value = "")
-  @Valid
   private List<@Valid TypeSummary> types = new ArrayList<>();
 
   @ApiModelProperty(required = true, value = "")
-  @Valid
   private List<@Valid VersionGroupSummary> versionGroups = new ArrayList<>();
  /**
   * Get id

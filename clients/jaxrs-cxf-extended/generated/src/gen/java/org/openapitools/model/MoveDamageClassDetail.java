@@ -23,15 +23,12 @@ public class MoveDamageClassDetail  {
   private String name;
 
   @ApiModelProperty(required = true, value = "")
-  @Valid
   private List<@Valid MoveDamageClassDescription> descriptions = new ArrayList<>();
 
   @ApiModelProperty(required = true, value = "")
-  @Valid
   private List<@Valid MoveSummary> moves = new ArrayList<>();
 
   @ApiModelProperty(required = true, value = "")
-  @Valid
   private List<@Valid MoveDamageClassName> names = new ArrayList<>();
  /**
   * Get id

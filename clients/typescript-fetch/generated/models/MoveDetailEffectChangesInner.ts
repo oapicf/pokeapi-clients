@@ -36,14 +36,10 @@ import {
 export interface MoveDetailEffectChangesInner {
     /**
      * 
-     * @type {Array<MoveDetailEffectChangesInnerEffectEntriesInner>}
-     * @memberof MoveDetailEffectChangesInner
      */
     effectEntries: Array<MoveDetailEffectChangesInnerEffectEntriesInner>;
     /**
      * 
-     * @type {AbilityDetailPokemonInnerPokemon}
-     * @memberof MoveDetailEffectChangesInner
      */
     versionGroup: AbilityDetailPokemonInnerPokemon;
 }

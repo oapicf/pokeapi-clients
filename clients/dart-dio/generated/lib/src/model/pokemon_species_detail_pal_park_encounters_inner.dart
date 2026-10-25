@@ -137,3 +137,4 @@ class _$PokemonSpeciesDetailPalParkEncountersInnerSerializer implements Primitiv
   }
 }
 
+

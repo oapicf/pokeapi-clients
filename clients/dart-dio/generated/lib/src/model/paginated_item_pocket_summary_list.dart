@@ -166,3 +166,4 @@ class _$PaginatedItemPocketSummaryListSerializer implements PrimitiveSerializer<
   }
 }
 
+

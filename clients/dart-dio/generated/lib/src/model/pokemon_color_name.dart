@@ -121,3 +121,4 @@ class _$PokemonColorNameSerializer implements PrimitiveSerializer<PokemonColorNa
   }
 }
 
+

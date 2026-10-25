@@ -45,13 +45,9 @@ public class TypeDetail  {
 
   @ApiModelProperty(required = true, value = "")
 
-  @Valid
-
   private List<@Valid TypeDetailPastDamageRelationsInner> pastDamageRelations = new ArrayList<>();
 
   @ApiModelProperty(required = true, value = "")
-
-  @Valid
 
   private List<@Valid TypeGameIndex> gameIndices = new ArrayList<>();
 
@@ -69,27 +65,19 @@ public class TypeDetail  {
 
   @ApiModelProperty(required = true, value = "")
 
-  @Valid
-
   private List<@Valid AbilityName> names = new ArrayList<>();
 
   @ApiModelProperty(required = true, value = "")
-
-  @Valid
 
   private List<@Valid TypeDetailPokemonInner> pokemon = new ArrayList<>();
 
   @ApiModelProperty(required = true, value = "")
 
-  @Valid
-
   private List<@Valid MoveSummary> moves = new ArrayList<>();
 
   @ApiModelProperty(required = true, value = "")
 
-  @Valid
-
-  private Map<String, Map<String, TypeDetailSpritesValueValue>> sprites = new HashMap<>();
+  private Map<String, Map<String, @Valid TypeDetailSpritesValueValue>> sprites = new HashMap<>();
  /**
    * Get id
    * @return id
@@ -238,7 +226,7 @@ public class TypeDetail  {
   **/
   @JsonProperty("sprites")
   @NotNull
-  public Map<String, Map<String, TypeDetailSpritesValueValue>> getSprites() {
+  public Map<String, Map<String, @Valid TypeDetailSpritesValueValue>> getSprites() {
     return sprites;
   }
 

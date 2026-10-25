@@ -85,68 +85,46 @@ import {
 export interface TypeDetail {
     /**
      * 
-     * @type {number}
-     * @memberof TypeDetail
      */
     readonly id: number;
     /**
      * 
-     * @type {string}
-     * @memberof TypeDetail
      */
     name: string;
     /**
      * 
-     * @type {TypeDetailDamageRelations}
-     * @memberof TypeDetail
      */
     damageRelations: TypeDetailDamageRelations;
     /**
      * 
-     * @type {Array<TypeDetailPastDamageRelationsInner>}
-     * @memberof TypeDetail
      */
     readonly pastDamageRelations: Array<TypeDetailPastDamageRelationsInner>;
     /**
      * 
-     * @type {Array<TypeGameIndex>}
-     * @memberof TypeDetail
      */
     readonly gameIndices: Array<TypeGameIndex>;
     /**
      * 
-     * @type {GenerationSummary}
-     * @memberof TypeDetail
      */
     generation: GenerationSummary;
     /**
      * 
-     * @type {MoveDamageClassSummary}
-     * @memberof TypeDetail
      */
     moveDamageClass: MoveDamageClassSummary;
     /**
      * 
-     * @type {Array<AbilityName>}
-     * @memberof TypeDetail
      */
     readonly names: Array<AbilityName>;
     /**
      * 
-     * @type {Array<TypeDetailPokemonInner>}
-     * @memberof TypeDetail
      */
     readonly pokemon: Array<TypeDetailPokemonInner>;
     /**
      * 
-     * @type {Array<MoveSummary>}
-     * @memberof TypeDetail
      */
     readonly moves: Array<MoveSummary>;
     /**
      * 
-     * @type {{ [key: string]: { [key: string]: TypeDetailSpritesValueValue; }; }}
-     * @memberof TypeDetail
      */
     readonly sprites: { [key: string]: { [key: string]: TypeDetailSpritesValueValue; }; };
 }

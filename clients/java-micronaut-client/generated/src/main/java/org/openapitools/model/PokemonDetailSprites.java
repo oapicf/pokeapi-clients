@@ -32,7 +32,7 @@ import javax.annotation.Generated;
   PokemonDetailSprites.JSON_PROPERTY_FRONT_DEFAULT
 })
 @JsonTypeName("PokemonDetail_sprites")
-@Generated(value="org.openapitools.codegen.languages.JavaMicronautClientCodegen", date="2026-08-30T01:55:51.056116330Z[Etc/UTC]", comments = "Generator version: 7.24.0")
+@Generated(value="org.openapitools.codegen.languages.JavaMicronautClientCodegen", date="2026-10-25T05:47:57.304170126Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 @Introspected
 public class PokemonDetailSprites extends HashMap<String, URI> {
     public static final String JSON_PROPERTY_FRONT_DEFAULT = "front_default";

@@ -24,7 +24,7 @@ import javax.validation.constraints.*;
 import javax.validation.Valid;
 import io.swagger.annotations.*;
 
-@ApiModel(description="Serializer for the Type resource")@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaResteasyServerCodegen", date = "2026-08-30T01:56:35.721624822Z[Etc/UTC]", comments = "Generator version: 7.24.0")
+@ApiModel(description="Serializer for the Type resource")@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaResteasyServerCodegen", date = "2026-10-25T05:48:49.952264473Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 public class TypeDetail   {
   
   private Integer id;
@@ -37,7 +37,7 @@ public class TypeDetail   {
   private List<@Valid AbilityName> names = new ArrayList<>();
   private List<@Valid TypeDetailPokemonInner> pokemon = new ArrayList<>();
   private List<@Valid MoveSummary> moves = new ArrayList<>();
-  private Map<String, Map<String, TypeDetailSpritesValueValue>> sprites = new HashMap<>();
+  private Map<String, Map<String, @Valid TypeDetailSpritesValueValue>> sprites = new HashMap<>();
 
   /**
    **/
@@ -85,7 +85,6 @@ public class TypeDetail   {
   @ApiModelProperty(required = true, value = "")
   @JsonProperty("past_damage_relations")
   @NotNull
-  @Valid
   public List<@Valid TypeDetailPastDamageRelationsInner> getPastDamageRelations() {
     return pastDamageRelations;
   }
@@ -99,7 +98,6 @@ public class TypeDetail   {
   @ApiModelProperty(required = true, value = "")
   @JsonProperty("game_indices")
   @NotNull
-  @Valid
   public List<@Valid TypeGameIndex> getGameIndices() {
     return gameIndices;
   }
@@ -141,7 +139,6 @@ public class TypeDetail   {
   @ApiModelProperty(required = true, value = "")
   @JsonProperty("names")
   @NotNull
-  @Valid
   public List<@Valid AbilityName> getNames() {
     return names;
   }
@@ -155,7 +152,6 @@ public class TypeDetail   {
   @ApiModelProperty(required = true, value = "")
   @JsonProperty("pokemon")
   @NotNull
-  @Valid
   public List<@Valid TypeDetailPokemonInner> getPokemon() {
     return pokemon;
   }
@@ -169,7 +165,6 @@ public class TypeDetail   {
   @ApiModelProperty(required = true, value = "")
   @JsonProperty("moves")
   @NotNull
-  @Valid
   public List<@Valid MoveSummary> getMoves() {
     return moves;
   }
@@ -183,11 +178,10 @@ public class TypeDetail   {
   @ApiModelProperty(required = true, value = "")
   @JsonProperty("sprites")
   @NotNull
-  @Valid
-  public Map<String, Map<String, TypeDetailSpritesValueValue>> getSprites() {
+  public Map<String, Map<String, @Valid TypeDetailSpritesValueValue>> getSprites() {
     return sprites;
   }
-  public void setSprites(Map<String, Map<String, TypeDetailSpritesValueValue>> sprites) {
+  public void setSprites(Map<String, Map<String, @Valid TypeDetailSpritesValueValue>> sprites) {
     this.sprites = sprites;
   }
 

@@ -33,23 +33,18 @@ public class AbilityDetail  {
   private GenerationSummary generation;
 
   @ApiModelProperty(required = true, value = "")
-  @Valid
   private List<@Valid AbilityName> names = new ArrayList<>();
 
   @ApiModelProperty(required = true, value = "")
-  @Valid
   private List<@Valid AbilityEffectText> effectEntries = new ArrayList<>();
 
   @ApiModelProperty(required = true, value = "")
-  @Valid
   private List<@Valid AbilityChange> effectChanges = new ArrayList<>();
 
   @ApiModelProperty(required = true, value = "")
-  @Valid
   private List<@Valid AbilityFlavorText> flavorTextEntries = new ArrayList<>();
 
   @ApiModelProperty(required = true, value = "")
-  @Valid
   private List<@Valid AbilityDetailPokemonInner> pokemon = new ArrayList<>();
  /**
   * Get id

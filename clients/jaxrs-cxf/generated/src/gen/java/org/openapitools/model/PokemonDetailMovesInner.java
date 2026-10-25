@@ -24,8 +24,6 @@ public class PokemonDetailMovesInner  {
 
   @ApiModelProperty(required = true, value = "")
 
-  @Valid
-
   private List<@Valid PokemonDetailMovesInnerVersionGroupDetailsInner> versionGroupDetails = new ArrayList<>();
  /**
    * Get move

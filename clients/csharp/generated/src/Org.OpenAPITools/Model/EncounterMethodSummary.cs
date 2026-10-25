@@ -152,16 +152,16 @@ namespace Org.OpenAPITools.Model
             }
 
             if (!name.IsSet)
-                throw new ArgumentException("Property is required for class EncounterMethodSummary.", nameof(name));
+                throw new JsonException("Property is required for class EncounterMethodSummary: name.");
 
             if (!url.IsSet)
-                throw new ArgumentException("Property is required for class EncounterMethodSummary.", nameof(url));
+                throw new JsonException("Property is required for class EncounterMethodSummary: url.");
 
             if (name.IsSet && name.Value == null)
-                throw new ArgumentNullException(nameof(name), "Property is not nullable for class EncounterMethodSummary.");
+                throw new JsonException("Property is not nullable for class EncounterMethodSummary: name.");
 
             if (url.IsSet && url.Value == null)
-                throw new ArgumentNullException(nameof(url), "Property is not nullable for class EncounterMethodSummary.");
+                throw new JsonException("Property is not nullable for class EncounterMethodSummary: url.");
 
             return new EncounterMethodSummary(name.Value!, url.Value!);
         }
@@ -172,7 +172,6 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="encounterMethodSummary"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public override void Write(Utf8JsonWriter writer, EncounterMethodSummary encounterMethodSummary, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteStartObject();
@@ -187,15 +186,8 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="encounterMethodSummary"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, EncounterMethodSummary encounterMethodSummary, JsonSerializerOptions jsonSerializerOptions)
         {
-            if (encounterMethodSummary.Name == null)
-                throw new ArgumentNullException(nameof(encounterMethodSummary.Name), "Property is required for class EncounterMethodSummary.");
-
-            if (encounterMethodSummary.Url == null)
-                throw new ArgumentNullException(nameof(encounterMethodSummary.Url), "Property is required for class EncounterMethodSummary.");
-
             writer.WriteString("name", encounterMethodSummary.Name);
 
             writer.WriteString("url", encounterMethodSummary.Url);

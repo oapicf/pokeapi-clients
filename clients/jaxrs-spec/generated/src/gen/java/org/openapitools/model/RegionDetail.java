@@ -24,15 +24,15 @@ import org.openapitools.jackson.nullable.JsonNullable;
 
 
 @JsonTypeName("RegionDetail")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2026-08-30T01:56:42.280002256Z[Etc/UTC]", comments = "Generator version: 7.24.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2026-10-25T05:48:57.630723375Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 public class RegionDetail   {
   private Integer id;
   private String name;
-  private @Valid List<@Valid LocationSummary> locations = new ArrayList<>();
+  private List<@Valid LocationSummary> locations = new ArrayList<>();
   private GenerationSummary mainGeneration;
-  private @Valid List<@Valid RegionName> names = new ArrayList<>();
-  private @Valid List<@Valid PokedexSummary> pokedexes = new ArrayList<>();
-  private @Valid List<@Valid AbilityDetailPokemonInnerPokemon> versionGroups = new ArrayList<>();
+  private List<@Valid RegionName> names = new ArrayList<>();
+  private List<@Valid PokedexSummary> pokedexes = new ArrayList<>();
+  private List<@Valid AbilityDetailPokemonInnerPokemon> versionGroups = new ArrayList<>();
 
   public RegionDetail() {
   }
@@ -104,7 +104,7 @@ public class RegionDetail   {
   
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(required = true, value = "locations")
-  @Valid public List<@Valid LocationSummary> getLocations() {
+  public List<@Valid LocationSummary> getLocations() {
     return locations;
   }
 
@@ -158,7 +158,7 @@ public class RegionDetail   {
   
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(required = true, value = "names")
-  @Valid public List<@Valid RegionName> getNames() {
+  public List<@Valid RegionName> getNames() {
     return names;
   }
 
@@ -193,7 +193,7 @@ public class RegionDetail   {
   
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(required = true, value = "pokedexes")
-  @Valid public List<@Valid PokedexSummary> getPokedexes() {
+  public List<@Valid PokedexSummary> getPokedexes() {
     return pokedexes;
   }
 
@@ -228,7 +228,7 @@ public class RegionDetail   {
   
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(required = true, value = "version_groups")
-  @Valid public List<@Valid AbilityDetailPokemonInnerPokemon> getVersionGroups() {
+  public List<@Valid AbilityDetailPokemonInnerPokemon> getVersionGroups() {
     return versionGroups;
   }
 

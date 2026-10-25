@@ -21,14 +21,10 @@ import { mapValues } from '../runtime';
 export interface RegionSummary {
     /**
      * 
-     * @type {string}
-     * @memberof RegionSummary
      */
     name: string;
     /**
      * 
-     * @type {string}
-     * @memberof RegionSummary
      */
     readonly url: string;
 }

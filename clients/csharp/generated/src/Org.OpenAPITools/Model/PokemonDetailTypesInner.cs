@@ -146,16 +146,16 @@ namespace Org.OpenAPITools.Model
             }
 
             if (!slot.IsSet)
-                throw new ArgumentException("Property is required for class PokemonDetailTypesInner.", nameof(slot));
+                throw new JsonException("Property is required for class PokemonDetailTypesInner: slot.");
 
             if (!type.IsSet)
-                throw new ArgumentException("Property is required for class PokemonDetailTypesInner.", nameof(type));
+                throw new JsonException("Property is required for class PokemonDetailTypesInner: type.");
 
             if (slot.IsSet && slot.Value == null)
-                throw new ArgumentNullException(nameof(slot), "Property is not nullable for class PokemonDetailTypesInner.");
+                throw new JsonException("Property is not nullable for class PokemonDetailTypesInner: slot.");
 
             if (type.IsSet && type.Value == null)
-                throw new ArgumentNullException(nameof(type), "Property is not nullable for class PokemonDetailTypesInner.");
+                throw new JsonException("Property is not nullable for class PokemonDetailTypesInner: type.");
 
             return new PokemonDetailTypesInner(slot.Value!.Value!, type.Value!);
         }
@@ -166,7 +166,6 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="pokemonDetailTypesInner"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public override void Write(Utf8JsonWriter writer, PokemonDetailTypesInner pokemonDetailTypesInner, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteStartObject();
@@ -181,12 +180,8 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="pokemonDetailTypesInner"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, PokemonDetailTypesInner pokemonDetailTypesInner, JsonSerializerOptions jsonSerializerOptions)
         {
-            if (pokemonDetailTypesInner.Type == null)
-                throw new ArgumentNullException(nameof(pokemonDetailTypesInner.Type), "Property is required for class PokemonDetailTypesInner.");
-
             writer.WriteNumber("slot", pokemonDetailTypesInner.Slot);
 
             writer.WritePropertyName("type");

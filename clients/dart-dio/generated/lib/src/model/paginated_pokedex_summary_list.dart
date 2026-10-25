@@ -166,3 +166,4 @@ class _$PaginatedPokedexSummaryListSerializer implements PrimitiveSerializer<Pag
   }
 }
 
+

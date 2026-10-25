@@ -43,32 +43,22 @@ import {
 export interface MoveLearnMethodDetail {
     /**
      * 
-     * @type {number}
-     * @memberof MoveLearnMethodDetail
      */
     readonly id: number;
     /**
      * 
-     * @type {string}
-     * @memberof MoveLearnMethodDetail
      */
     name: string;
     /**
      * 
-     * @type {Array<MoveLearnMethodName>}
-     * @memberof MoveLearnMethodDetail
      */
     readonly names: Array<MoveLearnMethodName>;
     /**
      * 
-     * @type {Array<MoveLearnMethodDescription>}
-     * @memberof MoveLearnMethodDetail
      */
     readonly descriptions: Array<MoveLearnMethodDescription>;
     /**
      * 
-     * @type {Array<AbilityDetailPokemonInnerPokemon>}
-     * @memberof MoveLearnMethodDetail
      */
     readonly versionGroups: Array<AbilityDetailPokemonInnerPokemon>;
 }

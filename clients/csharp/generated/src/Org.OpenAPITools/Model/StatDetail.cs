@@ -250,55 +250,55 @@ namespace Org.OpenAPITools.Model
             }
 
             if (!id.IsSet)
-                throw new ArgumentException("Property is required for class StatDetail.", nameof(id));
+                throw new JsonException("Property is required for class StatDetail: id.");
 
             if (!name.IsSet)
-                throw new ArgumentException("Property is required for class StatDetail.", nameof(name));
+                throw new JsonException("Property is required for class StatDetail: name.");
 
             if (!gameIndex.IsSet)
-                throw new ArgumentException("Property is required for class StatDetail.", nameof(gameIndex));
+                throw new JsonException("Property is required for class StatDetail: game_index.");
 
             if (!affectingMoves.IsSet)
-                throw new ArgumentException("Property is required for class StatDetail.", nameof(affectingMoves));
+                throw new JsonException("Property is required for class StatDetail: affecting_moves.");
 
             if (!affectingNatures.IsSet)
-                throw new ArgumentException("Property is required for class StatDetail.", nameof(affectingNatures));
+                throw new JsonException("Property is required for class StatDetail: affecting_natures.");
 
             if (!characteristics.IsSet)
-                throw new ArgumentException("Property is required for class StatDetail.", nameof(characteristics));
+                throw new JsonException("Property is required for class StatDetail: characteristics.");
 
             if (!moveDamageClass.IsSet)
-                throw new ArgumentException("Property is required for class StatDetail.", nameof(moveDamageClass));
+                throw new JsonException("Property is required for class StatDetail: move_damage_class.");
 
             if (!names.IsSet)
-                throw new ArgumentException("Property is required for class StatDetail.", nameof(names));
+                throw new JsonException("Property is required for class StatDetail: names.");
 
             if (id.IsSet && id.Value == null)
-                throw new ArgumentNullException(nameof(id), "Property is not nullable for class StatDetail.");
+                throw new JsonException("Property is not nullable for class StatDetail: id.");
 
             if (name.IsSet && name.Value == null)
-                throw new ArgumentNullException(nameof(name), "Property is not nullable for class StatDetail.");
+                throw new JsonException("Property is not nullable for class StatDetail: name.");
 
             if (gameIndex.IsSet && gameIndex.Value == null)
-                throw new ArgumentNullException(nameof(gameIndex), "Property is not nullable for class StatDetail.");
+                throw new JsonException("Property is not nullable for class StatDetail: game_index.");
 
             if (affectingMoves.IsSet && affectingMoves.Value == null)
-                throw new ArgumentNullException(nameof(affectingMoves), "Property is not nullable for class StatDetail.");
+                throw new JsonException("Property is not nullable for class StatDetail: affecting_moves.");
 
             if (affectingNatures.IsSet && affectingNatures.Value == null)
-                throw new ArgumentNullException(nameof(affectingNatures), "Property is not nullable for class StatDetail.");
+                throw new JsonException("Property is not nullable for class StatDetail: affecting_natures.");
 
             if (characteristics.IsSet && characteristics.Value == null)
-                throw new ArgumentNullException(nameof(characteristics), "Property is not nullable for class StatDetail.");
+                throw new JsonException("Property is not nullable for class StatDetail: characteristics.");
 
             if (moveDamageClass.IsSet && moveDamageClass.Value == null)
-                throw new ArgumentNullException(nameof(moveDamageClass), "Property is not nullable for class StatDetail.");
+                throw new JsonException("Property is not nullable for class StatDetail: move_damage_class.");
 
             if (names.IsSet && names.Value == null)
-                throw new ArgumentNullException(nameof(names), "Property is not nullable for class StatDetail.");
+                throw new JsonException("Property is not nullable for class StatDetail: names.");
 
             if (isBattleOnly.IsSet && isBattleOnly.Value == null)
-                throw new ArgumentNullException(nameof(isBattleOnly), "Property is not nullable for class StatDetail.");
+                throw new JsonException("Property is not nullable for class StatDetail: is_battle_only.");
 
             return new StatDetail(id.Value!.Value!, name.Value!, gameIndex.Value!.Value!, affectingMoves.Value!, affectingNatures.Value!, characteristics.Value!, moveDamageClass.Value!, names.Value!, isBattleOnly);
         }
@@ -309,7 +309,6 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="statDetail"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public override void Write(Utf8JsonWriter writer, StatDetail statDetail, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteStartObject();
@@ -324,26 +323,10 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="statDetail"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, StatDetail statDetail, JsonSerializerOptions jsonSerializerOptions)
         {
-            if (statDetail.Name == null)
-                throw new ArgumentNullException(nameof(statDetail.Name), "Property is required for class StatDetail.");
-
-            if (statDetail.AffectingMoves == null)
-                throw new ArgumentNullException(nameof(statDetail.AffectingMoves), "Property is required for class StatDetail.");
-
-            if (statDetail.AffectingNatures == null)
-                throw new ArgumentNullException(nameof(statDetail.AffectingNatures), "Property is required for class StatDetail.");
-
-            if (statDetail.Characteristics == null)
-                throw new ArgumentNullException(nameof(statDetail.Characteristics), "Property is required for class StatDetail.");
-
-            if (statDetail.MoveDamageClass == null)
-                throw new ArgumentNullException(nameof(statDetail.MoveDamageClass), "Property is required for class StatDetail.");
-
-            if (statDetail.Names == null)
-                throw new ArgumentNullException(nameof(statDetail.Names), "Property is required for class StatDetail.");
+            if (statDetail.IsBattleOnlyOption.IsSet && statDetail.IsBattleOnly == null)
+                throw new JsonException("Cannot write null property StatDetail.IsBattleOnly to non-nullable JSON property 'is_battle_only'.");
 
             writer.WriteNumber("id", statDetail.Id);
 

@@ -120,3 +120,4 @@ class _$ItemAttributeSummarySerializer implements PrimitiveSerializer<ItemAttrib
   }
 }
 
+

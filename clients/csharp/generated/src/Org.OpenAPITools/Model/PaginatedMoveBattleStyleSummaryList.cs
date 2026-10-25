@@ -203,16 +203,16 @@ namespace Org.OpenAPITools.Model
             }
 
             if (count.IsSet && count.Value == null)
-                throw new ArgumentNullException(nameof(count), "Property is not nullable for class PaginatedMoveBattleStyleSummaryList.");
+                throw new JsonException("Property is not nullable for class PaginatedMoveBattleStyleSummaryList: count.");
 
             if (next.IsSet && next.Value == null)
-                throw new ArgumentNullException(nameof(next), "Property is not nullable for class PaginatedMoveBattleStyleSummaryList.");
+                throw new JsonException("Property is not nullable for class PaginatedMoveBattleStyleSummaryList: next.");
 
             if (previous.IsSet && previous.Value == null)
-                throw new ArgumentNullException(nameof(previous), "Property is not nullable for class PaginatedMoveBattleStyleSummaryList.");
+                throw new JsonException("Property is not nullable for class PaginatedMoveBattleStyleSummaryList: previous.");
 
             if (results.IsSet && results.Value == null)
-                throw new ArgumentNullException(nameof(results), "Property is not nullable for class PaginatedMoveBattleStyleSummaryList.");
+                throw new JsonException("Property is not nullable for class PaginatedMoveBattleStyleSummaryList: results.");
 
             return new PaginatedMoveBattleStyleSummaryList(count, next, previous, results);
         }
@@ -223,7 +223,6 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="paginatedMoveBattleStyleSummaryList"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public override void Write(Utf8JsonWriter writer, PaginatedMoveBattleStyleSummaryList paginatedMoveBattleStyleSummaryList, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteStartObject();
@@ -238,17 +237,19 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="paginatedMoveBattleStyleSummaryList"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, PaginatedMoveBattleStyleSummaryList paginatedMoveBattleStyleSummaryList, JsonSerializerOptions jsonSerializerOptions)
         {
+            if (paginatedMoveBattleStyleSummaryList.CountOption.IsSet && paginatedMoveBattleStyleSummaryList.Count == null)
+                throw new JsonException("Cannot write null property PaginatedMoveBattleStyleSummaryList.Count to non-nullable JSON property 'count'.");
+
             if (paginatedMoveBattleStyleSummaryList.NextOption.IsSet && paginatedMoveBattleStyleSummaryList.Next == null)
-                throw new ArgumentNullException(nameof(paginatedMoveBattleStyleSummaryList.Next), "Property is required for class PaginatedMoveBattleStyleSummaryList.");
+                throw new JsonException("Cannot write null property PaginatedMoveBattleStyleSummaryList.Next to non-nullable JSON property 'next'.");
 
             if (paginatedMoveBattleStyleSummaryList.PreviousOption.IsSet && paginatedMoveBattleStyleSummaryList.Previous == null)
-                throw new ArgumentNullException(nameof(paginatedMoveBattleStyleSummaryList.Previous), "Property is required for class PaginatedMoveBattleStyleSummaryList.");
+                throw new JsonException("Cannot write null property PaginatedMoveBattleStyleSummaryList.Previous to non-nullable JSON property 'previous'.");
 
             if (paginatedMoveBattleStyleSummaryList.ResultsOption.IsSet && paginatedMoveBattleStyleSummaryList.Results == null)
-                throw new ArgumentNullException(nameof(paginatedMoveBattleStyleSummaryList.Results), "Property is required for class PaginatedMoveBattleStyleSummaryList.");
+                throw new JsonException("Cannot write null property PaginatedMoveBattleStyleSummaryList.Results to non-nullable JSON property 'results'.");
 
             if (paginatedMoveBattleStyleSummaryList.CountOption.IsSet)
                 writer.WriteNumber("count", paginatedMoveBattleStyleSummaryList.CountOption.Value!.Value);

@@ -31,8 +31,6 @@ public class PokeathlonStatDetail  {
 
   @ApiModelProperty(required = true, value = "")
 
-  @Valid
-
   private List<@Valid PokeathlonStatName> names = new ArrayList<>();
  /**
    * Get id

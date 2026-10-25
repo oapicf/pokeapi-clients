@@ -128,3 +128,4 @@ class _$TypeDetailPokemonInnerPokemonSerializer implements PrimitiveSerializer<T
   }
 }
 
+

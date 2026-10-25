@@ -137,3 +137,4 @@ class _$PokemonDetailMovesInnerVersionGroupDetailsInnerSerializer implements Pri
   }
 }
 
+

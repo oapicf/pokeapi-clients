@@ -31,8 +31,6 @@ public class ContestTypeDetail  {
 
   @ApiModelProperty(required = true, value = "")
 
-  @Valid
-
   private List<@Valid ContestTypeName> names = new ArrayList<>();
  /**
    * Get id

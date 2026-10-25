@@ -120,3 +120,4 @@ class _$EvolutionTriggerSummarySerializer implements PrimitiveSerializer<Evoluti
   }
 }
 
+

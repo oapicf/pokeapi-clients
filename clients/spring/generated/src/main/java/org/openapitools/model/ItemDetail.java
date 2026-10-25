@@ -2,7 +2,6 @@ package org.openapitools.model;
 
 import java.net.URI;
 import java.util.Objects;
-import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import java.util.ArrayList;
@@ -36,17 +35,15 @@ import jakarta.annotation.Generated;
  * ItemDetail
  */
 
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2026-08-30T02:00:43.960184425Z[Etc/UTC]", comments = "Generator version: 7.24.0")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2026-10-25T05:53:37.479908528Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 public class ItemDetail {
 
   private Integer id;
 
   private String name;
 
-  @JsonInclude(JsonInclude.Include.NON_ABSENT)
   private JsonNullable<Integer> cost = JsonNullable.<Integer>undefined();
 
-  @JsonInclude(JsonInclude.Include.NON_ABSENT)
   private JsonNullable<Integer> flingPower = JsonNullable.<Integer>undefined();
 
   private ItemFlingEffectSummary flingEffect;
@@ -146,7 +143,7 @@ public class ItemDetail {
    * @return cost
    */
   
-  @Schema(name = "cost", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @Schema(name = "cost", requiredMode = Schema.RequiredMode.NOT_REQUIRED, nullable = true)
   @JsonProperty("cost")
   public JsonNullable<Integer> getCost() {
     return cost;
@@ -166,7 +163,7 @@ public class ItemDetail {
    * @return flingPower
    */
   
-  @Schema(name = "fling_power", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @Schema(name = "fling_power", requiredMode = Schema.RequiredMode.NOT_REQUIRED, nullable = true)
   @JsonProperty("fling_power")
   public JsonNullable<Integer> getFlingPower() {
     return flingPower;
@@ -214,7 +211,7 @@ public class ItemDetail {
    * Get attributes
    * @return attributes
    */
-  @Valid 
+  
   @Schema(name = "attributes", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("attributes")
   public List<@Valid AbilityDetailPokemonInnerPokemon> getAttributes() {
@@ -264,7 +261,7 @@ public class ItemDetail {
    * Get effectEntries
    * @return effectEntries
    */
-  @Valid 
+  
   @Schema(name = "effect_entries", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("effect_entries")
   public List<@Valid ItemEffectText> getEffectEntries() {
@@ -293,7 +290,7 @@ public class ItemDetail {
    * Get flavorTextEntries
    * @return flavorTextEntries
    */
-  @Valid 
+  
   @Schema(name = "flavor_text_entries", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("flavor_text_entries")
   public List<@Valid ItemFlavorText> getFlavorTextEntries() {
@@ -322,7 +319,7 @@ public class ItemDetail {
    * Get gameIndices
    * @return gameIndices
    */
-  @Valid 
+  
   @Schema(name = "game_indices", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("game_indices")
   public List<@Valid ItemGameIndex> getGameIndices() {
@@ -351,7 +348,7 @@ public class ItemDetail {
    * Get names
    * @return names
    */
-  @Valid 
+  
   @Schema(name = "names", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("names")
   public List<@Valid ItemName> getNames() {
@@ -380,7 +377,7 @@ public class ItemDetail {
    * Get heldByPokemon
    * @return heldByPokemon
    */
-  @Valid 
+  
   @Schema(name = "held_by_pokemon", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("held_by_pokemon")
   public List<@Valid ItemDetailHeldByPokemonInner> getHeldByPokemon() {
@@ -451,7 +448,7 @@ public class ItemDetail {
    * Get machines
    * @return machines
    */
-  @Valid 
+  
   @Schema(name = "machines", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("machines")
   public List<@Valid ItemDetailMachinesInner> getMachines() {

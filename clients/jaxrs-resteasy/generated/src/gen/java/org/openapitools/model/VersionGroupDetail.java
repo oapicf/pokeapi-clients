@@ -17,7 +17,7 @@ import javax.validation.constraints.*;
 import javax.validation.Valid;
 import io.swagger.annotations.*;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaResteasyServerCodegen", date = "2026-08-30T01:56:35.721624822Z[Etc/UTC]", comments = "Generator version: 7.24.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaResteasyServerCodegen", date = "2026-10-25T05:48:49.952264473Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 public class VersionGroupDetail   {
   
   private Integer id;
@@ -87,7 +87,6 @@ public class VersionGroupDetail   {
   @ApiModelProperty(required = true, value = "")
   @JsonProperty("move_learn_methods")
   @NotNull
-  @Valid
   public List<@Valid AbilityDetailPokemonInnerPokemon> getMoveLearnMethods() {
     return moveLearnMethods;
   }
@@ -101,7 +100,6 @@ public class VersionGroupDetail   {
   @ApiModelProperty(required = true, value = "")
   @JsonProperty("pokedexes")
   @NotNull
-  @Valid
   public List<@Valid AbilityDetailPokemonInnerPokemon> getPokedexes() {
     return pokedexes;
   }
@@ -115,7 +113,6 @@ public class VersionGroupDetail   {
   @ApiModelProperty(required = true, value = "")
   @JsonProperty("regions")
   @NotNull
-  @Valid
   public List<@Valid AbilityDetailPokemonInnerPokemon> getRegions() {
     return regions;
   }
@@ -129,7 +126,6 @@ public class VersionGroupDetail   {
   @ApiModelProperty(required = true, value = "")
   @JsonProperty("versions")
   @NotNull
-  @Valid
   public List<@Valid VersionSummary> getVersions() {
     return versions;
   }

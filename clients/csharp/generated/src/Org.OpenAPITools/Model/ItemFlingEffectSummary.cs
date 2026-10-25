@@ -152,16 +152,16 @@ namespace Org.OpenAPITools.Model
             }
 
             if (!name.IsSet)
-                throw new ArgumentException("Property is required for class ItemFlingEffectSummary.", nameof(name));
+                throw new JsonException("Property is required for class ItemFlingEffectSummary: name.");
 
             if (!url.IsSet)
-                throw new ArgumentException("Property is required for class ItemFlingEffectSummary.", nameof(url));
+                throw new JsonException("Property is required for class ItemFlingEffectSummary: url.");
 
             if (name.IsSet && name.Value == null)
-                throw new ArgumentNullException(nameof(name), "Property is not nullable for class ItemFlingEffectSummary.");
+                throw new JsonException("Property is not nullable for class ItemFlingEffectSummary: name.");
 
             if (url.IsSet && url.Value == null)
-                throw new ArgumentNullException(nameof(url), "Property is not nullable for class ItemFlingEffectSummary.");
+                throw new JsonException("Property is not nullable for class ItemFlingEffectSummary: url.");
 
             return new ItemFlingEffectSummary(name.Value!, url.Value!);
         }
@@ -172,7 +172,6 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="itemFlingEffectSummary"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public override void Write(Utf8JsonWriter writer, ItemFlingEffectSummary itemFlingEffectSummary, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteStartObject();
@@ -187,15 +186,8 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="itemFlingEffectSummary"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, ItemFlingEffectSummary itemFlingEffectSummary, JsonSerializerOptions jsonSerializerOptions)
         {
-            if (itemFlingEffectSummary.Name == null)
-                throw new ArgumentNullException(nameof(itemFlingEffectSummary.Name), "Property is required for class ItemFlingEffectSummary.");
-
-            if (itemFlingEffectSummary.Url == null)
-                throw new ArgumentNullException(nameof(itemFlingEffectSummary.Url), "Property is required for class ItemFlingEffectSummary.");
-
             writer.WriteString("name", itemFlingEffectSummary.Name);
 
             writer.WriteString("url", itemFlingEffectSummary.Url);

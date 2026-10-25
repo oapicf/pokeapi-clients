@@ -189,3 +189,4 @@ class _$LocationDetailSerializer implements PrimitiveSerializer<LocationDetail> 
   }
 }
 
+

@@ -166,3 +166,4 @@ class _$PaginatedEvolutionTriggerSummaryListSerializer implements PrimitiveSeria
   }
 }
 
+

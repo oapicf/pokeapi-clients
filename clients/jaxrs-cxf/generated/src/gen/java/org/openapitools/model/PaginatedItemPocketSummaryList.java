@@ -29,8 +29,6 @@ public class PaginatedItemPocketSummaryList  {
 
   @ApiModelProperty(value = "")
 
-  @Valid
-
   private List<@Valid ItemPocketSummary> results = new ArrayList<>();
  /**
    * Get count

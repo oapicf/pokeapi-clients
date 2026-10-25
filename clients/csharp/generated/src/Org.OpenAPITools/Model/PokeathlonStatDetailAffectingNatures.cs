@@ -146,16 +146,16 @@ namespace Org.OpenAPITools.Model
             }
 
             if (!decrease.IsSet)
-                throw new ArgumentException("Property is required for class PokeathlonStatDetailAffectingNatures.", nameof(decrease));
+                throw new JsonException("Property is required for class PokeathlonStatDetailAffectingNatures: decrease.");
 
             if (!increase.IsSet)
-                throw new ArgumentException("Property is required for class PokeathlonStatDetailAffectingNatures.", nameof(increase));
+                throw new JsonException("Property is required for class PokeathlonStatDetailAffectingNatures: increase.");
 
             if (decrease.IsSet && decrease.Value == null)
-                throw new ArgumentNullException(nameof(decrease), "Property is not nullable for class PokeathlonStatDetailAffectingNatures.");
+                throw new JsonException("Property is not nullable for class PokeathlonStatDetailAffectingNatures: decrease.");
 
             if (increase.IsSet && increase.Value == null)
-                throw new ArgumentNullException(nameof(increase), "Property is not nullable for class PokeathlonStatDetailAffectingNatures.");
+                throw new JsonException("Property is not nullable for class PokeathlonStatDetailAffectingNatures: increase.");
 
             return new PokeathlonStatDetailAffectingNatures(decrease.Value!, increase.Value!);
         }
@@ -166,7 +166,6 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="pokeathlonStatDetailAffectingNatures"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public override void Write(Utf8JsonWriter writer, PokeathlonStatDetailAffectingNatures pokeathlonStatDetailAffectingNatures, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteStartObject();
@@ -181,15 +180,8 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="pokeathlonStatDetailAffectingNatures"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, PokeathlonStatDetailAffectingNatures pokeathlonStatDetailAffectingNatures, JsonSerializerOptions jsonSerializerOptions)
         {
-            if (pokeathlonStatDetailAffectingNatures.Decrease == null)
-                throw new ArgumentNullException(nameof(pokeathlonStatDetailAffectingNatures.Decrease), "Property is required for class PokeathlonStatDetailAffectingNatures.");
-
-            if (pokeathlonStatDetailAffectingNatures.Increase == null)
-                throw new ArgumentNullException(nameof(pokeathlonStatDetailAffectingNatures.Increase), "Property is required for class PokeathlonStatDetailAffectingNatures.");
-
             writer.WritePropertyName("decrease");
             JsonSerializer.Serialize(writer, pokeathlonStatDetailAffectingNatures.Decrease, jsonSerializerOptions);
             writer.WritePropertyName("increase");

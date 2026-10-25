@@ -1,4 +1,3 @@
-.openapi-generator-ignore
 CMakeLists.txt
 README.md
 api/BerriesApi.cpp
@@ -315,6 +314,14 @@ model/NatureName.cpp
 model/NatureName.h
 model/NatureSummary.cpp
 model/NatureSummary.h
+model/NullableField.h
+model/Oas31DeepEqual.h
+model/Oas31ExactJson.h
+model/Oas31ExactNumber.cpp
+model/Oas31ExactNumber.h
+model/Oas31SchemaIr.h
+model/Oas31SchemaRegistry.h
+model/Oas31Validator.h
 model/PaginatedAbilitySummaryList.cpp
 model/PaginatedAbilitySummaryList.h
 model/PaginatedBerryFirmnessSummaryList.cpp
@@ -553,6 +560,7 @@ model/TypeGameIndex.cpp
 model/TypeGameIndex.h
 model/TypeSummary.cpp
 model/TypeSummary.h
+model/ValidationTypes.h
 model/VersionDetail.cpp
 model/VersionDetail.h
 model/VersionGroupDetail.cpp
@@ -563,3 +571,10 @@ model/VersionName.cpp
 model/VersionName.h
 model/VersionSummary.cpp
 model/VersionSummary.h
+model/schema_ir.generated.chunk0.cpp
+model/schema_ir.generated.chunk1.cpp
+model/schema_ir.generated.chunk2.cpp
+model/schema_ir.generated.chunk3.cpp
+model/schema_ir.generated.chunk4.cpp
+model/schema_ir.generated.cpp
+test/MultipartWireTest.cpp

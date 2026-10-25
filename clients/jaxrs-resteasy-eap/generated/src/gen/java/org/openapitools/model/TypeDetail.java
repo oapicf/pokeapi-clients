@@ -24,7 +24,7 @@ import javax.validation.constraints.*;
 import javax.validation.Valid;
 import io.swagger.annotations.*;
 
-@ApiModel(description="Serializer for the Type resource")@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaResteasyEapServerCodegen", date = "2026-08-30T01:56:39.042251164Z[Etc/UTC]", comments = "Generator version: 7.24.0")
+@ApiModel(description="Serializer for the Type resource")@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaResteasyEapServerCodegen", date = "2026-10-25T05:48:53.778376553Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 public class TypeDetail   {
   
   private Integer id;
@@ -37,7 +37,7 @@ public class TypeDetail   {
   private List<@Valid AbilityName> names = new ArrayList<>();
   private List<@Valid TypeDetailPokemonInner> pokemon = new ArrayList<>();
   private List<@Valid MoveSummary> moves = new ArrayList<>();
-  private Map<String, Map<String, TypeDetailSpritesValueValue>> sprites = new HashMap<>();
+  private Map<String, Map<String, @Valid TypeDetailSpritesValueValue>> sprites = new HashMap<>();
 
   /**
    **/
@@ -175,10 +175,10 @@ public class TypeDetail   {
   @ApiModelProperty(required = true, value = "")
   @JsonProperty("sprites")
   @NotNull
-  public Map<String, Map<String, TypeDetailSpritesValueValue>> getSprites() {
+  public Map<String, Map<String, @Valid TypeDetailSpritesValueValue>> getSprites() {
     return sprites;
   }
-  public void setSprites(Map<String, Map<String, TypeDetailSpritesValueValue>> sprites) {
+  public void setSprites(Map<String, Map<String, @Valid TypeDetailSpritesValueValue>> sprites) {
     this.sprites = sprites;
   }
 

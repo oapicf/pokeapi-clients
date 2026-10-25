@@ -29,8 +29,6 @@ public class PaginatedStatSummaryList  {
 
   @ApiModelProperty(value = "")
 
-  @Valid
-
   private List<@Valid StatSummary> results = new ArrayList<>();
  /**
    * Get count

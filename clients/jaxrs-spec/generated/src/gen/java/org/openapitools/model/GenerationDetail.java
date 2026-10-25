@@ -26,17 +26,17 @@ import org.openapitools.jackson.nullable.JsonNullable;
 
 
 @JsonTypeName("GenerationDetail")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2026-08-30T01:56:42.280002256Z[Etc/UTC]", comments = "Generator version: 7.24.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2026-10-25T05:48:57.630723375Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 public class GenerationDetail   {
   private Integer id;
   private String name;
-  private @Valid List<@Valid AbilitySummary> abilities = new ArrayList<>();
+  private List<@Valid AbilitySummary> abilities = new ArrayList<>();
   private RegionSummary mainRegion;
-  private @Valid List<@Valid MoveSummary> moves = new ArrayList<>();
-  private @Valid List<@Valid GenerationName> names = new ArrayList<>();
-  private @Valid List<@Valid PokemonSpeciesSummary> pokemonSpecies = new ArrayList<>();
-  private @Valid List<@Valid TypeSummary> types = new ArrayList<>();
-  private @Valid List<@Valid VersionGroupSummary> versionGroups = new ArrayList<>();
+  private List<@Valid MoveSummary> moves = new ArrayList<>();
+  private List<@Valid GenerationName> names = new ArrayList<>();
+  private List<@Valid PokemonSpeciesSummary> pokemonSpecies = new ArrayList<>();
+  private List<@Valid TypeSummary> types = new ArrayList<>();
+  private List<@Valid VersionGroupSummary> versionGroups = new ArrayList<>();
 
   public GenerationDetail() {
   }
@@ -112,7 +112,7 @@ public class GenerationDetail   {
   
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(required = true, value = "abilities")
-  @Valid public List<@Valid AbilitySummary> getAbilities() {
+  public List<@Valid AbilitySummary> getAbilities() {
     return abilities;
   }
 
@@ -166,7 +166,7 @@ public class GenerationDetail   {
   
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(required = true, value = "moves")
-  @Valid public List<@Valid MoveSummary> getMoves() {
+  public List<@Valid MoveSummary> getMoves() {
     return moves;
   }
 
@@ -201,7 +201,7 @@ public class GenerationDetail   {
   
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(required = true, value = "names")
-  @Valid public List<@Valid GenerationName> getNames() {
+  public List<@Valid GenerationName> getNames() {
     return names;
   }
 
@@ -236,7 +236,7 @@ public class GenerationDetail   {
   
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(required = true, value = "pokemon_species")
-  @Valid public List<@Valid PokemonSpeciesSummary> getPokemonSpecies() {
+  public List<@Valid PokemonSpeciesSummary> getPokemonSpecies() {
     return pokemonSpecies;
   }
 
@@ -271,7 +271,7 @@ public class GenerationDetail   {
   
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(required = true, value = "types")
-  @Valid public List<@Valid TypeSummary> getTypes() {
+  public List<@Valid TypeSummary> getTypes() {
     return types;
   }
 
@@ -306,7 +306,7 @@ public class GenerationDetail   {
   
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(required = true, value = "version_groups")
-  @Valid public List<@Valid VersionGroupSummary> getVersionGroups() {
+  public List<@Valid VersionGroupSummary> getVersionGroups() {
     return versionGroups;
   }
 

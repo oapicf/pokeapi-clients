@@ -166,3 +166,4 @@ class _$PaginatedPokemonShapeSummaryListSerializer implements PrimitiveSerialize
   }
 }
 
+

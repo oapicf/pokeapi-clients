@@ -110,22 +110,19 @@ class PokemonFormDetail(BaseModel):
         _items = []
         if self.form_names:
             for _item_form_names in self.form_names:
-                if _item_form_names:
-                    _items.append(_item_form_names.to_dict())
+                _items.append(_item_form_names.to_dict() if _item_form_names is not None else None)
             _dict['form_names'] = _items
         # override the default output from pydantic by calling `to_dict()` of each item in names (list)
         _items = []
         if self.names:
             for _item_names in self.names:
-                if _item_names:
-                    _items.append(_item_names.to_dict())
+                _items.append(_item_names.to_dict() if _item_names is not None else None)
             _dict['names'] = _items
         # override the default output from pydantic by calling `to_dict()` of each item in types (list)
         _items = []
         if self.types:
             for _item_types in self.types:
-                if _item_types:
-                    _items.append(_item_types.to_dict())
+                _items.append(_item_types.to_dict() if _item_types is not None else None)
             _dict['types'] = _items
         # set to None if order (nullable) is None
         # and model_fields_set contains the field

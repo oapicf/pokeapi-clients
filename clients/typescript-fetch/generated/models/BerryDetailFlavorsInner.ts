@@ -29,14 +29,10 @@ import {
 export interface BerryDetailFlavorsInner {
     /**
      * 
-     * @type {number}
-     * @memberof BerryDetailFlavorsInner
      */
     potency: number;
     /**
      * 
-     * @type {BerryDetailFlavorsInnerFlavor}
-     * @memberof BerryDetailFlavorsInner
      */
     flavor: BerryDetailFlavorsInnerFlavor;
 }

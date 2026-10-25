@@ -22,12 +22,12 @@ import io.swagger.v3.oas.annotations.media.Schema
 data class GenderDetailPokemonSpeciesDetailsInner(
 
     @Schema(required = true, description = "")
-    @param:JsonProperty("rate")
+    @param:JsonProperty("rate", required = true)
     @get:JsonProperty("rate", required = true) val rate: kotlin.Int,
 
     @field:Valid
     @Schema(required = true, description = "")
-    @param:JsonProperty("pokemon_species")
+    @param:JsonProperty("pokemon_species", required = true)
     @get:JsonProperty("pokemon_species", required = true) val pokemonSpecies: AbilityDetailPokemonInnerPokemon
 ) {
 

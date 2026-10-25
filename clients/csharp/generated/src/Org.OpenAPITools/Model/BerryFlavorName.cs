@@ -152,16 +152,16 @@ namespace Org.OpenAPITools.Model
             }
 
             if (!name.IsSet)
-                throw new ArgumentException("Property is required for class BerryFlavorName.", nameof(name));
+                throw new JsonException("Property is required for class BerryFlavorName: name.");
 
             if (!language.IsSet)
-                throw new ArgumentException("Property is required for class BerryFlavorName.", nameof(language));
+                throw new JsonException("Property is required for class BerryFlavorName: language.");
 
             if (name.IsSet && name.Value == null)
-                throw new ArgumentNullException(nameof(name), "Property is not nullable for class BerryFlavorName.");
+                throw new JsonException("Property is not nullable for class BerryFlavorName: name.");
 
             if (language.IsSet && language.Value == null)
-                throw new ArgumentNullException(nameof(language), "Property is not nullable for class BerryFlavorName.");
+                throw new JsonException("Property is not nullable for class BerryFlavorName: language.");
 
             return new BerryFlavorName(name.Value!, language.Value!);
         }
@@ -172,7 +172,6 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="berryFlavorName"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public override void Write(Utf8JsonWriter writer, BerryFlavorName berryFlavorName, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteStartObject();
@@ -187,15 +186,8 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="berryFlavorName"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, BerryFlavorName berryFlavorName, JsonSerializerOptions jsonSerializerOptions)
         {
-            if (berryFlavorName.Name == null)
-                throw new ArgumentNullException(nameof(berryFlavorName.Name), "Property is required for class BerryFlavorName.");
-
-            if (berryFlavorName.Language == null)
-                throw new ArgumentNullException(nameof(berryFlavorName.Language), "Property is required for class BerryFlavorName.");
-
             writer.WriteString("name", berryFlavorName.Name);
 
             writer.WritePropertyName("language");

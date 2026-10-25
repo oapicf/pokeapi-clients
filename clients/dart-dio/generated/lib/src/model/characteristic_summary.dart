@@ -104,3 +104,4 @@ class _$CharacteristicSummarySerializer implements PrimitiveSerializer<Character
   }
 }
 
+

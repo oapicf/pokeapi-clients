@@ -24,7 +24,7 @@ import jakarta.annotation.Generated;
  * PalParkAreaDetail
  */
 
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2026-08-30T02:00:43.960184425Z[Etc/UTC]", comments = "Generator version: 7.24.0")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2026-10-25T05:53:37.479908528Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 public class PalParkAreaDetail {
 
   private Integer id;
@@ -108,7 +108,7 @@ public class PalParkAreaDetail {
    * Get names
    * @return names
    */
-  @Valid 
+  
   @Schema(name = "names", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("names")
   public List<@Valid PalParkAreaName> getNames() {
@@ -137,7 +137,7 @@ public class PalParkAreaDetail {
    * Get pokemonEncounters
    * @return pokemonEncounters
    */
-  @Valid 
+  
   @Schema(name = "pokemon_encounters", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("pokemon_encounters")
   public List<@Valid PalParkAreaDetailPokemonEncountersInner> getPokemonEncounters() {

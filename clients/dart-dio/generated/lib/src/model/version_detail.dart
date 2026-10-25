@@ -155,3 +155,4 @@ class _$VersionDetailSerializer implements PrimitiveSerializer<VersionDetail> {
   }
 }
 
+

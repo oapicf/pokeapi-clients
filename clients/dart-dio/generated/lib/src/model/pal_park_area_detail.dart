@@ -155,3 +155,4 @@ class _$PalParkAreaDetailSerializer implements PrimitiveSerializer<PalParkAreaDe
   }
 }
 
+

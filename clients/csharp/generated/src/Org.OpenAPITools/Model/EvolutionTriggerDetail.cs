@@ -178,28 +178,28 @@ namespace Org.OpenAPITools.Model
             }
 
             if (!id.IsSet)
-                throw new ArgumentException("Property is required for class EvolutionTriggerDetail.", nameof(id));
+                throw new JsonException("Property is required for class EvolutionTriggerDetail: id.");
 
             if (!name.IsSet)
-                throw new ArgumentException("Property is required for class EvolutionTriggerDetail.", nameof(name));
+                throw new JsonException("Property is required for class EvolutionTriggerDetail: name.");
 
             if (!names.IsSet)
-                throw new ArgumentException("Property is required for class EvolutionTriggerDetail.", nameof(names));
+                throw new JsonException("Property is required for class EvolutionTriggerDetail: names.");
 
             if (!pokemonSpecies.IsSet)
-                throw new ArgumentException("Property is required for class EvolutionTriggerDetail.", nameof(pokemonSpecies));
+                throw new JsonException("Property is required for class EvolutionTriggerDetail: pokemon_species.");
 
             if (id.IsSet && id.Value == null)
-                throw new ArgumentNullException(nameof(id), "Property is not nullable for class EvolutionTriggerDetail.");
+                throw new JsonException("Property is not nullable for class EvolutionTriggerDetail: id.");
 
             if (name.IsSet && name.Value == null)
-                throw new ArgumentNullException(nameof(name), "Property is not nullable for class EvolutionTriggerDetail.");
+                throw new JsonException("Property is not nullable for class EvolutionTriggerDetail: name.");
 
             if (names.IsSet && names.Value == null)
-                throw new ArgumentNullException(nameof(names), "Property is not nullable for class EvolutionTriggerDetail.");
+                throw new JsonException("Property is not nullable for class EvolutionTriggerDetail: names.");
 
             if (pokemonSpecies.IsSet && pokemonSpecies.Value == null)
-                throw new ArgumentNullException(nameof(pokemonSpecies), "Property is not nullable for class EvolutionTriggerDetail.");
+                throw new JsonException("Property is not nullable for class EvolutionTriggerDetail: pokemon_species.");
 
             return new EvolutionTriggerDetail(id.Value!.Value!, name.Value!, names.Value!, pokemonSpecies.Value!);
         }
@@ -210,7 +210,6 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="evolutionTriggerDetail"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public override void Write(Utf8JsonWriter writer, EvolutionTriggerDetail evolutionTriggerDetail, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteStartObject();
@@ -225,18 +224,8 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="evolutionTriggerDetail"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, EvolutionTriggerDetail evolutionTriggerDetail, JsonSerializerOptions jsonSerializerOptions)
         {
-            if (evolutionTriggerDetail.Name == null)
-                throw new ArgumentNullException(nameof(evolutionTriggerDetail.Name), "Property is required for class EvolutionTriggerDetail.");
-
-            if (evolutionTriggerDetail.Names == null)
-                throw new ArgumentNullException(nameof(evolutionTriggerDetail.Names), "Property is required for class EvolutionTriggerDetail.");
-
-            if (evolutionTriggerDetail.PokemonSpecies == null)
-                throw new ArgumentNullException(nameof(evolutionTriggerDetail.PokemonSpecies), "Property is required for class EvolutionTriggerDetail.");
-
             writer.WriteNumber("id", evolutionTriggerDetail.Id);
 
             writer.WriteString("name", evolutionTriggerDetail.Name);

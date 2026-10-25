@@ -80,8 +80,7 @@ class PokemonDetailMovesInner(BaseModel):
         _items = []
         if self.version_group_details:
             for _item_version_group_details in self.version_group_details:
-                if _item_version_group_details:
-                    _items.append(_item_version_group_details.to_dict())
+                _items.append(_item_version_group_details.to_dict() if _item_version_group_details is not None else None)
             _dict['version_group_details'] = _items
         return _dict
 

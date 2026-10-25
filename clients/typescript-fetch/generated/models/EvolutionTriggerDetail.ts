@@ -36,26 +36,18 @@ import {
 export interface EvolutionTriggerDetail {
     /**
      * 
-     * @type {number}
-     * @memberof EvolutionTriggerDetail
      */
     readonly id: number;
     /**
      * 
-     * @type {string}
-     * @memberof EvolutionTriggerDetail
      */
     name: string;
     /**
      * 
-     * @type {Array<EvolutionTriggerName>}
-     * @memberof EvolutionTriggerDetail
      */
     readonly names: Array<EvolutionTriggerName>;
     /**
      * 
-     * @type {Array<AbilityDetailPokemonInnerPokemon>}
-     * @memberof EvolutionTriggerDetail
      */
     readonly pokemonSpecies: Array<AbilityDetailPokemonInnerPokemon>;
 }

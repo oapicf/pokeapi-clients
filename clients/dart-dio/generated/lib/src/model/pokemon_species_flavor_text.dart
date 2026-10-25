@@ -138,3 +138,4 @@ class _$PokemonSpeciesFlavorTextSerializer implements PrimitiveSerializer<Pokemo
   }
 }
 
+

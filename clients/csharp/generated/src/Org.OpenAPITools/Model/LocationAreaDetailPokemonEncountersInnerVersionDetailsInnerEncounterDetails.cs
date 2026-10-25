@@ -192,31 +192,31 @@ namespace Org.OpenAPITools.Model
             }
 
             if (!minLevel.IsSet)
-                throw new ArgumentException("Property is required for class LocationAreaDetailPokemonEncountersInnerVersionDetailsInnerEncounterDetails.", nameof(minLevel));
+                throw new JsonException("Property is required for class LocationAreaDetailPokemonEncountersInnerVersionDetailsInnerEncounterDetails: min_level.");
 
             if (!maxLevel.IsSet)
-                throw new ArgumentException("Property is required for class LocationAreaDetailPokemonEncountersInnerVersionDetailsInnerEncounterDetails.", nameof(maxLevel));
+                throw new JsonException("Property is required for class LocationAreaDetailPokemonEncountersInnerVersionDetailsInnerEncounterDetails: max_level.");
 
             if (!chance.IsSet)
-                throw new ArgumentException("Property is required for class LocationAreaDetailPokemonEncountersInnerVersionDetailsInnerEncounterDetails.", nameof(chance));
+                throw new JsonException("Property is required for class LocationAreaDetailPokemonEncountersInnerVersionDetailsInnerEncounterDetails: chance.");
 
             if (!method.IsSet)
-                throw new ArgumentException("Property is required for class LocationAreaDetailPokemonEncountersInnerVersionDetailsInnerEncounterDetails.", nameof(method));
+                throw new JsonException("Property is required for class LocationAreaDetailPokemonEncountersInnerVersionDetailsInnerEncounterDetails: method.");
 
             if (minLevel.IsSet && minLevel.Value == null)
-                throw new ArgumentNullException(nameof(minLevel), "Property is not nullable for class LocationAreaDetailPokemonEncountersInnerVersionDetailsInnerEncounterDetails.");
+                throw new JsonException("Property is not nullable for class LocationAreaDetailPokemonEncountersInnerVersionDetailsInnerEncounterDetails: min_level.");
 
             if (maxLevel.IsSet && maxLevel.Value == null)
-                throw new ArgumentNullException(nameof(maxLevel), "Property is not nullable for class LocationAreaDetailPokemonEncountersInnerVersionDetailsInnerEncounterDetails.");
+                throw new JsonException("Property is not nullable for class LocationAreaDetailPokemonEncountersInnerVersionDetailsInnerEncounterDetails: max_level.");
 
             if (chance.IsSet && chance.Value == null)
-                throw new ArgumentNullException(nameof(chance), "Property is not nullable for class LocationAreaDetailPokemonEncountersInnerVersionDetailsInnerEncounterDetails.");
+                throw new JsonException("Property is not nullable for class LocationAreaDetailPokemonEncountersInnerVersionDetailsInnerEncounterDetails: chance.");
 
             if (method.IsSet && method.Value == null)
-                throw new ArgumentNullException(nameof(method), "Property is not nullable for class LocationAreaDetailPokemonEncountersInnerVersionDetailsInnerEncounterDetails.");
+                throw new JsonException("Property is not nullable for class LocationAreaDetailPokemonEncountersInnerVersionDetailsInnerEncounterDetails: method.");
 
             if (conditionValues.IsSet && conditionValues.Value == null)
-                throw new ArgumentNullException(nameof(conditionValues), "Property is not nullable for class LocationAreaDetailPokemonEncountersInnerVersionDetailsInnerEncounterDetails.");
+                throw new JsonException("Property is not nullable for class LocationAreaDetailPokemonEncountersInnerVersionDetailsInnerEncounterDetails: condition_values.");
 
             return new LocationAreaDetailPokemonEncountersInnerVersionDetailsInnerEncounterDetails(minLevel.Value!.Value!, maxLevel.Value!.Value!, chance.Value!.Value!, method.Value!, conditionValues);
         }
@@ -227,7 +227,6 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="locationAreaDetailPokemonEncountersInnerVersionDetailsInnerEncounterDetails"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public override void Write(Utf8JsonWriter writer, LocationAreaDetailPokemonEncountersInnerVersionDetailsInnerEncounterDetails locationAreaDetailPokemonEncountersInnerVersionDetailsInnerEncounterDetails, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteStartObject();
@@ -242,14 +241,10 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="locationAreaDetailPokemonEncountersInnerVersionDetailsInnerEncounterDetails"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, LocationAreaDetailPokemonEncountersInnerVersionDetailsInnerEncounterDetails locationAreaDetailPokemonEncountersInnerVersionDetailsInnerEncounterDetails, JsonSerializerOptions jsonSerializerOptions)
         {
-            if (locationAreaDetailPokemonEncountersInnerVersionDetailsInnerEncounterDetails.Method == null)
-                throw new ArgumentNullException(nameof(locationAreaDetailPokemonEncountersInnerVersionDetailsInnerEncounterDetails.Method), "Property is required for class LocationAreaDetailPokemonEncountersInnerVersionDetailsInnerEncounterDetails.");
-
             if (locationAreaDetailPokemonEncountersInnerVersionDetailsInnerEncounterDetails.ConditionValuesOption.IsSet && locationAreaDetailPokemonEncountersInnerVersionDetailsInnerEncounterDetails.ConditionValues == null)
-                throw new ArgumentNullException(nameof(locationAreaDetailPokemonEncountersInnerVersionDetailsInnerEncounterDetails.ConditionValues), "Property is required for class LocationAreaDetailPokemonEncountersInnerVersionDetailsInnerEncounterDetails.");
+                throw new JsonException("Cannot write null property LocationAreaDetailPokemonEncountersInnerVersionDetailsInnerEncounterDetails.ConditionValues to non-nullable JSON property 'condition_values'.");
 
             writer.WriteNumber("min_level", locationAreaDetailPokemonEncountersInnerVersionDetailsInnerEncounterDetails.MinLevel);
 

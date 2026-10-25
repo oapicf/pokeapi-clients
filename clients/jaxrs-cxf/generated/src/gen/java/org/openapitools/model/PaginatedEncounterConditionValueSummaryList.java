@@ -29,8 +29,6 @@ public class PaginatedEncounterConditionValueSummaryList  {
 
   @ApiModelProperty(value = "")
 
-  @Valid
-
   private List<@Valid EncounterConditionValueSummary> results = new ArrayList<>();
  /**
    * Get count

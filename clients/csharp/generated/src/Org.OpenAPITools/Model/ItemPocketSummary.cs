@@ -152,16 +152,16 @@ namespace Org.OpenAPITools.Model
             }
 
             if (!name.IsSet)
-                throw new ArgumentException("Property is required for class ItemPocketSummary.", nameof(name));
+                throw new JsonException("Property is required for class ItemPocketSummary: name.");
 
             if (!url.IsSet)
-                throw new ArgumentException("Property is required for class ItemPocketSummary.", nameof(url));
+                throw new JsonException("Property is required for class ItemPocketSummary: url.");
 
             if (name.IsSet && name.Value == null)
-                throw new ArgumentNullException(nameof(name), "Property is not nullable for class ItemPocketSummary.");
+                throw new JsonException("Property is not nullable for class ItemPocketSummary: name.");
 
             if (url.IsSet && url.Value == null)
-                throw new ArgumentNullException(nameof(url), "Property is not nullable for class ItemPocketSummary.");
+                throw new JsonException("Property is not nullable for class ItemPocketSummary: url.");
 
             return new ItemPocketSummary(name.Value!, url.Value!);
         }
@@ -172,7 +172,6 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="itemPocketSummary"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public override void Write(Utf8JsonWriter writer, ItemPocketSummary itemPocketSummary, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteStartObject();
@@ -187,15 +186,8 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="itemPocketSummary"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, ItemPocketSummary itemPocketSummary, JsonSerializerOptions jsonSerializerOptions)
         {
-            if (itemPocketSummary.Name == null)
-                throw new ArgumentNullException(nameof(itemPocketSummary.Name), "Property is required for class ItemPocketSummary.");
-
-            if (itemPocketSummary.Url == null)
-                throw new ArgumentNullException(nameof(itemPocketSummary.Url), "Property is required for class ItemPocketSummary.");
-
             writer.WriteString("name", itemPocketSummary.Name);
 
             writer.WriteString("url", itemPocketSummary.Url);

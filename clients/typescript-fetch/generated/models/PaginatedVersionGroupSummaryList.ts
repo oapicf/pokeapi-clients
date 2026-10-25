@@ -29,26 +29,18 @@ import {
 export interface PaginatedVersionGroupSummaryList {
     /**
      * 
-     * @type {number}
-     * @memberof PaginatedVersionGroupSummaryList
      */
     count?: number;
     /**
      * 
-     * @type {string}
-     * @memberof PaginatedVersionGroupSummaryList
      */
     next?: string;
     /**
      * 
-     * @type {string}
-     * @memberof PaginatedVersionGroupSummaryList
      */
     previous?: string;
     /**
      * 
-     * @type {Array<VersionGroupSummary>}
-     * @memberof PaginatedVersionGroupSummaryList
      */
     results?: Array<VersionGroupSummary>;
 }

@@ -29,14 +29,10 @@ import {
 export interface EncounterConditionValueName {
     /**
      * 
-     * @type {string}
-     * @memberof EncounterConditionValueName
      */
     name: string;
     /**
      * 
-     * @type {LanguageSummary}
-     * @memberof EncounterConditionValueName
      */
     language: LanguageSummary;
 }

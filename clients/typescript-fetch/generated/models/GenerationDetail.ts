@@ -71,56 +71,38 @@ import {
 export interface GenerationDetail {
     /**
      * 
-     * @type {number}
-     * @memberof GenerationDetail
      */
     readonly id: number;
     /**
      * 
-     * @type {string}
-     * @memberof GenerationDetail
      */
     name: string;
     /**
      * 
-     * @type {Array<AbilitySummary>}
-     * @memberof GenerationDetail
      */
     readonly abilities: Array<AbilitySummary>;
     /**
      * 
-     * @type {RegionSummary}
-     * @memberof GenerationDetail
      */
     mainRegion: RegionSummary;
     /**
      * 
-     * @type {Array<MoveSummary>}
-     * @memberof GenerationDetail
      */
     readonly moves: Array<MoveSummary>;
     /**
      * 
-     * @type {Array<GenerationName>}
-     * @memberof GenerationDetail
      */
     readonly names: Array<GenerationName>;
     /**
      * 
-     * @type {Array<PokemonSpeciesSummary>}
-     * @memberof GenerationDetail
      */
     readonly pokemonSpecies: Array<PokemonSpeciesSummary>;
     /**
      * 
-     * @type {Array<TypeSummary>}
-     * @memberof GenerationDetail
      */
     readonly types: Array<TypeSummary>;
     /**
      * 
-     * @type {Array<VersionGroupSummary>}
-     * @memberof GenerationDetail
      */
     readonly versionGroups: Array<VersionGroupSummary>;
 }

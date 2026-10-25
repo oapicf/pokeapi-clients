@@ -17,13 +17,9 @@ public class MoveDetailContestCombosNormal  {
   
   @ApiModelProperty(required = true, value = "")
 
-  @Valid
-
   private List<@Valid AbilityDetailPokemonInnerPokemon> useBefore = new ArrayList<>();
 
   @ApiModelProperty(required = true, value = "")
-
-  @Valid
 
   private List<@Valid AbilityDetailPokemonInnerPokemon> useAfter = new ArrayList<>();
  /**

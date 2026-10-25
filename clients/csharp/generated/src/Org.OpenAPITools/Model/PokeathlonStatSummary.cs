@@ -152,16 +152,16 @@ namespace Org.OpenAPITools.Model
             }
 
             if (!name.IsSet)
-                throw new ArgumentException("Property is required for class PokeathlonStatSummary.", nameof(name));
+                throw new JsonException("Property is required for class PokeathlonStatSummary: name.");
 
             if (!url.IsSet)
-                throw new ArgumentException("Property is required for class PokeathlonStatSummary.", nameof(url));
+                throw new JsonException("Property is required for class PokeathlonStatSummary: url.");
 
             if (name.IsSet && name.Value == null)
-                throw new ArgumentNullException(nameof(name), "Property is not nullable for class PokeathlonStatSummary.");
+                throw new JsonException("Property is not nullable for class PokeathlonStatSummary: name.");
 
             if (url.IsSet && url.Value == null)
-                throw new ArgumentNullException(nameof(url), "Property is not nullable for class PokeathlonStatSummary.");
+                throw new JsonException("Property is not nullable for class PokeathlonStatSummary: url.");
 
             return new PokeathlonStatSummary(name.Value!, url.Value!);
         }
@@ -172,7 +172,6 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="pokeathlonStatSummary"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public override void Write(Utf8JsonWriter writer, PokeathlonStatSummary pokeathlonStatSummary, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteStartObject();
@@ -187,15 +186,8 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="pokeathlonStatSummary"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, PokeathlonStatSummary pokeathlonStatSummary, JsonSerializerOptions jsonSerializerOptions)
         {
-            if (pokeathlonStatSummary.Name == null)
-                throw new ArgumentNullException(nameof(pokeathlonStatSummary.Name), "Property is required for class PokeathlonStatSummary.");
-
-            if (pokeathlonStatSummary.Url == null)
-                throw new ArgumentNullException(nameof(pokeathlonStatSummary.Url), "Property is required for class PokeathlonStatSummary.");
-
             writer.WriteString("name", pokeathlonStatSummary.Name);
 
             writer.WriteString("url", pokeathlonStatSummary.Url);

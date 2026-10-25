@@ -22,13 +22,13 @@ import org.openapitools.jackson.nullable.JsonNullable;
 
 
 @JsonTypeName("PokemonShapeDetail")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2026-08-30T01:56:42.280002256Z[Etc/UTC]", comments = "Generator version: 7.24.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2026-10-25T05:48:57.630723375Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 public class PokemonShapeDetail   {
   private Integer id;
   private String name;
-  private @Valid List<@Valid PokemonShapeDetailAwesomeNamesInner> awesomeNames = new ArrayList<>();
-  private @Valid List<@Valid PokemonShapeDetailNamesInner> names = new ArrayList<>();
-  private @Valid List<@Valid PokemonSpeciesSummary> pokemonSpecies = new ArrayList<>();
+  private List<@Valid PokemonShapeDetailAwesomeNamesInner> awesomeNames = new ArrayList<>();
+  private List<@Valid PokemonShapeDetailNamesInner> names = new ArrayList<>();
+  private List<@Valid PokemonSpeciesSummary> pokemonSpecies = new ArrayList<>();
 
   public PokemonShapeDetail() {
   }
@@ -96,7 +96,7 @@ public class PokemonShapeDetail   {
   
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(required = true, value = "awesome_names")
-  @Valid public List<@Valid PokemonShapeDetailAwesomeNamesInner> getAwesomeNames() {
+  public List<@Valid PokemonShapeDetailAwesomeNamesInner> getAwesomeNames() {
     return awesomeNames;
   }
 
@@ -131,7 +131,7 @@ public class PokemonShapeDetail   {
   
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(required = true, value = "names")
-  @Valid public List<@Valid PokemonShapeDetailNamesInner> getNames() {
+  public List<@Valid PokemonShapeDetailNamesInner> getNames() {
     return names;
   }
 
@@ -166,7 +166,7 @@ public class PokemonShapeDetail   {
   
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(required = true, value = "pokemon_species")
-  @Valid public List<@Valid PokemonSpeciesSummary> getPokemonSpecies() {
+  public List<@Valid PokemonSpeciesSummary> getPokemonSpecies() {
     return pokemonSpecies;
   }
 

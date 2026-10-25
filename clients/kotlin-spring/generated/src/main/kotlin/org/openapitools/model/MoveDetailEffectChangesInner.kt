@@ -24,12 +24,12 @@ data class MoveDetailEffectChangesInner(
 
     @field:Valid
     @Schema(required = true, description = "")
-    @param:JsonProperty("effect_entries")
+    @param:JsonProperty("effect_entries", required = true)
     @get:JsonProperty("effect_entries", required = true) val effectEntries: kotlin.collections.List<MoveDetailEffectChangesInnerEffectEntriesInner>,
 
     @field:Valid
     @Schema(required = true, description = "")
-    @param:JsonProperty("version_group")
+    @param:JsonProperty("version_group", required = true)
     @get:JsonProperty("version_group", required = true) val versionGroup: AbilityDetailPokemonInnerPokemon
 ) {
 

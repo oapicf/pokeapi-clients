@@ -99,92 +99,62 @@ import {
 export interface ItemDetail {
     /**
      * 
-     * @type {number}
-     * @memberof ItemDetail
      */
     readonly id: number;
     /**
      * 
-     * @type {string}
-     * @memberof ItemDetail
      */
     name: string;
     /**
      * 
-     * @type {number}
-     * @memberof ItemDetail
      */
     cost?: number | null;
     /**
      * 
-     * @type {number}
-     * @memberof ItemDetail
      */
     flingPower?: number | null;
     /**
      * 
-     * @type {ItemFlingEffectSummary}
-     * @memberof ItemDetail
      */
     flingEffect: ItemFlingEffectSummary;
     /**
      * 
-     * @type {Array<AbilityDetailPokemonInnerPokemon>}
-     * @memberof ItemDetail
      */
     readonly attributes: Array<AbilityDetailPokemonInnerPokemon>;
     /**
      * 
-     * @type {ItemCategorySummary}
-     * @memberof ItemDetail
      */
     category: ItemCategorySummary;
     /**
      * 
-     * @type {Array<ItemEffectText>}
-     * @memberof ItemDetail
      */
     readonly effectEntries: Array<ItemEffectText>;
     /**
      * 
-     * @type {Array<ItemFlavorText>}
-     * @memberof ItemDetail
      */
     readonly flavorTextEntries: Array<ItemFlavorText>;
     /**
      * 
-     * @type {Array<ItemGameIndex>}
-     * @memberof ItemDetail
      */
     readonly gameIndices: Array<ItemGameIndex>;
     /**
      * 
-     * @type {Array<ItemName>}
-     * @memberof ItemDetail
      */
     readonly names: Array<ItemName>;
     /**
      * 
-     * @type {Array<ItemDetailHeldByPokemonInner>}
-     * @memberof ItemDetail
      */
     readonly heldByPokemon: Array<ItemDetailHeldByPokemonInner>;
     /**
      * 
-     * @type {ItemDetailSprites}
-     * @memberof ItemDetail
      */
     sprites: ItemDetailSprites;
     /**
      * 
-     * @type {ItemDetailBabyTriggerFor}
-     * @memberof ItemDetail
      */
     babyTriggerFor: ItemDetailBabyTriggerFor;
     /**
      * 
-     * @type {Array<ItemDetailMachinesInner>}
-     * @memberof ItemDetail
      */
     readonly machines: Array<ItemDetailMachinesInner>;
 }

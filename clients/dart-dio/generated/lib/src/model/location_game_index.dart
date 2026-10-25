@@ -121,3 +121,4 @@ class _$LocationGameIndexSerializer implements PrimitiveSerializer<LocationGameI
   }
 }
 
+

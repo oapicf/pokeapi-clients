@@ -20,7 +20,6 @@ public class EvolutionChainDetailChain  {
   private List<Object> evolutionDetails = new ArrayList<>();
 
   @ApiModelProperty(required = true, value = "")
-  @Valid
   private List<@Valid EvolutionChainDetailChainEvolvesToInner> evolvesTo = new ArrayList<>();
 
   @ApiModelProperty(required = true, value = "")

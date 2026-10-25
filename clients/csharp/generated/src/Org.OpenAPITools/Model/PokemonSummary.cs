@@ -152,16 +152,16 @@ namespace Org.OpenAPITools.Model
             }
 
             if (!name.IsSet)
-                throw new ArgumentException("Property is required for class PokemonSummary.", nameof(name));
+                throw new JsonException("Property is required for class PokemonSummary: name.");
 
             if (!url.IsSet)
-                throw new ArgumentException("Property is required for class PokemonSummary.", nameof(url));
+                throw new JsonException("Property is required for class PokemonSummary: url.");
 
             if (name.IsSet && name.Value == null)
-                throw new ArgumentNullException(nameof(name), "Property is not nullable for class PokemonSummary.");
+                throw new JsonException("Property is not nullable for class PokemonSummary: name.");
 
             if (url.IsSet && url.Value == null)
-                throw new ArgumentNullException(nameof(url), "Property is not nullable for class PokemonSummary.");
+                throw new JsonException("Property is not nullable for class PokemonSummary: url.");
 
             return new PokemonSummary(name.Value!, url.Value!);
         }
@@ -172,7 +172,6 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="pokemonSummary"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public override void Write(Utf8JsonWriter writer, PokemonSummary pokemonSummary, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteStartObject();
@@ -187,15 +186,8 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="pokemonSummary"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, PokemonSummary pokemonSummary, JsonSerializerOptions jsonSerializerOptions)
         {
-            if (pokemonSummary.Name == null)
-                throw new ArgumentNullException(nameof(pokemonSummary.Name), "Property is required for class PokemonSummary.");
-
-            if (pokemonSummary.Url == null)
-                throw new ArgumentNullException(nameof(pokemonSummary.Url), "Property is required for class PokemonSummary.");
-
             writer.WriteString("name", pokemonSummary.Name);
 
             writer.WriteString("url", pokemonSummary.Url);

@@ -27,7 +27,7 @@ import jakarta.annotation.Generated;
  * RegionDetail
  */
 
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2026-08-30T02:00:43.960184425Z[Etc/UTC]", comments = "Generator version: 7.24.0")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2026-10-25T05:53:37.479908528Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 public class RegionDetail {
 
   private Integer id;
@@ -120,7 +120,7 @@ public class RegionDetail {
    * Get locations
    * @return locations
    */
-  @Valid 
+  
   @Schema(name = "locations", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("locations")
   public List<@Valid LocationSummary> getLocations() {
@@ -170,7 +170,7 @@ public class RegionDetail {
    * Get names
    * @return names
    */
-  @Valid 
+  
   @Schema(name = "names", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("names")
   public List<@Valid RegionName> getNames() {
@@ -199,7 +199,7 @@ public class RegionDetail {
    * Get pokedexes
    * @return pokedexes
    */
-  @Valid 
+  
   @Schema(name = "pokedexes", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("pokedexes")
   public List<@Valid PokedexSummary> getPokedexes() {
@@ -228,7 +228,7 @@ public class RegionDetail {
    * Get versionGroups
    * @return versionGroups
    */
-  @Valid 
+  
   @Schema(name = "version_groups", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("version_groups")
   public List<@Valid AbilityDetailPokemonInnerPokemon> getVersionGroups() {

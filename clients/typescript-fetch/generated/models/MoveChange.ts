@@ -43,44 +43,30 @@ import {
 export interface MoveChange {
     /**
      * 
-     * @type {number}
-     * @memberof MoveChange
      */
     accuracy?: number | null;
     /**
      * 
-     * @type {number}
-     * @memberof MoveChange
      */
     power?: number | null;
     /**
      * 
-     * @type {number}
-     * @memberof MoveChange
      */
     pp?: number | null;
     /**
      * 
-     * @type {number}
-     * @memberof MoveChange
      */
     effectChance: number;
     /**
      * 
-     * @type {Array<MoveChangeEffectEntriesInner>}
-     * @memberof MoveChange
      */
     readonly effectEntries: Array<MoveChangeEffectEntriesInner>;
     /**
      * 
-     * @type {TypeSummary}
-     * @memberof MoveChange
      */
     type: TypeSummary;
     /**
      * 
-     * @type {VersionGroupSummary}
-     * @memberof MoveChange
      */
     versionGroup: VersionGroupSummary;
 }

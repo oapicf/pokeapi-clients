@@ -159,13 +159,13 @@ namespace Org.OpenAPITools.Model
             }
 
             if (!language.IsSet)
-                throw new ArgumentException("Property is required for class CharacteristicDescription.", nameof(language));
+                throw new JsonException("Property is required for class CharacteristicDescription: language.");
 
             if (language.IsSet && language.Value == null)
-                throw new ArgumentNullException(nameof(language), "Property is not nullable for class CharacteristicDescription.");
+                throw new JsonException("Property is not nullable for class CharacteristicDescription: language.");
 
             if (description.IsSet && description.Value == null)
-                throw new ArgumentNullException(nameof(description), "Property is not nullable for class CharacteristicDescription.");
+                throw new JsonException("Property is not nullable for class CharacteristicDescription: description.");
 
             return new CharacteristicDescription(language.Value!, description);
         }
@@ -176,7 +176,6 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="characteristicDescription"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public override void Write(Utf8JsonWriter writer, CharacteristicDescription characteristicDescription, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteStartObject();
@@ -191,14 +190,10 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="characteristicDescription"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, CharacteristicDescription characteristicDescription, JsonSerializerOptions jsonSerializerOptions)
         {
-            if (characteristicDescription.Language == null)
-                throw new ArgumentNullException(nameof(characteristicDescription.Language), "Property is required for class CharacteristicDescription.");
-
             if (characteristicDescription.DescriptionOption.IsSet && characteristicDescription.Description == null)
-                throw new ArgumentNullException(nameof(characteristicDescription.Description), "Property is required for class CharacteristicDescription.");
+                throw new JsonException("Cannot write null property CharacteristicDescription.Description to non-nullable JSON property 'description'.");
 
             writer.WritePropertyName("language");
             JsonSerializer.Serialize(writer, characteristicDescription.Language, jsonSerializerOptions);

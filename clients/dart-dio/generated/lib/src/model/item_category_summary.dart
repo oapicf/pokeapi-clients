@@ -120,3 +120,4 @@ class _$ItemCategorySummarySerializer implements PrimitiveSerializer<ItemCategor
   }
 }
 
+

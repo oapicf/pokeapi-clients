@@ -123,3 +123,4 @@ class _$LocationAreaDetailEncounterMethodRatesInnerSerializer implements Primiti
   }
 }
 
+

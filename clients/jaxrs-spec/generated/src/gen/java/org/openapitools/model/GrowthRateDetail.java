@@ -22,14 +22,14 @@ import org.openapitools.jackson.nullable.JsonNullable;
 
 
 @JsonTypeName("GrowthRateDetail")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2026-08-30T01:56:42.280002256Z[Etc/UTC]", comments = "Generator version: 7.24.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2026-10-25T05:48:57.630723375Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 public class GrowthRateDetail   {
   private Integer id;
   private String name;
   private String formula;
-  private @Valid List<@Valid GrowthRateDescription> descriptions = new ArrayList<>();
-  private @Valid List<@Valid Experience> levels = new ArrayList<>();
-  private @Valid List<@Valid PokemonSpeciesSummary> pokemonSpecies = new ArrayList<>();
+  private List<@Valid GrowthRateDescription> descriptions = new ArrayList<>();
+  private List<@Valid Experience> levels = new ArrayList<>();
+  private List<@Valid PokemonSpeciesSummary> pokemonSpecies = new ArrayList<>();
 
   public GrowthRateDetail() {
   }
@@ -118,7 +118,7 @@ public class GrowthRateDetail   {
   
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(required = true, value = "descriptions")
-  @Valid public List<@Valid GrowthRateDescription> getDescriptions() {
+  public List<@Valid GrowthRateDescription> getDescriptions() {
     return descriptions;
   }
 
@@ -153,7 +153,7 @@ public class GrowthRateDetail   {
   
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(required = true, value = "levels")
-  @Valid public List<@Valid Experience> getLevels() {
+  public List<@Valid Experience> getLevels() {
     return levels;
   }
 
@@ -188,7 +188,7 @@ public class GrowthRateDetail   {
   
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(required = true, value = "pokemon_species")
-  @Valid public List<@Valid PokemonSpeciesSummary> getPokemonSpecies() {
+  public List<@Valid PokemonSpeciesSummary> getPokemonSpecies() {
     return pokemonSpecies;
   }
 

@@ -152,16 +152,16 @@ namespace Org.OpenAPITools.Model
             }
 
             if (!name.IsSet)
-                throw new ArgumentException("Property is required for class MoveMetaAilmentName.", nameof(name));
+                throw new JsonException("Property is required for class MoveMetaAilmentName: name.");
 
             if (!language.IsSet)
-                throw new ArgumentException("Property is required for class MoveMetaAilmentName.", nameof(language));
+                throw new JsonException("Property is required for class MoveMetaAilmentName: language.");
 
             if (name.IsSet && name.Value == null)
-                throw new ArgumentNullException(nameof(name), "Property is not nullable for class MoveMetaAilmentName.");
+                throw new JsonException("Property is not nullable for class MoveMetaAilmentName: name.");
 
             if (language.IsSet && language.Value == null)
-                throw new ArgumentNullException(nameof(language), "Property is not nullable for class MoveMetaAilmentName.");
+                throw new JsonException("Property is not nullable for class MoveMetaAilmentName: language.");
 
             return new MoveMetaAilmentName(name.Value!, language.Value!);
         }
@@ -172,7 +172,6 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="moveMetaAilmentName"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public override void Write(Utf8JsonWriter writer, MoveMetaAilmentName moveMetaAilmentName, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteStartObject();
@@ -187,15 +186,8 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="moveMetaAilmentName"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, MoveMetaAilmentName moveMetaAilmentName, JsonSerializerOptions jsonSerializerOptions)
         {
-            if (moveMetaAilmentName.Name == null)
-                throw new ArgumentNullException(nameof(moveMetaAilmentName.Name), "Property is required for class MoveMetaAilmentName.");
-
-            if (moveMetaAilmentName.Language == null)
-                throw new ArgumentNullException(nameof(moveMetaAilmentName.Language), "Property is required for class MoveMetaAilmentName.");
-
             writer.WriteString("name", moveMetaAilmentName.Name);
 
             writer.WritePropertyName("language");

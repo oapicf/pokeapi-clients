@@ -36,26 +36,18 @@ import {
 export interface PokeathlonStatDetail {
     /**
      * 
-     * @type {number}
-     * @memberof PokeathlonStatDetail
      */
     readonly id: number;
     /**
      * 
-     * @type {string}
-     * @memberof PokeathlonStatDetail
      */
     name: string;
     /**
      * 
-     * @type {PokeathlonStatDetailAffectingNatures}
-     * @memberof PokeathlonStatDetail
      */
     affectingNatures: PokeathlonStatDetailAffectingNatures;
     /**
      * 
-     * @type {Array<PokeathlonStatName>}
-     * @memberof PokeathlonStatDetail
      */
     readonly names: Array<PokeathlonStatName>;
 }

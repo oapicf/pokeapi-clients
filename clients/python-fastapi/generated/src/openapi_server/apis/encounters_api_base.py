@@ -2,7 +2,7 @@
 
 from typing import ClassVar, Dict, List, Tuple  # noqa: F401
 
-from pydantic import Field, StrictInt, StrictStr
+from pydantic import Field
 from typing import Optional
 from typing_extensions import Annotated
 from openapi_server.models.encounter_condition_detail import EncounterConditionDetail
@@ -21,9 +21,9 @@ class BaseEncountersApi:
         BaseEncountersApi.subclasses = BaseEncountersApi.subclasses + (cls,)
     async def encounter_method_list(
         self,
-        limit: Annotated[Optional[StrictInt], Field(description="Number of results to return per page.")],
-        offset: Annotated[Optional[StrictInt], Field(description="The initial index from which to return the results.")],
-        q: Annotated[Optional[StrictStr], Field(description="> Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. ")],
+        limit: Annotated[Optional[int], Field(description="Number of results to return per page.")],
+        offset: Annotated[Optional[int], Field(description="The initial index from which to return the results.")],
+        q: Annotated[Optional[str], Field(description="> Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. ")],
     ) -> PaginatedEncounterMethodSummaryList:
         """Methods by which the player might can encounter Pokémon in the wild, e.g., walking in tall grass. Check out Bulbapedia for greater detail."""
         ...
@@ -31,7 +31,7 @@ class BaseEncountersApi:
 
     async def encounter_method_retrieve(
         self,
-        id: Annotated[StrictStr, Field(description="This parameter can be a string or an integer.")],
+        id: Annotated[str, Field(description="This parameter can be a string or an integer.")],
     ) -> EncounterMethodDetail:
         """Methods by which the player might can encounter Pokémon in the wild, e.g., walking in tall grass. Check out Bulbapedia for greater detail."""
         ...
@@ -39,9 +39,9 @@ class BaseEncountersApi:
 
     async def encounter_condition_list(
         self,
-        limit: Annotated[Optional[StrictInt], Field(description="Number of results to return per page.")],
-        offset: Annotated[Optional[StrictInt], Field(description="The initial index from which to return the results.")],
-        q: Annotated[Optional[StrictStr], Field(description="> Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. ")],
+        limit: Annotated[Optional[int], Field(description="Number of results to return per page.")],
+        offset: Annotated[Optional[int], Field(description="The initial index from which to return the results.")],
+        q: Annotated[Optional[str], Field(description="> Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. ")],
     ) -> PaginatedEncounterConditionSummaryList:
         """Conditions which affect what pokemon might appear in the wild, e.g., day or night."""
         ...
@@ -49,7 +49,7 @@ class BaseEncountersApi:
 
     async def encounter_condition_retrieve(
         self,
-        id: Annotated[StrictStr, Field(description="This parameter can be a string or an integer.")],
+        id: Annotated[str, Field(description="This parameter can be a string or an integer.")],
     ) -> EncounterConditionDetail:
         """Conditions which affect what pokemon might appear in the wild, e.g., day or night."""
         ...
@@ -57,9 +57,9 @@ class BaseEncountersApi:
 
     async def encounter_condition_value_list(
         self,
-        limit: Annotated[Optional[StrictInt], Field(description="Number of results to return per page.")],
-        offset: Annotated[Optional[StrictInt], Field(description="The initial index from which to return the results.")],
-        q: Annotated[Optional[StrictStr], Field(description="> Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. ")],
+        limit: Annotated[Optional[int], Field(description="Number of results to return per page.")],
+        offset: Annotated[Optional[int], Field(description="The initial index from which to return the results.")],
+        q: Annotated[Optional[str], Field(description="> Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. ")],
     ) -> PaginatedEncounterConditionValueSummaryList:
         """Encounter condition values are the various states that an encounter condition can have, i.e., time of day can be either day or night."""
         ...
@@ -67,7 +67,7 @@ class BaseEncountersApi:
 
     async def encounter_condition_value_retrieve(
         self,
-        id: Annotated[StrictStr, Field(description="This parameter can be a string or an integer.")],
+        id: Annotated[str, Field(description="This parameter can be a string or an integer.")],
     ) -> EncounterConditionValueDetail:
         """Encounter condition values are the various states that an encounter condition can have, i.e., time of day can be either day or night."""
         ...

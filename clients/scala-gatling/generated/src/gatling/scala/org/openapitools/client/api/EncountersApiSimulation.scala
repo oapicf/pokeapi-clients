@@ -80,9 +80,9 @@ class EncountersApiSimulation extends Simulation {
         .feed(encounter_condition_listQUERYFeeder)
         .exec(http("encounterConditionList")
         .httpRequest("GET","/api/v2/encounter-condition/")
-        .queryParam("limit","${limit}")
-        .queryParam("offset","${offset}")
         .queryParam("q","${q}")
+        .queryParam("offset","${offset}")
+        .queryParam("limit","${limit}")
 )
 
     // Run scnencounterConditionList with warm up and reach a constant rate for entire duration
@@ -111,9 +111,9 @@ class EncountersApiSimulation extends Simulation {
         .feed(encounter_condition_value_listQUERYFeeder)
         .exec(http("encounterConditionValueList")
         .httpRequest("GET","/api/v2/encounter-condition-value/")
-        .queryParam("limit","${limit}")
-        .queryParam("offset","${offset}")
         .queryParam("q","${q}")
+        .queryParam("offset","${offset}")
+        .queryParam("limit","${limit}")
 )
 
     // Run scnencounterConditionValueList with warm up and reach a constant rate for entire duration
@@ -142,9 +142,9 @@ class EncountersApiSimulation extends Simulation {
         .feed(encounter_method_listQUERYFeeder)
         .exec(http("encounterMethodList")
         .httpRequest("GET","/api/v2/encounter-method/")
-        .queryParam("limit","${limit}")
-        .queryParam("offset","${offset}")
         .queryParam("q","${q}")
+        .queryParam("offset","${offset}")
+        .queryParam("limit","${limit}")
 )
 
     // Run scnencounterMethodList with warm up and reach a constant rate for entire duration

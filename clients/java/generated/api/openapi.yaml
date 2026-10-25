@@ -10490,7 +10490,9 @@ components:
           additionalProperties:
             additionalProperties:
               $ref: "#/components/schemas/TypeDetail_sprites_value_value"
+            type: object
           readOnly: true
+          type: object
       required:
       - damage_relations
       - game_indices

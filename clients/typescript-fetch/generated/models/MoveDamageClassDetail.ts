@@ -43,32 +43,22 @@ import {
 export interface MoveDamageClassDetail {
     /**
      * 
-     * @type {number}
-     * @memberof MoveDamageClassDetail
      */
     readonly id: number;
     /**
      * 
-     * @type {string}
-     * @memberof MoveDamageClassDetail
      */
     name: string;
     /**
      * 
-     * @type {Array<MoveDamageClassDescription>}
-     * @memberof MoveDamageClassDetail
      */
     readonly descriptions: Array<MoveDamageClassDescription>;
     /**
      * 
-     * @type {Array<MoveSummary>}
-     * @memberof MoveDamageClassDetail
      */
     readonly moves: Array<MoveSummary>;
     /**
      * 
-     * @type {Array<MoveDamageClassName>}
-     * @memberof MoveDamageClassDetail
      */
     readonly names: Array<MoveDamageClassName>;
 }

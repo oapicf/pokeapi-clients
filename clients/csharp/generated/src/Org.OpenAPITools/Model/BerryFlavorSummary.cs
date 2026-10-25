@@ -152,16 +152,16 @@ namespace Org.OpenAPITools.Model
             }
 
             if (!name.IsSet)
-                throw new ArgumentException("Property is required for class BerryFlavorSummary.", nameof(name));
+                throw new JsonException("Property is required for class BerryFlavorSummary: name.");
 
             if (!url.IsSet)
-                throw new ArgumentException("Property is required for class BerryFlavorSummary.", nameof(url));
+                throw new JsonException("Property is required for class BerryFlavorSummary: url.");
 
             if (name.IsSet && name.Value == null)
-                throw new ArgumentNullException(nameof(name), "Property is not nullable for class BerryFlavorSummary.");
+                throw new JsonException("Property is not nullable for class BerryFlavorSummary: name.");
 
             if (url.IsSet && url.Value == null)
-                throw new ArgumentNullException(nameof(url), "Property is not nullable for class BerryFlavorSummary.");
+                throw new JsonException("Property is not nullable for class BerryFlavorSummary: url.");
 
             return new BerryFlavorSummary(name.Value!, url.Value!);
         }
@@ -172,7 +172,6 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="berryFlavorSummary"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public override void Write(Utf8JsonWriter writer, BerryFlavorSummary berryFlavorSummary, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteStartObject();
@@ -187,15 +186,8 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="berryFlavorSummary"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, BerryFlavorSummary berryFlavorSummary, JsonSerializerOptions jsonSerializerOptions)
         {
-            if (berryFlavorSummary.Name == null)
-                throw new ArgumentNullException(nameof(berryFlavorSummary.Name), "Property is required for class BerryFlavorSummary.");
-
-            if (berryFlavorSummary.Url == null)
-                throw new ArgumentNullException(nameof(berryFlavorSummary.Url), "Property is required for class BerryFlavorSummary.");
-
             writer.WriteString("name", berryFlavorSummary.Name);
 
             writer.WriteString("url", berryFlavorSummary.Url);

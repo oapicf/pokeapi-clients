@@ -21,8 +21,6 @@ import { mapValues } from '../runtime';
 export interface ContestEffectSummary {
     /**
      * 
-     * @type {string}
-     * @memberof ContestEffectSummary
      */
     readonly url: string;
 }

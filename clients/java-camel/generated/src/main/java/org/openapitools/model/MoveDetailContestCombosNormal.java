@@ -24,13 +24,11 @@ import jakarta.annotation.Generated;
  */
 
 @JsonTypeName("MoveDetail_contest_combos_normal")
-@Generated(value = "org.openapitools.codegen.languages.JavaCamelServerCodegen", date = "2026-08-30T01:56:15.309401083Z[Etc/UTC]", comments = "Generator version: 7.24.0")
+@Generated(value = "org.openapitools.codegen.languages.JavaCamelServerCodegen", date = "2026-10-25T05:48:25.711080506Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 public class MoveDetailContestCombosNormal {
 
-  @Valid
   private List<@Valid AbilityDetailPokemonInnerPokemon> useBefore = new ArrayList<>();
 
-  @Valid
   private List<@Valid AbilityDetailPokemonInnerPokemon> useAfter = new ArrayList<>();
 
   public MoveDetailContestCombosNormal() {
@@ -62,7 +60,7 @@ public class MoveDetailContestCombosNormal {
    * Get useBefore
    * @return useBefore
    */
-  @NotNull @Valid 
+  @NotNull 
   @Schema(name = "use_before", requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("use_before")
   public List<@Valid AbilityDetailPokemonInnerPokemon> getUseBefore() {
@@ -90,7 +88,7 @@ public class MoveDetailContestCombosNormal {
    * Get useAfter
    * @return useAfter
    */
-  @NotNull @Valid 
+  @NotNull 
   @Schema(name = "use_after", requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("use_after")
   public List<@Valid AbilityDetailPokemonInnerPokemon> getUseAfter() {

@@ -36,20 +36,14 @@ import {
 export interface EvolutionChainDetail {
     /**
      * 
-     * @type {number}
-     * @memberof EvolutionChainDetail
      */
     readonly id: number;
     /**
      * 
-     * @type {ItemSummary}
-     * @memberof EvolutionChainDetail
      */
     babyTriggerItem: ItemSummary;
     /**
      * 
-     * @type {EvolutionChainDetailChain}
-     * @memberof EvolutionChainDetail
      */
     chain: EvolutionChainDetailChain;
 }

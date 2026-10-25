@@ -29,14 +29,10 @@ import {
 export interface EggGroupName {
     /**
      * 
-     * @type {string}
-     * @memberof EggGroupName
      */
     name: string;
     /**
      * 
-     * @type {LanguageSummary}
-     * @memberof EggGroupName
      */
     language: LanguageSummary;
 }

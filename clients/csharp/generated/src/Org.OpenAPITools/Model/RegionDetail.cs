@@ -217,46 +217,46 @@ namespace Org.OpenAPITools.Model
             }
 
             if (!id.IsSet)
-                throw new ArgumentException("Property is required for class RegionDetail.", nameof(id));
+                throw new JsonException("Property is required for class RegionDetail: id.");
 
             if (!name.IsSet)
-                throw new ArgumentException("Property is required for class RegionDetail.", nameof(name));
+                throw new JsonException("Property is required for class RegionDetail: name.");
 
             if (!locations.IsSet)
-                throw new ArgumentException("Property is required for class RegionDetail.", nameof(locations));
+                throw new JsonException("Property is required for class RegionDetail: locations.");
 
             if (!mainGeneration.IsSet)
-                throw new ArgumentException("Property is required for class RegionDetail.", nameof(mainGeneration));
+                throw new JsonException("Property is required for class RegionDetail: main_generation.");
 
             if (!names.IsSet)
-                throw new ArgumentException("Property is required for class RegionDetail.", nameof(names));
+                throw new JsonException("Property is required for class RegionDetail: names.");
 
             if (!pokedexes.IsSet)
-                throw new ArgumentException("Property is required for class RegionDetail.", nameof(pokedexes));
+                throw new JsonException("Property is required for class RegionDetail: pokedexes.");
 
             if (!versionGroups.IsSet)
-                throw new ArgumentException("Property is required for class RegionDetail.", nameof(versionGroups));
+                throw new JsonException("Property is required for class RegionDetail: version_groups.");
 
             if (id.IsSet && id.Value == null)
-                throw new ArgumentNullException(nameof(id), "Property is not nullable for class RegionDetail.");
+                throw new JsonException("Property is not nullable for class RegionDetail: id.");
 
             if (name.IsSet && name.Value == null)
-                throw new ArgumentNullException(nameof(name), "Property is not nullable for class RegionDetail.");
+                throw new JsonException("Property is not nullable for class RegionDetail: name.");
 
             if (locations.IsSet && locations.Value == null)
-                throw new ArgumentNullException(nameof(locations), "Property is not nullable for class RegionDetail.");
+                throw new JsonException("Property is not nullable for class RegionDetail: locations.");
 
             if (mainGeneration.IsSet && mainGeneration.Value == null)
-                throw new ArgumentNullException(nameof(mainGeneration), "Property is not nullable for class RegionDetail.");
+                throw new JsonException("Property is not nullable for class RegionDetail: main_generation.");
 
             if (names.IsSet && names.Value == null)
-                throw new ArgumentNullException(nameof(names), "Property is not nullable for class RegionDetail.");
+                throw new JsonException("Property is not nullable for class RegionDetail: names.");
 
             if (pokedexes.IsSet && pokedexes.Value == null)
-                throw new ArgumentNullException(nameof(pokedexes), "Property is not nullable for class RegionDetail.");
+                throw new JsonException("Property is not nullable for class RegionDetail: pokedexes.");
 
             if (versionGroups.IsSet && versionGroups.Value == null)
-                throw new ArgumentNullException(nameof(versionGroups), "Property is not nullable for class RegionDetail.");
+                throw new JsonException("Property is not nullable for class RegionDetail: version_groups.");
 
             return new RegionDetail(id.Value!.Value!, name.Value!, locations.Value!, mainGeneration.Value!, names.Value!, pokedexes.Value!, versionGroups.Value!);
         }
@@ -267,7 +267,6 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="regionDetail"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public override void Write(Utf8JsonWriter writer, RegionDetail regionDetail, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteStartObject();
@@ -282,27 +281,8 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="regionDetail"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, RegionDetail regionDetail, JsonSerializerOptions jsonSerializerOptions)
         {
-            if (regionDetail.Name == null)
-                throw new ArgumentNullException(nameof(regionDetail.Name), "Property is required for class RegionDetail.");
-
-            if (regionDetail.Locations == null)
-                throw new ArgumentNullException(nameof(regionDetail.Locations), "Property is required for class RegionDetail.");
-
-            if (regionDetail.MainGeneration == null)
-                throw new ArgumentNullException(nameof(regionDetail.MainGeneration), "Property is required for class RegionDetail.");
-
-            if (regionDetail.Names == null)
-                throw new ArgumentNullException(nameof(regionDetail.Names), "Property is required for class RegionDetail.");
-
-            if (regionDetail.Pokedexes == null)
-                throw new ArgumentNullException(nameof(regionDetail.Pokedexes), "Property is required for class RegionDetail.");
-
-            if (regionDetail.VersionGroups == null)
-                throw new ArgumentNullException(nameof(regionDetail.VersionGroups), "Property is required for class RegionDetail.");
-
             writer.WriteNumber("id", regionDetail.Id);
 
             writer.WriteString("name", regionDetail.Name);

@@ -2,7 +2,6 @@ package org.openapitools.model;
 
 import java.net.URI;
 import java.util.Objects;
-import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import java.util.ArrayList;
@@ -36,7 +35,7 @@ import jakarta.annotation.Generated;
  * PokemonDetail
  */
 
-@Generated(value = "org.openapitools.codegen.languages.JavaCamelServerCodegen", date = "2026-08-30T01:56:15.309401083Z[Etc/UTC]", comments = "Generator version: 7.24.0")
+@Generated(value = "org.openapitools.codegen.languages.JavaCamelServerCodegen", date = "2026-10-25T05:48:25.711080506Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 public class PokemonDetail {
 
   private Integer id;
@@ -53,23 +52,18 @@ public class PokemonDetail {
 
   private JsonNullable<Integer> weight = JsonNullable.<Integer>undefined();
 
-  @Valid
   private List<@Valid PokemonDetailAbilitiesInner> abilities = new ArrayList<>();
 
-  @Valid
   private List<@Valid PokemonDetailPastAbilitiesInner> pastAbilities = new ArrayList<>();
 
-  @Valid
   private List<@Valid PokemonFormSummary> forms = new ArrayList<>();
 
-  @Valid
   private List<@Valid PokemonGameIndex> gameIndices = new ArrayList<>();
 
   private PokemonDetailHeldItems heldItems;
 
   private String locationAreaEncounters;
 
-  @Valid
   private List<@Valid PokemonDetailMovesInner> moves = new ArrayList<>();
 
   private PokemonSpeciesSummary species;
@@ -78,13 +72,10 @@ public class PokemonDetail {
 
   private PokemonDetailCries cries;
 
-  @Valid
   private List<@Valid PokemonStat> stats = new ArrayList<>();
 
-  @Valid
   private List<@Valid PokemonDetailTypesInner> types = new ArrayList<>();
 
-  @Valid
   private List<@Valid PokemonDetailPastTypesInner> pastTypes = new ArrayList<>();
 
   public PokemonDetail() {
@@ -269,7 +260,7 @@ public class PokemonDetail {
    * Get abilities
    * @return abilities
    */
-  @Valid 
+  
   @Schema(name = "abilities", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("abilities")
   public List<@Valid PokemonDetailAbilitiesInner> getAbilities() {
@@ -297,7 +288,7 @@ public class PokemonDetail {
    * Get pastAbilities
    * @return pastAbilities
    */
-  @Valid 
+  
   @Schema(name = "past_abilities", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("past_abilities")
   public List<@Valid PokemonDetailPastAbilitiesInner> getPastAbilities() {
@@ -325,7 +316,7 @@ public class PokemonDetail {
    * Get forms
    * @return forms
    */
-  @Valid 
+  
   @Schema(name = "forms", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("forms")
   public List<@Valid PokemonFormSummary> getForms() {
@@ -353,7 +344,7 @@ public class PokemonDetail {
    * Get gameIndices
    * @return gameIndices
    */
-  @Valid 
+  
   @Schema(name = "game_indices", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("game_indices")
   public List<@Valid PokemonGameIndex> getGameIndices() {
@@ -421,7 +412,7 @@ public class PokemonDetail {
    * Get moves
    * @return moves
    */
-  @Valid 
+  
   @Schema(name = "moves", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("moves")
   public List<@Valid PokemonDetailMovesInner> getMoves() {
@@ -509,7 +500,7 @@ public class PokemonDetail {
    * Get stats
    * @return stats
    */
-  @Valid 
+  
   @Schema(name = "stats", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("stats")
   public List<@Valid PokemonStat> getStats() {
@@ -537,7 +528,7 @@ public class PokemonDetail {
    * Get types
    * @return types
    */
-  @Valid 
+  
   @Schema(name = "types", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("types")
   public List<@Valid PokemonDetailTypesInner> getTypes() {
@@ -565,7 +556,7 @@ public class PokemonDetail {
    * Get pastTypes
    * @return pastTypes
    */
-  @Valid 
+  
   @Schema(name = "past_types", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("past_types")
   public List<@Valid PokemonDetailPastTypesInner> getPastTypes() {

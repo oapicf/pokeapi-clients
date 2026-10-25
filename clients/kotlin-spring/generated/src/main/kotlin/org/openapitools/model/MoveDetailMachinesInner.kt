@@ -24,12 +24,12 @@ data class MoveDetailMachinesInner(
 
     @field:Valid
     @Schema(required = true, description = "")
-    @param:JsonProperty("machine")
+    @param:JsonProperty("machine", required = true)
     @get:JsonProperty("machine", required = true) val machine: MoveDetailMachinesInnerMachine,
 
     @field:Valid
     @Schema(required = true, description = "")
-    @param:JsonProperty("version_group")
+    @param:JsonProperty("version_group", required = true)
     @get:JsonProperty("version_group", required = true) val versionGroup: AbilityDetailPokemonInnerPokemon
 ) {
 

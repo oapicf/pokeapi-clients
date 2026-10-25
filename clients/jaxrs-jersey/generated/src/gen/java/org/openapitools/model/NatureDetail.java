@@ -46,7 +46,7 @@ import javax.validation.Valid;
   NatureDetail.JSON_PROPERTY_MOVE_BATTLE_STYLE_PREFERENCES,
   NatureDetail.JSON_PROPERTY_NAMES
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJerseyServerCodegen", date = "2026-08-30T01:56:28.710233113Z[Etc/UTC]", comments = "Generator version: 7.24.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJerseyServerCodegen", date = "2026-10-25T05:48:41.923212007Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 public class NatureDetail   {
   public static final String JSON_PROPERTY_ID = "id";
   @JsonProperty(JSON_PROPERTY_ID)
@@ -227,7 +227,7 @@ public class NatureDetail   {
    **/
   @JsonProperty(value = "berries", access = JsonProperty.Access.READ_ONLY)
   @ApiModelProperty(required = true, value = "")
-  @Valid 
+  
   public List<@Valid BerrySummary> getBerries() {
     return berries;
   }
@@ -255,7 +255,7 @@ public class NatureDetail   {
    **/
   @JsonProperty(value = "pokeathlon_stat_changes", access = JsonProperty.Access.READ_ONLY)
   @ApiModelProperty(required = true, value = "")
-  @Valid 
+  
   public List<@Valid NatureDetailPokeathlonStatChangesInner> getPokeathlonStatChanges() {
     return pokeathlonStatChanges;
   }
@@ -283,7 +283,7 @@ public class NatureDetail   {
    **/
   @JsonProperty(value = "move_battle_style_preferences", access = JsonProperty.Access.READ_ONLY)
   @ApiModelProperty(required = true, value = "")
-  @Valid 
+  
   public List<@Valid NatureBattleStylePreference> getMoveBattleStylePreferences() {
     return moveBattleStylePreferences;
   }
@@ -311,7 +311,7 @@ public class NatureDetail   {
    **/
   @JsonProperty(value = "names", access = JsonProperty.Access.READ_ONLY)
   @ApiModelProperty(required = true, value = "")
-  @Valid 
+  
   public List<@Valid NatureName> getNames() {
     return names;
   }

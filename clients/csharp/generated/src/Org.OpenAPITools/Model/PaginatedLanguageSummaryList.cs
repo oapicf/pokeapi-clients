@@ -203,16 +203,16 @@ namespace Org.OpenAPITools.Model
             }
 
             if (count.IsSet && count.Value == null)
-                throw new ArgumentNullException(nameof(count), "Property is not nullable for class PaginatedLanguageSummaryList.");
+                throw new JsonException("Property is not nullable for class PaginatedLanguageSummaryList: count.");
 
             if (next.IsSet && next.Value == null)
-                throw new ArgumentNullException(nameof(next), "Property is not nullable for class PaginatedLanguageSummaryList.");
+                throw new JsonException("Property is not nullable for class PaginatedLanguageSummaryList: next.");
 
             if (previous.IsSet && previous.Value == null)
-                throw new ArgumentNullException(nameof(previous), "Property is not nullable for class PaginatedLanguageSummaryList.");
+                throw new JsonException("Property is not nullable for class PaginatedLanguageSummaryList: previous.");
 
             if (results.IsSet && results.Value == null)
-                throw new ArgumentNullException(nameof(results), "Property is not nullable for class PaginatedLanguageSummaryList.");
+                throw new JsonException("Property is not nullable for class PaginatedLanguageSummaryList: results.");
 
             return new PaginatedLanguageSummaryList(count, next, previous, results);
         }
@@ -223,7 +223,6 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="paginatedLanguageSummaryList"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public override void Write(Utf8JsonWriter writer, PaginatedLanguageSummaryList paginatedLanguageSummaryList, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteStartObject();
@@ -238,17 +237,19 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="paginatedLanguageSummaryList"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, PaginatedLanguageSummaryList paginatedLanguageSummaryList, JsonSerializerOptions jsonSerializerOptions)
         {
+            if (paginatedLanguageSummaryList.CountOption.IsSet && paginatedLanguageSummaryList.Count == null)
+                throw new JsonException("Cannot write null property PaginatedLanguageSummaryList.Count to non-nullable JSON property 'count'.");
+
             if (paginatedLanguageSummaryList.NextOption.IsSet && paginatedLanguageSummaryList.Next == null)
-                throw new ArgumentNullException(nameof(paginatedLanguageSummaryList.Next), "Property is required for class PaginatedLanguageSummaryList.");
+                throw new JsonException("Cannot write null property PaginatedLanguageSummaryList.Next to non-nullable JSON property 'next'.");
 
             if (paginatedLanguageSummaryList.PreviousOption.IsSet && paginatedLanguageSummaryList.Previous == null)
-                throw new ArgumentNullException(nameof(paginatedLanguageSummaryList.Previous), "Property is required for class PaginatedLanguageSummaryList.");
+                throw new JsonException("Cannot write null property PaginatedLanguageSummaryList.Previous to non-nullable JSON property 'previous'.");
 
             if (paginatedLanguageSummaryList.ResultsOption.IsSet && paginatedLanguageSummaryList.Results == null)
-                throw new ArgumentNullException(nameof(paginatedLanguageSummaryList.Results), "Property is required for class PaginatedLanguageSummaryList.");
+                throw new JsonException("Cannot write null property PaginatedLanguageSummaryList.Results to non-nullable JSON property 'results'.");
 
             if (paginatedLanguageSummaryList.CountOption.IsSet)
                 writer.WriteNumber("count", paginatedLanguageSummaryList.CountOption.Value!.Value);

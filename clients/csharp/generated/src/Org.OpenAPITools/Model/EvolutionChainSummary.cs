@@ -133,10 +133,10 @@ namespace Org.OpenAPITools.Model
             }
 
             if (!url.IsSet)
-                throw new ArgumentException("Property is required for class EvolutionChainSummary.", nameof(url));
+                throw new JsonException("Property is required for class EvolutionChainSummary: url.");
 
             if (url.IsSet && url.Value == null)
-                throw new ArgumentNullException(nameof(url), "Property is not nullable for class EvolutionChainSummary.");
+                throw new JsonException("Property is not nullable for class EvolutionChainSummary: url.");
 
             return new EvolutionChainSummary(url.Value!);
         }
@@ -147,7 +147,6 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="evolutionChainSummary"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public override void Write(Utf8JsonWriter writer, EvolutionChainSummary evolutionChainSummary, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteStartObject();
@@ -162,12 +161,8 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="evolutionChainSummary"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, EvolutionChainSummary evolutionChainSummary, JsonSerializerOptions jsonSerializerOptions)
         {
-            if (evolutionChainSummary.Url == null)
-                throw new ArgumentNullException(nameof(evolutionChainSummary.Url), "Property is required for class EvolutionChainSummary.");
-
             writer.WriteString("url", evolutionChainSummary.Url);
         }
     }

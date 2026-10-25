@@ -29,26 +29,18 @@ import {
 export interface PaginatedPokemonColorSummaryList {
     /**
      * 
-     * @type {number}
-     * @memberof PaginatedPokemonColorSummaryList
      */
     count?: number;
     /**
      * 
-     * @type {string}
-     * @memberof PaginatedPokemonColorSummaryList
      */
     next?: string;
     /**
      * 
-     * @type {string}
-     * @memberof PaginatedPokemonColorSummaryList
      */
     previous?: string;
     /**
      * 
-     * @type {Array<PokemonColorSummary>}
-     * @memberof PaginatedPokemonColorSummaryList
      */
     results?: Array<PokemonColorSummary>;
 }

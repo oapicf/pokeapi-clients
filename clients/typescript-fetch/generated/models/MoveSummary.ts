@@ -21,14 +21,10 @@ import { mapValues } from '../runtime';
 export interface MoveSummary {
     /**
      * 
-     * @type {string}
-     * @memberof MoveSummary
      */
     name: string;
     /**
      * 
-     * @type {string}
-     * @memberof MoveSummary
      */
     readonly url: string;
 }

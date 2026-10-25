@@ -2,7 +2,6 @@ package org.openapitools.model;
 
 import java.net.URI;
 import java.util.Objects;
-import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import java.util.ArrayList;
@@ -25,7 +24,7 @@ import jakarta.annotation.Generated;
  * EncounterMethodDetail
  */
 
-@Generated(value = "org.openapitools.codegen.languages.JavaCamelServerCodegen", date = "2026-08-30T01:56:15.309401083Z[Etc/UTC]", comments = "Generator version: 7.24.0")
+@Generated(value = "org.openapitools.codegen.languages.JavaCamelServerCodegen", date = "2026-10-25T05:48:25.711080506Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 public class EncounterMethodDetail {
 
   private Integer id;
@@ -34,7 +33,6 @@ public class EncounterMethodDetail {
 
   private JsonNullable<Integer> order = JsonNullable.<Integer>undefined();
 
-  @Valid
   private List<@Valid EncounterMethodName> names = new ArrayList<>();
 
   public EncounterMethodDetail() {
@@ -127,7 +125,7 @@ public class EncounterMethodDetail {
    * Get names
    * @return names
    */
-  @Valid 
+  
   @Schema(name = "names", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("names")
   public List<@Valid EncounterMethodName> getNames() {

@@ -198,40 +198,40 @@ namespace Org.OpenAPITools.Model
             }
 
             if (!noDamageTo.IsSet)
-                throw new ArgumentException("Property is required for class TypeDetailDamageRelations.", nameof(noDamageTo));
+                throw new JsonException("Property is required for class TypeDetailDamageRelations: no_damage_to.");
 
             if (!halfDamageTo.IsSet)
-                throw new ArgumentException("Property is required for class TypeDetailDamageRelations.", nameof(halfDamageTo));
+                throw new JsonException("Property is required for class TypeDetailDamageRelations: half_damage_to.");
 
             if (!doubleDamageTo.IsSet)
-                throw new ArgumentException("Property is required for class TypeDetailDamageRelations.", nameof(doubleDamageTo));
+                throw new JsonException("Property is required for class TypeDetailDamageRelations: double_damage_to.");
 
             if (!noDamageFrom.IsSet)
-                throw new ArgumentException("Property is required for class TypeDetailDamageRelations.", nameof(noDamageFrom));
+                throw new JsonException("Property is required for class TypeDetailDamageRelations: no_damage_from.");
 
             if (!halfDamageFrom.IsSet)
-                throw new ArgumentException("Property is required for class TypeDetailDamageRelations.", nameof(halfDamageFrom));
+                throw new JsonException("Property is required for class TypeDetailDamageRelations: half_damage_from.");
 
             if (!doubleDamageFrom.IsSet)
-                throw new ArgumentException("Property is required for class TypeDetailDamageRelations.", nameof(doubleDamageFrom));
+                throw new JsonException("Property is required for class TypeDetailDamageRelations: double_damage_from.");
 
             if (noDamageTo.IsSet && noDamageTo.Value == null)
-                throw new ArgumentNullException(nameof(noDamageTo), "Property is not nullable for class TypeDetailDamageRelations.");
+                throw new JsonException("Property is not nullable for class TypeDetailDamageRelations: no_damage_to.");
 
             if (halfDamageTo.IsSet && halfDamageTo.Value == null)
-                throw new ArgumentNullException(nameof(halfDamageTo), "Property is not nullable for class TypeDetailDamageRelations.");
+                throw new JsonException("Property is not nullable for class TypeDetailDamageRelations: half_damage_to.");
 
             if (doubleDamageTo.IsSet && doubleDamageTo.Value == null)
-                throw new ArgumentNullException(nameof(doubleDamageTo), "Property is not nullable for class TypeDetailDamageRelations.");
+                throw new JsonException("Property is not nullable for class TypeDetailDamageRelations: double_damage_to.");
 
             if (noDamageFrom.IsSet && noDamageFrom.Value == null)
-                throw new ArgumentNullException(nameof(noDamageFrom), "Property is not nullable for class TypeDetailDamageRelations.");
+                throw new JsonException("Property is not nullable for class TypeDetailDamageRelations: no_damage_from.");
 
             if (halfDamageFrom.IsSet && halfDamageFrom.Value == null)
-                throw new ArgumentNullException(nameof(halfDamageFrom), "Property is not nullable for class TypeDetailDamageRelations.");
+                throw new JsonException("Property is not nullable for class TypeDetailDamageRelations: half_damage_from.");
 
             if (doubleDamageFrom.IsSet && doubleDamageFrom.Value == null)
-                throw new ArgumentNullException(nameof(doubleDamageFrom), "Property is not nullable for class TypeDetailDamageRelations.");
+                throw new JsonException("Property is not nullable for class TypeDetailDamageRelations: double_damage_from.");
 
             return new TypeDetailDamageRelations(noDamageTo.Value!, halfDamageTo.Value!, doubleDamageTo.Value!, noDamageFrom.Value!, halfDamageFrom.Value!, doubleDamageFrom.Value!);
         }
@@ -242,7 +242,6 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="typeDetailDamageRelations"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public override void Write(Utf8JsonWriter writer, TypeDetailDamageRelations typeDetailDamageRelations, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteStartObject();
@@ -257,27 +256,8 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="typeDetailDamageRelations"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, TypeDetailDamageRelations typeDetailDamageRelations, JsonSerializerOptions jsonSerializerOptions)
         {
-            if (typeDetailDamageRelations.NoDamageTo == null)
-                throw new ArgumentNullException(nameof(typeDetailDamageRelations.NoDamageTo), "Property is required for class TypeDetailDamageRelations.");
-
-            if (typeDetailDamageRelations.HalfDamageTo == null)
-                throw new ArgumentNullException(nameof(typeDetailDamageRelations.HalfDamageTo), "Property is required for class TypeDetailDamageRelations.");
-
-            if (typeDetailDamageRelations.DoubleDamageTo == null)
-                throw new ArgumentNullException(nameof(typeDetailDamageRelations.DoubleDamageTo), "Property is required for class TypeDetailDamageRelations.");
-
-            if (typeDetailDamageRelations.NoDamageFrom == null)
-                throw new ArgumentNullException(nameof(typeDetailDamageRelations.NoDamageFrom), "Property is required for class TypeDetailDamageRelations.");
-
-            if (typeDetailDamageRelations.HalfDamageFrom == null)
-                throw new ArgumentNullException(nameof(typeDetailDamageRelations.HalfDamageFrom), "Property is required for class TypeDetailDamageRelations.");
-
-            if (typeDetailDamageRelations.DoubleDamageFrom == null)
-                throw new ArgumentNullException(nameof(typeDetailDamageRelations.DoubleDamageFrom), "Property is required for class TypeDetailDamageRelations.");
-
             writer.WritePropertyName("no_damage_to");
             JsonSerializer.Serialize(writer, typeDetailDamageRelations.NoDamageTo, jsonSerializerOptions);
             writer.WritePropertyName("half_damage_to");

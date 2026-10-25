@@ -139,3 +139,4 @@ class _$EvolutionChainDetailChainEvolvesToInnerSerializer implements PrimitiveSe
   }
 }
 
+

@@ -40,81 +40,81 @@ data class EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner(
 
     @field:Valid
     @Schema(required = true, description = "")
-    @param:JsonProperty("gender")
+    @param:JsonProperty("gender", required = true)
     @get:JsonProperty("gender", required = true) val gender: EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender,
 
     @field:Valid
     @Schema(required = true, description = "")
-    @param:JsonProperty("held_item")
+    @param:JsonProperty("held_item", required = true)
     @get:JsonProperty("held_item", required = true) val heldItem: EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender,
 
     @field:Valid
     @Schema(required = true, description = "")
-    @param:JsonProperty("item")
+    @param:JsonProperty("item", required = true)
     @get:JsonProperty("item", required = true) val item: EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender,
 
     @field:Valid
     @Schema(required = true, description = "")
-    @param:JsonProperty("known_move")
+    @param:JsonProperty("known_move", required = true)
     @get:JsonProperty("known_move", required = true) val knownMove: EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender,
 
     @field:Valid
     @Schema(required = true, description = "")
-    @param:JsonProperty("known_move_type")
+    @param:JsonProperty("known_move_type", required = true)
     @get:JsonProperty("known_move_type", required = true) val knownMoveType: EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender,
 
     @field:Valid
     @Schema(required = true, description = "")
-    @param:JsonProperty("location")
+    @param:JsonProperty("location", required = true)
     @get:JsonProperty("location", required = true) val location: EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender,
 
     @Schema(required = true, description = "")
-    @param:JsonProperty("min_affection")
+    @param:JsonProperty("min_affection", required = true)
     @get:JsonProperty("min_affection", required = true) val minAffection: kotlin.Int,
 
     @Schema(required = true, description = "")
-    @param:JsonProperty("min_beauty")
+    @param:JsonProperty("min_beauty", required = true)
     @get:JsonProperty("min_beauty", required = true) val minBeauty: kotlin.Int,
 
     @Schema(required = true, description = "")
-    @param:JsonProperty("min_happiness")
+    @param:JsonProperty("min_happiness", required = true)
     @get:JsonProperty("min_happiness", required = true) val minHappiness: kotlin.Int,
 
     @Schema(required = true, description = "")
-    @param:JsonProperty("min_level")
+    @param:JsonProperty("min_level", required = true)
     @get:JsonProperty("min_level", required = true) val minLevel: kotlin.Int,
 
     @Schema(required = true, description = "")
-    @param:JsonProperty("needs_overworld_rain")
+    @param:JsonProperty("needs_overworld_rain", required = true)
     @get:JsonProperty("needs_overworld_rain", required = true) val needsOverworldRain: kotlin.Boolean,
 
     @Schema(required = true, description = "")
-    @param:JsonProperty("party_species")
+    @param:JsonProperty("party_species", required = true)
     @get:JsonProperty("party_species", required = true) val partySpecies: kotlin.String,
 
     @Schema(required = true, description = "")
-    @param:JsonProperty("party_type")
+    @param:JsonProperty("party_type", required = true)
     @get:JsonProperty("party_type", required = true) val partyType: kotlin.String,
 
     @Schema(required = true, description = "")
-    @param:JsonProperty("relative_physical_stats")
+    @param:JsonProperty("relative_physical_stats", required = true)
     @get:JsonProperty("relative_physical_stats", required = true) val relativePhysicalStats: kotlin.String,
 
     @Schema(required = true, description = "")
-    @param:JsonProperty("time_of_day")
+    @param:JsonProperty("time_of_day", required = true)
     @get:JsonProperty("time_of_day", required = true) val timeOfDay: kotlin.String,
 
     @Schema(required = true, description = "")
-    @param:JsonProperty("trade_species")
+    @param:JsonProperty("trade_species", required = true)
     @get:JsonProperty("trade_species", required = true) val tradeSpecies: kotlin.String,
 
     @field:Valid
     @Schema(required = true, description = "")
-    @param:JsonProperty("trigger")
+    @param:JsonProperty("trigger", required = true)
     @get:JsonProperty("trigger", required = true) val trigger: AbilityDetailPokemonInnerPokemon,
 
     @Schema(required = true, description = "")
-    @param:JsonProperty("turn_upside_down")
+    @param:JsonProperty("turn_upside_down", required = true)
     @get:JsonProperty("turn_upside_down", required = true) val turnUpsideDown: kotlin.Boolean
 ) {
 

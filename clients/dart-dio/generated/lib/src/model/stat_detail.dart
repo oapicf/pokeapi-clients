@@ -241,3 +241,4 @@ class _$StatDetailSerializer implements PrimitiveSerializer<StatDetail> {
   }
 }
 
+

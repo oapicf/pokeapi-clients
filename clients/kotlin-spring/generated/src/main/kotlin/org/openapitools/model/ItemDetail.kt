@@ -45,67 +45,67 @@ import io.swagger.v3.oas.annotations.media.Schema
 data class ItemDetail(
 
     @Schema(required = true, readOnly = true, description = "")
-    @param:JsonProperty("id")
+    @param:JsonProperty("id", required = true)
     @get:JsonProperty("id", required = true) val id: kotlin.Int,
 
     @get:Size(max=100)
     @Schema(required = true, description = "")
-    @param:JsonProperty("name")
+    @param:JsonProperty("name", required = true)
     @get:JsonProperty("name", required = true) val name: kotlin.String,
 
     @field:Valid
     @Schema(required = true, description = "")
-    @param:JsonProperty("fling_effect")
+    @param:JsonProperty("fling_effect", required = true)
     @get:JsonProperty("fling_effect", required = true) val flingEffect: ItemFlingEffectSummary,
 
     @field:Valid
     @Schema(required = true, readOnly = true, description = "")
-    @param:JsonProperty("attributes")
+    @param:JsonProperty("attributes", required = true)
     @get:JsonProperty("attributes", required = true) val attributes: kotlin.collections.List<AbilityDetailPokemonInnerPokemon>,
 
     @field:Valid
     @Schema(required = true, description = "")
-    @param:JsonProperty("category")
+    @param:JsonProperty("category", required = true)
     @get:JsonProperty("category", required = true) val category: ItemCategorySummary,
 
     @field:Valid
     @Schema(required = true, readOnly = true, description = "")
-    @param:JsonProperty("effect_entries")
+    @param:JsonProperty("effect_entries", required = true)
     @get:JsonProperty("effect_entries", required = true) val effectEntries: kotlin.collections.List<ItemEffectText>,
 
     @field:Valid
     @Schema(required = true, readOnly = true, description = "")
-    @param:JsonProperty("flavor_text_entries")
+    @param:JsonProperty("flavor_text_entries", required = true)
     @get:JsonProperty("flavor_text_entries", required = true) val flavorTextEntries: kotlin.collections.List<ItemFlavorText>,
 
     @field:Valid
     @Schema(required = true, readOnly = true, description = "")
-    @param:JsonProperty("game_indices")
+    @param:JsonProperty("game_indices", required = true)
     @get:JsonProperty("game_indices", required = true) val gameIndices: kotlin.collections.List<ItemGameIndex>,
 
     @field:Valid
     @Schema(required = true, readOnly = true, description = "")
-    @param:JsonProperty("names")
+    @param:JsonProperty("names", required = true)
     @get:JsonProperty("names", required = true) val names: kotlin.collections.List<ItemName>,
 
     @field:Valid
     @Schema(required = true, readOnly = true, description = "")
-    @param:JsonProperty("held_by_pokemon")
+    @param:JsonProperty("held_by_pokemon", required = true)
     @get:JsonProperty("held_by_pokemon", required = true) val heldByPokemon: kotlin.collections.List<ItemDetailHeldByPokemonInner>,
 
     @field:Valid
     @Schema(required = true, description = "")
-    @param:JsonProperty("sprites")
+    @param:JsonProperty("sprites", required = true)
     @get:JsonProperty("sprites", required = true) val sprites: ItemDetailSprites,
 
     @field:Valid
     @Schema(required = true, description = "")
-    @param:JsonProperty("baby_trigger_for")
+    @param:JsonProperty("baby_trigger_for", required = true)
     @get:JsonProperty("baby_trigger_for", required = true) val babyTriggerFor: ItemDetailBabyTriggerFor,
 
     @field:Valid
     @Schema(required = true, readOnly = true, description = "")
-    @param:JsonProperty("machines")
+    @param:JsonProperty("machines", required = true)
     @get:JsonProperty("machines", required = true) val machines: kotlin.collections.List<ItemDetailMachinesInner>,
 
     @Schema(description = "")

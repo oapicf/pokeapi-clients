@@ -25,10 +25,9 @@ import jakarta.annotation.Generated;
  */
 
 @JsonTypeName("MoveDetail_effect_changes_inner")
-@Generated(value = "org.openapitools.codegen.languages.JavaCamelServerCodegen", date = "2026-08-30T01:56:15.309401083Z[Etc/UTC]", comments = "Generator version: 7.24.0")
+@Generated(value = "org.openapitools.codegen.languages.JavaCamelServerCodegen", date = "2026-10-25T05:48:25.711080506Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 public class MoveDetailEffectChangesInner {
 
-  @Valid
   private List<@Valid MoveDetailEffectChangesInnerEffectEntriesInner> effectEntries = new ArrayList<>();
 
   private AbilityDetailPokemonInnerPokemon versionGroup;
@@ -62,7 +61,7 @@ public class MoveDetailEffectChangesInner {
    * Get effectEntries
    * @return effectEntries
    */
-  @NotNull @Valid 
+  @NotNull 
   @Schema(name = "effect_entries", requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("effect_entries")
   public List<@Valid MoveDetailEffectChangesInnerEffectEntriesInner> getEffectEntries() {

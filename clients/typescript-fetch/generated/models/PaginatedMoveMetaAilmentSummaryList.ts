@@ -29,26 +29,18 @@ import {
 export interface PaginatedMoveMetaAilmentSummaryList {
     /**
      * 
-     * @type {number}
-     * @memberof PaginatedMoveMetaAilmentSummaryList
      */
     count?: number;
     /**
      * 
-     * @type {string}
-     * @memberof PaginatedMoveMetaAilmentSummaryList
      */
     next?: string;
     /**
      * 
-     * @type {string}
-     * @memberof PaginatedMoveMetaAilmentSummaryList
      */
     previous?: string;
     /**
      * 
-     * @type {Array<MoveMetaAilmentSummary>}
-     * @memberof PaginatedMoveMetaAilmentSummaryList
      */
     results?: Array<MoveMetaAilmentSummary>;
 }

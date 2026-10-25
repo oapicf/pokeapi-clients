@@ -121,3 +121,4 @@ class _$PalParkAreaNameSerializer implements PrimitiveSerializer<PalParkAreaName
   }
 }
 
+

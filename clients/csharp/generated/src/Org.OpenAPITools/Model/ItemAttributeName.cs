@@ -152,16 +152,16 @@ namespace Org.OpenAPITools.Model
             }
 
             if (!name.IsSet)
-                throw new ArgumentException("Property is required for class ItemAttributeName.", nameof(name));
+                throw new JsonException("Property is required for class ItemAttributeName: name.");
 
             if (!language.IsSet)
-                throw new ArgumentException("Property is required for class ItemAttributeName.", nameof(language));
+                throw new JsonException("Property is required for class ItemAttributeName: language.");
 
             if (name.IsSet && name.Value == null)
-                throw new ArgumentNullException(nameof(name), "Property is not nullable for class ItemAttributeName.");
+                throw new JsonException("Property is not nullable for class ItemAttributeName: name.");
 
             if (language.IsSet && language.Value == null)
-                throw new ArgumentNullException(nameof(language), "Property is not nullable for class ItemAttributeName.");
+                throw new JsonException("Property is not nullable for class ItemAttributeName: language.");
 
             return new ItemAttributeName(name.Value!, language.Value!);
         }
@@ -172,7 +172,6 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="itemAttributeName"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public override void Write(Utf8JsonWriter writer, ItemAttributeName itemAttributeName, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteStartObject();
@@ -187,15 +186,8 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="itemAttributeName"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, ItemAttributeName itemAttributeName, JsonSerializerOptions jsonSerializerOptions)
         {
-            if (itemAttributeName.Name == null)
-                throw new ArgumentNullException(nameof(itemAttributeName.Name), "Property is required for class ItemAttributeName.");
-
-            if (itemAttributeName.Language == null)
-                throw new ArgumentNullException(nameof(itemAttributeName.Language), "Property is required for class ItemAttributeName.");
-
             writer.WriteString("name", itemAttributeName.Name);
 
             writer.WritePropertyName("language");

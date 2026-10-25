@@ -152,16 +152,16 @@ namespace Org.OpenAPITools.Model
             }
 
             if (!name.IsSet)
-                throw new ArgumentException("Property is required for class PokemonHabitatName.", nameof(name));
+                throw new JsonException("Property is required for class PokemonHabitatName: name.");
 
             if (!language.IsSet)
-                throw new ArgumentException("Property is required for class PokemonHabitatName.", nameof(language));
+                throw new JsonException("Property is required for class PokemonHabitatName: language.");
 
             if (name.IsSet && name.Value == null)
-                throw new ArgumentNullException(nameof(name), "Property is not nullable for class PokemonHabitatName.");
+                throw new JsonException("Property is not nullable for class PokemonHabitatName: name.");
 
             if (language.IsSet && language.Value == null)
-                throw new ArgumentNullException(nameof(language), "Property is not nullable for class PokemonHabitatName.");
+                throw new JsonException("Property is not nullable for class PokemonHabitatName: language.");
 
             return new PokemonHabitatName(name.Value!, language.Value!);
         }
@@ -172,7 +172,6 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="pokemonHabitatName"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public override void Write(Utf8JsonWriter writer, PokemonHabitatName pokemonHabitatName, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteStartObject();
@@ -187,15 +186,8 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="pokemonHabitatName"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, PokemonHabitatName pokemonHabitatName, JsonSerializerOptions jsonSerializerOptions)
         {
-            if (pokemonHabitatName.Name == null)
-                throw new ArgumentNullException(nameof(pokemonHabitatName.Name), "Property is required for class PokemonHabitatName.");
-
-            if (pokemonHabitatName.Language == null)
-                throw new ArgumentNullException(nameof(pokemonHabitatName.Language), "Property is required for class PokemonHabitatName.");
-
             writer.WriteString("name", pokemonHabitatName.Name);
 
             writer.WritePropertyName("language");

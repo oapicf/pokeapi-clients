@@ -29,14 +29,10 @@ import {
 export interface MoveDamageClassDescription {
     /**
      * 
-     * @type {string}
-     * @memberof MoveDamageClassDescription
      */
     description?: string;
     /**
      * 
-     * @type {LanguageSummary}
-     * @memberof MoveDamageClassDescription
      */
     language: LanguageSummary;
 }

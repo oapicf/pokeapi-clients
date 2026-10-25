@@ -146,16 +146,16 @@ namespace Org.OpenAPITools.Model
             }
 
             if (!entryNumber.IsSet)
-                throw new ArgumentException("Property is required for class PokedexDetailPokemonEntriesInner.", nameof(entryNumber));
+                throw new JsonException("Property is required for class PokedexDetailPokemonEntriesInner: entry_number.");
 
             if (!pokemonSpecies.IsSet)
-                throw new ArgumentException("Property is required for class PokedexDetailPokemonEntriesInner.", nameof(pokemonSpecies));
+                throw new JsonException("Property is required for class PokedexDetailPokemonEntriesInner: pokemon_species.");
 
             if (entryNumber.IsSet && entryNumber.Value == null)
-                throw new ArgumentNullException(nameof(entryNumber), "Property is not nullable for class PokedexDetailPokemonEntriesInner.");
+                throw new JsonException("Property is not nullable for class PokedexDetailPokemonEntriesInner: entry_number.");
 
             if (pokemonSpecies.IsSet && pokemonSpecies.Value == null)
-                throw new ArgumentNullException(nameof(pokemonSpecies), "Property is not nullable for class PokedexDetailPokemonEntriesInner.");
+                throw new JsonException("Property is not nullable for class PokedexDetailPokemonEntriesInner: pokemon_species.");
 
             return new PokedexDetailPokemonEntriesInner(entryNumber.Value!.Value!, pokemonSpecies.Value!);
         }
@@ -166,7 +166,6 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="pokedexDetailPokemonEntriesInner"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public override void Write(Utf8JsonWriter writer, PokedexDetailPokemonEntriesInner pokedexDetailPokemonEntriesInner, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteStartObject();
@@ -181,12 +180,8 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="pokedexDetailPokemonEntriesInner"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, PokedexDetailPokemonEntriesInner pokedexDetailPokemonEntriesInner, JsonSerializerOptions jsonSerializerOptions)
         {
-            if (pokedexDetailPokemonEntriesInner.PokemonSpecies == null)
-                throw new ArgumentNullException(nameof(pokedexDetailPokemonEntriesInner.PokemonSpecies), "Property is required for class PokedexDetailPokemonEntriesInner.");
-
             writer.WriteNumber("entry_number", pokedexDetailPokemonEntriesInner.EntryNumber);
 
             writer.WritePropertyName("pokemon_species");

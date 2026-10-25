@@ -178,28 +178,28 @@ namespace Org.OpenAPITools.Model
             }
 
             if (!id.IsSet)
-                throw new ArgumentException("Property is required for class PokeathlonStatDetail.", nameof(id));
+                throw new JsonException("Property is required for class PokeathlonStatDetail: id.");
 
             if (!name.IsSet)
-                throw new ArgumentException("Property is required for class PokeathlonStatDetail.", nameof(name));
+                throw new JsonException("Property is required for class PokeathlonStatDetail: name.");
 
             if (!affectingNatures.IsSet)
-                throw new ArgumentException("Property is required for class PokeathlonStatDetail.", nameof(affectingNatures));
+                throw new JsonException("Property is required for class PokeathlonStatDetail: affecting_natures.");
 
             if (!names.IsSet)
-                throw new ArgumentException("Property is required for class PokeathlonStatDetail.", nameof(names));
+                throw new JsonException("Property is required for class PokeathlonStatDetail: names.");
 
             if (id.IsSet && id.Value == null)
-                throw new ArgumentNullException(nameof(id), "Property is not nullable for class PokeathlonStatDetail.");
+                throw new JsonException("Property is not nullable for class PokeathlonStatDetail: id.");
 
             if (name.IsSet && name.Value == null)
-                throw new ArgumentNullException(nameof(name), "Property is not nullable for class PokeathlonStatDetail.");
+                throw new JsonException("Property is not nullable for class PokeathlonStatDetail: name.");
 
             if (affectingNatures.IsSet && affectingNatures.Value == null)
-                throw new ArgumentNullException(nameof(affectingNatures), "Property is not nullable for class PokeathlonStatDetail.");
+                throw new JsonException("Property is not nullable for class PokeathlonStatDetail: affecting_natures.");
 
             if (names.IsSet && names.Value == null)
-                throw new ArgumentNullException(nameof(names), "Property is not nullable for class PokeathlonStatDetail.");
+                throw new JsonException("Property is not nullable for class PokeathlonStatDetail: names.");
 
             return new PokeathlonStatDetail(id.Value!.Value!, name.Value!, affectingNatures.Value!, names.Value!);
         }
@@ -210,7 +210,6 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="pokeathlonStatDetail"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public override void Write(Utf8JsonWriter writer, PokeathlonStatDetail pokeathlonStatDetail, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteStartObject();
@@ -225,18 +224,8 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="pokeathlonStatDetail"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, PokeathlonStatDetail pokeathlonStatDetail, JsonSerializerOptions jsonSerializerOptions)
         {
-            if (pokeathlonStatDetail.Name == null)
-                throw new ArgumentNullException(nameof(pokeathlonStatDetail.Name), "Property is required for class PokeathlonStatDetail.");
-
-            if (pokeathlonStatDetail.AffectingNatures == null)
-                throw new ArgumentNullException(nameof(pokeathlonStatDetail.AffectingNatures), "Property is required for class PokeathlonStatDetail.");
-
-            if (pokeathlonStatDetail.Names == null)
-                throw new ArgumentNullException(nameof(pokeathlonStatDetail.Names), "Property is required for class PokeathlonStatDetail.");
-
             writer.WriteNumber("id", pokeathlonStatDetail.Id);
 
             writer.WriteString("name", pokeathlonStatDetail.Name);

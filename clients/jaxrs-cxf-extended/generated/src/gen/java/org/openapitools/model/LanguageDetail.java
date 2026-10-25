@@ -30,7 +30,6 @@ public class LanguageDetail  {
   private String iso3166;
 
   @ApiModelProperty(required = true, value = "")
-  @Valid
   private List<@Valid LanguageName> names = new ArrayList<>();
  /**
   * Get id

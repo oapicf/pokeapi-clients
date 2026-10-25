@@ -120,3 +120,4 @@ class _$VersionSummarySerializer implements PrimitiveSerializer<VersionSummary> 
   }
 }
 
+

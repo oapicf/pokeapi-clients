@@ -152,16 +152,16 @@ namespace Org.OpenAPITools.Model
             }
 
             if (!name.IsSet)
-                throw new ArgumentException("Property is required for class GenderSummary.", nameof(name));
+                throw new JsonException("Property is required for class GenderSummary: name.");
 
             if (!url.IsSet)
-                throw new ArgumentException("Property is required for class GenderSummary.", nameof(url));
+                throw new JsonException("Property is required for class GenderSummary: url.");
 
             if (name.IsSet && name.Value == null)
-                throw new ArgumentNullException(nameof(name), "Property is not nullable for class GenderSummary.");
+                throw new JsonException("Property is not nullable for class GenderSummary: name.");
 
             if (url.IsSet && url.Value == null)
-                throw new ArgumentNullException(nameof(url), "Property is not nullable for class GenderSummary.");
+                throw new JsonException("Property is not nullable for class GenderSummary: url.");
 
             return new GenderSummary(name.Value!, url.Value!);
         }
@@ -172,7 +172,6 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="genderSummary"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public override void Write(Utf8JsonWriter writer, GenderSummary genderSummary, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteStartObject();
@@ -187,15 +186,8 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="genderSummary"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, GenderSummary genderSummary, JsonSerializerOptions jsonSerializerOptions)
         {
-            if (genderSummary.Name == null)
-                throw new ArgumentNullException(nameof(genderSummary.Name), "Property is required for class GenderSummary.");
-
-            if (genderSummary.Url == null)
-                throw new ArgumentNullException(nameof(genderSummary.Url), "Property is required for class GenderSummary.");
-
             writer.WriteString("name", genderSummary.Name);
 
             writer.WriteString("url", genderSummary.Url);

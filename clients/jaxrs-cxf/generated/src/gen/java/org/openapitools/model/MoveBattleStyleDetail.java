@@ -24,8 +24,6 @@ public class MoveBattleStyleDetail  {
 
   @ApiModelProperty(required = true, value = "")
 
-  @Valid
-
   private List<@Valid MoveBattleStyleName> names = new ArrayList<>();
  /**
    * Get id

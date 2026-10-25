@@ -159,13 +159,13 @@ namespace Org.OpenAPITools.Model
             }
 
             if (!language.IsSet)
-                throw new ArgumentException("Property is required for class GrowthRateDescription.", nameof(language));
+                throw new JsonException("Property is required for class GrowthRateDescription: language.");
 
             if (language.IsSet && language.Value == null)
-                throw new ArgumentNullException(nameof(language), "Property is not nullable for class GrowthRateDescription.");
+                throw new JsonException("Property is not nullable for class GrowthRateDescription: language.");
 
             if (description.IsSet && description.Value == null)
-                throw new ArgumentNullException(nameof(description), "Property is not nullable for class GrowthRateDescription.");
+                throw new JsonException("Property is not nullable for class GrowthRateDescription: description.");
 
             return new GrowthRateDescription(language.Value!, description);
         }
@@ -176,7 +176,6 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="growthRateDescription"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public override void Write(Utf8JsonWriter writer, GrowthRateDescription growthRateDescription, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteStartObject();
@@ -191,14 +190,10 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="growthRateDescription"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, GrowthRateDescription growthRateDescription, JsonSerializerOptions jsonSerializerOptions)
         {
-            if (growthRateDescription.Language == null)
-                throw new ArgumentNullException(nameof(growthRateDescription.Language), "Property is required for class GrowthRateDescription.");
-
             if (growthRateDescription.DescriptionOption.IsSet && growthRateDescription.Description == null)
-                throw new ArgumentNullException(nameof(growthRateDescription.Description), "Property is required for class GrowthRateDescription.");
+                throw new JsonException("Cannot write null property GrowthRateDescription.Description to non-nullable JSON property 'description'.");
 
             writer.WritePropertyName("language");
             JsonSerializer.Serialize(writer, growthRateDescription.Language, jsonSerializerOptions);

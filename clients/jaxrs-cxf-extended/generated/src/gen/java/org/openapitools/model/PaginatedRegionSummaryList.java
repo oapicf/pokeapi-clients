@@ -25,7 +25,6 @@ public class PaginatedRegionSummaryList  {
   private URI previous;
 
   @ApiModelProperty(value = "")
-  @Valid
   private List<@Valid RegionSummary> results = new ArrayList<>();
  /**
   * Get count
