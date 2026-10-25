@@ -3,7 +3,7 @@ name: Generate API Clients
 on: [workflow_dispatch]
 jobs:
   build:
-    runs-on: ubuntu-24.04
+    runs-on: ubuntu-26.04
     steps:
       - uses: actions/checkout@v7
         with:
@@ -13,7 +13,7 @@ jobs:
           file-path: '/tmp/.env'
         env:
           GITHUB_ACTIONS: ${{ env.GITHUB_ACTIONS }}
-      - uses: cliffano/command-docker-action@v2.0.0
+      - uses: cliffano/command-docker-action@v2.1.0
         with:
           command: 'make deps init-spec generate'
           image: cliffano/studio

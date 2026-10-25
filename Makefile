@@ -4,10 +4,10 @@
 ################################################################
 
 # Swaggy C info
-SWAGGY_C_VERSION = 6.6.0
+SWAGGY_C_VERSION = 6.8.0
 
 # The version of OpenAPI Generator (https://openapi-generator.tech/) used for generating the API clients
-OPENAPI_GENERATOR_VERSION = 7.24.0
+OPENAPI_GENERATOR_VERSION = 7.26.0
 
 UPDATE_GH_ID = oapicf
 UPDATE_MAKEFILE = swaggy-c
@@ -46,6 +46,13 @@ CONTACT_EMAIL ?= $(shell yq .contact.email swaggy-c.yml)
 SCM_GIT_USER ?= $(shell yq .scm.git_user swaggy-c.yml)
 SCM_GIT_REPO ?= $(shell yq .scm.git_repo swaggy-c.yml)
 
+# GENERATORS_EXTRA_ARGS is an optional set of extra arguments to be passed to the
+# OpenAPI Generator CLI generate command, on top of the default arguments used by
+# the generate-all and generate-primary targets. This is optional, it defaults to
+# an empty string when it's not configured in swaggy-c.yml, for example:
+# --additional-properties=someProp=someValue --skip-validate-spec
+GENERATORS_EXTRA_ARGS ?= $(shell yq '.generators_extra_args // ""' swaggy-c.yml)
+
 # APP_BASE_DIR is the absolute path where the application base directory is located, for example:
 # - MacOS user workspace as a local directory: /Users/some-user/some-path/some-app
 #   This is used when no environment variable is specified.
@@ -68,6 +75,7 @@ $(info Building Swaggy C application with user configurations...)
 $(info - OpenAPI specification URI = ${SPEC_URI})
 $(info - Application version = ${APP_VERSION})
 $(info - Application base directory = ${APP_BASE_DIR})
+$(info - Generators extra arguments = ${GENERATORS_EXTRA_ARGS})
 
 define python_venv
 	. .venv/bin/activate && $(1)
@@ -157,6 +165,7 @@ generate-all:
 		  --input-spec /local/$(LOCAL_SPEC_PATH) \
 		  --config /local/clients/$$generator/conf.json \
 		  --generator-name $$generator \
+			$(GENERATORS_EXTRA_ARGS) \
 		  --output /local/clients/$$generator/generated; \
 	done
 	$(call run_hook,x-post-generate-all)
@@ -177,6 +186,7 @@ generate-primary:
 		  --input-spec /local/$(LOCAL_SPEC_PATH) \
 		  --config /local/clients/$$generator/conf.json \
 		  --generator-name $$generator \
+			$(GENERATORS_EXTRA_ARGS) \
 		  --output /local/clients/$$generator/generated; \
 	done
 	$(call run_hook,x-post-generate-primary)
